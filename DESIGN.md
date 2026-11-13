@@ -1,0 +1,782 @@
+# RPG Dialogue: Design
+
+> **Status:** Milestone 0, waiting for your answers (section 4). No addon code exists yet.
+> **Last updated:** 2026-11-13
+> Every session starts by reading this file, `HANDOFF.md` and (from M3) `CONTENT_GUIDE.md`. Keep it current.
+
+Contents
+0. Forever's client: what I found and what it changes
+1. File and folder structure
+2. Data schema, with a complete example NPC
+3. The engine and how it scores lines
+4. What I need from you
+5. Risks and API unknowns
+6. Decisions you can veto
+7. What M1 will contain
+
+---
+
+## 0. Forever's client: what I found and what it changes
+
+The brief says not to assume Forever's API is either Classic Era or modern. I checked warcraft.wiki.gg (sources below), and it points clearly one way:
+
+- Forever **shares Mainline (retail) WoW's UI architecture** and has "the vast majority of APIs available in 12.1.5". Forever and Midnight are two game types in the same code family. Forever's internal name was *Camelot*.
+- **Midnight's addon restrictions, including secret values, are active in Forever.**
+- **TOC interface number is 16001** for patch 1.60.1. The wiki already lists a patch 1.60.2, so we confirm your number with the probe in section 4.
+- `_Forever.toc` is a valid TOC file suffix.
+- Beta 5 **obfuscated the server and spawn-ID parts of creature GUIDs**. The NPC-ID part should still be readable. The probe checks this.
+
+What this changes:
+
+1. `Compat.lua` targets the modern API first: `C_GossipInfo`, `C_QuestLog`, `C_UnitAuras`, `Settings`, `C_AddOns`, `PLAYER_INTERACTION_MANAGER_FRAME_SHOW`. It keeps the legacy fallbacks the brief asks for, but they will probably never run. The probe will tell us which of them are live.
+2. **The combat log is very likely closed to addons.** Midnight removed `COMBAT_LOG_EVENT_UNFILTERED` for addons, and the wiki marks the event as restricted. Death-cause tracking for spirit healers therefore uses fallbacks (risk R3). It will be coarser than the brief imagines.
+3. **Anything read during combat may be "secret"**: addons can display it, but can't branch on it. The dialogue never needs combat data. `ctx` is built out of combat, and a conversation that starts in combat gets compact mode only.
+4. We can't tell two spawns of the same NPC apart, because spawn IDs are obfuscated. NPC memory is keyed by NPC ID, which is what we wanted anyway.
+
+Sources (warcraft.wiki.gg):
+[Patch 1.60.1/API changes](https://warcraft.wiki.gg/wiki/Patch_1.60.1/API_changes) (TOC 16001) ·
+[Patch 1.60.1/API changes/notes](https://warcraft.wiki.gg/wiki/Patch_1.60.1/API_changes/notes) (Mainline architecture, 12.1.5 APIs, secrets active, `_Forever.toc`, GUID obfuscation) ·
+[COMBAT_LOG_EVENT](https://warcraft.wiki.gg/wiki/API_COMBAT_LOG_EVENT) (marked as having restrictions)
+
+---
+
+## 1. File and folder structure
+
+The git repo is **not itself an addon**. It holds several addons side by side: the core (code only, no dialogue) and the content packs (dialogue only). Our own packs use exactly the same public API that community packs will.
+
+```
+rpg-dialogue/                          git repo root
+├─ DESIGN.md  HANDOFF.md  CHANGELOG.md  LORE_NOTES.md  README.md  LICENSE
+├─ CONTENT_GUIDE.md        (M3)   writing rules, schema, bible format, threads/claims how-to
+├─ PACK_AUTHORING.md       (M8)   for community packs and other AI sessions
+├─ banned_phrases.txt      (M3)
+├─ .luacheckrc  .pkgmeta  .gitignore  .editorconfig
+│
+├─ RPGDialogue/                        CORE ADDON (no dialogue text in here)
+│  ├─ RPGDialogue.toc
+│  ├─ Bindings.xml                     Talk to Target, Open Journal
+│  ├─ Locales/enUS.lua                 every UI string (L table)
+│  ├─ Core/
+│  │  ├─ Init.lua                      namespace, event dispatcher, logger, dev mode
+│  │  ├─ Compat.lua                    THE ONLY FILE that calls Blizzard game APIs (see note)
+│  │  ├─ Util.lua                      seeded RNG, time helpers, table helpers
+│  │  ├─ SavedData.lua                 defaults, schema version, migrations, repair, trimming
+│  │  ├─ Trackers.lua                  what the addon logs itself: turn-ins, deaths, deeds,
+│  │  │                                books, hearth, drunk state, zones discovered
+│  │  ├─ Context.lua                   builds ctx (lazy fields) + the spoof overlay
+│  │  ├─ Conditions.lua                registry of condition keys: evaluator, weight, kind
+│  │  ├─ Tokens.lua                    {name}, {g:lad|lass}, ...
+│  │  ├─ Engine.lua                    gather → filter → pace → score → pick; /why traces
+│  │  ├─ Pacing.lua                    per-system budgets/cooldowns, anti-repetition fade
+│  │  ├─ Memory.lua                    NPC memory, seen lines, lasting "heard" record
+│  │  ├─ Effects.lua                   applies choice/line effects
+│  │  └─ PackAPI.lua                   RPGDialogueAPI (public), pack registry, LoD loading, merging
+│  ├─ Systems/                         (Phase 2+, one file each)
+│  │  Alignment  Traits  Opinions  Gossip  Claims  Towns  Threads  Topics  SpecialOptions
+│  │  Rumors  Origins  SpiritHealer  Books  Insanity  Barks  Errands  Narration
+│  ├─ UI/
+│  │  Theme  DialogueFrame  CompactBar  AskAbout  Settings  LauncherButton  Journal/*
+│  ├─ Integrations/
+│  │  DialogueAddons (Immersion, DialogueUI)  TRP3
+│  └─ Dev/
+│     Slash  Capture  Spoof  Why  Flag  Probe  Mem
+│
+├─ RPGDialogue_World/                  CONTENT PACK, loaded at login (cross-zone material)
+│  ├─ RPGDialogue_World.toc
+│  ├─ pack.lua
+│  ├─ generic/      last-resort lines so no NPC is ever silent
+│  ├─ pools/        role pools not tied to one zone (flight masters, children, spirit healers…)
+│  ├─ threads/<id>.lua   claims/<id>.lua   topics/<id>.lua   towns/<id>.lua
+│  ├─ origins/<race>.lua   rumors/<region>.lua
+│  └─ bibles/       voice bibles for anything in this pack (Markdown, not shipped)
+│
+├─ RPGDialogue_Elwynn/                 CONTENT PACK, load-on-demand by zone (example)
+│  ├─ RPGDialogue_Elwynn.toc
+│  ├─ pack.lua
+│  ├─ npcs/<npc_key>.lua               one file per NPC with custom content
+│  ├─ pools/<role>_<community>.lua     e.g. guard_goldshire.lua
+│  └─ bibles/<npc_key>.md              voice bibles (Markdown, not shipped)
+│
+├─ reference/<zone>.md                 captured Blizzard text. Writing reference only, never shipped
+├─ tools/                              Python 3, standard library only
+│  ├─ rpgd/luadata.py                  parser for the pack data subset and SavedVariables files
+│  ├─ validate.py  voicecheck.py  coverage.py  simulate.py
+│  ├─ import_capture.py  export_reference.py  flag_report.py
+│  ├─ registry/ids.json                NPC/quest/map ID registry built from your capture data
+│  └─ link_addons.bat / link_addons.sh links each addon folder into your AddOns folder
+└─ tests/                              Lua 5.1, runs outside the game
+   ├─ wowmock.lua  run.lua  *_spec.lua
+   └─ sim_driver.lua                   the real engine, driven by tools/simulate.py
+```
+
+Notes:
+
+- **Why the repo isn't the AddOns folder.** WoW only loads top-level folders in `AddOns`. `tools/link_addons` creates a junction (Windows) or symlink (macOS) for each addon folder, so the game always runs what's in the repo. If you'd rather not, I can hand you a zip per milestone.
+- **Release.** `.pkgmeta` uses the BigWigs packager's `move-folders`, so one git tag produces the core and each pack as separate addons. `reference/`, `tools/`, `tests/`, every `bibles/` folder and the docs are left out of releases.
+- **"Every Blizzard API call goes through Compat.lua."** I read this as every global function and `C_*` namespace, plus frame template names. Widget methods on our own frames (`SetText`, `SetPoint`) are used directly. `.luacheckrc` enforces it: only `Compat.lua` may read WoW API globals. Every other file gets a short allowlist (`CreateFrame`, `UIParent`, font objects), so a stray API call fails lint.
+- **Voice bibles are Markdown** next to the pack's content. Writers read prose better than tables. The validator still checks them: the `Sources` and `Their quests` sections must be non-empty, and an NPC with no quests must say so explicitly.
+
+---
+
+## 2. Data schema
+
+### 2.1 Packs and how they load
+
+A pack is any addon whose TOC carries `X-RPGD-*` fields:
+
+```toc
+## Interface: 16001
+## Title: RPG Dialogue: Elwynn Forest
+## Dependencies: RPGDialogue
+## LoadOnDemand: 1
+## Version: @project-version@
+## X-RPGD-Pack: rpgd.elwynn
+## X-RPGD-Format: 1
+## X-RPGD-Load: zone
+## X-RPGD-Zones: TODO (uiMapIDs come from capture data)
+
+pack.lua
+pools\guard_goldshire.lua
+npcs\mcbride.lua
+```
+
+- **Discovery without loading.** At login the core reads every installed addon's `X-RPGD-*` fields with `C_AddOns.GetAddOnMetadata`, which works on addons that aren't loaded. It builds a zone→pack index, loads the `X-RPGD-Load: login` packs (World), and loads a zone pack the first time you enter one of its zones (`ZONE_CHANGED_NEW_AREA`).
+- **Packs can't be unloaded** once loaded. Memory therefore grows with the zones you visit in one session. See R8.
+- **Registration**, in each pack's `pack.lua`:
+
+  ```lua
+  RPGDialogueAPI:RegisterPack {
+    id = "rpgd.elwynn", name = "Elwynn Forest", author = "RPG Dialogue",
+    version = "@project-version@", format = 1,
+    requires = { "rpgd.world" }, priority = 0,
+  }
+  ```
+- **Format check.** The core refuses a pack whose `format` is newer than it understands. It prints one clear chat line and shows the reason in the pack manager. Older formats are migrated when a migration exists.
+- **Two packs, same NPC.** By default they merge: lines, greetings, noticing moments and topic answers are pooled and scored normally. When both define a node with the same id, the higher `priority` wins. `override = true` on an NPC replaces lower-priority definitions of that NPC entirely.
+- **Anything referenced from more than one zone** (threads, claims, topics, towns, origins) must live in a login-loaded pack. A thread therefore works whichever zone packs are loaded. A beat whose NPC isn't loaded yet simply isn't available until you get there.
+
+### 2.2 The data subset: why the files look so plain
+
+Data files are Lua, restricted to a strict subset:
+
+- one fixed header (`local P = RPGDialogueAPI:Pack("…")` plus the placeholder constructors),
+- then only statements of the form `P:Kind { … }`.
+
+Inside the braces you may use strings, numbers, booleans, nested tables and the placeholder constructors `TODO_NPC`, `TODO_QUEST`, `TODO_ITEM`, `TODO_SPELL` and `TODO_MAP`. Variables, functions, concatenation and arithmetic are not allowed. This keeps "data, not code" honest, and it lets the Python tools parse every file without a Lua interpreter. The validator rejects anything outside the subset.
+
+### 2.3 Kinds of data
+
+| Kind | File | Lives in | Holds |
+|---|---|---|---|
+| `NPC` | `npcs/<key>.lua` | zone pack | one NPC: greetings, noticing moments, live reactions, nodes, topic answers |
+| `Pool` | `pools/<role>_<community>.lua` | zone or World | lines for a role, optionally limited to a community or city |
+| `Generic` | `generic/*.lua` | World | the last link in every fallback chain |
+| `Thread` | `threads/<id>.lua` | World | a throughline: theme, NPCs, beats (keyed by NPC), states, endings, pacing |
+| `Claim` | `claims/<id>.lua` | World | an NPC claim: who says it, truth status, what can expose it, or "deliberately open" |
+| `Topic` | `topics/<id>.lua` | World | an "Ask about…" topic: name, category, how it's learned |
+| `Town` | `towns/<id>.lua` | World | town standing: subzones, member NPCs, related towns and spread, tier names, quests |
+| `Origin` | `origins/<race>.lua` | World | the origin list for a race, including class-specific entries |
+| `Rumors` | `rumors/<region>.lua` | World or zone | innkeeper rumor tables |
+
+Threads, claims, topics, towns, origins and rumors get their full schemas in the milestones that build them (M4/M5). Their fields are already fixed by the brief, and the validator will hold them to it.
+
+### 2.4 NPC
+
+| Field | Meaning |
+|---|---|
+| `key` | stable string id, unique across all packs; references use it (`mcbride.e_dughan`). Community packs should prefix (`mypack_name`) |
+| `id` | numeric NPC ID from capture, or `TODO_NPC("Name")` |
+| `name` | display name, also the dev-mode match for a TODO id |
+| `bible` | path to the voice bible |
+| `role` | `questgiver`, `guard`, `innkeeper`, `vendor`, `trainer`, `flightmaster`, `stablemaster`, `banker`, `spirithealer`, `child`, … |
+| `tier` | `major` / `quest` / `service` / `pooled`; drives pacing and the default open mode |
+| `communities` | community tags shared with the gossip network and town standing |
+| `notices` | ack categories this NPC may use. Comes from the bible's "what they notice" |
+| `temper` | words used by special-option checks: `cowardly`, `sharp`, `proud`, `steady`, … |
+| `open` | `full` or `compact`; overrides the role default |
+| `greetings` | short lines for compact mode and repeat visits |
+| `notice` | noticing moments (acknowledgments), each with `cat` and `place` (`before`/`after`/`replace`) |
+| `react` | live reactions while the window is open (`on` = `form`/`pet`/`mount`/`stealth`/`aura`) |
+| `start` | id of the first node |
+| `nodes` | conversation nodes |
+| `topics` | this NPC's own answers, keyed by topic id; `_none` is their personal brush-off |
+
+### 2.5 Line
+
+| Field | Meaning |
+|---|---|
+| `id` | unique within the NPC. The global id is `<npckey>.<id>` |
+| `text` | 1–3 sentences. Tokens allowed |
+| `when` | conditions, all of which must pass |
+| `weight` | relative chance among tied lines (default 1) |
+| `priority` | small score adjustment (default 0). Use sparingly |
+| `tags` | free tags. `news` marks content that counts as "something new" (3.6) |
+| `once` | shown at most once per character |
+| `cooldown` | `"12h"`, `"3d"`, or `"5c"` (conversations) |
+| `key` | keep a lasting record that the player heard it. Required for `heardLine` targets |
+| `sys` | override which pacing budgets the line draws from (normally inferred from `when`) |
+| `fx` | effects when the line is shown (rare: learn a topic, hear a claim) |
+| `journal` | `{ first = "…", third = "…" }`: diary and chronicle voices |
+
+### 2.6 Node and choice
+
+A **node** is `{ lines = {…}, choices = {…}, big = true|nil, journal = … }`. `big` marks a conversation that matters: alignment-reactive lines are allowed there, and alignment shifts count more.
+
+A **choice**:
+
+| Field | Meaning |
+|---|---|
+| `text` | about 15 words or fewer |
+| `when` | conditions for showing it |
+| `tag` | `Persuade` / `Intimidate` / `Deceive`, or an identity tag (`Paladin`, `Westfall farmhand`, `Hero of Goldshire`) |
+| `check` | for Persuade/Intimidate/Deceive: `{ pass = { conditions } }`. Defaults come from the NPC's `temper` (3.9) |
+| `fx` | effects (2.8) |
+| `next` | a node id, `"END"`, or `"BUSINESS"` (closes our window and leaves the Blizzard window that is already open underneath) |
+| `fail` | for checks: `{ fx = …, next = … }` |
+| `journal` | `{ first = …, third = … }` |
+
+**"Get on with it" is added to every node by the UI.** Authors never write it.
+
+### 2.7 Conditions
+
+Each key has a **weight** (its contribution to the score) and a **kind**. *Hinges* are facts about the player; a line should hinge on one or two. *Gates* are bookkeeping and add no score. Lists mean "any of": `race = { "Human", "Dwarf" }`.
+
+| Family | Keys (value shape) | Weight | Kind |
+|---|---|---|---|
+| Quest | `questBefore` Q · `questActive` Q · `questObjective` {Q, left={min,max}} · `questReady` Q · `questRecent` {Q, days=N} · `questDone` Q · `questLater` {Q, days=N} | 60 | hinge |
+| Heard & threads | `heardLine` "npc.line" · `thread` {id, state=…/beat=…} · `heardClaim` id · `claimExposed` id · `claim` id (player's own) | 60 | hinge |
+| Deeds & deaths | `deed` id · `deaths` {min,max} · `deathCause` "falling"/"drowning"/… | 40 | hinge |
+| Origin | `origin` id | 35 | hinge |
+| Who you are | `race` · `class` (`race`+`class` together score 50) | 25 each | hinge |
+| Character | `alignment` {axis, min, max} · `title` · `trait` · `opinion` {topic, stance} | 30 | hinge |
+| Dark | `taint` {min} · `insanity` {min} | 40 | hinge |
+| Knowledge | `topicKnown` · `bookRead` · `homeInn` | 30 | hinge |
+| Relationship | `metBefore` bool · `timesTalked` {min,max} · `daysSince` {min,max} · `affinity` {min,max} · `townStanding` {town, tier/min} | 20 | hinge |
+| State | `form` · `mounted` · `stealthed` · `ghost` · `pet` {family,type,named} · `debuffType` · `aura` spellID · `resSick` · `drunk` · `camping` · `durability` {max} · `nearlyNaked` · `tabard` · `equipped` · `outOfPlace` · `rep` {faction,min} · `profession` {name,min} | 15 | hinge |
+| World | `zone` · `subzone` · `holiday` · `power` (relative bucket) | 15 | hinge |
+| Level | `band` · `minLevel`/`maxLevel` · `capital` · `resting` · `atInn` | 10 | hinge |
+| Small touches | `gender` · `timeOfDay` · `faction` · `party` {race,class} | 5 | hinge |
+| Gates | `chance` 0–1 · `flag` · `npcFlag` | 0 | gate |
+| Combinators | `all` (sum of children) · `any` (best passing branch) · `not` (0: an absence isn't specific) | — | — |
+
+The validator rejects unknown keys. Some keys come from fields the brief lists in `ctx` (`durability`, `nearlyNaked`, `profession` and so on). That's allowed, since the brief's list is open ("such as").
+
+Pacing systems are **inferred** from condition keys: `alignment`/`title` → alignment, `taint` → taint, `origin` → origin, `trait` → trait, `opinion` → opinion, `bookRead` → book, `insanity` → insanity, `deathCause`/`deaths` → death. A line's `sys` field overrides the inference.
+
+### 2.8 Effects (`fx`)
+
+| Key | Example | Notes |
+|---|---|---|
+| `align` | `{ light = 2, order = -1, honor = 0 }` | axes: +Light/−Shadow, +Order/−Wild, +Honor/−Cunning; diminishing returns applied by the engine |
+| `taint` | `5` | Fel Taint, 0–100 |
+| `trait` | `{ witty = 1 }` | |
+| `opinion` | `{ defias = "hardline" }` | records the NPC who heard it, when, and their communities |
+| `flag` | `{ set = { "x" }, clear = { "y" } }` | |
+| `claim` | `{ id = "killed_hogger" }` | a player claim, checked against real history by NPCs who'd know |
+| `affinity` | `1` | |
+| `standing` | `{ goldshire = 2 }` | spreads to related towns per the town file |
+| `thread` | `{ id = "stonemasons", beat = "b2", state = "unfolding" }` | |
+| `hear` / `expose` | `"defias_common_thieves"` | NPC claims |
+| `learn` | `{ "echo_ridge" }` | topics |
+
+### 2.9 Special reply options (schema now, built in M4)
+
+`check = { pass = { …conditions… } }` succeeds if the conditions pass against `ctx`. No dice. When `pass` is omitted, defaults apply:
+
+- **Intimidate** passes if the NPC's `temper` includes `cowardly`, or `power` is `above`/`far_above`.
+- **Persuade** passes with affinity ≥ 3, or town standing Liked or better, or a dominant trait the NPC values.
+- **Deceive** passes unless the NPC's `temper` includes `sharp` or the NPC can know the truth. A successful deception records a player claim.
+
+### 2.10 Tokens
+
+`{name}` (Total RP 3 name when enabled), `{npc}`, `{race}`, `{class}`, `{g:lad|lass}`, `{pet}`, `{zone}`, `{subzone}`, `{town}`, `{title}`, `{home}`.
+
+**Tokens decorate. They never carry a line.** The voice checker flags lines built around `{race}` or `{class}`.
+
+### 2.11 Complete example: Marshal McBride
+
+McBride is chosen because the brief already uses him as its placeholder example. The facts come from his warcraft.wiki.gg page and vanilla quest data. **Quest names are vanilla's and must be confirmed against your capture data**, because Forever adds and changes content. Every ID is a placeholder, as constraint 6 requires.
+
+**Voice bible** (`RPGDialogue_Elwynn/bibles/mcbride.md`):
+
+```markdown
+# Marshal McBride  (key: mcbride)
+
+## Sources
+- https://warcraft.wiki.gg/wiki/Marshal_McBride
+- reference/elwynn.md#marshal-mcbride (captured gossip and quest text; pending capture)
+- LORE_NOTES.md#northshire-valley (lore sheet; written in M3)
+
+## Their quests  (IDs from capture; names are vanilla's, confirm for Forever)
+- A Threat Within (turn-in; Deputy Willem sends new recruits up to him): every recruit
+  arrives to be sized up. He has seen a lot of green ones.
+- Kobold Camp Cleanup: treats kobolds as a real threat to the Abbey, not a joke. He uses
+  recruits because he's short of soldiers.
+- Investigate Echo Ridge, then Skirmish at Echo Ridge: works from his scouts' reports and
+  escalates step by step. When it's done he gives respect but admits there may be more
+  kobolds and he'll send others: the job is never quite finished.
+- Report to Goldshire: part of a chain of command. He hands recruits on to Marshal Dughan.
+- Class letters (Simple, Consecrated, Encrypted, Hallowed, Glyphic, Tainted): routes every
+  human recruit to a trainer. Forever's new Human Hunter presumably has a letter of its own:
+  unknown, so don't reference it.
+
+## Identity
+ID: TODO · Marshal (Douglas) McBride · Northshire Abbey, Elwynn Forest · Alliance,
+Stormwind Army · Human · quest giver, commander of the Abbey garrison
+
+Personality: dutiful, tired, fair, dry, methodical
+Speech: short declaratives; orders phrased as plain facts; calls everyone "recruit";
+dry understatement; no speeches, no flourishes
+Knows and cares about: the valley's defense, the kobolds in Echo Ridge Mine, the Defias in
+the valley, how few hands he has, keeping the Abbey's brothers safe
+Relationships: Deputy Willem (his deputy, trusted); Marshal Dughan in Goldshire (next in
+the chain, a colleague); the Abbey's brothers (protects them, finds them unpractical);
+the paladins and warriors he marshals against the kobolds
+Default attitudes: humans are his recruits; dwarves and gnomes are welcome allies;
+night elves get polite unfamiliarity; Skyborne get careful curiosity (he knows only that
+the Kirin Tor vouched for them); classes are judged by use ("can you hold a line?");
+warlocks get wariness, but he follows orders; Horde are the enemy
+Lore anchors: Stormwind Army; Year 1; the Defias are active; Lordaeron's fall is recent
+Never says: anything after Year 1 (no Cataclysm-era Northshire, no worgen, no Blackrock
+assault on the Abbey); modern idiom; speeches about honor
+
+## Threads he could carry
+- The Defias grievance (stonemasons thread): a soldier's view. They're organized; a cause
+  doesn't make them less thieves.
+- "Too quiet" kobold aftermath, once Echo Ridge is done.
+
+## Agenda
+A secure valley with too few soldiers; recruits who follow orders and come back alive.
+
+## Secrets  (authored, not canon; consistent with his quests)
+He has asked Stormwind for more soldiers and been turned down. He keeps it from recruits.
+
+## Reliability
+Trustworthy on kobolds, the valley and army matters. Biased on the Defias: no sympathy for
+causes. Mistaken: nothing planned.
+
+## What he notices
+1. How green you are (level band, deaths).
+2. The state of your kit (durability, nearly naked).
+3. Whether you finish what you're given (quest history with him).
+
+## Topics
+kobolds, echo_ridge, defias, northshire_abbey
+```
+
+**Dialogue file** (`RPGDialogue_Elwynn/npcs/mcbride.lua`):
+
+```lua
+-- Marshal McBride, Northshire Abbey. Voice: bibles/mcbride.md
+-- All IDs are placeholders until capture data exists. The validator lists every TODO.
+local P = RPGDialogueAPI:Pack("rpgd.elwynn")
+local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
+
+P:NPC {
+  key         = "mcbride",
+  id          = TODO_NPC("Marshal McBride"),
+  name        = "Marshal McBride",
+  bible       = "bibles/mcbride.md",
+  role        = "questgiver",
+  tier        = "quest",
+  communities = { "northshire" },
+  temper      = { "steady" },
+  notices     = { "greenness", "kit", "follow_through" },
+
+  -- Compact mode: one short line in the bar, Blizzard's window opens underneath.
+  greetings = {
+    { id = "g_brief",   text = "Recruit. Make it quick." },
+    { id = "g_reports", text = "If it's the mine, I've read the reports. If it isn't, speak up." },
+    { id = "g_regular", text = "You again. Good. Means you're still alive.",
+      when = { timesTalked = { min = 4 } } },
+    { id = "g_dusk",    text = "Quietly. The brothers are at prayers.",
+      when = { timeOfDay = "dusk" } },
+    { id = "g_count",   text = "Count's not done, recruit.",
+      when = { questObjective = { TODO_QUEST("Kobold Camp Cleanup"), left = { min = 1 } } } },
+  },
+
+  -- Noticing moments: things only he would react to, in his way.
+  notice = {
+    { id = "n_kit_broken", cat = "kit", place = "before",
+      when = { durability = { max = 0.25 } },
+      text = "Before you say anything, get that armor to a smith. I don't send recruits out held together with string." },
+    { id = "n_kit_naked", cat = "kit", place = "replace",
+      when = { nearlyNaked = true },
+      text = "Where is your armor, recruit? No. I don't want to know. Go and find some." },
+    { id = "n_green_deaths", cat = "greenness", place = "after",
+      when = { band = "Greenhorn", deaths = { min = 3 } },
+      text = "You keep coming back down that hill in worse shape than you went up. They carry candles, recruit. Not swords." },
+  },
+
+  -- Live reactions while the window is open.
+  react = {
+    { id = "r_stealth", on = "stealth",
+      text = "I can still hear you breathing, recruit. Stand where I can see you." },
+    { id = "r_imp", on = "pet", when = { pet = { family = "Imp" } },
+      text = "Keep that thing off my maps. The last one set fire to a requisition." },
+  },
+
+  start = "hello",
+
+  nodes = {
+    hello = {
+      lines = {
+        -- His own fallback. Scores 400, so it loses to anything more specific of his.
+        { id = "h_default",
+          text = "The garrison's spread thin, so I'll be brief. What do you need?" },
+        -- Quest history: the turn-in that sends recruits to him.
+        { id = "h_from_willem", key = true,
+          when = { questRecent = { TODO_QUEST("A Threat Within"), days = 1 }, metBefore = false },
+          text = "Willem sent you up, then. Stand where the light's on you. Let's see what I'm working with." },
+        -- Return-visit memory.
+        { id = "h_return",
+          when = { metBefore = true, daysSince = { min = 7 } },
+          text = "Thought we'd lost you to Goldshire. What brings you back up the hill?" },
+        -- A race+class combination that's new in Forever.
+        { id = "h_dwarf_shaman", when = { race = "Dwarf", class = "SHAMAN" },
+          text = "A dwarf who talks to the weather. I've had stranger recruits this year. Not many." },
+        -- Race alone. The Skyborne race token is confirmed by the probe.
+        { id = "h_skyborne", when = { race = "Skyborne" },
+          text = "Skyborne. I'm told the Kirin Tor vouched for your people. Out here the kobolds will judge you on your own." },
+        -- Level band.
+        { id = "h_champion", when = { band = "Champion" },
+          text = "You're a long way past kobolds. If you're visiting the Abbey, the brothers will be pleased. I'll be suspicious." },
+        -- One quest across its phases.
+        { id = "q_kobold_before",
+          when = { questBefore = TODO_QUEST("Kobold Camp Cleanup"), band = "Greenhorn" },
+          text = "There's a kobold camp in the woods north of here, and they're getting bold. I need it thinned." },
+        { id = "q_kobold_progress",
+          when = { questObjective = { TODO_QUEST("Kobold Camp Cleanup"), left = { min = 1 } } },
+          text = "That count isn't done. They multiply in those woods faster than I can find recruits." },
+        { id = "q_kobold_ready", when = { questReady = TODO_QUEST("Kobold Camp Cleanup") },
+          text = "That's the count? Good. Hand it in properly and I'll sign it off." },
+        { id = "q_kobold_recent", tags = { "news" }, key = true,
+          when = { questRecent = { TODO_QUEST("Kobold Camp Cleanup"), days = 2 } },
+          text = "First quiet night the brothers have had in a week. They'll pray for you. I'll settle for you staying sharp." },
+        { id = "q_echo_later",
+          when = { questLater = { TODO_QUEST("Skirmish at Echo Ridge"), days = 5 } },
+          text = "Echo Ridge has gone quiet. They always come back, mind. Fewer, since you went through." },
+        -- An echo of something the player heard from another NPC (Marshal Dughan, Goldshire).
+        { id = "e_dughan_thieves", tags = { "news" },
+          when = { heardLine = "dughan.defias_common_thieves" },
+          text = "Dughan told you they're common thieves? Common thieves don't drill. Someone is training them." },
+      },
+      choices = {
+        { text = "Reporting for duty, Marshal.", next = "orders",
+          fx = { align = { order = 2 }, trait = { stern = 1 }, affinity = 1 },
+          journal = {
+            first = "Reported to Marshal McBride. He looked at me like a man counting how many of us come back.",
+            third = "{name} reported to Marshal McBride at Northshire Abbey.",
+          } },
+        { text = "Kobolds? You need soldiers for kobolds?", next = "kobolds",
+          fx = { trait = { witty = 1 }, affinity = -1 } },
+        { text = "I've run vermin off a farm before. These can't be worse.", next = "orders",
+          when = { origin = "human_westfall_farmhand" },
+          fx = { affinity = 1 } },
+        { text = "What do you make of the Defias in the valley?", next = "defias",
+          when = { band = { "Greenhorn", "Blooded" } } },
+      },
+    },
+
+    kobolds = {
+      lines = {
+        { id = "k_default",
+          text = "Laugh if you like. They've moved into Echo Ridge Mine, and they come out bolder every week. I'd rather laugh after." },
+      },
+      choices = {
+        { text = "Fair enough. Point me at them.", next = "orders", fx = { affinity = 1 } },
+        { text = "I'll see for myself.", next = "END" },
+      },
+    },
+
+    orders = {
+      lines = {
+        { id = "o_default",
+          text = "Good. I've more work than hands. Let's see what fits you." },
+        { id = "o_kobolds", when = { questBefore = TODO_QUEST("Kobold Camp Cleanup") },
+          text = "Kobold camp, north woods. Thin it out, then report to me. Not to the brothers." },
+        { id = "o_done_here", when = { questDone = TODO_QUEST("Skirmish at Echo Ridge") },
+          text = "Nothing left here that needs you. Marshal Dughan in Goldshire can use a recruit who finishes things." },
+      },
+      choices = {
+        { text = "Show me the work.", next = "BUSINESS" },
+        { text = "Understood.", next = "END" },
+      },
+    },
+
+    defias = {
+      big = true,
+      lines = {
+        { id = "d_default", key = true,
+          text = "They're in the valley and they're organized. A thief with a cause is still a thief. Some of them were honest men, once." },
+      },
+      choices = {
+        { text = "Then give them a chance to surrender first.", next = "END",
+          fx = { align = { light = 3 }, trait = { kind = 1 }, opinion = { defias = "mercy" } },
+          journal = {
+            first = "Told McBride the Defias should get a chance to surrender. He didn't argue. He didn't agree either.",
+            third = "{name} told McBride the Defias deserved a chance to surrender.",
+          } },
+        { text = "A thief's a thief. I'll treat them like one.", next = "END",
+          fx = { align = { order = 3 }, trait = { stern = 1 }, opinion = { defias = "hardline" }, affinity = 1 },
+          journal = {
+            first = "McBride asked about the Defias. I told him a thief's a thief. He nodded like I'd passed something.",
+            third = "{name} told McBride the Defias should be treated as thieves, nothing more.",
+          } },
+        { text = "Who's organizing them? That's who I'd want.", next = "END",
+          fx = { align = { honor = -2 }, trait = { curious = 1 }, opinion = { defias = "follow_the_leaders" },
+                 learn = { "defias" } },
+          journal = {
+            first = "Asked McBride who's behind the Defias. He didn't know. He didn't like not knowing.",
+            third = "{name} asked Marshal McBride who leads the Defias. He had no answer.",
+          } },
+      },
+    },
+  },
+
+  -- "Ask about…": his own takes. _none is his personal brush-off.
+  topics = {
+    kobolds = { { id = "t_kobolds",
+      text = "Vermin with candles and shovels. Don't underestimate the shovels." } },
+    defias  = { { id = "t_defias",
+      text = "Organized, and closer to the Abbey than I like. Ask Willem. He's been counting bandanas." } },
+    _none   = { { id = "t_none",
+      text = "Not a garrison matter. Ask the brothers. They read." } },
+  },
+}
+```
+
+This one file exercises most of the vertical-slice checklist: race, class and combination lines, a level band, quest history, before/during/after/later reactions, return-visit memory, an echo of another NPC's line, noticing moments, live reactions, an alignment choice, an opinion for the gossip network, an origin-only choice that the conversation doesn't depend on, topic answers with a brush-off, and journal templates in both voices.
+
+### 2.12 SavedVariables
+
+```lua
+RPGDialogueDB = {            -- account-wide
+  schema = 1,
+  settings = { … },          -- incl. pack toggles, other-addon mode, accessibility
+  capture  = { npcs = {}, quests = {}, text = {} },
+  flagged  = {},             -- "this line is wrong" reports
+  debug    = {},             -- ring buffer, dev mode only
+}
+
+RPGDialogueCharDB = {        -- per character
+  schema = 1,
+  npc = { [npcKeyOrId] = { first, last, times, affinity, topics = {}, lastLine } },
+  seen  = {},                -- rolling anti-repetition history (trimmed, fades)
+  heard = {},                -- lasting record of key lines (small, never trimmed)
+  quests = { turnedIn = { [questID] = time } },
+  align = { light = 0, order = 0, honor = 0, taint = 0 },
+  traits = {}, opinions = {}, flags = {}, claims = {}, deeds = {},
+  threads = {}, towns = {}, origin = nil,
+  topics = {}, books = {}, deaths = {}, homeInn = nil,
+  journal = {}, insanity = {},
+  pacing = {},               -- budget and cooldown timestamps
+}
+```
+
+All times come from `GetServerTime()`. Every structure that grows has a cap: journal 2,000 entries (oldest are folded into a summary entry, never silently dropped), seen lines 1,500 (least recently used go first), death log 500. Migrations run in order (`migrations[2](db)`, `migrations[3](db)` …) from day one.
+
+---
+
+## 3. The engine and how it scores lines
+
+### 3.1 One conversation, start to finish
+
+1. **Trigger:** `GOSSIP_SHOW`, `QUEST_GREETING`, `QUEST_DETAIL`, or `PLAYER_INTERACTION_MANAGER_FRAME_SHOW` (merchant, trainer, flight master, banker, stable master, auction house), or the Talk keybind.
+2. **Identify the NPC:** GUID → NPC ID → registered NPC. In dev mode only, a TODO name can match the NPC's name, with a warning. Otherwise the NPC's **role** is worked out for the pools: capture registry → tooltip subtitle (`<Flight Master>`) → interaction type → name pattern (`… Guard`).
+3. **In combat?** Then compact mode, or nothing. Never the full window.
+4. **Build `ctx`** (3.8).
+5. **Choose full or compact** (3.6).
+6. **Fill the slots:** opening line · noticing moment (maybe) · thread beat (maybe) · rumor (innkeepers). Each slot runs the selection pipeline separately, so a noticing moment never competes with a quest line.
+7. **Render.** The player picks a choice → effects → next node.
+8. **Write back:** memory, seen and heard lines, journal entry, pacing timestamps.
+
+### 3.2 Selection pipeline (per slot)
+
+```
+gather    candidates: NPC's own file → thread beats for this NPC → community pool
+          → role×city pool → role pool → generic
+eligible  every condition passes            (failures recorded for /rpgd why)
+fresh     drop lines seen inside their fade window (only if anything else is left)
+pace      system budgets may veto           (recorded as HELD in /rpgd why)
+score     source base + sum of condition weights + priority
+pick      keep everything within 5 points of the best; weighted random by weight × freshness
+```
+
+### 3.3 Example weights
+
+| Source | Base |
+|---|---|
+| NPC's own file (incl. their beats) | **400** |
+| Community or town pool | 200 |
+| Role pool for this city or faction | 120 |
+| Role pool (anywhere) | 100 |
+| Generic | 0 |
+
+Plus the condition weights from 2.7: quest/history 60, race+class 50, origin 35, character 30, race or class 25, relationship 20, state/zone 15, level/band 10, gender/time 5.
+
+The order comes out the way the brief asks. Within one NPC, a quest line (460) beats a race+class line (450), which beats race or class alone (425), then state or zone (415), then gender or time (405), then their plain line (400). Anything from the NPC's own file beats any pool line, however specific. That is deliberate: the named character always speaks for themselves.
+
+**Worked example.** A level-2 human warrior meets McBride for the first time, just after turning in A Threat Within, at dusk:
+
+```
+/rpgd why
+[RPGD] mcbride · node hello · slot line · seed 48121
+ctx: Human WARRIOR 2 (Greenhorn) · dusk · Northshire Abbey
+  WIN   480  h_from_willem     own 400 + questRecent 60 + metBefore 20
+        470  q_kobold_before   own 400 + questBefore 60 + band 10
+        400  h_default         own 400
+  FAIL       h_dwarf_shaman    race: Human, wanted Dwarf
+  FAIL       h_champion        band: Greenhorn, wanted Champion
+  FAIL       e_dughan_thieves  heardLine dughan.defias_common_thieves: not heard
+slot notice  (roll 0.21 ≤ 0.35, budget free)
+  FAIL       n_kit_broken      durability: 1.00, wanted ≤ 0.25
+  FAIL       n_kit_naked       nearlyNaked: false
+  FAIL       n_green_deaths    deaths: 0, wanted ≥ 3
+  → no noticing moment this time
+```
+
+`FAIL` means a condition didn't pass. `HELD` (not shown here) means the line was eligible but a pacing budget vetoed it, for example `HELD n_kit_broken  pacing: "kit" used 12 min ago (30 min)`.
+
+### 3.4 "Everything matters sometimes"
+
+- **Hinge limit.** A line should hinge on at most two facts about the player. Which NPC is speaking doesn't count. The validator warns at three hinges and errors at four. The simulation reports any offenders.
+- **Default budgets** (tunable in one table in `Pacing.lua`):
+
+| System | Budget |
+|---|---|
+| Noticing moments | chance 0.35 per conversation (slider); at most 1 per conversation (+1 live reaction); per category: 30 min across all NPCs and 3 days per NPC; `once` unless marked repeatable |
+| Thread beats | at most 1 per conversation; beats of the same thread at least 3 conversations and 20 min apart |
+| Alignment lines | only in `big` nodes, or 1 in 5 conversations |
+| Fel Taint | at most 1 per 2 days, chance 0.25 |
+| Origin | 1 in 4 conversations |
+| Traits | 1 in 3 conversations |
+| Opinions (gossip echoes) | 1 in 4 conversations, after a delay of 10 min or more |
+| Books | 1 per day |
+| Rumors | 1 per inn visit, rotating |
+
+Town standing has no budget in its own town, because the whole town has to be consistent.
+
+### 3.5 Anti-repetition
+
+Each character keeps `seen[globalLineId] = { t, n }`. A line seen inside its fade window is excluded from the top band. Default windows: 1 day for greetings, 3 days for node lines, never for `once`. After the window, its weight recovers gradually: `weight × min(1, age / (2 × window))`. If every candidate has been seen, the oldest-seen wins, so an NPC is never silent.
+
+### 3.6 Full conversation or compact
+
+The **full** window opens when any of these is true:
+- it's the first meeting;
+- Talk was pressed;
+- the setting is "always full";
+- an eligible, unseen line tagged `news` scores **≥ 440** and isn't held for pacing. Beats, quest reactions, echoes and new topic answers count.
+
+For a story NPC (`major`/`quest` tier), a due noticing moment also opens the full window. Otherwise you get **compact** mode: the best greeting (greetings can carry conditions, such as quest progress) in a small bar, plus a due noticing moment if there is one. Blizzard's window is already open underneath. Service NPCs (vendors, flight masters, trainers, bankers, stable masters, auctioneers) default to compact.
+
+### 3.7 Seeded randomness
+
+The RNG is a Park–Miller generator in plain Lua 5.1 arithmetic. It needs no `bit` library, so the same code runs in the game, in the tests and in the simulation. The seed is derived per conversation from (NPC key, day, conversation count). `/rpgd why` prints the seed, and `/rpgd seed <n>` replays a conversation exactly. The tests and the simulation set explicit seeds.
+
+### 3.8 The context snapshot
+
+`ctx` is created once per conversation with lazy fields: the first time a field is read, it's computed through `Compat` and cached. Cheap things cost nothing until a condition needs them, and the snapshot stays consistent for the whole conversation. A spoof overlay sits on top (`/rpgd spoof race=Gnome class=PRIEST level=8 form=bear`). Live reactions update individual fields when events fire.
+
+```lua
+ctx.player.race    -- "Human" (file token from UnitRace)
+ctx.player.band    -- "Greenhorn" | "Blooded" | "Seasoned" | "Veteran" | "Champion"
+ctx.npc.key        -- "mcbride"
+ctx.rel.power      -- "far_below" | "below" | "even" | "above" | "far_above"
+                   --   level difference ≤-10, -9..-4, -3..3, 4..9, ≥10; elite NPCs shift one step
+ctx.world.tod      -- "dawn" 5–7 | "day" 8–17 | "dusk" 18–20 | "night" 21–4 (server time)
+ctx.state.form     -- "bear" | "cat" | "travel" | "aquatic" | "moonkin" | "ghostwolf" | nil
+ctx.hist:quest(id) -- "before" | "active" | "ready" | "done", plus turn-in time from our own log
+```
+
+### 3.9 Alignment math (M4, recorded now so content can rely on it)
+
+A shift of `d` on an axis whose current value is `v` applies `d × (1 − |v|/120)` when it pushes further the same way, and the full `d` when it pulls back toward zero. `big` nodes multiply by 2.5. Values beyond ±20 drift 1 point toward zero per 7 days without reinforcement. Fel Taint decays 1 point per 10 days. Titles are regions of the three-axis space, with Alliance and Horde wording.
+
+---
+
+## 4. What I need from you
+
+**A. Section 9 of the brief (it's still in brackets):**
+1. Your interface number (the probe below prints it).
+2. Your test character(s): race / class / faction / level.
+3. Error-catching addons (BugSack + !BugGrabber?).
+4. Where we're working (see C).
+5. Python installed? (Optional: I can run all the tooling in my workspace, see section 6.)
+6. Other addons you use, especially Questie, Immersion, DialogueUI and Total RP 3, and whether they exist for Forever yet.
+7. Final addon name and license (e.g. "RPG Dialogue", MIT).
+8. Extra Forever lore notes beyond section 10, if any.
+9. Visual style (the brief's example: "parchment and dark wood, very readable, uncluttered"). If you don't mind, I'll use that.
+
+**B. The vertical-slice zone** (section 7 of the brief). Northshire Valley + Goldshire is the natural fit for the example above. If your test character is a Skyborne, Zephras Isle may suit you better, but section 10 leaves it thin on lore.
+
+**C. Where the code lives between sessions.** This session runs in a cloud workspace that I can't reach from future sessions, and I can't see your AddOns folder. Pick one:
+- **GitHub** (recommended): a private repo I push to at every milestone. You `git pull`, and `tools/link_addons` points WoW at it. If the repo is ever made public, the captured Blizzard text in `reference/` must stay out of it.
+- **Link this chat to your computer** through the Claude desktop app, so I can write straight into a folder there.
+- **Zips:** I hand you the repo (with its git history) at the end of each milestone.
+
+Either way, I'll also save `DESIGN.md` and `HANDOFF.md` to this Project so the next session can find them.
+
+**D. The name and email to use for git commits.** I used a neutral placeholder for M0. A GitHub "noreply" address is a good choice if the repo might go public.
+
+**E. Run the API probe and paste back everything it prints.** Paste these into chat one line at a time. Each is under the 255-character limit. The client may first ask you to allow scripts; say yes. For P6, **target a friendly NPC that has a title, such as a vendor or flight master, and stand next to it.**
+
+```
+P1  /run print(GetBuildInfo()) print("proj",WOW_PROJECT_ID) print("race",UnitRace("player")) print("class",UnitClass("player"))
+P2  /run for _,n in ipairs{"C_GossipInfo","C_QuestLog","C_UnitAuras","AuraUtil","C_Calendar","C_VoiceChat","Settings","C_AddOns","AddonCompartmentFrame","C_TooltipInfo","C_DeathRecap","C_GameRules","issecretvalue"} do print(n,_G[n]~=nil) end
+P3  /run for _,n in ipairs{"IsQuestFlaggedCompleted","UnitBuff","GetShapeshiftFormID","InterfaceOptions_AddCategory","GetQuestLogLeaderBoard","CheckInteractDistance","LoadAddOn","GetBindLocation","GetServerTime"} do print(n,_G[n]~=nil) end
+P4  /run local q,a,v,g=C_QuestLog,C_UnitAuras,C_VoiceChat,C_GossipInfo print("QFC",q and q.IsQuestFlaggedCompleted~=nil,"Obj",q and q.GetQuestObjectives~=nil,"Aura",a and a.GetAuraDataByIndex~=nil,"TTS",v and v.SpeakText~=nil,"GTxt",g and g.GetText~=nil)
+P5  /run local f=CreateFrame("Frame") print("CLEU",pcall(f.RegisterEvent,f,"COMBAT_LOG_EVENT_UNFILTERED")) print("PIM",pcall(f.RegisterEvent,f,"PLAYER_INTERACTION_MANAGER_FRAME_SHOW"))
+P6  /run print(UnitGUID("target"),UnitName("target"),CheckInteractDistance and CheckInteractDistance("target",3)) local d=C_TooltipInfo and C_TooltipInfo.GetUnit("target") if d then for i,l in ipairs(d.lines) do print(i,l.leftText) end end
+```
+
+If a line throws an error, paste the error instead. That tells us something too.
+
+**F. Your OK, or your changes, on the decisions in section 6.**
+
+**Later, not now:** once M1 ships the capture tool, walk the slice zone with auto-capture on, talk to every NPC there and send me your `RPGDialogue.lua` SavedVariables file. That is how real IDs and reference text get in.
+
+---
+
+## 5. Risks and API unknowns
+
+| # | Risk or unknown | Impact | Plan / nearest alternative | Resolved by |
+|---|---|---|---|---|
+| R1 | Which API family Forever really exposes | Wrong calls fail at load | Modern-first `Compat` with legacy fallbacks; missing APIs logged in dev mode | Probe P2–P5, then M1 dev log |
+| R2 | Secret values in combat | In-combat reads can't be branched on | Never read state in combat. `ctx` is built out of combat; combat → compact or nothing; live reactions ignore events during combat | Built in M1–M2 |
+| R3 | Combat log closed to addons | Spirit healers can't know exactly what killed you | Fallback chain: death recap API if readable after death → breath/fatigue timers (drowning, fatigue) → snapshot of target and its target at death (name, level, elite, player, guard) → "unknown". When the cause is unknown, spirit healers speak in general terms | Probe P2/P5; M6 |
+| R4 | Taint from interfering with Blizzard's gossip/quest windows | "Action blocked" errors, broken quest addons | Never hide, close or unregister Blizzard frames. Ours overlays theirs, which stays open underneath (faded while ours is up). "Get on with it" just closes ours. Verified with `/console taintLog 1` | M2 test checklist |
+| R5 | Keys 1–4/Space/Esc while our window is open | Could swallow action-bar keys | `OnKeyDown` + `SetPropagateKeyboardInput`, which is restricted in combat on modern clients. So we close the window on `PLAYER_REGEN_DISABLED` (hiding our own frame is always allowed), which releases the keys. No override bindings, since those can't be cleared in combat | M2 |
+| R6 | Immersion / DialogueUI | Two windows fighting | Default: RPG Dialogue steps back (Talk keybind + compact bar only). "Take over" can't be done cleanly without reaching into their frames, so that option asks you to turn off their gossip handling | Your addon list; M2 |
+| R7 | IDs differ from vanilla or are unknown (NPCs, quests, uiMapIDs, Skyborne race token, Walk on Air, Camping buff, Galestrider) | Wrong or missing content triggers | TODO placeholders + capture tools + registry; dev-mode name matching to test before IDs exist | Capture after M1 |
+| R8 | Load-on-demand packs can't be unloaded | Memory grows with zones visited in a session | Lean zone packs (target ≤ ~300 KB Lua memory each, measured); `/rpgd mem` reports per pack with `UpdateAddOnMemoryUsage` every milestone | Measured from M3 |
+| R9 | Range check for "Talk to Target" | `CheckInteractDistance` may be restricted | Fallbacks: tooltip/interaction APIs; worst case, Talk to Target works only on NPCs you can interact with | Probe P6 |
+| R10 | Proximity barks: no API lists nearby NPCs | Barks can only come from units the client exposes | Use nameplates (if friendly NPC nameplates are on and readable), target and mouseover; heavily rate-limited | M6 |
+| R11 | Holidays: Forever may have its own holiday set | Wrong holiday lines | `C_Calendar` if usable, else a built-in date table you can correct | Probe P2; M4 |
+| R12 | Hardcore flag (`C_GameRules`?) and Legacy talents | No way to detect them yet | Field exists in `ctx`, always false until an API appears | Later update |
+| R13 | Midnight treats chat as secret inside instances | Drunk detection (system messages) fails in dungeons | Drunk state only tracked outside instances | M1 |
+| R14 | GUID format changes (spawn obfuscation) | NPC ID parse breaks | Parse by field position, check it's numeric, fall back to name + zone | Probe P6 |
+| R15 | Python parser and real Lua disagree | Validator passes a file the game rejects | The Lua test harness also loads every pack against the mock, and `luac -p` runs on every file | M2 |
+| R16 | Content scale vs consistency | Generic or samey writing at hundreds of NPCs | Bibles first, AI-voice checker, sameness checks, simulation, the "this line is wrong" button | M3 onward |
+| R17 | Blizzard UI add-on policy | Release blocked | Free, unobfuscated; re-check the current policy before release | M8 |
+| R18 | One public global for packs | Constraint 7 lists no exception for it | `RPGDialogueAPI` is the only extra global (section 6) | Your OK |
+
+---
+
+## 6. Decisions you can veto
+
+1. **One public global, `RPGDialogueAPI`.** Content packs are separate addons and can't see our private namespace. This is the only global beyond the SavedVariables (`RPGDialogueDB`, `RPGDialogueCharDB`), the slash commands (`/rpgd`, `/rpgdialogue`) and the keybinding names.
+2. **No third-party libraries.** Export/import uses a small serializer and text encoding of our own, and the launcher is our own (addon compartment if available, minimap button otherwise). There's nothing to embed and no licenses to track.
+3. **One TOC per addon** with your interface number. We add `_Forever.toc` variants only if a mixed setup needs them.
+4. **Our window overlays Blizzard's** (R4) rather than replacing it.
+5. **With Immersion or DialogueUI present, RPG Dialogue steps back** by default (R6).
+6. **Tests, linting and the simulation run in my workspace.** Lua 5.1, luacheck and Python are installed there. You only do the in-game testing. If you also want to run them yourself, you'll need Lua 5.1 or LuaJIT.
+7. **Dev-mode name matching for TODO IDs**, so the vertical slice is testable before capture data exists. M3 still has to replace every TODO before the validator lets the milestone pass.
+8. **Alignment is stored as `light` / `order` / `honor`**, positive meaning Light / Order / Honor.
+
+---
+
+## 7. What M1 will contain
+
+Skeleton only, no dialogue. TOC; `Init`, `Compat` (with in-game probe and dev log), `Util`, `SavedData` (schema 1, migrations, repair/quarantine), `Trackers` (quest turn-ins, deaths, hearth, books, zones), `Context` (with spoof overlay), slash commands (`/rpgd capture | autocapture | spoof | dump ctx | why | mem | dev`), capture and text capture, `.luacheckrc`, `.pkgmeta`, `link_addons`, a README stub, plus an in-game test checklist and the exact things to paste back.
