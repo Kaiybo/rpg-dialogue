@@ -1,0 +1,8 @@
+<Bindings>
+  <Binding name="RPGD_TALK" header="RPGD" category="ADDONS">
+    RPGDialogueAPI:TalkToTarget()
+  </Binding>
+  <Binding name="RPGD_JOURNAL" category="ADDONS">
+    RPGDialogueAPI:OpenJournal()
+  </Binding>
+</Bindings>

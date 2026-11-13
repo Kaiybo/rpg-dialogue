@@ -1,0 +1,23 @@
+## Interface: 16001, 16002
+## Title: RPG Dialogue
+## Notes: Branching, reactive conversations with the people of Azeroth.
+## Author: RPG Dialogue
+## Version: @project-version@
+## IconTexture: Interface\Icons\INV_Misc_Book_09
+## SavedVariables: RPGDialogueDB
+## SavedVariablesPerCharacter: RPGDialogueCharDB
+## X-License: MIT
+
+Locales\enUS.lua
+
+Core\Init.lua
+Core\Util.lua
+Core\Compat.lua
+Core\WorldData.lua
+Core\SavedData.lua
+Core\Trackers.lua
+Core\Context.lua
+
+Dev\Capture.lua
+Dev\Spoof.lua
+Dev\Slash.lua

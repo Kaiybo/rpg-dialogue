@@ -1,0 +1,22 @@
+# BigWigs packager config (to verify against a real tagged build in M8).
+# core addon and every content pack as separate addon folders.
+package-as: RPGDialogue
+
+move-folders:
+  RPGDialogue/RPGDialogue: RPGDialogue
+  RPGDialogue/RPGDialogue_World: RPGDialogue_World
+  RPGDialogue/RPGDialogue_Elwynn: RPGDialogue_Elwynn
+
+ignore:
+  - tests
+  - tools
+  - reference
+  - "*.md"
+  - "**/bibles"
+  - banned_phrases.txt
+  - .luacheckrc
+  - .editorconfig
+
+manual-changelog:
+  filename: CHANGELOG.md
+  markup-type: markdown
