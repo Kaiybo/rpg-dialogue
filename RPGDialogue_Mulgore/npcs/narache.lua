@@ -32,6 +32,8 @@ P:NPC {
           text = "The rites of the Earthmother are older than this camp, older than the bluffs. Walk them with respect." },
         { id = "h_strength", when = { questActive = TODO_QUEST("Rite of Strength") },
           text = "The rite of strength asks what you'll do when it hurts. Answer it well." },
+        { id = "h_adventurer", when = { questActive = TODO_QUEST("The Adventurer") },
+          text = "Before you leave Mulgore, take this bundle to Kaga Wildhoof, camped outside Bloodhoof. She helped us when we needed it. I'd like to repay her." },
         { id = "h_attack", when = { questActive = TODO_QUEST("Attack on Camp Narache") },
           text = "They came to our camp with fire and spears. Now we go to theirs. Make them remember the Hawkwind." },
       },

@@ -1,4 +1,4 @@
-# Durotar  (keys: kaltunk, gornek, zureetha, thazzril, galgar, kzan, garthok, orgnil, grosk, gadrin)
+# Durotar  (keys: kaltunk, gornek, zureetha, thazzril, galgar, kzan, garthok, orgnil, grosk, brakk, gadrin)
 
 ## Sources
 - https://warcraft.wiki.gg/wiki/Valley_of_Trials (young orcs start here; the Den, a cave of recruiters and trainers; the Burning Blade's demons hold caves in the north and spill into the valley; Sarkoth the scorpid; the quest order: Your Place In The World, Cutting Teeth, Galgar's Cactus Apple Surprise, Sting of the Scorpid, Lazy Peons, Vile Familiars, Hana'zua, Sarkoth, Burning Blade Medallion, Thazz'ril's Pick, Report to Sen'jin Village)
@@ -13,6 +13,7 @@
 - https://warcraft.wiki.gg/wiki/Gar%27Thok (commander of Razor Hill, formerly a lieutenant under Nazgrel; terse, duty-first; Vanquish the Betrayers, Encroachment, From The Wreckage...., The Admiral's Orders)
 - https://warcraft.wiki.gg/wiki/Orgnil_Soulscar (Razor Hill's lawman against the Burning Blade; Razor Hill a haven for young orcs and trolls and traders; Report to Orgnil, Dark Storms, Margoz)
 - https://warcraft.wiki.gg/wiki/Innkeeper_Grosk (orc innkeeper of Razor Hill; A Peon's Burden, Classic only)
+- https://warcraft.wiki.gg/wiki/The_Adventurer_(Durotar) (Forever: a Lost Journal full of a stranger's camping adventures goes back to Brakk near Razor Hill, who is glad of it and teaches camping; The Great Outdoors (Forever) uses a Horde greeting for him)
 - https://warcraft.wiki.gg/wiki/Sen%27jin_Village (Darkspear fishing village; named for Vol'jin's father Sen'jin, who died fighting murlocs; Zalazane drove the tribe from the Echo Isles; Sen'jin Watchers)
 - https://warcraft.wiki.gg/wiki/Master_Gadrin (elderly chief witch doctor; wise, proud teacher, folksy, gruff with fools; trained Zalazane and Vol'jin; Zalazane went mad, cursed the isles and drove the witch doctors out; Minshina's Skull, Zalazane, Report to Orgnil)
 - https://warcraft.wiki.gg/wiki/Vol%27jin (Vol'jin left Gadrin to lead the effort to retake the isles; Zalazane was his childhood friend)
@@ -27,6 +28,7 @@
 - Gar'Thok: Vanquish the Betrayers, The Admiral's Orders, Encroachment, From The Wreckage.....
 - Orgnil: Report to Orgnil, Dark Storms.
 - Grosk: A Peon's Burden.
+- Brakk: The Adventurer (turn-in), The Great Outdoors.
 - Gadrin: Minshina's Skull, Zalazane, Report to Orgnil.
 
 ## Never
@@ -45,4 +47,5 @@
 - Gar'Thok: terse commander; the crossroads.
 - Orgnil: grim lawman; cultists in caves and in cities.
 - Grosk: dry innkeeper.
+- Brakk: easygoing wanderer; his journal; race not given by the wiki, so never stated (authored).
 - Gadrin: folksy old witch doctor; Vol'jin his pride, Zalazane his shame (authored from his dialogue's tone; the wiki infers it).

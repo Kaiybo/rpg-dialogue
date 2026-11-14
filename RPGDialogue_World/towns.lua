@@ -291,6 +291,12 @@ P:Town {
   quests = { { TODO_QUEST("Wanted: Maggot Eye"), 6 }, { TODO_QUEST("Deaths in the Family"), 6 } },
 }
 
+P:Town {
+  id = "kharanos", name = "Kharanos",
+  subzones = { "Kharanos", "Thunderbrew Distillery" },
+  tiers = { Hero = "Friend of Kharanos" },
+}
+
 -- The other capitals. Their guards speak from pools_roles.lua; standing grows from quests
 -- each capital's own pack lists later.
 P:Town {

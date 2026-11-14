@@ -1,4 +1,4 @@
-# Mulgore  (keys: hawkwind, grull, baine, zarlman, harken, maur, mull, ahab, kauth, ayessa)
+# Mulgore  (keys: hawkwind, grull, baine, zarlman, harken, maur, mull, ahab, kauth, kaga, ayessa)
 
 ## Sources
 - https://warcraft.wiki.gg/wiki/Camp_Narache (tauren starting village, main village of the Hawkwind tribe; tent for wounded braves, spirit lounge, bakery; Greatmother Hawkwind, a fallen matriarch the trainers honor; the Battleboar Pen; braves as guards; Forever subzones listed nearby)
@@ -12,6 +12,7 @@
 - https://warcraft.wiki.gg/wiki/Mull_Thunderhorn (worried for Mulgore's sacred wells, tainted by the Venture Company; Poison Water, the Winterhoof/Thunderhorn/Wildmane totems and cleansings; tauren only)
 - https://warcraft.wiki.gg/wiki/Ahab_Wheathoof ("The Old Rancher" at Stonebull Lake; polite, anxious, misses his dog Kyle; Kyle's Gone Missing!; added in 2.1.2 and **added to Forever after fan outcry**)
 - https://warcraft.wiki.gg/wiki/Innkeeper_Kauth (male tauren innkeeper of Bloodhoof; A Task Unfinished)
+- https://warcraft.wiki.gg/wiki/The_Adventurer_(Mulgore) (Forever: Chief Hawkwind sends a Supply Bundle to Kaga Wildhoof, an adventurer camped just outside Bloodhoof who helped him in the past; she teaches camping, per The Great Outdoors (Forever))
 - Brief §10: the Windshapers (Horde) joined after contacting the Earthen Ring, based at Camp Gev'rek in Mulgore, led by Ayessa Dawnsinger; Horde Skyborne start Friendly with Thunder Bluff; elements, a debt to the wind spirits, trials and sapta; strained, sometimes violent relations with the High Order; druids rare, drawn to the Cenarion Circle, favoring the elements over Elune; the Al'Aketh; windstones; "Winds be with you".
 
 ## Their quests
@@ -21,6 +22,7 @@
 - Zarlman: Rite of Vision. Harken: Swoop Hunting. Maur: Mazzranache.
 - Mull: Poison Water, the totems and cleansings.
 - Ahab: Kyle's Gone Missing! Kauth: A Task Unfinished.
+- Kaga: The Adventurer (turn-in), The Great Outdoors. Hawkwind: The Adventurer.
 - Ayessa: none (none known).
 
 ## Never
@@ -39,4 +41,5 @@
 - Mull: worried priest of the wells.
 - Ahab: anxious, kind rancher; Kyle.
 - Kauth: warm innkeeper.
+- Kaga: warm wanderer; fires as villages for a night (authored).
 - Ayessa: steady, devout leader; welcoming, guarded about the High Order (authored within the brief).

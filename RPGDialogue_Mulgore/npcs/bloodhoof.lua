@@ -291,3 +291,48 @@ P:NPC {
     _none = { { id = "tp_none", text = "I hear a little of everything and keep less. Ask Baine." } },
   },
 }
+
+-- Forever's camping: the adventurer camped just outside Bloodhoof Village.
+P:NPC {
+  key = "kaga", id = TODO_NPC("Kaga Wildhoof"), name = "Kaga Wildhoof",
+  bible = "bibles/mulgore.md", role = "questgiver", tier = "quest",
+  communities = { "bloodhoof" }, temper = { "warm" }, values = { "generous", "brave" },
+  notices = { "craft" },
+
+  greetings = {
+    { id = "g_fire", text = "Earth Mother's blessing, traveler. Come and sit; the fire is big enough for two." },
+    { id = "g_back", when = { metBefore = true }, text = "Back at my fire. Good. Sit; tell me where the road took you." },
+  },
+
+  notice = {
+    { id = "n_leather", cat = "craft", when = { profession = "Leatherworking" },
+      text = "You work hides. Then you'll want to learn the tent. A night by a fire with a tent close by is a night well spent." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "Kaga Wildhoof. I wander, I camp, and I come back to Mulgore when the wind turns. The Chief and I go back a long way." },
+        { id = "h_bundle", tags = { "news" }, when = { questActive = TODO_QUEST("The Adventurer") },
+          text = "A bundle from Chief Hawkwind? He never forgets a kindness. Tell him he owes me nothing, and that I said so twice." },
+        { id = "h_outdoors", when = { questActive = TODO_QUEST("The Great Outdoors") },
+          text = "Sit by the fire and let it work on you. The rest comes when it comes." },
+      },
+      choices = {
+        { text = "What is it you love about camping?", next = "why" },
+        { text = "Earth Mother keep you.", next = "END" },
+      },
+    },
+    why = {
+      lines = { { id = "w_default", text = "Every fire is a small village for a night. Whoever passes can sit at it. I've met more friends at campfires than in any town." } },
+      choices = { { text = "Teach me.", next = "END", fx = { affinity = 2, learn = { "camping" } } } },
+    },
+  },
+
+  topics = {
+    camping = { { id = "tp_camping", text = "Start with a fire. Cooks can make one. Then add what your hands know how to make." } },
+    _none = { { id = "tp_none", text = "I don't know. The wind hasn't told me." } },
+  },
+}

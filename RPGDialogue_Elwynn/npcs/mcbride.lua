@@ -60,6 +60,8 @@ P:NPC {
           text = "That's the count? Good. Hand it in properly and I'll sign it off." },
         { id = "q_kobold_recent", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Kobold Camp Cleanup"), days = 2 } },
           text = "First quiet night the brothers have had in a week. They'll pray for you. I'll settle for you staying sharp." },
+        { id = "q_adventurer", when = { questActive = TODO_QUEST("The Adventurer") },
+          text = "There's a newcomer camped on the road by Goldshire. Probably harmless. Find out, and tell me if I'm wrong." },
         { id = "q_echo_active", when = { questActive = TODO_QUEST("Investigate Echo Ridge") },
           text = "My scouts say there's more of them than we thought. Go and see. Count, don't charge." },
         { id = "q_echo_later", when = { questLater = { TODO_QUEST("Skirmish at Echo Ridge"), days = 5 } },

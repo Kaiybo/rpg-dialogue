@@ -136,3 +136,48 @@ P:NPC {
     _none = { { id = "tp_none", text = "I pour drinks. I don't keep track of things. Ask Gar'Thok." } },
   },
 }
+
+-- Forever's camping: the adventurer on the road near Razor Hill.
+P:NPC {
+  key = "brakk", id = TODO_NPC("Brakk"), name = "Brakk",
+  bible = "bibles/durotar.md", role = "questgiver", tier = "quest",
+  communities = { "razor_hill" }, temper = { "easygoing" }, values = { "generous", "curious" },
+  notices = { "craft" },
+
+  greetings = {
+    { id = "g_fire", text = "Throm-ka. Sit, if you're not in a hurry. If you are, sit anyway; the road will keep." },
+    { id = "g_back", when = { metBefore = true }, text = "The one who found my journal. Sit. The fire remembers you." },
+  },
+
+  notice = {
+    { id = "n_cook", cat = "craft", when = { profession = "Cooking" },
+      text = "A cook. Then you can build a real campfire. Everything else in a camp is built around one." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "Brakk. I walk Durotar and camp wherever I stop. My journal says more about it than I do." },
+        { id = "h_journal", tags = { "news" }, when = { questActive = TODO_QUEST("The Adventurer") },
+          text = "My journal! I thought the scorpids had it. Every camp I've ever made is written in there. You have my thanks." },
+        { id = "h_outdoors", when = { questActive = TODO_QUEST("The Great Outdoors") },
+          text = "Rest by the fire until your bones stop arguing with you. You'll know when." },
+      },
+      choices = {
+        { text = "Why sleep out here?", next = "why" },
+        { text = "Lok'tar, Brakk.", next = "END" },
+      },
+    },
+    why = {
+      lines = { { id = "w_default", text = "Walls are for people who've stopped walking. Out here, any traveler can share the fire. A camp belongs to whoever sits at it." } },
+      choices = { { text = "Show me how.", next = "END", fx = { affinity = 2, learn = { "camping" } } } },
+    },
+  },
+
+  topics = {
+    camping = { { id = "tp_camping", text = "Fire first. Then whatever your trade adds: a tent, a rack for fish, a pot. The more hands, the better the rest." } },
+    _none = { { id = "tp_none", text = "I only know the road and the fire. Ask in Razor Hill." } },
+  },
+}
