@@ -369,6 +369,24 @@ describe("Content packs", function()
     eq(ns.Data.FindNPC(nil, "Keeper Albagorm").key, "albagorm")
   end)
 
+  it("the_circle: a druid hears Dendrite's beat in Moonglade, then the Keeper's", function()
+    local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Moonglade" } })
+    ns.db.settings.instantText = true
+    Mock.state.units.player.classFile, Mock.state.units.player.class = "DRUID", "Druid"
+    Mock.state.units.player.level = 16
+    Mock.state.zone, Mock.state.subzone = "Moonglade", "Nighthaven"
+    Mock.Fire("ZONE_CHANGED_NEW_AREA")
+    Mock.RunTimers()
+    local t = ns.Data.threads.the_circle
+    ok(t and #t.beats == 7)
+    Mock.state.units.npc = { guid = "Creature-0-1-0-1-11802-AB", name = "Dendrite Starblaze", level = 30 }
+    Mock.NewFrame("Frame", "GossipFrame"):Show()
+    Mock.Fire("GOSSIP_SHOW")
+    Mock.RunTimers()
+    ok(ns.char.threads.the_circle and ns.char.threads.the_circle.beats.b1_dendrite, "Dendrite's beat recorded")
+    eq(ns.char.threads.the_circle.state, "stirring")
+  end)
+
   it("Zephras Isle's Peacekeepers are guards of the isle, and the High Elder knows her own", function()
     local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Zephras" } })
     ns.db.settings.instantText = true
