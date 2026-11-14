@@ -21,6 +21,8 @@ local WOOD_WIDTH, GAME_WIDTH = 600, 360
 -- Game look: the metal header is 60 pixels (title bar, then the subtitle beside the round
 -- portrait), the inset starts there, text sits 12 inside it. The bottom bar is 26 high.
 local GAME_HEADER, GAME_INSET_PAD, GAME_BAR = 60, 12, 26
+-- The parchment's right edge is ragged: text keeps a little further from it.
+local GAME_RIGHT_PAD = 22
 local MAX_BUTTONS = 10
 
 -- Icons the game's gossip window uses: a speech bubble for talking, a bullet otherwise.
@@ -306,7 +308,7 @@ local function placeParts(game)
 end
 
 local function textWidth()
-  if isGame() then return GAME_WIDTH - 4 - 6 - 2 * GAME_INSET_PAD end
+  if isGame() then return GAME_WIDTH - 4 - GAME_INSET_PAD - GAME_RIGHT_PAD end
   return WOOD_WIDTH - (PAD + PORTRAIT + 14) - PAD - 22
 end
 
@@ -369,7 +371,8 @@ function D.Layout()
   local reactionH = frame.reaction:IsShown() and (8 + (frame.reaction:GetStringHeight() or 14)) or 0
   local rowLeft, rowWidth, y
   if game then
-    rowLeft, rowWidth = 4 + GAME_INSET_PAD - 4, W - 10 - 2 * (GAME_INSET_PAD - 4)
+    rowLeft = 4 + GAME_INSET_PAD - 4
+    rowWidth = W - rowLeft - GAME_RIGHT_PAD + 4
     y = -(GAME_HEADER + GAME_INSET_PAD) - textH - reactionH - 14
   else
     local h = (frame.name:GetStringHeight() or 20) + (frame.subtitle:GetStringHeight() or 0) + 12 + textH + reactionH
@@ -411,12 +414,16 @@ function D.Layout()
       inset:SetPoint("BOTTOMRIGHT", -6, bottom)
     end
     frame.flagBox:SetWidth(W - 12 - 16 - (frame.ask:IsShown() and 124 or 0))
-    frame:SetHeight(math.max(-y + 8 + bottom, 170))
+    local H = math.max(-y + 8 + bottom, 170)
+    frame:SetHeight(H)
+    Theme.FitPaper(frame, W - 10, H - GAME_HEADER - bottom)
   else
     frame.flagBox:SetWidth(WOOD_WIDTH - 2 * PAD - 120)
     if barShown then y = y - 36 end
     frame:SetHeight(-y + PAD - 4)
   end
+  -- The Ask list beside the box keeps its height.
+  if UI.AskAbout.IsShown() then UI.AskAbout.Fit(frame) end
 end
 
 function D.SavePosition()

@@ -167,7 +167,7 @@ local function create()
   frame:SetScript("OnDragStart", frame.StartMoving)
   frame:SetScript("OnDragStop", frame.StopMovingOrSizing)
   frame:Hide()
-  Theme.Decorate(frame, 7)
+  Theme.Decorate(frame, 7, { chrome = "frame" })
 
   -- Keyboard: Escape closes, Left/Right switch tabs. Gamepad: D-pad left/right, B closes.
   frame:EnableKeyboard(true)
@@ -182,15 +182,13 @@ local function create()
   frame:SetScript("OnHide", function() C.GamePadButtons(frame, false) end)
 
   frame.title = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
-  frame.title:SetPoint("TOPLEFT", 18, -14)
+  frame.title:SetDrawLayer("OVERLAY", 7)
   frame.close = Theme.CloseButton(frame)
-  frame.close:SetPoint("TOPRIGHT", -12, -12)
   frame.close:SetScript("OnClick", function() frame:Hide() end)
 
   frame.tabs = {}
-  for i, id in ipairs(TABS) do
+  for _, id in ipairs(TABS) do
     local b = Theme.Button(frame, "", 84, 22)
-    b:SetPoint("TOPLEFT", 14 + (i - 1) * 88, -40)
     b:SetText(L["J_TAB_" .. id:upper()])
     b:SetScript("OnClick", function() J.Show(id) end)
     frame.tabs[id] = b
@@ -198,7 +196,6 @@ local function create()
 
   frame.search = CreateFrame("EditBox", nil, frame, C.Template("editbox"))
   frame.search:SetSize(200, 20)
-  frame.search:SetPoint("TOPRIGHT", -24, -70)
   frame.search:SetAutoFocus(false)
   frame.search:SetScript("OnTextChanged", function() if current == "chronicle" then J.Show("chronicle") end end)
   frame.search:SetScript("OnEscapePressed", function(self) self:ClearFocus() end)
@@ -266,14 +263,50 @@ function J.CycleOrigin()
   end)
 end
 
+-- Game look: title in the title bar, tabs and search on the rock header, the pages on
+-- parchment below. Wood look: everything on the wood-framed parchment.
+local GAME_INSET_TOP = 90
+local function placeParts(game)
+  frame.title:ClearAllPoints()
+  frame.close:ClearAllPoints()
+  frame.search:ClearAllPoints()
+  if game then
+    frame.title:SetPoint("TOPLEFT", 12, -5)
+    frame.title:SetPoint("TOPRIGHT", -24, -5)
+    frame.title:SetJustifyH("CENTER")
+    frame.close:SetPoint("TOPRIGHT", 1, 0)
+    frame.search:SetPoint("TOPRIGHT", -24, -64)
+    local inset = Theme.GamePart(frame, "inset")
+    if inset then
+      inset:ClearAllPoints()
+      inset:SetPoint("TOPLEFT", 4, -GAME_INSET_TOP)
+      inset:SetPoint("BOTTOMRIGHT", -6, 4)
+    end
+    Theme.FitPaper(frame, W - 10, H - GAME_INSET_TOP - 4)
+  else
+    frame.title:SetPoint("TOPLEFT", 18, -14)
+    frame.title:SetJustifyH("LEFT")
+    frame.close:SetPoint("TOPRIGHT", -12, -12)
+    frame.search:SetPoint("TOPRIGHT", -24, -70)
+  end
+  for i, id in ipairs(TABS) do
+    local b = frame.tabs[id]
+    b:ClearAllPoints()
+    b:SetPoint("TOPLEFT", 14 + (i - 1) * 88, game and -32 or -40)
+  end
+end
+
 function J.Style()
   local size = Theme.TextSize()
+  local game = Theme.IsGame()
   Theme.Recolor(frame)
+  placeParts(game)
   Theme.StyleButton(frame.close, 12)
   Theme.StyleButton(frame.originBtn)
   for _, b in pairs(frame.tabs) do Theme.StyleButton(b) end
-  Theme.SetFont(frame.title, "name", size + 6)
-  Theme.TextColor(frame.title, "name")
+  Theme.SetFont(frame.title, "name", game and 13 or size + 6)
+  Theme.Shadow(frame.title, game)
+  Theme.TextColor(frame.title, game and "title" or "name")
   Theme.SetFont(frame.text, "body", size)
   Theme.TextColor(frame.text, "text")
   frame.text:SetSpacing(ns.db.settings.lineSpacing or 3)

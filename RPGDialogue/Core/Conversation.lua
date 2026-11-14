@@ -53,6 +53,9 @@ end
 
 function Conv.Identify(unit, ctx, interactionName)
   if not C.Exists(unit) or C.IsPlayer(unit) then return nil end
+  -- Make sure this zone's pack is in before deciding who this is (a missed zone event
+  -- would otherwise leave named NPCs speaking from the role pools).
+  if ns.Packs.zoneIndex and not C.InCombat() then ns.Packs.LoadForZone() end
   local npcID = ctx.npcID or nil
   local name = ctx.npcName or nil
   if not npcID and not name then return nil end

@@ -309,6 +309,13 @@ function C.HasAtlas(name)
   return type(name) == "string" and call("C_Texture.GetAtlasInfo", name) ~= nil
 end
 
+-- { width, height, file, leftTexCoord, rightTexCoord, topTexCoord, bottomTexCoord, ... } or nil.
+function C.AtlasInfo(name)
+  if type(name) ~= "string" then return nil end
+  local info = call("C_Texture.GetAtlasInfo", name)
+  return type(info) == "table" and info or nil
+end
+
 -- The frame borders (NineSliceUtil and the layouts we use) and the quest parchment.
 function C.GameArtAvailable()
   local getLayout = resolve("NineSliceUtil.GetLayout")
@@ -316,7 +323,7 @@ function C.GameArtAvailable()
     noteMissing("NineSliceUtil")
     return false
   end
-  for _, name in ipairs({ "PortraitFrameTemplate", "SimplePanelTemplate", "InsetFrameTemplate" }) do
+  for _, name in ipairs({ "PortraitFrameTemplate", "ButtonFrameTemplateNoPortrait", "SimplePanelTemplate", "InsetFrameTemplate" }) do
     local ok, layout = pcall(getLayout, name)
     if not ok or type(layout) ~= "table" then return false end
   end

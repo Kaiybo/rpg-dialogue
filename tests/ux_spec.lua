@@ -226,6 +226,40 @@ describe("Right-clicking someone with no menu", function()
     contains(f.text:GetText(), "Mutton stew")
   end)
 
+  it("has her own lines for a new level-1 character whose first login didn't know the zone yet", function()
+    -- Simulate the first login: the zone was unknown at login, and Northshire -> Goldshire
+    -- is the same zone, so no ZONE_CHANGED_NEW_AREA ever came.
+    local ns2 = Loader.Boot({
+      packs = { "RPGDialogue_World", "RPGDialogue_Elwynn" },
+      setup = function(state)
+        state.zone, state.subzone = "", ""
+        state.units.player.level, state.units.player.classFile = 1, "PALADIN"
+      end,
+    })
+    ns2.db.settings.instantText = true
+    ns2.db.settings.sounds = false
+    for _, n in ipairs({ "GossipFrame", "QuestFrame", "MerchantFrame" }) do if _G[n] then _G[n]:Hide() end end
+    local elwynnLoaded = false
+    for _, p in ipairs(ns2.Packs.List()) do if p.addon == "RPGDialogue_Elwynn" then elwynnLoaded = p.loaded end end
+    eq(elwynnLoaded, false, "not loaded at login")
+    Mock.state.zone, Mock.state.subzone = "Elwynn Forest", "Lion's Pride Inn"
+    rightClick(MELIKA)
+    eq(ns2.Conversation.session.info.key, "melika", "her own file, not the innkeeper pool")
+    contains(ns2.UI.Dialogue.Frame().text:GetText(), "Farley talks to the guests")
+  end)
+
+  it("loads the zone's pack on a subzone change too", function()
+    local ns = Loader.Boot({
+      packs = { "RPGDialogue_World", "RPGDialogue_Elwynn" },
+      setup = function(state) state.zone, state.subzone = "", "" end,
+    })
+    Mock.state.zone, Mock.state.subzone = "Elwynn Forest", "Goldshire"
+    Mock.Fire("ZONE_CHANGED")
+    local loaded
+    for _, p in ipairs(ns.Packs.List()) do if p.addon == "RPGDialogue_Elwynn" then loaded = p.loaded end end
+    eq(loaded, true)
+  end)
+
   it("speaks to a level-22 Skyborne druid as one", function()
     local ns = bootReal({ race = "Skyborne", raceFile = "Skyborne", class = "Druid", classFile = "DRUID", level = 22 })
     rightClick(MELIKA)

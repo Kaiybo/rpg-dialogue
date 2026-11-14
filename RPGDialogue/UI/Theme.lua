@@ -230,16 +230,17 @@ local PORTRAIT_MASK = "Interface\\CharacterFrame\\TempPortraitAlphaMask"
 
 -- The game look's parts for one frame, made the first time they're needed. A portrait
 -- frame is built like the game's gossip window (ButtonFrameTemplate): metal frame with the
--- portrait ring, rock behind a 60-pixel header, an inset holding the quest parchment. Any
--- other window gets the plain metal panel border around parchment.
+-- portrait ring, rock behind a 60-pixel header, an inset holding the quest parchment.
+-- opts.chrome = "frame" is the same without the portrait (the title bar runs the full
+-- width). Any other window gets the plain metal panel border around parchment.
 local function buildGame(f)
   local t = f.rpgdTex
   if t.game ~= nil then return t.game end
   local g = { regions = {} }
   local function keep(r) g.regions[#g.regions + 1] = r; return r end
   local layout
-  if t.opts.portrait then
-    layout = "PortraitFrameTemplate"
+  if t.opts.portrait or t.opts.chrome == "frame" then
+    layout = t.opts.portrait and "PortraitFrameTemplate" or "ButtonFrameTemplateNoPortrait"
     g.rock = keep(f:CreateTexture(nil, "BACKGROUND", nil, -6))
     g.rock:SetTexture(ROCK, "REPEAT", "REPEAT")
     g.rock:SetHorizTile(true)
@@ -260,6 +261,8 @@ local function buildGame(f)
     g.paper = keep(f:CreateTexture(nil, "BACKGROUND", nil, 2))
     g.paper:SetPoint("TOPLEFT", g.inset, "TOPLEFT", 3, -3)
     g.paper:SetPoint("BOTTOMRIGHT", g.inset, "BOTTOMRIGHT", -3, 3)
+  end
+  if t.opts.portrait then
     -- The round portrait sits in the frame's corner ring, above it.
     g.portrait = keep(f:CreateTexture(nil, "OVERLAY", nil, 6))
     g.portrait:SetSize(62, 62)
@@ -271,7 +274,7 @@ local function buildGame(f)
       m:SetPoint("BOTTOMRIGHT", g.portrait, "BOTTOMRIGHT", -2, 4)
       g.portrait:AddMaskTexture(m)
     end
-  else
+  elseif not layout then
     layout = "SimplePanelTemplate"
     g.paper = keep(f:CreateTexture(nil, "BACKGROUND", nil, 2))
     g.paper:SetPoint("TOPLEFT", 2, -2)
@@ -337,7 +340,12 @@ function Theme.Recolor(f)
   end
   local p = Theme.Palette()
   if game then
-    if g.paper:SetAtlas(C.QuestBackgroundAtlas(p.dark)) == false then color(g.paper, p.bg) end
+    g.paperAtlas = C.QuestBackgroundAtlas(p.dark)
+    if g.paper:SetAtlas(g.paperAtlas) == false then
+      color(g.paper, p.bg)
+      g.paperAtlas = nil
+    end
+    Theme.FitPaper(f)
     return
   end
   for i, sh in ipairs(t.shadow) do sh:SetColorTexture(0, 0, 0, ({ 0.30, 0.16, 0.07 })[i]) end
@@ -345,6 +353,29 @@ function Theme.Recolor(f)
   paint(t.woodEdge, p.wood)
   paint(t.trim, p.trim)
   paint(t.shade, p.shade)
+end
+
+-- The parchment keeps its proportions: drawn at its own size (or scaled up just enough to
+-- cover a bigger area) from its top-left corner, and cut off by the inset, the way the
+-- gossip window shows it. Without the atlas's coordinates it's simply stretched.
+-- w, h: the parchment's area (the inset, or the whole panel), when the window knows it.
+function Theme.FitPaper(f, w, h)
+  local g = f.rpgdTex and f.rpgdTex.game
+  if not g or not g.paper then return end
+  if w and h then g.paperSize = { w, h } end
+  local size, atlas = g.paperSize, g.paperAtlas
+  if not size or not atlas or not Theme.IsGame() then return end
+  local info = C.AtlasInfo(atlas)
+  local l, r = info and info.leftTexCoord, info and info.rightTexCoord
+  local t, b = info and info.topTexCoord, info and info.bottomTexCoord
+  if not (info and info.file and type(l) == "number" and type(r) == "number" and type(t) == "number"
+      and type(b) == "number" and (info.width or 0) > 0 and (info.height or 0) > 0) then return end
+  w, h = size[1] - 6, size[2] - 6
+  if w <= 0 or h <= 0 then return end
+  local scale = math.max(1, w / info.width, h / info.height)
+  local fx, fy = w / (info.width * scale), h / (info.height * scale)
+  if g.paper:SetTexture(info.file) == false then g.paper:SetAtlas(atlas); return end
+  g.paper:SetTexCoord(l, l + (r - l) * fx, t, t + (b - t) * fy)
 end
 
 -- A part of the game look on a decorated frame ("portrait", "inset"), or nil (wood look,

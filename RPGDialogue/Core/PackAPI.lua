@@ -403,7 +403,12 @@ ns.OnLogin(function()
   Packs.LoadForLogin()
   Packs.LoadForZone()
 end)
-ns.On("ZONE_CHANGED_NEW_AREA", function() Packs.LoadForZone() end)
+-- A zone's pack loads as soon as we know we're in it. On a new character's first login
+-- the zone isn't known yet at PLAYER_LOGIN, and walking from Northshire to Goldshire never
+-- changes the zone, so every zone signal counts (each check is cheap once loaded).
+for _, ev in ipairs({ "PLAYER_ENTERING_WORLD", "ZONE_CHANGED_NEW_AREA", "ZONE_CHANGED", "ZONE_CHANGED_INDOORS" }) do
+  ns.On(ev, function() if Packs.zoneIndex then Packs.LoadForZone() end end)
+end
 
 ---------------------------------------------------------------------------
 -- Lookups used by the conversation controller

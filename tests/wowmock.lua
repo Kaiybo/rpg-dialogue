@@ -139,6 +139,7 @@ function frameMethods.SetAtlas(self, name) self._atlas = name; self._texture = n
 function frameMethods.SetTexture(self, file) self._texture = file; self._atlas = nil; return true end
 function frameMethods.SetColorTexture(self, r, g, b, a) self._color = { r, g, b, a }; self._texture, self._atlas = nil, nil end
 function frameMethods.GetAtlas(self) return self._atlas end
+function frameMethods.SetTexCoord(self, ...) self._coords = { ... } end
 function frameMethods.GetTexture(self) return self._texture end
 function frameMethods.SetTextColor(self, r, g, b) self._textColor = { r, g, b } end
 function frameMethods.GetTextColor(self) local c = self._textColor or { 1, 1, 1 }; return c[1], c[2], c[3] end
@@ -188,6 +189,11 @@ function PlaySound(id) Mock.calls[#Mock.calls + 1] = { "PlaySound", id } end
 C_Texture = {
   GetAtlasInfo = function(name)
     if not S().gameArt or S().missingAtlas[name] then return nil end
+    if tostring(name):find("^QuestBG") then
+      -- The quest parchment: part of a bigger texture file.
+      return { width = 330, height = 420, file = 9001, leftTexCoord = 0, rightTexCoord = 0.5,
+               topTexCoord = 0, bottomTexCoord = 0.8 }
+    end
     return { width = 16, height = 16, file = 1 }
   end,
 }

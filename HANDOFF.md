@@ -3,7 +3,7 @@
 > Read this first, then `DESIGN.md`, then `CONTENT_GUIDE.md` (and `PACK_AUTHORING.md` before adding a zone). You won't remember earlier sessions; these files are your memory.
 > The original brief is the Project doc `rpg-dialogue-build-prompt (1).md`. Re-read it when a decision isn't covered here.
 
-**Last session:** 2026-11-13 · **M0–M8 all built; three rounds of in-game results are in.** The addon loads, packs load, `/rpgd why` works, and the Skyborne race token is "Skyborne". **Versions now: core 0.10.0, World 1.0.0, Elwynn 1.1.0** (`python3 tools/version.py`).
+**Last session:** 2026-11-13 · **M0–M8 all built; three rounds of in-game results are in.** The addon loads, packs load, `/rpgd why` works, and the Skyborne race token is "Skyborne". **Versions now: core 0.10.1, World 1.0.0, Elwynn 1.1.0** (`python3 tools/version.py`).
 
 **First in-game test (user, 2026-11-13):**
 - **Test character: Skyborne Druid, level 22 (Blooded), faction not confirmed, tested in Northshire Valley.** Content for that character is thin: the slice is written for level 1–10 characters doing Northshire/Goldshire quests (only 4 Skyborne lines and 1 druid line exist). Asked the user where they actually play, for the next content pass.
@@ -19,6 +19,8 @@
   - Versions in the AddOns list title (grey), TOC `## Version`, `/rpgd packs`, settings header, login line. `tools/version.py` keeps TOC, code and changelogs in step; `tools/build_zip.py` builds `tools/out/RPGDialogue-<ver>.zip` and refuses on a mismatch. When bumping: `python3 tools/version.py set <folder> <x.y.z>`, then add the changelog heading.
 
 - **Then: "If possible, can it become closer to WoW's original style?"** Read as: look like the game's own quest and gossip windows. Done in 0.10.0 (DESIGN §3.10): a "game" look (new default) built at runtime from the client's own art, found in Blizzard's 12.1.5 UI code (cloned the public `Gethe/wow-ui-source` mirror to read `GossipFrame.xml`, `SharedUIPanelTemplates.xml`, `NineSliceLayouts.lua`, `QuestUtils.lua`...). The 0.9.0 look stays as "Parchment and dark wood". Told the user that if they meant the 2004 classic look specifically, that can be a third style. No preview image was possible (the art lives in the client).
+- **Fourth test (screenshot, 0.10.0 game style working: metal frame, round portrait, title, parchment, speech bubbles, red buttons):** "Could use a bit of tweaking." **The user switched to a new Human Paladin level 1** (their main is being moved) and Melika gave the innkeeper pool's lines ("Work's work...", "A room, please.") where the druid had her full dialogue. Cause found in code: zone packs loaded only at PLAYER_LOGIN and ZONE_CHANGED_NEW_AREA; a new character's first login doesn't know its zone at PLAYER_LOGIN, and Northshire → Goldshire is the same zone. Fixed in 0.10.1 (all zone events, plus a load check in `Conv.Identify`); test reproduces it. Not confirmed in game yet: if it recurs, ask for `/rpgd packs` and check the AddOns list's per-character enable state.
+  - Tweaks chosen from the screenshot (the user gave no specifics): Ask list rebuilt like the box (title bar, close, header search, inset parchment, same height as the box, rows that fit), journal and export the same frame, parchment cropped at its own proportions instead of squashed (`Theme.FitPaper`), more right padding. Asked the user to name anything else.
 
 ## Assumptions made while the user was away (confirm or correct)
 1. **Interface number** 16001 (from warcraft.wiki.gg, patch 1.60.1). TOCs say `16001, 16002` to cover the next patch too.
@@ -45,7 +47,7 @@
 - **M6** (979fcc5): spirit healer tree, books, insanity, drunk replies, ghosts, barks, errands.
 - **M7** (bbefce7): `tools/new_zone.py` (plan → approve tiers → scaffold), `tools/check_all.py`, impossible-quest-reference check, copied-wording check, flag replay lines, `/rpgd capture zone`, `tests/test_tools.py`.
 - **M8** (c2e6a2e): Total RP 3 (read-only), accessibility pass (keyboard selection, gamepad, Ask About keybinding, bundled readable font, "(Locked)" and ">" markers, journal tab keys), the optional "something new" tooltip marker (an M2 item that had been missed), pack `requires` reported in game and validated, per-pack versions and changelogs, `PACK_AUTHORING.md`, `.pkgmeta` checked against the packager's source, Blizzard UI policy checked and enforced by `check_all.py --release`, GitHub workflows, README rewrite.
-- **After the in-game tests:** box every visit with the game's options, safety net, right-click talk, Melika, fonts, polish, versions. **Checks now:** 143 Lua tests (new `tests/ux_spec.lua`, `tests/look_spec.lua`), 8 Python tool tests, luacheck clean, validator 0 errors (106 warnings, all TODO placeholders), voice check 0 failures, simulation 0 runtime errors / 0 contradictions / 0 impossible quest references.
+- **After the in-game tests:** box every visit with the game's options, safety net, right-click talk, Melika, fonts, polish, versions. **Checks now:** 147 Lua tests (new `tests/ux_spec.lua`, `tests/look_spec.lua`), 8 Python tool tests, luacheck clean, validator 0 errors (106 warnings, all TODO placeholders), voice check 0 failures, simulation 0 runtime errors / 0 contradictions / 0 impossible quest references.
 - Earlier: **Checks at the end of M8:** 118 Lua tests, 7 Python tool tests, luacheck clean, validator 0 errors (101 warnings, all TODO placeholders), voice check 0 failures, simulation 0 runtime errors / 0 contradictions / 0 impossible quest references.
 
 ## Half-done
@@ -101,7 +103,9 @@ Still all of DESIGN.md §4 (section 9 answers, slice zone, where the repo lives,
 - `python3 tools/check_all.py` runs everything (about a minute); `--quick` skips the simulation.
 
 ## Exact next step
-User installs 0.10.0 (**full game restart**, not /reload), right-clicks Melika and a gossip NPC and checks the game-style box (screenshot welcome): frame, portrait, title, parchment, icons, red buttons. Fix what's off; if they meant the 2004 classic look, add it as a third style. Then ask where the druid actually plays and write content there (Skyborne facts only from brief §10).
+User installs 0.10.1 (full restart), checks Melika on the paladin (her own lines: "Melika. Farley talks to the guests, I feed them."), the Ask list, the journal (`/rpgd journal`), and says what else to tweak. Then content for wherever the paladin or the moved main plays.
+
+Previous next step (0.10.0): user installs 0.10.0 (**full game restart**, not /reload), right-clicks Melika and a gossip NPC and checks the game-style box (screenshot welcome): frame, portrait, title, parchment, icons, red buttons. Fix what's off; if they meant the 2004 classic look, add it as a third style. Then ask where the druid actually plays and write content there (Skyborne facts only from brief §10).
 
 Previous next step (0.9.0): user installs, right-clicks Melika and checks: her own lines (as a Skyborne druid: "A sky-folk druid..."), the new look, the font pickers, the versions in the AddOns list.
 

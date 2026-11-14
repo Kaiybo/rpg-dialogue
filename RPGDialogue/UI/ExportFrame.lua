@@ -19,9 +19,9 @@ local function create()
   frame:SetFrameStrata("DIALOG")
   frame:EnableMouse(true)
   frame:Hide()
-  Theme.Decorate(frame, 6)
+  Theme.Decorate(frame, 6, { chrome = "frame" })
   frame.title = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
-  frame.title:SetPoint("TOPLEFT", 16, -14)
+  frame.title:SetDrawLayer("OVERLAY", 7)
   frame.hint = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
   frame.hint:SetPoint("TOPLEFT", 16, -36)
   frame.hint:SetWidth(428)
@@ -39,11 +39,36 @@ local function create()
   frame.edit:SetScript("OnTextChanged", function() if mode == "import" then checked = nil; X.Refresh() end end)
   frame.scroll:SetScrollChild(frame.edit)
   frame.action = Theme.Button(frame, "", 140, 22)
-  frame.action:SetPoint("BOTTOMRIGHT", -16, 14)
   frame.action:SetScript("OnClick", function() X.Action() end)
   frame.close = Theme.CloseButton(frame)
-  frame.close:SetPoint("TOPRIGHT", -12, -12)
   frame.close:SetScript("OnClick", function() frame:Hide() end)
+end
+
+-- Game look: title in the title bar, the text on parchment from just under it, the button
+-- on the bottom bar. Wood look: all on the wood-framed parchment.
+local function placeParts(game)
+  frame.title:ClearAllPoints()
+  frame.close:ClearAllPoints()
+  frame.action:ClearAllPoints()
+  if game then
+    frame.title:SetPoint("TOPLEFT", 12, -5)
+    frame.title:SetPoint("TOPRIGHT", -24, -5)
+    frame.title:SetJustifyH("CENTER")
+    frame.close:SetPoint("TOPRIGHT", 1, 0)
+    frame.action:SetPoint("BOTTOMRIGHT", -6, 4)
+    local inset = Theme.GamePart(frame, "inset")
+    if inset then
+      inset:ClearAllPoints()
+      inset:SetPoint("TOPLEFT", 4, -24)
+      inset:SetPoint("BOTTOMRIGHT", -6, 26)
+    end
+    Theme.FitPaper(frame, 450, 300 - 24 - 26)
+  else
+    frame.title:SetPoint("TOPLEFT", 16, -14)
+    frame.title:SetJustifyH("LEFT")
+    frame.close:SetPoint("TOPRIGHT", -12, -12)
+    frame.action:SetPoint("BOTTOMRIGHT", -16, 14)
+  end
 end
 
 function X.Refresh()
@@ -54,11 +79,14 @@ end
 function X.Show(m)
   if not frame then create() end
   mode, checked = m, nil
+  local game = Theme.IsGame()
   Theme.Recolor(frame)
+  placeParts(game)
   Theme.StyleButton(frame.action)
   Theme.StyleButton(frame.close, 12)
-  Theme.SetFont(frame.title, "name", 18)
-  Theme.TextColor(frame.title, "name")
+  Theme.SetFont(frame.title, "name", game and 13 or 18)
+  Theme.Shadow(frame.title, game)
+  Theme.TextColor(frame.title, game and "title" or "name")
   Theme.SetFont(frame.hint, "body", 12)
   Theme.TextColor(frame.hint, "text")
   if m == "export" then

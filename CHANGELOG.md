@@ -2,6 +2,16 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.10.1 (2026-11-13)
+Packs unchanged: World 1.0.0, Elwynn Forest 1.1.0.
+
+### After the first look at the game style
+- **Fixed: named NPCs speaking from the role pools on a new character** (Melika gave an innkeeper's generic lines to a new level-1 human paladin). A zone's pack only loaded at login and on entering a new zone. On a new character's first login the zone isn't known yet, and Northshire to Goldshire never changes the zone, so the Elwynn pack never loaded. Packs now load on every zone signal and again just before the addon decides who you're talking to.
+- **Ask list** looks like the box beside it: title in the metal title bar, its own close button, the search box on the rock header, topics on parchment, "Show older topics" on the bottom bar. It's the same height as the box (no more tall empty panel) and shows as many topics as fit.
+- **Journal and export window** get the same frame: title in the title bar, tabs and search on the header, pages on parchment.
+- **Parchment keeps its proportions** instead of being squashed into short boxes: drawn at its own size from the top-left corner and cut off by the frame, as in the game's gossip window.
+- Text and replies keep further from the parchment's ragged right edge.
+
 ## 0.10.0 (2026-11-13)
 Packs unchanged: World 1.0.0, Elwynn Forest 1.1.0.
 
