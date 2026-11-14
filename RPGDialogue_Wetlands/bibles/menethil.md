@@ -38,3 +38,6 @@
 - Helbrek: jolly host; keeps Fitz's mead.
 - Flagongut: eager, stranded archaeologist; orcs on his dig.
 - Mikhail: quiet, watchful; watches the door; misses the old work (authored, from the wiki's hint) and won't say so to Elling.
+
+## Depth pass (0.25.0, authored, not canon)
+Repeat-visit and night lines in the voices above.

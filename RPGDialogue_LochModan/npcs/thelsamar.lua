@@ -240,6 +240,7 @@ P:NPC {
           text = "Hinderweir the Seventh, Chief Engineer of the Stonewrought Dam. Seventh of the name, and I'll not be the one remembered for the day it fell." },
         { id = "h_threat", tags = { "news" }, when = { questActive = TODO_QUEST("A Dark Threat Looms") },
           text = "Someone's been at the dam. Things moved that shouldn't move. Things left that shouldn't be here. Find out who, before it's too late to find out anything." },
+        { id = "h_crack", when = { metBefore = true }, text = "Found a hairline crack on the east face this morning. Nothin'. Probably nothin'. I'll check it again tonight. An' tomorrow. An' forever." },
       },
       choices = {
         { text = "How old is the dam?", next = "old" },

@@ -142,6 +142,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", text = "Shay. I keep the inn. When this town was alive, someone else did. The customers complain less now." },
+        { id = "h_clean", when = { metBefore = true }, text = "I polished the bar today. Nobody here eats or drinks much anymore, but a clean bar is a clean bar. Habit's what's left." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "Night's our busy hour. Everyone's up. Everyone's always up. I've stopped putting the chairs on the tables." },
       },
       choices = {
         { text = "Make this my home.", next = "BUSINESS" },

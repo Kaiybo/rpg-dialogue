@@ -91,6 +91,7 @@ P:NPC {
           text = "These plans name names. Old names. Alterac's nobility never died; it just learned to hire better." },
         { id = "h_council", tags = { "news" }, when = { questActive = TODO_QUEST("Dark Council") },
           text = "Whoever pulls these strings meets somewhere up in the mountains. Break them, and you'll do more for Southshore than ten years of my letters." },
+        { id = "h_papers", when = { metBefore = true }, text = "Signed forty documents before breakfast. Read most of them. Some of them. The important ones. I hope." },
       },
       choices = {
         { text = "Who are the Syndicate?", next = "syndicate" },
@@ -146,6 +147,7 @@ P:NPC {
           text = "If I can show the city I've cleaned up this coast, they'll have to call me home. Please. I'm begging you, in a dignified way." },
         { id = "h_reassign", when = { questDone = TODO_QUEST("Reassignment") },
           text = "Still waiting on the reply. Any day now. Any day. I've packed. I've been packed for a month." },
+        { id = "h_chair", when = { metBefore = true }, text = "Same chair, same murlocs, same sea. If you've come to tell me I've been recalled to Stormwind, I'll kiss you. If not, sit." },
       },
       choices = {
         { text = "Why do you hate it here?", next = "hate" },
@@ -198,6 +200,7 @@ P:NPC {
           text = "Bilger. I brew. Hic. Used to be a knight of the Silver Hand, strict as a church bell, never touched a drop. Then the Hand broke, an' I found out what I'd been missin'." },
         { id = "h_moonshine", tags = { "news" }, when = { questActive = TODO_QUEST("MacKreel's Moonshine") },
           text = "MacKreel's moonshine! Now that's a brew. Hic. Get me a jug an' I'll tell ye a story about Uther that'll curl yer hair." },
+        { id = "h_brew", when = { metBefore = true }, text = "New batch. Hic. Smoother. The old Hand would've had me flogged for it. The old Hand's gone. The batch is here." },
       },
       choices = {
         { text = "What happened to the Silver Hand?", next = "hand" },
@@ -256,6 +259,7 @@ P:NPC {
           text = "Books still lie in the ruins of Alterac. The ogres have been at them. Bring me what you can save. Gently." },
         { id = "h_parchment", when = { questActive = TODO_QUEST("The Ensorcelled Parchment") },
           text = "This parchment has magic woven through it. Don't fold it. Don't read it aloud. Actually, don't read it at all." },
+        { id = "h_page", when = { metBefore = true }, text = "I saved three pages from an ogre's cookfire yesterday. Three! A treatise on beekeeping. Not what I'd hoped. Still, it's knowledge." },
       },
       choices = {
         { text = "What did the ogres do?", next = "ogres" },

@@ -40,3 +40,6 @@
 
 ## Depth pass (0.25.0, authored, not canon)
 Anderson knows Farren's usual without asking.
+
+## Depth pass (0.25.0, authored, not canon)
+Repeat-visit and night lines in the voices above.

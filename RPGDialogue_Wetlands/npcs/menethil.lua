@@ -334,6 +334,8 @@ P:NPC {
           text = "Fitz told ye who he was? Aye, he's told everyone. I keep his mead in the cellar. Someone has to. Better me than the bay." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "Well, an elf from the sky, in the wettest place on Azeroth! Ye'll miss yer clouds. Well. Ye won't. We've plenty here." },
+        { id = "h_mate", when = { metBefore = true }, text = "The first mate asked for his usual again. I didnae ask what it was. Neither of us remembers anymore. I just pour." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "Rain on the roof an' sailors singin' badly. That's Menethil at night. I wouldnae trade it. Most nights." },
       },
       choices = {
         { text = "Make this my home.", next = "BUSINESS" },
