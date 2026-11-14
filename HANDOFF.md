@@ -72,11 +72,11 @@ Install by linking or copying `RPGDialogue`, `RPGDialogue_World`, `RPGDialogue_E
 2. `/rpgd packs`: World loaded; Elwynn "waiting for zone" outside Elwynn, "loaded" inside it.
 3. `/console taintLog 1`, then reload. Talk to Marshal McBride (Northshire Abbey): our window opens in front of Blizzard's. Try 1–4, Up/Down + Enter, Space, Escape. "Get on with it" must leave Blizzard's quest window working normally. Later, send `Logs/taint.log` if it mentions RPGDialogue.
 4. `/rpgd why` after any line, and paste it once.
-5. Talk to McBride again: a short compact bar this time. Click Talk for the full window.
+5. Talk to McBride again: the box opens again (short-line bar only if "When you talk to someone" is set to it).
 6. Accept and turn in a quest (Kobold Camp Cleanup or A Threat Within), then talk to McBride and Willem: they should react. `/rpgd capture zone` and paste it.
 7. Goldshire: Marshal Dughan, Innkeeper Farley (rumors), Remy. Use Ask about... (button or the new keybinding) on a topic you've learned.
-8. A vendor and a flight master: compact line, normal window right away.
-9. Settings > AddOns > RPG Dialogue: try text size, readable font (does the new font show?), reduce motion, high contrast, gamepad (if you play with one: D-pad, A, B, X in a conversation).
+8. A vendor and a flight master: the box lists their options (with the game's icons); picking one opens the game's window.
+9. Settings > AddOns > RPG Dialogue: try text size, both font pickers (does each font show, at an even size?), reduce motion, high contrast, gamepad (if you play with one: D-pad, A, B, X in a conversation).
 10. If you use Total RP 3: does McBride call you by your roleplay name and title?
 11. Turn on "Mark NPCs who have something new to say", then hover McBride after turning in a quest: tooltip line?
 12. Die once (fall from somewhere safe), then talk to the spirit healer as a ghost.
