@@ -27,7 +27,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "Shaw. I run SI:7. If you've heard of us, someone's been careless. If you haven't, we're doing our job." },
+        { id = "h_default", key = true, text = "Shaw. I run SI:7. If you've heard of us, someone's been careless. If you haven't, we're doing our job." },
         { id = "h_si7", tags = { "news" }, when = { questActive = TODO_QUEST("SI:7") },
           text = "You found the building. Good. Finding things people would rather you didn't is the whole job. You'll be doing a lot of it." },
         { id = "h_defias", when = { topicKnown = "defias", minLevel = 15 },
