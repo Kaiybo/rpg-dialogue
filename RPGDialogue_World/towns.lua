@@ -416,6 +416,13 @@ P:Town {
   quests = { { TODO_QUEST("Saving Sharpbeak"), 8 }, { TODO_QUEST("Troll Necklace Bounty"), 2 } },
 }
 
+P:Town {
+  id = "kargath", name = "Kargath",
+  subzones = { "Kargath" },
+  tiers = { Hero = "Hero of Kargath" },
+  quests = { { TODO_QUEST("KILL ON SIGHT: Dark Iron Dwarves"), 2 }, { TODO_QUEST("Operation: Death to Angerforge"), 8 } },
+}
+
 -- The other capitals. Their guards speak from pools_roles.lua; standing grows from quests
 -- each capital's own pack lists later.
 P:Town {

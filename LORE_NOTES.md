@@ -616,3 +616,20 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Fraggar Thundermantle: partially sighted shaman, the land's spirits against the Vilebranch | [Fraggar Thundermantle](https://warcraft.wiki.gg/wiki/Fraggar_Thundermantle) |
 | Innkeeper Thulfram: jovial | [Innkeeper Thulfram](https://warcraft.wiki.gg/wiki/Innkeeper_Thulfram) |
 | "... Sentry" names are guards | [Aerie Peak](https://warcraft.wiki.gg/wiki/Aerie_Peak) |
+
+## Badlands (Badlands pack 1.0.0)
+
+| Fact used | Source |
+|---|---|
+| Kargath: only Horde outpost in Khaz Modan; Expeditionary Force sent by Thrall, toward Blackrock and Rend; Dark Iron conflict; Kargath Grunts | [Kargath](https://warcraft.wiki.gg/wiki/Kargath) |
+| Warlord Goretooth: boisterous, bored on duty, dreams of glorious death, flirts with Theodora and Vivian; KILL ON SIGHT, Angerforge, Warlord's Command, Eitrigg's Wisdom | [Warlord Goretooth](https://warcraft.wiki.gg/wiki/Warlord_Goretooth) |
+| Theodora Mulvadania: female Forsaken Hierophant, dramatic, gossipy; The 109th Division, The Grim Guzzler, The Rise of the Machines | [Theodora Mulvadania](https://warcraft.wiki.gg/wiki/Theodora_Mulvadania) |
+| Vivian Lagrave: female Forsaken Shadowmage, theatrical, flustered by Goretooth; The Last Element, Lost Thunderbrew Recipe, Darkstone Tablet | [Vivian Lagrave](https://warcraft.wiki.gg/wiki/Vivian_Lagrave) |
+| The 109th Division slaughtered by Angerforge and Argelmach; Theodora lost friends | [The 109th Division](https://warcraft.wiki.gg/wiki/The_109th_Division) |
+| Essence of the Elements powers Dark Iron golems; Vivian wants it | [The Last Element](https://warcraft.wiki.gg/wiki/The_Last_Element) |
+| Grark Lorkrub: traitor, Burning Steppes, shackled and escorted to the Searing Gorge | [Grark Lorkrub](https://warcraft.wiki.gg/wiki/Grark_Lorkrub_(quest)), [Precarious Predicament](https://warcraft.wiki.gg/wiki/Precarious_Predicament) |
+| Lexlort: orc rogue; Grark Lorkrub, Precarious Predicament | [Lexlort](https://warcraft.wiki.gg/wiki/Lexlort) |
+| Innkeeper Shul'kar: hospitable, wants battle stories | [Innkeeper Shul'kar](https://warcraft.wiki.gg/wiki/Innkeeper_Shul'kar) |
+| Prospector Ryedol: Explorers' League, partner Hammertoe Grez; A Dwarf and His Tools, A Sign of Hope, Prospect of Faith | [Prospector Ryedol](https://warcraft.wiki.gg/wiki/Prospector_Ryedol) |
+| Uldaman topic (found by the Expeditionary Force; Hammertoe's notes lead there) | [Kargath](https://warcraft.wiki.gg/wiki/Kargath), [Prospector Ryedol](https://warcraft.wiki.gg/wiki/Prospector_Ryedol) |
+| Lotwil Veriatus: gnome scholar, Enlightened Assembly, Lucien Tosselwrench, Servo, wants one school for all peoples; Study of the Elements: Rock, This Is Going to Be Hard, The Rise of the Machines | [Lotwil Veriatus](https://warcraft.wiki.gg/wiki/Lotwil_Veriatus) |

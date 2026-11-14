@@ -624,6 +624,23 @@ describe("Content packs", function()
     eq(ns.Data.PoolsFor(info, ctx)[1].pool.id, "guard_aeriepeak")
   end)
 
+  it("Badlands loads at Kargath; Goretooth is there, and a Kargath Grunt is Kargath's guard", function()
+    local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Badlands" } })
+    Mock.state.zone, Mock.state.subzone = "Badlands", "Kargath"
+    Mock.Fire("ZONE_CHANGED_NEW_AREA")
+    Mock.RunTimers()
+    for _, p in ipairs(ns.Packs.List()) do
+      if p.id == "rpgd.badlands" then ok(p.loaded); eq(p.warnings, 0) end
+    end
+    eq(ns.Data.FindNPC(nil, "Warlord Goretooth").key, "goretooth")
+    eq(ns.Data.FindNPC(nil, "Lotwil Veriatus").key, "lotwil")
+    Mock.state.units.npc = { guid = "Creature-0-1-0-1-7175-AB", name = "Kargath Grunt", level = 55 }
+    local ctx = ns.Context.New({ unit = "npc" })
+    local info = ns.Conversation.Identify("npc", ctx)
+    eq(info.role, "guard")
+    eq(ns.Data.PoolsFor(info, ctx)[1].pool.id, "guard_kargath")
+  end)
+
   it("Zephras Isle's Peacekeepers are guards of the isle, and the High Elder knows her own", function()
     local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Zephras" } })
     ns.db.settings.instantText = true
