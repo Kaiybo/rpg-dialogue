@@ -475,6 +475,8 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Zarlman Two-Moons, Harken Windtotem, Maur Raincaller, Mull Thunderhorn (the wells tainted by the Venture Company), Innkeeper Kauth: roles and Classic quests | [Zarlman Two-Moons](https://warcraft.wiki.gg/wiki/Zarlman_Two-Moons); [Harken Windtotem](https://warcraft.wiki.gg/wiki/Harken_Windtotem); [Maur Raincaller](https://warcraft.wiki.gg/wiki/Maur_Raincaller); [Mull Thunderhorn](https://warcraft.wiki.gg/wiki/Mull_Thunderhorn); [Innkeeper Kauth](https://warcraft.wiki.gg/wiki/Innkeeper_Kauth) |
 | Ahab Wheathoof and Kyle: a 2.1.2 addition that Forever brought back after fan outcry | [Ahab Wheathoof](https://warcraft.wiki.gg/wiki/Ahab_Wheathoof) |
 | Ayessa Dawnsinger and Camp Gev'rek | Brief §10 only |
+| The tauren were nomadic; with Thrall's orcs they drove the centaur from Mulgore, their first homeland in centuries; Stonebull Lake around Bloodhoof; tallstriders | [Mulgore](https://warcraft.wiki.gg/wiki/Mulgore) |
+| Venture Company topic: goblin resource cartel; the tauren refused them mining rights, so they tainted Mulgore's wells; ruthless | [Venture Company](https://warcraft.wiki.gg/wiki/Venture_Company) |
 
 ## Tirisfal Glades (Tirisfal pack 1.0.0)
 

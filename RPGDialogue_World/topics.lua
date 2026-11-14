@@ -50,5 +50,6 @@ P:Topic { id = "echo_isles", name = "The Echo Isles", category = "places", learn
 P:Topic { id = "scarlet_crusade", name = "The Scarlet Crusade", category = "threats", learned = "Executor Arren or Executor Zygand in Tirisfal" }
 P:Topic { id = "uldaman", name = "Uldaman", category = "places", learned = "Prospector Ryedol in the Badlands" }
 P:Topic { id = "argent_dawn", name = "The Argent Dawn", category = "people", learned = "Gregor Greystone in Everlook" }
+P:Topic { id = "venture_company", name = "The Venture Company", category = "threats", learned = "Mull Thunderhorn in Bloodhoof Village" }
 P:Topic { id = "camping", name = "Camping", category = "trade", learned = "an adventurer camped on the road" }
 P:Topic { id = "yenniku", name = "Yenniku, son of Vol'jin", category = "people", learned = "Nimboya at Grom'gol" }

@@ -32,8 +32,11 @@ P:NPC {
           text = "Baine Bloodhoof, Cairne's son. Goblins dig to the east, gnolls raid from the west, and dwarves blast the earth at Bael'dun. I'd rather talk them all down than fight them." },
         { id = "h_cairne", when = { heardLine = "cairne.h_default" },
           text = "You've met my father on the bluffs. He'll have told you about the land. He tells everyone; he never tires of it." },
+        { id = "h_rounds", when = { metBefore = true }, text = "I walk the village each evening, every tent and every fire. A leader should know every face. I'm still learning a few." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "Stars over Stonebull Lake. On nights like this I can almost hear the old songs from when we wandered." },
       },
       choices = {
+        { text = "How did the tauren come to Mulgore?", next = "coming" },
         { text = "What troubles the plains?", next = "troubles" },
         { text = "Why talk, if they won't listen?", next = "talk" },
         { text = "Earth Mother guide you.", next = "END", fx = { affinity = 1 } },
@@ -54,12 +57,19 @@ P:NPC {
       },
       choices = { { text = "Wise words.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } } },
     },
+    coming = {
+      lines = {
+        { id = "c_default", text = "We wandered for longer than any elder remembers. My father met Thrall's orcs, and with them beside us we drove the centaur from these plains. Mulgore is the first home our people have held in centuries." },
+      },
+      choices = { { text = "A home worth guarding.", next = "END", fx = { affinity = 2, standing = { bloodhoof = 1 } } } },
+    },
   },
 
   topics = {
     cenarion_circle = { { id = "tp_circle", text = "Hamuul studies with them. My father trusts them, and so do I. The land needs friends who listen to it." } },
     grimtotem = { { id = "tp_grimtotem", text = "They're tauren, whatever else they are. I'd rather reason with them than fight them, for as long as reason works." } },
     _none = { { id = "tp_none", text = "I don't know. But I'll ask, and I'll remember you asked first." } },
+    venture_company = { { id = "tp_venture", text = "We refused them the right to mine. They poisoned our wells anyway. I'd still rather they sat down and talked. I'm starting to doubt they know how." } },
   },
 }
 
@@ -89,8 +99,11 @@ P:NPC {
           text = "Zarlman Two-Moons. I look after the spirits of this village, and of the young ones passing through it." },
         { id = "h_vision", tags = { "news" }, when = { questActive = TODO_QUEST("Rite of Vision") },
           text = "The rite of vision asks you to see with more than your eyes. Drink, follow, and don't fight what you're shown." },
+        { id = "h_young", when = { metBefore = true }, text = "The young ones come down from Narache shaking. Their first death, or their first vision. At that age they look much the same." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "The spirits are louder after dark. Not angrier. Only louder. Like children who won't sleep." },
       },
       choices = {
+        { text = "What are the spirits saying?", next = "spirits" },
         { text = "What does the rite show?", next = "vision" },
         { text = "Thank you, elder.", next = "END" },
       },
@@ -98,6 +111,13 @@ P:NPC {
     vision = {
       lines = { { id = "v_default", text = "Something different for everyone. A path, usually. Sometimes the end of one. The spirits choose; I only open the door." } },
       choices = { { text = "I'm ready.", next = "END", fx = { affinity = 2, align = { light = 1 } } } },
+    },
+    spirits = {
+      lines = {
+        { id = "s_wells", text = "They're restless near the wells. The water's spirits don't understand why it tastes of oil. Mull is trying to explain it to them." },
+        { id = "s_quiet", text = "Quiet, today. Quiet is good. Quiet means nobody is grieving." },
+      },
+      choices = { { text = "Thank you, elder.", next = "END", fx = { affinity = 1 } } },
     },
   },
 
@@ -129,8 +149,16 @@ P:NPC {
           text = "Harken Windtotem. I keep an eye on what flies over Mulgore. Lately it's mostly swoops, and too many of them." },
         { id = "h_swoop", tags = { "news" }, when = { questActive = TODO_QUEST("Swoop Hunting") },
           text = "The swoops are thick this season. Thin them, and bring me their quills. Nothing goes to waste in this village." },
+        { id = "h_knees", when = { metBefore = true }, text = "My grandfather read the weather from how the birds flew. I read it from how my knees ache. The tribe calls that progress." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "Even the swoops sleep at this hour. I don't, much. Old habit from the wandering years." },
       },
-      choices = { { text = "I'll see to it.", next = "END", fx = { affinity = 1 } } },
+      choices = { { text = "Why watch the sky?", next = "sky" }, { text = "I'll see to it.", next = "END", fx = { affinity = 1 } } },
+    },
+    sky = {
+      lines = {
+        { id = "s_map", text = "When we wandered, the sky was the only map we had. Now we've a home with walls of grass, and I still can't stop looking up." },
+      },
+      choices = { { text = "Keep watching for us.", next = "END", fx = { affinity = 1 } } },
     },
   },
 
@@ -162,8 +190,16 @@ P:NPC {
           text = "Maur Raincaller. There's a beast in Mulgore the young hunters whisper about. I've seen its tracks. I'd like to see its hide." },
         { id = "h_mazz", tags = { "news" }, when = { questActive = TODO_QUEST("Mazzranache") },
           text = "Mazzranache. Find it, end it, and bring me proof. The young ones will stop whispering and start bragging." },
+        { id = "h_slow", when = { metBefore = true }, text = "The young braves ask me how to track. I tell them: walk slower than you want to. Not one of them listens." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "Something big moves out in the dark grass. I've heard it more than I've seen it. That's the part I don't like." },
       },
-      choices = { { text = "I'll find it.", next = "END", fx = { affinity = 1, trait = { brave = 1 } } } },
+      choices = { { text = "How did you get your name?", next = "name" }, { text = "I'll find it.", next = "END", fx = { affinity = 1, trait = { brave = 1 } } } },
+    },
+    name = {
+      lines = {
+        { id = "n_rain", text = "It rained on every camp I made, the whole long walk to Mulgore. My mother said the clouds had adopted me. The name stuck. So did the clouds." },
+      },
+      choices = { { text = "It's a good name.", next = "END", fx = { affinity = 1 } } },
     },
   },
 
@@ -200,6 +236,7 @@ P:NPC {
           text = "Take the totem to the well and let it work. The earth remembers clean water; we only have to remind it." },
         { id = "h_totem", when = { any = { { questActive = TODO_QUEST("Thunderhorn Totem") }, { questActive = TODO_QUEST("Wildmane Totem") } } },
           text = "A totem must be made before a well can be cleansed. Gather what it needs, and I'll do the rest." },
+        { id = "h_walk", when = { metBefore = true }, text = "I walked to every well this morning. My hooves ache. The water's no better. Tomorrow I'll walk again." },
       },
       choices = {
         { text = "Who poisoned them?", next = "who" },
@@ -214,6 +251,7 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "I'm sorry, my thoughts are with the water. Ask Baine." } },
+    venture_company = { { id = "tp_venture", text = "They wanted to mine our mountains. We said no. So they took the wells instead. That is how they listen." } },
   },
 }
 
@@ -243,11 +281,20 @@ P:NPC {
           text = "If you find him, he'll be hungry. He's always hungry. Bring him something tasty and he'll follow you anywhere." },
         { id = "h_kyle_done", when = { questDone = TODO_QUEST("Kyle's Gone Missing!") },
           text = "He's home! Look at him. Kyle, sit. Sit. He won't sit. I don't care. He's home." },
+        { id = "h_fence", when = { questDone = TODO_QUEST("Kyle's Gone Missing!"), metBefore = true }, text = "Kyle chewed through the fence again. He didn't go anywhere. He just likes chewing fences. I've stopped mending it." },
+        { id = "h_watch", when = { questDone = TODO_QUEST("Kyle's Gone Missing!"), timeOfDay = "night" }, text = "He sleeps across the door now. Like he's afraid I'll be the one to wander off. Silly dog." },
       },
       choices = {
+        { text = "Tell me about Kyle.", next = "kyle" },
         { text = "I'll keep an eye out for him.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "It's only a dog.", next = "END", fx = { affinity = -2 } },
       },
+    },
+    kyle = {
+      lines = {
+        { id = "k_pup", text = "Found him as a pup down by the lake, soaking wet and barking at a frog. He's been barking at things ever since. Best friend I've got." },
+      },
+      choices = { { text = "He sounds wonderful.", next = "END", fx = { affinity = 2 } } },
     },
   },
 
@@ -282,8 +329,16 @@ P:NPC {
           text = "Innkeeper Kauth. Travelers come through on the way to the bluffs, and all of them leave fed." },
         { id = "h_task", when = { questActive = TODO_QUEST("A Task Unfinished") },
           text = "There's a task left undone that weighs on me. You'll carry it further than I can." },
+        { id = "h_view", when = { metBefore = true }, text = "The bluff folk come down for my stew and say they're here for the view. The view's fine. The stew's better." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "Wind's dropped. Listen. That's the lake against the shore. Best sound in Mulgore." },
       },
-      choices = { { text = "Just a meal, thank you.", next = "END" } },
+      choices = { { text = "What's in the stew?", next = "stew" }, { text = "Just a meal, thank you.", next = "END" } },
+    },
+    stew = {
+      lines = {
+        { id = "s_roots", text = "Tallstrider, wild roots, and whatever the hunters bring in that they can't name. Don't ask more. It spoils the taste." },
+      },
+      choices = { { text = "Smells good.", next = "END", fx = { affinity = 1 } } },
     },
   },
 
@@ -319,6 +374,7 @@ P:NPC {
           text = "A bundle from Chief Hawkwind? He never forgets a kindness. Tell him he owes me nothing, and that I said so twice." },
         { id = "h_outdoors", when = { questActive = TODO_QUEST("The Great Outdoors") },
           text = "Sit by the fire and let it work on you. The rest comes when it comes." },
+        { id = "h_narache", when = { metBefore = true }, text = "I came past Camp Narache on the way in. The young ones were fighting boars with sticks. I gave them a few pointers. And a few bandages." },
       },
       choices = {
         { text = "What is it you love about camping?", next = "why" },

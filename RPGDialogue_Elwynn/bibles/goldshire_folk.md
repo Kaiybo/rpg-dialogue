@@ -22,3 +22,18 @@
 - Michelle Belle: bandages save lives; works beside Josetta.
 - Maximillian Crowe, Cylina Darkheart: the cellar's lessons and its demon trainer (and her imp).
 - Lee Brown, Helene Peltskinner, Adele Fielder: the Crystal Lake house. Helene and Eagan Peltskinner share a name; a relation isn't stated, and she teases about it rather than claiming one.
+
+## Depth pass (0.24.0, all authored, not canon)
+Small personal beats for repeat visits, built from each trade. None of it touches lore events.
+- Dobbins: forgets what he hears on purpose; the Marshal nurses one cup and watches the door; Westfall folk passing through.
+- Brog: rope buyers, forgotten flint, adventurers who forget water.
+- Toddrick: Farley ranks his sausages second, after himself; boar from farms and adventurers.
+- Tharynn: wants a Trade District shop with a gold-lettered sign; crafters are the best gossips.
+- Krighton: apprenticed in Stormwind during the rebuilding (LORE_NOTES: rebuilt after the Second War).
+- Corina and Kurran: still unstated relation; they share "a name and an argument".
+- Erma: sings to a fussy mare; keeps an old grey whose rider didn't come back from Redridge.
+- Michelle: her father patched soldiers in the Second War.
+- Crowe: "power is a debt"; why the cellar.
+- Cylina: her imp steals Dobbins' keys; the imp's name stays unsaid.
+- Lee Brown: the fish that grows; dawn on the lake.
+- Helene: a family of skinners. Adele: boots are the hardest thing.
