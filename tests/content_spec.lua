@@ -138,7 +138,12 @@ describe("Content packs", function()
     eq(info.communities[1], "lakeshire")
     local t = ns.Data.threads.solomons_letters
     ok(t and #t.beats == 6)
-    for _, b in ipairs(t.beats) do ok(b.npc ~= "bolvar" or ns.Data.npcs.bolvar, "bolvar beat has an NPC") end
+    -- The Keep's beats wait for the Stormwind pack, which loads in Stormwind.
+    eq(ns.Data.npcs.bolvar, nil)
+    Mock.state.zone, Mock.state.subzone = "Stormwind City", "Stormwind Keep"
+    Mock.Fire("ZONE_CHANGED_NEW_AREA")
+    Mock.RunTimers()
+    ok(ns.Data.npcs.bolvar and ns.Data.npcs.katrana)
   end)
 
   it("Zephras Isle's Peacekeepers are guards of the isle, and the High Elder knows her own", function()
