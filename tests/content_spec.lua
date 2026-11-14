@@ -410,6 +410,23 @@ describe("Content packs", function()
     eq(ns.Data.PoolsFor(info, ctx)[1].pool.id, "guard_bootybay")
   end)
 
+  it("Thousand Needles loads at Freewind Post; Longhorn and Pozzik are there, and the Braves are Freewind's", function()
+    local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_ThousandNeedles" } })
+    Mock.state.zone, Mock.state.subzone = "Thousand Needles", "Freewind Post"
+    Mock.Fire("ZONE_CHANGED_NEW_AREA")
+    Mock.RunTimers()
+    for _, p in ipairs(ns.Packs.List()) do
+      if p.id == "rpgd.thousandneedles" then ok(p.loaded); eq(p.warnings, 0) end
+    end
+    eq(ns.Data.FindNPC(nil, "Cliffwatcher Longhorn").key, "longhorn")
+    eq(ns.Data.FindNPC(nil, "Pozzik").key, "pozzik")
+    Mock.state.units.npc = { guid = "Creature-0-1-0-1-9524-AB", name = "Freewind Brave", level = 45 }
+    local ctx = ns.Context.New({ unit = "npc" })
+    local info = ns.Conversation.Identify("npc", ctx)
+    eq(info.role, "guard")
+    eq(ns.Data.PoolsFor(info, ctx)[1].pool.id, "guard_freewind")
+  end)
+
   it("Zephras Isle's Peacekeepers are guards of the isle, and the High Elder knows her own", function()
     local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Zephras" } })
     ns.db.settings.instantText = true

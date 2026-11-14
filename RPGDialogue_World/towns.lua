@@ -222,6 +222,20 @@ P:Town {
   quests = { { TODO_QUEST("Colonel Kurzen"), 8 }, { TODO_QUEST("Mai'Zoth"), 6 } },
 }
 
+P:Town {
+  id = "freewind", name = "Freewind Post",
+  subzones = { "Freewind Post" },
+  tiers = { Hero = "Hero of Freewind" },
+  quests = { { TODO_QUEST("Wanted - Arnak Grimtotem"), 8 }, { TODO_QUEST("Pacify the Centaur"), 6 } },
+}
+
+P:Town {
+  id = "mirage_raceway", name = "The Mirage Raceway",
+  subzones = { "Mirage Raceway", "The Shimmering Flats" },
+  tiers = { Hero = "Fan Favorite" },
+  quests = { { TODO_QUEST("Rocket Car Parts"), 6 } },
+}
+
 -- The other capitals. Their guards speak from pools_roles.lua; standing grows from quests
 -- each capital's own pack lists later.
 P:Town {

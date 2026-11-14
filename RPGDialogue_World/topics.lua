@@ -43,4 +43,6 @@ P:Topic { id = "wailing_caverns", name = "The Wailing Caverns", category = "plac
 P:Topic { id = "steamwheedle", name = "The Steamwheedle Cartel", category = "people", learned = "Baron Revilgaz in Booty Bay" }
 P:Topic { id = "bloodsail", name = "The Bloodsail Buccaneers", category = "threats", learned = "Fleet Master Seahorn in Booty Bay" }
 P:Topic { id = "kurzen", name = "Colonel Kurzen's expedition", category = "rumors", learned = "Lieutenant Doren at the Rebel Camp" }
+P:Topic { id = "grimtotem", name = "The Grimtotem clan", category = "threats", learned = "Cliffwatcher Longhorn at Freewind Post" }
+P:Topic { id = "mirage_raceway", name = "The Mirage Raceway", category = "places", learned = "Pozzik or Fizzle on the Shimmering Flats" }
 P:Topic { id = "yenniku", name = "Yenniku, son of Vol'jin", category = "people", learned = "Nimboya at Grom'gol" }

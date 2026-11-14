@@ -426,3 +426,19 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Brother Nimetz: priest and alchemist; studies the Kurzen Medicine Men's elixirs; vowed to kill the ogre mage Mai'Zoth | [Brother Nimetz](https://warcraft.wiki.gg/wiki/Brother_Nimetz) |
 | "Ironforge Mountaineer" and "Booty Bay Bruiser" are guard NPC names; Nighthaven's guards are "Nighthaven Defender" in Classic and "Moonglade Warden" later | [Booty Bay Bruiser](https://warcraft.wiki.gg/wiki/Booty_Bay_Bruiser); [Nighthaven](https://warcraft.wiki.gg/wiki/Nighthaven) |
 | Left out: Hemet Nesingwary (the son replaced the father in patch 2.0.1, so which one stands in Year 1's camp is unclear) | [Hemet Nesingwary Jr.](https://warcraft.wiki.gg/wiki/Hemet_Nesingwary_Jr.) |
+
+## Thousand Needles (Thousand Needles pack 1.0.0)
+
+| Fact used | Source |
+|---|---|
+| Freewind Post: a Horde village on a mesa, high against the centaur; lifts and rope bridges; the Galak, harpies, Highperch wyverns; the Grimtotem on Darkcloud Pinnacle suspected of murder and kidnapping, Arnak blamed; Freewind Braves | [Freewind Post](https://warcraft.wiki.gg/wiki/Freewind_Post) |
+| Cliffwatcher Longhorn: leads the post; vengeful toward the Galak, wary of the Grimtotem; writes to his brother Nataka, unanswered for a year; Classic quests | [Cliffwatcher Longhorn](https://warcraft.wiki.gg/wiki/Cliffwatcher_Longhorn) |
+| Rau Cliffrunner: the Cloven Hoof behind an eternal flame in Splithoof Hold, breached with moonwell water; Mark of the Wild; The Sacred Flame | [Rau Cliffrunner](https://warcraft.wiki.gg/wiki/Rau_Cliffrunner) |
+| Hagar Lightninghoof: came for an alien egg guarded by wind serpents; it hatched into Young Arikara, the Vengeance of legend; report to Motega Firemane; present in Forever | [Hagar Lightninghoof](https://warcraft.wiki.gg/wiki/Hagar_Lightninghoof) |
+| Thalia Amberhide: bitter, in the Freewind inn; Free At Last | [Thalia Amberhide](https://warcraft.wiki.gg/wiki/Thalia_Amberhide) |
+| Innkeeper Abeqwa: male tauren innkeeper of Freewind | [Innkeeper Abeqwa](https://warcraft.wiki.gg/wiki/Innkeeper_Abeqwa) |
+| The Mirage Raceway: built by Pozzik and Fizzle Brassbolts to settle whose engineering is better; daily rocket races; spectators of both factions bet | [Mirage Raceway](https://warcraft.wiki.gg/wiki/Mirage_Raceway) |
+| Pozzik: upbeat goblin racing fan, exasperated with Fizzle; Classic quests | [Pozzik](https://warcraft.wiki.gg/wiki/Pozzik) |
+| Fizzle Brassbolts: MEGA member, excitable, dismissive of goblins; Classic quests | [Fizzle Brassbolts](https://warcraft.wiki.gg/wiki/Fizzle_Brassbolts) |
+| Kravel Koalbeard: dwarf con man who runs errands for the crews and rigs races; The Rumormonger links him to Krazek in Booty Bay | [Kravel Koalbeard](https://warcraft.wiki.gg/wiki/Kravel_Koalbeard); [Krazek](https://warcraft.wiki.gg/wiki/Krazek) |
+| Magatha's topic line on the Grimtotem (Arnak) | [Freewind Post](https://warcraft.wiki.gg/wiki/Freewind_Post) |

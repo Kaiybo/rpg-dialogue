@@ -221,12 +221,13 @@ P:NPC {
     },
     want = {
       lines = { { id = "w_default", text = "What was ours. The old lands, wherever they lie. Kalimdor was the tauren's before it was anyone's. I haven't forgotten. I'm old enough not to." } },
-      choices = { { text = "...", next = "END" } },
+      choices = { { text = "...", next = "END", fx = { learn = { "grimtotem" } } } },
     },
   },
 
   topics = {
     cenarion_circle = { { id = "tp_circle", text = "Night elves teaching tauren to be tauren. Hamuul is proud of it. I find it embarrassing." } },
+    grimtotem = { { id = "tp_grimtotem", text = "You've heard about Arnak, I suppose. Every clan has its hotheads. Mine simply has more of them, and better reasons." } },
     _none = { { id = "tp_none", text = "Not my concern, and not yours either, I expect." } },
   },
 }
