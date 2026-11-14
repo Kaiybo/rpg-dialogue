@@ -2,6 +2,19 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.26.0 (2026-11-14)
+Packs: Stranglethorn 1.3.0 (the rest as in 0.25.0). No new folders: /reload is enough, restarting is safest.
+
+### Conversations you can explore
+The user: "there needs to be more density for each NPC... only a few dialogue choices and they don't lead very deep, and I'm given effectively one dialogue option."
+- **A hub to come back to.** The opening is a hub; each reply opens a subject that runs two or three exchanges deep, then "Something else." brings you back. The NPC says a short "what else?" line in their own voice instead of repeating their introduction.
+- **Asked and answered.** A subject you've already been down in this conversation disappears from the list. On your next visit it's back, dimmed, after the subjects you haven't tried.
+- **Up to six replies** at once (was four), in the writer's order. When there are more, subjects you've explored drop first, then the ones everybody gets; replies that exist because of who you are (your class, race, origin, a quest you've done, someone you've talked to) stay.
+- **A depth standard** for writers (CONTENT_GUIDE §7a), measured per NPC in the coverage report's new "Depth" table.
+
+### Stranglethorn Vale, rewritten for depth (Alliance and neutral first)
+Every NPC you can talk to as Alliance: the Rebel Camp (Doren, Nimetz, Thorsen), Nesingwary's Expedition (Hemet, Barnil, Ajeck, Erlgadin) and Booty Bay (Revilgaz, Seahorn, Krazek, MacKinley, Kebok, Skindle, Smotts, Shaky, Crazz, Crank Fizzlebub, Whiskey Slim, Drizzlik, Sprogger, Fin, Lozgil). Each has 4 to 7 subjects; the larger ones run to 15 or 20 exchanges. Some replies only appear for some characters: a warrior or paladin tells Doren about a bad order they once followed, a priest prays with Nimetz, an alchemist reads his residue, a refugee tells Smotts what they did after losing everyone, a hunter compares bows with Ajeck, a noble-born character faces Erlgadin. Grom'gol (Horde) is next for the Horde pass.
+
 ## 0.25.0 (2026-11-14)
 Packs: Arathi 1.1.0, Ashenvale 1.1.0, Badlands 1.1.0, Barrens 1.2.0, Darkshore 1.1.0, Darnassus 1.1.0, Desolace 1.1.0, Durotar 1.1.0, Duskwood 1.2.0, Dustwallow 1.1.0, Elwynn 1.8.0, Feralas 1.1.0, Hillsbrad 1.1.0, Hinterlands 1.1.0, Ironforge 1.3.0, LochModan 1.1.0, Moonglade 1.1.0, Mulgore 1.2.0, Orgrimmar 1.2.0, Redridge 1.2.0, Silverpine 1.1.0, Stonetalon 1.1.0, Stormwind 1.4.0, Stranglethorn 1.2.0, SwampOfSorrows 1.1.0, Tanaris 1.1.0, Teldrassil 1.2.0, ThousandNeedles 1.1.0, ThunderBluff 1.2.0, Tirisfal 1.1.0, UnGoro 1.1.0, Undercity 1.1.0, Westfall 1.3.0, Wetlands 1.1.0, Winterspring 1.1.0, World 1.13.0, Zephras 1.0.1, and three new ones: Felwood 1.0.0, Searing Gorge 1.0.0, Eastern Plaguelands 1.0.0. **New folders: exit the game fully, copy them in, and tick them.**
 

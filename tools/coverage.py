@@ -26,7 +26,7 @@ DEPTH_STANDARD = {
     "service": {"branches": 2, "nodes": 3, "depth": 2, "gated": 0},
 }
 EXITS = ("END", "BUSINESS", "BACK", None)
-IDENTITY = {"race", "class", "gender", "origin", "band", "minLevel", "maxLevel", "form", "profession",
+IDENTITY = {"race", "class", "gender", "faction", "origin", "band", "minLevel", "maxLevel", "form", "profession",
             "alignment", "trait", "townStanding", "questDone", "questActive", "questRecent", "heardLine",
             "heardClaim", "topicKnown", "opinion", "deed", "rep", "metBefore", "timesTalked", "flag", "claim"}
 
