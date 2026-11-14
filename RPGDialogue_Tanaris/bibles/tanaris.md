@@ -34,3 +34,6 @@
 - Tran'rek: evasive dealer; Krazek's cousin.
 - Fizzgrimble: chatty innkeeper.
 - Stoley: nervous debtor.
+
+## Depth pass (0.25.0, authored, not canon)
+Repeat-visit and night lines for the innkeepers and thin quest givers (habits, small worries, the place at night). Nothing here adds a lore fact.

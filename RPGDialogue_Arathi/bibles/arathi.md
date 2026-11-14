@@ -23,3 +23,6 @@
 - Drum Fel: driven; Hammerfall will thrive; Doomhammer's name.
 - Zengu: patient hunter, enjoys the irony of the sword.
 - Adegwa: warm tauren innkeeper among orcs.
+
+## Depth pass (0.25.0, authored, not canon)
+Repeat-visit and night lines for the innkeepers and thin quest givers (habits, small worries, the place at night). Nothing here adds a lore fact.

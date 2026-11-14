@@ -115,6 +115,7 @@ P:NPC {
           text = "Helgrum the Swift. They call me that because I'm fast, not because I'm clever. Neeka Bloodscar's the clever one. She's out there somewhere." },
         { id = "h_neeka", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("Neeka Bloodscar") }, { questActive = TODO_QUEST("Report to Helgrum") } } },
           text = "Neeka's been out a long while. If you find her, she'll have a report for me. She always does." },
+        { id = "h_fast", when = { metBefore = true }, text = "Ran to the edge of the swamp and back this morning. Before breakfast. Don't ask me why. I wasn't thinking. I'm the swift one, remember." },
       },
       choices = { { text = "I'll look for her.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } } },
     },
@@ -191,6 +192,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Innkeeper Karakul. Scouts come back muddy and hungry, and I send them out fed. It's not glory. It keeps the Horde walking." },
+        { id = "h_mud", when = { metBefore = true }, text = "Scouts track half the swamp in on their boots. I've started charging them a bucket of water each. They pay in mud." },
       },
       choices = { { text = "Just a meal, thanks.", next = "END" } },
     },

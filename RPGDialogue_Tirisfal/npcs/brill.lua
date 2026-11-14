@@ -218,8 +218,15 @@ P:NPC {
           text = "Gretchen Dedmar. I sit in the tavern because it's warm, not because I can feel it. Habit is a comfort, even dead." },
         { id = "h_chill", tags = { "news" }, when = { questActive = TODO_QUEST("The Chill of Death") },
           text = "The chill of death never quite leaves you. I've found a way to keep it at bay, for a while. Fetch what I asked for." },
+        { id = "h_cup", when = { metBefore = true }, text = "I still order a cup of tea. I can't taste it. I hold it until it goes cold. Some habits are worth the coin." },
       },
-      choices = { { text = "I'll be back with it.", next = "END", fx = { affinity = 1 } } },
+      choices = { { text = "What do you miss most?", next = "miss" }, { text = "I'll be back with it.", next = "END", fx = { affinity = 1 } } },
+    },
+    miss = {
+      lines = {
+        { id = "m_warm", text = "Being cold. Isn't that strange? I sit by the fire because I remember wanting to. Now I don't feel either. I'd give a great deal to shiver again." },
+      },
+      choices = { { text = "I'm sorry.", next = "END", fx = { affinity = 2 } } },
     },
   },
 

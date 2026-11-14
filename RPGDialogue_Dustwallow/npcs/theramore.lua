@@ -215,6 +215,8 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Innkeeper Janene. Soldiers, sailors, mages, merchants: they all end up at my tables sooner or later. Theramore is my home, and this inn is its kitchen." },
+        { id = "h_lady", when = { metBefore = true }, text = "Lady Jaina came down to the kitchen last week to thank the cooks. In person. Half of them still won't wash the hand she shook." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "The sea's loud tonight. Sailors say a loud sea is a lucky sea. Sailors say a lot of things." },
       },
       choices = { { text = "Just a room, thank you.", next = "END" } },
     },

@@ -210,6 +210,8 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Innkeeper Lyshaerya. I keep the only warm hearth between Stonetalon and Feralas. Travelers find their way to it eventually." },
+        { id = "h_dust", when = { metBefore = true }, text = "Desolace dust gets into everything. The bread, the beds, my hair. I've stopped fighting it. Now I just sweep while I talk." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "The centaur drums carry a long way at night. You stop hearing them after a week. I haven't stopped yet." },
       },
       choices = { { text = "Just a room, thank you.", next = "END" } },
     },

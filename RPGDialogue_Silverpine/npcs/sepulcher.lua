@@ -202,6 +202,8 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Innkeeper Bates. Not much of an inn, being a crypt and all. But the roof keeps the worgen out, and that's what counts in Silverpine." },
+        { id = "h_cobwebs", when = { metBefore = true }, text = "I swept the cobwebs out of the east crypt this morning. The spiders were back by noon. We've come to an arrangement." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "Hear the howling? Worgen, out past the trees. Listen long enough and you can tell them apart. I wish I couldn't." },
       },
       choices = { { text = "Just a rest, thanks.", next = "END" } },
     },

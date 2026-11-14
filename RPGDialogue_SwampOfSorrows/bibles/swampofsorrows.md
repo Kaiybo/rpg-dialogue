@@ -23,3 +23,6 @@
 - Helgrum: restless, fast, fond of Neeka (authored).
 - Bengor: stoic old soldier, refuses to call his illness one (authored from his status).
 - Karakul: gruff innkeeper.
+
+## Depth pass (0.25.0, authored, not canon)
+Repeat-visit and night lines for the innkeepers and thin quest givers (habits, small worries, the place at night). Nothing here adds a lore fact.

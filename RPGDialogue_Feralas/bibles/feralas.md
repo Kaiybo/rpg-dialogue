@@ -27,3 +27,6 @@
 - Rok Orhan: fierce, short sentences; ogres.
 - Orwin: eager goblin prospector (authored).
 - Greul: warm innkeeper.
+
+## Depth pass (0.25.0, authored, not canon)
+Repeat-visit and night lines for the innkeepers and thin quest givers (habits, small worries, the place at night). Nothing here adds a lore fact.

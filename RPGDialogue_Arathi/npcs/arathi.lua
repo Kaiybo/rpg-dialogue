@@ -168,6 +168,8 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Innkeeper Adegwa. A tauren among orcs, far from Mulgore's grass. Every fort needs a fire, and this one is mine." },
+        { id = "h_grass", when = { metBefore = true }, text = "I keep a little pot of Mulgore grass by the door. It doesn't like the Highlands. Neither did I, at first. We're both getting used to it." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "The grunts sing old war songs after dark. I don't know the words. I hum. They let me." },
       },
       choices = { { text = "Just a rest, thank you.", next = "END" } },
     },

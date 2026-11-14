@@ -291,6 +291,8 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Innkeeper Fizzgrimble, of the Road Warrior. Best inn in Gadgetzan. Only inn in Gadgetzan. Those facts are related." },
+        { id = "h_sand", when = { metBefore = true }, text = "Sand in the stew again. I tell guests it's seasoning. Desert seasoning. Very exclusive." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "Night's when Gadgetzan cools off and the Bruisers relax. A little. Hear that? Somebody's arguing about water again." },
       },
       choices = { { text = "Just a drink, thanks.", next = "END" } },
     },
