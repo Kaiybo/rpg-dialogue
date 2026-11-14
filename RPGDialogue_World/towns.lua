@@ -333,6 +333,20 @@ P:Town {
   quests = { { TODO_QUEST("Betrayal from Within"), 6 } },
 }
 
+P:Town {
+  id = "nijels_point", name = "Nijel's Point",
+  subzones = { "Nijel's Point" },
+  tiers = { Hero = "Hero of Nijel's Point" },
+  quests = { { TODO_QUEST("Brutal Politics"), 8 } },
+}
+
+P:Town {
+  id = "ghost_walker", name = "Ghost Walker Post",
+  subzones = { "Ghost Walker Post" },
+  tiers = { Hero = "Hero of Ghost Walker Post" },
+  quests = { { TODO_QUEST("The Corrupter"), 8 } },
+}
+
 -- The other capitals. Their guards speak from pools_roles.lua; standing grows from quests
 -- each capital's own pack lists later.
 P:Town {

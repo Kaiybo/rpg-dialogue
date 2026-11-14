@@ -532,3 +532,14 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Tatternack Steelforge: sent by Thrall to study weapons and meet travelers; curious about every culture | [Tatternack Steelforge](https://warcraft.wiki.gg/wiki/Tatternack_Steelforge) |
 | Innkeeper Byula: welcoming in Classic | [Innkeeper Byula](https://warcraft.wiki.gg/wiki/Innkeeper_Byula) |
 | Echoes: Cairne and Baine (father and son), Hamuul and Rau (a druid of the Circle), Sylvanas and Zygand, Bethor and Thule (Renferrel's trail), Magni and the Senate's envoys, Fandral and Teldrassil's moonwells | the pages cited in each pack's section above |
+
+## Desolace (Desolace pack 1.0.0)
+
+| Fact used | Source |
+|---|---|
+| Nijel's Point: Alliance and Cenarion outpost; the Nijel's Point Guard under Captain Pentigast; Keeper Marandis's hunt for Princess Theradras | [Nijel's Point](https://warcraft.wiki.gg/wiki/Nijel%27s_Point) |
+| Captain Pentigast: Strange Alliance, Brutal Politics (side with one clan, betray it for the other) | [Captain Pentigast](https://warcraft.wiki.gg/wiki/Captain_Pentigast) |
+| Keeper Marandis: from Stonetalon with his dryad sisters; Theradras and Zaetar's body; formal and proud | [Keeper Marandis](https://warcraft.wiki.gg/wiki/Keeper_Marandis) |
+| Kreldig Ungor: Reclaimers Inc.; the Karnitol Shipwreck | [Kreldig Ungor](https://warcraft.wiki.gg/wiki/Kreldig_Ungor) |
+| Brother Anton: Scarlet emissary of the Stormwind faction, unaware of the Crusade's turn; Brother Crowley sends him adventurers; the Valley of Bones | [Brother Anton](https://warcraft.wiki.gg/wiki/Brother_Anton) |
+| Takata Steelblade: sent by Keldran against the Burning Blade; kills the satyrs tied to it | [Takata Steelblade](https://warcraft.wiki.gg/wiki/Takata_Steelblade) |
