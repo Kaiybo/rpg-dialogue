@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.5.0 (unreleased)
+- Towns: the Crossroads, Astranaar, Maestra's Post, Splintertree Post, Southshore, Tarren Mill. Topic: the Wailing Caverns. Inn talk across Kalimdor (Darnassus, Thunder Bluff, the Crossroads, Ashenvale, and word of Moonglade).
+
 ## 1.4.0 (unreleased)
 - Towns: Menethil Harbor and Nighthaven. Topics: the Dragonmaw clan, the Cenarion Circle. Rumors for the Wetlands' inns, and word of the Wetlands in Ironforge, Dun Morogh, Stormwind and Redridge.
 

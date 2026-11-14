@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.2.2 (unreleased)
+- Milton Sheaf's opening can be heard about elsewhere (Loremaster Dibbs in Southshore).
+
 ## 1.2.1 (unreleased)
 - Elling Trias's opening can be heard about elsewhere (Mikhail in Menethil Harbor asks after him).
 

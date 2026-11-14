@@ -2,6 +2,20 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.17.0 (2026-11-14)
+Packs: World 1.5.0, Elwynn Forest 1.5.0, Westfall 1.2.0, Stormwind 1.2.2, Zephras Isle 1.0.1, Redridge 1.1.0, Duskwood 1.1.0, Ironforge 1.1.0, Wetlands 1.0.0, Moonglade 1.0.0, Darnassus 1.0.0, Thunder Bluff 1.0.0, and three new ones: The Barrens 1.0.0, Ashenvale 1.0.0, Hillsbrad Foothills 1.0.0. **New folders: exit the game fully, copy them in, and tick the new packs.**
+
+### Level 20 to 30, both factions
+- **The Barrens.** The Crossroads: Thork and Sergra Darkthorn, Mankrik on the wall (everyone asks about his wife), Tonga Runetotem and the oases going bad, Apothecary Helbrim, Darsok Swiftdagger, Zargh the butcher and Innkeeper Boorand. The Crossroads' guards.
+- **Ashenvale.** Astranaar: Raene Wolfrunner with Korra and Dagri, Pelturas Whitemoon and his sick daughter Relara (who gets better), Faldreas, Innkeeper Kimlya; Delgren the Purifier, a human paladin at Maestra's Post. Splintertree Post: Senani Thunderheart and the Ashenvale Hunt, Mastok Wrilehiss (who prefers wagons to people) and Kuray'bin.
+- **Hillsbrad Foothills.** Southshore: Marshal Redpath (who met Lothar off the boats), Magistrate Maleb and the Syndicate, Lieutenant Farren Orinelle (who wants to go home), Brewmeister Bilger (once of the Silver Hand), Loremaster Dibbs, Innkeeper Anderson. Tarren Mill: High Executor Darthalia, Apothecary Lydon and his frog, Innkeeper Shay.
+
+### Also
+- Inn talk across Kalimdor: Darnassus, Thunder Bluff, the Crossroads, Astranaar, and word of Moonglade for druids.
+- New thing to ask about: the Wailing Caverns.
+- Lydon in Tarren Mill has heard of Helbrim in the Barrens; Dibbs in Southshore works for Milton Sheaf.
+- For developers: the simulation runs in parallel shards (`--jobs`).
+
 ## 0.16.0 (2026-11-14)
 Packs: World 1.4.0, Elwynn Forest 1.5.0, Westfall 1.2.0, Stormwind 1.2.1, Zephras Isle 1.0.1, Redridge 1.1.0, Duskwood 1.1.0, Ironforge 1.1.0, and four new ones: Wetlands 1.0.0, Moonglade 1.0.0, Darnassus 1.0.0, Thunder Bluff 1.0.0. **New folders: exit the game fully, copy them in, and tick the new packs in the AddOns list.**
 
