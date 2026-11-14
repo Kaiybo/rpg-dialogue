@@ -2,6 +2,11 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.2.0 (unreleased)
+- Mathias Shaw (SI:7), Jennea Cannon, Gakin the Darkbinder, Innkeeper Allison.
+- Lord Grayson Shadowbreaker and Arthur the Faithful in the Cathedral, Grimand Elmore and his student Furen Longbeard in the Dwarven District, Milton Sheaf in the Royal Library, Elling Trias at the cheese shop.
+- Lord Gregor Lescovar in the library (he never admits anything), Dashel Stonefist in Old Town, Topper McNabb behind the Auction House, Warden Thelwater of the Stockade.
+
 ## 1.1.0 (unreleased)
 - The Cathedral: Archbishop Benedictus and Gazin Tenorm. The Trade District: Stephanie Turner of the orphanage, and Lil Timmy and his kitten. Duthorian Rall reacts to your Tome of Divinity progress (Henze, Stephanie). Henze Faulk himself is in the Elwynn pack, by Heroes' Vigil.
 - Bolvar, Lady Prestor and Benedictus react to Skyborne; Benedictus notices gnome priests; Rall points paladins to Daphne Stilwell for the Tome of Valor.

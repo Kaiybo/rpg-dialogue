@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.1.0 (unreleased)
+- Darkshire's other households: Jonathan Carevin and Calor, Sirra Von'Indi the historian, Viktori the stargazer, Chef Grual, Councilman Millstipe, Innkeeper Trelayne and Clarise Gnarltree.
+- Sirra recognises Abercrombie's note; Thelwater in Stormwind hears about Millstipe's prisoner.
+
 ## 1.0.1 (unreleased)
 - Smitts, Eva, Althea, Ello, Abercrombie and Jitters react to Skyborne visitors.
 

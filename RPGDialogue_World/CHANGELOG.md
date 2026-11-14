@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.3.0 (unreleased)
+- Topics: the Carevins, Morgan Ladimore, the fall of Gnomeregan, the Dark Iron dwarves, the Explorers' League.
+
 ## 1.2.0 (unreleased)
 - Towns for Lakeshire, Darkshire and Raven Hill; topics for the Blackrock, the Everstill Bridge, Redridge's gnolls, the Night Watch, the worgen and Stalvan; rumors for Redridge and Duskwood inns and word of both elsewhere.
 - Throughlines: `solomons_letters` (Solomon, Gryan, Prestor, Bolvar, Daniels, Ello) and `stalvan` (Smitts, Haggard, Farley, Eva, Althea); Ello joins `westfall_left`.

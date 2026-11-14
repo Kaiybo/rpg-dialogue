@@ -2,6 +2,11 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.5.0 (unreleased)
+- Nine class trainers in Northshire and Goldshire, each with their own voice (the class letters come from McBride).
+- Goldshire's everyday people: Dobbins, the shops, Erma's stables, the cellar below the Lion's Pride, the trainers by Crystal Lake (fourteen in all).
+- Eagan's and Farley's opening lines can be heard about elsewhere.
+
 ## 1.4.0 (unreleased)
 - Henze Faulk by Heroes' Vigil (the paladin's Symbol of Life). Theocritus, Dughan, Farley and Remy react to Skyborne.
 

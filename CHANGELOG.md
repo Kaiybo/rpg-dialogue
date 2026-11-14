@@ -2,6 +2,18 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.15.0 (2026-11-14)
+Packs: World 1.3.0, Elwynn Forest 1.5.0, Westfall 1.1.0, Stormwind 1.2.0, Zephras Isle 1.0.1, Redridge 1.1.0, Duskwood 1.1.0, Ironforge 1.1.0. No new folders: a /reload is enough, but a restart is safest.
+
+### More people, great and small
+- **Elwynn.** All nine class trainers in Northshire and Goldshire speak for themselves now. Goldshire's everyday folk: Dobbins, the shopkeepers, Erma at the stables, the cellar under the Lion's Pride, and the trainers by Crystal Lake.
+- **Stormwind.** Mathias Shaw of SI:7, Lord Grayson Shadowbreaker and Arthur the Faithful in the Cathedral (paladins: Grayson is the one you'll be trying to impress for years), Grimand Elmore and his student Furen, Milton Sheaf and Lord Lescovar in the Royal Library, Elling Trias and his cheese, Jennea Cannon, Gakin the Darkbinder, Innkeeper Allison, Dashel Stonefist in Old Town, Topper McNabb behind the Auction House, and Warden Thelwater, who would rather you didn't mention the Stockade.
+- **Duskwood** (good ground for a level 22 druid). The Carevins and their zealot Calor, Sirra Von'Indi the historian (ask him about Morgan Ladimore), Viktori who studies stars in the fog, Chef Grual and his crab cakes, Councilman Millstipe and his grudge against Stormwind's nobles, Innkeeper Trelayne and Clarise Gnarltree. Shapechangers get a very different welcome in Darkshire.
+- **Redridge.** Innkeeper Brianna, Bailiff Conacher, Deputy Feldon, Guard Parker on the Duskwood road, and the daffodil business between Darcy, Martie Jainrose and Parker. Chef Breanna feeds the garrison.
+- **Ironforge.** High Tinker Mekkatorque, the Royal Historian Archesonus, the Explorers' League (Magellas and a very curt Prospector Stormpike), Senator Stonehallow out in the trogg quarry, and Firebrew at the Stonefire.
+- **New things to ask about:** the Carevins, Morgan Ladimore, Gnomeregan, the Dark Iron, the Explorers' League.
+- People hear about each other across towns: Thelwater has opinions on Darkshire's letters, Furen on his master, Sirra on Abercrombie's handwriting.
+
 ## 0.14.0 (2026-11-14)
 Packs: World 1.2.0, Elwynn Forest 1.4.0, Westfall 1.1.0, Stormwind 1.1.0, Zephras Isle 1.0.1, Redridge 1.0.1, Duskwood 1.0.1, and a new one: Ironforge 1.0.0. New folder: restart the game, tick the Ironforge pack.
 

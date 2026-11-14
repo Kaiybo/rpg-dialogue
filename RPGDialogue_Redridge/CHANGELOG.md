@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.1.0 (unreleased)
+- Innkeeper Brianna and Narnie.
+- Lakeshire's law, road and kitchen: Bailiff Conacher, Deputy Feldon, Guard Parker, Darcy, Martie Jainrose and Chef Breanna (and the daffodils).
+
 ## 1.0.1 (unreleased)
 - Solomon and Daniels react to Skyborne visitors.
 
