@@ -32,6 +32,7 @@ P:NPC {
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Tome of Valor"), days = 3 } },
           text = "That's the last time they try my gate, I'd wager. I got two of them myself, you know. Don't tell Jordan. He worries." },
         { id = "h_jordan", text = "My husband Jordan's a smith, up by the gates of Ironforge. Devoted to the Church, the most faithful man I know. Far away, mind. We write." },
+        { id = "h_apples", when = { metBefore = true }, text = "First apples are coming on, love. Small and sour, but they're mine, and nobody's burned them. That's a good year, out here." },
       },
       choices = {
         { text = "Aren't you afraid out here?", next = "afraid" },

@@ -39,6 +39,7 @@ P:NPC {
           fx = { hear = "stormwind_abandoned_westfall" } },
         { id = "h_soldier", when = { class = { "WARRIOR", "PALADIN" } },
           text = "You've had real training. Good. Half my lot learned to fight last spring, from me, with hoes." },
+        { id = "h_drill", when = { metBefore = true }, text = "Drilled the new ones till they dropped. Let them sleep. Drilled them again. By harvest they'll be soldiers. Or they'll be very tired farmers." },
       },
       choices = {
         { text = "Why fight for Westfall?", next = "why" },

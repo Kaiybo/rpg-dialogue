@@ -37,6 +37,7 @@ P:NPC {
           text = "Turned the soil on the south field. Might be a crop yet. Might be." },
         { id = "h_salma", when = { heardLine = "salma.h_default" },
           text = "Salma's been feeding you, then. She feeds everyone. I married the softest heart in Westfall and I'll not hear a word against it." },
+        { id = "h_soil", when = { metBefore = true }, text = "Soil's tired. So am I. We'll both get up tomorrow anyway. That's farming." },
       },
       choices = {
         { text = "Why did you stay?", next = "stay" },

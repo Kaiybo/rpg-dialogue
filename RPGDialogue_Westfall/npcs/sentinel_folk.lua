@@ -31,6 +31,8 @@ P:NPC {
           text = "You've eaten at Salma's? Then you've had the best stew in Westfall and you'll be disappointed in mine. I've made my peace with it." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "Elves, out here? We've only dust and gulls to offer. The gulls are rude. The dust gets everywhere." },
+        { id = "h_militia", when = { metBefore = true }, text = "The militia eats more than any army I've ever fed. I've never fed an army. I'm fairly sure this is worse." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "Night watch comes in for soup about now. Same faces, every night. I worry on the nights one's missing." },
       },
       choices = {
         { text = "Make this my home.", next = "BUSINESS" },

@@ -45,6 +45,7 @@ P:NPC {
           text = "You walk light, like you're used to wind in your face. That's useful in a scout. I'm not recruiting. I'm noticing." },
         { id = "h_human_hunter", when = { race = "Human", class = "HUNTER" },
           text = "A human who tracks with a beast at heel. Not many of your folk take to it. The ones who do make the best scouts I've seen." },
+        { id = "h_dust", when = { metBefore = true }, text = "Westfall hides nothing from a patient eye. It hides everything under dust, though. I've stopped minding the dust." },
       },
       choices = {
         { text = "Show me your map.", next = "map" },

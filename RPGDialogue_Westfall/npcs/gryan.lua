@@ -48,6 +48,8 @@ P:NPC {
           text = "A decency on you, I'd say. Out here it's rarer than iron. Don't spend it all in one place." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "Your people lost a home and kept going. So did mine, out here. That's a better start than most of my volunteers had." },
+        { id = "h_count", when = { metBefore = true }, text = "Walked the wall at dawn and counted the militia. Counted again. Still not enough, but they're all still here. That's a good morning, in Westfall." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "Look out there. Farms that had lamps in every window, once. I count the dark ones every night. I'd like to stop counting." },
       },
       choices = {
         { text = "What happened to Westfall?", next = "westfall" },

@@ -36,6 +36,7 @@ P:NPC {
         { id = "h_heirloom_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Forgotten Heirloom"), days = 3 } },
           text = "My father's watch. You brought my father's watch back. I've nothing to give you but this handshake, and it's a good one." },
         { id = "h_wagon", text = "We tried to leave for Elwynn. The wagon broke on the road. So here we are, in someone else's empty house. Waiting for a wheel." },
+        { id = "h_dream", when = { metBefore = true }, text = "I dreamt about the pumpkins again. Big as wagon wheels, all of them. Woke up and remembered. Still, it was a good dream, while it lasted." },
       },
       choices = {
         { text = "Will you go back to your farm?", next = "back" },

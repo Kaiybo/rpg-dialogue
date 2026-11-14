@@ -39,6 +39,7 @@ P:NPC {
           text = "Stew for Salma, is it? Good. That woman could feed an army on a turnip, and some days she has to." },
         { id = "h_pie_done", when = { questDone = TODO_QUEST("Goretusk Liver Pie") },
           text = "So there was pie. Good. Whoever made it, don't tell the other one it was better. That's how friendships last out here." },
+        { id = "h_pie", when = { metBefore = true }, text = "I made a pumpkin pie from memory last night, dear. No pumpkins. Just memory. Theodore ate two slices anyway, bless him." },
       },
       choices = {
         { text = "Tell me about Blanchy.", next = "blanchy" },

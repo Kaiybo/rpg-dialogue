@@ -36,3 +36,6 @@ Honest; generous to a fault.
 
 ## Topics
 defias, people_militia, westfall, old_blanchy
+
+## Depth pass (0.25.0, authored, not canon)
+A repeat-visit line (and a night line for some), in the voice above: small daily life on the hill and the farms.

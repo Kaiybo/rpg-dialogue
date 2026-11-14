@@ -42,6 +42,7 @@ P:NPC {
           text = "He's gone. I felt it. The family's beyond thanking you, so I'll do it for them. Thank you." },
         { id = "h_pirate", when = { class = "ROGUE" },
           text = "You've a pirate's way of standing. Weight on the balls of the feet, one hand near the knife. I'd have signed you on." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "The flame burns brightest when nobody's looking at it. I'm always looking at it. Comes with being dead, I find." },
       },
       choices = {
         { text = "Why do you stay?", next = "stay" },

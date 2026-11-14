@@ -41,6 +41,8 @@ P:NPC {
           text = "Verna and Theodore are up at the old Jansen place, poor dears. Their wagon broke. Theodore's pride broke worse." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "Thin as a rake, even for an elf. Sit down. Sky or no sky, everyone eats at my table." },
+        { id = "h_thin", when = { metBefore = true }, text = "Sit down, sit. You're thinner than last time. Everyone's thinner in Westfall. I won't have it at my table." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "Himself's asleep in the chair again. Snores like a harvest golem. Don't you dare tell him I said so." },
       },
       choices = {
         { text = "What's cooking?", next = "pot" },
