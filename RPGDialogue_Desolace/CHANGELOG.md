@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.2.0 (unreleased)
+- Depth: Pentigast, Marandis, Kreldig, Brother Anton and Lyshaerya, with their own story and advice.
+
 ## 1.1.0 (unreleased)
 - Depth pass: repeat visits bring personal lines (habits, worries, running jokes), and some NPCs get night-time lines. Lyshaerya, Kreldig.
 

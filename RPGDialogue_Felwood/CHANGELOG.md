@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.1.0 (unreleased)
+- Depth: Eridan, Greta, Arathandris and Golhine, with their own story and advice.
+
 ## 1.0.0 (first release, unreleased)
 - Emerald Sanctuary (both factions): Eridan Bluewind, Greta Mosshoof, Maybess Riverbreeze (Horde), Arathandris Silversky (Alliance).
 - Bloodvenom Post (Horde): Winna Hazzard and her kitten, Trull Failbane; the Bloodvenom Post Braves.

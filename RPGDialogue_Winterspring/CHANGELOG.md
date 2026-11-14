@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.2.0 (unreleased)
+- Depth: Vizzie, Umi, Gregor (a reply for the Forsaken), Donova and Mau'ari.
+
 ## 1.1.0 (unreleased)
 - Depth pass: repeat visits bring personal lines (habits, worries, running jokes), and some NPCs get night-time lines. Vizzie, Mau'ari.
 

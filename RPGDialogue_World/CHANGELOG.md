@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.15.0 (unreleased)
+- Throughline `farholde_lost` (The lost of Farholde): Gray, Ashe, Cady and Demar on Fern Crimsonleaf; two endings chosen at Gray's table; her fate stays open.
+
 ## 1.14.0 (unreleased)
 - "Ask anyone" topics: Their story, Their work, A little advice, Latest rumors (`standard = true`), and `asks.lua`: what every role says about its work, a little advice, and (unnamed people) their story, in question-only pools; generic deflections for anyone.
 - Topic `keywords` for the short forms people say (Kurzen, Bloodsail, Dragonmaw, Gnomeregan...), and `linkName = false` for The Collector.

@@ -2,6 +2,19 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.28.0 (2026-11-14)
+Packs: World 1.15.0, Riverglades 1.1.0, Dustwallow 1.2.0, Tanaris 1.2.0, Feralas 1.2.0, Hinterlands 1.2.0, Desolace 1.2.0, Arathi 1.2.0, UnGoro 1.2.0, Winterspring 1.2.0, SearingGorge 1.1.0, EasternPlaguelands 1.1.0, Felwood 1.1.0, Badlands 1.2.0 (the rest as in 0.27.0). No new folders: /reload is enough.
+
+### Deeper conversations where an Alliance character goes next
+The user: "Develop whatever you think needs developing." The depth rewrite from 0.26.0 (hubs, branches, replies for particular characters, their own story and advice), for every Alliance and neutral NPC in the 30-60 zones:
+- **Theramore:** Jaina, Tervosh, Captain Vimes, Adjutant Tesoran, Janene. **Gadgetzan and Steamwheedle Port:** Marin, Sprinkle, Bilgewhizzle, Fizzledowser, Pestlezugg, Tran'rek, Fizzgrimble, Stoley. **Feathermoon:** Shandris, Pratt, Shyria. **Aerie Peak:** Falstad, Talonaxe, Fraggar, Thulfram. **Nijel's Point:** Pentigast, Marandis, Kreldig, Brother Anton, Lyshaerya. **Refuge Pointe:** Captain Nials.
+- **Marshal's Refuge:** Williden, Linken, J.D. Collie, Spraggle. **Everlook and the springs:** Vizzie, Umi, Gregor, Donova, Mau'ari. **Thorium Point:** Oilfist, Hansel, Lolo, Kalaran. **Light's Hope and the river:** Tyrosus, Leonid, Tirion. **Felwood:** Eridan, Greta, Arathandris, Golhine. **The Badlands:** Ryedol, Lotwil.
+- Some of the replies only some characters get: a dwarf shaman is welcomed by a Wildhammer shaman; a Bronzebeard dwarf faces a Dark Iron who was raised to hate them; a paladin asks Tyrosus where paladins belong now; Lordaeron refugees talk to Jaina and Nials; a hunter takes Shandris's archery test; the Forsaken ask Gregor and Leonid whether the Dawn will have them.
+- 48 NPCs in all; with Stranglethorn and the Riverglades, 92 meet the depth standard (4 at the start of the day).
+
+### The lost of Farholde (a new throughline)
+Fern Crimsonleaf went into the Horde's camp the night before the charge that broke the Siege of Farholde, and never came back. Gray Dawnbright won't believe she's dead; Ashe remembers what her father said about her; Cady warns you off asking Demar; Demar says it once. Then you decide what to carry back to Gray, and both of them remember. Nobody ever learns what happened to her.
+
 ## 0.27.0 (2026-11-14)
 Packs: World 1.14.0, Stranglethorn 1.4.0, and a new one: **Riverglades 1.0.0** (the rest as in 0.25.0). **New folder: exit the game fully, copy RPGDialogue_Riverglades in, and tick it.**
 
