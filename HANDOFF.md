@@ -34,7 +34,7 @@
 6. **Where the code lives:** zips per milestone plus the docs in this Project. No GitHub repo was set up (the workflows in `.github/` are ready for when one is).
 7. **Commit identity:** placeholder `RPG Dialogue Dev <rpg-dialogue@users.noreply.localhost>`.
 8. **DESIGN.md §6 decisions accepted** as written. One change: TODO-id NPCs are matched by name at runtime always (not only in dev mode), so the slice is testable before capture data exists. The validator still flags every TODO.
-9. **Other dialogue addons:** RPG Dialogue steps back by default.
+9. **Other dialogue addons:** "auto" by default: together with DialogueUI (the user uses it), steps back for Immersion.
 10. **Total RP 3:** name and title both on by default when it's loaded ("Sir Aldric": title + first name).
 11. **Fonts:** Friz Quadrata for text; names "the window's own" (Friz in the game look's title bar, Morpheus on wood; schema 4 moved the old Morpheus default to it). Bundled, all SIL OFL 1.1: Atkinson Hyperlegible, Crimson Pro, Cinzel. Users who had the old readable font on get Atkinson for text and "same" for names.
 12. **Per-pack versions:** each pack keeps its own version in `pack.lua` plus a `CHANGELOG.md` in its folder; the TOC `## Version` is the release build.
