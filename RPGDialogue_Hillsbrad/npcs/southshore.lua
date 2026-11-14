@@ -297,6 +297,8 @@ P:NPC {
         { id = "h_default", text = "Anderson. I keep the inn. Fishermen, soldiers, and a lieutenant who's been sitting in that chair since last spring." },
         { id = "h_bilger", when = { heardLine = "bilger.h_default" },
           text = "Bilger told you he was a paladin? He was. A good one, my father said. I keep the cellar unlocked for him. Somebody should be kind to him." },
+        { id = "h_chair", when = { metBefore = true }, text = "The lieutenant asked for his usual. I didn't have to ask what. That's either a good inn or a sad story. Both, maybe." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "Fishermen come in at this hour smelling of the bay. I keep the windows open. Lord knows why. Habit." },
       },
       choices = {
         { text = "Make this my home.", next = "BUSINESS" },

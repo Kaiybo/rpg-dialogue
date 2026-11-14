@@ -55,3 +55,6 @@
 - Thulbek: warm orc innkeeper; a story for rent.
 - Doren: wary officer who left his colonel; grief under duty.
 - Nimetz: earnest priest-alchemist; glassware everywhere.
+
+## Depth pass, second round (0.25.0, authored, not canon)
+One or two repeat-visit or night lines each for the thinnest NPCs here: small habits and running jokes (a salvaged kettle, a beetle truce, a parrot paying rent, glowing ink). Places they mention are already sourced in this bible or LORE_NOTES.

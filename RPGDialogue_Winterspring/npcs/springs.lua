@@ -70,6 +70,7 @@ P:NPC {
           text = "First, Mau'ari need her cache back. In it be de charm you need for catchin' E'ko. No charm, no E'ko. No E'ko, no juju." },
         { id = "h_luck", when = { any = { { questActive = TODO_QUEST("A Little Luck") }, { questActive = TODO_QUEST("Luck Be With You") } } },
           text = "Luck, you want? Mau'ari got plenty. Bring de right E'ko, and maybe some find its way to you." },
+        { id = "h_cold", when = { metBefore = true }, text = "Mau'ari been up here a long time, mon. Long enough to stop complainin' about the cold. Not long enough to stop feelin' it." },
       },
       choices = { { text = "I'll bring E'ko.", next = "END", fx = { affinity = 2 } } },
     },

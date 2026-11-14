@@ -28,6 +28,7 @@ P:NPC {
           text = "Innkeeper Vizzie. Best inn in Everlook. Only inn in Everlook, but that doesn't make it not the best. Warmest place for a hundred miles, and the cold keeps the creepy-crawlies down. Mostly." },
         { id = "h_bugs", tags = { "gossip" },
           text = "People ask why a goblin would run an inn at the top of the world. Two words. No. Bugs. Well. Fewer bugs. There's still that one beetle. I know it's in here." },
+        { id = "h_beetle", when = { metBefore = true }, text = "I found the beetle. Behind the bar. It looked at me. I looked at it. We've agreed to stay out of each other's way." },
       },
       choices = { { text = "A room, please.", next = "END", fx = { affinity = 1 } } },
     },

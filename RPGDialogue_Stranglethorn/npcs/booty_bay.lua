@@ -327,6 +327,8 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "The Salty Sailor. Rooms upstairs, rum down here, and the Baron up top over all of it. Keep your voice down near the stairs." },
+        { id = "h_brawl", when = { metBefore = true }, text = "Two pirates fought over a parrot last night. The parrot won. It's upstairs now. Paying rent, somehow." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "Night in Booty Bay: lanterns on the water, music on every deck, and somebody falling off a pier. Every night. Like clockwork." },
       },
       choices = {
         { text = "Heard anything interesting?", next = "gossip" },

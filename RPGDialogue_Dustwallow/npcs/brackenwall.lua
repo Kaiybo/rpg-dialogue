@@ -82,6 +82,7 @@ P:NPC {
           text = "The witch doctor can make the dead speak, if anyone can. Take it to him and listen carefully." },
         { id = "h_zor", when = { questActive = TODO_QUEST("Report to Zor") },
           text = "This goes to Zor Lonetree in Orgrimmar. Don't stop to chat on the way." },
+        { id = "h_wet", when = { metBefore = true }, text = "Another report from Theramore. Soaked through. Everything in this marsh is soaked through. Even the secrets." },
       },
       choices = { { text = "I'll keep my ears open.", next = "END", fx = { affinity = 1, trait = { curious = 1 } } } },
     },

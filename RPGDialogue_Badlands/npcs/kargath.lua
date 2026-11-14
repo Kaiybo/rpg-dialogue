@@ -186,6 +186,7 @@ P:NPC {
           text = "Grark Lorkrub sold our plans to the Blackrock. He's hiding under their wing in the Burning Steppes. Put him in thorium shackles and walk him to the Searing Gorge. My men will be waiting." },
         { id = "h_predicament", when = { questActive = TODO_QUEST("Precarious Predicament") },
           text = "You've got Grark moving. Keep him close through the mountain. If he runs, he dies, and what he knows dies with him." },
+        { id = "h_seen", when = { metBefore = true }, text = "You came in by the south path at noon. I know. I always know. Don't take it personally." },
       },
       choices = { { text = "I'll be your hands.", next = "END", fx = { affinity = 1, align = { order = 1 } } } },
     },
@@ -221,6 +222,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Shul'kar. I keep the inn. Out here a hot meal and a dry bunk are worth more than gold, and I don't charge much more than gold for them." },
+        { id = "h_story", when = { metBefore = true }, text = "Grunt told me last night he fought a Dark Iron the size of a door. Then it was two doors. By morning it was a castle. Good story." },
       },
       choices = { { text = "A bunk, please.", next = "END", fx = { affinity = 1 } } },
     },

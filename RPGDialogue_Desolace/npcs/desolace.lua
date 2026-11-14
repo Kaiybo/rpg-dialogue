@@ -128,6 +128,7 @@ P:NPC {
           text = "Reagents, from the beasts an' the ruins. The Reclaimers pay fair. Mostly on time." },
         { id = "h_business", when = { questActive = TODO_QUEST("Reclaimers' Business in Desolace") },
           text = "Ye came all this way on Reclaimers' business? Good. Pull up a crate." },
+        { id = "h_salvage", when = { metBefore = true }, text = "Found a perfectly good kettle in the dust yesterday. Centaur arrow through it. Patched it. Makes tea fine. That's Reclaimers' work in one kettle." },
       },
       choices = { { text = "I'll help.", next = "END", fx = { affinity = 1 } } },
     },

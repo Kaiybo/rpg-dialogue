@@ -117,6 +117,8 @@ P:NPC {
           text = "Bring me the trolls' necklaces. Each one's a charm against the spirits I serve. Each one I take is a little less of their dark work." },
         { id = "h_skulk", when = { questActive = TODO_QUEST("Skulk Rock Clean-up") },
           text = "Skulk Rock is fouled. Clean it, an' the spirits there can rest again." },
+        { id = "h_eyes", when = { metBefore = true }, text = "My eyes grow dimmer each winter. The spirits grow louder to make up for it. I think they're bein' kind." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "Hear the wind on the peak? That's no' only wind. The old spirits walk the ridges after dark." },
       },
       choices = { { text = "I'll help the spirits.", next = "END", fx = { affinity = 2, align = { light = 1 } } } },
     },
@@ -151,6 +153,8 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Innkeeper Thulfram, at yer service. Gryphon riders, hunters, wanderers: they all end up at my bar. Stay as long as ye like." },
+        { id = "h_tale", when = { metBefore = true }, text = "A rider came in last night swearin' his gryphon talked to him. Had three ales first. Still, I've no' heard a better story all week." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "The gryphons settle late. Ye can hear 'em crooning in the aviary if the fire's low. Best sound in the Hinterlands." },
       },
       choices = { { text = "A mug, please.", next = "END", fx = { affinity = 1 } } },
     },

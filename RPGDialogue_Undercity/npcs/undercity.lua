@@ -255,6 +255,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", text = "Norman. I keep the inn by the Trade Quarter. We don't sleep, most of us, but we like a chair and a place that's ours. That's what I sell, really." },
+        { id = "h_chair", when = { metBefore = true }, text = "Your chair's still there. Nobody's taken it. Nobody takes anyone's chair down here. It's the last courtesy we keep." },
       },
       choices = {
         { text = "Make this my home.", next = "BUSINESS" },

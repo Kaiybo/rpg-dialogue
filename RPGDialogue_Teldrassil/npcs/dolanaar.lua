@@ -251,6 +251,7 @@ P:NPC {
           text = "Lyreena Duskblade. I'd rather sleep under the canopy than under a roof. If you want to learn how, I'll teach you." },
         { id = "h_outdoors", tags = { "news" }, when = { questActive = TODO_QUEST("The Great Outdoors") },
           text = "Sit by the fire and stay there until you feel rested through. It comes slowly, then all at once." },
+        { id = "h_stars", when = { metBefore = true }, text = "Last night I counted the stars through the leaves until I fell asleep. I got to forty. That's further than usual." },
       },
       choices = { { text = "Teach me.", next = "END", fx = { affinity = 2, learn = { "camping" } } } },
     },

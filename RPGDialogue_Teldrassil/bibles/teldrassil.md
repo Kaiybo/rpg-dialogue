@@ -45,3 +45,6 @@
 
 ## Depth pass (0.24.0, authored, not canon)
 Ilthalaine counts nightsaber cubs; Melithar listens to Aldrassil hum and measures days in leaves; Tenaron watches the young walk down to Dolanaar; Dirania and Iverron grew up together in the glade; Gilshalan studies spiders partly because they frighten him; Corithras keeps tasting the third well; the Gnarlpine once traded furs for herbs at Dolanaar's edge (authored; their corruption is sourced, the trade isn't); Tallonkai's dreamcatcher was a gift; Syral sorts the Council's orders; Keldamyr's Sentinels and their tea.
+
+## Depth pass, second round (0.25.0, authored, not canon)
+One or two repeat-visit or night lines each for the thinnest NPCs here: small habits and running jokes (a salvaged kettle, a beetle truce, a parrot paying rent, glowing ink). Places they mention are already sourced in this bible or LORE_NOTES.

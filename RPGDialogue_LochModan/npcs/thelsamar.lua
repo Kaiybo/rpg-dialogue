@@ -133,6 +133,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", text = "Hearthstove. I keep the Stoutlager. Best ale between Ironforge an' the Wetlands, an' I'll fight anyone who says otherwise. After they've paid." },
+        { id = "h_brawl", when = { metBefore = true }, text = "Two miners fought over the last stool last night. Broke the stool. Now neither of 'em has a stool. Lesson in there somewhere." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "Late, an' the miners are singin' about the dam. Every verse is the same verse. Louder." },
       },
       choices = {
         { text = "Make this my home.", next = "BUSINESS" },
@@ -168,6 +170,7 @@ P:NPC {
         { id = "h_default", text = "Vidra. I cook for the Stoutlager. Thelsamar blood sausages, famous from here tae Ironforge. Well. Famous in Thelsamar." },
         { id = "h_sausages", tags = { "news" }, when = { questActive = TODO_QUEST("Thelsamar Blood Sausages") },
           text = "Bring me what I asked for an' ye'll have the best sausages ye've ever eaten. Don't ask what's in 'em. It's in the name." },
+        { id = "h_secret", when = { metBefore = true }, text = "Folk keep askin' what's in the blood sausage. I tell them: blood, an' sausage, an' a secret. The secret's mostly more sausage." },
       },
       choices = { { text = "I'll pass on the details.", next = "END", fx = { affinity = 1 } } },
     },
@@ -202,6 +205,7 @@ P:NPC {
           text = "The troggs have dug in close. Thin them, and bring proof. I want the King to read numbers, not complaints." },
         { id = "h_lands", when = { questActive = TODO_QUEST("In Defense of the King's Lands") },
           text = "These are the King's lands, and the King's statues watch over them. I'll not have troggs nesting at their feet." },
+        { id = "h_count", when = { metBefore = true }, text = "Put down eleven troggs yesterday. Twelve more came up where they fell. I've stopped countin' an' started diggin' trenches." },
       },
       choices = { { text = "I'll help defend them.", next = "END", fx = { affinity = 2, align = { order = 1 } } } },
     },

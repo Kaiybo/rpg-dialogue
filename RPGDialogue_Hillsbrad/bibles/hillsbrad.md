@@ -37,3 +37,6 @@
 - Darthalia: cold Forsaken commander; arithmetic of war.
 - Lydon: glum poisoner; Umpi the frog.
 - Shay: deadpan Forsaken innkeeper.
+
+## Depth pass (0.25.0, authored, not canon)
+Anderson knows Farren's usual without asking.
