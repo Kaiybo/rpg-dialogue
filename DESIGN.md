@@ -804,7 +804,7 @@ If a line throws an error, paste the error instead. That tells us something too.
 | M5 | journal, origins (drafts for approval), export/import, save-data checks | f1ec319 |
 | M6 | spirit healers, books, insanity, drunk replies, ghosts, barks, errands | 979fcc5 |
 | M7 | zone planning and scaffolding, one-command checks, simulation and voice-check additions | bbefce7 |
-| M8 | Total RP 3, accessibility pass (keyboard, gamepad, readable font, no color-only signals), tooltip marker, `PACK_AUTHORING.md`, packaging and policy checks, release workflow | (this commit) |
+| M8 | Total RP 3, accessibility pass (keyboard, gamepad, readable font, no color-only signals), tooltip marker, `PACK_AUTHORING.md`, packaging and policy checks, release workflow | c2e6a2e |
 
 ---
 

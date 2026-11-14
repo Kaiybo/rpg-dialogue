@@ -29,7 +29,7 @@
 - **M5** (f1ec319): journal (6 tabs), origins (drafts for human, dwarf, gnome, night elf, Skyborne), export/import.
 - **M6** (979fcc5): spirit healer tree, books, insanity, drunk replies, ghosts, barks, errands.
 - **M7** (bbefce7): `tools/new_zone.py` (plan → approve tiers → scaffold), `tools/check_all.py`, impossible-quest-reference check, copied-wording check, flag replay lines, `/rpgd capture zone`, `tests/test_tools.py`.
-- **M8** (this session's last commit): Total RP 3 (read-only), accessibility pass (keyboard selection, gamepad, Ask About keybinding, bundled readable font, "(Locked)" and ">" markers, journal tab keys), the optional "something new" tooltip marker (an M2 item that had been missed), pack `requires` reported in game and validated, per-pack versions and changelogs, `PACK_AUTHORING.md`, `.pkgmeta` checked against the packager's source, Blizzard UI policy checked and enforced by `check_all.py --release`, GitHub workflows, README rewrite.
+- **M8** (c2e6a2e): Total RP 3 (read-only), accessibility pass (keyboard selection, gamepad, Ask About keybinding, bundled readable font, "(Locked)" and ">" markers, journal tab keys), the optional "something new" tooltip marker (an M2 item that had been missed), pack `requires` reported in game and validated, per-pack versions and changelogs, `PACK_AUTHORING.md`, `.pkgmeta` checked against the packager's source, Blizzard UI policy checked and enforced by `check_all.py --release`, GitHub workflows, README rewrite.
 - **Checks at the end of M8:** 118 Lua tests, 7 Python tool tests, luacheck clean, validator 0 errors (101 warnings, all TODO placeholders), voice check 0 failures, simulation 0 runtime errors / 0 contradictions / 0 impossible quest references.
 
 ## Half-done
