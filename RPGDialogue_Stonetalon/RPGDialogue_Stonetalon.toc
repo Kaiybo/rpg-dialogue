@@ -1,0 +1,14 @@
+## Interface: 16001, 16002
+## Title: RPG Dialogue: Stonetalon Mountains |cff8a8a8a1.0.0|r
+## Notes: Sun Rock Retreat and Stonetalon Peak: an old tauren warrior, a blood elf with a grudge, a witch doctor in a cave, and a keeper watching the burned vale.
+## Author: RPG Dialogue
+## Version: 1.0.0
+## Dependencies: RPGDialogue
+## LoadOnDemand: 1
+## X-RPGD-Pack: rpgd.stonetalon
+## X-RPGD-Format: 1
+## X-RPGD-Load: zone
+## X-RPGD-Zones: Stonetalon_Mountains
+
+pack.lua
+npcs\stonetalon.lua

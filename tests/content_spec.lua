@@ -357,6 +357,18 @@ describe("Content packs", function()
     eq(ns.Data.FindNPC(nil, "Chief Engineer Hinderweir VII").key, "hinderweir")
   end)
 
+  it("Stonetalon loads at Sun Rock Retreat; Maggran and Albagorm are on either side of the ridges", function()
+    local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Stonetalon" } })
+    Mock.state.zone, Mock.state.subzone = "Stonetalon Mountains", "Sun Rock Retreat"
+    Mock.Fire("ZONE_CHANGED_NEW_AREA")
+    Mock.RunTimers()
+    for _, p in ipairs(ns.Packs.List()) do
+      if p.id == "rpgd.stonetalon" then ok(p.loaded); eq(p.warnings, 0) end
+    end
+    eq(ns.Data.FindNPC(nil, "Maggran Earthbinder").key, "maggran")
+    eq(ns.Data.FindNPC(nil, "Keeper Albagorm").key, "albagorm")
+  end)
+
   it("Zephras Isle's Peacekeepers are guards of the isle, and the High Elder knows her own", function()
     local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Zephras" } })
     ns.db.settings.instantText = true

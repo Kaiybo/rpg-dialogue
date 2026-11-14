@@ -187,6 +187,20 @@ P:Town {
   quests = { { TODO_QUEST("Rat Catching"), 4 }, { TODO_QUEST("The Trogg Threat"), 6 }, { TODO_QUEST("A Dark Threat Looms"), 8 } },
 }
 
+P:Town {
+  id = "sun_rock", name = "Sun Rock Retreat",
+  subzones = { "Sun Rock Retreat", "Malaka'jin" },
+  tiers = { Hero = "Hero of Sun Rock" },
+  quests = { { TODO_QUEST("Harpies Threaten"), 6 }, { TODO_QUEST("Arachnophobia"), 8 } },
+}
+
+P:Town {
+  id = "stonetalon_peak", name = "Stonetalon Peak",
+  subzones = { "Stonetalon Peak", "The Talon Den" },
+  tiers = { Hero = "Friend of the Peak" },
+  quests = { { TODO_QUEST("Reclaiming the Charred Vale"), 8 } },
+}
+
 -- The other capitals. Their guards speak from pools_roles.lua; standing grows from quests
 -- each capital's own pack lists later.
 P:Town {

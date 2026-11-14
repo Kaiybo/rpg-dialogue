@@ -219,3 +219,66 @@ P:Thread {
   },
 }
 
+
+-- The Circle takes notice. For druids of either faction: Moonglade hears of a young druid,
+-- the Keeper asks them to watch for the land's sickness, and the sick places (the Barrens'
+-- oases, Darkshore's moss) confirm it. Year 1 only: unease about the Dream, never what
+-- causes it.
+P:Thread {
+  id = "the_circle",
+  theme = "The Cenarion Circle notices a young druid, and asks them to watch the land.",
+  npcs = { "dendrite", "remulos", "tonga", "terenthis", "hamuul", "mathrengyl" },
+  states = { "dormant", "stirring", "unfolding", "resolved" },
+  endings = {
+    resolved = "The Keeper of Moonglade has heard what the young druid saw in the sick places, and has said he'll ask more of them one day.",
+  },
+  pacing = { minConversations = 3, minSeconds = 1500 },
+  reflection = {
+    first = "Dendrite, the Keeper, then the sick places themselves: the Circle had been watching, and now so was I.",
+    third = "{name} had been noticed by the Cenarion Circle, and asked to watch for a sickness in the land.",
+  },
+  beats = {
+    {
+      id = "b1_dendrite", npc = "dendrite",
+      when = { class = "DRUID", thread = { id = "the_circle", notBeat = "b1_dendrite" } },
+      text = "The Keeper asked after you yesterday. By name. He doesn't ask after many young druids. Go and see him at the shrine when you can.",
+      fx = { thread = { id = "the_circle", beat = "b1_dendrite", state = "stirring" }, learn = { "cenarion_circle" } },
+    },
+    {
+      id = "b2_remulos", npc = "remulos",
+      when = { class = "DRUID", thread = { id = "the_circle", beat = "b1_dendrite" } },
+      text = "Dendrite says you listen. Then hear this: the land is sickening in many places at once, water gone sour and moss gone wrong. Watch for it on your roads, and tell me what you find.",
+      fx = { thread = { id = "the_circle", beat = "b2_remulos", state = "unfolding" } },
+    },
+    {
+      id = "b3_tonga", npc = "tonga",
+      when = { class = "DRUID", thread = { id = "the_circle", beat = "b2_remulos" } },
+      text = "Moonglade sent word to watch for a young druid with questions. You, I think. Taste the oasis water and tell me it isn't the same sickness the Keeper fears.",
+      fx = { thread = { id = "the_circle", beat = "b3_tonga" }, learn = { "wailing_caverns" } },
+    },
+    {
+      id = "b3_terenthis", npc = "terenthis",
+      when = { class = "DRUID", thread = { id = "the_circle", beat = "b2_remulos" } },
+      text = "The Keeper's druid! He wrote that you might come. Look at this moss, then. Look closely. Tell him what you see, because I've run out of ways to say it.",
+      fx = { thread = { id = "the_circle", beat = "b3_terenthis" } },
+    },
+    {
+      id = "b4_hamuul", npc = "hamuul",
+      when = { class = "DRUID", any = { { thread = { id = "the_circle", beat = "b3_tonga" } }, { thread = { id = "the_circle", beat = "b3_terenthis" } } } },
+      text = "Remulos writes that you've seen the sick places with your own eyes. Good. Go and tell him yourself. He listens better to the ones who've walked it.",
+      fx = { thread = { id = "the_circle", beat = "b4_hamuul" } },
+    },
+    {
+      id = "b4_mathrengyl", npc = "mathrengyl",
+      when = { class = "DRUID", any = { { thread = { id = "the_circle", beat = "b3_tonga" } }, { thread = { id = "the_circle", beat = "b3_terenthis" } } } },
+      text = "Moonglade has been asking about you; Remulos worries a great deal. Go and tell him what you saw, then come back and train. Worry is no substitute for skill.",
+      fx = { thread = { id = "the_circle", beat = "b4_mathrengyl" } },
+    },
+    {
+      id = "b5_remulos", npc = "remulos",
+      when = { class = "DRUID", any = { { thread = { id = "the_circle", beat = "b3_tonga" } }, { thread = { id = "the_circle", beat = "b3_terenthis" } } } },
+      text = "You've walked the sick places and come back whole; that's what a druid is for. The Dream is troubled, little one. One day I'll ask more of you than watching, but not yet.",
+      fx = { thread = { id = "the_circle", beat = "b5_remulos", state = "resolved" }, standing = { nighthaven = 3 } },
+    },
+  },
+}

@@ -393,3 +393,14 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Renzik "The Shiv": goblin, Shaw's second; third person; rogue quests via Lucius in Redridge | [Renzik "The Shiv"](https://warcraft.wiki.gg/wiki/Renzik_%22The_Shiv%22) |
 | Major Samuelson: captain of the guard in the throne room; mentored Farren Orinelle; Reassignment | [Major Samuelson](https://warcraft.wiki.gg/wiki/Major_Samuelson) |
 | Thomas Miller: the Trade District's walking baker | [Thomas Miller](https://warcraft.wiki.gg/wiki/Thomas_Miller) |
+
+## Stonetalon Mountains (Stonetalon pack 1.0.0)
+
+| Fact used | Source |
+|---|---|
+| Sun Rock Retreat: orcs and tauren repairing the Venture Company's damage | [Sun Rock Retreat](https://warcraft.wiki.gg/wiki/Sun_Rock_Retreat) |
+| Maggran Earthbinder: hardened tauren leader sent by Cairne; Besseleth; the harpy quests | [Maggran Earthbinder](https://warcraft.wiki.gg/wiki/Maggran_Earthbinder) |
+| Tammra Windfield: Kaya's Alive, Cycle of Rebirth, New Life | [Tammra Windfield](https://warcraft.wiki.gg/wiki/Tammra_Windfield) |
+| Braelyn Firehand: blood elf mage against the Talon Den druids and Keeper Ordanus; Cenarius' Legacy, Ordanus | [Braelyn Firehand](https://warcraft.wiki.gg/wiki/Braelyn_Firehand); [Keeper Ordanus](https://warcraft.wiki.gg/wiki/Keeper_Ordanus) |
+| Witch Doctor Jin'Zil: Malaka'jin cave, cages, Darsok's friend | [Witch Doctor Jin'Zil](https://warcraft.wiki.gg/wiki/Witch_Doctor_Jin%27Zil) |
+| Innkeeper Jayka; Keeper Albagorm and Innkeeper Faralia at Stonetalon Peak | [Innkeeper Jayka](https://warcraft.wiki.gg/wiki/Innkeeper_Jayka); [Stonetalon Peak](https://warcraft.wiki.gg/wiki/Stonetalon_Peak); [Keeper Albagorm](https://warcraft.wiki.gg/wiki/Keeper_Albagorm) |
