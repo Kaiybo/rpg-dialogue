@@ -46,6 +46,8 @@ P:NPC {
           text = "The sentries talk about you at the gate. I let them. It's good for morale, and morale's the one thing Stormwind can't refuse to send." },
         { id = "h_book", when = { bookRead = "A Wartorn Land and The Brotherhood" },
           text = "You've read Farholde's book. Then you know what this keep cost, and I won't have to tell you." },
+        { id = "h_fern_resolved", tags = { "news" }, key = true, when = { thread = { id = "farholde_lost", state = "resolved" } },
+          text = "Gray came up to the keep. First time in a year. We didn't argue about Fern. We drank to her. I'm told that was your doing. Thank you. Don't make me say it twice." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "I walk the walls at night. Habit, since the siege. The river's loud after dark. I'd rather hear it than the quiet." },
       },

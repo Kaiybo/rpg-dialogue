@@ -197,6 +197,10 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Gray Dawnbright. Brotherhood of the Horse, on leave from it, or it on leave from me. I haven't decided. Make yourself useful and get Zizplink to fill this." },
+        { id = "h_resolved", tags = { "news" }, when = { thread = { id = "farholde_lost", state = "resolved" } },
+          text = "Went up to the keep. Sat with Demar. We didn't talk about her, not really. We drank to her. Alive or not. First time in years." },
+        { id = "h_soured", when = { thread = { id = "farholde_lost", state = "soured" } },
+          text = "Don't. Whatever it is. I've heard it." },
         { id = "h_tessa", when = { metBefore = true }, text = "Wrote Tessa a letter. Tore it up. Wrote another. That one's in the stew, I think. Don't eat the stew." },
       },
       again = { { id = "h_again", text = "Still here? Fine. Talk." }, { id = "h_again2", text = "Go on, then." } },
@@ -205,6 +209,8 @@ P:NPC {
         { text = "Tell me about the Brotherhood.", next = "brotherhood" },
         { text = "Who's Tessa?", next = "tessa", when = { metBefore = true } },
         { text = "Fern Crimsonleaf. Did you know her?", next = "fern", when = { topicKnown = "fern_crimsonleaf" } },
+        { text = "I spoke to Demar about Fern.", next = "fern_word",
+          when = { thread = { id = "farholde_lost", beat = "b4_demar", state = { "stirring", "unfolding" } } } },
         { text = "Buy you a drink?", next = "drink" },
         { text = "Leave you to it.", next = "END" },
       },
@@ -255,8 +261,30 @@ P:NPC {
       lines = { { id = "fa_default", text = "I think she's somewhere. Ravenholdt taught her to vanish. Maybe she just never stopped." } },
       choices = {
         { text = "I hope you're right.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
-        { text = "Twenty years is a long time to vanish.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "That's a long time to stay vanished.", next = "BACK", fx = { trait = { skeptical = 1 } } },
       },
+    },
+    fern_word = {
+      big = true,
+      lines = { { id = "fw_default", text = "Did you. And? Don't soften it. I've had years of soft." } },
+      choices = {
+        { text = "He found her dagger and nothing else. That's not a grave.", next = "fern_hope",
+          fx = { thread = { id = "farholde_lost", state = "resolved" }, affinity = 3, align = { light = 1 } },
+          journal = { first = "Told Gray that a dagger isn't a grave. He looked at me a long time, then got up and walked towards the keep.",
+                      third = "{name} told Gray Dawnbright that Fern Crimsonleaf's dagger was no grave. He went up to the keep." } },
+        { text = "Let her rest, Gray. He's right.", next = "fern_rest",
+          fx = { thread = { id = "farholde_lost", state = "soured" }, affinity = -2, trait = { stern = 1 } },
+          journal = { first = "Told Gray to let Fern Crimsonleaf rest. He didn't argue. He didn't say anything at all.",
+                      third = "{name} told Gray Dawnbright to let Fern Crimsonleaf rest. He fell silent." } },
+      },
+    },
+    fern_hope = {
+      lines = { { id = "fh_default", text = "No. It isn't, is it. Hold my chair. I'm going up to the keep. Someone ought to tell the Commander he's allowed to hope." } },
+      choices = { { text = "Go on, then.", next = "END" } },
+    },
+    fern_rest = {
+      lines = { { id = "fr_default", text = "Right. Right. Zizplink, another. No, I'm fine. Go on, then. You've done your bit." } },
+      choices = { { text = "...", next = "END" } },
     },
     fern_demar = {
       lines = { { id = "fd_default", text = "Demar says a lot of things are dead. Half of them are just quiet." } },

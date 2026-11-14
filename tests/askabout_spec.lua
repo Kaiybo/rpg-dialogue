@@ -180,3 +180,55 @@ describe("Ask about: answers lead somewhere", function()
     ok(Ask.Selected() ~= nil, "moving back wraps to a topic")
   end)
 end)
+
+describe("The lost of Farholde (throughline)", function()
+  local function bootPort()
+    local ns = boot({ subzone = "Powderfuse Port" })
+    return ns
+  end
+  local function click(ns, needle)
+    for i, b in ipairs(ns.UI.Dialogue.Frame().buttons) do
+      if b:IsShown() and (plain(b.label:GetText()) or ""):find(needle, 1, true) then ns.UI.Dialogue.Click(i); return true end
+    end
+    return false
+  end
+
+  it("Gray carries the first beat, and teaches who Fern was", function()
+    local ns = bootPort()
+    talk("Gray Dawnbright", 91010)
+    contains(raw(ns), "Presumed")
+    ok(ns.char.threads.farholde_lost and ns.char.threads.farholde_lost.beats.b1_gray, "beat heard")
+    ok(ns.char.topics.fern_crimsonleaf, "topic learned")
+  end)
+
+  it("after Demar's beat, the player decides what to carry back to Gray", function()
+    local ns = bootPort()
+    local t = ns.Threads.State("farholde_lost")
+    t.state = "unfolding"
+    t.beats = { b1_gray = 1, b2_ashe = 2, b4_demar = 3 }
+    ns.char.topics.fern_crimsonleaf = { t = 1 }
+    talk("Gray Dawnbright", 91010)
+    ok(click(ns, "I spoke to Demar about Fern."), "the reply is offered")
+    ok(click(ns, "That's not a grave."), "the hopeful answer is offered")
+    eq(t.state, "resolved")
+    leave(ns)
+    Mock.state.subzone = "Farholde Keep"
+    talk("Demar Brant", 91001)
+    contains(raw(ns), "Gray came up to the keep")
+  end)
+
+  it("telling Gray to let her rest sours it, and he stops talking about her", function()
+    local ns = bootPort()
+    local t = ns.Threads.State("farholde_lost")
+    t.state = "unfolding"
+    t.beats = { b1_gray = 1, b2_ashe = 2, b4_demar = 3 }
+    ns.char.topics.fern_crimsonleaf = { t = 1 }
+    talk("Gray Dawnbright", 91010)
+    click(ns, "I spoke to Demar about Fern.")
+    ok(click(ns, "Let her rest, Gray."))
+    eq(t.state, "soured")
+    leave(ns)
+    talk("Gray Dawnbright", 91010)
+    contains(raw(ns), "I've heard it.")
+  end)
+end)

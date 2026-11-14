@@ -282,3 +282,51 @@ P:Thread {
     },
   },
 }
+
+-- The Riverglades (Forever): Fern Crimsonleaf went into the Horde camp the night before the
+-- charge and never came back. Her memorial says "presumed dead". Farholde has argued about
+-- it ever since. The truth stays open (claim fern_lives); the player only chooses what to
+-- carry between Gray, who won't let her go, and Demar, who won't let himself hope.
+P:Thread {
+  id = "farholde_lost",
+  theme = "Fern Crimsonleaf never came back from the night that broke the siege, and Farholde can't agree on what that means.",
+  npcs = { "gray", "ashe", "cady", "demar" },
+  states = { "dormant", "stirring", "unfolding", "resolved", "soured" },
+  endings = {
+    resolved = "The player told Gray that a dagger isn't a grave. He went up to the keep, and he and Demar drank to her, alive or not.",
+    soured = "The player told Gray to let Fern rest. He stopped talking about her, and started drinking alone.",
+  },
+  pacing = { minConversations = 2, minSeconds = 600 },
+  reflection = {
+    first = "Three people in Farholde have told me about Fern Crimsonleaf now, and no two of them buried the same woman.",
+    third = "{name} had heard of Fern Crimsonleaf from three people in Farholde, and none of them agreed on whether she was dead.",
+  },
+  beats = {
+    {
+      id = "b1_gray", npc = "gray",
+      when = { minLevel = 35, thread = { id = "farholde_lost", notBeat = "b1_gray" } },
+      text = "Been up at the keep? Read Fern's stone? 'Presumed dead.' Presumed. I've been presuming otherwise for years, and I'm not tired yet.",
+      fx = { thread = { id = "farholde_lost", beat = "b1_gray", state = "stirring" }, learn = { "fern_crimsonleaf" }, hear = "fern_lives" },
+    },
+    {
+      id = "b2_ashe", npc = "ashe",
+      when = { any = { { thread = { id = "farholde_lost", beat = "b1_gray" } }, { bookRead = "Fern Crimsonleaf" } },
+               ["not"] = { thread = { id = "farholde_lost", beat = "b2_ashe" } } },
+      text = "Fern? My father used to say she could vanish in a lit room. He said it fondly. Looking back, I think he also said it as a warning.",
+      fx = { thread = { id = "farholde_lost", beat = "b2_ashe", state = "unfolding" } },
+    },
+    {
+      id = "b3_cady", npc = "cady",
+      when = { thread = { id = "farholde_lost", beat = "b2_ashe" }, ["not"] = { thread = { id = "farholde_lost", beat = "b3_cady" } } },
+      text = "You're asking about Fern Crimsonleaf. Don't ask the Commander. He commanded that night, and everything that happened in it is his to carry.",
+      fx = { thread = { id = "farholde_lost", beat = "b3_cady" } },
+    },
+    {
+      id = "b4_demar", npc = "demar",
+      when = { any = { { thread = { id = "farholde_lost", beat = "b2_ashe" } }, { thread = { id = "farholde_lost", beat = "b3_cady" } } },
+               ["not"] = { thread = { id = "farholde_lost", beat = "b4_demar" } } },
+      text = "Gray's been at you about Fern. Once, then: we found her dagger among their dead captains, and nothing else. I won't dig up that hope for a tavern story.",
+      fx = { thread = { id = "farholde_lost", beat = "b4_demar" } },
+    },
+  },
+}
