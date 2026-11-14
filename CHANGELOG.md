@@ -2,6 +2,20 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.16.0 (2026-11-14)
+Packs: World 1.4.0, Elwynn Forest 1.5.0, Westfall 1.2.0, Stormwind 1.2.1, Zephras Isle 1.0.1, Redridge 1.1.0, Duskwood 1.1.0, Ironforge 1.1.0, and four new ones: Wetlands 1.0.0, Moonglade 1.0.0, Darnassus 1.0.0, Thunder Bluff 1.0.0. **New folders: exit the game fully, copy them in, and tick the new packs in the AddOns list.**
+
+### New places, chosen for a level 22 druid
+- **Moonglade.** Keeper Remulos, Rabine Saturna, Dendrite Starblaze and the druid trials, Loganaar, the Great Bear Spirit (who mostly doesn't speak), and the Circle's two flight masters. Neutral throughout. A Skyborne druid is recognised for honouring the winds before the moon.
+- **Darnassus.** Tyrande Whisperwind, Arch Druid Fandral Staghelm (and their quarrel), Mathrengyl Bearwalker for the Alliance druid trials, Priestess A'moora, Gracina Spiritmight, Innkeeper Saelienne.
+- **Thunder Bluff.** Cairne Bloodhoof, Arch Druid Hamuul Runetotem, Turak Runetotem for the Horde druid trials, Magatha Grimtotem, Innkeeper Pala. The first Horde capital with people of its own; a Horde Skyborne is welcomed as a friend of the Earthen Ring.
+- **Wetlands.** Menethil Harbor: Captain Stoutfist and the Dragonmaw in the hills, First Mate Fitzsimmons and the drowned Third Fleet, Glorin Steelbrow, Harlo Barnaby, Karl Boran, Innkeeper Helbrek, Archaeologist Flagongut, and Mikhail, a bartender who doesn't sell drinks. Menethil's guards.
+
+### Also
+- New things to ask about: the Dragonmaw clan, the Cenarion Circle.
+- Tavern talk in Menethil, and word of the Wetlands in the inns to the south.
+- Hamuul has heard about Fandral; Mikhail asks after Elling Trias.
+
 ## 0.15.0 (2026-11-14)
 Packs: World 1.3.0, Elwynn Forest 1.5.0, Westfall 1.2.0, Stormwind 1.2.0, Zephras Isle 1.0.1, Redridge 1.1.0, Duskwood 1.1.0, Ironforge 1.1.0. No new folders: a /reload is enough, but a restart is safest.
 

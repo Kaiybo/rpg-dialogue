@@ -3,7 +3,7 @@
 > Read this first, then `DESIGN.md`, then `CONTENT_GUIDE.md` (and `PACK_AUTHORING.md` before adding a zone). You won't remember earlier sessions; these files are your memory.
 > The original brief is the Project doc `rpg-dialogue-build-prompt (1).md`. Re-read it when a decision isn't covered here.
 
-**Last session:** 2026-11-14 (user away; asked to keep expanding) · **M0–M8 all built; five rounds of in-game results are in; Phase 4 (content) under way.** The addon loads, packs load, `/rpgd why` works, and the Skyborne race token is "Skyborne". **Versions now: core 0.15.0, World 1.3.0, Elwynn 1.5.0, Westfall 1.2.0, Stormwind 1.2.0, Zephras Isle 1.0.1, Redridge 1.1.0, Duskwood 1.1.0, Ironforge 1.1.0** (`python3 tools/version.py`).
+**Last session:** 2026-11-14 (user away; asked to keep expanding) · **M0–M8 all built; five rounds of in-game results are in; Phase 4 (content) under way.** The addon loads, packs load, `/rpgd why` works, and the Skyborne race token is "Skyborne". **Versions now: core 0.16.0, World 1.4.0, Elwynn 1.5.0, Westfall 1.2.0, Stormwind 1.2.1, Zephras Isle 1.0.1, Redridge 1.1.0, Duskwood 1.1.0, Ironforge 1.1.0, Wetlands 1.0.0, Moonglade 1.0.0, Darnassus 1.0.0, Thunder Bluff 1.0.0** (`python3 tools/version.py`).
 
 **First in-game test (user, 2026-11-13):**
 - **Test character: Skyborne Druid, level 22 (Blooded), faction not confirmed, tested in Northshire Valley.** Content for that character is thin: the slice is written for level 1–10 characters doing Northshire/Goldshire quests (only 4 Skyborne lines and 1 druid line exist). Asked the user where they actually play, for the next content pass.
@@ -45,6 +45,7 @@
 - **Then (on waking, three times): "Keep going. More polish. More npcs. Don't forget important NPCs as well as mundane."** and **"Keep expanding until you can't."**
   - 0.15.0 (content only, no engine changes): Elwynn's nine class trainers and fourteen Goldshire townsfolk; Stormwind's Shaw, Jennea, Gakin, Allison, Grayson Shadowbreaker, Arthur the Faithful, Grimand Elmore, Furen Longbeard, Milton Sheaf, Elling Trias, Lord Lescovar (dramatic irony, like Prestor), Dashel Stonefist, Topper McNabb, Warden Thelwater; Darkshire's Jonathan Carevin, Calor, Sirra Von'Indi, Viktori, Chef Grual, Councilman Millstipe, Trelayne, Clarise Gnarltree; Lakeshire's Brianna, Conacher, Feldon, Parker, Darcy, Martie, Breanna; Sentinel Hill's Heather, Quartermaster Lewis, Thor, Scout Riell, William MacGregor; Ironforge's Mekkatorque, Archesonus, Magellas, Prospector Stormpike, Senator Stonehallow, Firebrew. New topics (World 1.3.0): the Carevins, Morgan Ladimore, Gnomeregan, the Dark Iron, the Explorers' League.
   - Duskwood got the most weight because the druid main is level 22: shapechangers get a hostile welcome from Jonathan and Calor (worgen town), a curious one from Viktori.
+  - 0.16.0: four new packs aimed at a level 22 druid of either faction: Moonglade (Remulos, Rabine, Dendrite and the druid trials, Loganaar, the Great Bear Spirit, Silva and Bunthen; neutral; guard pool for Nighthaven Defenders), Darnassus (Tyrande, Fandral, Mathrengyl, A'moora, Gracina, Saelienne), Thunder Bluff (Cairne, Hamuul, Turak, Magatha, Pala; the first Horde content with named NPCs), Wetlands (Menethil: Stoutfist, Fitzsimmons, Glorin, Harlo, Karl, Helbrek, Flagongut, Mikhail; guard pool). World 1.4.0: towns Menethil and Nighthaven, topics Dragonmaw and Cenarion Circle, Wetlands rumors.
 
 ## Assumptions made while the user was away (confirm or correct)
 1. **Interface number** 16001 (from warcraft.wiki.gg, patch 1.60.1). TOCs say `16001, 16002` to cover the next patch too.
@@ -66,6 +67,8 @@
 17. **Abercrombie's secret** stays a secret in his lines (hints only) until Note to the Mayor; Lady Prestor likewise until The Great Masquerade.
 18. **Overnight content order:** Redridge and Duskwood (the paladin's road), then Elwynn fill-in; Ashenvale was researched but held back because the wiki mixes Classic and later-era NPCs there (needs capture data to be safe).
 19. **NPCs whose wiki pages give no personality** (Trelayne, Firebrew, Feldon, Furen) got authored ones, marked "authored" in their bibles. Relations the wiki leaves unstated (the Gnarltrees, Martie and Alma Jainrose, the Carevin family members) are never stated in lines.
+21. **Horde content started without being asked** (Thunder Bluff), because the druid main's faction is still unknown and a Horde Skyborne would live there. Moonglade is written neutral; Silva and Bunthen branch on faction.
+22. **Druid trials:** Dendrite (Moonglade), Mathrengyl (Darnassus) and Turak (Thunder Bluff) each speak to the Classic druid quests by name (Great Bear Spirit, Body and Heart, Power over Poison, Aquatic Form...). Which trainer a Skyborne druid is sent to isn't known, so no line assumes it.
 20. **Same-title quest chains** (Calor's four *Worgen in the Woods*, Prospector Stormpike's Uldaman steps) get lines that fit any step, as in assumption 16.
 
 ## Done
@@ -78,6 +81,7 @@
 - **M6** (979fcc5): spirit healer tree, books, insanity, drunk replies, ghosts, barks, errands.
 - **M7** (bbefce7): `tools/new_zone.py` (plan → approve tiers → scaffold), `tools/check_all.py`, impossible-quest-reference check, copied-wording check, flag replay lines, `/rpgd capture zone`, `tests/test_tools.py`.
 - **M8** (c2e6a2e): Total RP 3 (read-only), accessibility pass (keyboard selection, gamepad, Ask About keybinding, bundled readable font, "(Locked)" and ">" markers, journal tab keys), the optional "something new" tooltip marker (an M2 item that had been missed), pack `requires` reported in game and validated, per-pack versions and changelogs, `PACK_AUTHORING.md`, `.pkgmeta` checked against the packager's source, Blizzard UI policy checked and enforced by `check_all.py --release`, GitHub workflows, README rewrite.
+- **0.16.0:** CHECKS_PLACEHOLDER
 - **0.15.0:** 177 Lua tests, 8 Python tool tests, luacheck clean (145 files), validator 0 errors (639 warnings: TODO placeholders and a few long lines), voice check 0 failures (95 warnings), simulation of 1,500 characters 0 runtime errors / 0 contradictions / 0 impossible quest references (283 of 2,255 lines never fired: the usual blind spots). **The simulation now takes about 21 minutes**: run the full check in the background, in a git worktree if you keep editing meanwhile.
 - **0.14.0 (overnight):** 177 Lua tests; same gates as below, all passing.
 - **0.13.0 (overnight):** see the bullet at the top. **Checks then:** 176 Lua tests, 8 Python tool tests, luacheck clean, validator 0 errors, voice check 0 failures, simulation (all folders; ~10 minutes with nine, run it in the background) 0 runtime errors / 0 contradictions / 0 impossible quest references. Never-fired named-NPC lines are all simulation blind spots (visited places, deeds, Horde faction, fishing, mounted), listed in `tools/out/simulation.md`.
@@ -90,7 +94,7 @@
 
 ## Needs the user's approval
 - Origin lists (brief M5 says "for my approval"): `RPGDialogue_World/origins/*.lua`. Horde races have none yet (no Horde content exists yet either).
-- Assumptions 10–20 above.
+- Assumptions 10–22 above.
 - The NPC tiers chosen in 0.12.0 without the plan step (Elwynn additions, Westfall, Stormwind, Zephras Isle).
 - More Zephras Isle NPCs need capture data (names, roles) before they can be written; only the High Elder is named in the brief.
 
@@ -112,7 +116,7 @@
 - A real tagged build with the BigWigs packager (the `.pkgmeta` was checked by reading the packager's code; running it here was not allowed).
 
 ## In-game test checklist (for the user)
-Install by linking or copying `RPGDialogue`, `RPGDialogue_World`, and every `RPGDialogue_<Zone>` folder (Elwynn, Westfall, Stormwind, Zephras, Redridge, Duskwood, Ironforge) into AddOns. Have BugSack + !BugGrabber on. Paste back every error, plus the outputs asked for.
+Install by linking or copying `RPGDialogue`, `RPGDialogue_World`, and every `RPGDialogue_<Zone>` folder (Elwynn, Westfall, Stormwind, Zephras, Redridge, Duskwood, Ironforge, Wetlands, Moonglade, Darnassus, ThunderBluff) into AddOns. Have BugSack + !BugGrabber on. Paste back every error, plus the outputs asked for.
 1. Log in. Expect "RPG Dialogue loaded". Run `/rpgd probe` and paste the output.
 2. `/rpgd packs`: World loaded; Elwynn "waiting for zone" outside Elwynn, "loaded" inside it.
 3. `/console taintLog 1`, then reload. Talk to Marshal McBride (Northshire Abbey): our window opens in front of Blizzard's. Try 1–4, Up/Down + Enter, Space, Escape. "Get on with it" must leave Blizzard's quest window working normally. Later, send `Logs/taint.log` if it mentions RPGDialogue.
@@ -143,7 +147,9 @@ Still all of DESIGN.md §4 (section 9 answers, slice zone, where the repo lives,
 - `python3 tools/check_all.py` runs everything (about 22 minutes now, almost all of it the simulation: run it in the background, from a `git worktree` of the commit being released if you keep editing); `--quick` skips the simulation.
 
 ## Exact next step
-User installs 0.15.0 (no new folders; /reload is enough, restart is safest). Skyborne druid at 22: Darkshire (Jonathan Carevin and Calor in bear or cat form, Viktori, Sirra), Lakeshire (Darcy, Martie, Guard Parker on the Duskwood road). Human paladin: Lord Grayson Shadowbreaker in the Cathedral, Furen and Grimand Elmore in the Dwarven District. Then send the capture file for real IDs. Next content candidates: more of Stormwind (Renzik, Dungar Longdrink), Loch Modan, Wetlands, Horde when asked.
+User installs 0.16.0 (**four new folders: exit the game, copy them in, tick them in the AddOns list**). Skyborne druid at 22: Moonglade (Remulos, Dendrite, the Great Bear Spirit, Loganaar; in bear and cat form too), then Darnassus or Thunder Bluff depending on faction (Tyrande and Fandral; Cairne, Hamuul, Magatha), and Menethil Harbor if Alliance. Tell us the druid's faction. Then send the capture file for real IDs. Next content candidates: the Barrens (Crossroads) for a Horde druid, Darkshore/Ashenvale for an Alliance one, more of Stormwind (Renzik, Dungar Longdrink).
+
+Previous next step (0.15.0): User installs 0.15.0 (no new folders; /reload is enough, restart is safest). Skyborne druid at 22: Darkshire (Jonathan Carevin and Calor in bear or cat form, Viktori, Sirra), Lakeshire (Darcy, Martie, Guard Parker on the Duskwood road). Human paladin: Lord Grayson Shadowbreaker in the Cathedral, Furen and Grimand Elmore in the Dwarven District. Then send the capture file for real IDs. Next content candidates: more of Stormwind (Renzik, Dungar Longdrink), Loch Modan, Wetlands, Horde when asked.
 
 Previous next step (0.14.0): User installs 0.14.0 (full restart; tick the new Redridge, Duskwood and Ironforge packs). Paladin at 12: Wilhelm → Rall → Stephanie → Gazin → Henze → Rall, each should speak their own lines. Skyborne main: Farley, Dughan, Gryan, Smitts react to Skyborne.
 

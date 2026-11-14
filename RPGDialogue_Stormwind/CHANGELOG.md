@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.2.1 (unreleased)
+- Elling Trias's opening can be heard about elsewhere (Mikhail in Menethil Harbor asks after him).
+
 ## 1.2.0 (unreleased)
 - Mathias Shaw (SI:7), Jennea Cannon, Gakin the Darkbinder, Innkeeper Allison.
 - Lord Grayson Shadowbreaker and Arthur the Faithful in the Cathedral, Grimand Elmore and his student Furen Longbeard in the Dwarven District, Milton Sheaf in the Royal Library, Elling Trias at the cheese shop.

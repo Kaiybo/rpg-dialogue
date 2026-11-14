@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.4.0 (unreleased)
+- Towns: Menethil Harbor and Nighthaven. Topics: the Dragonmaw clan, the Cenarion Circle. Rumors for the Wetlands' inns, and word of the Wetlands in Ironforge, Dun Morogh, Stormwind and Redridge.
+
 ## 1.3.0 (unreleased)
 - Topics: the Carevins, Morgan Ladimore, the fall of Gnomeregan, the Dark Iron dwarves, the Explorers' League.
 
