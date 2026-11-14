@@ -189,3 +189,14 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Fact | Source |
 |---|---|
 | Daphne Stilwell: small farm in Westfall overlooking the Longshore near the Deadmines exit; husband Jordan Stilwell (a smith outside the Gates of Ironforge, devoted to the Church, trained to be a paladin before following his father into smithing); Defias raiders attacked her farm, young paladins were sent (Rall's protective mission), and she fought back herself; picks apples | [Daphne Stilwell](https://warcraft.wiki.gg/wiki/Daphne_Stilwell); [Jordan Stilwell](https://warcraft.wiki.gg/wiki/Jordan_Stilwell); [Duthorian Rall](https://warcraft.wiki.gg/wiki/Duthorian_Rall) |
+
+## Ironforge (Ironforge pack 1.0.0)
+
+| Fact | Source |
+|---|---|
+| Magni Bronzebeard (Year 1): King of Ironforge, head of the Bronzebeard clan; pledged Ironforge to the Alliance after the Second War; had Mekkatorque begin the Deeprun Tram; backed the Explorers; grieved Muradin (believed killed in Northrend); his daughter Moira taken by the Dark Iron; pressed the Alliance for help against them; stoic, sorrowful; distrusted warlocks; authorized action against Dun Morogh's trolls | [Magni Bronzebeard](https://warcraft.wiki.gg/wiki/Magni_Bronzebeard) |
+| Brandur Ironhammer: paladin trainer, Hall of Mysteries; sent dwarven paladins to Tiza Battleforge and humans to Duthorian Rall; Classic: Tome of Divinity, The Tome of Nobility | [Brandur Ironhammer](https://warcraft.wiki.gg/wiki/Brandur_Ironhammer) |
+| John Turner: wanders the Commons; runs the Stormwind orphanage with Stephanie; asks passers-by to remember the orphans; says he visits monthly but is always there | [John Turner](https://warcraft.wiki.gg/wiki/John_Turner) |
+| Jordan Stilwell: outside the Gates of Ironforge; Verigan's Fist, named for his friend Bosch Verigan; Daphne's husband; one of the Church's most faithful; trained as a paladin before following his father into smithing | [Jordan Stilwell](https://warcraft.wiki.gg/wiki/Jordan_Stilwell) |
+
+**Not used:** Magni's later fate, Moira's later story, Brann's travels; the dwarves' earthen origin (not part of Year 1 dialogue).
