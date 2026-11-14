@@ -141,7 +141,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "Turak Runetotem. I help the Arch Druid train the young ones. I teach the steps; he teaches why they matter." },
+        { id = "h_default", key = true, text = "Turak Runetotem. I help the Arch Druid train the young ones. I teach the steps; he teaches why they matter." },
         { id = "h_call", tags = { "news" }, when = { questActive = TODO_QUEST("Heeding the Call") },
           text = "The call reached you, then. Good. Sit. Before you can be more than one creature, you must understand the one you are." },
         { id = "h_back", when = { questActive = TODO_QUEST("Back to Thunder Bluff") },
@@ -281,6 +281,7 @@ P:NPC {
           text = "Sky-folk, from down at the camp? Sit by the fire; up here the wind's colder than you'd think, even for you." },
         { id = "h_lifts", when = { metBefore = true }, text = "The lift-runners eat here every night. Strongest backs in the city and the softest hearts. Don't tell them I said so." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Late and windy. Listen to the totems creak. Sounds like the whole bluff is breathing." },
+        { id = "h_turak", when = { heardLine = "turak.h_default" }, text = "You've been up to Turak on Elder Rise? He eats here twice a moon. Sits by the window and doesn't speak. Tips well, though." },
       },
       choices = {
         { text = "Make this my home.", next = "BUSINESS" },

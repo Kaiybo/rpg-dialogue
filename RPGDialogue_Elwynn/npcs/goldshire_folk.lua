@@ -21,7 +21,7 @@ P:NPC {
   start = "hello",
   nodes = { hello = {
     lines = {
-      { id = "h_default", text = "Dobbins. When Farley shouts my name, I fetch. When he doesn't, I pour. It's a good life." },
+      { id = "h_default", key = true, text = "Dobbins. When Farley shouts my name, I fetch. When he doesn't, I pour. It's a good life." },
       { id = "h_farley", when = { heardLine = "farley.h_default" },
         text = "Farley told you the family's never watered a drink? True. I've seen him check. He holds it up to the lamp." },
       { id = "h_armwrestle", when = { metBefore = true }, text = "Lively night last night. A lad fresh from Northshire tried to arm-wrestle a dwarf. The dwarf's still at the bar. The lad's still under it." },
@@ -83,11 +83,12 @@ P:NPC {
   start = "hello",
   nodes = { hello = {
     lines = {
-      { id = "h_default", text = "Toddrick. I cut the meat, Farley cooks it, and everyone agrees whose job is harder. It's mine." },
+      { id = "h_default", key = true, text = "Toddrick. I cut the meat, Farley cooks it, and everyone agrees whose job is harder. It's mine." },
       { id = "h_princess", when = { questDone = TODO_QUEST("Princess Must Die!") },
         text = "You did for the Brackwells' prize sow? Pity you didn't bring her here. I'd have made Goldshire's finest sausages." },
       { id = "h_boar", when = { metBefore = true }, text = "Boar's good this week. Wolf's not. Don't let anyone sell you wolf. Not even me." },
       { id = "h_second", when = { metBefore = true }, text = "Farley says my sausages are the second-best thing in this inn. I asked him what the first was. He pointed at himself." },
+      { id = "h_dobbins", when = { heardLine = "dobbins.h_default" }, text = "Dobbins says he fetches when Farley shouts? He fetches when I shout too. Slower. Much slower." },
     },
     choices = { { text = "Where does your meat come from?", next = "meat" }, { text = "What's good today?", next = "BUSINESS" }, { text = "Goodbye.", next = "END" } },
   },
@@ -166,11 +167,12 @@ P:NPC {
   start = "hello",
   nodes = { hello = {
     lines = {
-      { id = "h_default", text = "Corina Steele. Yes, really. With a name like that it was this or juggling." },
+      { id = "h_default", key = true, text = "Corina Steele. Yes, really. With a name like that it was this or juggling." },
       { id = "h_warrior", when = { class = "WARRIOR" }, text = "Lyria sends me all her students. Half come back for a heavier blade. The other half come back for a lighter one." },
       { id = "h_kurran", when = { metBefore = true }, text = "Kurran and I share a name and an argument. The argument's older." },
       { id = "h_balance", when = { metBefore = true }, text = "A sword's balance tells you who it was made for. Most of mine are made for whoever pays." },
       { id = "h_paladin", when = { class = "PALADIN" }, text = "A paladin. You'll want a hammer, I'd guess. Your lot always seem to." },
+      { id = "h_heard_kurran", when = { heardLine = "kurran.h_default" }, text = "Kurran called himself the other Steele? He likes being the other one. Less pressure, he says. More time to sit." },
     },
     choices = { { text = "What makes a good blade?", next = "blade" }, { text = "Let me see your weapons.", next = "BUSINESS" }, { text = "Goodbye.", next = "END" } },
   },
@@ -194,9 +196,10 @@ P:NPC {
   start = "hello",
   nodes = { hello = {
     lines = {
-      { id = "h_default", text = "Kurran. The other Steele. Corina sells you the sword; I sell you the coat you'll bleed on. Family business, in a way." },
+      { id = "h_default", key = true, text = "Kurran. The other Steele. Corina sells you the sword; I sell you the coat you'll bleed on. Family business, in a way." },
       { id = "h_corina", when = { metBefore = true }, text = "Corina says leather's for people who can't commit. I say plate's for people who can't run." },
       { id = "h_buyers", when = { metBefore = true }, text = "Rogues buy dark colors. Druids buy anything that stretches. Hunters buy whatever's got the most pockets." },
+      { id = "h_heard_corina", when = { heardLine = "corina.h_default" }, text = "Corina told you the juggling joke? She tells everyone. I've heard it a hundred times. It's getting better. Slowly." },
     },
     choices = { { text = "Why cloth and leather?", next = "why" }, { text = "Show me.", next = "BUSINESS" }, { text = "Later.", next = "END" } },
   },
@@ -356,7 +359,7 @@ P:NPC {
   start = "hello",
   nodes = { hello = {
     lines = {
-      { id = "h_default", text = "Helene Peltskinner. Wolves, boars, the odd bear. Everything out there has a coat, and every coat's worth something." },
+      { id = "h_default", key = true, text = "Helene Peltskinner. Wolves, boars, the odd bear. Everything out there has a coat, and every coat's worth something." },
       { id = "h_eagan", when = { heardLine = "eagan.h_default" },
         text = "You've met Eagan up in Northshire? The name's a coincidence, or it isn't. I'll let you wonder." },
       { id = "h_pelts", when = { metBefore = true }, text = "Wolf pelts sell best in winter. Boar hides, all year. Murloc skin, never. Don't bring me murloc." },
@@ -383,7 +386,7 @@ P:NPC {
   },
   start = "hello",
   nodes = { hello = {
-    lines = { { id = "h_default", text = "Adele Fielder. Boots, belts, jerkins. The things adventurers wear out fastest and complain about loudest." }, { id = "h_fix", when = { metBefore = true }, text = "Half my work is fixing what adventurers stitched themselves. The other half is telling them it wasn't so bad." }, },
+    lines = { { id = "h_default", key = true, text = "Adele Fielder. Boots, belts, jerkins. The things adventurers wear out fastest and complain about loudest." }, { id = "h_fix", when = { metBefore = true }, text = "Half my work is fixing what adventurers stitched themselves. The other half is telling them it wasn't so bad." }, { id = "h_helene", when = { heardLine = "helene.h_default" }, text = "Helene told you every coat's worth something? True. Until an adventurer stitches it himself. Then it's worth less." }, },
     choices = { { text = "What's hardest to make?", next = "hard" }, { text = "Teach me.", next = "BUSINESS" }, { text = "Later.", next = "END" } },
   },
     hard = {

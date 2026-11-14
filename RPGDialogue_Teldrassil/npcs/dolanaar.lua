@@ -211,6 +211,7 @@ P:NPC {
           text = "A delivery for the inn? Wonderful. Set it down there; I'll see it put to use tonight." },
         { id = "h_joke", when = { metBefore = true }, text = "A Sentinel told me a joke last night. It wasn't funny, but she laughed so hard I laughed too. That's the inn on a good night." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Late. The Sentinels coming off watch will want tea. They always want tea, and they never admit they're cold." },
+        { id = "h_corithras", when = { heardLine = "corithras.h_default" }, text = "Corithras and his wells. He tastes every one himself, you know, to find the trouble. I keep peppermint tea for him after." },
       },
       choices = { { text = "How's the inn?", next = "inn" }, { text = "Just rest, thank you.", next = "END" } },
     },
