@@ -53,6 +53,7 @@ P:NPC {
         { text = "I've followed a bad order before.", next = "soldier", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "My order fell apart too. Nobody told us why.", next = "squire", when = { origin = "human_paladin_squire" } },
         { text = "It's done. Kurzen's dead.", next = "done", when = { questDone = TODO_QUEST("Colonel Kurzen") } },
+        { text = "I could pray over your dead, Lieutenant.", next = "priest_dead", when = { class = "PRIEST" } },
         { text = "I'm here to help.", next = "END", fx = { affinity = 2, standing = { rebel_camp = 1 }, learn = { "kurzen" } } },
         { text = "I'll be going.", next = "END" },
       },
@@ -238,6 +239,13 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    priest_dead = {
+      lines = { { id = "pd_default", text = "We buried them without a priest. Nimetz was busy with the living, and I said what words I could remember. Would you? The graves are past the tents. The men would like to see it done properly." } },
+      choices = {
+        { text = "I'll go tonight.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, standing = { rebel_camp = 2 }, trait = { pious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -252,7 +260,7 @@ P:NPC {
   key = "nimetz", id = TODO_NPC("Brother Nimetz"), name = "Brother Nimetz",
   bible = "bibles/stranglethorn.md", role = "priest", tier = "quest",
   communities = { "rebel_camp" }, temper = { "earnest" }, values = { "devout", "curious" },
-  notices = { "class", "craft" },
+  notices = { "class", "craft", "form" },
 
   greetings = {
     { id = "g_glass", text = "The Light keep you. Mind your step; I've glassware drying on every flat surface in this camp." },
@@ -260,6 +268,8 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_shadow", cat = "form", when = { form = "shadow" },
+      text = "Shadow. I study dark things for a living, and I'd still rather you stood downwind. I'm joking. Mostly. Sit, if you like." },
     { id = "n_light", cat = "class", when = { class = { "PRIEST", "PALADIN" } },
       text = "A servant of the Light, out here. Then pray with me tonight. These men need it, and so do I." },
     { id = "n_alch", cat = "craft", when = { profession = "Alchemy" },

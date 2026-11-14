@@ -489,6 +489,7 @@ P:NPC {
         { text = "Leaving was honest.", next = "BACK", fx = { affinity = 3, align = { honor = 1 } } },
         { text = "Running away fixes nothing. Go back and vote.", next = "nobles_vote", fx = { align = { order = 2 } } },
         { text = "Who else in that hall knew?", next = "nobles_who", fx = { trait = { curious = 1 } } },
+        { text = "The Light forgives a man who stood by, if he's sorry.", next = "priest_forgive", when = { class = "PRIEST" } },
       },
     },
     nobles_undo = {
@@ -559,6 +560,13 @@ P:NPC {
       choices = {
         { text = "You're not the one who burned the fields.", next = "BACK", fx = { affinity = 2, align = { light = 2 }, trait = { kind = 1 } } },
         { text = "I won't.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
+      },
+    },
+    priest_forgive = {
+      lines = { { id = "pf_default", text = "Does it? Then the Light is kinder than the masons, and I'd sooner have theirs. Forgiveness from the people I failed would mean something. From above, it only feels convenient." } },
+      choices = {
+        { text = "Then seek theirs.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Both can be true.", next = "BACK", fx = { affinity = 1, trait = { pious = 1 } } },
       },
     },
   },

@@ -6,7 +6,7 @@ P:NPC {
   key = "jaina", id = TODO_NPC("Lady Jaina Proudmoore"), name = "Lady Jaina Proudmoore",
   bible = "bibles/dustwallow.md", role = "noble", tier = "major",
   communities = { "theramore" }, temper = { "earnest", "sharp" }, values = { "wise", "kind", "dutiful" },
-  notices = { "class", "race" },
+  notices = { "class", "race", "form" },
 
   greetings = {
     { id = "g_tower", text = "Welcome to Theramore. Speak freely. I'd rather hear bad news early than good news late." },
@@ -14,6 +14,8 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_shadow", cat = "form", when = { form = "shadow" },
+      text = "Shadowform. Dalaran kept books on that in rooms apprentices weren't allowed into, and I was an apprentice for a long time. I'm told it's safe; I'm told a lot of things are safe." },
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
       text = "A mage. Dalaran trained me, once. Whoever trained you, I hope they taught you that power is the easy part." },
     { id = "n_highborne", cat = "race", when = { race = "NightElf" },
@@ -46,6 +48,7 @@ P:NPC {
         { text = "I came out of Lordaeron too.", next = "refugee", when = { origin = "human_lordaeron_refugee" } },
         { text = "The Kirin Tor know my people. Do you?", next = "skyborne", when = { race = "Skyborne" } },
         { text = "I've met Thrall.", next = "thrall", when = { heardLine = "thrall.h_default" } },
+        { text = "Does the Light still answer you, after everything?", next = "priest_light", when = { class = "PRIEST" } },
         { text = "Farewell, my lady.", next = "END" },
       },
     },
@@ -161,6 +164,13 @@ P:NPC {
       choices = {
         { text = "Tired, but steady.", next = "BACK", fx = { affinity = 2 } },
         { text = "Watchful. Like you.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+      },
+    },
+    priest_light = {
+      lines = { { id = "pl_default", text = "I was never a priest. But I prayed on the docks, with the dead behind us and the sea ahead, and something answered. I've decided not to ask what; I just keep listening." } },
+      choices = {
+        { text = "It was the Light.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },
@@ -304,6 +314,7 @@ P:NPC {
         { text = "What are people saying in the taverns?", next = "taverns" },
         { text = "You speak orcish?", next = "orcish" },
         { text = "Let me read the tracks myself.", next = "tracks", when = { class = { "HUNTER", "ROGUE", "DRUID" } } },
+        { text = "I could sit with James Hyal.", next = "priest_hyal", when = { class = "PRIEST" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2, align = { order = 1 }, standing = { theramore = 1 } } },
       },
     },
@@ -353,6 +364,13 @@ P:NPC {
       choices = {
         { text = "You're not wrong.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } },
         { text = "I'll need to see more.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    priest_hyal = {
+      lines = { { id = "ph_default", text = "He hasn't spoken to anyone since. Your kind knows how to sit with grief better than mine does. Just sit with him, and leave the hoofprints to me." } },
+      choices = {
+        { text = "Just sitting. I promise.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },

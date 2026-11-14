@@ -66,6 +66,7 @@ P:NPC {
         { text = "My family sits in Stormwind's House of Nobles.", next = "noble", when = { origin = "human_minor_noble" } },
         { text = "There are dwarves in the Brotherhood?", next = "dwarves", when = { race = "Dwarf" } },
         { text = "Mugg is dead. What now?", next = "after_mugg", when = { questDone = TODO_QUEST("Eye of Mugg") } },
+        { text = "Let me bless your riders before they ride out.", next = "priest_bless", when = { class = "PRIEST" } },
         { text = "Put me to work, Commander.", next = "BUSINESS", fx = { affinity = 1, standing = { farholde = 1 } } },
         { text = "I'll be on my way.", next = "END" },
       },
@@ -301,6 +302,13 @@ P:NPC {
     after_next = {
       lines = { { id = "an_default", text = "Sunnyglade. Not this year. But I've started saying 'not this year' instead of 'never', and the riders have noticed." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    priest_bless = {
+      lines = { { id = "pb_default", text = "Sister Rowland does, when she can leave the chapel, which is rarely. Yes: at the gate, at dawn. They'll stand straighter for it, and some will come back because they did." } },
+      choices = {
+        { text = "At dawn, then.", next = "BACK", fx = { affinity = 3, standing = { farholde = 2 }, align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -616,7 +624,7 @@ P:NPC {
   key = "rowland", id = TODO_NPC("Sister Rowland"), name = "Sister Rowland",
   bible = "bibles/riverglades.md", role = "priest", tier = "quest",
   communities = { "farholde", "brotherhood_horse" }, temper = { "patient" }, values = { "kind", "pious" },
-  notices = { "healer", "disease" },
+  notices = { "healer", "disease", "form" },
 
   greetings = {
     { id = "g_default", text = "Quietly, please. Some of them are sleeping." },
@@ -624,6 +632,8 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_shadow", cat = "form", when = { form = "shadow" },
+      text = "Not near the sick, please. You'll want to heal them, and you can't, in that shape. Step out of it and help me." },
     { id = "n_healer", cat = "healer", when = { class = { "PRIEST", "PALADIN", "SHAMAN", "DRUID" } },
       text = "You're a healer. Wash your hands at the basin before you touch anyone. Then, Light bless you, touch everyone." },
     { id = "n_disease", cat = "disease", when = { debuffType = "Disease" },

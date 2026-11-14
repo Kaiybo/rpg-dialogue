@@ -75,7 +75,7 @@ New Forever zone. Everything here was read on warcraft.wiki.gg and Blizzard's an
 - Weary veteran, "that old dog", out at the front by Twilight's Shroud. Short sentences. Respects Ashe and complains about her. Notices: kit, nerve. Thinks the cultists' trinkets are worse than their knives.
 
 ### Sister Rowland (quest)
-- Patient chapel priest; worn, practical, kind; does not know what the illness is and won't guess. Notices: healers, the Light, disease on the player.
+- Patient chapel priest; worn, practical, kind; does not know what the illness is and won't guess. Notices: healers, the Light, disease on the player, Shadowform (no healing in that shape, so not near the sick).
 
 ### Cady Lloydriel (quest)
 - High elf ranger, Brotherhood; quiet, dry, watchful; keeps an eye on the cradle and on Aedamas and Luna. Never says whose child. Notices: hunters and pets, elves and Skyborne (curious, careful, no claimed kinship), druids in animal form (Aedamas has opinions).

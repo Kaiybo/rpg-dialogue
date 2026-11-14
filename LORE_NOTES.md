@@ -759,3 +759,16 @@ New in Forever (patch 1.60.1): a level 35-45 contested zone in southeastern Khaz
 **Year 1 discipline:** Cho'gall stays a whisper (the book's own word). No Twilight Highlands, no Cataclysm, no Deathwing. The Twilight's Hammer here is cultists and ogres in Sunnyglade, Twilight's Shroud and Krol'dok; what they want stays half-told. Fern Crimsonleaf's fate is deliberately open (claim `fern_lives`). The black dragon that killed Alden is "a black dragon": no names.
 
 **Authored, not canon:** the habits, worries and small talk of everyone below; Wheatley keeping Brienne's old tack; Gretchen's gryphons hating the river fog; Melbin's ledger of who owes him rent; Zizplink's grocery list as a running joke; Argo's toasts; Gray drinking because the Brotherhood sends him to watch the port (his posting at the port is the wiki's location; why he's there is authored and never stated as fact, he only grumbles).
+
+## A human priest (core 0.29.0; Stormwind, Elwynn, World and the 30-45 zones)
+
+| Fact used | Source |
+|---|---|
+| Shadowform (Classic): a priest talent; shadow damage up, physical damage taken down, and "you may not cast Holy spells while in this form". Trainers and healers ask a priest to step out of it before a lesson or near the sick for that reason | [Shadowform](https://warcraft.wiki.gg/wiki/Shadowform) |
+| Shape IDs: Shadowform reports as form 28; warrior stances (17-19) and rogue Stealth (30) also report as forms, so the addon treats those as no shape at all | [API GetShapeshiftFormID](https://warcraft.wiki.gg/wiki/API_GetShapeshiftFormID) |
+| A bishop after the First War studied the orc necrolytes' magic to fight it, grew obsessed with why such dark energies existed, preached a balance of dark and light; after her death the Kirin Tor locked her writings away in Dalaran. Benedictus tells it without her name ("it ended badly for her"); how she died stays unsaid | [Shadow priest](https://warcraft.wiki.gg/wiki/Shadow_priest); [Natalie Seline](https://warcraft.wiki.gg/wiki/Natalie_Seline) (citing *World of Warcraft: The Magazine* Issue 4, p. 84) |
+| Brother Nimetz, Rebel Camp's priest; Sister Rowland, Farholde's; Leonid Barthalomew at Light's Hope; Brother Anton, the Crusade's man at Nijel's Point; Stromgarde Badges (Refuge Pointe); the Hyal family and the hoofprints (Theramore) | entries above for each zone |
+
+**Year 1 discipline:** the bishop's story is backstory from before Year 1, published later; she is never named and nothing after Year 1 is mentioned (no Cult of Forgotten Shadow, no Conclave, no Xal'atath). Benedictus knows of her; nobody else brings her up.
+
+**Authored, not canon:** every NPC's reaction to Shadowform (Benedictus asking to see a priest's face, Laurena refusing to teach through it, Crowley's suspicion, Anduin's questions, guards' fright); priests' offers to bless riders, badges and graves; Jaina's prayer on the docks (a private memory, never an event); Smotts' cook having once asked him to say words for the crew.

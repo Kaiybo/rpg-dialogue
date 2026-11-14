@@ -1179,7 +1179,8 @@ end
 
 local function petKey(p) return p and ((p.family or "") .. ":" .. (p.name or "")) or "" end
 
-Conv.OnForm = live("form", { "form" }, function(b, ctx) return b.form ~= ctx.form end)
+-- Only on taking a shape: leaving one, or a stance change, says nothing.
+Conv.OnForm = live("form", { "form" }, function(b, ctx) return ctx.form ~= nil and b.form ~= ctx.form end)
 Conv.OnPet = live("pet", { "pet" }, function(b, ctx) return ctx.pet and petKey(b.pet) ~= petKey(ctx.pet) end)
 Conv.OnMount = live("mount", { "mounted" }, function(b, ctx) return ctx.mounted and not b.mounted end)
 Conv.OnStealth = live("stealth", { "stealthed" }, function(b, ctx) return ctx.stealthed and not b.stealthed end)

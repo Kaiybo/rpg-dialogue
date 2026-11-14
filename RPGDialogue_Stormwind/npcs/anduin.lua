@@ -7,7 +7,7 @@ P:NPC {
   key = "anduin", id = TODO_NPC("King Anduin Wrynn"), name = "King Anduin Wrynn",
   bible = "bibles/anduin.md", role = "noble", tier = "major",
   communities = { "stormwind" }, temper = { "steady" }, values = { "kind", "curious" },
-  notices = { "wonder", "far" },
+  notices = { "wonder", "far", "form" },
 
   greetings = {
     { id = "g_formal", text = "Welcome to Stormwind Keep. Um. Be welcome. That's how you say it." },
@@ -15,6 +15,8 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_shadow", cat = "form", when = { form = "shadow" },
+      text = "You've gone all dark and see-through! Is that the Light, only backwards? Does it hurt? Bolvar will want to know if it hurts." },
     { id = "n_cat", cat = "wonder", place = "replace", when = { form = { "cat", "bear" } },
       text = "Is that- you were a person! Can you do that whenever you like? Highlord, did you see? Oh. He's not looking." },
     { id = "n_pet", cat = "wonder", when = { pet = { type = "Beast" } },
@@ -23,6 +25,10 @@ P:NPC {
       text = "You're one of the elves from the sky! Lady Prestor says not to stare. I'm only staring a little." },
     { id = "n_dwarf", cat = "far", when = { race = { "Dwarf", "Gnome" } },
       text = "Did you come on the tram? I've never been on the tram. Kings aren't allowed. I asked." },
+  },
+
+  react = {
+    { id = "r_shadow", on = "form", when = { form = "shadow" }, text = "You just went dark! Can you do it again? Slowly, so I can see?" },
   },
 
   start = "hello",

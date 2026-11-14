@@ -31,6 +31,7 @@ Honest in everything he says.
 ## What he notices
 1. Light: a quietly devout player.
 2. Affliction: curses and disease.
+3. Form: a priest in Shadowform (he asks to see their face; he knows of a bishop who went too far into shadow, and never names her).
 
 ## Topics
 tome_of_divinity, northshire_abbey, defias

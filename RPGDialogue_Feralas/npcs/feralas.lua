@@ -39,6 +39,7 @@ P:NPC {
         { text = "Test my aim, General.", next = "archery", when = { class = { "HUNTER", "WARRIOR" } } },
         { text = "I'd stand with the Sentinels.", next = "sentinels", when = { race = "NightElf" } },
         { text = "A human paladin sells leather here. Odd company for Sentinels.", next = "pratt", when = { race = { "Human", "Dwarf", "Gnome" } } },
+        { text = "Elune and the Light. Are they so different?", next = "priest_elune", when = { class = "PRIEST" } },
         { text = "Elune guide your arrows.", next = "END", fx = { affinity = 1, standing = { feathermoon = 1 } } },
       },
     },
@@ -110,6 +111,13 @@ P:NPC {
     pratt = {
       lines = { { id = "p_default", text = "He mends our leather better than any of us can, and he's never once asked to be thanked. On this island, that makes him kaldorei enough." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    priest_elune = {
+      lines = { { id = "pe_default", text = "My priestesses would say yes, and argue for a week. I've seen both close the same wound on the same Sentinel. I don't argue with what works." } },
+      choices = {
+        { text = "Nor do I.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 

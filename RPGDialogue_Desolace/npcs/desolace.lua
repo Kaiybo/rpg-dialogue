@@ -39,6 +39,7 @@ P:NPC {
         { text = "Stormwind remembers you, Captain.", next = "home", when = { race = "Human" } },
         { text = "I could handle the betraying part.", next = "rogue", when = { class = "ROGUE" } },
         { text = "What do you make of Brother Anton?", next = "anton", when = { heardLine = "anton.h_default" } },
+        { text = "Your men need a chaplain, Captain.", next = "priest_chaplain", when = { class = "PRIEST" } },
         { text = "I'll help hold the Point.", next = "END", fx = { affinity = 1, standing = { nijels_point = 1 } } },
       },
     },
@@ -92,6 +93,13 @@ P:NPC {
     anton = {
       lines = { { id = "a_default", text = "Earnest. Brave. Very sure of things a long way from here. I don't argue with him. I'd rather he kept his faith than lost it in my camp." } },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "scarlet_crusade" } } } },
+    },
+    priest_chaplain = {
+      lines = { { id = "pch_default", text = "They need a chaplain, a cook and forty more swords, and I'll take the chaplain. Brother Anton prays, but only for the Crusade. My men would like someone to pray for them." } },
+      choices = {
+        { text = "I'll pray for them.", next = "BACK", fx = { affinity = 3, standing = { nijels_point = 2 }, align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 

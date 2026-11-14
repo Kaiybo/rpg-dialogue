@@ -10,7 +10,7 @@ P:NPC {
   bible = "bibles/benedictus.md", role = "priest", tier = "major",
   communities = { "stormwind" }, temper = { "steady" }, values = { "pious", "kind" },
   spiritSensitive = true,
-  notices = { "light", "affliction" },
+  notices = { "light", "affliction", "form" },
 
   greetings = {
     { id = "g_peace", text = "Peace, child. The Cathedral is open to everyone. Even the tired." },
@@ -19,10 +19,16 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_shadow", cat = "form", when = { form = "shadow" },
+      text = "Step out of the shadow while you're under this roof, child. Not because the Light minds. Because I'd like to see your face while we talk." },
     { id = "n_light", cat = "light", when = { alignment = { axis = "light", min = 50 } },
       text = "You carry the Light quietly. That's the rarest way. Most people wear it like a badge, and badges come off." },
     { id = "n_sick", cat = "affliction", place = "before", when = { debuffType = { "Disease", "Curse" } },
       text = "Something sits on you that shouldn't. Come closer to the altar a moment. There. Does that ease it?" },
+  },
+
+  react = {
+    { id = "r_shadow", on = "form", when = { form = "shadow" }, text = "Ah. I wondered whether you'd studied that. Mind the novices; it frightens them." },
   },
 
   start = "hello",
@@ -132,6 +138,22 @@ P:NPC {
       choices = {
         { text = "I'll keep to the Light.", next = "BACK", fx = { affinity = 2, align = { light = 2 } } },
         { text = "Shadow is a tool. I'll use what works.", next = "BACK", fx = { affinity = -1, align = { light = -2 }, trait = { stern = 1 } } },
+        { text = "Has a priest ever gone too far into it?", next = "shadow_far" },
+      },
+    },
+    shadow_far = {
+      big = true,
+      lines = { { id = "sf_default", key = true, text = "Once, that I know of. A bishop, after the First War. She went looking for what the orcs' death-priests knew, so that we could fight it, and she kept looking long after the fighting stopped. She preached that we need the dark as much as the light. It ended badly for her, and the magi of Dalaran took every book she wrote. I've never read a page of them. I've never wanted to." } },
+      choices = {
+        { text = "Was she wrong?", next = "shadow_wrong" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    shadow_wrong = {
+      lines = { { id = "sw_default", text = "About the need? Perhaps not. About how much of herself to pay for it, yes. That's all I'd ask of you. Count what it costs, every time. And if you ever stop counting, come and see me." } },
+      choices = {
+        { text = "I'll keep count.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { cautious = 1 } } },
+        { text = "Some costs are worth paying.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
       },
     },
     lordaeron = {
@@ -308,7 +330,7 @@ P:NPC {
   bible = "bibles/benedictus.md", role = "trainer", tier = "quest",
   communities = { "stormwind" }, temper = { "steady", "sharp" }, values = { "pious", "dutiful" },
   spiritSensitive = true,
-  notices = { "light", "affliction" },
+  notices = { "light", "affliction", "form" },
 
   greetings = {
     { id = "g_priest", when = { class = "PRIEST" }, text = "Come. Stand where the light from the windows falls. I like to see who I'm teaching." },
@@ -316,10 +338,16 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_shadow", cat = "form", place = "before", when = { form = "shadow" },
+      text = "Out of that shape, please. You can't call on the Light while you wear it, and I can't teach someone who can't hear the lesson." },
     { id = "n_hurt", cat = "affliction", place = "before", when = { durability = { max = 0.25 } },
       text = "You've been bleeding into your armour. Stand still. There. The Light first, then the lesson." },
     { id = "n_light", cat = "light", when = { class = "PRIEST", alignment = { axis = "light", min = 40 } },
       text = "Your prayers are getting quieter. That's good. Loud prayers are usually for the person praying." },
+  },
+
+  react = {
+    { id = "r_shadow", on = "form", when = { form = "shadow" }, text = "And there goes the Light. Step back out when you want to learn something." },
   },
 
   start = "hello",
@@ -393,11 +421,16 @@ P:NPC {
   bible = "bibles/benedictus.md", role = "trainer", tier = "service",
   communities = { "stormwind" }, temper = { "gentle" }, values = { "pious", "patient" },
   spiritSensitive = true,
-  notices = { "light" },
+  notices = { "light", "form" },
 
   greetings = {
     { id = "g_priest", when = { class = "PRIEST" }, text = "Kneel if you like. The altar doesn't mind company." },
     { id = "g_other", when = { ["not"] = { class = "PRIEST" } }, text = "The Light is patient with everyone, friend. Even me." },
+  },
+
+  notice = {
+    { id = "n_shadow", cat = "form", when = { form = "shadow" },
+      text = "Shadowform, at the altar. The altar doesn't mind. I'll pray for you twice, though. Once for each road you're walking." },
   },
 
   start = "hello",
@@ -438,11 +471,16 @@ P:NPC {
   bible = "bibles/benedictus.md", role = "trainer", tier = "service",
   communities = { "stormwind" }, temper = { "restless" }, values = { "pious", "curious" },
   spiritSensitive = true,
-  notices = { "light" },
+  notices = { "light", "form" },
 
   greetings = {
     { id = "g_priest", when = { class = "PRIEST" }, text = "Walk with me. I think better moving, and so will you." },
     { id = "g_other", when = { ["not"] = { class = "PRIEST" } }, text = "Don't turn your back on the Light, friend. It walks faster than you'd think." },
+  },
+
+  notice = {
+    { id = "n_shadow", cat = "form", when = { form = "shadow" },
+      text = "Oh, now that's interesting. Does it feel cold, inside it? Joshua won't ask. I will. Walk with me and tell me." },
   },
 
   start = "hello",
@@ -482,17 +520,23 @@ P:NPC {
   key = "crowley", id = TODO_NPC("Brother Crowley"), name = "Brother Crowley", title = "Scarlet Crusade Emissary",
   bible = "bibles/benedictus.md", role = "priest", tier = "quest",
   communities = { "stormwind" }, temper = { "zealous", "sharp" }, values = { "devout", "proud" },
-  notices = { "light", "race" },
+  notices = { "light", "race", "form" },
 
   greetings = {
     { id = "g_default", text = "You've found your way downstairs. Good. The Crusade needs people who don't mind a few steps for the Light." },
   },
 
   notice = {
+    { id = "n_shadow", cat = "form", when = { form = "shadow" },
+      text = "Shadow, on a priest, in the Cathedral of Light? In Lordaeron the Crusade would have some very hard questions for you. Here I'll only ask you to take it off." },
     { id = "n_paladin", cat = "light", when = { class = { "PALADIN", "PRIEST" } },
       text = "A servant of the Light. You'll have heard of the Crusade, then. Most of it lies, and the rest is the plague's own work." },
     { id = "n_elf", cat = "race", when = { race = { "NightElf", "Skyborne" } },
       text = "An elf, in Stormwind's catacombs. The Crusade asks only that you hate the dead as much as we do." },
+  },
+
+  react = {
+    { id = "r_shadow", on = "form", when = { form = "shadow" }, text = "What is that? Take it off. Now." },
   },
 
   start = "hello",

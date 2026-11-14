@@ -57,6 +57,15 @@ W.FORMS = {
   [1] = "cat", [2] = "tree", [3] = "travel", [4] = "aquatic", [5] = "bear", [8] = "bear",
   [16] = "ghostwolf", [27] = "flight", [28] = "shadow", [29] = "flight", [31] = "moonkin", [35] = "moonkin",
 }
+-- Also reported as forms, but nobody can see them: warrior stances and rogue stealth
+-- (stealth has its own condition and reaction). Treated as no form at all.
+W.NOT_SHAPES = { [17] = true, [18] = true, [19] = true, [30] = true }
+
+-- The shape the player visibly wears, or nil.
+function W.FormName(id)
+  if not id or id == 0 or W.NOT_SHAPES[id] then return nil end
+  return W.FORMS[id] or ("form" .. id)
+end
 
 W.SPELLS = {
   resurrectionSickness = 15007,

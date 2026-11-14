@@ -43,6 +43,7 @@ P:NPC {
         { text = "There's a Horde camp east of here.", next = "hammerfall" },
         { text = "Lordaeron fell too. I know what that's like.", next = "lordaeron", when = { origin = "human_lordaeron_refugee" } },
         { text = "Put me in the line, Captain.", next = "line", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "Let me bless the badges before they go home.", next = "priest_badges", when = { class = "PRIEST", questActive = TODO_QUEST("Stromgarde Badges") } },
         { text = "I'll fight for Stromgarde.", next = "END", fx = { affinity = 2, align = { honor = 1 }, standing = { refuge_pointe = 1 } } },
       },
     },
@@ -96,6 +97,13 @@ P:NPC {
     line = {
       lines = { { id = "ln_default", text = "Northfold first. Then the farms past it. Then, one day, the keep. Stand where I tell you and don't retreat unless I do. I won't." } },
       choices = { { text = "Understood.", next = "BACK", fx = { affinity = 2, standing = { refuge_pointe = 1 } } } },
+    },
+    priest_badges = {
+      lines = { { id = "pba_default", text = "The families need their dead back, and a blessing is the next best thing. Bless them, and I'll write in every letter that a priest stood over each one." } },
+      choices = {
+        { text = "Every one.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, standing = { refuge_pointe = 2 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 

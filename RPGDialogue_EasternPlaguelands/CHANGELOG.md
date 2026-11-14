@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.2.0 (unreleased)
+- For a priest: what the Dawn needs from a healer (Tyrosus). Tyrosus and Leonid notice Shadowform.
+
 ## 1.1.0 (unreleased)
 - Depth: Tyrosus (replies for paladins and Silver Hand squires), Leonid (a reply for the Forsaken) and Tirion (his son, Mirador, Eitrigg).
 

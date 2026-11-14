@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.2.1 (unreleased)
+- Kargath's guards react only to beast shapes (bear, cat, travel, ghost wolf), never to a priest's Shadowform.
+
 ## 1.2.0 (unreleased)
 - Depth: Prospector Ryedol (Hammertoe, Uldaman, a reply for the Explorers' League) and Lotwil.
 

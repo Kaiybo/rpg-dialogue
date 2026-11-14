@@ -14,7 +14,7 @@ P:NPC {
   bible = "bibles/trainers.md", role = "trainer", tier = "service",
   communities = { "northshire" }, temper = { "steady" }, values = { "pious", "kind" },
   spiritSensitive = true,
-  notices = { "wounds" },
+  notices = { "wounds", "form" },
 
   greetings = {
     { id = "g_priest", when = { class = "PRIEST" }, text = "Sit, little {g:brother|sister}. The Light can wait a moment for you to catch your breath." },
@@ -22,6 +22,8 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_shadow", cat = "form", when = { form = "shadow" },
+      text = "None of that in the infirmary, please. The wounded have had enough frights. Out of it, and roll up your sleeves." },
     { id = "n_wounds", cat = "wounds", place = "before", when = { durability = { max = 0.3 } },
       text = "Another one from the kobold camps. Hold still. You're the ninth today, and the day's young." },
   },
@@ -301,7 +303,7 @@ P:NPC {
   bible = "bibles/trainers.md", role = "trainer", tier = "service",
   communities = { "goldshire" }, temper = { "steady" }, values = { "pious", "kind" },
   spiritSensitive = true,
-  notices = { "travel" },
+  notices = { "travel", "form" },
 
   greetings = {
     { id = "g_priest", when = { class = "PRIEST" }, text = "Welcome, friend in the Light. Come in from the noise." },
@@ -309,6 +311,8 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_shadow", cat = "form", when = { form = "shadow" },
+      text = "You went a long way to come back looking like that. The road, or the lessons? Never mind. I'm glad you came back at all." },
     { id = "n_travel", cat = "travel", when = { minLevel = 20 },
       text = "You've been far, haven't you. I can tell by your boots. I always meant to go far. I meant to for thirty years." },
   },

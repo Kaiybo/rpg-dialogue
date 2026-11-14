@@ -14,7 +14,7 @@ P:Pool {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Furbolgs? Frostsabers? Either way, your gear's in pieces. The smith's inside, where it's warm." },
   },
-  react = { { id = "r_form", on = "form", text = "Another bear. Fine. Just don't track snow into the inn." } },
+  react = { { id = "r_form", on = "form", when = { form = "bear" }, text = "Another bear. Fine. Just don't track snow into the inn." } },
   lines = {
     { id = "l_default", text = "We keep the peace and the yetis out. Mostly the peace. The yetis do what they like." },
   },

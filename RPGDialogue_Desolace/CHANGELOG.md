@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.3.0 (unreleased)
+- For a priest: Captain Pentigast's men need a chaplain.
+
 ## 1.2.0 (unreleased)
 - Depth: Pentigast, Marandis, Kreldig, Brother Anton and Lyshaerya, with their own story and advice.
 

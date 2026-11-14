@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.3.0 (unreleased)
+- For a priest: ask Shandris about Elune and the Light.
+
 ## 1.2.0 (unreleased)
 - Depth: Shandris (the naga, the hive, Tyrande, the name, an archery test), Pratt and Shyria, with their own story and advice.
 

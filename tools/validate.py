@@ -300,6 +300,11 @@ def main():
                 rep.error(pack, f, ln.line, f"{where}.{lid}: place must be before/after/replace")
         if slot == "react" and ln.get("on") not in P.REACT_EVENTS:
             rep.error(pack, f, ln.line, f"{where}.{lid}: on must be one of {sorted(P.REACT_EVENTS)}")
+        if slot == "react" and ln.get("on") == "form":
+            w = ln.get("when")
+            if not (isinstance(w, LTable) and w.get("form") is not None):
+                rep.warn(pack, f, ln.line, f"{where}.{lid}: a form reaction should say which forms "
+                         "(a priest's Shadowform is a form too)")
 
     def check_choice(pack, f, ch, where, nodes):
         check_text(pack, f, ch, where, is_choice=True)

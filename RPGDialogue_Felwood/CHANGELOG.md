@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.1.1 (unreleased)
+- Felwood's guards react only to beast shapes, never to a priest's Shadowform.
+
 ## 1.1.0 (unreleased)
 - Depth: Eridan, Greta, Arathandris and Golhine, with their own story and advice.
 

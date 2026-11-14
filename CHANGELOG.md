@@ -2,6 +2,20 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.29.0 (2026-11-14)
+Packs: World 1.16.0, Stormwind 1.5.0, Elwynn 1.9.0, Stranglethorn 1.5.0, Riverglades 1.2.0, Dustwallow 1.3.0, Feralas 1.3.0, Desolace 1.3.0, Arathi 1.3.0, EasternPlaguelands 1.2.0, Badlands 1.2.1, Felwood 1.1.1, UnGoro 1.2.1, Winterspring 1.2.1 (the rest as in 0.28.0). No new folders: /reload is enough.
+
+### For a human priest
+The user: "Develop whatever you think needs developing. My main is a human priest."
+- **The Cathedral of Light:** Archbishop Benedictus has much more to say, including, if a priest asks about shadow, a bishop after the First War who went too far into it. New: High Priestess Laurena, Brother Joshua and Brother Benjamin (the priest trainers), and Brother Crowley, the Scarlet Crusade's emissary in the catacombs.
+- **Stormwind's leaders:** Bolvar (the Church, Lady Prestor, the refugees), Anduin and Katrana have new branches. "Something else" goes back to the start instead of ending the conversation.
+- **Priest trainers everywhere:** Anetta and Josetta, and every unnamed priest trainer, now have a real conversation: what to practise, Light or shadow, whether they tire of healing. A new origin: Novice of Northshire Abbey.
+- **On the road, levels 30-45:** priest-only replies where someone would genuinely want a priest. Pray over Doren's dead, say words for Smotts' crew, bless Demar's riders at dawn, sit with James Hyal, bless the Stromgarde badges, be Pentigast's chaplain, ask Jaina whether the Light still answers her, ask Shandris about Elune, and ask Tyrosus what the Dawn needs from a healer.
+
+### Shadowform
+- People notice a priest in Shadowform: trainers won't teach through it (no Holy spells in that shape), Benedictus asks to see your face, Crowley wants it off, Anduin wants to know if it hurts, children think you're a ghost, and guards get a fright.
+- **Fixed:** shape reactions fired on any change. Entering Shadowform made Eastern Plaguelands guards call you a druid's beast; warrior stance swaps and stepping out of a form set them off too. Now only taking a visible shape counts, stances and stealth are not shapes, and every zone's beast-shape line names the shapes it means. The validator warns when one doesn't.
+
 ## 0.28.0 (2026-11-14)
 Packs: World 1.15.0, Riverglades 1.1.0, Dustwallow 1.2.0, Tanaris 1.2.0, Feralas 1.2.0, Hinterlands 1.2.0, Desolace 1.2.0, Arathi 1.2.0, UnGoro 1.2.0, Winterspring 1.2.0, SearingGorge 1.1.0, EasternPlaguelands 1.1.0, Felwood 1.1.0, Badlands 1.2.0 (the rest as in 0.27.0). No new folders: /reload is enough.
 

@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.2.0 (unreleased)
+- For a priest: bless Demar Brant's riders at dawn. Sister Rowland asks a priest in Shadowform to step out of it near the sick.
+
 ## 1.1.0 (unreleased)
 - The lost of Farholde: Gray's "I spoke to Demar about Fern" branch and its two endings; Gray and Demar remember which one you chose.
 

@@ -2,6 +2,12 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.16.0 (unreleased)
+- A priest in Shadowform is noticed: priest trainers ask them to step out of it for the lesson (and, asked, say what the shadow costs), children think it's a ghost, guards on the road and in Stormwind get a fright.
+- The shared priest trainer conversation: a branch for priests, Light or shadow, practise, and "Does the shadow frighten you?" in Shadowform.
+- Origin: Novice of Northshire Abbey (human priest).
+- Ask about: guards' advice by faction is part of the guard pool (it was being outranked).
+
 ## 1.15.0 (unreleased)
 - Guards' advice by faction now shares the guard pool, so it varies (the faction pools were outranking every general line).
 - Throughline `farholde_lost` (The lost of Farholde): Gray, Ashe, Cady and Demar on Fern Crimsonleaf; two endings chosen at Gray's table; her fate stays open.

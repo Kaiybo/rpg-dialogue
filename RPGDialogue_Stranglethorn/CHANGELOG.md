@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.5.0 (unreleased)
+- For a priest: pray over Lieutenant Doren's dead, say words for Captain Smotts' crew, answer Sir Erlgadin about forgiveness, look for a chapel in Booty Bay. Brother Nimetz notices Shadowform.
+
 ## 1.4.0 (unreleased)
 - Ask about: every Alliance and neutral NPC here answers "Their story" and "A little advice" in their own words; Doren, Hemet, Ajeck, Erlgadin, Seahorn, Smotts and Sprogger's story leads into the matching branch of their conversation.
 

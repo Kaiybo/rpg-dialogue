@@ -55,6 +55,7 @@ P:NPC {
         { text = "What's your opinion of me, Baron?", next = "ledger", when = { metBefore = true } },
         { text = "Stormwind could use a port like this.", next = "stormwind", when = { faction = "Alliance" } },
         { text = "The Horde's ships dock here too. Do you trust them?", next = "horde", when = { faction = "Horde" } },
+        { text = "Is there a chapel anywhere in Booty Bay?", next = "priest_chapel", when = { class = "PRIEST" } },
         { text = "Good day, Baron.", next = "END" },
       },
     },
@@ -154,6 +155,13 @@ P:NPC {
         { id = "hd_default", text = "I trust their coin. Their sailors drink, fight, and pay for the damage. That's more than I can say for some of the Alliance ones." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    priest_chapel = {
+      lines = { { id = "pc_default", text = "A chapel? We have a tavern with a very quiet corner on Tuesdays. Bless the corner if you like. Bless the ledger while you're at it; it could use the help." } },
+      choices = {
+        { text = "I'll bless them both.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -774,6 +782,7 @@ P:NPC {
         { text = "I lost people too. Everyone I grew up with.", next = "lost",
           when = { origin = { "human_lordaeron_refugee", "gnome_gnomeregan_refugee", "nightelf_hyjal_survivor" } } },
         { text = "Negolash is dead. How does it feel?", next = "after", when = { questDone = TODO_QUEST("Facing Negolash") } },
+        { text = "Shall I say words for your crew, Captain?", next = "priest_words", when = { class = "PRIEST" } },
         { text = "I'll get your things back.", next = "END", fx = { affinity = 2, standing = { booty_bay = 1 } } },
         { text = "I'll leave you to it, Captain.", next = "END" },
       },
@@ -843,6 +852,13 @@ P:NPC {
         { id = "af_default", text = "Like holding my own cutlass for the first time in a year. Heavier than I remembered. Two more of them out there, mind." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    priest_words = {
+      lines = { { id = "pw_default", text = "Sprogger asked me that once. I said no. I wasn't ready. Say them. Not too long. I'll stand at the back where nobody can see my face." } },
+      choices = {
+        { text = "I'll keep it short.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 

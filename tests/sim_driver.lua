@@ -80,7 +80,8 @@ local function randomCharacter(i)
     faction = horde and "Horde" or "Alliance", hour = rng.int(0, 23), drunk = chance(0.1) and rng.int(1, 3) or 0,
     durability = chance(0.15) and rng.next() * 0.3 or 0.9, nearlyNaked = chance(0.05),
     resSick = chance(0.05), stealthed = class == "ROGUE" and chance(0.3), ghost = chance(0.03),
-    form = (class == "DRUID" and chance(0.5)) and pick({ "bear", "cat", "travel" }) or false,
+    form = (class == "DRUID" and chance(0.5)) and pick({ "bear", "cat", "travel" })
+      or (class == "PRIEST" and level >= 40 and chance(0.3)) and "shadow" or false,
     pet = (class == "HUNTER" and { family = pick({ "Wolf", "Cat", "Bear", "Boar" }), type = "Beast", name = "Pet" })
       or (class == "WARLOCK" and { family = pick({ "Imp", "Voidwalker" }), type = "Demon", name = "Pet" }) or false,
     money = rng.int(0, 2000000),

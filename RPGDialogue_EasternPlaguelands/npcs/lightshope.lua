@@ -6,7 +6,7 @@ P:NPC {
   key = "tyrosus", id = TODO_NPC("Lord Maxwell Tyrosus"), name = "Lord Maxwell Tyrosus",
   bible = "bibles/easternplaguelands.md", role = "noble", tier = "major",
   communities = { "light_hope", "argent_dawn" }, temper = { "reserved" }, values = { "devout", "pragmatic" },
-  notices = { "race", "class" },
+  notices = { "race", "class", "form" },
 
   greetings = {
     { id = "g_rare", text = "I don't often receive visitors. You'll forgive me if I'm out of practice." },
@@ -14,6 +14,8 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_shadow", cat = "form", when = { form = "shadow" },
+      text = "The Crusade would never have let you through the gate looking like that. The Dawn will take your help. That's the whole difference between us, really." },
     { id = "n_orc", cat = "race", when = { race = { "Orc", "Troll", "Tauren", "Scourge" } },
       text = "Horde. Some of my officers still flinch. I don't. The Scourge doesn't care whose blood it spills, and neither will I, when it's spilled for this." },
     { id = "n_paladin", cat = "class", when = { class = "PALADIN" },
@@ -41,6 +43,7 @@ P:NPC {
         { text = "The Silver Hand is gone. Where does a paladin belong now?", next = "paladin", when = { class = "PALADIN" } },
         { text = "My training ended when the Hand broke apart.", next = "squire", when = { origin = "human_paladin_squire" } },
         { text = "Gregor Greystone in Everlook sends his regards.", next = "gregor", when = { heardLine = "gregor.h_default" } },
+        { text = "What does the Dawn need from a healer?", next = "priest_dawn", when = { class = "PRIEST" } },
         { text = "How can I help?", next = "END", fx = { affinity = 2, standing = { light_hope = 1 } } },
       },
     },
@@ -98,6 +101,13 @@ P:NPC {
       lines = { { id = "g_default", text = "Good man, Gregor. He writes the longest reports in the Dawn and every word is useful. That's rarer than courage." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    priest_dawn = {
+      lines = { { id = "pd2_default", text = "More than it needs swords. A sword stops the dead; a healer keeps the living from joining them. Stay a while at the chapel, priest, and Leonid and the wounded will both be glad of you." } },
+      choices = {
+        { text = "I'll stay a while.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, standing = { light_hope = 2 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -113,13 +123,15 @@ P:NPC {
   key = "leonid", id = TODO_NPC("Leonid Barthalomew the Revered"), name = "Leonid Barthalomew the Revered",
   bible = "bibles/easternplaguelands.md", role = "questgiver", tier = "quest",
   communities = { "light_hope", "argent_dawn" }, temper = { "gentle" }, values = { "devout", "selfless" },
-  notices = { "race", "class" },
+  notices = { "race", "class", "form" },
 
   greetings = {
     { id = "g_hello", text = "Don't be alarmed by my face. The Light still hears me, whatever I've become." },
   },
 
   notice = {
+    { id = "n_shadow", cat = "form", when = { form = "shadow" },
+      text = "Shadow, at the chapel. The Dawn turns away no one who'll stand against the Scourge, but the wounded here have seen enough darkness. Step out of it when you visit them." },
     { id = "n_undead", cat = "race", when = { race = "Scourge" },
       text = "One who was freed, as I was. We owe the Banshee Queen our minds. What we do with them is our own." },
     { id = "n_priest", cat = "class", when = { class = { "PRIEST", "PALADIN" } },

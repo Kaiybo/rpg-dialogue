@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.3.0 (unreleased)
+- For a priest, while Stromgarde Badges is open: bless the badges before they go home to the families.
+
 ## 1.2.0 (unreleased)
 - Depth: Captain Nials (the keep, the Syndicate, Hammerfall, a reply for Lordaeron refugees).
 

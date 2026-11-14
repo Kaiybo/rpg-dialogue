@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.2.1 (unreleased)
+- Marshal's Refuge reacts only to beast shapes, never to a priest's Shadowform.
+
 ## 1.2.0 (unreleased)
 - Depth: Williden, Linken, J.D. Collie and Spraggle, with their own story and advice.
 

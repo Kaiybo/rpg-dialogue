@@ -16,7 +16,7 @@ P:Pool {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Dark Irons got a piece of you. Get that armor fixed before they get the rest." },
   },
-  react = { { id = "r_form", on = "form", text = "Something with claws walks into Kargath. Better be one of ours." } },
+  react = { { id = "r_form", on = "form", when = { form = { "bear", "cat", "travel", "ghostwolf" } }, text = "Something with claws walks into Kargath. Better be one of ours." } },
   lines = {
     { id = "l_default", text = "We hold the only Horde post in the dwarves' mountains. Dark Irons east, Blackrock north, ogres everywhere. Nobody sleeps much." },
   },

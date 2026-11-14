@@ -38,6 +38,8 @@ A noticing moment is *this* NPC reacting to something about the player *they in 
 - They're rare by design: about one in three conversations rolls for one, at most one per conversation, and each category cools down (30 min across NPCs, 3 days per NPC). Don't fight the pacing by adding more.
 - Pools may carry noticing moments only for **narrow roles** (children, flight masters, innkeepers, guards, blacksmiths, spirit healers, trainers, stable masters), or when the pool is narrowed to one town (`community`) or one kind of NPC by title (`subtitle`). The voice checker fails broad-pool noticing moments. A trainer pool narrowed by title should notice things only that trainer would: pair race notices with the class (`{ race = "Orc", class = "MAGE" }`), or an orc warrior asking the mage trainer for directions gets the orc-mage line.
 
+- **Shapes:** `form` is the shape the player visibly wears: `bear`, `cat`, `travel`, `aquatic`, `moonkin`, `tree`, `flight`, `ghostwolf`, or `shadow` (a priest's Shadowform). Warrior stances and Stealth are not shapes. A live reaction `on = "form"` fires only when the player *takes* a shape, and must say which shapes it means (`when = { form = { "bear", "cat" } }`): a line about claws said to a priest in Shadowform is a bug the validator warns about.
+
 Good: a blacksmith winces at your broken armor before you speak. A trapper eyes a druid's bear form: "I've skinned bears. Don't take it personally."
 Bad: "Greetings, night elf druid." (a mad-lib, and anyone could say it)
 
