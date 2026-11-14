@@ -180,6 +180,8 @@ P:NPC {
           text = "The sea's yours now, as well as the forest. Few of us are comfortable in both. Try to be." },
         { id = "h_strife", when = { metBefore = true },
           text = "You'll hear talk that the Circle is divided. Don't believe it. Fandral leads us well, and his vision built the very tree you stand on." },
+        { id = "h_bear", when = { questDone = TODO_QUEST("Body and Heart") }, text = "You move differently since the Great Bear. Heavier on your feet, lighter in your head. That's how it should be." },
+        { id = "h_questions", when = { metBefore = true, class = "DRUID" }, text = "Every druid who passes through the Enclave leaves something behind. A question, usually. Yours are good ones. Keep asking them." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "DRUID" } },
@@ -229,8 +231,10 @@ P:NPC {
           text = "That errand is a quiet one, and a sad one. Go carefully, and come back to me when it's done." },
         { id = "h_sathrah", when = { questActive = TODO_QUEST("Sathrah's Sacrifice") },
           text = "Sathrah's name is spoken softly in this temple. Do what's asked, and do it with care." },
+        { id = "h_dream", when = { metBefore = true }, text = "Little star, did you sleep? You have the look of someone who's been dreaming of the road." },
       },
       choices = {
+        { text = "What do you pray for?", next = "pray" },
         { text = "Tell me about Elune.", next = "elune" },
         { text = "Thank you, Priestess.", next = "END" },
       },
@@ -241,6 +245,12 @@ P:NPC {
         { id = "e_default", text = "She is the light that doesn't burn. She doesn't ask us to be strong, only to keep shining a little in the dark. Even a little is enough." },
       },
       choices = { { text = "That's beautiful.", next = "END", fx = { affinity = 2, align = { light = 1 } } } },
+    },
+    pray = {
+      lines = {
+        { id = "p_lost", text = "That the moon finds everyone who's lost. Some nights I name them. It takes a long time." },
+      },
+      choices = { { text = "Name one for me tonight.", next = "END", fx = { affinity = 2, align = { light = 1 } } } },
     },
   },
 
@@ -279,6 +289,7 @@ P:NPC {
           text = "Things live in the southern deserts that frighten me more than any orc. You're young yet. Come back when you're not." },
       },
       choices = {
+        { text = "What are you studying?", next = "study" },
         { text = "What frightens you?", next = "fear" },
         { text = "Good luck with your studies.", next = "END" },
       },
@@ -289,6 +300,12 @@ P:NPC {
         { id = "f_default", text = "Order without mercy. A hive moves as one mind, and that mind is patient. Patient enemies are the worst kind. They outlast you." },
       },
       choices = { { text = "I'll keep my eyes open.", next = "END", fx = { affinity = 2, trait = { curious = 1 } } } },
+    },
+    study = {
+      lines = {
+        { id = "s_shells", text = "Everything Azeroth's creatures leave behind. Shells, stings, scales. My people spent ten thousand years not looking closely at most of it. I'm making up for that." },
+      },
+      choices = { { text = "I'll bring you something.", next = "END", fx = { affinity = 2, trait = { curious = 1 } } } },
     },
   },
 
@@ -322,6 +339,8 @@ P:NPC {
         { id = "h_default", text = "Saelienne. I keep the inn on the Craftsmen's Terrace. Travellers come up from the boats looking lost. I make sure they leave looking rested." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "You'll sleep well up here, I think. Your people are used to the ground being a long way down." },
+        { id = "h_louder", when = { metBefore = true }, text = "A young Sentinel asked me what the world below the tree was like. I told her: louder. She looked disappointed." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "The city's quietest now. Listen and you'll hear the branches settle, like an old house." },
       },
       choices = {
         { text = "Make this my home.", next = "BUSINESS" },

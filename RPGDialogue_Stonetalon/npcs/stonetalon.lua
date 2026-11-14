@@ -82,8 +82,10 @@ P:NPC {
           text = "Death feeds life, if you let it. It's the oldest cycle there is. Help me turn it the right way round." },
         { id = "h_newlife", when = { questActive = TODO_QUEST("New Life") },
           text = "Plant them gently. Water them more gently still. They're the future of these slopes." },
+        { id = "h_shoots", when = { metBefore = true }, text = "Two of the new shoots died in the night. Five lived. I'll take five." },
       },
       choices = {
+        { text = "Why bring the ground back?", next = "why" },
         { text = "What happened to the land here?", next = "land" },
         { text = "Good luck with your garden.", next = "END", fx = { affinity = 1 } },
       },
@@ -94,6 +96,12 @@ P:NPC {
         { id = "l_default", text = "Fire, and goblin axes, and fighting. The vale to the south burned black. But burned ground is still ground. It remembers how to be green." },
       },
       choices = { { text = "I'll help it remember.", next = "END", fx = { affinity = 2, align = { light = 1 } } } },
+    },
+    why = {
+      lines = {
+        { id = "w_right", text = "Because the mountain's been cut and burned, and someone ought to make it right. It doesn't much matter who. It happens to be me." },
+      },
+      choices = { { text = "I'm glad it's you.", next = "END", fx = { affinity = 2, align = { light = 1 } } } },
     },
   },
 
@@ -187,6 +195,7 @@ P:NPC {
           text = "Da forest got magic in it, if you know where to cut. Bring Jin'Zil what he asked, and don't let da tree-folk catch you." },
         { id = "h_darsok", when = { heardLine = "darsok.h_default" },
           text = "You met Darsok at da Crossroads? Ha! He tell you he the best? He always say dat. He be second best. Jin'Zil be first." },
+        { id = "h_quiet", when = { metBefore = true }, text = "De spirits been quiet today. Quiet spirits make Jin'Zil nervous, mon. Like a cage that stop rattlin'." },
       },
       choices = {
         { text = "What's in the cages?", next = "cages" },
@@ -225,11 +234,19 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", text = "Jayka. I keep the inn on Sun Rock. Warriors come in tired and leave rested, or at least less tired. That's the job." },
+        { id = "h_harpies", when = { metBefore = true }, text = "The harpies screamed all night. The braves screamed back. Nobody slept. Breakfast?" },
       },
       choices = {
+        { text = "Do you like it up here?", next = "rock" },
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "Just resting.", next = "END" },
       },
+    },
+    rock = {
+      lines = {
+        { id = "r_high", text = "It's high, it's windy, and the water's cold enough to stop your heart. I wouldn't live anywhere else." },
+      },
+      choices = { { text = "I can see why.", next = "END", fx = { affinity = 1 } } },
     },
   },
 
@@ -268,6 +285,7 @@ P:NPC {
           text = "The Charred Vale was green once. Those who burn it must be driven out, and then we can begin again. Will you help?" },
       },
       choices = {
+        { text = "How old is the grove?", next = "age" },
         { text = "What happened to the vale?", next = "vale" },
         { text = "I'll help the grove.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
       },
@@ -278,6 +296,12 @@ P:NPC {
         { id = "v_default", text = "Fire, and greed, and those who'd rather the mountain bare. Forests have died before. They come back, if someone stands between them and the next fire." },
       },
       choices = { { text = "Then I'll stand there.", next = "END", fx = { affinity = 2 } } },
+    },
+    age = {
+      lines = {
+        { id = "a_old", text = "Older than the mountain's name. Older than the Horde's coming, or the Alliance's. Young, for a tree. The trees would laugh at you for asking." },
+      },
+      choices = { { text = "Then I'll ask the trees.", next = "END", fx = { affinity = 2 } } },
     },
   },
 
@@ -302,6 +326,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", text = "Faralia. I keep a small inn for those who climb up to the grove. Not many do. The ones who do usually need the bed." },
+        { id = "h_druid", when = { metBefore = true }, text = "A druid came up from the grove at dawn and sat on my step without a word, watching the mountain. Then she left. I've decided it was a compliment." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "Up here the stars are near enough to count. I've tried. I always lose my place somewhere past the ridge." },
       },
       choices = {
         { text = "Make this my home.", next = "BUSINESS" },

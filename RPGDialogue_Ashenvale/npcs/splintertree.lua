@@ -82,8 +82,10 @@ P:NPC {
           text = "Something foul's stirring the water and earth out there. Even I can feel it. Deal with it before it gets into the supplies." },
         { id = "h_standstill", when = { questActive = TODO_QUEST("Stonetalon Standstill") },
           text = "Trouble on the Stonetalon side, and nothing's getting through. Deal with it, and things start moving again." },
+        { id = "h_count", when = { metBefore = true }, text = "Seventeen wagons this week. The elves burned three. I count the burned ones too, so I remember who to be angry at." },
       },
       choices = {
+        { text = "Why count everything?", next = "count" },
         { text = "Why don't you like people?", next = "people" },
         { text = "Fine. Bye.", next = "END" },
       },
@@ -91,6 +93,12 @@ P:NPC {
     people = {
       lines = { { id = "p_default", text = "People ask questions. Like that one. Wagons never ask anything. Go away now." } },
       choices = { { text = "Ha.", next = "END", fx = { affinity = 1 } } },
+    },
+    count = {
+      lines = {
+        { id = "c_lumber", text = "The Warchief asked for lumber, and lumber doesn't lie. Grunts lie. Wagons don't." },
+      },
+      choices = { { text = "Fair.", next = "END", fx = { affinity = 1 } } },
     },
   },
 
@@ -123,8 +131,10 @@ P:NPC {
         { id = "h_default", text = "Kuray'bin. I watch the paths into Splintertree. The night elves send runners through the trees, quick and quiet. I make sure they don't get home." },
         { id = "h_outrunners", tags = { "news" }, when = { questActive = TODO_QUEST("Ashenvale Outrunners") },
           text = "Silverwing outrunners, sneaking through our ground. They see our numbers, they tell their captains, the captains come. Stop them before they get home." },
+        { id = "h_creak", when = { metBefore = true }, text = "Every night the trees creak and I think it's elves. Every morning I'm still alive. Either I'm lucky, mon, or the trees be on my side." },
       },
       choices = {
+        { text = "Do you miss the islands?", next = "islands" },
         { text = "How bad is the fighting?", next = "fighting" },
         { text = "Stay sharp.", next = "END" },
       },
@@ -135,6 +145,12 @@ P:NPC {
         { id = "f_default", text = "The elves think every tree we cut be a murder. We think we need the wood to live. Both of us be right a little. That never stopped a war, mon." },
       },
       choices = { { text = "...", next = "END", fx = { affinity = 1 } } },
+    },
+    islands = {
+      lines = {
+        { id = "i_sand", text = "Every day, mon. Warm sand, salt wind. Here it be all shadow and bark. But the Horde needs wood, and the Darkspear pay their debts." },
+      },
+      choices = { { text = "The Horde's lucky to have you.", next = "END", fx = { affinity = 2 } } },
     },
   },
 

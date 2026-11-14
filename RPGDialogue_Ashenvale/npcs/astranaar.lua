@@ -153,6 +153,7 @@ P:NPC {
         { id = "h_default", text = "I'm Relara. I'm sick. Papa's fixing it. The dreams are bad, but you're not in them, so that's good." },
         { id = "h_better", when = { questDone = TODO_QUEST("Fallen Sky Lake") },
           text = "The bad dreams stopped. Now I just dream about honey cakes. Papa says that's normal. I think it's the best dream." },
+        { id = "h_sentinel", when = { metBefore = true }, text = "When I'm better, Papa says I can watch the Sentinels practise. I'm going to be a Sentinel. Or a hippogryph. Whichever one gets to fly." },
       },
       choices = {
         { text = "What do you dream about?", next = "dreams", when = { questBefore = TODO_QUEST("Fallen Sky Lake") } },
@@ -187,8 +188,15 @@ P:NPC {
         { id = "h_default", text = "Faldreas. I keep track of who's out on the roads and who should have come back by now. The list of the second kind is longer than I'd like." },
         { id = "h_edunes", tags = { "news" }, when = { questActive = TODO_QUEST("Check in on the Edunes") },
           text = "The Edunes haven't sent word in too long. Look in on them for me. I hope it's nothing. It's usually something." },
+        { id = "h_crossed", when = { metBefore = true }, text = "Three travellers came back yesterday. I crossed them off the list. Crossing names off the right way is the best part of my day." },
       },
-      choices = { { text = "I'll keep my eyes open.", next = "END", fx = { affinity = 1 } } },
+      choices = { { text = "Why keep the list?", next = "list" }, { text = "I'll keep my eyes open.", next = "END", fx = { affinity = 1 } } },
+    },
+    list = {
+      lines = {
+        { id = "l_remember", text = "Because someone has to remember who went out. If nobody remembers, nobody goes looking. I'd rather be the one who remembers." },
+      },
+      choices = { { text = "I'll check in when I'm back.", next = "END", fx = { affinity = 2, standing = { astranaar = 1 } } } },
     },
   },
 
@@ -220,6 +228,8 @@ P:NPC {
         { id = "h_default", text = "Kimlya. I keep the inn for scouts, healers, travellers and the occasional lost adventurer. Most of them leave in better shape than they came." },
         { id = "h_relara", when = { heardLine = "pelturas.h_default" },
           text = "So Pelturas told you. Poor man. I send broth up for little Relara every night. She doesn't eat it, but he does, and someone has to look after him." },
+        { id = "h_sentinel", when = { metBefore = true }, text = "A Sentinel fell asleep at that table last night, sitting up, spear still in her hand. I didn't have the heart to wake her." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "The lake's black as ink at night, and Astranaar's lanterns float on it. Prettiest thing in Ashenvale, and nobody stops to look." },
       },
       choices = {
         { text = "Make this my home.", next = "BUSINESS" },

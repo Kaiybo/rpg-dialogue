@@ -101,6 +101,7 @@ P:NPC {
           text = "This bear, Grimclaw, came to me himself. His master was taken by furbolgs. A bear asking for help. You don't refuse that." },
         { id = "h_escape", when = { questActive = TODO_QUEST("Escape Through Stealth") },
           text = "Get him out quietly if you can. The furbolgs are sick, not evil. I'd rather we didn't have to kill more of them than we must." },
+        { id = "h_moss", when = { metBefore = true }, text = "I burned another patch of the moss this morning. It'll be back. So will I." },
       },
       choices = {
         { text = "What is Fel Moss?", next = "moss" },
@@ -145,6 +146,7 @@ P:NPC {
           text = "Even the old turtles. They've swum these waters since before Teldrassil was a seed. Something is very wrong out there." },
       },
       choices = {
+        { text = "Do you miss the Temple?", next = "temple" },
         { text = "What's killing them?", next = "killing" },
         { text = "Elune keep you.", next = "END" },
       },
@@ -152,6 +154,12 @@ P:NPC {
     killing = {
       lines = { { id = "k_default", text = "Nobody knows yet. The sea doesn't speak plainly. But I listen, and I write everything down. One day the pattern will show itself." } },
       choices = { { text = "...", next = "END", fx = { affinity = 1 } } },
+    },
+    temple = {
+      lines = {
+        { id = "t_quiet", text = "Its quiet, yes. But the Sisterhood didn't train me to stay where it's quiet. Here, people need me. That's better than quiet." },
+      },
+      choices = { { text = "Elune keep you.", next = "END", fx = { affinity = 2 } } },
     },
   },
 
@@ -186,6 +194,7 @@ P:NPC {
           text = "Bring water from the moonwell. Pure water, to test against what the crystal's done. Don't let it spill." },
         { id = "h_murkdeep", tags = { "news" }, when = { questActive = TODO_QUEST("WANTED: Murkdeep!") },
           text = "Murkdeep. The murlocs' big brute. He's sunk boats leaving our harbour. The council's put a price on him. Collect it." },
+        { id = "h_beach", when = { metBefore = true }, text = "I walk the beach every morning. Every morning there's more murloc sign. Every evening there's a little less, thanks to people like you." },
       },
       choices = {
         { text = "What happened to the moonkin?", next = "moonkin" },
@@ -282,6 +291,8 @@ P:NPC {
         { id = "h_default", text = "Shaussiy. I keep the inn by the docks. Travellers off the boats from Teldrassil and Menethil, mostly, and they all arrive seasick." },
         { id = "h_cerellean", when = { heardLine = "cerellean.h_default" },
           text = "You've spoken with Cerellean. He stands on that dock every day. I bring him tea. He forgets to drink it. I bring more." },
+        { id = "h_boards", when = { metBefore = true }, text = "Sailors swear the floorboards creak in a different key before a storm. I've started listening. They're right." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "The moon on the water out there. On nights like this I forgive the sea for everything." },
       },
       choices = {
         { text = "Make this my home.", next = "BUSINESS" },
