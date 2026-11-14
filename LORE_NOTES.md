@@ -690,3 +690,13 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Lookout Captain Lolo Longstriker: blind, often drunk, trusts his senses; WANTED: Overseer Maltorius | [Lookout Captain Lolo Longstriker](https://warcraft.wiki.gg/wiki/Lookout_Captain_Lolo_Longstriker) |
 | Kalaran Windblade: tells a false story that the Dark Iron killed his father and asks for vengeance (his true nature is never stated in lines) | [Kalaran Windblade](https://warcraft.wiki.gg/wiki/Kalaran_Windblade) |
 | "... Lookout" names are guards | [Thorium Point](https://warcraft.wiki.gg/wiki/Thorium_Point) |
+
+## Eastern Plaguelands (Eastern Plaguelands pack 1.0.0)
+
+| Fact used | Source |
+|---|---|
+| Light's Hope Chapel: Argent Dawn base since splitting from the Silver Hand; Argent Guards of several races | [Light's Hope Chapel](https://warcraft.wiki.gg/wiki/Light's_Hope_Chapel) |
+| Lord Maxwell Tyrosus: Argent Dawn leader after Lord Raymond George; left the Silver Hand when it became the Scarlet Crusade; works with all races; reclusive; Lord Maxwell Tyrosus, The Argent Hold; Stratholme plans with Zverenhoff | [Maxwell Tyrosus](https://warcraft.wiki.gg/wiki/Maxwell_Tyrosus) |
+| Leonid Barthalomew the Revered: died in the Scourging, freed by Sylvanas, loyal to the Dawn; undeath a malady and a weapon; saw Ras Frostwhisper become a lich | [Leonid Barthalomew the Revered](https://warcraft.wiki.gg/wiki/Leonid_Barthalomew_the_Revered) |
+| Tirion Fordring: cottage on the Thondroril with Mirador; Silver Hand paladin, lord of Hearthglen; defended Eitrigg; stripped of the Light, excommunicated; Karandra told Taelan he'd died; Taelan in the Scarlet Crusade; Classic chain titles | [Tirion Fordring](https://warcraft.wiki.gg/wiki/Tirion_Fordring) |
+| Nathanos Blightcaller: Champion of the Banshee Queen at the Marris Stead, his childhood home; first human ranger lord, trained by elves; raised and freed by Sylvanas; recruits the Horde against plaguebats, Scourge and Scarlets; proud, scornful | [Nathanos Blightcaller](https://warcraft.wiki.gg/wiki/Nathanos_Blightcaller) |

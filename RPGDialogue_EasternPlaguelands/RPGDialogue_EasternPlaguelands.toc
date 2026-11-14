@@ -1,0 +1,16 @@
+## Interface: 16001, 16002
+## Title: RPG Dialogue: Eastern Plaguelands |cff8a8a8a1.0.0|r
+## Notes: The Argent Dawn's last light at Light's Hope Chapel, a disgraced paladin living by the river with his horse, and the Banshee Queen's champion at his childhood home.
+## Author: RPG Dialogue
+## Version: 1.0.0
+## Dependencies: RPGDialogue
+## LoadOnDemand: 1
+## X-RPGD-Pack: rpgd.easternplaguelands
+## X-RPGD-Format: 1
+## X-RPGD-Load: zone
+## X-RPGD-Zones: Eastern_Plaguelands
+
+pack.lua
+pools.lua
+npcs\lightshope.lua
+npcs\eastweald.lua

@@ -451,6 +451,13 @@ P:Town {
   quests = { { TODO_QUEST("WANTED: Overseer Maltorius"), 6 }, { TODO_QUEST("Fiery Menace!"), 2 } },
 }
 
+P:Town {
+  id = "light_hope", name = "Light's Hope Chapel",
+  subzones = { "Light's Hope Chapel" },
+  tiers = { Hero = "Champion of the Dawn" },
+  quests = { { TODO_QUEST("The Argent Hold"), 6 }, { TODO_QUEST("Lord Maxwell Tyrosus"), 2 } },
+}
+
 -- The other capitals. Their guards speak from pools_roles.lua; standing grows from quests
 -- each capital's own pack lists later.
 P:Town {
