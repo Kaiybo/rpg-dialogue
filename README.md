@@ -1,6 +1,6 @@
 # RPG Dialogue
 
-Talk to the people of Azeroth. RPG Dialogue for World of Warcraft: Forever turns NPC interactions into short, reactive, CRPG-style conversations. NPCs notice who you are (race, class, level, what you're wearing, what you've done) and remember you between visits.
+Talk to the people of Azeroth. RPG Dialogue for World of Warcraft: Forever turns NPC interactions into short, reactive, CRPG-style conversations. NPCs notice who you are (race, class, level, what you're wearing, what you've done), remember you between visits, talk about each other, and sometimes lie to you.
 
 Everything is pre-written and ships with the addon. Nothing is sent anywhere, and nothing you do shows up for anyone else.
 
@@ -9,37 +9,54 @@ Everything is pre-written and ships with the addon. Nothing is sent anywhere, an
 Copy these folders into `World of Warcraft/<your Forever folder>/Interface/AddOns/`:
 
 - `RPGDialogue`: the addon itself
-- `RPGDialogue_World`: shared dialogue (generic lines, role pools)
+- `RPGDialogue_World`: shared dialogue (role pools, spirit healers, towns, topics, rumors, origins)
 - `RPGDialogue_Elwynn`: Northshire Valley and Goldshire
 
-**Back up your `WTF` folder now and then.** RPG Dialogue keeps everything NPCs remember about each character in SavedVariables there.
+Content packs load by zone, so only the dialogue for where you are is in memory.
 
-### Developing from this repo
-
-The repo holds several addons side by side, and WoW only sees top-level folders in `AddOns`. Link them instead of copying:
-
-- Windows: `tools\link_addons.bat "C:\...\_forever_\Interface\AddOns"`
-- macOS/Linux: `tools/link_addons.sh "/.../_forever_/Interface/AddOns"`
+**Back up your `WTF` folder now and then.** RPG Dialogue keeps everything NPCs remember about each character in SavedVariables there. `/rpgd export` also gives you a copyable backup of one character's story.
 
 ## Using it
 
 - Talk to NPCs as usual. A conversation window opens in front of the normal one. **"Get on with it"** (or Escape) always takes you straight to the normal vendor, quest or trainer window.
-- Vendors, flight masters, trainers and other service NPCs just say a short line on repeat visits and open their normal window right away. Click **Talk** on that bar for a full conversation.
-- Keybinding: **Talk to Target** (Key Bindings > AddOns) talks to an NPC who has no gossip.
+- Vendors, flight masters, trainers and other service NPCs say a short line on repeat visits and open their normal window right away. Click **Talk** on that bar for a full conversation.
+- **Ask about...** lets you ask people about topics you've picked up. **The journal** (`/rpgd journal`, or its keybinding) keeps your chronicle, the people you've met, your character sheet and origin, topics, deeds and your own notes.
+- Keybindings (Key Bindings > AddOns): **Talk to Target** talks to an NPC who has no gossip; **Open Journal**; **Ask About...** during a conversation.
 - `/rpgd` lists every command. `/rpgd settings` opens the settings.
 
-## Known conflicts
+### Keyboard and gamepad
 
-- **Immersion, DialogueUI**: when either is loaded, RPG Dialogue steps back by default. It shows only its short line, and the full conversation is available through the Talk keybind. You can change this in settings.
-- **Questie and other quest addons**: unaffected. RPG Dialogue never closes, hides or re-opens Blizzard's windows; it only fades them while its own window covers them.
+| | Keyboard | Gamepad (client gamepad mode) |
+|---|---|---|
+| Pick a reply | 1–5, or Up/Down/Tab then Enter | D-pad, then A |
+| Finish the text | Space or Enter | A |
+| Get on with it | Escape | B |
+| Ask about... | the Ask About keybinding (set it in Key Bindings), then Up/Down/Enter | X, then D-pad and A |
+| Journal tabs | Left/Right, Escape closes | D-pad left/right, B closes |
 
-## For developers
+### Accessibility
 
-- `DESIGN.md`: architecture, data schema, scoring, risks
-- `HANDOFF.md`: current state and next step
-- `CONTENT_GUIDE.md`: how to write dialogue
-- Tests: `lua5.1 tests/run.lua` · Lint: `luacheck .` · Content: `python3 tools/validate.py`
+Settings > Accessibility: text size (separate from UI scale), line spacing, a high-readability font (Atkinson Hyperlegible, bundled under the SIL Open Font License), text speed, instant text, auto-advance with a delay, window scale, a high-contrast theme, gamepad controls, sounds on/off, and one **reduce motion** switch that turns off the typewriter and every screen effect. Nothing relies on color alone: selections are marked with ">", locked replies say "(Locked)", standing and alignment are shown in words.
+
+## Other addons
+
+- **Immersion, DialogueUI**: when either is loaded, RPG Dialogue steps back by default. It shows only its short line, and the full conversation is available through the Talk keybinding. You can change this in settings.
+- **Questie and other quest or vendor addons**: unaffected. RPG Dialogue never closes, hides or re-opens Blizzard's windows; it only fades them while its own window covers them, so "Get on with it" leaves them exactly as those addons expect.
+- **Total RP 3** (optional): when it's loaded, NPCs call you by your roleplay name and title (two settings, both on by default). RPG Dialogue only reads your current profile, never changes it, and works the same without it.
+
+## Known issues
+
+Nothing has been tested in the game yet; see `HANDOFF.md` for what needs checking first. Please report problems with the flag button on the dialogue window (it saves the line and everything about the moment), or with BugSack + !BugGrabber error text.
+
+## For developers and pack authors
+
+- `PACK_AUTHORING.md`: making a content pack, and the step-by-step zone workflow
+- `CONTENT_GUIDE.md`: how to write dialogue (required reading)
+- `DESIGN.md`: architecture, data schema, scoring, risks · `HANDOFF.md`: current state and next step
+- Every check in one command: `python3 tools/check_all.py` (needs Python 3, Lua 5.1 and luacheck)
+- Develop from the repo by linking the addon folders into your AddOns folder: `tools/link_addons.sh "/.../_forever_/Interface/AddOns"` (macOS/Linux) or `tools\link_addons.bat "C:\...\_forever_\Interface\AddOns"` (Windows)
+- Releases: tag `vX.Y.Z` and push; `.github/workflows/release.yml` runs the release checks and the BigWigs packager, which builds one zip with the core and every pack as separate addon folders.
 
 ## License
 
-MIT. See `LICENSE`.
+MIT (see `LICENSE`). The bundled Atkinson Hyperlegible font is © Braille Institute of America, under the SIL Open Font License 1.1 (`RPGDialogue/Media/Fonts/AtkinsonHyperlegible-OFL.txt`).

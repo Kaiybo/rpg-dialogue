@@ -2,12 +2,12 @@
 
 How to write dialogue for RPG Dialogue, for people and for AI sessions. Read it before writing a single line. The schema reference is in `DESIGN.md` §2; this guide is about using it well.
 
-**Workflow for a zone** (also in the brief's follow-up prompt):
-1. Capture in game (`/rpgd autocapture on`, talk to everyone), then `tools/import_capture.py <SavedVariables> --resolve` and `tools/export_reference.py <SavedVariables>`.
-2. Write the zone's lore sheet in `LORE_NOTES.md` (sources, quest storylines, what has and hasn't happened in Year 1, what you're unsure of).
-3. Write voice bibles (**sources and quests first**), then dialogue from the bibles.
-4. Run everything and fix what it flags:
-   `python3 tools/validate.py` · `python3 tools/voicecheck.py` · `python3 tools/simulate.py` · `python3 tools/coverage.py` · `lua5.1 tests/run.lua`
+**Workflow for a zone**: the full step-by-step version, with the tools for each step, is `PACK_AUTHORING.md` §4. In short:
+1. Capture in game (`/rpgd autocapture on`, talk to everyone; `/rpgd capture zone` shows what's missing), then `tools/import_capture.py <SavedVariables> --resolve` and `tools/export_reference.py <SavedVariables>`.
+2. `tools/new_zone.py plan "<Zone>"`, and agree the NPC tiers with the user.
+3. Write the zone's lore sheet in `LORE_NOTES.md` (sources, quest storylines, what has and hasn't happened in Year 1, what you're unsure of).
+4. `tools/new_zone.py scaffold "<Zone>"`, then write voice bibles (**sources and quests first**), propose throughlines (agree them), then dialogue from the bibles.
+5. `python3 tools/check_all.py` must pass.
 
 ---
 

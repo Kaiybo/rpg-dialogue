@@ -1,7 +1,7 @@
 # RPG Dialogue: Design
 
-> **Status:** Milestone 0, waiting for your answers (section 4). No addon code exists yet.
-> **Last updated:** 2026-11-13
+> **Status:** Milestones 0–8 built (see section 7). Nothing has run in the game yet: the next step is your in-game test pass. Section 4's questions are still open.
+> **Last updated:** 2026-11-13 (M8)
 > Every session starts by reading this file, `HANDOFF.md` and (from M3) `CONTENT_GUIDE.md`. Keep it current.
 
 Contents
@@ -12,7 +12,8 @@ Contents
 4. What I need from you
 5. Risks and API unknowns
 6. Decisions you can veto
-7. What M1 will contain
+7. Milestone status
+8. Accessibility and other addons
 
 ---
 
@@ -23,7 +24,7 @@ The brief says not to assume Forever's API is either Classic Era or modern. I ch
 - Forever **shares Mainline (retail) WoW's UI architecture** and has "the vast majority of APIs available in 12.1.5". Forever and Midnight are two game types in the same code family. Forever's internal name was *Camelot*.
 - **Midnight's addon restrictions, including secret values, are active in Forever.**
 - **TOC interface number is 16001** for patch 1.60.1. The wiki already lists a patch 1.60.2, so we confirm your number with the probe in section 4.
-- `_Forever.toc` is a valid TOC file suffix.
+- `_Forever.toc` is a valid TOC file suffix. (The BigWigs packager, which knows Forever as of November 2026, writes `_Camelot.toc` for generated Forever TOCs. We use plain `.toc` files, so neither matters unless a mixed setup needs one.)
 - Beta 5 **obfuscated the server and spawn-ID parts of creature GUIDs**. The NPC-ID part should still be readable. The probe checks this.
 
 What this changes:
@@ -47,10 +48,11 @@ The git repo is **not itself an addon**. It holds several addons side by side: t
 ```
 rpg-dialogue/                          git repo root
 ├─ DESIGN.md  HANDOFF.md  CHANGELOG.md  LORE_NOTES.md  README.md  LICENSE
-├─ CONTENT_GUIDE.md        (M3)   writing rules, schema, bible format, threads/claims how-to
-├─ PACK_AUTHORING.md       (M8)   for community packs and other AI sessions
-├─ banned_phrases.txt      (M3)
-├─ .luacheckrc  .pkgmeta  .gitignore  .editorconfig
+├─ CONTENT_GUIDE.md                   writing rules, bible format, threads/claims how-to
+├─ PACK_AUTHORING.md                  making packs; the step-by-step zone workflow
+├─ banned_phrases.txt
+├─ .luacheckrc  .pkgmeta  .gitignore
+├─ .github/workflows/                 checks.yml (every push), release.yml (tags: checks + packager)
 │
 ├─ RPGDialogue/                        CORE ADDON (no dialogue text in here)
 │  ├─ RPGDialogue.toc
@@ -71,48 +73,51 @@ rpg-dialogue/                          git repo root
 │  │  ├─ Memory.lua                    NPC memory, seen lines, lasting "heard" record
 │  │  ├─ Effects.lua                   applies choice/line effects
 │  │  └─ PackAPI.lua                   RPGDialogueAPI (public), pack registry, LoD loading, merging
-│  ├─ Systems/                         (Phase 2+, one file each)
-│  │  Alignment  Traits  Opinions  Gossip  Claims  Towns  Threads  Topics  SpecialOptions
-│  │  Rumors  Origins  SpiritHealer  Books  Insanity  Barks  Errands  Narration
+│  ├─ Systems/                         Threads  Rumors  Towns  Topics  Books  Insanity  Barks
+│  │                                   Errands  Origins  Export   (alignment, traits, opinions,
+│  │                                   claims and special options live in Core/Effects,
+│  │                                   Conditions and Engine)
 │  ├─ UI/
-│  │  Theme  DialogueFrame  CompactBar  AskAbout  Settings  LauncherButton  Journal/*
+│  │  Theme  DialogueFrame  CompactBar (+ Blocker)  AskAbout  Settings  Launcher  Journal  ExportFrame
 │  ├─ Integrations/
-│  │  DialogueAddons (Immersion, DialogueUI)  TRP3
+│  │  DialogueAddons (Immersion, DialogueUI)  TotalRP3 (read-only)
+│  ├─ Media/Fonts/                     Atkinson Hyperlegible + its OFL licence (readable font)
 │  └─ Dev/
-│     Slash  Capture  Spoof  Why  Flag  Probe  Mem
+│     Slash  Capture  Spoof  Why  Flag
 │
 ├─ RPGDialogue_World/                  CONTENT PACK, loaded at login (cross-zone material)
-│  ├─ RPGDialogue_World.toc
-│  ├─ pack.lua
-│  ├─ generic/      last-resort lines so no NPC is ever silent
-│  ├─ pools/        role pools not tied to one zone (flight masters, children, spirit healers…)
-│  ├─ threads/<id>.lua   claims/<id>.lua   topics/<id>.lua   towns/<id>.lua
+│  ├─ RPGDialogue_World.toc  pack.lua  CHANGELOG.md (the pack's own)
+│  ├─ generic.lua  pools.lua           last-resort lines; role pools (incl. the spirit healer tree)
+│  ├─ threads.lua  claims.lua  topics.lua  towns.lua  books.lua
 │  ├─ origins/<race>.lua   rumors/<region>.lua
 │  └─ bibles/       voice bibles for anything in this pack (Markdown, not shipped)
 │
 ├─ RPGDialogue_Elwynn/                 CONTENT PACK, load-on-demand by zone (example)
-│  ├─ RPGDialogue_Elwynn.toc
-│  ├─ pack.lua
+│  ├─ RPGDialogue_Elwynn.toc  pack.lua  CHANGELOG.md
 │  ├─ npcs/<npc_key>.lua               one file per NPC with custom content
-│  ├─ pools/<role>_<community>.lua     e.g. guard_goldshire.lua
+│  ├─ pools.lua  errands.lua           guards of Northshire and Goldshire; Eagan's errand
 │  └─ bibles/<npc_key>.md              voice bibles (Markdown, not shipped)
 │
 ├─ reference/<zone>.md                 captured Blizzard text. Writing reference only, never shipped
 ├─ tools/                              Python 3, standard library only
 │  ├─ rpgd/luadata.py                  parser for the pack data subset and SavedVariables files
+│  ├─ check_all.py                     every check in one command (--release for releases)
 │  ├─ validate.py  voicecheck.py  coverage.py  simulate.py
+│  ├─ new_zone.py                      plan a zone from capture data, then scaffold its pack
 │  ├─ import_capture.py  export_reference.py  flag_report.py
 │  ├─ registry/ids.json                NPC/quest/map ID registry built from your capture data
 │  └─ link_addons.bat / link_addons.sh links each addon folder into your AddOns folder
-└─ tests/                              Lua 5.1, runs outside the game
-   ├─ wowmock.lua  run.lua  *_spec.lua
+└─ tests/                              runs outside the game
+   ├─ wowmock.lua  loader.lua  run.lua  *_spec.lua    Lua 5.1 engine tests
+   ├─ test_tools.py                    Python tool tests (on a scratch copy of the repo)
+   ├─ fixtures/                        small test packs
    └─ sim_driver.lua                   the real engine, driven by tools/simulate.py
 ```
 
 Notes:
 
 - **Why the repo isn't the AddOns folder.** WoW only loads top-level folders in `AddOns`. `tools/link_addons` creates a junction (Windows) or symlink (macOS) for each addon folder, so the game always runs what's in the repo. If you'd rather not, I can hand you a zip per milestone.
-- **Release.** `.pkgmeta` uses the BigWigs packager's `move-folders`, so one git tag produces the core and each pack as separate addons. `reference/`, `tools/`, `tests/`, every `bibles/` folder and the docs are left out of releases.
+- **Release.** `.pkgmeta` uses the BigWigs packager's `move-folders`, so one git tag produces the core and each pack as separate addons. `reference/`, `tools/`, `tests/`, every `bibles/` folder and all Markdown are left out of releases. Checked against the packager's source (v2, November 2026): it maps `## Interface: 160xx` to the Forever game type and handles the core folder sharing the package's name. A real tagged build is still to do.
 - **"Every Blizzard API call goes through Compat.lua."** I read this as every global function and `C_*` namespace, plus frame template names. Widget methods on our own frames (`SetText`, `SetPoint`) are used directly. `.luacheckrc` enforces it: only `Compat.lua` may read WoW API globals. Every other file gets a short allowlist (`CreateFrame`, `UIParent`, font objects), so a stray API call fails lint.
 - **Voice bibles are Markdown** next to the pack's content. Writers read prose better than tables. The validator still checks them: the `Sources` and `Their quests` sections must be non-empty, and an NPC with no quests must say so explicitly.
 
@@ -125,7 +130,7 @@ Notes:
 A pack is any addon whose TOC carries `X-RPGD-*` fields:
 
 ```toc
-## Interface: 16001
+## Interface: 16001, 16002
 ## Title: RPG Dialogue: Elwynn Forest
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
@@ -133,7 +138,7 @@ A pack is any addon whose TOC carries `X-RPGD-*` fields:
 ## X-RPGD-Pack: rpgd.elwynn
 ## X-RPGD-Format: 1
 ## X-RPGD-Load: zone
-## X-RPGD-Zones: TODO (uiMapIDs come from capture data)
+## X-RPGD-Zones: Elwynn_Forest
 
 pack.lua
 pools\guard_goldshire.lua
@@ -147,10 +152,11 @@ npcs\mcbride.lua
   ```lua
   RPGDialogueAPI:RegisterPack {
     id = "rpgd.elwynn", name = "Elwynn Forest", author = "RPG Dialogue",
-    version = "@project-version@", format = 1,
+    version = "1.0.0", format = 1,
     requires = { "rpgd.world" }, priority = 0,
   }
   ```
+- **Versions.** The TOC's `## Version` is the release build (filled in by the packager from the git tag). Each pack also keeps its own content version in `pack.lua`, matched by the newest heading in the pack's own `CHANGELOG.md` (`check_all.py --release` checks they agree). `/rpgd packs` and the pack manager show it, and both report a pack whose `requires` aren't installed.
 - **Format check.** The core refuses a pack whose `format` is newer than it understands. It prints one clear chat line and shows the reason in the pack manager. Older formats are migrated when a migration exists.
 - **Two packs, same NPC.** By default they merge: lines, greetings, noticing moments and topic answers are pooled and scored normally. When both define a node with the same id, the higher `priority` wins. `override = true` on an NPC replaces lower-priority definitions of that NPC entirely.
 - **Anything referenced from more than one zone** (threads, claims, topics, towns, origins) must live in a login-loaded pack. A thread therefore works whichever zone packs are loaded. A beat whose NPC isn't loaded yet simply isn't available until you get there.
@@ -177,8 +183,10 @@ Inside the braces you may use strings, numbers, booleans, nested tables and the 
 | `Town` | `towns/<id>.lua` | World | town standing: subzones, member NPCs, related towns and spread, tier names, quests |
 | `Origin` | `origins/<race>.lua` | World | the origin list for a race, including class-specific entries |
 | `Rumors` | `rumors/<region>.lua` | World or zone | innkeeper rumor tables |
+| `Book` | `books.lua` | World | a book the addon recognizes by title, and the topics reading it teaches |
+| `Errand` | `errands.lua` | zone | an addon-side task: offer, `need` (`visit` / `item`+`count` / `kill`+`count`), thanks, addon-only reward |
 
-Threads, claims, topics, towns, origins and rumors get their full schemas in the milestones that build them (M4/M5). Their fields are already fixed by the brief, and the validator will hold them to it.
+Working examples of every kind are in the two shipped packs; `PACK_AUTHORING.md` lists where. An NPC file made by `tools/new_zone.py` carries `scaffold = true` until it's written: the game skips it (the NPC stays pooled) and `validate.py --strict` refuses it.
 
 ### 2.4 NPC
 
@@ -263,7 +271,7 @@ Each key has a **weight** (its contribution to the score) and a **kind**. *Hinge
 
 The validator rejects unknown keys. Some keys come from fields the brief lists in `ctx` (`durability`, `nearlyNaked`, `profession` and so on). That's allowed, since the brief's list is open ("such as").
 
-Pacing systems are **inferred** from condition keys: `alignment`/`title` → alignment, `taint` → taint, `origin` → origin, `trait` → trait, `opinion` → opinion, `bookRead` → book, `insanity` → insanity, `deathCause`/`deaths` → death. A line's `sys` field overrides the inference.
+Pacing systems are **inferred** from condition keys: `alignment`/`title` → alignment, `taint` → taint, `origin` → origin, `trait` → trait, `opinion` → opinion, `bookRead` → book, `insanity` → insanity. A line's `sys` field overrides the inference. (Death lines have no budget: M6 removed it because it silenced spirit healers, whose whole conversation is about your deaths.)
 
 ### 2.8 Effects (`fx`)
 
@@ -291,7 +299,7 @@ Pacing systems are **inferred** from condition keys: `alignment`/`title` → ali
 
 ### 2.10 Tokens
 
-`{name}` (Total RP 3 name when enabled), `{npc}`, `{race}`, `{class}`, `{g:lad|lass}`, `{pet}`, `{zone}`, `{subzone}`, `{town}`, `{title}`, `{home}`.
+`{name}` (with Total RP 3 loaded and its setting on: your roleplay title and first name, e.g. "Sir Aldric"), `{npc}`, `{race}`, `{class}`, `{g:lad|lass}`, `{pet}`, `{zone}`, `{subzone}`, `{town}`, `{title}` (your RPG Dialogue alignment title), `{home}`, and for spirit healers `{deaths}`, `{deathplace}`, `{killer}`.
 
 **Tokens decorate. They never carry a line.** The voice checker flags lines built around `{race}` or `{class}`.
 
@@ -763,7 +771,10 @@ If a line throws an error, paste the error instead. That tells us something too.
 | R14 | GUID format changes (spawn obfuscation) | NPC ID parse breaks | Parse by field position, check it's numeric, fall back to name + zone | Probe P6 |
 | R15 | Python parser and real Lua disagree | Validator passes a file the game rejects | The Lua test harness also loads every pack against the mock, and `luac -p` runs on every file | M2 |
 | R16 | Content scale vs consistency | Generic or samey writing at hundreds of NPCs | Bibles first, AI-voice checker, sameness checks, simulation, the "this line is wrong" button | M3 onward |
-| R17 | Blizzard UI add-on policy | Release blocked | Free, unobfuscated; re-check the current policy before release | M8 |
+| R17 | Blizzard UI add-on policy | Release blocked | **Checked November 2026** against the posted policy (free; code visible; no harm to realms or players; no ads; no in-game donation requests; T-rated content; ToU/EULA). We comply, and `check_all.py --release` fails on chat or addon-message sending, dynamic code, or donation/ad text in shipped files | Done (M8) |
+| R19 | Gamepad API in Forever (`Frame:EnableGamePadButton`, `OnGamePadButtonDown`, `C_GamePad.IsEnabled`) | Gamepad controls do nothing | All calls are guarded in Compat; keyboard and mouse always work; choice buttons are ordinary buttons a cursor addon such as ConsolePort can reach | In-game test |
+| R20 | Total RP 3's public player API on Forever (`AddOn_TotalRP3.Player.GetCurrentUser` and its name methods) | Roleplay name not used | Read-only, every call in pcall, older profile fields as fallback, the character name otherwise | In-game test with Total RP 3 |
+| R21 | Tooltip post-call API (`TooltipDataProcessor`) for the optional "something new" marker | Marker never shows | Falls back to `OnTooltipSetUnit`; off by default | In-game test |
 | R18 | One public global for packs | Constraint 7 lists no exception for it | `RPGDialogueAPI` is the only extra global (section 6) | Your OK |
 
 ---
@@ -771,7 +782,7 @@ If a line throws an error, paste the error instead. That tells us something too.
 ## 6. Decisions you can veto
 
 1. **One public global, `RPGDialogueAPI`.** Content packs are separate addons and can't see our private namespace. This is the only global beyond the SavedVariables (`RPGDialogueDB`, `RPGDialogueCharDB`), the slash commands (`/rpgd`, `/rpgdialogue`) and the keybinding names.
-2. **No third-party libraries.** Export/import uses a small serializer and text encoding of our own, and the launcher is our own (addon compartment if available, minimap button otherwise). There's nothing to embed and no licenses to track.
+2. **No third-party libraries.** Export/import uses a small serializer and text encoding of our own, and the launcher is our own (addon compartment if available, minimap button otherwise). The one bundled third-party file is the readable font (Atkinson Hyperlegible, SIL Open Font License 1.1, licence file next to it).
 3. **One TOC per addon** with your interface number. We add `_Forever.toc` variants only if a mixed setup needs them.
 4. **Our window overlays Blizzard's** (R4) rather than replacing it.
 5. **With Immersion or DialogueUI present, RPG Dialogue steps back** by default (R6).
@@ -781,6 +792,26 @@ If a line throws an error, paste the error instead. That tells us something too.
 
 ---
 
-## 7. What M1 will contain
+## 7. Milestone status
 
-Skeleton only, no dialogue. TOC; `Init`, `Compat` (with in-game probe and dev log), `Util`, `SavedData` (schema 1, migrations, repair/quarantine), `Trackers` (quest turn-ins, deaths, hearth, books, zones), `Context` (with spoof overlay), slash commands (`/rpgd capture | autocapture | spoof | dump ctx | why | mem | dev`), capture and text capture, `.luacheckrc`, `.pkgmeta`, `link_addons`, a README stub, plus an in-game test checklist and the exact things to paste back.
+| Milestone | What it holds | Commit |
+|---|---|---|
+| M0 | this document, repo, hand-off notes | ab8479c |
+| M1 | skeleton: TOC, Compat, SavedData, Trackers, Context + spoof, capture, slash tools | ca4b8df |
+| M2 | engine, pack API, dialogue UI, compact mode, other-addon handling, memory, validator, tests, flag button, live reactions | 970a05e |
+| M3 | Northshire/Goldshire slice, lore sheet, voice bibles, content guide, voice checker, simulation, coverage | d49bd0a |
+| M4 | alignment, traits, opinions, gossip, claims and lies, town standing, agendas, throughlines, Ask about, special options, rumors | e36aef0 |
+| M5 | journal, origins (drafts for approval), export/import, save-data checks | f1ec319 |
+| M6 | spirit healers, books, insanity, drunk replies, ghosts, barks, errands | 979fcc5 |
+| M7 | zone planning and scaffolding, one-command checks, simulation and voice-check additions | bbefce7 |
+| M8 | Total RP 3, accessibility pass (keyboard, gamepad, readable font, no color-only signals), tooltip marker, `PACK_AUTHORING.md`, packaging and policy checks, release workflow | (this commit) |
+
+---
+
+## 8. Accessibility and other addons
+
+**Accessibility (brief 4.15).** Text size separate from UI scale, line spacing, a bundled high-readability font (names drop the decorative font too; non-Latin clients keep the game's fonts), text speed, instant text, auto-advance with a delay, scale, a high-contrast theme, sounds on/off, and one reduce-motion switch that turns off the typewriter and every insanity effect. Full keyboard use: number keys, Up/Down/Tab to move a selection, Enter, Space, Escape; Left/Right in the journal; an Ask About keybinding. Gamepad in the client's gamepad mode: D-pad, A, B, X. Nothing relies on color alone: selections carry a ">" marker, locked replies say "(Locked)", the current journal tab is marked, standing tiers and alignment hints are words.
+
+**Total RP 3 (brief 4.14).** `Integrations/TotalRP3.lua`, through `Compat.RoleplayProfile`: reads the current profile's first name and title through Total RP 3's public player object, strips color codes and textures, caps the length, and never writes. Two settings (name, title), both on; without Total RP 3 nothing changes.
+
+**"Something new to say" marker (brief 4.10).** Off by default. A tooltip line on NPCs you've met who have an unheard news line or thread beat, computed read-only (no memory, pacing or seen-state changes) and cached per NPC for 15 seconds.

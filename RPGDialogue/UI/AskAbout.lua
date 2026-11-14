@@ -13,6 +13,7 @@ UI.AskAbout = Ask
 local ROWS, ROW_H, WIDTH = 12, 20, 240
 local panel
 local offset, showArchive, filtered = 0, false, {}
+local selected   -- index into filtered (keyboard / gamepad)
 
 local function refresh()
   local list = ns.Topics.Filter(ns.Topics.Known(showArchive), panel.search:GetText())
@@ -24,6 +25,9 @@ local function refresh()
       row.topic = t.id
       row.label:SetText(t.name .. (t.archived and (" |cff888888(" .. L.ASK_ARCHIVED .. ")|r") or ""))
       row.cat:SetText(t.category)
+      local on = (selected == i + offset)
+      if on then row:LockHighlight() else row:UnlockHighlight() end
+      row.marker:SetShown(on)
       row:Show()
     else
       row:Hide()
@@ -63,6 +67,10 @@ local function create()
     row.cat:SetPoint("RIGHT", -4, 0)
     row.hl = row:CreateTexture(nil, "HIGHLIGHT")
     row.hl:SetAllPoints()
+    row.marker = row:CreateFontString(nil, "OVERLAY")
+    row.marker:SetPoint("RIGHT", row, "LEFT", 0, 0)
+    row.marker:SetText(">")
+    row.marker:Hide()
     row:SetScript("OnClick", function(self)
       if self.topic then ns.Conversation.Ask(self.topic) end
     end)
@@ -95,6 +103,8 @@ function Ask.Style()
   local p = Theme.Palette()
   for _, row in ipairs(panel.rows) do
     Theme.SetFont(row.label, "body", size - 1)
+    Theme.SetFont(row.marker, "name", size - 1)
+    Theme.TextColor(row.marker, "name")
     Theme.SetFont(row.cat, "body", size - 4)
     Theme.TextColor(row.label, "choice")
     Theme.TextColor(row.cat, "dim")
@@ -112,10 +122,30 @@ function Ask.Toggle(anchor)
   Ask.Style()
   panel:ClearAllPoints()
   if anchor then panel:SetPoint("TOPLEFT", anchor, "TOPRIGHT", 4, 0) else panel:SetPoint("CENTER") end
-  offset = 0
+  offset, selected = 0, nil
   refresh()
   panel:Show()
 end
+
+-- Keyboard / gamepad: move through the list (scrolling as needed) and ask.
+function Ask.Move(delta)
+  if not panel or #filtered == 0 then return end
+  if not selected then
+    selected = delta > 0 and 1 or #filtered
+  else
+    selected = (selected - 1 + delta) % #filtered + 1
+  end
+  if selected <= offset then offset = selected - 1 end
+  if selected > offset + ROWS then offset = selected - ROWS end
+  refresh()
+end
+
+function Ask.Confirm()
+  local t = selected and filtered[selected]
+  if t then ns.Conversation.Ask(t.id) end
+end
+
+function Ask.Selected() return selected and filtered[selected] and filtered[selected].id end
 
 function Ask.Hide() if panel then panel:Hide() end end
 function Ask.IsShown() return panel ~= nil and panel:IsShown() end

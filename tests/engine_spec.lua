@@ -268,6 +268,33 @@ describe("Conversation", function()
     eq(dialogueText(ns), "Quiet night, thanks to you.")
   end)
 
+  it("marks NPCs with something new in their tooltip, only when that setting is on", function()
+    local ns = boot()
+    local lines = {}
+    local function hover()
+      lines = {}
+      GameTooltip.GetUnit = function() return "Marshal McBride", "mouseover" end
+      GameTooltip.AddLine = function(_, text) lines[#lines + 1] = text end
+      Mock.state.units.mouseover = { guid = "Creature-0-1-0-1-197-AB", name = "Marshal McBride", level = 20, reaction = 5 }
+      ns.Conversation.ClearMarkCache()
+      GameTooltip:GetScript("OnTooltipSetUnit")(GameTooltip)
+      return lines[1]
+    end
+    eq(hover(), nil, "never met: nothing marked")
+    gossip("Marshal McBride")
+    ns.Conversation.Business()
+    closeGossip()
+    ns.db.capture.quests[9007] = { title = "Kobold Camp Cleanup" }
+    Mock.state.questsDone[9007] = true
+    ns.char.quests.turnedIn[9007] = Mock.state.now - 60
+    eq(hover(), nil, "off by default")
+    ns.db.settings.newMarker = true
+    local seen, convs = ns.Util.Count(ns.char.seen), ns.char.conversations
+    eq(hover(), "Has something new to say")
+    eq(ns.Util.Count(ns.char.seen), seen, "hovering marks nothing as heard")
+    eq(ns.char.conversations, convs, "hovering isn't a conversation")
+  end)
+
   it("lets another NPC react to a key line the player heard", function()
     local ns = boot()
     gossip("Marshal McBride")

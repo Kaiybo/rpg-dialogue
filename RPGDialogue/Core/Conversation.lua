@@ -207,6 +207,44 @@ function Conv.DecideFull(s, mode)
   return false, "nothing new"
 end
 
+-- Optional tooltip marker (off by default, it spoils discovery): does this NPC have
+-- something new to say? Read-only: no memory, pacing or seen-state changes.
+-- Cached per NPC for 15 seconds, since tooltips refresh constantly.
+local markCache = {}
+function Conv.HasSomethingNew(unit)
+  if not ns.db or not ns.db.settings.newMarker or C.InCombat() then return false end
+  if Conv.session and not Conv.session.ended then return false end
+  local guid = C.GUID(unit)
+  if not guid then return false end
+  local now = C.Now()
+  local hit = markCache[guid]
+  if hit and now - hit.t < 15 then return hit.v end
+  local v = false
+  local ctx = ns.Context.New({ unit = unit })
+  local info = Conv.Identify(unit, ctx)
+  if info and info.def then
+    local mem = Memory.Get(Memory.Key(info))
+    if mem and (mem.times or 0) > 0 then
+      v = Engine.HasNews(info, ctx, Engine.NewEnv(info, ctx, mem)) and true or false
+    end
+  end
+  markCache[guid] = { t = now, v = v }
+  return v
+end
+
+function Conv.ClearMarkCache() markCache = {} end
+
+ns.OnLogin(function()
+  C.OnUnitTooltip(function(tooltip, unit)
+    if Conv.HasSomethingNew(unit) then
+      local p = ns.UI.Theme.Palette()
+      local c = p.name or { 1, 0.82, 0 }
+      C.TooltipAddLine(tooltip, L.TOOLTIP_NEW, c[1], c[2], c[3])
+    end
+  end)
+end)
+ns.Listen("CONVERSATION_OPENED", function() Conv.ClearMarkCache() end)
+
 function Conv.OpenFull(reason)
   local s = Conv.session
   if not s then return end

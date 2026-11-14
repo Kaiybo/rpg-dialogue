@@ -37,6 +37,7 @@ Systems\Origins.lua
 Systems\Export.lua
 
 Integrations\DialogueAddons.lua
+Integrations\TotalRP3.lua
 
 UI\Theme.lua
 UI\DialogueFrame.lua

@@ -7,9 +7,13 @@ ns.UI = ns.UI or {}
 local Theme = {}
 ns.UI.Theme = Theme
 
+-- The readable font is Atkinson Hyperlegible (Braille Institute, SIL Open Font License 1.1,
+-- see Media/Fonts/AtkinsonHyperlegible-OFL.txt), made for low-vision readers. It covers
+-- Latin scripts only, so other client languages use the game's own fonts.
 Theme.FONTS = {
   body = "Fonts\\FRIZQT__.TTF",
-  readable = "Fonts\\ARIALN.TTF",
+  readable = "Interface\\AddOns\\RPGDialogue\\Media\\Fonts\\AtkinsonHyperlegible-Regular.ttf",
+  readableFallback = "Fonts\\ARIALN.TTF",
   name = "Fonts\\MORPHEUS.TTF",
 }
 
@@ -37,19 +41,27 @@ function Theme.Palette()
   return (s and s.highContrast) and Theme.PALETTES.contrast or Theme.PALETTES.parchment
 end
 
-function Theme.BodyFont()
-  local s = ns.db and ns.db.settings
-  return (s and s.readableFont) and Theme.FONTS.readable or Theme.FONTS.body
-end
 
 function Theme.TextSize()
   return (ns.db and ns.db.settings.textSize) or 14
 end
 
+local function readable()
+  local s = ns.db and ns.db.settings
+  return s and s.readableFont and ns.Compat.LatinClient()
+end
+
+function Theme.BodyFont()
+  return readable() and Theme.FONTS.readable or Theme.FONTS.body
+end
+
 function Theme.SetFont(fs, kind, size)
-  local path = kind == "name" and Theme.FONTS.name or Theme.BodyFont()
-  fs:SetFont(path, size or Theme.TextSize(), "")
+  -- With the readable font on, names drop the decorative font too.
+  local path = (kind == "name" and not readable()) and Theme.FONTS.name or Theme.BodyFont()
+  size = size or Theme.TextSize()
+  fs:SetFont(path, size, "")
   -- A font that failed to load leaves the string with no font at all; fall back.
+  if not fs:GetFont() and path == Theme.FONTS.readable then fs:SetFont(Theme.FONTS.readableFallback, size, "") end
   if not fs:GetFont() then fs:SetFontObject(GameFontNormal) end
 end
 

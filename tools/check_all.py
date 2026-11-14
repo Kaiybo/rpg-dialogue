@@ -83,6 +83,45 @@ def release_checks():
         if dirty:
             problems.append("uncommitted changes (tag a release from a clean tree)")
 
+    # Blizzard's UI add-on policy and the brief's hard rules, checked in what ships:
+    # nothing talks to other players or servers, no dynamic code, no ads or donation asks.
+    forbidden = {
+        r"\bSendChatMessage\b": "sends chat (barks and whispers must stay local)",
+        r"\bSendAddonMessage\b|C_ChatInfo\.SendAddonMessage": "sends addon messages (client-side and solo only)",
+        r"\bloadstring\b|\bRunScript\b|\bsetfenv\b": "runs dynamic code (packs are data)",
+        r"(?i)patreon|paypal|ko-fi|buymeacoffee|donat(e|ion)": "asks for donations in game (policy rule 5)",
+    }
+    for addon_dir in ["RPGDialogue"] + [p.addon for p in packs]:
+        for dirpath, _, names in os.walk(os.path.join(ROOT, addon_dir)):
+            if "bibles" in dirpath:
+                continue
+            for n in names:
+                if not n.endswith((".lua", ".xml", ".toc")):
+                    continue
+                path = os.path.join(dirpath, n)
+                text = open(path, encoding="utf-8").read()
+                for rx, why in forbidden.items():
+                    m = re.search(rx, text)
+                    if m:
+                        problems.append(f"{os.path.relpath(path, ROOT)}: {m.group(0)!r} {why}")
+
+    # Each pack has its own version (pack.lua) and changelog (CHANGELOG.md in the pack folder).
+    for p in packs:
+        reg = p.register if p.register is not None else None
+        if reg is None:
+            P.load_pack(p)
+            reg = p.register
+        version = reg.get("version") if reg is not None else None
+        cl_path = os.path.join(p.path, "CHANGELOG.md")
+        if not os.path.exists(cl_path):
+            problems.append(f"{p.addon}: no CHANGELOG.md (each pack keeps its own)")
+            continue
+        m = re.search(r"^##\s+\[?v?(\d+\.\d+\.\d+)", open(cl_path, encoding="utf-8").read(), re.M)
+        if not m:
+            problems.append(f"{p.addon}/CHANGELOG.md: no '## x.y.z' version heading")
+        elif version != m.group(1):
+            problems.append(f"{p.addon}: pack.lua version {version!r} doesn't match CHANGELOG.md ({m.group(1)})")
+
     cl = os.path.join(ROOT, "CHANGELOG.md")
     if not os.path.exists(cl) or not re.search(r"^## ", open(cl, encoding="utf-8").read(), re.M):
         problems.append("CHANGELOG.md has no version sections")

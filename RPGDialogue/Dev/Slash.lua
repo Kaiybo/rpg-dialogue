@@ -192,6 +192,7 @@ C.RegisterSlash("RPGD", { "/rpgd", "/rpgdialogue" }, Slash.Handle)
 C.SetGlobal("BINDING_HEADER_RPGD", L.BINDING_HEADER)
 C.SetGlobal("BINDING_NAME_RPGD_TALK", L.BINDING_TALK)
 C.SetGlobal("BINDING_NAME_RPGD_JOURNAL", L.BINDING_JOURNAL)
+C.SetGlobal("BINDING_NAME_RPGD_ASK", L.BINDING_ASK)
 
 ns.OnLogin(function()
   if ns.db.settings.dev then ns.Print(L.LOADED) end

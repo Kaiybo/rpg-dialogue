@@ -95,7 +95,7 @@ class NewZoneTest(ScratchRepo):
         write(path, plan)
         out = self.tool("new_zone.py", "scaffold", "Westfall").stdout
         pack = os.path.join(self.root, "RPGDialogue_Westfall")
-        for f in ("RPGDialogue_Westfall.toc", "pack.lua", "pools.lua", "npcs/stoutmantle.lua",
+        for f in ("RPGDialogue_Westfall.toc", "pack.lua", "CHANGELOG.md", "pools.lua", "npcs/stoutmantle.lua",
                   "npcs/heather.lua", "bibles/stoutmantle.md"):
             self.assertTrue(os.path.exists(os.path.join(pack, f)), f)
         self.assertFalse(os.path.exists(os.path.join(pack, "npcs", "saldean.lua")))
@@ -190,6 +190,24 @@ class FlagReportTest(ScratchRepo):
         self.assertRegex(report, r"Where: RPGDialogue_Elwynn/npcs/pestle\.lua:\d+")
         self.assertIn("`/rpgd spoof race=Gnome class=MAGE level=6  then  /rpgd seed 77`", report)
         self.assertIn("Note: too long", report)
+
+
+class ReleaseChecksTest(ScratchRepo):
+    def release_problems(self):
+        code = "import sys; sys.path.insert(0,'tools'); import check_all as K; print('\\n'.join(K.release_checks()))"
+        return run(["-c", code], self.root).stdout
+
+    def test_policy_and_pack_versions(self):
+        out = self.release_problems()
+        self.assertNotIn("SendChatMessage", out)
+        self.assertNotIn("doesn't match CHANGELOG", out)
+        core = os.path.join(self.root, "RPGDialogue", "Systems", "Barks.lua")
+        write(core, "\n-- SendChatMessage(\"hi\", \"SAY\")\n", "a")
+        pack = os.path.join(self.root, "RPGDialogue_Elwynn", "pack.lua")
+        write(pack, read(pack).replace('version = "1.0.0"', 'version = "1.0.1"'))
+        out = self.release_problems()
+        self.assertIn("RPGDialogue/Systems/Barks.lua: 'SendChatMessage' sends chat", out)
+        self.assertIn("RPGDialogue_Elwynn: pack.lua version '1.0.1' doesn't match CHANGELOG.md (1.0.0)", out)
 
 
 class ImportCaptureTest(ScratchRepo):

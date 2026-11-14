@@ -5,4 +5,7 @@
   <Binding name="RPGD_JOURNAL" category="ADDONS">
     RPGDialogueAPI:OpenJournal()
   </Binding>
+  <Binding name="RPGD_ASK" category="ADDONS">
+    RPGDialogueAPI:AskAbout()
+  </Binding>
 </Bindings>

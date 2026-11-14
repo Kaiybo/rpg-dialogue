@@ -169,6 +169,18 @@ local function create()
   frame:Hide()
   Theme.Decorate(frame, 7)
 
+  -- Keyboard: Escape closes, Left/Right switch tabs. Gamepad: D-pad left/right, B closes.
+  frame:EnableKeyboard(true)
+  frame:SetPropagateKeyboardInput(true)
+  frame:SetScript("OnKeyDown", function(self, key) J.OnKey(self, key) end)
+  C.SetGamePadHandler(frame, function(self, button)
+    if button == "PADDLEFT" then J.OnKey(self, "LEFT")
+    elseif button == "PADDRIGHT" then J.OnKey(self, "RIGHT")
+    elseif button == "PAD2" then J.OnKey(self, "ESCAPE")
+    end
+  end)
+  frame:SetScript("OnHide", function() C.GamePadButtons(frame, false) end)
+
   frame.title = frame:CreateFontString(nil, "OVERLAY")
   frame.title:SetPoint("TOPLEFT", 18, -14)
   frame.close = CreateFrame("Button", nil, frame, C.Template("close"))
@@ -289,6 +301,12 @@ function J.Show(tab)
     frame.text:SetText(J.Text(current, frame.search:GetText()))
     frame.content:SetHeight((frame.text:GetStringHeight() or 100) + 20)
   end
+  for id, b in pairs(frame.tabs) do
+    local label = L["J_TAB_" .. id:upper()]
+    b:SetText(id == current and ("> " .. label) or label)
+    if id == current then b:LockHighlight() else b:UnlockHighlight() end
+  end
+  C.GamePadButtons(frame, ns.db.settings.gamepad ~= false and C.GamePadEnabled())
   if isSheet then
     local o = ns.char.origin
     frame.originLabel:SetText(o and L.J_ORIGIN_CURRENT:format(o.name) or L.J_ORIGIN_NONE)
@@ -298,6 +316,26 @@ function J.Show(tab)
   end
   frame:Show()
 end
+
+function J.OnKey(self, key)
+  local handled = false
+  if C.InCombat() then
+    handled = false
+  elseif key == "ESCAPE" then
+    handled = true
+    frame:Hide()
+  elseif key == "LEFT" or key == "RIGHT" then
+    handled = true
+    local idx = 1
+    for i, id in ipairs(TABS) do if id == current then idx = i end end
+    idx = (idx - 1 + (key == "RIGHT" and 1 or -1)) % #TABS + 1
+    J.Show(TABS[idx])
+  end
+  self:SetPropagateKeyboardInput(not handled)
+end
+
+function J.Current() return current end
+function J.Frame() return frame end
 
 function J.Toggle()
   if frame and frame:IsShown() then frame:Hide() else J.Show() end

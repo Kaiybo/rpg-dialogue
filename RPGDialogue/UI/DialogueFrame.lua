@@ -1,6 +1,9 @@
 -- The full conversation window: portrait, name, typewriter text, up to 4 numbered
 -- choices, "Get on with it" (always), a flag button for wrong lines.
--- Keys: 1-5 pick, Space finishes the text, Escape = Get on with it.
+-- Keys: 1-5 pick, Up/Down/Tab move a selection, Enter takes it, Space finishes the text,
+-- Escape = Get on with it. Gamepad (client gamepad mode): D-pad moves, A confirms,
+-- B = Get on with it, X = Ask about. Nothing relies on color alone: the selection also
+-- shows a ">" marker, and locked options say so in words.
 local _, ns = ...
 
 local C = ns.Compat
@@ -18,6 +21,7 @@ local frame
 local view
 local reveal = { full = "", shown = 0, active = false, total = 0 }
 local autoTimer
+local selected, navMode = nil, false
 
 ---------------------------------------------------------------------------
 -- Typewriter (substring reveal, UTF-8 safe)
@@ -78,6 +82,10 @@ local function makeButton(i)
   b.label:SetWordWrap(true)
   b.hl = b:CreateTexture(nil, "HIGHLIGHT")
   b.hl:SetAllPoints()
+  b.marker = b:CreateFontString(nil, "OVERLAY")
+  b.marker:SetPoint("RIGHT", b, "LEFT", -2, 0)
+  b.marker:SetText(">")
+  b.marker:Hide()
   b:SetScript("OnClick", function() D.Click(i) end)
   b:SetScript("OnEnter", function(self) Theme.TextColor(self.label, self.locked and "locked" or "hover") end)
   b:SetScript("OnLeave", function(self) Theme.TextColor(self.label, self.locked and "locked" or "choice") end)
@@ -184,10 +192,12 @@ local function create()
   frame:EnableKeyboard(true)
   frame:SetPropagateKeyboardInput(true)
   frame:SetScript("OnKeyDown", function(self, key) D.OnKey(self, key) end)
+  C.SetGamePadHandler(frame, function(self, button) D.OnPad(self, button) end)
   frame:SetScript("OnHide", function()
     reveal.active = false
     frame:SetScript("OnUpdate", nil)
     if autoTimer then autoTimer.cancelled = true end
+    C.GamePadButtons(frame, false)
   end)
 end
 
@@ -214,6 +224,8 @@ function D.Style()
   Theme.TextColor(frame.flagHint, "dim")
   for _, b in ipairs(frame.buttons) do
     Theme.SetFont(b.label, "body", size)
+    Theme.SetFont(b.marker, "name", size)
+    Theme.TextColor(b.marker, "name")
     b.label:SetSpacing(2)
     b.hl:SetColorTexture(p.highlight[1], p.highlight[2], p.highlight[3], p.highlight[4])
     Theme.TextColor(b.label, b.locked and "locked" or "choice")
@@ -284,6 +296,7 @@ function D.Show(v)
   end
 
   D.RenderChoices(v.choices)
+  C.GamePadButtons(frame, settings().gamepad ~= false and C.GamePadEnabled())
 
   frame.flagHint:SetText("")
   frame.ask:SetShown(v.canAsk == true)
@@ -310,7 +323,7 @@ function D.RenderChoices(choices)
     if i > MAX_BUTTONS - 1 then break end
     local b = frame.buttons[i]
     b.locked = c.locked
-    b.label:SetText(i .. ". " .. c.text)
+    b.label:SetText(i .. ". " .. (c.locked and (L.LOCKED_MARK .. " ") or "") .. c.text)
     b:Show()
     n = i
   end
@@ -322,6 +335,47 @@ function D.RenderChoices(choices)
     frame.buttons[i].isGetOn = (i == n + 1)
     if i > n + 1 then frame.buttons[i]:Hide() end
   end
+  -- Keyboard and gamepad users keep a selection from one node to the next.
+  D.Select(nil)
+  if navMode then D.Move(1) end
+end
+
+---------------------------------------------------------------------------
+-- Keyboard / gamepad selection
+---------------------------------------------------------------------------
+function D.Select(i)
+  for j, b in ipairs(frame.buttons) do
+    local on = (j == i)
+    if on then b:LockHighlight() else b:UnlockHighlight() end
+    b.marker:SetShown(on)
+  end
+  selected = i
+end
+
+function D.Selected() return selected end
+
+function D.Move(delta)
+  local list = {}
+  for i, b in ipairs(frame.buttons) do
+    if b:IsShown() and not b.locked then list[#list + 1] = i end
+  end
+  if #list == 0 then return end
+  navMode = true
+  local pos = 0
+  for k, i in ipairs(list) do if i == selected then pos = k end end
+  if pos == 0 then
+    pos = delta > 0 and 1 or #list
+  else
+    pos = (pos - 1 + delta) % #list + 1
+  end
+  D.Select(list[pos])
+end
+
+-- Enter / A: finish the text if it's still typing, else take the selected reply.
+function D.Confirm()
+  if reveal.active then finishReveal(); return true end
+  if selected then D.Click(selected); return true end
+  return false
 end
 
 -- Replace the choices in place (after an errand step).
@@ -409,11 +463,23 @@ end
 function D.OnKey(self, key)
   if C.InCombat() then return end
   local handled = false
-  if key == "ESCAPE" then
+  local ask = UI.AskAbout
+  if ask.IsShown() and (key == "UP" or key == "DOWN" or key == "ENTER" or key == "NUMPADENTER") then
     handled = true
-    ns.Conversation.Business()
+    if key == "UP" then ask.Move(-1) elseif key == "DOWN" then ask.Move(1) else ask.Confirm() end
+  elseif key == "ESCAPE" then
+    handled = true
+    if ask.IsShown() then ask.Hide() else ns.Conversation.Business() end
   elseif key == "SPACE" then
     if reveal.active then handled = true; finishReveal() end
+  elseif key == "UP" or (key == "TAB" and C.ShiftDown()) then
+    handled = true
+    D.Move(-1)
+  elseif key == "DOWN" or key == "TAB" then
+    handled = true
+    D.Move(1)
+  elseif key == "ENTER" or key == "NUMPADENTER" then
+    handled = D.Confirm()
   else
     local n = tonumber(key) or tonumber(key:match("^NUMPAD(%d)$") or "")
     if n and frame.buttons[n] and frame.buttons[n]:IsShown() then
@@ -422,6 +488,30 @@ function D.OnKey(self, key)
     end
   end
   self:SetPropagateKeyboardInput(not handled)
+end
+
+function D.OnPad(_, button)
+  if C.InCombat() then return end
+  local ask = UI.AskAbout
+  if ask.IsShown() then
+    if button == "PADDUP" then ask.Move(-1)
+    elseif button == "PADDDOWN" then ask.Move(1)
+    elseif button == "PAD1" then ask.Confirm()
+    elseif button == "PAD2" or button == "PAD3" then ask.Hide()
+    end
+    return
+  end
+  if button == "PADDUP" then
+    D.Move(-1)
+  elseif button == "PADDDOWN" then
+    D.Move(1)
+  elseif button == "PAD1" then
+    if not D.Confirm() then D.Move(1) end
+  elseif button == "PAD2" then
+    ns.Conversation.Business()
+  elseif button == "PAD3" and frame.ask:IsShown() then
+    ask.Toggle(frame)
+  end
 end
 
 function D.Frame() return frame end

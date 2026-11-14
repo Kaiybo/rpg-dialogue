@@ -113,6 +113,13 @@ def main():
                 rep.error(pack, "pack.lua", pack.register.line, f"RegisterPack id {pack.register.get('id')!r} != X-RPGD-Pack {pack.id!r}")
             if (pack.register.get("format") or 1) > FORMAT:
                 rep.error(pack, "pack.lua", pack.register.line, f"format {pack.register.get('format')} is newer than the core reads ({FORMAT})")
+        if pack.register is not None:
+            ids = {q.id for q in packs}
+            for req in P.arr(pack.register.get("requires")):
+                if req not in ids:
+                    rep.error(pack, "pack.lua", pack.register.line, f"requires pack {req!r}, which isn't installed here")
+            if not isinstance(pack.register.get("version"), str):
+                rep.warn(pack, "pack.lua", pack.register.line, "no version (each pack keeps its own, with a CHANGELOG.md)")
         if pack.meta.get("X-RPGD-Load", "zone") == "zone" and not pack.meta.get("X-RPGD-Zones"):
             rep.error(pack, pack.addon + ".toc", None, "zone pack without X-RPGD-Zones never loads")
         for kind, tbl, f, line in pack.defs:

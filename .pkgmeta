@@ -1,5 +1,8 @@
-# BigWigs packager config (to verify against a real tagged build in M8).
-# core addon and every content pack as separate addon folders.
+# BigWigs packager (https://github.com/BigWigsMods/packager). Checked against the packager's
+# source (v2, November 2026): it maps "## Interface: 160xx" to the Forever game type, and
+# move-folders handles the core folder having the same name as the package.
+# One repo holds the core and every official pack; each becomes its own addon folder in
+# the zip. tools/check_all.py --release checks that every pack is listed here.
 package-as: RPGDialogue
 
 move-folders:
@@ -7,6 +10,8 @@ move-folders:
   RPGDialogue/RPGDialogue_World: RPGDialogue_World
   RPGDialogue/RPGDialogue_Elwynn: RPGDialogue_Elwynn
 
+# Paths are from the repo root; "*.md" matches at any depth (bash case patterns), which
+# keeps voice bibles, PLAN.md files and pack changelogs out of the zip.
 ignore:
   - tests
   - tools
@@ -14,8 +19,7 @@ ignore:
   - "*.md"
   - "**/bibles"
   - banned_phrases.txt
-  - .luacheckrc
-  - .editorconfig
+  - .github
 
 manual-changelog:
   filename: CHANGELOG.md

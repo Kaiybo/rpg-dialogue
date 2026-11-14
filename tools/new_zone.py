@@ -352,8 +352,12 @@ def cmd_scaffold(args):
     write_new(os.path.join(folder, "pack.lua"), "\n".join([
         f"RPGDialogueAPI:RegisterPack {{",
         f"  id = {lua_str(pack_id)},", f"  name = {lua_str(title)},", '  author = "RPG Dialogue",',
-        '  version = "@project-version@",', "  format = 1,", "  priority = 0,",
-        '  requires = { "rpgd.world" },', "}", ""]), made)
+        '  version = "0.1.0",            -- this pack\'s own version: see CHANGELOG.md here', "  format = 1,",
+        "  priority = 0,", '  requires = { "rpgd.world" },', "}", ""]), made)
+    write_new(os.path.join(folder, "CHANGELOG.md"), "\n".join([
+        f"# RPG Dialogue: {title} (pack changelog)", "",
+        "The pack's own version is `version` in `pack.lua`; bump both together.", "",
+        "## 0.1.0 (in progress)", f"- Scaffolded from capture data for {zone}.", ""]), made)
 
     pooled = collections.defaultdict(list)
     for r in rows:

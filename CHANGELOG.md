@@ -4,6 +4,20 @@ All notable changes to RPG Dialogue. The core and each content pack get their ow
 
 ## [Unreleased]
 
+### M8 (2026-11-13): Release prep
+- **Total RP 3** (optional, read-only): with it loaded, `{name}` is your roleplay title and first name ("Sir Aldric"). Two settings, both on. Uses Total RP 3's public player object, strips color codes and textures, falls back to older profile fields, and never writes anything. Everything works the same without it.
+- **Accessibility pass** (brief 4.15):
+  - Keyboard: Up/Down/Tab move a marked selection, Enter takes it (or finishes the text), Escape closes the Ask list before getting on with it; Ask list navigable with Up/Down/Enter; journal tabs with Left/Right, Escape closes; new **Ask About...** keybinding.
+  - Gamepad (client gamepad mode, setting on by default): D-pad moves, A confirms, B = Get on with it, X = Ask about; journal D-pad left/right, B closes.
+  - Bundled **Atkinson Hyperlegible** (SIL Open Font License) as the readable font, with fallbacks; names drop the decorative font when it's on; non-Latin clients keep the game's fonts.
+  - No color-only signals left: the selection has a ">" marker, locked replies say "(Locked)", the current journal tab is marked.
+- **"Something new to say" tooltip marker** (brief 4.10; was missing): off by default, read-only, cached.
+- Packs: `requires` checked (pack manager and `/rpgd packs` say what's missing; the validator errors); each pack has its own version and `CHANGELOG.md`; the pack manager shows versions.
+- `PACK_AUTHORING.md`: the pack format, merge rules, format versions, the step-by-step zone workflow with tools, releasing a community pack, notes for AI sessions.
+- Packaging: `.pkgmeta` checked against the BigWigs packager's source (it knows Forever's 160xx interface numbers); `.github/workflows/checks.yml` and `release.yml` (tag → release checks → packager → CurseForge/Wago once project IDs and tokens exist).
+- Blizzard UI add-on policy checked (November 2026); `tools/check_all.py --release` now fails on chat or addon-message sending, dynamic code, or donation/advertising text in shipped files, and on pack versions that don't match their changelogs.
+- README rewritten (controls, accessibility, other addons, releases). 118 Lua tests, 7 tool tests.
+
 ### M7 (2026-11-13): Content expansion workflow and tooling
 - `tools/new_zone.py plan "<Zone>"`: lists the zone's captured NPCs and quests and proposes a coverage tier for each (major / quest / service / pooled / skip) in `RPGDialogue_<Zone>/PLAN.md`, with suggested keys, roles and towns, the zone's quests (lowest level seen, factions), settlements and hostile creatures, and the brief's zone checklist.
 - `tools/new_zone.py scaffold "<Zone>"`: after the tiers are approved, writes the pack (TOC, `pack.lua`, `pools.lua`), one NPC file and voice bible stub per approved NPC (captured IDs and quests filled in, never invented), a lore-sheet stub in `LORE_NOTES.md` and the pack's line in `.pkgmeta`. Never overwrites; re-run it after approving more NPCs.

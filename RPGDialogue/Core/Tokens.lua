@@ -20,7 +20,7 @@ local function className(ctx)
   return (ctx.class and tostring(ctx.class):lower()) or "adventurer"
 end
 
--- The name NPCs use. Total RP 3 support plugs in here (M8).
+-- The name NPCs use: your Total RP 3 name when that's on (Integrations/TotalRP3.lua).
 function Tokens.PlayerName(ctx)
   if ns.Integrations and ns.Integrations.RoleplayName then
     local rp = ns.Integrations.RoleplayName()

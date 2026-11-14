@@ -224,6 +224,104 @@ function C.IsAddOnLoaded(name)
   return loadedOrLoading == true
 end
 
+---------------------------------------------------------------------------
+-- Gamepad (the client's own gamepad mode). Our windows only take gamepad buttons while
+-- they're open and the player has gamepad mode on.
+---------------------------------------------------------------------------
+function C.GamePadEnabled()
+  return call("C_GamePad.IsEnabled") == true
+end
+
+function C.SetGamePadHandler(frame, handler)
+  if type(frame.EnableGamePadButton) ~= "function" then
+    noteMissing("Frame:EnableGamePadButton")
+    return false
+  end
+  return (pcall(frame.SetScript, frame, "OnGamePadButtonDown", handler))
+end
+
+function C.GamePadButtons(frame, on)
+  if type(frame.EnableGamePadButton) == "function" then
+    pcall(frame.EnableGamePadButton, frame, on and true or false)
+  end
+end
+
+function C.ShiftDown() return call("IsShiftKeyDown") == true end
+
+-- Client languages written in Latin script (the bundled readable font covers these).
+local LATIN = { enUS = true, enGB = true, deDE = true, frFR = true, esES = true, esMX = true, itIT = true, ptBR = true }
+function C.LatinClient()
+  local loc = call("GetLocale")
+  return loc == nil or LATIN[loc] == true
+end
+
+---------------------------------------------------------------------------
+-- Unit tooltips: fn(tooltip, unit) after the game fills one in. Modern clients use
+-- TooltipDataProcessor; older ones the OnTooltipSetUnit script.
+---------------------------------------------------------------------------
+function C.OnUnitTooltip(fn)
+  local tdp = resolve("TooltipDataProcessor.AddTooltipPostCall")
+  local unitType = resolve("Enum.TooltipDataType.Unit")
+  local function wrapped(tooltip)
+    if tooltip ~= resolve("GameTooltip") then return end
+    local okUnit, _, unit = pcall(tooltip.GetUnit, tooltip)
+    if okUnit and unit then pcall(fn, tooltip, unit) end
+  end
+  if type(tdp) == "function" and unitType ~= nil then
+    pcall(tdp, unitType, wrapped)
+    return true
+  end
+  local tt = resolve("GameTooltip")
+  if tt and tt.HookScript then
+    return (pcall(tt.HookScript, tt, "OnTooltipSetUnit", wrapped))
+  end
+  noteMissing("TooltipDataProcessor.AddTooltipPostCall")
+  return false
+end
+
+function C.TooltipAddLine(tooltip, text, r, g, b)
+  pcall(tooltip.AddLine, tooltip, text, r, g, b, true)
+  pcall(tooltip.Show, tooltip)
+end
+
+---------------------------------------------------------------------------
+-- Total RP 3 (optional, read-only). Uses its public player object
+-- (AddOn_TotalRP3.Player.GetCurrentUser), never its internals, and never writes.
+-- Returns { first, last, title, full } with any of them nil, or nil.
+---------------------------------------------------------------------------
+function C.RoleplayProfile()
+  local api = resolve("AddOn_TotalRP3.Player")
+  if type(api) ~= "table" then return nil end
+  local getUser = api.GetCurrentUser or (type(api.static) == "table" and api.static.GetCurrentUser)
+  if type(getUser) ~= "function" then return nil end
+  local ok, player = pcall(getUser)
+  if not ok or type(player) ~= "table" then return nil end
+  local function method(name)
+    local okIdx, fn = pcall(function() return player[name] end)
+    if not okIdx or type(fn) ~= "function" then return nil end
+    local okCall, v = pcall(fn, player)
+    if okCall and type(v) == "string" and v ~= "" then return v end
+    return nil
+  end
+  local out = {
+    first = method("GetFirstName"), last = method("GetLastName"),
+    title = method("GetTitle"), full = method("GetRoleplayingName"),
+  }
+  if not out.first and not out.full then
+    -- Older versions: the profile's characteristics (Mary Sue Protocol field names).
+    local okIdx, fn = pcall(function() return player.GetCharacteristics end)
+    local okCall, ch = false, nil
+    if okIdx and type(fn) == "function" then okCall, ch = pcall(fn, player) end
+    if okCall and type(ch) == "table" then
+      out.first = type(ch.FN) == "string" and ch.FN or nil
+      out.last = type(ch.LN) == "string" and ch.LN or nil
+      out.title = out.title or (type(ch.TI) == "string" and ch.TI or nil)
+    end
+  end
+  if not out.first and not out.full then return nil end
+  return out
+end
+
 -- Is the addon enabled for this character? (Disabled packs must not be loaded.)
 function C.IsAddOnEnabled(name)
   local playerName = call("UnitName", "player")

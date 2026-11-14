@@ -249,6 +249,13 @@ function API:TalkToTarget()
   if ns.Conversation then ns.Conversation.TalkToTarget() end
 end
 
+-- Keybinding: open or close the "Ask about..." list during a full conversation.
+function API:AskAbout()
+  local D = ns.UI and ns.UI.Dialogue
+  local f = D and D.Frame()
+  if f and f:IsShown() and f.ask:IsShown() then ns.UI.AskAbout.Toggle(f) end
+end
+
 function API:OpenJournal()
   if ns.Journal and ns.Journal.Toggle then ns.Journal.Toggle() else ns.Print("The journal arrives in a later version.") end
 end
@@ -326,6 +333,19 @@ function Packs.LoadAll()
   for name in pairs(Packs.byAddon) do Packs.LoadAddon(name) end
 end
 
+-- Pack ids a registered pack requires that aren't installed (or are turned off).
+function Packs.MissingRequires(reg)
+  local missing = {}
+  for _, id in ipairs(reg and reg.requires or {}) do
+    local found = false
+    for _, entry in pairs(Packs.byAddon) do
+      if entry.id == id and enabled(entry) then found = true end
+    end
+    if not found then missing[#missing + 1] = id end
+  end
+  return missing
+end
+
 function Packs.List()
   local out = {}
   for name, entry in pairs(Packs.byAddon) do
@@ -334,6 +354,7 @@ function Packs.List()
       addon = name, id = entry.id, title = entry.title, loaded = entry.loaded, enabled = enabled(entry),
       load = entry.load, zones = entry.zones, refused = entry.refused or (reg and reg.refused),
       warnings = reg and #reg.warnings or 0, counts = reg and reg.counts or {}, todos = reg and reg.todos or 0,
+      version = reg and reg.version, missing = Packs.MissingRequires(reg),
     }
   end
   table.sort(out, function(a, b) return a.addon < b.addon end)
@@ -346,8 +367,10 @@ function Packs.PrintList()
     local state = p.refused and "|cffff4040refused|r" or (not p.enabled and "|cff888888off|r")
       or (p.loaded and "|cff40ff40loaded|r" or "waiting for zone")
     local npcs = p.counts.NPC or 0
-    C.Print(("  %s (%s): %s, %d NPCs, %d pools%s"):format(p.title, p.id, state, npcs, p.counts.Pool or 0,
-      p.todos > 0 and (", " .. p.todos .. " TODO ids") or ""))
+    C.Print(("  %s (%s%s): %s, %d NPCs, %d pools%s%s"):format(p.title, p.id,
+      p.version and (" " .. tostring(p.version)) or "", state, npcs, p.counts.Pool or 0,
+      p.todos > 0 and (", " .. p.todos .. " TODO ids") or "",
+      #p.missing > 0 and (", needs " .. table.concat(p.missing, ", ")) or ""))
   end
 end
 
