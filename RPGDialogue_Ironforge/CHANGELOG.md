@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.1.1 (unreleased)
+- Prospector Stormpike's opening can be heard about elsewhere (Ironband in Loch Modan).
+
 ## 1.1.0 (unreleased)
 - High Tinker Mekkatorque, Royal Historian Archesonus, High Explorer Magellas, Prospector Stormpike, Senator Mehr Stonehallow (in Dun Morogh's quarry) and Innkeeper Firebrew.
 

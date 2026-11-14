@@ -206,7 +206,7 @@ P:NPC {
 
   greetings = {
     { id = "g_moon", text = "Elune's light finds you, even here under the branches. Come in, sit by the pool." },
-    { id = "g_back", when = { metBefore = true }, text = "Welcome back, little star. The moon remembers those who return." },
+    { id = "g_back", when = { metBefore = true }, text = "There you are, little star. The moon remembers those who return." },
   },
 
   notice = {

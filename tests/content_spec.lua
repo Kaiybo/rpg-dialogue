@@ -321,6 +321,42 @@ describe("Content packs", function()
     eq(ns.Data.PoolsFor(info, ctx)[1].pool.id, "guard_auberdine")
   end)
 
+  it("Orgrimmar loads in the Valley of Strength; Thrall and Neeru are both in the city", function()
+    local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Orgrimmar" } })
+    Mock.state.zone, Mock.state.subzone = "Orgrimmar", "Valley of Strength"
+    Mock.Fire("ZONE_CHANGED_NEW_AREA")
+    Mock.RunTimers()
+    for _, p in ipairs(ns.Packs.List()) do
+      if p.id == "rpgd.orgrimmar" then ok(p.loaded); eq(p.warnings, 0) end
+    end
+    eq(ns.Data.FindNPC(nil, "Thrall").key, "thrall")
+    eq(ns.Data.FindNPC(nil, "Neeru Fireblade").key, "neeru")
+  end)
+
+  it("Undercity loads in the Royal Quarter, with Sylvanas and Varimathras", function()
+    local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Undercity" } })
+    Mock.state.zone, Mock.state.subzone = "Undercity", "Royal Quarter"
+    Mock.Fire("ZONE_CHANGED_NEW_AREA")
+    Mock.RunTimers()
+    for _, p in ipairs(ns.Packs.List()) do
+      if p.id == "rpgd.undercity" then ok(p.loaded); eq(p.warnings, 0) end
+    end
+    eq(ns.Data.FindNPC(nil, "Lady Sylvanas Windrunner").key, "sylvanas")
+    eq(ns.Data.FindNPC(nil, "Varimathras").key, "varimathras")
+  end)
+
+  it("Loch Modan loads in Thelsamar; the Mountaineers are Thelsamar's guards", function()
+    local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_LochModan" } })
+    Mock.state.zone, Mock.state.subzone = "Loch Modan", "Thelsamar"
+    Mock.Fire("ZONE_CHANGED_NEW_AREA")
+    Mock.RunTimers()
+    for _, p in ipairs(ns.Packs.List()) do
+      if p.id == "rpgd.lochmodan" then ok(p.loaded); eq(p.warnings, 0) end
+    end
+    eq(ns.Data.FindNPC(nil, "Mountaineer Kadrell").key, "kadrell")
+    eq(ns.Data.FindNPC(nil, "Chief Engineer Hinderweir VII").key, "hinderweir")
+  end)
+
   it("Zephras Isle's Peacekeepers are guards of the isle, and the High Elder knows her own", function()
     local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Zephras" } })
     ns.db.settings.instantText = true

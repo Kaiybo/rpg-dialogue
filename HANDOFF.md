@@ -3,7 +3,7 @@
 > Read this first, then `DESIGN.md`, then `CONTENT_GUIDE.md` (and `PACK_AUTHORING.md` before adding a zone). You won't remember earlier sessions; these files are your memory.
 > The original brief is the Project doc `rpg-dialogue-build-prompt (1).md`. Re-read it when a decision isn't covered here.
 
-**Last session:** 2026-11-14 (user away; asked to keep expanding) · **M0–M8 all built; five rounds of in-game results are in; Phase 4 (content) under way.** The addon loads, packs load, `/rpgd why` works, and the Skyborne race token is "Skyborne". **Versions now: core 0.17.0, World 1.5.0, Elwynn 1.5.0, Westfall 1.2.0, Stormwind 1.2.2, Zephras Isle 1.0.1, Redridge 1.1.0, Duskwood 1.1.0, Ironforge 1.1.0, Wetlands 1.0.0, Moonglade 1.0.0, Darnassus 1.0.0, Thunder Bluff 1.0.0, The Barrens 1.0.0, Ashenvale 1.0.0, Hillsbrad 1.0.0** (`python3 tools/version.py`).
+**Last session:** 2026-11-14 (user away; asked to keep expanding) · **M0–M8 all built; five rounds of in-game results are in; Phase 4 (content) under way.** The addon loads, packs load, `/rpgd why` works, and the Skyborne race token is "Skyborne". **Versions now: core 0.18.0, World 1.6.0, Elwynn 1.5.0, Westfall 1.2.0, Stormwind 1.3.0, Zephras Isle 1.0.1, Redridge 1.1.0, Duskwood 1.1.0, Ironforge 1.1.1, Wetlands 1.0.0, Moonglade 1.0.0, Darnassus 1.0.0, Thunder Bluff 1.0.0, The Barrens 1.0.1, Ashenvale 1.0.0, Hillsbrad 1.0.0, Darkshore 1.0.0, Loch Modan 1.0.0, Orgrimmar 1.0.0, Undercity 1.0.0** (`python3 tools/version.py`).
 
 **First in-game test (user, 2026-11-13):**
 - **Test character: Skyborne Druid, level 22 (Blooded), faction not confirmed, tested in Northshire Valley.** Content for that character is thin: the slice is written for level 1–10 characters doing Northshire/Goldshire quests (only 4 Skyborne lines and 1 druid line exist). Asked the user where they actually play, for the next content pass.
@@ -47,6 +47,7 @@
   - Duskwood got the most weight because the druid main is level 22: shapechangers get a hostile welcome from Jonathan and Calor (worgen town), a curious one from Viktori.
   - 0.16.0: four new packs aimed at a level 22 druid of either faction: Moonglade (Remulos, Rabine, Dendrite and the druid trials, Loganaar, the Great Bear Spirit, Silva and Bunthen; neutral; guard pool for Nighthaven Defenders), Darnassus (Tyrande, Fandral, Mathrengyl, A'moora, Gracina, Saelienne), Thunder Bluff (Cairne, Hamuul, Turak, Magatha, Pala; the first Horde content with named NPCs), Wetlands (Menethil: Stoutfist, Fitzsimmons, Glorin, Harlo, Karl, Helbrek, Flagongut, Mikhail; guard pool). World 1.4.0: towns Menethil and Nighthaven, topics Dragonmaw and Cenarion Circle, Wetlands rumors.
   - 0.17.0: three level 20-30 packs for both factions: The Barrens (the Crossroads: Thork, Sergra, Mankrik, Tonga, Helbrim, Darsok, Zargh, Boorand; guard pool), Ashenvale (Astranaar: Raene, Pelturas, Relara, Faldreas, Kimlya; Maestra's Post: Delgren; Splintertree: Senani, Mastok, Kuray'bin), Hillsbrad (Southshore: Redpath, Maleb, Farren, Bilger, Dibbs, Anderson; Tarren Mill: Darthalia, Lydon, Shay). World 1.5.0: six towns, the Wailing Caverns topic, `rumors/kalimdor.lua`. Tools: `simulate.py --jobs` runs shards in parallel (default one per CPU, max 4).
+  - 0.18.0 (includes 0.17.0, which wasn't released on its own): Darkshore (Auberdine: Thundris, Terenthis, Gwennyth, Glynda, Cerellean, Shaussiy; Sentinel pool), Loch Modan (Thelsamar: Kadrell, Ironband, Hearthstove, Vidra, Rugelfuss, Hinderweir; Mountaineer pool), Orgrimmar (Thrall, Neeru Fireblade, Gryshka, Gamon), Undercity (Sylvanas, Varimathras, Faranell, Bethor, Norman), Stormwind 1.3.0 (General Marcus Jonathan, Renzik, Major Samuelson, Thomas Miller). Tools: the simulation streams shard output to files (the 0.17.0 run was killed at 6 GB) and a third of its characters are now Horde.
 
 ## Assumptions made while the user was away (confirm or correct)
 1. **Interface number** 16001 (from warcraft.wiki.gg, patch 1.60.1). TOCs say `16001, 16002` to cover the next patch too.
@@ -72,6 +73,7 @@
 21. **Horde content started without being asked** (Thunder Bluff), because the druid main's faction is still unknown and a Horde Skyborne would live there. Moonglade is written neutral; Silva and Bunthen branch on faction.
 22. **Druid trials:** Dendrite (Moonglade), Mathrengyl (Darnassus) and Turak (Thunder Bluff) each speak to the Classic druid quests by name (Great Bear Spirit, Body and Heart, Power over Poison, Aquatic Form...). Which trainer a Skyborne druid is sent to isn't known, so no line assumes it.
 23. **Ashenvale after all** (assumption 18 held it back): each NPC was checked on its own wiki page for Classic-era quests and lines, and anything the page ties to Cataclysm or later is left out (listed in each bible's "Never").
+24. **Neeru Fireblade, Varimathras, Lord Lescovar and Lady Prestor** all speak with dramatic irony only: none of them hints at what later expansions reveal. Thrall's lines show he already suspects Neeru (as in his Classic quests).
 
 ## Done
 - **M0** (ab8479c): `DESIGN.md`, repo, hand-off docs.
@@ -83,7 +85,8 @@
 - **M6** (979fcc5): spirit healer tree, books, insanity, drunk replies, ghosts, barks, errands.
 - **M7** (bbefce7): `tools/new_zone.py` (plan → approve tiers → scaffold), `tools/check_all.py`, impossible-quest-reference check, copied-wording check, flag replay lines, `/rpgd capture zone`, `tests/test_tools.py`.
 - **M8** (c2e6a2e): Total RP 3 (read-only), accessibility pass (keyboard selection, gamepad, Ask About keybinding, bundled readable font, "(Locked)" and ">" markers, journal tab keys), the optional "something new" tooltip marker (an M2 item that had been missed), pack `requires` reported in game and validated, per-pack versions and changelogs, `PACK_AUTHORING.md`, `.pkgmeta` checked against the packager's source, Blizzard UI policy checked and enforced by `check_all.py --release`, GitHub workflows, README rewrite.
-- **0.17.0:** CHECKS_PLACEHOLDER
+- **0.18.0:** CHECKS_PLACEHOLDER
+- **0.17.0:** not released on its own. Its full check passed everything but the simulation, which the machine killed for memory (the old `simulate.py` held all output in one string); fixed and rerun as part of 0.18.0.
 - **0.16.0:** 181 Lua tests, 8 Python tool tests, luacheck clean (156 files), validator 0 errors (724 warnings: TODO placeholders and a few long lines), voice check 0 failures (126 warnings), simulation of 1,500 characters 0 runtime errors / 0 contradictions / 0 impossible quest references (326 of 2,587 lines never fired: blind spots). The simulation took 27 minutes.
 - **0.15.0:** 177 Lua tests, 8 Python tool tests, luacheck clean (145 files), validator 0 errors (639 warnings: TODO placeholders and a few long lines), voice check 0 failures (95 warnings), simulation of 1,500 characters 0 runtime errors / 0 contradictions / 0 impossible quest references (283 of 2,255 lines never fired: the usual blind spots). **The simulation now takes about 21 minutes**: run the full check in the background, in a git worktree if you keep editing meanwhile.
 - **0.14.0 (overnight):** 177 Lua tests; same gates as below, all passing.
@@ -97,7 +100,7 @@
 
 ## Needs the user's approval
 - Origin lists (brief M5 says "for my approval"): `RPGDialogue_World/origins/*.lua`. Horde races have none yet (no Horde content exists yet either).
-- Assumptions 10–23 above.
+- Assumptions 10–24 above.
 - The NPC tiers chosen in 0.12.0 without the plan step (Elwynn additions, Westfall, Stormwind, Zephras Isle).
 - More Zephras Isle NPCs need capture data (names, roles) before they can be written; only the High Elder is named in the brief.
 
@@ -119,7 +122,7 @@
 - A real tagged build with the BigWigs packager (the `.pkgmeta` was checked by reading the packager's code; running it here was not allowed).
 
 ## In-game test checklist (for the user)
-Install by linking or copying `RPGDialogue`, `RPGDialogue_World`, and every `RPGDialogue_<Zone>` folder (Elwynn, Westfall, Stormwind, Zephras, Redridge, Duskwood, Ironforge, Wetlands, Moonglade, Darnassus, ThunderBluff, Barrens, Ashenvale, Hillsbrad) into AddOns. Have BugSack + !BugGrabber on. Paste back every error, plus the outputs asked for.
+Install by linking or copying `RPGDialogue`, `RPGDialogue_World`, and every `RPGDialogue_<Zone>` folder (Elwynn, Westfall, Stormwind, Zephras, Redridge, Duskwood, Ironforge, Wetlands, Moonglade, Darnassus, ThunderBluff, Barrens, Ashenvale, Hillsbrad, Darkshore, LochModan, Orgrimmar, Undercity) into AddOns. Have BugSack + !BugGrabber on. Paste back every error, plus the outputs asked for.
 1. Log in. Expect "RPG Dialogue loaded". Run `/rpgd probe` and paste the output.
 2. `/rpgd packs`: World loaded; Elwynn "waiting for zone" outside Elwynn, "loaded" inside it.
 3. `/console taintLog 1`, then reload. Talk to Marshal McBride (Northshire Abbey): our window opens in front of Blizzard's. Try 1–4, Up/Down + Enter, Space, Escape. "Get on with it" must leave Blizzard's quest window working normally. Later, send `Logs/taint.log` if it mentions RPGDialogue.
@@ -147,10 +150,10 @@ Still all of DESIGN.md §4 (section 9 answers, slice zone, where the repo lives,
 - The cloud workspace had Lua 5.1, luac5.1, LuaRocks and luacheck installed by hand (`apt-get install lua5.1 luarocks liblua5.1-0-dev && luarocks install luacheck`), plus Python 3. A new session may need to reinstall them.
 - The repo was at `/home/claude/rpg-dialogue`. That workspace isn't shared with other sessions; the user has the zips.
 - Only this HANDOFF is kept in step in the Project. The Project's `DESIGN.md`, `CONTENT_GUIDE.md` and `PACK_AUTHORING.md` are older copies; the ones in the latest repo zip (`rpg-dialogue-repo-<version>.zip`) are current (DESIGN §3.6 right-click talk and safety net, §3.10 window style).
-- `python3 tools/check_all.py` runs everything (the simulation is most of it; with `--jobs` sharding it runs on every CPU, but it still grows with packs × characters: run it in the background, from a `git worktree` of the commit being released if you keep editing); `--quick` skips the simulation.
+- `python3 tools/check_all.py` runs everything (the simulation is most of it: it grows with packs × characters; `--jobs` shards it across CPUs and each shard streams to a temp file, so memory stays flat; still run it in the background, run it in the background, from a `git worktree` of the commit being released if you keep editing); `--quick` skips the simulation.
 
 ## Exact next step
-User installs 0.17.0 (**three new folders: Barrens, Ashenvale, Hillsbrad; exit the game, copy them in, tick them**). Skyborne druid at 22: Moonglade first, then by faction: Alliance: Darnassus, Astranaar (Raene, Pelturas and Relara), Menethil, Southshore; Horde: Thunder Bluff, the Crossroads (Mankrik, Tonga), Splintertree (Senani's Hunt), Tarren Mill. Tell us the druid's faction. Then send the capture file for real IDs. Next content candidates: Stonetalon (both factions), Darkshore (Auberdine), Orgrimmar and the Undercity, more of Stormwind (Renzik, Dungar Longdrink).
+User installs 0.18.0 (**seven new folders since 0.16.0: Barrens, Ashenvale, Hillsbrad, Darkshore, LochModan, Orgrimmar, Undercity; exit the game, copy them in, tick them**). Skyborne druid at 22: Moonglade first, then by faction: Alliance: Darnassus, Astranaar (Raene, Pelturas and Relara), Menethil, Southshore; Horde: Thunder Bluff, the Crossroads (Mankrik, Tonga), Splintertree (Senani's Hunt), Tarren Mill. Tell us the druid's faction. Then send the capture file for real IDs. Next content candidates: Stonetalon (both factions), the starting zones of other races (Durotar, Mulgore, Tirisfal, Teldrassil, Dun Morogh), Stranglethorn, Thousand Needles, Desolace.
 
 Previous next step (0.16.0): User installs 0.16.0 (**four new folders: exit the game, copy them in, tick them in the AddOns list**). Skyborne druid at 22: Moonglade (Remulos, Dendrite, the Great Bear Spirit, Loganaar; in bear and cat form too), then Darnassus or Thunder Bluff depending on faction (Tyrande and Fandral; Cairne, Hamuul, Magatha), and Menethil Harbor if Alliance. Tell us the druid's faction. Then send the capture file for real IDs. Next content candidates: the Barrens (Crossroads) for a Horde druid, Darkshore/Ashenvale for an Alliance one, more of Stormwind (Renzik, Dungar Longdrink).
 

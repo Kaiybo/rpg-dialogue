@@ -12,7 +12,7 @@ local SEED = tonumber(arg[2]) or 1
 
 local function out(...) io.write(table.concat({ ... }, "\t"), "\n") end
 
-local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Elwynn", "RPGDialogue_Westfall", "RPGDialogue_Stormwind", "RPGDialogue_Zephras", "RPGDialogue_Redridge", "RPGDialogue_Duskwood", "RPGDialogue_Ironforge", "RPGDialogue_Wetlands", "RPGDialogue_Moonglade", "RPGDialogue_Darnassus", "RPGDialogue_ThunderBluff", "RPGDialogue_Barrens", "RPGDialogue_Ashenvale", "RPGDialogue_Hillsbrad", "RPGDialogue_Darkshore" } })
+local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Elwynn", "RPGDialogue_Westfall", "RPGDialogue_Stormwind", "RPGDialogue_Zephras", "RPGDialogue_Redridge", "RPGDialogue_Duskwood", "RPGDialogue_Ironforge", "RPGDialogue_Wetlands", "RPGDialogue_Moonglade", "RPGDialogue_Darnassus", "RPGDialogue_ThunderBluff", "RPGDialogue_Barrens", "RPGDialogue_Ashenvale", "RPGDialogue_Hillsbrad", "RPGDialogue_Darkshore", "RPGDialogue_Orgrimmar", "RPGDialogue_Undercity", "RPGDialogue_LochModan" } })
 ns.Packs.LoadAll()
 local U = ns.Util
 local rng = U.NewRNG(SEED)
@@ -25,12 +25,20 @@ local RACES = {
   Gnome = { "WARRIOR", "ROGUE", "MAGE", "WARLOCK", "PRIEST" },
   NightElf = { "WARRIOR", "HUNTER", "ROGUE", "PRIEST", "DRUID" },
   Skyborne = { "DRUID", "HUNTER", "ROGUE", "WARRIOR", "MAGE" },
+  Orc = { "WARRIOR", "HUNTER", "ROGUE", "SHAMAN", "WARLOCK", "MAGE" },
+  Tauren = { "WARRIOR", "HUNTER", "SHAMAN", "DRUID", "PALADIN" },
+  Troll = { "WARRIOR", "HUNTER", "ROGUE", "PRIEST", "MAGE", "SHAMAN", "WARLOCK" },
+  Scourge = { "WARRIOR", "ROGUE", "PRIEST", "MAGE", "WARLOCK", "PALADIN" },
 }
 local RACE_LIST = { "Human", "Human", "Human", "Dwarf", "Gnome", "NightElf", "Skyborne" }
+-- About a third of the characters are Horde, so Horde-only lines (Thunder Bluff, the
+-- Crossroads, Splintertree, Tarren Mill, Orgrimmar, the Undercity) get exercised too.
+local HORDE_RACE_LIST = { "Orc", "Tauren", "Troll", "Scourge", "Skyborne" }
+local SKYBORNE_HORDE = { "DRUID", "HUNTER", "ROGUE", "WARRIOR", "SHAMAN" }
 local SUBZONES = { northshire = "Northshire Abbey", goldshire = "Goldshire", eastvale = "Eastvale Logging Camp",
   sentinel_hill = "Sentinel Hill", westfall_farms = "Saldean's Farm", stormwind = "Trade District", zephras_isle = "Valanaar", lakeshire = "Lakeshire",
-  darkshire = "Darkshire", raven_hill = "Raven Hill", ironforge = "The Commons", menethil = "Menethil Harbor", nighthaven = "Nighthaven", darnassus = "Temple of the Moon", thunder_bluff = "Elder Rise", crossroads = "The Crossroads", astranaar = "Astranaar", maestras_post = "Maestra's Post", splintertree = "Splintertree Post", southshore = "Southshore", tarren_mill = "Tarren Mill", auberdine = "Auberdine" }
-local ZONES = { sentinel_hill = "Westfall", westfall_farms = "Westfall", stormwind = "Stormwind City", zephras_isle = "Zephras Isle", lakeshire = "Redridge Mountains", darkshire = "Duskwood", raven_hill = "Duskwood", ironforge = "Ironforge", menethil = "Wetlands", nighthaven = "Moonglade", darnassus = "Darnassus", thunder_bluff = "Thunder Bluff", crossroads = "The Barrens", astranaar = "Ashenvale", maestras_post = "Ashenvale", splintertree = "Ashenvale", southshore = "Hillsbrad Foothills", tarren_mill = "Hillsbrad Foothills", auberdine = "Darkshore" }
+  darkshire = "Darkshire", raven_hill = "Raven Hill", ironforge = "The Commons", menethil = "Menethil Harbor", nighthaven = "Nighthaven", darnassus = "Temple of the Moon", thunder_bluff = "Elder Rise", crossroads = "The Crossroads", astranaar = "Astranaar", maestras_post = "Maestra's Post", splintertree = "Splintertree Post", southshore = "Southshore", tarren_mill = "Tarren Mill", auberdine = "Auberdine", orgrimmar = "Valley of Strength", undercity = "Royal Quarter", thelsamar = "Thelsamar" }
+local ZONES = { sentinel_hill = "Westfall", westfall_farms = "Westfall", stormwind = "Stormwind City", zephras_isle = "Zephras Isle", lakeshire = "Redridge Mountains", darkshire = "Duskwood", raven_hill = "Duskwood", ironforge = "Ironforge", menethil = "Wetlands", nighthaven = "Moonglade", darnassus = "Darnassus", thunder_bluff = "Thunder Bluff", crossroads = "The Barrens", astranaar = "Ashenvale", maestras_post = "Ashenvale", splintertree = "Ashenvale", southshore = "Hillsbrad Foothills", tarren_mill = "Hillsbrad Foothills", auberdine = "Darkshore", orgrimmar = "Orgrimmar", undercity = "Undercity", thelsamar = "Loch Modan" }
 local PROFS = { "Skinning", "Alchemy", "Herbalism", "Blacksmithing", "Mining", "Tailoring" }
 
 -- Give every TODO quest title a fake ID and register it in capture data, as a real
@@ -63,12 +71,13 @@ for gid in pairs(ns.Data.lines) do out("line", gid) end
 for id in pairs(ns.Data.topics) do out("topicdef", id) end
 
 local function randomCharacter(i)
-  local race = pick(RACE_LIST)
-  local class = pick(RACES[race])
+  local horde = chance(0.33)
+  local race = horde and pick(HORDE_RACE_LIST) or pick(RACE_LIST)
+  local class = pick((horde and race == "Skyborne") and SKYBORNE_HORDE or RACES[race])
   local level = chance(0.7) and rng.int(1, 12) or rng.int(13, 60)
   local spoof = {
     race = race, class = class, level = level, gender = chance(0.5) and "male" or "female",
-    faction = "Alliance", hour = rng.int(0, 23), drunk = chance(0.1) and rng.int(1, 3) or 0,
+    faction = horde and "Horde" or "Alliance", hour = rng.int(0, 23), drunk = chance(0.1) and rng.int(1, 3) or 0,
     durability = chance(0.15) and rng.next() * 0.3 or 0.9, nearlyNaked = chance(0.05),
     resSick = chance(0.05), stealthed = class == "ROGUE" and chance(0.3), ghost = chance(0.03),
     form = (class == "DRUID" and chance(0.5)) and pick({ "bear", "cat", "travel" }) or false,
@@ -84,7 +93,7 @@ local function randomCharacter(i)
     local band = ns.World.LEVEL_BANDS[b]
     if level >= band.min and level <= band.max then spoof.band = band.name end
   end
-  if race ~= "Human" and chance(0.5) then spoof.outOfPlace.far = true end
+  if race ~= "Human" and not horde and chance(0.5) then spoof.outOfPlace.far = true end
 
   -- History
   local c = ns.char

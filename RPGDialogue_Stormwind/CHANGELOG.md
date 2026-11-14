@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.3.0 (unreleased)
+- General Marcus Jonathan in the Valley of Heroes (Solomon's letters reach him), Renzik "The Shiv" at SI:7, Major Samuelson in the throne room (Farren Orinelle's old mentor), Thomas Miller and his bread.
+
 ## 1.2.2 (unreleased)
 - Milton Sheaf's opening can be heard about elsewhere (Loremaster Dibbs in Southshore).
 

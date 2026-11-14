@@ -356,3 +356,40 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Gwennyth Bly'Leggonde: Temple of the Moon priestess; beached sea creatures | [Gwennyth Bly'Leggonde](https://warcraft.wiki.gg/wiki/Gwennyth_Bly%27Leggonde) |
 | Sentinel Glynda Nal'Shea: The Red Crystal, As Water Cascades, WANTED: Murkdeep! | [Sentinel Glynda Nal'Shea](https://warcraft.wiki.gg/wiki/Sentinel_Glynda_Nal%27Shea) |
 | Cerellean Whiteclaw: Anaya Dawnrunner of Ameth'Aran; For Love Eternal; Innkeeper Shaussiy | [Cerellean Whiteclaw](https://warcraft.wiki.gg/wiki/Cerellean_Whiteclaw); [Innkeeper Shaussiy](https://warcraft.wiki.gg/wiki/Innkeeper_Shaussiy) |
+
+## Orgrimmar (Orgrimmar pack 1.0.0)
+
+| Fact used | Source |
+|---|---|
+| Thrall: Warchief, Doomhammer's heir; peace with Jaina; the Burning Blade within the Horde | [Thrall](https://warcraft.wiki.gg/wiki/Thrall) |
+| Neeru Fireblade: secret head of the Burning Blade in the Cleft of Shadow; Thrall uses adventurers against him; Hidden Enemies, Burning Shadows, Ak'Zeloth | [Neeru Fireblade](https://warcraft.wiki.gg/wiki/Neeru_Fireblade) |
+| Innkeeper Gryshka of the Broken Tusk; Zargh's choice cuts | [Gryshka](https://warcraft.wiki.gg/wiki/Gryshka) |
+| Gamon: tauren drunk in the inn, Tazan's assistant, attacked constantly | [Gamon](https://warcraft.wiki.gg/wiki/Gamon) |
+
+## Undercity (Undercity pack 1.0.0)
+
+| Fact used | Source |
+|---|---|
+| Sylvanas: the Dark Lady; vengeance on Arthas; Forsaken homeland; the Horde alliance through Hamuul and Cairne; the New Plague as a weapon against the Scourge | [Sylvanas Windrunner](https://warcraft.wiki.gg/wiki/Sylvanas_Windrunner) |
+| Varimathras: majordomo; spared after her forces beat him and his brothers; arrogant; The Deathstalkers, Battle of Hillsbrad | [Varimathras](https://warcraft.wiki.gg/wiki/Varimathras) |
+| Master Apothecary Faranell: A Recipe For Death, Elixir of Agony; theatrical experimenter | [Master Apothecary Faranell](https://warcraft.wiki.gg/wiki/Master_Apothecary_Faranell) |
+| Bethor Iceshard: Thule Ravenclaw and Gunther Arcanus; The Prodigal Lich chain; Innkeeper Norman | [Bethor Iceshard](https://warcraft.wiki.gg/wiki/Bethor_Iceshard); [Innkeeper Norman](https://warcraft.wiki.gg/wiki/Innkeeper_Norman) |
+
+## Loch Modan (Loch Modan pack 1.0.0)
+
+| Fact used | Source |
+|---|---|
+| Mountaineer Kadrell: welcoming; the Dark Iron spy poster; Stout to Kadrell, Rat Catching, Mountaineer Stormpike's Task, Stonegear's Search | [Mountaineer Kadrell](https://warcraft.wiki.gg/wiki/Mountaineer_Kadrell) |
+| Prospector Darteus Ironband: slow but steady dig; Excavation Progress Report, Protecting the Shipment | [Prospector Ironband](https://warcraft.wiki.gg/wiki/Prospector_Ironband) |
+| Innkeeper Hearthstove and Vidra Hearthstove (Thelsamar Blood Sausages) at the Stoutlager | [Innkeeper Hearthstove](https://warcraft.wiki.gg/wiki/Innkeeper_Hearthstove); [Vidra Hearthstove](https://warcraft.wiki.gg/wiki/Vidra_Hearthstove) |
+| Captain Rugelfuss: Valley of Kings, trogg uprisings; The Trogg Threat, In Defense of the King's Lands | [Captain Rugelfuss](https://warcraft.wiki.gg/wiki/Captain_Rugelfuss) |
+| Chief Engineer Hinderweir VII on the Stonewrought Dam; A Dark Threat Looms | [Chief Engineer Hinderweir VII](https://warcraft.wiki.gg/wiki/Chief_Engineer_Hinderweir_VII) |
+
+## Stormwind, part four (Stormwind pack 1.3.0)
+
+| Fact used | Source |
+|---|---|
+| General Marcus Jonathan: High Commander of Stormwind Defense; Messenger to Stormwind (Solomon's request) | [General Marcus Jonathan](https://warcraft.wiki.gg/wiki/General_Marcus_Jonathan) |
+| Renzik "The Shiv": goblin, Shaw's second; third person; rogue quests via Lucius in Redridge | [Renzik "The Shiv"](https://warcraft.wiki.gg/wiki/Renzik_%22The_Shiv%22) |
+| Major Samuelson: captain of the guard in the throne room; mentored Farren Orinelle; Reassignment | [Major Samuelson](https://warcraft.wiki.gg/wiki/Major_Samuelson) |
+| Thomas Miller: the Trade District's walking baker | [Thomas Miller](https://warcraft.wiki.gg/wiki/Thomas_Miller) |

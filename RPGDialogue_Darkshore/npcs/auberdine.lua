@@ -11,7 +11,7 @@ P:NPC {
 
   greetings = {
     { id = "g_elder", text = "Auberdine is glad of you, traveller. Rest, eat, and when you're ready, I may ask something of you. The village has troubles enough to share." },
-    { id = "g_back", when = { metBefore = true }, text = "Ah, you've returned. Sit with an old elf a moment. Tell me what the forest told you." },
+    { id = "g_back", when = { metBefore = true }, text = "Returned! Sit with an old elf a moment. Tell me what the forest told you." },
   },
 
   notice = {
@@ -267,7 +267,7 @@ P:NPC {
 
   greetings = {
     { id = "g_rest", text = "Your spirit's tired, I can tell. Rest here. The waves are loud, but they sing you to sleep after a night or two." },
-    { id = "g_home", when = { homeInn = { "Auberdine" } }, text = "Back to Auberdine. The sea air's good for you. Mostly." },
+    { id = "g_home", when = { homeInn = { "Auberdine" } }, text = "Auberdine again. The sea air's good for you. Mostly." },
   },
 
   notice = {

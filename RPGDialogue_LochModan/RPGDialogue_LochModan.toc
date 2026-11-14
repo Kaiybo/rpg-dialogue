@@ -1,0 +1,15 @@
+## Interface: 16001, 16002
+## Title: RPG Dialogue: Loch Modan |cff8a8a8a1.0.0|r
+## Notes: Thelsamar and the Stonewrought Dam: mountaineers, troggs, a dig that's going slowly, and blood sausages.
+## Author: RPG Dialogue
+## Version: 1.0.0
+## Dependencies: RPGDialogue
+## LoadOnDemand: 1
+## X-RPGD-Pack: rpgd.lochmodan
+## X-RPGD-Format: 1
+## X-RPGD-Load: zone
+## X-RPGD-Zones: Loch_Modan
+
+pack.lua
+pools.lua
+npcs\thelsamar.lua

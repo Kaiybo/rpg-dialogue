@@ -23,6 +23,7 @@ import os
 import re
 import shutil
 import subprocess
+import tempfile
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -174,26 +175,35 @@ def main():
     jobs = args.jobs or min(os.cpu_count() or 1, 4)
     jobs = max(1, min(jobs, args.characters))
     driver = os.path.join(P.ROOT, "tests", "sim_driver.lua")
-    procs = []
+    # Each shard writes straight to its own file: no pipes to fill up (which would stall the
+    # shards one behind another), and the report reads the files line by line, because the
+    # output runs to gigabytes once every pack is in.
+    tmpdir = tempfile.mkdtemp(prefix="rpgd-sim-")
+    shards = []
     for i in range(jobs):
         n = args.characters // jobs + (1 if i < args.characters % jobs else 0)
         seed = args.seed if i == 0 else args.seed + 7919 * i
-        procs.append(subprocess.Popen([lua, driver, str(n), str(seed)], stdout=subprocess.PIPE,
-                                      stderr=subprocess.PIPE, text=True, cwd=P.ROOT))
-    outputs = []
+        path = os.path.join(tmpdir, f"shard{i}.tsv")
+        fh = open(path, "w")
+        pr = subprocess.Popen([lua, driver, str(n), str(seed)], stdout=fh, stderr=subprocess.PIPE,
+                              text=True, cwd=P.ROOT)
+        shards.append((pr, fh, path))
     failed = False
-    for pr in procs:
-        out, err = pr.communicate()
+    for pr, fh, _ in shards:
+        _, err = pr.communicate()
+        fh.close()
         if pr.returncode != 0:
-            print(err)
+            print(err or f"a simulation shard exited with code {pr.returncode}")
             failed = True
-        outputs.append(out)
     if failed:
+        shutil.rmtree(tmpdir, ignore_errors=True)
         return 1
 
-    class _Joined:
-        stdout = "\n".join(outputs)
-    proc = _Joined
+    def shard_lines():
+        for _, _, path in shards:
+            with open(path, encoding="utf-8") as f:
+                for raw in f:
+                    yield raw.rstrip("\n")
 
     all_lines, fired, topicdefs = set(), collections.Counter(), set()
     starts = collections.defaultdict(collections.Counter)      # npc -> src counter at hello
@@ -205,7 +215,7 @@ def main():
     errors = []
     conversations = collections.Counter()
 
-    for raw in proc.stdout.splitlines():
+    for raw in shard_lines():
         f = raw.split("\t")
         kind = f[0]
         if kind == "line":
@@ -316,6 +326,8 @@ def main():
         w(f"\nNot checked, no level or faction captured yet ({len(unchecked)}): " + ", ".join(unchecked))
     w("\n## Checked elsewhere\n\n- Hinge stacking (\"everything matters sometimes\"): `tools/validate.py`.\n"
       "- False claims that can never be exposed: `tools/validate.py`.")
+
+    shutil.rmtree(tmpdir, ignore_errors=True)
 
     os.makedirs(os.path.dirname(args.out), exist_ok=True)
     with open(args.out, "w", encoding="utf-8") as fh:

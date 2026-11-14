@@ -16,6 +16,9 @@ Copy these folders into `World of Warcraft/<your Forever folder>/Interface/AddOn
 - `RPGDialogue_Zephras`: Zephras Isle, home of the Skyborne
 - `RPGDialogue_Redridge`: Lakeshire and the Redridge Mountains
 - `RPGDialogue_Duskwood`: Darkshire, Raven Hill and the woods
+- `RPGDialogue_LochModan`: Thelsamar, Ironband's dig and the Stonewrought Dam
+- `RPGDialogue_Undercity`: the Dark Lady, Varimathras, the Apothecarium and the Magic Quarter (Horde)
+- `RPGDialogue_Orgrimmar`: Thrall, the Broken Tusk and the Cleft of Shadow (Horde)
 - `RPGDialogue_Darkshore`: Auberdine, the Fel Moss and Cerellean on the dock
 - `RPGDialogue_Hillsbrad`: Southshore and Tarren Mill (both factions)
 - `RPGDialogue_Ashenvale`: Astranaar, Maestra's Post and Splintertree Post (both factions)

@@ -380,7 +380,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "Zargh. Butcher. I sell meat to everyone who passes through the Crossroads, which is everyone. Business is good. Everything else is the Barrens." },
+        { id = "h_default", key = true, text = "Zargh. Butcher. I sell meat to everyone who passes through the Crossroads, which is everyone. Business is good. Everything else is the Barrens." },
         { id = "h_meats", tags = { "news" }, when = { questActive = TODO_QUEST("Meats to Orgrimmar") },
           text = "Choice cuts for Gryshka at the inn in Orgrimmar. Get them there fresh. And tell her... tell her they're from me. She'll know what that means." },
         { id = "h_return", when = { questDone = TODO_QUEST("Return to the Crossroads") },

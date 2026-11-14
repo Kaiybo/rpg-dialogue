@@ -2,6 +2,21 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.18.0 (2026-11-14)
+Packs: World 1.6.0, Elwynn Forest 1.5.0, Westfall 1.2.0, Stormwind 1.3.0, Zephras Isle 1.0.1, Redridge 1.1.0, Duskwood 1.1.0, Ironforge 1.1.1, Wetlands 1.0.0, Moonglade 1.0.0, Darnassus 1.0.0, Thunder Bluff 1.0.0, The Barrens 1.0.1, Ashenvale 1.0.0, Hillsbrad Foothills 1.0.0, and four new ones: Darkshore 1.0.0, Loch Modan 1.0.0, Orgrimmar 1.0.0, Undercity 1.0.0. **New folders: exit the game fully, copy them in, and tick the new packs.**
+
+0.17.0 wasn't released on its own; this release includes it.
+
+### Capitals and the road between them
+- **Orgrimmar.** Thrall; Neeru Fireblade in the Cleft of Shadow, all charm (Thrall isn't fooled); Gryshka at the Broken Tusk, who would very much like to hear what Zargh said about her; and Gamon, who has made his peace with being attacked.
+- **Undercity.** Lady Sylvanas Windrunner; Varimathras, ever so loyal; Master Apothecary Faranell and his very interesting bottles; Bethor Iceshard and the friend who became a lich; Innkeeper Norman.
+- **Darkshore.** Auberdine: Thundris Windweaver (who trusts paladins), Terenthis and the Fel Moss, Gwennyth and the beached sea creatures, Sentinel Glynda Nal'Shea, Cerellean Whiteclaw waiting on the dock, Innkeeper Shaussiy. Auberdine's Sentinels.
+- **Loch Modan.** Thelsamar: Mountaineer Kadrell, the Hearthstoves at the Stoutlager, Prospector Ironband at his dig, Captain Rugelfuss in the Valley of Kings, and Chief Engineer Hinderweir VII, who checks the dam three times a day. The Mountaineers.
+- **Stormwind.** General Marcus Jonathan at the gate, Renzik "The Shiv" at SI:7, Major Samuelson in the throne room, and Thomas Miller with his basket.
+
+### For developers
+- The simulation now streams each shard's output to disk (the 0.17.0 run ran out of memory) and includes Horde characters, so Horde-only lines are exercised.
+
 ## 0.17.0 (2026-11-14)
 Packs: World 1.5.0, Elwynn Forest 1.5.0, Westfall 1.2.0, Stormwind 1.2.2, Zephras Isle 1.0.1, Redridge 1.1.0, Duskwood 1.1.0, Ironforge 1.1.0, Wetlands 1.0.0, Moonglade 1.0.0, Darnassus 1.0.0, Thunder Bluff 1.0.0, and three new ones: The Barrens 1.0.0, Ashenvale 1.0.0, Hillsbrad Foothills 1.0.0. **New folders: exit the game fully, copy them in, and tick the new packs.**
 

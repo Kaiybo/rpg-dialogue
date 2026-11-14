@@ -180,6 +180,13 @@ P:Town {
   quests = { { TODO_QUEST("The Blackwood Corrupted"), 8 }, { TODO_QUEST("WANTED: Murkdeep!"), 8 }, { TODO_QUEST("For Love Eternal"), 4 } },
 }
 
+P:Town {
+  id = "thelsamar", name = "Thelsamar",
+  subzones = { "Thelsamar", "Stoutlager Inn", "Stonewrought Dam", "Valley of Kings", "Ironband's Excavation Site" },
+  tiers = { Hero = "Hero of Thelsamar" },
+  quests = { { TODO_QUEST("Rat Catching"), 4 }, { TODO_QUEST("The Trogg Threat"), 6 }, { TODO_QUEST("A Dark Threat Looms"), 8 } },
+}
+
 -- The other capitals. Their guards speak from pools_roles.lua; standing grows from quests
 -- each capital's own pack lists later.
 P:Town {

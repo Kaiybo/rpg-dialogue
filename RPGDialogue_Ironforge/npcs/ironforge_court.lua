@@ -225,7 +225,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "Stormpike. Prospector. Explorers' League. That's my name, my job and my lodge, and that's all the chat ye're getting today." },
+        { id = "h_default", key = true, text = "Stormpike. Prospector. Explorers' League. That's my name, my job and my lodge, and that's all the chat ye're getting today." },
         { id = "h_report", tags = { "news" }, when = { questActive = TODO_QUEST("Report to Ironforge") },
           text = "A report? About time. Hand it here. No, don't read it to me. I can read." },
         { id = "h_powder", when = { questActive = TODO_QUEST("Powder to Ironband") },
