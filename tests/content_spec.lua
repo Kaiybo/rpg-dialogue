@@ -237,6 +237,18 @@ describe("Content packs", function()
     eq(ns.Data.PoolsFor(info, ctx)[1].pool.id, "guard_nighthaven")
   end)
 
+  it("Darnassus loads in the Temple of the Moon; Tyrande and Fandral are both there to disagree", function()
+    local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Darnassus" } })
+    Mock.state.zone, Mock.state.subzone = "Darnassus", "Temple of the Moon"
+    Mock.Fire("ZONE_CHANGED_NEW_AREA")
+    Mock.RunTimers()
+    for _, p in ipairs(ns.Packs.List()) do
+      if p.id == "rpgd.darnassus" then ok(p.loaded); eq(p.warnings, 0) end
+    end
+    eq(ns.Data.FindNPC(nil, "Tyrande Whisperwind").key, "tyrande")
+    eq(ns.Data.FindNPC(nil, "Arch Druid Fandral Staghelm").key, "fandral")
+  end)
+
   it("Zephras Isle's Peacekeepers are guards of the isle, and the High Elder knows her own", function()
     local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Zephras" } })
     ns.db.settings.instantText = true

@@ -292,3 +292,14 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Loganaar: calm trainer; balance within; the Dream will call druids to long sleep | [Loganaar](https://warcraft.wiki.gg/wiki/Loganaar) |
 | Great Bear Spirit: as old as the world, patient mentor, says little | [Great Bear Spirit](https://warcraft.wiki.gg/wiki/Great_Bear_Spirit) |
 | Silva Fil'naveth and Bunthen Plainswind: the Circle's druid-only flights to Rut'theran and Thunder Bluff, each pointing the other faction to the other | [Silva Fil'naveth](https://warcraft.wiki.gg/wiki/Silva_Fil%27naveth); [Bunthen Plainswind](https://warcraft.wiki.gg/wiki/Bunthen_Plainswind) |
+
+## Darnassus (Darnassus pack 1.0.0)
+
+| Fact used | Source |
+|---|---|
+| Tyrande: High Priestess, leads alone while Malfurion's spirit is lost in the Dream and his body sleeps; fierce, blunt; mortality, the Horde in Ashenvale, quarrels with Fandral | [Tyrande Whisperwind](https://warcraft.wiki.gg/wiki/Tyrande_Whisperwind) |
+| Fandral: Archdruid, abrasive; Teldrassil without the Aspects' blessing; disdains Moonglade's druids and Remulos; objected to tauren druids; Crown of the Earth | [Fandral Staghelm](https://warcraft.wiki.gg/wiki/Fandral_Staghelm) |
+| Mathrengyl Bearwalker: Enclave druid trainer, once Fandral's second, dismisses talk of strife; Heeding the Call, Body and Heart (Lunaclaw), Lessons Anew (Auberdine's poisons), Aquatic Form | [Mathrengyl Bearwalker](https://warcraft.wiki.gg/wiki/Mathrengyl_Bearwalker) |
+| Priestess A'moora in the Temple of the Moon; The Temple of the Moon, Tears of the Moon, Sathrah's Sacrifice | [Priestess A'moora](https://warcraft.wiki.gg/wiki/Priestess_A%27moora) |
+| Gracina Spiritmight: priestess and scholar of Azeroth's creatures and the silithid | [Gracina Spiritmight](https://warcraft.wiki.gg/wiki/Gracina_Spiritmight) |
+| Innkeeper Saelienne on the Craftsmen's Terrace | [Innkeeper Saelienne](https://warcraft.wiki.gg/wiki/Innkeeper_Saelienne) |

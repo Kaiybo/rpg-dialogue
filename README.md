@@ -16,6 +16,7 @@ Copy these folders into `World of Warcraft/<your Forever folder>/Interface/AddOn
 - `RPGDialogue_Zephras`: Zephras Isle, home of the Skyborne
 - `RPGDialogue_Redridge`: Lakeshire and the Redridge Mountains
 - `RPGDialogue_Duskwood`: Darkshire, Raven Hill and the woods
+- `RPGDialogue_Darnassus`: Tyrande, Fandral Staghelm, the Temple of the Moon and the Cenarion Enclave
 - `RPGDialogue_Moonglade`: Nighthaven, Keeper Remulos and the druids' trials (neutral: Alliance and Horde)
 - `RPGDialogue_Wetlands`: Menethil Harbor, the Dragonmaw in the hills and the drowned fleet in the bay
 - `RPGDialogue_Ironforge`: King Magni, Tinker Town, the Hall of Explorers, the High Seat, the Commons, the gates and Gol'Bolar Quarry
