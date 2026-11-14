@@ -444,6 +444,13 @@ P:Town {
   quests = { { TODO_QUEST("Well of Corruption"), 2 }, { TODO_QUEST("Guarding Secrets"), 6 } },
 }
 
+P:Town {
+  id = "thorium_point", name = "Thorium Point",
+  subzones = { "Thorium Point" },
+  tiers = { Hero = "Friend of the Brotherhood" },
+  quests = { { TODO_QUEST("WANTED: Overseer Maltorius"), 6 }, { TODO_QUEST("Fiery Menace!"), 2 } },
+}
+
 -- The other capitals. Their guards speak from pools_roles.lua; standing grows from quests
 -- each capital's own pack lists later.
 P:Town {

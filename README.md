@@ -16,6 +16,7 @@ Copy these folders into `World of Warcraft/<your Forever folder>/Interface/AddOn
 - `RPGDialogue_Zephras`: Zephras Isle, home of the Skyborne
 - `RPGDialogue_Redridge`: Lakeshire and the Redridge Mountains
 - `RPGDialogue_Duskwood`: Darkshire, Raven Hill and the woods
+- `RPGDialogue_SearingGorge`: Thorium Point (both factions)
 - `RPGDialogue_Felwood`: Emerald Sanctuary (both factions), Bloodvenom Post (Horde), Talonbranch Glade (Alliance)
 - `RPGDialogue_Winterspring`: Everlook (both factions) and the hot springs
 - `RPGDialogue_UnGoro`: Marshal's Refuge (both factions)

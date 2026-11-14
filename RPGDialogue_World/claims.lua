@@ -64,3 +64,10 @@ P:Claim {
   truthNote = "True only if the player turned in the Hogger bounty.",
   trueWhen = { questDone = TODO_QUEST("WANTED: \"Hogger\"") },
 }
+
+P:Claim {
+  id = "kalaran_father", by = "kalaran", truth = "false",
+  text = "The Dark Iron butchered Kalaran Windblade's father in the Searing Gorge.",
+  truthNote = "Kalaran is a black drake in human disguise; the story is his invention to get adventurers to do his work (Kalaran Windblade, warcraft.wiki.gg). Exposed when his quests end and he shows himself.",
+  exposedBy = { "quest:Squire Maltrake" },
+}

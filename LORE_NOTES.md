@@ -679,3 +679,14 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Maybess Riverbreeze and Arathandris Silversky: Cleansing Felwood and the salves, each sending the other faction to the other | [Maybess Riverbreeze](https://warcraft.wiki.gg/wiki/Maybess_Riverbreeze); [Arathandris Silversky](https://warcraft.wiki.gg/wiki/Arathandris_Silversky) |
 | Bloodvenom Post: tauren braves on cliffs over the river; Winna Hazzard (laughing, kitten; A Strange One, Well of Corruption, Corrupted Sabers); Trull Failbane (Wild Guardians, Guarding Secrets) | [Bloodvenom Post](https://warcraft.wiki.gg/wiki/Bloodvenom_Post); [Winna Hazzard](https://warcraft.wiki.gg/wiki/Winna_Hazzard); [Trull Failbane](https://warcraft.wiki.gg/wiki/Trull_Failbane) |
 | Golhine the Hooded: druid trainer at Talonbranch Glade, around its moonwell | [Golhine the Hooded](https://warcraft.wiki.gg/wiki/Golhine_the_Hooded); [Talonbranch Glade](https://warcraft.wiki.gg/wiki/Talonbranch_Glade) |
+
+## Searing Gorge (Searing Gorge pack 1.0.0)
+
+| Fact used | Source |
+|---|---|
+| Thorium Point: neutral Thorium Brotherhood town, Overseer Oilfist; Lookouts guard it | [Thorium Point](https://warcraft.wiki.gg/wiki/Thorium_Point) |
+| Thorium Brotherhood: Dark Iron craftsmen enslaved by Ragnaros after the War of the Three Hammers to forge his weapons; escaped Blackrock Depths with enchanted gear Oilfist planned; settled across the gorge; trade with anyone | [Thorium Brotherhood](https://warcraft.wiki.gg/wiki/Thorium_Brotherhood) |
+| Hansel Heavyhands: huge, folksy enforcer for Lolo; Fiery Menace! (Oilfist reports spiders frightening the kids), Incendosaurs | [Hansel Heavyhands](https://warcraft.wiki.gg/wiki/Hansel_Heavyhands); [Fiery Menace!](https://warcraft.wiki.gg/wiki/Fiery_Menace!) |
+| Lookout Captain Lolo Longstriker: blind, often drunk, trusts his senses; WANTED: Overseer Maltorius | [Lookout Captain Lolo Longstriker](https://warcraft.wiki.gg/wiki/Lookout_Captain_Lolo_Longstriker) |
+| Kalaran Windblade: tells a false story that the Dark Iron killed his father and asks for vengeance (his true nature is never stated in lines) | [Kalaran Windblade](https://warcraft.wiki.gg/wiki/Kalaran_Windblade) |
+| "... Lookout" names are guards | [Thorium Point](https://warcraft.wiki.gg/wiki/Thorium_Point) |
