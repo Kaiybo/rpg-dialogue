@@ -366,8 +366,9 @@ def main():
             choices = [c for c in P.arr(node.get("choices")) if isinstance(c, LTable)]
             if not choices:
                 rep.error(pack, f, node.line, f"{where}.{nid}: node has no choices (no exit)")
-            if len(choices) > 8:
-                rep.warn(pack, f, node.line, f"{where}.{nid}: {len(choices)} choices; at most 6 are shown at once (explored and unconditional ones drop first)")
+            always = [c for c in choices if c.get("when") is None]
+            if len(always) > 6:
+                rep.warn(pack, f, node.line, f"{where}.{nid}: {len(always)} choices without conditions; at most 6 are shown at once")
             edges[nid] = []
             for i, ch in enumerate(choices, 1):
                 edges[nid] += check_choice(pack, f, ch, f"{where}.{nid}.choice{i}", nodes)

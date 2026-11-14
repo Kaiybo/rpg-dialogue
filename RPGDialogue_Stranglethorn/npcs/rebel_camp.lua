@@ -37,21 +37,205 @@ P:NPC {
         { id = "h_kurzen", when = { questActive = TODO_QUEST("Colonel Kurzen") },
           text = "It's time. He won't come back to himself; we've waited long enough to be sure. End it." },
         { id = "h_roll", when = { metBefore = true }, text = "Called the roll this morning. Two short. They'll walk in by dusk, or they won't. I've stopped guessing which." },
+        { id = "h_after", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Colonel Kurzen"), days = 3 } },
+          text = "The men keep asking me what he said at the end. I tell them it doesn't matter. I'd like to believe that myself." },
+      },
+      again = {
+        { id = "h_again", text = "Go on. I've a few minutes before the next patrol comes in." },
+        { id = "h_again2", text = "What else? Keep it to what matters." },
+        { id = "h_again3", when = { timeOfDay = "night" }, text = "Quietly. Half the camp's asleep and the other half pretends to be." },
       },
       choices = {
-        { text = "What took his mind?", next = "mind" },
+        { text = "What happened to Kurzen?", next = "mind" },
+        { text = "Why walk away? Why not stop him then and there?", next = "left" },
+        { text = "Who gave Thorsen away?", next = "informant" },
+        { text = "How many of you are left?", next = "men" },
+        { text = "I've followed a bad order before.", next = "soldier", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "My order fell apart too. Nobody told us why.", next = "squire", when = { origin = "human_paladin_squire" } },
+        { text = "It's done. Kurzen's dead.", next = "done", when = { questDone = TODO_QUEST("Colonel Kurzen") } },
         { text = "I'm here to help.", next = "END", fx = { affinity = 2, standing = { rebel_camp = 1 }, learn = { "kurzen" } } },
         { text = "I'll be going.", next = "END" },
       },
     },
+
     mind = {
       big = true,
       lines = {
         { id = "m_default", text = "Brother Nimetz thinks it was troll magic. To me it hardly matters what it was. The man who led us here is gone." },
       },
       choices = {
-        { text = "I'm sorry.", next = "END", fx = { affinity = 2, trait = { kind = 1 }, learn = { "kurzen" } } },
+        { text = "Troll magic? What does the Brother know?", next = "mind_nimetz", fx = { trait = { curious = 1 } } },
+        { text = "What was he like, before?", next = "mind_before" },
+        { text = "I'm sorry.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 }, learn = { "kurzen" } } },
         { text = "Then let's finish it.", next = "END", fx = { affinity = 2, trait = { stern = 1 }, learn = { "kurzen" } } },
+      },
+    },
+    mind_nimetz = {
+      lines = {
+        { id = "mn_default", text = "That his medicine men brew something, and the Colonel drank it first. Nimetz keeps samples in bottles by his cot. I don't sleep near them." },
+        { id = "mn_priest", when = { class = "PRIEST" },
+          text = "Ask him yourself; he'll be glad of a priest who can follow him. I can't. I hear 'elixir' and 'curse' and stop listening at 'possibly'." },
+      },
+      choices = {
+        { text = "I'll talk to him.", next = "BACK", fx = { learn = { "kurzen" } } },
+        { text = "And if it can be cured?", next = "mind_cure" },
+      },
+    },
+    mind_cure = {
+      lines = {
+        { id = "mc_default", text = "Then I'll be the first to cheer. And I'll still keep my sword on. A cure doesn't bring back the men he sent into the trees." },
+      },
+      choices = {
+        { text = "Fair. Something else.", next = "BACK" },
+        { text = "Mercy first, if there's any chance.", next = "BACK",
+          fx = { align = { light = 2 }, trait = { kind = 1 }, opinion = { kurzen = "mercy" } } },
+        { text = "A cure won't matter. He has to answer for them.", next = "BACK",
+          fx = { align = { order = 2 }, trait = { stern = 1 }, opinion = { kurzen = "justice" } } },
+      },
+    },
+    mind_before = {
+      lines = {
+        { id = "mb_default", text = "Careful. Fair. He'd walk the line at night and know every man's name. That's the part I can't square." },
+      },
+      choices = {
+        { text = "People change out here.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "Then he's still in there somewhere.", next = "BACK", fx = { trait = { kind = 1 }, affinity = 1 } },
+      },
+    },
+
+    left = {
+      big = true,
+      lines = {
+        { id = "l_default", text = "With what? Half the expedition went with him. We'd have been killing our own friends in the dark, and losing." },
+      },
+      choices = {
+        { text = "You did the right thing.", next = "left_stormwind", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Stormwind will call it desertion.", next = "left_stormwind", fx = { affinity = -1, align = { order = 2 } } },
+        { text = "Does Stormwind even know?", next = "left_stormwind", fx = { trait = { curious = 1 } } },
+      },
+    },
+    left_stormwind = {
+      lines = {
+        { id = "ls_default", text = "I sent word. Twice. If an answer came, it went to the Colonel's tent. So I've no idea what Stormwind thinks of us." },
+        { id = "ls_noble", when = { origin = "human_minor_noble" },
+          text = "Your sort might know better than I do. Somebody in the Keep signed for this expedition. I'd like to hear they still remember it." },
+      },
+      choices = {
+        { text = "I could carry word myself.", next = "left_word", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    left_word = {
+      lines = {
+        { id = "lw_default", text = "Kind of you. Wait until it's over. I'd rather they read one report than two." },
+      },
+      choices = { { text = "Understood.", next = "BACK", fx = { align = { order = 1 } } } },
+    },
+
+    informant = {
+      lines = {
+        { id = "i_default", text = "Someone told Kurzen's people what Thorsen was. Someone who comes and goes from this camp, or drinks with men who do." },
+        { id = "i_herod", when = { questActive = TODO_QUEST("Bookie Herod") },
+          text = "Herod takes bets on anything, including whether my patrols come back. A man like that doesn't care where his coin comes from." },
+        { id = "i_known", when = { questDone = TODO_QUEST("The Spy Revealed!") },
+          text = "We know now. I won't say it twice. Some of the men drank with him." },
+      },
+      choices = {
+        { text = "Could it be one of your own?", next = "informant_own", when = { ["not"] = { questDone = TODO_QUEST("The Spy Revealed!") } } },
+        { text = "What'll you do when you find him?", next = "informant_after" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    informant_own = {
+      lines = {
+        { id = "io_default", text = "I've thought it. I look at every face at roll call and think it. That's what this has done to us." },
+      },
+      choices = {
+        { text = "Trust your men until there's proof.", next = "BACK", fx = { align = { honor = 2 }, affinity = 1 } },
+        { text = "Then watch them. All of them.", next = "BACK", fx = { align = { honor = -2 }, trait = { cautious = 1 } } },
+      },
+    },
+    informant_after = {
+      lines = {
+        { id = "ia_default", text = "Whatever a lieutenant does in a jungle with no court and no captain. I'd rather not decide that tonight." },
+      },
+      choices = {
+        { text = "Hand him to Stormwind's justice.", next = "BACK", fx = { align = { order = 2 } } },
+        { text = "Thorsen nearly died. Let him decide.", next = "BACK", fx = { align = { order = -1 }, trait = { stern = 1 } } },
+      },
+    },
+
+    men = {
+      lines = {
+        { id = "mn2_default", text = "Enough to hold this clearing, not enough to take the compound. Thorsen's back, thank the Light. Nimetz patches us up and prays over the rest." },
+      },
+      choices = {
+        { text = "Tell me about Thorsen.", next = "men_thorsen" },
+        { text = "What do the men need most?", next = "men_need", fx = { trait = { generous = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    men_thorsen = {
+      lines = {
+        { id = "mt_default", text = "Volunteered to wear their colors and walk into their camp. Came back thinner and quieter. Go easy with him." },
+      },
+      choices = { { text = "I will.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    men_need = {
+      lines = {
+        { id = "mnn_default", text = "Food that isn't roots. Dry boots. A reason. Booty Bay sells the first two, if Krazek remembers we exist." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    soldier = {
+      lines = {
+        { id = "s_default", text = "Then you know there's a moment when you stop telling yourself it's strategy. Mine was a burning village. Whose was yours?" },
+      },
+      choices = {
+        { text = "I'd rather not talk about it.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
+        { text = "I obeyed it. I still think about that.", next = "soldier_obeyed", fx = { trait = { pious = 1 } } },
+        { text = "I refused it, and paid for it.", next = "soldier_refused", fx = { align = { honor = 2 } } },
+      },
+    },
+    soldier_obeyed = {
+      lines = { { id = "so_default", text = "So did half the men out there with Kurzen. I don't hate them for it. I just can't let them past the trees." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    soldier_refused = {
+      lines = { { id = "sr_default", text = "Good. Somebody has to. Out here it was a whole camp of us, at least. I'd not have liked doing it alone." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
+    },
+
+    squire = {
+      lines = {
+        { id = "sq_default", text = "The Silver Hand? I heard it broke after Lordaeron. Then you know what it's like to keep a camp going on habit when the people at the top stop answering." },
+      },
+      choices = {
+        { text = "Habit and the Light. It's enough.", next = "BACK", fx = { align = { light = 2 }, affinity = 1 } },
+        { text = "It isn't. That's why I'm out here.", next = "BACK", fx = { trait = { brave = 1 }, affinity = 1 } },
+      },
+    },
+
+    done = {
+      big = true,
+      lines = {
+        { id = "d_default", text = "Heard it from three men before you reached the clearing. I don't know if I'm meant to thank you or salute him." },
+      },
+      choices = {
+        { text = "Both, maybe.", next = "done_now", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "He stopped being your colonel a long time ago.", next = "done_now", fx = { align = { order = 1 }, trait = { stern = 1 } } },
+      },
+    },
+    done_now = {
+      lines = {
+        { id = "dn_default", text = "Now we bury who we can and take the rest home to Stormwind. Assuming anyone there remembers sending us." },
+      },
+      choices = {
+        { text = "They'll remember. I'll see to it.", next = "END", fx = { affinity = 2, standing = { rebel_camp = 2 } },
+          journal = { first = "Told Doren that Stormwind would remember the Rebel Camp. I meant it when I said it.",
+                      third = "{name} promised Lieutenant Doren that Stormwind would remember his men." } },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },
@@ -93,17 +277,129 @@ P:NPC {
         { id = "h_maizoth", tags = { "news" }, when = { questActive = TODO_QUEST("Mai'Zoth") },
           text = "Mai'Zoth. An ogre mage, and the root of it all. I swore he'd die before anyone else lost their mind the way the Colonel did." },
         { id = "h_dreams", when = { metBefore = true }, text = "One of the men woke screaming again. The Colonel's name. Whatever touched Kurzen's mind touches their dreams too." },
+        { id = "h_maizoth_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Mai'Zoth"), days = 3 } },
+          text = "I kept my vow, through your hands. I said a prayer for him anyway. I'm not sure the Light approves of that, but I am." },
+      },
+      again = {
+        { id = "h_again", text = "Yes? Mind the flask by your elbow. That one I'm still not sure about." },
+        { id = "h_again2", text = "Another question? Good. Questions are the only medicine I trust out here." },
       },
       choices = {
         { text = "What made them sick?", next = "elixir" },
+        { text = "A priest and an alchemist? Those don't often meet.", next = "craft" },
+        { text = "How are the men holding up?", next = "men" },
+        { text = "Pray with me, Brother.", next = "pray", when = { class = { "PRIEST", "PALADIN" } } },
+        { text = "Let me look at the residue.", next = "residue", when = { profession = "Alchemy" } },
         { text = "The Light keep you, Brother.", next = "END", fx = { affinity = 1, align = { light = 1 } } },
       },
     },
+
     elixir = {
       lines = {
         { id = "e_default", text = "Kurzen's medicine men hand out an elixir. It makes a frightened man brave and a brave man reckless. I'm not done studying it, and I'm certainly not drinking it." },
       },
-      choices = { { text = "Be careful, Brother.", next = "END", fx = { affinity = 2, trait = { curious = 1 }, learn = { "kurzen" } } } },
+      choices = {
+        { text = "Who taught Kurzen's men to brew it?", next = "elixir_source", fx = { trait = { curious = 1 } } },
+        { text = "Could it be undone?", next = "elixir_cure" },
+        { text = "Be careful, Brother.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 }, learn = { "kurzen" } } },
+      },
+    },
+    elixir_source = {
+      lines = {
+        { id = "es_default", text = "Not Kurzen's men. They haven't the learning. Someone in this jungle who knows minds better than I'd like. I've a name, and a vow to go with it." },
+        { id = "es_known", when = { questDone = TODO_QUEST("Mai'Zoth") },
+          text = "An ogre mage who knew minds better than I'd like. Knew. I keep correcting myself." },
+      },
+      choices = {
+        { text = "A vow? That's a heavy thing for a healer.", next = "elixir_vow" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "kurzen" } } },
+      },
+    },
+    elixir_vow = {
+      big = true,
+      lines = {
+        { id = "ev_default", text = "I've sat with too many men who called for their mothers in a voice that wasn't theirs. Healing has to include stopping the wound." },
+      },
+      choices = {
+        { text = "The Light would agree.", next = "BACK", fx = { align = { light = 2 }, affinity = 1 } },
+        { text = "Careful. Vows like that change people.", next = "BACK", fx = { trait = { cautious = 1 }, affinity = 1 } },
+        { text = "Good. Some things need killing.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
+      },
+    },
+    elixir_cure = {
+      lines = {
+        { id = "ec_default", text = "In the young ones who only drank once, perhaps. In the Colonel? I've stopped asking the Light for that one. It seemed greedy." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    craft = {
+      lines = {
+        { id = "c_default", text = "More often than you'd think. Both are patience, clean hands, and knowing exactly what you put in. My abbot called it a hobby. Out here it's the job." },
+      },
+      choices = {
+        { text = "Where did you learn?", next = "craft_learn" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    craft_learn = {
+      lines = {
+        { id = "cl_default", text = "Bandaging soldiers who'd been at the wrong mushrooms. You learn quickly what the body forgives and what it doesn't." },
+        { id = "cl_dwarf", when = { race = "Dwarf" },
+          text = "Ironforge, partly. A dwarf brewer taught me more about what makes a mind wander than any book. He meant it as a joke. It wasn't." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
+    },
+
+    men = {
+      lines = {
+        { id = "m_default", text = "Bodies, better than you'd think. Minds, worse. They argue about whether they're deserters. I tell them the Light doesn't keep that ledger." },
+      },
+      choices = {
+        { text = "Doesn't it?", next = "men_ledger", fx = { trait = { skeptical = 1 } } },
+        { text = "And Doren?", next = "men_doren" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    men_ledger = {
+      lines = { { id = "ml_default", text = "If it does, I hope it's kinder than Stormwind's. Ask me again when this is over. I may have a better answer." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    men_doren = {
+      lines = { { id = "md_default", text = "Carries every one of them. Won't let me carry any of him. Don't tell him I said so." } },
+      choices = { { text = "I won't.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } } },
+    },
+
+    pray = {
+      lines = {
+        { id = "p_default", text = "Gladly. It's been weeks since anyone here knew the words. Kneel, if the mud allows." },
+      },
+      choices = {
+        { text = "For the men here.", next = "BACK", fx = { align = { light = 2 }, affinity = 2, trait = { pious = 1 } } },
+        { text = "For Kurzen.", next = "pray_kurzen", fx = { align = { light = 3 }, trait = { kind = 1 } } },
+      },
+    },
+    pray_kurzen = {
+      lines = { { id = "pk_default", text = "Yes. Yes, him too. Thank you. Doren would call that soft, and he'd be wrong." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
+    },
+
+    residue = {
+      lines = {
+        { id = "r_default", text = "Here. Smell it, don't taste it. What do you make of that green rim?" },
+      },
+      choices = {
+        { text = "Something's been added that shouldn't dissolve.", next = "residue_right", fx = { affinity = 2, trait = { curious = 1 } } },
+        { text = "Just a bad batch. Spoiled herbs.", next = "residue_wrong" },
+      },
+    },
+    residue_right = {
+      lines = { { id = "rr_default", text = "That's what I thought. Something carried, not brewed. Which means someone's bringing it to them." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "kurzen" } } } },
+    },
+    residue_wrong = {
+      lines = { { id = "rw_default", text = "I'd hoped so too. Spoiled herbs don't make a whole camp dream the same dream." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 
@@ -143,7 +439,82 @@ P:NPC {
         { id = "h_sleep", when = { metBefore = true },
           text = "I still wake up reaching for their uniform. Then I remember which side I'm on. It takes a moment longer than I'd like." },
       },
-      choices = { { text = "I'll help you.", next = "END", fx = { affinity = 2, align = { order = 1 } } } },
+      again = {
+        { id = "h_again", text = "Something else? Talk low." },
+        { id = "h_again2", text = "Go on. I'm listening. I'm always listening, these days." },
+      },
+      choices = {
+        { text = "What was it like in there?", next = "inside" },
+        { text = "What are they planning?", next = "plans" },
+        { text = "Do you know who gave you away?", next = "betrayed" },
+        { text = "You can talk to me. I'm good at going unseen too.", next = "rogue", when = { class = { "ROGUE", "HUNTER" } } },
+        { text = "I'll help you.", next = "END", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Rest. I'll leave you be.", next = "END", fx = { trait = { kind = 1 } } },
+      },
+    },
+
+    inside = {
+      lines = {
+        { id = "in_default", text = "Quiet. That's what scared me. Nobody joked. They drank the medicine men's cup at dusk and stared at the fire like it was telling them something." },
+      },
+      choices = {
+        { text = "Did you drink it?", next = "inside_drink" },
+        { text = "How did you keep your nerve?", next = "inside_nerve" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    inside_drink = {
+      lines = { { id = "id_default", text = "Poured it down my shirt, mostly. Mostly. Brother Nimetz checks my eyes every morning. Says they're fine. I check them again after." } },
+      choices = {
+        { text = "You did well.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Tell Nimetz everything. Even the 'mostly'.", next = "BACK", fx = { trait = { cautious = 1 }, affinity = 1 } },
+      },
+    },
+    inside_nerve = {
+      lines = { { id = "inn_default", text = "Counted things. Tents, boots, men on watch. You can't be afraid and count at the same time. Try it." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+
+    plans = {
+      lines = {
+        { id = "pl_default", text = "They march on a schedule, like soldiers still. That's the strange part. Whatever's in their heads, the drill is still there." },
+        { id = "pl_done", when = { questDone = TODO_QUEST("Patrol Schedules") },
+          text = "Doren has their schedules now. Thanks to you. First time in weeks we've known where they'll be before they get there." },
+      },
+      choices = {
+        { text = "Then Doren can use that drill against them.", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "Do they still talk about Stormwind?", next = "plans_stormwind" },
+      },
+    },
+    plans_stormwind = {
+      lines = { { id = "ps_default", text = "Never. Not once. Like it was somewhere they'd read about. That bothered me more than the trolls." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    betrayed = {
+      lines = {
+        { id = "b_default", text = "If I knew, I'd have told the Lieutenant before I'd sat down. Someone knew my face. That's all I have." },
+        { id = "b_known", when = { questDone = TODO_QUEST("The Spy Revealed!") },
+          text = "The Lieutenant told me. I'd rather not say it out loud. I liked him." },
+      },
+      choices = {
+        { text = "Do you want revenge?", next = "betrayed_revenge" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    betrayed_revenge = {
+      lines = { { id = "br_default", text = "I want to sleep a whole night. Revenge comes after that, if there's room." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
+    },
+
+    rogue = {
+      lines = {
+        { id = "r_default", text = "Then tell me your trick for the moment someone looks right at you. Mine was to look bored. Bored men aren't spies." },
+      },
+      choices = {
+        { text = "Mine's to look busy. Nobody stops a busy man.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } },
+        { text = "Don't get looked at in the first place.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
+      },
     },
   },
 
