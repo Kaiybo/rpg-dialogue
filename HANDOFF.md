@@ -6,7 +6,7 @@
 **Last session:** 2026-11-13 · **M0–M8 all built; first in-game results are in.** The addon loads, packs load, `/rpgd why` works, and the Skyborne race token is "Skyborne".
 
 **First in-game test (user, 2026-11-13):**
-- **Test character: Skyborne Druid, level 22 (Blooded), Alliance side, tested in Northshire Valley.** Content for that character is thin: the slice is written for level 1–10 characters doing Northshire/Goldshire quests (only 4 Skyborne lines and 1 druid line exist). Asked the user where they actually play, for the next content pass.
+- **Test character: Skyborne Druid, level 22 (Blooded), faction not confirmed, tested in Northshire Valley.** Content for that character is thin: the slice is written for level 1–10 characters doing Northshire/Goldshire quests (only 4 Skyborne lines and 1 druid line exist). Asked the user where they actually play, for the next content pass.
 - `/rpgd probe`: everything present except the legacy globals `IsQuestFlaggedCompleted`, `UnitBuff`, `InterfaceOptions_AddCategory` (expected; Compat uses `C_QuestLog`, `C_UnitAuras`, `Settings` first).
 - The compact bar's **Talk button "did nothing"**. Their `/rpgd why` shows the engine picked McBride's node line after the click, so the full window most likely errored while drawing (Lua errors are hidden by default in WoW). Not reproduced in the mock. Added `ns.Guard` around every conversation entry point: errors now print in chat and the game's window comes back. **Next step: get that chat line from the user.**
 - The user wants **a box that opens automatically on right-click with the options right away**. Done: the full box is now the default every time (schema 2 migration), and it lists the NPC's quests and gossip options, handing the pick to the game's window (DESIGN §3.6).
@@ -45,8 +45,9 @@
 - Origin lists (brief M5 says "for my approval"): `RPGDialogue_World/origins/*.lua`. Horde races have none yet (no Horde content exists yet either).
 - Assumptions 10–13 above (new this session).
 
-## Not yet verified in game (nothing has been run in WoW yet)
-- Every Blizzard API assumption in `Compat.lua` (probe with `/rpgd probe`).
+## Not yet verified in game
+- Confirmed so far: loading, pack discovery, the engine and `/rpgd why`, race/class/level context, the probe list.
+- The rest of `Compat.lua`'s assumptions, beyond what `/rpgd probe` lists.
 - Fading GossipFrame/QuestFrame with `SetAlpha` and covering it with our own mouse blocker: check for taint (`/console taintLog 1`, then `Logs/taint.log`).
 - Keyboard capture (`SetPropagateKeyboardInput` inside OnKeyDown), now including arrow keys and Tab.
 - Gamepad (`EnableGamePadButton`, `OnGamePadButtonDown`, `C_GamePad.IsEnabled`).
@@ -77,7 +78,7 @@ Install by linking or copying `RPGDialogue`, `RPGDialogue_World`, `RPGDialogue_E
 Still all of DESIGN.md §4 (section 9 answers, slice zone, where the repo lives, commit identity, probe output, §6 OK), plus the assumptions above.
 
 ## Known bugs
-- None known. Untested in game.
+- **Open:** in game, the full conversation window didn't appear after clicking Talk on the compact bar (engine side ran; likely a drawing error). Waiting for the safety net's chat message.
 
 ## Environment notes
 - The cloud workspace had Lua 5.1, luac5.1, LuaRocks and luacheck installed by hand (`apt-get install lua5.1 luarocks liblua5.1-0-dev && luarocks install luacheck`), plus Python 3. A new session may need to reinstall them.
