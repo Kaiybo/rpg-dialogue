@@ -3,12 +3,19 @@
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
 ## 0.25.0 (2026-11-14)
-Packs: Arathi 1.1.0, Ashenvale 1.1.0, Badlands 1.1.0, Barrens 1.2.0, Darkshore 1.1.0, Darnassus 1.1.0, Desolace 1.1.0, Durotar 1.1.0, Duskwood 1.2.0, Dustwallow 1.1.0, Elwynn 1.8.0, Feralas 1.1.0, Hillsbrad 1.1.0, Hinterlands 1.1.0, Ironforge 1.3.0, LochModan 1.1.0, Moonglade 1.1.0, Mulgore 1.2.0, Orgrimmar 1.2.0, Redridge 1.2.0, Silverpine 1.1.0, Stonetalon 1.1.0, Stormwind 1.4.0, Stranglethorn 1.1.0, SwampOfSorrows 1.1.0, Tanaris 1.1.0, Teldrassil 1.2.0, ThousandNeedles 1.1.0, ThunderBluff 1.2.0, Tirisfal 1.1.0, UnGoro 1.1.0, Undercity 1.1.0, Westfall 1.3.0, Wetlands 1.1.0, Winterspring 1.1.0, World 1.13.0, Zephras 1.0.1, and a new one: Felwood 1.0.0. **New folder: exit the game fully, copy it in, and tick it.**
+Packs: Arathi 1.1.0, Ashenvale 1.1.0, Badlands 1.1.0, Barrens 1.2.0, Darkshore 1.1.0, Darnassus 1.1.0, Desolace 1.1.0, Durotar 1.1.0, Duskwood 1.2.0, Dustwallow 1.1.0, Elwynn 1.8.0, Feralas 1.1.0, Hillsbrad 1.1.0, Hinterlands 1.1.0, Ironforge 1.3.0, LochModan 1.1.0, Moonglade 1.1.0, Mulgore 1.2.0, Orgrimmar 1.2.0, Redridge 1.2.0, Silverpine 1.1.0, Stonetalon 1.1.0, Stormwind 1.4.0, Stranglethorn 1.2.0, SwampOfSorrows 1.1.0, Tanaris 1.1.0, Teldrassil 1.2.0, ThousandNeedles 1.1.0, ThunderBluff 1.2.0, Tirisfal 1.1.0, UnGoro 1.1.0, Undercity 1.1.0, Westfall 1.3.0, Wetlands 1.1.0, Winterspring 1.1.0, World 1.13.0, Zephras 1.0.1, and three new ones: Felwood 1.0.0, Searing Gorge 1.0.0, Eastern Plaguelands 1.0.0. **New folders: exit the game fully, copy them in, and tick them.**
 
 ### More to say, second round
 Repeat visits bring personal lines (habits, worries, running jokes) and night-time lines for most of the NPCs who only talked about their quests: Elwynn's class trainers and the Northshire and Eastvale folk; Westfall (Gryan, the Saldeans, the Furlbrows, Danuvin, Galiaan, Grayson, Daphne, Heather, MacGregor); Redridge and Duskwood (the paladin's road); Stormwind (Arthur the Faithful tells his story; Samuelson won't rest until King Varian comes home); Durotar (Kaltunk and Galgar remember the camps), Orgrimmar, Freewind Post; and the innkeepers and thinnest quest givers everywhere else. Neighbours now remark on each other once you've met both (Goldshire, Bloodhoof, Dolanaar, Thunder Bluff).
 
-### New place
+### Stranglethorn Vale (the user is questing there)
+- **Nesingwary's Expedition.** Hemet Nesingwary and his hunts (raptors, King Bangalash), Barnil Stonepot and the scattered pages of The Green Hills of Stranglethorn, Ajeck Rouack and the tiger Sin'Dall, Sir S. J. Erlgadin, who walked out of the House of Nobles over the stonemasons.
+- **Booty Bay.** Captain Hecklebury Smotts and his three sea giants, "Shaky" Phillipe and his debt, First Mate Crazz and the Bloodsail, Crank Fizzlebub's schemes (and his arrangement with Kravel at the Raceway), Whiskey Slim's lost port, Drizzlik's Emporium.
+- Everyone already in the pack (Revilgaz, Seahorn, Krazek, MacKinley, Kebok, Skindle, Grom'gol, the Rebel Camp) gets repeat-visit and night lines, and neighbours remark on each other.
+
+### New places
+- **Searing Gorge.** Thorium Point: Overseer Oilfist (how the Brotherhood escaped Ragnaros), Hansel Heavyhands (always just sat down), Lookout Captain Lolo Longstriker (blind, and suspicious of a certain grieving stranger); Kalaran Windblade, whose story about his father is a claim the game will settle. Guard names "... Lookout".
+- **Eastern Plaguelands.** Light's Hope Chapel: Lord Maxwell Tyrosus, Leonid Barthalomew the Revered; Tirion Fordring by the river with Mirador (Eitrigg, his exile, his son); Nathanos Blightcaller at the Marris Stead (Horde).
 - **Felwood.** The Emerald Sanctuary: Eridan Bluewind (who makes Linken's totem), Greta Mosshoof, Maybess Riverbreeze for the Horde and Arathandris Silversky for the Alliance, cleansing the forest a little each day. Bloodvenom Post: Winna Hazzard, cackling, with a kitten; Trull Failbane, Orgrimmar's eyes in the forest; the braves. Talonbranch Glade: Golhine the Hooded, druid trainer.
 
 ## 0.24.0 (2026-11-14)

@@ -3,7 +3,8 @@
 The pack's own version is `version` in `pack.lua`; bump both together.
 
 ## 1.13.0 (unreleased)
-- Town: Bloodvenom Post.
+- Towns: Bloodvenom Post, Thorium Point, Light's Hope Chapel.
+- Claim `kalaran_father` (Kalaran Windblade's story; false, settled by Squire Maltrake).
 
 ## 1.12.0 (unreleased)
 - Towns: Stonard, Refuge Pointe, Hammerfall, Aerie Peak, Kargath, Marshal's Refuge, Everlook.
