@@ -1,0 +1,17 @@
+## Interface: 16001, 16002
+## Title: RPG Dialogue: Stranglethorn Vale |cff8a8a8a1.0.0|r
+## Notes: Booty Bay, Grom'gol and the Rebel Camp: a goblin baron and his books, a tauren pirate, a lost son of the Darkspear, and soldiers who walked away from a mad colonel.
+## Author: RPG Dialogue
+## Version: 1.0.0
+## Dependencies: RPGDialogue
+## LoadOnDemand: 1
+## X-RPGD-Pack: rpgd.stranglethorn
+## X-RPGD-Format: 1
+## X-RPGD-Load: zone
+## X-RPGD-Zones: Stranglethorn_Vale
+
+pack.lua
+pools.lua
+npcs\booty_bay.lua
+npcs\gromgol.lua
+npcs\rebel_camp.lua

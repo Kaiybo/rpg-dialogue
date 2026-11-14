@@ -355,6 +355,11 @@ describe("Content packs", function()
     end
     eq(ns.Data.FindNPC(nil, "Mountaineer Kadrell").key, "kadrell")
     eq(ns.Data.FindNPC(nil, "Chief Engineer Hinderweir VII").key, "hinderweir")
+    Mock.state.units.npc = { guid = "Creature-0-1-0-1-727-AB", name = "Ironforge Mountaineer", level = 30 }
+    local ctx = ns.Context.New({ unit = "npc" })
+    local info = ns.Conversation.Identify("npc", ctx)
+    eq(info.role, "guard")
+    eq(ns.Data.PoolsFor(info, ctx)[1].pool.id, "guard_thelsamar")
   end)
 
   it("Stonetalon loads at Sun Rock Retreat; Maggran and Albagorm are on either side of the ridges", function()
@@ -385,6 +390,24 @@ describe("Content packs", function()
     Mock.RunTimers()
     ok(ns.char.threads.the_circle and ns.char.threads.the_circle.beats.b1_dendrite, "Dendrite's beat recorded")
     eq(ns.char.threads.the_circle.state, "stirring")
+  end)
+
+  it("Stranglethorn loads in Booty Bay; the Baron, Nimboya and Doren are all there, and the Bruisers guard the port", function()
+    local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Stranglethorn" } })
+    Mock.state.zone, Mock.state.subzone = "Stranglethorn Vale", "Booty Bay"
+    Mock.Fire("ZONE_CHANGED_NEW_AREA")
+    Mock.RunTimers()
+    for _, p in ipairs(ns.Packs.List()) do
+      if p.id == "rpgd.stranglethorn" then ok(p.loaded); eq(p.warnings, 0) end
+    end
+    eq(ns.Data.FindNPC(nil, "Baron Revilgaz").key, "revilgaz")
+    eq(ns.Data.FindNPC(nil, "Nimboya").key, "nimboya")
+    eq(ns.Data.FindNPC(nil, "Lieutenant Doren").key, "doren")
+    Mock.state.units.npc = { guid = "Creature-0-1-0-1-4624-AB", name = "Booty Bay Bruiser", level = 57 }
+    local ctx = ns.Context.New({ unit = "npc" })
+    local info = ns.Conversation.Identify("npc", ctx)
+    eq(info.role, "guard")
+    eq(ns.Data.PoolsFor(info, ctx)[1].pool.id, "guard_bootybay")
   end)
 
   it("Zephras Isle's Peacekeepers are guards of the isle, and the High Elder knows her own", function()

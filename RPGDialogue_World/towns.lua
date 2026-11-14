@@ -201,6 +201,27 @@ P:Town {
   quests = { { TODO_QUEST("Reclaiming the Charred Vale"), 8 } },
 }
 
+P:Town {
+  id = "booty_bay", name = "Booty Bay",
+  subzones = { "Booty Bay", "The Salty Sailor Tavern" },
+  tiers = { Hero = "Friend of the Baron" },
+  quests = { { TODO_QUEST("The Bloodsail Buccaneers"), 8 }, { TODO_QUEST("The Haunted Isle"), 6 } },
+}
+
+P:Town {
+  id = "gromgol", name = "Grom'gol Base Camp",
+  subzones = { "Grom'gol Base Camp" },
+  tiers = { Hero = "Hero of Grom'gol" },
+  quests = { { TODO_QUEST("Saving Yenniku"), 8 }, { TODO_QUEST("The Defense of Grom'gol"), 6 } },
+}
+
+P:Town {
+  id = "rebel_camp", name = "The Rebel Camp",
+  subzones = { "Rebel Camp" },
+  tiers = { Hero = "Brother of the Rebellion" },
+  quests = { { TODO_QUEST("Colonel Kurzen"), 8 }, { TODO_QUEST("Mai'Zoth"), 6 } },
+}
+
 -- The other capitals. Their guards speak from pools_roles.lua; standing grows from quests
 -- each capital's own pack lists later.
 P:Town {

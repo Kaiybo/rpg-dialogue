@@ -40,3 +40,7 @@ P:Topic { id = "explorers_league", name = "The Explorers' League", category = "p
 P:Topic { id = "dragonmaw", name = "The Dragonmaw clan", category = "threats", learned = "Captain Stoutfist in Menethil Harbor" }
 P:Topic { id = "cenarion_circle", name = "The Cenarion Circle", category = "people", learned = "Nighthaven, in Moonglade" }
 P:Topic { id = "wailing_caverns", name = "The Wailing Caverns", category = "places", learned = "Tonga Runetotem at the Crossroads" }
+P:Topic { id = "steamwheedle", name = "The Steamwheedle Cartel", category = "people", learned = "Baron Revilgaz in Booty Bay" }
+P:Topic { id = "bloodsail", name = "The Bloodsail Buccaneers", category = "threats", learned = "Fleet Master Seahorn in Booty Bay" }
+P:Topic { id = "kurzen", name = "Colonel Kurzen's expedition", category = "rumors", learned = "Lieutenant Doren at the Rebel Camp" }
+P:Topic { id = "yenniku", name = "Yenniku, son of Vol'jin", category = "people", learned = "Nimboya at Grom'gol" }

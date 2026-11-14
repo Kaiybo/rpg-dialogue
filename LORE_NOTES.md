@@ -404,3 +404,25 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Braelyn Firehand: blood elf mage against the Talon Den druids and Keeper Ordanus; Cenarius' Legacy, Ordanus | [Braelyn Firehand](https://warcraft.wiki.gg/wiki/Braelyn_Firehand); [Keeper Ordanus](https://warcraft.wiki.gg/wiki/Keeper_Ordanus) |
 | Witch Doctor Jin'Zil: Malaka'jin cave, cages, Darsok's friend | [Witch Doctor Jin'Zil](https://warcraft.wiki.gg/wiki/Witch_Doctor_Jin%27Zil) |
 | Innkeeper Jayka; Keeper Albagorm and Innkeeper Faralia at Stonetalon Peak | [Innkeeper Jayka](https://warcraft.wiki.gg/wiki/Innkeeper_Jayka); [Stonetalon Peak](https://warcraft.wiki.gg/wiki/Stonetalon_Peak); [Keeper Albagorm](https://warcraft.wiki.gg/wiki/Keeper_Albagorm) |
+
+## Stranglethorn Vale (Stranglethorn pack 1.0.0)
+
+| Fact used | Source |
+|---|---|
+| Booty Bay: a port in the cliffs round a lagoon, entered through a shark's jaws; the Steamwheedle goblins took the cove from the trolls before the First War; the Blackwater Raiders; the Bloodsail are its enemies; the Salty Sailor Tavern | [Booty Bay](https://warcraft.wiki.gg/wiki/Booty_Bay) |
+| Baron Revilgaz: goblin ruler of Booty Bay on a balcony above the Salty Sailor; shrewd, demanding, protective of his profits; the Bloodsail tried to kill him and Seahorn; Classic quests | [Baron Revilgaz](https://warcraft.wiki.gg/wiki/Baron_Revilgaz) |
+| Fleet Master Seahorn: tauren pirate, fleet master of the Blackwater Raiders; boisterous; The Bloodsail Buccaneers, Sunken Treasure | [Fleet Master Seahorn](https://warcraft.wiki.gg/wiki/Fleet_Master_Seahorn) |
+| Krazek: goblin, Revilgaz's secretary, knows everything in the jungle; Classic quests (Thorsen's supplies, the Haunted Isle, the Rumormonger, Tran'rek) | [Krazek](https://warcraft.wiki.gg/wiki/Krazek) |
+| "Sea Wolf" MacKinley: gambler and debt collector who collects from the dead too; Classic debt quests | ["Sea Wolf" MacKinley](https://warcraft.wiki.gg/wiki/%22Sea_Wolf%22_MacKinley) |
+| Kebok: trolls killing his agents; tusks sold as tiger fangs in the South Seas | [Kebok](https://warcraft.wiki.gg/wiki/Kebok) |
+| Innkeeper Skindle; the Booty Bay Bruisers | [Innkeeper Skindle](https://warcraft.wiki.gg/wiki/Innkeeper_Skindle); [Booty Bay Bruiser](https://warcraft.wiki.gg/wiki/Booty_Bay_Bruiser) |
+| Grom'gol: Horde fort keeping the supply chain to Stonard | [Grom'gol Base Camp](https://warcraft.wiki.gg/wiki/Grom%27gol_Base_Camp) |
+| Commander Aggro'gosh: blunt orc commander; ogres and Bloodscalp threaten the caravans; The Defense of Grom'gol | [Commander Aggro'gosh](https://warcraft.wiki.gg/wiki/Commander_Aggro%27gosh) |
+| Nimboya: Darkspear from Orgrimmar searching for Yenniku, youngest son of Vol'jin; wants Nezzliok's head; Classic Yenniku quests | [Nimboya](https://warcraft.wiki.gg/wiki/Nimboya) |
+| Kin'weelay: most powerful Darkspear witch doctor, sent to aid Nimboya; Classic quests (the Vile Reef, bone necklaces, the Fate of Yenniku, the Singing Crystals) | [Kin'weelay](https://warcraft.wiki.gg/wiki/Kin%27weelay) |
+| Far Seer Mok'thardin: orc shaman of Orgrimmar; Mok'thardin's Enchantment | [Far Seer Mok'thardin](https://warcraft.wiki.gg/wiki/Far_Seer_Mok%27thardin) |
+| Innkeeper Thulbek: friendly orc innkeeper; tales of battle | [Innkeeper Thulbek](https://warcraft.wiki.gg/wiki/Innkeeper_Thulbek) |
+| Lieutenant Doren and the Rebel Camp: Kurzen's expedition went mad; Doren and others rebelled; he hunts whoever exposed Private Thorsen and suspects Bookie Herod | [Rebel Camp](https://warcraft.wiki.gg/wiki/Rebel_Camp); [Lieutenant Doren](https://warcraft.wiki.gg/wiki/Lieutenant_Doren) |
+| Brother Nimetz: priest and alchemist; studies the Kurzen Medicine Men's elixirs; vowed to kill the ogre mage Mai'Zoth | [Brother Nimetz](https://warcraft.wiki.gg/wiki/Brother_Nimetz) |
+| "Ironforge Mountaineer" and "Booty Bay Bruiser" are guard NPC names; Nighthaven's guards are "Nighthaven Defender" in Classic and "Moonglade Warden" later | [Booty Bay Bruiser](https://warcraft.wiki.gg/wiki/Booty_Bay_Bruiser); [Nighthaven](https://warcraft.wiki.gg/wiki/Nighthaven) |
+| Left out: Hemet Nesingwary (the son replaced the father in patch 2.0.1, so which one stands in Year 1's camp is unclear) | [Hemet Nesingwary Jr.](https://warcraft.wiki.gg/wiki/Hemet_Nesingwary_Jr.) |
