@@ -326,6 +326,13 @@ P:Town {
   quests = { { TODO_QUEST("Assault on Fenris Isle"), 8 }, { TODO_QUEST("The Dead Fields"), 6 } },
 }
 
+P:Town {
+  id = "taurajo", name = "Camp Taurajo",
+  subzones = { "Camp Taurajo" },
+  tiers = { Hero = "Friend of Taurajo" },
+  quests = { { TODO_QUEST("Betrayal from Within"), 6 } },
+}
+
 -- The other capitals. Their guards speak from pools_roles.lua; standing grows from quests
 -- each capital's own pack lists later.
 P:Town {

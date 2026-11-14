@@ -521,3 +521,14 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Dalar Dawnweaver: former Kirin Tor archmage, killed when the Scourge took Dalaran, freed by Sylvanas; present when Kel'Thuzad summoned Archimonde; resents the Kirin Tor; calls Arugal a fool | [Dalar Dawnweaver](https://warcraft.wiki.gg/wiki/Dalar_Dawnweaver) |
 | Shadow Priest Allister: the Forsaken's information network in Lordaeron; Classic quests | [Shadow Priest Allister](https://warcraft.wiki.gg/wiki/Shadow_Priest_Allister) |
 | Innkeeper Bates | [Innkeeper Bates](https://warcraft.wiki.gg/wiki/Innkeeper_Bates) |
+
+## Camp Taurajo (Barrens pack 1.1.0) and the capitals' echoes
+
+| Fact used | Source |
+|---|---|
+| Camp Taurajo stands in Classic and Forever; Jorn Skyseer leads; Mangletooth is a captive | [Camp Taurajo](https://warcraft.wiki.gg/wiki/Camp_Taurajo) |
+| Jorn Skyseer: hunter-mentor; the Barrens hunts | [Jorn Skyseer](https://warcraft.wiki.gg/wiki/Jorn_Skyseer) |
+| Mangletooth: Razormane captive; blood shards for Agamaggan's blessings; betrayed by Nak, Kuz and Lok; Agamaggan's fall and the thorns | [Mangletooth](https://warcraft.wiki.gg/wiki/Mangletooth) |
+| Tatternack Steelforge: sent by Thrall to study weapons and meet travelers; curious about every culture | [Tatternack Steelforge](https://warcraft.wiki.gg/wiki/Tatternack_Steelforge) |
+| Innkeeper Byula: welcoming in Classic | [Innkeeper Byula](https://warcraft.wiki.gg/wiki/Innkeeper_Byula) |
+| Echoes: Cairne and Baine (father and son), Hamuul and Rau (a druid of the Circle), Sylvanas and Zygand, Bethor and Thule (Renferrel's trail), Magni and the Senate's envoys, Fandral and Teldrassil's moonwells | the pages cited in each pack's section above |
