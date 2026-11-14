@@ -88,7 +88,7 @@ def main():
             all_lines.add(f[1])
         elif kind == "topicdef":
             topicdefs.add(f[1])
-        elif kind in ("pick", "greeting", "notice", "react", "topic"):
+        elif kind in ("pick", "greeting", "notice", "react", "topic", "rumor"):
             if kind == "topic":
                 gid, tkind = f[3], f[4]
                 if gid != "-":
@@ -160,9 +160,10 @@ def main():
     w("Some are expected: lines for states the random characters rarely reach (Champion band, Fel Taint, specific deaths). Look for lines that *should* fire.\n")
     for g in never:
         w(f"- {g}")
-    w("\n## Thread beats\n\nBeats are offered by the thread engine (M4); until then they never fire in the simulation.\n")
+    w("\n## Thread beats\n")
     for b in beats:
-        w(f"- {b}")
+        bid = "thread:" + b.split(" ")[0]
+        w(f"- {b}: fired {fired[bid]} times")
     w("\n## Special reply options\n")
     for key in defined_specials:
         c = specials.get(key)

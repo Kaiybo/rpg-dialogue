@@ -1,6 +1,7 @@
 -- NPC claims: what people say, and whether it's true. The truth behind a lie is canon
 -- or deliberately left open (DESIGN.md / CONTENT_GUIDE.md).
 local P = RPGDialogueAPI:Pack("rpgd.world")
+local TODO_QUEST = P.TODO_QUEST
 
 P:Claim {
   id = "defias_common_thieves", by = "dughan", truth = "partly",
@@ -34,4 +35,13 @@ P:Claim {
   text = "Hogger can't be killed; every hunter who tried came back on a cart.",
   truthNote = "Inn talk. Hogger can be killed (the bounty).",
   exposedBy = { "quest:WANTED: \"Hogger\"" },
+}
+
+-- Player claims: things the player can say about themselves. trueWhen checks them against
+-- real history; NPCs who could know may call the player out (condition lieCaught).
+P:Claim {
+  id = "player_killed_hogger", by = "player", truth = "unknown",
+  text = "The player says they killed Hogger.",
+  truthNote = "True only if the player turned in the Hogger bounty.",
+  trueWhen = { questDone = TODO_QUEST("WANTED: \"Hogger\"") },
 }

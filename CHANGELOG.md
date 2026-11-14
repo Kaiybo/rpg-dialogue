@@ -4,6 +4,18 @@ All notable changes to RPG Dialogue. The core and each content pack get their ow
 
 ## [Unreleased]
 
+### M4 (2026-11-13): Story systems
+- Throughline engine (`Systems/Threads.lua`): beats from thread files compete in the NPC's opening line (base 480), at most one per conversation, same-thread gaps in conversations and minutes (per-thread overrides), HELD reasons in `/rpgd why`, beats count as "something new", every beat goes in the journal, a reflective journal entry at the third beat, untouched threads fade after three weeks. `/rpgd threads [reset | force]`.
+- "Ask about..." (`Systems/Topics.lua`, `UI/AskAbout.lua`): button on the dialogue window, searchable topic list (most recent first, archive for stale topics), answers via the specificity engine (own take, community, role, brush-off in their voice). `/rpgd topics [teach | forget]`.
+- Gossip network: `gossip` condition (an opinion told to someone in this NPC's community reaches them after a delay, with a stable chance). `contradiction` condition (conflicting opinions within one community get noticed). Content: Willem hears what you told McBride; Milly notices contradictions; Farley hears what you told William Pestle.
+- Lies: `lieCaught` condition checks a player claim against real history (`trueWhen` on the claim). Slice: tell Farley you killed Hogger ([Deceive]) and Dughan notices there's no claw on his desk (town standing drops).
+- Innkeeper rumors (`Systems/Rumors.lua`): rumor sets by role, town and zone; at most one per hour per innkeeper with a chance per visit; shown after the first line, or instead of the greeting in compact mode. Elwynn rumor set added.
+- Town standing (`Systems/Towns.lua`): quests done for a town move its standing (town quest lists), spread to related towns, extremes soften with long absence but never below ±30, flavored tier names.
+- Alignment hint tags on replies ([Light], [Cunning], ...), off by default.
+- `/rpgd claims`, `/rpgd die <cause>`.
+- Validator checks thread beats, rumors, town quest lists and player claims. Simulation advances time and conversations like real play, shuffles visiting order, and reports beats fired.
+- Simulation (2,000 characters): all four `elwynn_gold` beats fire; 7 of 325 lines never fire (all explained). Tests: 78 passing.
+
 ### M3 (2026-11-13): Vertical slice (Northshire Valley + Goldshire) and content tools
 - `RPGDialogue_World` pack (loads at login): towns (Northshire, Goldshire, Stormwind), 10 topics, 5 claims, the `elwynn_gold` throughline (4 beats, 2 endings), draft human origins (for approval), generic fallbacks, role pools (children, flight masters, innkeepers, vendors, trainers, spirit healers).
 - `RPGDialogue_Elwynn` pack (loads in Elwynn Forest): 13 NPCs: Marshal McBride, Deputy Willem, Eagan Peltskinner, Milly Osworth, Brother Neals, Brother Sammuel, Llane Beshere, Brother Danil, Marshal Dughan, Innkeeper Farley, Remy "Two Times", William Pestle, Smith Argus. Plus Northshire and Goldshire guard pools. Each NPC has a voice bible built from their wiki page and quests.

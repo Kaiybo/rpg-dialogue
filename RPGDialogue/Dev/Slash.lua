@@ -116,6 +116,48 @@ commands.seed = function(args)
   ns.Print(L.SEED_SET:format(n))
 end
 
+commands.threads = function(args)
+  if args[1] == "reset" and args[2] then
+    ns.Threads.Reset(args[2]); ns.Print(L.DONE); return
+  elseif args[1] == "force" and args[2] and args[3] then
+    local ok, npc = ns.Threads.Force(args[2], args[3])
+    ns.Print(ok and ("Next conversation with " .. tostring(npc) .. " offers " .. args[3] .. ".") or L.NOT_FOUND:format(args[2] .. " " .. args[3]))
+    return
+  end
+  local lines = ns.Threads.Describe()
+  if #lines == 0 then ns.Print(L.THREADS_NONE) else printList(L.THREADS_HEADER, lines) end
+end
+
+commands.claims = function()
+  local lines = {}
+  for id, rec in pairs(ns.char.claims.heard) do
+    local def = ns.Data.claims[id]
+    local exposed = ns.char.claims.exposed[id] and " |cff40ff40(settled)|r" or ""
+    lines[#lines + 1] = ("%s: \"%s\" (from %s)%s"):format(id, def and def.text or "?", tostring(rec.npc or (def and def.by) or "?"), exposed)
+  end
+  table.sort(lines)
+  if #lines == 0 then ns.Print(L.CLAIMS_NONE) else printList(L.CLAIMS_HEADER, lines) end
+end
+
+commands.topics = function(args)
+  if args[1] == "teach" and args[2] then ns.Topics.Teach(args[2]); ns.Print(L.DONE); return end
+  if args[1] == "forget" and args[2] then ns.Topics.Forget(args[2]); ns.Print(L.DONE); return end
+  local lines = {}
+  for _, t in ipairs(ns.Topics.Known(true)) do
+    lines[#lines + 1] = t.id .. " (" .. t.category .. ")" .. (t.archived and " [old]" or "")
+  end
+  if #lines == 0 then ns.Print(L.TOPICS_NONE) else printList(L.TOPICS_HEADER, lines) end
+end
+
+commands.die = function(args)
+  local cause = args[1] or "unknown"
+  local c = ns.char
+  local zone, sub = C.Zone()
+  c.deaths[#c.deaths + 1] = { t = C.Now(), zone = zone, subzone = sub, cause = cause, level = C.Level("player"), fake = true }
+  c.deathCount = (c.deathCount or 0) + 1
+  ns.Print(L.DIE_DONE:format(cause))
+end
+
 function Slash.Handle(msg)
   local args = {}
   for word in (msg or ""):gmatch("%S+") do args[#args + 1] = word end

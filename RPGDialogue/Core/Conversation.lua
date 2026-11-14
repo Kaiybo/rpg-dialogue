@@ -122,7 +122,8 @@ function Conv.Shown(winner)
   Memory.MarkSeen(winner.gid, winner.line)
   for sys in pairs(winner.systems or {}) do ns.Pacing.Use(sys, s.env) end
   if winner.line.fx then Effects.Apply(winner.line.fx, s.env) end
-  if winner.line.journal then Effects.Journal(winner.line.journal, s.ctx, s.env) end
+  if winner.line.journal and not winner.line._thread then Effects.Journal(winner.line.journal, s.ctx, s.env) end
+  if winner.line._thread and ns.Threads then ns.Threads.Heard(winner.line, s.env) end
 end
 
 function Conv.Start(kind, unit, interactionName)
@@ -230,6 +231,7 @@ function Conv.Business()
   local s = Conv.session
   if not s then return end
   ns.UI.Dialogue.Hide()
+  if ns.UI.AskAbout then ns.UI.AskAbout.Hide() end
   restoreBlizzard(s)
   if s.kind == "talk" or not Conv.BlizzardFrame(s) then
     Conv.Finish()
@@ -256,6 +258,7 @@ function Conv.Finish()
   restoreBlizzard(s)
   ns.UI.Dialogue.Hide()
   ns.UI.Compact.Hide()
+  if ns.UI.AskAbout then ns.UI.AskAbout.Hide() end
   if ns.db.settings.tts then C.StopSpeaking() end
   Conv.session = nil
   ns.Fire("CONVERSATION_ENDED", s)
@@ -264,12 +267,33 @@ end
 ---------------------------------------------------------------------------
 -- Showing things
 ---------------------------------------------------------------------------
+local HINTS = {
+  light = { "Light", "Shadow" }, order = { "Order", "Wild" }, honor = { "Honor", "Cunning" },
+}
+
+-- Optional alignment hint, from the choice's strongest alignment shift ("[Light]").
+local function alignHint(choice)
+  local align = choice.fx and choice.fx.align
+  if not align then return nil end
+  local best, bestMag
+  for axis, d in pairs(align) do
+    if HINTS[axis] and d ~= 0 and (not bestMag or math.abs(d) > bestMag) then best, bestMag = axis, math.abs(d) end
+  end
+  if not best then return nil end
+  return align[best] > 0 and HINTS[best][1] or HINTS[best][2]
+end
+Conv.AlignHint = alignHint
+
 local function choiceLabel(entry)
   local choice = entry.choice
   local text = choice.text or "..."
   local tags = ns.db.settings.tags
-  if choice.tag and tags ~= "never" and (tags == "always" or not entry.locked) then
+  if choice.tag and tags ~= "never" and (tags == "always" or not entry.locked) and not text:find("^%[") then
     text = "[" .. choice.tag .. "] " .. text
+  end
+  if ns.db.settings.alignHints then
+    local hint = alignHint(choice)
+    if hint then text = text .. " [" .. hint .. "]" end
   end
   return text
 end
@@ -306,6 +330,18 @@ function Conv.ShowNode(nodeId)
     end
   end
 
+  -- Innkeepers (and other listed roles) may pass on a rumor on the first node.
+  if isStart and not s.rumorDone and ns.Rumors and ns.Rumors.Due(info, env) then
+    s.rumorDone = true
+    local rumor = Engine.PickRumor(info, ctx, env)
+    if rumor then
+      Conv.Shown(rumor)
+      ns.Rumors.Used(info, env)
+      local text = Tokens.Render(rumor.line.text, ctx, env)
+      after = after and (after .. "\n\n" .. text) or text
+    end
+  end
+
   local body = main
   if before then body = before .. "\n\n" .. body end
   if after then body = body .. "\n\n" .. after end
@@ -319,7 +355,7 @@ function Conv.ShowNode(nodeId)
 
   ns.UI.Dialogue.Show({
     name = info.name, subtitle = info.subtitle, unit = s.unit, text = body, choices = choices,
-    lineGid = winner and winner.gid, canAsk = false,
+    lineGid = winner and winner.gid, canAsk = ns.Topics and ns.Topics.Any(),
   })
   if ns.db.settings.tts then C.StopSpeaking(); C.Speak(body) end
 end
@@ -356,6 +392,21 @@ function Conv.Choose(index)
   end
 end
 
+-- "Ask about...": the NPC's own take, then their community's, their role's, then a brush-off.
+function Conv.Ask(topic)
+  local s = Conv.session
+  if not s or s.mode ~= "full" then return end
+  local w = Engine.PickTopic(s.info, topic, s.ctx, s.env)
+  ns.Topics.Asked(topic, s.memKey)
+  local text = L.FALLBACK_LINE
+  if w then
+    Conv.Shown(w)
+    s.lastLine = w.gid
+    text = Tokens.Render(w.line.text, s.ctx, s.env)
+  end
+  ns.UI.Dialogue.ShowAnswer(text, ns.Data.topics[topic] and ns.Data.topics[topic].name or topic)
+end
+
 function Conv.OpenCompact()
   local s = Conv.session
   if not s then return end
@@ -366,7 +417,12 @@ function Conv.OpenCompact()
     notice = Engine.PickNotice(info, ctx, env)
   end
   s.pendingNotice = nil
-  local winner = notice or Engine.PickGreeting(info, ctx, env)
+  local rumor
+  if not notice and ns.Rumors and ns.Rumors.Due(info, env) then
+    rumor = Engine.PickRumor(info, ctx, env)
+    if rumor then ns.Rumors.Used(info, env) end
+  end
+  local winner = notice or rumor or Engine.PickGreeting(info, ctx, env)
   if not winner then s.mode = "none"; return end
   if notice then Engine.UseNotice(notice, info, env) end
   Conv.Shown(winner)

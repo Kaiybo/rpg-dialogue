@@ -171,11 +171,26 @@ end)
 
 def("thread", 60, "hinge", nil, function(ctx, v, env)
   local t = ns.char.threads[v.id or v[1]]
-  if not t then return v.state == "dormant", "thread " .. show(v.id or v[1]) .. " untouched" end
+  if not t then
+    -- Untouched thread: it is dormant, and no beat has been heard yet.
+    if v.state then return matches("dormant", v.state), "thread " .. show(v.id or v[1]) .. " untouched" end
+    if v.beat then return false, "thread " .. show(v.id or v[1]) .. " untouched" end
+    return true, "thread " .. show(v.id or v[1]) .. " untouched"
+  end
   if v.state and not matches(t.state, v.state) then return false, "thread state " .. tostring(t.state) end
   if v.beat and not (t.beats and t.beats[v.beat]) then return false, "beat " .. v.beat .. " not heard" end
   if v.notBeat and t.beats and t.beats[v.notBeat] then return false, "beat " .. v.notBeat .. " already heard" end
   return true, "thread " .. show(v.id or v[1])
+end)
+
+-- The player claimed something (fx.claim) that their real history contradicts: the claim's
+-- definition says when it would be true (trueWhen), and that isn't the case.
+def("lieCaught", 60, "hinge", nil, function(ctx, v, env)
+  if not ns.char.claims.player[v] then return false, "player never claimed " .. tostring(v) end
+  local claim = ns.Data and ns.Data.claims[v]
+  if not claim or not claim.trueWhen then return false, "claim " .. tostring(v) .. " can't be checked" end
+  local isTrue = Cond.Eval(claim.trueWhen, ctx, env)
+  return not isTrue, isTrue and "the claim is true" or "the claim is false"
 end)
 
 def("heardClaim", 60, "hinge", nil, function(_, v)
@@ -251,6 +266,42 @@ def("opinion", 30, "hinge", "opinion", function(ctx, v)
   local o = ns.char.opinions[v.topic or v[1]]
   local stance = o and o.stance
   return stance ~= nil and (v.stance == nil or matches(stance, v.stance)), "opinion " .. show(v.topic or v[1]) .. " = " .. tostring(stance)
+end)
+
+-- Gossip network: the player told someone else in this NPC's community their opinion on a
+-- topic, long enough ago for word to spread, and word reached this NPC (a stable roll per
+-- NPC and opinion). { topic = , stance = , delay = 600, chance = 0.6 }
+def("gossip", 30, "hinge", "opinion", function(ctx, v, env)
+  local topic = v.topic or v[1]
+  local o = ns.char.opinions[topic]
+  if not o then return false, "no opinion on " .. tostring(topic) end
+  if v.stance and not matches(o.stance, v.stance) then return false, "opinion is " .. tostring(o.stance) end
+  local info = env.info or {}
+  local me = info.key or info.name
+  if o.npc == me then return false, "told this NPC directly" end
+  local shared = false
+  for _, c in ipairs(o.communities or {}) do
+    if U.Contains(info.communities or {}, c) then shared = true end
+  end
+  if not shared then return false, "told outside this community" end
+  if (env.now or 0) - (o.t or 0) < (v.delay or 600) then return false, "word hasn't spread yet" end
+  local roll = (U.Hash(me, topic, o.t or 0) % 1000) / 1000
+  local p = v.chance or 0.6
+  return roll < p, ("word reached them (%.2f < %.2f)"):format(roll, p)
+end)
+
+-- The player said conflicting things about a topic, both within this NPC's community.
+def("contradiction", 40, "hinge", "opinion", function(ctx, v, env)
+  local topic = type(v) == "table" and (v.topic or v[1]) or v
+  local o = ns.char.opinions[topic]
+  local prev = o and o.contradicts
+  if not prev then return false, "no contradiction on " .. tostring(topic) end
+  local comms = (env.info and env.info.communities) or {}
+  local function heardHere(list)
+    for _, c in ipairs(list or {}) do if U.Contains(comms, c) then return true end end
+    return false
+  end
+  return heardHere(o.communities) and heardHere(prev.communities), "contradiction on " .. tostring(topic)
 end)
 
 def("taint", 40, "hinge", "taint", function(ctx, v)

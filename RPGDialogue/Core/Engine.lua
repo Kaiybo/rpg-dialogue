@@ -59,9 +59,11 @@ end
 ---------------------------------------------------------------------------
 -- Gathering
 ---------------------------------------------------------------------------
-local function add(out, list, base, src)
-  for _, line in ipairs(list or {}) do out[#out + 1] = { line = line, base = base, src = src } end
+local function add(out, list, base, src, filter)
+  for _, line in ipairs(list or {}) do out[#out + 1] = { line = line, base = base, src = src, filter = filter } end
 end
+
+Engine.BEAT_BASE = 480
 
 -- slot: "line" | "greeting" | "notice" | "react"
 function Engine.Gather(slot, info, ctx, nodeId)
@@ -72,6 +74,13 @@ function Engine.Gather(slot, info, ctx, nodeId)
   if slot == "line" then
     if def and def.nodes and def.nodes[nodeId] then add(out, def.nodes[nodeId].lines, own, "own") end
     if not isStart then return out end
+    -- Throughline beats for this NPC compete in the opening line, scoring high; pacing
+    -- can still hold them back (shown as HELD in /rpgd why).
+    if info.key and ns.Threads then
+      for _, beat in ipairs(ns.Threads.BeatsFor(info.key)) do
+        out[#out + 1] = { line = beat, base = Engine.BEAT_BASE, src = "beat", filter = ns.Threads.Filter }
+      end
+    end
   elseif slot == "greeting" then
     if def then add(out, def.greetings, own, "own") end
   elseif slot == "notice" then
@@ -128,6 +137,10 @@ function Engine.Pick(slot, cands, ctx, env, opts)
       local held
       if opts.filter then
         local ok, reason = opts.filter(line, gid)
+        if not ok then held = reason end
+      end
+      if not held and cand.filter then
+        local ok, reason = cand.filter(line, gid, env)
         if not ok then held = reason end
       end
       local systems = systemsOf(line)
@@ -259,6 +272,12 @@ end
 -- Does this NPC have "something new" (DESIGN.md §3.6)?
 function Engine.HasNews(info, ctx, env)
   local def = info.def
+  if info.key and ns.Threads then
+    for _, beat in ipairs(ns.Threads.BeatsFor(info.key)) do
+      local pass = Cond.Eval(beat.when, ctx, env)
+      if pass and ns.Threads.Filter(beat, beat._gid, env) then return true, beat._gid end
+    end
+  end
   if not def or not def.nodes then return false end
   local node = def.nodes[def.start]
   if not node then return false end
@@ -330,6 +349,17 @@ end
 
 function Engine.IsSpecial(choice)
   return choice.tag ~= nil and SPECIAL[choice.tag] == true
+end
+
+---------------------------------------------------------------------------
+-- Rumors (innkeepers and other listed roles)
+---------------------------------------------------------------------------
+function Engine.PickRumor(info, ctx, env)
+  if not ns.Rumors then return nil end
+  local cands = {}
+  for _, set in ipairs(ns.Rumors.SetsFor(info, ctx)) do add(cands, set.lines, 300, "rumor:" .. set.id) end
+  if #cands == 0 then return nil end
+  return Engine.Pick("rumor", cands, ctx, env, { defaultOnce = false })
 end
 
 ---------------------------------------------------------------------------

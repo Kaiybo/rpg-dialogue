@@ -14,6 +14,10 @@ P:Thread {
     soured = "The player pointed the Marshal at Remy. The dust trade dries up, and so does Remy's goodwill.",
   },
   pacing = { minConversations = 3, minSeconds = 1200 },
+  reflection = {
+    first = "That's three people now with something to say about the gold in Elwynn's mines, and none of them saying the same thing.",
+    third = "{name} had heard three different stories about the gold of Elwynn's mines by now.",
+  },
   beats = {
     {
       id = "b1_dust", npc = "remy",

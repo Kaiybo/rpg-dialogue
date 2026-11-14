@@ -33,8 +33,10 @@ local PROFS = { "Skinning", "Alchemy", "Herbalism", "Blacksmithing", "Mining", "
 -- Give every TODO quest title a fake ID and register it in capture data, as a real
 -- capture would.
 local titles, nextID = {}, 900000
+local visited = {}
 local function scan(v)
-  if type(v) ~= "table" then return end
+  if type(v) ~= "table" or visited[v] then return end
+  visited[v] = true
   if v.todo == "quest" and not titles[v.name] then
     nextID = nextID + 1
     titles[v.name] = nextID
@@ -45,6 +47,8 @@ end
 for _, def in pairs(ns.Data.npcs) do scan(def) end
 for _, pool in ipairs(ns.Data.pools) do scan(pool) end
 for _, t in pairs(ns.Data.threads) do scan(t) end
+for _, r in pairs(ns.Data.rumors) do scan(r) end
+for _, t in pairs(ns.Data.towns) do scan(t) end
 local questIDs = {}
 for _, id in pairs(titles) do questIDs[#questIDs + 1] = id end
 
@@ -97,7 +101,18 @@ local function randomCharacter(i)
   for _, id in pairs(ns.Data.claims) do if chance(0.25) then c.claims.heard[id.id] = { t = 0 } end end
   for id in pairs(ns.Data.topics) do if chance(0.3) then c.topics[id] = { t = 0 } end end
   c.homeInn = chance(0.4) and { name = pick({ "Goldshire", "Northshire Abbey", "Stormwind City" }) } or nil
-  if chance(0.4) then c.threads.elwynn_gold = { state = pick({ "stirring", "unfolding" }), beats = { b1_dust = 0 }, choices = {} } end
+  U.Wipe(c.journal)
+  local old = Mock.state.now - rng.int(1, 14) * 86400 - rng.int(0, 86400)
+  if chance(0.5) then
+    local stances = { "mercy", "hardline", "follow_the_leaders" }
+    c.opinions.defias = { stance = pick(stances), npc = "mcbride", communities = { "northshire" }, t = old, heardBy = {} }
+    if chance(0.3) then
+      c.opinions.defias.contradicts = { stance = pick(stances), npc = "willem", communities = { "northshire" }, t = old - 3600 }
+    end
+  end
+  if chance(0.3) then
+    c.opinions.maybell_tommy = { stance = pick({ "romantic", "dutiful" }), npc = "pestle", communities = { "goldshire" }, t = old, heardBy = {} }
+  end
 
   -- Quests: a plausible spread for the level
   local qspoof = {}
@@ -129,6 +144,9 @@ local function record(kind, who, node, w)
 end
 
 local function talk(info, spoof, charIndex, mem)
+  -- Real play: every conversation counts, and time passes between them.
+  ns.char.conversations = ns.char.conversations + 1
+  Mock.state.now = Mock.state.now + 1800
   local ctx = ns.Context.New({ spoof = spoof })
   local env = ns.Engine.NewEnv(info, ctx, mem)
   local who = info.key or ("pool:" .. tostring(info.role) .. "@" .. tostring(info.communities[1]))
@@ -136,7 +154,11 @@ local function talk(info, spoof, charIndex, mem)
   for nodeId, node in pairs(nodes) do
     local w = ns.Engine.PickLine(info, nodeId, ctx, env, node.big)
     record("pick", who, nodeId, w)
-    if w then ns.Memory.MarkSeen(w.gid, w.line) end
+    if w then
+      ns.Memory.MarkSeen(w.gid, w.line)
+      if w.line._thread then ns.Threads.Heard(w.line, env) end
+      if w.line.fx then ns.Effects.Apply(w.line.fx, env) end
+    end
     for i, entry in ipairs(ns.Engine.Choices(node, ctx, env)) do
       local ch = entry.choice
       local ok = ns.Engine.IsSpecial(ch) and (ns.Engine.CheckChoice(ch, ctx, env) and "pass" or "fail") or "-"
@@ -150,6 +172,8 @@ local function talk(info, spoof, charIndex, mem)
   env.conv.acks = 0
   local n = ns.Engine.PickNotice(info, ctx, env)
   record("notice", who, nil, n)
+  local rumor = ns.Engine.PickRumor(info, ctx, env)
+  if rumor then record("rumor", who, nil, rumor); ns.Memory.MarkSeen(rumor.gid, rumor.line) end
   for _, ev in ipairs({ "form", "pet", "stealth", "mount", "aura" }) do
     local r = ns.Engine.PickReaction(info, ev, ctx, env)
     if r then record("react", who, ev, r) end
@@ -177,34 +201,38 @@ local pooledNPCs = {
 }
 
 local VISITS = 3
-local function visits(info, spoof, i)
+local function newMem()
   local mem = { times = rng.int(0, 8), affinity = rng.int(-4, 6), topics = {}, flags = {} }
   if mem.times > 0 then mem.last = Mock.state.now - rng.int(0, 30) * 86400 end
-  local start = Mock.state.now
-  for _ = 1, VISITS do
-    talk(info, spoof, i, mem)
-    mem.times = mem.times + 1
-    mem.last = Mock.state.now
-    Mock.state.now = Mock.state.now + 86400
-  end
-  Mock.state.now = start
+  return mem
 end
 
 local errors = 0
+local START = Mock.state.now
 for i = 1, N do
+  Mock.state.now = START
   local spoof = randomCharacter(i)
+  local everyone = {}
   for key, def in pairs(ns.Data.npcs) do
-    local comm = def.communities and def.communities[1]
-    spoof.subzone = SUBZONES[comm] or "Goldshire"
-    spoof.zone = "Elwynn Forest"
-    local info = { def = def, key = key, name = def.name, role = def.role, tier = def.tier, communities = def.communities or {} }
-    local ok, err = pcall(visits, info, spoof, i)
-    if not ok then errors = errors + 1; out("error", key, tostring(err)) end
+    everyone[#everyone + 1] = { def = def, key = key, name = def.name, role = def.role, tier = def.tier, communities = def.communities or {} }
   end
-  for _, info in ipairs(pooledNPCs) do
-    spoof.subzone = SUBZONES[info.communities[1] or ""] or "Goldshire"
-    local ok, err = pcall(visits, info, spoof, i)
-    if not ok then errors = errors + 1; out("error", info.name, tostring(err)) end
+  table.sort(everyone, function(a, b) return a.key < b.key end)
+  for _, info in ipairs(pooledNPCs) do everyone[#everyone + 1] = info end
+  -- Shuffle the visiting order per character, like real play.
+  for j = #everyone, 2, -1 do local k = rng.int(1, j); everyone[j], everyone[k] = everyone[k], everyone[j] end
+  local mems = {}
+  for visit = 1, VISITS do
+    for _, info in ipairs(everyone) do
+      local id = info.key or info.name
+      mems[id] = mems[id] or newMem()
+      spoof.subzone = SUBZONES[info.communities[1] or ""] or "Goldshire"
+      spoof.zone = "Elwynn Forest"
+      local ok, err = pcall(talk, info, spoof, i, mems[id])
+      if not ok then errors = errors + 1; out("error", id, tostring(err)) end
+      mems[id].times = mems[id].times + 1
+      mems[id].last = Mock.state.now
+    end
+    Mock.state.now = Mock.state.now + 86400
   end
 end
 out("done", N, errors)

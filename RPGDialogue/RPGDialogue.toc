@@ -25,6 +25,11 @@ Core\Effects.lua
 Core\PackAPI.lua
 Core\Engine.lua
 
+Systems\Threads.lua
+Systems\Rumors.lua
+Systems\Towns.lua
+Systems\Topics.lua
+
 Integrations\DialogueAddons.lua
 
 UI\Theme.lua
@@ -32,6 +37,7 @@ UI\DialogueFrame.lua
 UI\CompactBar.lua
 UI\Settings.lua
 UI\Launcher.lua
+UI\AskAbout.lua
 
 Core\Conversation.lua
 

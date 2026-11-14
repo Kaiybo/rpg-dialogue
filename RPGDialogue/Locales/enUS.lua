@@ -29,6 +29,10 @@ L.HELP_LINES = {
   "flagged - list lines you flagged as wrong",
   "packs - list content packs",
   "seed <n> - replay the next conversation with a fixed random seed",
+  "threads [reset <id> | force <id> <beat>] - throughline states and beats",
+  "claims - claims you've heard, who told you, and whether they're exposed",
+  "topics [teach <id> | forget <id>] - topics you know",
+  "die <cause> - record a fake death (falling, drowning, guard, trivial, boss, ...)",
   "dev on|off - developer messages",
   "reset - wipe this character's RPG Dialogue memory (asks first)",
 }
@@ -78,6 +82,25 @@ L.FLAG_NONE = "No flagged lines."
 L.FLAG_LIST = "%d flagged line(s):"
 L.OTHER_ADDON_NOTICE = "%s is handling NPC conversations, so RPG Dialogue only shows a short line. Use the Talk keybinding for a full conversation, or change this in /rpgd settings."
 L.LAUNCHER_TIP = "Left-click: journal (when available). Right-click: settings."
+
+-- Ask about
+L.ASK_BUTTON = "Ask about..."
+L.ASK_TITLE = "Ask about..."
+L.ASK_NONE = "You haven't heard of anything worth asking about yet."
+L.ASK_ARCHIVED = "old"
+L.ASK_SHOW_ARCHIVE = "Show older topics"
+L.ASK_HIDE_ARCHIVE = "Hide older topics"
+
+-- Dev: story systems
+L.THREADS_HEADER = "Throughlines:"
+L.THREADS_NONE = "No throughlines loaded."
+L.CLAIMS_HEADER = "Claims you've heard:"
+L.CLAIMS_NONE = "You haven't heard any claims yet."
+L.TOPICS_HEADER = "Topics you know:"
+L.TOPICS_NONE = "You don't know any topics yet."
+L.DIE_DONE = "Recorded a fake death (cause: %s) for testing spirit healer lines."
+L.DONE = "Done."
+L.NOT_FOUND = "Not found: %s"
 
 -- Settings
 L.OPT_ENABLED = "Enable RPG Dialogue"

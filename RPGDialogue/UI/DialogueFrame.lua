@@ -156,6 +156,14 @@ local function create()
   end)
   frame.flag:SetScript("OnLeave", function() GameTooltip:Hide() end)
 
+  -- "Ask about..."
+  frame.ask = CreateFrame("Button", nil, frame, C.Template("button"))
+  frame.ask:SetSize(110, 20)
+  frame.ask:SetPoint("BOTTOMRIGHT", -14, 10)
+  frame.ask:SetText(L.ASK_BUTTON)
+  frame.ask:SetScript("OnClick", function() UI.AskAbout.Toggle(frame) end)
+  frame.ask:Hide()
+
   frame.flagBox = CreateFrame("EditBox", nil, frame, C.Template("editbox"))
   frame.flagBox:SetSize(WIDTH - 2 * PAD - 120, 20)
   frame.flagBox:SetPoint("BOTTOMLEFT", PAD + 6, 10)
@@ -236,7 +244,7 @@ function D.Layout()
       y = y - bh - 2
     end
   end
-  if frame.flagBox:IsShown() then y = y - 30 end
+  if frame.flagBox:IsShown() or frame.ask:IsShown() then y = y - 30 end
   frame:SetHeight(-y + PAD - 4)
   frame.text:SetWidth(textWidth)
 end
@@ -294,6 +302,7 @@ function D.Show(v)
   end
 
   frame.flagHint:SetText("")
+  frame.ask:SetShown(v.canAsk == true)
   D.Style()
   reveal.full = v.text or ""
   reveal.total = utf8Len(reveal.full)
@@ -309,6 +318,25 @@ function D.Show(v)
     frame:SetScript("OnUpdate", onUpdate)
   end
   if settings().sounds then C.PlaySound("IG_QUEST_LIST_OPEN") end
+end
+
+-- An answer from "Ask about...": replaces the main text, keeps the choices.
+function D.ShowAnswer(text, topicName)
+  if not frame or not frame:IsShown() then return end
+  frame.reaction:SetText("")
+  frame.reaction:Hide()
+  reveal.full = text or ""
+  reveal.total = utf8Len(reveal.full)
+  reveal.shown = 0
+  if topicName then frame.subtitle:SetText("<" .. topicName .. ">") end
+  D.Layout()
+  if instant() then
+    finishReveal()
+  else
+    reveal.active = true
+    frame.text:SetText("")
+    frame:SetScript("OnUpdate", onUpdate)
+  end
 end
 
 function D.ShowReaction(text)

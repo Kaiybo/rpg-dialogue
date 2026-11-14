@@ -148,12 +148,34 @@ local function simpleKind(store)
     Data[store][def.id] = def
   end
 end
-kinds.Thread = simpleKind("threads")
+-- Threads: beats are indexed as lines (global id "thread:<id>.<beat>") and by NPC key.
+Data.beatsByNpc = {}
+function kinds.Thread(pack, def)
+  if not def.id then return warn(pack, "thread without id") end
+  def._pack = pack.id
+  Data.threads[def.id] = def
+  for _, beat in ipairs(def.beats or {}) do
+    if beat.id and beat.npc then
+      indexLine(beat, "thread:" .. def.id .. "." .. beat.id, "thread:" .. def.id, "beat")
+      beat._thread = def
+      Data.beatsByNpc[beat.npc] = Data.beatsByNpc[beat.npc] or {}
+      table.insert(Data.beatsByNpc[beat.npc], beat)
+    else
+      warn(pack, "thread " .. def.id .. ": beat needs id and npc")
+    end
+  end
+end
 kinds.Claim = simpleKind("claims")
 kinds.Topic = simpleKind("topics")
 kinds.Town = simpleKind("towns")
 kinds.Origin = simpleKind("origins")
-kinds.Rumors = simpleKind("rumors")
+-- Rumors: lines innkeepers (or any role listed) may pass on.
+function kinds.Rumors(pack, def)
+  if not def.id then return warn(pack, "rumors without id") end
+  def._pack = pack.id
+  Data.rumors[def.id] = def
+  indexList(def.lines, "rumor:" .. def.id, "rumor:" .. def.id, "rumor")
+end
 
 local function newHandle(meta)
   local pack = {

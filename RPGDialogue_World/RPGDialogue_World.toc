@@ -15,5 +15,6 @@ topics.lua
 claims.lua
 threads.lua
 origins\human.lua
+rumors\elwynn.lua
 generic.lua
 pools.lua

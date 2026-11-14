@@ -32,6 +32,8 @@ P:NPC {
           text = "You found them! I'd hug you if my hands weren't sticky to the elbow." },
         { id = "q_manifest", when = { questActive = TODO_QUEST("Grape Manifest") },
           text = "Take that manifest to Brother Neals. He'll want to know exactly how much the Abbey's getting. Exactly." },
+        { id = "o_contradict", tags = { "news" }, when = { contradiction = "defias" },
+          text = "You told the Marshal one thing about the Defias and Willem another. Word gets around a valley this small. Which is it?" },
         { id = "e_dughan", tags = { "news" }, when = { heardLine = "dughan.d_common_thieves" },
           text = "Common thieves? Common thieves don't post a guard on a stolen grape crate. You tell Marshal Dughan that from me.",
           fx = { hear = "defias_trained" } },

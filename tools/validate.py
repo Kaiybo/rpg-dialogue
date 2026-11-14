@@ -180,7 +180,7 @@ def main():
                 tid = v.get("id") if isinstance(v, LTable) else None
                 if tid and tid not in defs["Thread"]:
                     rep.error(pack, f, when.line, f"{where}: thread {tid!r} isn't defined")
-            if k in ("heardClaim", "claimExposed") and v not in defs["Claim"]:
+            if k in ("heardClaim", "claimExposed", "lieCaught") and v not in defs["Claim"]:
                 rep.error(pack, f, when.line, f"{where}: claim {v!r} isn't defined")
             if k == "topicKnown" and v not in defs["Topic"]:
                 rep.warn(pack, f, when.line, f"{where}: topic {v!r} isn't defined")
@@ -218,6 +218,10 @@ def main():
                 tid = v.get("id") if isinstance(v, LTable) else None
                 if tid not in defs["Thread"]:
                     rep.error(pack, f, fx.line, f"{where}: thread {tid!r} isn't defined")
+            if k == "claim":
+                cid = v.get("id") if isinstance(v, LTable) else v
+                if cid not in defs["Claim"]:
+                    rep.warn(pack, f, fx.line, f"{where}: player claim {cid!r} isn't defined (NPCs can't check it)")
             if k in ("hear", "expose"):
                 for cid in (P.arr(v) if isinstance(v, LTable) else [v]):
                     if cid not in defs["Claim"]:
@@ -391,6 +395,28 @@ def main():
         for slot, node, ln, gid in P.iter_lines(tbl, "generic:" + str(tbl.get("id"))):
             check_line(pack, f, ln, "generic:" + str(tbl.get("id")), slot, ids)
 
+    for tid, (pack, tbl, f, line) in defs["Thread"].items():
+        if not tbl.get("theme"):
+            rep.warn(pack, f, line, f"thread {tid}: no one-line theme")
+        ids = set()
+        for i, b in enumerate(P.arr(tbl.get("beats")), 1):
+            if not isinstance(b, LTable):
+                continue
+            where = f"thread:{tid}.{b.get('id')}"
+            if b.get("npc") not in npcs:
+                rep.warn(pack, f, b.line, f"{where}: npc {b.get('npc')!r} isn't loaded (beat can't fire until it is)")
+            check_line(pack, f, b, f"thread:{tid}", "beat", ids)
+        if len(P.arr(tbl.get("beats"))) < 3:
+            rep.warn(pack, f, line, f"thread {tid}: fewer than 3 beats")
+    for rid, (pack, tbl, f, line) in defs["Rumors"].items():
+        ids = set()
+        for ln in P.arr(tbl.get("lines")):
+            if isinstance(ln, LTable):
+                check_line(pack, f, ln, f"rumor:{rid}", "rumor", ids)
+    for tid, (pack, tbl, f, line) in defs["Town"].items():
+        for entry in P.arr(tbl.get("quests")):
+            if isinstance(entry, LTable) and 1 in entry:
+                check_ref(pack, f, entry.line, "quest", entry[1], f"town {tid} quests")
     for tid, (pack, tbl, f, line) in defs["Topic"].items():
         if not tbl.get("name") or not tbl.get("category"):
             rep.error(pack, f, line, f"topic {tid}: needs name and category")
