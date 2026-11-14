@@ -34,6 +34,8 @@ P:NPC {
           text = "The Grimtotem on Darkcloud Pinnacle keep their own counsel. Too much of it. Find out what they plan." },
         { id = "h_arnak", when = { questActive = TODO_QUEST("Wanted - Arnak Grimtotem") },
           text = "Arnak Grimtotem. The poster says murder. If it speaks true, he has earned whatever finds him." },
+        { id = "h_nataka", when = { heardLine = "nataka.h_default" },
+          text = "You've seen Nataka? In Desolace? Is he well? He never says, in the few letters he sends. Tell me he's well." },
         { id = "h_family", when = { questActive = TODO_QUEST("Family Tree") },
           text = "My brother Nataka. I write, and he does not answer. A year now. If you find him, tell him I am still writing." },
       },

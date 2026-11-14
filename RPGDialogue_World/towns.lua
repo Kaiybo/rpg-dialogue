@@ -374,6 +374,20 @@ P:Town {
   quests = { { TODO_QUEST("Justice Dispensed"), 8 } },
 }
 
+P:Town {
+  id = "feathermoon", name = "Feathermoon Stronghold",
+  subzones = { "Feathermoon Stronghold", "Sardor Isle" },
+  tiers = { Hero = "Friend of the Sentinels" },
+  quests = { { TODO_QUEST("Improved Quality"), 4 } },
+}
+
+P:Town {
+  id = "mojache", name = "Camp Mojache",
+  subzones = { "Camp Mojache" },
+  tiers = { Hero = "Hero of Mojache" },
+  quests = { { TODO_QUEST("The Gordunni Orb"), 6 }, { TODO_QUEST("Dark Ceremony"), 6 } },
+}
+
 -- The other capitals. Their guards speak from pools_roles.lua; standing grows from quests
 -- each capital's own pack lists later.
 P:Town {

@@ -563,6 +563,18 @@ describe("Content packs", function()
     eq(ns.Data.PoolsFor(info, ctx)[1].pool.id, "guard_theramore")
   end)
 
+  it("Feralas loads at Feathermoon; Shandris and Rok Orhan are there", function()
+    local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Feralas" } })
+    Mock.state.zone, Mock.state.subzone = "Feralas", "Feathermoon Stronghold"
+    Mock.Fire("ZONE_CHANGED_NEW_AREA")
+    Mock.RunTimers()
+    for _, p in ipairs(ns.Packs.List()) do
+      if p.id == "rpgd.feralas" then ok(p.loaded); eq(p.warnings, 0) end
+    end
+    eq(ns.Data.FindNPC(nil, "Shandris Feathermoon").key, "shandris")
+    eq(ns.Data.FindNPC(nil, "Rok Orhan").key, "rokorhan")
+  end)
+
   it("Zephras Isle's Peacekeepers are guards of the isle, and the High Elder knows her own", function()
     local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Zephras" } })
     ns.db.settings.instantText = true

@@ -260,3 +260,44 @@ P:NPC {
     _none = { { id = "tp_none", text = "Not my hunt." } },
   },
 }
+
+P:NPC {
+  key = "nataka", id = TODO_NPC("Nataka Longhorn"), name = "Nataka Longhorn",
+  bible = "bibles/desolace.md", role = "questgiver", tier = "quest",
+  communities = { "ghost_walker" }, temper = { "easygoing" }, values = { "patient", "practical" },
+  notices = { "craft", "race" },
+
+  greetings = {
+    { id = "g_post", text = "Desolace isn't such a bad place, once you stop expecting it to grow anything. Sit down." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again. The centaur still out there? They always are." },
+  },
+
+  notice = {
+    { id = "n_fish", cat = "craft", when = { profession = "Fishing" },
+      text = "You fish? Out here? Good. There's a catch off the coast I'd like to see before I'm too old to eat it." },
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" },
+      text = "One of the herd, in this grey place. It does me good to see horns that aren't centaur bows." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "Nataka Longhorn, of Thunder Bluff. The centaur harass us, the land gives nothing, and still I've grown fond of it. Don't tell anyone." },
+        { id = "h_family", tags = { "news" }, when = { questActive = TODO_QUEST("Family Tree") },
+          text = "A letter? From my brother, at Freewind? I'd given up waiting. Let me sit down before I read it." },
+        { id = "h_brother", when = { heardLine = "longhorn.h_default" },
+          text = "You've been to Freewind Post? Then you've met my brother. Does he still stand on the edge of the mesa like he's holding it up?" },
+        { id = "h_catch", when = { questActive = TODO_QUEST("Catch of the Day") },
+          text = "There's a fish off this coast worth the trouble. Bring me one, and we'll both eat better than Desolace deserves." },
+      },
+      choices = { { text = "I'll help.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } } },
+    },
+  },
+
+  topics = {
+    grimtotem = { { id = "tp_grimtotem", text = "My brother writes about them, when he writes. He worries. He always worried more than me." } },
+    _none = { { id = "tp_none", text = "Couldn't say. Desolace doesn't bring much news." } },
+  },
+}

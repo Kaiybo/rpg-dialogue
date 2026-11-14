@@ -568,3 +568,16 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Innkeeper Janene | [Innkeeper Janene](https://warcraft.wiki.gg/wiki/Innkeeper_Janene) |
 | Krog: the Warchief's order to leave the humans alone, broken; the Shady Rest investigation; The Grimtotem Plot | [Krog](https://warcraft.wiki.gg/wiki/Krog) |
 | Nazeer Bloodpike: Brackenwall's spymaster; The Severed Head chain to Zor | [Nazeer Bloodpike](https://warcraft.wiki.gg/wiki/Nazeer_Bloodpike) |
+
+## Feralas (Feralas pack 1.0.0) and Nataka Longhorn (Desolace)
+
+| Fact used | Source |
+|---|---|
+| Shandris Feathermoon: General of the Sentinels on Sardor Isle; raised by Tyrande; the Hatecrest at Solarsal and a Zukk'ash hive reported to Gracina | [Shandris Feathermoon](https://warcraft.wiki.gg/wiki/Shandris_Feathermoon) |
+| The Classic stronghold on Sardor Isle; Shyria, Pratt | [Feathermoon Stronghold](https://warcraft.wiki.gg/wiki/Feathermoon_Stronghold) |
+| Pratt McGrubben: semi-retired paladin selling leather; The Mark of Quality | [Pratt McGrubben](https://warcraft.wiki.gg/wiki/Pratt_McGrubben) |
+| Innkeeper Shyria; Jonespyre's Request | [Innkeeper Shyria](https://warcraft.wiki.gg/wiki/Innkeeper_Shyria) |
+| Camp Mojache; Innkeeper Greul | [Camp Mojache](https://warcraft.wiki.gg/wiki/Camp_Mojache); [Innkeeper Greul](https://warcraft.wiki.gg/wiki/Innkeeper_Greul) |
+| Rok Orhan: sent by Belgrom Rockmaul against the Gordunni; in Classic and Forever | [Rok Orhan](https://warcraft.wiki.gg/wiki/Rok_Orhan) |
+| Orwin Gizzmick: Gordunni Cobalt; in Classic and Forever | [Orwin Gizzmick](https://warcraft.wiki.gg/wiki/Orwin_Gizzmick) |
+| Nataka Longhorn: at Ghost Walker Post; Cliffwatcher's brother; Family Tree, Catch of the Day | [Nataka Longhorn](https://warcraft.wiki.gg/wiki/Nataka_Longhorn) |
