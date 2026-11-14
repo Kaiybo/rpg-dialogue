@@ -10,7 +10,8 @@ Repeat visits bring personal lines (habits, worries, running jokes) and night-ti
 
 ### Stranglethorn Vale (the user is questing there)
 - **Nesingwary's Expedition.** Hemet Nesingwary and his hunts (raptors, King Bangalash), Barnil Stonepot and the scattered pages of The Green Hills of Stranglethorn, Ajeck Rouack and the tiger Sin'Dall, Sir S. J. Erlgadin, who walked out of the House of Nobles over the stonemasons.
-- **Booty Bay.** Captain Hecklebury Smotts and his three sea giants, "Shaky" Phillipe and his debt, First Mate Crazz and the Bloodsail, Crank Fizzlebub's schemes (and his arrangement with Kravel at the Raceway), Whiskey Slim's lost port, Drizzlik's Emporium.
+- **Booty Bay.** Captain Hecklebury Smotts and his three sea giants (and Sprogger, his cook, the only other survivor), Fin Fizracket and his Stranglethorn Fever, Wharfmaster Lozgil watching the docks, "Shaky" Phillipe and his debt, First Mate Crazz and the Bloodsail, Crank Fizzlebub's schemes (and his arrangement with Kravel at the Raceway), Whiskey Slim's lost port, Drizzlik's Emporium.
+- **The Rebel Camp.** Private Thorsen, who spied inside Kurzen's force and nearly didn't come out.
 - Everyone already in the pack (Revilgaz, Seahorn, Krazek, MacKinley, Kebok, Skindle, Grom'gol, the Rebel Camp) gets repeat-visit and night lines, and neighbours remark on each other.
 
 ### New places

@@ -715,3 +715,7 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Crank Fizzlebub: singing crystals from the Venture Company; helped Kravel rig the races with Zanzil's Mixture | [Crank Fizzlebub](https://warcraft.wiki.gg/wiki/Crank_Fizzlebub) |
 | Whiskey Slim: lost his Pupellyverbos Port in the Hinterlands | [Whiskey Slim](https://warcraft.wiki.gg/wiki/Whiskey_Slim) |
 | Drizzlik: Drizzlik's Emporium, boastful leathercrafter | [Drizzlik](https://warcraft.wiki.gg/wiki/Drizzlik) |
+| Sprogger: Smotts's cook, the only other survivor | [Sprogger](https://warcraft.wiki.gg/wiki/Sprogger) |
+| Fin Fizracket: Stranglethorn Fever, cured with Mokk the Savage's heart | [Fin Fizracket](https://warcraft.wiki.gg/wiki/Fin_Fizracket) |
+| Wharfmaster Lozgil: watches the port; Goblin Sponsorship; the Warsong axe crate | [Wharfmaster Lozgil](https://warcraft.wiki.gg/wiki/Wharfmaster_Lozgil) |
+| Private Thorsen: Rebel Camp spy who infiltrated Kurzen's force; Jungle Secrets, Supplies to Private Thorsen | [Private Thorsen](https://warcraft.wiki.gg/wiki/Private_Thorsen) |

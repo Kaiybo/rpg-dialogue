@@ -592,3 +592,106 @@ P:NPC {
     _none = { { id = "tp_none", text = "Is it leather? No? Then it's beneath me." } },
   },
 }
+
+P:NPC {
+  key = "sprogger", id = TODO_NPC("Sprogger"), name = "Sprogger",
+  bible = "bibles/stranglethorn.md", role = "citizen", tier = "quest",
+  communities = { "booty_bay" }, temper = { "haunted" }, values = { "loyal" },
+  notices = { "drink" },
+
+  greetings = {
+    { id = "g_cook", text = "You hungry? I can cook. I'm a cook. I was a cook. On a ship. Two ships, actually." },
+  },
+
+  notice = {
+    { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
+      text = "Easy on the grog. The water's closer than you think from these docks. I'd know." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "Sprogger. I cooked for Captain Smotts on the Smotts' Revenge. The giants came up out of the water and that was the end of her. Everyone went down but the Captain and me." },
+        { id = "h_negolash", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("The Captain's Cutlass") }, { questActive = TODO_QUEST("Facing Negolash") } } },
+          text = "Negolash. I can still see him, coming over the rail. Bring friends. Lots of friends. Then come back and tell me he's gone. I'd like to sleep again." },
+        { id = "h_why", when = { metBefore = true },
+          text = "People ask why I lived. I was in the galley, under a pot. A big pot. That's the whole secret. It isn't a good story, but it's mine." },
+      },
+      choices = { { text = "I'm glad you made it.", next = "END", fx = { affinity = 2 } } },
+    },
+  },
+
+  topics = {
+    _none = { { id = "tp_none", text = "I only know cooking and sea giants. Mostly cooking. Too much sea giants." } },
+  },
+}
+
+P:NPC {
+  key = "fin", id = TODO_NPC("Fin Fizracket"), name = "Fin Fizracket",
+  bible = "bibles/stranglethorn.md", role = "citizen", tier = "quest",
+  communities = { "booty_bay", "blackwater" }, temper = { "miserable" }, values = { "hopeful" },
+  notices = { "kit" },
+
+  greetings = {
+    { id = "g_sick", text = "Don't come too close. Or do. I don't know if it's catching. Nobody knows anything. Ugh." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "Fin Fizracket, Blackwater Raiders. Or I was, before the Stranglethorn Fever got me. Sweats, shakes, and a taste in my mouth like old boots. Don't get sick in the jungle." },
+        { id = "h_fever", tags = { "news" }, when = { questActive = TODO_QUEST("Stranglethorn Fever") },
+          text = "There's a cure. Supposedly. A gorilla's heart. A particular gorilla, a big angry one called Mokk. I can't believe I'm hoping somebody kills a gorilla for me." },
+        { id = "h_cured", when = { questDone = TODO_QUEST("Stranglethorn Fever") },
+          text = "I'm better! Look at me. Standing! The heart tasted awful. I'd eat ten more. Actually no. Never again. But I'd think about it." },
+      },
+      choices = { { text = "Feel better.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } } },
+    },
+  },
+
+  topics = {
+    _none = { { id = "tp_none", text = "Can't think. Fever. Ask somebody healthy." } },
+  },
+}
+
+P:NPC {
+  key = "lozgil", id = TODO_NPC("Wharfmaster Lozgil"), name = "Wharfmaster Lozgil",
+  bible = "bibles/stranglethorn.md", role = "worker", tier = "quest",
+  communities = { "booty_bay" }, temper = { "watchful" }, values = { "careful", "practical" },
+  notices = { "race" },
+
+  greetings = {
+    { id = "g_docks", text = "Watch your step on the boards, and your purse on the docks. Not necessarily in that order." },
+  },
+
+  notice = {
+    { id = "n_orc", cat = "race", when = { race = { "Orc", "Troll" } },
+      text = "Horde, eh? There's a crate of axes with your name on it. Well. Your Warchief's name. Been sitting there for days." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "Wharfmaster Lozgil. Everything that comes off a boat in Booty Bay comes past me first. You'd be amazed who comes and goes here. You'd be amazed who I'd rather didn't." },
+        { id = "h_warsong", tags = { "news" }, when = { questActive = TODO_QUEST("Warsong Supplies") },
+          text = "The Warsong crate. Axes, by the weight of it. It's been sitting on my dock for days. Haul it off, please, before somebody else decides it's theirs." },
+        { id = "h_sponsor", when = { questActive = TODO_QUEST("Goblin Sponsorship") },
+          text = "The Cartel likes to know who it's investing in. Show me you're worth the gold, and the gold will find you." },
+        { id = "h_watch", when = { metBefore = true },
+          text = "Saw a sailor slip a letter to a fishmonger this morning. Fishmongers don't read. I've made a note." },
+      },
+      choices = { { text = "I'll watch my purse.", next = "END", fx = { affinity = 1, trait = { cautious = 1 } } } },
+    },
+  },
+
+  topics = {
+    bloodsail = { { id = "tp_bloodsail", text = "Some of the faces on my docks wear red when nobody's looking. I can't prove it. Yet." } },
+    _none = { { id = "tp_none", text = "If it didn't come off a boat, I don't know it." } },
+  },
+}

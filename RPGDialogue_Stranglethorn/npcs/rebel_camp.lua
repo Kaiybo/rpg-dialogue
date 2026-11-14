@@ -112,3 +112,43 @@ P:NPC {
     _none = { { id = "tp_none", text = "I'm afraid I've no answer. I'll add it to my list of questions; it's a long list." } },
   },
 }
+
+P:NPC {
+  key = "thorsen", id = TODO_NPC("Private Thorsen"), name = "Private Thorsen",
+  bible = "bibles/stranglethorn.md", role = "soldier", tier = "quest",
+  communities = { "rebel_camp" }, temper = { "wary" }, values = { "loyal", "brave" },
+  notices = { "stealth", "kit" },
+
+  greetings = {
+    { id = "g_careful", text = "Keep your voice down. This part of the jungle has ears, and some of them belong to Kurzen." },
+  },
+
+  notice = {
+    { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
+      text = "You ran into Kurzen's men, didn't you? They fight like they've got nothing left to lose. They haven't." },
+  },
+
+  react = { { id = "r_stealth", on = "stealth", text = "Good. Stay low. That's how I lived through Kurzen's camp. Mostly." } },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "Private Thorsen. I spent time inside Kurzen's force, pretending to be one of them, and nearly didn't come out. I know what they're planning. Some of it." },
+        { id = "h_supplies", tags = { "news" }, when = { questActive = TODO_QUEST("Supplies to Private Thorsen") },
+          text = "Supplies from Booty Bay? Bless Krazek, he remembered. I've been eating roots for a week." },
+        { id = "h_secrets", when = { questActive = TODO_QUEST("Jungle Secrets") },
+          text = "Kurzen's men carry orders, and orders are paper, and paper talks. Bring me what they carry. Lieutenant Doren needs to know what I know." },
+        { id = "h_sleep", when = { metBefore = true },
+          text = "I still wake up reaching for their uniform. Then I remember which side I'm on. It takes a moment longer than I'd like." },
+      },
+      choices = { { text = "I'll help you.", next = "END", fx = { affinity = 2, align = { order = 1 } } } },
+    },
+  },
+
+  topics = {
+    kurzen = { { id = "tp_kurzen", text = "The Colonel's not himself. His officers aren't either. Whatever's in that compound is in their heads now." } },
+    _none = { { id = "tp_none", text = "I only know Kurzen. That's more than enough." } },
+  },
+}
