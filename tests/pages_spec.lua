@@ -92,33 +92,70 @@ describe("The game's pages in the box", function()
     ok(called("AcceptQuest"))
   end)
 
-  it("hands in: continue when ready, then pick a reward", function()
+  it("hands in: continue when ready, then pick a reward and confirm it", function()
     local ns = boot()
     Mock.state.questFrame = { questID = 9001, title = "A Threat Within", progress = "Is it done?",
       required = { { "Kobold Ear", 1, 5 } }, completable = false }
+    Mock.state.bags = { ["Kobold Ear"] = 3 }
     Mock.state.greeting = { available = {}, active = { { "A Threat Within", true } } }
     open("QuestFrame", "QUEST_GREETING")
     click(ns, "Hand in: A Threat Within")
     Mock.Fire("QUEST_PROGRESS")
     Mock.RunTimers()
     local f = ns.UI.Dialogue.Frame()
-    contains(f.text:GetText(), "Kobold Ear x5")
+    contains(f.text:GetText(), "Kobold Ear")
+    contains(f.text:GetText(), "3/5", "what the player carries against what's needed")
     local continue = rows(ns)[1]
     eq(continue.locked, true, "not ready yet")
+    contains(continue.label:GetText(), "not finished yet", "says why in words")
     Mock.state.questFrame.completable = true
+    Mock.state.bags = { ["Kobold Ear"] = 7 }
     Mock.Fire("QUEST_PROGRESS")
     Mock.RunTimers()
+    contains(f.text:GetText(), "5/5", "never more than needed")
     Mock.calls = {}
     click(ns, "Continue")
     ok(called("CompleteQuest"))
     Mock.state.questFrame.reward = "Well done."
-    Mock.state.questFrame.choices = { { "Sword", 1 }, { "Shield", 2 } }
+    Mock.state.questFrame.choices = { { "Sword", 1, 1, 2 }, { "Shield", 2, 1, 3, false } }
+    Mock.state.questFrame.money = 150
     Mock.Fire("QUEST_COMPLETE")
     Mock.RunTimers()
     contains(f.text:GetText(), "Well done.")
-    local shield = click(ns, "Take: Shield")
-    eq(called("GetQuestReward")[2], 2)
+    contains(f.text:GetText(), "Choose your reward:")
+    -- Nothing chosen yet: Complete is locked, and picking a reward doesn't hand in.
+    local complete = click(ns, "choose a reward first")
+    eq(complete.locked, true)
+    eq(called("GetQuestReward"), nil, "no reward taken by accident")
+    Mock.calls = {}
+    local shield = click(ns, "Shield")
+    eq(called("GetQuestReward"), nil, "picking only marks it")
     eq(shield.tooltip.kind, "choice", "the game's item tooltip on hover")
+    contains(shield.label:GetText(), "can't use", "unusable said in words")
+    contains(rows(ns)[2].label:GetText(), "(chosen)")
+    contains(rows(ns)[2].label:GetText(), "|cff0050a8", "rare in its quality color, deepened for parchment")
+    contains(f.text:GetText(), "Well done.", "the text stays")
+    click(ns, "Sword")
+    contains(rows(ns)[1].label:GetText(), "(chosen)")
+    eq((rows(ns)[2].label:GetText()):find("(chosen)", 1, true), nil, "only one at a time")
+    click(ns, "Complete quest, taking")
+    eq(called("GetQuestReward")[2], 1)
+  end)
+
+  it("shows a single reward on the reward page and takes it on Complete", function()
+    local ns = boot()
+    Mock.state.questFrame = { questID = 9002, title = "Report to Goldshire", reward = "Thanks.",
+      choices = { { "Militia Buckler", 135000, 1, 2 } }, rewards = { { "Bread", 5, 4 } }, xp = 80 }
+    open("QuestFrame", "QUEST_COMPLETE")
+    click(ns, "Hand in: Report to Goldshire")
+    local text = ns.UI.Dialogue.Frame().text:GetText()
+    contains(text, "Militia Buckler")
+    contains(text, "Bread x4")
+    contains(text, "You will also receive:")
+    contains(text, "80 experience")
+    Mock.calls = {}
+    click(ns, "Complete quest")
+    eq(called("GetQuestReward")[2], 1)
   end)
 
   it("hands over what needs the game's own confirmation, and opens vendors as usual", function()

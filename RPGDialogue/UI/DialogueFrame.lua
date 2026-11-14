@@ -614,11 +614,13 @@ function D.Confirm()
   return false
 end
 
--- Replace the choices in place (after an errand step).
-function D.SetChoices(choices)
+-- Replace the choices in place (after an errand step, a reward picked). focus: the row a
+-- keyboard or gamepad selection moves to (the next step, such as "Complete quest").
+function D.SetChoices(choices, focus)
   if not frame or not frame:IsShown() then return end
   if view then view.choices = choices end
   D.RenderChoices(choices)
+  if navMode and focus and frame.buttons[focus] and frame.buttons[focus]:IsShown() then D.Select(focus) end
   D.Style()
   D.Layout()
 end

@@ -410,7 +410,8 @@ function GetObjectiveText() return S().questFrame.objectives end
 function GetProgressText() return S().questFrame.progress end
 function GetRewardText() return S().questFrame.reward end
 function GetGreetingText() return S().questFrame.greeting end
--- Quest pages: state.questFrame.choices / rewards / required = { { name, texture, count } },
+-- Quest pages: state.questFrame.choices / rewards / required = { { name, texture, count, quality, usable } },
+-- state.bags = { [itemName] = count } for GetItemCount,
 -- money, xp, cost, completable, auto, pvp.
 local QUEST_LISTS = { choice = "choices", reward = "rewards", required = "required" }
 local function questList(kind) return S().questFrame[QUEST_LISTS[kind]] or {} end
@@ -419,7 +420,15 @@ function GetNumQuestRewards() return #questList("reward") end
 function GetNumQuestItems() return #questList("required") end
 function GetQuestItemInfo(kind, i)
   local it = questList(kind)[i]
-  if it then return it[1], it[2], it[3] or 1, 1, true end
+  if it then return it[1], it[2], it[3] or 1, it[4] or 1, it[5] ~= false end
+end
+function GetQuestItemLink(kind, i)
+  local it = questList(kind)[i]
+  if it then return "|Hitem:" .. tostring(it[2]) .. "|h[" .. it[1] .. "]|h" end
+end
+function GetItemCount(item)
+  local name = tostring(item):match("%[(.-)%]") or item
+  return (S().bags or {})[name] or 0
 end
 function GetRewardMoney() return S().questFrame.money or 0 end
 function GetRewardXP() return S().questFrame.xp or 0 end

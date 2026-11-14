@@ -224,6 +224,26 @@ function Theme.Hex(key)
   return ("|cff%02x%02x%02x"):format(math.floor(c[1] * 255 + 0.5), math.floor(c[2] * 255 + 0.5), math.floor(c[3] * 255 + 0.5))
 end
 
+-- Item quality colors (0 poor .. 5 legendary) as the game uses them on dark backgrounds,
+-- and deeper shades of the same hues that stay readable on parchment. Common and poor items
+-- keep the text color, as the game's quest window does.
+local QUALITY_DARK = { [2] = "1eff00", [3] = "0070dd", [4] = "a335ee", [5] = "ff8000", [6] = "e6cc80", [7] = "00ccff" }
+local QUALITY_LIGHT = { [2] = "1a7a00", [3] = "0050a8", [4] = "7a1fb8", [5] = "b35400", [6] = "8a6d1f", [7] = "006f8f" }
+local function darkPalette() return Theme.Palette().dark or Theme.Palette() == Theme.PALETTES.contrast end
+
+-- "|cffRRGGBB" for an item of this quality, or nil for plain text.
+function Theme.QualityHex(quality)
+  local hex = (darkPalette() and QUALITY_DARK or QUALITY_LIGHT)[tonumber(quality) or -1]
+  return hex and ("|cff" .. hex) or nil
+end
+
+-- Green for "you have enough", red for "you don't" or "you can't use this" (always said in
+-- words too, never by color alone).
+function Theme.StatusHex(good)
+  if darkPalette() then return good and "|cff40ff40" or "|cffff5050" end
+  return good and "|cff1a6a00" or "|cffa01010"
+end
+
 function Theme.TextColor(fs, key)
   local c = Theme.Palette()[key or "text"]
   fs:SetTextColor(c[1], c[2], c[3])

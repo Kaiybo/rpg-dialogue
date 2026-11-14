@@ -2,6 +2,17 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.26.0 (2026-11-14)
+Core only; packs unchanged. /reload is enough.
+
+### Turning in quests
+When you hand in a quest in the conversation box:
+- **Rewards to choose from are picked, then confirmed.** Clicking a reward (or its number) marks it "(chosen)" with a check; "Complete quest, taking ..." below then hands it in. Until something is chosen that row is locked and says "choose a reward first", so a stray click or key can no longer take the wrong reward.
+- **Item names in their quality color** (green, blue, purple...), in deeper shades that stay readable on parchment, and items your character can't use say "(you can't use this)", with the icon greyed.
+- **Required items show what you carry:** "Kobold Ear  3/5", green when you have enough, red when you don't. A Continue that isn't ready yet says "not finished yet" instead of just being locked.
+- **A single reward** is now listed on the reward page (it was missing) along with everything else you receive, and "Choose your reward:" heads the choices.
+- Headings follow the window's colors (they were dark brown even on the dark, high-contrast background), and the game's quest-complete sound plays on hand-in.
+
 ## 0.25.0 (2026-11-14)
 Packs: Arathi 1.1.0, Ashenvale 1.1.0, Badlands 1.1.0, Barrens 1.2.0, Darkshore 1.1.0, Darnassus 1.1.0, Desolace 1.1.0, Durotar 1.1.0, Duskwood 1.2.0, Dustwallow 1.1.0, Elwynn 1.8.0, Feralas 1.1.0, Hillsbrad 1.1.0, Hinterlands 1.1.0, Ironforge 1.3.0, LochModan 1.1.0, Moonglade 1.1.0, Mulgore 1.2.0, Orgrimmar 1.2.0, Redridge 1.2.0, Silverpine 1.1.0, Stonetalon 1.1.0, Stormwind 1.4.0, Stranglethorn 1.2.0, SwampOfSorrows 1.1.0, Tanaris 1.1.0, Teldrassil 1.2.0, ThousandNeedles 1.1.0, ThunderBluff 1.2.0, Tirisfal 1.1.0, UnGoro 1.1.0, Undercity 1.1.0, Westfall 1.3.0, Wetlands 1.1.0, Winterspring 1.1.0, World 1.13.0, Zephras 1.0.1, and three new ones: Felwood 1.0.0, Searing Gorge 1.0.0, Eastern Plaguelands 1.0.0. **New folders: exit the game fully, copy them in, and tick them.**
 

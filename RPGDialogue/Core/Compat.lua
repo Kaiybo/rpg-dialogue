@@ -915,13 +915,22 @@ end
 -- QuestFrame makes, 12.1.5: QuestFrame.lua / QuestInfo.lua).
 ---------------------------------------------------------------------------
 -- Items on the current quest page. kind: "choice" (pick one), "reward", "required".
+-- Each: name, texture, count, quality (nil if unknown), usable (false only when the game
+-- says the player can't use it), and for required items, have (how many the player carries,
+-- nil if unknown).
 local ITEM_COUNTERS = { choice = "GetNumQuestChoices", reward = "GetNumQuestRewards", required = "GetNumQuestItems" }
 function C.QuestItems(kind)
   local out = {}
   for i = 1, tonumber(call(ITEM_COUNTERS[kind])) or 0 do
-    local name, texture, count = call("GetQuestItemInfo", kind, i)
+    local name, texture, count, quality, usable = call("GetQuestItemInfo", kind, i)
     if type(name) == "string" and name ~= "" then
-      out[#out + 1] = { index = i, name = clean(name), texture = texture, count = tonumber(count) or 1, kind = kind }
+      local it = { index = i, name = clean(name), texture = texture, count = tonumber(count) or 1, kind = kind,
+                   quality = tonumber(quality), usable = usable ~= false }
+      if kind == "required" then
+        local link = call("GetQuestItemLink", kind, i)
+        it.have = tonumber(call({ "C_Item.GetItemCount", "GetItemCount" }, type(link) == "string" and link or it.name))
+      end
+      out[#out + 1] = it
     end
   end
   return out
