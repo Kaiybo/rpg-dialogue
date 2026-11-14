@@ -279,6 +279,19 @@ describe("Content packs", function()
     eq(ns.Data.PoolsFor(info, ctx)[1].pool.id, "guard_crossroads")
   end)
 
+  it("Ashenvale loads in Astranaar, and holds both Raene and Senani", function()
+    local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Ashenvale" } })
+    Mock.state.zone, Mock.state.subzone = "Ashenvale", "Astranaar"
+    Mock.Fire("ZONE_CHANGED_NEW_AREA")
+    Mock.RunTimers()
+    for _, p in ipairs(ns.Packs.List()) do
+      if p.id == "rpgd.ashenvale" then ok(p.loaded); eq(p.warnings, 0) end
+    end
+    eq(ns.Data.FindNPC(nil, "Raene Wolfrunner").key, "raene")
+    eq(ns.Data.FindNPC(nil, "Senani Thunderheart").key, "senani")
+    eq(ns.Data.FindNPC(nil, "Relara Whitemoon").key, "relara")
+  end)
+
   it("Zephras Isle's Peacekeepers are guards of the isle, and the High Elder knows her own", function()
     local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Zephras" } })
     ns.db.settings.instantText = true

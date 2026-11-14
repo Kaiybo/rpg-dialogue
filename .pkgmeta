@@ -20,6 +20,7 @@ move-folders:
   RPGDialogue/RPGDialogue_Darnassus: RPGDialogue_Darnassus
   RPGDialogue/RPGDialogue_ThunderBluff: RPGDialogue_ThunderBluff
   RPGDialogue/RPGDialogue_Barrens: RPGDialogue_Barrens
+  RPGDialogue/RPGDialogue_Ashenvale: RPGDialogue_Ashenvale
 
 # Paths are from the repo root; "*.md" matches at any depth (bash case patterns), which
 # keeps voice bibles, PLAN.md files and pack changelogs out of the zip.

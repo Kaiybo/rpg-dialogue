@@ -324,3 +324,13 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Mankrik: Olgra lost fighting quilboar; found wounded on the Gold Road by a tauren; Thork refused him; Consumed by Hatred, Lost in Battle | [Mankrik](https://warcraft.wiki.gg/wiki/Mankrik) |
 | Tonga Runetotem and the Wailing Caverns: the taint traced to the caverns, where Naralex's dream turned to nightmare and corrupted the waters; Gathering the Cure | [Tonga Runetotem](https://warcraft.wiki.gg/wiki/Tonga_Runetotem); [Wailing Caverns](https://warcraft.wiki.gg/wiki/Wailing_Caverns) |
 | Apothecary Helbrim (Royal Apothecary Society); Darsok Swiftdagger (boastful rogue, Jin'Zil's friend, the harpy quests); Zargh (butcher, lost finger, Gryshka); Innkeeper Boorand Plainswind | [Apothecary Helbrim](https://warcraft.wiki.gg/wiki/Apothecary_Helbrim); [Darsok Swiftdagger](https://warcraft.wiki.gg/wiki/Darsok_Swiftdagger); [Zargh](https://warcraft.wiki.gg/wiki/Zargh); [Innkeeper Boorand Plainswind](https://warcraft.wiki.gg/wiki/Innkeeper_Boorand_Plainswind) |
+
+## Ashenvale (Ashenvale pack 1.0.0)
+
+| Fact used | Source |
+|---|---|
+| Raene Wolfrunner: commands Astranaar's scouts; Korra and Dagri; the furbolg quests and Raene's Cleansing (Teronis, Krolg, Ran Bloodtooth) | [Raene Wolfrunner](https://warcraft.wiki.gg/wiki/Raene_Wolfrunner) |
+| Pelturas and Relara Whitemoon: a child's magical fever and nightmares; Orendil's Cure, Elune's Tear, The Ruins of Stardust, Fallen Sky Lake | [Pelturas Whitemoon](https://warcraft.wiki.gg/wiki/Pelturas_Whitemoon); [Relara Whitemoon](https://warcraft.wiki.gg/wiki/Relara_Whitemoon) |
+| Faldreas Goeth'Shael (Check in on the Edunes); Innkeeper Kimlya | [Faldreas Goeth'Shael](https://warcraft.wiki.gg/wiki/Faldreas_Goeth%27Shael); [Innkeeper Kimlya](https://warcraft.wiki.gg/wiki/Innkeeper_Kimlya) |
+| Delgren the Purifier: human paladin at Maestra's Post; the Dark Strand; learned Orcish; The Tower of Althalaxx, Supplies to Auberdine | [Delgren the Purifier](https://warcraft.wiki.gg/wiki/Delgren_the_Purifier) |
+| Splintertree Post: Warsong founding, hostile night elves; Senani Thunderheart and the Ashenvale Hunt; Mastok Wrilehiss; Kuray'bin and the Silverwing outrunners | [Splintertree Post](https://warcraft.wiki.gg/wiki/Splintertree_Post); [Senani Thunderheart](https://warcraft.wiki.gg/wiki/Senani_Thunderheart); [Mastok Wrilehiss](https://warcraft.wiki.gg/wiki/Mastok_Wrilehiss); [Kuray'bin](https://warcraft.wiki.gg/wiki/Kuray%27bin) |

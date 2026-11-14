@@ -137,6 +137,28 @@ P:Town {
   },
 }
 
+P:Town {
+  id = "astranaar", name = "Astranaar",
+  subzones = { "Astranaar", "Lake Iris" },
+  related = { maestras_post = 0.2 },
+  tiers = { Hero = "Hero of Astranaar" },
+  quests = { { TODO_QUEST("Culling the Threat"), 8 }, { TODO_QUEST("Raene's Cleansing"), 6 }, { TODO_QUEST("Fallen Sky Lake"), 10 } },
+}
+
+P:Town {
+  id = "maestras_post", name = "Maestra's Post",
+  subzones = { "Maestra's Post" },
+  related = { astranaar = 0.2 },
+  tiers = { Hero = "Friend of Maestra's Post" },
+}
+
+P:Town {
+  id = "splintertree", name = "Splintertree Post",
+  subzones = { "Splintertree Post" },
+  tiers = { Hero = "Hero of Splintertree" },
+  quests = { { TODO_QUEST("Ashenvale Outrunners"), 6 }, { TODO_QUEST("The Hunt Completed"), 12 } },
+}
+
 -- The other capitals. Their guards speak from pools_roles.lua; standing grows from quests
 -- each capital's own pack lists later.
 P:Town {
