@@ -160,17 +160,40 @@ def main():
     ap.add_argument("--characters", type=int, default=2000)
     ap.add_argument("--seed", type=int, default=1)
     ap.add_argument("--out", default=os.path.join(P.ROOT, "tools", "out", "simulation.md"))
+    ap.add_argument("--jobs", type=int, default=0,
+                    help="parallel Lua processes (default: one per CPU, at most 4). Shard 0 keeps --seed, so --jobs 1 matches older runs")
     args = ap.parse_args()
 
     lua = shutil.which("lua5.1") or shutil.which("luajit") or shutil.which("lua")
     if not lua:
         print("Needs lua5.1 or luajit on PATH (the simulation runs the real engine).")
         return 2
-    proc = subprocess.run([lua, os.path.join(P.ROOT, "tests", "sim_driver.lua"), str(args.characters), str(args.seed)],
-                          capture_output=True, text=True, cwd=P.ROOT)
-    if proc.returncode != 0:
-        print(proc.stderr)
+    # Every character talks to every NPC, so the run grows with both. Split the characters
+    # into shards (each its own seed) and run them side by side; the report only counts and
+    # collects, so the shards' outputs simply add up.
+    jobs = args.jobs or min(os.cpu_count() or 1, 4)
+    jobs = max(1, min(jobs, args.characters))
+    driver = os.path.join(P.ROOT, "tests", "sim_driver.lua")
+    procs = []
+    for i in range(jobs):
+        n = args.characters // jobs + (1 if i < args.characters % jobs else 0)
+        seed = args.seed if i == 0 else args.seed + 7919 * i
+        procs.append(subprocess.Popen([lua, driver, str(n), str(seed)], stdout=subprocess.PIPE,
+                                      stderr=subprocess.PIPE, text=True, cwd=P.ROOT))
+    outputs = []
+    failed = False
+    for pr in procs:
+        out, err = pr.communicate()
+        if pr.returncode != 0:
+            print(err)
+            failed = True
+        outputs.append(out)
+    if failed:
         return 1
+
+    class _Joined:
+        stdout = "\n".join(outputs)
+    proc = _Joined
 
     all_lines, fired, topicdefs = set(), collections.Counter(), set()
     starts = collections.defaultdict(collections.Counter)      # npc -> src counter at hello
@@ -242,7 +265,7 @@ def main():
 
     lines = []
     w = lines.append
-    w(f"# Simulation report\n\n{args.characters} characters, seed {args.seed}. Every character talks to every NPC.\n")
+    w(f"# Simulation report\n\n{args.characters} characters, seed {args.seed}, {jobs} shard(s). Every character talks to every NPC.\n")
     w(f"Runtime errors: **{len(errors)}**\n")
     for e in errors[:30]:
         w(f"- {e}")
