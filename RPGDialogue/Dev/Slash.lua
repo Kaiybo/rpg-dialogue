@@ -158,6 +158,10 @@ commands.die = function(args)
   ns.Print(L.DIE_DONE:format(cause))
 end
 
+commands.journal = function() ns.Journal.Toggle() end
+commands.export = function() ns.UI.ExportFrame.Show("export") end
+commands.import = function() ns.UI.ExportFrame.Show("import") end
+
 function Slash.Handle(msg)
   local args = {}
   for word in (msg or ""):gmatch("%S+") do args[#args + 1] = word end

@@ -76,6 +76,8 @@ SD.CHAR_DEFAULTS = {
   pacing = { sys = {}, ack = {}, ackNpc = {} },
   zones = {},
   drunk = 0,
+  notes = "",
+  originsApplied = {},
   _quarantine = {},
 }
 

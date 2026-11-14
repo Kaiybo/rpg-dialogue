@@ -15,6 +15,10 @@ topics.lua
 claims.lua
 threads.lua
 origins\human.lua
+origins\dwarf.lua
+origins\gnome.lua
+origins\nightelf.lua
+origins\skyborne.lua
 rumors\elwynn.lua
 generic.lua
 pools.lua

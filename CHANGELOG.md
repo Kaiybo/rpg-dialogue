@@ -4,6 +4,13 @@ All notable changes to RPG Dialogue. The core and each content pack get their ow
 
 ## [Unreleased]
 
+### M5 (2026-11-13): Journal, origins, export/import
+- Journal window (`UI/Journal.lua`, `/rpgd journal`, keybinding, launcher left-click): Chronicle (searchable, newest first, folded old entries), People I've Met (affinity in words, last talked, last thing said), Character Sheet (alignment in words, title, dominant traits, opinions incl. contradictions, Fel Taint only if present, town standings as tier names, Origin page), Topics (known topics, "X insists: ..." claims with settled marks, books read), Deeds, Notes (your own writing).
+- Origins (`Systems/Origins.lua`): picked on the Character Sheet (browse, edit the 2–3 sentence blurb, confirm; changing asks for a second click), one dismissible hint at first login, starting nudge and home-town welcome applied once per origin, blurb becomes a journal entry, "Other" unlocks nothing. Draft lists (for approval) for humans, dwarves, gnomes, night elves and Skyborne (from the brief's section 10 only, faction-aware).
+- Export/import (`Systems/Export.lua`, `UI/ExportFrame.lua`, `/rpgd export`, `/rpgd import`): typed serializer (data, never code) + base64 + version header + checksum; import checks first and changes nothing until confirmed; the previous story is kept aside in `_quarantine`.
+- Save-data corruption checks were already in place since M1 (repair into `_quarantine`, newer-schema read-only mode).
+- Tests: 86 passing.
+
 ### M4 (2026-11-13): Story systems
 - Throughline engine (`Systems/Threads.lua`): beats from thread files compete in the NPC's opening line (base 480), at most one per conversation, same-thread gaps in conversations and minutes (per-thread overrides), HELD reasons in `/rpgd why`, beats count as "something new", every beat goes in the journal, a reflective journal entry at the third beat, untouched threads fade after three weeks. `/rpgd threads [reset | force]`.
 - "Ask about..." (`Systems/Topics.lua`, `UI/AskAbout.lua`): button on the dialogue window, searchable topic list (most recent first, archive for stale topics), answers via the specificity engine (own take, community, role, brush-off in their voice). `/rpgd topics [teach | forget]`.

@@ -29,6 +29,8 @@ Systems\Threads.lua
 Systems\Rumors.lua
 Systems\Towns.lua
 Systems\Topics.lua
+Systems\Origins.lua
+Systems\Export.lua
 
 Integrations\DialogueAddons.lua
 
@@ -38,6 +40,8 @@ UI\CompactBar.lua
 UI\Settings.lua
 UI\Launcher.lua
 UI\AskAbout.lua
+UI\Journal.lua
+UI\ExportFrame.lua
 
 Core\Conversation.lua
 
