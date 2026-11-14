@@ -171,3 +171,15 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Gerard Tiller: farming is thirsty work; trades an apple for spring water, repeatably | [Give Gerard a Drink](https://warcraft.wiki.gg/wiki/Give_Gerard_a_Drink) |
 
 **Unsure:** Goldtooth's location and kind (not sourced: lines never say); whether Ma Stonefield is Tommy Joe's mother (not stated: lines don't say); Billy's relation to Maybell (unstated).
+
+## Stormwind: the Cathedral and the paladin's road (Stormwind pack 1.1.0, Elwynn 1.3.0)
+
+| Fact | Source |
+|---|---|
+| The human paladin Tome of Divinity chain: Brother Wilhelm sends you to Duthorian Rall; Rall sends you to find someone in need (Stephanie Turner, Trade District: 10 linen cloth); later Gazin Tenorm and Henze Faulk (The Symbol of Life); back to Rall for Redemption | [Tome of Divinity (Brother Wilhelm)](https://warcraft.wiki.gg/wiki/Brother_Wilhelm); [The Tome of Divinity (human 4)](https://warcraft.wiki.gg/wiki/The_Tome_of_Divinity_(human_4)); [Duthorian Rall](https://warcraft.wiki.gg/wiki/Duthorian_Rall) |
+| Stephanie Turner: Trade District, outside a general goods store; she and her husband John (in Ironforge) run the Stormwind orphanage; she makes the children's clothing and feeds them | [Stephanie Turner](https://warcraft.wiki.gg/wiki/Stephanie_Turner) |
+| Gazin Tenorm: dwarf by the Cathedral's altar; he and Henze gathered evidence on Defias activity for the king's advisors; he barely escaped and asked Rall to send a young paladin for Henze. Henze Faulk: dwarf outside Heroes' Vigil in Elwynn, killed by the Defias saving Gazin, revived with a Symbol of Life | [Gazin Tenorm](https://warcraft.wiki.gg/wiki/Gazin_Tenorm); [Henze Faulk](https://warcraft.wiki.gg/wiki/Henze_Faulk) |
+| Archbishop Benedictus: head of the Church of the Holy Light; Alonsus Faol's student; helped build the Cathedral, trains young priests; kind, wise, soft-spoken, farmer-like; Lordaeron's fall shook his faith; Classic: Cleansing the Eye. His Twilight's Hammer unmasking is Cataclysm-era and never hinted | [Archbishop Benedictus](https://warcraft.wiki.gg/wiki/Archbishop_Benedictus) |
+| Lil Timmy: rare kitten vendor; a boy with a White Kitten, walking the canals and districts; his dad won't let him keep her | [Lil Timmy](https://warcraft.wiki.gg/wiki/Lil_Timmy) |
+
+**Authored:** Faol's "the Light isn't owned by the strong" (Benedictus's paraphrase of his teacher, invented); Henze's papers; Stephanie's "thirty children".

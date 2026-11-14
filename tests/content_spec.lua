@@ -14,7 +14,7 @@ describe("Content packs", function()
     local loaded = {}
     for _, p in ipairs(ns.Packs.List()) do loaded[p.id] = p.loaded; eq(p.warnings, 0, p.id .. " warnings") end
     ok(loaded["rpgd.world"] and loaded["rpgd.elwynn"])
-    eq(ns.Util.Count(ns.Data.npcs), 29)
+    eq(ns.Util.Count(ns.Data.npcs), 30)
     ok(ns.Data.threads.elwynn_gold and ns.Data.towns.goldshire and ns.Data.claims.defias_common_thieves)
   end)
 

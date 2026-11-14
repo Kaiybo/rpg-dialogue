@@ -30,7 +30,7 @@ P:Town {
 
 P:Town {
   id = "stormwind", name = "Stormwind",
-  subzones = { "Trade District", "Cathedral Square", "Old Town", "Dwarven District", "Mage Quarter", "Stormwind Keep", "The Canals", "Valley of Heroes" },
+  subzones = { "Trade District", "Cathedral Square", "Old Town", "Dwarven District", "Mage Quarter", "Stormwind Keep", "The Canals", "Valley of Heroes", "Heroes' Vigil", "Cathedral of Light" },
   zones = { "Stormwind City" },
   related = { goldshire = 0.05 },
   tiers = { Hero = "Hero of Stormwind" },
