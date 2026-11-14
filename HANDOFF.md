@@ -3,32 +3,44 @@
 > Read this first, then `DESIGN.md`, then `CONTENT_GUIDE.md` (once it exists). You won't remember earlier sessions; these files are your memory.
 > The original brief is the Project doc `rpg-dialogue-build-prompt (1).md`. Re-read it when a decision isn't covered here.
 
-**Last session:** 2026-11-13 · Milestone 0 (design) · stopped on purpose, waiting for the user's answers
+**Last session:** 2026-11-13 · M0, M1 and M2 done; M3 in progress. The user said "keep going and build as much as possible", so milestones are being built back to back without stopping for in-game tests. Every assumption made in their absence is listed below.
+
+## Assumptions made while the user was away (confirm or correct)
+1. **Interface number** 16001 (from warcraft.wiki.gg, patch 1.60.1). TOCs say `16001, 16002` to cover the next patch too.
+2. **Vertical slice:** Northshire Valley + Goldshire (Elwynn Forest).
+3. **Test character:** unknown. The class-trainer requirement is covered with Llane Beshere (warrior) for now; add the user's class trainer when known.
+4. **Name and license:** "RPG Dialogue", MIT.
+5. **Visual style:** the brief's example, "parchment and dark wood, very readable, uncluttered" (built from color textures, no art files).
+6. **Where the code lives:** zips per milestone plus the docs in this Project. No GitHub repo was set up.
+7. **Commit identity:** placeholder `RPG Dialogue Dev <rpg-dialogue@users.noreply.localhost>`.
+8. **DESIGN.md §6 decisions accepted** as written. One change: TODO-id NPCs are matched by name at runtime always (not only in dev mode), so the slice is testable before capture data exists. The validator still flags every TODO.
+9. **Other dialogue addons:** RPG Dialogue steps back by default.
 
 ## Done
-- `DESIGN.md`: folder structure, data schema with a complete example NPC (Marshal McBride), engine scoring with example weights, what we need from the user, risks and API unknowns, decisions open to veto, and the M1 plan.
-- Research (warcraft.wiki.gg): Forever runs on Mainline's 12.1.5-era API with Midnight's restrictions on combat data (secret values) active. TOC interface 16001 for patch 1.60.1. `_Forever.toc` is a valid suffix. Creature GUIDs have obfuscated server/spawn parts. Details and sources are in DESIGN.md §0.
-- Git repository initialized; M0 committed.
-- `CHANGELOG.md` and `LORE_NOTES.md` started.
-- The example NPC file was syntax-checked with `luac5.1 -p` and run through a stub of the pack API: no unknown condition keys, at most 2 player hinges per line, every choice leads somewhere, no banned phrases. The six probe lines are under 255 characters.
+- **M0**: `DESIGN.md`, repo, hand-off docs.
+- **M1** (commit ca4b8df): core skeleton. Compat layer, SavedData (migrations, non-destructive repair, newer-schema read-only), Trackers (turn-ins, deaths with inferred cause, deeds, books, home inn, drunk), lazy Context with spoofing, capture + text capture, slash commands, `.luacheckrc`, `.pkgmeta`, link scripts, README, LICENSE.
+- **M2** (commit 970a05e): engine (Conditions, Pacing, Memory, Effects, Tokens, Engine), PackAPI (`RPGDialogueAPI`), Conversation controller, UI (dialogue window, compact bar, blocker, settings, launcher), other-addon handling, `/rpgd why`, flag button, `tools/rpgd/luadata.py`, `tools/validate.py`.
+- Tests: `lua5.1 tests/run.lua` gives 60 passing (mock client in `tests/wowmock.lua`, fixture packs in `tests/fixtures/`). `luacheck .` is clean.
 
 ## Half-done
-- Nothing. No addon code exists yet.
+- **M3** (vertical-slice content and content tools): see the task list in the last session; check `git log` for what landed.
 
-## Open questions (all in DESIGN.md §4)
-1. Section 9 of the brief is unfilled: interface number, test characters, error addons, where we work, Python, other addons, name/license, extra lore, visual style.
-2. Vertical-slice zone (Northshire + Goldshire assumed in the example).
-3. Where the repo lives between sessions: GitHub (recommended), the desktop-app link, or zips.
-4. Git commit identity. M0 used a placeholder: `RPG Dialogue Dev <rpg-dialogue@users.noreply.localhost>`.
-5. Output of the six-line in-game API probe (P1–P6).
-6. OK or changes on the DESIGN.md §6 decisions, including the one public global `RPGDialogueAPI`.
+## Not yet verified in game (nothing has been run in WoW yet)
+- Every Blizzard API assumption in `Compat.lua` (probe with `/rpgd probe`).
+- Fading GossipFrame/QuestFrame with `SetAlpha` and covering it with our own mouse blocker: check for taint (`/console taintLog 1`, then look in `Logs/taint.log`).
+- Keyboard capture (`SetPropagateKeyboardInput` inside OnKeyDown).
+- Fonts (`Fonts\\MORPHEUS.TTF`, `Fonts\\FRIZQT__.TTF`, `Fonts\\ARIALN.TTF`) and textures used by the settings panel and launcher.
+- The `.pkgmeta` move-folders layout (M8).
+
+## Open questions for the user
+Still all of DESIGN.md §4 (section 9 answers, slice zone, where the repo lives, commit identity, probe output, §6 OK), plus the assumptions above.
 
 ## Known bugs
-- None (no code).
+- None known. Untested in game.
 
-## Environment notes for the next session
-- The cloud workspace used for M0 had Lua 5.1.5, luac5.1, LuaRocks and luacheck 1.2.0 installed by hand (`apt-get install lua5.1 luarocks liblua5.1-0-dev`, then `luarocks install luacheck`), plus Python 3.13. A new session may need to reinstall them.
-- The repo is at `/home/claude/rpg-dialogue` in the M0 workspace. That workspace isn't shared with other sessions, which is why open question 3 matters.
+## Environment notes
+- The cloud workspace had Lua 5.1, luac5.1, LuaRocks and luacheck installed by hand (`apt-get install lua5.1 luarocks liblua5.1-0-dev && luarocks install luacheck`), plus Python 3. A new session may need to reinstall them.
+- The repo was at `/home/claude/rpg-dialogue`. That workspace isn't shared with other sessions; the user has the zips.
 
 ## Exact next step
-When the user answers: update DESIGN.md (§0 interface number and probe results, §4 answered items, §5 risks resolved or changed, §6 decisions confirmed), commit, then build **M1** as listed in DESIGN.md §7. Stop after M1 with the in-game test checklist and the exact things to paste back.
+Finish M3 (see CHANGELOG for what's in). Then M4: threads engine and pacing, claims and topics UI ("Ask about…"), town standing reactions, innkeeper rumors, finishing the slice's thread/agenda/topic/special-option/rumor items.

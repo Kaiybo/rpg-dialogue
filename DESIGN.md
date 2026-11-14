@@ -772,7 +772,7 @@ If a line throws an error, paste the error instead. That tells us something too.
 4. **Our window overlays Blizzard's** (R4) rather than replacing it.
 5. **With Immersion or DialogueUI present, RPG Dialogue steps back** by default (R6).
 6. **Tests, linting and the simulation run in my workspace.** Lua 5.1, luacheck and Python are installed there. You only do the in-game testing. If you also want to run them yourself, you'll need Lua 5.1 or LuaJIT.
-7. **Dev-mode name matching for TODO IDs**, so the vertical slice is testable before capture data exists. M3 still has to replace every TODO before the validator lets the milestone pass.
+7. **Name matching for TODO IDs** (always on, not only in dev mode), so the vertical slice is testable before capture data exists. The validator flags every TODO, and `--strict` makes them errors once capture data exists.
 8. **Alignment is stored as `light` / `order` / `honor`**, positive meaning Light / Order / Honor.
 
 ---
