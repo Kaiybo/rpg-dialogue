@@ -2,6 +2,11 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.2.0 (unreleased)
+- Nesingwary's Expedition: Hemet Nesingwary, Barnil Stonepot (and the scattered pages of The Green Hills of Stranglethorn), Ajeck Rouack (tigers, Sin'Dall), Sir S. J. Erlgadin (panthers, and why he left the House of Nobles).
+- Booty Bay: Captain Hecklebury Smotts and his three sea giants, "Shaky" Phillipe, First Mate Crazz, Crank Fizzlebub (and his arrangement with Kravel at the Raceway), Whiskey Slim, Drizzlik.
+- Repeat-visit and night lines for everyone already here: Revilgaz, Seahorn, Krazek, MacKinley, Kebok, Aggro'gosh, Nimboya, Kin'weelay, Mok'thardin, Thulbek, Doren, Nimetz. Neighbours remark on each other (Seahorn on Crazz, Krazek on Smotts, Shaky on MacKinley, Erlgadin on Hemet).
+
 ## 1.1.0 (unreleased)
 - Depth pass: repeat visits bring personal lines (habits, worries, running jokes), and some NPCs get night-time lines. Skindle.
 

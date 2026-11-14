@@ -36,6 +36,7 @@ P:NPC {
           text = "If we know when Kurzen's men march, we know when to hit them. Bring me their schedules." },
         { id = "h_kurzen", when = { questActive = TODO_QUEST("Colonel Kurzen") },
           text = "It's time. He won't come back to himself; we've waited long enough to be sure. End it." },
+        { id = "h_roll", when = { metBefore = true }, text = "Called the roll this morning. Two short. They'll walk in by dusk, or they won't. I've stopped guessing which." },
       },
       choices = {
         { text = "What took his mind?", next = "mind" },
@@ -91,6 +92,7 @@ P:NPC {
           text = "Troll magic, I'm nearly sure of it now. Bring me what I asked for and we'll be certain." },
         { id = "h_maizoth", tags = { "news" }, when = { questActive = TODO_QUEST("Mai'Zoth") },
           text = "Mai'Zoth. An ogre mage, and the root of it all. I swore he'd die before anyone else lost their mind the way the Colonel did." },
+        { id = "h_dreams", when = { metBefore = true }, text = "One of the men woke screaming again. The Colonel's name. Whatever touched Kurzen's mind touches their dreams too." },
       },
       choices = {
         { text = "What made them sick?", next = "elixir" },

@@ -724,6 +724,21 @@ describe("Content packs", function()
     eq(ns.Data.PoolsFor(info, ctx)[1].pool.id, "guard_lightshope")
   end)
 
+  it("Stranglethorn knows Nesingwary's camp and the rest of Booty Bay", function()
+    local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Stranglethorn" } })
+    Mock.state.zone, Mock.state.subzone = "Stranglethorn Vale", "Nesingwary's Expedition"
+    Mock.Fire("ZONE_CHANGED_NEW_AREA")
+    Mock.RunTimers()
+    for _, p in ipairs(ns.Packs.List()) do
+      if p.id == "rpgd.stranglethorn" then ok(p.loaded); eq(p.warnings, 0) end
+    end
+    for name, key in pairs({ ["Hemet Nesingwary"] = "nesingwary", ["Barnil Stonepot"] = "barnil", ["Ajeck Rouack"] = "ajeck",
+                             ["Sir S. J. Erlgadin"] = "erlgadin", ["Captain Hecklebury Smotts"] = "smotts", ["Crank Fizzlebub"] = "fizzlebub",
+                             ["Whiskey Slim"] = "whiskeyslim", ["First Mate Crazz"] = "crazz", ["Drizzlik"] = "drizzlik" }) do
+      eq(ns.Data.FindNPC(nil, name).key, key)
+    end
+  end)
+
   it("Zephras Isle's Peacekeepers are guards of the isle, and the High Elder knows her own", function()
     local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Zephras" } })
     ns.db.settings.instantText = true

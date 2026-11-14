@@ -700,3 +700,18 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Leonid Barthalomew the Revered: died in the Scourging, freed by Sylvanas, loyal to the Dawn; undeath a malady and a weapon; saw Ras Frostwhisper become a lich | [Leonid Barthalomew the Revered](https://warcraft.wiki.gg/wiki/Leonid_Barthalomew_the_Revered) |
 | Tirion Fordring: cottage on the Thondroril with Mirador; Silver Hand paladin, lord of Hearthglen; defended Eitrigg; stripped of the Light, excommunicated; Karandra told Taelan he'd died; Taelan in the Scarlet Crusade; Classic chain titles | [Tirion Fordring](https://warcraft.wiki.gg/wiki/Tirion_Fordring) |
 | Nathanos Blightcaller: Champion of the Banshee Queen at the Marris Stead, his childhood home; first human ranger lord, trained by elves; raised and freed by Sylvanas; recruits the Horde against plaguebats, Scourge and Scarlets; proud, scornful | [Nathanos Blightcaller](https://warcraft.wiki.gg/wiki/Nathanos_Blightcaller) |
+
+## Stranglethorn expansion (Stranglethorn pack 1.2.0)
+
+| Fact used | Source |
+|---|---|
+| Hemet Nesingwary (the father) at Nesingwary's Expedition in Classic; his quests; students Ajeck and Erlgadin; servant Barnil; The Green Hills of Stranglethorn | [Hemet Nesingwary](https://warcraft.wiki.gg/wiki/Hemet_Nesingwary) |
+| Barnil Stonepot: proofreading the book when the pages scattered; misses battle | [Barnil Stonepot](https://warcraft.wiki.gg/wiki/Barnil_Stonepot) |
+| Ajeck Rouack: trained by her father, tigers, Sin'Dall | [Ajeck Rouack](https://warcraft.wiki.gg/wiki/Ajeck_Rouack) |
+| Sir S. J. Erlgadin: bitter over the nobles' betrayal of the stonemasons; won't sit as a count | [Sir S. J. Erlgadin](https://warcraft.wiki.gg/wiki/Sir_S._J._Erlgadin) |
+| Captain Hecklebury Smotts: the three sea giants, two ships lost, Sprogger the surviving cook | [Captain Hecklebury Smotts](https://warcraft.wiki.gg/wiki/Captain_Hecklebury_Smotts) |
+| "Shaky" Phillipe: gambling debts to MacKinley; scared into paying | ["Shaky" Phillipe](https://warcraft.wiki.gg/wiki/%22Shaky%22_Phillipe) |
+| First Mate Crazz: Blackwater Raiders, hates the Bloodsail | [First Mate Crazz](https://warcraft.wiki.gg/wiki/First_Mate_Crazz) |
+| Crank Fizzlebub: singing crystals from the Venture Company; helped Kravel rig the races with Zanzil's Mixture | [Crank Fizzlebub](https://warcraft.wiki.gg/wiki/Crank_Fizzlebub) |
+| Whiskey Slim: lost his Pupellyverbos Port in the Hinterlands | [Whiskey Slim](https://warcraft.wiki.gg/wiki/Whiskey_Slim) |
+| Drizzlik: Drizzlik's Emporium, boastful leathercrafter | [Drizzlik](https://warcraft.wiki.gg/wiki/Drizzlik) |

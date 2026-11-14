@@ -19,6 +19,17 @@
 - https://warcraft.wiki.gg/wiki/Lieutenant_Doren (human warrior; served under Kurzen; wary of outsiders, threatens Kurzen loyalists; hunts the informant who exposed Private Thorsen, suspects Bookie Herod; Classic quests: Jungle Secrets, Bookie Herod, The Spy Revealed!, Patrol Schedules, Report to Doren, Special Forces, Colonel Kurzen)
 - https://warcraft.wiki.gg/wiki/Brother_Nimetz (human priest of the Light, alchemist in his spare time; left Kurzen's expedition; studies the Kurzen Medicine Men's elixirs; vowed to slay the ogre mage Mai'Zoth; Classic quests: Kurzen's Mystery, Troll Witchery, Mai'Zoth)
 
+- https://warcraft.wiki.gg/wiki/Hemet_Nesingwary (Classic: the father, stationed at Nesingwary's Expedition, directing young adventurers to hunt; Hemet Nesingwary, Hunting in Stranglethorn (Horde), Welcome to the Jungle, Raptor Mastery, Big Game Hunter; replaced by his son when he left for Outland; students Ajeck Rouack and Sir S. J. Erlgadin; servant Barnil Stonepot, who called him an Alliance war hero; author of The Green Hills of Stranglethorn)
+- https://warcraft.wiki.gg/wiki/Barnil_Stonepot (male dwarf, Hemet's servant; finds preparing the trips relaxing but misses battle; was proofreading The Green Hills of Stranglethorn when the wind scattered the pages; The Green Hills of Stranglethorn and its chapters)
+- https://warcraft.wiki.gg/wiki/Ajeck_Rouack (female human, trained in tiger hunting and weaponry by her father from childhood, good with bows, teaches tiger hunting, hopes to kill Sin'Dall; Tiger Mastery)
+- https://warcraft.wiki.gg/wiki/Sir_S._J._Erlgadin (male human; grew bitter over the nobility's part in the betrayal of the Stonemasons' Guild; won't act as a count in the House of Nobles; Panther Mastery)
+- https://warcraft.wiki.gg/wiki/Captain_Hecklebury_Smotts (male human, Booty Bay; lost crew, ship and fortune to the sea giants Gorlash, Negolash and Mok'rash (chest, cutlass, sash); his second ship, Smotts' Revenge, sunk too, only the cook Sprogger survived; The Captain's Cutlass, Facing Negolash, The Monogrammed Sash; vengeful)
+- https://warcraft.wiki.gg/wiki/%22Shaky%22_Phillipe (male human, Booty Bay; very frightened; gambling debts to MacKinley; Return to MacKinley, Scaring Shaky with gorilla meat)
+- https://warcraft.wiki.gg/wiki/First_Mate_Crazz (male goblin, Blackwater Raiders; eager to investigate the Bloodsail, calls them scum; The Bloodsail Buccaneers)
+- https://warcraft.wiki.gg/wiki/Crank_Fizzlebub (male goblin, Salty Sailor Tavern; shady; Singing Blue Crystals from the Venture Company for his own profit; helped Kravel Koalbeard rig the Mirage Raceway with Zanzil's Mixture; Singing Blue Shards, Venture Company Mining, Zanzil's Secret, Fool's Stout, Zanzil's Mixture and a Fool's Stout)
+- https://warcraft.wiki.gg/wiki/Whiskey_Slim (male gnome, Salty Sailor Tavern; toasts that swing from cheerful to threatening; lost his Pupellyverbos Port in the Hinterlands; Whiskey Slim's Lost Grog)
+- https://warcraft.wiki.gg/wiki/Drizzlik (male goblin; before the Cataclysm in Drizzlik's Emporium in Booty Bay; boasts of being the finest leathercrafter of the South Seas; Supply and Demand, Some Assembly Required)
+
 ## Their quests
 - Revilgaz: The Haunted Isle, Water Elementals, The Curse of the Tides, The Stone of the Tides (one shared line), The Bloodsail Buccaneers (as Seahorn's ally).
 - Seahorn: The Bloodsail Buccaneers, Sunken Treasure.
@@ -36,7 +47,9 @@
 ## Never
 - Anything Cataclysm or later: the Bloodsail and Brashtide attack on Booty Bay, Seahorn faking his death, the Zandalari war, Krazek at Nesingwary's camp, Doren's captaincy in Pandaria, Blackwater's independence from Steamwheedle, Undermine.
 - Zul'Gurub, Hakkar's return, or the Zandalari: not yet in Year 1.
-- Nesingwary: left out until the client shows which Nesingwary stands in the camp (the son replaced the father in 2.0.1).
+- Nesingwary Junior, and Hemet in Outland: Classic (and so, presumably, Forever) has the father at the camp; his son took it over only when he left for Outland (Hemet Nesingwary page). If capture data shows Junior, rename the file's NPC and keep the lines.
+- Kalaran-style reveals: Smotts's giants are real; nothing about the Bloodsail's later attack on the town.
+- Gossip verbatim (Crank's "profit to make" line, Smotts's "they will pay", Barnil's gossip about relaxing preparations).
 - Quest outcomes beyond what the quest itself tells: who the spy was, what the Haunted Isle holds, what the tides business is.
 - Gossip verbatim (Skindle's stove, MacKinley's knuckles invitation, Nimboya's "business" greeting, Aggro'gosh's "slackers", the Bruisers' "keep it moving").
 - Gendered words for Mok'thardin (the wiki page disagrees with itself).
@@ -58,3 +71,8 @@
 
 ## Depth pass, second round (0.25.0, authored, not canon)
 One or two repeat-visit or night lines each for the thinnest NPCs here: small habits and running jokes (a salvaged kettle, a beetle truce, a parrot paying rent, glowing ink). Places they mention are already sourced in this bible or LORE_NOTES.
+
+## Expansion (Stranglethorn 1.2.0)
+- Nesingwary's Expedition: Hemet (gruff, terse, lives to hunt; "still here" every morning), Barnil (patient keeper of camp and book; too many words about the rifle), Ajeck (focused, her father's student, Sin'Dall's tracks), Erlgadin (bitter ex-count who burns letters from Stormwind).
+- Booty Bay: Smotts (stubborn, two crews drowned), Shaky (terrified debtor), Crazz (eager Bloodsail-hater), Crank Fizzlebub (shifty profiteer; his arrangement with Kravel), Whiskey Slim (toasts with threats), Drizzlik (boastful leathercrafter).
+- Authored, not canon: Smotts's mother stitched the sash; Erlgadin burns the summons; Drizzlik's paid-in-advance order; Hemet's "still here"; Ajeck sleeps by day; all the repeat-visit and night lines on the earlier NPCs.

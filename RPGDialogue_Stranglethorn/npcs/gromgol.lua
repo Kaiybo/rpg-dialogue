@@ -28,6 +28,8 @@ P:NPC {
           text = "Commander Aggro'gosh. This camp keeps the road to Stonard open, and that road feeds the Horde. Ogres and Bloodscalp make it hard. I make it happen anyway." },
         { id = "h_defense", tags = { "news" }, when = { questActive = TODO_QUEST("The Defense of Grom'gol") },
           text = "Something out there tests our walls every night. Go and test it in return. Harder." },
+        { id = "h_road", when = { metBefore = true }, text = "Three caravans reached Stonard this week. Three. The ogres got none of them. Write that down. I want to read it later." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "The Bloodscalp drums are close tonight. Let them drum. We have walls, and they have drums." },
       },
       choices = {
         { text = "How's the supply line?", next = "road" },
@@ -83,6 +85,7 @@ P:NPC {
           text = "Time the Bloodscalp learn what Darkspear do to those who take our own. Make it a message they remember." },
         { id = "h_saving", when = { questActive = TODO_QUEST("Saving Yenniku") },
           text = "This be it. Bring Yenniku back to us. Whatever they done to him, we undo it." },
+        { id = "h_dream", when = { metBefore = true }, text = "Nimboya dream of Yenniku last night. Small, like when he was a boy. Nimboya wake up and sharpen the spear." },
       },
       choices = {
         { text = "Who is Yenniku?", next = "yenniku" },
@@ -147,6 +150,7 @@ P:NPC {
           text = "I look for the boy with my magic. What I find, I don't like. His body walk here. His spirit, not with it." },
         { id = "h_crystals", when = { questActive = TODO_QUEST("The Singing Crystals") },
           text = "Them crystals sing, if you know how to listen. I need their song for what come next." },
+        { id = "h_spirits", when = { metBefore = true }, text = "De jungle spirits be loud here, mon. Louder than at home. Dey not friendly. Dey not unfriendly. Dey just loud." },
       },
       choices = {
         { text = "What can't be seen?", next = "unseen" },
@@ -191,6 +195,7 @@ P:NPC {
           text = "Far Seer Mok'thardin, of Orgrimmar. The beasts of Stranglethorn carry old power in their blood and bones. I'm learning to draw it out." },
         { id = "h_ench", when = { questActive = TODO_QUEST("Mok'thardin's Enchantment") },
           text = "The enchantment needs what only those beasts can give. Bring it, and I'll show you what it becomes." },
+        { id = "h_bones", when = { metBefore = true }, text = "A raptor's bones sing differently than a panther's. I can hear it now. I wish I couldn't, at night." },
       },
       choices = {
         { text = "What kind of power?", next = "power" },
@@ -234,6 +239,8 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Innkeeper Thulbek. As long as Grom'gol stands, there's a bed here for you. All I ask is a story of the fighting while you eat." },
+        { id = "h_story", when = { metBefore = true }, text = "A grunt told me last night he wrestled a gorilla. By morning it was two gorillas. By noon, a gorilla king. Good story. Bad liar." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "The jungle never sleeps. Listen. Everything out there is either hunting or hiding. Eat your stew." },
       },
       choices = {
         { text = "I've a story or two.", next = "story" },
