@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.2.0 (unreleased)
+- Depth pass: repeat visits bring personal lines (habits, worries, running jokes), and some NPCs get night-time lines. Ello, Althea, Daltry, Jitters, Sven, Smitts, Madame Eva.
+
 ## 1.1.0 (unreleased)
 - Darkshire's other households: Jonathan Carevin and Calor, Sirra Von'Indi the historian, Viktori the stargazer, Chef Grual, Councilman Millstipe, Innkeeper Trelayne and Clarise Gnarltree.
 - Sirra recognises Abercrombie's note; Thelwater in Stormwind hears about Millstipe's prisoner.

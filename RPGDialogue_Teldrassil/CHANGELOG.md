@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.2.0 (unreleased)
+- Depth pass: repeat visits bring personal lines (habits, worries, running jokes), and some NPCs get night-time lines. Lyreena; Keldamyr on Corithras.
+
 ## 1.1.0 (unreleased)
 - Depth pass: repeat visits now bring personal lines (habits, worries, opinions of the neighbours), night-time lines, and a question or two about the person themselves, not only their quests.
 - Shadowglen and Dolanaar: Ilthalaine, Melithar, Tenaron, Dirania and Iverron, Gilshalan, Corithras, Athridas on the Gnarlpine, Tallonkai's dreamcatcher, Syral, Keldamyr.

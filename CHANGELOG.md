@@ -2,6 +2,15 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.25.0 (2026-11-14)
+Packs: Arathi 1.1.0, Ashenvale 1.1.0, Badlands 1.1.0, Barrens 1.2.0, Darkshore 1.1.0, Darnassus 1.1.0, Desolace 1.1.0, Durotar 1.1.0, Duskwood 1.2.0, Dustwallow 1.1.0, Elwynn 1.8.0, Feralas 1.1.0, Hillsbrad 1.1.0, Hinterlands 1.1.0, Ironforge 1.3.0, LochModan 1.1.0, Moonglade 1.1.0, Mulgore 1.2.0, Orgrimmar 1.2.0, Redridge 1.2.0, Silverpine 1.1.0, Stonetalon 1.1.0, Stormwind 1.4.0, Stranglethorn 1.1.0, SwampOfSorrows 1.1.0, Tanaris 1.1.0, Teldrassil 1.2.0, ThousandNeedles 1.1.0, ThunderBluff 1.2.0, Tirisfal 1.1.0, UnGoro 1.1.0, Undercity 1.1.0, Westfall 1.3.0, Wetlands 1.1.0, Winterspring 1.1.0, World 1.13.0, Zephras 1.0.1, and a new one: Felwood 1.0.0. **New folder: exit the game fully, copy it in, and tick it.**
+
+### More to say, second round
+Repeat visits bring personal lines (habits, worries, running jokes) and night-time lines for most of the NPCs who only talked about their quests: Elwynn's class trainers and the Northshire and Eastvale folk; Westfall (Gryan, the Saldeans, the Furlbrows, Danuvin, Galiaan, Grayson, Daphne, Heather, MacGregor); Redridge and Duskwood (the paladin's road); Stormwind (Arthur the Faithful tells his story; Samuelson won't rest until King Varian comes home); Durotar (Kaltunk and Galgar remember the camps), Orgrimmar, Freewind Post; and the innkeepers and thinnest quest givers everywhere else. Neighbours now remark on each other once you've met both (Goldshire, Bloodhoof, Dolanaar, Thunder Bluff).
+
+### New place
+- **Felwood.** The Emerald Sanctuary: Eridan Bluewind (who makes Linken's totem), Greta Mosshoof, Maybess Riverbreeze for the Horde and Arathandris Silversky for the Alliance, cleansing the forest a little each day. Bloodvenom Post: Winna Hazzard, cackling, with a kitten; Trull Failbane, Orgrimmar's eyes in the forest; the braves. Talonbranch Glade: Golhine the Hooded, druid trainer.
+
 ## 0.24.0 (2026-11-14)
 Packs: World 1.12.0, Elwynn 1.7.0, Ironforge 1.2.2, Mulgore 1.1.0, Thunder Bluff 1.1.0, Teldrassil 1.1.0, The Barrens 1.2.0, Ashenvale 1.1.0, Stonetalon 1.1.0, Darkshore 1.1.0, Darnassus 1.1.0, Moonglade 1.1.0, and six new ones: Swamp of Sorrows 1.0.0, Arathi Highlands 1.0.0, The Hinterlands 1.0.0, Badlands 1.0.0, Un'Goro Crater 1.0.0, Winterspring 1.0.0 (the rest as in 0.23.0). **New folders: exit the game fully, copy them in, and tick them.**
 

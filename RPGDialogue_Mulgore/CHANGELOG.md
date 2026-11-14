@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.2.0 (unreleased)
+- Neighbours remark on each other: Kauth on Mull, Harken on Maur.
+
 ## 1.1.0 (unreleased)
 - Depth pass: repeat visits now bring personal lines (habits, worries, opinions of the neighbours), night-time lines, and a question or two about the person themselves, not only their quests.
 - Bloodhoof: Baine on how the tauren came to Mulgore, Zarlman, Harken, Maur's name, Mull, Ahab and Kyle, Kauth's stew, Kaga. The Venture Company topic.

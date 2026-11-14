@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.3.0 (unreleased)
+- Depth pass: repeat visits bring personal lines (habits, worries, running jokes), and some NPCs get night-time lines. Senir Whitebeard, Ragnar Thunderbrew.
+
 ## 1.2.2 (unreleased)
 - Magni's opening line is now a key line, so Falstad in Aerie Peak can remark that you've met him.
 

@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.4.0 (unreleased)
+- Depth pass: repeat visits bring personal lines (habits, worries, running jokes), and some NPCs get night-time lines. Arthur the Faithful (the paladin trainer) and his story, Milton, Elling Trias, Grimand Elmore, Major Samuelson, Thomas Miller, Jennea, Lil Timmy.
+
 ## 1.3.0 (unreleased)
 - General Marcus Jonathan in the Valley of Heroes (Solomon's letters reach him), Renzik "The Shiv" at SI:7, Major Samuelson in the throne room (Farren Orinelle's old mentor), Thomas Miller and his bread.
 

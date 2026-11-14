@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.3.0 (unreleased)
+- Depth pass: repeat visits bring personal lines (habits, worries, running jokes), and some NPCs get night-time lines. Gryan, Salma, Saldean, the Furlbrows, Danuvin, Galiaan, Captain Grayson, Daphne, Heather, MacGregor.
+
 ## 1.2.0 (unreleased)
 - Sentinel Hill's working people: Innkeeper Heather, Quartermaster Lewis, Thor and his gryphons, Scout Riell in the tower, and William MacGregor the bowyer.
 

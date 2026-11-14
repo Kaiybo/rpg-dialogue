@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.2.0 (unreleased)
+- Depth pass: repeat visits bring personal lines (habits, worries, running jokes), and some NPCs get night-time lines. Solomon, Marris, Oslow, Verner, Keeshan, Baren, Daniels, Wiley, Conacher.
+
 ## 1.1.0 (unreleased)
 - Innkeeper Brianna and Narnie.
 - Lakeshire's law, road and kitchen: Bailiff Conacher, Deputy Feldon, Guard Parker, Darcy, Martie Jainrose and Chef Breanna (and the daffodils).

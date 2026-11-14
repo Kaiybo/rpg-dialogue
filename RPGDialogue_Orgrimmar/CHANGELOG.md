@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.2.0 (unreleased)
+- Depth pass: repeat visits bring personal lines (habits, worries, running jokes), and some NPCs get night-time lines. Gryshka after Meats to Orgrimmar, Gamon.
+
 ## 1.1.1 (unreleased)
 - Thrall knows Gar'Thok at Razor Hill.
 

@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.1.0 (unreleased)
+- Depth pass: repeat visits bring personal lines (habits, worries, running jokes), and some NPCs get night-time lines. Kaltunk's and Galgar's stories from the camps; Thazz'ril, Kzan, Grosk.
+
 ## 1.0.0 (first release, unreleased)
 - The Valley of Trials: Kaltunk, Gornek, Zureetha Fargaze, Foreman Thazz'ril, Galgar and Kzan Thornslash (with Forever's Wayward Weapons).
 - Razor Hill: Gar'Thok, Orgnil Soulscar and Innkeeper Grosk. Razor Hill's grunts.
