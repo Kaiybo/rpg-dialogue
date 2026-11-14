@@ -143,17 +143,71 @@ P:Pool {
 }
 
 P:Pool {
-  id = "trainer_priest", role = "trainer", subtitle = "priest trainer",
-  greetings = { { id = "g_peace", text = "Peace. What do you need?" } },
+  -- Every unnamed priest trainer shares this conversation (named ones have their own).
+  -- Faction-neutral: Light-aligned priests of both factions, and Forsaken and troll priests.
+  id = "trainer_priest", role = "trainer", subtitle = "priest trainer", tier = "service",
+  greetings = {
+    { id = "g_peace", text = "Peace. What do you need?" },
+    { id = "g_priest", when = { class = "PRIEST" }, text = "Back for more? Good. The Light rewards the stubborn." },
+  },
   notice = {
     { id = "n_gnome", cat = "class", when = { race = "Gnome", class = "PRIEST" },
       text = "A gnome in the vestments. I've heard of it and never seen it. Your people do like to take things apart. Faith isn't one of those things." },
+    { id = "n_undead", cat = "class", when = { race = "Scourge", class = "PRIEST" },
+      text = "The Light still answers you. It burns a little, I'd guess. Good. Burning means it's listening." },
+    { id = "n_hurt", cat = "class", when = { class = "PRIEST", durability = { max = 0.25 } },
+      text = "A priest, with armour like that? You've been standing in front of the fighters again. Behind them. Always behind." },
   },
-  lines = {
-    { id = "l_default", text = "Healing is the easy part. Knowing when to let someone fall and learn is harder." },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "l_default", text = "Healing is the easy part. Knowing when to let someone fall and learn is harder." },
+        { id = "l_young", when = { class = "PRIEST", maxLevel = 20 }, text = "Still learning to keep your friends standing. That takes longer than learning the words. Be patient with yourself." },
+        { id = "l_veteran", when = { class = "PRIEST", minLevel = 45 }, text = "You've seen things I only teach about. Don't let them make you hard. Make them make you careful." },
+        { id = "l_other", when = { ["not"] = { class = "PRIEST" } }, text = "Not one of mine, but the Light doesn't mind. If you're ever hurt and far from a priest, pray anyway. It hears more than we do." },
+      },
+      again = { { id = "a_again", text = "Something else, while you're here?" } },
+      choices = {
+        { text = "Teach me.", next = "BUSINESS", when = { class = "PRIEST" } },
+        { text = "What should I be practising?", next = "practise", when = { class = "PRIEST" } },
+        { text = "Light or shadow. Which should I study?", next = "shadow", when = { class = "PRIEST", minLevel = 10 } },
+        { text = "Do you ever get tired of healing?", next = "tired" },
+        { text = "Farewell.", next = "END" },
+      },
+    },
+    practise = {
+      lines = {
+        { id = "p_default", text = "Watching. Who's about to fall, who's pretending not to be hurt, who's standing in the fire. A priest who sees early heals less and saves more." },
+        { id = "p_young", when = { maxLevel = 20 }, text = "Your mana. Learn how much a prayer costs before you need three in a row. Most young priests learn it the other way." },
+      },
+      choices = {
+        { text = "And in a fight?", next = "practise_fight" },
+        { text = "Something else.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    practise_fight = {
+      lines = { { id = "pf_default", text = "Shield the one who'll be hit next, not the one who was hit last. That's the whole art. The rest is timing and nerve." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    shadow = {
+      big = true,
+      lines = { { id = "s_default", text = "Both, if you're brave and honest with yourself. The Light heals; the shadow teaches you what you're healing against. Just never let the second one become the reason you do the first." } },
+      choices = {
+        { text = "I'll keep to the Light.", next = "BACK", fx = { align = { light = 2 }, trait = { pious = 1 } } },
+        { text = "I want to learn the shadow.", next = "BACK", fx = { align = { light = -1 }, trait = { curious = 1 } } },
+      },
+    },
+    tired = {
+      lines = { { id = "t_default", text = "Every night. Then someone walks in bleeding and I'm not tired any more. That's either devotion or habit. After long enough, I'm not sure there's a difference." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
+    },
   },
-  choices = { { text = "Teach me.", next = "BUSINESS" } },
-  topics = { _none = { { id = "t_none", text = "I'd only be guessing, and guessing is not a sermon." } } },
+  topics = {
+    _none = { { id = "t_none", text = "I'd only be guessing, and guessing is not a sermon." } },
+    background = { { id = "t_bg", text = "I knelt once, got up a priest, and haven't sat down much since." } },
+    advice = { { id = "t_ad", text = "Carry bandages anyway. The Light is generous, but it's not always quick." } },
+  },
 }
 
 P:Pool {

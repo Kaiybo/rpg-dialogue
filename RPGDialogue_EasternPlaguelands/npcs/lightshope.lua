@@ -47,7 +47,7 @@ P:NPC {
     left = {
       big = true,
       lines = {
-        { id = "l_default", text = "I didn't leave it. It left. The Hand I knew healed the sick and shielded the weak. What became the Scarlet Crusade burns villages to save them. When they stopped asking whether someone was dead or only different, I walked away. Others came with me." },
+        { id = "l_default", key = true, text = "I didn't leave it. It left. The Hand I knew healed the sick and shielded the weak. What became the Scarlet Crusade burns villages to save them. When they stopped asking whether someone was dead or only different, I walked away. Others came with me." },
       },
       choices = {
         { text = "You made the right choice.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },

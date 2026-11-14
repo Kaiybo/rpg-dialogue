@@ -37,8 +37,14 @@ P:NPC {
         { id = "h_hero", when = { minLevel = 40 },
           text = "The Highlord reads your name out at council sometimes. I always sit up straighter when he does." },
       },
+      again = { { id = "h_again", text = "Do you have another question? I like questions. Nobody asks me any." } },
       choices = {
         { text = "Do you miss your father?", next = "father" },
+        { text = "What do you do when you're not being king?", next = "fun" },
+        { text = "Would you like a prayer for your father?", next = "prayer", when = { class = "PRIEST" } },
+        { text = "What's the Highlord like?", next = "bolvar" },
+        { text = "Do you like Lady Prestor?", next = "prestor" },
+        { text = "Would you like a paladin's blessing?", next = "bless", when = { class = "PALADIN" } },
         { text = "What's it like being king?", next = "king" },
         { text = "Long live the king.", next = "END", fx = { affinity = 1 } },
       },
@@ -49,8 +55,8 @@ P:NPC {
         { id = "f_default", text = "Every day. Everyone says he's coming home. I say it too, when the people are frightened. It helps them. I think it helps me." },
       },
       choices = {
-        { text = "He'd be proud of you.", next = "END", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
-        { text = "Keep saying it. Kings have to.", next = "END", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "He'd be proud of you.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Keep saying it. Kings have to.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
       },
     },
     king = {
@@ -58,13 +64,44 @@ P:NPC {
         { id = "k_default", text = "Mostly listening. The Highlord talks, Lady Prestor talks, the nobles talk. I listen. Then I ask a question and they all go quiet." },
       },
       choices = {
-        { text = "That sounds like a good king.", next = "END", fx = { affinity = 1 } },
+        { text = "That sounds like a good king.", next = "BACK", fx = { affinity = 1 } },
         { text = "What do you ask?", next = "ask" },
       },
     },
+    fun = {
+      lines = { { id = "fu_default", text = "Read. Watch the guards change. Sneak into the Cathedral when Bolvar's at council. Don't tell anyone that last one. You're the second person who knows." } },
+      choices = { { text = "Your secret's safe, Your Majesty.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    prayer = {
+      big = true,
+      lines = { { id = "pr_default", text = "Would you? A short one. One I can remember at night, when the Keep's quiet and I'm not supposed to be awake." } },
+      choices = {
+        { text = "\"Light, keep him safe, wherever he is, and bring him home.\"", next = "prayer_said",
+          fx = { affinity = 3, align = { light = 2 }, trait = { kind = 1 } },
+          journal = { first = "Taught the boy king a prayer for his father. He said it back to me twice, to be sure he had it.",
+                      third = "{name} taught King Anduin a prayer for his missing father." } },
+        { text = "The Light hears you without the words.", next = "BACK", fx = { affinity = 1, trait = { pious = 1 } } },
+      },
+    },
+    prayer_said = {
+      lines = { { id = "ps_default", text = "Light, keep him safe, wherever he is, and bring him home. There. I'll say it every night. Thank you. Don't tell Lady Prestor. She says prayers are for people without armies." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    bolvar = {
+      lines = { { id = "bo_default", text = "Kind. Tired. He thinks I don't notice he's tired. He reads me stories about my father when nobody's watching. They're all about battles. I like the ones where Father wins." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
+    },
+    prestor = {
+      lines = { { id = "pe_default", text = "She's very clever. She doesn't laugh much. I try to make her laugh at dinner. It hasn't worked yet. Bolvar laughs, though, so it's not all wasted." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    bless = {
+      lines = { { id = "bl_default", text = "Really? Here, in the throne room? Bolvar does it before council sometimes. Go on. I'll stand very still. Kings are good at standing still." } },
+      choices = { { text = "Light keep you, Your Majesty.", next = "BACK", fx = { affinity = 3, align = { light = 1 } } } },
+    },
     ask = {
       lines = { { id = "a_default", text = "Usually, \"but what about the people who aren't here?\" They hate that one." } },
-      choices = { { text = "Keep asking it.", next = "END", fx = { affinity = 2, align = { honor = 1 } } } },
+      choices = { { text = "Keep asking it.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } } },
     },
   },
 

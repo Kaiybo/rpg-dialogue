@@ -40,10 +40,23 @@ P:NPC {
           text = "Winds be with you, I'm told your people say. And the Light with you, say mine. I don't see why anyone can't have both." },
         { id = "h_gnome_priest", when = { race = "Gnome", class = "PRIEST" },
           text = "A gnome in the vestments of the Light. Gnomeregan's loss brought you to us, perhaps, or something else did. Either way, the Light has never asked anyone's height." },
+        { id = "h_novice", when = { origin = "human_abbey_novice" },
+          text = "Northshire's novices always kneel a little straighter than the rest. The brothers there are strict about posture. And about everything else, I'm told." },
+        { id = "h_bell", when = { timeOfDay = "dusk" },
+          text = "Listen. The sunset bell. We ring it for the kaldorei in the city, who never grew used to walls. I've grown to need it myself." },
+      },
+      again = {
+        { id = "h_again", text = "What else is on your heart, child?" },
+        { id = "h_again2", text = "Go on. The Cathedral is in no hurry, and neither am I." },
       },
       choices = {
         { text = "What did Archbishop Faol teach?", next = "faol" },
         { text = "Does the Light ever abandon anyone?", next = "abandon" },
+        { text = "Tell me about the Cathedral.", next = "cathedral" },
+        { text = "Why let the Scarlet Crusade recruit downstairs?", next = "crusade" },
+        { text = "Your Grace, how do I become a better priest?", next = "priest", when = { class = "PRIEST" } },
+        { text = "What does the Church make of shadow, in a priest?", next = "shadow", when = { class = "PRIEST", minLevel = 20 } },
+        { text = "I came out of Lordaeron, Your Grace.", next = "lordaeron", when = { origin = "human_lordaeron_refugee" } },
         { text = "Thank you, Your Grace.", next = "END" },
       },
     },
@@ -51,7 +64,14 @@ P:NPC {
       lines = {
         { id = "f_default", text = "That the Light isn't owned by the strong. A farmer at his plough can carry as much of it as a king on his throne. I believed him. I look like a farmer; it helped." },
       },
-      choices = { { text = "That's a kind teaching.", next = "END", fx = { affinity = 2, align = { light = 1 } } } },
+      choices = {
+        { text = "That's a kind teaching.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "What was he like?", next = "faol_man" },
+      },
+    },
+    faol_man = {
+      lines = { { id = "fm_default", text = "Patient with fools, impatient with cruelty, and never once too grand to kneel beside someone. I've never managed to be half of him." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     abandon = {
       big = true,
@@ -60,17 +80,69 @@ P:NPC {
           text = "I asked that when Lordaeron fell. The prince, the king, the Silver Hand. I asked it every night for a year. I won't tell you I found the answer. I found I could keep working without it." },
       },
       choices = {
-        { text = "That takes faith.", next = "END", fx = { affinity = 2, align = { light = 2 }, trait = { pious = 1 } } },
+        { text = "That takes faith.", next = "BACK", fx = { affinity = 2, align = { light = 2 }, trait = { pious = 1 } } },
         { text = "Maybe there's no answer.", next = "none", fx = { trait = { skeptical = 1 } } },
       },
     },
     none = {
       lines = { { id = "n_default", text = "Maybe. Then the work is still worth doing. That was always the point." } },
-      choices = { { text = "...", next = "END" } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    cathedral = {
+      lines = { { id = "c_default", text = "Rebuilt after the second war, brighter than before. I carried stones for it when I was younger and had a back. The stonemasons did the rest, and I still pray for every one of them." } },
+      choices = {
+        { text = "The stonemasons? The ones who were never paid?", next = "cathedral_masons" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cathedral_masons = {
+      big = true,
+      lines = { { id = "cm_default", text = "The same. Their hands built this house of the Light, and the city's purse forgot them. I've said so in the Keep. I'll say it again. It's not much, but it's what an old priest has." } },
+      choices = {
+        { text = "It's more than most said.", next = "BACK", fx = { affinity = 2, learn = { "defias" }, opinion = { defias = "masons_wronged" } } },
+        { text = "Saying isn't doing.", next = "BACK", fx = { trait = { stern = 1 }, learn = { "defias" } } },
+      },
+    },
+    crusade = {
+      lines = { { id = "cr_default", text = "Because the doors stay open, even to people I worry about. Brother Crowley believes he fights the plague. Perhaps he does. I pray for the ones he sends east, and for him." } },
+      choices = {
+        { text = "And if they're doing harm?", next = "crusade_harm" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "scarlet_crusade" } } },
+      },
+    },
+    crusade_harm = {
+      lines = { { id = "ch_default", text = "Then the Light will see it, and so will we, and the doors will still be open for them to come home through. That's the hardest part of keeping a church, child. Hope that outlasts reason." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "scarlet_crusade" } } } },
+    },
+    priest = {
+      big = true,
+      lines = { { id = "p_default", text = "Heal the people who annoy you. Bless the ones who don't thank you. Sit with the dying even when you can do nothing. The spells come with practice. That comes with choosing, every day." } },
+      choices = {
+        { text = "That's harder than any spell.", next = "BACK", fx = { affinity = 2, align = { light = 2 }, trait = { pious = 1 } } },
+        { text = "And when I fail?", next = "priest_fail" },
+      },
+    },
+    priest_fail = {
+      lines = { { id = "pf_default", text = "Then you come back here, kneel, get up, and try again tomorrow. I've done it more times than any priest in this city. That's not a confession. It's a qualification." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    shadow = {
+      big = true,
+      lines = { { id = "s_default", text = "That it's a blade with no handle. Some of our brothers and sisters learn to hold it, and do good with it. I've never learned. I'd ask you to watch your hands, and come and see me if they start to feel cold." } },
+      choices = {
+        { text = "I'll keep to the Light.", next = "BACK", fx = { affinity = 2, align = { light = 2 } } },
+        { text = "Shadow is a tool. I'll use what works.", next = "BACK", fx = { affinity = -1, align = { light = -2 }, trait = { stern = 1 } } },
+      },
+    },
+    lordaeron = {
+      lines = { { id = "lo_default", text = "Then you've seen what I only heard about, and heard about every night for a year. You're welcome here. You always will be. Light a candle for someone, if you'd like. Many do." } },
+      choices = { { text = "I will.", next = "BACK", fx = { affinity = 3, align = { light = 1 }, trait = { pious = 1 } } } },
     },
   },
 
   topics = {
+    background = { { id = "tp_ba", text = "A student of Archbishop Faol who never stopped being one. The robes came later. The look of a farmer never left.", next = "faol" } },
+    advice = { { id = "tp_ad", text = "Pray when you're grateful, not only when you're frightened. The Light enjoys being thanked, I think. Most of us do." } },
     tome_of_divinity = { { id = "tp_tome", text = "Duthorian's test. I've read the book. I've never had the patience to teach from it. He has." } },
     northshire_abbey = { { id = "tp_abbey", text = "Where many of us began. The bells there are older than this Cathedral." } },
     defias = { { id = "tp_defias", text = "I pray for the masons. I pray for the people they rob. Some days I run out of prayers before I run out of names." } },
@@ -224,4 +296,264 @@ P:NPC {
   },
 
   topics = { _none = { { id = "t_none", text = "I don't know. Do you want a kitten, though?" } } },
+}
+
+-- The Cathedral's priest trainers and the Scarlet Crusade's emissary downstairs.
+-- Sources: High Priestess Laurena, Brother Joshua, Brother Benjamin, Brother Crowley and
+-- Desperate Prayer (Cathedral Square) on warcraft.wiki.gg; bibles/benedictus.md.
+
+-- High Priestess Laurena: the Cathedral's senior priest trainer; promising priests are sent to her.
+P:NPC {
+  key = "laurena", id = TODO_NPC("High Priestess Laurena"), name = "High Priestess Laurena", title = "Priest Trainer",
+  bible = "bibles/benedictus.md", role = "trainer", tier = "quest",
+  communities = { "stormwind" }, temper = { "steady", "sharp" }, values = { "pious", "dutiful" },
+  spiritSensitive = true,
+  notices = { "light", "affliction" },
+
+  greetings = {
+    { id = "g_priest", when = { class = "PRIEST" }, text = "Come. Stand where the light from the windows falls. I like to see who I'm teaching." },
+    { id = "g_other", when = { ["not"] = { class = "PRIEST" } }, text = "Do not turn your back on the Light, friend. It notices who keeps facing it." },
+  },
+
+  notice = {
+    { id = "n_hurt", cat = "affliction", place = "before", when = { durability = { max = 0.25 } },
+      text = "You've been bleeding into your armour. Stand still. There. The Light first, then the lesson." },
+    { id = "n_light", cat = "light", when = { class = "PRIEST", alignment = { axis = "light", min = 40 } },
+      text = "Your prayers are getting quieter. That's good. Loud prayers are usually for the person praying." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "Laurena. I teach the priests the Abbey and Goldshire send me, once they've shown they can be trusted with more. Some of them can." },
+        { id = "h_prayer", tags = { "news" }, when = { questActive = TODO_QUEST("Desperate Prayer") },
+          text = "Josetta sent you. Good. She sends me very few, and she's never wrong. There are lessons every servant of the Light must learn, and this is the first of the hard ones." },
+        { id = "h_prayer_done", when = { questDone = TODO_QUEST("Desperate Prayer") },
+          text = "You've carried that prayer a while now. Have you needed it yet? You will. Be glad it's there." },
+        { id = "h_young", when = { class = "PRIEST", maxLevel = 12 },
+          text = "Young, for the Cathedral. That's no fault. It only means the hard lessons are still ahead. Most of them are not in books." },
+      },
+      again = { { id = "h_again", text = "What else? Quietly; there's a service soon." }, { id = "h_again2", text = "Ask. I'll answer what I can, and tell you when I can't." } },
+      choices = {
+        { text = "Train me.", next = "BUSINESS", when = { class = "PRIEST" } },
+        { text = "What lessons aren't in books?", next = "lessons", when = { class = "PRIEST" } },
+        { text = "What does a high priestess do?", next = "duty" },
+        { text = "Josetta speaks well of you.", next = "josetta", when = { heardLine = "josetta.h_prayer" } },
+        { text = "The Abbey raised me. I'm one of theirs.", next = "novice", when = { origin = "human_abbey_novice" } },
+        { text = "Thank you, High Priestess.", next = "END" },
+      },
+    },
+    lessons = {
+      big = true,
+      lines = { { id = "l_default", text = "That you can't save everyone. That you'll be thanked least by the people you helped most. That the Light doesn't make you good; it shows everyone whether you are." } },
+      choices = {
+        { text = "That's frightening.", next = "lessons_fear", fx = { trait = { cautious = 1 } } },
+        { text = "I'm ready for that.", next = "BACK", fx = { affinity = 2, align = { light = 2 }, trait = { brave = 1 } } },
+      },
+    },
+    lessons_fear = {
+      lines = { { id = "lf_default", text = "Good. A priest who isn't frightened by it hasn't understood it. Be frightened, and come back anyway. That's all courage is, in this house." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    duty = {
+      lines = { { id = "d_default", text = "Teach, mostly. Bless the services when His Grace is at the Keep. Sit up with the city's sick when they come to the doors at night. They always come at night." } },
+      choices = {
+        { text = "Why at night?", next = "duty_night" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    duty_night = {
+      lines = { { id = "dn_default", text = "Pride, by day. Fear, by night. Fear is the more honest of the two. It knocks louder." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    josetta = {
+      lines = { { id = "j_default", text = "Josetta could have stood where I stand. She chose Goldshire. I've never decided whether she was wise or afraid. Perhaps she hasn't either." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    novice = {
+      lines = { { id = "n_default", text = "Then you were taught by people who'd sooner scrub a floor than preach about it. Keep that. The Cathedral has marble. Marble makes some priests forget floors." } },
+      choices = { { text = "I won't forget.", next = "BACK", fx = { affinity = 3, align = { light = 1, order = 1 } } } },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_bg", text = "A priest who stayed when others went home. That's how most high priestesses happen. Stubbornness, mistaken for calling." } },
+    advice = { { id = "tp_ad", text = "Heal first and ask questions after. The questions will still be there. The wounded may not be." } },
+    northshire_abbey = { { id = "tp_abbey", text = "Where the Light learns your name. The Cathedral only learns what you've done with it." } },
+    scarlet_crusade = { { id = "tp_scarlet", text = "They heal no one. I've never trusted a faith that only burns." } },
+    _none = { { id = "tp_none", text = "I don't know. Ask the library, and if the library doesn't know, ask the Light. It's better at waiting for an answer than I am." } },
+  },
+}
+
+-- Brother Joshua: priest trainer by the altar.
+P:NPC {
+  key = "joshua", id = TODO_NPC("Brother Joshua"), name = "Brother Joshua", title = "Priest Trainer",
+  bible = "bibles/benedictus.md", role = "trainer", tier = "service",
+  communities = { "stormwind" }, temper = { "gentle" }, values = { "pious", "patient" },
+  spiritSensitive = true,
+  notices = { "light" },
+
+  greetings = {
+    { id = "g_priest", when = { class = "PRIEST" }, text = "Kneel if you like. The altar doesn't mind company." },
+    { id = "g_other", when = { ["not"] = { class = "PRIEST" } }, text = "The Light is patient with everyone, friend. Even me." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Brother Joshua. I teach by the altar, because people pay attention near it. They don't always notice they're doing it." },
+        { id = "h_dawn", when = { timeOfDay = "dawn" }, text = "First light through the east window. I've watched it every morning for years. It's never once been the same." },
+      },
+      again = { { id = "h_again", text = "Something else?" } },
+      choices = {
+        { text = "Train me.", next = "BUSINESS", when = { class = "PRIEST" } },
+        { text = "Why teach by the altar?", next = "altar" },
+        { text = "How do you pray, Brother?", next = "pray" },
+        { text = "Goodbye, Brother.", next = "END" },
+      },
+    },
+    altar = {
+      lines = { { id = "a_default", text = "Because it reminds the students, and me, that none of this is ours. We only borrow it, and we're expected to give it back better." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    pray = {
+      lines = { { id = "p_default", text = "Badly, and often. Mostly I say thank you and then I listen. The listening is the part people skip." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { align = { light = 1 }, trait = { pious = 1 } } } },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_bg", text = "A brother of the Cathedral, and nothing else I'd want to be." } },
+    advice = { { id = "tp_ad", text = "When you heal someone, look at their face, not the wound. The wound is the easy part." } },
+    _none = { { id = "tp_none", text = "I don't know. I'll pray on it, if you'd like." } },
+  },
+}
+
+-- Brother Benjamin: priest trainer who paces the eastern hall.
+P:NPC {
+  key = "benjamin", id = TODO_NPC("Brother Benjamin"), name = "Brother Benjamin", title = "Priest Trainer",
+  bible = "bibles/benedictus.md", role = "trainer", tier = "service",
+  communities = { "stormwind" }, temper = { "restless" }, values = { "pious", "curious" },
+  spiritSensitive = true,
+  notices = { "light" },
+
+  greetings = {
+    { id = "g_priest", when = { class = "PRIEST" }, text = "Walk with me. I think better moving, and so will you." },
+    { id = "g_other", when = { ["not"] = { class = "PRIEST" } }, text = "Don't turn your back on the Light, friend. It walks faster than you'd think." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Brother Benjamin. I teach on my feet, up and down this hall. Brother Joshua says I'll wear a groove in the floor. He's probably right." },
+      },
+      again = { { id = "h_again", text = "Keep walking. What else?" } },
+      choices = {
+        { text = "Train me.", next = "BUSINESS", when = { class = "PRIEST" } },
+        { text = "Why pace?", next = "pace" },
+        { text = "What's the hardest thing to teach?", next = "hardest" },
+        { text = "Goodbye, Brother.", next = "END" },
+      },
+    },
+    pace = {
+      lines = { { id = "p_default", text = "Sitting still makes me think about myself. Walking makes me think about everyone else. One of those is the job." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    hardest = {
+      lines = { { id = "h2_default", text = "Rest. Young priests heal until they fall over and call it devotion. It's vanity. The Light doesn't need you exhausted." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_bg", text = "A brother of the Cathedral who can't sit still. That's all; the rest is pacing." } },
+    advice = { { id = "tp_ad", text = "Sleep. Eat. Then pray. In that order, whatever the abbots say." } },
+    _none = { { id = "tp_none", text = "Couldn't say. Walk with me and we'll think about it." } },
+  },
+}
+
+-- Brother Crowley: the Scarlet Crusade's emissary in the Cathedral's lower levels.
+-- Unreliable: he believes in the Crusade; he never says what it has become.
+P:NPC {
+  key = "crowley", id = TODO_NPC("Brother Crowley"), name = "Brother Crowley", title = "Scarlet Crusade Emissary",
+  bible = "bibles/benedictus.md", role = "priest", tier = "quest",
+  communities = { "stormwind" }, temper = { "zealous", "sharp" }, values = { "devout", "proud" },
+  notices = { "light", "race" },
+
+  greetings = {
+    { id = "g_default", text = "You've found your way downstairs. Good. The Crusade needs people who don't mind a few steps for the Light." },
+  },
+
+  notice = {
+    { id = "n_paladin", cat = "light", when = { class = { "PALADIN", "PRIEST" } },
+      text = "A servant of the Light. You'll have heard of the Crusade, then. Most of it lies, and the rest is the plague's own work." },
+    { id = "n_elf", cat = "race", when = { race = { "NightElf", "Skyborne" } },
+      text = "An elf, in Stormwind's catacombs. The Crusade asks only that you hate the dead as much as we do." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "Brother Crowley, emissary of the Scarlet Crusade. The dead walk in Lordaeron, and the Crusade stands against them while Stormwind counts its coins. I send the brave to Brother Anton, in Desolace." },
+        { id = "h_anton", tags = { "news" }, when = { questActive = TODO_QUEST("Brother Anton") },
+          text = "Brother Anton is waiting at Nijel's Point. Tell him I sent you, and tell him the Cathedral still lets me in. He worries." },
+        { id = "h_back", when = { questDone = TODO_QUEST("Brother Anton") },
+          text = "Anton writes that you went into the Valley of Bones. Good. Come back to me when you're ready for Lordaeron itself." },
+      },
+      again = { { id = "h_again", text = "What else? The dead don't wait for questions." } },
+      choices = {
+        { text = "What is the Scarlet Crusade?", next = "crusade" },
+        { text = "I've heard they burn villages.", next = "burn" },
+        { text = "Why recruit in the Cathedral?", next = "why" },
+        { text = "Tyrosus of the Argent Dawn told me why he left.", next = "tyrosus", when = { heardLine = "tyrosus.l_default" } },
+        { text = "I'll go to Brother Anton.", next = "END", fx = { affinity = 1, align = { light = 1 } } },
+      },
+    },
+    crusade = {
+      big = true,
+      lines = { { id = "c_default", text = "What's left of the Silver Hand that still remembers what it swore. We hold the line in Lordaeron, where the plague began. We purify what we must. Someone has to." },
+        },
+      choices = {
+        { text = "Purify how?", next = "burn" },
+        { text = "Someone does have to.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+      },
+    },
+    burn = {
+      big = true,
+      lines = { { id = "b_default", key = true, text = "Lies, spread by the cowards and the Forsaken. When a village is sick with the plague, you cleanse it. Everyone who's watched the dead rise knows what that means. Those who haven't, judge." } },
+      choices = {
+        { text = "You're talking about burning people.", next = "burn_people", fx = { align = { light = 2 } } },
+        { text = "I've seen the plague. I understand.", next = "BACK", fx = { affinity = 2, align = { light = -1, order = 1 } } },
+      },
+    },
+    burn_people = {
+      lines = { { id = "bp_default", text = "I'm talking about stopping it before it reaches Stormwind. If you'd rather pray over a village and leave it to rise, the Cathedral's upstairs. It's very beautiful. It's never seen a ghoul." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = -1 } } },
+    },
+    why = {
+      lines = { { id = "w_default", text = "Because this is where the faithful come. And because the Archbishop is a good man who lets the doors stay open. I'm grateful. I'm also using it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    tyrosus = {
+      lines = { { id = "t_default", text = "Tyrosus left because the work got hard. The Dawn asks politely and hopes. The Crusade doesn't hope. It acts. Tell him that, next time." } },
+      choices = {
+        { text = "He'd say you've lost your way.", next = "BACK", fx = { affinity = -2, align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_bg", text = "A priest who saw what the plague does and stopped pretending prayer alone would hold it back." } },
+    advice = { { id = "tp_ad", text = "If someone you love is bitten, don't wait to be sure. Waiting is how Lordaeron fell." } },
+    scarlet_crusade = { { id = "tp_scarlet", text = "The last true servants of the Light in the north. Whatever you've heard, that's the heart of it." } },
+    argent_dawn = { { id = "tp_dawn", text = "Well-meaning. Soft. They'll make peace with the Forsaken and be eaten for it." } },
+    _none = { { id = "tp_none", text = "Does it touch the plague? No? Then ask upstairs." } },
+  },
 }

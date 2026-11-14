@@ -43,8 +43,15 @@ P:NPC {
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "Your High Order sought out the Kirin Tor, and through them, us. Stormwind keeps its friends. I hope your people find us worth the journey." },
       },
+      again = {
+        { id = "h_again", text = "What else? Briefly; the council sits at noon." },
+        { id = "h_again2", text = "Go on. I have a moment, for once." },
+      },
       choices = {
         { text = "What of Westfall?", next = "westfall" },
+        { text = "What do you make of Lady Prestor?", next = "prestor" },
+        { text = "Does the Church have the crown's ear?", next = "church", when = { class = { "PRIEST", "PALADIN" } } },
+        { text = "Stormwind took my family in, after Lordaeron.", next = "refugee", when = { origin = "human_lordaeron_refugee" } },
         { text = "Any word of King Varian?", next = "varian" },
         { text = "How do you bear it?", next = "bear" },
         { text = "I'll take my leave, Highlord.", next = "END" },
@@ -58,7 +65,7 @@ P:NPC {
       },
       choices = {
         { text = "Then send them help.", next = "help", fx = { opinion = { westfall = "abandoned" }, align = { honor = 1 } } },
-        { text = "Patience is wise.", next = "END", fx = { opinion = { westfall = "patience" }, affinity = 1, align = { order = 1 } } },
+        { text = "Patience is wise.", next = "BACK", fx = { opinion = { westfall = "patience" }, affinity = 1, align = { order = 1 } } },
       },
     },
     help = {
@@ -66,15 +73,15 @@ P:NPC {
         { id = "hp_default", text = "I can't empty the city's garrison into the fields on a feeling. I need proof of who leads them, and where. Bring me that, and I'll have something to argue with." },
       },
       choices = {
-        { text = "I'll find it.", next = "END", fx = { affinity = 2, trait = { brave = 1 } } },
-        { text = "Proof won't feed Westfall.", next = "END", fx = { affinity = -1, trait = { stern = 1 } } },
+        { text = "I'll find it.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
+        { text = "Proof won't feed Westfall.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
       },
     },
     varian = {
       lines = {
         { id = "v_default", text = "None I can share. Lady Prestor advised that the crown pass to Anduin, to keep order. It has kept order. It hasn't brought his father home." },
       },
-      choices = { { text = "I hope he returns.", next = "END", fx = { affinity = 1 } } },
+      choices = { { text = "I hope he returns.", next = "BACK", fx = { affinity = 1 } } },
     },
     bear = {
       big = true,
@@ -82,13 +89,36 @@ P:NPC {
         { id = "b_default", text = "I don't act on suspicion, and I don't break faith with the people who serve. Some days that's all a regent has. It has to be enough." },
       },
       choices = {
-        { text = "It's more than most have.", next = "END", fx = { affinity = 2, align = { order = 1, light = 1 } } },
+        { text = "It's more than most have.", next = "BACK", fx = { affinity = 2, align = { order = 1, light = 1 } } },
         { text = "Sometimes suspicion is enough.", next = "suspicion", fx = { trait = { skeptical = 1 } } },
       },
     },
+    prestor = {
+      lines = { { id = "pr_default", text = "Her counsel has kept this city steady through a hard few years. She's sharper than half the court together. Some find her cold. I find her useful, and a regent needs useful more than warm." } },
+      choices = {
+        { text = "Useful to whom?", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    church = {
+      big = true,
+      lines = { { id = "ch_default", text = "His Grace has my ear whenever he wants it, and the Cathedral's doors are the one thing in this city nobody argues about. Pray for the king. Both of them." } },
+      choices = {
+        { text = "I pray for them every day.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "And for the people outside the walls?", next = "church_outside", fx = { align = { light = 1 } } },
+      },
+    },
+    church_outside = {
+      lines = { { id = "co_default", text = "Especially for them. They need it more, and they get less of everything else. Tell the Archbishop I said so; he'll pretend to be surprised." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    refugee = {
+      lines = { { id = "rf_default", text = "Then you know what it is to have a home taken, and another one offered. I hope Stormwind has been a good one. Tell me if it hasn't. I'd rather hear it from you than from a riot." } },
+      choices = { { text = "It has, Highlord.", next = "BACK", fx = { affinity = 2, standing = { stormwind = 1 } } } },
+    },
     suspicion = {
       lines = { { id = "s_default", text = "Then show me. I'm not a stubborn man. I'm a careful one. The difference matters, in this chair." } },
-      choices = { { text = "Understood.", next = "END" } },
+      choices = { { text = "Understood.", next = "BACK" } },
     },
   },
 

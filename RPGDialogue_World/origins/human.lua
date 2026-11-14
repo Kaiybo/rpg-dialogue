@@ -16,6 +16,9 @@ P:Origin {
     { id = "human_paladin_squire", name = "Squire of the fallen Silver Hand", class = "PALADIN",
       blurb = "My training stopped when the Order fell apart. I kept the oaths anyway.",
       nudge = { trait = { pious = 1 }, align = { light = 2 } } },
+    { id = "human_abbey_novice", name = "Novice of Northshire Abbey", class = "PRIEST",
+      blurb = "The brothers of Northshire taught me my letters and my prayers in the same year. I've been trying to deserve both ever since.",
+      nudge = { trait = { pious = 1 }, align = { light = 2, order = 1 } }, home = "northshire" },
     { id = "other", name = "Other" },
   },
 }
