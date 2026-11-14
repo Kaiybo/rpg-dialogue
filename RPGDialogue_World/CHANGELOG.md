@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.8.0 (unreleased)
+- Towns: Booty Bay, Grom'gol Base Camp, the Rebel Camp, Freewind Post, the Mirage Raceway, the Valley of Trials, Razor Hill, Sen'jin Village, Camp Narache, Bloodhoof Village and Camp Gev'rek.
+- Topics: the Steamwheedle Cartel, the Bloodsail Buccaneers, Colonel Kurzen's expedition, Yenniku, the Grimtotem clan, the Mirage Raceway, the Burning Blade, the Echo Isles.
+
 ## 1.7.0 (unreleased)
 - Towns: Sun Rock Retreat and Stonetalon Peak.
 - A new thread for druids, `the_circle`: Dendrite tells you the Keeper asked after you; Remulos asks you to watch for the land's sickness; Tonga (the Barrens) or Terenthis (Darkshore) shows it to you; Hamuul or Mathrengyl sends you back; Remulos hears you out.

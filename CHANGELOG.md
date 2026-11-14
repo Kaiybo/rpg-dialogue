@@ -2,6 +2,22 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.20.0 (2026-11-14)
+Packs: World 1.8.0, Orgrimmar 1.1.0, Thunder Bluff 1.0.1, and four new ones: Stranglethorn Vale 1.0.0, Thousand Needles 1.0.0, Durotar 1.0.0, Mulgore 1.0.0 (the rest as in 0.19.0). **New folders: exit the game fully, copy them in, and tick them.**
+
+### New places
+- **Stranglethorn Vale.** Booty Bay (both factions): Baron Revilgaz on his balcony, Fleet Master Seahorn (a tauren who went to sea), Krazek who knows everything, "Sea Wolf" MacKinley who collects from the dead, Kebok and his fake tiger fangs, Innkeeper Skindle; the Booty Bay Bruisers. Grom'gol (Horde): Commander Aggro'gosh, Nimboya searching for Vol'jin's son, the witch doctor Kin'weelay, Far Seer Mok'thardin, Innkeeper Thulbek. The Rebel Camp (Alliance): Lieutenant Doren and Brother Nimetz, who walked away from a colonel gone mad.
+- **Thousand Needles.** Freewind Post (Horde): Cliffwatcher Longhorn, Rau Cliffrunner and the Cloven Hoof, Hagar Lightninghoof and his egg, Thalia Amberhide, Innkeeper Abeqwa; Freewind's braves. The Mirage Raceway (both factions): Pozzik, Fizzle Brassbolts, and Kravel Koalbeard, who has rigged nothing, honestly.
+- **Durotar.** The Valley of Trials: Kaltunk, Gornek, Zureetha Fargaze, Foreman Thazz'ril and his sleeping peons, Galgar, and Kzan Thornslash (with Forever's new Wayward Weapons). Razor Hill: Gar'Thok, Orgnil Soulscar, Innkeeper Grosk; the grunts. Sen'jin Village: Master Gadrin, who taught Vol'jin; the watchers.
+- **Mulgore.** Camp Narache: Chief Hawkwind and Grull. Bloodhoof Village: Baine Bloodhoof, Zarlman Two-Moons, Harken Windtotem, Maur Raincaller, Mull Thunderhorn and the poisoned wells, Ahab Wheathoof (Forever brought him back; he still can't find Kyle), Innkeeper Kauth; the braves. **Camp Gev'rek: Ayessa Dawnsinger of the Windshapers**, for Horde Skyborne.
+
+### More of the capitals
+- **Vol'jin** stands beside Thrall in Orgrimmar. He knows if you've met Nimboya in the jungle or old Gadrin in Sen'jin.
+- Thrall talks about the Burning Blade and the Echo Isles; Magatha about the Grimtotem.
+
+### Fixes
+- Guards named "Ironforge Mountaineer", "Booty Bay Bruiser", "Moonglade Warden" and "Brave ..." are now recognised as guards, so Thelsamar's Mountaineers speak their own lines (they were treated as townsfolk).
+
 ## 0.19.0 (2026-11-14)
 Packs: World 1.7.0, and a new one: Stonetalon Mountains 1.0.0 (the rest as in 0.18.0). **New folder: exit the game fully, copy it in, and tick it.**
 
