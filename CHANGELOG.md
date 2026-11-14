@@ -2,6 +2,15 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.19.0 (2026-11-14)
+Packs: World 1.7.0, and a new one: Stonetalon Mountains 1.0.0 (the rest as in 0.18.0). **New folder: exit the game fully, copy it in, and tick it.**
+
+### For druids
+- **The Circle takes notice.** A druid who visits Moonglade hears that the Keeper has been asking after them. Remulos asks you to watch the land; Tonga at the Crossroads or Terenthis in Auberdine shows you what's wrong with it; Hamuul or Mathrengyl sends you back; and the Keeper listens. Works for either faction.
+
+### New place
+- **Stonetalon Mountains.** Sun Rock Retreat: Maggran Earthbinder, Tammra Windfield and her burned slopes, Braelyn Firehand (who would like the druids gone), Innkeeper Jayka; Witch Doctor Jin'Zil in his cave at Malaka'jin. Stonetalon Peak: Keeper Albagorm and Innkeeper Faralia.
+
 ## 0.18.0 (2026-11-14)
 Packs: World 1.6.0, Elwynn Forest 1.5.0, Westfall 1.2.0, Stormwind 1.3.0, Zephras Isle 1.0.1, Redridge 1.1.0, Duskwood 1.1.0, Ironforge 1.1.1, Wetlands 1.0.0, Moonglade 1.0.0, Darnassus 1.0.0, Thunder Bluff 1.0.0, The Barrens 1.0.1, Ashenvale 1.0.0, Hillsbrad Foothills 1.0.0, and four new ones: Darkshore 1.0.0, Loch Modan 1.0.0, Orgrimmar 1.0.0, Undercity 1.0.0. **New folders: exit the game fully, copy them in, and tick the new packs.**
 

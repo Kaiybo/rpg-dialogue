@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.7.0 (unreleased)
+- Towns: Sun Rock Retreat and Stonetalon Peak.
+- A new thread for druids, `the_circle`: Dendrite tells you the Keeper asked after you; Remulos asks you to watch for the land's sickness; Tonga (the Barrens) or Terenthis (Darkshore) shows it to you; Hamuul or Mathrengyl sends you back; Remulos hears you out.
+
 ## 1.6.0 (unreleased)
 - Towns: Auberdine and Thelsamar.
 
