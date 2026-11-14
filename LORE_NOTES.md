@@ -475,3 +475,17 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Zarlman Two-Moons, Harken Windtotem, Maur Raincaller, Mull Thunderhorn (the wells tainted by the Venture Company), Innkeeper Kauth: roles and Classic quests | [Zarlman Two-Moons](https://warcraft.wiki.gg/wiki/Zarlman_Two-Moons); [Harken Windtotem](https://warcraft.wiki.gg/wiki/Harken_Windtotem); [Maur Raincaller](https://warcraft.wiki.gg/wiki/Maur_Raincaller); [Mull Thunderhorn](https://warcraft.wiki.gg/wiki/Mull_Thunderhorn); [Innkeeper Kauth](https://warcraft.wiki.gg/wiki/Innkeeper_Kauth) |
 | Ahab Wheathoof and Kyle: a 2.1.2 addition that Forever brought back after fan outcry | [Ahab Wheathoof](https://warcraft.wiki.gg/wiki/Ahab_Wheathoof) |
 | Ayessa Dawnsinger and Camp Gev'rek | Brief §10 only |
+
+## Tirisfal Glades (Tirisfal pack 1.0.0)
+
+| Fact used | Source |
+|---|---|
+| Deathknell: the Forsaken starting village; the Scourge in its north; a Scarlet Crusade detachment to the southeast (Classic) | [Deathknell](https://warcraft.wiki.gg/wiki/Deathknell) |
+| Brill: retaken and rebuilt by the Forsaken; Sevren rebuilt it; Zygand commands Tirisfal's forces; the Gallows' End; a captured Scarlet Zealot | [Brill](https://warcraft.wiki.gg/wiki/Brill) |
+| Undertaker Mordo; Shadow Priest Sarvis (defiant toward death) and their Classic quests | [Undertaker Mordo](https://warcraft.wiki.gg/wiki/Undertaker_Mordo); [Shadow Priest Sarvis](https://warcraft.wiki.gg/wiki/Shadow_Priest_Sarvis) |
+| **Forever:** Forsaken paladins: Sarvis receives a scroll that reeks of the Light and asks you to read it away from him; Aramis Hammerhand in the Deathknell church trains you, tells you not to turn from the Light, treats the pain as strengthening | [A Difficult Path (Forever)](https://warcraft.wiki.gg/wiki/A_Difficult_Path_(Forever)) |
+| Executor Arren and his Classic quests; **Forever:** The Adventurer sends you to Eleanor Shackleton near Brill, who isn't with the Crusade and teaches camping | [Executor Arren](https://warcraft.wiki.gg/wiki/Executor_Arren); [The Adventurer (Tirisfal Glades)](https://warcraft.wiki.gg/wiki/The_Adventurer_(Tirisfal_Glades)) |
+| **Forever:** camping: campfire first (cooks), fixtures around it, leatherworkers' tent, fishers; resting by the fire gives boons; each starting zone's adventurer (Sam Sarsaparilla, Eric Brighthammer, Lyreena Duskblade, Brakk, Eleanor Shackleton, Kaga Wildhoof, Raan Wildwind) | [The Great Outdoors (Forever)](https://warcraft.wiki.gg/wiki/The_Great_Outdoors_(Forever)); [Camping](https://warcraft.wiki.gg/wiki/Camping) |
+| Executor Zygand, Magistrate Sevren, Apothecary Johaan, Gretchen Dedmar and their Classic quests | [Executor Zygand](https://warcraft.wiki.gg/wiki/Executor_Zygand); [Magistrate Sevren](https://warcraft.wiki.gg/wiki/Magistrate_Sevren); [Apothecary Johaan](https://warcraft.wiki.gg/wiki/Apothecary_Johaan); [Gretchen Dedmar](https://warcraft.wiki.gg/wiki/Gretchen_Dedmar) |
+| Coleman Farthing and the Agamands | [Coleman Farthing](https://warcraft.wiki.gg/wiki/Coleman_Farthing) |
+| Innkeeper Renee: a former Scarlet Crusade captain who keeps the inn to care for people | [Innkeeper Renee](https://warcraft.wiki.gg/wiki/Innkeeper_Renee) |

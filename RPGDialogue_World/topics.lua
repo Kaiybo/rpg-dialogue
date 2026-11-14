@@ -47,4 +47,6 @@ P:Topic { id = "grimtotem", name = "The Grimtotem clan", category = "threats", l
 P:Topic { id = "mirage_raceway", name = "The Mirage Raceway", category = "places", learned = "Pozzik or Fizzle on the Shimmering Flats" }
 P:Topic { id = "burning_blade", name = "The Burning Blade", category = "threats", learned = "Zureetha Fargaze or Orgnil Soulscar in Durotar" }
 P:Topic { id = "echo_isles", name = "The Echo Isles", category = "places", learned = "Master Gadrin in Sen'jin Village" }
+P:Topic { id = "scarlet_crusade", name = "The Scarlet Crusade", category = "threats", learned = "Executor Arren or Executor Zygand in Tirisfal" }
+P:Topic { id = "camping", name = "Camping", category = "trade", learned = "an adventurer camped on the road" }
 P:Topic { id = "yenniku", name = "Yenniku, son of Vol'jin", category = "people", learned = "Nimboya at Grom'gol" }

@@ -1,0 +1,7 @@
+# RPG Dialogue: Tirisfal Glades (pack changelog)
+
+The pack's own version is `version` in `pack.lua`; bump both together.
+
+## 1.0.0 (first release, unreleased)
+- Deathknell: Undertaker Mordo, Shadow Priest Sarvis, Executor Arren, and Aramis Hammerhand for Forever's Forsaken paladins. Deathknell's Deathguards.
+- Brill: Executor Zygand, Magistrate Sevren, Apothecary Johaan, Coleman Farthing, Gretchen Dedmar, Innkeeper Renee, and Eleanor Shackleton (Forever's camping, on the road outside town). Brill's Deathguards.

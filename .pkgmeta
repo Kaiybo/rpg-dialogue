@@ -31,6 +31,7 @@ move-folders:
   RPGDialogue/RPGDialogue_ThousandNeedles: RPGDialogue_ThousandNeedles
   RPGDialogue/RPGDialogue_Durotar: RPGDialogue_Durotar
   RPGDialogue/RPGDialogue_Mulgore: RPGDialogue_Mulgore
+  RPGDialogue/RPGDialogue_Tirisfal: RPGDialogue_Tirisfal
 
 # Paths are from the repo root; "*.md" matches at any depth (bash case patterns), which
 # keeps voice bibles, PLAN.md files and pack changelogs out of the zip.

@@ -277,6 +277,20 @@ P:Town {
   tiers = { Hero = "Friend of the Windshapers" },
 }
 
+P:Town {
+  id = "deathknell", name = "Deathknell",
+  subzones = { "Deathknell", "Night Web's Hollow" },
+  tiers = { Hero = "Risen Champion" },
+  quests = { { TODO_QUEST("The Scarlet Crusade"), 4 } },
+}
+
+P:Town {
+  id = "brill", name = "Brill",
+  subzones = { "Brill", "Gallows' End Tavern", "Brill Town Hall" },
+  tiers = { Hero = "Hero of Brill" },
+  quests = { { TODO_QUEST("Wanted: Maggot Eye"), 6 }, { TODO_QUEST("Deaths in the Family"), 6 } },
+}
+
 -- The other capitals. Their guards speak from pools_roles.lua; standing grows from quests
 -- each capital's own pack lists later.
 P:Town {

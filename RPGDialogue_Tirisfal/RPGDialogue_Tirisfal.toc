@@ -1,0 +1,16 @@
+## Interface: 16001, 16002
+## Title: RPG Dialogue: Tirisfal Glades |cff8a8a8a1.0.0|r
+## Notes: Deathknell and Brill: the newly risen, a shadow priest who laughs at death, a paladin who kept the Light, an apothecary's new plague, and a mill hand who hasn't forgiven his employers.
+## Author: RPG Dialogue
+## Version: 1.0.0
+## Dependencies: RPGDialogue
+## LoadOnDemand: 1
+## X-RPGD-Pack: rpgd.tirisfal
+## X-RPGD-Format: 1
+## X-RPGD-Load: zone
+## X-RPGD-Zones: Tirisfal_Glades
+
+pack.lua
+pools.lua
+npcs\deathknell.lua
+npcs\brill.lua

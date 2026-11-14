@@ -16,6 +16,7 @@ Copy these folders into `World of Warcraft/<your Forever folder>/Interface/AddOn
 - `RPGDialogue_Zephras`: Zephras Isle, home of the Skyborne
 - `RPGDialogue_Redridge`: Lakeshire and the Redridge Mountains
 - `RPGDialogue_Duskwood`: Darkshire, Raven Hill and the woods
+- `RPGDialogue_Tirisfal`: Deathknell and Brill (Horde)
 - `RPGDialogue_Mulgore`: Camp Narache, Bloodhoof Village and Camp Gev'rek (Horde)
 - `RPGDialogue_Durotar`: the Valley of Trials, Razor Hill and Sen'jin Village (Horde)
 - `RPGDialogue_ThousandNeedles`: Freewind Post (Horde) and the Mirage Raceway (neutral)
