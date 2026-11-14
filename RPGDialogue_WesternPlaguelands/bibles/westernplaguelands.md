@@ -1,4 +1,4 @@
-# Western Plaguelands  (keys: valorfist, macdonnell, arbington, weldon, pureheart, dumah, bibilfaz, derrington, vandis, dithers, alexi, garush, janice, mulgris, marlene, kirsta, eva)
+# Western Plaguelands  (keys: valorfist, macdonnell, arbington, weldon, pureheart, dumah, bibilfaz, derrington, vandis, dithers, alexi, garush, janice, mulgris, marlene, kirsta, eva_sarkhoff)
 
 ## Sources
 - https://warcraft.wiki.gg/wiki/Chillwind_Camp (read: Alliance camp in the south, at the entrance from Chillwind Point in Alterac; in Year 25 a small Argent Dawn contingent, the last safe place for Alliance travelers; few troops, relying on mercenaries for guerrilla strikes on Andorhal and the plague cauldrons; Grayson Shadowbreaker sends promising paladins to Valorfist; Classic NPCs Arbington, Pureheart, Bibilfaz, Valorfist, MacDonnell, Nathaniel Dumah, Weldon Barov, Argent Defenders; the Scholomance key quests are here; Mother Matterly's inn is Cataclysm-era, left out)

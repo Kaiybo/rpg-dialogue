@@ -130,6 +130,12 @@ def main():
                     continue
                 if key in npcs and npcs[key][0] is pack:
                     rep.error(pack, f, line, f"NPC key {key!r} defined twice in this pack")
+                elif key in npcs and tbl.get("name") and npcs[key][1].get("name") \
+                        and tbl.get("name") != npcs[key][1].get("name"):
+                    # Packs may extend one NPC under one key; two different people
+                    # sharing a key would silently merge into one (eva vs Eva Sarkhoff).
+                    rep.error(pack, f, line, f"NPC key {key!r} is already {npcs[key][1].get('name')!r} "
+                              f"in {npcs[key][0].addon}; this one is {tbl.get('name')!r}. Keys are global: pick another")
                 npcs.setdefault(key, (pack, tbl, f, line))
                 for slot, node, ln, gid in P.iter_lines(tbl, key):
                     all_lines.setdefault(gid, (pack, f, ln))

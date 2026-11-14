@@ -221,7 +221,7 @@ P:NPC {
 }
 
 P:NPC {
-  key = "eva", id = TODO_NPC("Eva Sarkhoff"), name = "Eva Sarkhoff",
+  key = "eva_sarkhoff", id = TODO_NPC("Eva Sarkhoff"), name = "Eva Sarkhoff",
   bible = "bibles/westernplaguelands.md", role = "questgiver", tier = "quest",
   communities = { "caer_darrow" }, temper = { "gentle" }, values = { "dutiful", "loving" },
   notices = { "race", "class" },

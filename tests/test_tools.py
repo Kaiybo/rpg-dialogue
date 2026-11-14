@@ -261,5 +261,14 @@ class ImportCaptureTest(ScratchRepo):
         self.assertEqual(reg["quests"]["910001"]["factions"], ["Alliance", "Horde"])
 
 
+class KeyClashTest(ScratchRepo):
+    def test_two_people_cannot_share_a_key(self):
+        f = os.path.join(self.root, "RPGDialogue_WesternPlaguelands", "npcs", "wilds.lua")
+        write(f, read(f).replace('key = "eva_sarkhoff"', 'key = "eva"', 1))
+        p = self.tool("validate.py", check=False)
+        self.assertNotEqual(p.returncode, 0)
+        self.assertIn("NPC key 'eva' is already 'Madame Eva'", p.stdout)
+
+
 if __name__ == "__main__":
     unittest.main()
