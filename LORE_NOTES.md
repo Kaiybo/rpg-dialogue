@@ -223,3 +223,14 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Chef Grual cooks at the Scarlet Raven, hides spider legs in the crab cakes; Dusky Crab Cakes, Seasoned Wolf Kabobs, Jitters' Growling Gut | [Chef Grual](https://warcraft.wiki.gg/wiki/Chef_Grual) |
 | Councilman Millstipe, Council of Darkshire, angry at Stormwind's neglect; Crime and Punishment: Dextren Ward sold the dead to Morbent Fel, Ebonlocke sentenced him, the House of Nobles kept him in the Stockade | [Councilman Millstipe](https://warcraft.wiki.gg/wiki/Councilman_Millstipe); [Crime and Punishment (Classic)](https://warcraft.wiki.gg/wiki/Crime_and_Punishment_(Classic)) |
 | Innkeeper Trelayne keeps Darkshire's inn (personality authored); Clarise Gnarltree trains blacksmiths, relatives Gavin and Morg Gnarltree, wry about being startled, sleepless at the screaming on the wind | [Innkeeper Trelayne](https://warcraft.wiki.gg/wiki/Innkeeper_Trelayne); [Clarise Gnarltree](https://warcraft.wiki.gg/wiki/Clarise_Gnarltree) |
+
+## Lakeshire's law, road and kitchen (Redridge pack 1.1.0)
+
+| Fact used | Source |
+|---|---|
+| Bailiff Conacher, Court of Lakeshire with Solomon, formal; Solomon's Law: Morganth commands the Shadowhide gnolls, aiding a kingdom criminal is a capital offense, bring their pendants | [Bailiff Conacher](https://warcraft.wiki.gg/wiki/Bailiff_Conacher); [Solomon's Law](https://warcraft.wiki.gg/wiki/Solomon%27s_Law) |
+| Deputy Feldon stands south of the Lakeshire bridge, worried about gnolls on the road; Encroaching Gnolls (from Parker), Assessing the Threat | [Deputy Feldon](https://warcraft.wiki.gg/wiki/Deputy_Feldon); [Encroaching Gnolls](https://warcraft.wiki.gg/wiki/Encroaching_Gnolls) |
+| Guard Parker patrols the road toward Duskwood, sees gnoll camps north and east, duty-minded; A Free Lunch (Darcy's lunch for him), Visit the Herbalist, Delivering Daffodils (his flowers for Darcy, from Martie; Martie's favourites) | [Guard Parker](https://warcraft.wiki.gg/wiki/Guard_Parker); [A Free Lunch](https://warcraft.wiki.gg/wiki/A_Free_Lunch); [Delivering Daffodils](https://warcraft.wiki.gg/wiki/Delivering_Daffodils) |
+| Darcy, waitress at the Lakeshire Inn in Classic, sweet on Parker, sees Martie as a rival | [Darcy](https://warcraft.wiki.gg/wiki/Darcy) |
+| Martie Jainrose, herbalist, warm, fond of Parker; Bellygrub (Marris's name for the boar) tramples her garden and spoils her daffodil replanting | [Martie Jainrose](https://warcraft.wiki.gg/wiki/Martie_Jainrose); [An Unwelcome Guest](https://warcraft.wiki.gg/wiki/An_Unwelcome_Guest) |
+| Chef Breanna feeds the Stormwind battalion in Lakeshire, employs Crystal Boughman and Gretchen Vogel, anxious for reinforcements; Redridge Goulash needs Great Goretusk Snout | [Chef Breanna](https://warcraft.wiki.gg/wiki/Chef_Breanna); [Redridge Goulash](https://warcraft.wiki.gg/wiki/Redridge_Goulash) |

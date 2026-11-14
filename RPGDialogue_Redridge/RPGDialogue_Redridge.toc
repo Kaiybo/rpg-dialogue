@@ -20,3 +20,4 @@ npcs\keeshan.lua
 npcs\wiley.lua
 npcs\baren.lua
 npcs\daniels.lua
+npcs\lakeshire_folk.lua
