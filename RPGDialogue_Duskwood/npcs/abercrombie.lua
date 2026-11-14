@@ -42,6 +42,8 @@ P:NPC {
           text = "Take this to the mayor, would you? It's a note. Just a note. I'd rather not watch you read it." },
         { id = "h_eliza", when = { questDone = TODO_QUEST("The Embalmer's Revenge") },
           text = "Eliza's resting. Don't go near the graves. She doesn't like visitors. She's, well. Particular about her diet." },
+        { id = "h_skyborne", when = { race = "Skyborne" },
+          text = "My, so slender. Your people are built for the wind, aren't they? Light bones. Wonderful. Professionally speaking." },
       },
       choices = {
         { text = "What are you working on?", next = "work" },

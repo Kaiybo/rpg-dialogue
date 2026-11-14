@@ -46,6 +46,8 @@ P:NPC {
           fx = { expose = "murlocs_in_elwynn" } },
         { id = "e_thomas", tags = { "news" }, priority = 5, when = { heardLine = "thomas.h_report" },
           text = "Thomas said that? A drink, for Remy? For Remy! I'll hold him to it. I'll hold him to it twice." },
+        { id = "h_skyborne", when = { race = "Skyborne" },
+          text = "A sky elf! Never sold to a sky elf. Never! What do your people buy? Whatever it is, I've got some. Probably." },
       },
       choices = {
         { text = "What are you buying?", next = "BUSINESS" },

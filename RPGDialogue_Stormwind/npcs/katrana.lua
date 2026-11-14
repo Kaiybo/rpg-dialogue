@@ -33,6 +33,8 @@ P:NPC {
         { id = "h_redridge", when = { visited = "Lakeshire" },
           text = "Lakeshire's magistrate sends letters too. They all send letters. One begins to suspect the countryside has nothing better to do." },
         { id = "h_anduin", text = "The young king is doing splendidly. He listens. That is the most important quality in a king, at his age. Listening." },
+        { id = "h_skyborne", when = { race = "Skyborne" },
+          text = "Ah. One of the elves who came down out of the sky. The Kirin Tor do collect such curiosities." },
       },
       choices = {
         { text = "Westfall needs the crown's help.", next = "plead" },

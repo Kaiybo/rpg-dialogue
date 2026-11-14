@@ -37,6 +37,8 @@ P:NPC {
           text = "Mud-stained pages, in a hand I could never match to anyone. Haggard and I spent a season on them. If you can finish it, finish it." },
         { id = "h_juice", when = { questActive = TODO_QUEST("Zombie Juice") },
           text = "Zombie juice, for the hermit. Strong stuff. I wouldn't drink it. He swears it's for his garden." },
+        { id = "h_skyborne", when = { race = "Skyborne" },
+          text = "You're the first of the sky people to sit at my bar. Tell me something true about your folk and I'll write it in my book. Only what you'd not mind me knowing." },
       },
       choices = {
         { text = "A drink, please.", next = "BUSINESS" },

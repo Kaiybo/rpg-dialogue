@@ -40,6 +40,8 @@ P:NPC {
           text = "Solomon's evidence isn't enough to march an army on, and too much to ignore. So I'm sending you. Lakeshire deserves an army; it gets my best instead." },
         { id = "h_light", when = { alignment = { axis = "light", min = 50 } },
           text = "There's something steady in you. The Light, or plain decency; on a good day they look the same." },
+        { id = "h_skyborne", when = { race = "Skyborne" },
+          text = "Your High Order sought out the Kirin Tor, and through them, us. Stormwind keeps its friends. I hope your people find us worth the journey." },
       },
       choices = {
         { text = "What of Westfall?", next = "westfall" },

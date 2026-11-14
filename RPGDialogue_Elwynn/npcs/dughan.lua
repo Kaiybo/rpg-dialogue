@@ -49,6 +49,8 @@ P:NPC {
           fx = { standing = { goldshire = -6 }, npcFlag = { set = { "caught_lying" } } } },
         { id = "h_standing_low", when = { townStanding = { town = "goldshire", max = -20 } },
           text = "I hear things about you. None of them good. Give me a reason to stop hearing them." },
+        { id = "h_skyborne", when = { race = "Skyborne" },
+          text = "Sky elves. Stormwind's calling your people friends now. Good. I'll take friends. Keep the peace in my town and we'll get along fine." },
       },
       choices = {
         { text = "Any work for me?", next = "BUSINESS" },

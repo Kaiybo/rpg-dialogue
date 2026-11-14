@@ -39,6 +39,8 @@ P:NPC {
           text = "The council has voted you its thanks. Unanimously. That has never happened. Please don't make a habit of being necessary." },
         { id = "h_westfall", when = { thread = { id = "westfall_left", beat = "b3_danuvin" } },
           text = "Westfall feels forgotten? Stormwind pulled its soldiers out of Duskwood when the king vanished. We've been forgotten so long we've started to rot." },
+        { id = "h_skyborne", when = { race = "Skyborne" },
+          text = "One of the sky folk. I don't suppose your people can do anything about the dark? No. A pity. You'd be very popular here." },
       },
       choices = {
         { text = "What does Darkshire need?", next = "need" },

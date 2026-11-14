@@ -41,6 +41,8 @@ P:NPC {
           text = "There's a pattern. They pull back toward Moonbrook every time we push. Gryan will want to hear that." },
         { id = "h_willem", when = { heardLine = "willem.t_default" },
           text = "Red bandanas in Northshire's vineyards too? Then they've spread further east than my map says. I'll need more pins." },
+        { id = "h_skyborne", when = { race = "Skyborne" },
+          text = "You walk light, like you're used to wind in your face. That's useful in a scout. I'm not recruiting. I'm noticing." },
       },
       choices = {
         { text = "Show me your map.", next = "map" },

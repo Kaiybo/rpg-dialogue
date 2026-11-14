@@ -46,6 +46,8 @@ P:NPC {
           text = "Wiley talked to you? Then you've had the truth with no manners attached. I should have left him where I found him. I'm glad I didn't." },
         { id = "h_light", when = { alignment = { axis = "light", min = 40 } },
           text = "A decency on you, I'd say. Out here it's rarer than iron. Don't spend it all in one place." },
+        { id = "h_skyborne", when = { race = "Skyborne" },
+          text = "Your people lost a home and kept going. So did mine, out here. That's a better start than most of my volunteers had." },
       },
       choices = {
         { text = "What happened to Westfall?", next = "westfall" },

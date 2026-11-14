@@ -39,6 +39,8 @@ P:NPC {
           text = "Goretusk liver. Fresh, mind. A pie's only as good as what's in it, and that's a fact Verna will argue with." },
         { id = "h_furlbrows", when = { topicKnown = "old_blanchy" },
           text = "Verna and Theodore are up at the old Jansen place, poor dears. Their wagon broke. Theodore's pride broke worse." },
+        { id = "h_skyborne", when = { race = "Skyborne" },
+          text = "Thin as a rake, even for an elf. Sit down. Sky or no sky, everyone eats at my table." },
       },
       choices = {
         { text = "What's cooking?", next = "pot" },

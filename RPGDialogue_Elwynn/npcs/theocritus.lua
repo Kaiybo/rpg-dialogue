@@ -41,6 +41,8 @@ P:NPC {
           text = "Gone? Truly? Then Stormwind is a little safer, and I am a great deal less bored than I expected to be. That is not a complaint." },
         { id = "h_mage", when = { class = "MAGE", minLevel = 20 },
           text = "The Mage Quarter sends me its brighter students now and then. You'd do. Possibly." },
+        { id = "h_skyborne", when = { race = "Skyborne" },
+          text = "The Kirin Tor have been insufferable about your people lately, I'm told. Highborne magisters' children, back from wherever. I'd like to see what the fuss is about. Later." },
       },
       choices = {
         { text = "Who is Morganth?", next = "morganth" },

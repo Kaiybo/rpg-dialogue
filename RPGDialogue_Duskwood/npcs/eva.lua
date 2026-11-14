@@ -37,6 +37,8 @@ P:NPC {
           text = "The manor. The cards show a teacher with a gentle hand and something behind his back. Follow the letters. They lead uphill." },
         { id = "h_new", when = { maxLevel = 20 },
           text = "So young, to be walking in Duskwood. The stars are fond of you. That isn't always a kindness." },
+        { id = "h_skyborne", when = { race = "Skyborne" },
+          text = "The cards don't know what to make of you. They keep turning up the Wind. It has never come up twice in one night before." },
       },
       choices = {
         { text = "Read my cards.", next = "cards" },

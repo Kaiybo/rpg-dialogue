@@ -43,6 +43,8 @@ P:NPC {
           text = "Orcs don't plan like this. Somebody is directing them. I need proof the Regent can't ignore, and I need it before the next raid." },
         { id = "h_masters_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The True Masters"), days = 5 } },
           text = "The Highlord read it all and still won't send soldiers without more. So he sent a deputy. You. I suppose that's an answer." },
+        { id = "h_skyborne", when = { race = "Skyborne" },
+          text = "An elf from the sky. If your people could fly, I'd want a dozen on the walls. You glide, I'm told? I'll take gliders." },
       },
       choices = {
         { text = "What does Lakeshire need?", next = "need" },

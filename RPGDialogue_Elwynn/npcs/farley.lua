@@ -42,6 +42,8 @@ P:NPC {
           text = "William says you're all for young love. Good. Somebody in this town should be, besides him." },
         { id = "h_stalvan", when = { questActive = TODO_QUEST("The Legend of Stalvan") },
           text = "Stalvan? He did stay here, years back. Paid in coin, kept to himself, wrote letters he never sent." },
+        { id = "h_skyborne", when = { race = "Skyborne" },
+          text = "Winds be with you! That's what your people say, isn't it? I've been practising. Did I say it right? Melika says I didn't." },
       },
       choices = {
         { text = "I'd like a room.", next = "BUSINESS" },

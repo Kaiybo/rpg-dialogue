@@ -36,6 +36,8 @@ P:NPC {
         { id = "h_ello", text = "The mayor writes to Stormwind. I train farmers to hold a pike. One of us will save this town, and it won't be the letters." },
         { id = "h_new", when = { maxLevel = 22 },
           text = "You're green for Duskwood. Keep to the road, keep a torch lit, and don't follow lights into the trees." },
+        { id = "h_skyborne", when = { race = "Skyborne" },
+          text = "Can your people see through this fog any better than mine? No? Then you're as welcome as anyone else holding a sword." },
       },
       choices = {
         { text = "What's out in the woods?", next = "woods" },

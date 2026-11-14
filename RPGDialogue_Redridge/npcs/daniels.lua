@@ -36,6 +36,8 @@ P:NPC {
           text = "Listen to that room. That's the sound of Lakeshire forgetting about orcs for an evening. You did that." },
         { id = "h_wiley", when = { metBefore = true },
           text = "Wiley's in the corner, if you're looking for him. Nobody's ever looking for Wiley. Except the ones who are." },
+        { id = "h_skyborne", when = { race = "Skyborne" },
+          text = "Sky folk drink? Course they do. Whatever they pour up there, down here it's whatever I've got left." },
       },
       choices = {
         { text = "Pour me whatever you've got.", next = "BUSINESS" },

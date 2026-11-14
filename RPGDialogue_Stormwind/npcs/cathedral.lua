@@ -36,6 +36,8 @@ P:NPC {
           text = "The Eye of Paleth. A cursed thing. Bring it here, to the altar, and we'll see what the Light makes of it." },
         { id = "h_dark", when = { alignment = { axis = "light", max = -40 } },
           text = "There's a heaviness about you. I'm not going to ask. If you ever want to set it down, this is a good place to do it." },
+        { id = "h_skyborne", when = { race = "Skyborne" },
+          text = "Winds be with you, I'm told your people say. And the Light with you, say mine. I don't see why anyone can't have both." },
       },
       choices = {
         { text = "What did Archbishop Faol teach?", next = "faol" },

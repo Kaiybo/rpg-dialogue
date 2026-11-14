@@ -37,6 +37,8 @@ P:NPC {
           text = "You're going to tell Sven, aren't you. Tell him I didn't do anything. Tell him I just watched. That's worse, isn't it. It's worse." },
         { id = "h_defias", when = { topicKnown = "defias" },
           text = "I wore the red, once. Before. I'm not proud of it. I'm not proud of much. I'm alive, though. That's something." },
+        { id = "h_skyborne", when = { race = "Skyborne" },
+          text = "AH! Oh. An elf. From the sky? I didn't know elves came from the sky. I don't know anything. That's fine. That's fine." },
       },
       choices = {
         { text = "What did you see?", next = "saw" },
