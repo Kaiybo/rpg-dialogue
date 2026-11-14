@@ -10,7 +10,10 @@ Copy these folders into `World of Warcraft/<your Forever folder>/Interface/AddOn
 
 - `RPGDialogue`: the addon itself
 - `RPGDialogue_World`: shared dialogue (role pools, spirit healers, towns, topics, rumors, origins)
-- `RPGDialogue_Elwynn`: Northshire Valley and Goldshire
+- `RPGDialogue_Elwynn`: Elwynn Forest (Northshire Valley, Goldshire, the farms, Eastvale)
+- `RPGDialogue_Westfall`: Sentinel Hill and the farms of Westfall
+- `RPGDialogue_Stormwind`: Stormwind Keep, the Cathedral, City Hall
+- `RPGDialogue_Zephras`: Zephras Isle, home of the Skyborne
 
 Content packs load by zone, so only the dialogue for where you are is in memory.
 

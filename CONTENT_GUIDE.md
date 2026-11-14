@@ -36,7 +36,7 @@ A noticing moment is *this* NPC reacting to something about the player *they in 
 - Put the 2–3 things an NPC notices in the bible ("What they notice") and in `notices = { ... }`. Every `notice` line has a `cat` from that list.
 - `place = "before" | "after" | "replace"` relative to the main line.
 - They're rare by design: about one in three conversations rolls for one, at most one per conversation, and each category cools down (30 min across NPCs, 3 days per NPC). Don't fight the pacing by adding more.
-- Pools may carry noticing moments only for **narrow roles** (children, flight masters, innkeepers, guards, blacksmiths, spirit healers, trainers, stable masters). The voice checker fails broad-pool noticing moments.
+- Pools may carry noticing moments only for **narrow roles** (children, flight masters, innkeepers, guards, blacksmiths, spirit healers, trainers, stable masters), or when the pool is narrowed to one town (`community`) or one kind of NPC by title (`subtitle`). The voice checker fails broad-pool noticing moments. A trainer pool narrowed by title should notice things only that trainer would: pair race notices with the class (`{ race = "Orc", class = "MAGE" }`), or an orc warrior asking the mage trainer for directions gets the orc-mage line.
 
 Good: a blacksmith winces at your broken armor before you speak. A trapper eyes a druid's bear form: "I've skinned bears. Don't take it personally."
 Bad: "Greetings, night elf druid." (a mad-lib, and anyone could say it)

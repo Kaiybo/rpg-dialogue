@@ -2,6 +2,23 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.12.0 (2026-11-14)
+Packs: World 1.1.0, Elwynn Forest 1.2.0, and three new ones: Westfall 1.0.0, Stormwind 1.0.0, Zephras Isle 1.0.0. New addon folders: restart the game, don't just /reload, and tick the new packs in the AddOns list if your client doesn't do it for you.
+
+### More people to talk to
+- **Every common kind of NPC has a voice now.** Stable masters, bankers, auctioneers, blacksmiths, food, drink and reagent vendors, each class's trainer, Horde flight masters, Alliance and Horde guards, and the guards of all six capitals. Anyone without a file of their own speaks from these.
+- **Class trainers know their class.** A paladin trainer talks like a paladin trainer, not like "a trainer", and notices the new race and class pairings (a human hunter, a dwarf shaman, a gnome priest, an orc mage, a troll warlock, Skyborne druids, mages and shamans).
+- **Elwynn grows east.** Brother Wilhelm (Goldshire's paladin trainer, and your next step after Brother Sammuel), Falkhaan Isenstrider, the young lovers Maybell Maclure and Tommy Joe Stonefield, Gramma Stonefield, and Eastvale: Guard Thomas, Marshal Haggard, Supervisor Raelen, and Theocritus up in his tower.
+- **Westfall.** Gryan Stoutmantle and the People's Militia at Sentinel Hill, the Saldeans and the Furlbrows, and a ghost at the lighthouse.
+- **Stormwind.** Highlord Bolvar, Lady Prestor, young King Anduin, Duthorian Rall at the Cathedral (paladins: he's where the Tome of Divinity leads), and Baros Alexston at City Hall.
+- **Zephras Isle.** The High Elder and the isle's Peacekeepers, innkeepers and traders, written only from what's known about the Skyborne.
+- **A story across three zones.** From Goldshire to Sentinel Hill to the Keep, people have something to say about the kingdom leaving Westfall to fend for itself, and they don't all agree.
+
+### Under the hood
+- Role pools can be narrowed to an NPC's title (`subtitle = "paladin trainer"`), and win over the plain role pool.
+- NPCs whose name ends in "Peacekeeper" or "Empyrean Blade" are treated as guards.
+- The voice checker matches banned phrases as whole words.
+
 ## 0.11.0 (2026-11-13)
 Packs unchanged: World 1.0.0, Elwynn Forest 1.1.0. Adds a file (`Integrations/DialogueUIView.lua`): restart the game, don't just /reload.
 

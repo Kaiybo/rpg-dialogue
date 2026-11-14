@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.2.0 (unreleased)
+- Brother Wilhelm (Goldshire's paladin trainer, the Tome of Divinity), Falkhaan Isenstrider, Maybell Maclure, Tommy Joe and Gramma Stonefield, and Eastvale: Guard Thomas, Marshal Haggard, Supervisor Raelen, Theocritus. Nine new voice bibles.
+- Echoes: Remy hears that Thomas owes him a drink; William Pestle reads Gramma's note.
+
 ## 1.1.0 (unreleased)
 - Melika Isenstrider, Assistant Innkeeper at the Lion's Pride Inn: her own voice bible and conversation (kitchen, inn news, Falkhaan, a Skyborne greeting), topic answers, noticing moments for druid forms and well-travelled guests. She has no gossip menu, so right-clicking her opens the box.
 

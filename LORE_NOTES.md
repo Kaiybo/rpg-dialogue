@@ -87,3 +87,37 @@ Not used (later eras): Wilhelm and Rall in the Legion-era Silver Hand; the Maclu
 | *Forsaken Kingdom* covers the years between Arthas's return to Lordaeron and the rise of the Undercity, and introduces the Forsaken Paladin, whose story continues in Forever | [Blizzard: Forsaken Kingdom panel recap](https://news.blizzard.com/en-us/article/24302500/iii) |
 
 Guard lines stay with places and attitudes. New combinations (orc mage, dwarf shaman, undead paladin, Skyborne) get opinions, never facts the sources don't give. Skyborne lines use only brief §10 (Windshapers through the Earthen Ring, Camp Gev'rek in Mulgore, druids few and elements before Elune, Highborne magister ancestry for the High Order).
+
+## Lore sheet: Westfall (Westfall pack 1.0.0)
+
+All original-WoW (Classic) facts; quest IDs come from capture only. Westfall is levels 10–20.
+
+| Fact | Source |
+|---|---|
+| Westfall was Stormwind's farmland; it went fallow after the Second War, farmers were driven off or left, and the Defias under Edwin VanCleef took over. Stormwind claims it but can't retake it; a few farmers hold on. Sentinel Hill (People's Militia, flight path), Moonbrook (Defias-held; the Deadmines entrance), Gold Coast Quarry, Westfall Lighthouse, Jangolode Mine (kobolds), Alexston Farmstead, Saldean's Farm, Furlbrow's Pumpkin Farm, the Molsen Farm, the Jansen Stead, the Dagger Hills, the Dust Plains. Hostiles: Defias, Riverpaw gnolls, harvest watchers and golems, kobolds, murlocs | [Westfall (Classic)](https://warcraft.wiki.gg/wiki/Westfall_(Classic)) |
+| Gryan Stoutmantle: born in Westfall; trained as a Knight of the Silver Hand in Lordaeron; present at Stratholme (role unstated); left the Third War for the Defias at home; founded the People's Militia because Westfall's noble house was corrupted and Stormwind gave no help; dutiful, protective of farmers, pragmatic; turned down Magistrate Solomon; grudgingly grateful to Wiley the Black; with SI:7 learned VanCleef led the Brotherhood; a captured thief revealed the Deadmines | [Gryan Stoutmantle](https://warcraft.wiki.gg/wiki/Gryan_Stoutmantle); [The People's Militia](https://warcraft.wiki.gg/wiki/The_People's_Militia) |
+| Captain Danuvin: Sentinel Hill, People's Militia; rallies people to Gryan's campaign as a fight for dignity; Westfall won't forgive Stormwind's desertion. Patrolling Westfall: gnoll paws; the gnolls work with the Deadmines thieves | [Captain Danuvin](https://warcraft.wiki.gg/wiki/Captain_Danuvin); [Patrolling Westfall](https://warcraft.wiki.gg/wiki/Patrolling_Westfall) |
+| Scout Galiaan: Red Leather Bandanas (fifteen); the Defias front keeps shifting; members can be tracked by the bandanas they wear | [Red Leather Bandanas](https://warcraft.wiki.gg/wiki/Red_Leather_Bandanas) |
+| Farmer Saldean: The Killing Fields, twenty harvest watchers; thieves drove the farmers out and harvest watchers took the fields. The watchers' origin isn't given: never state it | [The Killing Fields](https://warcraft.wiki.gg/wiki/The_Killing_Fields) |
+| Salma Saldean: Saldean's Farm; wife of Farmer Saldean; friendly, welcoming, helps anyone who needs a meal and someone to listen; Westfall Stew; Goretusk Liver Pie (Classic). Westfall cooks once used murloc eyes and buzzard meat in lean times | [Salma Saldean](https://warcraft.wiki.gg/wiki/Salma_Saldean); [Westfall Stew](https://warcraft.wiki.gg/wiki/Westfall_Stew) |
+| The Furlbrows (Theodore and Verna) ran a pumpkin farm in northern Westfall; the Defias overran it; their wagon broke on the road to Elwynn; they squat at the Jansen Stead with their horse Old Blanchy. Furlbrow's Deed: the Defias pressured him into giving it up; a note suggests using it as a template for forgeries. The Forgotten Heirloom: a pocket watch in a Defias house. Poor Old Blanchy: eight handfuls of oats; Blanchy is exhausted | [Farmer Furlbrow](https://warcraft.wiki.gg/wiki/Farmer_Furlbrow); [Furlbrow's Deed](https://warcraft.wiki.gg/wiki/Furlbrow's_Deed); [Poor Old Blanchy](https://warcraft.wiki.gg/wiki/Poor_Old_Blanchy); [Westfall questing guide](https://warcraft.wiki.gg/wiki/Westfall_questing_guide) |
+| Captain Grayson: ghost of a pirate captain at Westfall Lighthouse; his ship wrecked when the lighthouse went dark; Old Murk-Eye's murlocs drove off, then killed, the keeper's family; he keeps the flame lit and means no harm. Quests: Keeper of the Flame, The Coast Isn't Clear, The Coastal Menace | [Captain Grayson](https://warcraft.wiki.gg/wiki/Captain_Grayson) |
+
+**Year 1 status (Forever):** the Defias hold Moonbrook; VanCleef is alive until a player clears the Deadmines (lines use the `dungeon:The Deadmines` deed, since every step of The Defias Brotherhood shares one title). **Not used (Cataclysm):** the Westfall Brigade, Vanessa VanCleef, the Furlbrows' murder, Hope Saldean, the Breadbasket Guild, Sentinel Hill's inn.
+
+**Unsure / to confirm with capture:** whether Forever changed Westfall's quests; who gives Goretusk Liver Pie (the wiki lists both Salma and Verna); the names of Sentinel Hill's guard NPCs; Scout Galiaan's race; Quartermaster Lewis (left pooled until capture shows his quests).
+
+## Stormwind: the Keep, the Cathedral, City Hall (Stormwind pack 1.0.0)
+
+| Fact | Source |
+|---|---|
+| Bolvar Fordragon: Highlord and Regent Lord, Supreme Commander for young King Anduin; Varian vanished en route to Theramore; Prestor urged Anduin's crowning; Bolvar respects her on dragons, disagreed about aiding Magistrate Solomon, won't move against her without proof; honorable, principled, compromise-seeking; secretly bound by a Drakefire Amulet fragment (never surfaced) | [Bolvar Fordragon](https://warcraft.wiki.gg/wiki/Bolvar_Fordragon) |
+| Katrana Prestor: high noble and royal adviser beside the boy king; secretly fuelled both nobles' and stonemasons' anger; dealt with the Defias to kidnap Varian; controlled Bolvar and nobles with the Drakefire Amulet; was Onyxia. Her secret never appears in dialogue; claim `prestor_patience` is exposed only by The Great Masquerade | [Katrana Prestor](https://warcraft.wiki.gg/wiki/Katrana_Prestor) |
+| Anduin Wrynn: ten when crowned; Bolvar regent; Prestor advises; worked to calm his people's fears | [Anduin Wrynn](https://warcraft.wiki.gg/wiki/Anduin_Wrynn) |
+| Baros Alexston: City Architect, City Hall in Cathedral Square; grew up on the Alexston Farmstead; a Stonemason who worked with VanCleef rebuilding the city; took the architect post instead of joining the rebellion; enemies since; The Unsent Letter | [Baros Alexston](https://warcraft.wiki.gg/wiki/Baros_Alexston) |
+
+**Not used:** Varian's return, the Onyxia reveal in Wrath, Anduin's priesthood, Baros's Draenor garrison and death.
+
+## Zephras Isle (Zephras pack 1.0.0)
+
+Only build prompt §10 (the Skyborne lore brief). No outside source used. Named NPCs other than High Elder Talaanis Shadowsong wait for capture data and the user's approval. The pools speak of customs and places the brief lists (Valanaar and the other towns, windstones, heirlooms, ashes to the wind, clothcraft, hippogryph-feather ornaments, the Peacekeepers and Empyrean Blades, the Al'Aketh's grey robes). Nothing on the speculation list, nothing on the Skyborne's views of the Legion, the Scourge or the Old Gods.

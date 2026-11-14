@@ -3,7 +3,7 @@
 > Read this first, then `DESIGN.md`, then `CONTENT_GUIDE.md` (and `PACK_AUTHORING.md` before adding a zone). You won't remember earlier sessions; these files are your memory.
 > The original brief is the Project doc `rpg-dialogue-build-prompt (1).md`. Re-read it when a decision isn't covered here.
 
-**Last session:** 2026-11-13 · **M0–M8 all built; three rounds of in-game results are in.** The addon loads, packs load, `/rpgd why` works, and the Skyborne race token is "Skyborne". **Versions now: core 0.11.0, World 1.0.0, Elwynn 1.1.0** (`python3 tools/version.py`).
+**Last session:** 2026-11-14 · **M0–M8 all built; five rounds of in-game results are in; Phase 4 (content) under way.** The addon loads, packs load, `/rpgd why` works, and the Skyborne race token is "Skyborne". **Versions now: core 0.12.0, World 1.1.0, Elwynn 1.2.0, Westfall 1.0.0, Stormwind 1.0.0, Zephras Isle 1.0.0** (`python3 tools/version.py`).
 
 **First in-game test (user, 2026-11-13):**
 - **Test character: Skyborne Druid, level 22 (Blooded), faction not confirmed, tested in Northshire Valley.** Content for that character is thin: the slice is written for level 1–10 characters doing Northshire/Goldshire quests (only 4 Skyborne lines and 1 druid line exist). Asked the user where they actually play, for the next content pass.
@@ -29,6 +29,13 @@
 
 - **Then: "when I open a gossip option then it opens a different dialogue box. Ideally things should stay on the same box, be it the UI we made, or dialogueui. If it is dialogueui, then I want the ui to entirely be dialogueui."** 0.11.0: (1) the game's next pages (gossip, quest offer / progress / reward) render in our box after a pick (`Conv.ShowGamePage`, setting `pagesInBox`); (2) with DialogueUI, conversations render inside its window (`Integrations/DialogueUIView.lua`, wrapping its handlers; read from its source, untested against the real addon), falling back to our box. DESIGN §8.
 
+- **Then: "I think the basics of the UI are good for now. Lets build this thing out. Go wild at actually building the rest, and don't wait for my approval."** 0.12.0 (content, no UI changes):
+  - World 1.1.0: role pools for every common NPC kind (`RPGDialogue_World/pools_roles.lua`: stable masters, bankers, auctioneers, blacksmiths, food/drink/reagent vendors, each class trainer by title, Horde flight masters, faction guards, all six capitals' guards); towns for Eastvale, Sentinel Hill, the Westfall farms, Zephras Isle and the other capitals; the `westfall_left` thread (Dughan, Thomas, Danuvin, Salma, Bolvar, Gryan).
+  - Core: `pool.subtitle` narrows a role pool by the NPC's title (score 150); "Peacekeeper"/"Empyrean Blade" names are guards; voice checker matches banned phrases as whole words.
+  - Elwynn 1.2.0: Brother Wilhelm (the user's paladin goes to him after Sammuel; Tome of Divinity), Falkhaan, Maybell, Tommy Joe, Gramma Stonefield, Guard Thomas, Marshal Haggard, Supervisor Raelen, Theocritus.
+  - New packs: Westfall (Gryan, Danuvin, Galiaan, Saldeans, Furlbrows, Grayson; militia pools; Verna's errand), Stormwind (Bolvar, Prestor, Anduin, Duthorian Rall, Baros Alexston), Zephras Isle (High Elder Talaanis; Peacekeeper, innkeeper and trader pools; brief §10 only).
+  - **Skipped the brief's "agree the tiers" step** (no capture data, and the user said not to wait). Tiers chosen: major for Gryan, Bolvar, Prestor, Anduin, Talaanis; quest for the rest. Every fact is cited in `LORE_NOTES.md`; every NPC and quest ID is a TODO.
+
 ## Assumptions made while the user was away (confirm or correct)
 1. **Interface number** 16001 (from warcraft.wiki.gg, patch 1.60.1). TOCs say `16001, 16002` to cover the next patch too.
 2. **Vertical slice:** Northshire Valley + Goldshire (Elwynn Forest).
@@ -43,6 +50,9 @@
 11. **Fonts:** Friz Quadrata for text; names "the window's own" (Friz in the game look's title bar, Morpheus on wood; schema 4 moved the old Morpheus default to it). Bundled, all SIL OFL 1.1: Atkinson Hyperlegible, Crimson Pro, Cinzel. Users who had the old readable font on get Atkinson for text and "same" for names.
 12. **Per-pack versions:** each pack keeps its own version in `pack.lua` plus a `CHANGELOG.md` in its folder; the TOC `## Version` is the release build.
 13. **"Something new" tooltip marker:** first meetings don't count as "new" (only unheard news lines and thread beats).
+14. **Content order (0.12.0):** Elwynn's east, Westfall and Stormwind first (the human paladin's road), then the Skyborne home; Alliance before Horde. Horde capitals have guard pools only.
+15. **Stormwind's secret:** Lady Prestor never hints she's a dragon; her contempt shows, her nature doesn't, until The Great Masquerade (claim `prestor_patience`).
+16. **Ambiguous quest titles:** every step of *The Defias Brotherhood* and *The Tome of Divinity* shares one title, so lines don't hinge on a specific step; Westfall's VanCleef lines use the `dungeon:The Deadmines` deed instead.
 
 ## Done
 - **M0** (ab8479c): `DESIGN.md`, repo, hand-off docs.
@@ -54,7 +64,8 @@
 - **M6** (979fcc5): spirit healer tree, books, insanity, drunk replies, ghosts, barks, errands.
 - **M7** (bbefce7): `tools/new_zone.py` (plan → approve tiers → scaffold), `tools/check_all.py`, impossible-quest-reference check, copied-wording check, flag replay lines, `/rpgd capture zone`, `tests/test_tools.py`.
 - **M8** (c2e6a2e): Total RP 3 (read-only), accessibility pass (keyboard selection, gamepad, Ask About keybinding, bundled readable font, "(Locked)" and ">" markers, journal tab keys), the optional "something new" tooltip marker (an M2 item that had been missed), pack `requires` reported in game and validated, per-pack versions and changelogs, `PACK_AUTHORING.md`, `.pkgmeta` checked against the packager's source, Blizzard UI policy checked and enforced by `check_all.py --release`, GitHub workflows, README rewrite.
-- **After the in-game tests:** box every visit with the game's options, safety net, right-click talk, Melika, fonts, polish, versions. **Checks now:** 169 Lua tests (new `tests/ux_spec.lua`, `tests/look_spec.lua`, `tests/dialogueui_spec.lua`, `tests/pages_spec.lua`), 8 Python tool tests, luacheck clean, validator 0 errors (106 warnings, all TODO placeholders), voice check 0 failures, simulation 0 runtime errors / 0 contradictions / 0 impossible quest references.
+- **0.12.0 content (this session):** see the bullet at the top. **Checks now:** 173 Lua tests, 8 Python tool tests, luacheck clean, validator 0 errors (warnings are TODO placeholders plus a few long lines), voice check 0 failures, simulation (now all five packs) 0 runtime errors / 0 contradictions / 0 impossible quest references.
+- **After the in-game tests:** box every visit with the game's options, safety net, right-click talk, Melika, fonts, polish, versions. **Checks then:** 169 Lua tests (new `tests/ux_spec.lua`, `tests/look_spec.lua`, `tests/dialogueui_spec.lua`, `tests/pages_spec.lua`), 8 Python tool tests, luacheck clean, validator 0 errors (106 warnings, all TODO placeholders), voice check 0 failures, simulation 0 runtime errors / 0 contradictions / 0 impossible quest references.
 - Earlier: **Checks at the end of M8:** 118 Lua tests, 7 Python tool tests, luacheck clean, validator 0 errors (101 warnings, all TODO placeholders), voice check 0 failures, simulation 0 runtime errors / 0 contradictions / 0 impossible quest references.
 
 ## Half-done
@@ -62,7 +73,9 @@
 
 ## Needs the user's approval
 - Origin lists (brief M5 says "for my approval"): `RPGDialogue_World/origins/*.lua`. Horde races have none yet (no Horde content exists yet either).
-- Assumptions 10–13 above (new this session).
+- Assumptions 10–16 above.
+- The NPC tiers chosen in 0.12.0 without the plan step (Elwynn additions, Westfall, Stormwind, Zephras Isle).
+- More Zephras Isle NPCs need capture data (names, roles) before they can be written; only the High Elder is named in the brief.
 
 ## Not yet verified in game
 - Confirmed so far: loading, pack discovery, the engine and `/rpgd why`, race/class/level context, the probe list.
@@ -82,7 +95,7 @@
 - A real tagged build with the BigWigs packager (the `.pkgmeta` was checked by reading the packager's code; running it here was not allowed).
 
 ## In-game test checklist (for the user)
-Install by linking or copying `RPGDialogue`, `RPGDialogue_World`, `RPGDialogue_Elwynn` into AddOns. Have BugSack + !BugGrabber on. Paste back every error, plus the outputs asked for.
+Install by linking or copying `RPGDialogue`, `RPGDialogue_World`, `RPGDialogue_Elwynn`, `RPGDialogue_Westfall`, `RPGDialogue_Stormwind`, `RPGDialogue_Zephras` into AddOns. Have BugSack + !BugGrabber on. Paste back every error, plus the outputs asked for.
 1. Log in. Expect "RPG Dialogue loaded". Run `/rpgd probe` and paste the output.
 2. `/rpgd packs`: World loaded; Elwynn "waiting for zone" outside Elwynn, "loaded" inside it.
 3. `/console taintLog 1`, then reload. Talk to Marshal McBride (Northshire Abbey): our window opens in front of Blizzard's. Try 1–4, Up/Down + Enter, Space, Escape. "Get on with it" must leave Blizzard's quest window working normally. Later, send `Logs/taint.log` if it mentions RPGDialogue.
@@ -113,7 +126,9 @@ Still all of DESIGN.md §4 (section 9 answers, slice zone, where the repo lives,
 - `python3 tools/check_all.py` runs everything (about a minute); `--quick` skips the simulation.
 
 ## Exact next step
-User installs 0.11.0 (full restart: new file). With DialogueUI: talk to Farley and McBride (conversation inside DialogueUI's window, number keys, Get on with it → its own page, a quest → its quest page). Without it (or setting "RPG Dialogue first"): pick "What can I do at an inn?" and a quest in our box (pages stay in the box; accept, hand in, reward). Fix what's off.
+User installs 0.12.0 (full restart: new folders; tick the new packs in the AddOns list). On the human paladin: Brother Wilhelm behind Goldshire's smithy (his own lines, not the trainer pool), a class trainer in Stormwind (the paladin-trainer pool), Stormwind guards, then Westfall when the level allows (Gryan at Sentinel Hill). `/rpgd packs` should show Westfall/Stormwind loading on arrival. Then send the capture file so the TODO ids can be resolved (`tools/import_capture.py --resolve`). Next content: Redridge and Duskwood (the paladin's road), or wherever the moved main plays; Horde content when the user asks.
+
+Previous next step (0.11.0): user installs 0.11.0 (full restart: new file). With DialogueUI: talk to Farley and McBride (conversation inside DialogueUI's window, number keys, Get on with it → its own page, a quest → its quest page). Without it (or setting "RPG Dialogue first"): pick "What can I do at an inn?" and a quest in our box (pages stay in the box; accept, hand in, reward). Fix what's off.
 
 Previous next step (0.10.3): user installs 0.10.3 (full restart: new file), checks the text weight against the game's window and tries the Aa button; then the DialogueUI check below.
 

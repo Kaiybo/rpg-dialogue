@@ -79,7 +79,7 @@ P:NPC {
 | Kind | What it holds | Example in this repo |
 |---|---|---|
 | `P:NPC` | one named NPC: greetings, noticing moments, live reactions, conversation nodes, topic answers, barks | `RPGDialogue_Elwynn/npcs/dughan.lua` |
-| `P:Pool` | lines for a role (`guard`, `innkeeper`, `child`, ...), optionally for one town; a pool with `nodes` is one shared character | `RPGDialogue_Elwynn/pools.lua`, the spirit healers in `RPGDialogue_World/pools.lua` |
+| `P:Pool` | lines for a role (`guard`, `innkeeper`, `child`, ...), optionally for one town (`community`), one faction or zone, or one kind of that role by the NPC's title (`subtitle = "paladin trainer"`, or a list); the most specific wins (town 200, title 150, zone or faction 120, role 100); a pool with `nodes` is one shared character | `RPGDialogue_Elwynn/pools.lua`, `RPGDialogue_World/pools_roles.lua`, the spirit healers in `RPGDialogue_World/pools.lua` |
 | `P:Generic` | the last fallback, so no NPC is ever silent | `RPGDialogue_World/generic.lua` |
 | `P:Thread` | a throughline: theme, states, endings, beats keyed by NPC | `RPGDialogue_World/threads.lua` |
 | `P:Claim` | something an NPC says, whether it's true, and what can expose it | `RPGDialogue_World/claims.lua` |
