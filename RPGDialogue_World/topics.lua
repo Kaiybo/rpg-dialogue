@@ -38,3 +38,4 @@ P:Topic { id = "gnomeregan", name = "The fall of Gnomeregan", category = "places
 P:Topic { id = "dark_iron", name = "The Dark Iron dwarves", category = "threats", learned = "Royal Historian Archesonus in the High Seat" }
 P:Topic { id = "explorers_league", name = "The Explorers' League", category = "people", learned = "the Hall of Explorers in Ironforge" }
 P:Topic { id = "dragonmaw", name = "The Dragonmaw clan", category = "threats", learned = "Captain Stoutfist in Menethil Harbor" }
+P:Topic { id = "cenarion_circle", name = "The Cenarion Circle", category = "people", learned = "Nighthaven, in Moonglade" }

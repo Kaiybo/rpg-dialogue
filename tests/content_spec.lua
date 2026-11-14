@@ -220,6 +220,23 @@ describe("Content packs", function()
     eq(ns.Data.PoolsFor(info, ctx)[1].pool.id, "guard_menethil")
   end)
 
+  it("Moonglade loads in Nighthaven; Remulos greets a druid, and the defenders are Nighthaven's guards", function()
+    local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Moonglade" } })
+    Mock.state.zone, Mock.state.subzone = "Moonglade", "Nighthaven"
+    Mock.Fire("ZONE_CHANGED_NEW_AREA")
+    Mock.RunTimers()
+    for _, p in ipairs(ns.Packs.List()) do
+      if p.id == "rpgd.moonglade" then ok(p.loaded); eq(p.warnings, 0) end
+    end
+    eq(ns.Data.FindNPC(nil, "Keeper Remulos").key, "remulos")
+    eq(ns.Data.FindNPC(nil, "Great Bear Spirit").key, "great_bear")
+    Mock.state.units.npc = { guid = "Creature-0-1-0-1-11822-AB", name = "Nighthaven Defender", level = 55 }
+    local ctx = ns.Context.New({ unit = "npc" })
+    local info = ns.Conversation.Identify("npc", ctx)
+    eq(info.role, "guard")
+    eq(ns.Data.PoolsFor(info, ctx)[1].pool.id, "guard_nighthaven")
+  end)
+
   it("Zephras Isle's Peacekeepers are guards of the isle, and the High Elder knows her own", function()
     local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Zephras" } })
     ns.db.settings.instantText = true

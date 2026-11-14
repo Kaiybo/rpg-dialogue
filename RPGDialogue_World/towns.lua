@@ -121,6 +121,12 @@ P:Town {
   },
 }
 
+P:Town {
+  id = "nighthaven", name = "Nighthaven",
+  subzones = { "Nighthaven", "Shrine of Remulos", "Lake Elune'ara", "Stormrage Barrow Dens" },
+  tiers = { Hero = "Friend of the Circle" },
+}
+
 -- The other capitals. Their guards speak from pools_roles.lua; standing grows from quests
 -- each capital's own pack lists later.
 P:Town {

@@ -16,6 +16,7 @@ move-folders:
   RPGDialogue/RPGDialogue_Duskwood: RPGDialogue_Duskwood
   RPGDialogue/RPGDialogue_Ironforge: RPGDialogue_Ironforge
   RPGDialogue/RPGDialogue_Wetlands: RPGDialogue_Wetlands
+  RPGDialogue/RPGDialogue_Moonglade: RPGDialogue_Moonglade
 
 # Paths are from the repo root; "*.md" matches at any depth (bash case patterns), which
 # keeps voice bibles, PLAN.md files and pack changelogs out of the zip.

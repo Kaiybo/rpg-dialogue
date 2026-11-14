@@ -280,3 +280,15 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Innkeeper Helbrek: dwarf, warm host of the Deepwater Tavern | [Innkeeper Helbrek](https://warcraft.wiki.gg/wiki/Innkeeper_Helbrek) |
 | Archaeologist Flagongut: Explorers' League, came to reach Whelgar's Excavation Site | [Archaeologist Flagongut](https://warcraft.wiki.gg/wiki/Archaeologist_Flagongut) |
 | Mikhail: bartender who doesn't sell drinks; retired from Stormwind; Elling Trias's friend; watchful; The Missing Diplomat 10 to 13 | [Mikhail](https://warcraft.wiki.gg/wiki/Mikhail) |
+
+## Lore sheet: Moonglade (Moonglade pack 1.0.0)
+
+| Fact used | Source |
+|---|---|
+| Nighthaven: Cenarion Circle village; Rabine Saturna is Remulos's majordomo; Loganaar trains druids; druid-only flights; Nighthaven Defenders | [Nighthaven](https://warcraft.wiki.gg/wiki/Nighthaven) |
+| Keeper Remulos: son of Cenarius, rules Moonglade; protective and firm; welcomed the tauren into the Circle against Staghelm; opposed the new World Tree; the Emerald Dream has become dangerous | [Remulos](https://warcraft.wiki.gg/wiki/Remulos) |
+| Rabine Saturna: grave, measured, doesn't believe in coincidence; a smoke-stained locket's memories | [Rabine Saturna](https://warcraft.wiki.gg/wiki/Rabine_Saturna) |
+| Dendrite Starblaze: druid trials 10 to 16 (the Great Bear Spirit, Power over Poison, Trial of the Lake, Trial of the Sea Lion, Aquatic Form) | [Dendrite Starblaze](https://warcraft.wiki.gg/wiki/Dendrite_Starblaze) |
+| Loganaar: calm trainer; balance within; the Dream will call druids to long sleep | [Loganaar](https://warcraft.wiki.gg/wiki/Loganaar) |
+| Great Bear Spirit: as old as the world, patient mentor, says little | [Great Bear Spirit](https://warcraft.wiki.gg/wiki/Great_Bear_Spirit) |
+| Silva Fil'naveth and Bunthen Plainswind: the Circle's druid-only flights to Rut'theran and Thunder Bluff, each pointing the other faction to the other | [Silva Fil'naveth](https://warcraft.wiki.gg/wiki/Silva_Fil%27naveth); [Bunthen Plainswind](https://warcraft.wiki.gg/wiki/Bunthen_Plainswind) |
