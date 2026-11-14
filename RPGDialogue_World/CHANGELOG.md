@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.9.0 (unreleased)
+- Towns: Deathknell, Brill, Shadowglen, Dolanaar, Coldridge Valley, Kharanos and the Sepulcher.
+- Topics: the Scarlet Crusade; camping (Forever).
+
 ## 1.8.0 (unreleased)
 - Towns: Booty Bay, Grom'gol Base Camp, the Rebel Camp, Freewind Post, the Mirage Raceway, the Valley of Trials, Razor Hill, Sen'jin Village, Camp Narache, Bloodhoof Village and Camp Gev'rek.
 - Topics: the Steamwheedle Cartel, the Bloodsail Buccaneers, Colonel Kurzen's expedition, Yenniku, the Grimtotem clan, the Mirage Raceway, the Burning Blade, the Echo Isles.

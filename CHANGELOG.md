@@ -2,6 +2,19 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.21.0 (2026-11-14)
+Packs: World 1.9.0, Elwynn Forest 1.6.0, Ironforge 1.2.0, and three new ones: Tirisfal Glades 1.0.0, Teldrassil 1.0.0, Silverpine Forest 1.0.0 (the rest as in 0.20.0). **New folders: exit the game fully, copy them in, and tick them.**
+
+### Forever's own additions
+- **Camping teachers** in every starting zone that has a pack: Sam Sarsaparilla on the road by Goldshire (Marshal McBride sends you), Eric Brighthammer near Kharanos, Lyreena Duskblade near Dolanaar, Brakk near Razor Hill (he'd like his journal back), Kaga Wildhoof outside Bloodhoof (Chief Hawkwind owes her a favor), Eleanor Shackleton outside Brill (not with the Crusade, she says).
+- **Forsaken paladins:** Shadow Priest Sarvis would rather you read that glowing scroll somewhere else, and Aramis Hammerhand teaches the Light to the risen in Deathknell's church.
+
+### New places
+- **Tirisfal Glades.** Deathknell: Undertaker Mordo, Shadow Priest Sarvis, Executor Arren, Aramis Hammerhand. Brill: Executor Zygand, Magistrate Sevren, Apothecary Johaan and his new plague, Coleman Farthing and his grudge against the Agamands, Gretchen Dedmar, Innkeeper Renee. The Deathguard.
+- **Silverpine Forest.** The Sepulcher: High Executor Hadrec, Apothecary Renferrel, Dalar Dawnweaver (an archmage still annoyed at Dalaran), Shadow Priest Allister, Innkeeper Bates. Renferrel and Sevren both point you to Bethor Iceshard.
+- **Teldrassil.** Shadowglen: Conservator Ilthalaine, Melithar Staghelm, Tenaron Stormgrip atop Aldrassil, Dirania Silvershine, Gilshalan Windwalker. Dolanaar: Corithras Moonrage and the moonwells, Athridas Bearmantle and the Gnarlpine, Tallonkai Swiftroot, Syral Bladeleaf, Innkeeper Keldamyr. The Sentinels.
+- **Dun Morogh** (in the Ironforge folder): Sten Stoutarm and Grelin Whitebeard in Coldridge Valley; Senir Whitebeard, Ragnar Thunderbrew and Innkeeper Belm in Kharanos.
+
 ## 0.20.0 (2026-11-14)
 Packs: World 1.8.0, Orgrimmar 1.1.0, Thunder Bluff 1.0.1, and four new ones: Stranglethorn Vale 1.0.0, Thousand Needles 1.0.0, Durotar 1.0.0, Mulgore 1.0.0 (the rest as in 0.19.0). **New folders: exit the game fully, copy them in, and tick them.**
 
