@@ -303,3 +303,13 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Priestess A'moora in the Temple of the Moon; The Temple of the Moon, Tears of the Moon, Sathrah's Sacrifice | [Priestess A'moora](https://warcraft.wiki.gg/wiki/Priestess_A%27moora) |
 | Gracina Spiritmight: priestess and scholar of Azeroth's creatures and the silithid | [Gracina Spiritmight](https://warcraft.wiki.gg/wiki/Gracina_Spiritmight) |
 | Innkeeper Saelienne on the Craftsmen's Terrace | [Innkeeper Saelienne](https://warcraft.wiki.gg/wiki/Innkeeper_Saelienne) |
+
+## Thunder Bluff (Thunder Bluff pack 1.0.0)
+
+| Fact used | Source |
+|---|---|
+| Cairne: High Chieftain; wise and gentle; met Thrall over centaurs, pledged to the Horde, led the tribes to Mulgore and built the Bluff; keeps Magatha close; Journey into Thunder Bluff, Rites of the Earthmother | [Cairne Bloodhoof](https://warcraft.wiki.gg/wiki/Cairne_Bloodhoof) |
+| Hamuul Runetotem: Arch Druid on Elder Rise; taught by Malfurion over Fandral's objection; first tauren druid in about twenty generations | [Hamuul Runetotem](https://warcraft.wiki.gg/wiki/Hamuul_Runetotem) |
+| Turak Runetotem: druid trainer, Hamuul's assistant; the Great Balance; Heeding the Call, Back to Thunder Bluff, Power over Poison (the Crossroads), Aquatic Form | [Turak Runetotem](https://warcraft.wiki.gg/wiki/Turak_Runetotem) |
+| Magatha Grimtotem: Elder Crone, Cairne's open rival; wants the tauren's old lands; helps the Forsaken; The Elder Crone, Forsaken Aid, Sacred Fire | [Magatha Grimtotem](https://warcraft.wiki.gg/wiki/Magatha_Grimtotem) |
+| Innkeeper Pala at the Cat and the Shaman | [Innkeeper Pala](https://warcraft.wiki.gg/wiki/Innkeeper_Pala) |

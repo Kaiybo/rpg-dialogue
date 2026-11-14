@@ -249,6 +249,19 @@ describe("Content packs", function()
     eq(ns.Data.FindNPC(nil, "Arch Druid Fandral Staghelm").key, "fandral")
   end)
 
+  it("Thunder Bluff loads on Elder Rise; Cairne, Hamuul and Magatha are there", function()
+    local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_ThunderBluff" } })
+    Mock.state.zone, Mock.state.subzone = "Thunder Bluff", "Elder Rise"
+    Mock.Fire("ZONE_CHANGED_NEW_AREA")
+    Mock.RunTimers()
+    for _, p in ipairs(ns.Packs.List()) do
+      if p.id == "rpgd.thunderbluff" then ok(p.loaded); eq(p.warnings, 0) end
+    end
+    eq(ns.Data.FindNPC(nil, "Cairne Bloodhoof").key, "cairne")
+    eq(ns.Data.FindNPC(nil, "Arch Druid Hamuul Runetotem").key, "hamuul")
+    eq(ns.Data.FindNPC(nil, "Magatha Grimtotem").key, "magatha")
+  end)
+
   it("Zephras Isle's Peacekeepers are guards of the isle, and the High Elder knows her own", function()
     local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Zephras" } })
     ns.db.settings.instantText = true
