@@ -200,3 +200,11 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Jordan Stilwell: outside the Gates of Ironforge; Verigan's Fist, named for his friend Bosch Verigan; Daphne's husband; one of the Church's most faithful; trained as a paladin before following his father into smithing | [Jordan Stilwell](https://warcraft.wiki.gg/wiki/Jordan_Stilwell) |
 
 **Not used:** Magni's later fate, Moira's later story, Brann's travels; the dwarves' earthen origin (not part of Year 1 dialogue).
+
+## Elwynn's class trainers (Elwynn pack 1.5.0)
+
+| Fact | Source |
+|---|---|
+| Northshire: Priestess Anetta (Library Wing; heals wounded trainees; Hallowed Letter, Healing the Wounded); Khelden Bremen (second floor; fundamentals; Glyphic Letter); Jorik Kerridan (behind the abbey; Encrypted Letter; warns of Defias recruiting spies); Drusilla La Salle (abbey graveyard by Dane Winslow; Tainted Letter; stern about the weak and the arcane) | [Priestess Anetta](https://warcraft.wiki.gg/wiki/Priestess_Anetta); [Khelden Bremen](https://warcraft.wiki.gg/wiki/Khelden_Bremen); [Jorik Kerridan](https://warcraft.wiki.gg/wiki/Jorik_Kerridan); [Drusilla La Salle](https://warcraft.wiki.gg/wiki/Drusilla_La_Salle) |
+| Goldshire: Lyria Du Lac (behind the blacksmith; A Warrior's Training; proud of Stormwind's strength); Priestess Josetta (Lion's Pride upstairs; wishes she'd travelled when young; Garments of the Light, Desperate Prayer); Zaldimar Wefhellt (Lion's Pride upstairs; Wizard's Sanctum; Speak with Jennea); Keryn Sylvius (Lion's Pride reading room; SI:7; Seek out SI:7; sardonic); Remen Marcot (Lion's Pride cellar with Crowe and Darkheart; Gakin's Summons) | [Lyria Du Lac](https://warcraft.wiki.gg/wiki/Lyria_Du_Lac); [Priestess Josetta](https://warcraft.wiki.gg/wiki/Priestess_Josetta); [Zaldimar Wefhellt](https://warcraft.wiki.gg/wiki/Zaldimar_Wefhellt); [Keryn Sylvius](https://warcraft.wiki.gg/wiki/Keryn_Sylvius); [Remen Marcot](https://warcraft.wiki.gg/wiki/Remen_Marcot) |
+| Mathias Shaw heads SI:7 from its barracks in Old Town; cynical, loyal to Stormwind and the Wrynns; directed surveillance of the Defias; once trained Edwin VanCleef as a rogue, hoping he'd join him; never questioned Lady Prestor | [Mathias Shaw](https://warcraft.wiki.gg/wiki/Mathias_Shaw) |
