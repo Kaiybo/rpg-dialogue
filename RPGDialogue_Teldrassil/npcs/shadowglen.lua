@@ -30,6 +30,8 @@ P:NPC {
           text = "Too many young nightsabers and thistle boars, and the glade suffers for it. Thin them, gently. The balance is a matter of numbers, not hatred." },
         { id = "h_sigil", when = { questActive = TODO_QUEST("Verdant Sigil") },
           text = "Your teacher's sigil came for you. Go and find them in Aldrassil. They'll show you the next step." },
+        { id = "h_cubs", when = { metBefore = true }, text = "I counted nightsaber cubs this morning. Seven. Last spring there were five. The glade is generous this year, and that worries me a little." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "Elune's light on the glade. This is the hour I remember why I asked to keep it." },
       },
       choices = {
         { text = "What does keeping the balance mean?", next = "balance" },
@@ -78,8 +80,10 @@ P:NPC {
           text = "Melithar Staghelm. I tend Aldrassil's roots and the young ones who come to it. Both need patience." },
         { id = "h_woodland", tags = { "news" }, when = { questActive = TODO_QUEST("The Woodland Protector") },
           text = "Seek out the woodland protector at the glade's edge. The grells have been spoiling the forest, and help is needed there." },
+        { id = "h_hum", when = { metBefore = true }, text = "Aldrassil hums when the wind is right. Put your ear to the bark one day. Tenaron finds it undignified. Tenaron is wrong." },
       },
       choices = {
+        { text = "What's it like, tending Aldrassil?", next = "tending" },
         { text = "Are you kin to the Arch Druid?", next = "kin" },
         { text = "I'll help.", next = "END", fx = { affinity = 1 } },
       },
@@ -87,6 +91,12 @@ P:NPC {
     kin = {
       lines = { { id = "k_default", text = "Everyone asks. My work is here, at the roots. Whatever name I carry, the tree doesn't care, and neither should you." } },
       choices = { { text = "Fair enough.", next = "END" } },
+    },
+    tending = {
+      lines = {
+        { id = "t_slow", text = "Slow. A tree this old hurries for no one. I've learned to measure my days in new leaves, and my years in rings I'll never see." },
+      },
+      choices = { { text = "A patient life.", next = "END", fx = { affinity = 1, trait = { patient = 1 } } } },
     },
   },
 
@@ -124,6 +134,7 @@ P:NPC {
           text = "You came when I called. Good. There's a task that will take you beyond the glade, and you're ready for it." },
         { id = "h_crown", when = { questActive = TODO_QUEST("Crown of the Earth") },
           text = "Take this vial to the moonwell and fill it. Then carry it down to Dolanaar. Corithras will know what to do with it." },
+        { id = "h_count", when = { metBefore = true }, text = "Every morning I watch the young ones walk the path down to Dolanaar. Most come back one day, taller. That's the part I like." },
       },
       choices = {
         { text = "What lies beyond the glade?", next = "beyond" },
@@ -169,8 +180,15 @@ P:NPC {
           text = "Iverron went into the spiders' cave and came back poisoned. Please, go and see him." },
         { id = "h_antidote", when = { questActive = TODO_QUEST("Iverron's Antidote") },
           text = "The antidote needs what the glade can give: herbs, and something from the spiders themselves. Hurry, if you can." },
+        { id = "h_saved", when = { questDone = TODO_QUEST("Iverron's Antidote") }, text = "Iverron's on his feet already, and talking about going back into the cave. Some friends you have to keep saving. Thank you for this time." },
       },
-      choices = { { text = "I'll help him.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } } },
+      choices = { { text = "Tell me about Iverron.", next = "iverron" }, { text = "I'll help him.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } } },
+    },
+    iverron = {
+      lines = {
+        { id = "i_brave", text = "We grew up in the glade together. He's brave the way that worries everyone who loves him. I'd hoped the world below would teach him caution. It hasn't yet." },
+      },
+      choices = { { text = "He's lucky to have you.", next = "END", fx = { affinity = 2 } } },
     },
   },
 
@@ -205,7 +223,13 @@ P:NPC {
         { id = "h_egg", when = { questActive = TODO_QUEST("Webwood Egg") },
           text = "There's an egg deep in the cave. Bring it out. Carefully. I'd like to know what the mother has been eating." },
       },
-      choices = { { text = "I'll go to the cave.", next = "END", fx = { affinity = 1, trait = { brave = 1 } } } },
+      choices = { { text = "Why study spiders?", next = "why" }, { text = "I'll go to the cave.", next = "END", fx = { affinity = 1, trait = { brave = 1 } } } },
+    },
+    why = {
+      lines = {
+        { id = "w_silk", text = "Their silk is stronger than it has any right to be, and in the right hands their venom heals. Also, they frighten me. I'd like them to frighten me less." },
+      },
+      choices = { { text = "Good luck with that.", next = "END", fx = { affinity = 1 } } },
     },
   },
 

@@ -25,6 +25,8 @@ P:NPC {
           text = "Corithras Moonrage. I watch the moonwells of Teldrassil. Something is wrong with them, and I mean to learn what." },
         { id = "h_crown", tags = { "news" }, when = { questActive = TODO_QUEST("Crown of the Earth") },
           text = "Tenaron sent the vial. Good. Fill it at each well I name, and bring it back. The waters will tell us what the tree won't." },
+        { id = "h_third", when = { metBefore = true }, text = "I tasted the third well again at dawn. Still wrong. I've stopped telling the Sentinels. They think I fuss." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "The wells shine brightest now. It's easier to see what's wrong in them with Elune watching too." },
       },
       choices = {
         { text = "What's wrong with the wells?", next = "wells" },
@@ -81,6 +83,7 @@ P:NPC {
           text = "There's a foulness on the wind from the barrow den. Go and see what stirs there, and tell me." },
       },
       choices = {
+        { text = "Were the Gnarlpine ever friends?", next = "friends" },
         { text = "Can the furbolgs be saved?", next = "saved" },
         { text = "I'll look into it.", next = "END", fx = { affinity = 1 } },
       },
@@ -88,6 +91,12 @@ P:NPC {
     saved = {
       lines = { { id = "s_default", text = "Some. Not all. That's the hardest lesson a druid learns: you can't heal everything that's sick. Sometimes you can only stop it spreading." } },
       choices = { { text = "That's hard.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } } },
+    },
+    friends = {
+      lines = {
+        { id = "f_trade", text = "When the tree was young, yes. They traded furs for herbs at the edge of the village, and their elders laughed like rolling thunder. I miss that laugh more than I expected." },
+      },
+      choices = { { text = "Maybe you'll hear it again.", next = "END", fx = { affinity = 2 } } },
     },
   },
 
@@ -125,7 +134,13 @@ P:NPC {
         { id = "h_twisted", when = { questActive = TODO_QUEST("Twisted Hatred") },
           text = "The hatred that twisted the Gnarlpine didn't come from nowhere. Follow it to its root." },
       },
-      choices = { { text = "I'll protect the village.", next = "END", fx = { affinity = 2, standing = { dolanaar = 1 } } } },
+      choices = { { text = "What was the dreamcatcher to you?", next = "dreamcatcher" }, { text = "I'll protect the village.", next = "END", fx = { affinity = 2, standing = { dolanaar = 1 } } } },
+    },
+    dreamcatcher = {
+      lines = {
+        { id = "d_gift", text = "A gift, made by someone I won't see again. It's only feathers and thread. It isn't only feathers and thread." },
+      },
+      choices = { { text = "I understand.", next = "END", fx = { affinity = 2 } } },
     },
   },
 
@@ -159,6 +174,7 @@ P:NPC {
           text = "Redemption is earned, not bought. Do what's asked, and do it honestly." },
         { id = "h_denalan", when = { questActive = TODO_QUEST("Denalan's Earth") },
           text = "Denalan studies the timberlings at Lake Al'Ameth. Take him this soil. He'll know what it means; I only know it matters." },
+        { id = "h_sort", when = { metBefore = true }, text = "The Council sends more orders than Dolanaar has hands. I sort them by which ones get someone hurt if they wait." },
       },
       choices = { { text = "I'll take on the Council's orders.", next = "END", fx = { affinity = 1, align = { order = 1 } } } },
     },
@@ -193,8 +209,16 @@ P:NPC {
           text = "Innkeeper Keldamyr. Travelers between Shadowglen and Darnassus all stop here, sooner or later. I like to think they leave lighter." },
         { id = "h_delivery", when = { questActive = TODO_QUEST("Dolanaar Delivery") },
           text = "A delivery for the inn? Wonderful. Set it down there; I'll see it put to use tonight." },
+        { id = "h_joke", when = { metBefore = true }, text = "A Sentinel told me a joke last night. It wasn't funny, but she laughed so hard I laughed too. That's the inn on a good night." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "Late. The Sentinels coming off watch will want tea. They always want tea, and they never admit they're cold." },
       },
-      choices = { { text = "Just rest, thank you.", next = "END" } },
+      choices = { { text = "How's the inn?", next = "inn" }, { text = "Just rest, thank you.", next = "END" } },
+    },
+    inn = {
+      lines = {
+        { id = "i_guests", text = "Young elves on their way to Darnassus, Sentinels off watch, and now and then a druid who forgets to change back before coming in. I've learned to keep the door wide." },
+      },
+      choices = { { text = "Ha. Good to know.", next = "END", fx = { affinity = 1 } } },
     },
   },
 
