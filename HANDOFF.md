@@ -3,7 +3,7 @@
 > Read this first, then `DESIGN.md`, then `CONTENT_GUIDE.md` (once it exists). You won't remember earlier sessions; these files are your memory.
 > The original brief is the Project doc `rpg-dialogue-build-prompt (1).md`. Re-read it when a decision isn't covered here.
 
-**Last session:** 2026-11-13 · M0–M4 done; M5 next. The user said "keep going and build as much as possible", so milestones are being built back to back without stopping for in-game tests. Every assumption made in their absence is listed below.
+**Last session:** 2026-11-13 · M0–M5 done; M6 next. The user said "keep going and build as much as possible", so milestones are being built back to back without stopping for in-game tests. Every assumption made in their absence is listed below.
 
 ## Assumptions made while the user was away (confirm or correct)
 1. **Interface number** 16001 (from warcraft.wiki.gg, patch 1.60.1). TOCs say `16001, 16002` to cover the next patch too.
@@ -27,8 +27,13 @@
 
 - **M4** (commit e36aef0): thread engine (`Systems/Threads.lua`), Ask about (`Systems/Topics.lua`, `UI/AskAbout.lua`), gossip/contradiction/lieCaught conditions, rumors (`Systems/Rumors.lua`, `RPGDialogue_World/rumors/elwynn.lua`), town standing (`Systems/Towns.lua`), alignment hints, `/rpgd threads|claims|topics|die`. 78 tests; simulation fires all four beats.
 
+- **M5** (commit f1ec319): journal window (6 tabs), origins (picker, hint, nudge, home welcome; draft lists for human, dwarf, gnome, night elf, Skyborne in `RPGDialogue_World/origins/`), export/import. 86 tests.
+
 ## Half-done
-- Nothing half-built. The journal UI (M5) doesn't exist yet, so journal entries are recorded but can't be read in game (they're in `RPGDialogueCharDB.journal`).
+- Nothing half-built.
+
+## Needs the user's approval
+- Origin lists (brief M5 says "for my approval"): `RPGDialogue_World/origins/*.lua`. Horde races have none yet (no Horde content exists yet either).
 
 ## Not yet verified in game (nothing has been run in WoW yet)
 - Every Blizzard API assumption in `Compat.lua` (probe with `/rpgd probe`).
@@ -48,4 +53,4 @@ Still all of DESIGN.md §4 (section 9 answers, slice zone, where the repo lives,
 - The repo was at `/home/claude/rpg-dialogue`. That workspace isn't shared with other sessions; the user has the zips.
 
 ## Exact next step
-M5: journal window (Chronicle, People I've Met, Character Sheet with alignment/titles/traits/opinions/taint/town standings and the Origin page, Topics with claims and books, Deeds, Notes), origin picker (race/class lists; draft human list in `RPGDialogue_World/origins/human.lua` needs the user's approval; other races to write), one dismissible first-login hint, origin effects (nudge, home-town standing), `/rpgd export` and `/rpgd import` (validated, refuses bad strings without touching data). Save-data corruption checks already exist (M1).
+M6: spirit healer conversations (death log + cause → deep dialogue trees, shared-records running jokes, class/race reactions, alignment tone; lore guardrail: no Shadowlands), books (topic unlocks, rare NPC reactions), temporary insanity (cosmetic, toggleable, no flashing), drunk replies (slurred choice text), ghost dialogue (only spirit-sensitive NPCs respond), proximity barks (nameplates/target/mouseover, heavily rate-limited), addon-side errands (verifiable: items in bags, places, kill counts; rewards addon-only), text-to-speech narration (Compat.Speak exists).
