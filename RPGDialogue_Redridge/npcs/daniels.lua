@@ -38,6 +38,7 @@ P:NPC {
           text = "Wiley's in the corner, if you're looking for him. Nobody's ever looking for Wiley. Except the ones who are." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "Sky folk drink? Course they do. Whatever they pour up there, down here it's whatever I've got left." },
+        { id = "h_barrel", when = { metBefore = true }, text = "A whole barrel came in yesterday. Full. I almost cried. The regulars did cry. Lakeshire's had a hard year." },
       },
       choices = {
         { text = "Pour me whatever you've got.", next = "BUSINESS" },

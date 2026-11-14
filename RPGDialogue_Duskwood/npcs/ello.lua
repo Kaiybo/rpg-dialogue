@@ -41,6 +41,8 @@ P:NPC {
           text = "Westfall feels forgotten? Stormwind pulled its soldiers out of Duskwood when the king vanished. We've been forgotten so long we've started to rot." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "One of the sky folk. I don't suppose your people can do anything about the dark? No. A pity. You'd be very popular here." },
+        { id = "h_letter", when = { metBefore = true }, text = "I have written to Stormwind again. Eloquently. At length. I expect the King's court is using my letters to start fires. It's cold in the capital, I hear." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "Night in Darkshire. Listen to the howling and tell me again that Stormwind has no cause to send soldiers." },
       },
       choices = {
         { text = "What does Darkshire need?", next = "need" },

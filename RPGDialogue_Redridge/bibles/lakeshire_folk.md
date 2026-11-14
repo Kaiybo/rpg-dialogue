@@ -36,3 +36,6 @@
 - Darcy: bright, chatty, calls people "love"; fond of Parker and a little jealous of Martie.
 - Martie: warm, patient, gardener's metaphors; quietly sad that the daffodils go to Darcy.
 - Breanna: harried, generous, feeds the garrison and counts the bowls that don't come back.
+
+## Depth pass (0.25.0, authored, not canon)
+A repeat-visit line (night line for some) in the voice above.

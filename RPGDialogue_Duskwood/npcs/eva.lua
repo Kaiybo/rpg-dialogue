@@ -39,6 +39,7 @@ P:NPC {
           text = "So young, to be walking in Duskwood. The stars are fond of you. That isn't always a kindness." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "The cards don't know what to make of you. They keep turning up the Wind. It has never come up twice in one night before." },
+        { id = "h_cards", when = { metBefore = true }, text = "The cards turned up the Tower again this morning. They always do, in Duskwood. I've stopped charging extra for it." },
       },
       choices = {
         { text = "Read my cards.", next = "cards" },

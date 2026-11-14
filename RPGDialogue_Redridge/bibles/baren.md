@@ -35,3 +35,6 @@ Honest; repeats fishermen's tales without believing them.
 
 ## Topics
 murlocs_east, blackrock, everstill_bridge
+
+## Depth pass (0.25.0, authored, not canon)
+A repeat-visit line (night line for some) in the voice above.

@@ -37,6 +37,7 @@ P:NPC {
           text = "Gnolls took a whole shipment of timber and stone. What does a gnoll want with dressed stone? They don't even build." },
         { id = "h_rains", when = { questDone = TODO_QUEST("The Everstill Bridge") },
           text = "The rains are coming. The bridge will be done before they do. Write that down somewhere I can point at later." },
+        { id = "h_bridge", when = { metBefore = true }, text = "Laid another span yesterday. Straight as a ruler. I stood on it a while. Don't tell the crew. They'll think I've gone soft about bridges." },
       },
       choices = {
         { text = "Why does the bridge matter so much?", next = "why" },

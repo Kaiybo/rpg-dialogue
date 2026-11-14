@@ -37,6 +37,7 @@ P:NPC {
           text = "I went back to the farm last night. Sat on the porch. Couldn't go in. Maybe next time." },
         { id = "h_jitters_heard", when = { heardLine = "jitters.s_default" },
           text = "He told you he just watched? He just watched. As if that makes it smaller. It makes it bigger." },
+        { id = "h_quiet", when = { metBefore = true }, text = "You came back. Most don't. Sit if you like. I don't talk much. The forest does it for me." },
       },
       choices = {
         { text = "What happened to your family?", next = "family" },

@@ -43,3 +43,6 @@ blackrock, everstill_bridge
 - Source: https://warcraft.wiki.gg/wiki/Innkeeper_Brianna (Lakeshire Inn; sells food and drink; has a pet, Narnie; welcomes weary travellers and offers to make the inn a home)
 - Quests: none referenced.
 - Voice: warm, practical, teasing about Daniels and her pet. Notices: guests in a bad way, other people's pets (Narnie's opinions; authored).
+
+## Depth pass (0.25.0, authored, not canon)
+A repeat-visit line (night line for some) in the voice above.

@@ -39,6 +39,7 @@ P:NPC {
           text = "Tharil'zun. He leads them. Take friends. Take more friends than you think you need." },
         { id = "h_tharilzun_done", tags = { "news" }, when = { questDone = TODO_QUEST("Tharil'zun") },
           text = "Without Tharil'zun the valley's just a camp full of angry orcs. Angry orcs I can handle. Organized ones were killing us." },
+        { id = "h_count", when = { metBefore = true }, text = "Twelve guards on the morning roll. Twelve on the evening. Days like that, I thank the Light out loud." },
       },
       choices = {
         { text = "What happened at Stonewatch?", next = "stonewatch" },

@@ -36,3 +36,6 @@ Honest; unfair to Jitters.
 
 ## Topics
 worgen, defias, stalvan
+
+## Depth pass (0.25.0, authored, not canon)
+A repeat-visit line (night line for some) in the voice above.

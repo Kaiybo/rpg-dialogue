@@ -38,6 +38,7 @@ P:NPC {
           text = "You're green for Duskwood. Keep to the road, keep a torch lit, and don't follow lights into the trees." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "Can your people see through this fog any better than mine? No? Then you're as welcome as anyone else holding a sword." },
+        { id = "h_roll", when = { metBefore = true }, text = "Lost no one last night. Write that down somewhere. It doesn't happen often enough." },
       },
       choices = {
         { text = "What's out in the woods?", next = "woods" },

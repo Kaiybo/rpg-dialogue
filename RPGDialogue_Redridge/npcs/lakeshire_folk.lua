@@ -34,6 +34,7 @@ P:NPC {
           text = "The pendants are entered into evidence. All of them. The clerk has asked me, politely, to stop bringing him gnoll jewellery." },
         { id = "h_solomon", when = { heardLine = "solomon.s_default" },
           text = "The Magistrate told you about his letters. I carry them to the courier. They are very thorough letters. They come back very thin." },
+        { id = "h_morning", when = { metBefore = true }, text = "Long morning. Short temper. Talk fast." },
       },
       choices = {
         { text = "What does a bailiff do?", next = "duty" },

@@ -39,6 +39,7 @@ P:NPC {
           text = "Yowler. Big one, leads the pack. Bring me proof he's done and I'll sleep through the night for the first time since spring." },
         { id = "h_argus", when = { heardLine = "argus.s_default" },
           text = "Argus told you never to let the apprentice near the quench? He learned that from me. He won't admit it." },
+        { id = "h_horse", when = { metBefore = true }, text = "Shod a grey mare this morning. Best-tempered beast in Lakeshire. Better company than most of the people. Don't tell Argus I said anything nice about anything." },
       },
       choices = {
         { text = "Let's see what you've got.", next = "BUSINESS" },

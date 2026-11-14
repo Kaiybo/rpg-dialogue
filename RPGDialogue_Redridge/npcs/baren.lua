@@ -35,6 +35,7 @@ P:NPC {
           text = "The east shore's quiet. The fish don't know what to do with themselves." },
         { id = "h_daniels", when = { heardLine = "daniels.h_default" },
           text = "Daniels told you his troubles? He's dry, I'm empty. Lakeshire's a lovely place for a holiday." },
+        { id = "h_boats", when = { metBefore = true }, text = "Counted the boats this morning. All there. Counted the nets. All there. Something's about to go wrong, I can feel it." },
       },
       choices = {
         { text = "Is the lake really that bad?", next = "lake" },

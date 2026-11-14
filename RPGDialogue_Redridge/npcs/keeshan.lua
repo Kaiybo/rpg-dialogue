@@ -34,6 +34,7 @@ P:NPC {
           text = "Marris wants me back on the walls. Soon as my hands stop shaking. They've nearly stopped." },
         { id = "h_young", when = { maxLevel = 20 },
           text = "How old are you? Never mind. I was younger when I first went to war. That's not the comfort it sounds like." },
+        { id = "h_sleep", when = { metBefore = true }, text = "Slept through the night, first time since the camp. Woke up reaching for a sword that wasn't there. Progress." },
       },
       choices = {
         { text = "What did you see up there?", next = "seen" },

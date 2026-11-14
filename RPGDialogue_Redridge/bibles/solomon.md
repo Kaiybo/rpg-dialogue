@@ -38,3 +38,6 @@ Trustworthy. His suspicion that someone writes Bolvar's answers is his own (and,
 
 ## Topics
 blackrock, everstill_bridge, westfall, morganth
+
+## Depth pass (0.25.0, authored, not canon)
+A repeat-visit line (night line for some) in the voice above.

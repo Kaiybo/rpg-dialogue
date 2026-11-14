@@ -37,3 +37,6 @@ Trustworthy; careful with what he can't prove.
 
 ## Topics
 stalvan, night_watch, worgen, lions_pride
+
+## Depth pass (0.25.0, authored, not canon)
+A repeat-visit line (night line for some) in the voice above.

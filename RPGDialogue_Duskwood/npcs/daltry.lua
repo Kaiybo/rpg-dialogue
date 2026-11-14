@@ -29,6 +29,7 @@ P:NPC {
         { id = "h_book", when = { questDone = TODO_QUEST("Inquire at the Inn") },
           text = "A blank book, you say? I sold one, a while back, to a nervous fellow who paid in coppers and wouldn't meet my eye. I write down every sale. I'm a clerk." },
         { id = "h_old", text = "Half these files are out of date. The people in them moved, or died, or both. I keep them anyway. Someone should remember who lived here." },
+        { id = "h_files", when = { metBefore = true }, text = "I've re-filed the Night Watch reports by date. Then by street. Then by date again. It's calming. Don't judge me." },
       },
       choices = {
         { text = "Can I see the records?", next = "records" },

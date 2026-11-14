@@ -39,6 +39,7 @@ P:NPC {
           text = "I wore the red, once. Before. I'm not proud of it. I'm not proud of much. I'm alive, though. That's something." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "AH! Oh. An elf. From the sky? I didn't know elves came from the sky. I don't know anything. That's fine. That's fine." },
+        { id = "h_sleep", when = { metBefore = true }, text = "I slept two hours last night. Two whole hours. Nobody came for me. I-I'm almost disappointed. No. No, I'm not." },
       },
       choices = {
         { text = "What did you see?", next = "saw" },

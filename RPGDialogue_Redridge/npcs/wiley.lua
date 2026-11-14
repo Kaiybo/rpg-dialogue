@@ -35,6 +35,7 @@ P:NPC {
           text = "Under Moonbrook, and back out again. I've heard a lot of stories about that place. Yours is the first one I believe." },
         { id = "h_rude", when = { trait = "witty" },
           text = "Clever mouth. I like a clever mouth. Gryan doesn't. Gryan likes manners. That's why he needs me." },
+        { id = "h_price", when = { metBefore = true }, text = "You're back. Good. I've heard three new things since yesterday. One of them's even true. Guess which." },
       },
       choices = {
         { text = "What do you know about the Defias?", next = "defias" },

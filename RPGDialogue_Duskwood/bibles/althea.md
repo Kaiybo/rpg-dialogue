@@ -36,3 +36,6 @@ Trustworthy.
 
 ## Topics
 night_watch, worgen, stalvan, westfall
+
+## Depth pass (0.25.0, authored, not canon)
+A repeat-visit line (night line for some) in the voice above.

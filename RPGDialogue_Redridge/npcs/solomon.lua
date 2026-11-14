@@ -45,6 +45,8 @@ P:NPC {
           text = "The Highlord read it all and still won't send soldiers without more. So he sent a deputy. You. I suppose that's an answer." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "An elf from the sky. If your people could fly, I'd want a dozen on the walls. You glide, I'm told? I'll take gliders." },
+        { id = "h_letters", when = { metBefore = true }, text = "Another letter to Stormwind this morning. The court notes that it is the fortieth. The court also notes that it expects no reply." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "The court is closed. The magistrate is not. Say what you came to say, and briefly." },
       },
       choices = {
         { text = "What does Lakeshire need?", next = "need" },

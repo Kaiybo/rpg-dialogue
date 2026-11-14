@@ -39,6 +39,7 @@ P:NPC {
           text = "Zombie juice, for the hermit. Strong stuff. I wouldn't drink it. He swears it's for his garden." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "You're the first of the sky people to sit at my bar. Tell me something true about your folk and I'll write it in my book. Only what you'd not mind me knowing." },
+        { id = "h_case", when = { metBefore = true }, text = "I spent the night with my old notes again. Nothing new in them. Same as every night. I read them anyway." },
       },
       choices = {
         { text = "A drink, please.", next = "BUSINESS" },
