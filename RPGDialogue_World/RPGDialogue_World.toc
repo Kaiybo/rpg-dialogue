@@ -23,6 +23,7 @@ rumors\elwynn.lua
 rumors\westfall.lua
 rumors\redridge.lua
 rumors\duskwood.lua
+rumors\wetlands.lua
 books.lua
 generic.lua
 pools.lua

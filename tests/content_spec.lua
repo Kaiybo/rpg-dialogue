@@ -202,6 +202,24 @@ describe("Content packs", function()
     eq(ns.Data.FindNPC(nil, "John Turner").key, "john_turner")
   end)
 
+  it("Wetlands loads in Menethil Harbor; Stoutfist and Fitzsimmons are themselves, the guards are Menethil's", function()
+    local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Wetlands" } })
+    Mock.state.zone, Mock.state.subzone = "Wetlands", "Menethil Harbor"
+    Mock.Fire("ZONE_CHANGED_NEW_AREA")
+    Mock.RunTimers()
+    for _, p in ipairs(ns.Packs.List()) do
+      if p.id == "rpgd.wetlands" then ok(p.loaded); eq(p.warnings, 0) end
+    end
+    eq(ns.Data.FindNPC(nil, "Captain Stoutfist").key, "stoutfist")
+    eq(ns.Data.FindNPC(nil, "First Mate Fitzsimmons").key, "fitzsimmons")
+    eq(ns.Data.FindNPC(nil, "Mikhail").key, "mikhail")
+    Mock.state.units.npc = { guid = "Creature-0-1-0-1-2405-AB", name = "Menethil Guard", level = 40 }
+    local ctx = ns.Context.New({ unit = "npc" })
+    local info = ns.Conversation.Identify("npc", ctx)
+    eq(info.role, "guard")
+    eq(ns.Data.PoolsFor(info, ctx)[1].pool.id, "guard_menethil")
+  end)
+
   it("Zephras Isle's Peacekeepers are guards of the isle, and the High Elder knows her own", function()
     local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Zephras" } })
     ns.db.settings.instantText = true

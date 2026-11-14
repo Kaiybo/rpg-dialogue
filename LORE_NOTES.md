@@ -265,3 +265,18 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Thor, Sentinel Hill's gryphon master; A Swift Message, Continue to Stormwind | [Thor](https://warcraft.wiki.gg/wiki/Thor) |
 | Scout Riell, militia scout in the tower; Red Silk Bandanas | [Scout Riell](https://warcraft.wiki.gg/wiki/Scout_Riell) |
 | William MacGregor, bowyer (relation to Gina MacGregor unstated) | [William MacGregor](https://warcraft.wiki.gg/wiki/William_MacGregor) |
+
+## Lore sheet: Wetlands (Wetlands pack 1.0.0)
+
+| Fact used | Source |
+|---|---|
+| Menethil Harbor: Alliance harbour linking Khaz Modan, Stormwind and the new settlements; the Dragonmaw push into Dun Algaz threatens to cut Loch Modan off; the Dark Iron took Dun Modr | [Menethil Harbor](https://warcraft.wiki.gg/wiki/Menethil_Harbor) |
+| Dragonmaw: rode enslaved red dragons from Grim Batol in the Second War; lost them at the Battle of Grim Batol; survivors at Angerfang under Nek'rosh Skullcrusher, Nekros's son | [Dragonmaw clan](https://warcraft.wiki.gg/wiki/Dragonmaw_clan) |
+| Captain Stoutfist: dwarf commanding Menethil's defences; Valstag Ironjaw sent adventurers; War Banners at Whelgar's Excavation Site, Nek'rosh's Gambit (catapults), Defeat Nek'rosh | [Captain Stoutfist](https://warcraft.wiki.gg/wiki/Captain_Stoutfist) |
+| First Mate Fitzsimmons: drinks outside the Deepwater Tavern, smells, trades tales for drinks; Wave Mistress, Kul Tiras Third Fleet burned by orc-ridden red dragons, sole survivor; his mead in the cellar; The Cursed Crew, Lifting the Curse | [First Mate Fitzsimmons](https://warcraft.wiki.gg/wiki/First_Mate_Fitzsimmons); [The Third Fleet](https://warcraft.wiki.gg/wiki/The_Third_Fleet) |
+| Glorin Steelbrow: grumbling, overworked dwarf priest of the Church in the Deepwater Tavern; The Eye of Paleth, Cleansing the Eye | [Glorin Steelbrow](https://warcraft.wiki.gg/wiki/Glorin_Steelbrow) |
+| Harlo Barnaby: survived the Dark Iron invasion of Dun Modr with an axe in his back, woke in Menethil; Fall of Dun Modr | [Harlo Barnaby](https://warcraft.wiki.gg/wiki/Harlo_Barnaby) |
+| Karl Boran: merchant marine, resilient and hard-working | [Karl Boran](https://warcraft.wiki.gg/wiki/Karl_Boran) |
+| Innkeeper Helbrek: dwarf, warm host of the Deepwater Tavern | [Innkeeper Helbrek](https://warcraft.wiki.gg/wiki/Innkeeper_Helbrek) |
+| Archaeologist Flagongut: Explorers' League, came to reach Whelgar's Excavation Site | [Archaeologist Flagongut](https://warcraft.wiki.gg/wiki/Archaeologist_Flagongut) |
+| Mikhail: bartender who doesn't sell drinks; retired from Stormwind; Elling Trias's friend; watchful; The Missing Diplomat 10 to 13 | [Mikhail](https://warcraft.wiki.gg/wiki/Mikhail) |

@@ -176,7 +176,7 @@ P:NPC {
   start = "hello",
   nodes = { hello = {
     lines = {
-      { id = "h_default", text = "Elling Trias. My wife Elaine makes the cheese, my boy Ben sells it, and I stand here looking honest. It's a family business." },
+      { id = "h_default", key = true, text = "Elling Trias. My wife Elaine makes the cheese, my boy Ben sells it, and I stand here looking honest. It's a family business." },
       { id = "h_diplomat", tags = { "news" }, when = { questActive = TODO_QUEST("The Missing Diplomat") },
         text = "A diplomat goes missing in the middle of Stormwind, and nobody's surprised. That should worry you more than the diplomat." },
       { id = "h_shaw", when = { heardLine = "shaw.h_default" },

@@ -37,3 +37,4 @@ P:Topic { id = "ladimore", name = "Morgan Ladimore", category = "rumors", learne
 P:Topic { id = "gnomeregan", name = "The fall of Gnomeregan", category = "places", learned = "High Tinker Mekkatorque in Tinker Town" }
 P:Topic { id = "dark_iron", name = "The Dark Iron dwarves", category = "threats", learned = "Royal Historian Archesonus in the High Seat" }
 P:Topic { id = "explorers_league", name = "The Explorers' League", category = "people", learned = "the Hall of Explorers in Ironforge" }
+P:Topic { id = "dragonmaw", name = "The Dragonmaw clan", category = "threats", learned = "Captain Stoutfist in Menethil Harbor" }

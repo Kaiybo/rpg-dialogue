@@ -111,6 +111,16 @@ P:Town {
   quests = { { TODO_QUEST("Jitters' Growling Gut"), 4 } },
 }
 
+P:Town {
+  id = "menethil", name = "Menethil Harbor",
+  subzones = { "Menethil Harbor", "Deepwater Tavern", "Menethil Keep", "Menethil Bay" },
+  tiers = { Hero = "Hero of Menethil" },
+  quests = {
+    { TODO_QUEST("War Banners"), 6 }, { TODO_QUEST("Nek'rosh's Gambit"), 6 },
+    { TODO_QUEST("Defeat Nek'rosh"), 15 }, { TODO_QUEST("Lifting the Curse"), 8 },
+  },
+}
+
 -- The other capitals. Their guards speak from pools_roles.lua; standing grows from quests
 -- each capital's own pack lists later.
 P:Town {
