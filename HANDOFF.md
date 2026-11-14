@@ -3,7 +3,7 @@
 > Read this first, then `DESIGN.md`, then `CONTENT_GUIDE.md` (and `PACK_AUTHORING.md` before adding a zone). You won't remember earlier sessions; these files are your memory.
 > The original brief is the Project doc `rpg-dialogue-build-prompt (1).md`. Re-read it when a decision isn't covered here.
 
-**Last session:** 2026-11-14 (overnight, user asleep) · **M0–M8 all built; five rounds of in-game results are in; Phase 4 (content) under way.** The addon loads, packs load, `/rpgd why` works, and the Skyborne race token is "Skyborne". **Versions now: core 0.13.0, World 1.2.0, Elwynn 1.3.0, Westfall 1.0.1, Stormwind 1.0.1, Zephras Isle 1.0.1, Redridge 1.0.0, Duskwood 1.0.0** (`python3 tools/version.py`).
+**Last session:** 2026-11-14 (overnight, user asleep) · **M0–M8 all built; five rounds of in-game results are in; Phase 4 (content) under way.** The addon loads, packs load, `/rpgd why` works, and the Skyborne race token is "Skyborne". **Versions now: core 0.14.0, World 1.2.0, Elwynn 1.4.0, Westfall 1.1.0, Stormwind 1.1.0, Zephras Isle 1.0.1, Redridge 1.0.1, Duskwood 1.0.1, Ironforge 1.0.0** (`python3 tools/version.py`).
 
 **First in-game test (user, 2026-11-13):**
 - **Test character: Skyborne Druid, level 22 (Blooded), faction not confirmed, tested in Northshire Valley.** Content for that character is thin: the slice is written for level 1–10 characters doing Northshire/Goldshire quests (only 4 Skyborne lines and 1 druid line exist). Asked the user where they actually play, for the next content pass.
@@ -40,6 +40,7 @@
   - 0.13.0: Redridge pack (Solomon, Marris, Oslow, Verner, Keeshan, Wiley, Baren, Daniels; Lakeshire guards), Duskwood pack (Ello, Althea, Smitts, Eva, Daltry, Jitters, Sven, Abercrombie; Night Watch), Elwynn 1.3.0 (Rainer, Bernice, Ma Stonefield, Billy, Sara, Gerard). Threads `solomons_letters` and `stalvan`; Ello added to `westfall_left`. Cross-zone echoes (Argus/Verner, Haggard/Smitts, Gryan/Wiley, Rainer/Raelen, Remy/Thomas, Pestle/Gramma).
   - Engine: named NPCs with their own noticing moments (or reactions) no longer also draw the role pool's (`Engine.Gather`, `ownOnly`). The simulation showed Sammuel and Argus taking ~25% of opening moments from the trainer/blacksmith pools.
   - `^watcher ` names are guards (Duskwood's Night Watch).
+  - 0.14.0: the paladin's road in full (Stephanie Turner, Gazin Tenorm, Henze Faulk, Daphne Stilwell, Jordan Stilwell; Rall reacts to progress), Archbishop Benedictus and Lil Timmy, an Ironforge pack (Magni, Brandur, John Turner, Jordan; zones Ironforge and Dun Morogh), Skyborne reactions on eighteen named NPCs (brief facts only), three more new-pairing reactions.
 
 ## Assumptions made while the user was away (confirm or correct)
 1. **Interface number** 16001 (from warcraft.wiki.gg, patch 1.60.1). TOCs say `16001, 16002` to cover the next patch too.
@@ -71,7 +72,8 @@
 - **M6** (979fcc5): spirit healer tree, books, insanity, drunk replies, ghosts, barks, errands.
 - **M7** (bbefce7): `tools/new_zone.py` (plan → approve tiers → scaffold), `tools/check_all.py`, impossible-quest-reference check, copied-wording check, flag replay lines, `/rpgd capture zone`, `tests/test_tools.py`.
 - **M8** (c2e6a2e): Total RP 3 (read-only), accessibility pass (keyboard selection, gamepad, Ask About keybinding, bundled readable font, "(Locked)" and ">" markers, journal tab keys), the optional "something new" tooltip marker (an M2 item that had been missed), pack `requires` reported in game and validated, per-pack versions and changelogs, `PACK_AUTHORING.md`, `.pkgmeta` checked against the packager's source, Blizzard UI policy checked and enforced by `check_all.py --release`, GitHub workflows, README rewrite.
-- **0.13.0 (overnight):** see the bullet at the top. **Checks now:** 176 Lua tests, 8 Python tool tests, luacheck clean, validator 0 errors, voice check 0 failures, simulation (all eight folders, ~7 minutes: run in the background) 0 runtime errors / 0 contradictions / 0 impossible quest references. Never-fired named-NPC lines are all simulation blind spots (visited places, deeds, Horde faction, fishing, mounted), listed in `tools/out/simulation.md`.
+- **0.14.0 (overnight):** 177 Lua tests; same gates as below, all passing.
+- **0.13.0 (overnight):** see the bullet at the top. **Checks then:** 176 Lua tests, 8 Python tool tests, luacheck clean, validator 0 errors, voice check 0 failures, simulation (all folders; ~10 minutes with nine, run it in the background) 0 runtime errors / 0 contradictions / 0 impossible quest references. Never-fired named-NPC lines are all simulation blind spots (visited places, deeds, Horde faction, fishing, mounted), listed in `tools/out/simulation.md`.
 - **0.12.0 content:** see above. **Checks then:** 173 Lua tests, 8 Python tool tests, luacheck clean, validator 0 errors (warnings are TODO placeholders plus a few long lines), voice check 0 failures, simulation (now every pack, 1,500 characters, about 4 minutes) 0 runtime errors / 0 contradictions / 0 impossible quest references.
 - **After the in-game tests:** box every visit with the game's options, safety net, right-click talk, Melika, fonts, polish, versions. **Checks then:** 169 Lua tests (new `tests/ux_spec.lua`, `tests/look_spec.lua`, `tests/dialogueui_spec.lua`, `tests/pages_spec.lua`), 8 Python tool tests, luacheck clean, validator 0 errors (106 warnings, all TODO placeholders), voice check 0 failures, simulation 0 runtime errors / 0 contradictions / 0 impossible quest references.
 - Earlier: **Checks at the end of M8:** 118 Lua tests, 7 Python tool tests, luacheck clean, validator 0 errors (101 warnings, all TODO placeholders), voice check 0 failures, simulation 0 runtime errors / 0 contradictions / 0 impossible quest references.
@@ -103,7 +105,7 @@
 - A real tagged build with the BigWigs packager (the `.pkgmeta` was checked by reading the packager's code; running it here was not allowed).
 
 ## In-game test checklist (for the user)
-Install by linking or copying `RPGDialogue`, `RPGDialogue_World`, and every `RPGDialogue_<Zone>` folder (Elwynn, Westfall, Stormwind, Zephras, Redridge, Duskwood) into AddOns. Have BugSack + !BugGrabber on. Paste back every error, plus the outputs asked for.
+Install by linking or copying `RPGDialogue`, `RPGDialogue_World`, and every `RPGDialogue_<Zone>` folder (Elwynn, Westfall, Stormwind, Zephras, Redridge, Duskwood, Ironforge) into AddOns. Have BugSack + !BugGrabber on. Paste back every error, plus the outputs asked for.
 1. Log in. Expect "RPG Dialogue loaded". Run `/rpgd probe` and paste the output.
 2. `/rpgd packs`: World loaded; Elwynn "waiting for zone" outside Elwynn, "loaded" inside it.
 3. `/console taintLog 1`, then reload. Talk to Marshal McBride (Northshire Abbey): our window opens in front of Blizzard's. Try 1–4, Up/Down + Enter, Space, Escape. "Get on with it" must leave Blizzard's quest window working normally. Later, send `Logs/taint.log` if it mentions RPGDialogue.
@@ -131,10 +133,12 @@ Still all of DESIGN.md §4 (section 9 answers, slice zone, where the repo lives,
 - The cloud workspace had Lua 5.1, luac5.1, LuaRocks and luacheck installed by hand (`apt-get install lua5.1 luarocks liblua5.1-0-dev && luarocks install luacheck`), plus Python 3. A new session may need to reinstall them.
 - The repo was at `/home/claude/rpg-dialogue`. That workspace isn't shared with other sessions; the user has the zips.
 - Only this HANDOFF is kept in step in the Project. The Project's `DESIGN.md`, `CONTENT_GUIDE.md` and `PACK_AUTHORING.md` are older copies; the ones in the latest repo zip (`rpg-dialogue-repo-<version>.zip`) are current (DESIGN §3.6 right-click talk and safety net, §3.10 window style).
-- `python3 tools/check_all.py` runs everything (about 4 minutes now, mostly the simulation: run it in the background); `--quick` skips the simulation.
+- `python3 tools/check_all.py` runs everything (about 10 minutes now, almost all of it the simulation: run it in the background); `--quick` skips the simulation.
 
 ## Exact next step
-User installs 0.13.0 (full restart; tick the new Redridge and Duskwood packs). On the human paladin: Wilhelm, then Stormwind (Rall in the Cathedral at 12), Westfall/Redridge/Duskwood as levels allow. `/rpgd packs` should show each zone pack loading on arrival. Send the capture file for real IDs. Next content candidates: Wetlands (Menethil), Loch Modan, Ashenvale (needs capture to separate Classic NPCs from later ones), Stranglethorn (both factions), Horde starting zones when the user asks.
+User installs 0.14.0 (full restart; tick the new Redridge, Duskwood and Ironforge packs). Paladin at 12: Wilhelm → Rall → Stephanie → Gazin → Henze → Rall, each should speak their own lines. Skyborne main: Farley, Dughan, Gryan, Smitts react to Skyborne.
+
+Previous next step (0.13.0): User installs 0.13.0 (full restart; tick the new Redridge and Duskwood packs). On the human paladin: Wilhelm, then Stormwind (Rall in the Cathedral at 12), Westfall/Redridge/Duskwood as levels allow. `/rpgd packs` should show each zone pack loading on arrival. Send the capture file for real IDs. Next content candidates: Wetlands (Menethil), Loch Modan, Ashenvale (needs capture to separate Classic NPCs from later ones), Stranglethorn (both factions), Horde starting zones when the user asks.
 
 Previous next step (0.12.0): User installs 0.12.0 (full restart: new folders; tick the new packs in the AddOns list). On the human paladin: Brother Wilhelm behind Goldshire's smithy (his own lines, not the trainer pool), a class trainer in Stormwind (the paladin-trainer pool), Stormwind guards, then Westfall when the level allows (Gryan at Sentinel Hill). `/rpgd packs` should show Westfall/Stormwind loading on arrival. Then send the capture file so the TODO ids can be resolved (`tools/import_capture.py --resolve`). Next content: Redridge and Duskwood (the paladin's road), or wherever the moved main plays; Horde content when the user asks.
 

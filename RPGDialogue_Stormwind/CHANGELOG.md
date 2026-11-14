@@ -4,6 +4,7 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 
 ## 1.1.0 (unreleased)
 - The Cathedral: Archbishop Benedictus and Gazin Tenorm. The Trade District: Stephanie Turner of the orphanage, and Lil Timmy and his kitten. Duthorian Rall reacts to your Tome of Divinity progress (Henze, Stephanie). Henze Faulk himself is in the Elwynn pack, by Heroes' Vigil.
+- Bolvar, Lady Prestor and Benedictus react to Skyborne; Benedictus notices gnome priests; Rall points paladins to Daphne Stilwell for the Tome of Valor.
 
 ## 1.0.1 (unreleased)
 - Bolvar answers Solomon's evidence (The True Masters).

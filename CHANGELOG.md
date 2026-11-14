@@ -2,6 +2,20 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.14.0 (2026-11-14)
+Packs: World 1.2.0, Elwynn Forest 1.4.0, Westfall 1.1.0, Stormwind 1.1.0, Zephras Isle 1.0.1, Redridge 1.0.1, Duskwood 1.0.1, and a new one: Ironforge 1.0.0. New folder: restart the game, tick the Ironforge pack.
+
+### For paladins
+- **The Tome of Divinity, all the way.** Stephanie Turner (the orphanage), Gazin Tenorm at the Cathedral's altar and Henze Faulk by Heroes' Vigil now have their own voices, and Duthorian Rall notices how far you've got. At 20-something, Rall points you to Daphne Stilwell's farm for the Tome of Valor; her husband Jordan, the Church's smith, waits at the gates of Ironforge with Verigan's Fist.
+- **Ironforge.** King Magni, Brandur Ironhammer in the Hall of Mysteries, and John Turner, who is always in Ironforge despite visiting only monthly.
+- **The Cathedral.** Archbishop Benedictus, and Lil Timmy with a kitten that needs a home.
+
+### For Skyborne
+- Eighteen named NPCs across Elwynn, Westfall, Stormwind, Redridge and Duskwood now react to a Skyborne visitor, each in their own way (Farley practises "Winds be with you"; Lady Prestor is not impressed). Only what's known about the Skyborne is used.
+
+### Also
+- New race and class pairings get noticed in more places: a gnome priest at the Cathedral, a dwarf shaman by Heroes' Vigil, a human hunter at Sentinel Hill.
+
 ## 0.13.0 (2026-11-14)
 Packs: World 1.2.0, Elwynn Forest 1.3.0, Westfall 1.0.1, Stormwind 1.0.1, Zephras Isle 1.0.1, and two new ones: Redridge Mountains 1.0.0 and Duskwood 1.0.0. New addon folders again: restart the game, and tick the new packs.
 
