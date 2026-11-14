@@ -313,3 +313,14 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Turak Runetotem: druid trainer, Hamuul's assistant; the Great Balance; Heeding the Call, Back to Thunder Bluff, Power over Poison (the Crossroads), Aquatic Form | [Turak Runetotem](https://warcraft.wiki.gg/wiki/Turak_Runetotem) |
 | Magatha Grimtotem: Elder Crone, Cairne's open rival; wants the tauren's old lands; helps the Forsaken; The Elder Crone, Forsaken Aid, Sacred Fire | [Magatha Grimtotem](https://warcraft.wiki.gg/wiki/Magatha_Grimtotem) |
 | Innkeeper Pala at the Cat and the Shaman | [Innkeeper Pala](https://warcraft.wiki.gg/wiki/Innkeeper_Pala) |
+
+## The Crossroads (Barrens pack 1.0.0)
+
+| Fact used | Source |
+|---|---|
+| The Crossroads: run mostly by orcs with tauren, trolls and Forsaken; Thork leads its defence; quilboar and centaur threats | [The Crossroads](https://warcraft.wiki.gg/wiki/The_Crossroads) |
+| Thork: hospitable but firm; Disrupt the Attacks, Supplies for the Crossroads | [Thork](https://warcraft.wiki.gg/wiki/Thork) |
+| Sergra Darkthorn: leads the Crossroads; champions women in the Horde; Kargal Battlescar resents her; Plainstrider Menace, The Zhevra, Prowlers of the Barrens, Echeyakee, Jorn Skyseer | [Sergra Darkthorn](https://warcraft.wiki.gg/wiki/Sergra_Darkthorn) |
+| Mankrik: Olgra lost fighting quilboar; found wounded on the Gold Road by a tauren; Thork refused him; Consumed by Hatred, Lost in Battle | [Mankrik](https://warcraft.wiki.gg/wiki/Mankrik) |
+| Tonga Runetotem and the Wailing Caverns: the taint traced to the caverns, where Naralex's dream turned to nightmare and corrupted the waters; Gathering the Cure | [Tonga Runetotem](https://warcraft.wiki.gg/wiki/Tonga_Runetotem); [Wailing Caverns](https://warcraft.wiki.gg/wiki/Wailing_Caverns) |
+| Apothecary Helbrim (Royal Apothecary Society); Darsok Swiftdagger (boastful rogue, Jin'Zil's friend, the harpy quests); Zargh (butcher, lost finger, Gryshka); Innkeeper Boorand Plainswind | [Apothecary Helbrim](https://warcraft.wiki.gg/wiki/Apothecary_Helbrim); [Darsok Swiftdagger](https://warcraft.wiki.gg/wiki/Darsok_Swiftdagger); [Zargh](https://warcraft.wiki.gg/wiki/Zargh); [Innkeeper Boorand Plainswind](https://warcraft.wiki.gg/wiki/Innkeeper_Boorand_Plainswind) |

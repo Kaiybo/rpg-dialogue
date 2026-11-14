@@ -12,7 +12,7 @@ local SEED = tonumber(arg[2]) or 1
 
 local function out(...) io.write(table.concat({ ... }, "\t"), "\n") end
 
-local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Elwynn", "RPGDialogue_Westfall", "RPGDialogue_Stormwind", "RPGDialogue_Zephras", "RPGDialogue_Redridge", "RPGDialogue_Duskwood", "RPGDialogue_Ironforge", "RPGDialogue_Wetlands", "RPGDialogue_Moonglade", "RPGDialogue_Darnassus", "RPGDialogue_ThunderBluff" } })
+local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Elwynn", "RPGDialogue_Westfall", "RPGDialogue_Stormwind", "RPGDialogue_Zephras", "RPGDialogue_Redridge", "RPGDialogue_Duskwood", "RPGDialogue_Ironforge", "RPGDialogue_Wetlands", "RPGDialogue_Moonglade", "RPGDialogue_Darnassus", "RPGDialogue_ThunderBluff", "RPGDialogue_Barrens" } })
 ns.Packs.LoadAll()
 local U = ns.Util
 local rng = U.NewRNG(SEED)
@@ -29,8 +29,8 @@ local RACES = {
 local RACE_LIST = { "Human", "Human", "Human", "Dwarf", "Gnome", "NightElf", "Skyborne" }
 local SUBZONES = { northshire = "Northshire Abbey", goldshire = "Goldshire", eastvale = "Eastvale Logging Camp",
   sentinel_hill = "Sentinel Hill", westfall_farms = "Saldean's Farm", stormwind = "Trade District", zephras_isle = "Valanaar", lakeshire = "Lakeshire",
-  darkshire = "Darkshire", raven_hill = "Raven Hill", ironforge = "The Commons", menethil = "Menethil Harbor", nighthaven = "Nighthaven", darnassus = "Temple of the Moon", thunder_bluff = "Elder Rise" }
-local ZONES = { sentinel_hill = "Westfall", westfall_farms = "Westfall", stormwind = "Stormwind City", zephras_isle = "Zephras Isle", lakeshire = "Redridge Mountains", darkshire = "Duskwood", raven_hill = "Duskwood", ironforge = "Ironforge", menethil = "Wetlands", nighthaven = "Moonglade", darnassus = "Darnassus", thunder_bluff = "Thunder Bluff" }
+  darkshire = "Darkshire", raven_hill = "Raven Hill", ironforge = "The Commons", menethil = "Menethil Harbor", nighthaven = "Nighthaven", darnassus = "Temple of the Moon", thunder_bluff = "Elder Rise", crossroads = "The Crossroads" }
+local ZONES = { sentinel_hill = "Westfall", westfall_farms = "Westfall", stormwind = "Stormwind City", zephras_isle = "Zephras Isle", lakeshire = "Redridge Mountains", darkshire = "Duskwood", raven_hill = "Duskwood", ironforge = "Ironforge", menethil = "Wetlands", nighthaven = "Moonglade", darnassus = "Darnassus", thunder_bluff = "Thunder Bluff", crossroads = "The Barrens" }
 local PROFS = { "Skinning", "Alchemy", "Herbalism", "Blacksmithing", "Mining", "Tailoring" }
 
 -- Give every TODO quest title a fake ID and register it in capture data, as a real

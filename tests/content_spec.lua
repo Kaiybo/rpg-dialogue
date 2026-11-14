@@ -262,6 +262,23 @@ describe("Content packs", function()
     eq(ns.Data.FindNPC(nil, "Magatha Grimtotem").key, "magatha")
   end)
 
+  it("The Barrens loads at the Crossroads; Mankrik is there, and the guards are the Crossroads'", function()
+    local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Barrens" } })
+    Mock.state.zone, Mock.state.subzone = "The Barrens", "The Crossroads"
+    Mock.Fire("ZONE_CHANGED_NEW_AREA")
+    Mock.RunTimers()
+    for _, p in ipairs(ns.Packs.List()) do
+      if p.id == "rpgd.barrens" then ok(p.loaded); eq(p.warnings, 0) end
+    end
+    eq(ns.Data.FindNPC(nil, "Mankrik").key, "mankrik")
+    eq(ns.Data.FindNPC(nil, "Thork").key, "thork")
+    Mock.state.units.npc = { guid = "Creature-0-1-0-1-3501-AB", name = "Horde Guard", level = 55 }
+    local ctx = ns.Context.New({ unit = "npc" })
+    local info = ns.Conversation.Identify("npc", ctx)
+    eq(info.role, "guard")
+    eq(ns.Data.PoolsFor(info, ctx)[1].pool.id, "guard_crossroads")
+  end)
+
   it("Zephras Isle's Peacekeepers are guards of the isle, and the High Elder knows her own", function()
     local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Zephras" } })
     ns.db.settings.instantText = true

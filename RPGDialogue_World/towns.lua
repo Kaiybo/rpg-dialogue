@@ -127,6 +127,16 @@ P:Town {
   tiers = { Hero = "Friend of the Circle" },
 }
 
+P:Town {
+  id = "crossroads", name = "The Crossroads",
+  subzones = { "The Crossroads" },
+  tiers = { Hero = "Hero of the Crossroads" },
+  quests = {
+    { TODO_QUEST("Disrupt the Attacks"), 6 }, { TODO_QUEST("The Disruption Ends"), 8 },
+    { TODO_QUEST("Supplies for the Crossroads"), 5 }, { TODO_QUEST("Serena Bloodfeather"), 10 },
+  },
+}
+
 -- The other capitals. Their guards speak from pools_roles.lua; standing grows from quests
 -- each capital's own pack lists later.
 P:Town {

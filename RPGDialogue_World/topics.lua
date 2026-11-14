@@ -39,3 +39,4 @@ P:Topic { id = "dark_iron", name = "The Dark Iron dwarves", category = "threats"
 P:Topic { id = "explorers_league", name = "The Explorers' League", category = "people", learned = "the Hall of Explorers in Ironforge" }
 P:Topic { id = "dragonmaw", name = "The Dragonmaw clan", category = "threats", learned = "Captain Stoutfist in Menethil Harbor" }
 P:Topic { id = "cenarion_circle", name = "The Cenarion Circle", category = "people", learned = "Nighthaven, in Moonglade" }
+P:Topic { id = "wailing_caverns", name = "The Wailing Caverns", category = "places", learned = "Tonga Runetotem at the Crossroads" }
