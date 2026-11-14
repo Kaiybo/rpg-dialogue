@@ -41,8 +41,12 @@ P:NPC {
           text = "You were a squire of the Silver Hand. Then you know what was lost when it broke. Let's not lose the rest." },
         { id = "h_light", when = { alignment = { axis = "light", min = 50 } },
           text = "You carry yourself like someone who's been forgiven. Or who forgives. Either will serve you." },
+        { id = "h_afraid", when = { metBefore = true, class = "PALADIN" }, text = "How was your first real fight? Don't tell me you won. Tell me whether you were afraid. The afraid ones listen better." },
+        { id = "h_floor", when = { metBefore = true }, text = "I've knelt on this floor every morning for longer than you've been alive. The stone is worn where I kneel. I find that a comfort." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "The Abbey is quiet at this hour. The Light doesn't sleep, but it does seem to rest." },
       },
       choices = {
+        { text = "How did you come to the Abbey?", next = "path" },
         { text = "Train me.", next = "BUSINESS", when = { class = "PALADIN" } },
         { text = "What does the Light ask of me?", next = "light" },
         { text = "Another time, Brother.", next = "END" },
@@ -59,6 +63,18 @@ P:NPC {
         { text = "I can do that.", next = "END", fx = { align = { light = 2 }, trait = { pious = 1 }, affinity = 1 } },
         { text = "That's a great deal to ask of anyone.", next = "END", fx = { trait = { skeptical = 1 } } },
       },
+    },
+    path = {
+      lines = {
+        { id = "p_cart", text = "I was a farm boy from Eastvale. A paladin rode by when I was small and stopped to help my father haul a cart out of the mud. He didn't have to. I decided that day." },
+      },
+      choices = { { text = "Did you ever meet him again?", next = "again" }, { text = "A good reason.", next = "END", fx = { affinity = 2 } } },
+    },
+    again = {
+      lines = {
+        { id = "a_never", text = "No. I never learned his name. I've stopped minding. I think the point was that it didn't matter who he was." },
+      },
+      choices = { { text = "I'll try to be that for someone.", next = "END", fx = { affinity = 2, align = { light = 1 } } } },
     },
   },
 

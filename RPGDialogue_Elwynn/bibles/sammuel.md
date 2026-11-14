@@ -35,3 +35,6 @@ Trustworthy. Hopeful about people, sometimes more than they deserve.
 
 ## Topics
 defias, northshire_abbey
+
+## Depth pass (0.24.0, authored, not canon)
+A farm boy from Eastvale who chose the Light after a passing paladin helped his father haul a cart from the mud (never learned his name). Kneels on the same worn stone every morning. Asks young paladins whether they were afraid, not whether they won.
