@@ -575,6 +575,22 @@ describe("Content packs", function()
     eq(ns.Data.FindNPC(nil, "Rok Orhan").key, "rokorhan")
   end)
 
+  it("Swamp of Sorrows loads in Stonard; Ruag is there, and the grunts are Stonard's", function()
+    local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_SwampOfSorrows" } })
+    Mock.state.zone, Mock.state.subzone = "Swamp of Sorrows", "Stonard"
+    Mock.Fire("ZONE_CHANGED_NEW_AREA")
+    Mock.RunTimers()
+    for _, p in ipairs(ns.Packs.List()) do
+      if p.id == "rpgd.swampofsorrows" then ok(p.loaded); eq(p.warnings, 0) end
+    end
+    eq(ns.Data.FindNPC(nil, "Dispatch Commander Ruag").key, "ruag")
+    Mock.state.units.npc = { guid = "Creature-0-1-0-1-866-AB", name = "Stonard Grunt", level = 50 }
+    local ctx = ns.Context.New({ unit = "npc" })
+    local info = ns.Conversation.Identify("npc", ctx)
+    eq(info.role, "guard")
+    eq(ns.Data.PoolsFor(info, ctx)[1].pool.id, "guard_stonard")
+  end)
+
   it("Zephras Isle's Peacekeepers are guards of the isle, and the High Elder knows her own", function()
     local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Zephras" } })
     ns.db.settings.instantText = true

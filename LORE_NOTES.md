@@ -581,3 +581,13 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Rok Orhan: sent by Belgrom Rockmaul against the Gordunni; in Classic and Forever | [Rok Orhan](https://warcraft.wiki.gg/wiki/Rok_Orhan) |
 | Orwin Gizzmick: Gordunni Cobalt; in Classic and Forever | [Orwin Gizzmick](https://warcraft.wiki.gg/wiki/Orwin_Gizzmick) |
 | Nataka Longhorn: at Ghost Walker Post; Cliffwatcher's brother; Family Tree, Catch of the Day | [Nataka Longhorn](https://warcraft.wiki.gg/wiki/Nataka_Longhorn) |
+
+## Swamp of Sorrows (Swamp of Sorrows pack 1.0.0)
+
+| Fact used | Source |
+|---|---|
+| Stonard: founded by the Old Horde after the Dark Portal opened, rebuilt; near the Portal and the Temple of Atal'Hakkar; cartographers and scouts in an uncharted swamp; Dreadmaul ogres | [Stonard](https://warcraft.wiki.gg/wiki/Stonard) |
+| Dispatch Commander Ruag: Stonard's leader; exploratory missions; The Disgraced One, The Missing Orders | [Dispatch Commander Ruag](https://warcraft.wiki.gg/wiki/Dispatch_Commander_Ruag) |
+| Fel'zerul: warlock sent by Thrall to watch the Temple of Atal'Hakkar; in Classic and Forever | [Fel'zerul](https://warcraft.wiki.gg/wiki/Fel%27zerul) |
+| Helgrum the Swift and Neeka Bloodscar | [Helgrum the Swift](https://warcraft.wiki.gg/wiki/Helgrum_the_Swift) |
+| Bengor: advanced illness; The Missing Orders, The Swamp Talker; in Classic and Forever | [Bengor](https://warcraft.wiki.gg/wiki/Bengor) |

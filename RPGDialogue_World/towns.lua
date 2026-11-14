@@ -388,6 +388,13 @@ P:Town {
   quests = { { TODO_QUEST("The Gordunni Orb"), 6 }, { TODO_QUEST("Dark Ceremony"), 6 } },
 }
 
+P:Town {
+  id = "stonard", name = "Stonard",
+  subzones = { "Stonard" },
+  tiers = { Hero = "Hero of Stonard" },
+  quests = { { TODO_QUEST("Return to Fel'Zerul"), 6 }, { TODO_QUEST("The Missing Orders"), 6 } },
+}
+
 -- The other capitals. Their guards speak from pools_roles.lua; standing grows from quests
 -- each capital's own pack lists later.
 P:Town {
