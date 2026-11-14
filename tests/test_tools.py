@@ -204,10 +204,11 @@ class ReleaseChecksTest(ScratchRepo):
         core = os.path.join(self.root, "RPGDialogue", "Systems", "Barks.lua")
         write(core, "\n-- SendChatMessage(\"hi\", \"SAY\")\n", "a")
         pack = os.path.join(self.root, "RPGDialogue_Elwynn", "pack.lua")
-        write(pack, read(pack).replace('version = "1.0.0"', 'version = "1.0.1"'))
+        import re
+        write(pack, re.sub(r'version = "[0-9.]+"', 'version = "9.9.9"', read(pack), count=1))
         out = self.release_problems()
         self.assertIn("RPGDialogue/Systems/Barks.lua: 'SendChatMessage' sends chat", out)
-        self.assertIn("RPGDialogue_Elwynn: pack.lua version '1.0.1' doesn't match CHANGELOG.md (1.0.0)", out)
+        self.assertRegex(out, r"RPGDialogue_Elwynn: pack.lua version '9.9.9' doesn't match CHANGELOG.md \(\d+\.\d+\.\d+\)")
 
 
 class ImportCaptureTest(ScratchRepo):
