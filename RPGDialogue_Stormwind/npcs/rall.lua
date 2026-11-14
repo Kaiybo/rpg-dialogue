@@ -40,6 +40,8 @@ P:NPC {
           text = "Stephanie put you to work, did she? Good. Linen for orphans. You'd be amazed how many great paladins started there." },
         { id = "h_dwarf", when = { race = "Dwarf", class = "PALADIN" },
           text = "Ironforge's paladins usually go to Brandur. You came to me. Either you're curious or lost. Both are forgivable." },
+        { id = "h_daphne", tags = { "news" }, when = { questActive = TODO_QUEST("The Tome of Valor") },
+          text = "Daphne Stilwell's farm, above the Westfall shore. The Brotherhood wants it. Stand with her. She'll likely save you as often as you save her." },
         { id = "h_valor", when = { class = "PALADIN", minLevel = 20 },
           text = "There's another test when you're ready. A test of valor, not compassion. Most paladins prefer it. That's why it comes second." },
       },
