@@ -2,6 +2,19 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.13.0 (2026-11-14)
+Packs: World 1.2.0, Elwynn Forest 1.3.0, Westfall 1.0.1, Stormwind 1.0.1, Zephras Isle 1.0.1, and two new ones: Redridge Mountains 1.0.0 and Duskwood 1.0.0. New addon folders again: restart the game, and tick the new packs.
+
+### The road goes on
+- **Redridge Mountains.** Lakeshire under pressure: Magistrate Solomon and his unanswered letters, Marshal Marris, Foreman Oslow and his drowned toolbox, Verner Osgood (who sends you to Smith Argus for horseshoes), Corporal Keeshan, Wiley the Black in the inn's corner, Dockmaster Baren and Barkeep Daniels.
+- **Duskwood.** Darkshire and the Night Watch: Lord Ello Ebonlocke, Commander Althea Ebonlocke, Tavernkeep Smitts, Madame Eva and her cards, Clerk Daltry; out in the woods, Jitters, Sven Yorgen, and Abercrombie, the kindly hermit who is definitely not building anything.
+- **More of Elwynn.** Deputy Rainer at Westbrook, the rest of the Stonefield farm, Billy Maclure, Sara Timberlain and Gerard Tiller.
+- **Stories that cross zones.** Solomon's letters go to Sentinel Hill, the Keep and Darkshire, and each answer has a reason in it. An old murder links the Scarlet Raven to the Lion's Pride and Marshal Haggard's house. People in different towns now pick up what you heard elsewhere (Smitts asks after Haggard; Verner's note reaches Argus; Gryan has opinions about Wiley).
+
+### Smaller things
+- Named NPCs keep to their own noticing moments. Before, a named smith or innkeeper could also say the generic ones every smith or innkeeper says.
+- NPCs named "Watcher ..." (Duskwood's Night Watch) are treated as guards.
+
 ## 0.12.0 (2026-11-14)
 Packs: World 1.1.0, Elwynn Forest 1.2.0, and three new ones: Westfall 1.0.0, Stormwind 1.0.0, Zephras Isle 1.0.0. New addon folders: restart the game, don't just /reload, and tick the new packs in the AddOns list if your client doesn't do it for you.
 

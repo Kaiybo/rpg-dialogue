@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.2.0 (unreleased)
+- Towns for Lakeshire, Darkshire and Raven Hill; topics for the Blackrock, the Everstill Bridge, Redridge's gnolls, the Night Watch, the worgen and Stalvan; rumors for Redridge and Duskwood inns and word of both elsewhere.
+- Throughlines: `solomons_letters` (Solomon, Gryan, Prestor, Bolvar, Daniels, Ello) and `stalvan` (Smitts, Haggard, Farley, Eva, Althea); Ello joins `westfall_left`.
+
 ## 1.1.0 (unreleased)
 - Role pools for stable masters, bankers, auctioneers, blacksmiths, kinds of vendor, every class trainer (by title), Horde flight masters, faction guards, and the guards of Stormwind, Ironforge, Darnassus, Orgrimmar, Thunder Bluff and the Undercity.
 - Towns: Eastvale, Sentinel Hill, the farms of Westfall, Zephras Isle and the five other capitals.

@@ -14,6 +14,8 @@ Copy these folders into `World of Warcraft/<your Forever folder>/Interface/AddOn
 - `RPGDialogue_Westfall`: Sentinel Hill and the farms of Westfall
 - `RPGDialogue_Stormwind`: Stormwind Keep, the Cathedral, City Hall
 - `RPGDialogue_Zephras`: Zephras Isle, home of the Skyborne
+- `RPGDialogue_Redridge`: Lakeshire and the Redridge Mountains
+- `RPGDialogue_Duskwood`: Darkshire, Raven Hill and the woods
 
 Content packs load by zone, so only the dialogue for where you are is in memory.
 
