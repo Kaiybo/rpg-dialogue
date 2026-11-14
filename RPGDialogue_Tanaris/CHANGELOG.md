@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.2.0 (unreleased)
+- Krinkle Goodsteel, Gadgetzan's blacksmith, who makes the mold for the Scholomance key (Mold Rhymes With..., Fire Plume Forged) and won't ask what it opens.
+
 ## 1.1.0 (unreleased)
 - Depth pass: repeat visits bring personal lines (habits, worries, running jokes), and some NPCs get night-time lines. Fizzgrimble, Pestlezugg and Rose, Stoley.
 

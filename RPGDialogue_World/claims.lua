@@ -71,3 +71,10 @@ P:Claim {
   truthNote = "Kalaran is a black drake in human disguise; the story is his invention to get adventurers to do his work (Kalaran Windblade, warcraft.wiki.gg). Exposed when his quests end and he shows himself.",
   exposedBy = { "quest:Squire Maltrake" },
 }
+
+P:Claim {
+  id = "barov_heir", by = "weldon", truth = "disputed",
+  text = "The Barov family fortune belongs to me, not my brother.",
+  truthNote = "Weldon (living, at Chillwind Camp) and Alexi (Forsaken, at the Bulwark) each claim the four deeds and send adventurers for the other's head (Barov Family Fortune, The Last Barov; warcraft.wiki.gg). Neither has a better right in canon; left open.",
+  open = true,
+}

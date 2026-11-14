@@ -2,6 +2,17 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.26.0 (unreleased)
+Packs: World 1.14.0, Tanaris 1.2.0, Thunder Bluff 1.3.0, and one new one: Western Plaguelands 1.0.0 (the rest as in 0.25.0). **New folder: exit the game fully, copy it in, and tick it.**
+
+### Western Plaguelands
+- **Chillwind Camp (Alliance).** Commander Ashlam Valorfist, who counts his camp morning and night and means to break Andorhal; High Priestess MacDonnell and her plan to turn the plague cauldrons on the Scourge; Alchemist Arbington, the Scholomance key and his eyebrows; Weldon Barov, the last living Barov, sleeping with his back to the cliff; Argent Officer Pureheart, who walked out of the Silver Hand with Tyrosus; Nathaniel Dumah and the termites meant for his father's mill; Bibilfaz Featherwhistle and his gryphons.
+- **The Bulwark (Horde).** High Executor Derrington, who sets the Crusade and the Scourge on each other; Shadow Priestess Vandis, who stopped asking the Light; Apothecary Dithers and his weather-reading knee; Alexi Barov, bored by murder; Argent Officer Garush, an orc who fights for everybody now. The Bulwark stands on the Tirisfal side of the border, so the pack also loads in Tirisfal Glades.
+- **The farms and hills.** Janice Felstone, still waiting for John; Mulgris Deepriver, dying at the Writhing Haunt and asking mercy for the wolves; Marlene Redpath, who only wants to know what became of Pamela; Kirsta Deepshadow, wounded above Northridge and bad at keeping her employer's name to herself; Eva Sarkhoff of Caer Darrow.
+- The Barov brothers each swear the fortune is theirs. Nobody settles it.
+- New topics: the plague cauldrons, Andorhal, the Scholomance. Towns: Chillwind Camp, the Bulwark.
+- **Elsewhere:** Krinkle Goodsteel in Gadgetzan makes the key's mold and never asks what it opens; Hamuul Runetotem asks after Mulgris once you've met him.
+
 ## 0.25.0 (2026-11-14)
 Packs: Arathi 1.1.0, Ashenvale 1.1.0, Badlands 1.1.0, Barrens 1.2.0, Darkshore 1.1.0, Darnassus 1.1.0, Desolace 1.1.0, Durotar 1.1.0, Duskwood 1.2.0, Dustwallow 1.1.0, Elwynn 1.8.0, Feralas 1.1.0, Hillsbrad 1.1.0, Hinterlands 1.1.0, Ironforge 1.3.0, LochModan 1.1.0, Moonglade 1.1.0, Mulgore 1.2.0, Orgrimmar 1.2.0, Redridge 1.2.0, Silverpine 1.1.0, Stonetalon 1.1.0, Stormwind 1.4.0, Stranglethorn 1.2.0, SwampOfSorrows 1.1.0, Tanaris 1.1.0, Teldrassil 1.2.0, ThousandNeedles 1.1.0, ThunderBluff 1.2.0, Tirisfal 1.1.0, UnGoro 1.1.0, Undercity 1.1.0, Westfall 1.3.0, Wetlands 1.1.0, Winterspring 1.1.0, World 1.13.0, Zephras 1.0.1, and three new ones: Felwood 1.0.0, Searing Gorge 1.0.0, Eastern Plaguelands 1.0.0. **New folders: exit the game fully, copy them in, and tick them.**
 

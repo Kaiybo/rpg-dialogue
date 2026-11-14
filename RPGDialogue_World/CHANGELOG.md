@@ -2,6 +2,11 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.14.0 (unreleased)
+- Towns: Chillwind Camp, the Bulwark.
+- Topics: the plague cauldrons, Andorhal, the Scholomance.
+- Claim `barov_heir` (Weldon and Alexi Barov each claim the family fortune; disputed, left open).
+
 ## 1.13.0 (unreleased)
 - Towns: Bloodvenom Post, Thorium Point, Light's Hope Chapel.
 - Claim `kalaran_father` (Kalaran Windblade's story; false, settled by Squire Maltrake).

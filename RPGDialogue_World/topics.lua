@@ -53,3 +53,6 @@ P:Topic { id = "argent_dawn", name = "The Argent Dawn", category = "people", lea
 P:Topic { id = "venture_company", name = "The Venture Company", category = "threats", learned = "Mull Thunderhorn in Bloodhoof Village" }
 P:Topic { id = "camping", name = "Camping", category = "trade", learned = "an adventurer camped on the road" }
 P:Topic { id = "yenniku", name = "Yenniku, son of Vol'jin", category = "people", learned = "Nimboya at Grom'gol" }
+P:Topic { id = "plague_cauldrons", name = "The plague cauldrons", category = "threats", learned = "High Priestess MacDonnell at Chillwind Camp, or Shadow Priestess Vandis at the Bulwark" }
+P:Topic { id = "andorhal", name = "Andorhal", category = "places", learned = "Commander Valorfist or High Executor Derrington" }
+P:Topic { id = "scholomance", name = "The Scholomance", category = "places", learned = "Alchemist Arbington or Apothecary Dithers" }

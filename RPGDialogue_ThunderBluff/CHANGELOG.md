@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.3.0 (unreleased)
+- Hamuul asks after Mulgris Deepriver once you've met him in the Western Plaguelands.
+
 ## 1.2.0 (unreleased)
 - Pala remarks on Turak.
 

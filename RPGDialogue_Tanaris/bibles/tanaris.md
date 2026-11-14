@@ -1,4 +1,4 @@
-# Tanaris  (keys: marin, sprinkle, bilgewhizzle, fizzledowser, pestlezugg, tranrek, fizzgrimble, stoley)
+# Tanaris  (keys: marin, sprinkle, bilgewhizzle, fizzledowser, pestlezugg, tranrek, fizzgrimble, stoley, krinkle)
 
 ## Sources
 - https://warcraft.wiki.gg/wiki/Gadgetzan (capital of the Steamwheedle Cartel in northern Tanaris; neutral, both factions recognize it; goblin bruisers stop fights; before the Cataclysm, desert all round, water from towers at Waterspring Field kept by the Gadgetzan Water Company and threatened by the Wastewander bandits; Gadgetzan Bruisers; Innkeeper Fizzgrimble)
@@ -10,6 +10,7 @@
 - https://warcraft.wiki.gg/wiki/Tran%27rek (goblin, formerly of Gadgetzan; **Krazek's cousin**; evasive about profits; Tran'rek, Scarab Shells, Thistleshrub Valley, Super Sticky)
 - https://warcraft.wiki.gg/wiki/Innkeeper_Fizzgrimble (male goblin, the Road Warrior; friendly, chatty)
 - https://warcraft.wiki.gg/wiki/Stoley (human at Steamwheedle Port; Stoley's Debt, Stoley's Shipment, Deliver to MacKinley; **in Classic and Forever**)
+- https://warcraft.wiki.gg/wiki/Krinkle_Goodsteel (goblin blacksmithing vendor by the forge on the south side of Gadgetzan; Classic quests Mold Rhymes With... (finish) and Fire Plume Forged (start) in the Scholomance key chain; gossip guesses you aren't a blacksmith but says looks deceive; patch 1.3.0 took away his repairs and 1.5.0 restored them after "a complaint to the local Repairer's Union", used as an in-world joke)
 
 ## Their quests
 - Marin: The Thirsty Goblin, In Good Taste, Delivery for Marin, Noggenfogger Elixir.
@@ -18,6 +19,8 @@
 - Fizzledowser: Gadgetzan Water Survey, Noxious Lair Investigation, Insect Part Analysis (turn-in).
 - Pestlezugg: Insect Part Analysis, March of the Silithid, Bungle in the Jungle.
 - Tran'rek: Tran'rek (from Krazek), Scarab Shells, Thistleshrub Valley. Stoley: Stoley's Debt, Stoley's Shipment, Deliver to MacKinley.
+
+- Krinkle: Mold Rhymes With... (fifteen gold for the mold; the stem lesson free), Fire Plume Forged (start; Fire Plume Ridge in Un'Goro is assumed from the title, kept general).
 
 ## Never
 - Anything Cataclysm or later: Marin as Baron, his marriage to Sprinkle, the flood and Steamwheedle Port's loss, the Thunderdrome, Legion, Undermine and Gallywix.
@@ -40,3 +43,6 @@ Repeat-visit and night lines for the innkeepers and thin quest givers (habits, s
 
 ## Depth pass, second round (0.25.0, authored, not canon)
 One or two repeat-visit or night lines each for the thinnest NPCs here: small habits and running jokes (a salvaged kettle, a beetle truce, a parrot paying rent, glowing ink). Places they mention are already sourced in this bible or LORE_NOTES.
+
+## Western Plaguelands echoes (Tanaris 1.2.0, authored, not canon)
+- Krinkle filed six complaints to the Repairers' Union; he never asks what the keys are for.

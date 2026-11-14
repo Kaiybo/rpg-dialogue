@@ -94,6 +94,8 @@ P:NPC {
           text = "You've spoken with Rau at Freewind. He learned to listen to the land here, on Elder Rise. I'm glad it's serving him in the Needles." },
         { id = "h_fandral", when = { heardLine = "fandral.h_default" },
           text = "So Fandral has received you in Darnassus. He didn't want me taught. He was wrong, and I don't hold it against him. Mostly." },
+        { id = "h_mulgris", when = { heardLine = "mulgris.h_default" },
+          text = "You met Mulgris Deepriver, in the Plaguelands. He went east to mend what the plague had broken. Tell me plainly how he was. I'd rather know." },
         { id = "h_young", when = { metBefore = true }, text = "Every young druid who comes up the lift reminds me how few of us there were. I count you all, you know. I'm not ashamed of it." },
       },
       choices = {
