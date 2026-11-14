@@ -35,6 +35,7 @@ move-folders:
   RPGDialogue/RPGDialogue_Teldrassil: RPGDialogue_Teldrassil
   RPGDialogue/RPGDialogue_Silverpine: RPGDialogue_Silverpine
   RPGDialogue/RPGDialogue_Desolace: RPGDialogue_Desolace
+  RPGDialogue/RPGDialogue_Tanaris: RPGDialogue_Tanaris
 
 # Paths are from the repo root; "*.md" matches at any depth (bash case patterns), which
 # keeps voice bibles, PLAN.md files and pack changelogs out of the zip.

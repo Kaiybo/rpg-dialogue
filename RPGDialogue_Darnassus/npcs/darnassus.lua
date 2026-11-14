@@ -271,6 +271,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", text = "Gracina Spiritmight, priestess and scholar. I study the creatures that belong to this world alone. Lately, the ones that don't seem to belong to it at all." },
+        { id = "h_pestlezugg", when = { heardLine = "pestlezugg.h_default" },
+          text = "A goblin alchemist in Gadgetzan has been asking about my insect studies. A goblin, asking a priestess. Whatever is under the sand must be worse than I feared." },
         { id = "h_silithid", tags = { "news" }, when = { questActive = TODO_QUEST("Rise of the Silithid") },
           text = "Silithid. Insects, the young ones call them, but no insect thinks the way they do. Bring me what you find. Carefully." },
         { id = "h_low", when = { maxLevel = 40 },

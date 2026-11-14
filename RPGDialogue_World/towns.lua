@@ -347,6 +347,19 @@ P:Town {
   quests = { { TODO_QUEST("The Corrupter"), 8 } },
 }
 
+P:Town {
+  id = "gadgetzan", name = "Gadgetzan",
+  subzones = { "Gadgetzan", "The Road Warrior" },
+  tiers = { Hero = "Friend of the Cartel" },
+  quests = { { TODO_QUEST("More Wastewander Justice"), 6 }, { TODO_QUEST("Noggenfogger Elixir"), 6 } },
+}
+
+P:Town {
+  id = "steamwheedle_port", name = "Steamwheedle Port",
+  subzones = { "Steamwheedle Port" },
+  tiers = { Hero = "Known on the Docks" },
+}
+
 -- The other capitals. Their guards speak from pools_roles.lua; standing grows from quests
 -- each capital's own pack lists later.
 P:Town {

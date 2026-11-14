@@ -16,6 +16,7 @@ Copy these folders into `World of Warcraft/<your Forever folder>/Interface/AddOn
 - `RPGDialogue_Zephras`: Zephras Isle, home of the Skyborne
 - `RPGDialogue_Redridge`: Lakeshire and the Redridge Mountains
 - `RPGDialogue_Duskwood`: Darkshire, Raven Hill and the woods
+- `RPGDialogue_Tanaris`: Gadgetzan and Steamwheedle Port (both factions)
 - `RPGDialogue_Desolace`: Nijel's Point (Alliance) and Ghost Walker Post (Horde)
 - `RPGDialogue_Silverpine`: the Sepulcher (Horde)
 - `RPGDialogue_Teldrassil`: Shadowglen and Dolanaar

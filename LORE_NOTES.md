@@ -543,3 +543,15 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Kreldig Ungor: Reclaimers Inc.; the Karnitol Shipwreck | [Kreldig Ungor](https://warcraft.wiki.gg/wiki/Kreldig_Ungor) |
 | Brother Anton: Scarlet emissary of the Stormwind faction, unaware of the Crusade's turn; Brother Crowley sends him adventurers; the Valley of Bones | [Brother Anton](https://warcraft.wiki.gg/wiki/Brother_Anton) |
 | Takata Steelblade: sent by Keldran against the Burning Blade; kills the satyrs tied to it | [Takata Steelblade](https://warcraft.wiki.gg/wiki/Takata_Steelblade) |
+
+## Tanaris (Tanaris pack 1.0.0)
+
+| Fact used | Source |
+|---|---|
+| Gadgetzan: Steamwheedle capital, neutral, bruisers; water from Waterspring Field, the Water Company, the Wastewander bandits | [Gadgetzan](https://warcraft.wiki.gg/wiki/Gadgetzan) |
+| Marin Noggenfogger: alchemist, no title yet; the elixir chain with Sprinkle | [Marin Noggenfogger](https://warcraft.wiki.gg/wiki/Marin_Noggenfogger) |
+| Sprinkle: Marin's friend (not yet married), "Noggy", her sister's cooking and the secret ingredient | [Sprinkle Noggenfogger](https://warcraft.wiki.gg/wiki/Sprinkle_Noggenfogger) |
+| Bilgewhizzle and Fizzledowser of the Water Company; the insects at Sandsorrow Watch; Fizzledowser and Stoley are in Forever | [Chief Engineer Bilgewhizzle](https://warcraft.wiki.gg/wiki/Chief_Engineer_Bilgewhizzle); [Senior Surveyor Fizzledowser](https://warcraft.wiki.gg/wiki/Senior_Surveyor_Fizzledowser) |
+| Pestlezugg: Rose the rat; the insect report; Gracina's and Zilzibin's Un'Goro theory | [Alchemist Pestlezugg](https://warcraft.wiki.gg/wiki/Alchemist_Pestlezugg) |
+| Tran'rek: Krazek's cousin; evasive | [Tran'rek](https://warcraft.wiki.gg/wiki/Tran%27rek) |
+| Innkeeper Fizzgrimble; Stoley at Steamwheedle Port and his debt to MacKinley | [Innkeeper Fizzgrimble](https://warcraft.wiki.gg/wiki/Innkeeper_Fizzgrimble); [Stoley](https://warcraft.wiki.gg/wiki/Stoley) |
