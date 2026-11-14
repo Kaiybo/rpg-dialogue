@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.11.0 (unreleased)
+- Towns: Gadgetzan, Steamwheedle Port, Theramore, Brackenwall Village, Feathermoon Stronghold, Camp Mojache.
+
 ## 1.10.0 (unreleased)
 - Towns: Camp Taurajo, Nijel's Point, Ghost Walker Post.
 

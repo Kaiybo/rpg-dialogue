@@ -2,6 +2,21 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.23.0 (2026-11-14)
+Packs: World 1.11.0, Stranglethorn 1.0.1, Thousand Needles 1.0.1, Desolace 1.0.1, Darnassus 1.0.2, and three new ones: Tanaris 1.0.0, Dustwallow Marsh 1.0.0, Feralas 1.0.0 (the rest as in 0.22.0). **New folders: exit the game fully, copy them in, and tick them.**
+
+### New places
+- **Dustwallow Marsh.** Theramore: Lady Jaina Proudmoore, Archmage Tervosh and his garden, Captain Garran Vimes investigating the burned Shady Rest Inn, Adjutant Tesoran and his records, Innkeeper Janene; the Theramore Guard. Brackenwall Village: Krog, who wants to know who made a liar of the Warchief, and the spymaster Nazeer Bloodpike.
+- **Tanaris.** Gadgetzan: Marin Noggenfogger and his not-quite-finished elixir, Sprinkle (only she calls him Noggy), the Water Company's Bilgewhizzle and Fizzledowser, Alchemist Pestlezugg and Rose the rat, Tran'rek (Krazek's cousin), Innkeeper Fizzgrimble; the Bruisers. Steamwheedle Port: Stoley, who owes MacKinley money.
+- **Feralas.** Feathermoon Stronghold: Shandris Feathermoon, Pratt McGrubben (a semi-retired paladin who sells leather), Innkeeper Shyria. Camp Mojache: Rok Orhan, Orwin Gizzmick, Innkeeper Greul.
+- **Desolace:** Nataka Longhorn at Ghost Walker Post.
+
+### Threads between zones
+- Cliffwatcher Longhorn and his brother Nataka each know when you've met the other.
+- Krazek knows his cousin Tran'rek; MacKinley knows you've found Stoley.
+- Gracina Spiritmight in Darnassus hears about Pestlezugg's insects, and Shandris has sent her word of a hive in Feralas.
+- Jaina knows when you've stood before Thrall, and Shandris when you've met Tyrande.
+
 ## 0.22.0 (2026-11-14)
 Packs: World 1.10.0, The Barrens 1.1.0, Thunder Bluff 1.0.2, Undercity 1.0.1, Darnassus 1.0.1, Ironforge 1.2.1, Orgrimmar 1.1.1, and a new one: Desolace 1.0.0 (the rest as in 0.21.0). **New folder: exit the game fully, copy it in, and tick it.**
 
