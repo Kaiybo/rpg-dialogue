@@ -3,7 +3,7 @@
 The pack's own version is `version` in `pack.lua`; bump both together.
 
 ## 1.2.0 (unreleased)
-- Dun Morogh: Eric Brighthammer, Forever's camping teacher on the road near Kharanos.
+- Dun Morogh: Coldridge Valley's Sten Stoutarm and Grelin Whitebeard; Kharanos's Senir Whitebeard, Ragnar Thunderbrew and Innkeeper Belm; Eric Brighthammer, Forever's camping teacher on the road near Kharanos.
 
 ## 1.1.1 (unreleased)
 - Prospector Stormpike's opening can be heard about elsewhere (Ironband in Loch Modan).

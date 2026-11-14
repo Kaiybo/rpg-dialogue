@@ -292,9 +292,17 @@ P:Town {
 }
 
 P:Town {
+  id = "coldridge", name = "Coldridge Valley",
+  subzones = { "Coldridge Valley", "Anvilmar", "Whitebeard's Encampment" },
+  tiers = { Hero = "Pride of Anvilmar" },
+  quests = { { TODO_QUEST("The Stolen Journal"), 4 } },
+}
+
+P:Town {
   id = "kharanos", name = "Kharanos",
   subzones = { "Kharanos", "Thunderbrew Distillery" },
   tiers = { Hero = "Friend of Kharanos" },
+  quests = { { TODO_QUEST("Frostmane Hold"), 6 } },
 }
 
 P:Town {

@@ -499,3 +499,14 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Ilthalaine, Melithar, Tenaron, Dirania, Gilshalan: roles, tone and quests | [Conservator Ilthalaine](https://warcraft.wiki.gg/wiki/Conservator_Ilthalaine); [Melithar Staghelm](https://warcraft.wiki.gg/wiki/Melithar_Staghelm); [Tenaron Stormgrip](https://warcraft.wiki.gg/wiki/Tenaron_Stormgrip); [Dirania Silvershine](https://warcraft.wiki.gg/wiki/Dirania_Silvershine); [Gilshalan Windwalker](https://warcraft.wiki.gg/wiki/Gilshalan_Windwalker) |
 | Corithras, Athridas, Tallonkai, Syral, Keldamyr: roles, tone and quests | [Corithras Moonrage](https://warcraft.wiki.gg/wiki/Corithras_Moonrage); [Athridas Bearmantle](https://warcraft.wiki.gg/wiki/Athridas_Bearmantle); [Tallonkai Swiftroot](https://warcraft.wiki.gg/wiki/Tallonkai_Swiftroot); [Syral Bladeleaf](https://warcraft.wiki.gg/wiki/Syral_Bladeleaf); [Innkeeper Keldamyr](https://warcraft.wiki.gg/wiki/Innkeeper_Keldamyr) |
 | **Forever** camping teachers: Lyreena Duskblade (Teldrassil), Sam Sarsaparilla (Elwynn; McBride sends you), Eric Brighthammer (Dun Morogh), Brakk (Durotar; his lost journal), Kaga Wildhoof (Mulgore; Hawkwind's supply bundle) | [The Great Outdoors (Forever)](https://warcraft.wiki.gg/wiki/The_Great_Outdoors_(Forever)); [The Adventurer (Elwynn Forest)](https://warcraft.wiki.gg/wiki/The_Adventurer_(Elwynn_Forest)); [The Adventurer (Durotar)](https://warcraft.wiki.gg/wiki/The_Adventurer_(Durotar)); [The Adventurer (Mulgore)](https://warcraft.wiki.gg/wiki/The_Adventurer_(Mulgore)) |
+
+## Dun Morogh (Ironforge pack 1.2.0)
+
+| Fact used | Source |
+|---|---|
+| Coldridge Valley: dwarf and gnome start; Anvilmar, Whitebeard's Encampment; troggs in the pass; Frostmane trolls | [Coldridge Valley](https://warcraft.wiki.gg/wiki/Coldridge_Valley) |
+| Sten Stoutarm: Anvilmar's postman; gloves for wolf meat; gruff about troggs | [Sten Stoutarm](https://warcraft.wiki.gg/wiki/Sten_Stoutarm) |
+| Grelin Whitebeard: Senate envoy investigating the Frostmane; his bumbling apprentice Soren; Grik'nir stole his journal | [Grelin Whitebeard](https://warcraft.wiki.gg/wiki/Grelin_Whitebeard) |
+| Senir Whitebeard: Grelin's brother, envoy in Kharanos; Frostmane Hold | [Senir Whitebeard](https://warcraft.wiki.gg/wiki/Senir_Whitebeard) |
+| Ragnar Thunderbrew: part owner of the distillery; his supplier joined the King's Army; Beer Basted Boar Ribs | [Ragnar Thunderbrew](https://warcraft.wiki.gg/wiki/Ragnar_Thunderbrew) |
+| Innkeeper Belm: Rhapsody Malt; toasts Lazlo Grindwidget, who repelled a Frostmane attack on Kharanos | [Innkeeper Belm](https://warcraft.wiki.gg/wiki/Innkeeper_Belm); [Kharanos](https://warcraft.wiki.gg/wiki/Kharanos) |
