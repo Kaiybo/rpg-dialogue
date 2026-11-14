@@ -56,7 +56,7 @@ rpg-dialogue/                          git repo root
 │
 ├─ RPGDialogue/                        CORE ADDON (no dialogue text in here)
 │  ├─ RPGDialogue.toc
-│  ├─ Bindings.xml                     Talk to Target, Open Journal
+│  ├─ Bindings.xml                     Talk to Target, Open Journal, Ask About
 │  ├─ Locales/enUS.lua                 every UI string (L table)
 │  ├─ Core/
 │  │  ├─ Init.lua                      namespace, event dispatcher, logger, dev mode
@@ -772,10 +772,10 @@ If a line throws an error, paste the error instead. That tells us something too.
 | R15 | Python parser and real Lua disagree | Validator passes a file the game rejects | The Lua test harness also loads every pack against the mock, and `luac -p` runs on every file | M2 |
 | R16 | Content scale vs consistency | Generic or samey writing at hundreds of NPCs | Bibles first, AI-voice checker, sameness checks, simulation, the "this line is wrong" button | M3 onward |
 | R17 | Blizzard UI add-on policy | Release blocked | **Checked November 2026** against the posted policy (free; code visible; no harm to realms or players; no ads; no in-game donation requests; T-rated content; ToU/EULA). We comply, and `check_all.py --release` fails on chat or addon-message sending, dynamic code, or donation/ad text in shipped files | Done (M8) |
+| R18 | One public global for packs | Constraint 7 lists no exception for it | `RPGDialogueAPI` is the only extra global (section 6) | Your OK |
 | R19 | Gamepad API in Forever (`Frame:EnableGamePadButton`, `OnGamePadButtonDown`, `C_GamePad.IsEnabled`) | Gamepad controls do nothing | All calls are guarded in Compat; keyboard and mouse always work; choice buttons are ordinary buttons a cursor addon such as ConsolePort can reach | In-game test |
 | R20 | Total RP 3's public player API on Forever (`AddOn_TotalRP3.Player.GetCurrentUser` and its name methods) | Roleplay name not used | Read-only, every call in pcall, older profile fields as fallback, the character name otherwise | In-game test with Total RP 3 |
 | R21 | Tooltip post-call API (`TooltipDataProcessor`) for the optional "something new" marker | Marker never shows | Falls back to `OnTooltipSetUnit`; off by default | In-game test |
-| R18 | One public global for packs | Constraint 7 lists no exception for it | `RPGDialogueAPI` is the only extra global (section 6) | Your OK |
 
 ---
 
