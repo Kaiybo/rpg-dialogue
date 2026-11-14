@@ -9,6 +9,8 @@
 - **Test character: Skyborne Druid, level 22 (Blooded), faction not confirmed, tested in Northshire Valley.** Content for that character is thin: the slice is written for level 1–10 characters doing Northshire/Goldshire quests (only 4 Skyborne lines and 1 druid line exist). Asked the user where they actually play, for the next content pass.
 - `/rpgd probe`: everything present except the legacy globals `IsQuestFlaggedCompleted`, `UnitBuff`, `InterfaceOptions_AddCategory` (expected; Compat uses `C_QuestLog`, `C_UnitAuras`, `Settings` first).
 - The compact bar's **Talk button "did nothing"**. Their `/rpgd why` shows the engine picked McBride's node line after the click, so the full window most likely errored while drawing (Lua errors are hidden by default in WoW). Not reproduced in the mock. Added `ns.Guard` around every conversation entry point: errors now print in chat and the game's window comes back. **Next step: get that chat line from the user.**
+- **Second test:** the safety net caught the drawing bug: "FontString:SetText(): Font not set" (text set before any font; the real client refuses, the mock didn't). Fixed: font objects at creation, and the mock now enforces it.
+- **The user asked for Melika Isenstrider** (Assistant Innkeeper, Lion's Pride Inn; no gossip menu) **to open the box on right-click, and NPCs with a gossip menu to use that menu.** Done: WorldFrame click hooks (DESIGN §3.6 "Right-click talk"), and Melika's bible and NPC file (Elwynn 1.1.0). For gossip NPCs the box opens with the game's window and lists its options; asked the user whether they'd rather keep the plain game window for those.
 - The user wants **a box that opens automatically on right-click with the options right away**. Done: the full box is now the default every time (schema 2 migration), and it lists the NPC's quests and gossip options, handing the pick to the game's window (DESIGN §3.6).
 
 ## Assumptions made while the user was away (confirm or correct)
@@ -78,7 +80,7 @@ Install by linking or copying `RPGDialogue`, `RPGDialogue_World`, `RPGDialogue_E
 Still all of DESIGN.md §4 (section 9 answers, slice zone, where the repo lives, commit identity, probe output, §6 OK), plus the assumptions above.
 
 ## Known bugs
-- **Open:** in game, the full conversation window didn't appear after clicking Talk on the compact bar (engine side ran; likely a drawing error). Waiting for the safety net's chat message.
+- Fixed (second test): the conversation window didn't draw ("Font not set"). Needs confirming in game.
 
 ## Environment notes
 - The cloud workspace had Lua 5.1, luac5.1, LuaRocks and luacheck installed by hand (`apt-get install lua5.1 luarocks liblua5.1-0-dev && luarocks install luacheck`), plus Python 3. A new session may need to reinstall them.
@@ -86,6 +88,8 @@ Still all of DESIGN.md §4 (section 9 answers, slice zone, where the repo lives,
 - `python3 tools/check_all.py` runs everything (about a minute); `--quick` skips the simulation.
 
 ## Exact next step
-Ask the user to retest: right-click McBride, a vendor and a quest giver; paste any "Something went wrong" chat line; check the box lists their quests and that picking one opens the quest. Fix whatever error the safety net reports (start with `UI/DialogueFrame.lua` D.Show/create). Then plan content for where the Skyborne druid actually plays (ask which zones), plus Skyborne and druid reactions across the existing NPCs (only facts from brief §10 for Skyborne).
+User retests: right-click Melika (box, her lines; as a Skyborne druid she should open with "A sky-folk druid."), then a gossip NPC (box with the menu's options), a quest giver (pick a quest from the box), a vendor. Answer: gossip NPCs keep the box, or the plain game window? Then content where the druid plays.
+
+Earlier plan (kept for context): ask the user to retest: right-click McBride, a vendor and a quest giver; paste any "Something went wrong" chat line; check the box lists their quests and that picking one opens the quest. Fix whatever error the safety net reports (start with `UI/DialogueFrame.lua` D.Show/create). Then plan content for where the Skyborne druid actually plays (ask which zones), plus Skyborne and druid reactions across the existing NPCs (only facts from brief §10 for Skyborne).
 
 Before that, the original plan was: wait for the user's in-game results (checklist above). Fix every error they paste, starting with `/rpgd probe` output against `Compat.lua`. Then: import their capture file (`tools/import_capture.py <file> --resolve`), rerun `tools/check_all.py`, and fix whatever the real IDs reveal. After that, new zones follow `PACK_AUTHORING.md` §4.

@@ -4,6 +4,12 @@ All notable changes to RPG Dialogue. The core and each content pack get their ow
 
 ## [Unreleased]
 
+### Second in-game test (2026-11-13)
+- **Fixed: the conversation box failed to draw in the game** ("FontString:SetText(): Font not set"): every text in our windows now has a font from the moment it's created. The test mock now refuses text without a font, like the real client, so this can't come back unnoticed.
+- **Right-click to talk to people with no menu of their own.** A quick right-click (not a camera turn) on a friendly NPC we have dialogue for, within reach, opens the box when the game opens no window of its own. NPCs with a gossip menu, quests or a shop keep the game's path: their window opens and the box comes with it, listing their options. If the game's window arrives late, the box keeps the conversation and adds its options. Setting: "Right-click people who have no menu of their own to talk to them" (on).
+- New in the Elwynn pack (1.1.0): Melika Isenstrider, Assistant Innkeeper.
+- Capture marks NPCs that open a game window (`interacts`), so right-click talk never races their window.
+
 ### After the first in-game test (2026-11-13)
 - **The conversation box opens every time** you right-click an NPC with dialogue, not only on first meetings and news. Existing settings move over once (saved-data schema 2); "short line" and "straight to business" are still in settings ("When you talk to someone").
 - **The box lists the NPC's own options**: quests (hand-ins first, then new, then in progress) and gossip options (vendor, training, flights...), after the NPC's replies. Picking one hands you to the game's window with that option selected. Works on gossip windows, the quest window's greeting page and single quests. Up to 10 buttons; keys 1–9 and 0.

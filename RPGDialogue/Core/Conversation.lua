@@ -147,9 +147,23 @@ function Conv.Start(kind, unit, interactionName)
       if s.mode ~= "full" then Conv.OpenFull("talk") end
       return
     end
+    local wasTalk = s.kind == "talk"
     s.kind = kind
     s.interaction = interactionName or s.interaction
     if s.mode == "compact" then ns.UI.Compact.Reanchor(Conv.BlizzardFrame(s)) end
+    if wasTalk and s.mode == "full" then
+      -- A right-click opened the box, then the game's own window arrived (slow server, or
+      -- an NPC we didn't know had a menu): keep the conversation and add their options.
+      if s.ticker then s.ticker:Cancel(); s.ticker = nil end
+      local frame = Conv.BlizzardFrame(s)
+      s.blizz = frame
+      if frame and ns.db.settings.fadeDefault then
+        C.SetFaded(frame, true)
+        s.faded = true
+        ns.UI.Blocker.Cover(frame)
+      end
+      if s.nodeDef then ns.UI.Dialogue.SetChoices(Conv.BuildChoices(s.nodeDef, s.node == ((s.info.def and s.info.def.start) or "hello"))) end
+    end
     return
   end
   if s then Conv.Finish() end
@@ -564,13 +578,14 @@ function Conv.TalkNow()
   Conv.TalkToTarget()
 end
 
-function Conv.TalkToTarget()
-  if C.InCombat() then ns.Print(L.COMBAT_LATER); return end
+function Conv.TalkToTarget(silent)
+  local say = silent and function() end or ns.Print
+  if C.InCombat() then say(L.COMBAT_LATER); return end
   local s = Conv.session
   if s and not s.ended and s.unit == "npc" then Conv.OpenFull("talk"); return end
-  if not C.Exists("target") or C.IsPlayer("target") then ns.Print(L.TALK_NO_TARGET); return end
-  if not C.IsFriendly("target") then ns.Print(L.TALK_HOSTILE); return end
-  if C.InRange("target") == false then ns.Print(L.TALK_TOO_FAR); return end
+  if not C.Exists("target") or C.IsPlayer("target") then say(L.TALK_NO_TARGET); return end
+  if not C.IsFriendly("target") then say(L.TALK_HOSTILE); return end
+  if C.InRange("target") == false then say(L.TALK_TOO_FAR); return end
   Conv.Start("talk", "target")
   s = Conv.session
   if s and s.kind == "talk" then
@@ -583,6 +598,56 @@ function Conv.TalkToTarget()
     end)
   end
 end
+
+---------------------------------------------------------------------------
+-- Right-clicking someone who has no menu of their own (Melika Isenstrider, a townsperson)
+-- opens the box, the way right-clicking a quest giver opens theirs. People with a gossip
+-- menu, quests or a shop keep the game's path: their window opens, and the box comes with
+-- it (Conv.Start). A long right-button press is the camera turning, not a click.
+---------------------------------------------------------------------------
+Conv.CLICK_MAX = 0.4     -- seconds the button may be held for it to count as a click
+Conv.CLICK_WAIT = 0.5    -- give the game this long to open its own window first
+local pressed
+
+function Conv.OnWorldMouseDown(button)
+  pressed = nil
+  if button ~= "RightButton" or not ns.db or not ns.db.settings.rightClickTalk or C.InCombat() then return end
+  if not C.Exists("mouseover") or C.IsPlayer("mouseover") or not C.IsFriendly("mouseover") then return end
+  local guid = C.GUID("mouseover")
+  if guid then pressed = { guid = guid, t = C.Clock() } end
+end
+
+function Conv.OnWorldMouseUp(button)
+  local p = pressed
+  pressed = nil
+  if button ~= "RightButton" or not p or C.Clock() - p.t > Conv.CLICK_MAX then return end
+  C.After(Conv.CLICK_WAIT, function() Conv.RightClicked(p.guid) end)
+end
+
+-- Someone we have something to say for (their own file, or a role pool).
+local function hasContent(unit)
+  local ctx = ns.Context.New({ unit = unit })
+  local info = Conv.Identify(unit, ctx)
+  if not info then return false end
+  if info.def then return true end
+  return #ns.Data.PoolsFor(info, ctx) > 0
+end
+
+function Conv.RightClicked(guid)
+  if C.InCombat() or not ns.db.settings.enabled then return end
+  local s = Conv.session
+  if s and not s.ended then return end              -- the game opened their window: that path has it
+  if C.AnyInteractionFrameShown() then return end
+  if not C.Exists("target") or C.GUID("target") ~= guid then return end
+  local cap = ns.db.capture.npcs[C.NPCID(guid) or -1]
+  if cap and (cap.gossip or cap.interacts) then return end   -- known to have a menu; it's on its way
+  if C.InRange("target") == false or not hasContent("target") then return end
+  Conv.TalkToTarget(true)
+end
+
+ns.OnLogin(function()
+  C.HookWorldClicks(function(b) Conv.OnWorldMouseDown(b) end, function(b) Conv.OnWorldMouseUp(b) end)
+end)
 
 ---------------------------------------------------------------------------
 -- "This line is wrong"
@@ -748,7 +813,8 @@ function Conv.Recover()
 end
 
 for _, name in ipairs({ "Start", "OpenFull", "OpenCompact", "ShowNode", "Choose", "Business", "End",
-                        "Finish", "Ask", "TalkNow", "TalkToTarget", "CheckClosed" }) do
+                        "Finish", "Ask", "TalkNow", "TalkToTarget", "CheckClosed", "RightClicked",
+                        "OnWorldMouseDown", "OnWorldMouseUp" }) do
   local fn = Conv[name]
   Conv[name] = function(...) return ns.Guard("conversation:" .. name, fn, Conv.Recover, ...) end
 end

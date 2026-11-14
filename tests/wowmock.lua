@@ -92,7 +92,16 @@ end
 function frameMethods.SetShown(self, v) if v then self:Show() else self:Hide() end end
 function frameMethods.IsShown(self) return self._shown end
 function frameMethods.IsVisible(self) return self._shown end
-function frameMethods.SetText(self, t) self._text = t end
+-- Like the real client: text on a FontString or EditBox needs a font first (a template,
+-- SetFont or SetFontObject), or it errors "Font not set".
+function frameMethods.SetText(self, t)
+  if (self._type == "FontString" or self._type == "EditBox") and not self._font then
+    error(self._type .. ":SetText(): Font not set", 2)
+  end
+  self._text = t
+end
+function frameMethods.SetFont(self, path) if path and path ~= "" then self._font = true end return true end
+function frameMethods.SetFontObject(self, obj) if obj then self._font = true end end
 function frameMethods.GetText(self) return self._text end
 function frameMethods.SetAlpha(self, a) self._alpha = a end
 function frameMethods.GetAlpha(self) return self._alpha or 1 end
@@ -114,7 +123,11 @@ function frameMethods.SetValue(self, v)
   if self._scripts.OnValueChanged then self._scripts.OnValueChanged(self, v) end
 end
 function frameMethods.IsMouseOver() return false end
-function frameMethods.CreateFontString(self) return Mock.NewFrame("FontString", nil, self) end
+function frameMethods.CreateFontString(self, _, _, template)
+  local fs = Mock.NewFrame("FontString", nil, self)
+  fs._font = template ~= nil
+  return fs
+end
 function frameMethods.CreateTexture(self) return Mock.NewFrame("Texture", nil, self) end
 function frameMethods.CreateAnimationGroup(self) return Mock.NewFrame("AnimationGroup", nil, self) end
 function frameMethods.GetFrameLevel() return 1 end
@@ -131,12 +144,15 @@ function Mock.NewFrame(ftype, name, parent)
   return f
 end
 
-function CreateFrame(ftype, name, parent)
-  return Mock.NewFrame(ftype, name, parent)
+function CreateFrame(ftype, name, parent, template)
+  local f = Mock.NewFrame(ftype, name, parent)
+  if template then f._font = true end
+  return f
 end
 
 function Mock.CreateBaseFrames()
   UIParent = Mock.NewFrame("Frame", "UIParent")
+  WorldFrame = Mock.NewFrame("Frame", "WorldFrame")
   GameTooltip = Mock.NewFrame("GameTooltip", "GameTooltip")
   Minimap = Mock.NewFrame("Frame", "Minimap")
 end

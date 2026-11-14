@@ -26,3 +26,4 @@ npcs\farley.lua
 npcs\remy.lua
 npcs\pestle.lua
 npcs\argus.lua
+npcs\melika.lua

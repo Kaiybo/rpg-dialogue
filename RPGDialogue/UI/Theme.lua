@@ -62,7 +62,7 @@ function Theme.SetFont(fs, kind, size)
   fs:SetFont(path, size, "")
   -- A font that failed to load leaves the string with no font at all; fall back.
   if not fs:GetFont() and path == Theme.FONTS.readable then fs:SetFont(Theme.FONTS.readableFallback, size, "") end
-  if not fs:GetFont() then fs:SetFontObject(GameFontNormal) end
+  if not fs:GetFont() then fs:SetFontObject("GameFontHighlight") end
 end
 
 local function color(tex, c) tex:SetColorTexture(c[1], c[2], c[3], c[4] or 1) end

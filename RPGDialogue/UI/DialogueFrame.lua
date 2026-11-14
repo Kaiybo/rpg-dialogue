@@ -76,13 +76,13 @@ function D.FinishText() if reveal.active then finishReveal() end end
 local function makeButton(i)
   local b = CreateFrame("Button", nil, frame)
   b:SetHeight(20)
-  b.label = b:CreateFontString(nil, "OVERLAY")
+  b.label = b:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
   b.label:SetPoint("TOPLEFT", 4, -3)
   b.label:SetJustifyH("LEFT")
   b.label:SetWordWrap(true)
   b.hl = b:CreateTexture(nil, "HIGHLIGHT")
   b.hl:SetAllPoints()
-  b.marker = b:CreateFontString(nil, "OVERLAY")
+  b.marker = b:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
   b.marker:SetPoint("RIGHT", b, "LEFT", -2, 0)
   b.marker:SetText(">")
   b.marker:Hide()
@@ -115,21 +115,21 @@ local function create()
 
   local textLeft = PAD + PORTRAIT + 14
   local textWidth = WIDTH - textLeft - PAD - 22
-  frame.name = frame:CreateFontString(nil, "OVERLAY")
+  frame.name = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
   frame.name:SetPoint("TOPLEFT", textLeft, -PAD + 2)
   frame.name:SetJustifyH("LEFT")
-  frame.subtitle = frame:CreateFontString(nil, "OVERLAY")
+  frame.subtitle = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
   frame.subtitle:SetPoint("TOPLEFT", frame.name, "BOTTOMLEFT", 0, -2)
   frame.subtitle:SetJustifyH("LEFT")
 
-  frame.text = frame:CreateFontString(nil, "OVERLAY")
+  frame.text = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
   frame.text:SetPoint("TOPLEFT", frame.subtitle, "BOTTOMLEFT", 0, -10)
   frame.text:SetWidth(textWidth)
   frame.text:SetJustifyH("LEFT")
   frame.text:SetJustifyV("TOP")
   frame.text:SetWordWrap(true)
 
-  frame.reaction = frame:CreateFontString(nil, "OVERLAY")
+  frame.reaction = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
   frame.reaction:SetPoint("TOPLEFT", frame.text, "BOTTOMLEFT", 0, -8)
   frame.reaction:SetWidth(textWidth)
   frame.reaction:SetJustifyH("LEFT")
@@ -186,7 +186,7 @@ local function create()
     D.Layout()
   end)
   frame.flagBox:SetScript("OnEscapePressed", function(self) self:ClearFocus(); self:Hide(); D.Layout() end)
-  frame.flagHint = frame:CreateFontString(nil, "OVERLAY")
+  frame.flagHint = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
   frame.flagHint:SetPoint("LEFT", frame.flagBox, "RIGHT", 8, 0)
 
   frame:EnableKeyboard(true)
@@ -284,7 +284,7 @@ end
 ---------------------------------------------------------------------------
 -- v: { name, subtitle, unit, text, choices = { { text, locked } }, lineGid }
 function D.Show(v)
-  if not frame then create() end
+  if not frame then create(); D.Style() end
   view = v
   frame.name:SetText(v.name or "")
   frame.subtitle:SetText(v.subtitle and ("<" .. v.subtitle .. ">") or "")

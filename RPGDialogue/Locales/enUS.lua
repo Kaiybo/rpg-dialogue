@@ -192,6 +192,7 @@ L.IMPORT_DONE = "Story imported. The previous one was kept aside in saved data."
 -- Settings
 L.OPT_ENABLED = "Enable RPG Dialogue"
 L.OPT_OPEN_MODE = "When you talk to someone"
+L.OPT_RIGHT_CLICK = "Right-click people who have no menu of their own to talk to them"
 L.OPEN_COMPACT = "Short line; the box only when there's news"
 L.OPEN_SKIP = "Straight to business; the box only when there's news"
 L.PROBE_LEGACY = " (old function, not needed: the modern one is used)"

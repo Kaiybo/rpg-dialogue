@@ -126,6 +126,19 @@ function C.Clock()
   return call("GetTime") or 0
 end
 
+-- Mouse buttons pressed and released on the 3D world (not on any window). Hooks only:
+-- the game's own click handling (targeting, interacting, turning the camera) is untouched.
+function C.HookWorldClicks(onDown, onUp)
+  local wf = resolve("WorldFrame")
+  if type(wf) ~= "table" or type(wf.HookScript) ~= "function" then
+    noteMissing("WorldFrame:HookScript")
+    return false
+  end
+  local okDown = pcall(wf.HookScript, wf, "OnMouseDown", function(_, button) pcall(onDown, button) end)
+  local okUp = pcall(wf.HookScript, wf, "OnMouseUp", function(_, button) pcall(onUp, button) end)
+  return okDown and okUp
+end
+
 -- Server game time: hours (0-23), minutes.
 function C.GameTime()
   local h, m = call("GetGameTime")

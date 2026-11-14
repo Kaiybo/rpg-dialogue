@@ -37,6 +37,7 @@ Sources: [Elwynn Forest questing guide](https://warcraft.wiki.gg/wiki/Elwynn_For
 - Remy "Two Times" (Goldshire): buys gold dust from kobold mines (Gold Dust Exchange); heard the murloc rumors (A Fishy Peril).
 - William Pestle (in the inn): kobold candles (Kobold Candles, Shipment to Stormwind); helps the young lovers Maybell Maclure and Tommy Joe Stonefield (Collecting Kelp, The Escape).
 - Smith Argus <Journeyman Blacksmith>: Elmore's Task; later Return to Verner.
+- Melika Isenstrider <Assistant Innkeeper> (Lion's Pride Inn, main room): no quests in the live game (in the original beta she ended Rest and Relaxation); a relative of Falkhaan Isenstrider, relation unstated, so never specify it. No gossip menu in Forever (user). Source: [Melika Isenstrider](https://warcraft.wiki.gg/wiki/Melika_Isenstrider).
 
 **Storylines**
 - *Northshire troubles:* kobolds (McBride), wolves (Eagan), Defias thieves in the vineyards (Willem, Milly), then Report to Goldshire.

@@ -19,6 +19,7 @@ Content packs load by zone, so only the dialogue for where you are is in memory.
 ## Using it
 
 - Right-click NPCs as usual. The conversation box opens in front of the normal window, with the NPC's line and your replies, then the NPC's own quests ("Quest: ...", "Hand in: ...") and services (vendor, training, flights...). Picking one of those hands you straight to the normal window for it. **"Get on with it"** (or Escape) always takes you to the normal window.
+- People with no menu of their own (Melika Isenstrider at the Lion's Pride Inn, for one) open the box when you right-click them, if RPG Dialogue has something for them to say.
 - Prefer less? Settings > "When you talk to someone": a short line with the box only when there's news, or straight to business.
 - **Ask about...** lets you ask people about topics you've picked up. **The journal** (`/rpgd journal`, or its keybinding) keeps your chronicle, the people you've met, your character sheet and origin, topics, deeds and your own notes.
 - Keybindings (Key Bindings > AddOns): **Talk to Target** talks to an NPC who has no gossip; **Open Journal**; **Ask About...** during a conversation.

@@ -37,7 +37,7 @@ function Cap.Unit(unit, hasGossip)
   rec.family = C.CreatureType(unit) or rec.family
   if hasGossip ~= nil then rec.gossip = rec.gossip or hasGossip end
   rec.last = C.Now()
-  rec.n = rec.n + 1
+  rec.n = (rec.n or 0) + 1
   store().npcs[id] = rec
   return id, rec
 end
@@ -183,7 +183,10 @@ end)
 
 ns.On("PLAYER_INTERACTION_MANAGER_FRAME_SHOW", function()
   if not ns.db then return end
-  if C.Exists("npc") then Cap.Unit("npc") end
+  if C.Exists("npc") then
+    local _, rec = Cap.Unit("npc")
+    if rec then rec.interacts = true end   -- opens a game window (vendor, trainer...) when right-clicked
+  end
 end)
 
 -- Title -> questID lookup used to resolve TODO_QUEST("Title") placeholders at runtime.

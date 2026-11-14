@@ -16,6 +16,7 @@ SD.ACCOUNT_DEFAULTS = {
     dev = false,
     autoCapture = false,
     captureText = true,
+    rightClickTalk = true,      -- right-clicking someone with no menu opens the box
     openMode = "full",          -- talking to someone: "full" (the conversation box, every time)
                                 --   | "compact" (short line; the box only when there's news) | "skip"
     otherAddons = "stepback",   -- with Immersion/DialogueUI: "takeover" | "stepback" | "off"

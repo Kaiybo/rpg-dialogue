@@ -685,6 +685,8 @@ The setting "When you talk to someone" keeps the older behavior as options. With
 
 "Straight to business" shows nothing unless one of those is true.
 
+**Right-click talk.** NPCs with no gossip menu fire no event when right-clicked, so `Compat.HookWorldClicks` hooks `WorldFrame` OnMouseDown/OnMouseUp (hooks only). A right-button press on a friendly NPC under the cursor, released within 0.4 s (longer is the camera turning), is a click. After 0.5 s, if the game opened no window of its own, the NPC is the target, in reach, not known from capture to have a menu (`gossip` / `interacts`), and we have content for them, the box opens as a "talk" conversation. If the game's window arrives late, `Conv.Start` upgrades the talk session in place: it fades the window and adds its options.
+
 **Safety net.** Every conversation entry point runs inside `ns.Guard`: an error is printed once in chat (with Lua errors hidden, the game shows nothing), logged in account data, and the game's window is un-faded and uncovered at once.
 
 ### 3.7 Seeded randomness

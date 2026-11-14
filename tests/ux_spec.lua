@@ -180,3 +180,97 @@ describe("Safety net", function()
     ok(not table.concat(Mock.chat, "\n"):find("boom in Show"), "not repeated")
   end)
 end)
+
+---------------------------------------------------------------------------
+-- Right-clicking someone with no menu (Melika Isenstrider)
+---------------------------------------------------------------------------
+local function bootReal(player)
+  local ns = Loader.Boot({
+    packs = { "RPGDialogue_World", "RPGDialogue_Elwynn" },
+    setup = function(state)
+      state.zone, state.subzone = "Elwynn Forest", "Lion's Pride Inn"
+      for k, v in pairs(player or {}) do state.units.player[k] = v end
+    end,
+  })
+  ns.db.settings.instantText = true
+  ns.db.settings.sounds = false
+  for _, n in ipairs({ "GossipFrame", "QuestFrame", "MerchantFrame" }) do if _G[n] then _G[n]:Hide() end end
+  return ns
+end
+
+local MELIKA = { guid = "Creature-0-1-0-1-6000-AB", name = "Melika Isenstrider", level = 11, reaction = 5 }
+
+-- Hover, press and release the right button (held for `hold` seconds), then let timers run.
+local function rightClick(unit, hold)
+  Mock.state.units.mouseover = unit
+  WorldFrame:GetScript("OnMouseDown")(WorldFrame, "RightButton")
+  Mock.state.clock = Mock.state.clock + (hold or 0.1)
+  Mock.state.units.target = unit        -- the game targets whoever you right-click
+  WorldFrame:GetScript("OnMouseUp")(WorldFrame, "RightButton")
+  Mock.RunTimers()
+end
+
+describe("Right-clicking someone with no menu", function()
+  it("opens the box for Melika Isenstrider", function()
+    local ns = bootReal()
+    rightClick(MELIKA)
+    local s = ns.Conversation.session
+    ok(s, "a conversation started")
+    eq(s.kind, "talk")
+    eq(s.info.key, "melika")
+    eq(ns.UI.Dialogue.IsShown(), true)
+    local f = ns.UI.Dialogue.Frame()
+    contains(f.text:GetText(), "Farley talks to the guests, I feed them.")
+    contains(table.concat(labels(ns), " | "), "What's in the kitchen tonight?")
+    ns.UI.Dialogue.Click(1)
+    contains(f.text:GetText(), "Mutton stew")
+  end)
+
+  it("speaks to a level-22 Skyborne druid as one", function()
+    local ns = bootReal({ race = "Skyborne", raceFile = "Skyborne", class = "Druid", classFile = "DRUID", level = 22 })
+    rightClick(MELIKA)
+    contains(ns.UI.Dialogue.Frame().text:GetText(), "A sky-folk druid.")
+    local joined = table.concat(labels(ns), " | ")
+    contains(joined, "Winds be with you.")
+  end)
+
+  it("ignores a held right button (turning the camera), the setting off, and NPCs out of reach", function()
+    local ns = bootReal()
+    rightClick(MELIKA, 1.5)
+    eq(ns.Conversation.session, nil, "camera turn")
+    ns.db.settings.rightClickTalk = false
+    rightClick(MELIKA)
+    eq(ns.Conversation.session, nil, "setting off")
+    ns.db.settings.rightClickTalk = true
+    Mock.state.inRange = false
+    rightClick(MELIKA)
+    eq(ns.Conversation.session, nil, "too far")
+  end)
+
+  it("leaves NPCs with a menu to the game, and still opens the box with their window", function()
+    local ns = bootReal()
+    ns.db.capture.npcs[6001] = { name = "Innkeeper Farley", gossip = true }
+    local farley = { guid = "Creature-0-1-0-1-6001-AB", name = "Innkeeper Farley", level = 30, reaction = 5 }
+    rightClick(farley)
+    eq(ns.Conversation.session, nil, "no talk box for someone with a gossip menu")
+    open("GossipFrame", "GOSSIP_SHOW", "Innkeeper Farley", 6001)
+    eq(ns.Conversation.session.kind, "gossip")
+    eq(ns.UI.Dialogue.IsShown(), true)
+  end)
+
+  it("adds the game's options if its window arrives after the box (slow server)", function()
+    local ns = bootReal()
+    local stranger = { guid = "Creature-0-1-0-1-6002-AB", name = "Innkeeper Farley", level = 30, reaction = 5 }
+    rightClick(stranger)
+    eq(ns.Conversation.session.kind, "talk", "not known to have a menu yet")
+    Mock.state.gossipOptions = { { gossipOptionID = 5, name = "Make this inn your home." } }
+    Mock.state.units.npc = stranger
+    local gf = _G.GossipFrame or Mock.NewFrame("Frame", "GossipFrame")
+    gf:Show(); gf:SetAlpha(1)
+    Mock.Fire("GOSSIP_SHOW")
+    Mock.RunTimers()
+    eq(ns.Conversation.session.kind, "gossip")
+    contains(table.concat(labels(ns), " | "), "Make this inn your home.")
+    eq(gf:GetAlpha(), 0, "the game's window sits faded behind the box")
+  end)
+end)
