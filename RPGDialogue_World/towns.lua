@@ -159,6 +159,20 @@ P:Town {
   quests = { { TODO_QUEST("Ashenvale Outrunners"), 6 }, { TODO_QUEST("The Hunt Completed"), 12 } },
 }
 
+P:Town {
+  id = "southshore", name = "Southshore",
+  subzones = { "Southshore" },
+  tiers = { Hero = "Hero of Southshore" },
+  quests = { { TODO_QUEST("Crushridge Bounty"), 8 }, { TODO_QUEST("Syndicate Assassins"), 6 }, { TODO_QUEST("Farren's Proof"), 4 } },
+}
+
+P:Town {
+  id = "tarren_mill", name = "Tarren Mill",
+  subzones = { "Tarren Mill" },
+  tiers = { Hero = "Hero of Tarren Mill" },
+  quests = { { TODO_QUEST("Battle of Hillsbrad"), 6 }, { TODO_QUEST("WANTED: Syndicate Personnel"), 6 } },
+}
+
 -- The other capitals. Their guards speak from pools_roles.lua; standing grows from quests
 -- each capital's own pack lists later.
 P:Town {

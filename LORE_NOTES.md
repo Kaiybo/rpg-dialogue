@@ -334,3 +334,14 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Faldreas Goeth'Shael (Check in on the Edunes); Innkeeper Kimlya | [Faldreas Goeth'Shael](https://warcraft.wiki.gg/wiki/Faldreas_Goeth%27Shael); [Innkeeper Kimlya](https://warcraft.wiki.gg/wiki/Innkeeper_Kimlya) |
 | Delgren the Purifier: human paladin at Maestra's Post; the Dark Strand; learned Orcish; The Tower of Althalaxx, Supplies to Auberdine | [Delgren the Purifier](https://warcraft.wiki.gg/wiki/Delgren_the_Purifier) |
 | Splintertree Post: Warsong founding, hostile night elves; Senani Thunderheart and the Ashenvale Hunt; Mastok Wrilehiss; Kuray'bin and the Silverwing outrunners | [Splintertree Post](https://warcraft.wiki.gg/wiki/Splintertree_Post); [Senani Thunderheart](https://warcraft.wiki.gg/wiki/Senani_Thunderheart); [Mastok Wrilehiss](https://warcraft.wiki.gg/wiki/Mastok_Wrilehiss); [Kuray'bin](https://warcraft.wiki.gg/wiki/Kuray%27bin) |
+
+## Hillsbrad Foothills (Hillsbrad pack 1.0.0)
+
+| Fact used | Source |
+|---|---|
+| Southshore: one of the few human towns left in Lordaeron; feud with Tarren Mill; Syndicate at Durnholde; murlocs, naga, Crushridge ogres | [Southshore](https://warcraft.wiki.gg/wiki/Southshore) |
+| Marshal Redpath: headman when Lothar, Khadgar and the refugees landed; sent Willem to Terenas; Crushridge Bounty | [Marshal Redpath](https://warcraft.wiki.gg/wiki/Marshal_Redpath) |
+| Magistrate Henry Maleb: young magistrate, Syndicate assassins chain | [Magistrate Henry Maleb](https://warcraft.wiki.gg/wiki/Magistrate_Henry_Maleb) |
+| Lieutenant Farren Orinelle: resents his posting, sits in the inn, the murloc quests, wants Stormwind | [Lieutenant Farren Orinelle](https://warcraft.wiki.gg/wiki/Lieutenant_Farren_Orinelle) |
+| Brewmeister Bilger: ex-Silver Hand paladin turned brewmeister; Loremaster Dibbs: Alterac's books and the ogres; Innkeeper Anderson | [Brewmeister Bilger](https://warcraft.wiki.gg/wiki/Brewmeister_Bilger); [Loremaster Dibbs](https://warcraft.wiki.gg/wiki/Loremaster_Dibbs); [Innkeeper Anderson](https://warcraft.wiki.gg/wiki/Innkeeper_Anderson) |
+| High Executor Darthalia: leads Tarren Mill's war for Sylvanas and Varimathras; Apothecary Lydon: glum poisoner, Umpi the frog, Faranell's elixirs; Innkeeper Shay | [High Executor Darthalia](https://warcraft.wiki.gg/wiki/High_Executor_Darthalia); [Apothecary Lydon](https://warcraft.wiki.gg/wiki/Apothecary_Lydon); [Innkeeper Shay](https://warcraft.wiki.gg/wiki/Innkeeper_Shay) |

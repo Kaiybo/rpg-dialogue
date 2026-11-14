@@ -16,6 +16,7 @@ Copy these folders into `World of Warcraft/<your Forever folder>/Interface/AddOn
 - `RPGDialogue_Zephras`: Zephras Isle, home of the Skyborne
 - `RPGDialogue_Redridge`: Lakeshire and the Redridge Mountains
 - `RPGDialogue_Duskwood`: Darkshire, Raven Hill and the woods
+- `RPGDialogue_Hillsbrad`: Southshore and Tarren Mill (both factions)
 - `RPGDialogue_Ashenvale`: Astranaar, Maestra's Post and Splintertree Post (both factions)
 - `RPGDialogue_Barrens`: the Crossroads: Thork, Sergra, Mankrik, Tonga and the poisoned oases (Horde)
 - `RPGDialogue_ThunderBluff`: Cairne Bloodhoof, Hamuul Runetotem, Magatha Grimtotem and Elder Rise (Horde)

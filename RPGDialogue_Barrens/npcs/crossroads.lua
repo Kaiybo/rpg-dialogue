@@ -274,7 +274,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "Helbrim, of the Royal Apothecary Society. The Society sent me to see what grows out here that might be useful. A great deal, it turns out." },
+        { id = "h_default", key = true, text = "Helbrim, of the Royal Apothecary Society. The Society sent me to see what grows out here that might be useful. A great deal, it turns out." },
         { id = "h_spores", tags = { "news" }, when = { questActive = TODO_QUEST("Fungal Spores") },
           text = "Spores, from the fungus out by the water. Don't breathe near them. Well, you breathe. I'd advise against it." },
         { id = "h_zamah", when = { questActive = TODO_QUEST("Apothecary Zamah") },

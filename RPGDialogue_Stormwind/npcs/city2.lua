@@ -144,7 +144,7 @@ P:NPC {
   start = "hello",
   nodes = { hello = {
     lines = {
-      { id = "h_default", text = "Milton Sheaf, keeper of the Royal Library. I collect books from all over the kingdom. Mostly I collect people to collect books for me." },
+      { id = "h_default", key = true, text = "Milton Sheaf, keeper of the Royal Library. I collect books from all over the kingdom. Mostly I collect people to collect books for me." },
       { id = "h_foe", text = "Know your enemy, they say. I'd go further. Know everything about everyone. It saves so much trouble later." },
     },
     choices = { { text = "Need anything found?", next = "BUSINESS" }, { text = "I'll let you read.", next = "END" } },

@@ -292,6 +292,18 @@ describe("Content packs", function()
     eq(ns.Data.FindNPC(nil, "Relara Whitemoon").key, "relara")
   end)
 
+  it("Hillsbrad loads in Southshore, with Redpath and Darthalia a valley apart", function()
+    local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Hillsbrad" } })
+    Mock.state.zone, Mock.state.subzone = "Hillsbrad Foothills", "Southshore"
+    Mock.Fire("ZONE_CHANGED_NEW_AREA")
+    Mock.RunTimers()
+    for _, p in ipairs(ns.Packs.List()) do
+      if p.id == "rpgd.hillsbrad" then ok(p.loaded); eq(p.warnings, 0) end
+    end
+    eq(ns.Data.FindNPC(nil, "Marshal Redpath").key, "redpath")
+    eq(ns.Data.FindNPC(nil, "High Executor Darthalia").key, "darthalia")
+  end)
+
   it("Zephras Isle's Peacekeepers are guards of the isle, and the High Elder knows her own", function()
     local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Zephras" } })
     ns.db.settings.instantText = true
