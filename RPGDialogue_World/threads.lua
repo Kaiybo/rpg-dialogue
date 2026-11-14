@@ -101,3 +101,59 @@ P:Thread {
   },
 }
 
+-- Solomon's letters. Lakeshire writes to everyone; everyone has a reason. Every beat rests
+-- on canon: Solomon's pleas (Messenger quests), Gryan's refusal, Bolvar's need for proof,
+-- Prestor's advice against aiding Solomon, and the deputy he sent instead (The True Masters).
+P:Thread {
+  id = "solomons_letters",
+  theme = "Lakeshire asks the whole kingdom for help, and every answer has a reason in it.",
+  npcs = { "solomon", "gryan", "bolvar", "katrana", "daniels" },
+  states = { "dormant", "stirring", "unfolding", "resolved" },
+  endings = {
+    resolved = "Stormwind's answer to Lakeshire was one deputy. It turned out to be enough, or close.",
+  },
+  pacing = { minConversations = 3, minSeconds = 1200 },
+  reflection = {
+    first = "Solomon's letters went everywhere. Everyone I've asked had a reason not to answer them.",
+    third = "{name} had heard every reason the kingdom gave for not answering Lakeshire.",
+  },
+  beats = {
+    {
+      id = "b1_solomon", npc = "solomon",
+      when = { minLevel = 15, thread = { id = "solomons_letters", notBeat = "b1_solomon" } },
+      text = "Stormwind. Westfall. Darkshire. If ink were soldiers, Lakeshire would be the best-defended town in the kingdom.",
+      fx = { thread = { id = "solomons_letters", beat = "b1_solomon", state = "stirring" }, learn = { "blackrock" } },
+    },
+    {
+      id = "b2_gryan", npc = "gryan",
+      when = { questDone = TODO_QUEST("Messenger to Westfall"), thread = { id = "solomons_letters", notBeat = "b2_gryan" } },
+      text = "Solomon's letter. I read it twice. If I send men to Lakeshire, Westfall falls by spring. He'll understand. I hope he'll understand.",
+      fx = { thread = { id = "solomons_letters", beat = "b2_gryan", state = "unfolding" } },
+    },
+    {
+      id = "b3_katrana", npc = "katrana",
+      when = { thread = { id = "solomons_letters", beat = "b1_solomon" } },
+      text = "Lakeshire again. The magistrate has a lovely hand. One almost hates to tell him no. Almost.",
+      fx = { thread = { id = "solomons_letters", beat = "b3_katrana" }, hear = "prestor_patience" },
+    },
+    {
+      id = "b4_bolvar", npc = "bolvar",
+      when = { thread = { id = "solomons_letters", beat = "b1_solomon" }, ["not"] = { questDone = TODO_QUEST("The True Masters") } },
+      text = "Solomon writes every week. I won't empty the garrison for orcs I'm told are being directed by someone no one has seen. Bring me proof, and I'll move.",
+      fx = { thread = { id = "solomons_letters", beat = "b4_bolvar", state = "unfolding" } },
+    },
+    {
+      id = "b5_daniels", npc = "daniels",
+      when = { thread = { id = "solomons_letters", beat = "b1_solomon" } },
+      text = "Every rider the magistrate sends comes back through my bar first. Thirsty, and empty-handed. I could set my calendar by them.",
+      fx = { thread = { id = "solomons_letters", beat = "b5_daniels" } },
+    },
+    {
+      id = "b6_solomon", npc = "solomon",
+      when = { questDone = TODO_QUEST("The True Masters") },
+      text = "I asked the kingdom for an army and it sent me one deputy. I've decided that's a compliment to the deputy, not an insult to Lakeshire.",
+      fx = { thread = { id = "solomons_letters", beat = "b6_solomon", state = "resolved" }, standing = { lakeshire = 5 } },
+    },
+  },
+}
+

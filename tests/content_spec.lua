@@ -122,6 +122,25 @@ describe("Content packs", function()
     ok(ns.Data.threads.westfall_left and #ns.Data.threads.westfall_left.beats == 6)
   end)
 
+  it("Redridge loads in Lakeshire, and Solomon's letters reach the Keep", function()
+    local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Redridge", "RPGDialogue_Stormwind" } })
+    ns.db.settings.instantText = true
+    Mock.state.zone, Mock.state.subzone = "Redridge Mountains", "Lakeshire"
+    Mock.Fire("ZONE_CHANGED_NEW_AREA")
+    Mock.RunTimers()
+    for _, p in ipairs(ns.Packs.List()) do
+      if p.id == "rpgd.redridge" then ok(p.loaded); eq(p.warnings, 0) end
+    end
+    Mock.state.units.npc = { guid = "Creature-0-1-0-1-99344-AB", name = "Magistrate Solomon", level = 40 }
+    local ctx = ns.Context.New({ unit = "npc" })
+    local info = ns.Conversation.Identify("npc", ctx)
+    eq(info.key, "solomon")
+    eq(info.communities[1], "lakeshire")
+    local t = ns.Data.threads.solomons_letters
+    ok(t and #t.beats == 6)
+    for _, b in ipairs(t.beats) do ok(b.npc ~= "bolvar" or ns.Data.npcs.bolvar, "bolvar beat has an NPC") end
+  end)
+
   it("Zephras Isle's Peacekeepers are guards of the isle, and the High Elder knows her own", function()
     local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Zephras" } })
     ns.db.settings.instantText = true

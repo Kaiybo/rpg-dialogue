@@ -12,7 +12,7 @@ local SEED = tonumber(arg[2]) or 1
 
 local function out(...) io.write(table.concat({ ... }, "\t"), "\n") end
 
-local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Elwynn", "RPGDialogue_Westfall", "RPGDialogue_Stormwind", "RPGDialogue_Zephras" } })
+local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Elwynn", "RPGDialogue_Westfall", "RPGDialogue_Stormwind", "RPGDialogue_Zephras", "RPGDialogue_Redridge" } })
 ns.Packs.LoadAll()
 local U = ns.Util
 local rng = U.NewRNG(SEED)
@@ -28,8 +28,8 @@ local RACES = {
 }
 local RACE_LIST = { "Human", "Human", "Human", "Dwarf", "Gnome", "NightElf", "Skyborne" }
 local SUBZONES = { northshire = "Northshire Abbey", goldshire = "Goldshire", eastvale = "Eastvale Logging Camp",
-  sentinel_hill = "Sentinel Hill", westfall_farms = "Saldean's Farm", stormwind = "Trade District", zephras_isle = "Valanaar" }
-local ZONES = { sentinel_hill = "Westfall", westfall_farms = "Westfall", stormwind = "Stormwind City", zephras_isle = "Zephras Isle" }
+  sentinel_hill = "Sentinel Hill", westfall_farms = "Saldean's Farm", stormwind = "Trade District", zephras_isle = "Valanaar", lakeshire = "Lakeshire" }
+local ZONES = { sentinel_hill = "Westfall", westfall_farms = "Westfall", stormwind = "Stormwind City", zephras_isle = "Zephras Isle", lakeshire = "Redridge Mountains" }
 local PROFS = { "Skinning", "Alchemy", "Herbalism", "Blacksmithing", "Mining", "Tailoring" }
 
 -- Give every TODO quest title a fake ID and register it in capture data, as a real
@@ -96,7 +96,7 @@ local function randomCharacter(i)
   for _ = 1, rng.int(0, 4) do local t = pick(ns.Effects.TRAITS); c.traits[t] = (c.traits[t] or 0) + rng.int(1, 4) end
   c.deathCount = chance(0.6) and rng.int(0, 20) or 0
   c.origin = (race == "Human" and chance(0.4)) and { id = pick({ "human_westfall_farmhand", "human_minor_noble", "human_lordaeron_refugee", "human_paladin_squire", "other" }) } or nil
-  for _, town in ipairs({ "northshire", "goldshire", "eastvale", "sentinel_hill", "westfall_farms", "stormwind" }) do
+  for _, town in ipairs({ "northshire", "goldshire", "eastvale", "sentinel_hill", "westfall_farms", "stormwind", "lakeshire" }) do
     if chance(0.5) then c.towns[town] = { value = rng.int(-70, 80) } end
   end
   for _, gid in ipairs(keyLines) do if chance(0.25) then c.heard[gid] = Mock.state.now end end

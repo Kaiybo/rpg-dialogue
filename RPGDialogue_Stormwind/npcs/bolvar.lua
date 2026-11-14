@@ -36,6 +36,8 @@ P:NPC {
           text = "The king left for Theramore and never arrived. Each morning I look at that empty seat and tell the boy it's only a while longer." },
         { id = "h_masquerade", tags = { "news" }, when = { questDone = TODO_QUEST("The Great Masquerade") },
           text = "I trusted her counsel for years. Every word of it. I'll be reading old decrees for months, looking for her hand in them." },
+        { id = "h_solomon", tags = { "news" }, when = { questRecent = { TODO_QUEST("The True Masters"), days = 5 } },
+          text = "Solomon's evidence isn't enough to march an army on, and too much to ignore. So I'm sending you. Lakeshire deserves an army; it gets my best instead." },
         { id = "h_light", when = { alignment = { axis = "light", min = 50 } },
           text = "There's something steady in you. The Light, or plain decency; on a good day they look the same." },
       },

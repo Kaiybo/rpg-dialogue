@@ -53,7 +53,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "s_default", key = true,
-          text = "Our patrons fell silent, then vanished. The pylons failed. The islands began to drift. Then the Al'Aketh lit a beacon for the Windlord's faithful, and Rohash threatened to tell him we were there." },
+          text = "Our patrons vanished, the pylons failed and the islands drifted. Then the Al'Aketh lit a beacon for the Windlord's faithful, and Rohash threatened to tell him where we were." },
       },
       choices = {
         { text = "And so we left.", next = "windlord" },

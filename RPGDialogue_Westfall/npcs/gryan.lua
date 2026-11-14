@@ -42,6 +42,8 @@ P:NPC {
           text = "You went under Moonbrook and walked out again. Edwin VanCleef has had his own way down there too long. Now he knows we can reach him." },
         { id = "h_paladin", when = { class = "PALADIN", minLevel = 12 },
           text = "The Light didn't send me home. Westfall did. The Light just came along and made itself useful." },
+        { id = "h_wiley", when = { heardLine = "wiley.h_defias" },
+          text = "Wiley talked to you? Then you've had the truth with no manners attached. I should have left him where I found him. I'm glad I didn't." },
         { id = "h_light", when = { alignment = { axis = "light", min = 40 } },
           text = "A decency on you, I'd say. Out here it's rarer than iron. Don't spend it all in one place." },
       },

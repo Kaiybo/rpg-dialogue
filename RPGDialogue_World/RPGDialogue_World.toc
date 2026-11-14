@@ -21,6 +21,7 @@ origins\nightelf.lua
 origins\skyborne.lua
 rumors\elwynn.lua
 rumors\westfall.lua
+rumors\redridge.lua
 books.lua
 generic.lua
 pools.lua

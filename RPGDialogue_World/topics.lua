@@ -26,3 +26,6 @@ P:Topic { id = "al_aketh", name = "The Al'Aketh", category = "threats", learned 
 P:Topic { id = "two_orders", name = "The High Order and the Windshapers", category = "people", learned = "Zephras Isle" }
 P:Topic { id = "shal_nan", name = "The Shal'nan", category = "lore", learned = "the High Elder" }
 P:Topic { id = "windstones", name = "Windstones", category = "trade", learned = "Zephras Isle" }
+P:Topic { id = "blackrock", name = "The Blackrock orcs", category = "threats", learned = "Lakeshire" }
+P:Topic { id = "everstill_bridge", name = "The Everstill Bridge", category = "places", learned = "Foreman Oslow" }
+P:Topic { id = "redridge_gnolls", name = "Redridge's gnolls", category = "threats", learned = "Verner Osgood" }

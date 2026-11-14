@@ -78,6 +78,20 @@ P:Town {
   tiers = { Hero = "Hero of Zephras Isle" },
 }
 
+P:Town {
+  id = "lakeshire", name = "Lakeshire",
+  subzones = { "Lakeshire", "Lakeshire Inn", "Lakeshire Town Hall", "Lake Everstill" },
+  related = { eastvale = 0.05 },
+  tiers = { Hero = "Hero of Lakeshire" },
+  quests = {
+    { TODO_QUEST("Blackrock Menace"), 6 }, { TODO_QUEST("Missing In Action"), 10 },
+    { TODO_QUEST("The Lost Tools"), 5 }, { TODO_QUEST("The Everstill Bridge"), 6 },
+    { TODO_QUEST("Murloc Poachers"), 5 }, { TODO_QUEST("Dry Times"), 4 },
+    { TODO_QUEST("Howling in the Hills"), 6 }, { TODO_QUEST("Tharil'zun"), 12 },
+    { TODO_QUEST("The True Masters"), 10 },
+  },
+}
+
 -- The other capitals. Their guards speak from pools_roles.lua; standing grows from quests
 -- each capital's own pack lists later.
 P:Town {

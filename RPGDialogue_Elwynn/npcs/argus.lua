@@ -30,6 +30,10 @@ P:NPC {
         { id = "h_default", text = "Argus. I mend what's bent and make what's needed. I don't do miracles." },
         { id = "q_elmore", when = { questActive = TODO_QUEST("Elmore's Task") },
           text = "Take that to Elmore in Stormwind. He trained me and still thinks he's better. He is, mostly." },
+        { id = "q_verner", tags = { "news" }, when = { questActive = TODO_QUEST("The Price of Shoes") },
+          text = "A note from Verner. Of course it is. He wants shoes, and he wants them yesterday. He'll get them. Don't tell him I didn't complain." },
+        { id = "q_verner_back", when = { questActive = TODO_QUEST("Return to Verner") },
+          text = "Take those up to Lakeshire. Tell Verner they're the best shoes he'll see this year. He'll say his are better. He's wrong." },
         { id = "h_dwarf", when = { race = "Dwarf" },
           text = "Go on, say it. Every dwarf who walks past my forge says it." },
       },
@@ -40,7 +44,7 @@ P:NPC {
       },
     },
     steel = {
-      lines = { { id = "s_default", text = "Patience. Clean ore. And never letting the apprentice near the quench." } },
+      lines = { { id = "s_default", key = true, text = "Patience. Clean ore. And never letting the apprentice near the quench." } },
       choices = {
         { text = "I'll remember that.", next = "END", fx = { affinity = 1, trait = { curious = 1 } } },
         { text = "Sounds slow.", next = "END", fx = { affinity = -1 } },
