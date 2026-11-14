@@ -297,6 +297,20 @@ P:Town {
   tiers = { Hero = "Friend of Kharanos" },
 }
 
+P:Town {
+  id = "shadowglen", name = "Shadowglen",
+  subzones = { "Shadowglen", "Aldrassil", "Shadowthread Cave" },
+  tiers = { Hero = "Child of Aldrassil" },
+  quests = { { TODO_QUEST("Webwood Egg"), 4 } },
+}
+
+P:Town {
+  id = "dolanaar", name = "Dolanaar",
+  subzones = { "Dolanaar" },
+  tiers = { Hero = "Friend of Dolanaar" },
+  quests = { { TODO_QUEST("Ursal the Mauler"), 6 }, { TODO_QUEST("Ferocitas the Dream Eater"), 6 } },
+}
+
 -- The other capitals. Their guards speak from pools_roles.lua; standing grows from quests
 -- each capital's own pack lists later.
 P:Town {

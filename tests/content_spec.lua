@@ -478,6 +478,23 @@ describe("Content packs", function()
     eq(ns.Data.PoolsFor(info, ctx)[1].pool.id, "guard_brill")
   end)
 
+  it("Teldrassil loads in Dolanaar; Tenaron and Athridas are there, and the Sentinels are Dolanaar's", function()
+    local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Teldrassil" } })
+    Mock.state.zone, Mock.state.subzone = "Teldrassil", "Dolanaar"
+    Mock.Fire("ZONE_CHANGED_NEW_AREA")
+    Mock.RunTimers()
+    for _, p in ipairs(ns.Packs.List()) do
+      if p.id == "rpgd.teldrassil" then ok(p.loaded); eq(p.warnings, 0) end
+    end
+    eq(ns.Data.FindNPC(nil, "Tenaron Stormgrip").key, "tenaron")
+    eq(ns.Data.FindNPC(nil, "Athridas Bearmantle").key, "athridas")
+    Mock.state.units.npc = { guid = "Creature-0-1-0-1-3571-AB", name = "Teldrassil Sentinel", level = 30 }
+    local ctx = ns.Context.New({ unit = "npc" })
+    local info = ns.Conversation.Identify("npc", ctx)
+    eq(info.role, "guard")
+    eq(ns.Data.PoolsFor(info, ctx)[1].pool.id, "guard_dolanaar")
+  end)
+
   it("Zephras Isle's Peacekeepers are guards of the isle, and the High Elder knows her own", function()
     local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Zephras" } })
     ns.db.settings.instantText = true

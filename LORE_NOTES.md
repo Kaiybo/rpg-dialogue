@@ -489,3 +489,13 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Executor Zygand, Magistrate Sevren, Apothecary Johaan, Gretchen Dedmar and their Classic quests | [Executor Zygand](https://warcraft.wiki.gg/wiki/Executor_Zygand); [Magistrate Sevren](https://warcraft.wiki.gg/wiki/Magistrate_Sevren); [Apothecary Johaan](https://warcraft.wiki.gg/wiki/Apothecary_Johaan); [Gretchen Dedmar](https://warcraft.wiki.gg/wiki/Gretchen_Dedmar) |
 | Coleman Farthing and the Agamands | [Coleman Farthing](https://warcraft.wiki.gg/wiki/Coleman_Farthing) |
 | Innkeeper Renee: a former Scarlet Crusade captain who keeps the inn to care for people | [Innkeeper Renee](https://warcraft.wiki.gg/wiki/Innkeeper_Renee) |
+
+## Teldrassil (Teldrassil pack 1.0.0) and the camping teachers
+
+| Fact used | Source |
+|---|---|
+| Shadowglen under Aldrassil; Shadowthread Cave; the path to Dolanaar | [Shadowglen](https://warcraft.wiki.gg/wiki/Shadowglen) |
+| Dolanaar: hub between Shadowglen and Darnassus; Teldrassil Sentinels | [Dolanaar](https://warcraft.wiki.gg/wiki/Dolanaar) |
+| Ilthalaine, Melithar, Tenaron, Dirania, Gilshalan: roles, tone and quests | [Conservator Ilthalaine](https://warcraft.wiki.gg/wiki/Conservator_Ilthalaine); [Melithar Staghelm](https://warcraft.wiki.gg/wiki/Melithar_Staghelm); [Tenaron Stormgrip](https://warcraft.wiki.gg/wiki/Tenaron_Stormgrip); [Dirania Silvershine](https://warcraft.wiki.gg/wiki/Dirania_Silvershine); [Gilshalan Windwalker](https://warcraft.wiki.gg/wiki/Gilshalan_Windwalker) |
+| Corithras, Athridas, Tallonkai, Syral, Keldamyr: roles, tone and quests | [Corithras Moonrage](https://warcraft.wiki.gg/wiki/Corithras_Moonrage); [Athridas Bearmantle](https://warcraft.wiki.gg/wiki/Athridas_Bearmantle); [Tallonkai Swiftroot](https://warcraft.wiki.gg/wiki/Tallonkai_Swiftroot); [Syral Bladeleaf](https://warcraft.wiki.gg/wiki/Syral_Bladeleaf); [Innkeeper Keldamyr](https://warcraft.wiki.gg/wiki/Innkeeper_Keldamyr) |
+| **Forever** camping teachers: Lyreena Duskblade (Teldrassil), Sam Sarsaparilla (Elwynn; McBride sends you), Eric Brighthammer (Dun Morogh), Brakk (Durotar; his lost journal), Kaga Wildhoof (Mulgore; Hawkwind's supply bundle) | [The Great Outdoors (Forever)](https://warcraft.wiki.gg/wiki/The_Great_Outdoors_(Forever)); [The Adventurer (Elwynn Forest)](https://warcraft.wiki.gg/wiki/The_Adventurer_(Elwynn_Forest)); [The Adventurer (Durotar)](https://warcraft.wiki.gg/wiki/The_Adventurer_(Durotar)); [The Adventurer (Mulgore)](https://warcraft.wiki.gg/wiki/The_Adventurer_(Mulgore)) |
