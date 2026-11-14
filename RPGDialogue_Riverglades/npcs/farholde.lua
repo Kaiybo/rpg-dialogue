@@ -303,12 +303,14 @@ P:NPC {
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "The Brotherhood is my story. Twenty years of it in these glades. The rest isn't worth the telling." } },
+    advice = { { id = "tp_ad", text = "Ride in pairs, sleep in the keep, and never follow a light across the river at night. The Hammer uses lights." } },
     brotherhood_horse = { { id = "tp_brotherhood", text = "Older than the First War, older than Stormwind's patience. We ride, we hold, and we don't wait to be asked." } },
     siege_of_farholde = { { id = "tp_siege", text = "We held the gate until Howard opened it. Read the memorials. They say it better than I do." } },
     sunnyglade = { { id = "tp_sunnyglade", text = "Ours. Not today. Ours." } },
     twilights_hammer = { { id = "tp_hammer", text = "Light-forsaken, every one. I don't need to know what they worship to know it should burn." } },
     krol_dok = { { id = "tp_kroldok", text = "Where they ran after the siege, and where they plan the next one." } },
-    fern_crimsonleaf = { { id = "tp_fern", text = "Dead. A hero, and dead. Don't let Gray tell you different." } },
+    fern_crimsonleaf = { { id = "tp_fernnext", text = "Our knife in the dark, and the best of us. Ask what you came to ask.", next = "fern" }, { id = "tp_fern", text = "Dead. A hero, and dead. Don't let Gray tell you different." } },
     defias = { { id = "tp_defias", text = "Stormwind's own mess, on its own doorstep. Even then they couldn't be bothered. I'm not surprised." } },
     _none = { { id = "tp_none", text = "If it isn't in the Riverglades, it isn't my concern. Ask Ashe. She reads." } },
   },
@@ -504,8 +506,10 @@ P:NPC {
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "My father's student, before I was anything else. Then Farholde's advisor, then the expedition west. I came back from that one alone.", next = "father" } },
+    advice = { { id = "tp_ad", text = "If something the Hammer carried hums, don't put it in your pack. Put it in mine. I mean it." } },
     siege_of_farholde = { { id = "tp_siege", text = "My father rode in that charge and came back. He never talked about it. He talked about everything else." } },
-    twilights_hammer = { { id = "tp_hammer", text = "They collect things that listen. I collect what they collect. Someone should." } },
+    twilights_hammer = { { id = "tp_hammernext", text = "Ah. Sit down; this one takes a while.", next = "hammer" }, { id = "tp_hammer", text = "They collect things that listen. I collect what they collect. Someone should." } },
     sunnyglade = { { id = "tp_sunnyglade", text = "There's a mage tower in the ruins that the Horde couldn't bring themselves to burn. I think about it more than is healthy." } },
     brotherhood_horse = { { id = "tp_brotherhood", text = "Knights, mostly, and a few of us who can't sit a horse but can read. It works. Somehow." } },
     fern_crimsonleaf = { { id = "tp_fern", text = "Presumed dead, the stone says. My father said she could vanish in a lit room. I like to think she's still practising." } },
@@ -599,6 +603,8 @@ P:NPC {
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "Brotherhood a long time, out here longer. That's all of it." } },
+    advice = { { id = "tp_ad", text = "When they start chanting, back up. Whatever they're calling, you don't want to be the first thing it sees." } },
     twilights_hammer = { { id = "tp_hammer", text = "They pray louder than they fight. I'd rather they just fought." } },
     _none = { { id = "tp_none", text = "Not out here. Ask at the keep." } },
   },
@@ -679,6 +685,8 @@ P:NPC {
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "I go where the sick are. Farholde has more than its share, so here I am." } },
+    advice = { { id = "tp_ad", text = "Boil your water and wash your wounds. The Light helps those who've already done the dull part." } },
     twilights_hammer = { { id = "tp_hammer", text = "I pray for them too. Someone should, and nobody else will." } },
     _none = { { id = "tp_none", text = "I'm sorry. My world's this room, lately." } },
   },
@@ -783,6 +791,8 @@ P:NPC {
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "No." } },
+    advice = { { id = "tp_ad", text = "Watch the birds over the river. When they go quiet, something's moving in the fog." } },
     brotherhood_horse = { { id = "tp_brotherhood", text = "Good riders. Bad singers. They keep their word, which is rarer than either." } },
     _none = { { id = "tp_none", text = "Not mine to know." } },
   },
@@ -843,6 +853,8 @@ P:NPC {
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "Horses since before I could walk. Ask them about me; they're more honest." } },
+    advice = { { id = "tp_ad", text = "A horse that won't cross a bridge has a reason. Get off and look." } },
     siege_of_farholde = { { id = "tp_siege", text = "We lost more horses than riders, and I mourned every one. Don't tell the riders." } },
     _none = { { id = "tp_none", text = "Does it eat hay? No? Then ask somebody else." } },
   },
@@ -897,6 +909,8 @@ P:NPC {
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "Learned to fly before I learned to swim. Farholde's surrounded by water. That's been an education." } },
+    advice = { { id = "tp_ad", text = "Visit every roost you pass. The birds don't forget a face that brought them a treat." } },
     _none = { { id = "tp_none", text = "Can't help you there. I only know the sky and the birds in it." } },
   },
 }
@@ -972,6 +986,8 @@ P:NPC {
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "Smith. Smith's son. That's the whole of it." } },
+    advice = { { id = "tp_ad", text = "Oil your blade after the river. The damp here eats steel faster than cultists do." } },
     krol_dok = { { id = "tp_kroldok", text = "Ogre steel. Thick and stupid. Like ogres." } },
     _none = { { id = "tp_none", text = "Don't know. Don't need to." } },
   },

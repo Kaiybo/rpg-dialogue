@@ -158,6 +158,8 @@ P:NPC {
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "Steamwheedle born, Steamwheedle made. I came to this cove with a ledger and a plan. The ledger's thicker now." } },
+    advice = { { id = "tp_ad", text = "Pay your tab, stay off the Bloodsail's boats, and don't feed the parrot. It bites." } },
     bloodsail = { { id = "tp_bloodsail", text = "They want my town. They've wanted it since before you were born. They can keep wanting." } },
     steamwheedle = { { id = "tp_cartel", text = "The Cartel takes its cut and leaves me to run things. That's the best arrangement a goblin can ask for." } },
     _none = { { id = "tp_none", text = "If it doesn't touch my port, I don't keep track of it. Krazek does. Ask him." } },
@@ -294,6 +296,8 @@ P:NPC {
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "Plains calf, sea-going bull. The grass raised me; the waves finished the job.", next = "why" } },
+    advice = { { id = "tp_ad", text = "Respect the sea, laugh at the storm, and never, ever trust a red sail." } },
     bloodsail = { { id = "tp_bloodsail", text = "Their fleet master would dearly love my horns on his wall. He'll have to get in line." } },
     _none = { { id = "tp_none", text = "That's a landlubber's question. Ask somebody with dry boots." } },
   },
@@ -427,6 +431,8 @@ P:NPC {
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "I started out running messages. Now I am the messages. Not bad for a goblin with no inheritance." } },
+    advice = { { id = "tp_ad", text = "Information's worth more than gold, and it spoils faster. Use it quick." } },
     kurzen = { { id = "tp_kurzen", text = "The rebels up north buy from me. Kurzen's lot stopped buying anything a while back. That's never a good sign." } },
     bloodsail = { { id = "tp_bloodsail", text = "Bad for shipping, bad for business, bad for my nerves. The Baron pays well to make them less of all three." } },
     _none = { { id = "tp_none", text = "That, I don't know. Come back tomorrow and I will." } },
@@ -542,6 +548,8 @@ P:NPC {
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "Sailor, gambler, collector. I was very bad at the first two before I got very good at the third." } },
+    advice = { { id = "tp_ad", text = "Don't borrow what you can't pay back. And if you do, don't borrow from me." } },
     _none = { { id = "tp_none", text = "Does it owe me money? Then I don't care about it." } },
   },
 }
@@ -643,6 +651,8 @@ P:NPC {
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "Bought my first crate at nine, sold it at ten for twice the price. Never looked back. Never had time." } },
+    advice = { { id = "tp_ad", text = "Never let the client see the warehouse." } },
     bloodsail = { { id = "tp_bloodsail", text = "Every crate they take is a crate I paid for twice. Once to buy it, once to cry about it." } },
     _none = { { id = "tp_none", text = "Is there money in it? No? Then I wasn't listening." } },
   },
@@ -714,6 +724,8 @@ P:NPC {
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "Poured drinks in worse places than this. Booty Bay pays better, and the fights are funnier." } },
+    advice = { { id = "tp_ad", text = "Sit facing the door. Everyone in here does, which is why the chairs are all on one side." } },
     _none = { { id = "tp_none", text = "Couldn't tell you. Ask whoever's drinking the most; they always have a theory." } },
   },
 }
@@ -835,6 +847,8 @@ P:NPC {
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "Captain. Two ships, two crews. Both at the bottom of that bay. That's my story, and I tell it every night.", next = "giveup" } },
+    advice = { { id = "tp_ad", text = "Never sail where the water stands up. You'll know it when you see it. You'll wish you hadn't." } },
     _none = { { id = "tp_none", text = "Is it a sea giant? No? Then it isn't my problem." } },
   },
 }
@@ -937,6 +951,8 @@ P:NPC {
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "Nobody! I'm nobody. Ask someone more interesting. Please. Please?" } },
+    advice = { { id = "tp_ad", text = "Never play knucklebones with a man called Wolf. Any kind of wolf." } },
     _none = { { id = "tp_none", text = "I don't know anything! About anything! Is this about money?" } },
   },
 }
@@ -1039,6 +1055,8 @@ P:NPC {
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "Blackwater born, Blackwater sworn. I've been on the Fleet Master's deck since I was tall enough to see over the rail. Barely." } },
+    advice = { { id = "tp_ad", text = "Red bandana, red sail, red flag: shoot first. You'll have time to apologise later. You won't need to." } },
     bloodsail = { { id = "tp_bloodsail", text = "Scum with sails. Every one of them. I'd sink their whole fleet for one good night's sleep." } },
     _none = { { id = "tp_none", text = "Not about the Bloodsail? Then I'm not listening." } },
   },
@@ -1141,6 +1159,8 @@ P:NPC {
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "I'd tell you, but then you'd know where the bodies are buried. Figuratively! Mostly." } },
+    advice = { { id = "tp_ad", text = "Buy from people who are in a hurry. Sell to people who are scared. Never the other way round." } },
     venture_company = { { id = "tp_venture", text = "Rivals. Rich, careless rivals. My favourite kind." } },
     _none = { { id = "tp_none", text = "Is there money in it? No? Then why are we talking?" } },
   },
@@ -1236,6 +1256,8 @@ P:NPC {
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "Ironforge taught me to drink, the road taught me to drink better, and Booty Bay taught me to drink here. To all three!" } },
+    advice = { { id = "tp_ad", text = "Never toast with an empty glass. Never toast someone who won't toast back. Never touch my glass." } },
     _none = { { id = "tp_none", text = "Don't know, don't care! Drink?" } },
   },
 }
@@ -1305,6 +1327,8 @@ P:NPC {
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "Born with a needle in one hand and a hide in the other. My mother was very surprised." } },
+    advice = { { id = "tp_ad", text = "Leather breathes. Plate doesn't. In this heat, choose wisely." } },
     _none = { { id = "tp_none", text = "Is it leather? No? Then it's beneath me." } },
   },
 }
@@ -1405,6 +1429,8 @@ P:NPC {
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "Cook. Ship's cook. Two ships. You know the rest. Everyone does.", next = "night" } },
+    advice = { { id = "tp_ad", text = "If the boat starts shaking and it isn't a storm, find a pot. A big one." } },
     _none = { { id = "tp_none", text = "I only know cooking and sea giants. Mostly cooking. Too much sea giants." } },
   },
 }
@@ -1484,6 +1510,8 @@ P:NPC {
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "Blackwater Raider since I was old enough to lie about my age. Then I swam in a pond." } },
+    advice = { { id = "tp_ad", text = "Don't swim in the jungle ponds. Don't drink from them. Don't even look at them too long." } },
     _none = { { id = "tp_none", text = "Can't think. Fever. Ask somebody healthy." } },
   },
 }
@@ -1579,6 +1607,8 @@ P:NPC {
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "I've been on these docks longer than most of the docks have. I've replaced every board twice." } },
+    advice = { { id = "tp_ad", text = "Watch the people who aren't watching the ships. They're the ones to worry about." } },
     bloodsail = { { id = "tp_bloodsail", text = "Some of the faces on my docks wear red when nobody's looking. I can't prove it. Yet." } },
     _none = { { id = "tp_none", text = "If it didn't come off a boat, I don't know it." } },
   },

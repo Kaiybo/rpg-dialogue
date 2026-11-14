@@ -159,8 +159,13 @@ local function record(kind, who, node, w)
 end
 
 local TOPIC_IDS, OTHER_TOPICS = {}, 3
-for topic in pairs(ns.Data.topics) do TOPIC_IDS[#TOPIC_IDS + 1] = topic end
+local STANDARD_IDS = {}   -- "ask anyone": one of them is asked of every NPC on every visit
+for topic, def in pairs(ns.Data.topics) do
+  TOPIC_IDS[#TOPIC_IDS + 1] = topic
+  if def.standard then STANDARD_IDS[#STANDARD_IDS + 1] = topic end
+end
 table.sort(TOPIC_IDS)
+table.sort(STANDARD_IDS)
 
 local function talk(info, spoof, charIndex, mem)
   -- Real play: every conversation counts, and time passes between them.
@@ -227,6 +232,10 @@ local function talk(info, spoof, charIndex, mem)
     local topic = TOPIC_IDS[rng.int(1, #TOPIC_IDS)]
     if not seen[topic] then seen[topic] = true; asked[#asked + 1] = topic end
   end
+  if #STANDARD_IDS > 0 then
+    local topic = STANDARD_IDS[rng.int(1, #STANDARD_IDS)]
+    if not seen[topic] then seen[topic] = true; asked[#asked + 1] = topic end
+  end
   table.sort(asked)
   for _, topic in ipairs(asked) do
     local t = ns.Engine.PickTopic(info, topic, ctx, env)
@@ -248,6 +257,12 @@ local pooledNPCs = {
   { pooled = true, role = "innkeeper", communities = {}, name = "Innkeeper" },
   { pooled = true, role = "vendor", communities = {}, name = "Merchant" },
   { pooled = true, role = "spirithealer", communities = {}, name = "Spirit Healer" },
+  { pooled = true, role = "soldier", communities = { "farholde" }, name = "Diseased Soldier" },
+  { pooled = true, role = "worker", communities = {}, name = "Laborer" },
+  { pooled = true, role = "farmer", communities = {}, name = "Farmer" },
+  { pooled = true, role = "citizen", communities = {}, name = "Townsperson" },
+  { pooled = true, role = "priest", communities = {}, name = "Acolyte" },
+  { pooled = true, role = "blacksmith", communities = {}, name = "Blacksmith" },
 }
 
 local VISITS = 2  -- the first visit is often already a return (mem.times is random), so two cover both

@@ -241,6 +241,8 @@ P:NPC {
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "Stormwind officer, Kurzen's expedition, and now this clearing. Every step of it was an order but the last.", next = "left" } },
+    advice = { { id = "tp_ad", text = "If a soldier in Kurzen's colours offers you a drink, decline it. Then walk away. Then run." } },
     kurzen = { { id = "tp_kurzen", text = "He was a good officer once. Don't let anyone tell you different. That's what makes this hard." } },
     _none = { { id = "tp_none", text = "Ask the Brother. He does the thinking around here." } },
   },
@@ -404,6 +406,8 @@ P:NPC {
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "A priest with an alchemist's habits, sent with an expedition that needed a healer. It needed more than one." } },
+    advice = { { id = "tp_ad", text = "Don't drink anything in this jungle you didn't see poured. Not water, not wine, not medicine." } },
     kurzen = { { id = "tp_kurzen", text = "I prayed for him every night. Now I pray for whoever finally stops him." } },
     _none = { { id = "tp_none", text = "I'm afraid I've no answer. I'll add it to my list of questions; it's a long list." } },
   },
@@ -519,6 +523,8 @@ P:NPC {
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "Private, Stormwind army. Spy, for a while. Private again, now. I liked being a private better." } },
+    advice = { { id = "tp_ad", text = "Count things when you're scared. Boots, tents, trees. It keeps your hands still." } },
     kurzen = { { id = "tp_kurzen", text = "The Colonel's not himself. His officers aren't either. Whatever's in that compound is in their heads now." } },
     _none = { { id = "tp_none", text = "I only know Kurzen. That's more than enough." } },
   },

@@ -472,10 +472,12 @@ end
 
 -- Pools for an NPC, each with its score base: community 200, kind of role (subtitle) 150,
 -- role+zone/faction 120, role 100.
-function Data.PoolsFor(info, ctx)
+-- forTopics: also the pools that only answer "Ask about..." questions (askOnly = true).
+-- Those never speak lines or make an unnamed NPC count as someone with things to say.
+function Data.PoolsFor(info, ctx, forTopics)
   local out = {}
   for _, pool in ipairs(Data.pools) do
-    if poolMatches(pool, info, ctx) then
+    if (forTopics or not pool.askOnly) and poolMatches(pool, info, ctx) then
       local base = pool.community and 200 or (pool.subtitle and 150 or ((pool.zone or pool.faction) and 120 or 100))
       out[#out + 1] = { pool = pool, base = base }
     end

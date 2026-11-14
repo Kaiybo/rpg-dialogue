@@ -461,6 +461,35 @@ function C.TooltipAddLine(tooltip, text, r, g, b)
   pcall(tooltip.Show, tooltip)
 end
 
+-- A one-line tooltip on one of our own frames (GameTooltip is shared; we only borrow it).
+function C.ShowTextTooltip(owner, text)
+  local tt = resolve("GameTooltip")
+  if not tt or not owner then return end
+  pcall(tt.SetOwner, tt, owner, "ANCHOR_CURSOR")
+  pcall(tt.SetText, tt, text, 1, 1, 1, 1, true)
+  pcall(tt.Show, tt)
+end
+
+function C.HideTooltip()
+  local tt = resolve("GameTooltip")
+  if tt then pcall(tt.Hide, tt) end
+end
+
+-- Clickable |H...|h links in a FontString on our own frame (topic words in the box).
+-- Frame:SetHyperlinksEnabled is in the modern client and recent Classic clients; without
+-- it the words stay coloured and every topic is still in the "Ask about..." list.
+function C.EnableHyperlinks(frame, onClick, onEnter, onLeave)
+  if not frame or type(frame.SetHyperlinksEnabled) ~= "function" then
+    noteMissing("Frame:SetHyperlinksEnabled")
+    return false
+  end
+  frame:SetHyperlinksEnabled(true)
+  frame:SetScript("OnHyperlinkClick", onClick)
+  if onEnter then frame:SetScript("OnHyperlinkEnter", onEnter) end
+  if onLeave then frame:SetScript("OnHyperlinkLeave", onLeave) end
+  return true
+end
+
 ---------------------------------------------------------------------------
 -- Total RP 3 (optional, read-only). Uses its public player object
 -- (AddOn_TotalRP3.Player.GetCurrentUser), never its internals, and never writes.

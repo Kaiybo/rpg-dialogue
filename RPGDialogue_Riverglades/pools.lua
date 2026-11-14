@@ -37,7 +37,7 @@ P:Pool {
     brotherhood_horse = { { id = "t_brotherhood", text = "We hold the keep. The riders hold the field. The Commander holds us all together." } },
     siege_of_farholde = { { id = "t_siege", text = "My captain was on these walls for it. He doesn't talk about it. Read the memorials." } },
     twilights_hammer = { { id = "t_hammer", text = "Cultists. They chant at night, up past the river. You get used to it. You shouldn't." } },
-    _none = { { id = "t_none", text = "Ask inside. I watch the road." } },
+    _none = { { id = "t_none", text = "Not a sentry's business. The Commander's, maybe. Ask him." } },
   },
 }
 

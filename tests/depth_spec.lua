@@ -51,7 +51,7 @@ local function pick(ns, needle)
   error("no reply containing " .. needle)
 end
 
-local function text(ns) return ns.UI.Dialogue.Frame().text:GetText() end
+local function text(ns) return plain(ns.UI.Dialogue.Frame().text:GetText()) end
 
 describe("Deeper conversations", function()
   it("comes BACK to the hub with a short again line, and hides what was asked", function()

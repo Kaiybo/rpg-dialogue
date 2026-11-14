@@ -2,6 +2,11 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.14.0 (unreleased)
+- "Ask anyone" topics: Their story, Their work, A little advice, Latest rumors (`standard = true`), and `asks.lua`: what every role says about its work, a little advice, and (unnamed people) their story, in question-only pools; generic deflections for anyone.
+- Topic `keywords` for the short forms people say (Kurzen, Bloodsail, Dragonmaw, Gnomeregan...), and `linkName = false` for The Collector.
+- The Riverglades: towns Farholde Keep and Powderfuse Port; topics the Brotherhood of the Horse, the Siege of Farholde, Sunnyglade, the Twilight's Hammer, Krol'dok, Fern Crimsonleaf, Powderfuse Port; open claims `stormwind_abandoned_riverglades`, `fern_lives`, `chogall_in_riverglades`, `melbin_built_port`; the book A Wartorn Land and The Brotherhood and the Farholde memorials; Riverglades rumors, with word of it in Redridge, Tanaris and the Swamp of Sorrows.
+
 ## 1.13.0 (unreleased)
 - Towns: Bloodvenom Post, Thorium Point, Light's Hope Chapel.
 - Claim `kalaran_father` (Kalaran Windblade's story; false, settled by Squire Maltrake).

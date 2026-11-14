@@ -179,7 +179,7 @@ Inside the braces you may use strings, numbers, booleans, nested tables and the 
 | `Generic` | `generic/*.lua` | World | the last link in every fallback chain |
 | `Thread` | `threads/<id>.lua` | World | a throughline: theme, NPCs, beats (keyed by NPC), states, endings, pacing |
 | `Claim` | `claims/<id>.lua` | World | an NPC claim: who says it, truth status, what can expose it, or "deliberately open" |
-| `Topic` | `topics/<id>.lua` | World | an "Ask about…" topic: name, category, how it's learned |
+| `Topic` | `topics/<id>.lua` | World | an "Ask about…" topic: name, category, how it's learned, `keywords` that name it in speech, `standard` for "ask anyone" topics (§3.11) |
 | `Town` | `towns/<id>.lua` | World | town standing: subzones, member NPCs, related towns and spread, tier names, quests |
 | `Origin` | `origins/<race>.lua` | World | the origin list for a race, including class-specific entries |
 | `Rumors` | `rumors/<region>.lua` | World or zone | innkeeper rumor tables |
@@ -814,6 +814,15 @@ If a line throws an error, paste the error instead. That tells us something too.
 | M6 | spirit healers, books, insanity, drunk replies, ghosts, barks, errands | 979fcc5 |
 | M7 | zone planning and scaffolding, one-command checks, simulation and voice-check additions | bbefce7 |
 | M8 | Total RP 3, accessibility pass (keyboard, gamepad, readable font, no color-only signals), tooltip marker, `PACK_AUTHORING.md`, packaging and policy checks, release workflow | c2e6a2e |
+
+### 3.11 "Ask about..." (Morrowind-style, 0.27.0)
+
+- **Hearing topics.** Every line the NPC says in the box (main line, noticing moment, rumor, an answer) goes through `Topics.Hear`: topic words in it are learned, and linked. The words are each topic's `keywords` plus its name without a leading "The " or anything after a comma or bracket (`linkName = false` turns the name off, for ordinary phrases like "The Collector"). Whole words only, a plural "s" and a possessive count, longest match first, one link per topic per line, never inside an existing colour code or link, never a topic linking to itself in its own answer.
+- **Links.** `|Hrpgdtopic:<id>|h<colour>word|r|h` on the box's own frame (`C.EnableHyperlinks`: `SetHyperlinksEnabled` plus `OnHyperlinkClick`/`Enter`/`Leave`, guarded). The typewriter types the plain text and swaps in the linked text when it finishes, so no half-typed codes show; the click-to-finish cover hides then, so the words can be clicked. Click: `Conversation.Ask(id)`; hover: "Ask about <topic>". Setting `topicLinks` (default on) turns the links off; topics are still learned. Colour `topic` in every palette; the "Ask about..." list carries every topic too, so nothing depends on colour. Inside DialogueUI the text stays plain.
+- **Ask anyone.** Topics with `standard = true` (Their story, Their work, A little advice, Latest rumors: `RPGDialogue_World/topics.lua`) are always known, listed first, never archived or linked. `Engine.PickTopic` skips brush-offs for them. A named NPC's story is their own take or a generic deflection, never a role's. Their work and advice fall back to the role. Latest rumors: the NPC's own, then any rumor set tied to their zone or town whatever their role (`Rumors.SetsFor(info, ctx, true)`), then role and generic.
+- **Question-only pools.** `askOnly = true` pools (`RPGDialogue_World/asks.lua`) answer topics and nothing else: `Data.PoolsFor(info, ctx)` leaves them out, `Data.PoolsFor(info, ctx, true)` (topics only) includes them, so they never make an unnamed NPC talk.
+- **Answers that lead somewhere.** A topic line with `next = "<node>"` shows the answer, then that node's replies (the node counts as visited; BACK returns to the hub). The validator checks the node exists.
+- **The list.** Grouped by category under headers ("Ask anyone" first, then categories in order of their newest topic), flat while searching; a topic already asked of this NPC (`mem.topics`) says "(asked)"; keys and the gamepad skip headers.
 
 ### 3.10 Window style (look)
 

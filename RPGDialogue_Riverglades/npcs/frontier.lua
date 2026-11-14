@@ -28,7 +28,7 @@ P:NPC {
         { id = "h_after", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Helping Hands"), days = 3 } },
           text = "Curly's on his feet. Mostly. He says thank you. He also says he had it handled. He didn't." },
       },
-      again = { { id = "h_again", text = "What else? Keep an eye on the treeline while you ask." } },
+      again = { { id = "h_again", text = "Something else? Quick, before Curly wanders off again." } },
       choices = {
         { text = "Who's Curly?", next = "curly" },
         { text = "Who's been raiding your woodpiles?", next = "raids" },
@@ -66,6 +66,8 @@ P:NPC {
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "Logger. Axe since I was twelve. Worrier since I met Curly." } },
+    advice = { { id = "tp_ad", text = "If you hear singing in the woods and it isn't us, run." } },
     _none = { { id = "tp_none", text = "Couldn't tell you. Ask Halligan. He knows things. Or says he does." } },
   },
 }
@@ -129,6 +131,8 @@ P:NPC {
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "Turner's camp. My name's on it, so the blame is too." } },
+    advice = { { id = "tp_ad", text = "Never stand downhill of a falling tree. Or a falling logger." } },
     brotherhood_horse = { { id = "tp_brotherhood", text = "Best customers I've got. Only customers I've got." } },
     _none = { { id = "tp_none", text = "Not my business. Trees are my business." } },
   },
@@ -186,6 +190,8 @@ P:NPC {
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "Farmer. Was, is, will be. Nothing more to say about it that the dirt doesn't." } },
+    advice = { { id = "tp_ad", text = "Stay off the rows after dark. The reapers don't sleep, and they don't ask who you are." } },
     _none = { { id = "tp_none", text = "I'm a farmer. Ask me about weather. Ask me about reapers, even. Not that." } },
   },
 }

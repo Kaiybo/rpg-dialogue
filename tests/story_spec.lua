@@ -22,7 +22,7 @@ local function leave(ns)
   if _G.GossipFrame then _G.GossipFrame:Hide() end
 end
 
-local function text(ns) return ns.UI.Dialogue.Frame().text:GetText() end
+local function text(ns) return plain(ns.UI.Dialogue.Frame().text:GetText()) end
 
 describe("Throughlines", function()
   it("offers a beat, records it, and holds the next one back for pacing", function()
@@ -85,9 +85,13 @@ describe("Ask about", function()
     local ns = bootReal()
     ns.Topics.Teach("hogger")
     ns.char.topics.defias = { t = Mock.state.now - 40 * 86400 }
-    local active = ns.Topics.Known(false)
-    eq(#active, 1)
-    eq(#ns.Topics.Known(true), 2)
+    local function learned(list)
+      local n = 0
+      for _, t in ipairs(list) do if not t.standard then n = n + 1 end end
+      return n
+    end
+    eq(learned(ns.Topics.Known(false)), 1)
+    eq(learned(ns.Topics.Known(true)), 2)
     eq(#ns.Topics.Filter(ns.Topics.Known(true), "hog"), 1)
   end)
 end)

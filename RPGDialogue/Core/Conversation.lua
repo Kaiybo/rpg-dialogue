@@ -636,13 +636,19 @@ function Conv.ShowNode(nodeId)
   if before then body = before .. "\n\n" .. body end
   if after then body = body .. "\n\n" .. after end
 
+  -- Topics named in what they said are learned, and linked in the box (Morrowind-style).
+  local linked = Conv.Hear(body)
+
   local Ins = ns.Insanity
-  if Ins then body = Ins.Scramble(body, nil, env.seed) end
+  if Ins then
+    local scrambled = Ins.Scramble(body, nil, env.seed)
+    if scrambled ~= body then body, linked = scrambled, nil end
+  end
 
   s.page = nil
   present(s, {
     name = Ins and Ins.Name(info.name, env.seed) or info.name, subtitle = info.subtitle, unit = s.unit,
-    text = body, choices = Conv.BuildChoices(node, isStart),
+    text = body, linkedText = linked, choices = Conv.BuildChoices(node, isStart),
     lineGid = winner and winner.gid, canAsk = ns.Topics and ns.Topics.Any(),
   })
   if ns.db.settings.tts then C.StopSpeaking(); C.Speak(body) end
@@ -770,6 +776,19 @@ function Conv.Choose(index)
 end
 
 -- "Ask about...": the NPC's own take, then their community's, their role's, then a brush-off.
+-- Learn the topics named in some text the NPC said, and return it with them linked (or
+-- nil when nothing was linked). exclude: a topic that shouldn't link to itself.
+function Conv.Hear(text, exclude)
+  local s = Conv.session
+  if not ns.Topics or type(text) ~= "string" then return nil end
+  local hex = ns.UI and ns.UI.Theme and ns.UI.Theme.Hex("topic") or nil
+  local linked, found = ns.Topics.Hear(text, s and s.env, exclude, hex)
+  return (#found > 0 and linked ~= text) and linked or nil
+end
+
+-- "Ask about...": the NPC's own take, then their community's, their role's, then a brush-off.
+-- An answer can open a branch of the conversation (its line says next = "<node>"): the
+-- answer is shown, and that node's replies follow it.
 function Conv.Ask(topic)
   local s = Conv.session
   if not s or s.mode ~= "full" then return end
@@ -781,7 +800,20 @@ function Conv.Ask(topic)
     s.lastLine = w.gid
     text = Tokens.Render(w.line.text, s.ctx, s.env)
   end
-  View(s).ShowAnswer(text, ns.Data.topics[topic] and ns.Data.topics[topic].name or topic)
+  local linked = Conv.Hear(text, topic)
+  local tdef = ns.Data.topics[topic]
+  View(s).ShowAnswer(text, tdef and tdef.name or topic, linked)
+  local nextId = w and w.line.next
+  local node = nextId and s.info.def and s.info.def.nodes and s.info.def.nodes[nextId]
+  if node then
+    s.node, s.nodeDef = nextId, node
+    s.visited = s.visited or {}
+    s.visited[nextId] = true
+    if s.mem then s.mem.nodes = s.mem.nodes or {}; s.mem.nodes[nextId] = true end
+    if node.hub then s.hub = nextId end
+    View(s).SetChoices(Conv.BuildChoices(node, false))
+  end
+  if ns.UI.AskAbout and ns.UI.AskAbout.Refresh then ns.UI.AskAbout.Refresh() end
 end
 
 function Conv.OpenCompact()

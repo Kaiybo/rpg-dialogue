@@ -32,6 +32,7 @@ SD.ACCOUNT_DEFAULTS = {
     tags = "available",         -- special option tags: "always" | "available" | "never"
     showLocked = false,
     newMarker = false,
+    topicLinks = true,          -- topic words in NPC lines are highlighted links (Ask about)
     fadeDefault = true,         -- fade Blizzard's window while ours covers it
     textSize = 13,              -- the game's quest font size
     lineSpacing = 3,

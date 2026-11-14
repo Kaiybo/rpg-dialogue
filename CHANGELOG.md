@@ -2,6 +2,28 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.27.0 (2026-11-14)
+Packs: World 1.14.0, Stranglethorn 1.4.0, and a new one: **Riverglades 1.0.0** (the rest as in 0.25.0). **New folder: exit the game fully, copy RPGDialogue_Riverglades in, and tick it.**
+
+### Ask about, Morrowind-style
+The user: "Develop the 'Morrowind' style 'ask about' more deeply."
+- **You pick topics up by hearing them.** When someone in the box names a person, place or trouble the addon knows (the Defias, Hogger, the Bloodsail, the Siege of Farholde...), you learn it, and the word is highlighted. **Click it to ask them about it.** The text types out plain and the links appear when it finishes. Hover a word to see "Ask about ...". Settings: "Highlight topics in what people say" (on by default; off still learns them).
+- **Anyone can be asked:** Their story, Their work, A little advice, Latest rumors. These are always in the list, first. Named people tell their own story or politely don't; everyone else answers from their role (guards, innkeepers, smiths, flight masters, children, priests, soldiers, farmers, peons...). Anyone passes on the rumors going round their zone, not only innkeepers.
+- **Answers lead somewhere.** Some answers open that subject's replies: ask Demar Brant about Fern Crimsonleaf and you're in that conversation.
+- **The list** is grouped by category under headers ("Ask anyone" first, then people, places, threats, history...), flat while you search. Topics you've already asked this person about say "(asked)". Keys and the gamepad skip the headers.
+
+### The Riverglades (new zone)
+Forever's new zone, Alliance and neutral first, from the wiki and Blizzard's announcements (LORE_NOTES "The Riverglades"):
+- **Farholde Keep:** Knight Commander Demar Brant and twenty years of the Brotherhood of the Horse; Ashe Amberhall, his advisor, who thinks Stormwind made the sensible choice and fights anyway; Sergeant Riftan at the front; Sister Rowland and the sick in the chapel; Cady Lloydriel, her dog and cat and the cradle she won't explain; Wheatley, Gretchen Mayberry and Alphonse Dumas; the sentries.
+- **Outside the walls:** Hurley and Halligan Turner at the logging camp, Benjy Wheeler at Wheeler's Grange.
+- **Powderfuse Port:** Melbin Powderfuse, who built all of it (he says); Innkeeper Zizplink; Gray Dawnbright, drinking, who won't believe Fern Crimsonleaf is dead; Jazzle's arena with no fights yet; Fimbo's cafe; Argo and his sea monster; Gritta's chum.
+- Questions left open on purpose: was Stormwind cowardly or sensible? Is Fern alive? Did Cho'gall come here? Did Melbin build the port?
+- Horde (Rog'mar, Bolder'ok) is still to come.
+
+### Also
+- Validator: an error when two packs use the same NPC key for two different people (they'd merge into one). It caught `gretchen` (Gretchen Dedmar in Brill, Gretchen Mayberry in Farholde).
+- "Sentry ..." NPCs are guards; Farholde's laborers, scouts and sick soldiers are pooled.
+
 ## 0.26.0 (2026-11-14)
 Packs: Stranglethorn 1.3.0 (the rest as in 0.25.0). No new folders: /reload is enough, restarting is safest.
 

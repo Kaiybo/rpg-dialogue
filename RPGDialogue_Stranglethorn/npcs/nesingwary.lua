@@ -182,6 +182,8 @@ P:NPC {
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "Soldier, then hunter, then writer, Light help us all. Barnil does the spellin'.", next = "hero" } },
+    advice = { { id = "tp_ad", text = "Shoot what's chargin' ye first. Then shoot what's watchin' ye. Then have a drink." } },
     _none = { { id = "tp_none", text = "Does it have fur, claws or teeth? No? Then I couldnae care less." } },
   },
 }
@@ -303,6 +305,8 @@ P:NPC {
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "Ironforge lad, soldier once, now the master's man. Best job I ever had. Don't tell him." } },
+    advice = { { id = "tp_ad", text = "Keep yer powder dry an' yer pages weighted. The wind in this jungle has opinions." } },
     _none = { { id = "tp_none", text = "Ask the master. He'll tell ye. At length." } },
   },
 }
@@ -427,6 +431,8 @@ P:NPC {
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "My father, a bow, and tigers. That's my whole life, and I'd not trade a day of it.", next = "father" } },
+    advice = { { id = "tp_ad", text = "Never hunt a cat from below it. They're always above you. Always." } },
     _none = { { id = "tp_none", text = "Not tigers. Not my concern." } },
   },
 }
@@ -558,6 +564,8 @@ P:NPC {
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "Count, once. Hunter, now. The second title I earned.", next = "nobles" } },
+    advice = { { id = "tp_ad", text = "Read who's paying for something before you do it. It's the only question that matters, here or in Stormwind." } },
     defias = { { id = "tp_defias", text = "Cheated men, turned thieves. I'd hang the thieves. I'd want the cheats hanged first." } },
     _none = { { id = "tp_none", text = "I've no opinion on it. I've given up having opinions in public. They cost too much." } },
   },

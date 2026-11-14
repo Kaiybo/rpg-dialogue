@@ -110,6 +110,8 @@ P:NPC {
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "Born with nothing, somewhere with less. Now I own a port. Do the sums; it's a very inspiring story." } },
+    advice = { { id = "tp_ad", text = "Never build on land somebody else owns. Build first, and make them prove it." } },
     powderfuse_port = { { id = "tp_port", text = "Mine. Next question." } },
     steamwheedle = { { id = "tp_cartel", text = "Fine people. Thirsty people. Every cut they take, I take back from the boat fares." } },
     twilights_hammer = { { id = "tp_hammer", text = "Terrible customers. They never buy anything, and they keep looking at the sky like it owes them money." } },
@@ -165,6 +167,8 @@ P:NPC {
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "Ran a kitchen, then a galley, now an inn. Every step was a bigger pot." } },
+    advice = { { id = "tp_ad", text = "Breathe through your mouth on the docks at low tide. Trust me." } },
     powderfuse_port = { { id = "tp_port", text = "Best little port on the coast! Only little port on the coast. Still counts." } },
     _none = { { id = "tp_none", text = "Never heard of it! Ask me tomorrow. Somebody'll have told me by then." } },
   },
@@ -268,9 +272,11 @@ P:NPC {
   },
 
   topics = {
-    fern_crimsonleaf = { { id = "tp_fern", text = "Alive. Don't argue with me about it." } },
+    background = { { id = "tp_bg", text = "Brotherhood, married, thirsty. In that order, most days." } },
+    advice = { { id = "tp_ad", text = "Don't stand too close to Demar when he's talking about Stormwind. He waves his hands." } },
+    fern_crimsonleaf = { { id = "tp_fernnext", text = "Fern? Sit down. Buy something. Then I'll tell you.", next = "fern" }, { id = "tp_fern", text = "Alive. Don't argue with me about it." } },
     brotherhood_horse = { { id = "tp_brotherhood", text = "Family. The kind you'd leave for an afternoon and never for good." } },
-    _none = { { id = "tp_none", text = "Don't know. Don't care. Drink?" } },
+    _none = { { id = "tp_none", text = "Ask somebody sober. Not me. Not tonight." } },
   },
 }
 
@@ -338,6 +344,8 @@ P:NPC {
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "Promoter. Born one. Some goblins come out with a silver tongue; mine came with a ticket booth." } },
+    advice = { { id = "tp_ad", text = "Every fight's a show. Win it pretty and somebody'll pay to watch the next one." } },
     _none = { { id = "tp_none", text = "Can it fight? No? Then I don't book it." } },
   },
 }
@@ -406,7 +414,9 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Can you eat it? No? Then I don't know it." } },
+    background = { { id = "tp_bg", text = "Cook. Always a cook. This cafe's the first kitchen that's mine, and it's on the water. That counts as floating." } },
+    advice = { { id = "tp_ad", text = "Murloc eyes go in last. Everything goes in before the murloc eyes." } },
+    _none = { { id = "tp_none", text = "Is it a recipe? It isn't? Then it's wasted on me." } },
   },
 }
 
@@ -472,6 +482,8 @@ P:NPC {
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "Born on a boat. *hic* Will die on a boat. In between, I'm on a boat." } },
+    advice = { { id = "tp_ad", text = "Never trust a calm sea or a sober sailor." } },
     _none = { { id = "tp_none", text = "Don't know! *hic* Ask me after the next one." } },
   },
 }
@@ -516,6 +528,8 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Does it swim? No? Then I don't know it." } },
+    background = { { id = "tp_bg", text = "Fished every coast a boat can reach. Came here because the fish are stupider. Don't tell them." } },
+    advice = { { id = "tp_ad", text = "Fish at dawn, sell by noon, and never eat what you can't name." } },
+    _none = { { id = "tp_none", text = "Fish don't talk about that, so neither do I." } },
   },
 }

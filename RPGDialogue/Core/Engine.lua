@@ -429,23 +429,38 @@ end
 ---------------------------------------------------------------------------
 -- Topic answers ("Ask about…", M4): NPC's own > community > role > brush-off
 ---------------------------------------------------------------------------
+-- "Ask about...": the NPC's own take, then their community's, their role's, then anyone's;
+-- a brush-off in their own voice when nobody has a take.
+--   * "Ask anyone" topics (their story, their work, advice, rumors) skip brush-offs: every
+--     role has something to say, and anyone can fall back on a generic answer.
+--   * A named NPC's story is their own or a polite deflection, never a role's stock one.
+--   * Latest rumors: the NPC's own, then whatever is going round this zone (any role can
+--     pass on hearsay, not only innkeepers), then their role's or anyone's.
 function Engine.PickTopic(info, topic, ctx, env)
   local cands = {}
   local def = info.def
+  local tdef = ns.Data and ns.Data.topics and ns.Data.topics[topic]
+  local standard = tdef and tdef.standard
   if def and def.topics then
     add(cands, def.topics[topic], Engine.BASE.own, "own")
-    if #cands == 0 then add(cands, def.topics._none, 90, "own-brushoff") end
+    if #cands == 0 and not standard then add(cands, def.topics._none, 90, "own-brushoff") end
+  end
+  if topic == "rumors" and #cands == 0 and ns.Rumors then
+    for _, set in ipairs(ns.Rumors.SetsFor(info, ctx, true)) do add(cands, set.lines, 300, "rumor:" .. set.id) end
   end
   if ns.Data then
-    for _, p in ipairs(ns.Data.PoolsFor(info, ctx)) do
+    local named = def ~= nil and not info.pooled
+    for _, p in ipairs(ns.Data.PoolsFor(info, ctx, true)) do
       local topics = p.pool.topics or {}
-      add(cands, topics[topic], p.base, "pool:" .. p.pool.id)
-      add(cands, topics._none, p.base - 150, "pool-brushoff:" .. p.pool.id)
+      if not (standard and topic == "background" and named) then
+        add(cands, topics[topic], p.base, "pool:" .. p.pool.id)
+      end
+      if not standard then add(cands, topics._none, p.base - 150, "pool-brushoff:" .. p.pool.id) end
     end
     for _, g in ipairs(ns.Data.GenericFor(ctx)) do
       local topics = g.topics or {}
       add(cands, topics[topic], 0, "generic:" .. g.id)
-      add(cands, topics._none, -100, "generic-brushoff:" .. g.id)
+      if not standard then add(cands, topics._none, -100, "generic-brushoff:" .. g.id) end
     end
   end
   return Engine.Pick("topic", cands, ctx, env, { node = "topic:" .. topic })

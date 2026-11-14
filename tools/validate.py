@@ -358,6 +358,9 @@ def main():
         start = tbl.get("start") or "hello"
         if nodes and start not in nodes:
             rep.error(pack, f, line, f"{where}: start node {start!r} doesn't exist")
+        for slot, node, ln, gid in P.iter_lines(tbl, key):
+            if slot == "topic" and ln.get("next") is not None and ln.get("next") not in nodes:
+                rep.error(pack, f, ln.line, f"{where}.topics.{node}.{ln.get('id')}: next {ln.get('next')!r} isn't one of this NPC's nodes")
         edges = {}
         for nid, node in nodes.items():
             if not isinstance(node, LTable):
@@ -473,9 +476,19 @@ def main():
         for t in P.arr(tbl.get("topics")):
             if t not in defs["Topic"]:
                 rep.warn(pack, f, line, f"book {bid}: topic {t!r} isn't defined")
+    words = {}
     for tid, (pack, tbl, f, line) in defs["Topic"].items():
         if not tbl.get("name") or not tbl.get("category"):
             rep.error(pack, f, line, f"topic {tid}: needs name and category")
+        # Keywords: words that name the topic in what people say (heard, learned, linked).
+        for w in P.arr(tbl.get("keywords")):
+            if not isinstance(w, str) or len(w.strip()) < 4:
+                rep.error(pack, f, line, f"topic {tid}: keyword {w!r} must be a string of 4+ letters")
+                continue
+            other = words.get(w.lower())
+            if other and other != tid:
+                rep.warn(pack, f, line, f"topic {tid}: keyword {w!r} also names topic {other!r}; the longer match wins")
+            words[w.lower()] = tid
     for cid, (pack, tbl, f, line) in defs["Claim"].items():
         truth = tbl.get("truth")
         if truth not in ("true", "false", "partly", "disputed", "unknown"):
