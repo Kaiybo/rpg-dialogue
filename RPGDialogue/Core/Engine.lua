@@ -90,7 +90,12 @@ function Engine.Gather(slot, info, ctx, nodeId)
   elseif slot == "bark" then
     if def then add(out, def.barks, own, "own") end
   end
-  if ns.Data then
+  -- A named NPC with noticing moments of their own keeps to them: a role pool's "any
+  -- blacksmith could say this" moment would fail the content guide's test (CONTENT_GUIDE §3).
+  -- The same for reactions. Pooled NPCs and named NPCs without their own still use the pool's.
+  local ownOnly = def and not info.pooled and ((slot == "notice" and def.notice and #def.notice > 0)
+    or (slot == "react" and def.react and #def.react > 0))
+  if ns.Data and not ownOnly then
     for _, p in ipairs(ns.Data.PoolsFor(info, ctx)) do
       if p.pool ~= def then
         local field = (slot == "line") and "lines" or (slot == "greeting" and "greetings" or (slot == "bark" and "barks" or slot))

@@ -78,6 +78,27 @@ describe("Content packs", function()
     eq(ns.Data.PoolsFor(info, ctx)[1].pool.id, "trainer_priest")
   end)
 
+  it("a named NPC with noticing moments of their own doesn't borrow the role pool's", function()
+    local ns = bootReal()
+    Mock.state.subzone = "Goldshire"
+    Mock.state.units.npc = { guid = "Creature-0-1-0-1-99011-AB", name = "Smith Argus", level = 20 }
+    Mock.state.tooltip.npc = { { leftText = "Smith Argus" }, { leftText = "<Journeyman Blacksmith>" } }
+    local ctx = ns.Context.New({ unit = "npc" })
+    local info = ns.Conversation.Identify("npc", ctx)
+    eq(info.key, "argus")
+    local cands = ns.Engine.Gather("notice", info, ctx)
+    ok(#cands > 0)
+    for _, c in ipairs(cands) do eq(c.src, "own") end
+    -- A pooled blacksmith still gets the pool's.
+    Mock.state.units.npc = { guid = "Creature-0-1-0-1-99012-AB", name = "Some Smith", level = 20 }
+    Mock.state.tooltip.npc = { { leftText = "Some Smith" }, { leftText = "<Blacksmithing Supplies>" } }
+    ctx = ns.Context.New({ unit = "npc" })
+    info = ns.Conversation.Identify("npc", ctx)
+    local any = false
+    for _, c in ipairs(ns.Engine.Gather("notice", info, ctx)) do if c.src:match("^pool:") then any = true end end
+    ok(any or info.role ~= "blacksmith", "pooled NPCs keep pool notices")
+  end)
+
   it("capital guards belong to their city by zone", function()
     local ns = bootReal()
     Mock.state.zone, Mock.state.subzone = "Ironforge", "The Commons"
