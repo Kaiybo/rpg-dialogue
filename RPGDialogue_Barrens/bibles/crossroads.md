@@ -37,3 +37,6 @@
 - Darsok: swaggering assassin, jokes with an edge.
 - Zargh: jolly butcher with a missing finger and a crush on Gryshka.
 - Boorand: warm tauren host; the "where is Mankrik's wife" question everyone asks.
+
+## Depth pass (0.24.0)
+Authored, not canon: Boorand's holey roof and the Ratchet goblin who tried to sell him a better one ([Ratchet](https://warcraft.wiki.gg/wiki/Ratchet) is the goblin port); Zargh reading Gryshka's returned bones as a good sign; Thork's "holding a sieve".

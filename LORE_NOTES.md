@@ -658,3 +658,11 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Argent Dawn topic: neutral, all races, against the Scourge; Light's Hope Chapel; split from what became the Scarlet Crusade | [Argent Dawn](https://warcraft.wiki.gg/wiki/Argent_Dawn) |
 | Donova Snowden: dwarf by the hot springs; Winterfall firewater and corruption chain; tempers Linken's sword | [Donova Snowden](https://warcraft.wiki.gg/wiki/Donova_Snowden), [Linken](https://warcraft.wiki.gg/wiki/Linken) |
 | Witch Doctor Mau'ari: jungle troll, E'ko into juju; Cache of Mau'ari, A Little Luck, Luck Be With You | [Witch Doctor Mau'ari](https://warcraft.wiki.gg/wiki/Witch_Doctor_Mau'ari) |
+
+## Depth pass (0.24.0)
+
+| Fact used | Source |
+|---|---|
+| Razorfen: the quilboar's ancestral home within giant thorny vines (Mangletooth dreams of "the thorns") | [Razorfen Kraul](https://warcraft.wiki.gg/wiki/Razorfen_Kraul) |
+| Ratchet: Steamwheedle goblin port on the Barrens' eastern shore (Boorand's goblin guest) | [Ratchet](https://warcraft.wiki.gg/wiki/Ratchet) |
+| Everything else added in the depth pass is authored small life (habits, family, opinions of neighbours), marked "authored, not canon" in each pack's bible | — |

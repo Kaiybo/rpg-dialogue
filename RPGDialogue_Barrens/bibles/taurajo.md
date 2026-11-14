@@ -22,3 +22,6 @@
 - Mangletooth: snorting, scheming captive; third person.
 - Tatternack: curious smith-scholar.
 - Byula: warm innkeeper.
+
+## Depth pass (0.24.0)
+Authored, not canon: Byula serves the kodo herders first and dislikes the hyenas' laughing; Taurajo still sings at night; Tatternack writes everything down for the Warchief, who may never read it; Mangletooth's reason for helping is his own story (unreliable: he picks which hate to feed). Sourced: the thorns of Razorfen are the quilboar's home ([Razorfen Kraul](https://warcraft.wiki.gg/wiki/Razorfen_Kraul)).

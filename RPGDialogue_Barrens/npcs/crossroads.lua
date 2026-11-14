@@ -37,6 +37,7 @@ P:NPC {
           text = "Mankrik told you his story. I'm sorry for his loss. I won't send soldiers to die for a man who can't see past his anger. Someone has to say no." },
       },
       choices = {
+        { text = "What's the hardest part of holding the Crossroads?", next = "hardest" },
         { text = "What threatens the Crossroads?", next = "threats" },
         { text = "I'm loyal to the Horde.", next = "END", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "Farewell, Thork.", next = "END" },
@@ -55,6 +56,12 @@ P:NPC {
     lot = {
       lines = { { id = "l_default", text = "It is. The trick is that they hate each other too. Most days that's what keeps us alive." } },
       choices = { { text = "...", next = "END" } },
+    },
+    hardest = {
+      lines = {
+        { id = "h_sieve", text = "Every caravan wants an escort, every scout wants a rest, and the centaur raid on the one night I've got neither. The Warchief asked me for a crossroads. Some days I'm holding a sieve." },
+      },
+      choices = { { text = "You're holding it well.", next = "END", fx = { affinity = 2, standing = { crossroads = 1 } } } },
     },
   },
 
@@ -385,6 +392,7 @@ P:NPC {
           text = "Choice cuts for Gryshka at the inn in Orgrimmar. Get them there fresh. And tell her... tell her they're from me. She'll know what that means." },
         { id = "h_return", when = { questDone = TODO_QUEST("Return to the Crossroads") },
           text = "She liked them? She said that? Good. Good! If there's a wedding, you're invited. If. I'm not saying there's a wedding." },
+        { id = "h_bones", when = { metBefore = true }, text = "Gryshka sent back the bones. Clean. I don't know what that means. I've decided it's a good sign." },
       },
       choices = {
         { text = "What happened to your finger?", next = "finger" },
@@ -431,6 +439,8 @@ P:NPC {
         { id = "h_default", text = "Boorand Plainswind. I keep the inn at the Crossroads. Orcs, trolls, tauren, the odd Forsaken: they all sleep the same once they're tired enough." },
         { id = "h_mankrik", when = { heardLine = "mankrik.h_default" },
           text = "Mankrik's been on that wall since before I got here. He eats when someone puts food in his hands. I put food in his hands." },
+        { id = "h_roof", when = { metBefore = true }, text = "A goblin from Ratchet stayed three nights and tried to sell me a better roof. This roof is fine. It has holes. That's how the stars get in." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "Night at the Crossroads is never quiet. Riders coming in, wind riders grumbling on the tower. I'd miss it if it stopped." },
       },
       choices = {
         { text = "Make this my home.", next = "BUSINESS" },

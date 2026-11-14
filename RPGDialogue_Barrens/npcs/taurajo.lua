@@ -79,8 +79,10 @@ P:NPC {
           text = "Blood shards. Bristlebacks carry them. Bring them to Mangletooth, and he will give you the boar god's gifts." },
         { id = "h_betrayal", when = { questActive = TODO_QUEST("Betrayal from Within") },
           text = "*snort* Nak, Kuz, Lok. Mangletooth's own. They left him to the cow-folk's axes. Now they learn what Mangletooth thinks of that." },
+        { id = "h_thorns", when = { metBefore = true }, text = "*snort* Mangletooth dreams of the thorns. Great thorns, taller than the cow-folk's poles. One day Mangletooth goes home to them." },
       },
       choices = {
+        { text = "Why help us at all?", next = "why" },
         { text = "Who is Agamaggan?", next = "agamaggan" },
         { text = "You're not getting out of that cage.", next = "END", fx = { affinity = -1 } },
       },
@@ -91,6 +93,12 @@ P:NPC {
         { id = "a_default", text = "The great boar. He fell long ago, fighting for this world, and where his blood touched the earth, the thorns grew. His bones lie in the south. The quilboar remember. *snort*" },
       },
       choices = { { text = "Interesting.", next = "END", fx = { affinity = 1, trait = { curious = 1 } } } },
+    },
+    why = {
+      lines = {
+        { id = "w_hate", text = "*snort* Mangletooth hates cages. Mangletooth hates Bristlebacks more. A clever boar picks which hate to feed. Today, Mangletooth feeds the bigger one." },
+      },
+      choices = { { text = "I'll remember you said that.", next = "END", fx = { trait = { skeptical = 1 } } } },
     },
   },
 
@@ -125,7 +133,13 @@ P:NPC {
         { id = "h_weapons", tags = { "news" }, when = { questActive = TODO_QUEST("Weapons of Choice") },
           text = "I'd like to see what the enemy fights with. Bring me their weapons. I promise to study them before I melt them." },
       },
-      choices = { { text = "I'll bring you something interesting.", next = "END", fx = { affinity = 2, trait = { curious = 1 } } } },
+      choices = { { text = "What have you learned so far?", next = "learned" }, { text = "I'll bring you something interesting.", next = "END", fx = { affinity = 2, trait = { curious = 1 } } } },
+    },
+    learned = {
+      lines = {
+        { id = "l_bone", text = "That the quilboar sharpen bone better than most smiths sharpen steel, and the centaur don't sharpen anything at all; they just hit harder. I'm writing it all down for the Warchief. He may never read it. I'm writing it anyway." },
+      },
+      choices = { { text = "Somebody should.", next = "END", fx = { affinity = 2, trait = { curious = 1 } } } },
     },
   },
 
@@ -156,8 +170,16 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Innkeeper Byula. Everyone who crosses the southern Barrens stops at Taurajo eventually. I make sure they leave rested." },
+        { id = "h_herders", when = { metBefore = true }, text = "The kodo herders come in at sundown smelling of dust and kodo. I serve them first. They've earned it." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "Hear that, past the palisade? Hyenas. They laugh when the moon's up. I've never once found it funny." },
       },
-      choices = { { text = "Just a rest, thanks.", next = "END" } },
+      choices = { { text = "What's Taurajo like?", next = "camp" }, { text = "Just a rest, thanks.", next = "END" } },
+    },
+    camp = {
+      lines = {
+        { id = "c_fires", text = "Quieter than the Crossroads, and hungrier. Centaur and quilboar both test the palisade. We keep the fires high and the spears close, and we still sing at night." },
+      },
+      choices = { { text = "I'd like to hear that.", next = "END", fx = { affinity = 1 } } },
     },
   },
 
