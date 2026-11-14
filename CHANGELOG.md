@@ -2,6 +2,22 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.11.0 (2026-11-13)
+Packs unchanged: World 1.0.0, Elwynn Forest 1.1.0. Adds a file (`Integrations/DialogueUIView.lua`): restart the game, don't just /reload.
+
+### One window, start to finish
+- **The game's next pages stay in the box.** Pick a gossip option or a quest in the conversation box and what follows shows in the same box:
+  - the NPC's next gossip page;
+  - a quest's offer (text, objectives, rewards with their icons, money and experience), with Accept and Decline;
+  - the hand-in (required items, Continue once you have them);
+  - the reward page (pick your reward from the list, with the game's item tooltip on hover; or Complete quest).
+  - Vendors, trainers, flight maps and banks still open their own windows. A PvP quest or a hand-in that costs money is handed to the game's quest window for its own confirmation. "Get on with it" still reaches the game's window from every page.
+  - Setting: "Keep the NPC's other pages and quests in the conversation box" (on).
+- **With DialogueUI, everything happens in DialogueUI's window** (the new default). The NPC's lines and your replies are drawn inside DialogueUI's own window, as its own options, with its number keys, and RPG Dialogue's box doesn't appear. "Ask about..." lists topics there too. Picking a quest or a service, or "Get on with it", carries on with DialogueUI's own pages.
+  - DialogueUI has no way for other addons to add dialogue, so this is built on how its window works inside (version 1.0.7). A DialogueUI update could change that: if its window can't take the conversation (or doesn't show), RPG Dialogue's own box takes over for that visit.
+  - "Other dialogue addons" → "RPG Dialogue first, then the other window" brings back the 0.10.2 behavior (our box over DialogueUI's).
+- Fixed: after a quest was picked in the box, the game's gossip window could be left see-through the next time it opened.
+
 ## 0.10.3 (2026-11-13)
 Packs unchanged: World 1.0.0, Elwynn Forest 1.1.0. Adds a file (`UI/TextOptions.lua`): restart the game, don't just /reload.
 

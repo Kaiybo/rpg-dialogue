@@ -896,6 +896,72 @@ function C.QuestFrameText()
   }
 end
 
+---------------------------------------------------------------------------
+-- The quest window's pages, read and answered from our box (the same calls the game's
+-- QuestFrame makes, 12.1.5: QuestFrame.lua / QuestInfo.lua).
+---------------------------------------------------------------------------
+-- Items on the current quest page. kind: "choice" (pick one), "reward", "required".
+local ITEM_COUNTERS = { choice = "GetNumQuestChoices", reward = "GetNumQuestRewards", required = "GetNumQuestItems" }
+function C.QuestItems(kind)
+  local out = {}
+  for i = 1, tonumber(call(ITEM_COUNTERS[kind])) or 0 do
+    local name, texture, count = call("GetQuestItemInfo", kind, i)
+    if type(name) == "string" and name ~= "" then
+      out[#out + 1] = { index = i, name = clean(name), texture = texture, count = tonumber(count) or 1, kind = kind }
+    end
+  end
+  return out
+end
+
+-- What the quest page offers and asks: money and experience rewarded, money it costs,
+-- whether it can be handed in, whether it's an automatic or a PvP quest.
+function C.QuestPageInfo()
+  return {
+    rewardMoney = tonumber(call("GetRewardMoney")) or 0,
+    rewardXP = tonumber(call("GetRewardXP")) or 0,
+    cost = tonumber(call("GetQuestMoneyToGet")) or 0,
+    completable = call("IsQuestCompletable") == true,
+    auto = call("QuestGetAutoAccept") == true,
+    pvp = call("QuestFlagsPVP") == true,
+  }
+end
+
+-- "Accept", "continue" (hand in items), "reward" (with a choice index or 0), "decline".
+function C.QuestAnswer(action, choice)
+  if action == "accept" then
+    if call("QuestGetAutoAccept") == true then return call("AcknowledgeAutoAcceptQuest") end
+    return call("AcceptQuest")
+  elseif action == "continue" then
+    return call("CompleteQuest")
+  elseif action == "reward" then
+    return call("GetQuestReward", choice or 0)
+  elseif action == "decline" then
+    return call("CloseQuest")
+  end
+end
+
+-- Money as the game writes it (gold, silver and copper coins), or plain text.
+function C.MoneyText(copper)
+  copper = tonumber(copper) or 0
+  local text = call({ "C_CurrencyInfo.GetCoinTextureString", "GetCoinTextureString" }, copper)
+  if type(text) == "string" and text ~= "" then return text end
+  local g, s, c = math.floor(copper / 10000), math.floor(copper / 100) % 100, copper % 100
+  local parts = {}
+  if g > 0 then parts[#parts + 1] = g .. "g" end
+  if s > 0 then parts[#parts + 1] = s .. "s" end
+  if c > 0 or #parts == 0 then parts[#parts + 1] = c .. "c" end
+  return table.concat(parts, " ")
+end
+
+-- The game's tooltip for an item on the quest page.
+function C.ShowQuestItemTooltip(owner, kind, index)
+  local tip = G.GameTooltip
+  if type(tip) ~= "table" then return end
+  pcall(tip.SetOwner, tip, owner, "ANCHOR_RIGHT")
+  if type(tip.SetQuestItem) == "function" then pcall(tip.SetQuestItem, tip, kind, index) end
+  pcall(tip.Show, tip)
+end
+
 local CLOSERS = {
   gossip = { "C_GossipInfo.CloseGossip", "CloseGossip" },
   quest = { "CloseQuest" },

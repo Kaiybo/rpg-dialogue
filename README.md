@@ -43,7 +43,7 @@ Settings > Readability and accessibility: text speed, instant text, auto-advance
 
 ## Other addons
 
-- **DialogueUI**: works together. RPG Dialogue's conversation comes first, over DialogueUI's window (which waits, invisible, underneath); "Get on with it", or picking a quest or service, hands you to DialogueUI's window. DialogueUI's camera and "hide the game UI" options keep working.
+- **DialogueUI**: the conversation happens inside DialogueUI's own window: the NPC's lines and your replies are its options, with its number keys and camera. Picking a quest or service, or "Get on with it", carries on with DialogueUI's own pages. (Built on how DialogueUI's window works inside, since it has no API for this; if a DialogueUI update changes that, RPG Dialogue's own box takes over.) Settings can switch to RPG Dialogue's box first instead.
 - **Immersion**: RPG Dialogue steps back by default. It shows only its short line, and the full conversation is available through the Talk keybinding.
 - Both: settings → "Other dialogue addons" (automatic, RPG Dialogue first, step back, or off).
 - **Questie and other quest or vendor addons**: unaffected. RPG Dialogue never closes, hides or re-opens Blizzard's windows; it only fades them while its own window covers them, so "Get on with it" leaves them exactly as those addons expect.

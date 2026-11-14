@@ -111,8 +111,15 @@ local function makeButton(i)
   b.marker:SetText(">")
   b.marker:Hide()
   b:SetScript("OnClick", function() D.Click(i) end)
-  b:SetScript("OnEnter", function(self) Theme.TextColor(self.label, self.locked and "locked" or "hover") end)
-  b:SetScript("OnLeave", function(self) Theme.TextColor(self.label, D.ColorKey(self)) end)
+  b:SetScript("OnEnter", function(self)
+    Theme.TextColor(self.label, self.locked and "locked" or "hover")
+    -- A reward on a quest page: the game's item tooltip.
+    if self.tooltip then C.ShowQuestItemTooltip(self, self.tooltip.kind, self.tooltip.index) end
+  end)
+  b:SetScript("OnLeave", function(self)
+    Theme.TextColor(self.label, D.ColorKey(self))
+    if self.tooltip then GameTooltip:Hide() end
+  end)
   return b
 end
 
@@ -527,6 +534,7 @@ function D.RenderChoices(choices)
     local b = frame.buttons[i]
     b.locked = c.locked
     b.gap = c.gap
+    b.tooltip = c.tooltip
     local num = c.locked and ((i % 10) .. ". ") or (Theme.Hex("number") .. (i % 10) .. ".|r ")
     b.label:SetText(num .. (c.locked and (L.LOCKED_MARK .. " ") or "") .. c.text)
     -- The game's own options keep their icons in both looks; in the game look the NPC's
@@ -537,6 +545,7 @@ function D.RenderChoices(choices)
   end
   local getOn = frame.buttons[n + 1]
   getOn.locked = false
+  getOn.tooltip = nil
   getOn.gap = n > 0
   getOn.label:SetText(((n + 1) % 10) .. ". " .. L.GET_ON_WITH_IT)
   D.SetRowIcon(getOn, isGame() and ICON_BULLET or nil, false)

@@ -3,7 +3,7 @@
 > Read this first, then `DESIGN.md`, then `CONTENT_GUIDE.md` (and `PACK_AUTHORING.md` before adding a zone). You won't remember earlier sessions; these files are your memory.
 > The original brief is the Project doc `rpg-dialogue-build-prompt (1).md`. Re-read it when a decision isn't covered here.
 
-**Last session:** 2026-11-13 · **M0–M8 all built; three rounds of in-game results are in.** The addon loads, packs load, `/rpgd why` works, and the Skyborne race token is "Skyborne". **Versions now: core 0.10.3, World 1.0.0, Elwynn 1.1.0** (`python3 tools/version.py`).
+**Last session:** 2026-11-13 · **M0–M8 all built; three rounds of in-game results are in.** The addon loads, packs load, `/rpgd why` works, and the Skyborne race token is "Skyborne". **Versions now: core 0.11.0, World 1.0.0, Elwynn 1.1.0** (`python3 tools/version.py`).
 
 **First in-game test (user, 2026-11-13):**
 - **Test character: Skyborne Druid, level 22 (Blooded), faction not confirmed, tested in Northshire Valley.** Content for that character is thin: the slice is written for level 1–10 characters doing Northshire/Goldshire quests (only 4 Skyborne lines and 1 druid line exist). Asked the user where they actually play, for the next content pass.
@@ -26,6 +26,8 @@
   - 0.10.2: DialogueUI works together (default "auto"): our box first over its window (alpha pinned at 0, covered, never hidden), keys kept from its TOOLTIP-strata listener, our windows parentless so its "hide the game UI" can't hide them, hand-over on Get on with it / game option. Read from its public source (cloned `Peterodox/YUI-Dialogue`, untrusted, read only). DESIGN §8 "DialogueUI". Immersion still steps back (its code not studied).
 
 - **Then: "just add font and text size options. The text is still too bold."** (They existed, in Settings > Accessibility, apparently not found.) 0.10.3: an "Aa" button in the box's title bar (`UI/TextOptions.lua`: size, spacing, text font, name font, live); a "Look and text" section at the top of settings. "Bold" cause: every FontString was created from GameFontHighlight, which has a drop shadow; `Theme.SetFont` now clears it (the title bar turns it back on). Text size default 13 with no hidden offset (schema 6 moves 14 → 13).
+
+- **Then: "when I open a gossip option then it opens a different dialogue box. Ideally things should stay on the same box, be it the UI we made, or dialogueui. If it is dialogueui, then I want the ui to entirely be dialogueui."** 0.11.0: (1) the game's next pages (gossip, quest offer / progress / reward) render in our box after a pick (`Conv.ShowGamePage`, setting `pagesInBox`); (2) with DialogueUI, conversations render inside its window (`Integrations/DialogueUIView.lua`, wrapping its handlers; read from its source, untested against the real addon), falling back to our box. DESIGN §8.
 
 ## Assumptions made while the user was away (confirm or correct)
 1. **Interface number** 16001 (from warcraft.wiki.gg, patch 1.60.1). TOCs say `16001, 16002` to cover the next patch too.
@@ -52,7 +54,7 @@
 - **M6** (979fcc5): spirit healer tree, books, insanity, drunk replies, ghosts, barks, errands.
 - **M7** (bbefce7): `tools/new_zone.py` (plan → approve tiers → scaffold), `tools/check_all.py`, impossible-quest-reference check, copied-wording check, flag replay lines, `/rpgd capture zone`, `tests/test_tools.py`.
 - **M8** (c2e6a2e): Total RP 3 (read-only), accessibility pass (keyboard selection, gamepad, Ask About keybinding, bundled readable font, "(Locked)" and ">" markers, journal tab keys), the optional "something new" tooltip marker (an M2 item that had been missed), pack `requires` reported in game and validated, per-pack versions and changelogs, `PACK_AUTHORING.md`, `.pkgmeta` checked against the packager's source, Blizzard UI policy checked and enforced by `check_all.py --release`, GitHub workflows, README rewrite.
-- **After the in-game tests:** box every visit with the game's options, safety net, right-click talk, Melika, fonts, polish, versions. **Checks now:** 158 Lua tests (new `tests/ux_spec.lua`, `tests/look_spec.lua`, `tests/dialogueui_spec.lua`), 8 Python tool tests, luacheck clean, validator 0 errors (106 warnings, all TODO placeholders), voice check 0 failures, simulation 0 runtime errors / 0 contradictions / 0 impossible quest references.
+- **After the in-game tests:** box every visit with the game's options, safety net, right-click talk, Melika, fonts, polish, versions. **Checks now:** 169 Lua tests (new `tests/ux_spec.lua`, `tests/look_spec.lua`, `tests/dialogueui_spec.lua`, `tests/pages_spec.lua`), 8 Python tool tests, luacheck clean, validator 0 errors (106 warnings, all TODO placeholders), voice check 0 failures, simulation 0 runtime errors / 0 contradictions / 0 impossible quest references.
 - Earlier: **Checks at the end of M8:** 118 Lua tests, 7 Python tool tests, luacheck clean, validator 0 errors (101 warnings, all TODO placeholders), voice check 0 failures, simulation 0 runtime errors / 0 contradictions / 0 impossible quest references.
 
 ## Half-done
@@ -72,6 +74,8 @@
 - Right-click talk: the `WorldFrame` OnMouseDown/OnMouseUp hooks, and that the box never races a game window.
 - `Texture:SetGradient` with `CreateColor` (fallbacks exist) and the fade-in animation.
 - The game look (0.10.0): `NineSliceUtil.ApplyLayoutByName` on our own frames, the inset child with `SetUsingParentLevel`, the round portrait mask, the title text above the metal title bar, `RedButton-Exit` atlases, `Interface\GossipFrame\GossipGossipIcon`, `QuestUtil` quest icons, `GetMaterialTextColors`, the `questTextContrast` CVar, clamp insets. All read from Blizzard's 12.1.5 code, none seen running. If it looks wrong, `look = "wood"` is one click away in settings.
+- Inside DialogueUI (0.11.0): wrapping DUIQuestFrame's handler fields, its pooled parts and `SetGossip` with our `onClickFunc`, `SetIndexedAction` on its key listener, the restore via `f[f.handler](f, true)`. Written against its 1.0.7 source; a stand-in in `tests/dialogueui_spec.lua` mimics its methods.
+- Quest pages in the box (0.11.0): `GetQuestItemInfo`, `GetQuestReward`, `AcceptQuest`, `CompleteQuest`, `GameTooltip:SetQuestItem`, `C_CurrencyInfo.GetCoinTextureString`.
 - DialogueUI together (0.10.2): `hooksecurefunc(DUIQuestFrame, "SetAlpha")` holding it at 0 through its intro animation; our key listener (TOOLTIP strata, level 9000) getting keys before DialogueUI's (assumed: keyboard goes to the topmost keyboard-enabled frame first); parentless windows' scale (`UIParent:GetScale()` × ours); the blocker at FULLSCREEN over its DIALOG-strata window; its camera with our box on top.
 - `TooltipDataProcessor.AddTooltipPostCall` for the tooltip marker.
 - Total RP 3's `AddOn_TotalRP3.Player.GetCurrentUser()` and its `GetFirstName` / `GetTitle` / `GetRoleplayingName` methods (method names are from TRP3's public player object as other addons use it; not read from TRP3's source).
@@ -109,7 +113,9 @@ Still all of DESIGN.md §4 (section 9 answers, slice zone, where the repo lives,
 - `python3 tools/check_all.py` runs everything (about a minute); `--quick` skips the simulation.
 
 ## Exact next step
-User installs 0.10.3 (full restart: new file), checks the text weight against the game's window and tries the Aa button; then the DialogueUI check below.
+User installs 0.11.0 (full restart: new file). With DialogueUI: talk to Farley and McBride (conversation inside DialogueUI's window, number keys, Get on with it → its own page, a quest → its quest page). Without it (or setting "RPG Dialogue first"): pick "What can I do at an inn?" and a quest in our box (pages stay in the box; accept, hand in, reward). Fix what's off.
+
+Previous next step (0.10.3): user installs 0.10.3 (full restart: new file), checks the text weight against the game's window and tries the Aa button; then the DialogueUI check below.
 
 Previous next step (0.10.2): user installs 0.10.2 (full restart) with DialogueUI on: talk to Farley (box first, DialogueUI's window appears after "Get on with it" or a picked option; number keys only act on the box), right-click Melika, compare the box's size and text with the game's window again. Fix what's off. Then content for wherever they play.
 

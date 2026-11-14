@@ -70,8 +70,9 @@ describe("The conversation box", function()
     eq(ns2.db.settings.openMode, "skip")
   end)
 
-  it("lists the NPC's quests and gossip options after the replies; picking one hands over", function()
+  it("lists the NPC's quests and gossip options after the replies; picking one hands over (pages in the box off)", function()
     local ns = boot()
+    ns.db.settings.pagesInBox = false
     Mock.state.gossipAvailable = { { title = "Kobold Camp Cleanup", questID = 9007 } }
     Mock.state.gossipActive = { { title = "A Threat Within", questID = 9001, isComplete = true },
                                { title = "Wolves Across the Border", questID = 9003, isComplete = false } }
@@ -119,8 +120,9 @@ describe("The conversation box", function()
     eq(called("SelectActiveQuest"), 9001)
   end)
 
-  it("works on the quest window too: the greeting page and a single quest", function()
+  it("works on the quest window too: the greeting page and a single quest (pages in the box off)", function()
     local ns = boot()
+    ns.db.settings.pagesInBox = false
     Mock.state.greeting = { available = { "Kobold Camp Cleanup" }, active = { { "A Threat Within", true } } }
     open("QuestFrame", "QUEST_GREETING", "Marshal McBride")
     local list = labels(ns)

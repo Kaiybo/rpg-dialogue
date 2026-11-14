@@ -1,7 +1,9 @@
 -- Other addons that replace the talk/quest windows (Immersion, DialogueUI).
--- Two dialogue windows must never fight. Default ("auto"): with DialogueUI, RPG Dialogue
--- talks first and then hands you to DialogueUI's window, which waits underneath (see
--- Compat's DialogueUI section); with Immersion (not studied yet), RPG Dialogue steps back.
+-- Two dialogue windows must never fight. Default ("auto"): with DialogueUI, the whole
+-- conversation is drawn inside DialogueUI's own window (Integrations/DialogueUIView.lua);
+-- with Immersion (not studied yet), RPG Dialogue steps back. "takeover": RPG Dialogue's own
+-- box first, over the other addon's window, which waits underneath (Compat's DialogueUI
+-- section).
 local _, ns = ...
 
 local C = ns.Compat
@@ -19,6 +21,12 @@ function I.DialogueAddonLoaded()
   return nil
 end
 
+-- With DialogueUI on "auto": draw conversations inside its window.
+function I.InsideDialogueUI()
+  if I.DialogueAddonLoaded() ~= "DialogueUI" then return false end
+  return (ns.db and ns.db.settings.otherAddons or "auto") == "auto"
+end
+
 -- "normal" | "stepback" | "off"
 function I.Mode()
   local other = I.DialogueAddonLoaded()
@@ -32,11 +40,13 @@ end
 
 ns.OnLogin(function()
   local other = I.DialogueAddonLoaded()
-  if not other or ns.db.settings.toldAboutOther == other then return end
+  if not other then return end
+  local told = ns.db.settings.toldAboutOther
+  if told == other .. (I.InsideDialogueUI() and ":inside" or "") or (other ~= "DialogueUI" and told == other) then return end
   local mode = I.Mode()
   if mode == "normal" and other == "DialogueUI" then
-    ns.db.settings.toldAboutOther = other
-    ns.Print(L.OTHER_ADDON_TOGETHER:format(other, other))
+    ns.db.settings.toldAboutOther = other .. (I.InsideDialogueUI() and ":inside" or "")
+    ns.Print((I.InsideDialogueUI() and L.OTHER_ADDON_INSIDE or L.OTHER_ADDON_TOGETHER):format(other, other))
   elseif mode == "stepback" then
     ns.db.settings.toldAboutOther = other
     ns.Print(L.OTHER_ADDON_NOTICE:format(other))

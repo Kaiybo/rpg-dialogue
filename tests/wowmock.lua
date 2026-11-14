@@ -52,6 +52,7 @@ function Mock.Reset()
   Mock.timers = {}
   Mock.calls = {}
   Mock.frames = {}
+  _G.DUIQuestFrame = nil   -- another addon's window, made by tests that need it
   if Mock.CreateBaseFrames then Mock.CreateBaseFrames() end
 end
 
@@ -409,6 +410,27 @@ function GetObjectiveText() return S().questFrame.objectives end
 function GetProgressText() return S().questFrame.progress end
 function GetRewardText() return S().questFrame.reward end
 function GetGreetingText() return S().questFrame.greeting end
+-- Quest pages: state.questFrame.choices / rewards / required = { { name, texture, count } },
+-- money, xp, cost, completable, auto, pvp.
+local QUEST_LISTS = { choice = "choices", reward = "rewards", required = "required" }
+local function questList(kind) return S().questFrame[QUEST_LISTS[kind]] or {} end
+function GetNumQuestChoices() return #questList("choice") end
+function GetNumQuestRewards() return #questList("reward") end
+function GetNumQuestItems() return #questList("required") end
+function GetQuestItemInfo(kind, i)
+  local it = questList(kind)[i]
+  if it then return it[1], it[2], it[3] or 1, 1, true end
+end
+function GetRewardMoney() return S().questFrame.money or 0 end
+function GetRewardXP() return S().questFrame.xp or 0 end
+function GetQuestMoneyToGet() return S().questFrame.cost or 0 end
+function IsQuestCompletable() return S().questFrame.completable == true end
+function QuestGetAutoAccept() return S().questFrame.auto == true end
+function QuestFlagsPVP() return S().questFrame.pvp == true end
+function AcceptQuest() Mock.calls[#Mock.calls + 1] = { "AcceptQuest" } end
+function AcknowledgeAutoAcceptQuest() Mock.calls[#Mock.calls + 1] = { "AcknowledgeAutoAcceptQuest" } end
+function CompleteQuest() Mock.calls[#Mock.calls + 1] = { "CompleteQuest" } end
+function GetQuestReward(i) Mock.calls[#Mock.calls + 1] = { "GetQuestReward", i } end
 
 -- Global strings
 setmetatable(_G, {

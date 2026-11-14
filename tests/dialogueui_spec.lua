@@ -80,6 +80,7 @@ describe("With DialogueUI", function()
 
   it("hands over with a game option picked, and when DialogueUI was already up", function()
     local ns, dui = boot()
+    ns.db.settings.pagesInBox = false
     Mock.state.gossipOptions = { { gossipOptionID = 77, name = "I want to browse your goods." } }
     dui:Show()
     dui:SetAlpha(1)
@@ -127,5 +128,151 @@ describe("With DialogueUI", function()
     eq(ns2.Integrations.Mode(), "normal")
     local ns3 = boot({ addon = false })
     eq(ns3.UI.Theme.Strata(), "DIALOG", "without DialogueUI nothing changes")
+  end)
+end)
+
+---------------------------------------------------------------------------
+-- Inside DialogueUI's window (the default): a stand-in with the methods its window has.
+---------------------------------------------------------------------------
+local function fakeWindow(opts)
+  opts = opts or {}
+  local f = Mock.NewFrame("Frame", "DUIQuestFrame")
+  f:Hide()
+  local log = { native = 0, layouts = 0 }
+  local keys = Mock.NewFrame("Frame", nil, f)
+  keys.actions = {}
+  keys.SetIndexedAction = function(self, i, b) self.actions[i] = b; return tostring(i) end
+  f.log, f.keys, f.buttons = log, keys, {}
+  f.GetChildren = function() return keys end
+  f.handler = "HandleGossip"
+  f.HandleGossip = function(self) log.native = log.native + 1; self.text = "native gossip"; return true end
+  f.ReleaseAllObjects = function(self) self.buttons = {}; log.layouts = log.layouts + 1 end
+  f.UseQuestLayout = function() end
+  f.FormatParagraph = function(self, y, text)
+    self.text = text
+    if opts.broken then return y end
+    local fs = Mock.NewFrame("FontString", nil, self)
+    return y + 20, fs, fs
+  end
+  f.AcquireOptionButton = function(self)
+    local b = Mock.NewFrame("Button", nil, self)
+    b.Icon = Mock.NewFrame("Texture", nil, b)
+    b.SetGossip = function(btn, data, hotkey) btn.name = (hotkey and (hotkey .. ". ") or "") .. data.name end
+    self.buttons[#self.buttons + 1] = b
+    return b
+  end
+  f.AcquireExitButton = function(self)
+    local b = Mock.NewFrame("Button", nil, self)
+    b.SetButtonExitGossip = function() end
+    return b
+  end
+  f.SetScrollRange = function() end
+  return f
+end
+
+local function bootInside(opts)
+  local dui
+  local ns = Loader.Boot({
+    packs = { "RPGDialogue_TestPack", "RPGDialogue_TestPack2" },
+    setup = function(state)
+      state.units.player.level = 2
+      table.insert(state.addons, { name = "DialogueUI", meta = {}, loaded = true })
+      dui = fakeWindow(opts)
+    end,
+  })
+  ns.db.settings.instantText = true
+  ns.db.settings.sounds = false
+  for _, n in ipairs({ "GossipFrame", "QuestFrame", "MerchantFrame" }) do if _G[n] then _G[n]:Hide() end end
+  return ns, dui
+end
+
+-- The game's event, then DialogueUI showing its window and laying out the page (ShowUI).
+local function visit(dui, name)
+  Mock.state.units.npc = { guid = "Creature-0-1-0-1-197-AB", name = name, level = 20, reaction = 5 }
+  Mock.Fire("GOSSIP_SHOW")
+  Mock.RunTimers()
+  dui:HandleGossip()
+  dui:Show()
+end
+
+local function names(dui)
+  local out = {}
+  for _, b in ipairs(dui.buttons) do out[#out + 1] = b.name end
+  return table.concat(out, " | ")
+end
+
+describe("Inside DialogueUI's window (default)", function()
+  it("draws the conversation in DialogueUI's window, not in a box of ours", function()
+    local ns, dui = bootInside()
+    ok(ns.Integrations.InsideDialogueUI())
+    visit(dui, "Marshal McBride")
+    eq(ns.Conversation.session.view, "dui")
+    eq(ns.UI.Dialogue.IsShown(), false, "no box of ours")
+    eq(dui:GetAlpha(), 1, "its window is the one you see")
+    ok(dui.text ~= "native gossip" and dui.text ~= "", "the NPC's line in its window")
+    contains(names(dui), "1. Reporting for duty", "our replies as its options, with its number keys")
+    contains(names(dui), "Get on with it")
+    ok(dui.keys.actions[1], "number key 1 picks our first reply")
+    Mock.RunTimers()
+    eq(ns.Conversation.session.view, "dui", "still there once its window showed")
+  end)
+
+  it("follows the conversation in its window, and Get on with it shows its own page", function()
+    local ns, dui = bootInside()
+    visit(dui, "Marshal McBride")
+    local before = dui.text
+    dui.buttons[1].onClickFunc(dui.buttons[1])
+    ok(dui.text ~= before or ns.Conversation.session == nil, "the next line, in its window")
+    if ns.Conversation.session then
+      local last = dui.buttons[#dui.buttons]
+      eq(last.name:match("Get on with it") ~= nil, true)
+      local native = dui.log.native
+      last.onClickFunc(last)
+      eq(dui.log.native, native + 1, "its own gossip page again")
+      eq(dui.text, "native gossip")
+    end
+  end)
+
+  it("lets its own pages take over when a game option is picked", function()
+    local ns, dui = bootInside()
+    Mock.state.gossipOptions = { { gossipOptionID = 77, name = "I want to browse your goods." } }
+    visit(dui, "Marshal McBride")
+    local pick
+    for i, b in ipairs(dui.buttons) do if b.name:find("browse your goods", 1, true) then pick = i end end
+    ok(pick)
+    Mock.calls = {}
+    dui.buttons[pick].onClickFunc(dui.buttons[pick])
+    eq(called("SelectOption"), 77)
+    eq(ns.Conversation.session.mode, "business")
+    dui:HandleGossip()
+    eq(dui.text, "native gossip", "the next page is its own")
+  end)
+
+  it("moves to the box if its window can't take the page", function()
+    local ns, dui = bootInside({ broken = true })
+    visit(dui, "Marshal McBride")
+    Mock.RunTimers()
+    eq(ns.Conversation.session.view, nil)
+    eq(ns.UI.Dialogue.IsShown(), true, "RPG Dialogue's box instead")
+    eq(dui:GetAlpha(), 0, "its window waits underneath")
+  end)
+
+  it("uses the box when its window never shows", function()
+    local ns, dui = bootInside()
+    Mock.state.units.npc = { guid = "Creature-0-1-0-1-197-AB", name = "Marshal McBride", level = 20, reaction = 5 }
+    Mock.Fire("GOSSIP_SHOW")
+    Mock.RunTimers()
+    eq(ns.UI.Dialogue.IsShown(), false)
+    Mock.RunTimers()
+    eq(ns.UI.Dialogue.IsShown(), true, "after a moment, the box")
+    ok(dui, "its window stayed hidden")
+  end)
+
+  it("keeps RPG Dialogue's box first when that's chosen", function()
+    local ns, dui = bootInside()
+    ns.db.settings.otherAddons = "takeover"
+    visit(dui, "Marshal McBride")
+    eq(ns.UI.Dialogue.IsShown(), true)
+    eq(dui:GetAlpha(), 0)
   end)
 end)

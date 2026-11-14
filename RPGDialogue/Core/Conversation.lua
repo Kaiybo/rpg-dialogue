@@ -111,6 +111,46 @@ local function otherAddonMode()
   return ns.Integrations and ns.Integrations.Mode() or "normal"
 end
 
+-- Where a conversation is drawn: our box, or (with DialogueUI, by default) inside
+-- DialogueUI's own window (Integrations/DialogueUIView.lua). Both take the same calls.
+function Conv.View(s)
+  s = s or Conv.session
+  if s and s.view == "dui" and ns.UI.DUIView then return ns.UI.DUIView end
+  return ns.UI.Dialogue
+end
+local View = Conv.View
+
+-- DialogueUI couldn't show the conversation after all: move it to the box, over its window.
+function Conv.FallbackToBox(v)
+  local s = Conv.session
+  if not s or s.ended or s.view ~= "dui" or s.mode ~= "full" then return end
+  s.view = nil
+  ns.UI.DUIView.Release()
+  local frame = Conv.BlizzardFrame(s)
+  s.blizz = frame
+  if frame and ns.db.settings.fadeDefault then
+    C.SetFaded(frame, true)
+    s.faded = true
+    ns.UI.Blocker.Cover(frame)
+  end
+  if v then ns.UI.Dialogue.Show(v) end
+end
+
+-- Show a page in the session's view; if DialogueUI can't take it after all, use the box.
+local function present(s, v)
+  if s.view == "dui" and ns.UI.DUIView.Show(v) == false then
+    s.view = nil
+    local frame = Conv.BlizzardFrame(s)
+    s.blizz = frame
+    if frame and ns.db.settings.fadeDefault then
+      C.SetFaded(frame, true)
+      s.faded = true
+      ns.UI.Blocker.Cover(frame)
+    end
+  end
+  if s.view ~= "dui" then ns.UI.Dialogue.Show(v) end
+end
+
 function Conv.BlizzardFrame(session)
   session = session or Conv.session
   if not session then return nil end
@@ -165,7 +205,13 @@ function Conv.Start(kind, unit, interactionName)
         s.faded = true
         ns.UI.Blocker.Cover(frame)
       end
-      if s.nodeDef then ns.UI.Dialogue.SetChoices(Conv.BuildChoices(s.nodeDef, s.node == ((s.info.def and s.info.def.start) or "hello"))) end
+      if s.nodeDef then View(s).SetChoices(Conv.BuildChoices(s.nodeDef, s.node == ((s.info.def and s.info.def.start) or "hello"))) end
+    end
+    -- An option picked in the box led to the game's next page: show it in the box too.
+    -- A vendor, trainer, flight map or bank opens its own window as usual.
+    if s.mode == "full" and s.following then
+      if kind == "service" then Conv.Business()
+      elseif kind == "gossip" or kind == "quest" then Conv.ShowGamePage(kind) end
     end
     return
   end
@@ -271,7 +317,10 @@ function Conv.OpenFull(reason)
   ns.UI.Compact.Hide()
   local frame = Conv.BlizzardFrame(s)
   s.blizz = frame
-  if frame and ns.db.settings.fadeDefault then
+  -- With DialogueUI (default), the conversation is drawn inside its window instead.
+  if s.kind ~= "talk" and ns.Integrations.InsideDialogueUI() and ns.UI.DUIView.Available() then
+    s.view = "dui"
+  elseif frame and ns.db.settings.fadeDefault then
     C.SetFaded(frame, true)
     s.faded = true
     ns.UI.Blocker.Cover(frame)
@@ -287,7 +336,9 @@ end
 -- opened: take it under the box then, the way we fade the game's own window.
 function Conv.OnOtherWindowShown(frame)
   local s = Conv.session
-  if not s or s.ended or s.mode ~= "full" or not ns.UI.Dialogue.IsShown() then return end
+  if not s or s.ended or s.mode ~= "full" then return end
+  if s.view == "dui" then ns.UI.DUIView.Refresh(); return end
+  if not ns.UI.Dialogue.IsShown() then return end
   if s.faded and s.blizz == frame then return end
   s.blizz = frame
   if ns.db.settings.fadeDefault then
@@ -318,7 +369,8 @@ end
 function Conv.Business()
   local s = Conv.session
   if not s then return end
-  ns.UI.Dialogue.Hide()
+  s.following = nil
+  View(s).Hide()
   if ns.UI.AskAbout then ns.UI.AskAbout.Hide() end
   restoreBlizzard(s)
   if s.kind == "talk" or not Conv.BlizzardFrame(s) then
@@ -344,7 +396,8 @@ function Conv.Finish()
   if s.ticker then s.ticker:Cancel() end
   Memory.End(s.mem, s.lastLine)
   restoreBlizzard(s)
-  ns.UI.Dialogue.Hide()
+  View(s).Hide()
+  if s.view == "dui" then ns.UI.Dialogue.Hide() end
   ns.UI.Compact.Hide()
   if ns.UI.AskAbout then ns.UI.AskAbout.Hide() end
   if ns.db.settings.tts then C.StopSpeaking() end
@@ -448,7 +501,8 @@ function Conv.ShowNode(nodeId)
   local Ins = ns.Insanity
   if Ins then body = Ins.Scramble(body, nil, env.seed) end
 
-  ns.UI.Dialogue.Show({
+  s.page = nil
+  present(s, {
     name = Ins and Ins.Name(info.name, env.seed) or info.name, subtitle = info.subtitle, unit = s.unit,
     text = body, choices = Conv.BuildChoices(node, isStart),
     lineGid = winner and winner.gid, canAsk = ns.Topics and ns.Topics.Any(),
@@ -502,18 +556,35 @@ function Conv.Choose(index)
   if not entry or entry.locked then return end
   if entry.errand then
     local text = ns.Errands.Act(entry.errand, entry.action, s.env)
-    ns.UI.Dialogue.ShowAnswer(Tokens.Render(text or "", s.ctx, s.env))
-    ns.UI.Dialogue.SetChoices(Conv.BuildChoices(s.nodeDef, false))
+    View(s).ShowAnswer(Tokens.Render(text or "", s.ctx, s.env))
+    View(s).SetChoices(Conv.BuildChoices(s.nodeDef, false))
     return
   end
   if entry.intrusive then
-    ns.UI.Dialogue.ShowAnswer(L.INSANITY_RESPONSE)
+    View(s).ShowAnswer(L.INSANITY_RESPONSE)
+    return
+  end
+  if entry.action then
+    -- An answer on one of the game's pages shown in the box (accept, hand in, reward...).
+    if entry.action == "handover" then Conv.Business(); return end
+    s.following = true
+    C.QuestAnswer(entry.action, entry.arg)
     return
   end
   if entry.game then
-    -- Hand over to the game's window first, then pick the option there.
     local g = entry.game
-    Conv.Business()
+    if Conv.KeepPages(s) then
+      -- Stay in the box: the game's next page (gossip, quest) is shown here when it comes.
+      s.following = true
+      if g.kind == "reveal" then Conv.ShowGamePage("quest"); return end
+    elseif s.view == "dui" then
+      -- Inside DialogueUI: its own pages take over from here.
+      ns.UI.DUIView.Release()
+      s.mode = "business"
+    else
+      -- Hand over to the game's window first, then pick the option there.
+      Conv.Business()
+    end
     if g.kind == "gossipQuest" then
       C.SelectGossipQuest(g.questID, g.active)
     elseif g.kind == "greetingQuest" then
@@ -562,7 +633,7 @@ function Conv.Ask(topic)
     s.lastLine = w.gid
     text = Tokens.Render(w.line.text, s.ctx, s.env)
   end
-  ns.UI.Dialogue.ShowAnswer(text, ns.Data.topics[topic] and ns.Data.topics[topic].name or topic)
+  View(s).ShowAnswer(text, ns.Data.topics[topic] and ns.Data.topics[topic].name or topic)
 end
 
 function Conv.OpenCompact()
@@ -721,8 +792,10 @@ function Conv.GameOptions(s)
   if not s or s.kind == "talk" then return out end
   local function add(text, game, icon) out[#out + 1] = { choice = { text = text, icon = icon }, game = game } end
   local gossip, quest = C.BlizzardFrame("gossip"), C.BlizzardFrame("quest")
-  local onGossip = gossip and gossip:IsShown()
-  local onQuest = quest and quest:IsShown()
+  -- The event that started the visit says which page is open, even before a window shows
+  -- (DialogueUI shows its window a moment later).
+  local onGossip = (gossip and gossip:IsShown()) or s.kind == "gossip"
+  local onQuest = (quest and quest:IsShown()) or s.kind == "quest"
   -- The page the visit is on decides (both windows can't really be open at once).
   if s.kind == "quest" and onQuest then onGossip = false end
   if s.kind == "service" then onGossip, onQuest = false, false end
@@ -764,6 +837,124 @@ function Conv.GameOptions(s)
   while #out > Conv.MAX_GAME_OPTIONS do table.remove(out) end
   return out
 end
+
+---------------------------------------------------------------------------
+-- The game's own pages, kept in the box: after a gossip option or quest is picked in the
+-- box, the next gossip page and the quest pages (offer, progress, reward) show here too,
+-- answered with the same calls the game's quest window makes. Anything that needs the
+-- game's own confirmation (a PvP quest, a hand-in that costs money) is handed over.
+-- "Get on with it" still reaches the game's window from every page.
+---------------------------------------------------------------------------
+function Conv.KeepPages(s)
+  return s.view ~= "dui" and ns.db.settings.pagesInBox ~= false
+end
+
+local function itemLine(it)
+  return C.IconMarkup(it.texture, 14) .. it.name .. ((it.count or 1) > 1 and (" x" .. it.count) or "")
+end
+
+local function section(lines, title, list)
+  if #list == 0 then return end
+  lines[#lines + 1] = "|cff4a2c10" .. title .. "|r"
+  for _, line in ipairs(list) do lines[#lines + 1] = line end
+end
+
+-- Rewards as text: choices (on the offer page), items, money, experience.
+local function rewardLines(info, withChoices)
+  local lines = {}
+  if withChoices then
+    local choices = {}
+    for _, it in ipairs(C.QuestItems("choice")) do choices[#choices + 1] = itemLine(it) end
+    section(lines, #choices > 1 and L.QUEST_CHOOSE_ONE or L.QUEST_RECEIVE, choices)
+  end
+  local get = {}
+  for _, it in ipairs(C.QuestItems("reward")) do get[#get + 1] = itemLine(it) end
+  if info.rewardMoney > 0 then get[#get + 1] = C.MoneyText(info.rewardMoney) end
+  if info.rewardXP > 0 then get[#get + 1] = L.QUEST_XP:format(info.rewardXP) end
+  section(lines, (withChoices and #lines > 0) and L.QUEST_ALSO or L.QUEST_RECEIVE, get)
+  return lines
+end
+
+local function joinText(parts)
+  local out = {}
+  for _, p in ipairs(parts) do
+    if type(p) == "string" and p ~= "" then out[#out + 1] = p end
+  end
+  return table.concat(out, "\n\n")
+end
+
+-- The window the game is showing now, faded under the box (and the previous one restored,
+-- so it isn't left invisible the next time the game opens it).
+local function adoptWindow(s)
+  local frame = Conv.BlizzardFrame(s)
+  if frame == s.blizz then return end
+  if s.faded and s.blizz then C.SetFaded(s.blizz, false); s.faded = false end
+  s.blizz = frame
+  if frame and ns.db.settings.fadeDefault then
+    C.SetFaded(frame, true)
+    s.faded = true
+    ns.UI.Blocker.Cover(frame)
+  end
+end
+
+function Conv.ShowGamePage(kind)
+  local s = Conv.session
+  if not s or s.mode ~= "full" then return end
+  adoptWindow(s)
+  local entries, subtitle = {}, s.info.subtitle
+  local text
+  local function add(label, extra)
+    local e = { choice = { text = label, icon = extra and extra.icon } }
+    for k, v in pairs(extra or {}) do e[k] = v end
+    entries[#entries + 1] = e
+  end
+  if kind == "gossip" or questStage == "greeting" then
+    text = kind == "gossip" and (C.GossipText() or "") or (C.QuestFrameText().greeting or "")
+    for _, e in ipairs(Conv.GameOptions(s)) do entries[#entries + 1] = e end
+  else
+    local q, info = C.QuestFrameText(), C.QuestPageInfo()
+    subtitle = q.title or subtitle
+    if questStage == "detail" then
+      local objectives = (q.objectives and q.objectives ~= "") and ("|cff4a2c10" .. L.QUEST_OBJECTIVES .. "|r\n" .. q.objectives) or nil
+      text = joinText({ q.text, objectives, table.concat(rewardLines(info, true), "\n") })
+      if info.pvp then add(L.QUEST_IN_WINDOW:format(L.QUEST_ACCEPT), { action = "handover" })
+      else add(L.QUEST_ACCEPT, { action = "accept" }) end
+      if not info.auto then add(L.QUEST_DECLINE, { action = "decline" }) end
+    elseif questStage == "progress" then
+      local needed = {}
+      for _, it in ipairs(C.QuestItems("required")) do needed[#needed + 1] = itemLine(it) end
+      local lines = {}
+      section(lines, L.QUEST_REQUIRED, needed)
+      if info.cost > 0 then lines[#lines + 1] = L.QUEST_COSTS:format(C.MoneyText(info.cost)) end
+      text = joinText({ q.progress, table.concat(lines, "\n") })
+      add(L.QUEST_CONTINUE, { action = "continue", locked = not info.completable })
+      add(L.QUEST_DECLINE, { action = "decline" })
+    else -- complete
+      text = joinText({ q.reward, table.concat(rewardLines(info, false), "\n") })
+      local choices = C.QuestItems("choice")
+      if info.cost > 0 then
+        add(L.QUEST_IN_WINDOW:format(L.QUEST_COMPLETE), { action = "handover" })
+      elseif #choices > 1 then
+        for _, it in ipairs(choices) do
+          add(L.QUEST_TAKE:format(it.name .. ((it.count or 1) > 1 and (" x" .. it.count) or "")),
+            { action = "reward", arg = it.index, icon = { file = it.texture }, tooltip = { kind = "choice", index = it.index } })
+        end
+      else
+        add(L.QUEST_COMPLETE, { action = "reward", arg = #choices == 1 and 1 or 0 })
+      end
+    end
+  end
+  s.page = kind == "gossip" and "gossip" or questStage
+  s.choiceEntries = entries
+  local choices = {}
+  for i, e in ipairs(entries) do
+    choices[i] = { text = e.choice.text, icon = e.choice.icon, game = true, locked = e.locked, tooltip = e.tooltip }
+  end
+  ns.UI.Dialogue.Show({
+    name = s.info.name, subtitle = subtitle, unit = s.unit, text = text, choices = choices, canAsk = false,
+  })
+end
+
 ns.On("PLAYER_INTERACTION_MANAGER_FRAME_SHOW", function(_, kind)
   local name = C.InteractionName(kind)
   if FRAME_FOR_INTERACTION[name or ""] then deferStart("service", "npc", name) end
@@ -791,7 +982,7 @@ end)
 local function live(event, keys, changed)
   return function()
     local s = Conv.session
-    if not s or s.mode ~= "full" or not ns.UI.Dialogue.IsShown() or C.InCombat() then return end
+    if not s or s.mode ~= "full" or not View(s).IsShown() or C.InCombat() then return end
     local ctx = s.ctx
     local before = {}
     for _, k in ipairs(keys) do before[k] = ctx[k] end
@@ -800,7 +991,7 @@ local function live(event, keys, changed)
     local w = Engine.PickReaction(s.info, event, ctx, s.env)
     if w then
       Conv.Shown(w)
-      ns.UI.Dialogue.ShowReaction(Tokens.Render(w.line.text, ctx, s.env))
+      View(s).ShowReaction(Tokens.Render(w.line.text, ctx, s.env))
     end
   end
 end
@@ -841,13 +1032,15 @@ function Conv.Recover()
   end
   ns.UI.Blocker.Uncover()
   if ns.UI.Dialogue.Frame() then ns.UI.Dialogue.Frame():Hide() end
+  if ns.UI.DUIView then ns.UI.DUIView.Release() end
   ns.UI.Compact.Hide()
   if ns.UI.AskAbout then ns.UI.AskAbout.Hide() end
 end
 
 for _, name in ipairs({ "Start", "OpenFull", "OpenCompact", "ShowNode", "Choose", "Business", "End",
                         "Finish", "Ask", "TalkNow", "TalkToTarget", "CheckClosed", "RightClicked",
-                        "OnWorldMouseDown", "OnWorldMouseUp", "OnOtherWindowShown" }) do
+                        "OnWorldMouseDown", "OnWorldMouseUp", "OnOtherWindowShown", "ShowGamePage",
+                        "FallbackToBox" }) do
   local fn = Conv[name]
   Conv[name] = function(...) return ns.Guard("conversation:" .. name, fn, Conv.Recover, ...) end
 end
