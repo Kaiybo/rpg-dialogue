@@ -16,7 +16,7 @@ local function talkTo(name, id, subzone)
   Mock.RunTimers()
 end
 local function leave(ns) if ns.Conversation.session then ns.Conversation.Finish() end end
-local function text(ns) return ns.UI.Dialogue.Frame().text:GetText() end
+local function text(ns) return plain(ns.UI.Dialogue.Frame().text:GetText()) end
 
 describe("Spirit healers", function()
   it("every spirit healer shares one file, and knows how you died", function()

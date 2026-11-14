@@ -2,6 +2,15 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.5.0 (unreleased)
+- For a priest: pray over Lieutenant Doren's dead, say words for Captain Smotts' crew, answer Sir Erlgadin about forgiveness, look for a chapel in Booty Bay. Brother Nimetz notices Shadowform.
+
+## 1.4.0 (unreleased)
+- Ask about: every Alliance and neutral NPC here answers "Their story" and "A little advice" in their own words; Doren, Hemet, Ajeck, Erlgadin, Seahorn, Smotts and Sprogger's story leads into the matching branch of their conversation.
+
+## 1.3.0 (unreleased)
+- Depth: the Rebel Camp, Nesingwary's Expedition and every Booty Bay NPC rewritten as hub-and-branch conversations (4 to 7 subjects each, two or three exchanges deep, "again" lines on return), with replies for particular classes, races, origins, factions and quest history. Needs core 0.26.0 for BACK and again lines.
+
 ## 1.2.0 (unreleased)
 - Nesingwary's Expedition: Hemet Nesingwary, Barnil Stonepot (and the scattered pages of The Green Hills of Stranglethorn), Ajeck Rouack (tigers, Sin'Dall), Sir S. J. Erlgadin (panthers, and why he left the House of Nobles).
 - Booty Bay: Sprogger (Smotts's cook, the other survivor), Fin Fizracket (Stranglethorn Fever), Wharfmaster Lozgil; the Rebel Camp: Private Thorsen.

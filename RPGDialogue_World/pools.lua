@@ -19,6 +19,8 @@ P:Pool {
       text = "You were a person and now you're a kitty! Can I pet you? I'll be gentle." },
     { id = "n_bear", cat = "form", when = { form = "bear" }, place = "replace",
       text = "A bear! Mama says bears eat children. You look like a nice bear, though." },
+    { id = "n_shadow", cat = "form", when = { form = "shadow" }, place = "replace",
+      text = "You're all dark and wavy! Are you a ghost? Mama says ghosts aren't real. Are you real?" },
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
       text = "Does {pet} bite? Does {pet} like apples? I have half an apple." },
     { id = "n_imp", cat = "pet", when = { pet = { family = "Imp" } },
@@ -29,6 +31,7 @@ P:Pool {
   react = {
     { id = "r_cat", on = "form", when = { form = "cat" }, text = "You just turned into a cat! Do it again! Do it again!" },
     { id = "r_bear", on = "form", when = { form = "bear" }, text = "Whoa! You got so big!" },
+    { id = "r_shadow", on = "form", when = { form = "shadow" }, text = "You went all dark! Now do the other one! The shiny one!" },
     { id = "r_stealth", on = "stealth", text = "Where'd you go? I can still see your feet a bit." },
     { id = "r_pet", on = "pet", text = "Where did that come from? Is it yours?" },
   },

@@ -41,7 +41,15 @@ function ok(v, msg)
   if not v then error(msg or "expected a true value", 2) end
 end
 
+-- Text as the player reads it: topic links (|H...|h) and their colour codes removed.
+function plain(s)
+  if type(s) ~= "string" then return s end
+  s = s:gsub("|Hrpgdtopic:[^|]*|h(.-)|h", "%1")
+  return (s:gsub("|c%x%x%x%x%x%x%x%x(.-)|r", "%1"))
+end
+
 function contains(haystack, needle, msg)
+  haystack = plain(haystack)
   if type(haystack) ~= "string" or not haystack:find(needle, 1, true) then
     error((msg and (msg .. ": ") or "") .. "expected " .. fmt(haystack) .. " to contain " .. fmt(needle), 2)
   end

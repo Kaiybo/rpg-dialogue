@@ -16,7 +16,7 @@ P:Pool {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "The plague-things got their claws in your gear. Get it mended. And wash. Everything out there carries the plague." },
   },
-  react = { { id = "r_form", on = "form", text = "Steady! A beast, at the gate, walking calm. Druid, then. Don't do that out here. We shoot first." } },
+  react = { { id = "r_form", on = "form", when = { form = { "bear", "cat", "travel" } }, text = "Steady! A beast, at the gate, walking calm. Druid, then. Don't do that out here. We shoot first." } },
   lines = {
     { id = "l_default", text = "The Scourge holds most of this land. Not this chapel. Not while we stand." },
   },

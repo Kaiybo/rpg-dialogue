@@ -14,7 +14,7 @@ describe("Content packs", function()
     local loaded = {}
     for _, p in ipairs(ns.Packs.List()) do loaded[p.id] = p.loaded; eq(p.warnings, 0, p.id .. " warnings") end
     ok(loaded["rpgd.world"] and loaded["rpgd.elwynn"])
-    eq(ns.Util.Count(ns.Data.npcs), 54)
+    eq(ns.Util.Count(ns.Data.npcs), 56)   -- Elwynn 56 (with the Eastvale stables)
     ok(ns.Data.threads.elwynn_gold and ns.Data.towns.goldshire and ns.Data.claims.defias_common_thieves)
   end)
 
@@ -722,6 +722,30 @@ describe("Content packs", function()
     local info = ns.Conversation.Identify("npc", ctx)
     eq(info.role, "guard")
     eq(ns.Data.PoolsFor(info, ctx)[1].pool.id, "guard_lightshope")
+  end)
+
+  it("Riverglades loads at Farholde Keep; Demar and Melbin are known, a Sentry is the keep's guard, the sick are soldiers", function()
+    local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Riverglades" } })
+    Mock.state.zone, Mock.state.subzone = "Riverglades", "Farholde Keep"
+    Mock.Fire("ZONE_CHANGED_NEW_AREA")
+    Mock.RunTimers()
+    local found
+    for _, p in ipairs(ns.Packs.List()) do
+      if p.id == "rpgd.riverglades" then found = true; ok(p.loaded); eq(p.warnings, 0) end
+    end
+    ok(found, "the pack is listed")
+    eq(ns.Data.FindNPC(nil, "Demar Brant").key, "demar")
+    eq(ns.Data.FindNPC(nil, "Melbin Powderfuse").key, "melbin")
+    Mock.state.units.npc = { guid = "Creature-0-1-0-1-90001-AB", name = "Sentry Kalis", level = 45 }
+    local ctx = ns.Context.New({ unit = "npc" })
+    local info = ns.Conversation.Identify("npc", ctx)
+    eq(info.role, "guard")
+    eq(ns.Data.PoolsFor(info, ctx)[1].pool.id, "guard_farholde")
+    Mock.state.units.npc = { guid = "Creature-0-1-0-1-90002-AB", name = "Diseased Soldier", level = 40 }
+    ctx = ns.Context.New({ unit = "npc" })
+    info = ns.Conversation.Identify("npc", ctx)
+    eq(info.role, "soldier")
+    eq(ns.Data.PoolsFor(info, ctx)[1].pool.id, "sick_farholde")
   end)
 
   it("Stranglethorn knows Nesingwary's camp and the rest of Booty Bay", function()

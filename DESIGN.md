@@ -179,7 +179,7 @@ Inside the braces you may use strings, numbers, booleans, nested tables and the 
 | `Generic` | `generic/*.lua` | World | the last link in every fallback chain |
 | `Thread` | `threads/<id>.lua` | World | a throughline: theme, NPCs, beats (keyed by NPC), states, endings, pacing |
 | `Claim` | `claims/<id>.lua` | World | an NPC claim: who says it, truth status, what can expose it, or "deliberately open" |
-| `Topic` | `topics/<id>.lua` | World | an "Ask about…" topic: name, category, how it's learned |
+| `Topic` | `topics/<id>.lua` | World | an "Ask about…" topic: name, category, how it's learned, `keywords` that name it in speech, `standard` for "ask anyone" topics (§3.11) |
 | `Town` | `towns/<id>.lua` | World | town standing: subzones, member NPCs, related towns and spread, tier names, quests |
 | `Origin` | `origins/<race>.lua` | World | the origin list for a race, including class-specific entries |
 | `Rumors` | `rumors/<region>.lua` | World or zone | innkeeper rumor tables |
@@ -228,7 +228,9 @@ Working examples of every kind are in the two shipped packs; `PACK_AUTHORING.md`
 
 ### 2.6 Node and choice
 
-A **node** is `{ lines = {…}, choices = {…}, big = true|nil, journal = … }`. `big` marks a conversation that matters: alignment-reactive lines are allowed there, and alignment shifts count more.
+A **node** is `{ lines = {…}, again = {…}, choices = {…}, big = true|nil, hub = true|nil, journal = … }`. `big` marks a conversation that matters: alignment-reactive lines are allowed there, and alignment shifts count more. `hub` marks a node that `BACK` returns to (the start node always is one). `again` holds short lines shown when the player comes back to a node already shown in this conversation (0.26.0; CONTENT_GUIDE §7a).
+
+**Exploring (0.26.0).** The session keeps the nodes shown (`s.visited`); NPC memory keeps every node shown in any conversation (`mem.nodes`). `Engine.Choices` hides a reply whose target was already shown in this conversation, unless the target is a hub or the reply is `repeatable`; replies to nodes explored in earlier conversations are marked `explored` (dimmed in the box). At most `Engine.MAX_CHOICES` (6) show, in the writer's order; when there are more, explored replies drop first, then unconditional branches, then any branch; exits stay.
 
 A **choice**:
 
@@ -239,7 +241,8 @@ A **choice**:
 | `tag` | `Persuade` / `Intimidate` / `Deceive`, or an identity tag (`Paladin`, `Westfall farmhand`, `Hero of Goldshire`) |
 | `check` | for Persuade/Intimidate/Deceive: `{ pass = { conditions } }`. Defaults come from the NPC's `temper` (3.9) |
 | `fx` | effects (2.8) |
-| `next` | a node id, `"END"`, or `"BUSINESS"` (closes our window and leaves the Blizzard window that is already open underneath) |
+| `next` | a node id, `"END"`, `"BUSINESS"` (closes our window and leaves the Blizzard window that is already open underneath), or `"BACK"` (the last hub visited) |
+| `repeatable` | keep offering it after its node was shown in this conversation |
 | `fail` | for checks: `{ fx = …, next = … }` |
 | `journal` | `{ first = …, third = … }` |
 
@@ -261,7 +264,7 @@ Each key has a **weight** (its contribution to the score) and a **kind**. *Hinge
 | Dark | `taint` {min} · `insanity` {min} | 40 | hinge |
 | Knowledge | `topicKnown` · `bookRead` · `homeInn` | 30 | hinge |
 | Relationship | `metBefore` bool · `timesTalked` {min,max} · `daysSince` {min,max} · `affinity` {min,max} · `townStanding` {town, tier/min} | 20 | hinge |
-| State | `form` · `mounted` · `stealthed` · `ghost` · `pet` {family,type,named} · `debuffType` · `aura` spellID · `resSick` · `drunk` · `camping` · `durability` {max} · `nearlyNaked` · `tabard` · `equipped` · `outOfPlace` · `rep` {faction,min} · `profession` {name,min} | 15 | hinge |
+| State | `form` · `mounted` · `stealthed` · `ghost` · `pet` {family,type,named} · `debuffType` · `aura` spellID · `resSick` · `drunk` · `camping` · `durability` {max} · `nearlyNaked` · `tabard` · `equipped` · `outOfPlace` · `reputation` {faction,min,max} (faction names in `World.FACTION_IDS`, standings hated..exalted) · `profession` {name,min} | 15 | hinge |
 | World | `zone` · `subzone` · `holiday` · `power` (relative bucket) | 15 | hinge |
 | Level | `band` · `minLevel`/`maxLevel` · `capital` · `resting` · `atInn` | 10 | hinge |
 | Small touches | `gender` · `timeOfDay` · `faction` · `party` {race,class} | 5 | hinge |
@@ -811,6 +814,15 @@ If a line throws an error, paste the error instead. That tells us something too.
 | M6 | spirit healers, books, insanity, drunk replies, ghosts, barks, errands | 979fcc5 |
 | M7 | zone planning and scaffolding, one-command checks, simulation and voice-check additions | bbefce7 |
 | M8 | Total RP 3, accessibility pass (keyboard, gamepad, readable font, no color-only signals), tooltip marker, `PACK_AUTHORING.md`, packaging and policy checks, release workflow | c2e6a2e |
+
+### 3.11 "Ask about..." (Morrowind-style, 0.27.0)
+
+- **Hearing topics.** Every line the NPC says in the box (main line, noticing moment, rumor, an answer) goes through `Topics.Hear`: topic words in it are learned, and linked. The words are each topic's `keywords` plus its name without a leading "The " or anything after a comma or bracket (`linkName = false` turns the name off, for ordinary phrases like "The Collector"). Whole words only, a plural "s" and a possessive count, longest match first, one link per topic per line, never inside an existing colour code or link, never a topic linking to itself in its own answer.
+- **Links.** `|Hrpgdtopic:<id>|h<colour>word|r|h` on the box's own frame (`C.EnableHyperlinks`: `SetHyperlinksEnabled` plus `OnHyperlinkClick`/`Enter`/`Leave`, guarded). The typewriter types the plain text and swaps in the linked text when it finishes, so no half-typed codes show; the click-to-finish cover hides then, so the words can be clicked. Click: `Conversation.Ask(id)`; hover: "Ask about <topic>". Setting `topicLinks` (default on) turns the links off; topics are still learned. Colour `topic` in every palette; the "Ask about..." list carries every topic too, so nothing depends on colour. Inside DialogueUI the text stays plain.
+- **Ask anyone.** Topics with `standard = true` (Their story, Their work, A little advice, Latest rumors: `RPGDialogue_World/topics.lua`) are always known, listed first, never archived or linked. `Engine.PickTopic` skips brush-offs for them. A named NPC's story is their own take or a generic deflection, never a role's. Their work and advice fall back to the role. Latest rumors: the NPC's own, then any rumor set tied to their zone or town whatever their role (`Rumors.SetsFor(info, ctx, true)`), then role and generic.
+- **Question-only pools.** `askOnly = true` pools (`RPGDialogue_World/asks.lua`) answer topics and nothing else: `Data.PoolsFor(info, ctx)` leaves them out, `Data.PoolsFor(info, ctx, true)` (topics only) includes them, so they never make an unnamed NPC talk.
+- **Answers that lead somewhere.** A topic line with `next = "<node>"` shows the answer, then that node's replies (the node counts as visited; BACK returns to the hub). The validator checks the node exists.
+- **The list.** Grouped by category under headers ("Ask anyone" first, then categories in order of their newest topic), flat while searching; a topic already asked of this NPC (`mem.topics`) says "(asked)"; keys and the gamepad skip headers.
 
 ### 3.10 Window style (look)
 

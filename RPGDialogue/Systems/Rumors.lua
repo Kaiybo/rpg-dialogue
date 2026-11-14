@@ -7,11 +7,14 @@ local Rumors = {}
 ns.Rumors = Rumors
 
 -- Rumor sets that apply to this NPC: role, town (community) and zone filters.
-function Rumors.SetsFor(info, ctx)
+-- anyRole: for "Ask about... latest rumors", where anyone may pass on what's going round;
+-- then only sets tied to a zone or town count (role-only sets stay with their roles).
+function Rumors.SetsFor(info, ctx, anyRole)
   local out = {}
   for _, set in pairs(ns.Data.rumors) do
     local roles = U.AsList(set.roles or "innkeeper")
     local ok = U.Contains(roles, info.role) or (set.npcs and info.key and U.Contains(set.npcs, info.key))
+      or (anyRole and (set.zones ~= nil or set.towns ~= nil))
     if ok and set.towns then
       ok = false
       for _, t in ipairs(info.communities or {}) do if U.Contains(set.towns, t) then ok = true end end

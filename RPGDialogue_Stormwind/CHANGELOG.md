@@ -2,6 +2,11 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.5.0 (unreleased)
+- The Cathedral of Light for a priest: Archbishop Benedictus deepened (and, on shadow, a bishop after the First War who went too far into it); High Priestess Laurena, Brother Joshua and Brother Benjamin, the priest trainers; Brother Crowley, the Scarlet Crusade's emissary downstairs.
+- Bolvar, Anduin and Katrana: new branches (the Church, Lady Prestor, the refugees, letters), and "Something else" goes back instead of ending the conversation.
+- Shadowform noticed by Benedictus, Laurena, Joshua, Benjamin, Crowley and Anduin.
+
 ## 1.4.0 (unreleased)
 - Depth pass: repeat visits bring personal lines (habits, worries, running jokes), and some NPCs get night-time lines. Arthur the Faithful (the paladin trainer) and his story, Milton, Elling Trias, Grimand Elmore, Major Samuelson, Thomas Miller, Jennea, Lil Timmy.
 

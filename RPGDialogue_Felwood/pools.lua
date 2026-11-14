@@ -16,7 +16,7 @@ P:Pool {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "The forest chewed on you. Get mended, and wash your hands before you eat. Everything here is tainted." },
   },
-  react = { { id = "r_form", on = "form", text = "Careful in that shape. The corrupted beasts here look a lot like you, and we shoot first." } },
+  react = { { id = "r_form", on = "form", when = { form = { "bear", "cat", "travel" } }, text = "Careful in that shape. The corrupted beasts here look a lot like you, and we shoot first." } },
   lines = {
     { id = "l_default", text = "Demons poisoned this forest in the war. The poison stayed when they left. So do we, for now." },
   },

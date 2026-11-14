@@ -18,6 +18,7 @@ Copy these folders into `World of Warcraft/<your Forever folder>/Interface/AddOn
 - `RPGDialogue_Duskwood`: Darkshire, Raven Hill and the woods
 - `RPGDialogue_EasternPlaguelands`: Light's Hope Chapel (both factions), Tirion Fordring, the Marris Stead (Horde)
 - `RPGDialogue_SearingGorge`: Thorium Point (both factions)
+- `RPGDialogue_Riverglades`: Farholde Keep and the Brotherhood of the Horse (Alliance), Powderfuse Port (neutral)
 - `RPGDialogue_Felwood`: Emerald Sanctuary (both factions), Bloodvenom Post (Horde), Talonbranch Glade (Alliance)
 - `RPGDialogue_Winterspring`: Everlook (both factions) and the hot springs
 - `RPGDialogue_UnGoro`: Marshal's Refuge (both factions)
@@ -59,7 +60,7 @@ Content packs load by zone, so only the dialogue for where you are is in memory.
 - Right-click NPCs as usual. The conversation box opens in front of the normal window, with the NPC's line and your replies, then the NPC's own quests ("Quest: ...", "Hand in: ...") and services (vendor, training, flights...). Picking one of those hands you straight to the normal window for it. **"Get on with it"** (or Escape) always takes you to the normal window.
 - People with no menu of their own (Melika Isenstrider at the Lion's Pride Inn, for one) open the box when you right-click them, if RPG Dialogue has something for them to say.
 - Prefer less? Settings > "When you talk to someone": a short line with the box only when there's news, or straight to business.
-- **Ask about...** lets you ask people about topics you've picked up. **The journal** (`/rpgd journal`, or its keybinding) keeps your chronicle, the people you've met, your character sheet and origin, topics, deeds and your own notes.
+- **Ask about...** lets you ask people about topics you've picked up. You pick topics up by hearing them: names of people, places and troubles are highlighted in what people say, and clicking one asks about it. Anyone can be asked about their story, their work, for a little advice, or for the latest rumors. **The journal** (`/rpgd journal`, or its keybinding) keeps your chronicle, the people you've met, your character sheet and origin, topics, deeds and your own notes.
 - Keybindings (Key Bindings > AddOns): **Talk to Target** talks to an NPC who has no gossip; **Open Journal**; **Ask About...** during a conversation.
 - `/rpgd` lists every command. `/rpgd settings` opens the settings.
 
@@ -67,7 +68,7 @@ Content packs load by zone, so only the dialogue for where you are is in memory.
 
 | | Keyboard | Gamepad (client gamepad mode) |
 |---|---|---|
-| Pick a reply | 1–5, or Up/Down/Tab then Enter | D-pad, then A |
+| Pick a reply | 1–9, or Up/Down/Tab then Enter | D-pad, then A |
 | Finish the text | Space or Enter | A |
 | Get on with it | Escape | B |
 | Ask about... | the Ask About keybinding (set it in Key Bindings), then Up/Down/Enter | X, then D-pad and A |

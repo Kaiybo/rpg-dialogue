@@ -12,7 +12,7 @@ local SEED = tonumber(arg[2]) or 1
 
 local function out(...) io.write(table.concat({ ... }, "\t"), "\n") end
 
-local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Elwynn", "RPGDialogue_Westfall", "RPGDialogue_Stormwind", "RPGDialogue_Zephras", "RPGDialogue_Redridge", "RPGDialogue_Duskwood", "RPGDialogue_Ironforge", "RPGDialogue_Wetlands", "RPGDialogue_Moonglade", "RPGDialogue_Darnassus", "RPGDialogue_ThunderBluff", "RPGDialogue_Barrens", "RPGDialogue_Ashenvale", "RPGDialogue_Hillsbrad", "RPGDialogue_Darkshore", "RPGDialogue_Orgrimmar", "RPGDialogue_Undercity", "RPGDialogue_LochModan", "RPGDialogue_Stonetalon", "RPGDialogue_Stranglethorn", "RPGDialogue_ThousandNeedles", "RPGDialogue_Durotar", "RPGDialogue_Mulgore", "RPGDialogue_Tirisfal", "RPGDialogue_Teldrassil", "RPGDialogue_Silverpine", "RPGDialogue_Desolace", "RPGDialogue_Tanaris", "RPGDialogue_Dustwallow", "RPGDialogue_Feralas", "RPGDialogue_SwampOfSorrows", "RPGDialogue_Arathi", "RPGDialogue_Hinterlands", "RPGDialogue_Badlands", "RPGDialogue_UnGoro", "RPGDialogue_Winterspring", "RPGDialogue_Felwood", "RPGDialogue_SearingGorge", "RPGDialogue_EasternPlaguelands" } })
+local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Elwynn", "RPGDialogue_Westfall", "RPGDialogue_Stormwind", "RPGDialogue_Zephras", "RPGDialogue_Redridge", "RPGDialogue_Duskwood", "RPGDialogue_Ironforge", "RPGDialogue_Wetlands", "RPGDialogue_Moonglade", "RPGDialogue_Darnassus", "RPGDialogue_ThunderBluff", "RPGDialogue_Barrens", "RPGDialogue_Ashenvale", "RPGDialogue_Hillsbrad", "RPGDialogue_Darkshore", "RPGDialogue_Orgrimmar", "RPGDialogue_Undercity", "RPGDialogue_LochModan", "RPGDialogue_Stonetalon", "RPGDialogue_Stranglethorn", "RPGDialogue_ThousandNeedles", "RPGDialogue_Durotar", "RPGDialogue_Mulgore", "RPGDialogue_Tirisfal", "RPGDialogue_Teldrassil", "RPGDialogue_Silverpine", "RPGDialogue_Desolace", "RPGDialogue_Tanaris", "RPGDialogue_Dustwallow", "RPGDialogue_Feralas", "RPGDialogue_SwampOfSorrows", "RPGDialogue_Arathi", "RPGDialogue_Hinterlands", "RPGDialogue_Badlands", "RPGDialogue_UnGoro", "RPGDialogue_Winterspring", "RPGDialogue_Felwood", "RPGDialogue_SearingGorge", "RPGDialogue_EasternPlaguelands", "RPGDialogue_Riverglades" } })
 ns.Packs.LoadAll()
 local U = ns.Util
 local rng = U.NewRNG(SEED)
@@ -35,10 +35,10 @@ local RACE_LIST = { "Human", "Human", "Human", "Dwarf", "Gnome", "NightElf", "Sk
 -- Crossroads, Splintertree, Tarren Mill, Orgrimmar, the Undercity) get exercised too.
 local HORDE_RACE_LIST = { "Orc", "Tauren", "Troll", "Scourge", "Skyborne" }
 local SKYBORNE_HORDE = { "DRUID", "HUNTER", "ROGUE", "WARRIOR", "SHAMAN" }
-local SUBZONES = { northshire = "Northshire Abbey", goldshire = "Goldshire", eastvale = "Eastvale Logging Camp",
+local SUBZONES = { farholde = "Farholde Keep", brotherhood_horse = "Farholde Keep", powderfuse_port = "Powderfuse Port", northshire = "Northshire Abbey", goldshire = "Goldshire", eastvale = "Eastvale Logging Camp",
   sentinel_hill = "Sentinel Hill", westfall_farms = "Saldean's Farm", stormwind = "Trade District", zephras_isle = "Valanaar", lakeshire = "Lakeshire",
   darkshire = "Darkshire", raven_hill = "Raven Hill", ironforge = "The Commons", menethil = "Menethil Harbor", nighthaven = "Nighthaven", darnassus = "Temple of the Moon", thunder_bluff = "Elder Rise", crossroads = "The Crossroads", astranaar = "Astranaar", maestras_post = "Maestra's Post", splintertree = "Splintertree Post", southshore = "Southshore", tarren_mill = "Tarren Mill", auberdine = "Auberdine", orgrimmar = "Valley of Strength", undercity = "Royal Quarter", thelsamar = "Thelsamar", sun_rock = "Sun Rock Retreat", stonetalon_peak = "Stonetalon Peak", booty_bay = "Booty Bay", gromgol = "Grom'gol Base Camp", rebel_camp = "Rebel Camp", freewind = "Freewind Post", mirage_raceway = "Mirage Raceway", valley_of_trials = "Valley of Trials", razor_hill = "Razor Hill", senjin = "Sen'jin Village", narache = "Camp Narache", bloodhoof = "Bloodhoof Village", gevrek = "Camp Gev'rek", deathknell = "Deathknell", brill = "Brill", shadowglen = "Shadowglen", dolanaar = "Dolanaar", kharanos = "Kharanos", coldridge = "Anvilmar", sepulcher = "The Sepulcher", taurajo = "Camp Taurajo", nijels_point = "Nijel's Point", ghost_walker = "Ghost Walker Post", gadgetzan = "Gadgetzan", steamwheedle_port = "Steamwheedle Port", theramore = "Theramore Isle", brackenwall = "Brackenwall Village", feathermoon = "Feathermoon Stronghold", mojache = "Camp Mojache", stonard = "Stonard", refuge_pointe = "Refuge Pointe", hammerfall = "Hammerfall", aerie_peak = "Aerie Peak", kargath = "Kargath", marshals_refuge = "Marshal's Refuge", everlook = "Everlook", bloodvenom_post = "Bloodvenom Post", thorium_point = "Thorium Point", light_hope = "Light's Hope Chapel" }
-local ZONES = { sentinel_hill = "Westfall", westfall_farms = "Westfall", stormwind = "Stormwind City", zephras_isle = "Zephras Isle", lakeshire = "Redridge Mountains", darkshire = "Duskwood", raven_hill = "Duskwood", ironforge = "Ironforge", menethil = "Wetlands", nighthaven = "Moonglade", darnassus = "Darnassus", thunder_bluff = "Thunder Bluff", crossroads = "The Barrens", astranaar = "Ashenvale", maestras_post = "Ashenvale", splintertree = "Ashenvale", southshore = "Hillsbrad Foothills", tarren_mill = "Hillsbrad Foothills", auberdine = "Darkshore", orgrimmar = "Orgrimmar", undercity = "Undercity", thelsamar = "Loch Modan", sun_rock = "Stonetalon Mountains", stonetalon_peak = "Stonetalon Mountains", booty_bay = "Stranglethorn Vale", gromgol = "Stranglethorn Vale", rebel_camp = "Stranglethorn Vale", freewind = "Thousand Needles", mirage_raceway = "Thousand Needles", valley_of_trials = "Durotar", razor_hill = "Durotar", senjin = "Durotar", narache = "Mulgore", bloodhoof = "Mulgore", gevrek = "Mulgore", deathknell = "Tirisfal Glades", brill = "Tirisfal Glades", shadowglen = "Teldrassil", dolanaar = "Teldrassil", kharanos = "Dun Morogh", coldridge = "Dun Morogh", sepulcher = "Silverpine Forest", taurajo = "The Barrens", nijels_point = "Desolace", ghost_walker = "Desolace", gadgetzan = "Tanaris", steamwheedle_port = "Tanaris", theramore = "Dustwallow Marsh", brackenwall = "Dustwallow Marsh", feathermoon = "Feralas", mojache = "Feralas", stonard = "Swamp of Sorrows", refuge_pointe = "Arathi Highlands", hammerfall = "Arathi Highlands", aerie_peak = "The Hinterlands", kargath = "Badlands", marshals_refuge = "Un'Goro Crater", everlook = "Winterspring", bloodvenom_post = "Felwood", thorium_point = "Searing Gorge", light_hope = "Eastern Plaguelands" }
+local ZONES = { farholde = "Riverglades", brotherhood_horse = "Riverglades", powderfuse_port = "Riverglades", sentinel_hill = "Westfall", westfall_farms = "Westfall", stormwind = "Stormwind City", zephras_isle = "Zephras Isle", lakeshire = "Redridge Mountains", darkshire = "Duskwood", raven_hill = "Duskwood", ironforge = "Ironforge", menethil = "Wetlands", nighthaven = "Moonglade", darnassus = "Darnassus", thunder_bluff = "Thunder Bluff", crossroads = "The Barrens", astranaar = "Ashenvale", maestras_post = "Ashenvale", splintertree = "Ashenvale", southshore = "Hillsbrad Foothills", tarren_mill = "Hillsbrad Foothills", auberdine = "Darkshore", orgrimmar = "Orgrimmar", undercity = "Undercity", thelsamar = "Loch Modan", sun_rock = "Stonetalon Mountains", stonetalon_peak = "Stonetalon Mountains", booty_bay = "Stranglethorn Vale", gromgol = "Stranglethorn Vale", rebel_camp = "Stranglethorn Vale", freewind = "Thousand Needles", mirage_raceway = "Thousand Needles", valley_of_trials = "Durotar", razor_hill = "Durotar", senjin = "Durotar", narache = "Mulgore", bloodhoof = "Mulgore", gevrek = "Mulgore", deathknell = "Tirisfal Glades", brill = "Tirisfal Glades", shadowglen = "Teldrassil", dolanaar = "Teldrassil", kharanos = "Dun Morogh", coldridge = "Dun Morogh", sepulcher = "Silverpine Forest", taurajo = "The Barrens", nijels_point = "Desolace", ghost_walker = "Desolace", gadgetzan = "Tanaris", steamwheedle_port = "Tanaris", theramore = "Dustwallow Marsh", brackenwall = "Dustwallow Marsh", feathermoon = "Feralas", mojache = "Feralas", stonard = "Swamp of Sorrows", refuge_pointe = "Arathi Highlands", hammerfall = "Arathi Highlands", aerie_peak = "The Hinterlands", kargath = "Badlands", marshals_refuge = "Un'Goro Crater", everlook = "Winterspring", bloodvenom_post = "Felwood", thorium_point = "Searing Gorge", light_hope = "Eastern Plaguelands" }
 local PROFS = { "Skinning", "Alchemy", "Herbalism", "Blacksmithing", "Mining", "Tailoring" }
 
 -- Give every TODO quest title a fake ID and register it in capture data, as a real
@@ -80,7 +80,8 @@ local function randomCharacter(i)
     faction = horde and "Horde" or "Alliance", hour = rng.int(0, 23), drunk = chance(0.1) and rng.int(1, 3) or 0,
     durability = chance(0.15) and rng.next() * 0.3 or 0.9, nearlyNaked = chance(0.05),
     resSick = chance(0.05), stealthed = class == "ROGUE" and chance(0.3), ghost = chance(0.03),
-    form = (class == "DRUID" and chance(0.5)) and pick({ "bear", "cat", "travel" }) or false,
+    form = (class == "DRUID" and chance(0.5)) and pick({ "bear", "cat", "travel" })
+      or (class == "PRIEST" and level >= 40 and chance(0.3)) and "shadow" or false,
     pet = (class == "HUNTER" and { family = pick({ "Wolf", "Cat", "Bear", "Boar" }), type = "Beast", name = "Pet" })
       or (class == "WARLOCK" and { family = pick({ "Imp", "Voidwalker" }), type = "Demon", name = "Pet" }) or false,
     money = rng.int(0, 2000000),
@@ -159,8 +160,13 @@ local function record(kind, who, node, w)
 end
 
 local TOPIC_IDS, OTHER_TOPICS = {}, 3
-for topic in pairs(ns.Data.topics) do TOPIC_IDS[#TOPIC_IDS + 1] = topic end
+local STANDARD_IDS = {}   -- "ask anyone": one of them is asked of every NPC on every visit
+for topic, def in pairs(ns.Data.topics) do
+  TOPIC_IDS[#TOPIC_IDS + 1] = topic
+  if def.standard then STANDARD_IDS[#STANDARD_IDS + 1] = topic end
+end
 table.sort(TOPIC_IDS)
+table.sort(STANDARD_IDS)
 
 local function talk(info, spoof, charIndex, mem)
   -- Real play: every conversation counts, and time passes between them.
@@ -187,6 +193,10 @@ local function talk(info, spoof, charIndex, mem)
       ns.Memory.MarkSeen(w.gid, w.line)
       if w.line._thread then ns.Threads.Heard(w.line, env) end
       if w.line.fx then ns.Effects.Apply(w.line.fx, env) end
+    end
+    if node.again then
+      local a = ns.Engine.PickAgain(info, nodeId, ctx, env)
+      record("pick", who, nodeId .. ":again", a)
     end
     for i, entry in ipairs(ns.Engine.Choices(node, ctx, env)) do
       local ch = entry.choice
@@ -223,6 +233,10 @@ local function talk(info, spoof, charIndex, mem)
     local topic = TOPIC_IDS[rng.int(1, #TOPIC_IDS)]
     if not seen[topic] then seen[topic] = true; asked[#asked + 1] = topic end
   end
+  if #STANDARD_IDS > 0 then
+    local topic = STANDARD_IDS[rng.int(1, #STANDARD_IDS)]
+    if not seen[topic] then seen[topic] = true; asked[#asked + 1] = topic end
+  end
   table.sort(asked)
   for _, topic in ipairs(asked) do
     local t = ns.Engine.PickTopic(info, topic, ctx, env)
@@ -244,6 +258,14 @@ local pooledNPCs = {
   { pooled = true, role = "innkeeper", communities = {}, name = "Innkeeper" },
   { pooled = true, role = "vendor", communities = {}, name = "Merchant" },
   { pooled = true, role = "spirithealer", communities = {}, name = "Spirit Healer" },
+  { pooled = true, role = "soldier", communities = { "farholde" }, name = "Diseased Soldier" },
+  { pooled = true, role = "guard", communities = { "farholde" }, name = "Sentry Kalis" },
+  { pooled = true, role = "worker", communities = { "farholde" }, name = "Farholde Laborer" },
+  { pooled = true, role = "worker", communities = {}, name = "Laborer" },
+  { pooled = true, role = "farmer", communities = {}, name = "Farmer" },
+  { pooled = true, role = "citizen", communities = {}, name = "Townsperson" },
+  { pooled = true, role = "priest", communities = {}, name = "Acolyte" },
+  { pooled = true, role = "blacksmith", communities = {}, name = "Blacksmith" },
 }
 
 local VISITS = 2  -- the first visit is often already a return (mem.times is random), so two cover both

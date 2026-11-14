@@ -494,3 +494,23 @@ P:Town {
   zones = { "Undercity" },
   tiers = { Hero = "Hero of the Undercity" },
 }
+
+-- The Riverglades (Forever): the Brotherhood of the Horse's keep, and the goblins' port.
+P:Town {
+  id = "farholde", name = "Farholde Keep",
+  subzones = { "Farholde Keep", "Farholde Blacksmith", "Wheeler's Grange", "Meadowsbrook", "Turner's Logging Camp" },
+  related = { lakeshire = 0.05, stormwind = 0.03 },
+  tiers = { Hero = "Brother of the Horse" },
+  quests = {
+    { TODO_QUEST("Eye of Mugg"), 8 }, { TODO_QUEST("Helping Hands"), 4 }, { TODO_QUEST("Lingering Essence"), 3 },
+    { TODO_QUEST("Key Ingredients"), 2 },
+  },
+}
+
+P:Town {
+  id = "powderfuse_port", name = "Powderfuse Port",
+  subzones = { "Powderfuse Port" },
+  related = { steamwheedle_port = 0.1 },
+  tiers = { Hero = "Melbin's Favorite Customer" },
+  quests = { { TODO_QUEST("A Taste of the Sea"), 3 }, { TODO_QUEST("The Monster Surfaces"), 4 } },
+}

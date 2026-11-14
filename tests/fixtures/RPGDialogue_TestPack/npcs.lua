@@ -72,3 +72,41 @@ P:NPC {
   key = "scaffolded", id = 9099, name = "Unwritten Person", bible = "bibles/scaffolded.md",
   role = "questgiver", tier = "quest", communities = {}, scaffold = true,
 }
+
+-- A deep conversation: a hub, branches that come BACK, a gated reply, a branch two deep.
+P:NPC {
+  key = "tess", id = 9003, name = "Warden Tess", role = "questgiver", tier = "quest", communities = { "northshire" },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h", text = "Warden Tess. Ask, then go." } },
+      again = { { id = "h_again", text = "Anything else? Be quick." } },
+      choices = {
+        { text = "Tell me about the wall.", next = "wall" },
+        { text = "Who are you?", next = "who" },
+        { text = "A paladin's question.", next = "light", when = { class = "PALADIN" } },
+        { text = "Show me your wares.", next = "BUSINESS" },
+        { text = "Goodbye.", next = "END" },
+      },
+    },
+    wall = {
+      lines = { { id = "w", text = "Old stone. Older than the Abbey." } },
+      choices = {
+        { text = "Who built it?", next = "builders" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    builders = {
+      lines = { { id = "b", text = "Nobody remembers. That's what worries me." } },
+      choices = { { text = "Something else.", next = "BACK" }, { text = "Goodbye.", next = "END" } },
+    },
+    who = {
+      lines = { { id = "wh", text = "Someone who counts the gate twice." } },
+      choices = { { text = "Back to it.", next = "hello" } },
+    },
+    light = {
+      lines = { { id = "l", text = "Ask it, then." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+}

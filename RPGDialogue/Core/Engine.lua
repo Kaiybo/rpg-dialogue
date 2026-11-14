@@ -14,7 +14,7 @@ ns.Engine = Engine
 Engine.BASE = { own = 400, generic = 0 }
 Engine.TOP_BAND = 5
 Engine.NEWS_THRESHOLD = 440
-Engine.MAX_CHOICES = 4
+Engine.MAX_CHOICES = 6
 Engine.traces = {}
 Engine.forcedSeed = nil
 
@@ -320,19 +320,68 @@ local SPECIAL = { Persuade = true, Intimidate = true, Deceive = true }
 Engine.SPECIAL = SPECIAL
 
 -- Visible choices for a node: { { choice, locked = bool }, ... } (at most MAX_CHOICES)
-function Engine.Choices(node, ctx, env)
-  local out = {}
+-- Replies that leave the node rather than open a branch: never hidden as explored.
+local EXITS = { END = true, BUSINESS = true, BACK = true }
+function Engine.IsExit(nextId) return nextId == nil or EXITS[nextId] == true end
+
+-- The replies to show for a node, at most Engine.MAX_CHOICES, in the writer's order.
+--   opts.visited:  nodes already shown in this conversation. A reply leading to one is
+--                  hidden (asked and answered), unless it leads to a hub (opts.hubs: the
+--                  start node and nodes marked hub = true) or says repeatable = true.
+--   opts.explored: nodes this NPC showed in earlier conversations. Those replies still
+--                  appear, marked explored.
+-- When there are too many, explored branches drop first, then branches without
+-- conditions (the ones everybody gets); exits and replies that exist because of who
+-- the player is are kept.
+function Engine.Choices(node, ctx, env, opts)
+  opts = opts or {}
+  local visited, explored, hubs = opts.visited or {}, opts.explored or {}, opts.hubs or {}
   local showLocked = ns.db and ns.db.settings.showLocked
+  local out = {}
   for _, choice in ipairs(node and node.choices or {}) do
-    local pass = Cond.Eval(choice.when, ctx, env)
-    if pass then
-      out[#out + 1] = { choice = choice }
-    elseif showLocked and choice.tag then
-      out[#out + 1] = { choice = choice, locked = true }
+    local target = choice.next
+    local exit = Engine.IsExit(target) or hubs[target]
+    if exit or choice.repeatable or not visited[target] then
+      local entry
+      if Cond.Eval(choice.when, ctx, env) then
+        entry = { choice = choice }
+      elseif showLocked and choice.tag then
+        entry = { choice = choice, locked = true }
+      end
+      if entry then
+        entry.exit = exit and true or nil
+        entry.explored = (not exit and explored[target]) or nil
+        out[#out + 1] = entry
+      end
     end
-    if #out >= Engine.MAX_CHOICES then break end
+  end
+  local function dropLast(test)
+    for i = #out, 1, -1 do
+      if test(out[i]) then table.remove(out, i); return true end
+    end
+    return false
+  end
+  while #out > Engine.MAX_CHOICES do
+    if not dropLast(function(e) return e.explored end)
+      and not dropLast(function(e) return not e.exit and not e.choice.when end)
+      and not dropLast(function(e) return not e.exit end) then
+      table.remove(out)
+    end
   end
   return out
+end
+
+-- Coming back to a node already shown in this conversation (a reply with next = "BACK"):
+-- one of its short "again" lines ("What else?" in this NPC's voice), else a greeting.
+function Engine.PickAgain(info, nodeId, ctx, env)
+  local node = info.def and info.def.nodes and info.def.nodes[nodeId]
+  local cands = {}
+  add(cands, node and node.again, Engine.BASE.own, "own")
+  if #cands > 0 then
+    local w = Engine.Pick("again", cands, ctx, env, { node = nodeId })
+    if w then return w end
+  end
+  return Engine.PickGreeting(info, ctx, env)
 end
 
 -- Special reply options: success comes from who the player is, never dice.
@@ -380,23 +429,38 @@ end
 ---------------------------------------------------------------------------
 -- Topic answers ("Ask about…", M4): NPC's own > community > role > brush-off
 ---------------------------------------------------------------------------
+-- "Ask about...": the NPC's own take, then their community's, their role's, then anyone's;
+-- a brush-off in their own voice when nobody has a take.
+--   * "Ask anyone" topics (their story, their work, advice, rumors) skip brush-offs: every
+--     role has something to say, and anyone can fall back on a generic answer.
+--   * A named NPC's story is their own or a polite deflection, never a role's stock one.
+--   * Latest rumors: the NPC's own, then whatever is going round this zone (any role can
+--     pass on hearsay, not only innkeepers), then their role's or anyone's.
 function Engine.PickTopic(info, topic, ctx, env)
   local cands = {}
   local def = info.def
+  local tdef = ns.Data and ns.Data.topics and ns.Data.topics[topic]
+  local standard = tdef and tdef.standard
   if def and def.topics then
     add(cands, def.topics[topic], Engine.BASE.own, "own")
-    if #cands == 0 then add(cands, def.topics._none, 90, "own-brushoff") end
+    if #cands == 0 and not standard then add(cands, def.topics._none, 90, "own-brushoff") end
+  end
+  if topic == "rumors" and #cands == 0 and ns.Rumors then
+    for _, set in ipairs(ns.Rumors.SetsFor(info, ctx, true)) do add(cands, set.lines, 300, "rumor:" .. set.id) end
   end
   if ns.Data then
-    for _, p in ipairs(ns.Data.PoolsFor(info, ctx)) do
+    local named = def ~= nil and not info.pooled
+    for _, p in ipairs(ns.Data.PoolsFor(info, ctx, true)) do
       local topics = p.pool.topics or {}
-      add(cands, topics[topic], p.base, "pool:" .. p.pool.id)
-      add(cands, topics._none, p.base - 150, "pool-brushoff:" .. p.pool.id)
+      if not (standard and topic == "background" and named) then
+        add(cands, topics[topic], p.base, "pool:" .. p.pool.id)
+      end
+      if not standard then add(cands, topics._none, p.base - 150, "pool-brushoff:" .. p.pool.id) end
     end
     for _, g in ipairs(ns.Data.GenericFor(ctx)) do
       local topics = g.topics or {}
       add(cands, topics[topic], 0, "generic:" .. g.id)
-      add(cands, topics._none, -100, "generic-brushoff:" .. g.id)
+      if not standard then add(cands, topics._none, -100, "generic-brushoff:" .. g.id) end
     end
   end
   return Engine.Pick("topic", cands, ctx, env, { node = "topic:" .. topic })

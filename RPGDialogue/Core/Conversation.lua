@@ -237,9 +237,11 @@ function Conv.Start(kind, unit, interactionName)
     end
   end
 
+  local prevNodes = {}
+  for id in pairs(mem.nodes or {}) do prevNodes[id] = true end
   s = {
     guid = guid, unit = unit, kind = kind, interaction = interactionName, info = info, ctx = ctx,
-    mem = mem, memKey = memKey, env = env, started = env.now,
+    mem = mem, memKey = memKey, env = env, started = env.now, prevNodes = prevNodes, visited = {},
   }
   Conv.session = s
 
@@ -578,15 +580,30 @@ function Conv.ShowNode(nodeId)
   local node = Conv.Node(info, nodeId, ctx)
   s.node = nodeId
   s.nodeDef = node
+  s.visited = s.visited or {}
+  local returning = s.visited[nodeId]
+  s.visited[nodeId] = true
+  if s.mem then
+    s.mem.nodes = s.mem.nodes or {}
+    s.mem.nodes[nodeId] = true
+  end
+  local startId = (info.def and info.def.start) or "hello"
+  -- "BACK" returns to the last hub: the start node, or a node marked hub = true.
+  if nodeId == startId or node.hub then s.hub = nodeId end
 
-  local winner = Engine.PickLine(info, nodeId, ctx, env, node.big)
+  local winner
+  if returning then
+    winner = Engine.PickAgain(info, nodeId, ctx, env)
+  else
+    winner = Engine.PickLine(info, nodeId, ctx, env, node.big)
+  end
   local main = winner and Tokens.Render(winner.line.text, ctx, env) or L.FALLBACK_LINE
   Conv.Shown(winner)
   s.lastLine = winner and winner.gid or s.lastLine
 
   -- Noticing moment: only on the first node, at most once per conversation.
   local before, after
-  local isStart = nodeId == ((info.def and info.def.start) or "hello")
+  local isStart = nodeId == startId
   if isStart and not s.noticeDone then
     s.noticeDone = true
     local notice = s.pendingNotice
@@ -619,13 +636,19 @@ function Conv.ShowNode(nodeId)
   if before then body = before .. "\n\n" .. body end
   if after then body = body .. "\n\n" .. after end
 
+  -- Topics named in what they said are learned, and linked in the box (Morrowind-style).
+  local linked = Conv.Hear(body)
+
   local Ins = ns.Insanity
-  if Ins then body = Ins.Scramble(body, nil, env.seed) end
+  if Ins then
+    local scrambled = Ins.Scramble(body, nil, env.seed)
+    if scrambled ~= body then body, linked = scrambled, nil end
+  end
 
   s.page = nil
   present(s, {
     name = Ins and Ins.Name(info.name, env.seed) or info.name, subtitle = info.subtitle, unit = s.unit,
-    text = body, choices = Conv.BuildChoices(node, isStart),
+    text = body, linkedText = linked, choices = Conv.BuildChoices(node, isStart),
     lineGid = winner and winner.gid, canAsk = ns.Topics and ns.Topics.Any(),
   })
   if ns.db.settings.tts then C.StopSpeaking(); C.Speak(body) end
@@ -642,7 +665,14 @@ function Conv.BuildChoices(node, isStart)
       entries[#entries + 1] = { choice = { text = e.text }, errand = e.errand, action = e.action }
     end
   end
-  for _, e in ipairs(Engine.Choices(node, ctx, env)) do
+  -- Explored in an earlier conversation: what was shown then, not counting this one.
+  local explored = {}
+  for id in pairs(s.prevNodes or {}) do explored[id] = true end
+  local hubs = { [(s.info.def and s.info.def.start) or "hello"] = true }
+  for id, n in pairs((s.info.def and s.info.def.nodes) or {}) do
+    if n.hub then hubs[id] = true end
+  end
+  for _, e in ipairs(Engine.Choices(node, ctx, env, { visited = s.visited, explored = explored, hubs = hubs })) do
     if #entries < Engine.MAX_CHOICES then entries[#entries + 1] = e end
   end
   local intrusive = ns.Insanity and ns.Insanity.IntrusiveChoice(env.seed + #entries)
@@ -664,6 +694,7 @@ function Conv.BuildChoices(node, isStart)
       choices[i] = {
         text = Conv.Slur(choiceLabel(entry), ctx.drunk, env.seed + i),
         locked = entry.locked, special = entry.choice and Engine.IsSpecial(entry.choice),
+        explored = entry.explored,
       }
     end
   end
@@ -735,6 +766,8 @@ function Conv.Choose(index)
 
   if nextId == "BUSINESS" then
     Conv.Business(choice.text)
+  elseif nextId == "BACK" then
+    Conv.ShowNode(s.hub or (s.info.def and s.info.def.start) or "hello")
   elseif nextId == nil or nextId == "END" then
     Conv.End()
   else
@@ -743,6 +776,19 @@ function Conv.Choose(index)
 end
 
 -- "Ask about...": the NPC's own take, then their community's, their role's, then a brush-off.
+-- Learn the topics named in some text the NPC said, and return it with them linked (or
+-- nil when nothing was linked). exclude: a topic that shouldn't link to itself.
+function Conv.Hear(text, exclude)
+  local s = Conv.session
+  if not ns.Topics or type(text) ~= "string" then return nil end
+  local hex = ns.UI and ns.UI.Theme and ns.UI.Theme.Hex("topic") or nil
+  local linked, found = ns.Topics.Hear(text, s and s.env, exclude, hex)
+  return (#found > 0 and linked ~= text) and linked or nil
+end
+
+-- "Ask about...": the NPC's own take, then their community's, their role's, then a brush-off.
+-- An answer can open a branch of the conversation (its line says next = "<node>"): the
+-- answer is shown, and that node's replies follow it.
 function Conv.Ask(topic)
   local s = Conv.session
   if not s or s.mode ~= "full" then return end
@@ -754,7 +800,20 @@ function Conv.Ask(topic)
     s.lastLine = w.gid
     text = Tokens.Render(w.line.text, s.ctx, s.env)
   end
-  View(s).ShowAnswer(text, ns.Data.topics[topic] and ns.Data.topics[topic].name or topic)
+  local linked = Conv.Hear(text, topic)
+  local tdef = ns.Data.topics[topic]
+  View(s).ShowAnswer(text, tdef and tdef.name or topic, linked)
+  local nextId = w and w.line.next
+  local node = nextId and s.info.def and s.info.def.nodes and s.info.def.nodes[nextId]
+  if node then
+    s.node, s.nodeDef = nextId, node
+    s.visited = s.visited or {}
+    s.visited[nextId] = true
+    if s.mem then s.mem.nodes = s.mem.nodes or {}; s.mem.nodes[nextId] = true end
+    if node.hub then s.hub = nextId end
+    View(s).SetChoices(Conv.BuildChoices(node, false))
+  end
+  if ns.UI.AskAbout and ns.UI.AskAbout.Refresh then ns.UI.AskAbout.Refresh() end
 end
 
 function Conv.OpenCompact()
@@ -1120,7 +1179,8 @@ end
 
 local function petKey(p) return p and ((p.family or "") .. ":" .. (p.name or "")) or "" end
 
-Conv.OnForm = live("form", { "form" }, function(b, ctx) return b.form ~= ctx.form end)
+-- Only on taking a shape: leaving one, or a stance change, says nothing.
+Conv.OnForm = live("form", { "form" }, function(b, ctx) return ctx.form ~= nil and b.form ~= ctx.form end)
 Conv.OnPet = live("pet", { "pet" }, function(b, ctx) return ctx.pet and petKey(b.pet) ~= petKey(ctx.pet) end)
 Conv.OnMount = live("mount", { "mounted" }, function(b, ctx) return ctx.mounted and not b.mounted end)
 Conv.OnStealth = live("stealth", { "stealthed" }, function(b, ctx) return ctx.stealthed and not b.stealthed end)

@@ -30,11 +30,27 @@ P:NPC {
           text = "People ask why a goblin would run an inn at the top of the world. Two words. No. Bugs. Well. Fewer bugs. There's still that one beetle. I know it's in here." },
         { id = "h_beetle", when = { metBefore = true }, text = "I found the beetle. Behind the bar. It looked at me. I looked at it. We've agreed to stay out of each other's way." },
       },
-      choices = { { text = "A room, please.", next = "END", fx = { affinity = 1 } } },
+      again = { { id = "h_again", text = "More? Sit by the fire. Not too close; the beetle lives there." } },
+      choices = {
+        { text = "A room, please.", next = "BUSINESS", fx = { affinity = 1 } },
+        { text = "Who comes through Everlook?", next = "guests" },
+        { text = "Why are you so scared of bugs?", next = "bugs" },
+        { text = "Goodbye.", next = "END" },
+      },
+    },
+    guests = {
+      lines = { { id = "g_default", text = "Traders, mostly. Argent Dawn folk. Horde and Alliance at the same tables, glaring at each other over the soup. Nobody fights. The Bruisers see to that, and so does the soup." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    bugs = {
+      lines = { { id = "b_default", text = "Ever woken up with one in your ear? I have. In Tanaris. That's why I live where it snows. Don't laugh. Fine, laugh. Quietly." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
   },
 
   topics = {
+    background = { { id = "tp_ba", text = "Tanaris girl, bug survivor, innkeeper at the top of the world. I followed the cold, and the cold was hiring." } },
+    advice = { { id = "tp_ad", text = "Shake out your bedroll before you sleep in it. Up here it's yetis. Elsewhere, it's worse." } },
     steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel set this place up for trade. I set up the inn because traders need beds. Good business. Cold business." } },
     _none = { { id = "tp_none", text = "No idea, sugar. Ask a trader. They know everything worth money." } },
   },
@@ -66,8 +82,11 @@ P:NPC {
         { id = "h_own", when = { questActive = TODO_QUEST("A Yeti of Your Own") },
           text = "An engineer who wants a yeti of their own? Oh, you have good taste. Let me show you how it's done." },
       },
+      again = { { id = "h_again", text = "More? Ooh, I love questions. Questions are how pranks start." } },
       choices = {
         { text = "Who are you scaring?", next = "prank" },
+        { text = "Teach me.", next = "BUSINESS", when = { profession = "Engineering" } },
+        { text = "Why a yeti?", next = "yeti" },
         { text = "I'll find parts.", next = "END", fx = { affinity = 2 } },
       },
     },
@@ -75,11 +94,24 @@ P:NPC {
       lines = {
         { id = "p_default", text = "My friends! All of them! They've been laughing at my inventions for years. Let's see them laugh when a yeti comes round the corner. Then they can laugh. After." },
       },
-      choices = { { text = "Count me in.", next = "END", fx = { affinity = 3, trait = { curious = 1 } } } },
+      choices = {
+        { text = "Count me in.", next = "BACK", fx = { affinity = 3, trait = { curious = 1 } } },
+        { text = "Isn't that a bit cruel?", next = "prank_cruel" },
+      },
+    },
+    prank_cruel = {
+      lines = { { id = "pc_default", text = "Cruel? It's a hug from a robot. A big, loud, furry hug. They'll love it. Afterwards. Once they've stopped running." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    yeti = {
+      lines = { { id = "y_default", text = "Because nobody expects a yeti indoors! Bears, maybe. Ogres, sometimes. A yeti in your bedroom at midnight? Unforgettable." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
   },
 
   topics = {
+    background = { { id = "tp_ba", text = "Inventor! Prankster! Engineering trainer by day, menace by night. My friends say menace all day. They're biased." } },
+    advice = { { id = "tp_ad", text = "Always build an off switch. Then hide it somewhere you'll remember." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "The gnomes lost their whole city to their own machines. I just want to frighten a few people. Small scale. Responsible." } },
     _none = { { id = "tp_none", text = "Never heard of it. Does it have gears?" } },
   },
@@ -113,8 +145,12 @@ P:NPC {
         { id = "h_duke", when = { questActive = TODO_QUEST("Duke Nicholas Zverenhoff") },
           text = "Duke Zverenhoff will want to meet you. Not many walk into the Plaguelands of their own will. Fewer walk out." },
       },
+      again = { { id = "h_again", text = "What else? The Light keeps late hours, and so do I." } },
       choices = {
         { text = "Tell me about the Argent Dawn.", next = "dawn" },
+        { text = "What does the Dawn want with Winterspring?", next = "why_here" },
+        { text = "What's the difference between you and the Scarlet Crusade?", next = "scarlet" },
+        { text = "The Dawn would take one of the Forsaken?", next = "forsaken", when = { race = "Scourge" } },
         { text = "I'll carry word.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
       },
     },
@@ -123,11 +159,32 @@ P:NPC {
       lines = {
         { id = "d_default", text = "We stand against the Scourge, and anything else that would end this world. No crown, no warchief. Humans, dwarves, orcs, tauren, even the Forsaken. Light's Hope Chapel in the east is our heart. Out here, I'm one of our ears." },
       },
-      choices = { { text = "I'd like to help.", next = "END", fx = { affinity = 3, learn = { "argent_dawn" } } } },
+      choices = {
+        { text = "I'd like to help.", next = "BACK", fx = { affinity = 3, learn = { "argent_dawn" } } },
+        { text = "How do I prove myself?", next = "dawn_prove" },
+      },
+    },
+    dawn_prove = {
+      lines = { { id = "dp_default", text = "Fight the Scourge, and bring back what they carry. The Dawn keeps careful records. Every token you bring in is a mark beside your name." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "argent_dawn" } } } },
+    },
+    why_here = {
+      lines = { { id = "w_default", text = "Everlook sees everyone who crosses the north. Travellers talk. Some of them have seen things in the east they'd rather forget. I write those things down." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    scarlet = {
+      lines = { { id = "s_default", text = "They began where we began, with the dead walking in Lordaeron. Then they decided everyone not wearing red was the enemy. We decided the enemy was the enemy." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "scarlet_crusade" } } } },
+    },
+    forsaken = {
+      lines = { { id = "f_default", text = "If you fight the Scourge, yes. You know them better than any of us; they made you, and you walked away. That's worth something. Not everyone here agrees. I do." } },
+      choices = { { text = "Thank you.", next = "BACK", fx = { affinity = 2 } } },
     },
   },
 
   topics = {
+    background = { { id = "tp_ba", text = "I'd seen enough of the plague to want to do something about it. The Dawn gave me somewhere to stand." } },
+    advice = { { id = "tp_ad", text = "Carry holy water if you're going east. And a friend. The holy water's easier to find." } },
     argent_dawn = { { id = "tp_argent_dawn", text = "Prove yourself against the Scourge, and the Dawn will remember you. We keep good records." } },
     scarlet_crusade = { { id = "tp_scarlet_crusade", text = "They began where we began, with the dead walking in Lordaeron. They took a darker road. Pity them. Then stay away from them." } },
     _none = { { id = "tp_none", text = "I can't say. But I'd ask it at Light's Hope if it touches the Scourge." } },

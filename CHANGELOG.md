@@ -2,6 +2,68 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.29.0 (2026-11-14)
+Packs: World 1.16.0, Stormwind 1.5.0, Elwynn 1.9.0, Stranglethorn 1.5.0, Riverglades 1.2.0, Dustwallow 1.3.0, Feralas 1.3.0, Desolace 1.3.0, Arathi 1.3.0, EasternPlaguelands 1.2.0, Badlands 1.2.1, Felwood 1.1.1, UnGoro 1.2.1, Winterspring 1.2.1 (the rest as in 0.28.0). No new folders: /reload is enough.
+
+### For a human priest
+The user: "Develop whatever you think needs developing. My main is a human priest."
+- **The Cathedral of Light:** Archbishop Benedictus has much more to say, including, if a priest asks about shadow, a bishop after the First War who went too far into it. New: High Priestess Laurena, Brother Joshua and Brother Benjamin (the priest trainers), and Brother Crowley, the Scarlet Crusade's emissary in the catacombs.
+- **Stormwind's leaders:** Bolvar (the Church, Lady Prestor, the refugees), Anduin and Katrana have new branches. "Something else" goes back to the start instead of ending the conversation.
+- **Priest trainers everywhere:** Anetta and Josetta, and every unnamed priest trainer, now have a real conversation: what to practise, Light or shadow, whether they tire of healing. A new origin: Novice of Northshire Abbey.
+- **On the road, levels 30-45:** priest-only replies where someone would genuinely want a priest. Pray over Doren's dead, say words for Smotts' crew, bless Demar's riders at dawn, sit with James Hyal, bless the Stromgarde badges, be Pentigast's chaplain, ask Jaina whether the Light still answers her, ask Shandris about Elune, and ask Tyrosus what the Dawn needs from a healer.
+
+### Shadowform
+- People notice a priest in Shadowform: trainers won't teach through it (no Holy spells in that shape), Benedictus asks to see your face, Crowley wants it off, Anduin wants to know if it hurts, children think you're a ghost, and guards get a fright.
+- **Fixed:** shape reactions fired on any change. Entering Shadowform made Eastern Plaguelands guards call you a druid's beast; warrior stance swaps and stepping out of a form set them off too. Now only taking a visible shape counts, stances and stealth are not shapes, and every zone's beast-shape line names the shapes it means. The validator warns when one doesn't.
+
+## 0.28.0 (2026-11-14)
+Packs: World 1.15.0, Riverglades 1.1.0, Dustwallow 1.2.0, Tanaris 1.2.0, Feralas 1.2.0, Hinterlands 1.2.0, Desolace 1.2.0, Arathi 1.2.0, UnGoro 1.2.0, Winterspring 1.2.0, SearingGorge 1.1.0, EasternPlaguelands 1.1.0, Felwood 1.1.0, Badlands 1.2.0 (the rest as in 0.27.0). No new folders: /reload is enough.
+
+### Deeper conversations where an Alliance character goes next
+The user: "Develop whatever you think needs developing." The depth rewrite from 0.26.0 (hubs, branches, replies for particular characters, their own story and advice), for every Alliance and neutral NPC in the 30-60 zones:
+- **Theramore:** Jaina, Tervosh, Captain Vimes, Adjutant Tesoran, Janene. **Gadgetzan and Steamwheedle Port:** Marin, Sprinkle, Bilgewhizzle, Fizzledowser, Pestlezugg, Tran'rek, Fizzgrimble, Stoley. **Feathermoon:** Shandris, Pratt, Shyria. **Aerie Peak:** Falstad, Talonaxe, Fraggar, Thulfram. **Nijel's Point:** Pentigast, Marandis, Kreldig, Brother Anton, Lyshaerya. **Refuge Pointe:** Captain Nials.
+- **Marshal's Refuge:** Williden, Linken, J.D. Collie, Spraggle. **Everlook and the springs:** Vizzie, Umi, Gregor, Donova, Mau'ari. **Thorium Point:** Oilfist, Hansel, Lolo, Kalaran. **Light's Hope and the river:** Tyrosus, Leonid, Tirion. **Felwood:** Eridan, Greta, Arathandris, Golhine. **The Badlands:** Ryedol, Lotwil.
+- Some of the replies only some characters get: a dwarf shaman is welcomed by a Wildhammer shaman; a Bronzebeard dwarf faces a Dark Iron who was raised to hate them; a paladin asks Tyrosus where paladins belong now; Lordaeron refugees talk to Jaina and Nials; a hunter takes Shandris's archery test; the Forsaken ask Gregor and Leonid whether the Dawn will have them.
+- 48 NPCs in all; with Stranglethorn and the Riverglades, 92 meet the depth standard (4 at the start of the day).
+
+### The lost of Farholde (a new throughline)
+Fern Crimsonleaf went into the Horde's camp the night before the charge that broke the Siege of Farholde, and never came back. Gray Dawnbright won't believe she's dead; Ashe remembers what her father said about her; Cady warns you off asking Demar; Demar says it once. Then you decide what to carry back to Gray, and both of them remember. Nobody ever learns what happened to her.
+
+## 0.27.0 (2026-11-14)
+Packs: World 1.14.0, Stranglethorn 1.4.0, and a new one: **Riverglades 1.0.0** (the rest as in 0.25.0). **New folder: exit the game fully, copy RPGDialogue_Riverglades in, and tick it.**
+
+### Ask about, Morrowind-style
+The user: "Develop the 'Morrowind' style 'ask about' more deeply."
+- **You pick topics up by hearing them.** When someone in the box names a person, place or trouble the addon knows (the Defias, Hogger, the Bloodsail, the Siege of Farholde...), you learn it, and the word is highlighted. **Click it to ask them about it.** The text types out plain and the links appear when it finishes. Hover a word to see "Ask about ...". Settings: "Highlight topics in what people say" (on by default; off still learns them).
+- **Anyone can be asked:** Their story, Their work, A little advice, Latest rumors. These are always in the list, first. Named people tell their own story or politely don't; everyone else answers from their role (guards, innkeepers, smiths, flight masters, children, priests, soldiers, farmers, peons...). Anyone passes on the rumors going round their zone, not only innkeepers.
+- **Answers lead somewhere.** Some answers open that subject's replies: ask Demar Brant about Fern Crimsonleaf and you're in that conversation.
+- **The list** is grouped by category under headers ("Ask anyone" first, then people, places, threats, history...), flat while you search. Topics you've already asked this person about say "(asked)". Keys and the gamepad skip the headers.
+
+### The Riverglades (new zone)
+Forever's new zone, Alliance and neutral first, from the wiki and Blizzard's announcements (LORE_NOTES "The Riverglades"):
+- **Farholde Keep:** Knight Commander Demar Brant and twenty years of the Brotherhood of the Horse; Ashe Amberhall, his advisor, who thinks Stormwind made the sensible choice and fights anyway; Sergeant Riftan at the front; Sister Rowland and the sick in the chapel; Cady Lloydriel, her dog and cat and the cradle she won't explain; Wheatley, Gretchen Mayberry and Alphonse Dumas; the sentries.
+- **Outside the walls:** Hurley and Halligan Turner at the logging camp, Benjy Wheeler at Wheeler's Grange.
+- **Powderfuse Port:** Melbin Powderfuse, who built all of it (he says); Innkeeper Zizplink; Gray Dawnbright, drinking, who won't believe Fern Crimsonleaf is dead; Jazzle's arena with no fights yet; Fimbo's cafe; Argo and his sea monster; Gritta's chum.
+- Questions left open on purpose: was Stormwind cowardly or sensible? Is Fern alive? Did Cho'gall come here? Did Melbin build the port?
+- Horde (Rog'mar, Bolder'ok) is still to come.
+
+### Also
+- Validator: an error when two packs use the same NPC key for two different people (they'd merge into one). It caught `gretchen` (Gretchen Dedmar in Brill, Gretchen Mayberry in Farholde).
+- "Sentry ..." NPCs are guards; Farholde's laborers, scouts and sick soldiers are pooled.
+
+## 0.26.0 (2026-11-14)
+Packs: Stranglethorn 1.3.0 (the rest as in 0.25.0). No new folders: /reload is enough, restarting is safest.
+
+### Conversations you can explore
+The user: "there needs to be more density for each NPC... only a few dialogue choices and they don't lead very deep, and I'm given effectively one dialogue option."
+- **A hub to come back to.** The opening is a hub; each reply opens a subject that runs two or three exchanges deep, then "Something else." brings you back. The NPC says a short "what else?" line in their own voice instead of repeating their introduction.
+- **Asked and answered.** A subject you've already been down in this conversation disappears from the list. On your next visit it's back, dimmed, after the subjects you haven't tried.
+- **Up to six replies** at once (was four), in the writer's order. When there are more, subjects you've explored drop first, then the ones everybody gets; replies that exist because of who you are (your class, race, origin, a quest you've done, someone you've talked to) stay.
+- **A depth standard** for writers (CONTENT_GUIDE §7a), measured per NPC in the coverage report's new "Depth" table.
+
+### Stranglethorn Vale, rewritten for depth (Alliance and neutral first)
+Every NPC you can talk to as Alliance: the Rebel Camp (Doren, Nimetz, Thorsen), Nesingwary's Expedition (Hemet, Barnil, Ajeck, Erlgadin) and Booty Bay (Revilgaz, Seahorn, Krazek, MacKinley, Kebok, Skindle, Smotts, Shaky, Crazz, Crank Fizzlebub, Whiskey Slim, Drizzlik, Sprogger, Fin, Lozgil). Each has 4 to 7 subjects; the larger ones run to 15 or 20 exchanges. Some replies only appear for some characters: a warrior or paladin tells Doren about a bad order they once followed, a priest prays with Nimetz, an alchemist reads his residue, a refugee tells Smotts what they did after losing everyone, a hunter compares bows with Ajeck, a noble-born character faces Erlgadin. Grom'gol (Horde) is next for the Horde pass.
+
 ## 0.25.0 (2026-11-14)
 Packs: Arathi 1.1.0, Ashenvale 1.1.0, Badlands 1.1.0, Barrens 1.2.0, Darkshore 1.1.0, Darnassus 1.1.0, Desolace 1.1.0, Durotar 1.1.0, Duskwood 1.2.0, Dustwallow 1.1.0, Elwynn 1.8.0, Feralas 1.1.0, Hillsbrad 1.1.0, Hinterlands 1.1.0, Ironforge 1.3.0, LochModan 1.1.0, Moonglade 1.1.0, Mulgore 1.2.0, Orgrimmar 1.2.0, Redridge 1.2.0, Silverpine 1.1.0, Stonetalon 1.1.0, Stormwind 1.4.0, Stranglethorn 1.2.0, SwampOfSorrows 1.1.0, Tanaris 1.1.0, Teldrassil 1.2.0, ThousandNeedles 1.1.0, ThunderBluff 1.2.0, Tirisfal 1.1.0, UnGoro 1.1.0, Undercity 1.1.0, Westfall 1.3.0, Wetlands 1.1.0, Winterspring 1.1.0, World 1.13.0, Zephras 1.0.1, and three new ones: Felwood 1.0.0, Searing Gorge 1.0.0, Eastern Plaguelands 1.0.0. **New folders: exit the game fully, copy them in, and tick them.**
 

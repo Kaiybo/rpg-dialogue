@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: Un'Goro Crater |cff8a8a8a1.1.0|r
+## Title: RPG Dialogue: Un'Goro Crater |cff8a8a8a1.2.1|r
 ## Notes: Marshal's Refuge: an expedition leader who underestimated the crater, a gnome who's forgotten his own quest, a crystal scholar and a goblin worried sick about her friend.
 ## Author: RPG Dialogue
-## Version: 1.1.0
+## Version: 1.2.1
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.ungoro

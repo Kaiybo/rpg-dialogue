@@ -14,7 +14,7 @@ P:NPC {
   bible = "bibles/trainers.md", role = "trainer", tier = "service",
   communities = { "northshire" }, temper = { "steady" }, values = { "pious", "kind" },
   spiritSensitive = true,
-  notices = { "wounds" },
+  notices = { "wounds", "form" },
 
   greetings = {
     { id = "g_priest", when = { class = "PRIEST" }, text = "Sit, little {g:brother|sister}. The Light can wait a moment for you to catch your breath." },
@@ -22,6 +22,8 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_shadow", cat = "form", when = { form = "shadow" },
+      text = "None of that in the infirmary, please. The wounded have had enough frights. Out of it, and roll up your sleeves." },
     { id = "n_wounds", cat = "wounds", place = "before", when = { durability = { max = 0.3 } },
       text = "Another one from the kobold camps. Hold still. You're the ninth today, and the day's young." },
   },
@@ -35,13 +37,21 @@ P:NPC {
           text = "So McBride wrote to me about you. Then you're one of mine now. The first lesson is that the Light heals the people who annoy you too." },
         { id = "h_wounded", when = { questActive = TODO_QUEST("Healing the Wounded") },
           text = "The trainees by the barracks. Mend them, don't lecture them. The lecturing comes later, and it's my job." },
+        { id = "h_favor", tags = { "news" }, when = { questActive = TODO_QUEST("In Favor of the Light") },
+          text = "Josetta, in Goldshire, upstairs at the Lion's Pride. She'll teach you what I can't from a library. Finish what you owe the Marshal first." },
         { id = "h_other", when = { ["not"] = { class = "PRIEST" } },
           text = "Whatever your path, don't turn your back on the Light. It has a long memory, and a kind one." },
         { id = "h_cots", when = { metBefore = true }, text = "Three cots full this morning, and all three of them got up and walked out by noon. I'll take that." },
+        { id = "h_back", tags = { "news" }, when = { class = "PRIEST", minLevel = 20, metBefore = true },
+          text = "Look at you. You left here with a staff you could barely hold. Come and tell me what the world's done to you. Then tell me what you've done to it." },
       },
+      again = { { id = "h_again", text = "Something else? Sit while you ask; the stool's for visitors." } },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "What is the Light, really?", next = "light" },
+        { text = "What should a new priest learn first?", next = "first", when = { class = "PRIEST", maxLevel = 15 } },
+        { text = "What happens to the ones you can't heal?", next = "lost" },
+        { text = "I grew up in these halls.", next = "novice", when = { origin = "human_abbey_novice" } },
         { text = "Thank you, Priestess.", next = "END" },
       },
     },
@@ -49,13 +59,42 @@ P:NPC {
       big = true,
       lines = { { id = "l_default", text = "Not a weapon, whatever the paladins say over supper. More like a lamp you keep lit for whoever comes after you." } },
       choices = {
-        { text = "I'll keep it lit.", next = "END", fx = { affinity = 1, align = { light = 2 } } },
-        { text = "Some days it's a weapon.", next = "END", fx = { trait = { stern = 1 } } },
+        { text = "I'll keep it lit.", next = "BACK", fx = { affinity = 1, align = { light = 2 } } },
+        { text = "Some days it's a weapon.", next = "light_weapon", fx = { trait = { stern = 1 } } },
       },
+    },
+    light_weapon = {
+      lines = { { id = "lw_default", text = "Some days. Then you put it down again, and you check your hands, and you go and heal someone. That's how you know it's still the Light in them." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    first = {
+      lines = { { id = "f_default", text = "To heal before you're asked. To stand behind the fighters, not in front of them. And to drink water. Priests forget water. I don't know why. We all do." } },
+      choices = {
+        { text = "Why behind the fighters?", next = "first_behind" },
+        { text = "Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    first_behind = {
+      lines = { { id = "fb_default", text = "Because if you fall, so do they. You're the last thing between them and Brother Neals. Be harder to kill than the kobold in front of you." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+    },
+    lost = {
+      big = true,
+      lines = { { id = "lo_default", text = "I sit with them. That's all there is to do, at the end. You'll do it too, one day. Don't let anyone tell you it isn't healing." } },
+      choices = {
+        { text = "I'll remember.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "That sounds unbearable.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    novice = {
+      lines = { { id = "n_default", text = "I thought I knew the face. You used to fall asleep in the back of the library. Well. Someone did. Every novice does. Welcome home." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 3, standing = { northshire = 2 } } } },
     },
   },
 
   topics = {
+    background = { { id = "tp_ba", text = "A priestess of Northshire. I came to the Abbey to read, and stayed to bandage. The reading waits." } },
+    advice = { { id = "tp_ad", text = "Kobolds bite low. Watch your ankles, and keep a prayer ready for whoever forgot to." } },
     northshire_abbey = { { id = "tp_abbey", text = "Mind the library steps. Recruits read standing up and fall down standing up." } },
     kobolds = { { id = "tp_kobolds", text = "I see what they leave behind. Mostly in the infirmary." } },
     _none = { { id = "tp_none", text = "I've no answer for that, but I'll pray you find one." } },
@@ -264,7 +303,7 @@ P:NPC {
   bible = "bibles/trainers.md", role = "trainer", tier = "service",
   communities = { "goldshire" }, temper = { "steady" }, values = { "pious", "kind" },
   spiritSensitive = true,
-  notices = { "travel" },
+  notices = { "travel", "form" },
 
   greetings = {
     { id = "g_priest", when = { class = "PRIEST" }, text = "Welcome, friend in the Light. Come in from the noise." },
@@ -272,6 +311,8 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_shadow", cat = "form", when = { form = "shadow" },
+      text = "You went a long way to come back looking like that. The road, or the lessons? Never mind. I'm glad you came back at all." },
     { id = "n_travel", cat = "travel", when = { minLevel = 20 },
       text = "You've been far, haven't you. I can tell by your boots. I always meant to go far. I meant to for thirty years." },
   },
@@ -283,15 +324,25 @@ P:NPC {
         { id = "h_default", text = "Josetta. I teach the Light up here, above the noise of the common room. Mostly above it." },
         { id = "h_garments", when = { questActive = TODO_QUEST("Garments of the Light") },
           text = "There are folk on the road who need mending more than they'll admit. Find them. Heal them. Don't wait to be asked." },
-        { id = "h_prayer", when = { questActive = TODO_QUEST("Desperate Prayer") },
+        { id = "h_prayer", key = true, when = { questActive = TODO_QUEST("Desperate Prayer") },
           text = "There's more for you beyond Goldshire. Go and learn it. I'll be here, envying you a little." },
+        { id = "h_favor", tags = { "news" }, when = { questActive = TODO_QUEST("In Favor of the Light") },
+          text = "Anetta sent you down from the Abbey. She only sends the ones she's proud of. Don't tell her I told you." },
+        { id = "h_forever", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("Confounding Flash") }, { questActive = TODO_QUEST("Divine Grace") } } },
+          text = "A new lesson. Even I'm still learning them. Don't tell the Cathedral that either." },
         { id = "h_young", when = { maxLevel = 12 },
           text = "When I was your age I wanted to see the whole world. I stayed in Goldshire instead. Don't do that. Go." },
         { id = "h_go", when = { metBefore = true }, text = "You're still here? Good, and not good. The world's bigger than Goldshire, little one. Go and see it, and come back and tell me." },
+        { id = "h_far", tags = { "news" }, when = { class = "PRIEST", minLevel = 30, metBefore = true },
+          text = "You came back. You actually came back, from wherever that tan's from. Sit. Tell me everything. Start with the sea." },
       },
+      again = { { id = "h_again", text = "What else? Mind the floorboard; it squeaks to Farley." } },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "Why didn't you travel?", next = "travel" },
+        { text = "Where would you have gone?", next = "where" },
+        { text = "Tell me about the Cathedral.", next = "cathedral", when = { class = "PRIEST" } },
+        { text = "I've been far. Want to hear about it?", next = "stories", when = { minLevel = 30 } },
         { text = "Thank you.", next = "END" },
       },
     },
@@ -299,13 +350,43 @@ P:NPC {
       big = true,
       lines = { { id = "t_default", text = "Courage, mostly. Or the lack of it. There was always a reason to stay one more season. Seasons add up." } },
       choices = {
-        { text = "It's not too late.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
-        { text = "Goldshire needed you.", next = "END", fx = { affinity = 1 } },
+        { text = "It's not too late.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Goldshire needed you.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    where = {
+      lines = { { id = "w_default", text = "Everywhere! The sea first. I've never seen it. Then the mountains, and the forests where the elves live, and a desert, just to feel too hot once." } },
+      choices = {
+        { text = "I'll bring you back something from the sea.", next = "BACK", fx = { affinity = 3, trait = { generous = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cathedral = {
+      lines = { { id = "c_default", text = "Bigger than you'd think, and quieter. High Priestess Laurena will teach you there when you're ready. She's stern. She's also right, which is worse." } },
+      choices = {
+        { text = "Why didn't you go to the Cathedral?", next = "cathedral_why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cathedral_why = {
+      lines = { { id = "cw_default", text = "Someone has to be here for the ones who aren't ready yet. That's what I tell myself. Some days it's even true." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
+    },
+    stories = {
+      lines = {
+        { id = "s_default", text = "Yes! Sit down. Did you see the sea? What colour was it? Don't say blue. Everyone says blue." },
+        { id = "s_booty", when = { questDone = TODO_QUEST("The Bloodsail Buccaneers") }, text = "You've been to Booty Bay? With the pirates? Oh, I'd have fainted. Tell me slowly." },
+      },
+      choices = {
+        { text = "Grey, mostly. And loud.", next = "BACK", fx = { affinity = 3 } },
+        { text = "Green, near the shore. Like old glass.", next = "BACK", fx = { affinity = 3, trait = { kind = 1 } } },
       },
     },
   },
 
   topics = {
+    background = { { id = "tp_ba", text = "A priestess of Goldshire, above the noise of the inn, for longer than I meant to be.", next = "travel" } },
+    advice = { { id = "tp_ad", text = "Go somewhere you've never been, once a year at least. The Light looks different from a new place." } },
     lions_pride = { { id = "tp_inn", text = "Lovely inn. Thin floors. I know all of Farley's stories by heart." } },
     _none = { { id = "tp_none", text = "I've never been far enough to know that. Ask someone who's travelled." } },
   },

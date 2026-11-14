@@ -71,3 +71,32 @@ P:Claim {
   truthNote = "Kalaran is a black drake in human disguise; the story is his invention to get adventurers to do his work (Kalaran Windblade, warcraft.wiki.gg). Exposed when his quests end and he shows himself.",
   exposedBy = { "quest:Squire Maltrake" },
 }
+
+-- The Riverglades (Forever)
+P:Claim {
+  id = "stormwind_abandoned_riverglades", by = "demar", truth = "partly",
+  text = "Stormwind left the Riverglades to the Horde out of cowardice.",
+  truthNote = "Stormwind did judge the land lost in the First War and turned to the home front (Ashe Amberhall's gossip, Riverglades page). 'Cowards' is Demar's word (his gossip); Ashe says she agrees with Stormwind's reasoning and fights anyway. Disputed inside Farholde itself.",
+  open = true,
+}
+
+P:Claim {
+  id = "fern_lives", by = "gray", truth = "unknown",
+  text = "Fern Crimsonleaf survived the night she killed the Horde's leaders outside Farholde.",
+  truthNote = "Her memorial: whereabouts unknown, presumed dead; the book says the same. Deliberately open: nobody in the addon settles it.",
+  open = true,
+}
+
+P:Claim {
+  id = "chogall_in_riverglades", by = "zizplink", truth = "unknown",
+  text = "Cho'gall himself came to the Riverglades after Gul'dan fell.",
+  truthNote = "A Wartorn Land and The Brotherhood, page 4: reports of it 'were but a whisper'. Left open.",
+  open = true,
+}
+
+P:Claim {
+  id = "melbin_built_port", by = "melbin", truth = "unknown",
+  text = "Powderfuse Port was a vacant lot until Melbin Powderfuse built every board of it, and it all belongs to him.",
+  truthNote = "His own gossip; nothing confirms or denies it. Other goblins in the port have their doubts. Left open.",
+  open = true,
+}

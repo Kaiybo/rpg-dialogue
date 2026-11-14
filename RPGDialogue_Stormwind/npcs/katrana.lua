@@ -36,8 +36,14 @@ P:NPC {
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "Ah. One of the elves who came down out of the sky. The Kirin Tor do collect such curiosities." },
       },
+      again = { { id = "h_again", text = "Something else? Do be quick." } },
       choices = {
         { text = "Westfall needs the crown's help.", next = "plead" },
+        { text = "The Church would say mercy is never wasted.", next = "mercy", when = { class = { "PRIEST", "PALADIN" } } },
+        { text = "How did you come to court, my lady?", next = "court" },
+        { text = "And the young king?", next = "king" },
+        { text = "What of the Defias, my lady?", next = "defias" },
+        { text = "Lakeshire is begging for soldiers.", next = "letters", when = { visited = "Lakeshire" } },
         { text = "What do you advise, my lady?", next = "advise" },
         { text = "Excuse me.", next = "END" },
       },
@@ -49,22 +55,56 @@ P:NPC {
       },
       choices = {
         { text = "People are dying while you wait.", next = "dying", fx = { align = { honor = 1 }, affinity = -1 } },
-        { text = "I see your point.", next = "END", fx = { affinity = 1, opinion = { westfall = "patience" } } },
+        { text = "I see your point.", next = "BACK", fx = { affinity = 1, opinion = { westfall = "patience" } } },
       },
     },
     dying = {
       lines = {
         { id = "d_default", text = "People are always dying, little one. It is the one thing they can be relied upon to do. Run along." },
       },
-      choices = { { text = "...", next = "END", fx = { trait = { stern = 1 } } } },
+      choices = { { text = "...", next = "BACK", fx = { trait = { stern = 1 } } } },
+    },
+    mercy = {
+      big = true,
+      lines = { { id = "m_default", text = "The Church says a great many lovely things, little priest. The Church does not balance the treasury, raise the levies, or count the graves. I do all three. Go and pray. It suits you." } },
+      choices = {
+        { text = "Someone has to remind you of the people.", next = "BACK", fx = { affinity = -2, align = { light = 2, honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    court = {
+      lines = { { id = "c_default", text = "Alterac's misfortunes were Stormwind's gain, as they say. I came south, I made myself useful, and the Regent was wise enough to notice. That's all there is to it, really." } },
+      choices = {
+        { text = "Do you miss Alterac?", next = "court_alterac" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    court_alterac = {
+      lines = { { id = "ca_default", text = "Miss it? It was cold, and full of men who couldn't keep a kingdom. Stormwind is so much warmer. And so much better kept." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    king = {
+      lines = { { id = "k_default", text = "A dear boy. He asks the most charming questions at council. We answer them, and then we decide things. It's an arrangement that suits everyone." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    defias = {
+      lines = { { id = "d2_default", text = "Thieves with a grievance and a red scarf. Hang the loud ones and the quiet ones go home. It's always worked before." } },
+      choices = {
+        { text = "They were the stonemasons who rebuilt this city.", next = "BACK", fx = { affinity = -1, opinion = { defias = "masons_wronged" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    letters = {
+      lines = { { id = "l_default", text = "Lakeshire is always begging for something. Soldiers this year, a bridge the last. If we answered every village, the city would be guarded by its cooks." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     advise = {
       lines = {
         { id = "a_default", text = "Strength. Order. Not wasting either on causes that cannot repay them. The Regent finds that cold. The Regent also sleeps very well." },
       },
       choices = {
-        { text = "Wise counsel.", next = "END", fx = { affinity = 1, align = { order = 1, light = -1 } } },
-        { text = "It sounds cold.", next = "END", fx = { affinity = -1 } },
+        { text = "Wise counsel.", next = "BACK", fx = { affinity = 1, align = { order = 1, light = -1 } } },
+        { text = "It sounds cold.", next = "BACK", fx = { affinity = -1 } },
       },
     },
   },

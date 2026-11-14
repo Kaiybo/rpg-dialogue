@@ -19,7 +19,7 @@ One bible for nine small parts. Each trainer warms to their own class and is sho
 
 ## Priestess Anetta (key: anetta)
 - Source: https://warcraft.wiki.gg/wiki/Priestess_Anetta (Northshire Abbey, Library Wing ground floor; Brotherhood of Northshire, Church of the Holy Light; heals wounded trainees; teaches novice priests; Healing the Wounded, Hallowed Letter, In Favor of the Light; reminds non-priests not to turn from the Light)
-- Voice: kind, brisk, overworked infirmary keeper. Notices: wounds.
+- Voice: kind, brisk, overworked infirmary keeper. Notices: wounds; Shadowform (not in the infirmary).
 
 ## Khelden Bremen (key: khelden)
 - Source: https://warcraft.wiki.gg/wiki/Khelden_Bremen (abbey second floor; teaches the fundamentals; Glyphic Letter; to mages, destiny and knowledge and power whatever the gods think; to others, magic is dangerous untrained)
@@ -39,7 +39,7 @@ One bible for nine small parts. Each trainer warms to their own class and is sho
 
 ## Priestess Josetta (key: josetta)
 - Source: https://warcraft.wiki.gg/wiki/Priestess_Josetta (Lion's Pride Inn, upstairs central room with Michelle Belle; wishes she'd had the courage to travel when young; In Favor of the Light, Garments of the Light, Desperate Prayer, Returning Home)
-- Voice: gentle, wistful, encouraging the young to go. Notices: travel. Authored: "thirty years".
+- Voice: gentle, wistful, encouraging the young to go. Notices: travel; Shadowform (glad they came back at all). Authored: "thirty years".
 
 ## Zaldimar Wefhellt (key: zaldimar)
 - Source: https://warcraft.wiki.gg/wiki/Zaldimar_Wefhellt (Lion's Pride Inn, upstairs, leftmost room; Wizard's Sanctum; Speak with Jennea, Report to Jennea; warns the untrained)

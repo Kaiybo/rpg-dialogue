@@ -143,17 +143,84 @@ P:Pool {
 }
 
 P:Pool {
-  id = "trainer_priest", role = "trainer", subtitle = "priest trainer",
-  greetings = { { id = "g_peace", text = "Peace. What do you need?" } },
+  -- Every unnamed priest trainer shares this conversation (named ones have their own).
+  -- Faction-neutral: Light-aligned priests of both factions, and Forsaken and troll priests.
+  id = "trainer_priest", role = "trainer", subtitle = "priest trainer", tier = "service",
+  greetings = {
+    { id = "g_peace", text = "Peace. What do you need?" },
+    { id = "g_priest", when = { class = "PRIEST" }, text = "Back for more? Good. The Light rewards the stubborn." },
+  },
   notice = {
     { id = "n_gnome", cat = "class", when = { race = "Gnome", class = "PRIEST" },
       text = "A gnome in the vestments. I've heard of it and never seen it. Your people do like to take things apart. Faith isn't one of those things." },
+    { id = "n_undead", cat = "class", when = { race = "Scourge", class = "PRIEST" },
+      text = "The Light still answers you. It burns a little, I'd guess. Good. Burning means it's listening." },
+    { id = "n_hurt", cat = "class", when = { class = "PRIEST", durability = { max = 0.25 } },
+      text = "A priest, with armour like that? You've been standing in front of the fighters again. Behind them. Always behind." },
+    { id = "n_shadow", cat = "form", when = { form = "shadow" },
+      text = "Out of the shadow for the lesson, please. Nothing I teach will reach you through it." },
   },
-  lines = {
-    { id = "l_default", text = "Healing is the easy part. Knowing when to let someone fall and learn is harder." },
+  react = {
+    { id = "r_shadow", on = "form", when = { form = "shadow" }, text = "Ah. The other half of the craft. Careful it doesn't become the whole of it." },
   },
-  choices = { { text = "Teach me.", next = "BUSINESS" } },
-  topics = { _none = { { id = "t_none", text = "I'd only be guessing, and guessing is not a sermon." } } },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "l_default", text = "Healing is the easy part. Knowing when to let someone fall and learn is harder." },
+        { id = "l_young", when = { class = "PRIEST", maxLevel = 20 }, text = "Still learning to keep your friends standing. That takes longer than learning the words. Be patient with yourself." },
+        { id = "l_veteran", when = { class = "PRIEST", minLevel = 45 }, text = "You've seen things I only teach about. Don't let them make you hard. Make them make you careful." },
+        { id = "l_other", when = { ["not"] = { class = "PRIEST" } }, text = "Not one of mine, but the Light doesn't mind. If you're ever hurt and far from a priest, pray anyway. It hears more than we do." },
+      },
+      again = { { id = "a_again", text = "Something else, while you're here?" } },
+      choices = {
+        { text = "Teach me.", next = "BUSINESS", when = { class = "PRIEST" } },
+        { text = "What should I be practising?", next = "practise", when = { class = "PRIEST" } },
+        { text = "Light or shadow. Which should I study?", next = "shadow", when = { class = "PRIEST", minLevel = 10 } },
+        { text = "Does the shadow frighten you?", next = "shadow_fear", when = { form = "shadow" } },
+        { text = "Do you ever get tired of healing?", next = "tired" },
+        { text = "Farewell.", next = "END" },
+      },
+    },
+    practise = {
+      lines = {
+        { id = "p_default", text = "Watching. Who's about to fall, who's pretending not to be hurt, who's standing in the fire. A priest who sees early heals less and saves more." },
+        { id = "p_young", when = { maxLevel = 20 }, text = "Your mana. Learn how much a prayer costs before you need three in a row. Most young priests learn it the other way." },
+      },
+      choices = {
+        { text = "And in a fight?", next = "practise_fight" },
+        { text = "Something else.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    practise_fight = {
+      lines = { { id = "pf_default", text = "Shield the one who'll be hit next, not the one who was hit last. That's the whole art. The rest is timing and nerve." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    shadow = {
+      big = true,
+      lines = { { id = "s_default", text = "Both, if you're brave and honest with yourself. The Light heals; the shadow teaches you what you're healing against. Just never let the second one become the reason you do the first." } },
+      choices = {
+        { text = "I'll keep to the Light.", next = "BACK", fx = { align = { light = 2 }, trait = { pious = 1 } } },
+        { text = "I want to learn the shadow.", next = "BACK", fx = { align = { light = -1 }, trait = { curious = 1 } } },
+      },
+    },
+    shadow_fear = {
+      lines = { { id = "sf_default", text = "Not the shadow. The ease of it. Everything you do in that shape, you take from someone. Everything you do outside it, you give. I'd hate to see you forget how to give." } },
+      choices = {
+        { text = "I won't forget.", next = "BACK", fx = { align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Taking keeps people alive too.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
+      },
+    },
+    tired = {
+      lines = { { id = "t_default", text = "Every night. Then someone walks in bleeding and I'm not tired any more. That's either devotion or habit. After long enough, I'm not sure there's a difference." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
+    },
+  },
+  topics = {
+    _none = { { id = "t_none", text = "I'd only be guessing, and guessing is not a sermon." } },
+    background = { { id = "t_bg", text = "I knelt once, got up a priest, and haven't sat down much since." } },
+    advice = { { id = "t_ad", text = "Carry bandages anyway. The Light is generous, but it's not always quick." } },
+  },
 }
 
 P:Pool {
@@ -307,8 +374,13 @@ P:Pool {
       text = "Bandits get your gear, or are you just brave about the weather?" },
     { id = "n_drunk", cat = "drunk", when = { drunk = { min = 2 } },
       text = "Sleep it off somewhere that isn't my road." },
+    { id = "n_shadow", cat = "form", when = { form = "shadow" },
+      text = "Easy, priest. Folk see that on the road at night and reach for a sword before they think to pray." },
   },
-  react = { { id = "r_stealth", on = "stealth", text = "Show yourself!" } },
+  react = {
+    { id = "r_stealth", on = "stealth", text = "Show yourself!" },
+    { id = "r_shadow", on = "form", when = { form = "shadow" }, text = "Hold! Oh. A priest. You might warn a man first." },
+  },
   lines = { { id = "l_default", text = "Report anything strange to the nearest officer. Strange gets worse if you wait." } },
   choices = { { text = "Carry on.", next = "END" } },
   topics = { _none = { { id = "t_none", text = "Above my post. Ask an officer." } } },
@@ -349,8 +421,13 @@ P:Pool {
   notice = {
     { id = "n_naked", cat = "kit", when = { nearlyNaked = true },
       text = "You can't walk the Trade District like that. Well, you can. People will talk." },
+    { id = "n_shadow", cat = "form", when = { form = "shadow" },
+      text = "You'll frighten the canal folk looking like that. Cathedral business, I'll assume. Move along gently." },
   },
-  react = { { id = "r_stealth", on = "stealth", text = "Stealth inside the city walls? Show yourself, or I call the Watch." } },
+  react = {
+    { id = "r_stealth", on = "stealth", text = "Stealth inside the city walls? Show yourself, or I call the Watch." },
+    { id = "r_shadow", on = "form", when = { form = "shadow" }, text = "Light preserve us. Oh. One of the Cathedral's. Carry on. Slowly." },
+  },
   lines = {
     { id = "l_default", text = "Trade District for shops, Cathedral Square for the Light, Old Town for trouble. The Keep's up the hill, and they won't let you in to see the Highlord without good reason." },
     { id = "l_rebuilt", text = "Masons rebuilt every stone you're standing on after the orcs burned it. Spare a thought for them, if you ever see one." },
