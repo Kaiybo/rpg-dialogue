@@ -158,3 +158,16 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Abercrombie: grief-mad alchemist of Raven Hill; put his heart in his dead wife Eliza, who rose hungry for flesh and is kept buried; adventurers unknowingly help build Stitches (Supplies from Darkshire, Deliver the Thread, Zombie Juice, Ghoulish Effigy, Ogre Thieves, Note to the Mayor); he and Stitches attack Darkshire and are beaten; he survives | [Abercrombie](https://warcraft.wiki.gg/wiki/Abercrombie) |
 
 **Not used (later eras):** the Veiled Hand (Ello, Althea, the council), Smitts's death, Sven's worgen infection, Jitters working for Oliver Harris, Tobias Mistmantle's retail return. **Kept secret in dialogue:** Abercrombie's project (hinted, never stated, until Note to the Mayor). **Authored:** Eva's card names; Jitters' unpaid tab; Daltry's "thin" file. The Flintridges' summer cottage being Haggard's house (Haggard's page) is used carefully: Haggard only says the papers came with the house.
+
+## Elwynn additions, second pass (Elwynn pack 1.3.0)
+
+| Fact | Source |
+|---|---|
+| Deputy Rainer: beside the entrance to Westbrook Garrison; Westbrook short of troops while raids from Westfall grew (the wiki ties the shortage to unrest under Lady Prestor; Rainer only blames "the court"); asked Dughan for soldiers, got adventurers; pushed back the Riverpaw; sends people to Gryan; frustrated that most of the army is abroad; plain-spoken. Quests: Westbrook Garrison Needs Help!, Riverpaw Gnoll Bounty, Report to Gryan Stoutmantle, the Hogger notice | [Deputy Rainer](https://warcraft.wiki.gg/wiki/Deputy_Rainer) |
+| Classic Elwynn givers outside Northshire: Maclure Vineyards (Gerard Tiller: Give Gerard a Drink; Billy Maclure: Pie for Billy, Back to Billy, Goldtooth; Maybell); Stonefield Farm (Bernice Stonefield: Lost Necklace; Tommy Joe; Gramma; Ma Stonefield: Princess Must Die!); Eastvale (Sara Timberlain: Red Linen Goods; Raelen; Thomas; Haggard: Dead-tooth Jack, a warrior chain step) | [Elwynn Forest (Classic) quests](https://warcraft.wiki.gg/wiki/Elwynn_Forest_(Classic)_quests) |
+| "Auntie" Bernice Stonefield suspects Billy Maclure of stealing her necklace; he denies it and wants a pie before he'll remember who did; she makes pork belly pies and bakes one reluctantly | [Lost Necklace](https://warcraft.wiki.gg/wiki/Lost_Necklace); [Pie for Billy](https://warcraft.wiki.gg/wiki/Pie_for_Billy) |
+| Princess: the Brackwells' prize-winning pig, enormous from eating Ma Stonefield's vegetables; Ma wants her collar as proof (current version of the quest; Classic details may differ) | [Princess Must Die!](https://warcraft.wiki.gg/wiki/Princess_Must_Die!) |
+| Sara Timberlain makes fine linen from Elwynn Defias' red bandanas; Northshire's Defias wear burlap masks | [Red Linen Goods](https://warcraft.wiki.gg/wiki/Red_Linen_Goods) |
+| Gerard Tiller: farming is thirsty work; trades an apple for spring water, repeatably | [Give Gerard a Drink](https://warcraft.wiki.gg/wiki/Give_Gerard_a_Drink) |
+
+**Unsure:** Goldtooth's location and kind (not sourced: lines never say); whether Ma Stonefield is Tommy Joe's mother (not stated: lines don't say); Billy's relation to Maybell (unstated).

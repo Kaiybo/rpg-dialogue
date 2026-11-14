@@ -17,7 +17,7 @@ P:Town {
 
 P:Town {
   id = "goldshire", name = "Goldshire",
-  subzones = { "Goldshire", "Lion's Pride Inn" },
+  subzones = { "Goldshire", "Lion's Pride Inn", "Westbrook Garrison", "Maclure Vineyards", "Stonefield Farm" },
   related = { northshire = 0.25, stormwind = 0.15 },
   tiers = { Hero = "Hero of Goldshire" },
   quests = {

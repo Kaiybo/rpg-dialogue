@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.3.0 (unreleased)
+- Deputy Rainer at Westbrook; the rest of the Stonefield farm (Auntie Bernice, Ma Stonefield) and Billy Maclure; Sara Timberlain at Eastvale; Gerard Tiller in the vines.
+- Echoes: Rainer hears that Raelen's been asking after him; Verner's note reaches Argus; Haggard and Smitts remember the old case.
+
 ## 1.2.0 (unreleased)
 - Brother Wilhelm (Goldshire's paladin trainer, the Tome of Divinity), Falkhaan Isenstrider, Maybell Maclure, Tommy Joe and Gramma Stonefield, and Eastvale: Guard Thomas, Marshal Haggard, Supervisor Raelen, Theocritus. Nine new voice bibles.
 - Echoes: Remy hears that Thomas owes him a drink; William Pestle reads Gramma's note.

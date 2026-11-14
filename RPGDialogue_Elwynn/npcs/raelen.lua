@@ -33,7 +33,7 @@ P:NPC {
           text = "Eight bundles. North, where the animals are. Not kindling, not twigs. Bundles." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("A Bundle of Trouble"), days = 2 } },
           text = "Wagon's loaded. If the buyer complains about bark, that's on him." },
-        { id = "h_rainer", text = "I told the deputy about the animals. Days ago. Rainer, his name is. Has anyone seen him since? Anyone at all?" },
+        { id = "h_rainer", key = true, text = "I told the deputy about the animals. Days ago. Rainer, his name is. Has anyone seen him since? Anyone at all?" },
         { id = "h_frontier", when = { questDone = TODO_QUEST("Protect the Frontier") },
           text = "Fewer wolves this week. Somebody's been busy. If that was you, the lads are grateful. I'm too busy to be." },
       },
