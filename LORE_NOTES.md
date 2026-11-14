@@ -476,6 +476,7 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Ahab Wheathoof and Kyle: a 2.1.2 addition that Forever brought back after fan outcry | [Ahab Wheathoof](https://warcraft.wiki.gg/wiki/Ahab_Wheathoof) |
 | Ayessa Dawnsinger and Camp Gev'rek | Brief §10 only |
 | The tauren were nomadic; with Thrall's orcs they drove the centaur from Mulgore, their first homeland in centuries; Stonebull Lake around Bloodhoof; tallstriders | [Mulgore](https://warcraft.wiki.gg/wiki/Mulgore) |
+| An'she (sun) and Mu'sha (moon, the White Lady, bringing sleep) are the Earth Mother's eyes | [Earth Mother](https://warcraft.wiki.gg/wiki/Earth_Mother) |
 | Venture Company topic: goblin resource cartel; the tauren refused them mining rights, so they tainted Mulgore's wells; ruthless | [Venture Company](https://warcraft.wiki.gg/wiki/Venture_Company) |
 
 ## Tirisfal Glades (Tirisfal pack 1.0.0)

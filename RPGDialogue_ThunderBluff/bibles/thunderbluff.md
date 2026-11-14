@@ -27,3 +27,7 @@
 - Turak: patient teacher of the Great Balance.
 - Magatha: cunning, proud, openly ambitious, contemptuous of outsiders; says her rivalry out loud, never anything more.
 - Pala: motherly host.
+
+## Depth pass (0.24.0)
+Sourced: An'she and Mu'sha, the Earth Mother's eyes, Mu'sha the White Lady bringing sleep ([Earth Mother](https://warcraft.wiki.gg/wiki/Earth_Mother)); Skyborne druids favor the elements over Elune (brief §10).
+Authored, not canon: Turak was a hunter who put the bow down after a stag found him, and Hamuul found him a week later; Pala's lift-runners; Hamuul counts every young druid.

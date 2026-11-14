@@ -94,6 +94,7 @@ P:NPC {
           text = "You've spoken with Rau at Freewind. He learned to listen to the land here, on Elder Rise. I'm glad it's serving him in the Needles." },
         { id = "h_fandral", when = { heardLine = "fandral.h_default" },
           text = "So Fandral has received you in Darnassus. He didn't want me taught. He was wrong, and I don't hold it against him. Mostly." },
+        { id = "h_young", when = { metBefore = true }, text = "Every young druid who comes up the lift reminds me how few of us there were. I count you all, you know. I'm not ashamed of it." },
       },
       choices = {
         { text = "What did Malfurion teach you?", next = "taught" },
@@ -149,8 +150,13 @@ P:NPC {
           text = "The Crossroads has troubles with poison. A druid who can draw it out of the living is worth a dozen healers' herbs." },
         { id = "h_aquatic", when = { questDone = TODO_QUEST("Aquatic Form") },
           text = "Now the water's yours too. Few tauren take to it. You'll be a strange sight in the rivers. Enjoy it." },
+        { id = "h_bear", when = { metBefore = true, class = "DRUID" }, text = "How does the bear sit with you now? Heavy at first, for most. It gets lighter. Or you get stronger. Same thing, in the end." },
+        { id = "h_listen", when = { metBefore = true }, text = "The Arch Druid speaks to the Circle. I speak to the young ones. Between the two of us, someone is always being listened to." },
+        { id = "h_skyborne", when = { race = "Skyborne", class = "DRUID" }, text = "A druid from the sky isles. Your people lean on the elements before Elune, I'm told. Good. The Earth Mother made the winds too. She won't mind sharing you." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "Mu'sha has her eye open. The White Lady brings sleep to the plains. Not to me, tonight." },
       },
       choices = {
+        { text = "How did you become a druid?", next = "path" },
         { text = "Train me.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "What is the Great Balance?", next = "balance" },
         { text = "Farewell.", next = "END" },
@@ -159,6 +165,18 @@ P:NPC {
     balance = {
       lines = { { id = "b_default", text = "Everything in its place, and everything with a place. When we forget our place, the world reminds us. Gently, if we're lucky." } },
       choices = { { text = "Thank you.", next = "END", fx = { affinity = 1, learn = { "cenarion_circle" } } } },
+    },
+    path = {
+      lines = {
+        { id = "p_stag", text = "I hunted, first. I tracked a stag three days and lost it. On the fourth morning it found me: stood there in the grass, watching. I put the bow down. Hamuul found me a week later, still sitting there." },
+      },
+      choices = { { text = "That's a good story.", next = "END", fx = { affinity = 2 } }, { text = "What did the stag want?", next = "stag" } },
+    },
+    stag = {
+      lines = {
+        { id = "s_default", text = "I've wondered for years. I think it wanted to see if I'd keep chasing. I didn't. That was the lesson." },
+      },
+      choices = { { text = "I'll remember it.", next = "END", fx = { affinity = 2, trait = { patient = 1 } } } },
     },
   },
 
@@ -261,6 +279,8 @@ P:NPC {
         { id = "h_default", text = "Pala. I keep the Cat and the Shaman. Warriors, druids, traders off the lifts: everyone gets the same welcome and the same stew." },
         { id = "h_skyborne", when = { race = "Skyborne", faction = "Horde" },
           text = "Sky-folk, from down at the camp? Sit by the fire; up here the wind's colder than you'd think, even for you." },
+        { id = "h_lifts", when = { metBefore = true }, text = "The lift-runners eat here every night. Strongest backs in the city and the softest hearts. Don't tell them I said so." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "Late and windy. Listen to the totems creak. Sounds like the whole bluff is breathing." },
       },
       choices = {
         { text = "Make this my home.", next = "BUSINESS" },
