@@ -3,7 +3,7 @@
 The pack's own version is `version` in `pack.lua`; bump both together.
 
 ## 1.10.0 (unreleased)
-- Town: Camp Taurajo.
+- Towns: Camp Taurajo, Nijel's Point, Ghost Walker Post.
 
 ## 1.9.0 (unreleased)
 - Towns: Deathknell, Brill, Shadowglen, Dolanaar, Coldridge Valley, Kharanos and the Sepulcher.

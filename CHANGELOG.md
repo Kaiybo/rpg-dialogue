@@ -3,10 +3,13 @@
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
 ## 0.22.0 (2026-11-14)
-Packs: World 1.10.0, The Barrens 1.1.0, Thunder Bluff 1.0.2, Undercity 1.0.1, Darnassus 1.0.1, Ironforge 1.2.1, Orgrimmar 1.1.1 (the rest as in 0.21.0). No new folders: /reload is enough for most, but a full restart is safest (the Barrens has a new file).
+Packs: World 1.10.0, The Barrens 1.1.0, Thunder Bluff 1.0.2, Undercity 1.0.1, Darnassus 1.0.1, Ironforge 1.2.1, Orgrimmar 1.1.1, and a new one: Desolace 1.0.0 (the rest as in 0.21.0). **New folder: exit the game fully, copy it in, and tick it.**
 
 ### Camp Taurajo
 - Jorn Skyseer, who teaches young hunters the four great hunts of the Barrens; Mangletooth, a Razormane quilboar in a cage, who will trade the boar god's blessings for blood shards; Tatternack Steelforge, sent by the Warchief to study everyone's weapons; Innkeeper Byula.
+
+### Desolace
+- Nijel's Point: Captain Pentigast, who'd rather the centaur clans fight each other; Keeper Marandis on the Circle's business; Kreldig Ungor of Reclaimers Inc.; Brother Anton of the Scarlet Crusade, who hasn't heard the news; Innkeeper Lyshaerya. Ghost Walker Post: Takata Steelblade, hunting the Burning Blade among the satyrs.
 
 ### The capitals know where you've been
 - Cairne knows you've met Baine; Hamuul knows Rau at Freewind; Thrall knows Gar'Thok; Sylvanas knows Zygand; Bethor hears what Renferrel found; Magni has opinions about the Whitebeard brothers; Fandral about Corithras's moonwells; Tyrande knows Tenaron sent you down from Aldrassil.
