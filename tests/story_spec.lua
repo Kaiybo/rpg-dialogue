@@ -136,7 +136,11 @@ describe("Rumors and town standing", function()
     talkTo("Innkeeper Farley", 502, "Lion's Pride Inn")
     local s = ns.Conversation.session
     local shown = (s.mode == "full" and text(ns)) or ns.UI.Compact.Text()
-    ok(shown:find("Westfall") or shown:find("gnolls") or shown:find("Jasperlode"), "a rumor was told: " .. tostring(shown))
+    local told = false
+    for _, w in ipairs({ "Westfall", "gnolls", "Jasperlode", "Deputy Rainer", "Haggard", "Azora", "Maclure" }) do
+      if shown:find(w, 1, true) then told = true end
+    end
+    ok(told, "a rumor was told: " .. tostring(shown))
     ns.Pacing.RUMOR.chance = 0.5
   end)
 

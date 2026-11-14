@@ -94,7 +94,7 @@ def main():
             for slot, node, ln, gid in P.iter_lines(tbl, owner):
                 if isinstance(ln.get("text"), str):
                     entries.append((owner, pack.addon, gid, ln["text"], slot, False))
-                if kind == "Pool" and slot == "notice" and tbl.get("role") not in NARROW_ROLES and not tbl.get("community"):
+                if kind == "Pool" and slot == "notice" and tbl.get("role") not in NARROW_ROLES and not tbl.get("community") and not tbl.get("subtitle"):
                     broad_notices.append(gid)
             for nid, i, ch in P.iter_choices(tbl):
                 if isinstance(ch.get("text"), str):
@@ -113,11 +113,16 @@ def main():
                     if isinstance(b, LTable) and isinstance(b.get("text"), str):
                         entries.append((b.get("npc"), pack.addon, f"thread:{tbl.get('id')}.{b.get('id')}", b["text"], "beat", False))
 
-    # Banned phrases
+    # Banned phrases, as whole words: "ok," must not catch "book,".
+    def edge(ph):
+        left = r"(?<![a-z0-9'])" if ph[:1].isalnum() else ""
+        right = r"(?![a-z0-9])" if ph[-1:].isalnum() else ""
+        return re.compile(left + re.escape(ph) + right)
+    plain_rx = [(ph, edge(ph)) for ph in plain]
     for owner, pack, gid, text, slot, is_choice in entries:
         low = text.lower()
-        for ph in plain:
-            if ph in low:
+        for ph, prx in plain_rx:
+            if prx.search(low):
                 fails.append(f"banned phrase {ph!r} in {gid}: {text}")
         for rx in regex:
             if rx.search(text):

@@ -27,3 +27,12 @@ npcs\remy.lua
 npcs\pestle.lua
 npcs\argus.lua
 npcs\melika.lua
+npcs\wilhelm.lua
+npcs\falkhaan.lua
+npcs\maybell.lua
+npcs\tommyjoe.lua
+npcs\gramma.lua
+npcs\thomas.lua
+npcs\haggard.lua
+npcs\raelen.lua
+npcs\theocritus.lua

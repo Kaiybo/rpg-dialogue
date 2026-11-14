@@ -446,10 +446,22 @@ function Data.CommunityForPlace(zone, subzone)
   return nil
 end
 
+-- pool.subtitle: plain, lower-case text the NPC's title must contain ("paladin trainer",
+-- "weaponsmith"), or a list of them: narrows a role pool to one kind of that role.
+local function subtitleMatches(want, have)
+  if type(have) ~= "string" or have == "" then return false end
+  have = have:lower()
+  for _, w in ipairs(U.AsList(want)) do
+    if have:find(w, 1, true) then return true end
+  end
+  return false
+end
+
 local function poolMatches(pool, info, ctx)
   if pool.role ~= info.role then return false end
   if pool.faction and pool.faction ~= ctx.faction then return false end
   if pool.zone and pool.zone ~= ctx.zone then return false end
+  if pool.subtitle and not subtitleMatches(pool.subtitle, info.subtitle) then return false end
   if pool.community then
     local comms = info.communities or {}
     if not U.Contains(comms, pool.community) then return false end
@@ -457,12 +469,13 @@ local function poolMatches(pool, info, ctx)
   return true
 end
 
--- Pools for an NPC, each with its score base: community 200, role+zone/faction 120, role 100.
+-- Pools for an NPC, each with its score base: community 200, kind of role (subtitle) 150,
+-- role+zone/faction 120, role 100.
 function Data.PoolsFor(info, ctx)
   local out = {}
   for _, pool in ipairs(Data.pools) do
     if poolMatches(pool, info, ctx) then
-      local base = pool.community and 200 or ((pool.zone or pool.faction) and 120 or 100)
+      local base = pool.community and 200 or (pool.subtitle and 150 or ((pool.zone or pool.faction) and 120 or 100))
       out[#out + 1] = { pool = pool, base = base }
     end
   end

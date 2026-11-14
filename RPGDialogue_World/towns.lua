@@ -35,3 +35,52 @@ P:Town {
   related = { goldshire = 0.05 },
   tiers = { Hero = "Hero of Stormwind" },
 }
+
+P:Town {
+  id = "eastvale", name = "Eastvale",
+  subzones = { "Eastvale Logging Camp", "Tower of Azora", "Ridgepoint Tower" },
+  related = { goldshire = 0.15 },
+  tiers = { Hero = "Hero of Eastvale" },
+  quests = {
+    { TODO_QUEST("Further Concerns"), 3 }, { TODO_QUEST("Find the Lost Guards"), 4 },
+    { TODO_QUEST("Report to Thomas"), 6 }, { TODO_QUEST("Protect the Frontier"), 6 },
+    { TODO_QUEST("A Bundle of Trouble"), 6 }, { TODO_QUEST("Dead-Tooth Jack"), 8 },
+  },
+}
+
+-- The other capitals. Their guards speak from pools_roles.lua; standing grows from quests
+-- each capital's own pack lists later.
+P:Town {
+  id = "ironforge", name = "Ironforge",
+  subzones = { "The Great Forge", "The Commons", "The Military Ward", "The Mystic Ward", "Tinker Town", "Hall of Explorers", "The Forlorn Cavern", "Hall of Arms" },
+  zones = { "Ironforge" },
+  tiers = { Hero = "Hero of Ironforge" },
+}
+
+P:Town {
+  id = "darnassus", name = "Darnassus",
+  subzones = { "Temple of the Moon", "Cenarion Enclave", "Warrior's Terrace", "Craftsmen's Terrace", "Tradesmen's Terrace" },
+  zones = { "Darnassus" },
+  tiers = { Hero = "Hero of Darnassus" },
+}
+
+P:Town {
+  id = "orgrimmar", name = "Orgrimmar",
+  subzones = { "Valley of Strength", "Valley of Honor", "Valley of Spirits", "Valley of Wisdom", "The Drag", "Cleft of Shadow", "Grommash Hold" },
+  zones = { "Orgrimmar" },
+  tiers = { Hero = "Hero of Orgrimmar" },
+}
+
+P:Town {
+  id = "thunder_bluff", name = "Thunder Bluff",
+  subzones = { "Elder Rise", "Spirit Rise", "Hunter Rise" },
+  zones = { "Thunder Bluff" },
+  tiers = { Hero = "Hero of Thunder Bluff" },
+}
+
+P:Town {
+  id = "undercity", name = "Undercity",
+  subzones = { "The Apothecarium", "The Magic Quarter", "The War Quarter", "The Rogues' Quarter", "The Royal Quarter", "The Trade Quarter" },
+  zones = { "Undercity" },
+  tiers = { Hero = "Hero of the Undercity" },
+}

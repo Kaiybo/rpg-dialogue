@@ -12,3 +12,7 @@ P:Topic { id = "northshire_abbey", name = "Northshire Abbey", category = "places
 P:Topic { id = "lions_pride", name = "The Lion's Pride Inn", category = "places", learned = "being there" }
 P:Topic { id = "maybell_tommy", name = "Maybell and Tommy Joe", category = "people", learned = "William Pestle, or the farms" }
 P:Topic { id = "seven_kingdoms", name = "The Seven Kingdoms", category = "lore", learned = "the book of the same name" }
+P:Topic { id = "tome_of_divinity", name = "The Tome of Divinity", category = "lore", learned = "Brother Wilhelm in Goldshire" }
+P:Topic { id = "lost_footmen", name = "Rolf and Malakai", category = "people", learned = "Guard Thomas at the Eastvale bridge" }
+P:Topic { id = "eastvale", name = "Eastvale", category = "places", learned = "Guard Thomas, or being there" }
+P:Topic { id = "morganth", name = "Morganth", category = "threats", learned = "Theocritus at the Tower of Azora" }

@@ -14,7 +14,7 @@ describe("Content packs", function()
     local loaded = {}
     for _, p in ipairs(ns.Packs.List()) do loaded[p.id] = p.loaded; eq(p.warnings, 0, p.id .. " warnings") end
     ok(loaded["rpgd.world"] and loaded["rpgd.elwynn"])
-    eq(ns.Util.Count(ns.Data.npcs), 14)
+    eq(ns.Util.Count(ns.Data.npcs), 23)
     ok(ns.Data.threads.elwynn_gold and ns.Data.towns.goldshire and ns.Data.claims.defias_common_thieves)
   end)
 
@@ -57,6 +57,36 @@ describe("Content packs", function()
     eq(s.info.role, "guard")
     eq(s.info.communities[1], "goldshire")
     contains(ns.UI.Compact.Text(), "smells that much of gnoll")
+  end)
+
+  it("a class trainer speaks from the pool for their class, not the plain trainer pool", function()
+    local ns = bootReal()
+    Mock.state.zone, Mock.state.subzone = "Stormwind City", "Cathedral Square"
+    Mock.state.units.npc = { guid = "Creature-0-1-0-1-99001-AB", name = "Some Trainer", level = 40 }
+    Mock.state.tooltip.npc = { { leftText = "Some Trainer" }, { leftText = "<Paladin Trainer>" } }
+    local ctx = ns.Context.New({ unit = "npc" })
+    local info = ns.Conversation.Identify("npc", ctx)
+    eq(info.role, "trainer")
+    local pools = ns.Data.PoolsFor(info, ctx)
+    eq(pools[1].pool.id, "trainer_paladin")
+    eq(pools[1].base, 150)
+    eq(pools[#pools].pool.id, "trainer")
+    -- a priest trainer doesn't get the paladin pool
+    Mock.state.tooltip.npc[2].leftText = "<Priest Trainer>"
+    ctx = ns.Context.New({ unit = "npc" })
+    info = ns.Conversation.Identify("npc", ctx)
+    eq(ns.Data.PoolsFor(info, ctx)[1].pool.id, "trainer_priest")
+  end)
+
+  it("capital guards belong to their city by zone", function()
+    local ns = bootReal()
+    Mock.state.zone, Mock.state.subzone = "Ironforge", "The Commons"
+    Mock.state.units.npc = { guid = "Creature-0-1-0-1-5595-AB", name = "Ironforge Guard", level = 55 }
+    local ctx = ns.Context.New({ unit = "npc" })
+    local info = ns.Conversation.Identify("npc", ctx)
+    eq(info.role, "guard")
+    eq(info.communities[1], "ironforge")
+    eq(ns.Data.PoolsFor(info, ctx)[1].pool.id, "guard_ironforge")
   end)
 
   it("the simulation driver runs without runtime errors", function()
