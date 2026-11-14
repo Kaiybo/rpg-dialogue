@@ -444,6 +444,23 @@ describe("Content packs", function()
     eq(ns.Data.PoolsFor(info, ctx)[1].pool.id, "guard_razorhill")
   end)
 
+  it("Mulgore loads in Bloodhoof Village; Baine and Ayessa are there, and a Brave is Bloodhoof's guard", function()
+    local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Mulgore" } })
+    Mock.state.zone, Mock.state.subzone = "Mulgore", "Bloodhoof Village"
+    Mock.Fire("ZONE_CHANGED_NEW_AREA")
+    Mock.RunTimers()
+    for _, p in ipairs(ns.Packs.List()) do
+      if p.id == "rpgd.mulgore" then ok(p.loaded); eq(p.warnings, 0) end
+    end
+    eq(ns.Data.FindNPC(nil, "Baine Bloodhoof").key, "baine")
+    eq(ns.Data.FindNPC(nil, "Ayessa Dawnsinger").key, "ayessa")
+    Mock.state.units.npc = { guid = "Creature-0-1-0-1-3222-AB", name = "Brave Wildrunner", level = 30 }
+    local ctx = ns.Context.New({ unit = "npc" })
+    local info = ns.Conversation.Identify("npc", ctx)
+    eq(info.role, "guard")
+    eq(ns.Data.PoolsFor(info, ctx)[1].pool.id, "guard_bloodhoof")
+  end)
+
   it("Zephras Isle's Peacekeepers are guards of the isle, and the High Elder knows her own", function()
     local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Zephras" } })
     ns.db.settings.instantText = true

@@ -462,3 +462,16 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Master Gadrin: old chief witch doctor who trained Vol'jin and Zalazane; Minshina's Skull, Zalazane | [Master Gadrin](https://warcraft.wiki.gg/wiki/Master_Gadrin) |
 | Vol'jin: Thrall's adviser in Orgrimmar in Classic; wise, witty, cunning; dialect; pledged to the Horde after Thrall saved the Darkspear; Zalazane his childhood friend; Yenniku his youngest son | [Vol'jin](https://warcraft.wiki.gg/wiki/Vol%27jin) |
 | warcraft.wiki.gg documents Forever itself: the game's page (new zones, dungeons, NPCs such as Pix Xizzix in Booty Bay and Gabbi Goodwhistle), "Forever" sections on NPC pages, Forever-exclusive quest pages | [World of Warcraft: Forever](https://warcraft.wiki.gg/wiki/World_of_Warcraft:_Forever) |
+
+## Mulgore (Mulgore pack 1.0.0)
+
+| Fact used | Source |
+|---|---|
+| Camp Narache: the Hawkwind tribe's village; Greatmother Hawkwind honored by the trainers; the Battleboar Pen; braves | [Camp Narache](https://warcraft.wiki.gg/wiki/Camp_Narache) |
+| Chief Hawkwind: his mother slain in the Bristleback invasion; his son Grull; Classic quests | [Chief Hawkwind](https://warcraft.wiki.gg/wiki/Chief_Hawkwind) |
+| Grull Hawkwind: will one day lead the camp; fierce against the quilboar; Classic quests and class notes | [Grull Hawkwind](https://warcraft.wiki.gg/wiki/Grull_Hawkwind) |
+| Bloodhoof Village: Baine leads; Zarlman tends the spirits; the quest givers, Innkeeper Kauth; braves named "Brave ..." give directions | [Bloodhoof Village](https://warcraft.wiki.gg/wiki/Bloodhoof_Village) |
+| Baine Bloodhoof: in Classic at Bloodhoof with Cairne; the Venture Company east, the Palemane west, the dwarves at Bael'dun warned about the earth's spirits; a diplomat | [Baine Bloodhoof](https://warcraft.wiki.gg/wiki/Baine_Bloodhoof) |
+| Zarlman Two-Moons, Harken Windtotem, Maur Raincaller, Mull Thunderhorn (the wells tainted by the Venture Company), Innkeeper Kauth: roles and Classic quests | [Zarlman Two-Moons](https://warcraft.wiki.gg/wiki/Zarlman_Two-Moons); [Harken Windtotem](https://warcraft.wiki.gg/wiki/Harken_Windtotem); [Maur Raincaller](https://warcraft.wiki.gg/wiki/Maur_Raincaller); [Mull Thunderhorn](https://warcraft.wiki.gg/wiki/Mull_Thunderhorn); [Innkeeper Kauth](https://warcraft.wiki.gg/wiki/Innkeeper_Kauth) |
+| Ahab Wheathoof and Kyle: a 2.1.2 addition that Forever brought back after fan outcry | [Ahab Wheathoof](https://warcraft.wiki.gg/wiki/Ahab_Wheathoof) |
+| Ayessa Dawnsinger and Camp Gev'rek | Brief §10 only |

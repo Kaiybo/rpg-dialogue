@@ -30,6 +30,7 @@ move-folders:
   RPGDialogue/RPGDialogue_Stranglethorn: RPGDialogue_Stranglethorn
   RPGDialogue/RPGDialogue_ThousandNeedles: RPGDialogue_ThousandNeedles
   RPGDialogue/RPGDialogue_Durotar: RPGDialogue_Durotar
+  RPGDialogue/RPGDialogue_Mulgore: RPGDialogue_Mulgore
 
 # Paths are from the repo root; "*.md" matches at any depth (bash case patterns), which
 # keeps voice bibles, PLAN.md files and pack changelogs out of the zip.

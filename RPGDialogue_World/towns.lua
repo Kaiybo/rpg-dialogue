@@ -257,6 +257,26 @@ P:Town {
   quests = { { TODO_QUEST("Zalazane"), 8 } },
 }
 
+P:Town {
+  id = "narache", name = "Camp Narache",
+  subzones = { "Camp Narache", "Red Cloud Mesa" },
+  tiers = { Hero = "Honored by the Hawkwind" },
+  quests = { { TODO_QUEST("Attack on Camp Narache"), 6 } },
+}
+
+P:Town {
+  id = "bloodhoof", name = "Bloodhoof Village",
+  subzones = { "Bloodhoof Village" },
+  tiers = { Hero = "Friend of the Bloodhoof" },
+  quests = { { TODO_QUEST("Wildmane Cleansing"), 6 }, { TODO_QUEST("Kyle's Gone Missing!"), 4 } },
+}
+
+P:Town {
+  id = "gevrek", name = "Camp Gev'rek",
+  subzones = { "Camp Gev'rek" },
+  tiers = { Hero = "Friend of the Windshapers" },
+}
+
 -- The other capitals. Their guards speak from pools_roles.lua; standing grows from quests
 -- each capital's own pack lists later.
 P:Town {
