@@ -188,6 +188,10 @@ local function talk(info, spoof, charIndex, mem)
       if w.line._thread then ns.Threads.Heard(w.line, env) end
       if w.line.fx then ns.Effects.Apply(w.line.fx, env) end
     end
+    if node.again then
+      local a = ns.Engine.PickAgain(info, nodeId, ctx, env)
+      record("pick", who, nodeId .. ":again", a)
+    end
     for i, entry in ipairs(ns.Engine.Choices(node, ctx, env)) do
       local ch = entry.choice
       local ok = ns.Engine.IsSpecial(ch) and (ns.Engine.CheckChoice(ch, ctx, env) and "pass" or "fail") or "-"

@@ -66,6 +66,7 @@ local function indexNPC(def)
   for nodeId, node in pairs(def.nodes or {}) do
     node._id = nodeId
     indexList(node.lines, def.key, def.key, "line")
+    indexList(node.again, def.key, def.key, "again")
   end
   indexTopics(def.topics, def.key, def.key)
 end

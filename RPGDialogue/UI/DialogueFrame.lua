@@ -537,7 +537,10 @@ function D.RenderChoices(choices)
     b.gap = c.gap
     b.tooltip = c.tooltip
     local num = c.locked and ((i % 10) .. ". ") or (Theme.Hex("number") .. (i % 10) .. ".|r ")
-    b.label:SetText(num .. (c.locked and (L.LOCKED_MARK .. " ") or "") .. c.text)
+    -- A branch explored in an earlier conversation is dimmed (it's also listed after the
+    -- fresh ones, so order carries the same news without the color).
+    local text = c.explored and (Theme.Hex("dim") .. c.text .. "|r") or c.text
+    b.label:SetText(num .. (c.locked and (L.LOCKED_MARK .. " ") or "") .. text)
     -- The game's own options keep their icons in both looks; in the game look the NPC's
     -- replies get the gossip window's speech bubble, like any talk option there.
     D.SetRowIcon(b, c.icon or (isGame() and not c.game and ICON_TALK) or nil, c.locked)

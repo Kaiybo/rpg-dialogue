@@ -67,7 +67,7 @@ Content packs load by zone, so only the dialogue for where you are is in memory.
 
 | | Keyboard | Gamepad (client gamepad mode) |
 |---|---|---|
-| Pick a reply | 1–5, or Up/Down/Tab then Enter | D-pad, then A |
+| Pick a reply | 1–9, or Up/Down/Tab then Enter | D-pad, then A |
 | Finish the text | Space or Enter | A |
 | Get on with it | Escape | B |
 | Ask about... | the Ask About keybinding (set it in Key Bindings), then Up/Down/Enter | X, then D-pad and A |

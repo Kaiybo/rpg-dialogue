@@ -14,7 +14,7 @@ ns.Engine = Engine
 Engine.BASE = { own = 400, generic = 0 }
 Engine.TOP_BAND = 5
 Engine.NEWS_THRESHOLD = 440
-Engine.MAX_CHOICES = 4
+Engine.MAX_CHOICES = 6
 Engine.traces = {}
 Engine.forcedSeed = nil
 
@@ -320,19 +320,68 @@ local SPECIAL = { Persuade = true, Intimidate = true, Deceive = true }
 Engine.SPECIAL = SPECIAL
 
 -- Visible choices for a node: { { choice, locked = bool }, ... } (at most MAX_CHOICES)
-function Engine.Choices(node, ctx, env)
-  local out = {}
+-- Replies that leave the node rather than open a branch: never hidden as explored.
+local EXITS = { END = true, BUSINESS = true, BACK = true }
+function Engine.IsExit(nextId) return nextId == nil or EXITS[nextId] == true end
+
+-- The replies to show for a node, at most Engine.MAX_CHOICES, in the writer's order.
+--   opts.visited:  nodes already shown in this conversation. A reply leading to one is
+--                  hidden (asked and answered), unless it leads to a hub (opts.hubs: the
+--                  start node and nodes marked hub = true) or says repeatable = true.
+--   opts.explored: nodes this NPC showed in earlier conversations. Those replies still
+--                  appear, marked explored.
+-- When there are too many, explored branches drop first, then branches without
+-- conditions (the ones everybody gets); exits and replies that exist because of who
+-- the player is are kept.
+function Engine.Choices(node, ctx, env, opts)
+  opts = opts or {}
+  local visited, explored, hubs = opts.visited or {}, opts.explored or {}, opts.hubs or {}
   local showLocked = ns.db and ns.db.settings.showLocked
+  local out = {}
   for _, choice in ipairs(node and node.choices or {}) do
-    local pass = Cond.Eval(choice.when, ctx, env)
-    if pass then
-      out[#out + 1] = { choice = choice }
-    elseif showLocked and choice.tag then
-      out[#out + 1] = { choice = choice, locked = true }
+    local target = choice.next
+    local exit = Engine.IsExit(target) or hubs[target]
+    if exit or choice.repeatable or not visited[target] then
+      local entry
+      if Cond.Eval(choice.when, ctx, env) then
+        entry = { choice = choice }
+      elseif showLocked and choice.tag then
+        entry = { choice = choice, locked = true }
+      end
+      if entry then
+        entry.exit = exit and true or nil
+        entry.explored = (not exit and explored[target]) or nil
+        out[#out + 1] = entry
+      end
     end
-    if #out >= Engine.MAX_CHOICES then break end
+  end
+  local function dropLast(test)
+    for i = #out, 1, -1 do
+      if test(out[i]) then table.remove(out, i); return true end
+    end
+    return false
+  end
+  while #out > Engine.MAX_CHOICES do
+    if not dropLast(function(e) return e.explored end)
+      and not dropLast(function(e) return not e.exit and not e.choice.when end)
+      and not dropLast(function(e) return not e.exit end) then
+      table.remove(out)
+    end
   end
   return out
+end
+
+-- Coming back to a node already shown in this conversation (a reply with next = "BACK"):
+-- one of its short "again" lines ("What else?" in this NPC's voice), else a greeting.
+function Engine.PickAgain(info, nodeId, ctx, env)
+  local node = info.def and info.def.nodes and info.def.nodes[nodeId]
+  local cands = {}
+  add(cands, node and node.again, Engine.BASE.own, "own")
+  if #cands > 0 then
+    local w = Engine.Pick("again", cands, ctx, env, { node = nodeId })
+    if w then return w end
+  end
+  return Engine.PickGreeting(info, ctx, env)
 end
 
 -- Special reply options: success comes from who the player is, never dice.

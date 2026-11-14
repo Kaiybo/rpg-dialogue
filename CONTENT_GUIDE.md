@@ -70,6 +70,37 @@ Tag fresh reactions `tags = { "news" }`: they open the full conversation on an o
 - `greetings` are the compact-bar lines: short, varied, can carry conditions (quest progress, standing, time of day).
 - Service NPCs (vendors, trainers, flight masters, bankers, stable masters) default to compact. They should still have one or two lines that make the full conversation worth opening.
 
+## 7a. Depth: conversations the player can explore
+
+A conversation is a place to explore, not one line and a goodbye. The player should always have more than one real thing to say, and following a thread should lead somewhere.
+
+**Shape: a hub with branches.** The opening node is the hub. Each reply opens a branch (a subject: their quest, their past, the people around them, the place, the player). A branch runs two or three nodes deep, then offers `next = "BACK"` ("Something else." in the player's own words, varied) to return to the hub, or an exit. Long branches can have their own hub (`hub = true`); BACK returns to the last hub visited.
+
+**What the engine does with it:**
+- A branch the player already went down in this conversation disappears from the hub (asked and answered). Replies that lead to a hub (BACK, or `next` = the start node) never disappear. A reply that should stay can say `repeatable = true`.
+- On a later visit, branches explored before are still offered, dimmed, and drop first when there are too many.
+- Returning to a hub shows one of its `again` lines (`again = { { id = "h_again", text = "..." } }`): a short "what else?" in this person's voice. Write two or three per hub; they can carry conditions like any line. Without them a greeting is shown.
+- Up to **six** replies show at once, plus "Get on with it". When there are more, explored branches drop first, then branches without conditions; exits and replies that exist because of who the player is stay.
+
+**The standard** (the coverage report's "Depth" table measures it):
+
+| tier | branches from the hub | nodes | longest chain | replies only some characters get |
+|---|---|---|---|---|
+| major | 4+ | 10+ | 3+ | 2+ |
+| quest | 3+ | 6+ | 3+ | 1+ |
+| service | 2+ | 3+ | 2+ | - |
+
+"Replies only some characters get" are choices with a `when` on who the player is (race, class, origin, level band, a quest done, a line heard, a topic known, standing, alignment...) or a special tag. They are how a dwarf paladin and a gnome mage have different conversations with the same person: write them for the characters this NPC would actually react to, Alliance first while the user plays Alliance, then everyone.
+
+**What makes a branch worth taking:**
+- **Each reply is a different stance**, not a rewording: ask, push back, joke, sympathize, offer help, lie, change the subject. Replies carry the effects (alignment, traits, affinity, opinions) and the NPC answers the stance, not just the words.
+- **Something is learned at each step**: a fact from their quests or lore, a topic (`learn`), a name to ask someone else about, a claim, an opinion of a neighbour. If a node only says "Yes." it isn't a node.
+- **The NPC asks back.** People ask the player things ("You've come from Stormwind? How's the harbor?"), and the player's answer is a reply with effects. That's where traits and opinions come from.
+- **Branches reach the rest of the world**: other NPCs ("Ask Kebok, if you can stand him"), quests nearby (before/during/after), threads, topics.
+- **Lines inside branches react too.** A branch's node can have conditional lines (race, class, quest state) like the hub does; the deeper the node, the fewer conditions it needs.
+- **Keep the rules in section 5.** One or two things about the player per line; 1–3 sentences per line; replies 15 words or fewer. Depth comes from more nodes, not longer lines.
+- Lore discipline doesn't loosen with depth. A minor NPC with three branches talks about their work, their place and their neighbours; they don't grow an invented life story (section 1). If there isn't enough source for a fourth branch, write three good ones.
+
 ## 8. Agendas, claims and unreliable narrators
 
 - People have agendas, grudges and blind spots: **bias** (honest but one-sided), **mistakes**, **half-truths**, **lies**, **manipulation**.
@@ -136,6 +167,6 @@ Never says:
 - Pack files are data: `local P = RPGDialogueAPI:Pack("<pack id>")`, `local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST`, then `P:NPC { ... }` calls only. No variables, functions or concatenation (the validator rejects them).
 - **Never invent NPC or quest IDs.** Use `TODO_NPC("Name")` / `TODO_QUEST("Title")`. They match by name/title at runtime so content is testable early, and the validator lists every one.
 - Line ids are unique within their NPC; global ids are `npc_key.line_id`. Don't rename a `key = true` line without updating every `heardLine` that points to it.
-- Every node has at least one line without `when` (or it can go silent) and at least one choice; every path reaches `END` or `BUSINESS`. "Get on with it" is added automatically.
+- Every node has at least one line without `when` (or it can go silent) and at least one choice; every path reaches `END` or `BUSINESS` (`BACK` returns to the last hub, see 7a). "Get on with it" is added automatically.
 - Special options (`tag = "Persuade" | "Intimidate" | "Deceive"`) are rare, need a `fail = { next, fx }`, and succeed from who the player is (`check = { pass = { conditions } }`, or the NPC's `temper` defaults). No bribes.
 - Journal templates come in both voices: `journal = { first = "...", third = "{name} ..." }`.

@@ -228,7 +228,9 @@ Working examples of every kind are in the two shipped packs; `PACK_AUTHORING.md`
 
 ### 2.6 Node and choice
 
-A **node** is `{ lines = {…}, choices = {…}, big = true|nil, journal = … }`. `big` marks a conversation that matters: alignment-reactive lines are allowed there, and alignment shifts count more.
+A **node** is `{ lines = {…}, again = {…}, choices = {…}, big = true|nil, hub = true|nil, journal = … }`. `big` marks a conversation that matters: alignment-reactive lines are allowed there, and alignment shifts count more. `hub` marks a node that `BACK` returns to (the start node always is one). `again` holds short lines shown when the player comes back to a node already shown in this conversation (0.26.0; CONTENT_GUIDE §7a).
+
+**Exploring (0.26.0).** The session keeps the nodes shown (`s.visited`); NPC memory keeps every node shown in any conversation (`mem.nodes`). `Engine.Choices` hides a reply whose target was already shown in this conversation, unless the target is a hub or the reply is `repeatable`; replies to nodes explored in earlier conversations are marked `explored` (dimmed in the box). At most `Engine.MAX_CHOICES` (6) show, in the writer's order; when there are more, explored replies drop first, then unconditional branches, then any branch; exits stay.
 
 A **choice**:
 
@@ -239,7 +241,8 @@ A **choice**:
 | `tag` | `Persuade` / `Intimidate` / `Deceive`, or an identity tag (`Paladin`, `Westfall farmhand`, `Hero of Goldshire`) |
 | `check` | for Persuade/Intimidate/Deceive: `{ pass = { conditions } }`. Defaults come from the NPC's `temper` (3.9) |
 | `fx` | effects (2.8) |
-| `next` | a node id, `"END"`, or `"BUSINESS"` (closes our window and leaves the Blizzard window that is already open underneath) |
+| `next` | a node id, `"END"`, `"BUSINESS"` (closes our window and leaves the Blizzard window that is already open underneath), or `"BACK"` (the last hub visited) |
+| `repeatable` | keep offering it after its node was shown in this conversation |
 | `fail` | for checks: `{ fx = …, next = … }` |
 | `journal` | `{ first = …, third = … }` |
 

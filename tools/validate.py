@@ -315,7 +315,7 @@ def main():
         for t in targets:
             if t is None:
                 rep.warn(pack, f, ch.line, f"{where}: no next; it will end the conversation (write next = \"END\")")
-            elif t not in ("END", "BUSINESS") and t not in nodes:
+            elif t not in ("END", "BUSINESS", "BACK") and t not in nodes:
                 rep.error(pack, f, ch.line, f"{where}: next {t!r} isn't a node")
         return [t for t in targets if t]
 
@@ -366,11 +366,22 @@ def main():
             choices = [c for c in P.arr(node.get("choices")) if isinstance(c, LTable)]
             if not choices:
                 rep.error(pack, f, node.line, f"{where}.{nid}: node has no choices (no exit)")
-            if len(choices) > 4:
-                rep.warn(pack, f, node.line, f"{where}.{nid}: {len(choices)} choices; at most 4 are shown at once")
+            if len(choices) > 8:
+                rep.warn(pack, f, node.line, f"{where}.{nid}: {len(choices)} choices; at most 6 are shown at once (explored and unconditional ones drop first)")
             edges[nid] = []
             for i, ch in enumerate(choices, 1):
                 edges[nid] += check_choice(pack, f, ch, f"{where}.{nid}.choice{i}", nodes)
+        # "BACK" returns to the last hub: the start node or a node marked hub = true. Those
+        # should have short "again" lines for the return, or a greeting is shown instead.
+        hubs = [start] + [nid for nid, node in nodes.items() if isinstance(node, LTable) and node.get("hub")]
+        returns = any(t == "BACK" or (t in hubs and t != nid) for nid, outs in edges.items() for t in outs)
+        if returns:
+            for h in hubs:
+                if h in nodes and isinstance(nodes[h], LTable) and not P.arr(nodes[h].get("again")):
+                    rep.warn(pack, f, nodes[h].line, f"{where}.{h}: replies come BACK here, but it has no 'again' lines (a greeting is shown instead)")
+        for nid in edges:
+            if "BACK" in edges[nid]:
+                edges[nid] = [t for t in edges[nid] if t != "BACK"] + hubs
         # reachability and exits
         seen, todo = set(), [start] if start in nodes else []
         while todo:
