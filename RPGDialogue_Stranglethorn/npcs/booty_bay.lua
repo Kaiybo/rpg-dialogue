@@ -68,6 +68,28 @@ P:NPC {
   },
 
   topics = {
+    gurubashi = {
+      { id = "ta_trolls", text = "The trolls had this cove first. Then they didn't. That's the whole history of property." },
+    },
+    horde = {
+      { id = "ta_horde", text = "A customer with a grudge. Still a customer." },
+    },
+    alliance = {
+      { id = "ta_alliance", text = "A customer with a navy. I'd like them better if they bought more." },
+    },
+    latest_rumors = {
+      { id = "ta_rumor", text = "Rumors are Krazek's department. He charges for them. I'd charge more." },
+    },
+    little_secret = {
+      { id = "ta_ls_no", text = "Secrets are inventory. I don't give inventory away." },
+      { id = "ta_ls", when = { any = { { affinity = { min = 3 } }, { timesTalked = 4 } } }, text = "The parrot can count. Better than two of my clerks. I've never told the clerks." },
+    },
+    my_trade = {
+      { id = "ta_trade", text = "I keep this port for the Cartel. Ships, tariffs, the Bruisers' wages, the Raiders' cut, and every grudge in town, all in one ledger." },
+    },
+    background = {
+      { id = "ta_bg", text = "Started on the docks counting other goblins' crates. Now other goblins count mine. That's what I call a career." },
+    },
     bloodsail = { { id = "tp_bloodsail", text = "They want my town. They've wanted it since before you were born. They can keep wanting." } },
     steamwheedle = { { id = "tp_cartel", text = "The Cartel takes its cut and leaves me to run things. That's the best arrangement a goblin can ask for." } },
     _none = { { id = "tp_none", text = "If it doesn't touch my port, I don't keep track of it. Krazek does. Ask him." } },
@@ -131,6 +153,24 @@ P:NPC {
   },
 
   topics = {
+    horde = {
+      { id = "ta_horde", text = "I'm tauren, so the Horde calls me cousin. I'm a Raider, so the Baron calls me partner. The sea calls me nothing at all. I like the sea." },
+    },
+    blackwater = {
+      { id = "ta_raiders", text = "My crews! Best on the southern sea. We only kill when we must, and we must a good deal less than the Bloodsail think." },
+    },
+    earth_mother = {
+      { id = "ta_earth", text = "She made the land, and I love her for it. But she left the sea for the restless ones. That's me." },
+    },
+    little_secret = {
+      { id = "ta_ls", when = { any = { { affinity = { min = 3 } }, { timesTalked = 4 } } }, text = "I still get seasick the first day out. Every voyage! Tell anyone and I'll have you keelhauled. Gently." },
+    },
+    my_trade = {
+      { id = "ta_trade", text = "Fleet master of the Blackwater Raiders. I keep the ships sailing, the crews paid, and the Bloodsail wet." },
+    },
+    background = {
+      { id = "ta_bg", text = "My elders said a tauren belongs on the land. I said the land looks very fine from the deck of a ship! Ha!" },
+    },
     bloodsail = { { id = "tp_bloodsail", text = "Their fleet master would dearly love my horns on his wall. He'll have to get in line." } },
     _none = { { id = "tp_none", text = "That's a landlubber's question. Ask somebody with dry boots." } },
   },
@@ -199,6 +239,26 @@ P:NPC {
   },
 
   topics = {
+    gurubashi = {
+      { id = "ta_trolls", text = "Bloodscalp, Skullsplitter, and ruins everywhere you look. I sell maps. Not good maps. But maps." },
+    },
+    someplace_nearby = {
+      { id = "ta_near", text = "Anything in this jungle worth seeing, I know where it is. The haunted island, the troll ruins, the Venture Company's noisy lake. Pick one and I'll tell you how to die there." },
+    },
+    latest_rumors = {
+      { id = "ta_rumor", text = "Fresh today: the Bloodsail are scouting, Kebok's short another agent thanks to the trolls, and somebody's very short to MacKinley. That one's free." },
+      { id = "ta_rumor_isle", text = "The captains still won't go near that island off the coast. Something on it scares sailors. Scared sailors don't carry cargo, and the Baron hates that." },
+    },
+    little_secret = {
+      { id = "ta_ls_no", text = "My secrets cost more than you've got. Come back richer." },
+      { id = "ta_ls", when = { any = { { affinity = { min = 3 } }, { timesTalked = 4 } } }, text = "Half of what I know, I overheard while pretending to file. The filing's a disaster. Nobody's noticed." },
+    },
+    my_trade = {
+      { id = "ta_trade", text = "Schedules, letters, introductions, and information. The first three come free with the fourth." },
+    },
+    background = {
+      { id = "ta_bg", text = "Started as the Baron's runner. Ran faster than the others, listened harder, and now? Secretary. Indispensable." },
+    },
     kurzen = { { id = "tp_kurzen", text = "The rebels up north buy from me. Kurzen's lot stopped buying anything a while back. That's never a good sign." } },
     bloodsail = { { id = "tp_bloodsail", text = "Bad for shipping, bad for business, bad for my nerves. The Baron pays well to make them less of all three." } },
     _none = { { id = "tp_none", text = "That, I don't know. Come back tomorrow and I will." } },
@@ -262,6 +322,18 @@ P:NPC {
   },
 
   topics = {
+    latest_rumors = {
+      { id = "ta_rumor", text = "Shaky Phillipe's been sleeping somewhere different every night. Funny thing. I always know where." },
+    },
+    little_secret = {
+      { id = "ta_ls", when = { any = { { affinity = { min = 3 } }, { timesTalked = 4 } } }, text = "I've never once collected from a man who couldn't pay. I wait until he can. Dying isn't an excuse. It's a delay." },
+    },
+    my_trade = {
+      { id = "ta_trade", text = "Debts. Everybody's got them. I only keep track, and I'm very, very patient." },
+    },
+    background = {
+      { id = "ta_bg", text = "I was a sailor who gambled. Then a gambler who sailed. Now I'm the one the gamblers owe. Better view." },
+    },
     _none = { { id = "tp_none", text = "Does it owe me money? Then I don't care about it." } },
   },
 }
@@ -308,6 +380,18 @@ P:NPC {
   },
 
   topics = {
+    gurubashi = {
+      { id = "ta_trolls", text = "The trolls keep killing my agents. I keep hiring more. One of us will run out first, and it won't be me." },
+    },
+    little_secret = {
+      { id = "ta_ls", when = { any = { { affinity = { min = 3 } }, { timesTalked = 4 } } }, text = "Those tiger fangs they pay so much for in the South Seas? Troll tusks. Don't you dare spoil it." },
+    },
+    my_trade = {
+      { id = "ta_trade", text = "Business by subtraction. A little off the top, a little off the side, and what's left is profit." },
+    },
+    background = {
+      { id = "ta_bg", text = "I come from a long line of goblins who sold things that weren't quite what they said they were. It's a proud tradition." },
+    },
     bloodsail = { { id = "tp_bloodsail", text = "Every crate they take is a crate I paid for twice. Once to buy it, once to cry about it." } },
     _none = { { id = "tp_none", text = "Is there money in it? No? Then I wasn't listening." } },
   },
@@ -350,6 +434,15 @@ P:NPC {
   },
 
   topics = {
+    little_secret = {
+      { id = "ta_ls", when = { any = { { affinity = { min = 3 } }, { timesTalked = 4 } } }, text = "The Baron's balcony leaks into room four. I give room four to people I don't like." },
+    },
+    my_trade = {
+      { id = "ta_trade", text = "Rooms, rum and a roof. The roof's the Baron's, so mind the ceiling when he's pacing." },
+    },
+    background = {
+      { id = "ta_bg", text = "I've run the Salty Sailor longer than most of my customers have been sober. The Baron lives upstairs. That's most of the job." },
+    },
     _none = { { id = "tp_none", text = "Couldn't tell you. Ask whoever's drinking the most; they always have a theory." } },
   },
 }
@@ -398,6 +491,15 @@ P:NPC {
   },
 
   topics = {
+    little_secret = {
+      { id = "ta_ls", when = { any = { { affinity = { min = 3 } }, { timesTalked = 4 } } }, text = "My mother stitched this sash for my first command. I wore it on both ships. I'll be wearing it when those giants die." },
+    },
+    my_trade = {
+      { id = "ta_trade", text = "I sail. When I've a ship, anyway. Until then I hunt what sank the last two." },
+    },
+    background = {
+      { id = "ta_bg", text = "I was a captain with two ships. Then the giants came up out of the sea. Now I'm a captain with a grudge." },
+    },
     _none = { { id = "tp_none", text = "Is it a sea giant? No? Then it isn't my problem." } },
   },
 }
@@ -433,6 +535,18 @@ P:NPC {
   },
 
   topics = {
+    latest_rumors = {
+      { id = "ta_rumor", text = "Is MacKinley looking for me? Is he? No, don't answer that." },
+    },
+    little_secret = {
+      { id = "ta_ls", text = "Secret? I owe money. Everybody knows. That's the whole problem." },
+    },
+    my_trade = {
+      { id = "ta_trade", text = "My trade? Hiding. I'm getting very good at it. Don't tell anyone where I'm standing." },
+    },
+    background = {
+      { id = "ta_bg", text = "I used to be a merchant. Then I used to be a gambler. Now I'm mostly a man looking over his shoulder." },
+    },
     _none = { { id = "tp_none", text = "I don't know anything! About anything! Is this about money?" } },
   },
 }
@@ -468,6 +582,15 @@ P:NPC {
   },
 
   topics = {
+    little_secret = {
+      { id = "ta_ls", when = { any = { { affinity = { min = 3 } }, { timesTalked = 4 } } }, text = "I've never actually laid eyes on the Bloodsail's admiral. I hate him anyway. Saves time." },
+    },
+    my_trade = {
+      { id = "ta_trade", text = "First mate! I shout orders, count cannonballs, and hate the Bloodsail. Mostly the last one." },
+    },
+    background = {
+      { id = "ta_bg", text = "Signed on with the Raiders as a deck hand. Made first mate by hating the Bloodsail louder than anyone else." },
+    },
     bloodsail = { { id = "tp_bloodsail", text = "Scum with sails. Every one of them. I'd sink their whole fleet for one good night's sleep." } },
     _none = { { id = "tp_none", text = "Not about the Bloodsail? Then I'm not listening." } },
   },
@@ -515,6 +638,15 @@ P:NPC {
   },
 
   topics = {
+    little_secret = {
+      { id = "ta_ls", when = { any = { { affinity = { min = 3 } }, { timesTalked = 4 } } }, text = "Some of the races out at the Mirage Raceway aren't as honest as they look. You didn't hear that from me." },
+    },
+    my_trade = {
+      { id = "ta_trade", text = "I buy low and sell to whoever's desperate. Singing crystals, rare goods, things with no questions attached." },
+    },
+    background = {
+      { id = "ta_bg", text = "Tinkered a bit, traded a bit, cheated a bit. In Booty Bay that's three trades and one reputation." },
+    },
     venture_company = { { id = "tp_venture", text = "Rivals. Rich, careless rivals. My favourite kind." } },
     _none = { { id = "tp_none", text = "Is there money in it? No? Then why are we talking?" } },
   },
@@ -551,6 +683,15 @@ P:NPC {
   },
 
   topics = {
+    little_secret = {
+      { id = "ta_ls", when = { any = { { affinity = { min = 3 } }, { timesTalked = 4 } } }, text = "There's a crate of Pupellyverbos Port out in the Hinterlands with my name on it. My heart's in that crate. To my heart!" },
+    },
+    my_trade = {
+      { id = "ta_trade", text = "I'm a connoisseur. That's a drinker with standards. My standards are high and my glass is empty." },
+    },
+    background = {
+      { id = "ta_bg", text = "I've drunk in every port on two continents and owe money in most of them. A man needs roots." },
+    },
     _none = { { id = "tp_none", text = "Don't know, don't care! Drink?" } },
   },
 }
@@ -589,6 +730,15 @@ P:NPC {
   },
 
   topics = {
+    little_secret = {
+      { id = "ta_ls", when = { any = { { affinity = { min = 3 } }, { timesTalked = 4 } } }, text = "Somebody paid in advance for an order I haven't started. Don't tell them. Don't tell anyone. Mostly don't tell them." },
+    },
+    my_trade = {
+      { id = "ta_trade", text = "Leather. The best. Ask anyone. Better yet, don't ask. Just look at the stitching." },
+    },
+    background = {
+      { id = "ta_bg", text = "Started with a knife and one raptor hide. Now Drizzlik's Emporium is the finest leather shop south of anywhere." },
+    },
     _none = { { id = "tp_none", text = "Is it leather? No? Then it's beneath me." } },
   },
 }
@@ -624,6 +774,15 @@ P:NPC {
   },
 
   topics = {
+    little_secret = {
+      { id = "ta_ls", when = { any = { { affinity = { min = 3 } }, { timesTalked = 4 } } }, text = "I still sleep with that pot lid under the bed. In case." },
+    },
+    my_trade = {
+      { id = "ta_trade", text = "I cook. Fish, mostly. I don't go out on the water for them anymore." },
+    },
+    background = {
+      { id = "ta_bg", text = "I was cook on the captain's ship. When the giant came, I got under the big pot. Everyone else didn't." },
+    },
     _none = { { id = "tp_none", text = "I only know cooking and sea giants. Mostly cooking. Too much sea giants." } },
   },
 }
@@ -654,6 +813,15 @@ P:NPC {
   },
 
   topics = {
+    little_secret = {
+      { id = "ta_ls", when = { any = { { affinity = { min = 3 } }, { timesTalked = 4 } } }, text = "I've been sick so long I've forgotten what I meant to do once I was well. Something with a boat, I think." },
+    },
+    my_trade = {
+      { id = "ta_trade", text = "Pirate. Technically. Mostly I lie here and sweat." },
+    },
+    background = {
+      { id = "ta_bg", text = "Joined the Raiders for adventure. Caught the fever instead. Still waiting on the adventure." },
+    },
     _none = { { id = "tp_none", text = "Can't think. Fever. Ask somebody healthy." } },
   },
 }
@@ -691,6 +859,18 @@ P:NPC {
   },
 
   topics = {
+    someplace_nearby = {
+      { id = "ta_near", text = "The sea. It's right there. Everything else is jungle, and I don't do jungle." },
+    },
+    little_secret = {
+      { id = "ta_ls", when = { any = { { affinity = { min = 3 } }, { timesTalked = 4 } } }, text = "There's a crate on my docks for the Horde that I was told not to look at. I looked. Axes." },
+    },
+    my_trade = {
+      { id = "ta_trade", text = "Ships in, ships out, and every name in the book. If it floats, I know who owns it." },
+    },
+    background = {
+      { id = "ta_bg", text = "Years on these docks. I've seen every kind of cargo and every kind of liar. Some of them came in the same crate." },
+    },
     bloodsail = { { id = "tp_bloodsail", text = "Some of the faces on my docks wear red when nobody's looking. I can't prove it. Yet." } },
     _none = { { id = "tp_none", text = "If it didn't come off a boat, I don't know it." } },
   },

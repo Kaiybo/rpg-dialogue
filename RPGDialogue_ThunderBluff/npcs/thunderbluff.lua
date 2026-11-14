@@ -61,6 +61,24 @@ P:NPC {
   },
 
   topics = {
+    thrall = {
+      { id = "ta_thrall", text = "Young, and wise beyond it. He fought beside us when no one else would. The tauren do not forget such things." },
+    },
+    cairne = {
+      { id = "ta_self", text = "An old bull who has seen enough war to want peace, and enough peace to know what it costs." },
+    },
+    earth_mother = {
+      { id = "ta_earth", text = "She is in every step you take on Mulgore's grass. Walk gently and she walks with you." },
+    },
+    little_secret = {
+      { id = "ta_ls", when = { any = { { affinity = { min = 3 } }, { timesTalked = 4 } } }, text = "My knees ache in the mornings. The High Chieftain cannot say so aloud. You can keep it for me." },
+    },
+    my_trade = {
+      { id = "ta_trade", text = "High Chieftain. I keep the tribes together and the Grimtotem honest. The second is the harder task." },
+    },
+    background = {
+      { id = "ta_bg", text = "I was born a wanderer, like all my people. Thrall helped us find a home. I have not wandered since, except in my thoughts." },
+    },
     cenarion_circle = { { id = "tp_circle", text = "Hamuul's road. The night elves let him walk it, some more gladly than others. I'm proud of him." } },
     _none = { { id = "tp_none", text = "Ask the elders on their rise. They've more patience for questions than an old warrior." } },
   },

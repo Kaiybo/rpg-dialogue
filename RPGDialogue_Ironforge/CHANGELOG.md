@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.4.0 (unreleased)
+- Magni answers the core topics, and speaks of himself and Ironforge.
+
 ## 1.3.0 (unreleased)
 - Depth pass: repeat visits bring personal lines (habits, worries, running jokes), and some NPCs get night-time lines. Senir Whitebeard, Ragnar Thunderbrew.
 

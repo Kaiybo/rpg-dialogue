@@ -11,6 +11,7 @@ local Data = {
   byName = {},    -- normalized name -> key (for TODO ids)
   pools = {},     -- list
   generic = {},   -- list
+  voices = {},    -- list: town and zone voices for "Ask about"
   threads = {}, claims = {}, topics = {}, towns = {}, origins = {}, rumors = {}, books = {}, errands = {},
   lines = {},     -- global line id -> { line = , owner = , slot = }
 }
@@ -140,6 +141,15 @@ function kinds.Pool(pack, def)
   end
   if def.nodes then def.start = def.start or "hello" end
   Data.pools[#Data.pools + 1] = def
+end
+
+-- Voices (0.26.0): what anyone in a town (community) or a zone says about a topic, for
+-- "Ask about" when the NPC has no answer of their own. Morrowind's cell and region filters.
+function kinds.Voice(pack, def)
+  if not def.id or not (def.community or def.zone) then return warn(pack, "Voice needs id and community or zone") end
+  def._pack = pack.id
+  indexTopics(def.topics, "voice:" .. def.id, "voice:" .. def.id)
+  Data.voices[#Data.voices + 1] = def
 end
 
 function kinds.Generic(pack, def)
@@ -489,6 +499,25 @@ function Data.TreePoolFor(info, ctx)
     if p.pool.nodes then return p.pool end
   end
   return nil
+end
+
+-- Voices for an NPC: their town's (base 60), then their zone's (base 40). A voice's
+-- community may be one town or a list (the goblin ports share one).
+function Data.VoicesFor(info, ctx)
+  local out = {}
+  for _, v in ipairs(Data.voices) do
+    local inTown = false
+    for _, c in ipairs(v.community and U.AsList(v.community) or {}) do
+      if U.Contains(info.communities or {}, c) then inTown = true end
+    end
+    if inTown then
+      out[#out + 1] = { voice = v, base = 60 }
+    elseif v.zone and v.zone == ctx.zone and not v.community then
+      out[#out + 1] = { voice = v, base = 40 }
+    end
+  end
+  table.sort(out, function(a, b) return a.base > b.base end)
+  return out
 end
 
 function Data.GenericFor(ctx)

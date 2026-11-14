@@ -65,6 +65,21 @@ P:NPC {
   },
 
   topics = {
+    ironforge = {
+      { id = "ta_ironforge", text = "The finest city ever carved from stone, an' I'll fight any elf who says otherwise. Mind, they rarely do." },
+    },
+    magni = {
+      { id = "ta_self", text = "A king wi' a lost brother an' a stolen daughter. Ye'd think a crown would help wi' that. It doesnae." },
+    },
+    little_secret = {
+      { id = "ta_ls", when = { any = { { affinity = { min = 3 } }, { timesTalked = 4 } } }, text = "Every night I look at that door an' think my brother'll walk through it. He never does. I look anyway." },
+    },
+    my_trade = {
+      { id = "ta_trade", text = "Kingship. Mostly it's listenin' tae gnomes an' arguin' wi' the Senate. Now an' then I get tae hit somethin'." },
+    },
+    background = {
+      { id = "ta_bg", text = "Son o' Ironforge, head o' the Bronzebeard clan, king by right an' by sheer stubbornness." },
+    },
     defias = { { id = "tp_defias", text = "Stormwind's thieves? Humans' business. We've our own rot in the mountain." } },
     westfall = { { id = "tp_westfall", text = "Farmland, isn't it? Never trust ground ye cannae dig a decent tunnel through." } },
     _none = { { id = "tp_none", text = "Ask the Explorers' League. They know a wee bit about everythin', an' they'll tell ye all of it." } },

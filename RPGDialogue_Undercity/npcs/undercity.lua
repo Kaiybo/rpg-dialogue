@@ -64,6 +64,24 @@ P:NPC {
   },
 
   topics = {
+    forsaken = {
+      { id = "ta_forsaken", text = "My people. Abandoned by the living, freed from the Lich King, belonging to no one but ourselves." },
+    },
+    sylvanas = {
+      { id = "ta_self", text = "The Dark Lady, the Banshee Queen. Choose whichever you like. Both are true." },
+    },
+    scourge = {
+      { id = "ta_scourge", text = "Our old chains. We broke them. Every one of the Scourge we destroy is a debt paid." },
+    },
+    little_secret = {
+      { id = "ta_ls", text = "I keep no secrets for the living. Ask something worth my time." },
+    },
+    my_trade = {
+      { id = "ta_trade", text = "I rule the Forsaken, and I hunt the Lich King's Scourge. One of those will outlast the other." },
+    },
+    background = {
+      { id = "ta_bg", text = "I was Ranger-General of Silvermoon. Arthas killed me and made me his slave. I took myself back." },
+    },
     _none = { { id = "tp_none", text = "That isn't my concern. Varimathras will tell you if it should be." } },
   },
 }

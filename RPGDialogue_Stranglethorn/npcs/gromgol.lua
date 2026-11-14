@@ -50,6 +50,15 @@ P:NPC {
   },
 
   topics = {
+    little_secret = {
+      { id = "ta_ls", when = { any = { { affinity = { min = 3 } }, { timesTalked = 4 } } }, text = "I've lost count of the caravans I've counted. I keep counting anyway. If I stop, someone notices." },
+    },
+    my_trade = {
+      { id = "ta_trade", text = "I keep Grom'gol standing and the road to Stonard open. The trolls and ogres disagree. They lose the argument." },
+    },
+    background = {
+      { id = "ta_bg", text = "Soldier since I could lift an axe. Now I count caravans. Both jobs are mostly shouting." },
+    },
     yenniku = { { id = "tp_yenniku", text = "Nimboya's business. He's welcome to it, as long as he pulls his weight while he's in my camp." } },
     _none = { { id = "tp_none", text = "Not my problem. Find someone with time to talk." } },
   },
@@ -109,6 +118,15 @@ P:NPC {
   },
 
   topics = {
+    little_secret = {
+      { id = "ta_ls", when = { any = { { affinity = { min = 3 } }, { timesTalked = 4 } } }, text = "Nimboya promise the chief he bring Yenniku home. Nimboya not know if he can keep it. Don't tell nobody." },
+    },
+    my_trade = {
+      { id = "ta_trade", text = "Hunter. Tracker. Right now, Nimboya track only one thing." },
+    },
+    background = {
+      { id = "ta_bg", text = "Darkspear, like my father. I serve the chief. Now I serve him by finding his son." },
+    },
     yenniku = { { id = "tp_yenniku", text = "Every day he be gone, the chief carry it. I carry it too." } },
     _none = { { id = "tp_none", text = "Nimboya got one thing on his mind. That not it." } },
   },
@@ -166,6 +184,15 @@ P:NPC {
   },
 
   topics = {
+    little_secret = {
+      { id = "ta_ls", when = { any = { { affinity = { min = 3 } }, { timesTalked = 4 } } }, text = "The spirits tell me plenty they shouldn't. Most of it be gossip about the dead. Very rude." },
+    },
+    my_trade = {
+      { id = "ta_trade", text = "Spirits, bones, and little crystals that sing. I listen, I trade, I make the voodoo work." },
+    },
+    background = {
+      { id = "ta_bg", text = "Darkspear witch doctor, the best one, mon. That be why they send me. The others be too scared of the jungle." },
+    },
     yenniku = { { id = "tp_yenniku", text = "His spirit wander, mon. I bring it home, one way or another." } },
     _none = { { id = "tp_none", text = "Even the spirits don't know that one. Or they not telling." } },
   },
@@ -211,6 +238,15 @@ P:NPC {
   },
 
   topics = {
+    little_secret = {
+      { id = "ta_ls", when = { any = { { affinity = { min = 3 } }, { timesTalked = 4 } } }, text = "The jungle's spirits don't care much for orcs. They like me a little. I'm working on it." },
+    },
+    my_trade = {
+      { id = "ta_trade", text = "I ask the elements for help and listen when they refuse. Here, they refuse a great deal." },
+    },
+    background = {
+      { id = "ta_bg", text = "I'm a shaman of Orgrimmar, sent where the elements are restless. Stranglethorn is very restless." },
+    },
     _none = { { id = "tp_none", text = "That is beyond what the elements tell me." } },
   },
 }
@@ -254,6 +290,15 @@ P:NPC {
   },
 
   topics = {
+    little_secret = {
+      { id = "ta_ls", when = { any = { { affinity = { min = 3 } }, { timesTalked = 4 } } }, text = "Half the battle tales I tell are other people's. I tell them better, so it's fair." },
+    },
+    my_trade = {
+      { id = "ta_trade", text = "A bed, a bowl, and a story if you've got one to trade. The stories are the real rent." },
+    },
+    background = {
+      { id = "ta_bg", text = "Fought, bled, healed, and came here to pour drinks for the ones still fighting. Better trade." },
+    },
     _none = { { id = "tp_none", text = "Ask the Commander. He hears everything in this camp, and complains about most of it." } },
   },
 }

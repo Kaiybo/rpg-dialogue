@@ -33,7 +33,10 @@ local function refresh()
     local t = i <= rows and list[i + offset]
     if t then
       row.topic = t.id
-      row.label:SetText(t.name .. (t.archived and (" |cff888888(" .. L.ASK_ARCHIVED .. ")|r") or ""))
+      local s = ns.Conversation.session
+      local new = s and s.newTopics and ns.Util.Contains(s.newTopics, t.id)
+      row.label:SetText(t.name .. (t.archived and (" |cff888888(" .. L.ASK_ARCHIVED .. ")|r") or "")
+        .. (new and (" |cff888888(" .. L.ASK_NEW .. ")|r") or ""))
       row.cat:SetText(t.category)
       local on = (selected == i + offset)
       if on then row:LockHighlight() else row:UnlockHighlight() end
@@ -230,5 +233,6 @@ end
 function Ask.Selected() return selected and filtered[selected] and filtered[selected].id end
 
 function Ask.Hide() if panel then panel:Hide() end end
+function Ask.Refresh() if panel and panel:IsShown() then refresh() end end
 function Ask.IsShown() return panel ~= nil and panel:IsShown() end
 function Ask.Rows() return panel and panel.rows end

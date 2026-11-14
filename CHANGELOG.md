@@ -2,6 +2,23 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.26.0 (2026-11-14)
+Packs: World 1.14.0, Stranglethorn 1.3.0, Stormwind 1.5.0, Orgrimmar 1.3.0, Ironforge 1.4.0, Darnassus 1.2.0, ThunderBluff 1.3.0, Undercity 1.2.0, Dustwallow 1.2.0. No new folders. **New files in World and Stranglethorn: exit the game fully before copying them in** (a /reload doesn't read new files).
+
+### Ask about, the Morrowind way
+- **Words become topics.** When someone names something worth asking about (Booty Bay, the Scourge, Thrall, the Defias...), the word shows as a link in what they say. Click it to ask them about it. Hearing it is enough to learn it: it joins your Ask list, marked "new". The setting "Topics in what people say are links" turns this off.
+- **Five things you can always ask anyone:** Background, My trade, A little secret, Latest rumors and Someplace nearby. Everyone answers: named people in their own words, everyone else by their trade (a banker, a gryphon master, a peon...) or their town. A little secret takes a few visits, or a friend. Latest rumors from an innkeeper is the inn's latest rumor.
+- **Thirty-three new topics** about the wider world, and what common folk say about them: Alliance folk and Horde folk tell different stories about Thrall, Jaina, the Forsaken or the Third War, and some answers are for you in particular (a paladin asked about the Silver Hand, a druid about the Earth Mother, a night elf about Elune, a Skyborne about the Alliance or the Horde).
+- **Towns have voices.** Booty Bay, Grom'gol, the Rebel Camp and Nesingwary's Expedition each have their own take on where to go, the latest talk and the wider world; twenty-five more towns and seven zones say what's nearby.
+- **Stranglethorn's people and the faction leaders** (Bolvar, Anduin, Thrall, Magni, Tyrande, Cairne, Sylvanas, Jaina) answer about themselves.
+- **The journal's Topics tab** shows what each person told you about each topic.
+- Any real answer now beats a brush-off: someone who knows only what everyone knows says that, rather than "couldn't tell you".
+
+### For pack authors
+- `P:Voice { id, community = town (or a list) | zone = "Zone Name", topics = {...} }`: what everyone in a town or zone says. Topics take `keywords` (string or list) and `link = false`. DESIGN.md §3.11.
+- The validator checks voices, warns on answers to undefined topics, and refuses short or shared keywords.
+- `CLAUDE.md`: the working rules for Claude Code sessions. The repository is now on GitHub (private).
+
 ## 0.25.0 (2026-11-14)
 Packs: Arathi 1.1.0, Ashenvale 1.1.0, Badlands 1.1.0, Barrens 1.2.0, Darkshore 1.1.0, Darnassus 1.1.0, Desolace 1.1.0, Durotar 1.1.0, Duskwood 1.2.0, Dustwallow 1.1.0, Elwynn 1.8.0, Feralas 1.1.0, Hillsbrad 1.1.0, Hinterlands 1.1.0, Ironforge 1.3.0, LochModan 1.1.0, Moonglade 1.1.0, Mulgore 1.2.0, Orgrimmar 1.2.0, Redridge 1.2.0, Silverpine 1.1.0, Stonetalon 1.1.0, Stormwind 1.4.0, Stranglethorn 1.2.0, SwampOfSorrows 1.1.0, Tanaris 1.1.0, Teldrassil 1.2.0, ThousandNeedles 1.1.0, ThunderBluff 1.2.0, Tirisfal 1.1.0, UnGoro 1.1.0, Undercity 1.1.0, Westfall 1.3.0, Wetlands 1.1.0, Winterspring 1.1.0, World 1.13.0, Zephras 1.0.1, and three new ones: Felwood 1.0.0, Searing Gorge 1.0.0, Eastern Plaguelands 1.0.0. **New folders: exit the game fully, copy them in, and tick them.**
 

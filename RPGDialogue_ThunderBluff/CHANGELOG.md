@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.3.0 (unreleased)
+- Cairne answers the core topics, and speaks of the Earth Mother and Thrall.
+
 ## 1.2.0 (unreleased)
 - Pala remarks on Turak.
 

@@ -621,6 +621,8 @@ function Conv.ShowNode(nodeId)
 
   local Ins = ns.Insanity
   if Ins then body = Ins.Scramble(body, nil, env.seed) end
+  local spoken = body
+  body = Conv.Linked(s, body)
 
   s.page = nil
   present(s, {
@@ -628,7 +630,7 @@ function Conv.ShowNode(nodeId)
     text = body, choices = Conv.BuildChoices(node, isStart),
     lineGid = winner and winner.gid, canAsk = ns.Topics and ns.Topics.Any(),
   })
-  if ns.db.settings.tts then C.StopSpeaking(); C.Speak(body) end
+  if ns.db.settings.tts then C.StopSpeaking(); C.Speak(spoken) end
 end
 
 -- Choices for a node: errands (first node only), the node's own, and (when insanity is
@@ -743,18 +745,47 @@ function Conv.Choose(index)
 end
 
 -- "Ask about...": the NPC's own take, then their community's, their role's, then a brush-off.
+-- Topic keywords in what's said become links in our box (and teach the topic either way).
+function Conv.Linked(s, text)
+  local T = ns.Topics
+  if not T or not T.Linkify or ns.db.settings.topicLinks == false then return text end
+  local inBox = s.view ~= "dui"
+  local color = inBox and ns.UI.Theme and ns.UI.Theme.Hex("link") or nil
+  local linked, ids = T.Linkify(text, color)
+  local new = T.Hear(ids, s.memKey or (s.info and s.info.key))
+  if #new > 0 then
+    s.newTopics = s.newTopics or {}
+    for _, id in ipairs(new) do s.newTopics[#s.newTopics + 1] = id end
+  end
+  return inBox and linked or text
+end
+
+-- "Ask about...". Latest rumors: the NPC's own word first, then whatever rumor an innkeeper
+-- (or anyone a rumor set names) would pass on, then the usual fallbacks.
 function Conv.Ask(topic)
   local s = Conv.session
-  if not s or s.mode ~= "full" then return end
-  local w = Engine.PickTopic(s.info, topic, s.ctx, s.env)
+  if not s or s.mode ~= "full" or s.menuOnly then return end
+  local info, ctx, env = s.info, s.ctx, s.env
+  local w
+  local own = info.def and info.def.topics and info.def.topics[topic]
+  if topic == "latest_rumors" and not own and ns.Rumors then
+    w = Engine.PickRumor(info, ctx, env)
+    if w then ns.Rumors.Used(info, env) end
+  end
+  w = w or Engine.PickTopic(info, topic, ctx, env)
   ns.Topics.Asked(topic, s.memKey)
   local text = L.FALLBACK_LINE
   if w then
     Conv.Shown(w)
     s.lastLine = w.gid
-    text = Tokens.Render(w.line.text, s.ctx, s.env)
+    text = Tokens.Render(w.line.text, ctx, env)
+    if ns.Topics.Record and not (w.src or ""):find("brushoff", 1, true) then
+      ns.Topics.Record(topic, s.memKey, info.name, w.gid, text)
+    end
   end
+  text = Conv.Linked(s, text)
   View(s).ShowAnswer(text, ns.Data.topics[topic] and ns.Data.topics[topic].name or topic)
+  if ns.UI.AskAbout and ns.UI.AskAbout.IsShown and ns.UI.AskAbout.IsShown() and ns.UI.AskAbout.Refresh then ns.UI.AskAbout.Refresh() end
 end
 
 function Conv.OpenCompact()

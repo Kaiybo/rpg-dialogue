@@ -458,6 +458,13 @@ P:Town {
   quests = { { TODO_QUEST("The Argent Hold"), 6 }, { TODO_QUEST("Lord Maxwell Tyrosus"), 2 } },
 }
 
+P:Town {
+  id = "nesingwary_camp", name = "Nesingwary's Expedition",
+  subzones = { "Nesingwary's Expedition" },
+  tiers = { Hero = "Friend of the Expedition" },
+  quests = { { TODO_QUEST("Welcome to the Jungle"), 4 }, { TODO_QUEST("The Green Hills of Stranglethorn"), 8 } },
+}
+
 -- The other capitals. Their guards speak from pools_roles.lua; standing grows from quests
 -- each capital's own pack lists later.
 P:Town {

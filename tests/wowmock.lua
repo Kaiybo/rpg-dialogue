@@ -80,6 +80,8 @@ function frameMethods.UnregisterEvent(self, ev) self._events[ev] = nil end
 function frameMethods.UnregisterAllEvents(self) self._events = {} end
 function frameMethods.SetScript(self, name, fn) self._scripts[name] = fn end
 function frameMethods.GetScript(self, name) return self._scripts[name] end
+function frameMethods.SetHyperlinksEnabled(self, on) self._hyperlinks = on end
+function frameMethods.GetHyperlinksEnabled(self) return self._hyperlinks == true end
 function frameMethods.HookScript(self, name, fn)
   local old = self._scripts[name]
   self._scripts[name] = function(...) if old then old(...) end fn(...) end

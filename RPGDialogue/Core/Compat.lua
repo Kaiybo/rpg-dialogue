@@ -261,6 +261,19 @@ function C.SetGamePadHandler(frame, handler)
   return (pcall(frame.SetScript, frame, "OnGamePadButtonDown", handler))
 end
 
+-- Clickable links inside a frame's font strings (topic keywords in the conversation box).
+function C.EnableHyperlinks(frame, onClick, onEnter, onLeave)
+  if type(frame.SetHyperlinksEnabled) ~= "function" then
+    noteMissing("Frame:SetHyperlinksEnabled")
+    return false
+  end
+  pcall(frame.SetHyperlinksEnabled, frame, true)
+  pcall(frame.SetScript, frame, "OnHyperlinkClick", onClick)
+  if onEnter then pcall(frame.SetScript, frame, "OnHyperlinkEnter", onEnter) end
+  if onLeave then pcall(frame.SetScript, frame, "OnHyperlinkLeave", onLeave) end
+  return true
+end
+
 function C.GamePadButtons(frame, on)
   if type(frame.EnableGamePadButton) == "function" then
     pcall(frame.EnableGamePadButton, frame, on and true or false)

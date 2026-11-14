@@ -98,7 +98,7 @@ def main():
     packs = P.load_all(extra_dirs=args.extra)
 
     # ---- pass 1: collect everything --------------------------------------------------
-    npcs, pools, generic = {}, [], []
+    npcs, pools, generic, voices = {}, [], [], []
     defs = {k: {} for k in ("Thread", "Claim", "Topic", "Town", "Origin", "Rumors", "Book", "Errand")}
     key_lines, all_lines = {}, {}
     for pack in packs:
@@ -141,6 +141,8 @@ def main():
                     all_lines.setdefault(gid, (pack, f, ln))
             elif kind == "Generic":
                 generic.append((pack, tbl, f, line))
+            elif kind == "Voice":
+                voices.append((pack, tbl, f, line))
             elif kind in defs:
                 did = tbl.get("id")
                 if not did:
@@ -416,6 +418,65 @@ def main():
         ids = set()
         for slot, node, ln, gid in P.iter_lines(tbl, "generic:" + str(tbl.get("id"))):
             check_line(pack, f, ln, "generic:" + str(tbl.get("id")), slot, ids)
+
+    # Voices: what everyone in a town (or zone) says about topics (0.26.0).
+    voice_ids = set()
+    for pack, tbl, f, line in voices:
+        vid = tbl.get("id")
+        where = f"voice:{vid}"
+        if not vid or not (tbl.get("community") or tbl.get("zone")):
+            rep.error(pack, f, line, f"{where}: voices need id and community or zone")
+        elif vid in voice_ids:
+            rep.error(pack, f, line, f"{where}: voice defined twice")
+        voice_ids.add(vid)
+        comm = tbl.get("community")
+        for c in ([comm] if isinstance(comm, str) else P.arr(comm)):
+            if c not in defs["Town"]:
+                rep.warn(pack, f, line, f"{where}: community {c!r} isn't a defined town")
+        for k in tbl.named() if isinstance(tbl, LTable) else {}:
+            if k not in ("id", "community", "zone", "topics"):
+                rep.warn(pack, f, line, f"{where}: voices only carry topics (found {k!r})")
+        ids = set()
+        for slot, node, ln, gid in P.iter_lines(tbl, where):
+            check_line(pack, f, ln, where, slot, ids)
+
+    # Topic answers must be for topics that exist (else nobody can ever ask).
+    def check_topic_keys(pack, tbl, f, line, where):
+        topics = tbl.get("topics")
+        if isinstance(topics, LTable):
+            for t in topics.named():
+                if t != "_none" and t not in defs["Topic"]:
+                    rep.warn(pack, f, line, f"{where}: answers topic {t!r}, which isn't defined")
+    for key, (pack, tbl, f, line) in npcs.items():
+        check_topic_keys(pack, tbl, f, line, key)
+    for pack, tbl, f, line in pools:
+        check_topic_keys(pack, tbl, f, line, f"pool:{tbl.get('id')}")
+    for pack, tbl, f, line in generic:
+        check_topic_keys(pack, tbl, f, line, f"generic:{tbl.get('id')}")
+    for pack, tbl, f, line in voices:
+        check_topic_keys(pack, tbl, f, line, f"voice:{tbl.get('id')}")
+
+    # Topic keywords become links in what people say: each must be distinct.
+    keyword_owner = {}
+    for tid, (pack, tbl, f, line) in sorted(defs["Topic"].items()):
+        if tbl.get("link") is False:
+            continue
+        kws = tbl.get("keywords")
+        if kws is None:
+            name = tbl.get("name") or tid
+            kws = [name[4:] if name.lower().startswith("the ") else name]
+        elif isinstance(kws, str):
+            kws = [kws]
+        else:
+            kws = P.arr(kws)
+        for kw in kws:
+            if not isinstance(kw, str) or len(kw) < 3:
+                rep.error(pack, f, line, f"topic {tid}: keyword {kw!r} must be a string of 3+ letters")
+                continue
+            low = kw.lower()
+            if low in keyword_owner and keyword_owner[low] != tid:
+                rep.error(pack, f, line, f"topic {tid}: keyword {kw!r} already links to {keyword_owner[low]!r}")
+            keyword_owner[low] = tid
 
     for tid, (pack, tbl, f, line) in defs["Thread"].items():
         if not tbl.get("theme"):

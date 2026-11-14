@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.3.0 (unreleased)
+- Town voices for Booty Bay, Grom'gol, the Rebel Camp and Nesingwary's Expedition, and one for the whole vale: where to go, the latest talk, and each town's take on the Alliance, the Horde, the trolls and the pirates.
+- Every named NPC here answers Background, My trade and A little secret in their own words (the secret once they know you), and several have their own take on the Alliance, the Horde, Stormwind, the Holy Light or the Earth Mother.
+
 ## 1.2.0 (unreleased)
 - Nesingwary's Expedition: Hemet Nesingwary, Barnil Stonepot (and the scattered pages of The Green Hills of Stranglethorn), Ajeck Rouack (tigers, Sin'Dall), Sir S. J. Erlgadin (panthers, and why he left the House of Nobles).
 - Booty Bay: Sprogger (Smotts's cook, the other survivor), Fin Fizracket (Stranglethorn Fever), Wharfmaster Lozgil; the Rebel Camp: Private Thorsen.

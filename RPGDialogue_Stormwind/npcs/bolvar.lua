@@ -93,6 +93,25 @@ P:NPC {
   },
 
   topics = {
+    king_anduin = {
+      { id = "ta_anduin", text = "He listens better than most grown men at this court. He'll be a good king. My task is to see he lives long enough." },
+    },
+    varian = {
+      { id = "ta_varian", text = "I will learn what happened to him. Until then I keep his son safe and his kingdom standing. That is the oath, and I keep my oaths." },
+    },
+    bolvar = {
+      { id = "ta_self", text = "A soldier holding a crown that isn't his. Keep it that simple and you'll understand me well enough." },
+    },
+    little_secret = {
+      { id = "ta_ls_no", text = "A regent with loose lips is a danger to his king. Ask me something else." },
+      { id = "ta_ls", when = { any = { { affinity = { min = 3 } }, { timesTalked = 4 } } }, text = "I sleep badly since King Varian was lost. The boy knows. He never says so. He simply sends up tea." },
+    },
+    my_trade = {
+      { id = "ta_trade", text = "Regent and Supreme Commander. I keep the kingdom whole until the king is grown. Everything else is detail, and there is a great deal of detail." },
+    },
+    background = {
+      { id = "ta_bg", text = "I've served this kingdom as a soldier all my life. Ruling it, I'm still learning. I hope to give it back before I've learned too much." },
+    },
     defias = { { id = "tp_defias", text = "Thieves with a grievance and better organization than I'd like. Westfall bleeds for it." } },
     westfall = { { id = "tp_westfall", text = "Stoutmantle holds it. Barely, and without us. I'm not proud of that." } },
     tome_of_divinity = { { id = "tp_tome", text = "Duthorian Rall's test. Pass it, and you'll have earned the right to call yourself one of us." } },

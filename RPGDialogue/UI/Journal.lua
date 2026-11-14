@@ -121,10 +121,34 @@ function J.Text(tab, search)
     add("|cff6b2f0f" .. L.J_ORIGIN .. "|r  " .. (c.origin and c.origin.name or L.J_NO_ORIGIN))
     if c.origin and c.origin.blurb then add("  " .. c.origin.blurb) end
   elseif tab == "topics" then
-    for _, t in ipairs(ns.Topics.Known(true)) do
-      add("|cff6b2f0f" .. t.name .. "|r  (" .. t.category .. ")")
+    -- What each person said about a topic (their latest answer), newest first, plain text.
+    local function said(id)
+      local rec = c.topics[id]
+      if not rec or not rec.said then return end
+      local list = {}
+      for _, v in pairs(rec.said) do list[#list + 1] = v end
+      table.sort(list, function(x, y) return (x.t or 0) > (y.t or 0) end)
+      for _, v in ipairs(list) do
+        local line = ns.Data.Line(v.gid)
+        local text = v.text or (line and line.text)
+        if text then add("  " .. L.J_TOPIC_SAID:format(v.name or "?", ns.Topics.Plain(text))) end
+      end
     end
-    if #out == 0 then add(L.J_NO_TOPICS) end
+    local core, learned = {}, {}
+    for _, t in ipairs(ns.Topics.Known(true)) do
+      if t.core then core[#core + 1] = t else learned[#learned + 1] = t end
+    end
+    if #core > 0 then
+      local names = {}
+      for _, t in ipairs(core) do names[#names + 1] = t.name end
+      add("|cff6b2f0f" .. L.J_CORE .. "|r  " .. table.concat(names, ", "))
+      add(" ")
+    end
+    for _, t in ipairs(learned) do
+      add("|cff6b2f0f" .. t.name .. "|r  (" .. t.category .. ")")
+      said(t.id)
+    end
+    if #learned == 0 then add(L.J_NO_TOPICS) end
     add(" ")
     add("|cff6b2f0f" .. L.J_CLAIMS .. "|r")
     local any = false

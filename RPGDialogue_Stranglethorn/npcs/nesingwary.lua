@@ -63,6 +63,18 @@ P:NPC {
   },
 
   topics = {
+    nesingwary = {
+      { id = "ta_self", text = "Still here." },
+    },
+    little_secret = {
+      { id = "ta_ls", when = { any = { { affinity = { min = 3 } }, { timesTalked = 4 } } }, text = "I miss very few shots. I remember every one of them." },
+    },
+    my_trade = {
+      { id = "ta_trade", text = "Big game. The bigger the better." },
+    },
+    background = {
+      { id = "ta_bg", text = "Soldier once. Hunter always. Wrote a book. Don't ask me about the book." },
+    },
     _none = { { id = "tp_none", text = "Does it have fur, claws or teeth? No? Then I couldnae care less." } },
   },
 }
@@ -107,6 +119,15 @@ P:NPC {
   },
 
   topics = {
+    little_secret = {
+      { id = "ta_ls", when = { any = { { affinity = { min = 3 } }, { timesTalked = 4 } } }, text = "I've read every page of that book a dozen times. The panther chapter still makes me laugh, and it isn't meant to." },
+    },
+    my_trade = {
+      { id = "ta_trade", text = "Camp keeping and proofreading. One of them is tidier than the other." },
+    },
+    background = {
+      { id = "ta_bg", text = "I've served Hemet for years. I carry his rifle, keep his camp, and correct his spelling. He thinks the last is the least important." },
+    },
     _none = { { id = "tp_none", text = "Ask the master. He'll tell ye. At length." } },
   },
 }
@@ -152,6 +173,15 @@ P:NPC {
   },
 
   topics = {
+    little_secret = {
+      { id = "ta_ls", when = { any = { { affinity = { min = 3 } }, { timesTalked = 4 } } }, text = "I sleep by day so I can watch the trail at night. My father did the same. I never asked if he liked it." },
+    },
+    my_trade = {
+      { id = "ta_trade", text = "I hunt cats. Tigers, panthers, and one day Sin'Dall." },
+    },
+    background = {
+      { id = "ta_bg", text = "My father taught me to track before I could read. Hemet taught me the rest." },
+    },
     _none = { { id = "tp_none", text = "Not tigers. Not my concern." } },
   },
 }
@@ -201,6 +231,18 @@ P:NPC {
   },
 
   topics = {
+    stormwind = {
+      { id = "ta_stormwind", text = "A fine city, built by men who were never paid for it. I'd sooner live in a jungle. As you see, I do." },
+    },
+    little_secret = {
+      { id = "ta_ls", when = { any = { { affinity = { min = 3 } }, { timesTalked = 4 } } }, text = "They still send summons from Stormwind. I burn them. It's the warmest the court has ever made me feel." },
+    },
+    my_trade = {
+      { id = "ta_trade", text = "Hunting, and refusing to be a count. The second takes more effort." },
+    },
+    background = {
+      { id = "ta_bg", text = "I was offered a seat among Stormwind's nobles. I'd seen what they did to the stonemasons, and I said no. Now I hunt." },
+    },
     defias = { { id = "tp_defias", text = "Cheated men, turned thieves. I'd hang the thieves. I'd want the cheats hanged first." } },
     _none = { { id = "tp_none", text = "I've no opinion on it. I've given up having opinions in public. They cost too much." } },
   },

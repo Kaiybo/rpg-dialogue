@@ -827,6 +827,42 @@ Two looks, setting "Window style" (`look`), switchable while a conversation is o
 
 ---
 
+### 3.11 Ask about: topics in the text, core topics, voices (0.26.0)
+
+Built after Morrowind's dialogue: a topic is a word you hear before it's a question you ask.
+
+- **Topic links.** A topic's `keywords` (default: its name without a leading "The") are found in
+  whatever an NPC says (`Topics.Linkify`: whole words, any case, a possessive still counts, the
+  first mention of each topic, longest keyword first, never inside text that already holds
+  escape codes). In our box they become `|Hrpgdtopic:<id>|h` links in the theme's `link` color;
+  clicking one asks about it (`DialogueFrame.OnHyperlink` → `Conversation.Ask`). Seeing one
+  teaches the topic (`Topics.Hear`: `{ heard = true, from = <npc> }`, fires `TOPIC_LEARNED`) and
+  marks it "new" in the Ask list. Inside DialogueUI's window the words are learned but not
+  linked. The typewriter reveals plain text and swaps in the linked text when it finishes; speech
+  reads the plain text. Setting `topicLinks` turns links and learning off. Topics with
+  `link = false` never link (Camping, the Elwynn murloc rumor). The validator refuses a keyword
+  shorter than three letters or one claimed by two topics.
+- **Core topics** (`Topics.CORE`): background, my trade, a little secret, latest rumors,
+  someplace nearby. Always known, always first in the list, never archived, never linked.
+  Latest rumors falls back to the rumor sets (an innkeeper's rumor) when the NPC has no answer
+  of their own. A little secret: a refusal first, the real secret gated on `timesTalked`
+  (pooled people) or `any = { affinity, timesTalked }` (named people).
+- **Answer order** (`Engine.PickTopic`): own (400) > community pool (200) > subtitle pool (150) >
+  zone/faction pool (120) > role pool (100) > town voice (60) > zone voice (40) > common
+  knowledge (0). Every brush-off ranks below every real answer: own −50, pools base − 300,
+  common −400. With topics learned from speech, most topics reach people who aren't experts,
+  and what everyone knows should come before "can't help you".
+- **Voices** (`P:Voice { id, community | zone, topics }`): what everyone in a town (`community`,
+  one town or a list) or a zone (`zone`, the zone's name) says about a topic. They carry topics
+  only. World's `voices.lua` holds "someplace nearby" for most towns; zone packs hold fuller
+  voices for their own towns (Stranglethorn's `voices.lua`).
+- **Common knowledge** (`RPGDialogue_World/topics_common.lua`): Generics `common` (everyone),
+  `common_alliance` and `common_horde` (by the player's faction, since you mostly speak to your
+  own side; neutral towns get voices instead). Answers may hinge on the player's race or class.
+- **The journal** (Topics tab): core topics on one line, then every learned topic with what each
+  person said about it (`Topics.Record`: their latest answer as plain text, at most
+  `MAX_SAID` people per topic). Brush-offs aren't recorded.
+
 ## 8. Accessibility and other addons
 
 **Accessibility (brief 4.15).** Text size separate from UI scale, line spacing, a choice of fonts for text and names with a bundled high-readability one (non-Latin clients keep the game's fonts), the game's own window style following its Quest Text Contrast setting, text speed, instant text, auto-advance with a delay, scale, a high-contrast theme, sounds on/off, and one reduce-motion switch that turns off the typewriter and every insanity effect. Full keyboard use: number keys, Up/Down/Tab to move a selection, Enter, Space, Escape; Left/Right in the journal; an Ask About keybinding. Gamepad in the client's gamepad mode: D-pad, A, B, X. Nothing relies on color alone: selections carry a ">" marker, locked replies say "(Locked)", the current journal tab is marked, standing tiers and alignment hints are words.

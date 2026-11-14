@@ -57,6 +57,21 @@ P:NPC {
   },
 
   topics = {
+    stormwind = {
+      { id = "ta_stormwind", text = "Home. I haven't seen it in years. They say there's a boy on the throne now. I hope he gives better orders than the last ones we got." },
+    },
+    alliance = {
+      { id = "ta_alliance", text = "We're still Alliance soldiers. Stormwind may not remember us. We remember Stormwind." },
+    },
+    little_secret = {
+      { id = "ta_ls", when = { any = { { affinity = { min = 3 } }, { timesTalked = 4 } } }, text = "I still have my commission papers. I read them some nights to remember who I'm meant to be." },
+    },
+    my_trade = {
+      { id = "ta_trade", text = "I keep this camp alive and point what's left of us at Kurzen. Somebody has to finish what he started wrong." },
+    },
+    background = {
+      { id = "ta_bg", text = "Stormwind soldier, sent south with Colonel Kurzen. When he turned, I couldn't follow him. Some of my friends did." },
+    },
     kurzen = { { id = "tp_kurzen", text = "He was a good officer once. Don't let anyone tell you different. That's what makes this hard." } },
     _none = { { id = "tp_none", text = "Ask the Brother. He does the thinking around here." } },
   },
@@ -108,6 +123,18 @@ P:NPC {
   },
 
   topics = {
+    holy_light = {
+      { id = "ta_light", text = "The Light's here in the jungle too. You only have to look under more leaves." },
+    },
+    little_secret = {
+      { id = "ta_ls", when = { any = { { affinity = { min = 3 } }, { timesTalked = 4 } } }, text = "I made a vow to see Mai'Zoth dead. A priest shouldn't make vows like that. I've not regretted it once." },
+    },
+    my_trade = {
+      { id = "ta_trade", text = "Prayer and glassware. One tends the soul. The other tells me what's killing the body." },
+    },
+    background = {
+      { id = "ta_bg", text = "I'm a priest who took up alchemy to understand poisons. Then I came to the jungle, where everything is one." },
+    },
     kurzen = { { id = "tp_kurzen", text = "I prayed for him every night. Now I pray for whoever finally stops him." } },
     _none = { { id = "tp_none", text = "I'm afraid I've no answer. I'll add it to my list of questions; it's a long list." } },
   },
@@ -148,6 +175,15 @@ P:NPC {
   },
 
   topics = {
+    little_secret = {
+      { id = "ta_ls", when = { any = { { affinity = { min = 3 } }, { timesTalked = 4 } } }, text = "When I got back, I reached for the wrong uniform. Kurzen's. Habit. That frightened me more than the jungle did." },
+    },
+    my_trade = {
+      { id = "ta_trade", text = "Scout. Spy, if you want the ugly word. I go where we can't and come back when I can." },
+    },
+    background = {
+      { id = "ta_bg", text = "I went into Kurzen's camp wearing his colors and came out with his secrets. Somebody sold me out on the way home." },
+    },
     kurzen = { { id = "tp_kurzen", text = "The Colonel's not himself. His officers aren't either. Whatever's in that compound is in their heads now." } },
     _none = { { id = "tp_none", text = "I only know Kurzen. That's more than enough." } },
   },

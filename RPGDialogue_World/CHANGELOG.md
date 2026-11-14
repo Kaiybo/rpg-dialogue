@@ -2,6 +2,14 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.14.0 (unreleased)
+- Ask about, Morrowind style: five core topics everyone can be asked (Background, My trade, A little secret, Latest rumors, Someplace nearby), answered by every role pool (stable masters to peons, every class trainer, every capital's guards) and by common knowledge.
+- Thirty-three new topics you learn by hearing them named: the Alliance, the Horde, the Scourge, the Third War, the Forsaken, the Silver Hand, the Holy Light, Elune, the Earth Mother, the capitals, Booty Bay, Gadgetzan, Ratchet, Theramore, Goldshire, Grom'gol, Bolvar, King Anduin, King Varian, Magni, Tyrande, Jaina, Thrall, Cairne, Sylvanas, the jungle trolls, the Blackwater Raiders, Hemet Nesingwary.
+- Common knowledge (`topics_common.lua`): what anyone says about them, Alliance folk and Horde folk differently, with lines for paladins, druids, dwarves, night elves, orcs, tauren, the Forsaken and Skyborne.
+- Every topic has keywords: the words that link in what people say.
+- "Someplace nearby" for twenty-five towns and seven zones (`voices.lua`).
+- Town: Nesingwary's Expedition (Friend of the Expedition).
+
 ## 1.13.0 (unreleased)
 - Towns: Bloodvenom Post, Thorium Point, Light's Hope Chapel.
 - Claim `kalaran_father` (Kalaran Windblade's story; false, settled by Squire Maltrake).

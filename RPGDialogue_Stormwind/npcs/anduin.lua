@@ -69,6 +69,24 @@ P:NPC {
   },
 
   topics = {
+    bolvar = {
+      { id = "ta_bolvar", text = "He's kind to me, and he's tired all the time. I try not to make him more tired. It's harder than it sounds." },
+    },
+    king_anduin = {
+      { id = "ta_self", text = "That's me, I suppose. It still sounds like someone else's name." },
+    },
+    varian = {
+      { id = "ta_varian", text = "My father. He'll come home. Everyone says so. Except the ones who stop talking when I walk in." },
+    },
+    little_secret = {
+      { id = "ta_ls", when = { any = { { affinity = { min = 3 } }, { timesTalked = 4 } } }, text = "Sometimes I hide in the library so nobody can find me to bow. The librarians know. They don't tell." },
+    },
+    my_trade = {
+      { id = "ta_trade", text = "Listening, mostly. Everyone tells me what they want. Lord Bolvar says the trick is hearing what they need." },
+    },
+    background = {
+      { id = "ta_bg", text = "I was crowned because my father didn't come home. I wear the crown, but in my head it's still his." },
+    },
     westfall = { { id = "tp_westfall", text = "I asked about Westfall at council. Everyone went quiet. That's how I know it's bad." } },
     defias = { { id = "tp_defias", text = "Bolvar won't say much about them when I'm in the room. I hear anyway. I'm small, not deaf." } },
     tome_of_divinity = { { id = "tp_tome", text = "Duthorian Rall showed it to me once. I wasn't allowed to touch it. I touched it a little." } },

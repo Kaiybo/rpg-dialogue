@@ -75,6 +75,21 @@ P:NPC {
   },
 
   topics = {
+    tyrande = {
+      { id = "ta_self", text = "You ask a great deal for one meeting. Ask again when we have known each other longer than an evening." },
+    },
+    elune = {
+      { id = "ta_elune", text = "She watches. That is all I will say of her to a stranger, and all a stranger needs." },
+    },
+    little_secret = {
+      { id = "ta_ls", when = { any = { { affinity = { min = 3 } }, { timesTalked = 4 } } }, text = "I speak to Malfurion while he sleeps. He has never answered. I speak to him anyway." },
+    },
+    my_trade = {
+      { id = "ta_trade", text = "High Priestess. I pray, I lead, and when I must, I draw my bow." },
+    },
+    background = {
+      { id = "ta_bg", text = "I have served Elune since before your kingdoms had names. I lead now because Malfurion cannot." },
+    },
     cenarion_circle = { { id = "tp_circle", text = "My husband's order. In his absence, Fandral's. I pray that's a short arrangement." } },
     worgen = { { id = "tp_worgen", text = "In the human woods? I have heard. Ask the druids, and watch their faces when you do." } },
     _none = { { id = "tp_none", text = "That is not a matter for the Temple. The Sentinels may know." } },

@@ -60,6 +60,21 @@ P:NPC {
   },
 
   topics = {
+    theramore = {
+      { id = "ta_theramore", text = "Home for everyone who had nowhere else to go. We built it out of a marsh and stubbornness." },
+    },
+    thrall = {
+      { id = "ta_thrall", text = "A friend. That still surprises people. It shouldn't." },
+    },
+    little_secret = {
+      { id = "ta_ls", when = { any = { { affinity = { min = 3 } }, { timesTalked = 4 } } }, text = "I think of my father every time a ship comes into harbor. Every single one." },
+    },
+    my_trade = {
+      { id = "ta_trade", text = "I rule a small island and keep a large peace. Some days I'm not sure which is harder." },
+    },
+    background = {
+      { id = "ta_bg", text = "I studied magic in Dalaran. Then the plague came, and I brought who I could west across the sea." },
+    },
     grimtotem = { { id = "tp_grimtotem", text = "There are tauren who'd like a war with us. Thrall isn't one of them, and neither am I. That's where we start." } },
     burning_blade = { { id = "tp_blade", text = "Thrall's problem, and he knows it. I'll help if he asks. He won't ask." } },
     _none = { { id = "tp_none", text = "I don't know. But Tervosh might, and if he doesn't, he'll find out." } },

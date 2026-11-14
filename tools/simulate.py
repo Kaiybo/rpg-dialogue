@@ -37,7 +37,7 @@ def static_contradictions(all_packs):
     problems = []
     for pack in all_packs:
         for kind, tbl, f, line in pack.defs:
-            if kind not in ("NPC", "Pool", "Generic"):
+            if kind not in ("NPC", "Pool", "Generic", "Voice"):
                 continue
             owner = tbl.get("key") or tbl.get("id")
             for slot, node, ln, gid in P.iter_lines(tbl, str(owner)):
@@ -137,10 +137,10 @@ def impossible_refs(all_packs, registry):
 
     for pack in all_packs:
         for kind, tbl, f, line in pack.defs:
-            if kind in ("NPC", "Pool", "Generic"):
+            if kind in ("NPC", "Pool", "Generic", "Voice"):
                 owner = tbl.get("key") or tbl.get("id")
-                if kind == "Pool":
-                    owner = f"pool:{owner}"
+                if kind in ("Pool", "Voice"):
+                    owner = f"{kind.lower()}:{owner}"
                 for slot, node, ln, gid in P.iter_lines(tbl, str(owner)):
                     scan(gid, ln.get("when"))
                 for nid, i, ch in P.iter_choices(tbl):

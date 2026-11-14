@@ -32,7 +32,7 @@ local PORTRAIT_FALLBACK = "Interface\\Icons\\INV_Misc_QuestionMark"
 
 local frame
 local view
-local reveal = { full = "", shown = 0, active = false, total = 0 }
+local reveal = { full = "", plain = "", shown = 0, active = false, total = 0 }
 local autoTimer
 local selected, navMode = nil, false
 
@@ -70,8 +70,18 @@ end
 local function finishReveal()
   reveal.active = false
   frame.text:SetText(reveal.full)
+  frame.textClick:Hide()   -- topic links in the text take clicks once it's all shown
   frame:SetScript("OnUpdate", nil)
   D.StartAutoAdvance()
+end
+
+-- The typewriter works on the text without links or colors (cutting through an escape
+-- code would show it raw); the links appear when the line is complete.
+local function startReveal(text)
+  reveal.full = text or ""
+  reveal.plain = ns.Topics and ns.Topics.Plain and ns.Topics.Plain(reveal.full) or reveal.full
+  reveal.total = utf8Len(reveal.plain)
+  reveal.shown = 0
 end
 
 local function onUpdate(_, elapsed)
@@ -79,7 +89,13 @@ local function onUpdate(_, elapsed)
   reveal.shown = reveal.shown + elapsed * (settings().textSpeed or 70)
   local n = math.floor(reveal.shown)
   if n >= reveal.total then finishReveal(); return end
-  frame.text:SetText(reveal.full:sub(1, utf8Cut(reveal.full, n)))
+  frame.text:SetText(reveal.plain:sub(1, utf8Cut(reveal.plain, n)))
+end
+
+-- A topic link in the text: ask about it.
+function D.OnHyperlink(_, link)
+  local id = type(link) == "string" and link:match("^rpgdtopic:([%w_]+)")
+  if id and ns.Conversation.session then ns.Conversation.Ask(id) end
 end
 
 function D.IsRevealing() return reveal.active end
@@ -193,6 +209,16 @@ local function create()
   frame.textClick:SetPoint("TOPLEFT", frame.text, "TOPLEFT")
   frame.textClick:SetPoint("BOTTOMRIGHT", frame.text, "BOTTOMRIGHT")
   frame.textClick:SetScript("OnClick", D.FinishText)
+  -- Topic keywords in the text are links (Morrowind's blue words): click to ask.
+  C.EnableHyperlinks(frame, D.OnHyperlink, function(_, link)
+    local id = type(link) == "string" and link:match("^rpgdtopic:([%w_]+)")
+    local def = id and ns.Data.topics[id]
+    if def then
+      GameTooltip:SetOwner(frame, "ANCHOR_CURSOR")
+      GameTooltip:SetText(L.ASK_LINK_TIP:format(def.name))
+      GameTooltip:Show()
+    end
+  end, function() GameTooltip:Hide() end)
 
   frame.buttons = {}
   for i = 1, MAX_BUTTONS do frame.buttons[i] = makeButton(i) end
@@ -510,9 +536,7 @@ function D.Show(v)
   D.Style()   -- also builds the current look's parts, the round portrait among them
   local portrait = Theme.GamePart(frame, "portrait")
   if portrait and not C.SetPortrait(portrait, v.unit) then portrait:SetTexture(PORTRAIT_FALLBACK) end
-  reveal.full = v.text or ""
-  reveal.total = utf8Len(reveal.full)
-  reveal.shown = 0
+  startReveal(v.text)
   D.Layout()
   local opening = not frame:IsShown()
   if opening then place(ns.Conversation.session and ns.Conversation.session.blizz) end
@@ -522,6 +546,7 @@ function D.Show(v)
     finishReveal()
   else
     reveal.active = true
+    frame.textClick:Show()
     frame.text:SetText("")
     frame:SetScript("OnUpdate", onUpdate)
   end
@@ -638,15 +663,14 @@ function D.ShowAnswer(text, topicName)
   if not frame or not frame:IsShown() then return end
   frame.reaction:SetText("")
   frame.reaction:Hide()
-  reveal.full = text or ""
-  reveal.total = utf8Len(reveal.full)
-  reveal.shown = 0
+  startReveal(text)
   if topicName then frame.subtitle:SetText("<" .. topicName .. ">") end
   D.Layout()
   if instant() then
     finishReveal()
   else
     reveal.active = true
+    frame.textClick:Show()
     frame.text:SetText("")
     frame:SetScript("OnUpdate", onUpdate)
   end

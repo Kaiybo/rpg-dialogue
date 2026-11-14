@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.5.0 (unreleased)
+- Bolvar and King Anduin answer the core topics, and speak of each other and of King Varian.
+
 ## 1.4.0 (unreleased)
 - Depth pass: repeat visits bring personal lines (habits, worries, running jokes), and some NPCs get night-time lines. Arthur the Faithful (the paladin trainer) and his story, Milton, Elling Trias, Grimand Elmore, Major Samuelson, Thomas Miller, Jennea, Lil Timmy.
 

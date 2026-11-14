@@ -169,7 +169,7 @@ function Engine.Pick(slot, cands, ctx, env, opts)
         for _, p in ipairs(parts) do desc[#desc + 1] = p end
         if line.priority then desc[#desc + 1] = "priority " .. line.priority end
         eligible[#eligible + 1] = {
-          line = line, gid = gid, score = total, parts = table.concat(desc, " + "),
+          line = line, gid = gid, score = total, parts = table.concat(desc, " + "), src = cand.src,
           stale = stale, factor = factor, systems = systems, seenAt = seen and seen.t or 0,
         }
       end
@@ -378,25 +378,32 @@ function Engine.PickRumor(info, ctx, env)
 end
 
 ---------------------------------------------------------------------------
--- Topic answers ("Ask about…", M4): NPC's own > community > role > brush-off
+-- Topic answers ("Ask about…", M4): NPC's own > community pool > role pool > town voice >
+-- zone voice > generic. Any real answer beats any brush-off (0.26.0): with topics learned
+-- from what people say, most topics reach people who aren't experts, and the common
+-- knowledge everyone shares should come before "can't help you". Brush-offs keep their
+-- order among themselves: own, then community, role, generic.
 ---------------------------------------------------------------------------
 function Engine.PickTopic(info, topic, ctx, env)
   local cands = {}
   local def = info.def
   if def and def.topics then
     add(cands, def.topics[topic], Engine.BASE.own, "own")
-    if #cands == 0 then add(cands, def.topics._none, 90, "own-brushoff") end
+    if #cands == 0 then add(cands, def.topics._none, -50, "own-brushoff") end
   end
   if ns.Data then
     for _, p in ipairs(ns.Data.PoolsFor(info, ctx)) do
       local topics = p.pool.topics or {}
       add(cands, topics[topic], p.base, "pool:" .. p.pool.id)
-      add(cands, topics._none, p.base - 150, "pool-brushoff:" .. p.pool.id)
+      add(cands, topics._none, p.base - 300, "pool-brushoff:" .. p.pool.id)
+    end
+    for _, v in ipairs(ns.Data.VoicesFor(info, ctx)) do
+      add(cands, (v.voice.topics or {})[topic], v.base, "voice:" .. v.voice.id)
     end
     for _, g in ipairs(ns.Data.GenericFor(ctx)) do
       local topics = g.topics or {}
       add(cands, topics[topic], 0, "generic:" .. g.id)
-      add(cands, topics._none, -100, "generic-brushoff:" .. g.id)
+      add(cands, topics._none, -400, "generic-brushoff:" .. g.id)
     end
   end
   return Engine.Pick("topic", cands, ctx, env, { node = "topic:" .. topic })

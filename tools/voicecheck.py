@@ -88,7 +88,7 @@ def main():
     broad_notices = []
     for pack in P.load_all():
         for kind, tbl, f, line in pack.defs:
-            if kind not in ("NPC", "Pool", "Generic"):
+            if kind not in ("NPC", "Pool", "Generic", "Voice"):
                 continue
             owner = tbl.get("key") if kind == "NPC" else f"{kind.lower()}:{tbl.get('id')}"
             for slot, node, ln, gid in P.iter_lines(tbl, owner):

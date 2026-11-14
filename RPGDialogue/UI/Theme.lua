@@ -161,7 +161,7 @@ Theme.PALETTES = {
     text = { 0.16, 0.10, 0.04 }, name = { 0.42, 0.17, 0.04 }, subtitle = { 0.40, 0.29, 0.17 },
     title = { 0.42, 0.17, 0.04 }, header = { 0.40, 0.29, 0.17 },
     choice = { 0.20, 0.12, 0.05 }, hover = { 0.55, 0.22, 0.02 }, number = { 0.55, 0.30, 0.08 },
-    marker = { 0.42, 0.17, 0.04 },
+    marker = { 0.42, 0.17, 0.04 }, link = { 0.08, 0.22, 0.58 },
     highlight = { 0.55, 0.38, 0.16, 0.16 }, accent = { 0.55, 0.25, 0.05, 0.9 },
     dim = { 0.45, 0.38, 0.30 }, locked = { 0.52, 0.47, 0.40 }, reaction = { 0.30, 0.20, 0.10 },
     divider = { 0.42, 0.27, 0.13, 0.30 },
@@ -175,6 +175,7 @@ Theme.PALETTES = {
     text = { 1, 1, 1 }, name = { 1, 0.82, 0 }, subtitle = { 0.85, 0.85, 0.85 },
     title = { 1, 0.82, 0 }, header = { 0.85, 0.85, 0.85 },
     choice = { 1, 1, 0.55 }, hover = { 1, 1, 1 }, number = { 1, 0.82, 0 }, marker = { 1, 0.82, 0 },
+    link = { 0.55, 0.82, 1 },
     highlight = { 1, 1, 1, 0.18 }, accent = { 1, 0.82, 0, 1 },
     dim = { 0.75, 0.75, 0.75 }, locked = { 0.6, 0.6, 0.6 }, reaction = { 0.85, 0.95, 1 },
     divider = { 1, 1, 1, 0.45 },
@@ -195,7 +196,7 @@ local function gamePalette(dark)
     p = { text = text, choice = { 1, 1, 1 }, hover = { 1, 1, 1 }, number = { 1, 0.82, 0 }, marker = { 1, 0.82, 0 },
           name = { 1, 0.82, 0 }, subtitle = { 0.85, 0.85, 0.85 }, dim = { 0.75, 0.75, 0.75 },
           locked = { 0.6, 0.6, 0.6 }, reaction = { 0.85, 0.95, 1 }, divider = { 1, 1, 1, 0.3 },
-          bg = { 0.08, 0.07, 0.06, 1 } }
+          bg = { 0.08, 0.07, 0.06, 1 }, link = { 0.55, 0.82, 1 } }
   else
     p = { text = text, choice = title, hover = title, number = { 0.42, 0.27, 0.10 }, marker = { 0.42, 0.27, 0.10 },
           name = { 0.24, 0.12, 0 }, subtitle = { 0.34, 0.24, 0.13 }, dim = { 0.34, 0.26, 0.18 },

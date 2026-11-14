@@ -41,6 +41,22 @@ P:Pool {
     { text = "I'll show you a trick another time.", next = "END", fx = { trait = { kind = 1 } } },
   },
   topics = {
+    someplace_nearby = {
+      { id = "ta_near", text = "There's a tree I can climb all the way up. I'm not saying which one." },
+    },
+    latest_rumors = {
+      { id = "ta_rumor", text = "Somebody's brother says there's a monster in the woods that eats boots. Somebody's brother says a lot." },
+    },
+    little_secret = {
+      { id = "ta_ls_no", text = "I'm not telling you. You'd tell my mum." },
+      { id = "ta_ls", when = { timesTalked = 3 }, text = "There's a sweet roll under a loose board where I sleep. It's for emergencies. Don't take it." },
+    },
+    my_trade = {
+      { id = "ta_trade", text = "I've got a job! I count the chickens. Sometimes there's a different number." },
+    },
+    background = {
+      { id = "ta_bg", text = "I'm nearly eight. Nearly eight is basically nine." },
+    },
     _none = { { id = "t_none", text = "I don't know. I'm only little. Ask a grown-up." } },
   },
 }
@@ -64,6 +80,21 @@ P:Pool {
     { id = "l_default", text = "Pay the fare, hold on, don't lean. That's all there is to it." },
   },
   choices = { { text = "Just the flight, thanks.", next = "BUSINESS" } },
+  topics = {
+    background = {
+      { id = "ta_bg", text = "Gryphons were in the family before I was. My grandmother said they'd outlive us all. She's been right so far." },
+    },
+    my_trade = {
+      { id = "ta_trade", text = "I keep the birds fed, rested and pointed the right way. All you have to do is hold on." },
+    },
+    little_secret = {
+      { id = "ta_ls_no", text = "The birds know the way better than I do. Don't tell the birds." },
+      { id = "ta_ls", when = { timesTalked = 3 }, text = "When the weather turns, I tell everyone the birds are tired. It's me that's tired." },
+    },
+    someplace_nearby = {
+      { id = "ta_near", text = "Anywhere I've a route to is near enough. If it's on my map, I can get you there before supper." },
+    },
+  },
 }
 
 -- Innkeepers anywhere (named innkeepers override this).
@@ -81,7 +112,22 @@ P:Pool {
   },
   lines = { { id = "l_default", text = "Warm fire, cold drink, soft bed. Pick any two." } },
   choices = { { text = "A room, please.", next = "BUSINESS" }, { text = "Just passing through.", next = "END" } },
-  topics = { _none = { { id = "t_none", text = "Never heard of it, and I hear most things." } } },
+  topics = {
+    latest_rumors = {
+      { id = "ta_rumor", text = "Quiet week. When it's this quiet, I start to worry." },
+    },
+    little_secret = {
+      { id = "ta_ls_no", text = "An innkeeper with loose lips doesn't stay an innkeeper. Drink first, then we'll see." },
+      { id = "ta_ls", when = { timesTalked = 3 }, text = "The stew's yesterday's stew with today's bread. Nobody's complained yet, so don't you start." },
+    },
+    my_trade = {
+      { id = "ta_trade", text = "Beds, food, a fire, and the news. The news is free. The rest isn't." },
+    },
+    background = {
+      { id = "ta_bg", text = "I've poured drinks for more years than I'll admit to. Before that, I was the one being thrown out." },
+    },
+    _none = { { id = "t_none", text = "Never heard of it, and I hear most things." } },
+  },
 }
 
 -- Vendors anywhere.
@@ -93,6 +139,18 @@ P:Pool {
   },
   lines = { { id = "l_default", text = "Everything's priced fair. Mostly." } },
   choices = { { text = "Let me see your wares.", next = "BUSINESS" } },
+  topics = {
+    background = {
+      { id = "ta_bg", text = "Sold things here, sold things elsewhere before that. Selling's the same everywhere. Only the prices change." },
+    },
+    my_trade = {
+      { id = "ta_trade", text = "I buy what you don't want and sell you what you do. The living's in the difference." },
+    },
+    little_secret = {
+      { id = "ta_ls_no", text = "A merchant's secrets are called prices. You'll find them on the tags." },
+      { id = "ta_ls", when = { timesTalked = 3 }, text = "I'd have paid you more for that last lot. Don't let it get about." },
+    },
+  },
 }
 
 -- Trainers anywhere (named trainers override this).
@@ -101,6 +159,18 @@ P:Pool {
   greetings = { { id = "g_ready", text = "Ready to learn something?" } },
   lines = { { id = "l_default", text = "Practice what I teach you, or don't come back for more." } },
   choices = { { text = "Train me.", next = "BUSINESS" } },
+  topics = {
+    background = {
+      { id = "ta_bg", text = "I learned the hard way so you don't have to. Well. So you learn it a bit less hard." },
+    },
+    my_trade = {
+      { id = "ta_trade", text = "I teach. You practice. That's the order it goes in, and people forget the second part." },
+    },
+    little_secret = {
+      { id = "ta_ls_no", text = "Learn your lessons first. Secrets come later." },
+      { id = "ta_ls", when = { timesTalked = 3 }, text = "My own teacher said I'd never amount to much. I think of him every time I take your coin." },
+    },
+  },
 }
 
 -- Spirit healers: one shared character for every spirit healer, because they seem to keep
@@ -190,5 +260,23 @@ P:Pool {
       },
     },
   },
-  topics = { _none = { { id = "t_none", text = "The living ask about the living. I keep other records." } } },
+  topics = {
+    someplace_nearby = {
+      { id = "ta_near", text = "Your body. It is nearer than you think." },
+    },
+    latest_rumors = {
+      { id = "ta_rumor", text = "The dead do not gossip. Mostly." },
+    },
+    little_secret = {
+      { id = "ta_ls_no", text = "Some things are kept from the living. You are still one of those, for now." },
+      { id = "ta_ls", when = { deaths = { min = 5 } }, text = "Some of you we send back gladly. Some we would keep, if we were allowed. You are in the second group." },
+    },
+    my_trade = {
+      { id = "ta_trade", text = "I keep the door between. You keep walking through it." },
+    },
+    background = {
+      { id = "ta_bg", text = "I was someone, once. The file does not say who, and I do not ask." },
+    },
+    _none = { { id = "t_none", text = "The living ask about the living. I keep other records." } },
+  },
 }

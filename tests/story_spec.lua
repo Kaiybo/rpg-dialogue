@@ -22,7 +22,7 @@ local function leave(ns)
   if _G.GossipFrame then _G.GossipFrame:Hide() end
 end
 
-local function text(ns) return ns.UI.Dialogue.Frame().text:GetText() end
+local function text(ns) return ns.Topics.Plain(ns.UI.Dialogue.Frame().text:GetText()) end
 
 describe("Throughlines", function()
   it("offers a beat, records it, and holds the next one back for pacing", function()
@@ -85,9 +85,12 @@ describe("Ask about", function()
     local ns = bootReal()
     ns.Topics.Teach("hogger")
     ns.char.topics.defias = { t = Mock.state.now - 40 * 86400 }
+    local core = #ns.Topics.CORE              -- background, my trade, ... always listed first
     local active = ns.Topics.Known(false)
-    eq(#active, 1)
-    eq(#ns.Topics.Known(true), 2)
+    eq(#active, core + 1)
+    eq(active[1].id, "background")
+    eq(active[core + 1].id, "hogger")
+    eq(#ns.Topics.Known(true), core + 2)
     eq(#ns.Topics.Filter(ns.Topics.Known(true), "hog"), 1)
   end)
 end)

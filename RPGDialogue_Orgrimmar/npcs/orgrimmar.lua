@@ -70,6 +70,24 @@ P:NPC {
   },
 
   topics = {
+    horde = {
+      { id = "ta_horde", text = "Not the Horde of my fathers, that drank demon blood and burned the world. A new one. We are still learning what it is." },
+    },
+    jaina = {
+      { id = "ta_jaina", text = "A friend. Rare enough among humans. Rarer still among anyone who rules." },
+    },
+    thrall = {
+      { id = "ta_self", text = "A name I was given as a slave. I kept it, so I would never forget what it meant." },
+    },
+    little_secret = {
+      { id = "ta_ls", when = { any = { { affinity = { min = 3 } }, { timesTalked = 4 } } }, text = "Some nights I would rather be a shaman by a fire than a warchief at a table. The morning reminds me why I am not." },
+    },
+    my_trade = {
+      { id = "ta_trade", text = "I lead the Horde. That means hearing orcs, trolls, tauren and Forsaken who all disagree, and choosing anyway." },
+    },
+    background = {
+      { id = "ta_bg", text = "I was raised a slave in a human fortress and taught to fight for their amusement. I learned more than they meant to teach me." },
+    },
     cenarion_circle = { { id = "tp_circle", text = "The tauren walk with them. I'm glad of it. The world needs more who heal than wound." } },
     wailing_caverns = { { id = "tp_caverns", text = "The tauren have told me. Something sick under the Barrens. When our young warriors are ready, they'll go in." } },
     burning_blade = { { id = "tp_blade", text = "Some of my own people still kneel to the old fire. They hide better than they think, and not as well as they hope." } },
