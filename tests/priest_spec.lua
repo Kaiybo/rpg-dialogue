@@ -28,6 +28,13 @@ local function talk(name, id)
   Mock.RunTimers()
 end
 
+local function leave(ns)
+  if _G.GossipFrame then _G.GossipFrame:Hide() end
+  if ns.Conversation.session then ns.Conversation.Finish() end
+  Mock.Fire("GOSSIP_CLOSED", false)
+  Mock.RunTimers()
+end
+
 local function text(ns) return plain(ns.UI.Dialogue.Frame().text:GetText()) or "" end
 local function reaction(ns)
   local r = ns.UI.Dialogue.Frame().reaction
@@ -140,3 +147,25 @@ describe("The Cathedral, for a priest", function()
     ok(found.nodes.shadow_fear, "with a branch for a priest in Shadowform")
   end)
 end)
+
+describe("A first horse at forty", function()
+  it("Katie Hunter sells to a human at 40, and asks a younger one to wait", function()
+    local ns = boot({ zone = "Elwynn Forest", subzone = "Eastvale Logging Camp" })
+    talk("Katie Hunter", 384)
+    eq(ns.Conversation.session.info.key, "katie_hunter")
+    ok(click(ns, "Show me the horses."), "a human at 40 can buy")
+    leave(ns)
+    local young = boot({ zone = "Elwynn Forest", subzone = "Eastvale Logging Camp", level = 30 })
+    talk("Katie Hunter", 384)
+    contains(text(young), "You'll need Randal's lessons first")
+    ok(not click(young, "Show me the horses."))
+  end)
+
+  it("Randal Hunter has a word for a priest", function()
+    local ns = boot({ zone = "Elwynn Forest", subzone = "Eastvale Logging Camp" })
+    talk("Randal Hunter", 4732)
+    ok(click(ns, "Can a priest ride like a knight?"))
+    contains(text(ns), "something left to heal the knights")
+  end)
+end)
+
