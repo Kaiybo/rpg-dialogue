@@ -69,7 +69,7 @@ P:NPC {
   notices = { "guest", "pet" },
 
   greetings = {
-    { id = "g_home", text = "Come in out of the wind. Make yourself at home; that's what an inn's for." },
+    { id = "g_home", text = "Out of the wind, now. Make yourself at home; that's what an inn's for." },
     { id = "g_bound", when = { homeInn = { "Lakeshire", "Lakeshire Inn" } }, text = "Back home! Narnie's kept your chair warm. Shoo her off, she won't mind. She'll mind." },
   },
 

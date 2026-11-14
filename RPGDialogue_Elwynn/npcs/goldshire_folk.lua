@@ -156,7 +156,7 @@ P:NPC {
   bible = "bibles/goldshire_folk.md", role = "stablemaster", tier = "service", communities = { "goldshire" },
   temper = { "steady" }, values = { "kind" }, notices = { "pet" },
   greetings = {
-    { id = "g_stable", text = "Mind the muck. Who've you brought me?" },
+    { id = "g_stable", text = "Watch your boots. Who've you brought me?" },
   },
   notice = {
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
@@ -166,7 +166,7 @@ P:NPC {
   nodes = { hello = {
     lines = {
       { id = "h_default", text = "Erma. I keep the stables. Most of my guests have four legs and better manners than the ones with two." },
-      { id = "h_hunter", when = { race = "Human", class = "HUNTER" }, text = "A human with a beast at heel. We don't see many. Bring it by anytime; I'll treat it like visiting royalty." },
+      { id = "h_hunter", when = { race = "Human", class = "HUNTER" }, text = "Not many humans keep a beast at heel. Bring yours by anytime; I'll treat it like visiting royalty." },
     },
     choices = { { text = "The stable, please.", next = "BUSINESS" }, { text = "Just visiting.", next = "END" } },
   } },

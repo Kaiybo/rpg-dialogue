@@ -32,7 +32,7 @@ P:NPC {
       lines = {
         { id = "h_default", text = "Anetta. I keep the Library Wing, and I keep the recruits alive. Some days those are the same job." },
         { id = "h_letter", tags = { "news" }, when = { questRecent = { TODO_QUEST("Hallowed Letter"), days = 1 } },
-          text = "A letter from the Marshal. Then you're one of mine now. The first lesson is that the Light heals the people who annoy you too." },
+          text = "So McBride wrote to me about you. Then you're one of mine now. The first lesson is that the Light heals the people who annoy you too." },
         { id = "h_wounded", when = { questActive = TODO_QUEST("Healing the Wounded") },
           text = "The trainees by the barracks. Mend them, don't lecture them. The lecturing comes later, and it's my job." },
         { id = "h_other", when = { ["not"] = { class = "PRIEST" } },
@@ -84,7 +84,7 @@ P:NPC {
       lines = {
         { id = "h_default", text = "Khelden Bremen. I teach the fundamentals. Everyone wants the dramatic parts. The fundamentals are what keep the dramatic parts from killing you." },
         { id = "h_letter", tags = { "news" }, when = { questRecent = { TODO_QUEST("Glyphic Letter"), days = 1 } },
-          text = "The Marshal's letter. So you've a spark. Knowledge and power are out there for the taking, whatever gods or men think of it. Let's see how much you can carry." },
+          text = "McBride's letter. So you've a spark. Knowledge and power are out there for the taking, whatever gods or men think of it. Let's see how much you can carry." },
         { id = "h_other", when = { ["not"] = { class = "MAGE" } },
           text = "Magic is dangerous to the untrained. You're untrained. I'm only pointing out the arithmetic." },
         { id = "h_level", when = { class = "MAGE", minLevel = 10 },
@@ -182,7 +182,7 @@ P:NPC {
       lines = {
         { id = "h_default", text = "La Salle. I teach out here among the dead because the Brothers prefer not to see me. The dead don't mind. They're very good listeners." },
         { id = "h_letter", tags = { "news" }, when = { questRecent = { TODO_QUEST("Tainted Letter"), days = 1 } },
-          text = "The Marshal's letter, and his nose wrinkled as he wrote it, I'm sure. Welcome. The arcane devours the weak. We'll see what it makes of you." },
+          text = "McBride's letter, and his nose wrinkled as he wrote it, I'm sure. Welcome. The arcane devours the weak. We'll see what it makes of you." },
         { id = "h_level", when = { class = "WARLOCK", minLevel = 10 },
           text = "Goldshire. The cellar of the Lion's Pride. Ask for Marcot. Don't ask for anything else down there." },
       },

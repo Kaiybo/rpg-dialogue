@@ -11,7 +11,7 @@ P:NPC {
   notices = { "stealth", "watch" },
 
   greetings = {
-    { id = "g_rogue", when = { class = "ROGUE" }, text = "I know who you are. I knew before you came in. Sit." },
+    { id = "g_rogue", when = { class = "ROGUE" }, text = "Sit. I knew you were coming before you did." },
     { id = "g_other", when = { ["not"] = { class = "ROGUE" } }, text = "You've wandered into the wrong building. Wander out the same way." },
     { id = "g_si7", when = { questActive = TODO_QUEST("Seek out SI:7") }, text = "Sylvius sent you. She thinks you're promising. She's said that before." },
   },
@@ -83,7 +83,7 @@ P:NPC {
   notices = { "arcane" },
 
   greetings = {
-    { id = "g_mage", when = { class = "MAGE" }, text = "Welcome to the Sanctum. Wipe your boots; the floor wards are sensitive." },
+    { id = "g_mage", when = { class = "MAGE" }, text = "The Sanctum. Wipe your boots; the floor wards are sensitive." },
     { id = "g_other", when = { ["not"] = { class = "MAGE" } }, text = "Please don't touch the circles. They're not decorative." },
   },
 
@@ -171,7 +171,7 @@ P:NPC {
   notices = { "guest", "drink" },
 
   greetings = {
-    { id = "g_rose", text = "Come in, come in. The Gilded Rose has a bed for every tired pair of boots." },
+    { id = "g_rose", text = "In you come. The Gilded Rose has a bed for every tired pair of boots." },
     { id = "g_home", when = { homeInn = { "Stormwind City", "Gilded Rose" } }, text = "Welcome home. Your room's aired and the fire's lit." },
   },
 
