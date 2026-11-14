@@ -91,6 +91,12 @@ def main():
     args = ap.parse_args()
 
     spec = P.condition_spec()
+    _wd = open(os.path.join(P.ROOT, "RPGDialogue", "Core", "WorldData.lua"), encoding="utf-8").read()
+    _fm = re.search(r"W\.FACTION_IDS = \{(.*?)\n\}", _wd, re.S)
+    faction_ids = set(re.findall(r'(?:\["([^"]+)"\]|(\w+))\s*=\s*\d+', _fm.group(1))) if _fm else set()
+    faction_ids = {a or b for a, b in faction_ids}
+    _sm = re.search(r"W\.STANDINGS = \{(.*?)\}", _wd)
+    standings = set(re.findall(r"(\w+)\s*=", _sm.group(1))) if _sm else set()
     fx_keys = P.effect_keys()
     tokens = P.token_names()
     registry = load_registry(os.path.join(P.ROOT, "tools", "registry", "ids.json"))
@@ -196,6 +202,14 @@ def main():
                     rep.error(pack, f, when.line, f"{where}: thread {tid!r} isn't defined")
             if k in ("heardClaim", "claimExposed", "lieCaught") and v not in defs["Claim"]:
                 rep.error(pack, f, when.line, f"{where}: claim {v!r} isn't defined")
+            if k == "reputation":
+                fac = v.get("faction") if isinstance(v, LTable) else None
+                if fac not in faction_ids:
+                    rep.error(pack, f, when.line, f"{where}: reputation faction {fac!r} isn't in World.FACTION_IDS")
+                for side in ("min", "max"):
+                    st = v.get(side) if isinstance(v, LTable) else None
+                    if st is not None and st not in standings and not isinstance(st, (int, float)):
+                        rep.error(pack, f, when.line, f"{where}: reputation {side} {st!r} isn't a standing")
             if k == "topicKnown" and v not in defs["Topic"]:
                 rep.warn(pack, f, when.line, f"{where}: topic {v!r} isn't defined")
             if k == "townStanding":

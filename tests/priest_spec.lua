@@ -169,3 +169,27 @@ describe("A first horse at forty", function()
   end)
 end)
 
+
+describe("Reputation", function()
+  it("an exalted night elf may buy a horse; one who isn't may only pat one", function()
+    local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Elwynn" }, setup = function(state)
+      local p = state.units.player
+      p.race, p.raceFile, p.level = "Night Elf", "NightElf", 45
+      state.zone, state.subzone = "Elwynn Forest", "Eastvale Logging Camp"
+    end })
+    ns.db.settings.instantText = true
+    Mock.Fire("ZONE_CHANGED_NEW_AREA"); Mock.RunTimers()
+    local Cond = ns.Conditions
+    local want = { reputation = { faction = "Stormwind", min = "exalted" } }
+    ok(not Cond.Eval(want, ns.Context.New({}), {}), "unknown standing fails")
+    Mock.state.reputation = { [72] = 7 }
+    ok(not Cond.Eval(want, ns.Context.New({}), {}), "revered isn't enough")
+    Mock.state.reputation = { [72] = 8 }
+    ok(Cond.Eval(want, ns.Context.New({}), {}), "exalted")
+    ok(Cond.Eval(want, ns.Context.New({ spoof = { reputation = { Stormwind = 8 } } }), {}), "spoofed")
+    Mock.state.units.npc = { guid = "Creature-0-1-0-1-384-AB", name = "Katie Hunter", level = 30, reaction = 5 }
+    local f = _G.GossipFrame or Mock.NewFrame("Frame", "GossipFrame")
+    f:Show(); Mock.Fire("GOSSIP_SHOW"); Mock.RunTimers()
+    contains(plain(ns.UI.Dialogue.Frame().text:GetText()), "Stormwind trusts you completely")
+  end)
+end)

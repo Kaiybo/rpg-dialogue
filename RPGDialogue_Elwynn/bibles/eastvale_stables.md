@@ -13,7 +13,7 @@
 - Randal: patient, dry, safety first. Notices: class (paladins' and warlocks' own mounts at 40), mounts.
 
 ## Lore anchors
-- Year 1 / Classic: riding at level 40, race-specific. Never prices (they changed over time). Never say how Katie and Randal are related.
+- Year 1 / Classic: riding at level 40, race-specific; exalted with Stormwind opens it to anyone (the `reputation` condition). Never prices (they changed over time). Never say how Katie and Randal are related.
 - Paladins' warhorse and warlocks' felsteed come at level 40 (class spells); only hinted at.
 
 ## Authored, not canon

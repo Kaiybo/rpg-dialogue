@@ -92,6 +92,8 @@ A conversation is a place to explore, not one line and a goodbye. The player sho
 | quest | 3+ | 6+ | 3+ | 1+ |
 | service | 2+ | 3+ | 2+ | - |
 
+Reputation counts as who the player is too: `reputation = { faction = "Stormwind", min = "exalted" }` (names in `World.FACTION_IDS`; standings `hated` to `exalted`). Use it where the game itself cares (Katie Hunter sells Stormwind's horses to humans or to anyone exalted with Stormwind), or where an NPC would know (the Argent Dawn's quartermaster, a Timbermaw sentry).
+
 "Replies only some characters get" are choices with a `when` on who the player is (race, class, origin, level band, a quest done, a line heard, a topic known, standing, alignment...) or a special tag. They are how a dwarf paladin and a gnome mage have different conversations with the same person: write them for the characters this NPC would actually react to, Alliance first while the user plays Alliance, then everyone.
 
 **What makes a branch worth taking:**

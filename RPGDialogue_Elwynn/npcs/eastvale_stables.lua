@@ -11,13 +11,13 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Mind the gate. They're gentle, but they're not stupid, and they know an open gate." },
-    { id = "g_ready", when = { race = "Human", minLevel = 40 }, text = "Look at you. Come to choose one, have you? Take your time." },
+    { id = "g_ready", when = { any = { { race = "Human" }, { reputation = { faction = "Stormwind", min = "exalted" } } }, minLevel = 40 }, text = "Look at you. Come to choose one, have you? Take your time." },
   },
 
   notice = {
     { id = "n_mounted", cat = "mount", when = { mounted = true },
       text = "Off that, please, before my mares get ideas. And let me see its hooves. Habit." },
-    { id = "n_other", cat = "race", when = { ["not"] = { race = "Human" } },
+    { id = "n_other", cat = "race", when = { ["not"] = { any = { { race = "Human" }, { reputation = { faction = "Stormwind", min = "exalted" } } } } },
       text = "I'll talk horses with anyone. Selling them is another matter; Stormwind keeps these for its own." },
   },
 
@@ -27,11 +27,13 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Katie Hunter. I breed the horses Stormwind rides: bred for years, cared for daily, and worth every coin. Randal teaches you to stay on them." },
         { id = "h_young", when = { race = "Human", maxLevel = 39 }, text = "Soon, love. You'll need Randal's lessons first, and he won't teach anyone who's still green. Come back seasoned." },
-        { id = "h_other", when = { ["not"] = { race = "Human" } }, text = "These are Stormwind's horses. Earn the kingdom's full trust and we'll do business; until then, you're welcome to pat one." },
+        { id = "h_trusted", when = { ["not"] = { race = "Human" }, reputation = { faction = "Stormwind", min = "exalted" } },
+          text = "Stormwind trusts you completely, I hear. Then so do I. Come and meet them." },
+        { id = "h_other", when = { ["not"] = { any = { { race = "Human" }, { reputation = { faction = "Stormwind", min = "exalted" } } } } }, text = "These are Stormwind's horses. Earn the kingdom's full trust and we'll do business; until then, you're welcome to pat one." },
       },
       again = { { id = "h_again", text = "Anything else? They'll want feeding soon." } },
       choices = {
-        { text = "Show me the horses.", next = "BUSINESS", when = { race = "Human", minLevel = 40 } },
+        { text = "Show me the horses.", next = "BUSINESS", when = { any = { { race = "Human" }, { reputation = { faction = "Stormwind", min = "exalted" } } }, minLevel = 40 } },
         { text = "How do I choose?", next = "choose" },
         { text = "Why only for Stormwind's people?", next = "only" },
         { text = "Do you name them?", next = "names" },
@@ -75,7 +77,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Heels down, back straight. Oh, you're not on a horse. Habit." },
-    { id = "g_ready", when = { race = "Human", minLevel = 40 }, text = "Ready for a saddle? You look ready. Most people look ready. Let's find out." },
+    { id = "g_ready", when = { any = { { race = "Human" }, { reputation = { faction = "Stormwind", min = "exalted" } } }, minLevel = 40 }, text = "Ready for a saddle? You look ready. Most people look ready. Let's find out." },
   },
 
   notice = {
@@ -90,11 +92,13 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Randal Hunter. Katie breeds them, I teach people to stay on them. It's taken years to get the order of those two jobs right." },
+        { id = "h_outsider", when = { ["not"] = { any = { { race = "Human" }, { reputation = { faction = "Stormwind", min = "exalted" } } } }, minLevel = 40 },
+          text = "I teach horses, and Stormwind's people. Your own folk will have their own mounts and their own teachers; I'd go to them." },
         { id = "h_young", when = { maxLevel = 39 }, text = "Patience. Riding's for people who've lived long enough to be careful. Forty seasons on the road, give or take. Come back then." },
       },
       again = { { id = "h_again", text = "More questions? Good. Questions now are cheaper than falls later." } },
       choices = {
-        { text = "Teach me to ride.", next = "BUSINESS", when = { minLevel = 40 } },
+        { text = "Teach me to ride.", next = "BUSINESS", when = { any = { { race = "Human" }, { reputation = { faction = "Stormwind", min = "exalted" } } }, minLevel = 40 } },
         { text = "What's the hardest part?", next = "hardest" },
         { text = "Why make people wait so long?", next = "wait" },
         { text = "Can a priest ride like a knight?", next = "priest", when = { class = "PRIEST" } },
