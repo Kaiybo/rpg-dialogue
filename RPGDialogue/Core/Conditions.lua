@@ -96,9 +96,11 @@ local function questArg(v)
 end
 
 ---------------------------------------------------------------------------
--- Quest family (weight 60)
+-- Quest family. Time-sensitive states (active, objective, ready, recent) weigh 60, above
+-- race+class combos (50). Long-tail states (before, done, later) stay eligible for weeks,
+-- so they weigh less (45/40) and a combo line can win over them (DESIGN.md §3.3).
 ---------------------------------------------------------------------------
-def("questBefore", 60, "hinge", nil, function(ctx, v, env)
+def("questBefore", 45, "hinge", nil, function(ctx, v, env)
   local st = Cond.QuestState(v, ctx, env)
   return st == "before", "quest " .. show(v) .. " is " .. tostring(st or "unresolved")
 end)
@@ -113,7 +115,7 @@ def("questReady", 60, "hinge", nil, function(ctx, v, env)
   return st == "ready", "quest " .. show(v) .. " is " .. tostring(st or "unresolved")
 end)
 
-def("questDone", 60, "hinge", nil, function(ctx, v, env)
+def("questDone", 40, "hinge", nil, function(ctx, v, env)
   local st = Cond.QuestState(v, ctx, env)
   return st == "done" or st == "recent", "quest " .. show(v) .. " is " .. tostring(st or "unresolved")
 end)
@@ -146,7 +148,7 @@ def("questRecent", 60, "hinge", nil, function(ctx, v, env)
 end)
 
 -- { Q, days = N }: turned in more than N days ago (default 3)
-def("questLater", 60, "hinge", nil, function(ctx, v, env)
+def("questLater", 40, "hinge", nil, function(ctx, v, env)
   local ref, opts = questArg(v)
   local since = sinceTurnIn(ref, ctx, env)
   local days = opts.days or 3
@@ -408,6 +410,12 @@ ctxEq("band", 10)
 ctxBool("capital", 10)
 ctxBool("resting", 10)
 ctxBool("atInn", 10)
+
+-- Copper, as GetMoney() reports it: { min = 1000000 } is 100 gold.
+def("money", 10, "hinge", nil, function(ctx, v)
+  local m = ctx.money or 0
+  return inRange(m, v), "money " .. m
+end)
 
 def("minLevel", 10, "hinge", nil, function(ctx, v)
   return ctx.level >= v, "level " .. ctx.level

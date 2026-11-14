@@ -4,6 +4,16 @@ All notable changes to RPG Dialogue. The core and each content pack get their ow
 
 ## [Unreleased]
 
+### M3 (2026-11-13): Vertical slice (Northshire Valley + Goldshire) and content tools
+- `RPGDialogue_World` pack (loads at login): towns (Northshire, Goldshire, Stormwind), 10 topics, 5 claims, the `elwynn_gold` throughline (4 beats, 2 endings), draft human origins (for approval), generic fallbacks, role pools (children, flight masters, innkeepers, vendors, trainers, spirit healers).
+- `RPGDialogue_Elwynn` pack (loads in Elwynn Forest): 13 NPCs: Marshal McBride, Deputy Willem, Eagan Peltskinner, Milly Osworth, Brother Neals, Brother Sammuel, Llane Beshere, Brother Danil, Marshal Dughan, Innkeeper Farley, Remy "Two Times", William Pestle, Smith Argus. Plus Northshire and Goldshire guard pools. Each NPC has a voice bible built from their wiki page and quests.
+- Slice items covered: race/class/gender lines, race+class combos (dwarf shaman, human hunter, gnome priest, dwarf paladin), level bands, quest history, noticing moments and live reactions, compact repeat visits with news lines, return-visit memory, alignment choices, opinions, before/during/after/later quest reactions (incl. NPCs who weren't involved), echoes of lines heard from other NPCs, an NPC with an agenda (Dughan) contradicted by others and open to confrontation and [Persuade], a topic answered differently by many NPCs (defias), [Intimidate] on Remy, innkeeper rumors teaching topics, origin-only options. Thread beats and topic UI get their engine in M4.
+- Scoring tuned from the simulation: long-tail quest states (before 45, done/later 40) no longer drown out race and class lines.
+- New condition: `money`.
+- Tools: `voicecheck.py` (banned phrases, sameness, mad-libs, broad-pool noticing), `simulate.py` + `tests/sim_driver.lua` (real engine, thousands of random characters, repeat visits), `coverage.py`, `import_capture.py` (registry + `--resolve` for TODO placeholders), `export_reference.py`, `flag_report.py`. The validator now judges line length by sentences and words together.
+- `CONTENT_GUIDE.md`, `banned_phrases.txt`, slice lore sheet in `LORE_NOTES.md`.
+- Tests: 65 passing, including real-pack content tests.
+
 ### M2 (2026-11-13): Engine, packs, dialogue UI
 - Specificity engine: candidate gathering (own lines, community/role pools, generic), conditions with weights and failure reasons, pacing vetoes, anti-repetition fade, top-band weighted pick with a seeded RNG, traces for `/rpgd why`.
 - Conditions: the full key set from the brief plus `questBefore`, `questReady`, `questLater`, `durability`, `nearlyNaked`, `equipped`, `profession`, `chance`, `npcFlag`; `all`/`any`/`not`. TODO quest titles resolve at runtime from the NPC's gossip quest list, your quest log and capture data.

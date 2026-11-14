@@ -1,0 +1,141 @@
+# Content guide
+
+How to write dialogue for RPG Dialogue, for people and for AI sessions. Read it before writing a single line. The schema reference is in `DESIGN.md` §2; this guide is about using it well.
+
+**Workflow for a zone** (also in the brief's follow-up prompt):
+1. Capture in game (`/rpgd autocapture on`, talk to everyone), then `tools/import_capture.py <SavedVariables> --resolve` and `tools/export_reference.py <SavedVariables>`.
+2. Write the zone's lore sheet in `LORE_NOTES.md` (sources, quest storylines, what has and hasn't happened in Year 1, what you're unsure of).
+3. Write voice bibles (**sources and quests first**), then dialogue from the bibles.
+4. Run everything and fix what it flags:
+   `python3 tools/validate.py` · `python3 tools/voicecheck.py` · `python3 tools/simulate.py` · `python3 tools/coverage.py` · `lua5.1 tests/run.lua`
+
+---
+
+## 1. Characters come from their lore and their quests
+
+- **Named lore characters** sound and think like their canon selves in Year 1.
+- **Everyone else:** their quests and in-game text are the source. What they ask you to do, why, and how they ask tells you what they fear, want, resent and are proud of. Write that down in the bible's *Their quests* section, one bullet per quest.
+- **Agendas, secrets, noticing moments and opinions grow from the same source.** Never give an NPC a personality, backstory or allegiance that contradicts their lore or quests. Small authored secrets are fine if they fit (mark them "authored, not canon" in the bible).
+- **Almost nothing to go on** (a vendor with one gossip line)? Build from role, place and what neighbours say. Keep it modest. Write `- none: <why>` under *Their quests*.
+
+## 2. The voice
+
+- **No AI voice.** `banned_phrases.txt` is enforced. The test: hide the name, and you should still know who's talking.
+- **Short.** 1–3 sentences per NPC line. Fragments are a voice ("Big. Angry. Southwest."), speeches aren't. Replies about 15 words or fewer.
+- **Original writing.** Read Blizzard's text in `reference/` to learn a voice; never copy it. Reference events in your own words.
+- **Timeline discipline.** Year 1 only: after *Forsaken Kingdom*, before Molten Core and the Dark Portal reopening. Nothing from Burning Crusade onward, nothing from retail Cataclysm-era Elwynn. Unsure? Leave it out.
+- **Hyper-specific beats generic.** Nearby place names, the quest just finished, the player's pet's name (`{pet}`).
+- **Even a brush-off has a voice.** Every NPC gets a `_none` topic answer that sounds like them.
+- **No promises the game can't keep.** No discounts, free drinks, rewards or "I'll fix that for you" (the addon can't change prices or give items).
+
+## 3. Noticing moments (acknowledgments)
+
+A noticing moment is *this* NPC reacting to something about the player *they in particular* would care about.
+
+- **The test: if any NPC could say it, rewrite it or cut it.**
+- Put the 2–3 things an NPC notices in the bible ("What they notice") and in `notices = { ... }`. Every `notice` line has a `cat` from that list.
+- `place = "before" | "after" | "replace"` relative to the main line.
+- They're rare by design: about one in three conversations rolls for one, at most one per conversation, and each category cools down (30 min across NPCs, 3 days per NPC). Don't fight the pacing by adding more.
+- Pools may carry noticing moments only for **narrow roles** (children, flight masters, innkeepers, guards, blacksmiths, spirit healers, trainers, stable masters). The voice checker fails broad-pool noticing moments.
+
+Good: a blacksmith winces at your broken armor before you speak. A trapper eyes a druid's bear form: "I've skinned bears. Don't take it personally."
+Bad: "Greetings, night elf druid." (a mad-lib, and anyone could say it)
+
+## 4. Race, class, gender, combinations
+
+- Real reactions with a point of view, never a swapped label. **Tokens decorate; they never carry a line.** A line built around `{race}` or `{class}` fails the voice check.
+- New combinations (human hunter, dwarf shaman, gnome priest, orc mage, troll warlock, undead paladin) and the Skyborne should feel new: curious, skeptical or impressed.
+- **Skyborne:** only what section 10 of the brief supports (and `LORE_NOTES.md`). NPCs may be curious or wary; they don't state facts about them that the brief doesn't give.
+- Gender only through `{g:lad|lass}`, always respectful. In-world racial friction is fine where it's true to lore; never echo real-world bigotry.
+
+## 5. Everything matters sometimes
+
+- **A line hinges on one or two facts about the player.** Who the NPC is doesn't count. The validator warns at three hinges and errors at four.
+- Each system has its moment: alignment in big conversations (`big = true` nodes), town standing in that town, Fel Taint rarely and dramatically, traits and origin now and then, books rarely. Pacing budgets enforce this (`Pacing.lua`).
+- **Scoring cheat sheet** (own line base 400): time-sensitive quest states and heard lines +60, race+class +50, quest before +45, quest done/later +40, deeds/deaths/taint +40, origin +35, alignment/trait/opinion/topic/book +30, race or class +25, relationship/standing +20, state/zone +15, level/band +10, gender/time +5. Lines within 5 points tie and are picked at random; recently seen lines step aside.
+- Use `priority` sparingly, to nudge one line over a close rival (e.g. a return-after-a-week line).
+
+## 6. Quests: before, during, after, later
+
+For every quest an NPC would care about, consider all four:
+- **before** (`questBefore`): the trouble, before the quest is offered or taken.
+- **during** (`questActive`, `questObjective` for progress, `questReady`): "Still short a few of those pelts?"
+- **after** (`questRecent` with `days`, `questDone`): the reaction, including from NPCs who weren't involved.
+- **later** (`questLater`): the aftermath days later.
+
+Tag fresh reactions `tags = { "news" }`: they open the full conversation on an otherwise compact repeat visit. Quest references use `TODO_QUEST("Exact Title")` until capture data gives the ID; `import_capture.py --resolve` swaps them.
+
+## 7. Repeat visits
+
+- `greetings` are the compact-bar lines: short, varied, can carry conditions (quest progress, standing, time of day).
+- Service NPCs (vendors, trainers, flight masters, bankers, stable masters) default to compact. They should still have one or two lines that make the full conversation worth opening.
+
+## 8. Agendas, claims and unreliable narrators
+
+- People have agendas, grudges and blind spots: **bias** (honest but one-sided), **mistakes**, **half-truths**, **lies**, **manipulation**.
+- Register important statements as claims (`claims/<id>.lua`, in the World pack): who says it, `truth = "true" | "false" | "partly" | "disputed" | "unknown"`, a `truthNote`, and `exposedBy` (another NPC's line, a quest, an item, a place) or `open = true` for questions that are never settled.
+- Lines that state a claim carry `fx = { hear = "<claim>" }`; lines or quests that settle it carry `fx = { expose = "<claim>" }`. Conditions `heardClaim` / `claimExposed` let other NPCs and the player react.
+- **Limits:** agendas fit the character (canon schemers scheme; canon heroes don't become villains). Only NPCs can be wrong; the UI and the factual parts of the journal never state false lore. The truth behind a lie is canon or deliberately open.
+- **Disagreement is good.** Write both sides with conviction. Don't add a "correct" NPC unless the claim file says it gets settled.
+- Slice example: Dughan says the Defias are common thieves (`defias_common_thieves`, partly true; he plays it down to keep Goldshire calm). McBride and Milly contradict him. The player can confront him (`confront` node, `[Persuade]`).
+
+## 9. Throughlines
+
+- A thread is 3–6 beats across 2–6 NPCs, tied by a theme or mystery, living in `threads/<id>.lua` with `beats = { { id, npc, when, text, fx } }`, `states`, `endings`, `pacing`.
+- **Not quests:** no markers, no objectives, no "thread started" pop-ups. NPCs may nudge ("Brother Sammuel might have something to say about that"); they never give orders.
+- At most one beat per conversation, and beats of one thread are kept apart (3 conversations and 20 minutes by default). Important NPCs carry the beats; pooled NPCs only carry light echoes ("Folks say…").
+- Beats should work in any order where possible. Later beats acknowledge earlier ones (`thread = { id, beat = "b1" }`).
+- **Lore rule:** threads connect existing Year 1 storylines and characters' concerns. They never invent major events or contradict how quests turn out.
+- Slice example: `elwynn_gold`. Remy's dust supply shrinks (he claims he's the only buyer), Farley saw a rider paying in gold dust heading for the pumpkin patch, Dughan finds the Collector's schedule, Remy's trade recovers after Manhunt. Remy can be intimidated into admitting the riders.
+
+## 10. Echoes, opinions, topics, rumors
+
+- **Echoes:** an NPC reacts to a specific line the player heard elsewhere: `when = { heardLine = "npc.lineid" }`. The target line needs `key = true`.
+- **Opinions:** choices record `fx = { opinion = { topic = "stance" } }`, remembered with who heard it. Other members of the same community may bring it up later (gossip network, M4).
+- **Topics:** NPC files answer `topics = { topic_id = { lines } }`. Order of preference: the NPC's own take, their community's, their role's, then a brush-off in their voice. Answers can be claims, teach new topics (`learn`), move threads, or cost you.
+- **Rumors:** innkeepers pass on local news, word from nearby and reactions to the player's own deeds. They're hearsay (claims), gated by level, zone and deeds, and they rotate.
+
+## 11. Origins and town standing
+
+- Origin lines and options are **extras**. Every conversation must make complete sense with no origin (`"other"` or never picked). No "you never told me where you're from".
+- Town standing tiers: Reviled ≤ -60, Distrusted ≤ -20, Stranger, Known ≥ 10, Liked ≥ 30, Respected ≥ 55, Hero ≥ 80. The whole town must be consistent: if you're Distrusted, the baker doesn't greet you warmly. Standing is addon-only; it never changes prices or how guards really behave.
+
+## 12. Voice bible format
+
+One Markdown file per NPC in the pack's `bibles/` folder (not shipped). **Write the first two sections before anything else.**
+
+```markdown
+# Name  (key: npc_key)
+
+## Sources
+- wiki page (and whether you actually read it), reference/<zone>.md, LORE_NOTES.md section
+
+## Their quests
+- Quest title (gives / turn-in): what it reveals (fears, wants, resents, proud of)
+
+## Identity
+ID · name · location · faction · race · role
+Personality: 3–5 adjectives
+Speech: patterns, dialect, verbal tics
+Knows and cares about:
+Relationships:
+Default attitudes: toward races, classes, factions
+Lore anchors:
+Never says:
+
+## Threads he could carry
+## Agenda
+## Secrets
+## Reliability
+## What they notice   (2–3 things)
+## Topics
+```
+
+## 13. File and data rules
+
+- Pack files are data: `local P = RPGDialogueAPI:Pack("<pack id>")`, `local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST`, then `P:NPC { ... }` calls only. No variables, functions or concatenation (the validator rejects them).
+- **Never invent NPC or quest IDs.** Use `TODO_NPC("Name")` / `TODO_QUEST("Title")`. They match by name/title at runtime so content is testable early, and the validator lists every one.
+- Line ids are unique within their NPC; global ids are `npc_key.line_id`. Don't rename a `key = true` line without updating every `heardLine` that points to it.
+- Every node has at least one line without `when` (or it can go silent) and at least one choice; every path reaches `END` or `BUSINESS`. "Get on with it" is added automatically.
+- Special options (`tag = "Persuade" | "Intimidate" | "Deceive"`) are rare, need a `fail = { next, fx }`, and succeed from who the player is (`check = { pass = { conditions } }`, or the NPC's `temper` defaults). No bribes.
+- Journal templates come in both voices: `journal = { first = "...", third = "{name} ..." }`.

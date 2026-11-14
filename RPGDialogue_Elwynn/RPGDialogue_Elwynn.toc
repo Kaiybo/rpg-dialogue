@@ -1,0 +1,27 @@
+## Interface: 16001, 16002
+## Title: RPG Dialogue: Elwynn Forest
+## Notes: Northshire Valley and Goldshire.
+## Author: RPG Dialogue
+## Version: @project-version@
+## Dependencies: RPGDialogue
+## LoadOnDemand: 1
+## X-RPGD-Pack: rpgd.elwynn
+## X-RPGD-Format: 1
+## X-RPGD-Load: zone
+## X-RPGD-Zones: Elwynn_Forest
+
+pack.lua
+pools.lua
+npcs\mcbride.lua
+npcs\willem.lua
+npcs\eagan.lua
+npcs\milly.lua
+npcs\neals.lua
+npcs\sammuel.lua
+npcs\llane.lua
+npcs\danil.lua
+npcs\dughan.lua
+npcs\farley.lua
+npcs\remy.lua
+npcs\pestle.lua
+npcs\argus.lua

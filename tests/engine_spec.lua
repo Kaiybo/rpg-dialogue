@@ -115,7 +115,7 @@ describe("Conditions", function()
 end)
 
 describe("Engine", function()
-  it("reproduces the DESIGN.md worked example (480 beats 470)", function()
+  it("reproduces the DESIGN.md worked example (480 beats 455)", function()
     local ns = boot()
     ns.db.capture.quests[9001] = { title = "A Threat Within" }
     ns.char.quests.turnedIn[9001] = Mock.state.now - 3600
@@ -129,7 +129,7 @@ describe("Engine", function()
     for _, t in ipairs(ns.Engine.traces) do if t.slot == "line" then trace = t end end
     eq(trace.rows[1].gid, "mcbride.h_from_willem")
     eq(trace.rows[1].score, 480)
-    eq(trace.rows[2].score, 470)
+    eq(trace.rows[2].score, 455)
   end)
 
   it("prefers race+class over race alone, and falls back to the NPC's plain line", function()

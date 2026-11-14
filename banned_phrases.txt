@@ -1,0 +1,36 @@
+# One phrase per line, case-insensitive. Lines starting with re: are regular expressions.
+# The AI-voice checker (tools/voicecheck.py) fails a milestone if any dialogue contains these.
+ah, adventurer
+greetings, traveler
+greetings, adventurer
+a testament to
+tapestry
+delve
+delving
+in these trying times
+in these dark times
+re:\bit'?s not (just|merely|only) [^.,;]+[,;] it'?s\b
+re:\bnot (just|merely) [^.,;]+, but\b
+journey awaits
+embark on
+the winds of fate
+little did
+a beacon of hope
+navigate the
+vibrant
+bustling
+nestled
+realm of possibilities
+it is important to
+let's unpack
+i hear you
+that's valid
+your feelings
+boundaries
+self-care
+literally
+awesome
+okay
+ok,
+cool,
+vibe

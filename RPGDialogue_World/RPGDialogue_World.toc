@@ -1,0 +1,19 @@
+## Interface: 16001, 16002
+## Title: RPG Dialogue: World
+## Notes: Shared dialogue for RPG Dialogue: towns, topics, claims, throughlines, origins, role pools and fallbacks.
+## Author: RPG Dialogue
+## Version: @project-version@
+## Dependencies: RPGDialogue
+## LoadOnDemand: 1
+## X-RPGD-Pack: rpgd.world
+## X-RPGD-Format: 1
+## X-RPGD-Load: login
+
+pack.lua
+towns.lua
+topics.lua
+claims.lua
+threads.lua
+origins\human.lua
+generic.lua
+pools.lua

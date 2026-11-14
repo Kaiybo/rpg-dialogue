@@ -246,8 +246,12 @@ def main():
             words = len(re.sub(r"^\[[^\]]+\]\s*", "", text).split())
             if words > 15:
                 rep.warn(pack, f, ln.line, f"{where}: reply is {words} words (aim for 15 or fewer)")
-        elif sentences(text) > 3:
-            rep.warn(pack, f, ln.line, f"{where}: {sentences(text)} sentences (aim for 1-3)")
+        else:
+            # Short fragments ("Big. Angry. Southwest.") are a voice, not a speech. Flag only
+            # lines that are both many sentences and long.
+            n_sent, n_words = sentences(text), len(text.split())
+            if (n_sent > 3 and n_words > 30) or n_words > 50:
+                rep.warn(pack, f, ln.line, f"{where}: {n_sent} sentences, {n_words} words (aim for 1-3 short sentences)")
 
     def check_journal(pack, f, line, j, where):
         if j is None:

@@ -243,7 +243,8 @@ Each key has a **weight** (its contribution to the score) and a **kind**. *Hinge
 
 | Family | Keys (value shape) | Weight | Kind |
 |---|---|---|---|
-| Quest | `questBefore` Q · `questActive` Q · `questObjective` {Q, left={min,max}} · `questReady` Q · `questRecent` {Q, days=N} · `questDone` Q · `questLater` {Q, days=N} | 60 | hinge |
+| Quest, time-sensitive | `questActive` Q · `questObjective` {Q, left={min,max}} · `questReady` Q · `questRecent` {Q, days=N} | 60 | hinge |
+| Quest, long-tail | `questBefore` Q (45) · `questDone` Q (40) · `questLater` {Q, days=N} (40) | 40–45 | hinge |
 | Heard & threads | `heardLine` "npc.line" · `thread` {id, state=…/beat=…} · `heardClaim` id · `claimExposed` id · `claim` id (player's own) | 60 | hinge |
 | Deeds & deaths | `deed` id · `deaths` {min,max} · `deathCause` "falling"/"drowning"/… | 40 | hinge |
 | Origin | `origin` id | 35 | hinge |
@@ -613,18 +614,20 @@ pick      keep everything within 5 points of the best; weighted random by weight
 | Role pool (anywhere) | 100 |
 | Generic | 0 |
 
-Plus the condition weights from 2.7: quest/history 60, race+class 50, origin 35, character 30, race or class 25, relationship 20, state/zone 15, level/band 10, gender/time 5.
+Plus the condition weights from 2.7: time-sensitive quest states and heard lines 60, race+class 50, long-tail quest states 40–45, origin 35, character 30, race or class 25, relationship 20, state/zone 15, level/band 10, gender/time 5.
 
-The order comes out the way the brief asks. Within one NPC, a quest line (460) beats a race+class line (450), which beats race or class alone (425), then state or zone (415), then gender or time (405), then their plain line (400). Anything from the NPC's own file beats any pool line, however specific. That is deliberate: the named character always speaks for themselves.
+The order comes out the way the brief asks. Within one NPC, a time-sensitive quest line (460) beats a race+class line (450), which beats race or class alone (425), then state or zone (415), then gender or time (405), then their plain line (400). Anything from the NPC's own file beats any pool line, however specific. That is deliberate: the named character always speaks for themselves.
 
-**Worked example.** A level-2 human warrior meets McBride for the first time, just after turning in A Threat Within, at dusk:
+**Tuning from the M3 simulation:** quest states that stay true for weeks ("before", "done", "later") originally weighed 60 too. They were eligible in almost every conversation, so McBride's race and class lines never fired once in 2,000 simulated characters. They now weigh 40–45: an active quest still outranks a race+class line, but a stale one doesn't.
+
+**Worked example.** A level-2 human warrior meets McBride for the first time, just after turning in A Threat Within, at dusk (updated for the M3 weights):
 
 ```
 /rpgd why
 [RPGD] mcbride · node hello · slot line · seed 48121
 ctx: Human WARRIOR 2 (Greenhorn) · dusk · Northshire Abbey
   WIN   480  h_from_willem     own 400 + questRecent 60 + metBefore 20
-        470  q_kobold_before   own 400 + questBefore 60 + band 10
+        455  q_kobold_before   own 400 + questBefore 45 + band 10
         400  h_default         own 400
   FAIL       h_dwarf_shaman    race: Human, wanted Dwarf
   FAIL       h_champion        band: Greenhorn, wanted Champion
