@@ -3,7 +3,7 @@
 > Read this first, then `DESIGN.md`, then `CONTENT_GUIDE.md` (once it exists). You won't remember earlier sessions; these files are your memory.
 > The original brief is the Project doc `rpg-dialogue-build-prompt (1).md`. Re-read it when a decision isn't covered here.
 
-**Last session:** 2026-11-13 · M0, M1, M2 and M3 done; M4 next. The user said "keep going and build as much as possible", so milestones are being built back to back without stopping for in-game tests. Every assumption made in their absence is listed below.
+**Last session:** 2026-11-13 · M0–M4 done; M5 next. The user said "keep going and build as much as possible", so milestones are being built back to back without stopping for in-game tests. Every assumption made in their absence is listed below.
 
 ## Assumptions made while the user was away (confirm or correct)
 1. **Interface number** 16001 (from warcraft.wiki.gg, patch 1.60.1). TOCs say `16001, 16002` to cover the next patch too.
@@ -25,8 +25,10 @@
 - **M3** (commit d49bd0a): World pack + Elwynn pack (13 NPCs, voice bibles, guard pools, towns, topics, claims, the `elwynn_gold` thread, draft human origins), `CONTENT_GUIDE.md`, `banned_phrases.txt`, slice lore sheet, and tools: `voicecheck.py`, `simulate.py` (+ `tests/sim_driver.lua`), `coverage.py`, `import_capture.py`, `export_reference.py`, `flag_report.py`.
 - Checks at the end of M3: 65 Lua tests pass; `luacheck .` clean; validator 0 errors (76 warnings, all TODO placeholders); voice check 0 failures; simulation of 2,000 characters × 3 visits: 0 runtime errors, 7 of 306 lines never fire (all explained in `tools/out/simulation.md`).
 
+- **M4** (commit e36aef0): thread engine (`Systems/Threads.lua`), Ask about (`Systems/Topics.lua`, `UI/AskAbout.lua`), gossip/contradiction/lieCaught conditions, rumors (`Systems/Rumors.lua`, `RPGDialogue_World/rumors/elwynn.lua`), town standing (`Systems/Towns.lua`), alignment hints, `/rpgd threads|claims|topics|die`. 78 tests; simulation fires all four beats.
+
 ## Half-done
-- Slice items whose *data* exists but whose *engine* is M4: thread beats (in `RPGDialogue_World/threads.lua`, not yet offered by the engine), the "Ask about…" button (topic answers exist and `Engine.PickTopic` works; no UI yet), innkeeper rumors as a rotating system (Farley's rumors are currently lines in his `rumors` node), gossip-network delays for opinions.
+- Nothing half-built. The journal UI (M5) doesn't exist yet, so journal entries are recorded but can't be read in game (they're in `RPGDialogueCharDB.journal`).
 
 ## Not yet verified in game (nothing has been run in WoW yet)
 - Every Blizzard API assumption in `Compat.lua` (probe with `/rpgd probe`).
@@ -46,4 +48,4 @@ Still all of DESIGN.md §4 (section 9 answers, slice zone, where the repo lives,
 - The repo was at `/home/claude/rpg-dialogue`. That workspace isn't shared with other sessions; the user has the zips.
 
 ## Exact next step
-M4: thread engine (gather beats from `Data.threads` for the NPC, one per conversation, pacing gaps, `/rpgd threads` list/reset/force, fading untouched threads), "Ask about…" button and topic picker UI, gossip network (opinions heard by community members after a delay), contradiction notice, rumor rotation for innkeepers, town quests moving standing (`towns` quest lists), `/rpgd claims` and `/rpgd topics` (+ teach/forget), `/rpgd die <cause>`. Then rerun all checks and the simulation (beats should start firing).
+M5: journal window (Chronicle, People I've Met, Character Sheet with alignment/titles/traits/opinions/taint/town standings and the Origin page, Topics with claims and books, Deeds, Notes), origin picker (race/class lists; draft human list in `RPGDialogue_World/origins/human.lua` needs the user's approval; other races to write), one dismissible first-login hint, origin effects (nudge, home-town standing), `/rpgd export` and `/rpgd import` (validated, refuses bad strings without touching data). Save-data corruption checks already exist (M1).
