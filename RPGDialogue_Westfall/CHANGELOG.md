@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.2.0 (unreleased)
+- Sentinel Hill's working people: Innkeeper Heather, Quartermaster Lewis, Thor and his gryphons, Scout Riell in the tower, and William MacGregor the bowyer.
+
 ## 1.1.0 (unreleased)
 - Daphne Stilwell on her farm above the shore, for the paladin's Tome of Valor (Rall points you there).
 - Gryan, Galiaan and Salma react to Skyborne; Galiaan notices human hunters.

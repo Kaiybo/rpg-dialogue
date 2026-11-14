@@ -255,3 +255,13 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Furen Longbeard: shieldsmith and armorsmith in the Dwarven District, taught by Grimand Elmore | [Furen Longbeard](https://warcraft.wiki.gg/wiki/Furen_Longbeard) |
 | Topper McNabb: beggar and former farmer behind the Auction House; dramatic pleas, armour shining, blames the towers or the orcs who burned his farm | [Topper McNabb](https://warcraft.wiki.gg/wiki/Topper_McNabb) |
 | Warden Thelwater: runs the Stockade, unprepared for the riots and kept them quiet, fears the Captain; Bazil Thredd, The Stockade Riots, The Curious Visitor | [Warden Thelwater](https://warcraft.wiki.gg/wiki/Warden_Thelwater) |
+
+## Sentinel Hill's working people (Westfall pack 1.2.0)
+
+| Fact used | Source |
+|---|---|
+| Innkeeper Heather keeps the Sentinel Hill inn (personality authored) | [Innkeeper Heather](https://warcraft.wiki.gg/wiki/Innkeeper_Heather) |
+| Quartermaster Lewis keeps the hill supplied amid constant fighting; A Swift Message, Return to Lewis | [Quartermaster Lewis](https://warcraft.wiki.gg/wiki/Quartermaster_Lewis) |
+| Thor, Sentinel Hill's gryphon master; A Swift Message, Continue to Stormwind | [Thor](https://warcraft.wiki.gg/wiki/Thor) |
+| Scout Riell, militia scout in the tower; Red Silk Bandanas | [Scout Riell](https://warcraft.wiki.gg/wiki/Scout_Riell) |
+| William MacGregor, bowyer (relation to Gina MacGregor unstated) | [William MacGregor](https://warcraft.wiki.gg/wiki/William_MacGregor) |

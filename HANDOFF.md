@@ -3,7 +3,7 @@
 > Read this first, then `DESIGN.md`, then `CONTENT_GUIDE.md` (and `PACK_AUTHORING.md` before adding a zone). You won't remember earlier sessions; these files are your memory.
 > The original brief is the Project doc `rpg-dialogue-build-prompt (1).md`. Re-read it when a decision isn't covered here.
 
-**Last session:** 2026-11-14 (overnight, user asleep) · **M0–M8 all built; five rounds of in-game results are in; Phase 4 (content) under way.** The addon loads, packs load, `/rpgd why` works, and the Skyborne race token is "Skyborne". **Versions now: core 0.14.0, World 1.2.0, Elwynn 1.4.0, Westfall 1.1.0, Stormwind 1.1.0, Zephras Isle 1.0.1, Redridge 1.0.1, Duskwood 1.0.1, Ironforge 1.0.0** (`python3 tools/version.py`).
+**Last session:** 2026-11-14 (user away; asked to keep expanding) · **M0–M8 all built; five rounds of in-game results are in; Phase 4 (content) under way.** The addon loads, packs load, `/rpgd why` works, and the Skyborne race token is "Skyborne". **Versions now: core 0.15.0, World 1.3.0, Elwynn 1.5.0, Westfall 1.1.0, Stormwind 1.2.0, Zephras Isle 1.0.1, Redridge 1.1.0, Duskwood 1.1.0, Ironforge 1.1.0** (`python3 tools/version.py`).
 
 **First in-game test (user, 2026-11-13):**
 - **Test character: Skyborne Druid, level 22 (Blooded), faction not confirmed, tested in Northshire Valley.** Content for that character is thin: the slice is written for level 1–10 characters doing Northshire/Goldshire quests (only 4 Skyborne lines and 1 druid line exist). Asked the user where they actually play, for the next content pass.
@@ -42,6 +42,10 @@
   - `^watcher ` names are guards (Duskwood's Night Watch).
   - 0.14.0: the paladin's road in full (Stephanie Turner, Gazin Tenorm, Henze Faulk, Daphne Stilwell, Jordan Stilwell; Rall reacts to progress), Archbishop Benedictus and Lil Timmy, an Ironforge pack (Magni, Brandur, John Turner, Jordan; zones Ironforge and Dun Morogh), Skyborne reactions on eighteen named NPCs (brief facts only), three more new-pairing reactions.
 
+- **Then (on waking, three times): "Keep going. More polish. More npcs. Don't forget important NPCs as well as mundane."** and **"Keep expanding until you can't."**
+  - 0.15.0 (content only, no engine changes): Elwynn's nine class trainers and fourteen Goldshire townsfolk; Stormwind's Shaw, Jennea, Gakin, Allison, Grayson Shadowbreaker, Arthur the Faithful, Grimand Elmore, Furen Longbeard, Milton Sheaf, Elling Trias, Lord Lescovar (dramatic irony, like Prestor), Dashel Stonefist, Topper McNabb, Warden Thelwater; Darkshire's Jonathan Carevin, Calor, Sirra Von'Indi, Viktori, Chef Grual, Councilman Millstipe, Trelayne, Clarise Gnarltree; Lakeshire's Brianna, Conacher, Feldon, Parker, Darcy, Martie, Breanna; Ironforge's Mekkatorque, Archesonus, Magellas, Prospector Stormpike, Senator Stonehallow, Firebrew. New topics (World 1.3.0): the Carevins, Morgan Ladimore, Gnomeregan, the Dark Iron, the Explorers' League.
+  - Duskwood got the most weight because the druid main is level 22: shapechangers get a hostile welcome from Jonathan and Calor (worgen town), a curious one from Viktori.
+
 ## Assumptions made while the user was away (confirm or correct)
 1. **Interface number** 16001 (from warcraft.wiki.gg, patch 1.60.1). TOCs say `16001, 16002` to cover the next patch too.
 2. **Vertical slice:** Northshire Valley + Goldshire (Elwynn Forest).
@@ -61,6 +65,8 @@
 16. **Ambiguous quest titles:** every step of *The Defias Brotherhood* and *The Tome of Divinity* shares one title, so lines don't hinge on a specific step; Westfall's VanCleef lines use the `dungeon:The Deadmines` deed instead.
 17. **Abercrombie's secret** stays a secret in his lines (hints only) until Note to the Mayor; Lady Prestor likewise until The Great Masquerade.
 18. **Overnight content order:** Redridge and Duskwood (the paladin's road), then Elwynn fill-in; Ashenvale was researched but held back because the wiki mixes Classic and later-era NPCs there (needs capture data to be safe).
+19. **NPCs whose wiki pages give no personality** (Trelayne, Firebrew, Feldon, Furen) got authored ones, marked "authored" in their bibles. Relations the wiki leaves unstated (the Gnarltrees, Martie and Alma Jainrose, the Carevin family members) are never stated in lines.
+20. **Same-title quest chains** (Calor's four *Worgen in the Woods*, Prospector Stormpike's Uldaman steps) get lines that fit any step, as in assumption 16.
 
 ## Done
 - **M0** (ab8479c): `DESIGN.md`, repo, hand-off docs.
@@ -72,6 +78,7 @@
 - **M6** (979fcc5): spirit healer tree, books, insanity, drunk replies, ghosts, barks, errands.
 - **M7** (bbefce7): `tools/new_zone.py` (plan → approve tiers → scaffold), `tools/check_all.py`, impossible-quest-reference check, copied-wording check, flag replay lines, `/rpgd capture zone`, `tests/test_tools.py`.
 - **M8** (c2e6a2e): Total RP 3 (read-only), accessibility pass (keyboard selection, gamepad, Ask About keybinding, bundled readable font, "(Locked)" and ">" markers, journal tab keys), the optional "something new" tooltip marker (an M2 item that had been missed), pack `requires` reported in game and validated, per-pack versions and changelogs, `PACK_AUTHORING.md`, `.pkgmeta` checked against the packager's source, Blizzard UI policy checked and enforced by `check_all.py --release`, GitHub workflows, README rewrite.
+- **0.15.0:** CHECKS_PLACEHOLDER
 - **0.14.0 (overnight):** 177 Lua tests; same gates as below, all passing.
 - **0.13.0 (overnight):** see the bullet at the top. **Checks then:** 176 Lua tests, 8 Python tool tests, luacheck clean, validator 0 errors, voice check 0 failures, simulation (all folders; ~10 minutes with nine, run it in the background) 0 runtime errors / 0 contradictions / 0 impossible quest references. Never-fired named-NPC lines are all simulation blind spots (visited places, deeds, Horde faction, fishing, mounted), listed in `tools/out/simulation.md`.
 - **0.12.0 content:** see above. **Checks then:** 173 Lua tests, 8 Python tool tests, luacheck clean, validator 0 errors (warnings are TODO placeholders plus a few long lines), voice check 0 failures, simulation (now every pack, 1,500 characters, about 4 minutes) 0 runtime errors / 0 contradictions / 0 impossible quest references.
@@ -83,7 +90,7 @@
 
 ## Needs the user's approval
 - Origin lists (brief M5 says "for my approval"): `RPGDialogue_World/origins/*.lua`. Horde races have none yet (no Horde content exists yet either).
-- Assumptions 10–16 above.
+- Assumptions 10–20 above.
 - The NPC tiers chosen in 0.12.0 without the plan step (Elwynn additions, Westfall, Stormwind, Zephras Isle).
 - More Zephras Isle NPCs need capture data (names, roles) before they can be written; only the High Elder is named in the brief.
 
@@ -136,7 +143,9 @@ Still all of DESIGN.md §4 (section 9 answers, slice zone, where the repo lives,
 - `python3 tools/check_all.py` runs everything (about 10 minutes now, almost all of it the simulation: run it in the background); `--quick` skips the simulation.
 
 ## Exact next step
-User installs 0.14.0 (full restart; tick the new Redridge, Duskwood and Ironforge packs). Paladin at 12: Wilhelm → Rall → Stephanie → Gazin → Henze → Rall, each should speak their own lines. Skyborne main: Farley, Dughan, Gryan, Smitts react to Skyborne.
+User installs 0.15.0 (no new folders; /reload is enough, restart is safest). Skyborne druid at 22: Darkshire (Jonathan Carevin and Calor in bear or cat form, Viktori, Sirra), Lakeshire (Darcy, Martie, Guard Parker on the Duskwood road). Human paladin: Lord Grayson Shadowbreaker in the Cathedral, Furen and Grimand Elmore in the Dwarven District. Then send the capture file for real IDs. Next content candidates: Westfall's Sentinel Hill folk (Innkeeper Heather, Quartermaster Lewis, Thor), more of Stormwind (Renzik, Dungar Longdrink), Loch Modan, Wetlands, Horde when asked.
+
+Previous next step (0.14.0): User installs 0.14.0 (full restart; tick the new Redridge, Duskwood and Ironforge packs). Paladin at 12: Wilhelm → Rall → Stephanie → Gazin → Henze → Rall, each should speak their own lines. Skyborne main: Farley, Dughan, Gryan, Smitts react to Skyborne.
 
 Previous next step (0.13.0): User installs 0.13.0 (full restart; tick the new Redridge and Duskwood packs). On the human paladin: Wilhelm, then Stormwind (Rall in the Cathedral at 12), Westfall/Redridge/Duskwood as levels allow. `/rpgd packs` should show each zone pack loading on arrival. Send the capture file for real IDs. Next content candidates: Wetlands (Menethil), Loch Modan, Ashenvale (needs capture to separate Classic NPCs from later ones), Stranglethorn (both factions), Horde starting zones when the user asks.
 
