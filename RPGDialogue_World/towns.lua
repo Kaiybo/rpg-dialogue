@@ -395,6 +395,20 @@ P:Town {
   quests = { { TODO_QUEST("Return to Fel'Zerul"), 6 }, { TODO_QUEST("The Missing Orders"), 6 } },
 }
 
+P:Town {
+  id = "refuge_pointe", name = "Refuge Pointe",
+  subzones = { "Refuge Pointe" },
+  tiers = { Hero = "Friend of Stromgarde" },
+  quests = { { TODO_QUEST("Stromgarde Badges"), 6 } },
+}
+
+P:Town {
+  id = "hammerfall", name = "Hammerfall",
+  subzones = { "Hammerfall" },
+  tiers = { Hero = "Hero of Hammerfall" },
+  quests = { { TODO_QUEST("Call to Arms"), 6 }, { TODO_QUEST("Trol'kalar"), 6 } },
+}
+
 -- The other capitals. Their guards speak from pools_roles.lua; standing grows from quests
 -- each capital's own pack lists later.
 P:Town {

@@ -1,0 +1,15 @@
+## Interface: 16001, 16002
+## Title: RPG Dialogue: Arathi Highlands |cff8a8a8a1.0.0|r
+## Notes: Refuge Pointe and Hammerfall: the last of Stromgarde's soldiers holding their ground, and a Horde fort built on the ruins of the camp where Doomhammer fell.
+## Author: RPG Dialogue
+## Version: 1.0.0
+## Dependencies: RPGDialogue
+## LoadOnDemand: 1
+## X-RPGD-Pack: rpgd.arathi
+## X-RPGD-Format: 1
+## X-RPGD-Load: zone
+## X-RPGD-Zones: Arathi_Highlands
+
+pack.lua
+pools.lua
+npcs\arathi.lua

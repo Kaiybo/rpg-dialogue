@@ -39,6 +39,7 @@ move-folders:
   RPGDialogue/RPGDialogue_Dustwallow: RPGDialogue_Dustwallow
   RPGDialogue/RPGDialogue_Feralas: RPGDialogue_Feralas
   RPGDialogue/RPGDialogue_SwampOfSorrows: RPGDialogue_SwampOfSorrows
+  RPGDialogue/RPGDialogue_Arathi: RPGDialogue_Arathi
 
 # Paths are from the repo root; "*.md" matches at any depth (bash case patterns), which
 # keeps voice bibles, PLAN.md files and pack changelogs out of the zip.

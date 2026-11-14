@@ -591,3 +591,15 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Fel'zerul: warlock sent by Thrall to watch the Temple of Atal'Hakkar; in Classic and Forever | [Fel'zerul](https://warcraft.wiki.gg/wiki/Fel%27zerul) |
 | Helgrum the Swift and Neeka Bloodscar | [Helgrum the Swift](https://warcraft.wiki.gg/wiki/Helgrum_the_Swift) |
 | Bengor: advanced illness; The Missing Orders, The Swamp Talker; in Classic and Forever | [Bengor](https://warcraft.wiki.gg/wiki/Bengor) |
+
+## Arathi Highlands (Arathi pack 1.0.0)
+
+| Fact used | Source |
+|---|---|
+| Refuge Pointe: Stromgarde's army in tents after the keep fell; Nials refused soldiers for Thandol Span | [Refuge Pointe](https://warcraft.wiki.gg/wiki/Refuge_Pointe) |
+| Captain Nials (female): Stromgarde Badges, Plea To The Alliance, Northfold Manor | [Captain Nials](https://warcraft.wiki.gg/wiki/Captain_Nials) |
+| Hammerfall: the internment camp Thrall and Doomhammer broke open; Doomhammer's death; named for him; Boulderfist and Witherbark | [Hammerfall](https://warcraft.wiki.gg/wiki/Hammerfall) |
+| Drum Fel: rules Hammerfall; The Hammer May Fall, Call to Arms | [Drum Fel](https://warcraft.wiki.gg/wiki/Drum_Fel) |
+| Zengu: sent by Vol'jin for Trol'kalar, to use against the Gurubashi; the sigil chain; in Classic and Forever | [Zengu](https://warcraft.wiki.gg/wiki/Zengu) |
+| Innkeeper Adegwa: tauren innkeeper of Hammerfall | [Innkeeper Adegwa](https://warcraft.wiki.gg/wiki/Innkeeper_Adegwa) |
+| "... Guardian" names are guards (Hammerfall Guardian, Shadowprey Guardian) | [Hammerfall](https://warcraft.wiki.gg/wiki/Hammerfall); [Shadowprey Village](https://warcraft.wiki.gg/wiki/Shadowprey_Village) |
