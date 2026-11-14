@@ -11,7 +11,7 @@ local Data = {
   byName = {},    -- normalized name -> key (for TODO ids)
   pools = {},     -- list
   generic = {},   -- list
-  threads = {}, claims = {}, topics = {}, towns = {}, origins = {}, rumors = {},
+  threads = {}, claims = {}, topics = {}, towns = {}, origins = {}, rumors = {}, books = {}, errands = {},
   lines = {},     -- global line id -> { line = , owner = , slot = }
 }
 ns.Data = Data
@@ -59,6 +59,7 @@ local function indexTopics(topics, prefix, owner)
 end
 
 local function indexNPC(def)
+  indexList(def.barks, def.key, def.key, "bark")
   indexList(def.greetings, def.key, def.key, "greeting")
   indexList(def.notice, def.key, def.key, "notice")
   indexList(def.react, def.key, def.key, "react")
@@ -127,7 +128,15 @@ function kinds.Pool(pack, def)
   indexList(def.notice, prefix, prefix, "notice")
   indexList(def.react, prefix, prefix, "react")
   indexList(def.lines, prefix, prefix, "line")
+  indexList(def.barks, prefix, prefix, "bark")
   indexTopics(def.topics, prefix, prefix)
+  -- Pools may carry whole conversation trees (spirit healers): they then act as one
+  -- shared character for every NPC of that role.
+  for nodeId, node in pairs(def.nodes or {}) do
+    node._id = nodeId
+    indexList(node.lines, prefix, prefix, "line")
+  end
+  if def.nodes then def.start = def.start or "hello" end
   Data.pools[#Data.pools + 1] = def
 end
 
@@ -167,6 +176,8 @@ function kinds.Thread(pack, def)
 end
 kinds.Claim = simpleKind("claims")
 kinds.Topic = simpleKind("topics")
+kinds.Book = simpleKind("books")
+kinds.Errand = simpleKind("errands")
 kinds.Town = simpleKind("towns")
 kinds.Origin = simpleKind("origins")
 -- Rumors: lines innkeepers (or any role listed) may pass on.
@@ -403,6 +414,14 @@ function Data.PoolsFor(info, ctx)
   end
   table.sort(out, function(a, b) return a.base > b.base end)
   return out
+end
+
+-- A pool that carries its own conversation tree for this role (e.g. spirit healers).
+function Data.TreePoolFor(info, ctx)
+  for _, p in ipairs(Data.PoolsFor(info, ctx)) do
+    if p.pool.nodes then return p.pool end
+  end
+  return nil
 end
 
 function Data.GenericFor(ctx)

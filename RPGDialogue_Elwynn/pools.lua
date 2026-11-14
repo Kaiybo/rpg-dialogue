@@ -5,6 +5,10 @@ local TODO_QUEST = P.TODO_QUEST
 
 P:Pool {
   id = "guard_northshire", role = "guard", community = "northshire",
+  barks = {
+    { id = "b_road", text = "Mind the road, recruit. Wolves don't." },
+    { id = "b_liked", when = { townStanding = { town = "northshire", min = 30 } }, text = "There goes the one who sorted the vineyard out." },
+  },
   greetings = {
     { id = "g_move", text = "Keep moving, recruit." },
     { id = "g_abbey", text = "Abbey's straight ahead. Marshal's inside." },
@@ -30,6 +34,11 @@ P:Pool {
 
 P:Pool {
   id = "guard_goldshire", role = "guard", community = "goldshire",
+  barks = {
+    { id = "b_quiet", text = "Quiet night. Let's keep it that way." },
+    { id = "b_hogger", when = { questDone = TODO_QUEST("WANTED: \"Hogger\"") }, text = "That's the one. Hogger's claw, they say." },
+    { id = "b_distrust", when = { townStanding = { town = "goldshire", max = -20 } }, text = "Watch that one." },
+  },
   greetings = {
     { id = "g_peace", text = "Goldshire's peaceful. Keep it that way." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Inn's that way. Fights are outside it. Not here." },

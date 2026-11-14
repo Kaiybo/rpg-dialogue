@@ -156,6 +156,9 @@ def iter_lines(defn, owner_prefix):
                 for line in arr(node.get("lines")):
                     if isinstance(line, LTable):
                         yield "line", nid, line, f"{owner_prefix}.{line.get('id')}"
+    for line in arr(defn.get("barks")):
+        if isinstance(line, LTable):
+            yield "bark", None, line, f"{owner_prefix}.{line.get('id')}"
     topics = defn.get("topics")
     if isinstance(topics, LTable):
         for topic, lst in topics.named().items():

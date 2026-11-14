@@ -87,11 +87,15 @@ function Engine.Gather(slot, info, ctx, nodeId)
     if def then add(out, def.notice, own, "own") end
   elseif slot == "react" then
     if def then add(out, def.react, own, "own") end
+  elseif slot == "bark" then
+    if def then add(out, def.barks, own, "own") end
   end
   if ns.Data then
     for _, p in ipairs(ns.Data.PoolsFor(info, ctx)) do
-      local field = (slot == "line") and "lines" or (slot == "greeting" and "greetings" or slot)
-      add(out, p.pool[field], p.base, "pool:" .. p.pool.id)
+      if p.pool ~= def then
+        local field = (slot == "line") and "lines" or (slot == "greeting" and "greetings" or (slot == "bark" and "barks" or slot))
+        add(out, p.pool[field], p.base, "pool:" .. p.pool.id)
+      end
     end
     -- Generic lines are the last link of the line/greeting chains. Never acknowledgments.
     if slot == "line" or slot == "greeting" then
@@ -213,6 +217,12 @@ function Engine.PickLine(info, nodeId, ctx, env, nodeBig)
   env.nodeBig = nodeBig
   local cands = Engine.Gather("line", info, ctx, nodeId)
   return Engine.Pick("line", cands, ctx, env, { node = nodeId })
+end
+
+function Engine.PickBark(info, ctx, env)
+  local cands = Engine.Gather("bark", info, ctx)
+  if #cands == 0 then return nil end
+  return Engine.Pick("bark", cands, ctx, env)
 end
 
 function Engine.PickGreeting(info, ctx, env)

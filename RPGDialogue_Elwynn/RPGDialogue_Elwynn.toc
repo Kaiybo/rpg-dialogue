@@ -12,6 +12,7 @@
 
 pack.lua
 pools.lua
+errands.lua
 npcs\mcbride.lua
 npcs\willem.lua
 npcs\eagan.lua

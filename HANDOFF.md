@@ -3,7 +3,7 @@
 > Read this first, then `DESIGN.md`, then `CONTENT_GUIDE.md` (once it exists). You won't remember earlier sessions; these files are your memory.
 > The original brief is the Project doc `rpg-dialogue-build-prompt (1).md`. Re-read it when a decision isn't covered here.
 
-**Last session:** 2026-11-13 · M0–M5 done; M6 next. The user said "keep going and build as much as possible", so milestones are being built back to back without stopping for in-game tests. Every assumption made in their absence is listed below.
+**Last session:** 2026-11-13 · M0–M6 done; M7/M8 next. The user said "keep going and build as much as possible", so milestones are being built back to back without stopping for in-game tests. Every assumption made in their absence is listed below.
 
 ## Assumptions made while the user was away (confirm or correct)
 1. **Interface number** 16001 (from warcraft.wiki.gg, patch 1.60.1). TOCs say `16001, 16002` to cover the next patch too.
@@ -29,6 +29,8 @@
 
 - **M5** (commit f1ec319): journal window (6 tabs), origins (picker, hint, nudge, home welcome; draft lists for human, dwarf, gnome, night elf, Skyborne in `RPGDialogue_World/origins/`), export/import. 86 tests.
 
+- **M6**: spirit healer tree (World `pools.lua`), books (`books.lua`), insanity, barks, errands (`RPGDialogue_Elwynn/errands.lua`), ghosts, drunk replies. 96 tests.
+
 ## Half-done
 - Nothing half-built.
 
@@ -53,4 +55,4 @@ Still all of DESIGN.md §4 (section 9 answers, slice zone, where the repo lives,
 - The repo was at `/home/claude/rpg-dialogue`. That workspace isn't shared with other sessions; the user has the zips.
 
 ## Exact next step
-M6: spirit healer conversations (death log + cause → deep dialogue trees, shared-records running jokes, class/race reactions, alignment tone; lore guardrail: no Shadowlands), books (topic unlocks, rare NPC reactions), temporary insanity (cosmetic, toggleable, no flashing), drunk replies (slurred choice text), ghost dialogue (only spirit-sensitive NPCs respond), proximity barks (nameplates/target/mouseover, heavily rate-limited), addon-side errands (verifiable: items in bags, places, kill counts; rewards addon-only), text-to-speech narration (Compat.Speak exists).
+M7 (content workflow polish: zone scaffolding from capture data) and M8 (Total RP 3 read-only name, accessibility pass, `PACK_AUTHORING.md`, packaging check, Blizzard UI add-on policy check). Then: **the user's in-game test pass** (see the checklist in the final message of the session and in README).

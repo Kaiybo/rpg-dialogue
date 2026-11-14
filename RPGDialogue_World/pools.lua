@@ -5,6 +5,11 @@ local P = RPGDialogueAPI:Pack("rpgd.world")
 -- Children: every child is impressed by magic and by animals.
 P:Pool {
   id = "child", role = "child",
+  barks = {
+    { id = "b_look", text = "Mama, look! An adventurer!" },
+    { id = "b_sword", when = { class = { "WARRIOR", "PALADIN" } }, text = "Bet I could carry that sword. Bet I could." },
+    { id = "b_kitty", when = { form = "cat" }, text = "There's a big kitty! Is it friendly?" },
+  },
   greetings = {
     { id = "g_hi", text = "Are you an adventurer? A real one?" },
     { id = "g_sword", when = { class = { "WARRIOR", "PALADIN" } }, text = "Is that sword heavy? Can I hold it? I won't drop it." },
@@ -98,17 +103,92 @@ P:Pool {
   choices = { { text = "Train me.", next = "BUSINESS" } },
 }
 
--- Spirit healers: a first, small set. The full conversations come in M6.
+-- Spirit healers: one shared character for every spirit healer, because they seem to keep
+-- shared records ("your file"). Philosophical, wry, kind; the nature of the afterlife stays
+-- a mystery (no Shadowlands, no Maw, nothing from later expansions).
 P:Pool {
-  id = "spirithealer", role = "spirithealer",
+  id = "spirithealer", role = "spirithealer", tier = "major", spiritSensitive = true,
+  notices = { "death" },
   greetings = {
     { id = "g_again", when = { deaths = { min = 5 } }, text = "You again. Your file grows thick." },
     { id = "g_first", when = { deaths = { max = 1 } }, text = "Do not be afraid. Not yet." },
+    { id = "g_plain", text = "Your body is waiting. So am I." },
   },
-  lines = {
-    { id = "l_default", text = "You have walked a long way without your body. It is waiting." },
-    { id = "l_forsaken", when = { race = "Scourge" }, text = "You have done this before, in a larger way. You know the road." },
-    { id = "l_trivial", when = { deathCause = "trivial" }, text = "That creature. Truly? Your file will remember this one." },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "You have left your body behind again. It is waiting where you fell, in {deathplace}." },
+        { id = "h_first", when = { deaths = { max = 1 } }, text = "The first time is the strangest. Breathe, if you remember how. You will not need to." },
+        { id = "h_ten", when = { deaths = { min = 10, max = 24 } }, text = "Your file is thicker than most. I do not say that to wound you." },
+        { id = "h_many", tags = { "news" }, when = { deaths = { min = 25, max = 49 } }, text = "{deaths} times. The others have begun to recognize your footsteps." },
+        { id = "h_fifty", tags = { "news" }, when = { deaths = { min = 50 } }, text = "We have started a second file. The first one would not close." },
+        { id = "c_falling", when = { deathCause = "falling" }, text = "The ground does not negotiate. You knew that once." },
+        { id = "c_drowning", when = { deathCause = "drowning" }, text = "Water is patient. You were not." },
+        { id = "c_fatigue", when = { deathCause = "fatigue" }, text = "You swam out until the world ran out. It does that." },
+        { id = "c_guard", when = { deathCause = "guard" }, text = "A guard. Yours or someone else's, it makes the same mark in the file." },
+        { id = "c_player", when = { deathCause = "player" }, text = "Another traveler sent you. The living are hard on one another." },
+        { id = "c_trivial", when = { deathCause = "trivial" }, text = "This one I will write down kindly. {killer}. Small, but determined." },
+        { id = "c_elite", when = { deathCause = "elite" }, text = "{killer}. A worthy reason, as such things are counted." },
+        { id = "c_boss", when = { deathCause = "boss" }, text = "You went where the great ones wait, and one of them was waiting for you." },
+        { id = "h_same_place", tags = { "news" }, priority = 5, when = { deathsHere = { min = 3 } },
+          text = "{deathplace} again. You keep returning to the same door, as if it might open differently." },
+        { id = "h_streak", tags = { "news" }, when = { daysSinceDeath = { min = 14 } },
+          text = "A long while since I last saw you. The file had begun to gather dust. I was almost glad." },
+        { id = "k_shaman", when = { class = "SHAMAN", minLevel = 30 }, text = "You carry your own way back. No ankh today?" },
+        { id = "k_warlock", when = { class = "WARLOCK" }, text = "No soulstone this time? Your kind usually bargains its way past me." },
+        { id = "k_healer", when = { class = { "PRIEST", "PALADIN" } }, text = "You raise others from where I stand. Strange, to see you on this side of the work." },
+        { id = "r_forsaken", when = { race = "Scourge" }, text = "You have died before, in a larger way. You know this road better than I do." },
+        { id = "r_nightelf", when = { race = "NightElf" }, text = "You come to me as a wisp, like all your people. A little light, insisting." },
+        { id = "a_taint", when = { taint = { min = 30 } }, text = "Something came with you that should not have. It is watching me. Go, quickly." },
+        { id = "a_light", when = { alignment = { axis = "light", min = 40 } }, text = "Gently, now. You have done more good than your file shows." },
+        { id = "a_shadow", when = { alignment = { axis = "light", max = -40 } }, text = "I will return you. I am not required to approve." },
+      },
+      choices = {
+        { text = "Return me to life.", next = "BUSINESS" },
+        { text = "What does my file say?", next = "record" },
+        { text = "What are you?", next = "mystery" },
+        { text = "Why do you help us?", next = "why" },
+      },
+    },
+    record = {
+      lines = {
+        { id = "rec_default", text = "{deaths} deaths. The last at {deathplace}. The records are complete, if not flattering." },
+        { id = "rec_one", when = { deaths = { max = 1 } }, text = "One death. The file is a single page. Keep it that way, if you can." },
+        { id = "rec_trivial", priority = 10, when = { deathCause = "trivial" }, text = "{deaths} deaths, the last at the hands of {killer}. I have underlined it." },
+      },
+      choices = {
+        { text = "Burn the file.", next = "burn", fx = { trait = { witty = 1 } } },
+        { text = "Back to the matter at hand.", next = "hello" },
+      },
+    },
+    burn = {
+      lines = { { id = "b_default", text = "It does not burn. Many have asked. One tried." } },
+      choices = { { text = "Return me to life.", next = "BUSINESS" } },
+    },
+    mystery = {
+      lines = { { id = "m_default", text = "I am the one who stands here. That is all I am permitted to know, and more than most ask." } },
+      choices = {
+        { text = "Permitted by whom?", next = "mystery2", fx = { trait = { curious = 1 } } },
+        { text = "Fair enough.", next = "hello" },
+      },
+    },
+    mystery2 = {
+      lines = { { id = "m2_default", text = "Ask me again when you have died a hundred times. I may know by then. So may you." } },
+      choices = { { text = "Return me to life.", next = "BUSINESS" } },
+    },
+    why = {
+      big = true,
+      lines = {
+        { id = "w_default", text = "Because you are not finished. None of you ever are." },
+        { id = "w_shadow", when = { alignment = { axis = "light", max = -40 } },
+          text = "Because I am asked to, not because you deserve it. Forgive the honesty. This place makes it easy." },
+      },
+      choices = {
+        { text = "Thank you.", next = "BUSINESS", fx = { align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Back to the matter at hand.", next = "hello" },
+      },
+    },
   },
-  choices = { { text = "Return me to life.", next = "BUSINESS" } },
+  topics = { _none = { { id = "t_none", text = "The living ask about the living. I keep other records." } } },
 }

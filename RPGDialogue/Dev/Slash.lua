@@ -159,6 +159,17 @@ commands.die = function(args)
 end
 
 commands.journal = function() ns.Journal.Toggle() end
+
+commands.errands = function()
+  local lines = ns.Errands.Describe()
+  if #lines == 0 then ns.Print(L.ERRANDS_NONE) else printList(L.ERRANDS_HEADER, lines) end
+end
+
+commands.insanity = function(args)
+  local n = tonumber(args[1]) or 0
+  ns.Insanity.Add(n - ns.Insanity.Level())
+  ns.Print(L.INSANITY_SET:format(ns.Insanity.Level()))
+end
 commands.export = function() ns.UI.ExportFrame.Show("export") end
 commands.import = function() ns.UI.ExportFrame.Show("import") end
 

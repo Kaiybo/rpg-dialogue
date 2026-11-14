@@ -73,6 +73,14 @@ function Conv.Identify(unit, ctx, interactionName)
     info.tier = "pooled"
     local comm = ns.Data.CommunityForPlace(ctx.zone, ctx.subzone)
     info.communities = comm and { comm } or {}
+    -- A role pool with its own conversation tree speaks as one shared character:
+    -- every spirit healer seems to know your file.
+    local tree = ns.Data.TreePoolFor(info, ctx)
+    if tree then
+      info.def = tree
+      info.key = "pool:" .. tree.id
+      info.tier = tree.tier or "major"
+    end
   end
   return info
 end
@@ -150,6 +158,8 @@ function Conv.Start(kind, unit, interactionName)
   local info = Conv.Identify(unit, ctx, interactionName)
   if not info then return end
   if info.pooled and kind ~= "talk" and #ns.Data.PoolsFor(info, ctx) == 0 then return end
+  -- As a ghost, only the spirit-sensitive answer.
+  if C.IsGhost() and info.role ~= "spirithealer" and not (info.def and info.def.spiritSensitive) then return end
 
   ns.char.conversations = (ns.char.conversations or 0) + 1
   local memKey = Memory.Key(info)
@@ -190,7 +200,7 @@ function Conv.DecideFull(s, mode)
   if mode == "stepback" then return false, "another dialogue addon is in charge" end
   if settings.openMode == "full" then return true, "setting: always full" end
   local first = (s.mem.times or 0) == 0
-  if first and not s.info.pooled then return true, "first meeting" end
+  if first and s.info.def then return true, "first meeting" end
   local news, gid = Engine.HasNews(s.info, s.ctx, s.env)
   if news then return true, "something new: " .. tostring(gid) end
   if settings.openMode == "skip" then return nil, "setting: skip to business" end
@@ -284,6 +294,17 @@ local function alignHint(choice)
 end
 Conv.AlignHint = alignHint
 
+-- Slurred replies when drunk (cosmetic).
+function Conv.Slur(text, level, seed)
+  if (level or 0) < 2 then return text end
+  local rng = U.NewRNG(U.Hash(text, seed or 0))
+  text = text:gsub("s", "sh"):gsub("S", "Sh")
+  if level >= 3 or rng.next() < 0.5 then
+    text = text:gsub("(%a+)", function(w) if rng.next() < 0.12 then return w .. " *hic*" end end, 2)
+  end
+  return text
+end
+
 local function choiceLabel(entry)
   local choice = entry.choice
   local text = choice.text or "..."
@@ -346,18 +367,44 @@ function Conv.ShowNode(nodeId)
   if before then body = before .. "\n\n" .. body end
   if after then body = body .. "\n\n" .. after end
 
-  local entries = Engine.Choices(node, ctx, env)
-  local choices = {}
-  for i, entry in ipairs(entries) do
-    choices[i] = { text = choiceLabel(entry), locked = entry.locked, special = Engine.IsSpecial(entry.choice) }
-  end
-  s.choiceEntries = entries
+  local Ins = ns.Insanity
+  if Ins then body = Ins.Scramble(body, nil, env.seed) end
 
   ns.UI.Dialogue.Show({
-    name = info.name, subtitle = info.subtitle, unit = s.unit, text = body, choices = choices,
+    name = Ins and Ins.Name(info.name, env.seed) or info.name, subtitle = info.subtitle, unit = s.unit,
+    text = body, choices = Conv.BuildChoices(node, isStart),
     lineGid = winner and winner.gid, canAsk = ns.Topics and ns.Topics.Any(),
   })
   if ns.db.settings.tts then C.StopSpeaking(); C.Speak(body) end
+end
+
+-- Choices for a node: errands (first node only), the node's own, and (when insanity is
+-- strong) an intrusive extra. At most Engine.MAX_CHOICES.
+function Conv.BuildChoices(node, isStart)
+  local s = Conv.session
+  local ctx, env = s.ctx, s.env
+  local entries = {}
+  if isStart and ns.Errands then
+    for _, e in ipairs(ns.Errands.ChoicesFor(s.info, ctx, env)) do
+      entries[#entries + 1] = { choice = { text = e.text }, errand = e.errand, action = e.action }
+    end
+  end
+  for _, e in ipairs(Engine.Choices(node, ctx, env)) do
+    if #entries < Engine.MAX_CHOICES then entries[#entries + 1] = e end
+  end
+  local intrusive = ns.Insanity and ns.Insanity.IntrusiveChoice(env.seed + #entries)
+  if intrusive and #entries < Engine.MAX_CHOICES then
+    entries[#entries + 1] = { choice = { text = intrusive }, intrusive = true }
+  end
+  s.choiceEntries = entries
+  local choices = {}
+  for i, entry in ipairs(entries) do
+    choices[i] = {
+      text = Conv.Slur(choiceLabel(entry), ctx.drunk, env.seed + i),
+      locked = entry.locked, special = entry.choice and Engine.IsSpecial(entry.choice),
+    }
+  end
+  return choices
 end
 
 function Conv.Choose(index)
@@ -365,6 +412,16 @@ function Conv.Choose(index)
   if not s or s.mode ~= "full" then return end
   local entry = s.choiceEntries and s.choiceEntries[index]
   if not entry or entry.locked then return end
+  if entry.errand then
+    local text = ns.Errands.Act(entry.errand, entry.action, s.env)
+    ns.UI.Dialogue.ShowAnswer(Tokens.Render(text or "", s.ctx, s.env))
+    ns.UI.Dialogue.SetChoices(Conv.BuildChoices(s.nodeDef, false))
+    return
+  end
+  if entry.intrusive then
+    ns.UI.Dialogue.ShowAnswer(L.INSANITY_RESPONSE)
+    return
+  end
   local choice = entry.choice
   local env, ctx = s.env, s.ctx
   local fx, nextId, journal = choice.fx, choice.next, choice.journal

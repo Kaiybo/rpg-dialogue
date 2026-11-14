@@ -34,6 +34,8 @@ L.HELP_LINES = {
   "topics [teach <id> | forget <id>] - topics you know",
   "die <cause> - record a fake death (falling, drowning, guard, trivial, boss, ...)",
   "journal - open the journal",
+  "errands - errands you've taken",
+  "insanity <0-100> - set the insanity level (testing)",
   "export | import - save or restore this character's story as text",
   "dev on|off - developer messages",
   "reset - wipe this character's RPG Dialogue memory (asks first)",
@@ -160,6 +162,16 @@ L.DEED_LEVEL = "Reached level %s"
 L.DEED_ZONE = "First visit: %s"
 L.DEED_DUNGEON = "Entered %s"
 L.DEED_KILL = "Defeated %s"
+
+-- M6
+L.ERRAND_ASK = "Is there something I can do for you?"
+L.ERRAND_DONE = "I did what you asked."
+L.BOOK_READ = "Read \"%s\"."
+L.INSANITY_RESPONSE = "...What? I didn't say anything. Are you well?"
+L.J_OTHER_HAND = "(in a different hand)"
+L.INSANITY_SET = "Insanity level set to %d."
+L.ERRANDS_HEADER = "Errands:"
+L.ERRANDS_NONE = "No errands."
 
 -- Export / import
 L.EXPORT_TITLE = "Export your story"

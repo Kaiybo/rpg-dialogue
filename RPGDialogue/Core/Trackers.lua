@@ -140,6 +140,11 @@ local function zoneChanged()
   if inInstance and (kind == "party" or kind == "raid") and zone ~= "" then
     T.Deed("dungeon:" .. zone)
   end
+  if sub ~= "" then
+    c.places = c.places or {}
+    c.places[sub] = c.places[sub] or C.Now()
+    ns.Fire("PLACE_VISITED", sub)
+  end
   -- Home inn visits (at most one per hour)
   local home = c.homeInn
   if home and sub ~= "" and sub == home.name then

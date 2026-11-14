@@ -6,6 +6,7 @@ P:NPC {
   key = "sammuel", id = TODO_NPC("Brother Sammuel"), name = "Brother Sammuel",
   bible = "bibles/sammuel.md", role = "trainer", tier = "service",
   communities = { "northshire" }, temper = { "sharp" }, values = { "pious", "kind", "brave" },
+  spiritSensitive = true,
   notices = { "affliction", "light" },
 
   greetings = {
@@ -28,6 +29,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", text = "I teach those the Light has chosen. The rest I simply pray for." },
+        { id = "h_ghost", priority = 100, when = { ghost = true },
+          text = "I can feel you there, though I can't see you. Go to the healer, child. Then come back to me." },
         { id = "h_paladin", when = { class = "PALADIN" },
           text = "Every paladin's first lesson is the same. The Light isn't a weapon you own. It's a trust you keep." },
         { id = "h_letter", tags = { "news" }, when = { questRecent = { TODO_QUEST("Consecrated Letter"), days = 1 } },

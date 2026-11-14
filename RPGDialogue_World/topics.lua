@@ -11,3 +11,4 @@ P:Topic { id = "gold_dust", name = "Gold dust", category = "trade", learned = "R
 P:Topic { id = "northshire_abbey", name = "Northshire Abbey", category = "places", learned = "being there" }
 P:Topic { id = "lions_pride", name = "The Lion's Pride Inn", category = "places", learned = "being there" }
 P:Topic { id = "maybell_tommy", name = "Maybell and Tommy Joe", category = "people", learned = "William Pestle, or the farms" }
+P:Topic { id = "seven_kingdoms", name = "The Seven Kingdoms", category = "lore", learned = "the book of the same name" }

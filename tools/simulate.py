@@ -88,7 +88,7 @@ def main():
             all_lines.add(f[1])
         elif kind == "topicdef":
             topicdefs.add(f[1])
-        elif kind in ("pick", "greeting", "notice", "react", "topic", "rumor"):
+        elif kind in ("pick", "greeting", "notice", "react", "topic", "rumor", "bark"):
             if kind == "topic":
                 gid, tkind = f[3], f[4]
                 if gid != "-":

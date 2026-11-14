@@ -10,6 +10,11 @@ P:NPC {
   communities = { "goldshire" }, temper = { "cowardly" },
   notices = { "purse", "sneak" },
 
+  barks = {
+    { id = "b_buying", text = "Buying gold dust! Buying gold dust!" },
+    { id = "b_murlocs", when = { questBefore = TODO_QUEST("A Fishy Peril") }, text = "Murlocs in the east, I tell you! Murlocs!" },
+  },
+
   greetings = {
     { id = "g_dust", text = "Gold dust? Got any gold dust? Any at all?" },
     { id = "g_friend", when = { affinity = { min = 3 } }, text = "My friend! My good friend! What news?" },

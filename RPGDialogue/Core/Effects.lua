@@ -10,6 +10,7 @@ ns.Effects = Effects
 Effects.KEYS = {
   align = true, big = true, taint = true, trait = true, opinion = true, flag = true, claim = true,
   affinity = true, standing = true, thread = true, hear = true, expose = true, learn = true, npcFlag = true,
+  insanity = true,
 }
 
 ---------------------------------------------------------------------------
@@ -187,6 +188,7 @@ function Effects.Apply(fx, env)
   if fx.expose then
     for _, id in ipairs(U.AsList(fx.expose)) do c.claims.exposed[id] = c.claims.exposed[id] or now end
   end
+  if fx.insanity and ns.Insanity then ns.Insanity.Add(fx.insanity) end
   if fx.learn then
     for _, id in ipairs(U.AsList(fx.learn)) do
       if not c.topics[id] then
@@ -206,11 +208,13 @@ function Effects.Journal(template, ctx, env)
   local text = template[voice] or template.first or template.third
   if not text then return end
   local c = ns.char
+  local rendered = ns.Tokens.Render(text, ctx, env)
+  local otherHand = ns.Insanity and ns.Insanity.Strength() > 0.5
+  if otherHand then rendered = ns.Insanity.Scramble(rendered, 0.6, #c.journal) end
   c.journal[#c.journal + 1] = {
     t = env.now or C.Now(),
     zone = ctx.zone, subzone = ctx.subzone,
     npc = env.info and env.info.name, key = env.info and env.info.key,
-    text = ns.Tokens.Render(text, ctx, env),
-    voice = voice,
+    text = rendered, voice = voice, otherHand = otherHand or nil,
   }
 end

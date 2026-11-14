@@ -4,6 +4,18 @@ All notable changes to RPG Dialogue. The core and each content pack get their ow
 
 ## [Unreleased]
 
+### M6 (2026-11-13): Spirit healers, books, insanity, barks, errands
+- Spirit healers: one shared conversation tree for every spirit healer (they "keep shared records": one memory, one file). Reactions to how you died (falling, drowning, fatigue, guards, players, something far below you, elites, bosses), death counts with running jokes, the same spot again, long streaks, class and race (shaman ankh, warlock soulstone, priests and paladins, Forsaken, night elf wisps), alignment and Fel Taint tone; "your file", "what are you?", "why do you help us?". The afterlife stays a mystery.
+- Pools can now carry whole conversation trees and act as one character. New conditions `deathsHere`, `daysSinceDeath`, `visited`; tokens `{deaths}`, `{deathplace}`, `{killer}`.
+- Ghosts: only spirit-sensitive NPCs answer (spirit healers, Brother Sammuel).
+- Books: known books teach topics and are journaled; Brother Neals reacts to *The Seven Kingdoms*.
+- Temporary insanity (`fx.insanity`, `/rpgd insanity <n>`): scrambled text (stable, no flicker), wrong names, intrusive extra replies, local-only fake whispers, journal entries in a different hand, a static dark vignette. Cured by rest, holy places, the Camping buff (once its spell ID is captured), and time. Off with the setting or reduce motion.
+- Drunk replies: slurred choice text.
+- Proximity barks from nameplates, target and mouseover (local chat only, 90 s global / 10 min per NPC, 30% chance), and live reactions from nearby NPCs (a child squeals when you shift into a cat).
+- Addon-side errands (`P:Errand`, `/rpgd errands`): visit / item / kill requirements verified by the addon, addon-only rewards. Slice: Eagan asks you to look at Echo Ridge Mine.
+- Pacing: removed the per-conversation "death" budget (it silenced spirit healers).
+- Validator: errands, books, pool trees. Simulation: barks, ghosts, books, lies, spirit healer deaths. Tests: 96 passing.
+
 ### M5 (2026-11-13): Journal, origins, export/import
 - Journal window (`UI/Journal.lua`, `/rpgd journal`, keybinding, launcher left-click): Chronicle (searchable, newest first, folded old entries), People I've Met (affinity in words, last talked, last thing said), Character Sheet (alignment in words, title, dominant traits, opinions incl. contradictions, Fel Taint only if present, town standings as tier names, Origin page), Topics (known topics, "X insists: ..." claims with settled marks, books read), Deeds, Notes (your own writing).
 - Origins (`Systems/Origins.lua`): picked on the Character Sheet (browse, edit the 2–3 sentence blurb, confirm; changing asks for a second click), one dismissible hint at first login, starting nudge and home-town welcome applied once per origin, blurb becomes a journal entry, "Other" unlocks nothing. Draft lists (for approval) for humans, dwarves, gnomes, night elves and Skyborne (from the brief's section 10 only, faction-aware).

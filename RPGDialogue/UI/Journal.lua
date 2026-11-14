@@ -69,7 +69,7 @@ function J.Text(tab, search)
       local text = e.kind == "summary" and L.J_FOLDED:format(e.folded or 0) or (e.text or "")
       if not needle or text:lower():find(needle, 1, true) or (e.zone or ""):lower():find(needle, 1, true) then
         add("|cff8a6d3b" .. when(e.t) .. (e.subzone and e.subzone ~= "" and (" · " .. e.subzone) or (e.zone and (" · " .. e.zone) or "")) .. "|r")
-        add(text)
+        add(e.otherHand and ("|cff7a5a8a" .. text .. "  " .. L.J_OTHER_HAND .. "|r") or text)
         add(" ")
       end
     end

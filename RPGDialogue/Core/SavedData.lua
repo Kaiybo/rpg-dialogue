@@ -78,6 +78,8 @@ SD.CHAR_DEFAULTS = {
   drunk = 0,
   notes = "",
   originsApplied = {},
+  places = {},
+  errands = {},
   _quarantine = {},
 }
 

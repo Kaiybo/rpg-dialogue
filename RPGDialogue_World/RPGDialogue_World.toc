@@ -20,5 +20,6 @@ origins\gnome.lua
 origins\nightelf.lua
 origins\skyborne.lua
 rumors\elwynn.lua
+books.lua
 generic.lua
 pools.lua

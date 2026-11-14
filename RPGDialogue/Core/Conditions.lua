@@ -217,6 +217,40 @@ def("deaths", 40, "hinge", "death", function(ctx, v)
   return inRange(n, v), "deaths " .. n .. ", wanted " .. show(v)
 end)
 
+-- Deaths in the same place as the last one, within `days` (default 7): { min = 3, days = 7 }
+def("deathsHere", 40, "hinge", "death", function(ctx, v, env)
+  local deaths = ns.char.deaths
+  local last = deaths[#deaths]
+  local n = spoofOr(ctx, "deathsHere", nil)
+  if n == nil then
+    n = 0
+    if last then
+      local cutoff = (env.now or 0) - (v.days or 7) * 86400
+      for i = #deaths, 1, -1 do
+        local d = deaths[i]
+        if (d.t or 0) < cutoff then break end
+        if d.subzone == last.subzone and d.zone == last.zone then n = n + 1 end
+      end
+    end
+  end
+  return inRange(n, v), "deaths in the same place " .. n
+end)
+
+-- Days since the previous death (before the current one, if the player is a ghost now).
+def("daysSinceDeath", 40, "hinge", "death", function(ctx, v, env)
+  local deaths = ns.char.deaths
+  local prev = deaths[#deaths - 1]
+  local days = spoofOr(ctx, "daysSinceDeath", prev and ((env.now or 0) - (prev.t or 0)) / 86400 or nil)
+  if not days then return false, "no earlier death" end
+  return inRange(days, v), ("%.1f days between deaths"):format(days)
+end)
+
+-- The player has been to a subzone (recorded by the addon).
+def("visited", 15, "hinge", nil, function(ctx, v)
+  local places = ns.char.places or {}
+  return places[v] ~= nil, "visited " .. tostring(v)
+end)
+
 def("deathCause", 40, "hinge", "death", function(ctx, v)
   local last = ns.char.deaths[#ns.char.deaths]
   local cause = spoofOr(ctx, "deathCause", last and last.cause)

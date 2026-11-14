@@ -111,6 +111,7 @@ W.NAME_ROLES = {
   { "deathguard", "guard" }, { "sentinel$", "guard" }, { "grunt$", "guard" }, { "brave$", "guard" },
   { "protector$", "guard" }, { "defender$", "guard" }, { "watcher$", "guard" },
   { "peon$", "peon" }, { "militia", "militia" },
+  { "^spirit healer$", "spirithealer" }, { "^spirit guide$", "spirithealer" },
   { "orphan", "child" }, { "child$", "child" }, { "^young ", "child" },
 }
 

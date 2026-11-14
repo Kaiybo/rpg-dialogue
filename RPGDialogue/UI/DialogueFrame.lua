@@ -283,23 +283,7 @@ function D.Show(v)
     if frame.model.SetPortraitZoom then frame.model:SetPortraitZoom(1) end
   end
 
-  local n = 0
-  for i, c in ipairs(v.choices or {}) do
-    local b = frame.buttons[i]
-    b.locked = c.locked
-    b.label:SetText(i .. ". " .. c.text)
-    b:Show()
-    n = i
-  end
-  local getOn = frame.buttons[n + 1]
-  getOn.locked = false
-  getOn.label:SetText((n + 1) .. ". " .. L.GET_ON_WITH_IT)
-  getOn:Show()
-  getOn.isGetOn = true
-  for i = 1, MAX_BUTTONS do
-    frame.buttons[i].isGetOn = (i == n + 1)
-    if i > n + 1 then frame.buttons[i]:Hide() end
-  end
+  D.RenderChoices(v.choices)
 
   frame.flagHint:SetText("")
   frame.ask:SetShown(v.canAsk == true)
@@ -318,6 +302,35 @@ function D.Show(v)
     frame:SetScript("OnUpdate", onUpdate)
   end
   if settings().sounds then C.PlaySound("IG_QUEST_LIST_OPEN") end
+end
+
+function D.RenderChoices(choices)
+  local n = 0
+  for i, c in ipairs(choices or {}) do
+    if i > MAX_BUTTONS - 1 then break end
+    local b = frame.buttons[i]
+    b.locked = c.locked
+    b.label:SetText(i .. ". " .. c.text)
+    b:Show()
+    n = i
+  end
+  local getOn = frame.buttons[n + 1]
+  getOn.locked = false
+  getOn.label:SetText((n + 1) .. ". " .. L.GET_ON_WITH_IT)
+  getOn:Show()
+  for i = 1, MAX_BUTTONS do
+    frame.buttons[i].isGetOn = (i == n + 1)
+    if i > n + 1 then frame.buttons[i]:Hide() end
+  end
+end
+
+-- Replace the choices in place (after an errand step).
+function D.SetChoices(choices)
+  if not frame or not frame:IsShown() then return end
+  if view then view.choices = choices end
+  D.RenderChoices(choices)
+  D.Style()
+  D.Layout()
 end
 
 -- An answer from "Ask about...": replaces the main text, keeps the choices.

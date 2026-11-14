@@ -29,6 +29,10 @@ Systems\Threads.lua
 Systems\Rumors.lua
 Systems\Towns.lua
 Systems\Topics.lua
+Systems\Books.lua
+Systems\Insanity.lua
+Systems\Barks.lua
+Systems\Errands.lua
 Systems\Origins.lua
 Systems\Export.lua
 

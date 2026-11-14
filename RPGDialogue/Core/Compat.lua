@@ -461,6 +461,10 @@ function C.Rep(factionID)
   return standing, name
 end
 
+function C.ItemCount(itemID)
+  return call({ "C_Item.GetItemCount", "GetItemCount" }, itemID) or 0
+end
+
 function C.IsHardcore()
   return call("C_GameRules.IsHardcoreActive") == true
 end

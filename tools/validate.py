@@ -97,7 +97,7 @@ def main():
 
     # ---- pass 1: collect everything --------------------------------------------------
     npcs, pools, generic = {}, [], []
-    defs = {k: {} for k in ("Thread", "Claim", "Topic", "Town", "Origin", "Rumors")}
+    defs = {k: {} for k in ("Thread", "Claim", "Topic", "Town", "Origin", "Rumors", "Book", "Errand")}
     key_lines, all_lines = {}, {}
     for pack in packs:
         for f, line, msg in pack.errors:
@@ -386,8 +386,9 @@ def main():
         ids = set()
         for slot, node, ln, gid in P.iter_lines(tbl, where):
             check_line(pack, f, ln, where, slot, ids)
+        pool_nodes = tbl.get("nodes").named() if isinstance(tbl.get("nodes"), LTable) else {}
         for nid, i, ch in P.iter_choices(tbl):
-            check_choice(pack, f, ch, f"{where}.choice{i}", {})
+            check_choice(pack, f, ch, f"{where}.{nid}.choice{i}", pool_nodes)
     if not generic:
         rep.error(None, "(all packs)", None, "no Generic definitions loaded: some NPCs could be silent")
     for pack, tbl, f, line in generic:
@@ -417,6 +418,23 @@ def main():
         for entry in P.arr(tbl.get("quests")):
             if isinstance(entry, LTable) and 1 in entry:
                 check_ref(pack, f, entry.line, "quest", entry[1], f"town {tid} quests")
+    for eid, (pack, tbl, f, line) in defs["Errand"].items():
+        if tbl.get("npc") not in npcs:
+            rep.error(pack, f, line, f"errand {eid}: npc {tbl.get('npc')!r} isn't defined")
+        need = tbl.get("need")
+        if not isinstance(need, LTable) or not any(k in need for k in ("visit", "item", "kill")):
+            rep.error(pack, f, line, f"errand {eid}: need must be {{ visit = }} / {{ item =, count = }} / {{ kill =, count = }}")
+        for k in ("offer", "thanks"):
+            if not isinstance(tbl.get(k), str):
+                rep.error(pack, f, line, f"errand {eid}: missing {k} text")
+        check_when(pack, f, line, tbl.get("when"), f"errand {eid}")
+        check_fx(pack, f, line, tbl.get("reward"), f"errand {eid}.reward")
+    for bid, (pack, tbl, f, line) in defs["Book"].items():
+        if not tbl.get("title"):
+            rep.error(pack, f, line, f"book {bid}: needs a title (as shown in game)")
+        for t in P.arr(tbl.get("topics")):
+            if t not in defs["Topic"]:
+                rep.warn(pack, f, line, f"book {bid}: topic {t!r} isn't defined")
     for tid, (pack, tbl, f, line) in defs["Topic"].items():
         if not tbl.get("name") or not tbl.get("category"):
             rep.error(pack, f, line, f"topic {tid}: needs name and category")

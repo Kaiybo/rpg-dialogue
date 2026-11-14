@@ -44,6 +44,15 @@ local simple = {
   end,
   title = function() local t = ns.Effects and ns.Effects.TitleName and ns.Effects.TitleName(); return t or "" end,
   home = function() return (ns.char and ns.char.homeInn and ns.char.homeInn.name) or "" end,
+  deaths = function() return tostring((ns.char and ns.char.deathCount) or 0) end,
+  deathplace = function()
+    local d = ns.char and ns.char.deaths[#ns.char.deaths]
+    return d and ((d.subzone ~= "" and d.subzone) or d.zone) or "somewhere"
+  end,
+  killer = function()
+    local d = ns.char and ns.char.deaths[#ns.char.deaths]
+    return (d and d.killer and d.killer.name) or "something"
+  end,
 }
 
 function Tokens.Render(text, ctx, env)
@@ -59,4 +68,5 @@ function Tokens.Render(text, ctx, env)
   return text
 end
 
-Tokens.KNOWN = { "name", "npc", "race", "class", "pet", "zone", "subzone", "town", "title", "home", "g" }
+Tokens.KNOWN = { "name", "npc", "race", "class", "pet", "zone", "subzone", "town", "title", "home", "g",
+  "deaths", "deathplace", "killer" }

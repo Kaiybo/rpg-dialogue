@@ -67,7 +67,7 @@ local function randomCharacter(i)
     race = race, class = class, level = level, gender = chance(0.5) and "male" or "female",
     faction = "Alliance", hour = rng.int(0, 23), drunk = chance(0.1) and rng.int(1, 3) or 0,
     durability = chance(0.15) and rng.next() * 0.3 or 0.9, nearlyNaked = chance(0.05),
-    resSick = chance(0.05), stealthed = class == "ROGUE" and chance(0.3),
+    resSick = chance(0.05), stealthed = class == "ROGUE" and chance(0.3), ghost = chance(0.03),
     form = (class == "DRUID" and chance(0.5)) and pick({ "bear", "cat", "travel" }) or false,
     pet = (class == "HUNTER" and { family = pick({ "Wolf", "Cat", "Bear", "Boar" }), type = "Beast", name = "Pet" })
       or (class == "WARLOCK" and { family = pick({ "Imp", "Voidwalker" }), type = "Demon", name = "Pet" }) or false,
@@ -102,6 +102,9 @@ local function randomCharacter(i)
   for id in pairs(ns.Data.topics) do if chance(0.3) then c.topics[id] = { t = 0 } end end
   c.homeInn = chance(0.4) and { name = pick({ "Goldshire", "Northshire Abbey", "Stormwind City" }) } or nil
   U.Wipe(c.journal)
+  U.Wipe(c.books); U.Wipe(c.claims.player)
+  if chance(0.15) then c.books["The Seven Kingdoms"] = { t = 0, n = 1 } end
+  if chance(0.15) then c.claims.player.player_killed_hogger = { t = 0 } end
   local old = Mock.state.now - rng.int(1, 14) * 86400 - rng.int(0, 86400)
   if chance(0.5) then
     local stances = { "mercy", "hardline", "follow_the_leaders" }
@@ -148,6 +151,16 @@ local function talk(info, spoof, charIndex, mem)
   ns.char.conversations = ns.char.conversations + 1
   Mock.state.now = Mock.state.now + 1800
   local ctx = ns.Context.New({ spoof = spoof })
+  if info.pooled and not info.def then
+    local tree = ns.Data.TreePoolFor(info, ctx)
+    if tree then info.def, info.key = tree, "pool:" .. tree.id end
+  end
+  if info.role == "spirithealer" then
+    ctx.spoofed.deaths = rng.int(1, 60)
+    ctx.spoofed.deathCause = pick({ "falling", "drowning", "fatigue", "guard", "player", "trivial", "elite", "boss", "creature", "unknown" })
+    ctx.spoofed.deathsHere = rng.int(0, 4)
+    ctx.spoofed.daysSinceDeath = rng.int(0, 30)
+  end
   local env = ns.Engine.NewEnv(info, ctx, mem)
   local who = info.key or ("pool:" .. tostring(info.role) .. "@" .. tostring(info.communities[1]))
   local nodes = info.def and info.def.nodes or { hello = ns.Conversation.Node(info, "hello", ctx) }
@@ -172,6 +185,8 @@ local function talk(info, spoof, charIndex, mem)
   env.conv.acks = 0
   local n = ns.Engine.PickNotice(info, ctx, env)
   record("notice", who, nil, n)
+  local bark = ns.Engine.PickBark(info, ctx, env)
+  if bark then record("bark", who, nil, bark); ns.Memory.MarkSeen(bark.gid, bark.line) end
   local rumor = ns.Engine.PickRumor(info, ctx, env)
   if rumor then record("rumor", who, nil, rumor); ns.Memory.MarkSeen(rumor.gid, rumor.line) end
   for _, ev in ipairs({ "form", "pet", "stealth", "mount", "aura" }) do

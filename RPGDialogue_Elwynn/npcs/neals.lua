@@ -31,6 +31,8 @@ P:NPC {
           text = "A priest! Do they still make novices copy the old texts by candlelight at the Cathedral, or has Stormwind gone soft?" },
         { id = "h_paladin", when = { class = "PALADIN" },
           text = "Brother Sammuel's pupil? Mind he doesn't work you too hard. He forgets that some of us enjoy supper." },
+        { id = "h_book", tags = { "news" }, once = true, priority = 15, when = { bookRead = "The Seven Kingdoms" },
+          text = "You've read The Seven Kingdoms? Then you know Stromgarde won't let go of what it was. Neither will I, of the Abbey." },
         { id = "h_kind", when = { alignment = { axis = "light", min = 40 } },
           text = "There's a kindness about you. It shows, you know. It always shows." },
       },
