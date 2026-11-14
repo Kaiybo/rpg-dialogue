@@ -555,3 +555,16 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Pestlezugg: Rose the rat; the insect report; Gracina's and Zilzibin's Un'Goro theory | [Alchemist Pestlezugg](https://warcraft.wiki.gg/wiki/Alchemist_Pestlezugg) |
 | Tran'rek: Krazek's cousin; evasive | [Tran'rek](https://warcraft.wiki.gg/wiki/Tran%27rek) |
 | Innkeeper Fizzgrimble; Stoley at Steamwheedle Port and his debt to MacKinley | [Innkeeper Fizzgrimble](https://warcraft.wiki.gg/wiki/Innkeeper_Fizzgrimble); [Stoley](https://warcraft.wiki.gg/wiki/Stoley) |
+
+## Dustwallow Marsh (Dustwallow pack 1.0.0)
+
+| Fact used | Source |
+|---|---|
+| Theramore: founded by Jaina with Lordaeron's survivors after the Third War; the Jaina–Thrall understanding; Daelin's attack and death | [Theramore Isle](https://warcraft.wiki.gg/wiki/Theramore_Isle) |
+| Jaina: ruler, mage, diplomat; ordered her troops to stand down when her father attacked, and despaired; helped with the Hendel affair | [Jaina Proudmoore](https://warcraft.wiki.gg/wiki/Jaina_Proudmoore) |
+| Archmage Tervosh: Jaina's adviser; independent of the Kirin Tor; his herb garden; The Missing Diplomat, Shadowshard Fragments | [Archmage Tervosh](https://warcraft.wiki.gg/wiki/Archmage_Tervosh) |
+| Captain Garran Vimes: the Shady Rest Inn fire (James Hyal's wife and child); speaks orcish; his quest chain | [Captain Garran Vimes](https://warcraft.wiki.gg/wiki/Captain_Garran_Vimes) |
+| Adjutant Tesoran: the Guard's records; Daelin's Men | [Adjutant Tesoran](https://warcraft.wiki.gg/wiki/Adjutant_Tesoran) |
+| Innkeeper Janene | [Innkeeper Janene](https://warcraft.wiki.gg/wiki/Innkeeper_Janene) |
+| Krog: the Warchief's order to leave the humans alone, broken; the Shady Rest investigation; The Grimtotem Plot | [Krog](https://warcraft.wiki.gg/wiki/Krog) |
+| Nazeer Bloodpike: Brackenwall's spymaster; The Severed Head chain to Zor | [Nazeer Bloodpike](https://warcraft.wiki.gg/wiki/Nazeer_Bloodpike) |

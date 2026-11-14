@@ -156,7 +156,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Krazek, secretary to Baron Revilgaz. Prices, pirates, who owes whom in this jungle: ask me. If I don't know it, it hasn't happened yet." },
-        { id = "h_tranrek", when = { heardLine = "tranrek.h_default" },
+        { id = "h_cousin", when = { heardLine = "tranrek.h_default" },
           text = "You met my cousin in Gadgetzan! Did he tell you what he does? No? He never does. That's how he stays rich." },
         { id = "h_thorsen", when = { questActive = TODO_QUEST("Supplies to Private Thorsen") },
           text = "Private Thorsen's out near the rebels' camp, waiting on those supplies. Keep your head down. Kurzen's men don't sign for deliveries." },
@@ -223,7 +223,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "They call me the Sea Wolf. Folk borrow, folk forget, and I remind them. Dying doesn't get you out of a debt with me. I've proved it." },
-        { id = "h_stoley", when = { heardLine = "stoley.h_default" },
+        { id = "h_seen_stoley", when = { heardLine = "stoley.h_default" },
           text = "You've seen Stoley? Still breathing, is he? Good. Breathing men can pay." },
         { id = "h_voodoo", when = { questActive = TODO_QUEST("Voodoo Dues") },
           text = "There's a debt out among the trees with a bit of voodoo wrapped round it. Doesn't matter. Magic doesn't cancel what's owed." },

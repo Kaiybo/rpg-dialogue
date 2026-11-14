@@ -360,6 +360,20 @@ P:Town {
   tiers = { Hero = "Known on the Docks" },
 }
 
+P:Town {
+  id = "theramore", name = "Theramore",
+  subzones = { "Theramore Isle", "Foothold Citadel" },
+  tiers = { Hero = "Friend of Theramore" },
+  quests = { { TODO_QUEST("The Black Shield"), 6 }, { TODO_QUEST("Daelin's Men"), 6 } },
+}
+
+P:Town {
+  id = "brackenwall", name = "Brackenwall Village",
+  subzones = { "Brackenwall Village" },
+  tiers = { Hero = "Hero of Brackenwall" },
+  quests = { { TODO_QUEST("Justice Dispensed"), 8 } },
+}
+
 -- The other capitals. Their guards speak from pools_roles.lua; standing grows from quests
 -- each capital's own pack lists later.
 P:Town {
