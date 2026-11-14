@@ -827,7 +827,7 @@ function C.GossipOptions()
   if type(list) == "table" then
     for i = 1, #list do
       local o = list[i]
-      out[#out + 1] = { id = o.gossipOptionID, name = o.name, icon = o.icon }
+      out[#out + 1] = { id = o.gossipOptionID, name = o.name, icon = o.icon, only = o.selectOptionWhenOnlyOption == true }
     end
     return out
   end
@@ -836,6 +836,20 @@ function C.GossipOptions()
     out[#out + 1] = { id = (i + 1) / 2, name = legacy[i], kind = legacy[i + 1] }
   end
   return out
+end
+
+-- The file IDs of the gossip window's service icons (vendor, trainer, flight...), so an
+-- option can be told apart from a "tell me more" one without reading its words.
+local serviceIcons
+function C.GossipServiceIcons()
+  if serviceIcons then return serviceIcons end
+  serviceIcons = {}
+  for kind, file in pairs({ vendor = "VendorGossipIcon", trainer = "TrainerGossipIcon", taxi = "TaxiGossipIcon",
+                            binder = "BinderGossipIcon", banker = "BankerGossipIcon" }) do
+    local id = call("GetFileIDFromPath", "Interface\\GossipFrame\\" .. file)
+    if type(id) == "number" then serviceIcons[id] = kind end
+  end
+  return serviceIcons
 end
 
 -- Quests this NPC offers or holds for you: { { title, questID, active }, ... }

@@ -152,3 +152,116 @@ describe("The game's pages in the box", function()
     eq(ns.UI.Dialogue.IsShown(), false)
   end)
 end)
+
+describe("Staying in the box (no game menu in between)", function()
+  local function getOn(ns)
+    local r = rows(ns)
+    contains(r[#r].label:GetText(), "Get on with it")
+    ns.UI.Dialogue.Click(#r)
+  end
+
+  it("Get on with it goes straight to the NPC's one service", function()
+    local ns = boot()
+    Mock.state.gossipOptions = { { gossipOptionID = 77, name = "I want to browse your goods." } }
+    local gf = open("GossipFrame", "GOSSIP_SHOW")
+    Mock.calls = {}
+    getOn(ns)
+    eq(called("SelectOption")[2], 77, "the vendor option, picked for the player")
+    eq(ns.UI.Dialogue.IsShown(), true, "the box stays until the vendor's window comes")
+    eq(gf:GetAlpha(), 0, "the game's menu never shows")
+    gf:Hide()
+    Mock.NewFrame("Frame", "MerchantFrame"):Show()
+    Mock.Fire("PLAYER_INTERACTION_MANAGER_FRAME_SHOW", Enum.PlayerInteractionType.Merchant)
+    Mock.RunTimers()
+    eq(ns.UI.Dialogue.IsShown(), false, "the vendor's own window")
+  end)
+
+  it("with several options, Get on with it shows the menu in the box, ending in Goodbye", function()
+    local ns = boot()
+    Mock.state.gossipOptions = {
+      { gossipOptionID = 5, name = "Make this inn your home." },
+      { gossipOptionID = 6, name = "I want to browse your goods." },
+    }
+    Mock.state.gossipText = "Welcome to the inn."
+    local gf = open("GossipFrame", "GOSSIP_SHOW")
+    getOn(ns)
+    eq(ns.UI.Dialogue.IsShown(), true)
+    eq(gf:GetAlpha(), 0, "the game's menu stays hidden")
+    local r = rows(ns)
+    contains(r[1].label:GetText(), "Make this inn your home.")
+    contains(r[2].label:GetText(), "browse your goods")
+    contains(r[#r].label:GetText(), "Goodbye.")
+    ns.UI.Dialogue.Click(#r)
+    eq(ns.Conversation.session, nil, "Goodbye ends the visit")
+  end)
+
+  it("a reply that leads to business picks the service its words ask for", function()
+    local ns = boot()
+    Mock.state.gossipOptions = {
+      { gossipOptionID = 5, name = "Make this inn your home." },
+      { gossipOptionID = 6, name = "I want to browse your goods." },
+    }
+    open("GossipFrame", "GOSSIP_SHOW")
+    Mock.calls = {}
+    click(ns, "Reporting for duty")
+    click(ns, "Show me the work")
+    eq(called("SelectOption")[2], 6, "'Show me...' means the goods, not the inn")
+  end)
+
+  it("knows a service by the gossip window's icon when the words don't say", function()
+    local ns = boot()
+    _G.GetFileIDFromPath = function(path) return path:find("TrainerGossipIcon") and 132058 or 1 end
+    Mock.state.gossipOptions = { { gossipOptionID = 9, name = "Let us talk.", icon = 132058 } }
+    open("GossipFrame", "GOSSIP_SHOW")
+    Mock.calls = {}
+    eq(ns.Conversation.OptionKind({ name = "Let us talk.", icon = 132058 }), "trainer")
+    _G.GetFileIDFromPath = nil
+  end)
+
+  it("Escape and the close button end the visit instead of showing the game's menu", function()
+    local ns = boot()
+    Mock.state.gossipOptions = { { gossipOptionID = 5, name = "What can you do at an inn?" } }
+    local gf = open("GossipFrame", "GOSSIP_SHOW")
+    local f = ns.UI.Dialogue.Frame()
+    ns.UI.Dialogue.OnKey(f, "ESCAPE")
+    eq(ns.Conversation.session, nil)
+    eq(ns.UI.Dialogue.IsShown(), false)
+    eq(gf:GetAlpha(), 1, "nothing left faded")
+  end)
+
+  it("someone we have no lines for still gets their menu in the box", function()
+    local ns = boot()
+    Mock.state.units.npc = { guid = "Creature-0-1-0-1-424242-AB", name = "Nobody In Particular", level = 10, reaction = 5 }
+    Mock.state.gossipText = "Need something?"
+    Mock.state.gossipOptions = { { gossipOptionID = 3, name = "Tell me about this place." } }
+    local gf = _G.GossipFrame or Mock.NewFrame("Frame", "GossipFrame")
+    gf:Show(); gf:SetAlpha(1)
+    Mock.Fire("GOSSIP_SHOW")
+    Mock.RunTimers()
+    eq(ns.Conversation.session.menuOnly, true)
+    eq(ns.UI.Dialogue.IsShown(), true)
+    eq(gf:GetAlpha(), 0)
+    eq(ns.UI.Dialogue.Frame().name:GetText(), "Nobody In Particular")
+    contains(ns.UI.Dialogue.Frame().text:GetText(), "Need something?")
+    Mock.calls = {}
+    click(ns, "Tell me about this place.")
+    eq(called("SelectOption")[2], 3)
+    Mock.state.gossipText = "It's quiet."
+    Mock.state.gossipOptions = {}
+    Mock.Fire("GOSSIP_SHOW")
+    Mock.RunTimers()
+    contains(ns.UI.Dialogue.Frame().text:GetText(), "It's quiet.", "the next page in the box too")
+    ns.db.settings.pagesInBox = false
+  end)
+
+  it("with pages in the box turned off, the game's menu comes back as before", function()
+    local ns = boot()
+    ns.db.settings.pagesInBox = false
+    Mock.state.gossipOptions = { { gossipOptionID = 77, name = "I want to browse your goods." } }
+    local gf = open("GossipFrame", "GOSSIP_SHOW")
+    ns.Conversation.Business()
+    eq(ns.UI.Dialogue.IsShown(), false)
+    eq(gf:GetAlpha(), 1)
+    eq(ns.Conversation.session.mode, "business")
+  end)
+end)

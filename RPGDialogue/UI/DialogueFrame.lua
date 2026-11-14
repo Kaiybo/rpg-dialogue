@@ -198,10 +198,10 @@ local function create()
   for i = 1, MAX_BUTTONS do frame.buttons[i] = makeButton(i) end
 
   frame.close = Theme.CloseButton(frame)
-  frame.close:SetScript("OnClick", function() ns.Conversation.Business() end)
+  frame.close:SetScript("OnClick", function() ns.Conversation.Close() end)
   frame.close:HookScript("OnEnter", function(self)
     GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-    GameTooltip:SetText(L.GET_ON_WITH_IT)
+    GameTooltip:SetText(L.CLOSE)
     GameTooltip:Show()
   end)
   frame.close:HookScript("OnLeave", function() GameTooltip:Hide() end)
@@ -491,6 +491,7 @@ end
 function D.Show(v)
   if not frame then create(); D.Style() end
   view = v
+  frame.lastLabel = v.lastLabel
   frame.name:SetText(v.name or "")
   frame.subtitle:SetText(v.subtitle and ("<" .. v.subtitle .. ">") or "")
   frame.reaction:SetText("")
@@ -547,7 +548,7 @@ function D.RenderChoices(choices)
   getOn.locked = false
   getOn.tooltip = nil
   getOn.gap = n > 0
-  getOn.label:SetText(((n + 1) % 10) .. ". " .. L.GET_ON_WITH_IT)
+  getOn.label:SetText(((n + 1) % 10) .. ". " .. (frame.lastLabel or L.GET_ON_WITH_IT))
   D.SetRowIcon(getOn, isGame() and ICON_BULLET or nil, false)
   getOn:Show()
   for i = 1, MAX_BUTTONS do
@@ -722,7 +723,7 @@ function D.OnKey(self, key)
     handled = true
     if UI.TextOptions.IsShown() then UI.TextOptions.Hide()
     elseif ask.IsShown() then ask.Hide()
-    else ns.Conversation.Business() end
+    else ns.Conversation.Close() end
   elseif key == "SPACE" then
     if reveal.active then handled = true; finishReveal() end
   elseif key == "UP" or (key == "TAB" and C.ShiftDown()) then
@@ -763,7 +764,7 @@ function D.OnPad(_, button)
   elseif button == "PAD1" then
     if not D.Confirm() then D.Move(1) end
   elseif button == "PAD2" then
-    ns.Conversation.Business()
+    ns.Conversation.Close()
   elseif button == "PAD3" and frame.ask:IsShown() then
     ask.Toggle(frame)
   end

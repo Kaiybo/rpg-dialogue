@@ -210,7 +210,7 @@ function Conv.Start(kind, unit, interactionName)
     -- An option picked in the box led to the game's next page: show it in the box too.
     -- A vendor, trainer, flight map or bank opens its own window as usual.
     if s.mode == "full" and s.following then
-      if kind == "service" then Conv.Business()
+      if kind == "service" then Conv.HandOver()
       elseif kind == "gossip" or kind == "quest" then Conv.ShowGamePage(kind) end
     end
     return
@@ -219,8 +219,10 @@ function Conv.Start(kind, unit, interactionName)
 
   local ctx = ns.Context.New({ unit = unit })
   local info = Conv.Identify(unit, ctx, interactionName)
-  if not info then return end
-  if info.pooled and kind ~= "talk" and #ns.Data.PoolsFor(info, ctx) == 0 then return end
+  if not info or (info.pooled and kind ~= "talk" and #ns.Data.PoolsFor(info, ctx) == 0) then
+    -- Nobody we have lines for: still show their menu in the box, not the game's.
+    return Conv.StartMenuOnly(kind, unit, ctx, guid, mode)
+  end
   -- As a ghost, only the spirit-sensitive answer.
   if C.IsGhost() and info.role ~= "spirithealer" and not (info.def and info.def.spiritSensitive) then return end
 
@@ -253,6 +255,28 @@ function Conv.Start(kind, unit, interactionName)
   end
 
   if full then Conv.OpenFull(s.reason) else Conv.OpenCompact() end
+end
+
+-- An NPC (or a quest board) we have no lines for: their quests and options in the box, so
+-- the game's menu doesn't flash up between our conversations. Nothing is remembered.
+function Conv.StartMenuOnly(kind, unit, ctx, guid, mode)
+  local settings = ns.db.settings
+  if kind ~= "gossip" and kind ~= "quest" then return end
+  if mode ~= "normal" or settings.pagesInBox == false or settings.openMode == "skip" then return end
+  if C.InCombat() or ns.Integrations.InsideDialogueUI() then return end
+  local s = {
+    guid = guid, unit = unit, kind = kind, ctx = ctx, menuOnly = true, following = true, mode = "full", env = {},
+    reason = "no lines for this NPC: their menu in the box",
+    info = { name = ctx.npcName or "", subtitle = ctx.npcSubtitle },
+    started = C.Now(),
+  }
+  Conv.session = s
+  ns.UI.Compact.Hide()
+  if kind == "gossip" and #C.GossipQuests() == 0 and #C.GossipOptions() == 0 and (C.GossipText() or "") == "" then
+    Conv.session = nil
+    return
+  end
+  Conv.ShowGamePage(kind)
 end
 
 -- true = full, false = compact, nil = show nothing. Second value: reason (for /why).
@@ -310,7 +334,7 @@ ns.Listen("CONVERSATION_OPENED", function() Conv.ClearMarkCache() end)
 
 function Conv.OpenFull(reason)
   local s = Conv.session
-  if not s then return end
+  if not s or s.menuOnly then return end
   if C.InCombat() then ns.Print(L.COMBAT_LATER); return end
   s.mode = "full"
   s.reason = reason or s.reason
@@ -365,8 +389,9 @@ local function restoreBlizzard(s)
   ns.UI.Blocker.Uncover()
 end
 
--- "Get on with it": close ours, leave Blizzard's window (already open underneath).
-function Conv.Business()
+-- Hand the visit to the game's own window (already open underneath): a vendor, trainer,
+-- flight map or bank, DialogueUI, combat, or a page the box can't answer.
+function Conv.HandOver()
   local s = Conv.session
   if not s then return end
   s.following = nil
@@ -378,6 +403,102 @@ function Conv.Business()
   else
     s.mode = "business"
   end
+end
+
+-- What a gossip option is for: a service (vendor, trainer, flight, inn, bank, stable,
+-- auction) or talk. The icon decides when the game says which it is; the words otherwise.
+local SERVICE_WORDS = {
+  { "binder", { "inn your home", "make this", "home" } },
+  { "trainer", { "train", "teach" } },
+  { "taxi", { "fly", "flight", "ride" } },
+  { "banker", { "deposit", "bank" } },
+  { "stable", { "stable" } },
+  { "auction", { "auction" } },
+  { "vendor", { "browse", "goods", "buy", "wares", "sell", "trade" } },
+}
+-- What a reply the NPC's writer marked BUSINESS asks for, from its words.
+local WANT_WORDS = {
+  { "binder", { "room", "home", "bed", "stay" } },
+  { "trainer", { "train", "teach", "learn", "lesson" } },
+  { "taxi", { "fly", "flight", "ride" } },
+  { "stable", { "stable" } },
+  { "banker", { "bank", "deposit", "vault" } },
+  { "vendor", { "see", "show", "buy", "browse", "wares", "look", "pour", "drink", "meal", "food", "cuts", "sell", "stock", "goods" } },
+}
+local ROLE_SERVICE = {
+  vendor = "vendor", blacksmith = "vendor", innkeeper = "vendor", trainer = "trainer",
+  flightmaster = "taxi", stablemaster = "stable", banker = "banker", auctioneer = "auction",
+}
+
+local function wordsKind(text, table_)
+  local lower = (text or ""):lower()
+  for _, pair in ipairs(table_) do
+    for _, w in ipairs(pair[2]) do
+      if lower:find(w, 1, true) then return pair[1] end
+    end
+  end
+  return nil
+end
+
+function Conv.OptionKind(o)
+  if type(o.kind) == "string" and o.kind ~= "gossip" then return o.kind end
+  local byIcon = C.GossipServiceIcons()[o.icon or false]
+  if byIcon then return byIcon end
+  if o.kind == "gossip" then return nil end
+  return wordsKind(o.name, SERVICE_WORDS)
+end
+
+-- The one gossip option a "get on with it" (or a reply like "Show me your wares.") should
+-- pick straight away, so the game opens the vendor or trainer without its menu first.
+function Conv.ServiceOption(s, hint)
+  if C.InCombat() then return nil end
+  local options = C.GossipOptions()
+  local services = {}
+  for _, o in ipairs(options) do
+    local kind = Conv.OptionKind(o)
+    if kind then services[#services + 1] = { id = o.id, kind = kind } end
+  end
+  if #services == 0 then return nil end
+  local want = (hint and wordsKind(hint, WANT_WORDS)) or ROLE_SERVICE[s.info.role or ""]
+  if want then
+    for _, o in ipairs(services) do if o.kind == want then return o end end
+  end
+  if #services == 1 and #options == 1 and #C.GossipQuests() == 0 then return services[1] end
+  return nil
+end
+
+-- "Get on with it" (and replies that lead to business): stay in the box where we can.
+-- A service window (vendor, trainer, flights) opens straight away; otherwise the NPC's
+-- menu (quests, options) is shown in the box; with nothing left to show, the visit ends.
+-- The game's own menu only comes back with pages in the box turned off, inside DialogueUI,
+-- or in combat.
+function Conv.Business(hint)
+  local s = Conv.session
+  if not s then return end
+  if s.view == "dui" or Conv.OverOtherWindow() or not Conv.KeepPages(s) or s.mode ~= "full" then
+    return Conv.HandOver()
+  end
+  local _, kind = Conv.BlizzardFrame(s)
+  if kind ~= "gossip" and kind ~= "quest" then return Conv.HandOver() end
+  if s.page then return Conv.End() end   -- already on the menu: this row says goodbye
+  if kind == "gossip" then
+    local opt = Conv.ServiceOption(s, hint)
+    if opt then
+      s.following = true
+      C.SelectGossip(opt.id)
+      return
+    end
+    if #Conv.GameOptions(s, true) == 0 then return Conv.End() end
+  end
+  Conv.ShowGamePage(kind)
+end
+
+-- The box's close button, Escape and the gamepad's B: the visit ends, as in the game.
+function Conv.Close()
+  local s = Conv.session
+  if not s then return end
+  if s.view == "dui" or Conv.OverOtherWindow() then return Conv.HandOver() end
+  Conv.End()
 end
 
 -- End the conversation and the interaction.
@@ -394,7 +515,7 @@ function Conv.Finish()
   if not s or s.ended then Conv.session = nil; return end
   s.ended = true
   if s.ticker then s.ticker:Cancel() end
-  Memory.End(s.mem, s.lastLine)
+  if s.mem then Memory.End(s.mem, s.lastLine) end
   restoreBlizzard(s)
   View(s).Hide()
   if s.view == "dui" then ns.UI.Dialogue.Hide() end
@@ -566,7 +687,7 @@ function Conv.Choose(index)
   end
   if entry.action then
     -- An answer on one of the game's pages shown in the box (accept, hand in, reward...).
-    if entry.action == "handover" then Conv.Business(); return end
+    if entry.action == "handover" then Conv.HandOver(); return end
     s.following = true
     C.QuestAnswer(entry.action, entry.arg)
     return
@@ -583,7 +704,7 @@ function Conv.Choose(index)
       s.mode = "business"
     else
       -- Hand over to the game's window first, then pick the option there.
-      Conv.Business()
+      Conv.HandOver()
     end
     if g.kind == "gossipQuest" then
       C.SelectGossipQuest(g.questID, g.active)
@@ -613,7 +734,7 @@ function Conv.Choose(index)
   Effects.Journal(journal, ctx, env)
 
   if nextId == "BUSINESS" then
-    Conv.Business()
+    Conv.Business(choice.text)
   elseif nextId == nil or nextId == "END" then
     Conv.End()
   else
@@ -787,7 +908,7 @@ local function questLabel(q)
   return fmt:format(q.title or "?")
 end
 
-function Conv.GameOptions(s)
+function Conv.GameOptions(s, all)
   local out = {}
   if not s or s.kind == "talk" then return out end
   local function add(text, game, icon) out[#out + 1] = { choice = { text = text, icon = icon }, game = game } end
@@ -834,7 +955,7 @@ function Conv.GameOptions(s)
       end
     end
   end
-  while #out > Conv.MAX_GAME_OPTIONS do table.remove(out) end
+  while not all and #out > Conv.MAX_GAME_OPTIONS do table.remove(out) end
   return out
 end
 
@@ -843,7 +964,7 @@ end
 -- box, the next gossip page and the quest pages (offer, progress, reward) show here too,
 -- answered with the same calls the game's quest window makes. Anything that needs the
 -- game's own confirmation (a PvP quest, a hand-in that costs money) is handed over.
--- "Get on with it" still reaches the game's window from every page.
+-- On these pages the last row says goodbye instead of "Get on with it".
 ---------------------------------------------------------------------------
 function Conv.KeepPages(s)
   return s.view ~= "dui" and ns.db.settings.pagesInBox ~= false
@@ -910,7 +1031,7 @@ function Conv.ShowGamePage(kind)
   end
   if kind == "gossip" or questStage == "greeting" then
     text = kind == "gossip" and (C.GossipText() or "") or (C.QuestFrameText().greeting or "")
-    for _, e in ipairs(Conv.GameOptions(s)) do entries[#entries + 1] = e end
+    for _, e in ipairs(Conv.GameOptions(s, true)) do entries[#entries + 1] = e end
   else
     local q, info = C.QuestFrameText(), C.QuestPageInfo()
     subtitle = q.title or subtitle
@@ -952,6 +1073,7 @@ function Conv.ShowGamePage(kind)
   end
   ns.UI.Dialogue.Show({
     name = s.info.name, subtitle = subtitle, unit = s.unit, text = text, choices = choices, canAsk = false,
+    lastLabel = L.GOODBYE,
   })
 end
 
@@ -973,7 +1095,7 @@ ns.On("PLAYER_INTERACTION_MANAGER_FRAME_HIDE", onClose)
 
 ns.On("PLAYER_REGEN_DISABLED", function()
   local s = Conv.session
-  if s and s.mode == "full" then Conv.Business() end
+  if s and s.mode == "full" then Conv.HandOver() end
 end)
 
 ---------------------------------------------------------------------------
@@ -982,7 +1104,7 @@ end)
 local function live(event, keys, changed)
   return function()
     local s = Conv.session
-    if not s or s.mode ~= "full" or not View(s).IsShown() or C.InCombat() then return end
+    if not s or s.mode ~= "full" or s.menuOnly or not View(s).IsShown() or C.InCombat() then return end
     local ctx = s.ctx
     local before = {}
     for _, k in ipairs(keys) do before[k] = ctx[k] end
@@ -1040,7 +1162,7 @@ end
 for _, name in ipairs({ "Start", "OpenFull", "OpenCompact", "ShowNode", "Choose", "Business", "End",
                         "Finish", "Ask", "TalkNow", "TalkToTarget", "CheckClosed", "RightClicked",
                         "OnWorldMouseDown", "OnWorldMouseUp", "OnOtherWindowShown", "ShowGamePage",
-                        "FallbackToBox" }) do
+                        "FallbackToBox", "HandOver", "Close" }) do
   local fn = Conv[name]
   Conv[name] = function(...) return ns.Guard("conversation:" .. name, fn, Conv.Recover, ...) end
 end
