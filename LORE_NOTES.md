@@ -510,3 +510,14 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Senir Whitebeard: Grelin's brother, envoy in Kharanos; Frostmane Hold | [Senir Whitebeard](https://warcraft.wiki.gg/wiki/Senir_Whitebeard) |
 | Ragnar Thunderbrew: part owner of the distillery; his supplier joined the King's Army; Beer Basted Boar Ribs | [Ragnar Thunderbrew](https://warcraft.wiki.gg/wiki/Ragnar_Thunderbrew) |
 | Innkeeper Belm: Rhapsody Malt; toasts Lazlo Grindwidget, who repelled a Frostmane attack on Kharanos | [Innkeeper Belm](https://warcraft.wiki.gg/wiki/Innkeeper_Belm); [Kharanos](https://warcraft.wiki.gg/wiki/Kharanos) |
+
+## Silverpine Forest (Silverpine pack 1.0.0)
+
+| Fact used | Source |
+|---|---|
+| The Sepulcher: a Forsaken base on a graveyard and crypt; worgen south, Scourge east, Kirin Tor southeast | [The Sepulcher](https://warcraft.wiki.gg/wiki/The_Sepulcher) |
+| High Executor Hadrec and his Classic quests | [High Executor Hadrec](https://warcraft.wiki.gg/wiki/High_Executor_Hadrec) |
+| Apothecary Renferrel: the Society's plague work; the Rot Hide trail to Thule Ravenclaw | [Apothecary Renferrel](https://warcraft.wiki.gg/wiki/Apothecary_Renferrel) |
+| Dalar Dawnweaver: former Kirin Tor archmage, killed when the Scourge took Dalaran, freed by Sylvanas; present when Kel'Thuzad summoned Archimonde; resents the Kirin Tor; calls Arugal a fool | [Dalar Dawnweaver](https://warcraft.wiki.gg/wiki/Dalar_Dawnweaver) |
+| Shadow Priest Allister: the Forsaken's information network in Lordaeron; Classic quests | [Shadow Priest Allister](https://warcraft.wiki.gg/wiki/Shadow_Priest_Allister) |
+| Innkeeper Bates | [Innkeeper Bates](https://warcraft.wiki.gg/wiki/Innkeeper_Bates) |

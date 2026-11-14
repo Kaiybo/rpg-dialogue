@@ -319,6 +319,13 @@ P:Town {
   quests = { { TODO_QUEST("Ursal the Mauler"), 6 }, { TODO_QUEST("Ferocitas the Dream Eater"), 6 } },
 }
 
+P:Town {
+  id = "sepulcher", name = "The Sepulcher",
+  subzones = { "The Sepulcher" },
+  tiers = { Hero = "Hero of the Sepulcher" },
+  quests = { { TODO_QUEST("Assault on Fenris Isle"), 8 }, { TODO_QUEST("The Dead Fields"), 6 } },
+}
+
 -- The other capitals. Their guards speak from pools_roles.lua; standing grows from quests
 -- each capital's own pack lists later.
 P:Town {
