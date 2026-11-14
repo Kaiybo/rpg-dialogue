@@ -603,3 +603,16 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Zengu: sent by Vol'jin for Trol'kalar, to use against the Gurubashi; the sigil chain; in Classic and Forever | [Zengu](https://warcraft.wiki.gg/wiki/Zengu) |
 | Innkeeper Adegwa: tauren innkeeper of Hammerfall | [Innkeeper Adegwa](https://warcraft.wiki.gg/wiki/Innkeeper_Adegwa) |
 | "... Guardian" names are guards (Hammerfall Guardian, Shadowprey Guardian) | [Hammerfall](https://warcraft.wiki.gg/wiki/Hammerfall); [Shadowprey Village](https://warcraft.wiki.gg/wiki/Shadowprey_Village) |
+
+## The Hinterlands (Hinterlands pack 1.0.0)
+
+| Fact used | Source |
+|---|---|
+| Aerie Peak: Wildhammer capital, gryphon aviary, Wildhammer Keep; outside the reformed Alliance but friendly; trolls attack the aeries; Wildhammer Sentries | [Aerie Peak](https://warcraft.wiki.gg/wiki/Aerie_Peak) |
+| Falstad Wildhammer: High Thane, boisterous, brogue; gryphon riders in and after the Second War; To The Hinterlands | [Falstad Wildhammer](https://warcraft.wiki.gg/wiki/Falstad_Wildhammer) |
+| Gryphon Master Talonaxe: gruff, would rather fly; Witherbark Cages, The Altar of Zul, Saving Sharpbeak, Rhapsody Shindigger | [Gryphon Master Talonaxe](https://warcraft.wiki.gg/wiki/Gryphon_Master_Talonaxe) |
+| Sharpbeak: young of Swiftwind and Keenclaw, caged in Jintha'Alor | [Saving Sharpbeak](https://warcraft.wiki.gg/wiki/Saving_Sharpbeak) |
+| Rhapsody Shindigger: male Wildhammer dwarf, moonshine camp east of Aerie Peak | [Rhapsody Shindigger](https://warcraft.wiki.gg/wiki/Rhapsody_Shindigger) |
+| Fraggar Thundermantle: partially sighted shaman, the land's spirits against the Vilebranch | [Fraggar Thundermantle](https://warcraft.wiki.gg/wiki/Fraggar_Thundermantle) |
+| Innkeeper Thulfram: jovial | [Innkeeper Thulfram](https://warcraft.wiki.gg/wiki/Innkeeper_Thulfram) |
+| "... Sentry" names are guards | [Aerie Peak](https://warcraft.wiki.gg/wiki/Aerie_Peak) |

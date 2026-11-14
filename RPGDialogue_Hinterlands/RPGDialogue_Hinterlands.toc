@@ -1,0 +1,15 @@
+## Interface: 16001, 16002
+## Title: RPG Dialogue: The Hinterlands |cff8a8a8a1.0.0|r
+## Notes: Aerie Peak: the High Thane of the Wildhammer, a gryphon master who'd rather be flying, and a half-blind shaman who listens to the land's spirits.
+## Author: RPG Dialogue
+## Version: 1.0.0
+## Dependencies: RPGDialogue
+## LoadOnDemand: 1
+## X-RPGD-Pack: rpgd.hinterlands
+## X-RPGD-Format: 1
+## X-RPGD-Load: zone
+## X-RPGD-Zones: The_Hinterlands
+
+pack.lua
+pools.lua
+npcs\aeriepeak.lua

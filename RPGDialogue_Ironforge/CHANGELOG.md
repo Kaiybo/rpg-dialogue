@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.2.2 (unreleased)
+- Magni's opening line is now a key line, so Falstad in Aerie Peak can remark that you've met him.
+
 ## 1.2.1 (unreleased)
 - Magni has an opinion about the Senate's envoys, the Whitebeard brothers.
 

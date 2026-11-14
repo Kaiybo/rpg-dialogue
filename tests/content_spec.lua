@@ -608,6 +608,22 @@ describe("Content packs", function()
     eq(ns.Data.PoolsFor(info, ctx)[1].pool.id, "guard_hammerfall")
   end)
 
+  it("Hinterlands loads at Aerie Peak; Falstad is there, and a Wildhammer Sentry is Aerie Peak's guard", function()
+    local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Hinterlands" } })
+    Mock.state.zone, Mock.state.subzone = "The Hinterlands", "Aerie Peak"
+    Mock.Fire("ZONE_CHANGED_NEW_AREA")
+    Mock.RunTimers()
+    for _, p in ipairs(ns.Packs.List()) do
+      if p.id == "rpgd.hinterlands" then ok(p.loaded); eq(p.warnings, 0) end
+    end
+    eq(ns.Data.FindNPC(nil, "Falstad Wildhammer").key, "falstad")
+    Mock.state.units.npc = { guid = "Creature-0-1-0-1-5636-AB", name = "Wildhammer Sentry", level = 55 }
+    local ctx = ns.Context.New({ unit = "npc" })
+    local info = ns.Conversation.Identify("npc", ctx)
+    eq(info.role, "guard")
+    eq(ns.Data.PoolsFor(info, ctx)[1].pool.id, "guard_aeriepeak")
+  end)
+
   it("Zephras Isle's Peacekeepers are guards of the isle, and the High Elder knows her own", function()
     local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Zephras" } })
     ns.db.settings.instantText = true

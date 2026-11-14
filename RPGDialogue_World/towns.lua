@@ -409,6 +409,13 @@ P:Town {
   quests = { { TODO_QUEST("Call to Arms"), 6 }, { TODO_QUEST("Trol'kalar"), 6 } },
 }
 
+P:Town {
+  id = "aerie_peak", name = "Aerie Peak",
+  subzones = { "Aerie Peak", "Wildhammer Keep" },
+  tiers = { Hero = "Friend of the Wildhammer" },
+  quests = { { TODO_QUEST("Saving Sharpbeak"), 8 }, { TODO_QUEST("Troll Necklace Bounty"), 2 } },
+}
+
 -- The other capitals. Their guards speak from pools_roles.lua; standing grows from quests
 -- each capital's own pack lists later.
 P:Town {
