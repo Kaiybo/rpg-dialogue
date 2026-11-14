@@ -1,0 +1,17 @@
+## Interface: 16001, 16002
+## Title: RPG Dialogue: Riverglades |cff8a8a8a1.0.0|r
+## Notes: Farholde Keep, where the Brotherhood of the Horse has held on for twenty years, and Powderfuse Port, which one goblin swears he built with his own hands.
+## Author: RPG Dialogue
+## Version: 1.0.0
+## Dependencies: RPGDialogue
+## LoadOnDemand: 1
+## X-RPGD-Pack: rpgd.riverglades
+## X-RPGD-Format: 1
+## X-RPGD-Load: zone
+## X-RPGD-Zones: Riverglades
+
+pack.lua
+pools.lua
+npcs\farholde.lua
+npcs\frontier.lua
+npcs\powderfuse.lua

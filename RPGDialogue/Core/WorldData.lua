@@ -111,9 +111,10 @@ W.NAME_ROLES = {
   { "deathguard", "guard" }, { "sentinel$", "guard" }, { "grunt$", "guard" }, { "brave$", "guard" },
   { "protector$", "guard" }, { "defender$", "guard" }, { "watcher$", "guard" },
   { "peon$", "peon" }, { "militia", "militia" }, { "peacekeeper", "guard" }, { "empyrean blade", "guard" }, { "^watcher ", "guard" },
-  { "bruiser$", "guard" }, { "mountaineer$", "guard" }, { "^mountaineer ", "guard" }, { "warden$", "guard" }, { "^brave ", "guard" }, { "sentry$", "guard" }, { "lookout$", "guard" },
+  { "bruiser$", "guard" }, { "mountaineer$", "guard" }, { "^mountaineer ", "guard" }, { "warden$", "guard" }, { "^brave ", "guard" }, { "sentry$", "guard" }, { "^sentry ", "guard" }, { "lookout$", "guard" },
   { "^spirit healer$", "spirithealer" }, { "^spirit guide$", "spirithealer" },
   { "orphan", "child" }, { "child$", "child" }, { "^young ", "child" },
+  { "^diseased soldier$", "soldier" }, { "^farholde laborer$", "worker" }, { "^farholde scout$", "guard" },
 }
 
 -- Roles that are services: compact mode by default.

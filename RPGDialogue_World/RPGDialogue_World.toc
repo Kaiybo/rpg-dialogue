@@ -25,6 +25,7 @@ rumors\redridge.lua
 rumors\duskwood.lua
 rumors\wetlands.lua
 rumors\kalimdor.lua
+rumors\riverglades.lua
 books.lua
 generic.lua
 pools.lua

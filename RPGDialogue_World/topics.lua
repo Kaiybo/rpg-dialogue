@@ -53,3 +53,12 @@ P:Topic { id = "argent_dawn", name = "The Argent Dawn", category = "people", lea
 P:Topic { id = "venture_company", name = "The Venture Company", category = "threats", learned = "Mull Thunderhorn in Bloodhoof Village" }
 P:Topic { id = "camping", name = "Camping", category = "trade", learned = "an adventurer camped on the road" }
 P:Topic { id = "yenniku", name = "Yenniku, son of Vol'jin", category = "people", learned = "Nimboya at Grom'gol" }
+
+-- The Riverglades (Forever)
+P:Topic { id = "brotherhood_horse", name = "The Brotherhood of the Horse", category = "people", learned = "Demar Brant at Farholde Keep" }
+P:Topic { id = "siege_of_farholde", name = "The Siege of Farholde", category = "lore", learned = "Ashe Amberhall, or the memorials at Farholde Keep" }
+P:Topic { id = "sunnyglade", name = "Sunnyglade", category = "places", learned = "anyone at Farholde Keep" }
+P:Topic { id = "twilights_hammer", name = "The Twilight's Hammer", category = "threats", learned = "Demar Brant or Sergeant Riftan in the Riverglades" }
+P:Topic { id = "krol_dok", name = "Krol'dok", category = "threats", learned = "Demar Brant at Farholde Keep" }
+P:Topic { id = "fern_crimsonleaf", name = "Fern Crimsonleaf", category = "people", learned = "her memorial at Farholde Keep, or Gray Dawnbright in Powderfuse Port" }
+P:Topic { id = "powderfuse_port", name = "Powderfuse Port", category = "places", learned = "the boat from Steamwheedle Port, or Melbin Powderfuse" }

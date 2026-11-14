@@ -130,6 +130,11 @@ def main():
                     continue
                 if key in npcs and npcs[key][0] is pack:
                     rep.error(pack, f, line, f"NPC key {key!r} defined twice in this pack")
+                elif key in npcs and npcs[key][1].get("name") != tbl.get("name"):
+                    # Keys are global: two packs with one key merge into one character.
+                    other = npcs[key][0].addon
+                    rep.error(pack, f, line, f"NPC key {key!r} is already {npcs[key][1].get('name')!r} in {other}; "
+                                             f"two packs sharing a key merge into one NPC (pick another key)")
                 npcs.setdefault(key, (pack, tbl, f, line))
                 for slot, node, ln, gid in P.iter_lines(tbl, key):
                     all_lines.setdefault(gid, (pack, f, ln))
