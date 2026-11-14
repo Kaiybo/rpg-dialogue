@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.2.1 (unreleased)
+- Magni has an opinion about the Senate's envoys, the Whitebeard brothers.
+
 ## 1.2.0 (unreleased)
 - Dun Morogh: Coldridge Valley's Sten Stoutarm and Grelin Whitebeard; Kharanos's Senir Whitebeard, Ragnar Thunderbrew and Innkeeper Belm; Eric Brighthammer, Forever's camping teacher on the road near Kharanos.
 

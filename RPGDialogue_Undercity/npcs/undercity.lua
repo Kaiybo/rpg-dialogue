@@ -32,6 +32,8 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Sylvanas Windrunner. Once Ranger-General of Silvermoon, now queen of the Forsaken. Arthas made me this. One day I will show him what he made." },
+        { id = "h_zygand", when = { heardLine = "zygand.h_default" },
+          text = "Zygand holds Tirisfal against the Crusade. Good. The zealots should learn that the dead have long memories." },
         { id = "h_hamuul", when = { heardLine = "hamuul.h_default" },
           text = "The tauren Arch Druid. He spoke for the Forsaken before the Horde, when the orcs would have turned us away. Remember that, when you hear the tauren speak of balance." },
       },
@@ -202,6 +204,8 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Bethor Iceshard. I studied at Dalaran with two friends. We crossed our wands as apprentices and swore we'd always stand together. One of them sold his soul to the Lich King. His name was Thule Ravenclaw." },
+        { id = "h_renferrel", when = { heardLine = "renferrel.h_default" },
+          text = "Renferrel's work in Silverpine keeps turning up my old friend's name. I'd rather it didn't. I'd rather know than not, though." },
         { id = "h_prodigal", tags = { "news" }, when = { questActive = TODO_QUEST("The Prodigal Lich") },
           text = "Somewhere out there, a lich calls himself by an old friend's name. Find out if it's true. I'd rather it weren't." },
         { id = "h_returns", tags = { "news" }, when = { questActive = TODO_QUEST("The Prodigal Lich Returns") },

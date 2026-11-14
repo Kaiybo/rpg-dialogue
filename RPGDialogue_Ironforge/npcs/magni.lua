@@ -27,6 +27,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", text = "Magni Bronzebeard, King o' Ironforge. We pledged our axes tae the Alliance after the Second War, an' we've not regretted it. Mostly." },
+        { id = "h_grelin", when = { heardLine = "grelin.h_default" },
+          text = "Ye've met the Whitebeard brothers, then. The Senate sends 'em to count trolls. I'd send an army, but the Senate likes countin'." },
         { id = "h_gnome", when = { race = "Gnome" },
           text = "Our gnome friends. Mekkatorque's tram still runs, an' I still dinnae understand it. Ye're welcome in Ironforge as long as the mountain stands." },
         { id = "h_human", when = { race = "Human", minLevel = 20 },

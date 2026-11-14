@@ -31,6 +31,8 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Cairne Bloodhoof. I lead the Bloodhoof, and all the tribes who call Mulgore home. We wandered for generations. Now we have a home, and I mean to keep it." },
+        { id = "h_baine", when = { heardLine = "baine.h_default" },
+          text = "You've met my son in the village. He listens better than I did at his age. Don't tell him I said so." },
         { id = "h_journey", tags = { "news" }, when = { questActive = TODO_QUEST("Journey into Thunder Bluff") },
           text = "You've climbed the lifts and found your way to me. Good. A tauren who knows the Bluff knows where home is. Now, let me look at you." },
         { id = "h_rites", when = { questDone = TODO_QUEST("Rites of the Earthmother") },
@@ -88,6 +90,8 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Hamuul Runetotem. I asked Malfurion Stormrage to teach me, after the war, and he said yes when others said no. I've tried to be worth that yes ever since." },
+        { id = "h_rau", when = { heardLine = "rau.h_default" },
+          text = "You've spoken with Rau at Freewind. He learned to listen to the land here, on Elder Rise. I'm glad it's serving him in the Needles." },
         { id = "h_fandral", when = { heardLine = "fandral.h_default" },
           text = "So Fandral has received you in Darnassus. He didn't want me taught. He was wrong, and I don't hold it against him. Mostly." },
       },

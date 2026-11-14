@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.0.2 (unreleased)
+- Cairne knows when you've met Baine in Bloodhoof; Hamuul knows Rau Cliffrunner at Freewind.
+
 ## 1.0.1 (2026-11-14)
 - Magatha answers when asked about the Grimtotem clan (a new topic from Freewind Post).
 

@@ -106,6 +106,8 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Fandral Staghelm, Archdruid of the Cenarion Circle. While Malfurion dreams, someone must lead. I do. Some would rather I didn't. They are wrong." },
+        { id = "h_corithras", when = { heardLine = "corithras.h_default" },
+          text = "Corithras worries about the moonwells. Corithras worries about everything. Teldrassil is young; it will grow strong. Patience." },
         { id = "h_crown", tags = { "news" }, when = { questActive = TODO_QUEST("Crown of the Earth") },
           text = "The moonwells of Teldrassil. Their waters will tell me how the tree grows. Bring them to me untouched. And do not dawdle." },
         { id = "h_crown_done", when = { questDone = TODO_QUEST("Crown of the Earth") },
