@@ -19,6 +19,7 @@ L.HELP_LINES = {
   "talk - talk to your target",
   "settings - open the settings panel",
   "capture - record your target (ID, name, place) for the content tools",
+  "capture zone - what's captured here, and NPCs you've talked to with no content yet",
   "autocapture on|off - capture every NPC you interact with or target",
   "dump ctx - print what the addon knows about you right now",
   "spoof key=value ... | spoof clear - pretend to be someone else, for testing",
@@ -52,6 +53,8 @@ L.CAPTURE_SAVED = "Captured %s (NPC %s) in %s."
 L.AUTOCAPTURE_ON = "Auto-capture on: every NPC you talk to or target is recorded."
 L.AUTOCAPTURE_OFF = "Auto-capture off."
 L.CAPTURE_COUNT = "Capture data: %d NPCs, %d quests, %d gossip texts, %d quest texts."
+L.CAPTURE_ZONE = "%s: %d friendly NPCs captured (%d have content), %d quests captured."
+L.CAPTURE_ZONE_TODO = "  no content yet: %s (%s), talked to %d time(s)"
 L.SPOOF_SET = "Spoofing: %s"
 L.SPOOF_CLEARED = "Spoofing cleared."
 L.SPOOF_BAD = "Couldn't read '%s'. Use key=value, e.g. race=Gnome class=PRIEST level=8."

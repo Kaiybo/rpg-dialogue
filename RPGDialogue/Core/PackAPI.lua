@@ -103,6 +103,8 @@ local kinds = {}
 
 function kinds.NPC(pack, def)
   if type(def.key) ~= "string" then return warn(pack, "NPC without key") end
+  -- A file made by tools/new_zone.py that nobody has written yet: the NPC stays pooled.
+  if def.scaffold then pack.scaffolds = (pack.scaffolds or 0) + 1; return end
   def._pack = pack.id
   def._priority = pack.priority or 0
   def._packs = { pack.id }

@@ -6,7 +6,8 @@ import re
 
 from .luadata import LTable, SubsetError, TodoRef, parse_pack_file
 
-ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+# RPGD_ROOT lets the tool tests run against a scratch copy of the repo.
+ROOT = os.path.abspath(os.environ.get("RPGD_ROOT") or os.path.join(os.path.dirname(__file__), "..", ".."))
 CORE = os.path.join(ROOT, "RPGDialogue")
 
 
@@ -38,6 +39,30 @@ def token_names(root=ROOT):
     src = open(os.path.join(root, "RPGDialogue", "Core", "Tokens.lua"), encoding="utf-8").read()
     m = re.search(r"Tokens\.KNOWN\s*=\s*\{(.*?)\}", src, re.S)
     return set(re.findall(r'"(\w+)"', m.group(1))) if m else set()
+
+
+def role_patterns(root=ROOT):
+    """(subtitle patterns, name patterns) from WorldData.lua: [(lua_pattern, role), ...]."""
+    src = open(os.path.join(root, "RPGDialogue", "Core", "WorldData.lua"), encoding="utf-8").read()
+
+    def block(name):
+        m = re.search(name + r"\s*=\s*\{(.*?)\n\}", src, re.S)
+        return re.findall(r'\{\s*"([^"]+)",\s*"(\w+)"\s*\}', m.group(1)) if m else []
+    return block("W.SUBTITLE_ROLES"), block("W.NAME_ROLES")
+
+
+def detect_role(subtitle, name, patterns):
+    """Same order as Conv.DetectRole: subtitle first (plain find), then name patterns."""
+    subs, names = patterns
+    s = (subtitle or "").lower()
+    for pat, role in subs:
+        if pat in s:
+            return role
+    n = (name or "").lower()
+    for pat, role in names:
+        if re.search(pat, n):
+            return role
+    return None
 
 
 ROLES = {"questgiver", "guard", "innkeeper", "vendor", "trainer", "flightmaster", "stablemaster", "banker",

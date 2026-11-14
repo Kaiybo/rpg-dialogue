@@ -41,16 +41,20 @@ def main():
     topic_takes = collections.defaultdict(set)
     w("# Coverage report\n")
     for pack in P.load_all():
-        npcs = [(tbl, f) for kind, tbl, f, line in pack.defs if kind == "NPC"]
+        all_npcs = [(tbl, f) for kind, tbl, f, line in pack.defs if kind == "NPC"]
+        scaffolds = sorted(str(tbl.get("key")) for tbl, f in all_npcs if tbl.get("scaffold"))
+        npcs = [(tbl, f) for tbl, f in all_npcs if not tbl.get("scaffold")]
         pools = [(tbl, f) for kind, tbl, f, line in pack.defs if kind == "Pool"]
         for kind, tbl, f, line in pack.defs:
             if kind == "Thread":
                 for b in P.arr(tbl.get("beats")):
                     if isinstance(b, LTable):
                         threads[tbl.get("id")].append((b.get("npc"), b.get("id")))
-        if not npcs and not pools:
+        if not npcs and not pools and not scaffolds:
             continue
         w(f"## {pack.meta.get('Title', pack.addon)}\n")
+        if scaffolds:
+            w(f"Written: {len(npcs)} of {len(all_npcs)} planned NPCs. Still scaffolds: {', '.join(scaffolds)}\n")
         w("| NPC | lines | nodes | races | classes | combos | gender | noticing | topics |")
         w("|---|---|---|---|---|---|---|---|---|")
         for tbl, f in sorted(npcs, key=lambda x: str(x[0].get("key"))) + sorted(pools, key=lambda x: str(x[0].get("id"))):

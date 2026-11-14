@@ -41,6 +41,24 @@ def locate(gid):
     return None
 
 
+# ctx fields /rpgd spoof understands, so a flag can be replayed in game.
+REPLAY = ("race", "class", "gender", "level", "form", "mounted", "stealthed", "nearlyNaked", "drunk", "tod",
+          "deaths", "taint", "insanity", "light", "order", "honor", "money", "ghost", "resting", "atInn")
+
+
+def replay_command(ctx_lines, seed):
+    vals = {}
+    for entry in ctx_lines:
+        m = re.match(r"^(\w+) = (.+?)( \(spoofed\))?$", str(entry))
+        if m and m.group(1) in REPLAY and not m.group(2).startswith("{") and m.group(2) not in ("nil", ""):
+            vals[m.group(1)] = m.group(2).replace(" ", "_")
+    parts = [f"{k}={vals[k]}" for k in REPLAY if k in vals]
+    cmd = ("/rpgd spoof " + " ".join(parts)) if parts else ""
+    if seed:
+        cmd += ("  then  " if cmd else "") + f"/rpgd seed {seed}"
+    return cmd
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("savedvariables")
@@ -61,6 +79,9 @@ def main():
         ctx = f.get("ctx") or []
         if isinstance(ctx, dict):
             ctx = [ctx[k] for k in sorted(ctx, key=lambda k: int(k))]
+        replay = replay_command(ctx, f.get("seed"))
+        if replay:
+            out.append(f"- Replay in game: `{replay}`, then talk to {f.get('npc')}")
         out.append("- Context: " + "; ".join(ctx))
         out.append("")
     os.makedirs(os.path.dirname(args.out), exist_ok=True)

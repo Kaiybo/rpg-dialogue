@@ -4,6 +4,17 @@ All notable changes to RPG Dialogue. The core and each content pack get their ow
 
 ## [Unreleased]
 
+### M7 (2026-11-13): Content expansion workflow and tooling
+- `tools/new_zone.py plan "<Zone>"`: lists the zone's captured NPCs and quests and proposes a coverage tier for each (major / quest / service / pooled / skip) in `RPGDialogue_<Zone>/PLAN.md`, with suggested keys, roles and towns, the zone's quests (lowest level seen, factions), settlements and hostile creatures, and the brief's zone checklist.
+- `tools/new_zone.py scaffold "<Zone>"`: after the tiers are approved, writes the pack (TOC, `pack.lua`, `pools.lua`), one NPC file and voice bible stub per approved NPC (captured IDs and quests filled in, never invented), a lore-sheet stub in `LORE_NOTES.md` and the pack's line in `.pkgmeta`. Never overwrites; re-run it after approving more NPCs.
+- Scaffold NPCs (`scaffold = true`) are ignored in game (the NPC stays pooled) and listed by the validator; `--strict` refuses them. The coverage report shows written vs planned NPCs.
+- `tools/check_all.py`: one command for every check (Lua tests, tool tests, luacheck, validator, voice check, simulation, coverage) with a pass/fail summary; `--release` adds the strict validator and packaging/repository checks (TOC versions and interface numbers, `.pkgmeta` folders and ignores, no captured text tracked by git, clean tree).
+- Simulation: flags lines about quests a character couldn't have taken yet at the line's level or on its faction, using the lowest level and factions now recorded by capture. Contradictions and impossible references now fail the run.
+- Voice check: fails any line that shares a 6-word run with captured Blizzard text in your local `reference/` files; now also checks rumors and errand text.
+- Flag report: a ready-to-paste `/rpgd spoof ... /rpgd seed N` replay line for each flag.
+- `/rpgd capture zone`: what's captured in your zone, and the NPCs you've talked to that have no content yet.
+- Python tool tests (`tests/test_tools.py`, run against a scratch copy of the repo). 98 Lua tests.
+
 ### M6 (2026-11-13): Spirit healers, books, insanity, barks, errands
 - Spirit healers: one shared conversation tree for every spirit healer (they "keep shared records": one memory, one file). Reactions to how you died (falling, drowning, fatigue, guards, players, something far below you, elites, bosses), death counts with running jokes, the same spot again, long streaks, class and race (shaman ankh, warlock soulstone, priests and paladins, Forsaken, night elf wisps), alignment and Fel Taint tone; "your file", "what are you?", "why do you help us?". The afterlife stays a mystery.
 - Pools can now carry whole conversation trees and act as one character. New conditions `deathsHere`, `daysSinceDeath`, `visited`; tokens `{deaths}`, `{deathplace}`, `{killer}`.

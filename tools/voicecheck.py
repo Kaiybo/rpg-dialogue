@@ -8,6 +8,8 @@ Fails on:
   * near-identical lines spoken by different NPCs
   * mad-libs: lines built mainly around {race} or {class}
   * noticing moments in pools so broad that any NPC could say them
+  * copied Blizzard wording: any 6-word run shared with captured quest or gossip text in
+    reference/*.md (only when you have exported reference files; they stay local)
 Warns on:
   * several NPCs opening the same way
   * words overused within one NPC, or within one pack
@@ -55,6 +57,30 @@ def norm(text):
     return re.sub(r"[^a-z' ]+", " ", text).split()
 
 
+SHINGLE = 6
+
+
+def shingles(words, n=SHINGLE):
+    return {" ".join(words[i:i + n]) for i in range(len(words) - n + 1)}
+
+
+def reference_shingles():
+    """6-word runs from captured Blizzard text (reference/*.md, written by export_reference.py)."""
+    ref_dir = os.path.join(P.ROOT, "reference")
+    out = {}
+    if not os.path.isdir(ref_dir):
+        return out
+    for name in sorted(os.listdir(ref_dir)):
+        if not name.endswith(".md"):
+            continue
+        with open(os.path.join(ref_dir, name), encoding="utf-8") as fh:
+            for raw in fh:
+                text = re.sub(r"^\s*(>|\*\*\w+:\*\*)\s*", "", raw)
+                for sh in shingles(norm(text)):
+                    out.setdefault(sh, name)
+    return out
+
+
 def main():
     plain, regex = load_banned(os.path.join(P.ROOT, "banned_phrases.txt"))
     fails, warns = [], []
@@ -74,6 +100,14 @@ def main():
                 if isinstance(ch.get("text"), str):
                     entries.append((owner, pack.addon, f"{owner}.{nid}.choice{i}", ch["text"], "choice", True))
         for kind, tbl, f, line in pack.defs:
+            if kind == "Rumors":
+                for ln in P.arr(tbl.get("lines")):
+                    if isinstance(ln, LTable) and isinstance(ln.get("text"), str):
+                        entries.append((f"rumors:{tbl.get('id')}", pack.addon, f"rumor:{tbl.get('id')}.{ln.get('id')}", ln["text"], "rumor", False))
+            elif kind == "Errand":
+                for k in ("offer", "thanks", "remind"):
+                    if isinstance(tbl.get(k), str):
+                        entries.append((tbl.get("npc"), pack.addon, f"errand:{tbl.get('id')}.{k}", tbl[k], "errand", False))
             if kind == "Thread":
                 for b in P.arr(tbl.get("beats")):
                     if isinstance(b, LTable) and isinstance(b.get("text"), str):
@@ -88,6 +122,14 @@ def main():
         for rx in regex:
             if rx.search(text):
                 fails.append(f"banned pattern /{rx.pattern}/ in {gid}: {text}")
+
+    # Copied Blizzard wording (only checkable with local reference files)
+    ref = reference_shingles()
+    for owner, pack, gid, text, slot, is_choice in entries:
+        hits = shingles(norm(text)) & ref.keys() if ref else set()
+        if hits:
+            sh = sorted(hits)[0]
+            fails.append(f"copies Blizzard's wording (\"{sh}...\" is in reference/{ref[sh]}) in {gid}: write it in your own words")
 
     # Mad-libs
     for owner, pack, gid, text, slot, is_choice in entries:
@@ -146,7 +188,9 @@ def main():
         print("WARN ", w)
     for f in fails:
         print("FAIL ", f)
-    print(f"\n{len(entries)} lines and replies checked. {len(fails)} failure(s), {len(warns)} warning(s).")
+    print(f"\n{len(entries)} lines and replies checked" +
+          (f" (and against {len(ref)} runs of captured Blizzard text)" if ref else " (no reference/ files, so no copy check)") +
+          f". {len(fails)} failure(s), {len(warns)} warning(s).")
     return 1 if fails else 0
 
 

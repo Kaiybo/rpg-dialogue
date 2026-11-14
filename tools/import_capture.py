@@ -41,7 +41,7 @@ def merge_registry(cap):
     for nid, rec in (npcs.items() if isinstance(npcs, dict) else enumerate(npcs, 1)):
         if isinstance(rec, dict):
             cur = reg["npcs"].get(str(nid), {})
-            cur.update({k: rec.get(k) for k in ("name", "subtitle", "zone", "subzone", "mapID", "x", "y", "level", "elite", "gossip") if rec.get(k) is not None})
+            cur.update({k: rec.get(k) for k in ("name", "subtitle", "zone", "subzone", "mapID", "x", "y", "level", "elite", "gossip", "reaction", "n") if rec.get(k) is not None})
             reg["npcs"][str(nid)] = cur
     for source in ("quests", "questText"):
         qs = cap.get(source) or {}
@@ -51,6 +51,10 @@ def merge_registry(cap):
                 for k in ("title", "giver", "turnin", "zone"):
                     if rec.get(k) is not None:
                         cur[k] = rec.get(k)
+                if isinstance(rec.get("minLevel"), int):
+                    cur["minLevel"] = min(cur.get("minLevel", rec["minLevel"]), rec["minLevel"])
+                if isinstance(rec.get("factions"), dict):
+                    cur["factions"] = sorted(set(cur.get("factions", [])) | set(rec["factions"]))
                 reg["quests"][str(qid)] = cur
     os.makedirs(os.path.dirname(REGISTRY), exist_ok=True)
     with open(REGISTRY, "w", encoding="utf-8") as fh:

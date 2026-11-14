@@ -74,6 +74,8 @@ def bible_problems(pack, rel):
     src = section("Sources")
     if src is None or not re.search(r"^\s*-\s+\S", src, re.M):
         probs.append(f"voice bible {rel} has no sources")
+    if src is not None and re.search(r"^\s*-\s+TODO", src, re.M):
+        probs.append(f"voice bible {rel} still has a TODO under Sources")
     quests = section("Their quests")
     if quests is None or not re.search(r"^\s*-\s+\S", quests, re.M):
         probs.append(f"voice bible {rel} lists no quests (write '- none: <why>' if they have none)")
@@ -83,7 +85,7 @@ def bible_problems(pack, rel):
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--pack", help="only report problems in this pack (addon folder name)")
-    ap.add_argument("--strict", action="store_true", help="TODO ids and registry misses are errors")
+    ap.add_argument("--strict", action="store_true", help="TODO ids, registry misses and unwritten scaffolds are errors")
     ap.add_argument("--extra", action="append", default=[], help="extra folder holding packs (tests)")
     ap.add_argument("--quiet", action="store_true", help="only print the summary and errors")
     args = ap.parse_args()
@@ -311,8 +313,20 @@ def main():
         return [t for t in targets if t]
 
     # ---- pass 2: NPCs ------------------------------------------------------------------------
+    scaffolds = 0
     for key, (pack, tbl, f, line) in sorted(npcs.items()):
         where = key
+        if tbl.get("scaffold"):
+            # Made by tools/new_zone.py and not written yet. The game skips it (the NPC stays
+            # pooled), so only the header is checked.
+            scaffolds += 1
+            (rep.error if args.strict else rep.warn)(pack, f, line, f"{where}: scaffold, not written yet (remove scaffold = true when it is)")
+            for field in ("id", "name", "bible", "role"):
+                if tbl.get(field) is None:
+                    rep.error(pack, f, line, f"{where}: missing {field}")
+            if P.iter_lines(tbl, key) and any(True for _ in P.iter_lines(tbl, key)):
+                rep.warn(pack, f, line, f"{where}: has lines but is still marked scaffold, so the game ignores it")
+            continue
         for field in ("id", "name", "bible", "role"):
             if tbl.get(field) is None:
                 rep.error(pack, f, line, f"{where}: missing {field}")
@@ -464,6 +478,8 @@ def main():
     n_npcs = sum(1 for k, v in npcs.items() if not args.pack or v[0].addon == args.pack)
     print(f"\n{len(packs)} pack(s), {n_npcs} NPC(s), {len(pools)} pool(s), {len(all_lines)} line(s). "
           f"TODO placeholders: {todo_count['npc']} NPC, {todo_count['quest']} quest, {todo_count['other']} other.")
+    if scaffolds:
+        print(f"Unwritten scaffold NPCs: {scaffolds}.")
     print(f"{e} error(s), {w} warning(s).")
     return 1 if e else 0
 

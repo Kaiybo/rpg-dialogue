@@ -26,7 +26,10 @@ commands.dev = function(args)
   ns.Print(on and L.DEV_ON or L.DEV_OFF)
 end
 
-commands.capture = function() ns.Capture.Target(); ns.Capture.Summary() end
+commands.capture = function(args)
+  if args[1] == "zone" then return ns.Capture.ZoneStatus() end
+  ns.Capture.Target(); ns.Capture.Summary()
+end
 
 commands.autocapture = function(args)
   local on = args[1] ~= "off"

@@ -66,3 +66,9 @@ P:NPC {
     choices = { { text = "Bye.", next = "END" } },
   } },
 }
+
+-- Made by tools/new_zone.py and not written yet: the game must ignore it.
+P:NPC {
+  key = "scaffolded", id = 9099, name = "Unwritten Person", bible = "bibles/scaffolded.md",
+  role = "questgiver", tier = "quest", communities = {}, scaffold = true,
+}

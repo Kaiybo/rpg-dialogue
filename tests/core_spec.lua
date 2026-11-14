@@ -264,6 +264,27 @@ describe("Capture", function()
     Mock.Fire("QUEST_ACCEPTED", 7)
     eq(ns.db.capture.quests[7].title, "Kobold Camp Cleanup")
     eq(ns.Capture.QuestIDByTitle("kobold camp cleanup"), 7)
+    -- the lowest level it was taken at, and by which faction (for the simulation)
+    eq(ns.db.capture.quests[7].minLevel, 5)
+    eq(ns.db.capture.quests[7].factions.Alliance, true)
+    Mock.state.units.player.level = 9
+    Mock.Fire("QUEST_ACCEPTED", 7)
+    eq(ns.db.capture.quests[7].minLevel, 5)
+  end)
+
+  it("lists the zone's NPCs that have no content yet", function()
+    local ns = Loader.Boot({ packs = { "RPGDialogue_TestPack" } })
+    ns.db.capture.npcs[197] = { name = "Marshal McBride", zone = "Elwynn Forest", gossip = true, reaction = 5, n = 3 }
+    ns.db.capture.npcs[555] = { name = "Nobody Yet", zone = "Elwynn Forest", subzone = "Goldshire", gossip = true, reaction = 5, n = 7 }
+    ns.db.capture.npcs[556] = { name = "Kobold Vermin", zone = "Elwynn Forest", reaction = 2 }
+    ns.db.capture.npcs[557] = { name = "Elsewhere", zone = "Westfall", gossip = true, reaction = 5 }
+    ns.db.capture.quests[8] = { title = "Q", zone = "Elwynn Forest" }
+    Mock.chat = {}
+    ns.Slash.Handle("capture zone")
+    local text = table.concat(Mock.chat, "\n")
+    ok(text:find("2 friendly NPCs captured %(1 have content%), 1 quests captured"), text)
+    ok(text:find("no content yet: Nobody Yet %(Goldshire%), talked to 7"), text)
+    ok(not text:find("Elsewhere"), text)
   end)
 end)
 

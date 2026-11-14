@@ -58,6 +58,15 @@ describe("Packs", function()
     eq(ns.Data.FindNPC(1234, "Nobody"), nil)
   end)
 
+  it("ignores scaffold NPCs nobody has written yet (they stay pooled)", function()
+    local ns = boot()
+    eq(ns.Data.npcs.scaffolded, nil)
+    eq(ns.Data.FindNPC(9099, "Unwritten Person"), nil)
+    local entry
+    for _, p in ipairs(ns.Packs.List()) do if p.id == "test.main" then entry = p end end
+    ok(entry, "test pack listed")
+  end)
+
   it("merges two packs covering the same NPC", function()
     local ns = boot()
     local def = ns.Data.npcs.mcbride

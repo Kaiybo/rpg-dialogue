@@ -56,6 +56,31 @@ function Cap.Summary()
   ns.Print(L.CAPTURE_COUNT:format(ns.Util.Count(s.npcs), ns.Util.Count(s.quests), ns.Util.Count(s.gossip), q))
 end
 
+-- What capture data exists for the zone you're in, and which NPCs you've talked to that have
+-- no content yet (most-talked-to first): a to-do list for the next content pass.
+function Cap.ZoneStatus()
+  local zone = C.Zone()
+  local s = store()
+  local npcs, covered, quests, todo = 0, 0, 0, {}
+  for id, rec in pairs(s.npcs) do
+    local friendly = not rec.reaction or rec.reaction >= 4
+    if rec.zone == zone and friendly then
+      npcs = npcs + 1
+      if ns.Data.FindNPC(id, rec.name) then
+        covered = covered + 1
+      elseif rec.gossip then
+        todo[#todo + 1] = rec
+      end
+    end
+  end
+  for _, q in pairs(s.quests) do if q.zone == zone then quests = quests + 1 end end
+  ns.Print(L.CAPTURE_ZONE:format(zone or "?", npcs, covered, quests))
+  table.sort(todo, function(a, b) return (a.n or 0) > (b.n or 0) end)
+  for i = 1, math.min(5, #todo) do
+    ns.Print(L.CAPTURE_ZONE_TODO:format(todo[i].name or "?", todo[i].subzone or "", todo[i].n or 0))
+  end
+end
+
 local function textOn() return ns.db and ns.db.settings.captureText end
 
 local function currentNPC()
@@ -131,6 +156,12 @@ ns.Listen("QUEST_ACCEPTED", function(questID)
   q.giver = currentNPC() or q.giver
   q.zone = (C.Zone())
   q.accepted = C.Now()
+  -- The lowest level anyone took it at, and which factions took it: the simulation uses
+  -- these to catch lines about quests a character couldn't have done yet.
+  local lvl = C.Level("player")
+  if lvl and (not q.minLevel or lvl < q.minLevel) then q.minLevel = lvl end
+  local faction = C.Faction("player")
+  if faction then q.factions = q.factions or {}; q.factions[faction] = true end
   store().quests[questID] = q
 end)
 
