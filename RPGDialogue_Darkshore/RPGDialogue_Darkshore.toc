@@ -1,0 +1,15 @@
+## Interface: 16001, 16002
+## Title: RPG Dialogue: Darkshore |cff8a8a8a1.0.0|r
+## Notes: Auberdine: an elder who trusts paladins, a druid chasing a creeping moss, beached sea creatures, and a man still in love after ten thousand years.
+## Author: RPG Dialogue
+## Version: 1.0.0
+## Dependencies: RPGDialogue
+## LoadOnDemand: 1
+## X-RPGD-Pack: rpgd.darkshore
+## X-RPGD-Format: 1
+## X-RPGD-Load: zone
+## X-RPGD-Zones: Darkshore
+
+pack.lua
+pools.lua
+npcs\auberdine.lua

@@ -304,6 +304,23 @@ describe("Content packs", function()
     eq(ns.Data.FindNPC(nil, "High Executor Darthalia").key, "darthalia")
   end)
 
+  it("Darkshore loads in Auberdine; Thundris and Cerellean are there, and the Sentinels are Auberdine's", function()
+    local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Darkshore" } })
+    Mock.state.zone, Mock.state.subzone = "Darkshore", "Auberdine"
+    Mock.Fire("ZONE_CHANGED_NEW_AREA")
+    Mock.RunTimers()
+    for _, p in ipairs(ns.Packs.List()) do
+      if p.id == "rpgd.darkshore" then ok(p.loaded); eq(p.warnings, 0) end
+    end
+    eq(ns.Data.FindNPC(nil, "Thundris Windweaver").key, "thundris")
+    eq(ns.Data.FindNPC(nil, "Cerellean Whiteclaw").key, "cerellean")
+    Mock.state.units.npc = { guid = "Creature-0-1-0-1-6087-AB", name = "Auberdine Sentinel", level = 40 }
+    local ctx = ns.Context.New({ unit = "npc" })
+    local info = ns.Conversation.Identify("npc", ctx)
+    eq(info.role, "guard")
+    eq(ns.Data.PoolsFor(info, ctx)[1].pool.id, "guard_auberdine")
+  end)
+
   it("Zephras Isle's Peacekeepers are guards of the isle, and the High Elder knows her own", function()
     local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Zephras" } })
     ns.db.settings.instantText = true

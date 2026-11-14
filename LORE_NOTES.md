@@ -345,3 +345,14 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Lieutenant Farren Orinelle: resents his posting, sits in the inn, the murloc quests, wants Stormwind | [Lieutenant Farren Orinelle](https://warcraft.wiki.gg/wiki/Lieutenant_Farren_Orinelle) |
 | Brewmeister Bilger: ex-Silver Hand paladin turned brewmeister; Loremaster Dibbs: Alterac's books and the ogres; Innkeeper Anderson | [Brewmeister Bilger](https://warcraft.wiki.gg/wiki/Brewmeister_Bilger); [Loremaster Dibbs](https://warcraft.wiki.gg/wiki/Loremaster_Dibbs); [Innkeeper Anderson](https://warcraft.wiki.gg/wiki/Innkeeper_Anderson) |
 | High Executor Darthalia: leads Tarren Mill's war for Sylvanas and Varimathras; Apothecary Lydon: glum poisoner, Umpi the frog, Faranell's elixirs; Innkeeper Shay | [High Executor Darthalia](https://warcraft.wiki.gg/wiki/High_Executor_Darthalia); [Apothecary Lydon](https://warcraft.wiki.gg/wiki/Apothecary_Lydon); [Innkeeper Shay](https://warcraft.wiki.gg/wiki/Innkeeper_Shay) |
+
+## Darkshore (Darkshore pack 1.0.0)
+
+| Fact used | Source |
+|---|---|
+| Auberdine: northern port; moonkin maddened by a red crystal from Felwood; Fel Moss in the Blackwood furbolgs; murlocs sinking ships | [Auberdine](https://warcraft.wiki.gg/wiki/Auberdine) |
+| Thundris Windweaver: elder; trusts the Silver Hand; Bashal'Aran, Tools of the Highborne, The Cliffspring River, The Blackwood Corrupted, Seeking the Kor Gem, Onward to Ashenvale | [Thundris Windweaver](https://warcraft.wiki.gg/wiki/Thundris_Windweaver) |
+| Terenthis: the Fel Moss; Grimclaw's master; How Big a Threat?, A Lost Master, Escape Through Stealth | [Terenthis](https://warcraft.wiki.gg/wiki/Terenthis) |
+| Gwennyth Bly'Leggonde: Temple of the Moon priestess; beached sea creatures | [Gwennyth Bly'Leggonde](https://warcraft.wiki.gg/wiki/Gwennyth_Bly%27Leggonde) |
+| Sentinel Glynda Nal'Shea: The Red Crystal, As Water Cascades, WANTED: Murkdeep! | [Sentinel Glynda Nal'Shea](https://warcraft.wiki.gg/wiki/Sentinel_Glynda_Nal%27Shea) |
+| Cerellean Whiteclaw: Anaya Dawnrunner of Ameth'Aran; For Love Eternal; Innkeeper Shaussiy | [Cerellean Whiteclaw](https://warcraft.wiki.gg/wiki/Cerellean_Whiteclaw); [Innkeeper Shaussiy](https://warcraft.wiki.gg/wiki/Innkeeper_Shaussiy) |

@@ -173,6 +173,13 @@ P:Town {
   quests = { { TODO_QUEST("Battle of Hillsbrad"), 6 }, { TODO_QUEST("WANTED: Syndicate Personnel"), 6 } },
 }
 
+P:Town {
+  id = "auberdine", name = "Auberdine",
+  subzones = { "Auberdine" },
+  tiers = { Hero = "Hero of Auberdine" },
+  quests = { { TODO_QUEST("The Blackwood Corrupted"), 8 }, { TODO_QUEST("WANTED: Murkdeep!"), 8 }, { TODO_QUEST("For Love Eternal"), 4 } },
+}
+
 -- The other capitals. Their guards speak from pools_roles.lua; standing grows from quests
 -- each capital's own pack lists later.
 P:Town {
