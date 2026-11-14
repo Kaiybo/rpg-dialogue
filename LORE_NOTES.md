@@ -772,3 +772,22 @@ New in Forever (patch 1.60.1): a level 35-45 contested zone in southeastern Khaz
 **Year 1 discipline:** the bishop's story is backstory from before Year 1, published later; she is never named and nothing after Year 1 is mentioned (no Cult of Forgotten Shadow, no Conclave, no Xal'atath). Benedictus knows of her; nobody else brings her up.
 
 **Authored, not canon:** every NPC's reaction to Shadowform (Benedictus asking to see a priest's face, Laurena refusing to teach through it, Crowley's suspicion, Anduin's questions, guards' fright); priests' offers to bless riders, badges and graves; Jaina's prayer on the docks (a private memory, never an event); Smotts' cook having once asked him to say words for the crew.
+
+## The Scarlet Path (throughline; World 1.17.0, Hillsbrad, Desolace, Stormwind, Eastern Plaguelands)
+
+| Fact used | Source |
+|---|---|
+| Brother Crowley, Scarlet Crusade Emissary, a priest in the Cathedral of Light's lower level; sends Alliance adventurers to Brother Anton in Desolace (Brother Anton, level 39, requires 34) | [Brother Crowley](https://warcraft.wiki.gg/wiki/Brother_Crowley); [Brother Anton (quest)](https://warcraft.wiki.gg/wiki/Brother_Anton_(quest)) |
+| Anton: the Scarlet Crusade has sworn to fight the Scourge body and soul; prove yourself on the undead ravagers of the Valley of Bones, to the south of Nijel's Point (coords 60,90) | [Down the Scarlet Path](https://warcraft.wiki.gg/wiki/Down_the_Scarlet_Path) |
+| Anton's Letter of Commendation to Raleigh the Devout in Southshore, who is to escort the recruit to the Scarlet Monastery; the true threat is in Lordaeron; Raleigh is alarmed that Anton still spreads the Crusade's word | [Down the Scarlet Path (2)](https://warcraft.wiki.gg/wiki/Down_the_Scarlet_Path_(2)) |
+| Raleigh the Devout: human paladin, Southshore Inn upstairs; served the Crusade with pride, left after seeing at the Monastery in Tirisfal that everyone without the tabard was "plagued" to them and innocents were tortured; sends the player to kill High Inquisitor Whitemane, Scarlet Commander Mograine, Herod the Scarlet Champion and Houndmaster Loksey; afterwards: disciples of the Light don't revel in death, but some sacrifices are needed | [Raleigh the Devout](https://warcraft.wiki.gg/wiki/Raleigh_the_Devout); [In the Name of the Light](https://warcraft.wiki.gg/wiki/In_the_Name_of_the_Light) |
+| Scarlet Monastery wings (Classic): Houndmaster Loksey in the Library (Huntsman's Cloister), Herod in the Armory, Mograine and Whitemane in the Cathedral; Classic description: once a bastion of Lordaeron's priesthood, the Crusade sees all outsiders as potential plague carriers | [Scarlet Monastery](https://warcraft.wiki.gg/wiki/Scarlet_Monastery); [Scarlet Monastery Library](https://warcraft.wiki.gg/wiki/Scarlet_Monastery_Library); [Herod](https://warcraft.wiki.gg/wiki/Herod) |
+| Tyrosus left the Silver Hand when it became the Scarlet Crusade | Eastern Plaguelands section above |
+
+**Wiki IDs (not used; the packs keep `TODO_` names):** Brother Crowley 12336, Raleigh the Devout 3980 (vanilla). Quests: Brother Anton 6141, Down the Scarlet Path 261 (Anton's), Down the Scarlet Path 1052 (the letter; **same title: capture data will report it ambiguous**, so set it by hand on Raleigh's `h_letter` and the thread's b3 condition), In the Name of the Light 1053.
+
+**Year 1 discipline:** nothing from Raleigh's Burning Crusade appearance (Raleigh "the True" in Old Hillsbrad) or later (Southshore's ruin, Battle for Azeroth). The Monastery's leaders are named only as the quest names them; nothing about Whitemane and Mograine beyond that.
+
+**Fixed while writing it:** Anton said the Valley of Bones was "to the southeast" (it's south); Benedictus said Crowley sends recruits "east" (Desolace is west, across the sea).
+
+**Authored, not canon:** Crowley's warning about what the Crusade asks; Anton saying Raleigh writes less often; Raleigh watching the north road and not answering Anton's letters; the player's choice to tell Anton or spare him, and both of his reactions; Crowley calling Raleigh a deserter; Benedictus deciding to pray with everyone who goes down to Crowley. Raleigh's "a fortress with prayers painted on it" is his image, not a description of the building.
