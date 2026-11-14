@@ -16,6 +16,7 @@ Copy these folders into `World of Warcraft/<your Forever folder>/Interface/AddOn
 - `RPGDialogue_Zephras`: Zephras Isle, home of the Skyborne
 - `RPGDialogue_Redridge`: Lakeshire and the Redridge Mountains
 - `RPGDialogue_Duskwood`: Darkshire, Raven Hill and the woods
+- `RPGDialogue_UnGoro`: Marshal's Refuge (both factions)
 - `RPGDialogue_Badlands`: Kargath (Horde), plus the Explorers' League dig and Lotwil's camp
 - `RPGDialogue_Hinterlands`: Aerie Peak (Alliance)
 - `RPGDialogue_Arathi`: Refuge Pointe (Alliance) and Hammerfall (Horde)

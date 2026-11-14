@@ -423,6 +423,13 @@ P:Town {
   quests = { { TODO_QUEST("KILL ON SIGHT: Dark Iron Dwarves"), 2 }, { TODO_QUEST("Operation: Death to Angerforge"), 8 } },
 }
 
+P:Town {
+  id = "marshals_refuge", name = "Marshal's Refuge",
+  subzones = { "Marshal's Refuge" },
+  tiers = { Hero = "Hero of Un'Goro" },
+  quests = { { TODO_QUEST("Expedition Salvation"), 4 }, { TODO_QUEST("It's Dangerous to Go Alone"), 8 } },
+}
+
 -- The other capitals. Their guards speak from pools_roles.lua; standing grows from quests
 -- each capital's own pack lists later.
 P:Town {

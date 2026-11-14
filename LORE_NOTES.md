@@ -633,3 +633,13 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Prospector Ryedol: Explorers' League, partner Hammertoe Grez; A Dwarf and His Tools, A Sign of Hope, Prospect of Faith | [Prospector Ryedol](https://warcraft.wiki.gg/wiki/Prospector_Ryedol) |
 | Uldaman topic (found by the Expeditionary Force; Hammertoe's notes lead there) | [Kargath](https://warcraft.wiki.gg/wiki/Kargath), [Prospector Ryedol](https://warcraft.wiki.gg/wiki/Prospector_Ryedol) |
 | Lotwil Veriatus: gnome scholar, Enlightened Assembly, Lucien Tosselwrench, Servo, wants one school for all peoples; Study of the Elements: Rock, This Is Going to Be Hard, The Rise of the Machines | [Lotwil Veriatus](https://warcraft.wiki.gg/wiki/Lotwil_Veriatus) |
+
+## Un'Goro Crater (Un'Goro pack 1.0.0)
+
+| Fact used | Source |
+|---|---|
+| Marshal's Refuge: neutral camp on the northern rim; the Marshal Expedition lost its base camps and fell back to high ground; Gadgetzan Bruisers guard it | [Marshal's Refuge](https://warcraft.wiki.gg/wiki/Marshal's_Refuge) |
+| Williden Marshal: leader, sister Hol'anyee; crystals and rare plants; warns of King Mosh; Williden's Journal, Expedition Salvation | [Williden Marshal](https://warcraft.wiki.gg/wiki/Williden_Marshal) |
+| Linken: amnesiac gnome warrior; raft wrecked in the marsh, blow to the head; Blazerunner and the Golden Flame; half-remembered advice; hands the task to the adventurer | [Linken](https://warcraft.wiki.gg/wiki/Linken) |
+| J.D. Collie: female gnome crystal scholar in a cave; Making Sense of It, Linken's Memory, Aquementas | [J.D. Collie](https://warcraft.wiki.gg/wiki/J.D._Collie) |
+| Spraggle Frock: female goblin, worried for Ringo lost at the volcano; Lost!, A Little Help From My Friends, Beware of Pterrordax | [Spraggle Frock](https://warcraft.wiki.gg/wiki/Spraggle_Frock) |
