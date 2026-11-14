@@ -3,7 +3,7 @@
 > Read this first, then `DESIGN.md`, then `CONTENT_GUIDE.md` (and `PACK_AUTHORING.md` before adding a zone). You won't remember earlier sessions; these files are your memory.
 > The original brief is the Project doc `rpg-dialogue-build-prompt (1).md`. Re-read it when a decision isn't covered here.
 
-**Last session:** 2026-11-13 · **M0–M8 all built; three rounds of in-game results are in.** The addon loads, packs load, `/rpgd why` works, and the Skyborne race token is "Skyborne". **Versions now: core 0.10.2, World 1.0.0, Elwynn 1.1.0** (`python3 tools/version.py`).
+**Last session:** 2026-11-13 · **M0–M8 all built; three rounds of in-game results are in.** The addon loads, packs load, `/rpgd why` works, and the Skyborne race token is "Skyborne". **Versions now: core 0.10.3, World 1.0.0, Elwynn 1.1.0** (`python3 tools/version.py`).
 
 **First in-game test (user, 2026-11-13):**
 - **Test character: Skyborne Druid, level 22 (Blooded), faction not confirmed, tested in Northshire Valley.** Content for that character is thin: the slice is written for level 1–10 characters doing Northshire/Goldshire quests (only 4 Skyborne lines and 1 druid line exist). Asked the user where they actually play, for the next content pass.
@@ -24,6 +24,8 @@
 - **Fifth test:** "Going outside and then back in fixed it" (Melika's lines; confirms the zone-load diagnosis, fixed in 0.10.1). Two screenshots side by side, the game's own gossip window for Innkeeper Farley and ours: **"The text is too big, it doesn't have open space."** (Their client numbers gossip options "1." too.) And: **"have it work with DialogueUI"** (they use it).
   - 0.10.2: the game look now copies GossipFrame's measurements (338 × 496 minimum, text 270 wide at 18, −75, quest font size 13 at the default setting, 15-pixel spacer, 300-wide rows). DESIGN §3.10.
   - 0.10.2: DialogueUI works together (default "auto"): our box first over its window (alpha pinned at 0, covered, never hidden), keys kept from its TOOLTIP-strata listener, our windows parentless so its "hide the game UI" can't hide them, hand-over on Get on with it / game option. Read from its public source (cloned `Peterodox/YUI-Dialogue`, untrusted, read only). DESIGN §8 "DialogueUI". Immersion still steps back (its code not studied).
+
+- **Then: "just add font and text size options. The text is still too bold."** (They existed, in Settings > Accessibility, apparently not found.) 0.10.3: an "Aa" button in the box's title bar (`UI/TextOptions.lua`: size, spacing, text font, name font, live); a "Look and text" section at the top of settings. "Bold" cause: every FontString was created from GameFontHighlight, which has a drop shadow; `Theme.SetFont` now clears it (the title bar turns it back on). Text size default 13 with no hidden offset (schema 6 moves 14 → 13).
 
 ## Assumptions made while the user was away (confirm or correct)
 1. **Interface number** 16001 (from warcraft.wiki.gg, patch 1.60.1). TOCs say `16001, 16002` to cover the next patch too.
@@ -50,7 +52,7 @@
 - **M6** (979fcc5): spirit healer tree, books, insanity, drunk replies, ghosts, barks, errands.
 - **M7** (bbefce7): `tools/new_zone.py` (plan → approve tiers → scaffold), `tools/check_all.py`, impossible-quest-reference check, copied-wording check, flag replay lines, `/rpgd capture zone`, `tests/test_tools.py`.
 - **M8** (c2e6a2e): Total RP 3 (read-only), accessibility pass (keyboard selection, gamepad, Ask About keybinding, bundled readable font, "(Locked)" and ">" markers, journal tab keys), the optional "something new" tooltip marker (an M2 item that had been missed), pack `requires` reported in game and validated, per-pack versions and changelogs, `PACK_AUTHORING.md`, `.pkgmeta` checked against the packager's source, Blizzard UI policy checked and enforced by `check_all.py --release`, GitHub workflows, README rewrite.
-- **After the in-game tests:** box every visit with the game's options, safety net, right-click talk, Melika, fonts, polish, versions. **Checks now:** 155 Lua tests (new `tests/ux_spec.lua`, `tests/look_spec.lua`, `tests/dialogueui_spec.lua`), 8 Python tool tests, luacheck clean, validator 0 errors (106 warnings, all TODO placeholders), voice check 0 failures, simulation 0 runtime errors / 0 contradictions / 0 impossible quest references.
+- **After the in-game tests:** box every visit with the game's options, safety net, right-click talk, Melika, fonts, polish, versions. **Checks now:** 158 Lua tests (new `tests/ux_spec.lua`, `tests/look_spec.lua`, `tests/dialogueui_spec.lua`), 8 Python tool tests, luacheck clean, validator 0 errors (106 warnings, all TODO placeholders), voice check 0 failures, simulation 0 runtime errors / 0 contradictions / 0 impossible quest references.
 - Earlier: **Checks at the end of M8:** 118 Lua tests, 7 Python tool tests, luacheck clean, validator 0 errors (101 warnings, all TODO placeholders), voice check 0 failures, simulation 0 runtime errors / 0 contradictions / 0 impossible quest references.
 
 ## Half-done
@@ -107,7 +109,9 @@ Still all of DESIGN.md §4 (section 9 answers, slice zone, where the repo lives,
 - `python3 tools/check_all.py` runs everything (about a minute); `--quick` skips the simulation.
 
 ## Exact next step
-User installs 0.10.2 (full restart) with DialogueUI on: talk to Farley (box first, DialogueUI's window appears after "Get on with it" or a picked option; number keys only act on the box), right-click Melika, compare the box's size and text with the game's window again. Fix what's off. Then content for wherever they play.
+User installs 0.10.3 (full restart: new file), checks the text weight against the game's window and tries the Aa button; then the DialogueUI check below.
+
+Previous next step (0.10.2): user installs 0.10.2 (full restart) with DialogueUI on: talk to Farley (box first, DialogueUI's window appears after "Get on with it" or a picked option; number keys only act on the box), right-click Melika, compare the box's size and text with the game's window again. Fix what's off. Then content for wherever they play.
 
 Previous next step (0.10.1): user installs 0.10.1 (full restart), checks Melika on the paladin (her own lines: "Melika. Farley talks to the guests, I feed them."), the Ask list, the journal (`/rpgd journal`), and says what else to tweak. Then content for wherever the paladin or the moved main plays.
 

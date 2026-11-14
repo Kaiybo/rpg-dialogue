@@ -2,6 +2,15 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.10.3 (2026-11-13)
+Packs unchanged: World 1.0.0, Elwynn Forest 1.1.0. Adds a file (`UI/TextOptions.lua`): restart the game, don't just /reload.
+
+### Text size and fonts, right in the box
+- **"Aa" button** in the conversation box's title bar: text size (10–24), line spacing, the font for what people say and the font for names, changed live while you read. Each font's name is shown in that font. Escape closes it before the conversation.
+- Settings: the same options moved up into a new **"Look and text"** section with the window style.
+- **Text no longer looks bold**: every string started from the game's highlight font, which has a drop shadow, and on parchment that shadow thickened dark text. Text and replies now have no shadow, like the game's quest text. Only the gold name in the metal title bar keeps one.
+- The text size setting is now the size you see. The default is 13 (the game's quest font size); the old default of 14 moves to 13 once (saved-data schema 6), and a size you chose is kept.
+
 ## 0.10.2 (2026-11-13)
 Packs unchanged: World 1.0.0, Elwynn Forest 1.1.0.
 

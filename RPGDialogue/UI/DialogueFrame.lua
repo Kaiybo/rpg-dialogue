@@ -216,6 +216,23 @@ local function create()
   end)
   frame.flag:SetScript("OnLeave", function(self) self:SetAlpha(0.55); GameTooltip:Hide() end)
 
+  -- "Aa": text size, line spacing and fonts, changed live (UI/TextOptions.lua).
+  frame.textBtn = CreateFrame("Button", nil, frame)
+  frame.textBtn:SetSize(20, 16)
+  frame.textBtn.label = frame.textBtn:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+  frame.textBtn.label:SetPoint("CENTER")
+  frame.textBtn.label:SetText("Aa")
+  frame.textBtn.hl = frame.textBtn:CreateTexture(nil, "HIGHLIGHT")
+  frame.textBtn.hl:SetAllPoints()
+  frame.textBtn.hl:SetColorTexture(1, 1, 1, 0.15)
+  frame.textBtn:SetScript("OnClick", function() UI.TextOptions.Toggle(frame) end)
+  frame.textBtn:SetScript("OnEnter", function(self)
+    GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+    GameTooltip:SetText(L.QUICK_TIP)
+    GameTooltip:Show()
+  end)
+  frame.textBtn:SetScript("OnLeave", function() GameTooltip:Hide() end)
+
   -- "Ask about..."
   frame.ask = Theme.Button(frame, L.ASK_BUTTON, 116, 22)
   frame.ask:SetScript("OnClick", function() UI.AskAbout.Toggle(frame) end)
@@ -268,6 +285,7 @@ local function placeParts(game)
   frame.text:ClearAllPoints()
   frame.close:ClearAllPoints()
   frame.flag:ClearAllPoints()
+  frame.textBtn:ClearAllPoints()
   frame.ask:ClearAllPoints()
   frame.flagBox:ClearAllPoints()
   frame.flagHint:ClearAllPoints()
@@ -286,6 +304,7 @@ local function placeParts(game)
     frame.close:SetPoint("TOPRIGHT", 1, 0)
     frame.flag:SetSize(14, 14)
     frame.flag:SetPoint("TOPRIGHT", -26, -4)
+    frame.textBtn:SetPoint("TOPRIGHT", -44, -3)
     frame.ask:SetPoint("BOTTOMRIGHT", -6, 4)
     frame.flagBox:SetPoint("BOTTOMLEFT", 12, 5)
     -- The metal border reaches past the frame (most at the portrait corner and the top).
@@ -303,6 +322,7 @@ local function placeParts(game)
     frame.close:SetPoint("TOPRIGHT", -12, -12)
     frame.flag:SetSize(16, 16)
     frame.flag:SetPoint("TOPRIGHT", -38, -14)
+    frame.textBtn:SetPoint("TOPRIGHT", -60, -14)
     frame.ask:SetPoint("BOTTOMRIGHT", -16, 14)
     frame.flagBox:SetPoint("BOTTOMLEFT", PAD + 6, 10)
     frame.flagHint:SetPoint("LEFT", frame.flagBox, "RIGHT", 8, 0)
@@ -344,6 +364,9 @@ function D.Style()
   end
   Theme.Shadow(frame.name, game)
   Theme.Shadow(frame.subtitle, game)
+  frame.textBtn.label:SetFont(C.GlobalString("STANDARD_TEXT_FONT") or "Fonts\\FRIZQT__.TTF", 11, "")
+  Theme.Shadow(frame.textBtn.label, game)
+  Theme.TextColor(frame.textBtn.label, "title")
   Theme.SetFont(frame.text, "body", size)
   Theme.SetFont(frame.reaction, "body", size - 1)
   Theme.SetFont(frame.flagHint, "body", size - 3)
@@ -688,7 +711,9 @@ function D.OnKey(self, key)
     if key == "UP" then ask.Move(-1) elseif key == "DOWN" then ask.Move(1) else ask.Confirm() end
   elseif key == "ESCAPE" then
     handled = true
-    if ask.IsShown() then ask.Hide() else ns.Conversation.Business() end
+    if UI.TextOptions.IsShown() then UI.TextOptions.Hide()
+    elseif ask.IsShown() then ask.Hide()
+    else ns.Conversation.Business() end
   elseif key == "SPACE" then
     if reveal.active then handled = true; finishReveal() end
   elseif key == "UP" or (key == "TAB" and C.ShiftDown()) then

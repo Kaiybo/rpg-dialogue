@@ -156,12 +156,20 @@ local function build()
   header(L.ADDON_NAME .. "  |cff8a8a8a" .. ns.VERSION .. "|r")
   checkbox(L.OPT_ENABLED, "enabled")
   cycle(L.OPT_OPEN_MODE, "openMode", { "full", "compact", "skip" }, { L.OPEN_FULL, L.OPEN_COMPACT, L.OPEN_SKIP })
-  cycle(L.OPT_LOOK, "look", { "game", "wood" }, { L.LOOK_GAME, L.LOOK_WOOD })
-  if not UI.Theme.GameArt() then note(L.OPT_LOOK_MISSING) end
   checkbox(L.OPT_RIGHT_CLICK, "rightClickTalk")
   checkbox(L.OPT_FADE, "fadeDefault")
   slider(L.OPT_ACK, "ackChance", 0, 1, 0.05, "%.2f")
   checkbox(L.OPT_NEW_MARKER, "newMarker")
+
+  -- Look and text first: the things people change most (also from the box's "Aa" button).
+  y = y - 8
+  header(L.OPT_HEADER_TEXT)
+  cycle(L.OPT_LOOK, "look", { "game", "wood" }, { L.LOOK_GAME, L.LOOK_WOOD })
+  if not UI.Theme.GameArt() then note(L.OPT_LOOK_MISSING) end
+  slider(L.OPT_TEXT_SIZE, "textSize", 10, 24, 1)
+  slider(L.OPT_SPACING, "lineSpacing", 0, 10, 1)
+  fontPicker(L.OPT_FONT_TEXT, "fontBody", "body")
+  fontPicker(L.OPT_FONT_NAME, "fontName", "name")
 
   y = y - 8
   header(L.OPT_HEADER_OTHERS)
@@ -190,10 +198,6 @@ local function build()
 
   y = y - 8
   header(L.OPT_HEADER_ACCESS)
-  slider(L.OPT_TEXT_SIZE, "textSize", 10, 24, 1)
-  slider(L.OPT_SPACING, "lineSpacing", 0, 10, 1)
-  fontPicker(L.OPT_FONT_TEXT, "fontBody", "body")
-  fontPicker(L.OPT_FONT_NAME, "fontName", "name")
   slider(L.OPT_SPEED, "textSpeed", 20, 200, 10)
   checkbox(L.OPT_INSTANT, "instantText")
   checkbox(L.OPT_AUTO, "autoAdvance")

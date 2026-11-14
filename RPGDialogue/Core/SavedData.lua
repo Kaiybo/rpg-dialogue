@@ -7,7 +7,7 @@ local U = ns.Util
 local SD = {}
 ns.SavedData = SD
 
-SD.SCHEMA = 5
+SD.SCHEMA = 6
 
 SD.ACCOUNT_DEFAULTS = {
   schema = SD.SCHEMA,
@@ -33,7 +33,7 @@ SD.ACCOUNT_DEFAULTS = {
     showLocked = false,
     newMarker = false,
     fadeDefault = true,         -- fade Blizzard's window while ours covers it
-    textSize = 14,
+    textSize = 13,              -- the game's quest font size
     lineSpacing = 3,
     look = "game",              -- "game" (the game's own quest window art) | "wood"
     fontBody = "friz",          -- see Theme.FONT_LIST ("lsm:<name>" for SharedMedia fonts)
@@ -119,6 +119,11 @@ end
 SD.MIGRATIONS.account[5] = function(db)
   if type(db.settings) == "table" and db.settings.otherAddons == "stepback" then db.settings.otherAddons = "auto" end
   if type(db.settings) == "table" and db.settings.toldAboutOther == true then db.settings.toldAboutOther = nil end
+end
+
+-- Schema 6: the default text size is the game's quest font size, 13 (was 14).
+SD.MIGRATIONS.account[6] = function(db)
+  if type(db.settings) == "table" and db.settings.textSize == 14 then db.settings.textSize = 13 end
 end
 
 SD.LIMITS = { seen = 1500, journal = 2000, deaths = 500, debug = 300, flagged = 500 }

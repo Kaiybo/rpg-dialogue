@@ -98,13 +98,12 @@ function Theme.FontPath(kind)
 end
 
 function Theme.TextSize()
-  return (ns.db and ns.db.settings.textSize) or 14
+  return (ns.db and ns.db.settings.textSize) or 13
 end
 
--- What people say, and the replies: the game look uses the game's quest font size (13 at
--- the default setting of 14), the wood look the setting itself.
+-- What people say, and the replies. (The default, 13, is the game's quest font size.)
 function Theme.BodySize()
-  return Theme.TextSize() - (Theme.IsGame() and 1 or 0)
+  return Theme.TextSize()
 end
 
 -- With DialogueUI loaded our windows live outside UIParent, one strata above its window:
@@ -126,7 +125,9 @@ function Theme.BodyFont()
   return (Theme.FontPath("body"))
 end
 
--- kind: "name" for names and headings, anything else for text.
+-- kind: "name" for names and headings, anything else for text. No outline and no shadow:
+-- ink on parchment, like the game's quest text. (Strings start from GameFontHighlight, whose
+-- drop shadow made dark text look bold; the title bar turns its shadow back on.)
 function Theme.SetFont(fs, kind, size)
   local path, scale = Theme.FontPath(kind == "name" and "name" or "body")
   size = math.floor((size or Theme.TextSize()) * (scale or 1) + 0.5)
@@ -134,6 +135,7 @@ function Theme.SetFont(fs, kind, size)
   -- A font file that failed to load leaves the string with no font at all; fall back.
   if not fs:GetFont() then fs:SetFont(C.GlobalString("STANDARD_TEXT_FONT") or "Fonts\\FRIZQT__.TTF", size, "") end
   if not fs:GetFont() then fs:SetFontObject("GameFontHighlight") end
+  Theme.Shadow(fs, false)
 end
 
 -- A drop shadow like the game's title fonts (or none).
@@ -143,7 +145,9 @@ function Theme.Shadow(fs, on)
     fs:SetShadowColor(0, 0, 0, 1)
   else
     fs:SetShadowOffset(0, 0)
+    fs:SetShadowColor(0, 0, 0, 0)
   end
+  fs.rpgdShadow = on and true or false
 end
 
 ---------------------------------------------------------------------------
