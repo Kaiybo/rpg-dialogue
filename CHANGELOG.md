@@ -2,6 +2,15 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.22.0 (2026-11-14)
+Packs: World 1.10.0, The Barrens 1.1.0, Thunder Bluff 1.0.2, Undercity 1.0.1, Darnassus 1.0.1, Ironforge 1.2.1, Orgrimmar 1.1.1 (the rest as in 0.21.0). No new folders: /reload is enough for most, but a full restart is safest (the Barrens has a new file).
+
+### Camp Taurajo
+- Jorn Skyseer, who teaches young hunters the four great hunts of the Barrens; Mangletooth, a Razormane quilboar in a cage, who will trade the boar god's blessings for blood shards; Tatternack Steelforge, sent by the Warchief to study everyone's weapons; Innkeeper Byula.
+
+### The capitals know where you've been
+- Cairne knows you've met Baine; Hamuul knows Rau at Freewind; Thrall knows Gar'Thok; Sylvanas knows Zygand; Bethor hears what Renferrel found; Magni has opinions about the Whitebeard brothers; Fandral about Corithras's moonwells; Tyrande knows Tenaron sent you down from Aldrassil.
+
 ## 0.21.0 (2026-11-14)
 Packs: World 1.9.0, Elwynn Forest 1.6.0, Ironforge 1.2.0, and three new ones: Tirisfal Glades 1.0.0, Teldrassil 1.0.0, Silverpine Forest 1.0.0 (the rest as in 0.20.0). **New folders: exit the game fully, copy them in, and tick them.**
 

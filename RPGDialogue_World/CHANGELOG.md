@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.10.0 (unreleased)
+- Town: Camp Taurajo.
+
 ## 1.9.0 (unreleased)
 - Towns: Deathknell, Brill, Shadowglen, Dolanaar, Coldridge Valley, Kharanos and the Sepulcher.
 - Topics: the Scarlet Crusade; camping (Forever).
