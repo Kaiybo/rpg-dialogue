@@ -236,6 +236,27 @@ P:Town {
   quests = { { TODO_QUEST("Rocket Car Parts"), 6 } },
 }
 
+P:Town {
+  id = "valley_of_trials", name = "The Valley of Trials",
+  subzones = { "Valley of Trials", "The Den", "Burning Blade Coven" },
+  tiers = { Hero = "Blooded in the Valley" },
+  quests = { { TODO_QUEST("Sarkoth"), 4 }, { TODO_QUEST("Burning Blade Medallion"), 6 } },
+}
+
+P:Town {
+  id = "razor_hill", name = "Razor Hill",
+  subzones = { "Razor Hill", "Razor Hill Barracks" },
+  tiers = { Hero = "Hero of Razor Hill" },
+  quests = { { TODO_QUEST("Vanquish the Betrayers"), 6 }, { TODO_QUEST("Dark Storms"), 6 } },
+}
+
+P:Town {
+  id = "senjin", name = "Sen'jin Village",
+  subzones = { "Sen'jin Village" },
+  tiers = { Hero = "Friend of the Darkspear" },
+  quests = { { TODO_QUEST("Zalazane"), 8 } },
+}
+
 -- The other capitals. Their guards speak from pools_roles.lua; standing grows from quests
 -- each capital's own pack lists later.
 P:Town {

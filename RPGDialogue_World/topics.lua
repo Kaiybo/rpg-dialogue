@@ -45,4 +45,6 @@ P:Topic { id = "bloodsail", name = "The Bloodsail Buccaneers", category = "threa
 P:Topic { id = "kurzen", name = "Colonel Kurzen's expedition", category = "rumors", learned = "Lieutenant Doren at the Rebel Camp" }
 P:Topic { id = "grimtotem", name = "The Grimtotem clan", category = "threats", learned = "Cliffwatcher Longhorn at Freewind Post" }
 P:Topic { id = "mirage_raceway", name = "The Mirage Raceway", category = "places", learned = "Pozzik or Fizzle on the Shimmering Flats" }
+P:Topic { id = "burning_blade", name = "The Burning Blade", category = "threats", learned = "Zureetha Fargaze or Orgnil Soulscar in Durotar" }
+P:Topic { id = "echo_isles", name = "The Echo Isles", category = "places", learned = "Master Gadrin in Sen'jin Village" }
 P:Topic { id = "yenniku", name = "Yenniku, son of Vol'jin", category = "people", learned = "Nimboya at Grom'gol" }

@@ -427,6 +427,23 @@ describe("Content packs", function()
     eq(ns.Data.PoolsFor(info, ctx)[1].pool.id, "guard_freewind")
   end)
 
+  it("Durotar loads in Razor Hill; Gornek and Gadrin are there, the grunts are Razor Hill's, and Vol'jin knows Gadrin", function()
+    local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Durotar", "RPGDialogue_Orgrimmar" } })
+    Mock.state.zone, Mock.state.subzone = "Durotar", "Razor Hill"
+    Mock.Fire("ZONE_CHANGED_NEW_AREA")
+    Mock.RunTimers()
+    for _, p in ipairs(ns.Packs.List()) do
+      if p.id == "rpgd.durotar" then ok(p.loaded); eq(p.warnings, 0) end
+    end
+    eq(ns.Data.FindNPC(nil, "Gornek").key, "gornek")
+    eq(ns.Data.FindNPC(nil, "Master Gadrin").key, "gadrin")
+    Mock.state.units.npc = { guid = "Creature-0-1-0-1-5953-AB", name = "Razor Hill Grunt", level = 30 }
+    local ctx = ns.Context.New({ unit = "npc" })
+    local info = ns.Conversation.Identify("npc", ctx)
+    eq(info.role, "guard")
+    eq(ns.Data.PoolsFor(info, ctx)[1].pool.id, "guard_razorhill")
+  end)
+
   it("Zephras Isle's Peacekeepers are guards of the isle, and the High Elder knows her own", function()
     local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Zephras" } })
     ns.db.settings.instantText = true

@@ -442,3 +442,23 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Fizzle Brassbolts: MEGA member, excitable, dismissive of goblins; Classic quests | [Fizzle Brassbolts](https://warcraft.wiki.gg/wiki/Fizzle_Brassbolts) |
 | Kravel Koalbeard: dwarf con man who runs errands for the crews and rigs races; The Rumormonger links him to Krazek in Booty Bay | [Kravel Koalbeard](https://warcraft.wiki.gg/wiki/Kravel_Koalbeard); [Krazek](https://warcraft.wiki.gg/wiki/Krazek) |
 | Magatha's topic line on the Grimtotem (Arnak) | [Freewind Post](https://warcraft.wiki.gg/wiki/Freewind_Post) |
+
+## Durotar (Durotar pack 1.0.0) and Vol'jin (Orgrimmar 1.1.0)
+
+| Fact used | Source |
+|---|---|
+| The Valley of Trials: the Den, the Burning Blade's caves in the north, Sarkoth, the quest order | [Valley of Trials](https://warcraft.wiki.gg/wiki/Valley_of_Trials) |
+| Kaltunk greets new orcs and sends them on | [Kaltunk](https://warcraft.wiki.gg/wiki/Kaltunk) |
+| Gornek runs the Den; **Forever** quests Wayward Weapons, Glyphic Parchment, Tainted Tablet | [Gornek](https://warcraft.wiki.gg/wiki/Gornek); [Wayward Weapons](https://warcraft.wiki.gg/wiki/Wayward_Weapons) |
+| Kzan Thornslash, the Den's weaponsmith, repairs the training weapons (Forever) | [Kzan Thornslash](https://warcraft.wiki.gg/wiki/Kzan_Thornslash) |
+| Zureetha Fargaze: orc warlock against the Burning Blade | [Zureetha Fargaze](https://warcraft.wiki.gg/wiki/Zureetha_Fargaze) |
+| Foreman Thazz'ril: lazy peons, the blackjack, his enchanted pick left in the coven | [Foreman Thazz'ril](https://warcraft.wiki.gg/wiki/Foreman_Thazz%27ril) |
+| Galgar: cook; the cactus apple task is easy on purpose | [Galgar](https://warcraft.wiki.gg/wiki/Galgar) |
+| Razor Hill at Durotar's crossroads; Kul Tiran threats; grunts | [Razor Hill](https://warcraft.wiki.gg/wiki/Razor_Hill) |
+| Gar'Thok: commander of Razor Hill, once Nazgrel's lieutenant; terse | [Gar'Thok](https://warcraft.wiki.gg/wiki/Gar%27Thok) |
+| Orgnil Soulscar: Razor Hill's lawman against the Burning Blade | [Orgnil Soulscar](https://warcraft.wiki.gg/wiki/Orgnil_Soulscar) |
+| Innkeeper Grosk; A Peon's Burden | [Innkeeper Grosk](https://warcraft.wiki.gg/wiki/Innkeeper_Grosk) |
+| Sen'jin Village named for Vol'jin's father, who died fighting murlocs; Zalazane took the Echo Isles; Sen'jin Watchers | [Sen'jin Village](https://warcraft.wiki.gg/wiki/Sen%27jin_Village) |
+| Master Gadrin: old chief witch doctor who trained Vol'jin and Zalazane; Minshina's Skull, Zalazane | [Master Gadrin](https://warcraft.wiki.gg/wiki/Master_Gadrin) |
+| Vol'jin: Thrall's adviser in Orgrimmar in Classic; wise, witty, cunning; dialect; pledged to the Horde after Thrall saved the Darkspear; Zalazane his childhood friend; Yenniku his youngest son | [Vol'jin](https://warcraft.wiki.gg/wiki/Vol%27jin) |
+| warcraft.wiki.gg documents Forever itself: the game's page (new zones, dungeons, NPCs such as Pix Xizzix in Booty Bay and Gabbi Goodwhistle), "Forever" sections on NPC pages, Forever-exclusive quest pages | [World of Warcraft: Forever](https://warcraft.wiki.gg/wiki/World_of_Warcraft:_Forever) |

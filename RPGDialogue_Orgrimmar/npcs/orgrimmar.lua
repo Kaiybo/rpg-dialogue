@@ -70,7 +70,69 @@ P:NPC {
   topics = {
     cenarion_circle = { { id = "tp_circle", text = "The tauren walk with them. I'm glad of it. The world needs more who heal than wound." } },
     wailing_caverns = { { id = "tp_caverns", text = "The tauren have told me. Something sick under the Barrens. When our young warriors are ready, they'll go in." } },
+    burning_blade = { { id = "tp_blade", text = "Some of my own people still kneel to the old fire. They hide better than they think, and not as well as they hope." } },
+    echo_isles = { { id = "tp_isles", text = "The Darkspear will have their home back. I gave Vol'jin my word, and I don't give it lightly." } },
     _none = { { id = "tp_none", text = "I don't know. Ask my advisors. Then come and tell me what they said, in plain words." } },
+  },
+}
+
+P:NPC {
+  key = "voljin", id = TODO_NPC("Vol'jin"), name = "Vol'jin",
+  bible = "bibles/orgrimmar.md", role = "noble", tier = "major",
+  communities = { "orgrimmar" }, temper = { "wry" }, values = { "cunning", "loyal", "wise" },
+  spiritSensitive = true,
+  notices = { "race", "class" },
+
+  greetings = {
+    { id = "g_hall", text = "Come, sit. The Warchief talk to everybody. Vol'jin only talk to the interesting ones. Let's see which you be." },
+    { id = "g_troll", when = { race = "Troll" }, text = "Darkspear! Stand up straight, mon. You carry the tribe's name everywhere you walk now." },
+    { id = "g_back", when = { metBefore = true }, text = "You come back. Good. Means you still alive, and still interesting." },
+  },
+
+  notice = {
+    { id = "n_shaman", cat = "class", when = { class = { "SHAMAN", "PRIEST" } },
+      text = "You talk to the spirits too, eh? Careful which ones answer. Some of them be hungry." },
+    { id = "n_elf", cat = "race", when = { race = { "NightElf", "Skyborne" } },
+      text = "An elf, in the Warchief's hall. Elves don't trust trolls easy. That be fair; we got history. I don't take offense. Yet." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "Vol'jin, chief of the Darkspear. Thrall stand with my people when nobody else would. Now I stand at his side and tell him what he don't want to hear." },
+        { id = "h_nimboya", when = { heardLine = "nimboya.h_default" },
+          text = "Nimboya find you in the jungle, eh? Then you know my youngest be lost down there. Nimboya bring him home, or nobody will." },
+        { id = "h_gadrin", when = { heardLine = "gadrin.h_default" },
+          text = "You see old Gadrin? He still tell people I be his best student? Good. He right." },
+      },
+      choices = {
+        { text = "Why follow Thrall?", next = "thrall" },
+        { text = "What happened to the Echo Isles?", next = "isles" },
+        { text = "Farewell, Vol'jin.", next = "END" },
+      },
+    },
+    thrall = {
+      big = true,
+      lines = {
+        { id = "t_default", text = "When the murlocs come for us, Thrall fight beside us. My father die that day. Thrall don't leave. A debt like that, you pay with your whole life." },
+      },
+      choices = { { text = "That's a heavy debt.", next = "END", fx = { affinity = 2, align = { honor = 1 } } } },
+    },
+    isles = {
+      lines = {
+        { id = "i_default", text = "Zalazane. My friend since we be small. Now he wear our home like a mask. Gadrin work to take it back. One day, mon. One day." },
+      },
+      choices = { { text = "I'll help when that day comes.", next = "END", fx = { affinity = 2, learn = { "echo_isles" } } } },
+    },
+  },
+
+  topics = {
+    yenniku = { { id = "tp_yenniku", text = "My son. Say his name careful, mon. I say it every night." } },
+    echo_isles = { { id = "tp_isles", text = "I see them in my sleep. Sand, sea, the old huts. Zalazane's puppets walking where my father walked." } },
+    burning_blade = { { id = "tp_blade", text = "Orcs who miss the demons. The Warchief watch them closer than they think. So do I." } },
+    _none = { { id = "tp_none", text = "Vol'jin don't know that one. And Vol'jin don't pretend." } },
   },
 }
 

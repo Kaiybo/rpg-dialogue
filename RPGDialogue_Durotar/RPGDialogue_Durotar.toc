@@ -1,0 +1,17 @@
+## Interface: 16001, 16002
+## Title: RPG Dialogue: Durotar |cff8a8a8a1.0.0|r
+## Notes: The Valley of Trials, Razor Hill and Sen'jin Village: recruits and lazy peons, a commander on the crossroads, a lawman hunting cultists, and the old witch doctor who taught Vol'jin.
+## Author: RPG Dialogue
+## Version: 1.0.0
+## Dependencies: RPGDialogue
+## LoadOnDemand: 1
+## X-RPGD-Pack: rpgd.durotar
+## X-RPGD-Format: 1
+## X-RPGD-Load: zone
+## X-RPGD-Zones: Durotar
+
+pack.lua
+pools.lua
+npcs\valley.lua
+npcs\razorhill.lua
+npcs\senjin.lua
