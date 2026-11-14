@@ -39,8 +39,12 @@ P:NPC {
         { id = "h_rest", when = { metBefore = true },
           text = "I planted a seed by the sanctuary's edge this morning. It won't take. I plant one every morning anyway. One day one will." },
       },
+      again = { { id = "h_again", text = "What else? Softly; the sanctuary listens." } },
       choices = {
         { text = "What happened to Felwood?", next = "what" },
+        { text = "What is the Emerald Circle?", next = "circle" },
+        { text = "Why plant seeds that won't grow?", next = "seeds" },
+        { text = "I can feel the sickness in the ground.", next = "druid", when = { class = { "DRUID", "SHAMAN" } } },
         { text = "I'll help heal it.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
       },
     },
@@ -50,19 +54,31 @@ P:NPC {
         { id = "w_default", text = "The demons' war. To weaken Hyjal's defenders, a dreadlord poisoned the forest around the mountain with a cursed skull. The beasts twisted. The ancients turned. The land itself sickened, and it has not stopped." },
       },
       choices = {
-        { text = "Can it be healed?", next = "heal" },
-        { text = "That's horrible.", next = "END", fx = { affinity = 1 } },
+        { text = "Can it be undone?", next = "what_undone" },
+        { text = "I'll help heal it.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
       },
     },
-    heal = {
-      lines = {
-        { id = "hl_default", text = "Slowly. One well, one grove, one seed at a time. The Circle has patience. The corruption has more. We'll see which runs out first." },
-      },
-      choices = { { text = "I'll lend my patience too.", next = "END", fx = { affinity = 3, trait = { patient = 1 }, learn = { "cenarion_circle" } } } },
+    what_undone = {
+      lines = { { id = "wu_default", text = "Slowly. Not in my lifetime, perhaps, and mine is long. But every satyr gone and every spring cleansed is a step. Healing is mostly stubbornness." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    circle = {
+      lines = { { id = "c_default", text = "Those of the Cenarion Circle, and friends of it, who came to Felwood to fight for it. Kaldorei and tauren, side by side. The forest doesn't ask which." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "cenarion_circle" } } } },
+    },
+    seeds = {
+      lines = { { id = "s_default", text = "Because the day one takes, I want to have been here. And because a druid who stops planting has already lost." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
+    },
+    druid = {
+      lines = { { id = "d_default", text = "Then you know why we stay. It doesn't hurt less with time. It hurts more honestly." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
     },
   },
 
   topics = {
+    background = { { id = "tp_ba", text = "A druid of the Circle, sent where the land hurts most. Felwood hurts most.", next = "what" } },
+    advice = { { id = "tp_ad", text = "Don't drink from the streams. Don't eat the fruit. Don't trust anything that glows green." } },
     cenarion_circle = { { id = "tp_circle", text = "The Emerald Circle is the Cenarion Circle's hands in Felwood. Our hands are tired. They're still working." } },
     _none = { { id = "tp_none", text = "I don't know. The forest might. Ask it gently." } },
   },
@@ -103,11 +119,47 @@ P:NPC {
         { id = "h_watch", when = { metBefore = true },
           text = "I keep a stone from Mulgore in my pocket. When the forest gets too loud, I hold it. It's quiet, the way stones should be." },
       },
-      choices = { { text = "I'll help.", next = "END", fx = { affinity = 2, align = { light = 1 } } } },
+      again = { { id = "h_again", text = "Yes? Ask. I'll hold my stone while you do." } },
+      choices = {
+        { text = "Who are the Shadow Council?", next = "council" },
+        { text = "Tempt me? How?", next = "tempt" },
+        { text = "Tell me about the stone.", next = "stone", when = { metBefore = true } },
+        { text = "The power here doesn't frighten me.", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "I'll help.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
+      },
+    },
+    council = {
+      lines = { { id = "c_default", text = "Warlocks who serve the demons, the same kind who poisoned the orcs long ago. They've made Jaedenar their home. They like this forest the way it is." } },
+      choices = {
+        { text = "Why Jaedenar?", next = "council_why" },
+        { text = "Then we change it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+      },
+    },
+    council_why = {
+      lines = { { id = "cw_default", text = "It was a kaldorei village once, and something lies beneath it they want. I don't know what. I know they dig, and that the digging makes the forest worse." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    tempt = {
+      big = true,
+      lines = { { id = "t_default", text = "The fel here hums. Some feel it as strength. Take a little, and you'll fight better tomorrow. Take a little more, and you'll fight for them the day after." } },
+      choices = {
+        { text = "I won't touch it.", next = "BACK", fx = { align = { light = 2 }, affinity = 1 } },
+        { text = "Power is power. It's how you use it.", next = "BACK", fx = { align = { light = -2 }, affinity = -2 } },
+      },
+    },
+    stone = {
+      lines = { { id = "s_default", text = "From the plains near home. Plain grey, a little warm. It's never once tried to be anything it isn't. I find that restful, here." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    warlock = {
+      lines = { { id = "w_default", text = "It should. You know better than any of us what it costs. Mind your hands while you're here, warlock. The forest is watching what you reach for." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { align = { light = -1 } } } },
     },
   },
 
   topics = {
+    background = { { id = "tp_ba", text = "A daughter of Mulgore who followed the Circle north. Some days I think I'll go home. Then I see one clean spring, and I stay." } },
+    advice = { { id = "tp_ad", text = "If something here offers you strength, ask what it wants back. It always wants something back.", next = "tempt" } },
     _none = { { id = "tp_none", text = "Not something the Circle has spoken of. Better I say nothing than something wrong." } },
   },
 }
@@ -177,11 +229,43 @@ P:NPC {
         { id = "h_daily", when = { metBefore = true },
           text = "One of the plants by the road flowered yesterday. Clean. A small white flower. I've been watching it all morning." },
       },
-      choices = { { text = "I'll help cleanse it.", next = "END", fx = { affinity = 2, align = { light = 1 } } } },
+      again = { { id = "h_again", text = "Something else? Mind the flower." } },
+      choices = {
+        { text = "Why is it harder than war?", next = "harder" },
+        { text = "Tell me about the flower.", next = "flower", when = { metBefore = true } },
+        { text = "Do you work with Maybess?", next = "maybess" },
+        { text = "I've some herb lore.", next = "herbs", when = { profession = "Herbalism" } },
+        { text = "I'll help cleanse it.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
+      },
+    },
+    harder = {
+      lines = { { id = "h2_default", text = "In war you win or lose and it's over. Here you do the same small thing every day, and most days nothing changes. You have to keep believing anyway." } },
+      choices = {
+        { text = "How do you keep believing?", next = "harder_how" },
+        { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } },
+      },
+    },
+    harder_how = {
+      lines = { { id = "hh_default", text = "I don't, every day. On the days I don't, I put the salve on anyway. Belief catches up eventually. Hands are more reliable than hearts." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    flower = {
+      lines = { { id = "f_default", text = "Still there. Still white. A satyr walked past it this morning and didn't notice. I've never wanted anything so badly to stay unnoticed." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    maybess = {
+      lines = { { id = "m_default", text = "Not side by side; our people won't allow it yet. But we use the same salve, and we leave each other notes by the road. The forest gets both of us." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { opinion = { peace = "for" } } } },
+    },
+    herbs = {
+      lines = { { id = "hb_default", text = "Then pick nothing here that looks too healthy. In Felwood, the bright ones are the sick ones. The dull grey ones might be getting better." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
     },
   },
 
   topics = {
+    background = { { id = "tp_ba", text = "Kaldorei, Emerald Circle, and too stubborn to be told a forest can't be saved." } },
+    advice = { { id = "tp_ad", text = "Do one good thing a day here. Only one. Then do it again tomorrow. That's how this works.", next = "harder" } },
     cenarion_circle = { { id = "tp_circle", text = "We are the Circle's in this forest. Few others would come." } },
     _none = { { id = "tp_none", text = "That I don't know. The curse I know." } },
   },
