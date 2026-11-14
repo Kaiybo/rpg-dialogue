@@ -258,6 +258,8 @@ local pooledNPCs = {
   { pooled = true, role = "vendor", communities = {}, name = "Merchant" },
   { pooled = true, role = "spirithealer", communities = {}, name = "Spirit Healer" },
   { pooled = true, role = "soldier", communities = { "farholde" }, name = "Diseased Soldier" },
+  { pooled = true, role = "guard", communities = { "farholde" }, name = "Sentry Kalis" },
+  { pooled = true, role = "worker", communities = { "farholde" }, name = "Farholde Laborer" },
   { pooled = true, role = "worker", communities = {}, name = "Laborer" },
   { pooled = true, role = "farmer", communities = {}, name = "Farmer" },
   { pooled = true, role = "citizen", communities = {}, name = "Townsperson" },

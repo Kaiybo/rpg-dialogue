@@ -16,25 +16,15 @@ P:Pool {
       { id = "ad1", text = "Don't draw steel inside the walls. Don't run from the watch. Don't make me write a report." },
       { id = "ad2", when = { band = { "Greenhorn", "Blooded" } }, text = "Stay on the roads. Everything out there's had longer to practise than you." },
       { id = "ad3", when = { timeOfDay = "night" }, text = "Find a bed before the lamps go out. Whatever's out there sees better in the dark than you do." },
+      -- Faction flavour shares the top band with the lines above (faction weighs 5), so
+      -- every guard's advice still varies.
+      { id = "ad4", when = { faction = "Alliance" }, text = "If you're heading for the hills, tell somebody where. Saves us guessing which ravine to look in." },
+      { id = "ad5", when = { faction = "Horde" }, text = "Strength is good. Strength with a plan is better. Strength without one ends up in the healer's tent." },
     },
     background = {
       { id = "bg1", text = "Signed on because it paid and the boots were free. The boots were not good boots." },
       { id = "bg2", text = "Grew up three streets from here. Never left. Never needed to; trouble comes to me." },
     },
-  },
-}
-
-P:Pool {
-  id = "ask_guard_alliance", role = "guard", faction = "Alliance", askOnly = true,
-  topics = {
-    advice = { { id = "ad1", text = "If you're heading for the hills, tell somebody where. Saves us guessing which ravine to look in." } },
-  },
-}
-
-P:Pool {
-  id = "ask_guard_horde", role = "guard", faction = "Horde", askOnly = true,
-  topics = {
-    advice = { { id = "ad1", text = "Strength is good. Strength with a plan is better. Strength without one ends up in the healer's tent." } },
   },
 }
 

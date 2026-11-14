@@ -3,6 +3,7 @@
 The pack's own version is `version` in `pack.lua`; bump both together.
 
 ## 1.15.0 (unreleased)
+- Guards' advice by faction now shares the guard pool, so it varies (the faction pools were outranking every general line).
 - Throughline `farholde_lost` (The lost of Farholde): Gray, Ashe, Cady and Demar on Fern Crimsonleaf; two endings chosen at Gray's table; her fate stays open.
 
 ## 1.14.0 (unreleased)
