@@ -97,6 +97,7 @@ Still all of DESIGN.md §4 (section 9 answers, slice zone, where the repo lives,
 ## Environment notes
 - The cloud workspace had Lua 5.1, luac5.1, LuaRocks and luacheck installed by hand (`apt-get install lua5.1 luarocks liblua5.1-0-dev && luarocks install luacheck`), plus Python 3. A new session may need to reinstall them.
 - The repo was at `/home/claude/rpg-dialogue`. That workspace isn't shared with other sessions; the user has the zips.
+- Only this HANDOFF is kept in step in the Project. The Project's `DESIGN.md`, `CONTENT_GUIDE.md` and `PACK_AUTHORING.md` are older copies; the ones in the latest repo zip (`rpg-dialogue-repo-<version>.zip`) are current (DESIGN §3.6 right-click talk and safety net, §3.10 window style).
 - `python3 tools/check_all.py` runs everything (about a minute); `--quick` skips the simulation.
 
 ## Exact next step
