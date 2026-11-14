@@ -32,6 +32,8 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Thrall, Warchief of the Horde. Orgrim Doomhammer gave me his hammer and his people with his last breath. I've spent every day since trying to deserve both." },
+        { id = "h_garthok", when = { heardLine = "garthok.h_default" },
+          text = "You've reported to Gar'Thok at Razor Hill. Nazgrel trained him well. I sleep easier knowing he holds the crossroads." },
         { id = "h_hidden", tags = { "news" }, when = { questActive = TODO_QUEST("Hidden Enemies") },
           text = "Some in my city wear the Horde's colours and serve older masters. I need someone they'll trust. Gain it. Then bring me what they know." },
         { id = "h_hidden_done", when = { questDone = TODO_QUEST("Hidden Enemies") },

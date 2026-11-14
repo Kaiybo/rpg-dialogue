@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.1.1 (unreleased)
+- Thrall knows Gar'Thok at Razor Hill.
+
 ## 1.1.0 (2026-11-14)
 - Vol'jin, chief of the Darkspear, at the Warchief's side. He knows if you've met Nimboya in Stranglethorn or Master Gadrin in Sen'jin.
 - Thrall answers about the Burning Blade and the Echo Isles.

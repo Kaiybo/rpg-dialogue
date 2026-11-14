@@ -32,6 +32,8 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Tyrande Whisperwind, High Priestess of Elune. While my husband sleeps, I lead our people. I did not ask to lead them alone, but I will not do it half-heartedly." },
+        { id = "h_tenaron", when = { heardLine = "tenaron.h_default" },
+          text = "You came down from Aldrassil past Tenaron's watch. He sends me the best of Shadowglen. Let's see if he was right about you." },
         { id = "h_druid", when = { class = "DRUID" },
           text = "Malfurion would have been glad of you, druid. Go to the Enclave, by all means. But come back here when the Archdruid's certainties start to sound like truths." },
         { id = "h_human", when = { race = "Human" },
