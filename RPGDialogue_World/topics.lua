@@ -32,3 +32,5 @@ P:Topic { id = "redridge_gnolls", name = "Redridge's gnolls", category = "threat
 P:Topic { id = "night_watch", name = "The Night Watch", category = "people", learned = "Darkshire" }
 P:Topic { id = "worgen", name = "The worgen of Duskwood", category = "threats", learned = "Darkshire, or the woods" }
 P:Topic { id = "stalvan", name = "Stalvan Mistmantle", category = "rumors", learned = "Tavernkeep Smitts, or the Legend of Stalvan" }
+P:Topic { id = "carevins", name = "The Carevins", category = "people", learned = "Jonathan Carevin or Calor in Darkshire" }
+P:Topic { id = "ladimore", name = "Morgan Ladimore", category = "rumors", learned = "Sirra Von'Indi, the historian of Darkshire" }

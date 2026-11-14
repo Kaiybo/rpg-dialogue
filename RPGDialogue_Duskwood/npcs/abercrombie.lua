@@ -38,7 +38,7 @@ P:NPC {
           text = "Smitts brews it for me. A little pick-me-up. Don't drink it yourself, mind. It's not for the living." },
         { id = "h_effigy", when = { questActive = TODO_QUEST("Ghoulish Effigy") },
           text = "Ghoul ribs. Not the cracked ones. I need them whole. Big ones, if you can." },
-        { id = "h_note", tags = { "news" }, when = { questActive = TODO_QUEST("Note to the Mayor") },
+        { id = "h_note", key = true, tags = { "news" }, when = { questActive = TODO_QUEST("Note to the Mayor") },
           text = "Take this to the mayor, would you? It's a note. Just a note. I'd rather not watch you read it." },
         { id = "h_eliza", when = { questDone = TODO_QUEST("The Embalmer's Revenge") },
           text = "Eliza's resting. Don't go near the graves. She doesn't like visitors. She's, well. Particular about her diet." },
