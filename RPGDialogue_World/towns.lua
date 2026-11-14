@@ -430,6 +430,13 @@ P:Town {
   quests = { { TODO_QUEST("Expedition Salvation"), 4 }, { TODO_QUEST("It's Dangerous to Go Alone"), 8 } },
 }
 
+P:Town {
+  id = "everlook", name = "Everlook",
+  subzones = { "Everlook" },
+  tiers = { Hero = "Friend of Everlook" },
+  quests = { { TODO_QUEST("Are We There, Yeti?"), 4 }, { TODO_QUEST("The Everlook Report"), 2 } },
+}
+
 -- The other capitals. Their guards speak from pools_roles.lua; standing grows from quests
 -- each capital's own pack lists later.
 P:Town {

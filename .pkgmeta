@@ -43,6 +43,7 @@ move-folders:
   RPGDialogue/RPGDialogue_Hinterlands: RPGDialogue_Hinterlands
   RPGDialogue/RPGDialogue_Badlands: RPGDialogue_Badlands
   RPGDialogue/RPGDialogue_UnGoro: RPGDialogue_UnGoro
+  RPGDialogue/RPGDialogue_Winterspring: RPGDialogue_Winterspring
 
 # Paths are from the repo root; "*.md" matches at any depth (bash case patterns), which
 # keeps voice bibles, PLAN.md files and pack changelogs out of the zip.

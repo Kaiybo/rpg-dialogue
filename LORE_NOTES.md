@@ -643,3 +643,15 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Linken: amnesiac gnome warrior; raft wrecked in the marsh, blow to the head; Blazerunner and the Golden Flame; half-remembered advice; hands the task to the adventurer | [Linken](https://warcraft.wiki.gg/wiki/Linken) |
 | J.D. Collie: female gnome crystal scholar in a cave; Making Sense of It, Linken's Memory, Aquementas | [J.D. Collie](https://warcraft.wiki.gg/wiki/J.D._Collie) |
 | Spraggle Frock: female goblin, worried for Ringo lost at the volcano; Lost!, A Little Help From My Friends, Beware of Pterrordax | [Spraggle Frock](https://warcraft.wiki.gg/wiki/Spraggle_Frock) |
+
+## Winterspring (Winterspring pack 1.0.0)
+
+| Fact used | Source |
+|---|---|
+| Everlook: Steamwheedle trading post at Winterspring's crossroads, no formal leader; Everlook Bruisers | [Everlook](https://warcraft.wiki.gg/wiki/Everlook) |
+| Innkeeper Vizzie: goblin, afraid of insects | [Innkeeper Vizzie](https://warcraft.wiki.gg/wiki/Innkeeper_Vizzie) |
+| Umi Rumplesnicker: goblin engineering trainer, playful; builds a Mechanical Yeti to frighten goblin friends | [Umi Rumplesnicker](https://warcraft.wiki.gg/wiki/Umi_Rumplesnicker) |
+| Gregor Greystone: Argent Dawn in Everlook, reports to Pureheart; The Everlook Report, Duke Nicholas Zverenhoff | [Gregor Greystone](https://warcraft.wiki.gg/wiki/Gregor_Greystone) |
+| Argent Dawn topic: neutral, all races, against the Scourge; Light's Hope Chapel; split from what became the Scarlet Crusade | [Argent Dawn](https://warcraft.wiki.gg/wiki/Argent_Dawn) |
+| Donova Snowden: dwarf by the hot springs; Winterfall firewater and corruption chain; tempers Linken's sword | [Donova Snowden](https://warcraft.wiki.gg/wiki/Donova_Snowden), [Linken](https://warcraft.wiki.gg/wiki/Linken) |
+| Witch Doctor Mau'ari: jungle troll, E'ko into juju; Cache of Mau'ari, A Little Luck, Luck Be With You | [Witch Doctor Mau'ari](https://warcraft.wiki.gg/wiki/Witch_Doctor_Mau'ari) |
