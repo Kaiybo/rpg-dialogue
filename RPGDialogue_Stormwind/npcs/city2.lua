@@ -110,7 +110,7 @@ P:NPC {
   start = "hello",
   nodes = { hello = {
     lines = {
-      { id = "h_default", text = "Elmore. I make weapons, and I make barding for paladins' chargers, and nobody in Azeroth makes it better. Ask Lord Shadowbreaker whose work his mount wears." },
+      { id = "h_default", key = true, text = "Elmore. I make weapons, and I make barding for paladins' chargers, and nobody in Azeroth makes it better. Ask Lord Shadowbreaker whose work his mount wears." },
       { id = "h_argus", when = { heardLine = "argus.s_default" },
         text = "Argus told ye never tae let the apprentice near the quench? Good lad. My apprentice Furen's still not allowed near mine." },
       { id = "h_paladin", when = { class = "PALADIN", minLevel = 50 },

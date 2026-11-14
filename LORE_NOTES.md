@@ -245,3 +245,13 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Prospector Stormpike: Hall of Explorers library, hot-tempered and curt; Report to Ironforge, Powder to Ironband, Stormpike's Deciphering | [Prospector Stormpike](https://warcraft.wiki.gg/wiki/Prospector_Stormpike) |
 | Senator Mehr Stonehallow: Senate of Ironforge and the League, fights the Rockjaw troggs at Gol'Bolar Quarry himself; The Public Servant | [Senator Mehr Stonehallow](https://warcraft.wiki.gg/wiki/Senator_Mehr_Stonehallow) |
 | Innkeeper Firebrew keeps the Stonefire Tavern, a warm host of drinks and stories | [Innkeeper Firebrew](https://warcraft.wiki.gg/wiki/Innkeeper_Firebrew) |
+
+## Stormwind, part three (Stormwind pack 1.2.0)
+
+| Fact used | Source |
+|---|---|
+| Lord Gregor Lescovar: senior House of Nobles member, in the Royal Library, secretly allied with the Defias, aide Marzon, exposed in the Lescovar Incident on Elling Trias's orders | [Gregor Lescovar](https://warcraft.wiki.gg/wiki/Gregor_Lescovar) |
+| Dashel Stonefist: dwarf rogue brawler in Old Town, "Fist"; subdued in The Missing Diplomat | [Dashel Stonefist](https://warcraft.wiki.gg/wiki/Dashel_Stonefist) |
+| Furen Longbeard: shieldsmith and armorsmith in the Dwarven District, taught by Grimand Elmore | [Furen Longbeard](https://warcraft.wiki.gg/wiki/Furen_Longbeard) |
+| Topper McNabb: beggar and former farmer behind the Auction House; dramatic pleas, armour shining, blames the towers or the orcs who burned his farm | [Topper McNabb](https://warcraft.wiki.gg/wiki/Topper_McNabb) |
+| Warden Thelwater: runs the Stockade, unprepared for the riots and kept them quiet, fears the Captain; Bazil Thredd, The Stockade Riots, The Curious Visitor | [Warden Thelwater](https://warcraft.wiki.gg/wiki/Warden_Thelwater) |

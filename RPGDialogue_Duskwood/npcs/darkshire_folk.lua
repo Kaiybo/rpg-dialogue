@@ -379,7 +379,7 @@ P:NPC {
         { id = "h_default", text = "Councilman Millstipe, Council of Darkshire. We govern this town. We'd govern it better if Stormwind ever read our letters past the first line." },
         { id = "h_ello", when = { heardLine = "ello.h_default" },
           text = "The mayor told you about his petitions? I drafted half of them. Stronger language every time. They've stopped replying to the strong ones too." },
-        { id = "h_ward", tags = { "news" }, when = { questActive = TODO_QUEST("Crime and Punishment") },
+        { id = "h_ward", key = true, tags = { "news" }, when = { questActive = TODO_QUEST("Crime and Punishment") },
           text = "Dextren Ward sold our dead out of their graves to Morbent Fel. Lord Ebonlocke sentenced him. The nobles in Stormwind took him off our hands and kept him. In the Stockade. Alive." },
         { id = "h_ward_done", tags = { "news" }, when = { questDone = TODO_QUEST("Crime and Punishment") },
           text = "It's done, then. The families can visit the graves without wondering. And somewhere in Stormwind a noble has been reminded that Darkshire still exists." },

@@ -26,7 +26,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "Lady Prestor. I advise the Regent on the use of the kingdom's resources. Someone must, and the Regent is so very busy being noble." },
+        { id = "h_default", key = true, text = "Lady Prestor. I advise the Regent on the use of the kingdom's resources. Someone must, and the Regent is so very busy being noble." },
         { id = "h_westfall", when = { topicKnown = "westfall" },
           text = "Westfall. Yes. Farmers with pitchforks, writing letters. The crown cannot empty its purse every time a peasant is frightened." ,
           fx = { hear = "prestor_patience" } },
