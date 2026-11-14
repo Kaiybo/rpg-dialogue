@@ -33,7 +33,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "Wolves are pushing over the ridge. Hungry ones. They take what they can carry." },
+        { id = "h_default", key = true, text = "Wolves are pushing over the ridge. Hungry ones. They take what they can carry." },
         { id = "h_willem", when = { questRecent = { TODO_QUEST("Eagan Peltskinner"), days = 1 } },
           text = "Willem sent you? Then he thinks you can hold a knife. We'll see." },
         { id = "q_wolves_active", when = { questActive = TODO_QUEST("Wolves Across the Border") },

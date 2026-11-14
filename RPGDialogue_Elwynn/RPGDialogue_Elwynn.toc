@@ -41,3 +41,4 @@ npcs\stonefields.lua
 npcs\eastvale_folk.lua
 npcs\henze.lua
 npcs\trainers.lua
+npcs\goldshire_folk.lua

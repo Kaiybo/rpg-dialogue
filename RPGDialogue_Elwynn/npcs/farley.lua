@@ -33,7 +33,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "My family's kept the Lion's Pride since the first King Llane's day. We've never watered a drink. Ask anyone." },
+        { id = "h_default", key = true, text = "My family's kept the Lion's Pride since the first King Llane's day. We've never watered a drink. Ask anyone." },
         { id = "h_falkhaan", tags = { "news" }, when = { questRecent = { TODO_QUEST("Rest and Relaxation"), days = 1 } },
           text = "Falkhaan sent you? Then take the good chair by the fire. Any friend of his is a friend of mine." },
         { id = "h_liked", when = { townStanding = { town = "goldshire", min = 30 } },
