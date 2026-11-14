@@ -1,0 +1,398 @@
+-- Content packs: discovery (TOC metadata), load-on-demand by zone, registration through
+-- the public RPGDialogueAPI, and merging when two packs cover the same NPC.
+local _, ns = ...
+
+local C = ns.Compat
+local U = ns.Util
+
+local Data = {
+  npcs = {},      -- key -> NPC definition (merged across packs)
+  byID = {},      -- npcID -> key
+  byName = {},    -- normalized name -> key (for TODO ids)
+  pools = {},     -- list
+  generic = {},   -- list
+  threads = {}, claims = {}, topics = {}, towns = {}, origins = {}, rumors = {},
+  lines = {},     -- global line id -> { line = , owner = , slot = }
+}
+ns.Data = Data
+
+local Packs = { list = {}, byID = {}, byAddon = {}, zoneIndex = {} }
+ns.Packs = Packs
+
+Packs.FORMAT = 1     -- highest data format this core understands
+Packs.API_VERSION = 1
+
+---------------------------------------------------------------------------
+-- Placeholders for IDs we don't have yet (constraint 6)
+---------------------------------------------------------------------------
+local function todo(kind)
+  return function(name) return { todo = kind, name = name } end
+end
+local TODO = {
+  TODO_NPC = todo("npc"), TODO_QUEST = todo("quest"), TODO_ITEM = todo("item"),
+  TODO_SPELL = todo("spell"), TODO_MAP = todo("map"),
+}
+
+---------------------------------------------------------------------------
+-- Indexing helpers
+---------------------------------------------------------------------------
+local function indexLine(line, gid, owner, slot)
+  line._gid = gid
+  line._owner = owner
+  line._slot = slot
+  Data.lines[gid] = { line = line, owner = owner, slot = slot }
+end
+
+local function indexList(list, prefix, owner, slot)
+  for _, line in ipairs(list or {}) do
+    if line.id then indexLine(line, prefix .. "." .. line.id, owner, slot) end
+  end
+end
+
+local function indexTopics(topics, prefix, owner)
+  for topic, list in pairs(topics or {}) do
+    for _, line in ipairs(list) do
+      if line.id then indexLine(line, prefix .. "." .. line.id, owner, "topic") end
+      line._topic = topic
+    end
+  end
+end
+
+local function indexNPC(def)
+  indexList(def.greetings, def.key, def.key, "greeting")
+  indexList(def.notice, def.key, def.key, "notice")
+  indexList(def.react, def.key, def.key, "react")
+  for nodeId, node in pairs(def.nodes or {}) do
+    node._id = nodeId
+    indexList(node.lines, def.key, def.key, "line")
+  end
+  indexTopics(def.topics, def.key, def.key)
+end
+
+local function warn(pack, msg)
+  if ns.Debug then ns.Debug("pack " .. tostring(pack and pack.id) .. ": " .. msg) end
+  if pack then pack.warnings[#pack.warnings + 1] = msg end
+end
+
+---------------------------------------------------------------------------
+-- Registration (called from pack files through the pack handle)
+---------------------------------------------------------------------------
+local function mergeNPC(old, new, pack)
+  if new.override and (pack.priority or 0) >= (old._priority or 0) then return new end
+  for _, field in ipairs({ "greetings", "notice", "react" }) do
+    if new[field] then
+      old[field] = old[field] or {}
+      for _, l in ipairs(new[field]) do old[field][#old[field] + 1] = l end
+    end
+  end
+  old.nodes = old.nodes or {}
+  for id, node in pairs(new.nodes or {}) do
+    if not old.nodes[id] or (pack.priority or 0) > (old._priority or 0) then old.nodes[id] = node end
+  end
+  old.topics = old.topics or {}
+  for topic, list in pairs(new.topics or {}) do
+    old.topics[topic] = old.topics[topic] or {}
+    for _, l in ipairs(list) do old.topics[topic][#old.topics[topic] + 1] = l end
+  end
+  old._packs[#old._packs + 1] = pack.id
+  return old
+end
+
+local kinds = {}
+
+function kinds.NPC(pack, def)
+  if type(def.key) ~= "string" then return warn(pack, "NPC without key") end
+  def._pack = pack.id
+  def._priority = pack.priority or 0
+  def._packs = { pack.id }
+  def.start = def.start or "hello"
+  local existing = Data.npcs[def.key]
+  local merged = existing and mergeNPC(existing, def, pack) or def
+  Data.npcs[def.key] = merged
+  indexNPC(def)
+  if type(def.id) == "number" then
+    Data.byID[def.id] = def.key
+  elseif U.IsTodo(def.id) then
+    pack.todos = (pack.todos or 0) + 1
+  end
+  local name = def.name or (U.IsTodo(def.id) and def.id.name)
+  if name then Data.byName[U.Norm(name)] = def.key end
+end
+
+function kinds.Pool(pack, def)
+  if not def.id or not def.role then return warn(pack, "Pool needs id and role") end
+  def._pack = pack.id
+  local prefix = "pool:" .. def.id
+  indexList(def.greetings, prefix, prefix, "greeting")
+  indexList(def.notice, prefix, prefix, "notice")
+  indexList(def.react, prefix, prefix, "react")
+  indexList(def.lines, prefix, prefix, "line")
+  indexTopics(def.topics, prefix, prefix)
+  Data.pools[#Data.pools + 1] = def
+end
+
+function kinds.Generic(pack, def)
+  def.id = def.id or ("generic" .. (#Data.generic + 1))
+  def._pack = pack.id
+  local prefix = "generic:" .. def.id
+  indexList(def.greetings, prefix, prefix, "greeting")
+  indexList(def.lines, prefix, prefix, "line")
+  indexTopics(def.topics, prefix, prefix)
+  Data.generic[#Data.generic + 1] = def
+end
+
+local function simpleKind(store)
+  return function(pack, def)
+    if not def.id then return warn(pack, "definition without id") end
+    def._pack = pack.id
+    Data[store][def.id] = def
+  end
+end
+kinds.Thread = simpleKind("threads")
+kinds.Claim = simpleKind("claims")
+kinds.Topic = simpleKind("topics")
+kinds.Town = simpleKind("towns")
+kinds.Origin = simpleKind("origins")
+kinds.Rumors = simpleKind("rumors")
+
+local function newHandle(meta)
+  local pack = {
+    id = meta.id, name = meta.name or meta.id, author = meta.author, version = meta.version,
+    format = meta.format or 1, priority = meta.priority or 0, requires = meta.requires or {},
+    warnings = {}, counts = {}, registered = true,
+  }
+  for k, fn in pairs(TODO) do pack[k] = fn end
+  for kind, fn in pairs(kinds) do
+    pack[kind] = function(self, def)
+      if self.refused then return end
+      if type(def) ~= "table" then return warn(self, kind .. " called without a table") end
+      self.counts[kind] = (self.counts[kind] or 0) + 1
+      fn(self, def)
+    end
+  end
+  return pack
+end
+
+---------------------------------------------------------------------------
+-- The public API (the one extra global; DESIGN.md §6)
+---------------------------------------------------------------------------
+local API = { version = Packs.API_VERSION, format = Packs.FORMAT }
+for k, fn in pairs(TODO) do API[k] = fn end
+
+function API:RegisterPack(meta)
+  assert(type(meta) == "table" and type(meta.id) == "string", "RegisterPack needs { id = ... }")
+  local existing = Packs.byID[meta.id]
+  if existing and existing.registered then return existing end
+  local pack = newHandle(meta)
+  if existing then
+    for k, v in pairs(existing) do if pack[k] == nil then pack[k] = v end end
+  end
+  if (meta.format or 1) > Packs.FORMAT then
+    pack.refused = ("needs data format %d, this version of RPG Dialogue reads up to %d"):format(meta.format, Packs.FORMAT)
+    ns.Print(("Content pack %s was not loaded: %s. Update RPG Dialogue."):format(pack.name, pack.refused))
+  end
+  Packs.byID[meta.id] = pack
+  local found = false
+  for i, p in ipairs(Packs.list) do if p.id == meta.id then Packs.list[i] = pack; found = true end end
+  if not found then Packs.list[#Packs.list + 1] = pack end
+  return pack
+end
+
+-- Handle for a pack's data files. Works even if pack.lua hasn't run yet.
+function API:Pack(id)
+  local pack = Packs.byID[id]
+  if not pack then
+    pack = newHandle({ id = id })
+    pack.registered = false
+    Packs.byID[id] = pack
+    Packs.list[#Packs.list + 1] = pack
+  end
+  return pack
+end
+
+function API:TalkToTarget()
+  if ns.Conversation then ns.Conversation.TalkToTarget() end
+end
+
+function API:OpenJournal()
+  if ns.Journal and ns.Journal.Toggle then ns.Journal.Toggle() else ns.Print("The journal arrives in a later version.") end
+end
+
+ns.API = API
+C.SetGlobal("RPGDialogueAPI", API)
+
+---------------------------------------------------------------------------
+-- Discovery and loading
+---------------------------------------------------------------------------
+local function splitList(s)
+  local out = {}
+  for piece in tostring(s or ""):gmatch("[^,%s]+") do out[#out + 1] = piece end
+  return out
+end
+
+function Packs.Discover()
+  Packs.zoneIndex = {}
+  for i = 1, C.NumAddOns() do
+    local name = C.AddOnName(i)
+    local id = name and C.AddOnMeta(name, "X-RPGD-Pack")
+    if id then
+      local entry = Packs.byAddon[name] or {}
+      entry.addon, entry.id = name, id
+      entry.load = C.AddOnMeta(name, "X-RPGD-Load") or "zone"
+      entry.format = tonumber(C.AddOnMeta(name, "X-RPGD-Format") or "1") or 1
+      entry.zones = splitList(C.AddOnMeta(name, "X-RPGD-Zones"))
+      entry.title = C.AddOnMeta(name, "Title") or name
+      entry.loaded = C.IsAddOnLoaded(name)
+      Packs.byAddon[name] = entry
+      for _, z in ipairs(entry.zones) do
+        local key = tonumber(z) or z:gsub("_", " ")
+        Packs.zoneIndex[key] = Packs.zoneIndex[key] or {}
+        table.insert(Packs.zoneIndex[key], name)
+      end
+    end
+  end
+end
+
+local function enabled(entry)
+  local s = ns.db and ns.db.settings.packs or {}
+  return s[entry.id] ~= false
+end
+
+function Packs.LoadAddon(name)
+  local entry = Packs.byAddon[name]
+  if not entry or entry.loaded or not enabled(entry) then return false end
+  if entry.format > Packs.FORMAT then
+    entry.refused = true
+    ns.Print(("Content pack %s needs a newer RPG Dialogue (data format %d)."):format(entry.title, entry.format))
+    return false
+  end
+  if not C.IsAddOnEnabled(name) then return false end
+  local ok, reason = C.LoadAddOn(name)
+  entry.loaded = ok
+  if not ok then ns.Debug("could not load", name, tostring(reason)) end
+  return ok
+end
+
+function Packs.LoadForLogin()
+  for name, entry in pairs(Packs.byAddon) do
+    if entry.load == "login" then Packs.LoadAddon(name) end
+  end
+end
+
+function Packs.LoadForZone()
+  local zone, sub, mapID = C.Zone()
+  for _, key in ipairs({ mapID, zone, sub }) do
+    for _, name in ipairs(key and Packs.zoneIndex[key] or {}) do Packs.LoadAddon(name) end
+  end
+end
+
+-- Loads every pack (tests, simulation, /rpgd packs loadall).
+function Packs.LoadAll()
+  for name in pairs(Packs.byAddon) do Packs.LoadAddon(name) end
+end
+
+function Packs.List()
+  local out = {}
+  for name, entry in pairs(Packs.byAddon) do
+    local reg = Packs.byID[entry.id]
+    out[#out + 1] = {
+      addon = name, id = entry.id, title = entry.title, loaded = entry.loaded, enabled = enabled(entry),
+      load = entry.load, zones = entry.zones, refused = entry.refused or (reg and reg.refused),
+      warnings = reg and #reg.warnings or 0, counts = reg and reg.counts or {}, todos = reg and reg.todos or 0,
+    }
+  end
+  table.sort(out, function(a, b) return a.addon < b.addon end)
+  return out
+end
+
+function Packs.PrintList()
+  ns.Print("Content packs:")
+  for _, p in ipairs(Packs.List()) do
+    local state = p.refused and "|cffff4040refused|r" or (not p.enabled and "|cff888888off|r")
+      or (p.loaded and "|cff40ff40loaded|r" or "waiting for zone")
+    local npcs = p.counts.NPC or 0
+    C.Print(("  %s (%s): %s, %d NPCs, %d pools%s"):format(p.title, p.id, state, npcs, p.counts.Pool or 0,
+      p.todos > 0 and (", " .. p.todos .. " TODO ids") or ""))
+  end
+end
+
+ns.OnLogin(function()
+  Packs.Discover()
+  Packs.LoadForLogin()
+  Packs.LoadForZone()
+end)
+ns.On("ZONE_CHANGED_NEW_AREA", function() Packs.LoadForZone() end)
+
+---------------------------------------------------------------------------
+-- Lookups used by the conversation controller
+---------------------------------------------------------------------------
+function Data.FindNPC(npcID, name)
+  local key = npcID and Data.byID[npcID]
+  if key then return Data.npcs[key] end
+  if name then
+    key = Data.byName[U.Norm(name)]
+    local def = key and Data.npcs[key]
+    -- Name matching is only for NPCs whose ID is still a TODO placeholder.
+    if def and type(def.id) ~= "number" then
+      if ns.IsDev() and not def._warnedTodo then
+        def._warnedTodo = true
+        ns.Debug("matched", name, "by name: its NPC ID is still TODO in", def._pack)
+      end
+      return def
+    end
+  end
+  return nil
+end
+
+-- Community for a subzone, from town definitions.
+function Data.CommunityForPlace(zone, subzone)
+  for id, town in pairs(Data.towns) do
+    for _, s in ipairs(town.subzones or {}) do
+      if s == subzone then return id end
+    end
+  end
+  for id, town in pairs(Data.towns) do
+    for _, z in ipairs(town.zones or {}) do
+      if z == zone then return id end
+    end
+  end
+  return nil
+end
+
+local function poolMatches(pool, info, ctx)
+  if pool.role ~= info.role then return false end
+  if pool.faction and pool.faction ~= ctx.faction then return false end
+  if pool.zone and pool.zone ~= ctx.zone then return false end
+  if pool.community then
+    local comms = info.communities or {}
+    if not U.Contains(comms, pool.community) then return false end
+  end
+  return true
+end
+
+-- Pools for an NPC, each with its score base: community 200, role+zone/faction 120, role 100.
+function Data.PoolsFor(info, ctx)
+  local out = {}
+  for _, pool in ipairs(Data.pools) do
+    if poolMatches(pool, info, ctx) then
+      local base = pool.community and 200 or ((pool.zone or pool.faction) and 120 or 100)
+      out[#out + 1] = { pool = pool, base = base }
+    end
+  end
+  table.sort(out, function(a, b) return a.base > b.base end)
+  return out
+end
+
+function Data.GenericFor(ctx)
+  local out = {}
+  for _, g in ipairs(Data.generic) do
+    if not g.faction or g.faction == ctx.faction then out[#out + 1] = g end
+  end
+  return out
+end
+
+-- Global line ids referenced by the "this line is wrong" button and heardLine.
+function Data.Line(gid)
+  local rec = Data.lines[gid]
+  return rec and rec.line
+end

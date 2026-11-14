@@ -559,6 +559,21 @@ function C.GossipOptions()
   return out
 end
 
+-- Quests this NPC offers or holds for you: { { title, questID, active }, ... }
+function C.GossipQuests()
+  local out = {}
+  for _, which in ipairs({ "GetAvailableQuests", "GetActiveQuests" }) do
+    local list = call("C_GossipInfo." .. which)
+    if type(list) == "table" then
+      for i = 1, #list do
+        local q = list[i]
+        out[#out + 1] = { title = q.title, questID = q.questID, active = which == "GetActiveQuests" }
+      end
+    end
+  end
+  return out
+end
+
 function C.SelectGossip(id)
   if resolve("C_GossipInfo.SelectOption") then return call("C_GossipInfo.SelectOption", id) end
   return call("SelectGossipOption", id)
@@ -709,6 +724,10 @@ function C.Minimap()
   return resolve("Minimap")
 end
 
+function C.CursorPosition()
+  return call("GetCursorPosition")
+end
+
 ---------------------------------------------------------------------------
 -- Blizzard's own windows. We never hide, close or re-register them; we only read
 -- whether they're shown, anchor to them, and (optionally) fade them while our
@@ -758,6 +777,7 @@ local TEMPLATES = {
   button = "UIPanelButtonTemplate",
   close = "UIPanelCloseButton",
   editbox = "InputBoxTemplate",
+  scroll = "UIPanelScrollFrameTemplate",
 }
 
 function C.Template(kind)

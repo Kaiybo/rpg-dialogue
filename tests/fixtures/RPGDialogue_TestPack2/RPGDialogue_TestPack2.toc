@@ -1,0 +1,9 @@
+## Interface: 16001
+## Title: RPG Dialogue: Test Pack 2
+## Dependencies: RPGDialogue
+## LoadOnDemand: 1
+## X-RPGD-Pack: test.extra
+## X-RPGD-Format: 1
+## X-RPGD-Load: login
+
+pack.lua

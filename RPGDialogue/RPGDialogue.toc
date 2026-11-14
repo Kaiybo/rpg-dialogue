@@ -17,7 +17,26 @@ Core\WorldData.lua
 Core\SavedData.lua
 Core\Trackers.lua
 Core\Context.lua
+Core\Conditions.lua
+Core\Tokens.lua
+Core\Pacing.lua
+Core\Memory.lua
+Core\Effects.lua
+Core\PackAPI.lua
+Core\Engine.lua
+
+Integrations\DialogueAddons.lua
+
+UI\Theme.lua
+UI\DialogueFrame.lua
+UI\CompactBar.lua
+UI\Settings.lua
+UI\Launcher.lua
+
+Core\Conversation.lua
 
 Dev\Capture.lua
 Dev\Spoof.lua
+Dev\Why.lua
+Dev\Flag.lua
 Dev\Slash.lua

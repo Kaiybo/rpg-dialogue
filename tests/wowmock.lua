@@ -58,10 +58,12 @@ local function unit(u) return S().units[u] end
 -- Frames: every unknown method is a harmless no-op returning nil.
 ---------------------------------------------------------------------------
 local frameMethods = {}
+-- Widget methods are CamelCase; our own fields on frames are lower case and must read nil.
 frameMethods.__index = function(t, k)
   local m = rawget(frameMethods, k)
   if m then return m end
-  return function() return nil end
+  if type(k) == "string" and k:match("^%u") then return function() return nil end end
+  return nil
 end
 
 function frameMethods.RegisterEvent(self, ev)
@@ -296,6 +298,8 @@ end
 C_GossipInfo = {
   GetText = function() return S().gossipText end,
   GetOptions = function() return S().gossipOptions end,
+  GetAvailableQuests = function() return Mock.state.gossipAvailable or {} end,
+  GetActiveQuests = function() return Mock.state.gossipActive or {} end,
   SelectOption = function(id) Mock.calls[#Mock.calls + 1] = { "SelectOption", id } end,
   CloseGossip = function() Mock.calls[#Mock.calls + 1] = { "CloseGossip" } end,
 }

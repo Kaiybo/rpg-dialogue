@@ -5,8 +5,9 @@ local Loader = {}
 local ROOT = (arg and arg[0] and arg[0]:match("^(.*)/tests/[^/]+$")) or "."
 Loader.ROOT = ROOT
 
-function Loader.TocFiles(addon)
-  local path = ROOT .. "/" .. addon .. "/" .. addon .. ".toc"
+function Loader.TocFiles(addon, base)
+  base = base or ROOT
+  local path = base .. "/" .. addon .. "/" .. addon .. ".toc"
   local fh = assert(io.open(path, "r"), "missing TOC: " .. path)
   local files, meta = {}, {}
   for line in fh:lines() do
@@ -23,12 +24,13 @@ function Loader.TocFiles(addon)
 end
 
 -- Runs every Lua file in the addon's TOC. Returns the addon's private namespace.
-function Loader.Load(addon, ns)
+function Loader.Load(addon, ns, base)
   ns = ns or {}
-  local files = Loader.TocFiles(addon)
+  base = base or ROOT
+  local files = Loader.TocFiles(addon, base)
   for _, f in ipairs(files) do
     if f:match("%.lua$") then
-      local chunk = assert(loadfile(ROOT .. "/" .. addon .. "/" .. f))
+      local chunk = assert(loadfile(base .. "/" .. addon .. "/" .. f))
       chunk(addon, ns)
     end
   end
@@ -37,10 +39,11 @@ end
 
 -- Registers a content pack addon with the mock client (so the core can discover and
 -- load it on demand).
-function Loader.RegisterPack(addon)
-  local _, meta = Loader.TocFiles(addon)
+function Loader.RegisterPack(addon, base)
+  if not base and addon:match("^RPGDialogue_Test") then base = ROOT .. "/tests/fixtures" end
+  local _, meta = Loader.TocFiles(addon, base)
   local entry = { name = addon, meta = meta, lod = meta.LoadOnDemand == "1" }
-  entry.load = function() Loader.Load(addon) end
+  entry.load = function() Loader.Load(addon, nil, base) end
   table.insert(Mock.state.addons, entry)
   return entry
 end

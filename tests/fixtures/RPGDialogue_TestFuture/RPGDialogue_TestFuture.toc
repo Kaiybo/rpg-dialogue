@@ -1,0 +1,8 @@
+## Interface: 16001
+## Title: RPG Dialogue: Future Pack
+## LoadOnDemand: 1
+## X-RPGD-Pack: test.future
+## X-RPGD-Format: 99
+## X-RPGD-Load: login
+
+pack.lua

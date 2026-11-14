@@ -1,0 +1,12 @@
+## Interface: 16001
+## Title: RPG Dialogue: Test Pack
+## Dependencies: RPGDialogue
+## LoadOnDemand: 1
+## X-RPGD-Pack: test.main
+## X-RPGD-Format: 1
+## X-RPGD-Load: zone
+## X-RPGD-Zones: Elwynn_Forest
+
+pack.lua
+world.lua
+npcs.lua
