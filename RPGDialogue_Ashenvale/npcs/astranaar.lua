@@ -263,7 +263,7 @@ P:NPC {
         { id = "h_supplies", when = { questActive = TODO_QUEST("Supplies to Auberdine") },
           text = "Supplies for Auberdine, across the water. The elves there have been generous to us. It's time we returned the favour." },
         { id = "h_skyborne", when = { race = "Skyborne" },
-          text = "Elves from the sky, truly! I'd heard. The Light shines in strange places these days. All the more reason to look for it." },
+          text = "Sky-elves, truly! I'd heard. The Light shines in strange places these days. All the more reason to look for it." },
       },
       choices = {
         { text = "Who are the Dark Strand?", next = "strand" },
