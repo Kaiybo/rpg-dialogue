@@ -49,3 +49,6 @@
 - Grosk: dry innkeeper.
 - Brakk: easygoing wanderer; his journal; race not given by the wiki, so never stated (authored).
 - Gadrin: folksy old witch doctor; Vol'jin his pride, Zalazane his shame (authored from his dialogue's tone; the wiki infers it).
+
+## Depth pass (0.25.0, authored, not canon)
+Kaltunk greets new blood because someone once greeted him (out of the camps, across the sea); Galgar learned to cook in the camps and swears by fried scorpid; Thazz'ril's peons asleep in a moving cart; Kzan on edges; Grosk shakes scorpids out of the blankets and loves the grunts' bad singing.

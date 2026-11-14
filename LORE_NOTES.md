@@ -664,5 +664,6 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Fact used | Source |
 |---|---|
 | Razorfen: the quilboar's ancestral home within giant thorny vines (Mangletooth dreams of "the thorns") | [Razorfen Kraul](https://warcraft.wiki.gg/wiki/Razorfen_Kraul) |
+| Durotar: founded after Mount Hyjal by Thrall's orcs, named for his father; scorpids among its wildlife. Orcs held in internment camps before (Hammerfall row above) | [Durotar](https://warcraft.wiki.gg/wiki/Durotar); [Hammerfall](https://warcraft.wiki.gg/wiki/Hammerfall) |
 | Ratchet: Steamwheedle goblin port on the Barrens' eastern shore (Boorand's goblin guest) | [Ratchet](https://warcraft.wiki.gg/wiki/Ratchet) |
 | Everything else added in the depth pass is authored small life (habits, family, opinions of neighbours), marked "authored, not canon" in each pack's bible | — |

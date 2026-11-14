@@ -127,6 +127,8 @@ P:NPC {
           text = "Innkeeper Grosk. Bed, ale and a roof against the sun. Everything outside is rocks and scorpids." },
         { id = "h_burden", when = { questActive = TODO_QUEST("A Peon's Burden") },
           text = "That bundle is for the right hands only. Get it there, and don't let a peon sit on it." },
+        { id = "h_scorpid", when = { metBefore = true }, text = "Shook a scorpid out of the blankets this morning. Not yours. Probably not yours. Check anyway." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "Hear the grunts on the wall? Singing the old songs. Badly. I wouldn't change it for anything." },
       },
       choices = { { text = "Just a meal, thanks.", next = "END" } },
     },

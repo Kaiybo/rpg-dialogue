@@ -225,6 +225,8 @@ P:NPC {
           text = "From Zargh? Choice cuts from the Barrens. He remembered. Of course he remembered. Tell him... tell him the meat was very good." },
         { id = "h_zargh_ack", when = { heardLine = "zargh.h_default" },
           text = "Zargh, at the Crossroads? Did he mention me? He did? What did he say? No, don't tell me. Yes, tell me." },
+        { id = "h_bones", when = { questDone = TODO_QUEST("Meats to Orgrimmar") }, text = "Zargh keeps sending cuts since that first delivery. I send back the bones, clean. Let him wonder what it means. I'm still wondering myself." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "Late, and the Tusk is loud. Good. A quiet inn in Orgrimmar means something's wrong." },
       },
       choices = {
         { text = "Make this my home.", next = "BUSINESS" },
@@ -267,6 +269,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Gamon. I help Tazan with his trade, when I'm sober. I'm usually here. And I'm usually lying on the floor, because someone's knocked me down again." },
+        { id = "h_bruise", when = { metBefore = true }, text = "Oh. You again. You didn't hit me last time. That makes you my favourite person in Orgrimmar. It's a short list." },
       },
       choices = {
         { text = "Why does everyone attack you?", next = "why" },

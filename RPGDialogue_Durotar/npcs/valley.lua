@@ -26,8 +26,10 @@ P:NPC {
           text = "Kaltunk. Every recruit who walks into this valley starts with me. I send you to Gornek in the Den, and he sends you to work." },
         { id = "h_place", tags = { "news" }, when = { questActive = TODO_QUEST("Your Place In The World") },
           text = "Gornek's in the Den, the cave just ahead. Tell him Kaltunk sent you. Stand up straight when you do." },
+        { id = "h_dust", when = { metBefore = true }, text = "I came off a ship with nothing but my axe and Durotar's dust in my teeth. That was enough. It's enough for you too." },
       },
       choices = {
+        { text = "How did you come to Durotar?", next = "came" },
         { text = "What happens in the valley?", next = "valley" },
         { text = "I'm on my way.", next = "END" },
       },
@@ -35,6 +37,12 @@ P:NPC {
     valley = {
       lines = { { id = "v_default", text = "Boars, scorpids, cultists in the northern caves. You'll fight all three, and you'll come out the other end Horde. Or you won't." } },
       choices = { { text = "I will.", next = "END", fx = { affinity = 2, trait = { brave = 1 } } } },
+    },
+    came = {
+      lines = {
+        { id = "c_camps", text = "Out of the camps, like most of us. Then across the sea to this red land with the Warchief. I've been greeting new blood ever since. Somebody greeted me once. I remember who." },
+      },
+      choices = { { text = "I'll remember you, then.", next = "END", fx = { affinity = 2 } } },
     },
   },
 
@@ -169,6 +177,7 @@ P:NPC {
           text = "Take this blackjack. Find a sleeping peon, give him a tap, and watch him remember he has a job." },
         { id = "h_pick", when = { questActive = TODO_QUEST("Thazz'ril's Pick") },
           text = "I left my pick in the coven while I was surveying. Enchanted, it is. Don't let those cultists keep it." },
+        { id = "h_peons", when = { metBefore = true }, text = "Found three peons asleep in the mine cart this morning. In the cart. Moving. I don't know how. I'm almost impressed." },
       },
       choices = {
         { text = "Why not let them rest?", next = "rest" },
@@ -210,8 +219,10 @@ P:NPC {
           text = "Galgar. I feed the Den. Recruits, grunts, peons. Nobody thanks the cook, but everybody notices when the pot's empty." },
         { id = "h_apples", tags = { "news" }, when = { questActive = TODO_QUEST("Galgar's Cactus Apple Surprise") },
           text = "Cactus apples, from the plants around the valley. It's an easy job. I make it easy on purpose; you'll get harder ones soon enough." },
+        { id = "h_recipe", when = { metBefore = true }, text = "Scorpid tail, fried, with a pinch of cactus. Don't make that face. You'll be asking for it by next week." },
       },
       choices = {
+        { text = "Where did you learn to cook?", next = "cook" },
         { text = "What's the surprise?", next = "surprise" },
         { text = "Thanks, Galgar.", next = "END" },
       },
@@ -219,6 +230,12 @@ P:NPC {
     surprise = {
       lines = { { id = "s_default", text = "That it tastes good. Nobody expects that from a cactus." } },
       choices = { { text = "...", next = "END", fx = { affinity = 1 } } },
+    },
+    cook = {
+      lines = {
+        { id = "c_camp", text = "In the camps. You learn to make something out of nothing, or you starve. Out here we've got scorpids. That's not nothing. That's practically a feast." },
+      },
+      choices = { { text = "I'll try the scorpid.", next = "END", fx = { affinity = 2 } } },
     },
   },
 
@@ -250,6 +267,7 @@ P:NPC {
           text = "Kzan Thornslash. I keep the recruits armed. They keep dropping their weapons in the scrub. One of those jobs is harder than the other." },
         { id = "h_weapons", tags = { "news" }, when = { questActive = TODO_QUEST("Wayward Weapons") },
           text = "Gornek sent you about the training weapons? Good. Bring me six and I'll mend them for the next lot of recruits." },
+        { id = "h_edge", when = { metBefore = true }, text = "You're back. Blade still in one piece? Good. Means you're using the edge and not the flat." },
       },
       choices = { { text = "I'll find them.", next = "END" } },
     },

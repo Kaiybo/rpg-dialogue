@@ -28,3 +28,6 @@
 - Neeru: silky, ironic, "useful friends".
 - Gryshka: hearty innkeeper, flustered about Zargh.
 - Gamon: resigned, gentle, keeps getting knocked down.
+
+## Depth pass (0.25.0, authored, not canon)
+Gryshka sends Zargh's bones back clean after Meats to Orgrimmar and is still wondering what it means herself; a quiet Tusk means trouble; Gamon's short list of people who didn't hit him.
