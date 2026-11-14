@@ -43,6 +43,8 @@ P:NPC {
           text = "Red bandanas in Northshire's vineyards too? Then they've spread further east than my map says. I'll need more pins." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "You walk light, like you're used to wind in your face. That's useful in a scout. I'm not recruiting. I'm noticing." },
+        { id = "h_human_hunter", when = { race = "Human", class = "HUNTER" },
+          text = "A human who tracks with a beast at heel. Not many of your folk take to it. The ones who do make the best scouts I've seen." },
       },
       choices = {
         { text = "Show me your map.", next = "map" },

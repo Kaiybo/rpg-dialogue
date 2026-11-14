@@ -38,6 +38,8 @@ P:NPC {
           text = "There's a heaviness about you. I'm not going to ask. If you ever want to set it down, this is a good place to do it." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "Winds be with you, I'm told your people say. And the Light with you, say mine. I don't see why anyone can't have both." },
+        { id = "h_gnome_priest", when = { race = "Gnome", class = "PRIEST" },
+          text = "A gnome in the vestments of the Light. Gnomeregan's loss brought you to us, perhaps, or something else did. Either way, the Light has never asked anyone's height." },
       },
       choices = {
         { text = "What did Archbishop Faol teach?", next = "faol" },
