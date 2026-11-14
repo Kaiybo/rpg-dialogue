@@ -20,3 +20,6 @@
 - Elmore: brusque, proud; teases Argus's quench advice (Argus's "apprentice near the quench" line). Never states he taught Argus.
 - Milton: hushed, delighted by readers; generous to The Seven Kingdoms.
 - Elling: deadpan; "we sell cheese" as cover. Never names SI:7 aloud.
+
+## Depth pass (0.25.0, authored, not canon)
+Arthur knelt on rubble where the Cathedral now stands (the rebuilding is sourced); Milton forgives a seventy-years-overdue book for its pressed flower; Elling Trias keeps strictly to cheese (dramatic irony intact); Elmore grudgingly rates Argus; Samuelson won't rest until King Varian comes home (Varian's disappearance is sourced: LORE_NOTES Year 1 Stormwind); Thomas Miller's feet and squashed last loaves; Jennea's students; Lil Timmy's biting kitten.

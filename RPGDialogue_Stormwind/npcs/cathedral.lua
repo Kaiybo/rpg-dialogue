@@ -214,6 +214,7 @@ P:NPC {
         { id = "h_default", text = "I'm Timmy. This is my kitten. She needs a good home and my dad says ours isn't one. For cats. He likes it fine for me." },
         { id = "h_rich", when = { money = { min = 10000 } },
           text = "You look like you've got a nice house. With a fire. Cats love fires. Just saying." },
+        { id = "h_bit", when = { metBefore = true }, text = "One of the kittens bit me today. I still love him. You should love him too." },
       },
       choices = {
         { text = "Let me see her.", next = "BUSINESS" },

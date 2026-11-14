@@ -81,9 +81,17 @@ P:NPC {
     lines = {
       { id = "h_default", text = "Arthur. They call me the Faithful. I've never been sure I earned it. I keep trying to." },
       { id = "h_grayson", when = { class = "PALADIN" }, text = "Lord Shadowbreaker will test you. Katherine will correct you. I'll pray with you. Between the three of us, you'll survive." },
+      { id = "h_steadier", when = { metBefore = true, class = "PALADIN" }, text = "Each time you kneel here, you kneel a little steadier. I notice. The Light notices more." },
+      { id = "h_night", when = { timeOfDay = "night" }, text = "The Cathedral at night is all candle and echo. I like it best now. The prayers sound less like requests." },
     },
-    choices = { { text = "Train me.", next = "BUSINESS", when = { class = "PALADIN" } }, { text = "Thank you.", next = "END" } },
-  } },
+    choices = { { text = "How long have you served here?", next = "served" }, { text = "Train me.", next = "BUSINESS", when = { class = "PALADIN" } }, { text = "Thank you.", next = "END" } },
+  },
+    served = {
+      lines = {
+        { id = "s_rubble", text = "Since before the city was rebuilt. I knelt on rubble on this very spot once. Now there's marble. I'm not certain the prayers are any better for it." },
+      },
+      choices = { { text = "Maybe they're just as good.", next = "END", fx = { affinity = 2, align = { light = 1 } } } },
+    }, },
 
   topics = { _none = { { id = "tp_none", text = "I don't know. I'll pray on it, if that helps." } } },
 }
@@ -115,6 +123,7 @@ P:NPC {
         text = "Argus told ye never tae let the apprentice near the quench? Good lad. My apprentice Furen's still not allowed near mine." },
       { id = "h_paladin", when = { class = "PALADIN", minLevel = 50 },
         text = "Ye'll be wantin' barding someday, if Shadowbreaker thinks ye're worth a charger. Save yer coin now. Save a lot of it." },
+      { id = "h_fair", when = { metBefore = true }, text = "Argus out in Goldshire does fair work, for a human. Dinnae tell him I said so. He'll get ideas." },
     },
     choices = { { text = "Let me see your work.", next = "BUSINESS" }, { text = "Another time.", next = "END" } },
   } },
@@ -146,6 +155,7 @@ P:NPC {
     lines = {
       { id = "h_default", key = true, text = "Milton Sheaf, keeper of the Royal Library. I collect books from all over the kingdom. Mostly I collect people to collect books for me." },
       { id = "h_foe", text = "Know your enemy, they say. I'd go further. Know everything about everyone. It saves so much trouble later." },
+      { id = "h_flower", when = { metBefore = true }, text = "Someone returned a book yesterday with a pressed flower in it. Seventy years overdue. I've decided to forgive them. The flower was lovely." },
     },
     choices = { { text = "Need anything found?", next = "BUSINESS" }, { text = "I'll let you read.", next = "END" } },
   } },
@@ -181,6 +191,8 @@ P:NPC {
         text = "A diplomat goes missing in the middle of Stormwind, and nobody's surprised. That should worry you more than the diplomat." },
       { id = "h_shaw", when = { heardLine = "shaw.h_default" },
         text = "You've met the Master? Then you know where I stand. Don't say it out loud. The cheese has ears. Well. The customers do." },
+      { id = "h_cheddar", when = { metBefore = true }, text = "The aged cheddar is excellent this week. That is all I have to say about anything." },
+      { id = "h_night", when = { timeOfDay = "night" }, text = "We're closing. Cheese needs its rest. So do I. That is the only reason." },
     },
     choices = { { text = "I'll take some cheese.", next = "BUSINESS" }, { text = "Just passing.", next = "END" } },
   } },

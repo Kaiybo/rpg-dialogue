@@ -103,6 +103,8 @@ P:NPC {
           text = "Mirror Lake, just outside the city. Bring me what I asked for, and mind your reflection. It's only a reflection. Mostly." },
         { id = "h_recluse", when = { questActive = TODO_QUEST("Investigate the Blue Recluse") },
           text = "The Blue Recluse is a tavern, not a laboratory, whatever its regulars think. Find out what they're doing in there." },
+        { id = "h_wards", when = { metBefore = true, class = "MAGE" }, text = "Your wards are tidier. Not good yet. Tidier. Good comes later." },
+        { id = "h_sleeve", when = { metBefore = true, ["not"] = { class = "MAGE" } }, text = "A student set his sleeve alight last week, then froze it, then cried. Mages learn in that order." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "MAGE" } },

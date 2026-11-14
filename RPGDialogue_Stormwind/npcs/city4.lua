@@ -141,6 +141,7 @@ P:NPC {
           text = "Orinelle's asking to come home again. Tell him his request has been received. Tell him nothing else." },
       },
       choices = {
+        { text = "Do you ever leave the throne room?", next = "leave" },
         { text = "Who do you guard?", next = "guard" },
         { text = "I'll go.", next = "END" },
       },
@@ -148,6 +149,12 @@ P:NPC {
     guard = {
       lines = { { id = "g2_default", text = "The Regent. The young King. The court. Everyone who stands in this room, whether I'd choose to guard them or not." } },
       choices = { { text = "...", next = "END" } },
+    },
+    leave = {
+      lines = {
+        { id = "l_watch", text = "Rarely. The boy king needs every sword in this room while his father is missing. I'll rest when King Varian comes home." },
+      },
+      choices = { { text = "I hope that's soon.", next = "END", fx = { affinity = 1 } } },
     },
   },
 
@@ -180,6 +187,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", text = "Thomas Miller, baker. I walk the Trade District from dawn to dusk with a basket. My feet hate me. My customers love me. It evens out." },
+        { id = "h_foot", when = { metBefore = true }, text = "My left foot's been talking to me all morning. It says sit down. My basket says keep walking. The basket wins." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "Last loaves of the day. A bit squashed. They taste the same. Mostly." },
       },
       choices = {
         { text = "Show me your bread.", next = "BUSINESS" },
