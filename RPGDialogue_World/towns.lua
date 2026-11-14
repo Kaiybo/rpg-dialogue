@@ -437,6 +437,13 @@ P:Town {
   quests = { { TODO_QUEST("Are We There, Yeti?"), 4 }, { TODO_QUEST("The Everlook Report"), 2 } },
 }
 
+P:Town {
+  id = "bloodvenom_post", name = "Bloodvenom Post",
+  subzones = { "Bloodvenom Post" },
+  tiers = { Hero = "Hero of Bloodvenom Post" },
+  quests = { { TODO_QUEST("Well of Corruption"), 2 }, { TODO_QUEST("Guarding Secrets"), 6 } },
+}
+
 -- The other capitals. Their guards speak from pools_roles.lua; standing grows from quests
 -- each capital's own pack lists later.
 P:Town {

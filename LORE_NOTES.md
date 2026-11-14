@@ -667,3 +667,15 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Durotar: founded after Mount Hyjal by Thrall's orcs, named for his father; scorpids among its wildlife. Orcs held in internment camps before (Hammerfall row above) | [Durotar](https://warcraft.wiki.gg/wiki/Durotar); [Hammerfall](https://warcraft.wiki.gg/wiki/Hammerfall) |
 | Ratchet: Steamwheedle goblin port on the Barrens' eastern shore (Boorand's goblin guest) | [Ratchet](https://warcraft.wiki.gg/wiki/Ratchet) |
 | Everything else added in the depth pass is authored small life (habits, family, opinions of neighbours), marked "authored, not canon" in each pack's bible | — |
+
+## Felwood (Felwood pack 1.0.0)
+
+| Fact used | Source |
+|---|---|
+| Felwood corrupted in the Third War to weaken Hyjal's defenders; a dreadlord and the Skull of Gul'dan; twisted beasts, corrupted ancients; satyrs; the Shadow Council in Jaedenar; Bloodvenom Post and Talonbranch Glade the only Horde and Alliance posts | [Felwood](https://warcraft.wiki.gg/wiki/Felwood) |
+| Emerald Sanctuary: Emerald Circle camp; Eridan, Greta, Maybess, Arathandris | [Emerald Sanctuary](https://warcraft.wiki.gg/wiki/Emerald_Sanctuary) |
+| Eridan Bluewind: Jadefire chain, Flute of Xavaric, Felbound Ancients, Purified!; makes Linken's totem with Aquementas | [Eridan Bluewind](https://warcraft.wiki.gg/wiki/Eridan_Bluewind); [Linken](https://warcraft.wiki.gg/wiki/Linken) |
+| Greta Mosshoof: wary, warns against the forest's power; friend Islen Waterseer; Jaedenar and water quests | [Greta Mosshoof](https://warcraft.wiki.gg/wiki/Greta_Mosshoof) |
+| Maybess Riverbreeze and Arathandris Silversky: Cleansing Felwood and the salves, each sending the other faction to the other | [Maybess Riverbreeze](https://warcraft.wiki.gg/wiki/Maybess_Riverbreeze); [Arathandris Silversky](https://warcraft.wiki.gg/wiki/Arathandris_Silversky) |
+| Bloodvenom Post: tauren braves on cliffs over the river; Winna Hazzard (laughing, kitten; A Strange One, Well of Corruption, Corrupted Sabers); Trull Failbane (Wild Guardians, Guarding Secrets) | [Bloodvenom Post](https://warcraft.wiki.gg/wiki/Bloodvenom_Post); [Winna Hazzard](https://warcraft.wiki.gg/wiki/Winna_Hazzard); [Trull Failbane](https://warcraft.wiki.gg/wiki/Trull_Failbane) |
+| Golhine the Hooded: druid trainer at Talonbranch Glade, around its moonwell | [Golhine the Hooded](https://warcraft.wiki.gg/wiki/Golhine_the_Hooded); [Talonbranch Glade](https://warcraft.wiki.gg/wiki/Talonbranch_Glade) |
