@@ -675,13 +675,17 @@ Each character keeps `seen[globalLineId] = { t, n }`. A line seen inside its fad
 
 ### 3.6 Full conversation or compact
 
-The **full** window opens when any of these is true:
+**Default since the first in-game test (schema 2): the full box opens every time** you interact with an NPC who has dialogue (named, or covered by a role pool), in front of the game's window, and lists the game's own options after the NPC's replies: their quests (hand-ins first, then new quests, then ones in progress) and gossip options (vendor, training, flights, "make this inn your home"...), up to five, then "Get on with it". Picking a game option hands over to the game's window and selects it there (`C_GossipInfo.SelectAvailableQuest` / `SelectActiveQuest` / `SelectOption`, or the quest window's greeting-page equivalents); the visit carries on in the game's window without the box reappearing. Keys 1–9 and 0.
+
+The setting "When you talk to someone" keeps the older behavior as options. With "short line", the **full** window opens when any of these is true, and otherwise a compact bar shows the best greeting:
 - it's the first meeting;
 - Talk was pressed;
-- the setting is "always full";
-- an eligible, unseen line tagged `news` scores **≥ 440** and isn't held for pacing. Beats, quest reactions, echoes and new topic answers count.
+- an eligible, unseen line tagged `news` scores **≥ 440** and isn't held for pacing. Beats, quest reactions, echoes and new topic answers count;
+- for a story NPC (`major`/`quest` tier), a noticing moment is due.
 
-For a story NPC (`major`/`quest` tier), a due noticing moment also opens the full window. Otherwise you get **compact** mode: the best greeting (greetings can carry conditions, such as quest progress) in a small bar, plus a due noticing moment if there is one. Blizzard's window is already open underneath. Service NPCs (vendors, flight masters, trainers, bankers, stable masters, auctioneers) default to compact.
+"Straight to business" shows nothing unless one of those is true.
+
+**Safety net.** Every conversation entry point runs inside `ns.Guard`: an error is printed once in chat (with Lua errors hidden, the game shows nothing), logged in account data, and the game's window is un-faded and uncovered at once.
 
 ### 3.7 Seeded randomness
 
@@ -784,7 +788,7 @@ If a line throws an error, paste the error instead. That tells us something too.
 1. **One public global, `RPGDialogueAPI`.** Content packs are separate addons and can't see our private namespace. This is the only global beyond the SavedVariables (`RPGDialogueDB`, `RPGDialogueCharDB`), the slash commands (`/rpgd`, `/rpgdialogue`) and the keybinding names.
 2. **No third-party libraries.** Export/import uses a small serializer and text encoding of our own, and the launcher is our own (addon compartment if available, minimap button otherwise). The one bundled third-party file is the readable font (Atkinson Hyperlegible, SIL Open Font License 1.1, licence file next to it).
 3. **One TOC per addon** with your interface number. We add `_Forever.toc` variants only if a mixed setup needs them.
-4. **Our window overlays Blizzard's** (R4) rather than replacing it.
+4. **Our window overlays Blizzard's** (R4) rather than replacing it. It lists the NPC's quests and gossip options itself and passes the pick to the game, the way Immersion and DialogueUI do.
 5. **With Immersion or DialogueUI present, RPG Dialogue steps back** by default (R6).
 6. **Tests, linting and the simulation run in my workspace.** Lua 5.1, luacheck and Python are installed there. You only do the in-game testing. If you also want to run them yourself, you'll need Lua 5.1 or LuaJIT.
 7. **Name matching for TODO IDs** (always on, not only in dev mode), so the vertical slice is testable before capture data exists. The validator flags every TODO, and `--strict` makes them errors once capture data exists.

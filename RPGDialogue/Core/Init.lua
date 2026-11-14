@@ -114,6 +114,27 @@ function ns.IsDev()
   return ns.db ~= nil and ns.db.settings ~= nil and ns.db.settings.dev == true
 end
 
+-- Runs fn(...) and catches any error, so a bug in RPG Dialogue never leaves you stuck.
+-- The error is shown in chat (once per session per message, even with Lua errors hidden),
+-- kept in account data for the flag report, then onError() puts the game's own window back.
+local reported = {}
+function ns.Guard(where, fn, onError, ...)
+  local results = { pcall(fn, ...) }
+  if results[1] then return unpack(results, 2, table.maxn(results)) end
+  local err = tostring(results[2])
+  if not reported[err] then
+    reported[err] = true
+    ns.Print((ns.L.ERROR_CAUGHT or "Something went wrong (%s): %s"):format(where, err))
+    if ns.db and ns.db.debug then
+      local log = ns.db.debug
+      log[#log + 1] = "ERROR " .. where .. ": " .. err
+      if #log > 300 then table.remove(log, 1) end
+    end
+  end
+  if onError then pcall(onError) end
+  return nil
+end
+
 -- Dev-only messages. Also kept in a small ring buffer in account data.
 function ns.Debug(...)
   if not ns.IsDev() then return end

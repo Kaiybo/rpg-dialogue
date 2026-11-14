@@ -4,6 +4,7 @@ local function bootReal()
   local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Elwynn" } })
   ns.db.settings.instantText = true
   ns.db.settings.sounds = false
+  ns.db.settings.openMode = "compact"
   return ns
 end
 

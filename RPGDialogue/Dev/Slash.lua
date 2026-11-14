@@ -50,7 +50,8 @@ end
 commands.probe = function()
   local lines = {}
   for _, p in ipairs(C.Probe()) do
-    lines[#lines + 1] = (p.present and "|cff40ff40yes|r " or "|cffff4040no|r  ") .. p.name
+    local state = p.present and "|cff40ff40yes|r " or (p.legacy and "|cff888888no|r  " or "|cffff4040no|r  ")
+    lines[#lines + 1] = state .. p.name .. ((p.legacy and not p.present) and L.PROBE_LEGACY or "")
   end
   for ev in pairs(ns.unknownEvents) do lines[#lines + 1] = "|cffff4040no|r  event " .. ev end
   local version, build, _, toc = C.Build()

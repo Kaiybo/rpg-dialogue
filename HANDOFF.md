@@ -3,12 +3,18 @@
 > Read this first, then `DESIGN.md`, then `CONTENT_GUIDE.md` (and `PACK_AUTHORING.md` before adding a zone). You won't remember earlier sessions; these files are your memory.
 > The original brief is the Project doc `rpg-dialogue-build-prompt (1).md`. Re-read it when a decision isn't covered here.
 
-**Last session:** 2026-11-13 · **M0–M8 all built.** The user said "keep going and build as much as possible", so every milestone was built back to back without in-game testing. **Nothing has run in WoW yet.** The next step is the user's in-game test pass (checklist below), then fixing what it finds.
+**Last session:** 2026-11-13 · **M0–M8 all built; first in-game results are in.** The addon loads, packs load, `/rpgd why` works, and the Skyborne race token is "Skyborne".
+
+**First in-game test (user, 2026-11-13):**
+- **Test character: Skyborne Druid, level 22 (Blooded), Alliance side, tested in Northshire Valley.** Content for that character is thin: the slice is written for level 1–10 characters doing Northshire/Goldshire quests (only 4 Skyborne lines and 1 druid line exist). Asked the user where they actually play, for the next content pass.
+- `/rpgd probe`: everything present except the legacy globals `IsQuestFlaggedCompleted`, `UnitBuff`, `InterfaceOptions_AddCategory` (expected; Compat uses `C_QuestLog`, `C_UnitAuras`, `Settings` first).
+- The compact bar's **Talk button "did nothing"**. Their `/rpgd why` shows the engine picked McBride's node line after the click, so the full window most likely errored while drawing (Lua errors are hidden by default in WoW). Not reproduced in the mock. Added `ns.Guard` around every conversation entry point: errors now print in chat and the game's window comes back. **Next step: get that chat line from the user.**
+- The user wants **a box that opens automatically on right-click with the options right away**. Done: the full box is now the default every time (schema 2 migration), and it lists the NPC's quests and gossip options, handing the pick to the game's window (DESIGN §3.6).
 
 ## Assumptions made while the user was away (confirm or correct)
 1. **Interface number** 16001 (from warcraft.wiki.gg, patch 1.60.1). TOCs say `16001, 16002` to cover the next patch too.
 2. **Vertical slice:** Northshire Valley + Goldshire (Elwynn Forest).
-3. **Test character:** unknown. The class-trainer requirement is covered with Llane Beshere (warrior) for now; add the user's class trainer when known.
+3. **Test character:** now known (Skyborne Druid 22). The class-trainer requirement was covered with Llane Beshere (warrior); a druid trainer belongs wherever the user plays.
 4. **Name and license:** "RPG Dialogue", MIT.
 5. **Visual style:** the brief's example, "parchment and dark wood, very readable, uncluttered" (built from color textures, no art files).
 6. **Where the code lives:** zips per milestone plus the docs in this Project. No GitHub repo was set up (the workflows in `.github/` are ready for when one is).
@@ -30,7 +36,7 @@
 - **M6** (979fcc5): spirit healer tree, books, insanity, drunk replies, ghosts, barks, errands.
 - **M7** (bbefce7): `tools/new_zone.py` (plan → approve tiers → scaffold), `tools/check_all.py`, impossible-quest-reference check, copied-wording check, flag replay lines, `/rpgd capture zone`, `tests/test_tools.py`.
 - **M8** (c2e6a2e): Total RP 3 (read-only), accessibility pass (keyboard selection, gamepad, Ask About keybinding, bundled readable font, "(Locked)" and ">" markers, journal tab keys), the optional "something new" tooltip marker (an M2 item that had been missed), pack `requires` reported in game and validated, per-pack versions and changelogs, `PACK_AUTHORING.md`, `.pkgmeta` checked against the packager's source, Blizzard UI policy checked and enforced by `check_all.py --release`, GitHub workflows, README rewrite.
-- **Checks at the end of M8:** 118 Lua tests, 7 Python tool tests, luacheck clean, validator 0 errors (101 warnings, all TODO placeholders), voice check 0 failures, simulation 0 runtime errors / 0 contradictions / 0 impossible quest references.
+- **After the first in-game test:** 125 Lua tests (new `tests/ux_spec.lua`). **Checks at the end of M8:** 118 Lua tests, 7 Python tool tests, luacheck clean, validator 0 errors (101 warnings, all TODO placeholders), voice check 0 failures, simulation 0 runtime errors / 0 contradictions / 0 impossible quest references.
 
 ## Half-done
 - Nothing half-built. `check_all.py --release` fails until capture data replaces the TODO ids (by design).
@@ -79,4 +85,6 @@ Still all of DESIGN.md §4 (section 9 answers, slice zone, where the repo lives,
 - `python3 tools/check_all.py` runs everything (about a minute); `--quick` skips the simulation.
 
 ## Exact next step
-Wait for the user's in-game results (checklist above). Fix every error they paste, starting with `/rpgd probe` output against `Compat.lua`. Then: import their capture file (`tools/import_capture.py <file> --resolve`), rerun `tools/check_all.py`, and fix whatever the real IDs reveal. After that, new zones follow `PACK_AUTHORING.md` §4.
+Ask the user to retest: right-click McBride, a vendor and a quest giver; paste any "Something went wrong" chat line; check the box lists their quests and that picking one opens the quest. Fix whatever error the safety net reports (start with `UI/DialogueFrame.lua` D.Show/create). Then plan content for where the Skyborne druid actually plays (ask which zones), plus Skyborne and druid reactions across the existing NPCs (only facts from brief §10 for Skyborne).
+
+Before that, the original plan was: wait for the user's in-game results (checklist above). Fix every error they paste, starting with `/rpgd probe` output against `Compat.lua`. Then: import their capture file (`tools/import_capture.py <file> --resolve`), rerun `tools/check_all.py`, and fix whatever the real IDs reveal. After that, new zones follow `PACK_AUTHORING.md` §4.

@@ -434,13 +434,23 @@ function Conv.BuildChoices(node, isStart)
   if intrusive and #entries < Engine.MAX_CHOICES then
     entries[#entries + 1] = { choice = { text = intrusive }, intrusive = true }
   end
+  local firstGame = true
+  for _, e in ipairs(Conv.GameOptions(s)) do
+    e.firstGame = firstGame
+    firstGame = false
+    entries[#entries + 1] = e
+  end
   s.choiceEntries = entries
   local choices = {}
   for i, entry in ipairs(entries) do
-    choices[i] = {
-      text = Conv.Slur(choiceLabel(entry), ctx.drunk, env.seed + i),
-      locked = entry.locked, special = entry.choice and Engine.IsSpecial(entry.choice),
-    }
+    if entry.game then
+      choices[i] = { text = entry.choice.text, game = true, gap = entry.firstGame and i > 1 }
+    else
+      choices[i] = {
+        text = Conv.Slur(choiceLabel(entry), ctx.drunk, env.seed + i),
+        locked = entry.locked, special = entry.choice and Engine.IsSpecial(entry.choice),
+      }
+    end
   end
   return choices
 end
@@ -458,6 +468,19 @@ function Conv.Choose(index)
   end
   if entry.intrusive then
     ns.UI.Dialogue.ShowAnswer(L.INSANITY_RESPONSE)
+    return
+  end
+  if entry.game then
+    -- Hand over to the game's window first, then pick the option there.
+    local g = entry.game
+    Conv.Business()
+    if g.kind == "gossipQuest" then
+      C.SelectGossipQuest(g.questID, g.active)
+    elseif g.kind == "greetingQuest" then
+      C.SelectGreetingQuest(g.index, g.active)
+    elseif g.kind == "gossipOption" then
+      C.SelectGossip(g.id)
+    end
     return
   end
   local choice = entry.choice
@@ -573,16 +596,76 @@ end
 ---------------------------------------------------------------------------
 -- Events
 ---------------------------------------------------------------------------
+-- Which page the quest window is on: "greeting" | "detail" | "progress" | "complete".
+local questStage
+
 local function deferStart(kind, unit, interactionName)
   -- Let Blizzard's window open first, so ours lands in front of it.
   C.After(0, function() Conv.Start(kind, unit, interactionName) end)
 end
 
 ns.On("GOSSIP_SHOW", function() deferStart("gossip", "npc") end)
-ns.On("QUEST_GREETING", function() deferStart("quest", "npc") end)
-ns.On("QUEST_DETAIL", function() deferStart("quest", "npc") end)
-ns.On("QUEST_PROGRESS", function() deferStart("quest", "npc") end)
-ns.On("QUEST_COMPLETE", function() deferStart("quest", "npc") end)
+ns.On("QUEST_GREETING", function() questStage = "greeting"; deferStart("quest", "npc") end)
+ns.On("QUEST_DETAIL", function() questStage = "detail"; deferStart("quest", "npc") end)
+ns.On("QUEST_PROGRESS", function() questStage = "progress"; deferStart("quest", "npc") end)
+ns.On("QUEST_COMPLETE", function() questStage = "complete"; deferStart("quest", "npc") end)
+
+---------------------------------------------------------------------------
+-- The game's own options in the box: the NPC's quests (hand-ins first), then their gossip
+-- options (vendor, training, flights, "make this inn your home"...). Picking one hands
+-- over to the game's window, exactly as if it had been clicked there.
+---------------------------------------------------------------------------
+Conv.MAX_GAME_OPTIONS = 5
+
+local function questRank(q) return q.active and (q.complete and 1 or 3) or 2 end
+local function questLabel(q)
+  local fmt = q.active and (q.complete and L.GAME_TURN_IN or L.GAME_QUEST_ACTIVE) or L.GAME_QUEST
+  return fmt:format(q.title or "?")
+end
+
+function Conv.GameOptions(s)
+  local out = {}
+  if not s or s.kind == "talk" then return out end
+  local function add(text, game) out[#out + 1] = { choice = { text = text }, game = game } end
+  local gossip, quest = C.BlizzardFrame("gossip"), C.BlizzardFrame("quest")
+  local onGossip = gossip and gossip:IsShown()
+  local onQuest = quest and quest:IsShown()
+  -- The page the visit is on decides (both windows can't really be open at once).
+  if s.kind == "quest" and onQuest then onGossip = false end
+  if s.kind == "service" then onGossip, onQuest = false, false end
+  if onGossip then
+    local quests = C.GossipQuests()
+    table.sort(quests, function(a, b)
+      if questRank(a) ~= questRank(b) then return questRank(a) < questRank(b) end
+      return (a.title or "") < (b.title or "")
+    end)
+    for _, q in ipairs(quests) do
+      add(questLabel(q), { kind = "gossipQuest", questID = q.questID, active = q.active })
+    end
+    for _, o in ipairs(C.GossipOptions()) do
+      if type(o.name) == "string" and o.name ~= "" then add(o.name, { kind = "gossipOption", id = o.id }) end
+    end
+  elseif onQuest then
+    if questStage == "greeting" then
+      local quests = C.GreetingQuests()
+      table.sort(quests, function(a, b)
+        if questRank(a) ~= questRank(b) then return questRank(a) < questRank(b) end
+        return a.index < b.index
+      end)
+      for _, q in ipairs(quests) do
+        add(questLabel(q), { kind = "greetingQuest", index = q.index, active = q.active })
+      end
+    else
+      local title = C.QuestFrameText().title
+      if type(title) == "string" and title ~= "" then
+        local handIn = questStage == "progress" or questStage == "complete"
+        add((handIn and L.GAME_TURN_IN or L.GAME_QUEST):format(title), { kind = "reveal" })
+      end
+    end
+  end
+  while #out > Conv.MAX_GAME_OPTIONS do table.remove(out) end
+  return out
+end
 ns.On("PLAYER_INTERACTION_MANAGER_FRAME_SHOW", function(_, kind)
   local name = C.InteractionName(kind)
   if FRAME_FOR_INTERACTION[name or ""] then deferStart("service", "npc", name) end
@@ -643,3 +726,29 @@ ns.OnUnit("UNIT_AURA", "player", Conv.OnAura)
 
 -- Make Cond available to other modules that only load the controller.
 Conv.Cond = Cond
+
+---------------------------------------------------------------------------
+-- Safety net: if anything in a conversation errors, say so in chat and give the game's
+-- own window back, so a bug never blocks gossip, quests or vendors.
+---------------------------------------------------------------------------
+function Conv.Recover()
+  local s = Conv.session
+  if s then
+    if s.faded then C.SetFaded(s.blizz, false); s.faded = false end
+    s.mode = "business"
+  end
+  for _, f in ipairs({ "gossip", "quest", "merchant", "trainer", "taxi" }) do
+    local frame = C.BlizzardFrame(f)
+    if frame then C.SetFaded(frame, false) end
+  end
+  ns.UI.Blocker.Uncover()
+  if ns.UI.Dialogue.Frame() then ns.UI.Dialogue.Frame():Hide() end
+  ns.UI.Compact.Hide()
+  if ns.UI.AskAbout then ns.UI.AskAbout.Hide() end
+end
+
+for _, name in ipairs({ "Start", "OpenFull", "OpenCompact", "ShowNode", "Choose", "Business", "End",
+                        "Finish", "Ask", "TalkNow", "TalkToTarget", "CheckClosed" }) do
+  local fn = Conv[name]
+  Conv[name] = function(...) return ns.Guard("conversation:" .. name, fn, Conv.Recover, ...) end
+end

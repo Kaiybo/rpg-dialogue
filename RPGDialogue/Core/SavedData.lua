@@ -7,7 +7,7 @@ local U = ns.Util
 local SD = {}
 ns.SavedData = SD
 
-SD.SCHEMA = 1
+SD.SCHEMA = 2
 
 SD.ACCOUNT_DEFAULTS = {
   schema = SD.SCHEMA,
@@ -16,7 +16,8 @@ SD.ACCOUNT_DEFAULTS = {
     dev = false,
     autoCapture = false,
     captureText = true,
-    openMode = "compact",       -- repeat visits: "compact" | "skip" | "full"
+    openMode = "full",          -- talking to someone: "full" (the conversation box, every time)
+                                --   | "compact" (short line; the box only when there's news) | "skip"
     otherAddons = "stepback",   -- with Immersion/DialogueUI: "takeover" | "stepback" | "off"
     trp3Name = true,            -- with Total RP 3 loaded: NPCs use your roleplay name
     trp3Title = true,           -- ...and your roleplay title
@@ -88,6 +89,12 @@ SD.CHAR_DEFAULTS = {
 
 -- Migrations: [targetSchema] = function(db) ... end. Run in order on load.
 SD.MIGRATIONS = { account = {}, char = {} }
+
+-- Schema 2: the conversation box opens every time by default (it used to open only on
+-- first meetings and news, with a short line otherwise). Moves the old default over.
+SD.MIGRATIONS.account[2] = function(db)
+  if type(db.settings) == "table" and db.settings.openMode == "compact" then db.settings.openMode = "full" end
+end
 
 SD.LIMITS = { seen = 1500, journal = 2000, deaths = 500, debug = 300, flagged = 500 }
 

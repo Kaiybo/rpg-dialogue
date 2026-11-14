@@ -18,8 +18,8 @@ Content packs load by zone, so only the dialogue for where you are is in memory.
 
 ## Using it
 
-- Talk to NPCs as usual. A conversation window opens in front of the normal one. **"Get on with it"** (or Escape) always takes you straight to the normal vendor, quest or trainer window.
-- Vendors, flight masters, trainers and other service NPCs say a short line on repeat visits and open their normal window right away. Click **Talk** on that bar for a full conversation.
+- Right-click NPCs as usual. The conversation box opens in front of the normal window, with the NPC's line and your replies, then the NPC's own quests ("Quest: ...", "Hand in: ...") and services (vendor, training, flights...). Picking one of those hands you straight to the normal window for it. **"Get on with it"** (or Escape) always takes you to the normal window.
+- Prefer less? Settings > "When you talk to someone": a short line with the box only when there's news, or straight to business.
 - **Ask about...** lets you ask people about topics you've picked up. **The journal** (`/rpgd journal`, or its keybinding) keeps your chronicle, the people you've met, your character sheet and origin, topics, deeds and your own notes.
 - Keybindings (Key Bindings > AddOns): **Talk to Target** talks to an NPC who has no gossip; **Open Journal**; **Ask About...** during a conversation.
 - `/rpgd` lists every command. `/rpgd settings` opens the settings.

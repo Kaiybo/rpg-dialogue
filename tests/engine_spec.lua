@@ -12,6 +12,8 @@ local function boot(opts)
   })
   ns.db.settings.instantText = true
   ns.db.settings.sounds = false
+  -- These specs cover the short-line mode; the default (the box every time) is in ux_spec.lua.
+  ns.db.settings.openMode = opts.openMode or "compact"
   return ns
 end
 

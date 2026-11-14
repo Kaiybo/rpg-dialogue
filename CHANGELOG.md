@@ -4,6 +4,12 @@ All notable changes to RPG Dialogue. The core and each content pack get their ow
 
 ## [Unreleased]
 
+### After the first in-game test (2026-11-13)
+- **The conversation box opens every time** you right-click an NPC with dialogue, not only on first meetings and news. Existing settings move over once (saved-data schema 2); "short line" and "straight to business" are still in settings ("When you talk to someone").
+- **The box lists the NPC's own options**: quests (hand-ins first, then new, then in progress) and gossip options (vendor, training, flights...), after the NPC's replies. Picking one hands you to the game's window with that option selected. Works on gossip windows, the quest window's greeting page and single quests. Up to 10 buttons; keys 1–9 and 0.
+- **Safety net**: if anything in a conversation errors, RPG Dialogue says so in chat (once per message, even with Lua errors hidden) and gives the game's window back at once. Reported because the Talk button appeared to do nothing in game: the engine picked a line, so the window most likely failed while drawing.
+- `/rpgd probe`: old fallback functions a modern client doesn't have (`IsQuestFlaggedCompleted`, `UnitBuff`, `InterfaceOptions_AddCategory`, `GetQuestLogLeaderBoard`) are marked "not needed" in grey; new entries for quest selection, gamepad and tooltip functions.
+
 ### M8 (2026-11-13): Release prep
 - **Total RP 3** (optional, read-only): with it loaded, `{name}` is your roleplay title and first name ("Sir Aldric"). Two settings, both on. Uses Total RP 3's public player object, strips color codes and textures, falls back to older profile fields, and never writes anything. Everything works the same without it.
 - **Accessibility pass** (brief 4.15):

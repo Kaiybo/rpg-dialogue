@@ -1,6 +1,6 @@
--- The full conversation window: portrait, name, typewriter text, up to 4 numbered
--- choices, "Get on with it" (always), a flag button for wrong lines.
--- Keys: 1-5 pick, Up/Down/Tab move a selection, Enter takes it, Space finishes the text,
+-- The conversation box: portrait, name, typewriter text, up to 4 replies, then the game's
+-- own options for this NPC (quests, vendor, training...), "Get on with it" (always), and a
+-- flag button for wrong lines. Keys: 1-9 and 0 pick, Up/Down/Tab move a selection, Enter takes it, Space finishes the text,
 -- Escape = Get on with it. Gamepad (client gamepad mode): D-pad moves, A confirms,
 -- B = Get on with it, X = Ask about. Nothing relies on color alone: the selection also
 -- shows a ">" marker, and locked options say so in words.
@@ -15,7 +15,7 @@ local D = {}
 UI.Dialogue = D
 
 local PAD, PORTRAIT, WIDTH = 18, 92, 580
-local MAX_BUTTONS = 5
+local MAX_BUTTONS = 10
 
 local frame
 local view
@@ -247,6 +247,7 @@ function D.Layout()
   local y = -(PAD + top + 14)
   for _, b in ipairs(frame.buttons) do
     if b:IsShown() then
+      if b.gap then y = y - 8 end   -- a little space before the game's own options
       b:ClearAllPoints()
       b:SetPoint("TOPLEFT", PAD, y)
       b:SetWidth(WIDTH - 2 * PAD)
@@ -323,13 +324,15 @@ function D.RenderChoices(choices)
     if i > MAX_BUTTONS - 1 then break end
     local b = frame.buttons[i]
     b.locked = c.locked
-    b.label:SetText(i .. ". " .. (c.locked and (L.LOCKED_MARK .. " ") or "") .. c.text)
+    b.gap = c.gap
+    b.label:SetText((i % 10) .. ". " .. (c.locked and (L.LOCKED_MARK .. " ") or "") .. c.text)
     b:Show()
     n = i
   end
   local getOn = frame.buttons[n + 1]
   getOn.locked = false
-  getOn.label:SetText((n + 1) .. ". " .. L.GET_ON_WITH_IT)
+  getOn.gap = false
+  getOn.label:SetText(((n + 1) % 10) .. ". " .. L.GET_ON_WITH_IT)
   getOn:Show()
   for i = 1, MAX_BUTTONS do
     frame.buttons[i].isGetOn = (i == n + 1)
@@ -482,6 +485,7 @@ function D.OnKey(self, key)
     handled = D.Confirm()
   else
     local n = tonumber(key) or tonumber(key:match("^NUMPAD(%d)$") or "")
+    if n == 0 then n = 10 end
     if n and frame.buttons[n] and frame.buttons[n]:IsShown() then
       handled = true
       D.Click(n)

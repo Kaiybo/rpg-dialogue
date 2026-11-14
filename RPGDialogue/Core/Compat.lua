@@ -98,13 +98,19 @@ C.PROBE_LIST = {
   "issecretvalue", "CheckInteractDistance", "GetShapeshiftFormID", "GetBindLocation",
   "IsQuestFlaggedCompleted", "UnitBuff", "GetQuestLogLeaderBoard", "InterfaceOptions_AddCategory",
   "GetServerTime", "Enum.PlayerInteractionType",
+  "C_GossipInfo.SelectAvailableQuest", "C_GossipInfo.SelectActiveQuest", "SelectAvailableQuest", "GetActiveTitle",
+  "C_GamePad.IsEnabled", "TooltipDataProcessor.AddTooltipPostCall",
 }
+
+-- Old functions kept only as fallbacks; a modern client is expected not to have them.
+C.PROBE_LEGACY = { IsQuestFlaggedCompleted = true, UnitBuff = true, InterfaceOptions_AddCategory = true,
+  GetQuestLogLeaderBoard = true }
 
 function C.Probe()
   local out = {}
   for i = 1, #C.PROBE_LIST do
     local p = C.PROBE_LIST[i]
-    out[#out + 1] = { name = p, present = resolve(p) ~= nil }
+    out[#out + 1] = { name = p, present = resolve(p) ~= nil, legacy = C.PROBE_LEGACY[p] }
   end
   return out
 end
@@ -669,11 +675,36 @@ function C.GossipQuests()
     if type(list) == "table" then
       for i = 1, #list do
         local q = list[i]
-        out[#out + 1] = { title = q.title, questID = q.questID, active = which == "GetActiveQuests" }
+        out[#out + 1] = { title = q.title, questID = q.questID, active = which == "GetActiveQuests",
+                          complete = q.isComplete == true }
       end
     end
   end
   return out
+end
+
+function C.SelectGossipQuest(questID, active)
+  if active then return call("C_GossipInfo.SelectActiveQuest", questID) end
+  return call("C_GossipInfo.SelectAvailableQuest", questID)
+end
+
+-- The quest window's greeting page (an NPC with several quests and no gossip):
+-- { { title, index, active, complete }, ... }, quests to hand in first.
+function C.GreetingQuests()
+  local out = {}
+  for i = 1, call("GetNumActiveQuests") or 0 do
+    local title, complete = call("GetActiveTitle", i)
+    if title then out[#out + 1] = { title = clean(title), index = i, active = true, complete = complete == true } end
+  end
+  for i = 1, call("GetNumAvailableQuests") or 0 do
+    local title = call("GetAvailableTitle", i)
+    if title then out[#out + 1] = { title = clean(title), index = i, active = false } end
+  end
+  return out
+end
+
+function C.SelectGreetingQuest(index, active)
+  return call(active and "SelectActiveQuest" or "SelectAvailableQuest", index)
 end
 
 function C.SelectGossip(id)

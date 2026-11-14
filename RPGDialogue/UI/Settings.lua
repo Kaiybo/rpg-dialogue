@@ -121,7 +121,7 @@ local function build()
 
   header(L.ADDON_NAME)
   checkbox(L.OPT_ENABLED, "enabled")
-  cycle(L.OPT_OPEN_MODE, "openMode", { "compact", "skip", "full" }, { L.OPEN_COMPACT, L.OPEN_SKIP, L.OPEN_FULL })
+  cycle(L.OPT_OPEN_MODE, "openMode", { "full", "compact", "skip" }, { L.OPEN_FULL, L.OPEN_COMPACT, L.OPEN_SKIP })
   checkbox(L.OPT_FADE, "fadeDefault")
   slider(L.OPT_ACK, "ackChance", 0, 1, 0.05, "%.2f")
   checkbox(L.OPT_NEW_MARKER, "newMarker")

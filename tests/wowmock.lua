@@ -301,9 +301,19 @@ C_GossipInfo = {
   GetAvailableQuests = function() return Mock.state.gossipAvailable or {} end,
   GetActiveQuests = function() return Mock.state.gossipActive or {} end,
   SelectOption = function(id) Mock.calls[#Mock.calls + 1] = { "SelectOption", id } end,
+  SelectAvailableQuest = function(id) Mock.calls[#Mock.calls + 1] = { "SelectAvailableQuest", id } end,
+  SelectActiveQuest = function(id) Mock.calls[#Mock.calls + 1] = { "SelectActiveQuest", id } end,
   CloseGossip = function() Mock.calls[#Mock.calls + 1] = { "CloseGossip" } end,
 }
 function CloseQuest() Mock.calls[#Mock.calls + 1] = { "CloseQuest" } end
+-- Quest window greeting page: state.greeting = { available = { "Title" }, active = { { "Title", complete } } }
+local function greeting() return S().greeting or { available = {}, active = {} } end
+function GetNumAvailableQuests() return #greeting().available end
+function GetAvailableTitle(i) return greeting().available[i] end
+function GetNumActiveQuests() return #greeting().active end
+function GetActiveTitle(i) local q = greeting().active[i]; if q then return q[1], q[2] end end
+function SelectAvailableQuest(i) Mock.calls[#Mock.calls + 1] = { "SelectAvailableQuest#", i } end
+function SelectActiveQuest(i) Mock.calls[#Mock.calls + 1] = { "SelectActiveQuest#", i } end
 function GetQuestID() return S().questFrame.questID end
 function GetTitleText() return S().questFrame.title end
 function GetQuestText() return S().questFrame.text end
