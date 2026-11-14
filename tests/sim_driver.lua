@@ -158,6 +158,10 @@ local function record(kind, who, node, w)
   out(kind, who, node or "-", w and w.gid or "-", src(w and w.gid), w and w.score or 0)
 end
 
+local TOPIC_IDS, OTHER_TOPICS = {}, 3
+for topic in pairs(ns.Data.topics) do TOPIC_IDS[#TOPIC_IDS + 1] = topic end
+table.sort(TOPIC_IDS)
+
 local function talk(info, spoof, charIndex, mem)
   -- Real play: every conversation counts, and time passes between them.
   ns.char.conversations = ns.char.conversations + 1
@@ -205,7 +209,22 @@ local function talk(info, spoof, charIndex, mem)
     local r = ns.Engine.PickReaction(info, ev, ctx, env)
     if r then record("react", who, ev, r) end
   end
-  for topic in pairs(ns.Data.topics) do
+  -- Topics: everything this NPC has its own take on, plus a few others at random (brush-offs
+  -- and pool takes). Asking every NPC every topic made the run grow with NPCs x topics
+  -- (48 minutes at 0.20.0) while repeating the same brush-off millions of times.
+  local asked, seen = {}, {}
+  local own = info.def and info.def.topics
+  if own then
+    for topic in pairs(own) do
+      if topic ~= "_none" and ns.Data.topics[topic] and not seen[topic] then seen[topic] = true; asked[#asked + 1] = topic end
+    end
+  end
+  for _ = 1, OTHER_TOPICS do
+    local topic = TOPIC_IDS[rng.int(1, #TOPIC_IDS)]
+    if not seen[topic] then seen[topic] = true; asked[#asked + 1] = topic end
+  end
+  table.sort(asked)
+  for _, topic in ipairs(asked) do
     local t = ns.Engine.PickTopic(info, topic, ctx, env)
     local gid = t and t.gid or "-"
     local kind = "none"
@@ -227,7 +246,7 @@ local pooledNPCs = {
   { pooled = true, role = "spirithealer", communities = {}, name = "Spirit Healer" },
 }
 
-local VISITS = 3
+local VISITS = 2  -- the first visit is often already a return (mem.times is random), so two cover both
 local function newMem()
   local mem = { times = rng.int(0, 8), affinity = rng.int(-4, 6), topics = {}, flags = {} }
   if mem.times > 0 then mem.last = Mock.state.now - rng.int(0, 30) * 86400 end
