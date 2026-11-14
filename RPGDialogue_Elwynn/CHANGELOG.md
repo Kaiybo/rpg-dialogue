@@ -2,6 +2,11 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.7.0 (unreleased)
+- Depth pass: repeat visits now bring personal lines (habits, worries, opinions of the neighbours), night-time lines, and a question or two about the person themselves, not only their quests.
+- Goldshire: Dobbins, Brog, Toddrick, Tharynn, Krighton, Corina and Kurran Steele, Erma, Michelle Belle, Crowe, Cylina, Lee Brown, Helene, Adele.
+- Brother Sammuel tells how he came to the Abbey.
+
 ## 1.6.0 (unreleased)
 - Sam Sarsaparilla, Forever's camping teacher on the road by Goldshire; Marshal McBride sends you to him (The Adventurer).
 

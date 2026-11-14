@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.1.0 (unreleased)
+- Depth pass: repeat visits now bring personal lines (habits, worries, opinions of the neighbours), night-time lines, and a question or two about the person themselves, not only their quests.
+- Turak Runetotem's story (the stag), a line for Skyborne druids, Mu'sha at night; Pala, Hamuul.
+
 ## 1.0.2 (unreleased)
 - Cairne knows when you've met Baine in Bloodhoof; Hamuul knows Rau Cliffrunner at Freewind.
 

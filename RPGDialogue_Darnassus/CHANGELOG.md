@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.1.0 (unreleased)
+- Depth pass: repeat visits now bring personal lines (habits, worries, opinions of the neighbours), night-time lines, and a question or two about the person themselves, not only their quests.
+- Saelienne, Gracina, A'moora, Mathrengyl.
+
 ## 1.0.2 (unreleased)
 - Gracina Spiritmight hears that a Gadgetzan alchemist is asking about her insect studies.
 

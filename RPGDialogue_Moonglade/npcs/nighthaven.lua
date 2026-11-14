@@ -227,8 +227,10 @@ P:NPC {
         { id = "h_default", text = "Loganaar. I train the druids who find their way to Nighthaven. Balance isn't somewhere you go. It's something you carry, and I help you pack." },
         { id = "h_dream", when = { minLevel = 20, class = "DRUID" },
           text = "One day the Dream will call you, and you'll sleep a long while among the purest of things. Learn all you can awake, first." },
+        { id = "h_tea", when = { metBefore = true }, text = "Sit, if you have a moment. Not for training. Only to sit. Most druids forget to, and it shows in their bears." },
       },
       choices = {
+        { text = "What brought you to Nighthaven?", next = "why" },
         { text = "Train me.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "How do you find balance?", next = "balance" },
         { text = "Farewell.", next = "END" },
@@ -237,6 +239,12 @@ P:NPC {
     balance = {
       lines = { { id = "b_default", text = "Look inward before you look outward. Most of what's out of balance in the world started out of balance in someone." } },
       choices = { { text = "Thank you.", next = "END", fx = { affinity = 1 } } },
+    },
+    why = {
+      lines = {
+        { id = "w_quiet", text = "The quiet. Everywhere else the world was asking something of me. Here it only asks that I listen. I've found that's plenty." },
+      },
+      choices = { { text = "I'll try to listen.", next = "END", fx = { affinity = 2, trait = { patient = 1 } } } },
     },
   },
 
@@ -271,6 +279,7 @@ P:NPC {
           text = "You come to learn the bear. Then learn this first: strength that cannot wait is not strength. It is only noise." },
         { id = "h_not", when = { ["not"] = { class = "DRUID" } },
           text = "Not of the Circle, this one. Still, you came all this way to sit with an old bear. That is a kind of wisdom too." },
+        { id = "h_return", when = { metBefore = true }, text = "You came back. Most do not. They think one visit is a lesson learned. It is only a lesson begun." },
       },
       choices = {
         { text = "What does the bear teach?", next = "teach" },
@@ -314,6 +323,8 @@ P:NPC {
         { id = "h_default", text = "Silva. I keep the Circle's hippogryphs. They fly one road only, to Rut'theran by Teldrassil, and only for druids. They're very particular." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "You'd rather have your own wings, I imagine. These ones bite less than you'd think. Slightly less." },
+        { id = "h_names", when = { metBefore = true }, text = "The oldest of my hippogryphs won't fly unless I say her name first. Politely. I've stopped finding it strange." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "Night flights are the best. Teldrassil's lights come up out of the sea like someone's left a lantern for you." },
       },
       choices = {
         { text = "Show me the flight.", next = "BUSINESS", when = { class = "DRUID" } },
@@ -346,6 +357,8 @@ P:NPC {
         { id = "h_default", text = "Bunthen Plainswind. I keep the Circle's wind riders, and they fly for druids to Thunder Bluff. A short road through the sky, from one home to another." },
         { id = "h_skyborne", when = { race = "Skyborne", faction = "Horde" },
           text = "From the sky to the Bluff, your folk came, I hear, and the Earthen Ring vouched for you. The winds are kind to you. Let my riders be kind too." },
+        { id = "h_rider", when = { metBefore = true }, text = "My riders grumble at Nighthaven's quiet. They like the wind on the Bluff. So do I, if I'm honest. Don't tell the Keeper." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "Mu'sha's eye is open over the lake. Good night for flying. The riders know it too; listen to them fidget." },
       },
       choices = {
         { text = "Show me the flight.", next = "BUSINESS", when = { class = "DRUID" } },

@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.12.0 (unreleased)
+- Towns: Stonard, Refuge Pointe, Hammerfall, Aerie Peak, Kargath, Marshal's Refuge, Everlook.
+- Topics: Uldaman, the Argent Dawn, the Venture Company.
+
 ## 1.11.0 (unreleased)
 - Towns: Gadgetzan, Steamwheedle Port, Theramore, Brackenwall Village, Feathermoon Stronghold, Camp Mojache.
 

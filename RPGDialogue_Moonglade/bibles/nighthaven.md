@@ -32,3 +32,6 @@
 - Loganaar: calm, warm, balance as something you carry.
 - Great Bear Spirit: few words, felt more than heard; narration for its silences.
 - Silva: warm, particular birds. Bunthen: steady tauren courtesy, gratitude to the Circle.
+
+## Depth pass (0.24.0, authored, not canon)
+Silva says her oldest hippogryph's name before each flight; Bunthen's riders miss the Bluff's wind (Mu'sha is the Earth Mother's moon eye: [Earth Mother](https://warcraft.wiki.gg/wiki/Earth_Mother)); the Great Bear on returning visitors; Loganaar came to Nighthaven for the quiet.

@@ -2,6 +2,33 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.24.0 (2026-11-14)
+Packs: World 1.12.0, Elwynn 1.7.0, Ironforge 1.2.2, Mulgore 1.1.0, Thunder Bluff 1.1.0, Teldrassil 1.1.0, The Barrens 1.2.0, Ashenvale 1.1.0, Stonetalon 1.1.0, Darkshore 1.1.0, Darnassus 1.1.0, Moonglade 1.1.0, and six new ones: Swamp of Sorrows 1.0.0, Arathi Highlands 1.0.0, The Hinterlands 1.0.0, Badlands 1.0.0, Un'Goro Crater 1.0.0, Winterspring 1.0.0 (the rest as in 0.23.0). **New folders: exit the game fully, copy them in, and tick them.**
+
+### Staying in the box
+The user: "make sure there aren't options that bring up the normal menu as much as possible." With "Keep the NPC's menus, pages and quests in the conversation box" on (the default):
+- **"Get on with it"** goes straight to the NPC's vendor, trainer, flight map or bank when there's one to go to, shows the NPC's whole menu (quests and every option) in the box when there are several, and ends the visit when there's nothing. It no longer shows the game's gossip window.
+- **Replies that lead to business** ("Show me your wares.", "A room, please.") pick the matching service by their words.
+- **On the game's pages** in the box, the last row is "Goodbye."
+- **Close, Escape and the gamepad's B** end the visit, as they do in the game.
+- **NPCs without lines, and quest boards,** show their menu and quests in the box too.
+- The game's own window still appears for the service windows themselves (merchant, trainer, flight map, bank, stable, auction house), PvP quests and paid hand-ins, in combat, inside DialogueUI, and with the setting off.
+
+### More to say
+Repeat visits bring personal lines (habits, worries, opinions of the neighbours), night-time lines, and questions about the person, not only about their quests: Goldshire's townsfolk and Brother Sammuel; Bloodhoof Village and Thunder Bluff (Turak's story, a line for Skyborne druids); Shadowglen, Dolanaar and Darnassus; the Crossroads and Camp Taurajo; Astranaar, Splintertree, Stonetalon, Auberdine; Nighthaven. Every authored detail is marked "authored, not canon" in its bible; new facts are in `LORE_NOTES.md`.
+
+### New places
+- **Swamp of Sorrows.** Stonard: Warlord Ruag, Bengor, Helgrum the Swift, Fel'Zerul, Innkeeper Karakul; the Stonard Grunts.
+- **Arathi Highlands.** Refuge Pointe: Captain Nials; Hammerfall: Drum Fel, Zengu (sent by Vol'jin) and Innkeeper Adegwa, a tauren among orcs; both towns' guards.
+- **The Hinterlands.** Aerie Peak: Falstad Wildhammer, Gryphon Master Talonaxe (Sharpbeak, Rhapsody Shindigger), Fraggar Thundermantle, Innkeeper Thulfram; the Wildhammer Sentries.
+- **Badlands.** Kargath: Warlord Goretooth (stuck on watch, dreaming of a glorious death), Hierophant Theodora Mulvadania and Shadowmage Vivian Lagrave (the 109th Division, the Grim Guzzler), Lexlort, Innkeeper Shul'kar; Prospector Ryedol at Hammertoe's dig; Lotwil Veriatus and his Enlightened Assembly.
+- **Un'Goro Crater.** Marshal's Refuge: Williden Marshal (King Mosh), Linken who's forgotten his quest, J.D. Collie and her crystals, Spraggle Frock worried about Ringo.
+- **Winterspring.** Everlook: Innkeeper Vizzie (no bugs), Umi Rumplesnicker's mechanical yeti, Gregor Greystone of the Argent Dawn; Donova Snowden by the hot springs; Witch Doctor Mau'ari and her E'ko.
+- Magni's opening line is now one others can echo (Falstad does).
+
+### Engine
+- Guard names "... Sentry" (Aerie Peak); a duplicated "... Guardian" pattern removed.
+
 ## 0.23.0 (2026-11-14)
 Packs: World 1.11.0, Stranglethorn 1.0.1, Thousand Needles 1.0.1, Desolace 1.0.1, Darnassus 1.0.2, and three new ones: Tanaris 1.0.0, Dustwallow Marsh 1.0.0, Feralas 1.0.0 (the rest as in 0.22.0). **New folders: exit the game fully, copy them in, and tick them.**
 
