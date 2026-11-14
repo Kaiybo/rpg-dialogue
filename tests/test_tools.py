@@ -76,6 +76,13 @@ class ScratchRepo(unittest.TestCase):
 
 
 class NewZoneTest(ScratchRepo):
+    def setUp(self):
+        super().setUp()
+        # Plan and scaffold Westfall as if it were a new zone: drop the real pack from the copy.
+        shutil.rmtree(os.path.join(self.root, "RPGDialogue_Westfall"))
+        pkg = os.path.join(self.root, ".pkgmeta")
+        write(pkg, read(pkg).replace("  RPGDialogue/RPGDialogue_Westfall: RPGDialogue_Westfall\n", ""))
+
     def test_plan_then_scaffold(self):
         out = self.tool("new_zone.py", "plan", "Westfall", "--capture", self.capture).stdout
         self.assertIn("RPGDialogue_Westfall/PLAN.md", out)

@@ -44,6 +44,8 @@ P:NPC {
         { id = "q_murlocs_told", when = { questDone = TODO_QUEST("Further Concerns") },
           text = "Told you. Told you! Murlocs. Nobody listens to Remy until somebody gets eaten.",
           fx = { expose = "murlocs_in_elwynn" } },
+        { id = "e_thomas", tags = { "news" }, priority = 5, when = { heardLine = "thomas.h_report" },
+          text = "Thomas said that? A drink, for Remy? For Remy! I'll hold him to it. I'll hold him to it twice." },
       },
       choices = {
         { text = "What are you buying?", next = "BUSINESS" },

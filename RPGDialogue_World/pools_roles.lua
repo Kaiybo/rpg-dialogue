@@ -448,7 +448,7 @@ P:Pool {
   },
   react = { { id = "r_stealth", on = "stealth", text = "We see better in the dark than you think. Out." } },
   lines = {
-    { id = "l_default", text = "The Apothecarium, the Magic Quarter, the War Quarter, the Rogues' Quarter. All in a ring around the Royal Quarter, where the Dark Lady holds court." },
+    { id = "l_default", text = "The Apothecarium, the Magic Quarter, the War Quarter, the Rogues' Quarter. All in a ring around the Trade Quarter. The Banshee Queen keeps the Royal Quarter. You don't." },
   },
   choices = { { text = "Understood.", next = "END" } },
   topics = { _none = { { id = "t_none", text = "The dead keep secrets. That one isn't mine to keep." } } },

@@ -36,7 +36,7 @@ P:NPC {
           text = "Malakai's medallion. I'll see it reaches his family. That's the job no one tells you about when you sign." },
         { id = "h_rolf", tags = { "news" }, when = { questActive = TODO_QUEST("Discover Rolf's Fate") },
           text = "Rolf's still out there. Webbed tracks, you said, toward the lake. Find him. Whatever's left, I want to know." },
-        { id = "h_report", tags = { "news" }, when = { questRecent = { TODO_QUEST("Report to Thomas"), days = 3 } },
+        { id = "h_report", key = true, tags = { "news" }, when = { questRecent = { TODO_QUEST("Report to Thomas"), days = 3 } },
           text = "Murlocs. Remy at the inn said it first, and half of Goldshire called him a liar. I'll be buying Remy a drink. Light help me.",
           fx = { expose = "murlocs_in_elwynn" } },
         { id = "h_later", when = { questLater = { TODO_QUEST("Report to Thomas"), days = 7 } },

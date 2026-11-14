@@ -45,3 +45,59 @@ P:Thread {
     },
   },
 }
+
+-- Westfall was left to fend for itself. Heard from Elwynn to Sentinel Hill to the Keep.
+-- Beats connect existing Year 1 facts (Stormwind's absence; the militia) and invent no events.
+P:Thread {
+  id = "westfall_left",
+  theme = "The kingdom left Westfall to fend for itself, and Westfall noticed.",
+  npcs = { "dughan", "thomas", "danuvin", "salma", "gryan", "bolvar" },
+  states = { "dormant", "stirring", "unfolding", "resolved" },
+  endings = {
+    resolved = "Westfall holds, mostly by its own hands, and the player has heard every side of why.",
+  },
+  pacing = { minConversations = 3, minSeconds = 1200 },
+  reflection = {
+    first = "Everyone between Goldshire and the coast says the same thing about Westfall: nobody came.",
+    third = "{name} had heard it from Goldshire to Sentinel Hill: nobody came for Westfall.",
+  },
+  beats = {
+    {
+      id = "b1_dughan", npc = "dughan",
+      when = { minLevel = 9, thread = { id = "westfall_left", notBeat = "b1_dughan" } },
+      text = "Westfall fed half the kingdom once. Now nobody goes there who doesn't have to. Gryan Stoutmantle holds Sentinel Hill with farmers.",
+      fx = { thread = { id = "westfall_left", beat = "b1_dughan", state = "stirring" }, learn = { "westfall" } },
+    },
+    {
+      id = "b2_thomas", npc = "thomas",
+      when = { minLevel = 9, thread = { id = "westfall_left", notBeat = "b2_thomas" } },
+      text = "The city sends Westfall nothing. Not a sword. Anyone heading west gets my blessing, and my pity.",
+      fx = { thread = { id = "westfall_left", beat = "b2_thomas", state = "stirring" } },
+    },
+    {
+      id = "b3_danuvin", npc = "danuvin",
+      when = { thread = { id = "westfall_left", notBeat = "b3_danuvin" } },
+      text = "You came from Elwynn. Did anyone there say they were sorry? No. They never do.",
+      fx = { thread = { id = "westfall_left", beat = "b3_danuvin", state = "unfolding" }, hear = "stormwind_abandoned_westfall" },
+    },
+    {
+      id = "b4_salma", npc = "salma",
+      when = { thread = { id = "westfall_left", notBeat = "b4_salma" } },
+      text = "The city forgot us. Fine. We'll remember for both of us what this land's for. Here. Eat.",
+      fx = { thread = { id = "westfall_left", beat = "b4_salma", state = "unfolding" } },
+    },
+    {
+      id = "b5_bolvar", npc = "bolvar",
+      when = { thread = { id = "westfall_left", beat = "b3_danuvin" } },
+      text = "Westfall. Yes. The kingdom is stretched thinner than any of us would like, and my council urges patience. I mislike it. I mislike it more than they know.",
+      fx = { thread = { id = "westfall_left", beat = "b5_bolvar" } },
+    },
+    {
+      id = "b6_gryan", npc = "gryan",
+      when = { deed = "dungeon:The Deadmines", thread = { id = "westfall_left", notBeat = "b6_gryan" } },
+      text = "You walked the Deadmines and came back. No order from the Keep ever did that much for us. Westfall will remember who came.",
+      fx = { thread = { id = "westfall_left", beat = "b6_gryan", state = "resolved" }, standing = { sentinel_hill = 5 } },
+    },
+  },
+}
+

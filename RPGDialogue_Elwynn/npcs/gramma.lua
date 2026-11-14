@@ -27,7 +27,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", text = "Oldest Stonefield still breathing. That gives me the right to say this feud is a waste of good years, and I say it often." },
-        { id = "h_speak", tags = { "news" }, when = { questActive = TODO_QUEST("Speak with Gramma") },
+        { id = "h_speak", key = true, tags = { "news" }, when = { questActive = TODO_QUEST("Speak with Gramma") },
           text = "The boy's in love with a Maclure. Of course he is. I've known since spring; he started washing behind his ears." },
         { id = "h_note", when = { questActive = TODO_QUEST("Note to William") },
           text = "William Pestle, at the Lion's Pride. Give him that. Don't read it. Oh, read it, but don't tell him you did." },

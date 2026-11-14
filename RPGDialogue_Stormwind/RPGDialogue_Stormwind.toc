@@ -1,0 +1,18 @@
+## Interface: 16001, 16002
+## Title: RPG Dialogue: Stormwind |cff8a8a8a1.0.0|r
+## Notes: The Keep, the Cathedral and City Hall.
+## Author: RPG Dialogue
+## Version: 1.0.0
+## Dependencies: RPGDialogue
+## LoadOnDemand: 1
+## X-RPGD-Pack: rpgd.stormwind
+## X-RPGD-Format: 1
+## X-RPGD-Load: zone
+## X-RPGD-Zones: Stormwind_City
+
+pack.lua
+npcs\bolvar.lua
+npcs\katrana.lua
+npcs\anduin.lua
+npcs\rall.lua
+npcs\baros.lua

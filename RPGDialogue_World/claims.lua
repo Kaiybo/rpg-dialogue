@@ -37,6 +37,25 @@ P:Claim {
   exposedBy = { "quest:WANTED: \"Hogger\"" },
 }
 
+P:Claim {
+  id = "stormwind_abandoned_westfall", by = "danuvin", truth = "true",
+  text = "Stormwind abandoned Westfall to the Defias.",
+  truthNote = "Canon: Westfall's noble house was corrupted and Stormwind gave no military support; Gryan founded the People's Militia because of it. The city's reasons are its own (Bolvar's line gives his view).",
+}
+
+P:Claim {
+  id = "gnolls_with_defias", by = "danuvin", truth = "true",
+  text = "Westfall's gnolls work with the thieves in the mines.",
+  truthNote = "Patrolling Westfall (Classic): Danuvin says the gnolls work with the Deadmines thieves.",
+}
+
+P:Claim {
+  id = "prestor_patience", by = "katrana", truth = "false",
+  text = "The crown should wait out the Defias; Westfall can fend for itself.",
+  truthNote = "Canon: Lady Prestor is Onyxia and secretly backed VanCleef; her counsel serves her. Never revealed in dialogue before The Great Masquerade.",
+  exposedBy = { "quest:The Great Masquerade" },
+}
+
 -- Player claims: things the player can say about themselves. trueWhen checks them against
 -- real history; NPCs who could know may call the player out (condition lieCaught).
 P:Claim {

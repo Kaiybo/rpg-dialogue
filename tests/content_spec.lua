@@ -89,6 +89,54 @@ describe("Content packs", function()
     eq(ns.Data.PoolsFor(info, ctx)[1].pool.id, "guard_ironforge")
   end)
 
+  it("Westfall and Stormwind load when you get there, and their people speak", function()
+    local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Elwynn", "RPGDialogue_Westfall", "RPGDialogue_Stormwind" } })
+    ns.db.settings.instantText = true
+    ns.db.settings.sounds = false
+    local function loaded(id)
+      for _, p in ipairs(ns.Packs.List()) do if p.id == id then return p.loaded, p.warnings end end
+    end
+    eq((loaded("rpgd.westfall")), false)
+    Mock.state.zone, Mock.state.subzone = "Westfall", "Sentinel Hill"
+    Mock.Fire("ZONE_CHANGED_NEW_AREA")
+    Mock.RunTimers()
+    local ok1, warn1 = loaded("rpgd.westfall")
+    ok(ok1, "Westfall pack loaded")
+    eq(warn1, 0)
+    Mock.state.units.npc = { guid = "Creature-0-1-0-1-99234-AB", name = "Gryan Stoutmantle", level = 30 }
+    Mock.NewFrame("Frame", "GossipFrame"):Show()
+    Mock.Fire("GOSSIP_SHOW")
+    Mock.RunTimers()
+    local s = ns.Conversation.session
+    eq(s.info.key, "gryan")
+    eq(s.info.communities[1], "sentinel_hill")
+    ns.Conversation.End("test")
+
+    Mock.state.zone, Mock.state.subzone = "Stormwind City", "Stormwind Keep"
+    Mock.Fire("ZONE_CHANGED_NEW_AREA")
+    Mock.RunTimers()
+    local ok2, warn2 = loaded("rpgd.stormwind")
+    ok(ok2, "Stormwind pack loaded")
+    eq(warn2, 0)
+    eq(ns.Data.FindNPC(nil, "Lady Katrana Prestor").key, "katrana")
+    ok(ns.Data.threads.westfall_left and #ns.Data.threads.westfall_left.beats == 6)
+  end)
+
+  it("Zephras Isle's Peacekeepers are guards of the isle, and the High Elder knows her own", function()
+    local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Zephras" } })
+    ns.db.settings.instantText = true
+    Mock.state.zone, Mock.state.subzone = "Zephras Isle", "Valanaar"
+    Mock.Fire("ZONE_CHANGED_NEW_AREA")
+    Mock.RunTimers()
+    Mock.state.units.npc = { guid = "Creature-0-1-0-1-99501-AB", name = "Valanaar Peacekeeper", level = 20 }
+    local ctx = ns.Context.New({ unit = "npc" })
+    local info = ns.Conversation.Identify("npc", ctx)
+    eq(info.role, "guard")
+    eq(info.communities[1], "zephras_isle")
+    eq(ns.Data.PoolsFor(info, ctx)[1].pool.id, "guard_zephras")
+    eq(ns.Data.FindNPC(nil, "Talaanis Shadowsong").key, "talaanis")
+  end)
+
   it("the simulation driver runs without runtime errors", function()
     local p = io.popen('cd "' .. Loader.ROOT .. '" && lua5.1 tests/sim_driver.lua 20 3 | tail -1')
     local last = p:read("*l")

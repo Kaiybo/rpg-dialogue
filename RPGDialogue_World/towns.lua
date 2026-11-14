@@ -48,6 +48,36 @@ P:Town {
   },
 }
 
+P:Town {
+  id = "sentinel_hill", name = "Sentinel Hill",
+  subzones = { "Sentinel Hill", "Sentinel Tower" },
+  related = { westfall_farms = 0.3, goldshire = 0.05 },
+  tiers = { Hero = "Hero of Sentinel Hill" },
+  quests = {
+    { TODO_QUEST("The People's Militia"), 8 }, { TODO_QUEST("Patrolling Westfall"), 6 },
+    { TODO_QUEST("Red Leather Bandanas"), 6 }, { TODO_QUEST("The Defias Brotherhood"), 6 },
+  },
+}
+
+P:Town {
+  id = "westfall_farms", name = "the farms of Westfall",
+  subzones = { "Saldean's Farm", "The Jansen Stead", "Furlbrow's Pumpkin Farm", "The Molsen Farm", "Alexston Farmstead" },
+  related = { sentinel_hill = 0.3 },
+  tiers = { Hero = "Friend of the Farms" },
+  quests = {
+    { TODO_QUEST("The Killing Fields"), 8 }, { TODO_QUEST("Westfall Stew"), 4 },
+    { TODO_QUEST("Poor Old Blanchy"), 5 }, { TODO_QUEST("The Forgotten Heirloom"), 6 },
+    { TODO_QUEST("Furlbrow's Deed"), 5 },
+  },
+}
+
+P:Town {
+  id = "zephras_isle", name = "Zephras Isle",
+  subzones = { "Valanaar", "Anvilas", "Siroccas", "Shen'dramar", "New Eldre'naar" },
+  zones = { "Zephras Isle" },
+  tiers = { Hero = "Hero of Zephras Isle" },
+}
+
 -- The other capitals. Their guards speak from pools_roles.lua; standing grows from quests
 -- each capital's own pack lists later.
 P:Town {

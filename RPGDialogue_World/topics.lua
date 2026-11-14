@@ -16,3 +16,13 @@ P:Topic { id = "tome_of_divinity", name = "The Tome of Divinity", category = "lo
 P:Topic { id = "lost_footmen", name = "Rolf and Malakai", category = "people", learned = "Guard Thomas at the Eastvale bridge" }
 P:Topic { id = "eastvale", name = "Eastvale", category = "places", learned = "Guard Thomas, or being there" }
 P:Topic { id = "morganth", name = "Morganth", category = "threats", learned = "Theocritus at the Tower of Azora" }
+P:Topic { id = "westfall", name = "Westfall", category = "places", learned = "Gryan Stoutmantle, or anyone sent west" }
+P:Topic { id = "people_militia", name = "The People's Militia", category = "people", learned = "Sentinel Hill" }
+P:Topic { id = "harvest_watchers", name = "Harvest watchers", category = "threats", learned = "Farmer Saldean" }
+P:Topic { id = "riverpaw", name = "The Riverpaw gnolls", category = "threats", learned = "Captain Danuvin" }
+P:Topic { id = "moonbrook", name = "Moonbrook", category = "places", learned = "Scout Galiaan's map" }
+P:Topic { id = "old_blanchy", name = "Old Blanchy", category = "people", learned = "Verna Furlbrow" }
+P:Topic { id = "al_aketh", name = "The Al'Aketh", category = "threats", learned = "Zephras Isle" }
+P:Topic { id = "two_orders", name = "The High Order and the Windshapers", category = "people", learned = "Zephras Isle" }
+P:Topic { id = "shal_nan", name = "The Shal'nan", category = "lore", learned = "the High Elder" }
+P:Topic { id = "windstones", name = "Windstones", category = "trade", learned = "Zephras Isle" }
