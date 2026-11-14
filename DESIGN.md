@@ -228,7 +228,7 @@ Working examples of every kind are in the two shipped packs; `PACK_AUTHORING.md`
 
 ### 2.6 Node and choice
 
-A **node** is `{ lines = {…}, choices = {…}, big = true|nil, journal = … }`. `big` marks a conversation that matters: alignment-reactive lines are allowed there, and alignment shifts count more.
+A **node** is `{ lines = {…}, choices = {…}, big = true|nil, rotating = true|nil, journal = … }`. `big` marks a conversation that matters: alignment-reactive lines are allowed there, and alignment shifts count more. `rotating` marks a node whose choices are gated so that at most four pass at once (a line sets a flag with `fx`, and only the choices for that flag show; line effects apply before choices are filtered). The validator then warns only if more than four choices are unconditional. The spirit healer's questions and tales use it.
 
 A **choice**:
 

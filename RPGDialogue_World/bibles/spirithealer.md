@@ -43,6 +43,12 @@ Zone lines in `hello`: the Plaguelands (souls the Scourge raises never reach the
 - Brother Sammuel (Northshire): you have the look of someone who argued with the healer about the cage.
 - Tirion Fordring (Eastweald): the missing are why the Dawn burns what the plague leaves.
 
+## Stay with me a moment (the talk hub)
+- **The healer's questions** (`quiz`, rotating): nine questions; your answer is an opinion (`healer_<question>`), the healer reacts, notices a changed mind (`contradiction`), gives its own answer, and brings notable answers back once on a later visit (`qcb_*`, `sys = "healer"` so pacing doesn't hold them).
+- **Tales of the dead** (`tales`): came back wrong (the Andorhal soldier, the half-returned mage, the hunter who left their name), refused to go back (the Westfall farmer, the Second War veteran, the old Sentinel), couldn't be saved (the finished one, the Stratholme priest, the unnamed one in Ashenvale), made the healer laugh (the gnome's improvements, the dwarf's ale, the troll's beach).
+- **Debates** (`debate`): endless life, fate and the written pages, suffering, debts to the dead. Each in rounds; the healer can lose, and says so. A win goes in the healer's own file (`won_*`), whose first page reads "Not yet." in the same hand as the back of yours.
+- **Milestones**: deaths 3, 10, 20, 30, 75, 100, 150, 200, 300, each said once.
+
 ## Horror and hope
 Horror is quiet and specific: the others watching past the healer's shoulder, the player's edges softening, the healer's own footsteps on other hills, a page that is suddenly wet. Hope is always the last word: names said aloud every day, the mist is only the edge of the page, "you are still falling", go and write something.
 

@@ -322,6 +322,58 @@ def main():
         return [t for t in targets if t]
 
     # ---- pass 2: NPCs ------------------------------------------------------------------------
+    def check_tree(pack, f, line, where, tbl):
+        """Node graph checks for an NPC, or a pool that carries its own conversation tree."""
+        nodes = tbl.get("nodes").named() if isinstance(tbl.get("nodes"), LTable) else {}
+        start = tbl.get("start") or "hello"
+        if nodes and start not in nodes:
+            rep.error(pack, f, line, f"{where}: start node {start!r} doesn't exist")
+        edges = {}
+        for nid, node in nodes.items():
+            if not isinstance(node, LTable):
+                rep.error(pack, f, line, f"{where}.{nid}: node must be a table")
+                continue
+            lines = [ln for ln in P.arr(node.get("lines")) if isinstance(ln, LTable)]
+            if not lines:
+                rep.error(pack, f, node.line, f"{where}.{nid}: node has no lines")
+            elif not any(ln.get("when") is None for ln in lines) and (nid != start or not generic):
+                rep.error(pack, f, node.line, f"{where}.{nid}: every line is conditional, so this node can go silent; add one line without 'when'")
+            choices = [c for c in P.arr(node.get("choices")) if isinstance(c, LTable)]
+            if not choices:
+                rep.error(pack, f, node.line, f"{where}.{nid}: node has no choices (no exit)")
+            if node.get("rotating"):
+                # Choices gated so that at most four pass at once (e.g. one question's answers).
+                always = [c for c in choices if c.get("when") is None]
+                if len(always) > 4:
+                    rep.warn(pack, f, node.line, f"{where}.{nid}: {len(always)} unconditional choices; at most 4 are shown at once")
+            elif len(choices) > 4:
+                rep.warn(pack, f, node.line, f"{where}.{nid}: {len(choices)} choices; at most 4 are shown at once")
+            edges[nid] = []
+            for i, ch in enumerate(choices, 1):
+                edges[nid] += check_choice(pack, f, ch, f"{where}.{nid}.choice{i}", nodes)
+        # reachability and exits
+        seen, todo = set(), [start] if start in nodes else []
+        while todo:
+            n = todo.pop()
+            if n in seen or n not in nodes:
+                continue
+            seen.add(n)
+            todo += [t for t in edges.get(n, []) if t in nodes]
+        for nid in nodes:
+            if nid not in seen:
+                rep.warn(pack, f, nodes[nid].line if isinstance(nodes[nid], LTable) else line, f"{where}.{nid}: unreachable node")
+        can_exit = set()
+        changed = True
+        while changed:
+            changed = False
+            for nid, outs in edges.items():
+                if nid not in can_exit and any(t in ("END", "BUSINESS") or t in can_exit for t in outs):
+                    can_exit.add(nid)
+                    changed = True
+        for nid in seen:
+            if nid not in can_exit:
+                rep.error(pack, f, nodes[nid].line, f"{where}.{nid}: no path from here to END or BUSINESS")
+
     scaffolds = 0
     for key, (pack, tbl, f, line) in sorted(npcs.items()):
         where = key
@@ -351,50 +403,7 @@ def main():
         ids = set()
         for slot, node, ln, gid in P.iter_lines(tbl, key):
             check_line(pack, f, ln, f"{where}" + (f".{node}" if node else ""), slot, ids, notices)
-        nodes = tbl.get("nodes").named() if isinstance(tbl.get("nodes"), LTable) else {}
-        start = tbl.get("start") or "hello"
-        if nodes and start not in nodes:
-            rep.error(pack, f, line, f"{where}: start node {start!r} doesn't exist")
-        edges = {}
-        for nid, node in nodes.items():
-            if not isinstance(node, LTable):
-                rep.error(pack, f, line, f"{where}.{nid}: node must be a table")
-                continue
-            lines = [ln for ln in P.arr(node.get("lines")) if isinstance(ln, LTable)]
-            if not lines:
-                rep.error(pack, f, node.line, f"{where}.{nid}: node has no lines")
-            elif not any(ln.get("when") is None for ln in lines) and (nid != start or not generic):
-                rep.error(pack, f, node.line, f"{where}.{nid}: every line is conditional, so this node can go silent; add one line without 'when'")
-            choices = [c for c in P.arr(node.get("choices")) if isinstance(c, LTable)]
-            if not choices:
-                rep.error(pack, f, node.line, f"{where}.{nid}: node has no choices (no exit)")
-            if len(choices) > 4:
-                rep.warn(pack, f, node.line, f"{where}.{nid}: {len(choices)} choices; at most 4 are shown at once")
-            edges[nid] = []
-            for i, ch in enumerate(choices, 1):
-                edges[nid] += check_choice(pack, f, ch, f"{where}.{nid}.choice{i}", nodes)
-        # reachability and exits
-        seen, todo = set(), [start] if start in nodes else []
-        while todo:
-            n = todo.pop()
-            if n in seen or n not in nodes:
-                continue
-            seen.add(n)
-            todo += [t for t in edges.get(n, []) if t in nodes]
-        for nid in nodes:
-            if nid not in seen:
-                rep.warn(pack, f, nodes[nid].line if isinstance(nodes[nid], LTable) else line, f"{where}.{nid}: unreachable node")
-        can_exit = set()
-        changed = True
-        while changed:
-            changed = False
-            for nid, outs in edges.items():
-                if nid not in can_exit and any(t in ("END", "BUSINESS") or t in can_exit for t in outs):
-                    can_exit.add(nid)
-                    changed = True
-        for nid in seen:
-            if nid not in can_exit:
-                rep.error(pack, f, nodes[nid].line, f"{where}.{nid}: no path from here to END or BUSINESS")
+        check_tree(pack, f, line, where, tbl)
 
     # ---- pools, generic, world definitions -------------------------------------------
     for pack, tbl, f, line in pools:
@@ -409,9 +418,8 @@ def main():
         ids = set()
         for slot, node, ln, gid in P.iter_lines(tbl, where):
             check_line(pack, f, ln, where, slot, ids)
-        pool_nodes = tbl.get("nodes").named() if isinstance(tbl.get("nodes"), LTable) else {}
-        for nid, i, ch in P.iter_choices(tbl):
-            check_choice(pack, f, ch, f"{where}.{nid}.choice{i}", pool_nodes)
+        if isinstance(tbl.get("nodes"), LTable):
+            check_tree(pack, f, line, where, tbl)
     if not generic:
         rep.error(None, "(all packs)", None, "no Generic definitions loaded: some NPCs could be silent")
     for pack, tbl, f, line in generic:
