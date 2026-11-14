@@ -56,6 +56,25 @@ P:Claim {
   exposedBy = { "quest:The Great Masquerade" },
 }
 
+-- The spirit healer's mysteries. Deliberately never settled.
+P:Claim {
+  id = "spirithealer_other_hand", by = "pool:spirithealer", truth = "unknown", open = true,
+  text = "Someone else writes in your file, in a neat hand, and dates things that haven't happened yet.",
+  truthNote = "Authored, not canon. Deliberately open: who writes the pages is never answered.",
+}
+
+P:Claim {
+  id = "spirithealer_was_mortal", by = "pool:spirithealer", truth = "unknown", open = true,
+  text = "The spirit healer thinks they were alive once, and that someone stood aside so they could take their place.",
+  truthNote = "Authored, not canon. Deliberately open; nothing from later expansions explains it here.",
+}
+
+P:Claim {
+  id = "spirithealer_the_door", by = "pool:spirithealer", truth = "unknown", open = true,
+  text = "Past the mist there is a door the spirit healer has never opened.",
+  truthNote = "Authored, not canon. What lies beyond death stays a mystery in Year 1.",
+}
+
 -- Player claims: things the player can say about themselves. trueWhen checks them against
 -- real history; NPCs who could know may call the player out (condition lieCaught).
 P:Claim {

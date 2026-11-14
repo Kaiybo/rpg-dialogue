@@ -43,6 +43,25 @@ describe("Spirit healers", function()
     talkTo("Spirit Healer", 6491, "Northshire Valley")
     contains(text(ns), "Echo Ridge Mine again")
   end)
+
+  it("picks the argument back up on the next visit", function()
+    local ns = bootReal()
+    Mock.state.ghost = true
+    ns.Slash.Handle("die trivial")
+    talkTo("Spirit Healer", 6491, "Northshire Valley")
+    ns.UI.Dialogue.Click(3)                     -- I have questions.
+    ns.UI.Dialogue.Click(2)                     -- Why send us back at all?
+    ns.UI.Dialogue.Click(2)                     -- Doesn't sending us back cheapen death?
+    contains(text(ns), "song")
+    ns.UI.Dialogue.Click(4)                     -- Maybe it's a cage.
+    contains(text(ns), "cage")
+    leave(ns)
+    talkTo("Spirit Healer", 6491, "Goldshire")
+    contains(text(ns), "Last time you called this a cage")
+    leave(ns)
+    talkTo("Spirit Healer", 6491, "Goldshire")
+    eq(text(ns):find("Last time you called this a cage", 1, true), nil, "the callback is said once")
+  end)
 end)
 
 describe("Ghosts", function()
