@@ -2,6 +2,13 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.26.1 (2026-11-14)
+Core only. /reload is enough.
+
+From the user's screenshot of Halligan Turner's hand-in page:
+- **Items the game hasn't loaded yet** no longer show as a broken item-number string. They show "..." while the game fetches them, then the page fills in their names in place (the text keeps typing where it was; a chosen reward stays chosen). Counts now use the item's ID, so "have/need" shows even when the name wasn't loaded.
+- **Bigger reward icons:** about twice the text's height in the text, and the rewards you choose from are rows with a large icon and the name centered beside it.
+
 ## 0.26.0 (2026-11-14)
 Core only; packs unchanged. /reload is enough.
 

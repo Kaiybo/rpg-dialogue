@@ -158,6 +158,46 @@ describe("The game's pages in the box", function()
     eq(called("GetQuestReward")[2], 1)
   end)
 
+  it("waits for item names the game hasn't loaded, then fills them in without retyping", function()
+    local ns = boot()
+    ns.db.settings.instantText = false
+    Mock.state.questFrame = { questID = 9003, title = "From Seed to Sprout", progress = "We grow 'em up.",
+      required = { { "Tree Sprouting Kit", 4321, 1 } }, completable = true }
+    Mock.state.itemsLoading = { ["Tree Sprouting Kit"] = true }
+    Mock.state.bags = { ["Tree Sprouting Kit"] = 1 }
+    open("QuestFrame", "QUEST_PROGRESS")
+    Mock.calls = {}
+    click(ns, "Hand in: From Seed to Sprout")
+    ok(called("RequestLoadItemDataByID"), "asked the game to load it")
+    local D = ns.UI.Dialogue
+    D.FinishText()
+    local f = D.Frame()
+    local text = f.text:GetText()
+    contains(text, "...")
+    ok(not text:find("4321", 1, true) or text:find("|T4321:", 1, true), "no bare item number in the text")
+    ok(not text:find("item:", 1, true), "no item string in the text")
+    Mock.state.itemsLoading = nil
+    Mock.Fire("GET_ITEM_INFO_RECEIVED", 4321, true)
+    Mock.RunTimers()
+    contains(f.text:GetText(), "Tree Sprouting Kit")
+    contains(f.text:GetText(), "1/1")
+    eq(ns.Conversation.session.itemsPending, false)
+  end)
+
+  it("shows reward icons large: in the text and on the rows to choose from", function()
+    local ns = boot()
+    Mock.state.questFrame = { questID = 9004, title = "Choices", reward = "Pick.",
+      choices = { { "Sword", 11, 1, 2 }, { "Shield", 12, 1, 2 } }, rewards = { { "Bread", 13, 1 } } }
+    open("QuestFrame", "QUEST_COMPLETE")
+    click(ns, "Hand in: Choices")
+    local size = ns.Conversation.ItemIconSize()
+    ok(size >= 24, "about twice the text height")
+    contains(ns.UI.Dialogue.Frame().text:GetText(), "|T13:" .. size .. ":" .. size .. "|t")
+    local sword = rows(ns)[1]
+    eq(sword.iconSize, size)
+    ok(sword:GetHeight() >= size, "the row makes room for it")
+  end)
+
   it("hands over what needs the game's own confirmation, and opens vendors as usual", function()
     local ns = boot()
     Mock.state.questFrame = { questID = 9010, title = "Battle Orders", text = "Fight.", pvp = true }

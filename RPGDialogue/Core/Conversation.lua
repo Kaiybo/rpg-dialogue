@@ -980,15 +980,20 @@ local function itemName(it)
   return name .. ((it.count or 1) > 1 and (" x" .. it.count) or "")
 end
 
+-- Item icons on the quest pages: about twice the text's height, so they read as items (the
+-- game's own quest window shows them larger still, on buttons).
+local function itemIconSize() return math.floor(ns.UI.Theme.BodySize() * 2 + 2) end
+Conv.ItemIconSize = itemIconSize
+
 local function itemLine(it)
-  local line = C.IconMarkup(it.texture, 16) .. itemName(it)
+  local line = C.IconMarkup(it.texture, itemIconSize()) .. itemName(it)
   if it.usable == false then line = line .. " " .. ns.UI.Theme.StatusHex(false) .. L.QUEST_UNUSABLE .. "|r" end
   return line
 end
 
 -- A required item: how many the player carries against how many the quest wants.
 local function requiredLine(it)
-  local line = C.IconMarkup(it.texture, 16) .. it.name
+  local line = C.IconMarkup(it.texture, itemIconSize()) .. it.name
   if not it.have then return line .. ((it.count or 1) > 1 and (" x" .. it.count) or "") end
   local enough = it.have >= (it.count or 1)
   return line .. "  " .. ns.UI.Theme.StatusHex(enough) .. L.QUEST_HAVE:format(math.min(it.have, it.count or 1), it.count or 1) .. "|r"
@@ -1039,7 +1044,7 @@ local function rewardEntries(s, info)
       local label = itemName(it)
       if it.usable == false then label = label .. " " .. L.QUEST_UNUSABLE end
       if picked then label = label .. " " .. CHECK .. " " .. L.QUEST_CHOSEN end
-      add(label, { action = "pick", arg = it.index, icon = { file = it.texture, desaturate = it.usable == false },
+      add(label, { action = "pick", arg = it.index, icon = { file = it.texture, desaturate = it.usable == false, size = itemIconSize() },
                    tooltip = { kind = "choice", index = it.index } })
     end
     if chosen then
@@ -1093,10 +1098,16 @@ local function adoptWindow(s)
   end
 end
 
-function Conv.ShowGamePage(kind)
-  local s = Conv.session
-  if not s or s.mode ~= "full" then return end
-  adoptWindow(s)
+-- Any item on the current quest page still waiting for its name from the game?
+local function itemsLoading()
+  for _, kind in ipairs({ "choice", "reward", "required" }) do
+    for _, it in ipairs(C.QuestItems(kind)) do if it.loading then return true end end
+  end
+  return false
+end
+
+-- The page's text, rows and subtitle for what the game is showing now.
+local function buildPage(s, kind)
   local entries, subtitle = {}, s.info.subtitle
   local text
   local function add(label, extra)
@@ -1107,44 +1118,77 @@ function Conv.ShowGamePage(kind)
   if kind == "gossip" or questStage == "greeting" then
     text = kind == "gossip" and (C.GossipText() or "") or (C.QuestFrameText().greeting or "")
     for _, e in ipairs(Conv.GameOptions(s, true)) do entries[#entries + 1] = e end
-  else
-    local q, info = C.QuestFrameText(), C.QuestPageInfo()
-    subtitle = q.title or subtitle
-    if questStage == "detail" then
-      local objectives = (q.objectives and q.objectives ~= "") and (ns.UI.Theme.Hex("name") .. L.QUEST_OBJECTIVES .. "|r\n" .. q.objectives) or nil
-      text = joinText({ q.text, objectives, table.concat(rewardLines(info, true), "\n") })
-      if info.pvp then add(L.QUEST_IN_WINDOW:format(L.QUEST_ACCEPT), { action = "handover" })
-      else add(L.QUEST_ACCEPT, { action = "accept" }) end
-      if not info.auto then add(L.QUEST_DECLINE, { action = "decline" }) end
-    elseif questStage == "progress" then
-      local needed = {}
-      for _, it in ipairs(C.QuestItems("required")) do needed[#needed + 1] = requiredLine(it) end
-      local lines = {}
-      section(lines, L.QUEST_REQUIRED, needed)
-      if info.cost > 0 then lines[#lines + 1] = L.QUEST_COSTS:format(C.MoneyText(info.cost)) end
-      text = joinText({ q.progress, table.concat(lines, "\n") })
-      add(info.completable and L.QUEST_CONTINUE or L.QUEST_NOT_READY, { action = "continue", locked = not info.completable })
-      add(L.QUEST_DECLINE, { action = "decline" })
-    else -- complete
-      local choices = C.QuestItems("choice")
-      local lines = rewardLines(info, #choices == 1)
-      if #choices > 1 and info.cost == 0 then
-        if #lines > 0 then lines[#lines + 1] = "" end
-        lines[#lines + 1] = ns.UI.Theme.Hex("name") .. L.QUEST_PICK_REWARD .. "|r"
-      end
-      text = joinText({ q.reward, table.concat(lines, "\n") })
-      s.rewardChoice = nil
-      for _, e in ipairs(rewardEntries(s, info)) do entries[#entries + 1] = e end
-    end
+    return text, entries, subtitle
   end
+  local q, info = C.QuestFrameText(), C.QuestPageInfo()
+  subtitle = q.title or subtitle
+  if questStage == "detail" then
+    local objectives = (q.objectives and q.objectives ~= "") and (ns.UI.Theme.Hex("name") .. L.QUEST_OBJECTIVES .. "|r\n" .. q.objectives) or nil
+    text = joinText({ q.text, objectives, table.concat(rewardLines(info, true), "\n") })
+    if info.pvp then add(L.QUEST_IN_WINDOW:format(L.QUEST_ACCEPT), { action = "handover" })
+    else add(L.QUEST_ACCEPT, { action = "accept" }) end
+    if not info.auto then add(L.QUEST_DECLINE, { action = "decline" }) end
+  elseif questStage == "progress" then
+    local needed = {}
+    for _, it in ipairs(C.QuestItems("required")) do needed[#needed + 1] = requiredLine(it) end
+    local lines = {}
+    section(lines, L.QUEST_REQUIRED, needed)
+    if info.cost > 0 then lines[#lines + 1] = L.QUEST_COSTS:format(C.MoneyText(info.cost)) end
+    text = joinText({ q.progress, table.concat(lines, "\n") })
+    add(info.completable and L.QUEST_CONTINUE or L.QUEST_NOT_READY, { action = "continue", locked = not info.completable })
+    add(L.QUEST_DECLINE, { action = "decline" })
+  else -- complete
+    local choices = C.QuestItems("choice")
+    local lines = rewardLines(info, #choices == 1)
+    if #choices > 1 and info.cost == 0 then
+      if #lines > 0 then lines[#lines + 1] = "" end
+      lines[#lines + 1] = ns.UI.Theme.Hex("name") .. L.QUEST_PICK_REWARD .. "|r"
+    end
+    text = joinText({ q.reward, table.concat(lines, "\n") })
+    for _, e in ipairs(rewardEntries(s, info)) do entries[#entries + 1] = e end
+  end
+  return text, entries, subtitle
+end
+
+function Conv.ShowGamePage(kind)
+  local s = Conv.session
+  if not s or s.mode ~= "full" then return end
+  adoptWindow(s)
+  s.rewardChoice = nil
   s.page = kind == "gossip" and "gossip" or questStage
+  local text, entries, subtitle = buildPage(s, kind)
   s.choiceEntries = entries
-  local choices = toChoices(entries)
+  -- Item names the game hasn't sent yet show as "..." and are filled in when they come.
+  s.itemsPending = s.page ~= "gossip" and itemsLoading()
   ns.UI.Dialogue.Show({
-    name = s.info.name, subtitle = subtitle, unit = s.unit, text = text, choices = choices, canAsk = false,
+    name = s.info.name, subtitle = subtitle, unit = s.unit, text = text, choices = toChoices(entries), canAsk = false,
     lastLabel = L.GOODBYE,
   })
 end
+
+-- The game sent an item's details: draw the quest page again in place (the text keeps
+-- typing where it was, the chosen reward stays chosen).
+function Conv.RefreshItems()
+  local s = Conv.session
+  if not s or s.mode ~= "full" or not s.itemsPending or s.page == "gossip" or not ns.UI.Dialogue.IsShown() then return end
+  local kind = "quest"
+  local text, entries = buildPage(s, kind)
+  s.choiceEntries = entries
+  s.itemsPending = itemsLoading()
+  ns.UI.Dialogue.UpdateText(text)
+  ns.UI.Dialogue.SetChoices(toChoices(entries))
+end
+
+local refreshQueued = false
+local function queueRefresh()
+  local s = Conv.session
+  if refreshQueued or not (s and s.itemsPending) then return end
+  refreshQueued = true
+  -- Several items often arrive together: one redraw for all of them.
+  C.After(0.05, function() refreshQueued = false; Conv.RefreshItems() end)
+end
+ns.On("GET_ITEM_INFO_RECEIVED", queueRefresh)
+ns.On("QUEST_ITEM_UPDATE", queueRefresh)
 
 ns.On("PLAYER_INTERACTION_MANAGER_FRAME_SHOW", function(_, kind)
   local name = C.InteractionName(kind)
@@ -1231,7 +1275,7 @@ end
 for _, name in ipairs({ "Start", "OpenFull", "OpenCompact", "ShowNode", "Choose", "Business", "End",
                         "Finish", "Ask", "TalkNow", "TalkToTarget", "CheckClosed", "RightClicked",
                         "OnWorldMouseDown", "OnWorldMouseUp", "OnOtherWindowShown", "ShowGamePage",
-                        "FallbackToBox", "HandOver", "Close" }) do
+                        "RefreshItems", "PickReward", "FallbackToBox", "HandOver", "Close" }) do
   local fn = Conv[name]
   Conv[name] = function(...) return ns.Guard("conversation:" .. name, fn, Conv.Recover, ...) end
 end
