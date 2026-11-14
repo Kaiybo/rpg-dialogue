@@ -35,3 +35,11 @@ Gossip, mostly true.
 
 ## Topics
 blackrock, everstill_bridge
+
+---
+
+# Innkeeper Brianna  (key: brianna; shares this file)
+
+- Source: https://warcraft.wiki.gg/wiki/Innkeeper_Brianna (Lakeshire Inn; sells food and drink; has a pet, Narnie; welcomes weary travellers and offers to make the inn a home)
+- Quests: none referenced.
+- Voice: warm, practical, teasing about Daniels and her pet. Notices: guests in a bad way, other people's pets (Narnie's opinions; authored).

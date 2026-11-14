@@ -17,3 +17,4 @@ npcs\anduin.lua
 npcs\rall.lua
 npcs\baros.lua
 npcs\cathedral.lua
+npcs\city.lua

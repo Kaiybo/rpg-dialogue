@@ -59,3 +59,49 @@ P:NPC {
     _none = { { id = "tp_none", text = "A barkeep hears everything and remembers nothing. House rule." } },
   },
 }
+
+-- Innkeeper Brianna, Lakeshire Inn. Voice: bibles/daniels.md (Brianna section)
+-- Makes the inn a home for tired travelers; has a pet, Narnie.
+P:NPC {
+  key = "brianna", id = TODO_NPC("Innkeeper Brianna"), name = "Innkeeper Brianna",
+  bible = "bibles/daniels.md", role = "innkeeper", tier = "service",
+  communities = { "lakeshire" }, temper = { "steady" }, values = { "kind", "generous" },
+  notices = { "guest", "pet" },
+
+  greetings = {
+    { id = "g_home", text = "Come in out of the wind. Make yourself at home; that's what an inn's for." },
+    { id = "g_bound", when = { homeInn = { "Lakeshire", "Lakeshire Inn" } }, text = "Back home! Narnie's kept your chair warm. Shoo her off, she won't mind. She'll mind." },
+  },
+
+  notice = {
+    { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
+      text = "Oh, mind Narnie, she's not fond of other animals. {pet} looks friendly. Narnie won't care. She never does." },
+    { id = "n_guest", cat = "guest", when = { durability = { max = 0.25 } },
+      text = "Been up Render's Valley? You look it. Sit down before you fall down, and let me find you some soup." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Brianna. I keep the rooms and Daniels keeps the bar, when he has anything to keep. Between us we keep Lakeshire from losing its mind." },
+        { id = "h_dry", when = { questDone = TODO_QUEST("Dry Times") },
+          text = "You found Daniels his drink! He's been whistling. It's terrible. I've never been happier to hear it." },
+      },
+      choices = {
+        { text = "A room, please.", next = "BUSINESS" },
+        { text = "Who's Narnie?", next = "narnie" },
+        { text = "Just passing through.", next = "END" },
+      },
+    },
+    narnie = {
+      lines = { { id = "n_default", text = "My pet, and the real owner of this inn. I just pay the bills." } },
+      choices = { { text = "Ha.", next = "END", fx = { affinity = 1 } } },
+    },
+  },
+
+  topics = {
+    blackrock = { { id = "tp_blackrock", text = "We hear the drums some nights. Everyone goes very quiet and orders another round." } },
+    _none = { { id = "tp_none", text = "No idea, dear. I keep rooms, not secrets." } },
+  },
+}
