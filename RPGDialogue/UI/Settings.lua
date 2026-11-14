@@ -167,7 +167,8 @@ local function build()
   header(L.OPT_HEADER_OTHERS)
   local other = ns.Integrations and ns.Integrations.DialogueAddonLoaded()
   note(other and L.OPT_OTHERS_FOUND:format(other) or L.OPT_OTHERS_NONE)
-  cycle(L.OPT_OTHERS, "otherAddons", { "stepback", "takeover", "off" }, { L.OTHERS_STEPBACK, L.OTHERS_TAKEOVER, L.OTHERS_OFF })
+  cycle(L.OPT_OTHERS, "otherAddons", { "auto", "takeover", "stepback", "off" },
+    { L.OTHERS_AUTO, L.OTHERS_TAKEOVER, L.OTHERS_STEPBACK, L.OTHERS_OFF })
 
   y = y - 8
   header(L.OPT_HEADER_TRP3)

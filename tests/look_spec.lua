@@ -119,12 +119,32 @@ describe("Window style", function()
     local c = paper._coords
     ok(c, "cropped")
     eq(c[1], 0); eq(c[3], 0)
-    ok(c[2] <= 0.5 and c[4] < 0.8, "only part of it shows, from the top-left")
-    -- Width fills (the box is wider than the parchment), height is cut: same scale both ways.
-    local shownW, shownH = (c[2] / 0.5) * 330, (c[4] / 0.8) * 420
-    local scale = math.max(1, 344 / 330)
-    ok(math.abs(shownW * scale - 344) < 1, "width at the parchment's scale")
-    ok(shownH < 420, "height cut, not squashed")
+    local fx, fy = c[2] / 0.5, c[4] / 0.8
+    ok(fx <= 1 and fy <= 1 and (fx < 1 or fy < 1), "only part of it shows, from the top-left")
+    -- The same scale both ways (no squashing), and at least the parchment's own size.
+    local size = f.rpgdTex.game.paperSize
+    local sx, sy = (size[1] - 6) / (fx * 330), (size[2] - 6) / (fy * 420)
+    ok(math.abs(sx - sy) < 0.01, "same scale both ways")
+    ok(sx >= 1 - 1e-9, "never smaller than its own size")
+  end)
+
+  it("has the gossip window's size and the quest font size", function()
+    local ns = boot()
+    local widths, heights = {}, {}
+    gossip("Marshal McBride")
+    local f = ns.UI.Dialogue.Frame()
+    f.SetWidth = function(_, w) widths[#widths + 1] = w end
+    f.SetHeight = function(_, h) heights[#heights + 1] = h end
+    local sizes = {}
+    f.text.SetFont = function(self, _, size) sizes[#sizes + 1] = size; self._font = true end
+    ns.UI.Dialogue.Restyle()
+    eq(widths[#widths], 338)
+    eq(heights[#heights], 496, "the gossip window's height when the conversation fits")
+    eq(sizes[#sizes], 13, "QuestFont's size at the default text size")
+    ns.db.settings.look = "wood"
+    ns.UI.Dialogue.Restyle()
+    eq(widths[#widths], 600)
+    eq(sizes[#sizes], 14)
   end)
 
   it("builds the Ask list like the box: title bar, header search, same height", function()

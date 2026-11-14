@@ -101,6 +101,27 @@ function Theme.TextSize()
   return (ns.db and ns.db.settings.textSize) or 14
 end
 
+-- What people say, and the replies: the game look uses the game's quest font size (13 at
+-- the default setting of 14), the wood look the setting itself.
+function Theme.BodySize()
+  return Theme.TextSize() - (Theme.IsGame() and 1 or 0)
+end
+
+-- With DialogueUI loaded our windows live outside UIParent, one strata above its window:
+-- its "hide the game UI" option fades UIParent (which would hide ours too), and our box has
+-- to sit over its window while we talk. Otherwise: UIParent, DIALOG strata.
+function Theme.Lifted() return C.DialogueUILoaded() end
+function Theme.Parent() return (not Theme.Lifted()) and UIParent or nil end
+function Theme.Strata(kind)
+  if Theme.Lifted() then return kind == "blocker" and "FULLSCREEN" or "FULLSCREEN_DIALOG" end
+  return "DIALOG"
+end
+function Theme.Scale()
+  local s = (ns.db and ns.db.settings.scale) or 1
+  if Theme.Lifted() then s = s * C.UIParentScale() end
+  return s
+end
+
 function Theme.BodyFont()
   return (Theme.FontPath("body"))
 end

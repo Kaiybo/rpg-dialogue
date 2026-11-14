@@ -2,6 +2,21 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.10.2 (2026-11-13)
+Packs unchanged: World 1.0.0, Elwynn Forest 1.1.0.
+
+### Works with DialogueUI
+- **RPG Dialogue and DialogueUI now work together** (the new default when DialogueUI is loaded). The conversation comes first, in our box. DialogueUI's window waits invisible underneath it, and its camera keeps working. "Get on with it", or picking a quest or service, hands you to DialogueUI's window, exactly where it would have been.
+  - DialogueUI's window is never closed (that would end the visit). It's only made see-through and covered, and it can't fade itself back in while we talk.
+  - Number keys, Space, Enter, Escape and the arrows stay with the box while it's up, so they can't pick DialogueUI's options underneath.
+  - DialogueUI's "hide the game UI" option no longer hides our windows.
+- Settings → "Other dialogue addons": "Automatic" (new default: together with DialogueUI, step back for Immersion), "RPG Dialogue first, then the other window", "Step back", "Turn RPG Dialogue off". The old "step back" default moves to "Automatic" (saved-data schema 5).
+- Built from DialogueUI's public source (it has no API for adding dialogue, so the two windows coordinate instead): DESIGN.md §8.
+
+### The game style, sized like the game's window
+- The box now has the gossip window's measurements: 338 × 496 (taller only when a conversation needs it), with open parchment below the replies. The text column is 270 wide, in the quest font's size (13 at the default text size; parchment and wood keeps 14). There's a 15-pixel space before the replies, and the rows are 300 wide with the game's spacing.
+- The Ask list follows the box's height.
+
 ## 0.10.1 (2026-11-13)
 Packs unchanged: World 1.0.0, Elwynn Forest 1.1.0.
 

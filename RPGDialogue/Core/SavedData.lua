@@ -7,7 +7,7 @@ local U = ns.Util
 local SD = {}
 ns.SavedData = SD
 
-SD.SCHEMA = 4
+SD.SCHEMA = 5
 
 SD.ACCOUNT_DEFAULTS = {
   schema = SD.SCHEMA,
@@ -19,7 +19,7 @@ SD.ACCOUNT_DEFAULTS = {
     rightClickTalk = true,      -- right-clicking someone with no menu opens the box
     openMode = "full",          -- talking to someone: "full" (the conversation box, every time)
                                 --   | "compact" (short line; the box only when there's news) | "skip"
-    otherAddons = "stepback",   -- with Immersion/DialogueUI: "takeover" | "stepback" | "off"
+    otherAddons = "auto",       -- with Immersion/DialogueUI: "auto" | "takeover" | "stepback" | "off"
     trp3Name = true,            -- with Total RP 3 loaded: NPCs use your roleplay name
     trp3Title = true,           -- ...and your roleplay title
     ackChance = 0.35,           -- noticing-moment frequency
@@ -112,6 +112,13 @@ end
 -- in the game's title bar, Morpheus on wood), which is what Morpheus, the old default, was.
 SD.MIGRATIONS.account[4] = function(db)
   if type(db.settings) == "table" and db.settings.fontName == "morpheus" then db.settings.fontName = "auto" end
+end
+
+-- Schema 5: RPG Dialogue works with DialogueUI ("auto": talk first, then DialogueUI's
+-- window). "Step back" was the old default for every other dialogue addon.
+SD.MIGRATIONS.account[5] = function(db)
+  if type(db.settings) == "table" and db.settings.otherAddons == "stepback" then db.settings.otherAddons = "auto" end
+  if type(db.settings) == "table" and db.settings.toldAboutOther == true then db.settings.toldAboutOther = nil end
 end
 
 SD.LIMITS = { seen = 1500, journal = 2000, deaths = 500, debug = 300, flagged = 500 }

@@ -283,6 +283,29 @@ function Conv.OpenFull(reason)
   ns.Fire("CONVERSATION_OPENED", s)
 end
 
+-- DialogueUI shows its window a moment after the game's event, so usually after our box
+-- opened: take it under the box then, the way we fade the game's own window.
+function Conv.OnOtherWindowShown(frame)
+  local s = Conv.session
+  if not s or s.ended or s.mode ~= "full" or not ns.UI.Dialogue.IsShown() then return end
+  if s.faded and s.blizz == frame then return end
+  s.blizz = frame
+  if ns.db.settings.fadeDefault then
+    C.SetFaded(frame, true)
+    s.faded = true
+    ns.UI.Blocker.Cover(frame)
+  end
+end
+ns.OnLogin(function()
+  C.OnDialogueUIShow(function(frame) Conv.OnOtherWindowShown(frame) end)
+end)
+
+-- Is the box up over DialogueUI's waiting window?
+function Conv.OverOtherWindow()
+  local s = Conv.session
+  return s ~= nil and s.faded == true and s.blizz ~= nil and s.blizz == C.DialogueUIFrame()
+end
+
 local function restoreBlizzard(s)
   if s and s.faded then
     C.SetFaded(s.blizz, false)
@@ -824,7 +847,7 @@ end
 
 for _, name in ipairs({ "Start", "OpenFull", "OpenCompact", "ShowNode", "Choose", "Business", "End",
                         "Finish", "Ask", "TalkNow", "TalkToTarget", "CheckClosed", "RightClicked",
-                        "OnWorldMouseDown", "OnWorldMouseUp" }) do
+                        "OnWorldMouseDown", "OnWorldMouseUp", "OnOtherWindowShown" }) do
   local fn = Conv[name]
   Conv[name] = function(...) return ns.Guard("conversation:" .. name, fn, Conv.Recover, ...) end
 end

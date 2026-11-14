@@ -48,9 +48,9 @@ local function refresh()
 end
 
 local function create()
-  panel = CreateFrame("Frame", nil, UIParent)
+  panel = CreateFrame("Frame", nil, Theme.Parent())
   panel:SetSize(WOOD_WIDTH, WOOD_HEIGHT)
-  panel:SetFrameStrata("DIALOG")
+  panel:SetFrameStrata(Theme.Strata())
   panel:SetClampedToScreen(true)
   panel:EnableMouse(true)
   panel:Hide()
@@ -155,7 +155,7 @@ local function layout()
 end
 
 function Ask.Style()
-  local size = Theme.TextSize()
+  local size = Theme.BodySize()
   local game = Theme.IsGame()
   Theme.Recolor(panel)
   -- In the game look the title sits in the metal title bar, like the box's name.
@@ -176,7 +176,7 @@ function Ask.Style()
   Theme.ColorDivider(panel.rule)
   Theme.StyleButton(panel.archive)
   Theme.StyleButton(panel.close, 12)
-  panel:SetScale((ns.db and ns.db.settings.scale) or 1)
+  panel:SetScale(Theme.Scale())
   layout()
 end
 

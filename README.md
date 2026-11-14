@@ -41,7 +41,9 @@ Settings > Accessibility: text size (separate from UI scale), line spacing, a hi
 
 ## Other addons
 
-- **Immersion, DialogueUI**: when either is loaded, RPG Dialogue steps back by default. It shows only its short line, and the full conversation is available through the Talk keybinding. You can change this in settings.
+- **DialogueUI**: works together. RPG Dialogue's conversation comes first, over DialogueUI's window (which waits, invisible, underneath); "Get on with it", or picking a quest or service, hands you to DialogueUI's window. DialogueUI's camera and "hide the game UI" options keep working.
+- **Immersion**: RPG Dialogue steps back by default. It shows only its short line, and the full conversation is available through the Talk keybinding.
+- Both: settings → "Other dialogue addons" (automatic, RPG Dialogue first, step back, or off).
 - **Questie and other quest or vendor addons**: unaffected. RPG Dialogue never closes, hides or re-opens Blizzard's windows; it only fades them while its own window covers them, so "Get on with it" leaves them exactly as those addons expect.
 - **Total RP 3** (optional): when it's loaded, NPCs call you by your roleplay name and title (two settings, both on by default). RPG Dialogue only reads your current profile, never changes it, and works the same without it.
 

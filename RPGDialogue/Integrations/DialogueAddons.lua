@@ -1,5 +1,7 @@
 -- Other addons that replace the talk/quest windows (Immersion, DialogueUI).
--- Two dialogue windows must never fight. Default: RPG Dialogue steps back.
+-- Two dialogue windows must never fight. Default ("auto"): with DialogueUI, RPG Dialogue
+-- talks first and then hands you to DialogueUI's window, which waits underneath (see
+-- Compat's DialogueUI section); with Immersion (not studied yet), RPG Dialogue steps back.
 local _, ns = ...
 
 local C = ns.Compat
@@ -19,8 +21,10 @@ end
 
 -- "normal" | "stepback" | "off"
 function I.Mode()
-  if not I.DialogueAddonLoaded() then return "normal" end
-  local mode = ns.db and ns.db.settings.otherAddons or "stepback"
+  local other = I.DialogueAddonLoaded()
+  if not other then return "normal" end
+  local mode = ns.db and ns.db.settings.otherAddons or "auto"
+  if mode == "auto" then mode = (other == "DialogueUI") and "takeover" or "stepback" end
   if mode == "takeover" then return "normal" end
   if mode == "off" then return "off" end
   return "stepback"
@@ -28,8 +32,13 @@ end
 
 ns.OnLogin(function()
   local other = I.DialogueAddonLoaded()
-  if other and ns.db.settings.otherAddons == "stepback" and not ns.db.settings.toldAboutOther then
-    ns.db.settings.toldAboutOther = true
+  if not other or ns.db.settings.toldAboutOther == other then return end
+  local mode = I.Mode()
+  if mode == "normal" and other == "DialogueUI" then
+    ns.db.settings.toldAboutOther = other
+    ns.Print(L.OTHER_ADDON_TOGETHER:format(other, other))
+  elseif mode == "stepback" then
+    ns.db.settings.toldAboutOther = other
     ns.Print(L.OTHER_ADDON_NOTICE:format(other))
   end
 end)

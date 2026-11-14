@@ -15,14 +15,14 @@ local D = {}
 UI.Dialogue = D
 
 local PAD, PORTRAIT = 20, 92
--- The game look is shaped like the game's gossip window (338 wide; a little wider here
--- for longer lines); the wood look is a wide box with the portrait beside the text.
-local WOOD_WIDTH, GAME_WIDTH = 600, 360
--- Game look: the metal header is 60 pixels (title bar, then the subtitle beside the round
--- portrait), the inset starts there, text sits 12 inside it. The bottom bar is 26 high.
-local GAME_HEADER, GAME_INSET_PAD, GAME_BAR = 60, 12, 26
--- The parchment's right edge is ragged: text keeps a little further from it.
-local GAME_RIGHT_PAD = 22
+-- The game look has the game's gossip window's measurements (GossipFrame.xml): 338 by 496
+-- (taller only if the conversation needs it), greeting text at 18, -75 and 270 wide, a
+-- 15-pixel space, then the options, each 300 wide with a 16-pixel icon and the text at 20.
+-- The wood look is a wide box with the portrait beside the text.
+local WOOD_WIDTH, GAME_WIDTH, GAME_HEIGHT = 600, 338, 496
+local GAME_HEADER, GAME_BAR = 60, 26
+local GAME_TEXT_X, GAME_TEXT_Y, GAME_TEXT_W = 18, -75, 270
+local GAME_ROW_X, GAME_ROW_W, GAME_ROW_TEXT, GAME_SPACER = 8, 300, 20, 15
 local MAX_BUTTONS = 10
 
 -- Icons the game's gossip window uses: a speech bubble for talking, a bullet otherwise.
@@ -124,9 +124,9 @@ function D.ColorKey(b)
 end
 
 local function create()
-  frame = CreateFrame("Frame", nil, UIParent)
+  frame = CreateFrame("Frame", nil, Theme.Parent())
   frame:SetSize(width(), 260)
-  frame:SetFrameStrata("DIALOG")
+  frame:SetFrameStrata(Theme.Strata())
   frame:SetToplevel(true)
   frame:SetClampedToScreen(true)
   frame:SetMovable(true)
@@ -236,15 +236,23 @@ local function create()
   frame.flagBox:SetScript("OnEscapePressed", function(self) self:ClearFocus(); self:Hide(); D.Layout() end)
   frame.flagHint = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
 
-  frame:EnableKeyboard(true)
-  frame:SetPropagateKeyboardInput(true)
-  frame:SetScript("OnKeyDown", function(self, key) D.OnKey(self, key) end)
-  C.SetGamePadHandler(frame, function(self, button) D.OnPad(self, button) end)
+  -- Keys and gamepad buttons go to a listener above everything else (TOOLTIP strata, high
+  -- level), so another dialogue addon's own key listener (DialogueUI's is at TOOLTIP too)
+  -- can't take number keys meant for us while the box is up. It covers no mouse input.
+  frame.keys = CreateFrame("Frame", nil, frame)
+  frame.keys:SetAllPoints()
+  frame.keys:SetFrameStrata("TOOLTIP")
+  if frame.keys.SetFixedFrameStrata then frame.keys:SetFixedFrameStrata(true) end
+  frame.keys:SetFrameLevel(9000)
+  frame.keys:EnableKeyboard(true)
+  frame.keys:SetPropagateKeyboardInput(true)
+  frame.keys:SetScript("OnKeyDown", function(self, key) D.OnKey(self, key) end)
+  C.SetGamePadHandler(frame.keys, function(self, button) D.OnPad(self, button) end)
   frame:SetScript("OnHide", function()
     reveal.active = false
     frame:SetScript("OnUpdate", nil)
     if autoTimer then autoTimer.cancelled = true end
-    C.GamePadButtons(frame, false)
+    C.GamePadButtons(frame.keys, false)
   end)
 end
 
@@ -274,7 +282,7 @@ local function placeParts(game)
     sub:SetPoint("TOPLEFT", 62, -32)
     sub:SetPoint("TOPRIGHT", -12, -32)
     sub:SetJustifyH("CENTER")
-    frame.text:SetPoint("TOPLEFT", 4 + GAME_INSET_PAD, -(GAME_HEADER + GAME_INSET_PAD))
+    frame.text:SetPoint("TOPLEFT", GAME_TEXT_X, GAME_TEXT_Y)
     frame.close:SetPoint("TOPRIGHT", 1, 0)
     frame.flag:SetSize(14, 14)
     frame.flag:SetPoint("TOPRIGHT", -26, -4)
@@ -308,13 +316,13 @@ local function placeParts(game)
 end
 
 local function textWidth()
-  if isGame() then return GAME_WIDTH - 4 - GAME_INSET_PAD - GAME_RIGHT_PAD end
+  if isGame() then return GAME_TEXT_W end
   return WOOD_WIDTH - (PAD + PORTRAIT + 14) - PAD - 22
 end
 
 function D.Style()
   if not frame then return end
-  local size = Theme.TextSize()
+  local size = Theme.BodySize()
   local game = isGame()
   Theme.Recolor(frame)
   placeParts(game)
@@ -329,7 +337,7 @@ function D.Style()
   if game then
     -- The title bar's size, gold with a shadow, as on the game's own windows.
     Theme.SetFont(frame.name, "name", 13)
-    Theme.SetFont(frame.subtitle, "body", size - 2)
+    Theme.SetFont(frame.subtitle, "body", size - 1)
   else
     Theme.SetFont(frame.name, "name", size + 6)
     Theme.SetFont(frame.subtitle, "body", size - 2)
@@ -354,7 +362,7 @@ function D.Style()
     Theme.StyleRow(b)
     Theme.TextColor(b.label, D.ColorKey(b))
   end
-  frame:SetScale(settings().scale or 1)
+  frame:SetScale(Theme.Scale())
 end
 
 function D.Layout()
@@ -370,10 +378,10 @@ function D.Layout()
   frame.text:SetText(current)
   local reactionH = frame.reaction:IsShown() and (8 + (frame.reaction:GetStringHeight() or 14)) or 0
   local rowLeft, rowWidth, y
+  local rowGap = 2
   if game then
-    rowLeft = 4 + GAME_INSET_PAD - 4
-    rowWidth = W - rowLeft - GAME_RIGHT_PAD + 4
-    y = -(GAME_HEADER + GAME_INSET_PAD) - textH - reactionH - 14
+    rowLeft, rowWidth, rowGap = GAME_ROW_X, GAME_ROW_W, 1
+    y = GAME_TEXT_Y - textH - reactionH - GAME_SPACER
   else
     local h = (frame.name:GetStringHeight() or 20) + (frame.subtitle:GetStringHeight() or 0) + 12 + textH + reactionH
     rowLeft, rowWidth = PAD, W - 2 * PAD
@@ -386,16 +394,16 @@ function D.Layout()
   for _, b in ipairs(frame.buttons) do
     if b:IsShown() then
       if b.gap then y = y - 8 end   -- a little space before the game's own options
-      local indent = b.icon:IsShown() and 22 or 4
+      local indent = game and GAME_ROW_TEXT or (b.icon:IsShown() and 22 or 4)
       b:ClearAllPoints()
       b:SetPoint("TOPLEFT", rowLeft, y)
       b:SetWidth(rowWidth)
       b.label:ClearAllPoints()
-      b.label:SetPoint("TOPLEFT", indent, -3)
+      b.label:SetPoint("TOPLEFT", indent, game and -2 or -3)
       b.label:SetWidth(rowWidth - indent - 4)
-      local bh = math.max((b.label:GetStringHeight() or 14) + 6, b.icon:IsShown() and 20 or 0)
+      local bh = math.max((b.label:GetStringHeight() or 14) + (game and 4 or 6), b.icon:IsShown() and (game and 18 or 20) or 0)
       b:SetHeight(bh)
-      y = y - bh - 2
+      y = y - bh - rowGap
     end
   end
   local barShown = frame.flagBox:IsShown() or frame.ask:IsShown()
@@ -405,7 +413,7 @@ function D.Layout()
     if frame.flagBox:IsShown() or (frame.flagHint:GetText() or "") ~= "" then
       y = y - 16
       frame.flagHint:ClearAllPoints()
-      frame.flagHint:SetPoint("BOTTOMLEFT", frame, "BOTTOMLEFT", 4 + GAME_INSET_PAD, bottom + 6)
+      frame.flagHint:SetPoint("BOTTOMLEFT", frame, "BOTTOMLEFT", GAME_TEXT_X, bottom + 6)
     end
     local inset = Theme.GamePart(frame, "inset")
     if inset then
@@ -414,7 +422,7 @@ function D.Layout()
       inset:SetPoint("BOTTOMRIGHT", -6, bottom)
     end
     frame.flagBox:SetWidth(W - 12 - 16 - (frame.ask:IsShown() and 124 or 0))
-    local H = math.max(-y + 8 + bottom, 170)
+    local H = math.max(-y + 12 + bottom, GAME_HEIGHT)
     frame:SetHeight(H)
     Theme.FitPaper(frame, W - 10, H - GAME_HEADER - bottom)
   else
@@ -464,7 +472,7 @@ function D.Show(v)
   end
 
   D.RenderChoices(v.choices)
-  C.GamePadButtons(frame, settings().gamepad ~= false and C.GamePadEnabled())
+  C.GamePadButtons(frame.keys, settings().gamepad ~= false and C.GamePadEnabled())
 
   frame.flagHint:SetText("")
   frame.ask:SetShown(v.canAsk == true)
@@ -665,6 +673,12 @@ function D.StartAutoAdvance()
   end)
 end
 
+-- Keys that belong to the box while another dialogue addon's window waits underneath, even
+-- when they do nothing here (a "7" with six replies must not pick that window's option 7).
+local OURS_WHILE_OVER = { SPACE = true, ENTER = true, NUMPADENTER = true, ESCAPE = true, UP = true, DOWN = true,
+  LEFT = true, RIGHT = true, TAB = true }
+for n = 0, 9 do OURS_WHILE_OVER[tostring(n)] = true; OURS_WHILE_OVER["NUMPAD" .. n] = true end
+
 function D.OnKey(self, key)
   if C.InCombat() then return end
   local handled = false
@@ -693,6 +707,7 @@ function D.OnKey(self, key)
       D.Click(n)
     end
   end
+  if not handled and OURS_WHILE_OVER[key] and ns.Conversation.OverOtherWindow() then handled = true end
   self:SetPropagateKeyboardInput(not handled)
 end
 

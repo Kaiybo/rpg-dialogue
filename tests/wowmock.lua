@@ -229,6 +229,17 @@ QuestUtil = {
   end,
 }
 
+-- Post-hooks, like the client's (the original runs first, then the hook).
+function hooksecurefunc(t, name, fn)
+  if type(t) == "string" then t, name, fn = _G, t, name end
+  local orig = t[name]
+  t[name] = function(...)
+    local r = { orig(...) }
+    fn(...)
+    return unpack(r)
+  end
+end
+
 function Mock.Fire(event, ...)
   for _, f in ipairs(Mock.frames) do
     if f._events[event] and f._scripts.OnEvent then f._scripts.OnEvent(f, event, ...) end

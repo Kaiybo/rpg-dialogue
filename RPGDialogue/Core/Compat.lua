@@ -1037,9 +1037,11 @@ end
 -- whether they're shown, anchor to them, and (optionally) fade them while our
 -- window covers them. See DESIGN.md R4.
 ---------------------------------------------------------------------------
+-- DUIQuestFrame: DialogueUI's window, which takes the place of both GossipFrame and
+-- QuestFrame when that addon is loaded (see DESIGN.md §8, "DialogueUI").
 local FRAME_NAMES = {
-  gossip = { "GossipFrame" },
-  quest = { "QuestFrame" },
+  gossip = { "GossipFrame", "DUIQuestFrame" },
+  quest = { "QuestFrame", "DUIQuestFrame" },
   merchant = { "MerchantFrame" },
   trainer = { "ClassTrainerFrame" },
   taxi = { "FlightMapFrame", "TaxiFrame" },
@@ -1069,7 +1071,70 @@ function C.AnyInteractionFrameShown()
 end
 
 function C.SetFaded(frame, faded)
-  if frame and frame.SetAlpha then pcall(frame.SetAlpha, frame, faded and 0 or 1) end
+  if not frame or not frame.SetAlpha then return end
+  if frame == C.DialogueUIFrame() then return C.PinHidden(frame, faded) end
+  pcall(frame.SetAlpha, frame, faded and 0 or 1)
+end
+
+---------------------------------------------------------------------------
+-- DialogueUI (Peterodox's addon, which replaces the gossip and quest windows). Read from
+-- its public source (github.com/Peterodox/YUI-Dialogue): its window is the global
+-- DUIQuestFrame; hiding that window ends the NPC interaction, its intro animation sets
+-- the window's alpha every frame for a moment, its keyboard listener sits at TOOLTIP
+-- strata, and its "hide the game UI" option fades UIParent to nothing.
+---------------------------------------------------------------------------
+function C.DialogueUILoaded() return C.IsAddOnLoaded("DialogueUI") end
+
+function C.DialogueUIFrame()
+  local f = G.DUIQuestFrame
+  if type(f) == "table" and type(f.IsShown) == "function" then return f end
+  return nil
+end
+
+-- Keep a frame see-through while pinned, even if its owner animates its alpha (we never
+-- Hide() it: for DialogueUI that would end the conversation with the NPC).
+local pinned = setmetatable({}, { __mode = "k" })
+local hooked = setmetatable({}, { __mode = "k" })
+local pinning = false
+function C.PinHidden(frame, on)
+  if on then
+    if not hooked[frame] then
+      local hook = resolve("hooksecurefunc")
+      if type(hook) == "function" then
+        hooked[frame] = true
+        pcall(hook, frame, "SetAlpha", function(self)
+          if pinned[self] and not pinning then
+            pinning = true
+            pcall(self.SetAlpha, self, 0)
+            pinning = false
+          end
+        end)
+      end
+    end
+    pinned[frame] = true
+    pcall(frame.SetAlpha, frame, 0)
+  elseif pinned[frame] then
+    pinned[frame] = nil
+    pcall(frame.SetAlpha, frame, 1)
+  end
+end
+
+function C.IsPinned(frame) return pinned[frame] == true end
+
+-- Run fn(frame) whenever DialogueUI's window shows (hook only).
+function C.OnDialogueUIShow(fn)
+  local f = C.DialogueUIFrame()
+  if not f or type(f.HookScript) ~= "function" then return false end
+  f:HookScript("OnShow", fn)
+  return true
+end
+
+-- UIParent's own scale, for windows we keep outside UIParent (so DialogueUI hiding the game
+-- UI doesn't hide them too).
+function C.UIParentScale()
+  local p = G.UIParent
+  local ok, v = pcall(p.GetScale, p)
+  return ok and tonumber(v) or 1
 end
 
 ---------------------------------------------------------------------------

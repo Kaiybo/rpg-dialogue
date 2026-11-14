@@ -15,9 +15,9 @@ local bar
 local hideToken
 
 local function create()
-  bar = CreateFrame("Button", nil, UIParent)
+  bar = CreateFrame("Button", nil, Theme.Parent())
   bar:SetSize(WIDTH, 40)
-  bar:SetFrameStrata("DIALOG")
+  bar:SetFrameStrata(Theme.Strata())
   bar:SetClampedToScreen(true)
   bar:Hide()
   Theme.Decorate(bar, 4)
@@ -52,7 +52,7 @@ function Bar.Show(v)
   local hex = Theme.Hex("name")
   bar.text:SetText(hex .. (v.name or "") .. ":|r " .. (v.text or ""))
   bar:SetHeight(math.max(36, (bar.text:GetStringHeight() or 14) + 16))
-  bar:SetScale((ns.db and ns.db.settings.scale) or 1)
+  bar:SetScale(Theme.Scale())
   anchorTo(v.anchor)
   bar:Show()
   if hideToken then hideToken.cancelled = true end
@@ -75,17 +75,17 @@ end
 function Bar.IsShown() return bar ~= nil and bar:IsShown() end
 function Bar.Text() return bar and bar.text:GetText() end
 
--- Blocker: an empty frame of ours over Blizzard's faded window, so its invisible
--- buttons can't be clicked by accident. Blizzard's frame itself is never touched
--- beyond its alpha.
+-- Blocker: an empty frame of ours over Blizzard's faded window (or DialogueUI's), so its
+-- invisible buttons can't be clicked by accident. That window itself is never touched
+-- beyond its alpha. With DialogueUI loaded it sits one strata above that window.
 local Blocker = {}
 UI.Blocker = Blocker
 local blocker
 
 function Blocker.Cover(target)
   if not blocker then
-    blocker = CreateFrame("Frame", nil, UIParent)
-    blocker:SetFrameStrata("DIALOG")
+    blocker = CreateFrame("Frame", nil, Theme.Parent())
+    blocker:SetFrameStrata(Theme.Strata("blocker"))
     blocker:SetFrameLevel(1)
     blocker:EnableMouse(true)
   end
