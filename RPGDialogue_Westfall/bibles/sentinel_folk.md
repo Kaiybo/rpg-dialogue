@@ -25,3 +25,6 @@
 - Thor: brisk, proud of his gryphons; dry jokes about cargo.
 - Riell: watchful, terse; sees everyone from the tower.
 - MacGregor: dry craftsman; strings are extra.
+
+## Depth pass (0.25.0, authored, not canon)
+MacGregor's "decent" yew from the Dagger Hills (sourced place) and his father's rabbit bows.

@@ -79,6 +79,7 @@ P:NPC {
           text = "Spring water. The good stuff. Bring me a flask and I'll give you an apple. Fair trade. Best trade in Elwynn." },
         { id = "h_lovers", when = { topicKnown = "maybell_tommy" },
           text = "Miss Maybell goes down to the river most evenings. Says she's counting grapes. There are no grapes by the river. I don't say anything. Not my business." },
+        { id = "h_vines", when = { metBefore = true }, text = "The vines are coming on. Another month and we'll have grapes, if the crows don't find them first. The crows always find them first." },
       },
       choices = {
         { text = "Here, have a drink.", next = "BUSINESS" },

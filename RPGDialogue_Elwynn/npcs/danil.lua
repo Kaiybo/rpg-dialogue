@@ -25,6 +25,7 @@ P:NPC {
       lines = {
         { id = "h_default", text = "Bread, water, a little thread. The Abbey's stores are humble, but honest." },
         { id = "h_rich", when = { money = { min = 100000 } }, text = "Ten gold on you, at least. I can hear it. The Abbey roof leaks, you know." },
+        { id = "h_roof", when = { metBefore = true }, text = "The roof leaked on the bread again. I've told the Brothers. They told me to pray. I prayed. It rained." },
       },
       choices = {
         { text = "Let me see what you have.", next = "BUSINESS" },

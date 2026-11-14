@@ -38,3 +38,6 @@
 - Pozzik: fast-talking goblin showman; wagers.
 - Fizzle: excitable gnome engineer; MEGA; dodges Gnomeregan.
 - Kravel: sly dwarf fixer; "nobody's rigged a thing".
+
+## Depth pass (0.25.0, authored, not canon)
+Abeqwa's brave asleep on the rope bridge and the needles' moon shadows; Thalia knots a cord for the missing; Rau learned to listen on Elder Rise (consistent with Hamuul's echo).

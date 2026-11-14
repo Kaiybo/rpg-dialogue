@@ -219,8 +219,10 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", text = "MacGregor. I make bows for the militia, and sell what's left to whoever walks up. Westfall wood's poor, so I make it up with patience." },
+        { id = "h_yew", when = { metBefore = true }, text = "Found a decent stave of yew out by the Dagger Hills. Decent. Not good. In Westfall, decent is a holiday." },
       },
       choices = {
+        { text = "Where did you learn bowmaking?", next = "learn" },
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "Poor wood?", next = "wood" },
         { text = "Just looking.", next = "END" },
@@ -229,6 +231,12 @@ P:NPC {
     wood = {
       lines = { { id = "w_default", text = "Dry country, crooked trees. Elwynn wood's better, but the wagons don't get through often enough. So I bend what we've got, slowly." } },
       choices = { { text = "...", next = "END" } },
+    },
+    learn = {
+      lines = {
+        { id = "l_father", text = "My father made bows for farmers who hunted rabbits. Now I make them for farmers who hunt thieves. Same wood. Worse times." },
+      },
+      choices = { { text = "Times will turn.", next = "END", fx = { affinity = 1 } } },
     },
   },
 

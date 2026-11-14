@@ -96,6 +96,7 @@ P:NPC {
           text = "The flame guarding their relic won't yield to steel. Water from a moonwell might. Bring me some, however you manage it." },
       },
       choices = {
+        { text = "How did you learn to listen to the land?", next = "listen" },
         { text = "What is the Cloven Hoof?", next = "hoof" },
         { text = "Good luck with your studies.", next = "END" },
       },
@@ -106,6 +107,12 @@ P:NPC {
         { id = "ho_default", text = "Something strange. I can feel it from here, the way you feel weather turning. Centaur history, perhaps. Or centaur trouble." },
       },
       choices = { { text = "Maybe both.", next = "END", fx = { affinity = 2, trait = { curious = 1 } } } },
+    },
+    listen = {
+      lines = {
+        { id = "l_rise", text = "On Elder Rise, sitting still until my legs went numb. The Arch Druid says the land talks all the time. Most of us just never shut up long enough to hear it." },
+      },
+      choices = { { text = "I'll try being quiet.", next = "END", fx = { affinity = 2, trait = { patient = 1 } } } },
     },
   },
 
@@ -184,6 +191,7 @@ P:NPC {
           text = "Thalia Amberhide. People have gone missing from these canyons, and every trail leads up the Grimtotem's pinnacle. Some come home. Not enough." },
         { id = "h_free", tags = { "news" }, when = { questActive = TODO_QUEST("Free At Last") },
           text = "Go up there, then. Bring our people down. And if a Grimtotem stands in your way, don't hesitate." },
+        { id = "h_names", when = { metBefore = true }, text = "I keep the names of the missing on a cord, one knot each. I untie one when someone comes home. It's still too long a cord." },
       },
       choices = {
         { text = "Why so bitter?", next = "bitter" },
@@ -232,6 +240,8 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "The inn at Freewind. Beds, stew, and a view that will turn your knees to water if you look down. So don't look down." },
+        { id = "h_bridges", when = { metBefore = true }, text = "A young brave fell asleep on the rope bridge last night. On it. We found him at dawn, snoring, swinging in the wind. Tauren sleep anywhere." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "Look out there. The needles throw long shadows under the moon, like the canyon is full of sleeping giants." },
       },
       choices = {
         { text = "What's the news on the mesa?", next = "news" },
