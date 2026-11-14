@@ -110,7 +110,7 @@ W.NAME_ROLES = {
   { "guard$", "guard" }, { "guardian$", "guard" }, { "^northshire guard", "guard" },
   { "deathguard", "guard" }, { "sentinel$", "guard" }, { "grunt$", "guard" }, { "brave$", "guard" },
   { "protector$", "guard" }, { "defender$", "guard" }, { "watcher$", "guard" },
-  { "peon$", "peon" }, { "militia", "militia" }, { "peacekeeper", "guard" }, { "empyrean blade", "guard" },
+  { "peon$", "peon" }, { "militia", "militia" }, { "peacekeeper", "guard" }, { "empyrean blade", "guard" }, { "^watcher ", "guard" },
   { "^spirit healer$", "spirithealer" }, { "^spirit guide$", "spirithealer" },
   { "orphan", "child" }, { "child$", "child" }, { "^young ", "child" },
 }

@@ -51,7 +51,7 @@ P:Thread {
 P:Thread {
   id = "westfall_left",
   theme = "The kingdom left Westfall to fend for itself, and Westfall noticed.",
-  npcs = { "dughan", "thomas", "danuvin", "salma", "gryan", "bolvar" },
+  npcs = { "dughan", "thomas", "danuvin", "salma", "gryan", "bolvar", "ello" },
   states = { "dormant", "stirring", "unfolding", "resolved" },
   endings = {
     resolved = "Westfall holds, mostly by its own hands, and the player has heard every side of why.",
@@ -93,6 +93,12 @@ P:Thread {
       fx = { thread = { id = "westfall_left", beat = "b5_bolvar" } },
     },
     {
+      id = "b7_ello", npc = "ello",
+      when = { thread = { id = "westfall_left", beat = "b3_danuvin" }, ["not"] = { thread = { id = "westfall_left", beat = "b7_ello" } } },
+      text = "Westfall feels forgotten? Stormwind pulled its soldiers out of Duskwood when the king vanished. We've been in the dark so long we've stopped noticing.",
+      fx = { thread = { id = "westfall_left", beat = "b7_ello" } },
+    },
+    {
       id = "b6_gryan", npc = "gryan",
       when = { deed = "dungeon:The Deadmines", thread = { id = "westfall_left", notBeat = "b6_gryan" } },
       text = "You walked the Deadmines and came back. No order from the Keep ever did that much for us. Westfall will remember who came.",
@@ -107,7 +113,7 @@ P:Thread {
 P:Thread {
   id = "solomons_letters",
   theme = "Lakeshire asks the whole kingdom for help, and every answer has a reason in it.",
-  npcs = { "solomon", "gryan", "bolvar", "katrana", "daniels" },
+  npcs = { "solomon", "gryan", "bolvar", "katrana", "daniels", "ello" },
   states = { "dormant", "stirring", "unfolding", "resolved" },
   endings = {
     resolved = "Stormwind's answer to Lakeshire was one deputy. It turned out to be enough, or close.",
@@ -149,10 +155,66 @@ P:Thread {
       fx = { thread = { id = "solomons_letters", beat = "b5_daniels" } },
     },
     {
+      id = "b7_ello", npc = "ello",
+      when = { questDone = TODO_QUEST("Messenger to Darkshire") },
+      text = "Solomon asked me for soldiers. Me. I've got a Night Watch made of bakers. I sent him my sympathy and a list of my own troubles. It was a long list.",
+      fx = { thread = { id = "solomons_letters", beat = "b7_ello", state = "unfolding" } },
+    },
+    {
       id = "b6_solomon", npc = "solomon",
       when = { questDone = TODO_QUEST("The True Masters") },
       text = "I asked the kingdom for an army and it sent me one deputy. I've decided that's a compliment to the deputy, not an insult to Lakeshire.",
       fx = { thread = { id = "solomons_letters", beat = "b6_solomon", state = "resolved" }, standing = { lakeshire = 5 } },
+    },
+  },
+}
+
+-- Stalvan Mistmantle. An old murder, two men who couldn't solve it, and the Legend of
+-- Stalvan chain that finally does. Beats work in any order and never name the killer before
+-- the player has been to his manor.
+P:Thread {
+  id = "stalvan",
+  theme = "An old murder in Elwynn, and the people who never stopped thinking about it.",
+  npcs = { "smitts", "haggard", "farley", "eva", "althea" },
+  states = { "dormant", "stirring", "unfolding", "resolved" },
+  endings = {
+    resolved = "The tutor's manor has been visited, and the old case has an answer, if not a happy one.",
+  },
+  pacing = { minConversations = 3, minSeconds = 1500 },
+  reflection = {
+    first = "Smitts, Haggard, Farley: three people, years apart, all still turning over the same murder.",
+    third = "{name} had heard the same old murder from three people who'd never quite let it go.",
+  },
+  beats = {
+    {
+      id = "b1_smitts", npc = "smitts",
+      when = { minLevel = 22, thread = { id = "stalvan", notBeat = "b1_smitts" } },
+      text = "I keep a box of mud-stained pages under the bar. Ask me why sometime. Ask me on a quiet night.",
+      fx = { thread = { id = "stalvan", beat = "b1_smitts", state = "stirring" }, learn = { "stalvan" } },
+    },
+    {
+      id = "b2_haggard", npc = "haggard",
+      when = { thread = { id = "stalvan", beat = "b1_smitts" } },
+      text = "Smitts still has those pages? Of course he does. We worked that murder for a season, he and I. The papers in my attic came with this house. The same house. I've never liked thinking about that.",
+      fx = { thread = { id = "stalvan", beat = "b2_haggard", state = "unfolding" } },
+    },
+    {
+      id = "b3_farley", npc = "farley",
+      when = { thread = { id = "stalvan", beat = "b1_smitts" } },
+      text = "The man from Darkshire who keeps asking about our old guest? Smitts. He writes every year or so. I tell him the same thing every time. Quiet fellow, paid in coin, kept to himself.",
+      fx = { thread = { id = "stalvan", beat = "b3_farley" } },
+    },
+    {
+      id = "b4_eva", npc = "eva",
+      when = { thread = { id = "stalvan", beat = "b2_haggard" } },
+      text = "The cards have been turning up the Tutor all week. He's waiting for someone. It may as well be you.",
+      fx = { thread = { id = "stalvan", beat = "b4_eva", state = "unfolding" } },
+    },
+    {
+      id = "b5_althea", npc = "althea",
+      when = { visited = "Manor Mistmantle", thread = { id = "stalvan", beat = "b1_smitts" } },
+      text = "You've been up to the manor. Don't tell me what you saw. Tell Smitts. He's waited longer than anyone.",
+      fx = { thread = { id = "stalvan", beat = "b5_althea", state = "resolved" }, standing = { darkshire = 3 } },
     },
   },
 }

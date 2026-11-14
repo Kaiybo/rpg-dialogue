@@ -29,3 +29,6 @@ P:Topic { id = "windstones", name = "Windstones", category = "trade", learned = 
 P:Topic { id = "blackrock", name = "The Blackrock orcs", category = "threats", learned = "Lakeshire" }
 P:Topic { id = "everstill_bridge", name = "The Everstill Bridge", category = "places", learned = "Foreman Oslow" }
 P:Topic { id = "redridge_gnolls", name = "Redridge's gnolls", category = "threats", learned = "Verner Osgood" }
+P:Topic { id = "night_watch", name = "The Night Watch", category = "people", learned = "Darkshire" }
+P:Topic { id = "worgen", name = "The worgen of Duskwood", category = "threats", learned = "Darkshire, or the woods" }
+P:Topic { id = "stalvan", name = "Stalvan Mistmantle", category = "rumors", learned = "Tavernkeep Smitts, or the Legend of Stalvan" }

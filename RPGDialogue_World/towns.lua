@@ -92,6 +92,25 @@ P:Town {
   },
 }
 
+P:Town {
+  id = "darkshire", name = "Darkshire",
+  subzones = { "Darkshire", "Scarlet Raven Tavern", "Darkshire Town Hall" },
+  related = { raven_hill = 0.2, lakeshire = 0.05 },
+  tiers = { Hero = "Hero of Darkshire" },
+  quests = {
+    { TODO_QUEST("The Night Watch"), 6 }, { TODO_QUEST("The Embalmer's Revenge"), 15 },
+    { TODO_QUEST("The Legend of Stalvan"), 3 }, { TODO_QUEST("The Shadowy Figure"), 4 },
+  },
+}
+
+P:Town {
+  id = "raven_hill", name = "Raven Hill",
+  subzones = { "Raven Hill", "Raven Hill Cemetery" },
+  related = { darkshire = 0.2 },
+  tiers = { Hero = "Friend of Raven Hill" },
+  quests = { { TODO_QUEST("Jitters' Growling Gut"), 4 } },
+}
+
 -- The other capitals. Their guards speak from pools_roles.lua; standing grows from quests
 -- each capital's own pack lists later.
 P:Town {

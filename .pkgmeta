@@ -13,6 +13,7 @@ move-folders:
   RPGDialogue/RPGDialogue_Stormwind: RPGDialogue_Stormwind
   RPGDialogue/RPGDialogue_Zephras: RPGDialogue_Zephras
   RPGDialogue/RPGDialogue_Redridge: RPGDialogue_Redridge
+  RPGDialogue/RPGDialogue_Duskwood: RPGDialogue_Duskwood
 
 # Paths are from the repo root; "*.md" matches at any depth (bash case patterns), which
 # keeps voice bibles, PLAN.md files and pack changelogs out of the zip.
