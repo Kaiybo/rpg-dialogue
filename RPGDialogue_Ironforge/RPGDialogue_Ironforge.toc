@@ -13,3 +13,4 @@
 pack.lua
 npcs\magni.lua
 npcs\ironforge_folk.lua
+npcs\ironforge_court.lua

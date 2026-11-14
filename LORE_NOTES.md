@@ -234,3 +234,14 @@ Classic facts; levels 18–30. Quest IDs come from capture only.
 | Darcy, waitress at the Lakeshire Inn in Classic, sweet on Parker, sees Martie as a rival | [Darcy](https://warcraft.wiki.gg/wiki/Darcy) |
 | Martie Jainrose, herbalist, warm, fond of Parker; Bellygrub (Marris's name for the boar) tramples her garden and spoils her daffodil replanting | [Martie Jainrose](https://warcraft.wiki.gg/wiki/Martie_Jainrose); [An Unwelcome Guest](https://warcraft.wiki.gg/wiki/An_Unwelcome_Guest) |
 | Chef Breanna feeds the Stormwind battalion in Lakeshire, employs Crystal Boughman and Gretchen Vogel, anxious for reinforcements; Redridge Goulash needs Great Goretusk Snout | [Chef Breanna](https://warcraft.wiki.gg/wiki/Chef_Breanna); [Redridge Goulash](https://warcraft.wiki.gg/wiki/Redridge_Goulash) |
+
+## Ironforge's great and learned (Ironforge pack 1.1.0)
+
+| Fact used | Source |
+|---|---|
+| Mekkatorque: elected High Tinker; Tinker Town given by Magni; troggs fought in secret; Thermaplugg proposed the toxic plan, Mekkatorque approved it, most gnomes died; Thermaplugg rules the leper gnomes and was sentenced for treason; designed the Deeprun Tram; The Grand Betrayal | [Gelbin Mekkatorque](https://warcraft.wiki.gg/wiki/Gelbin_Mekkatorque) |
+| Archesonus: female, visually impaired Royal Historian in the High Seat; her two books; Thaurissan's fall, Blackrock Spire, Searing Gorge forts, rumoured ancient evil, recent Dark Iron moves (Badlands, Uldaman, the Stonewrought Dam) | [Royal Historian Archesonus](https://warcraft.wiki.gg/wiki/Royal_Historian_Archesonus); [The Smoldering Ruins of Thaurissan](https://warcraft.wiki.gg/wiki/The_Smoldering_Ruins_of_Thaurissan) |
+| Muninn Magellas heads the Explorers' League, runs the Prospectors, curious about history, grieves Brann's absence; The Platinum Discs | [Muninn Magellas](https://warcraft.wiki.gg/wiki/Muninn_Magellas) |
+| Prospector Stormpike: Hall of Explorers library, hot-tempered and curt; Report to Ironforge, Powder to Ironband, Stormpike's Deciphering | [Prospector Stormpike](https://warcraft.wiki.gg/wiki/Prospector_Stormpike) |
+| Senator Mehr Stonehallow: Senate of Ironforge and the League, fights the Rockjaw troggs at Gol'Bolar Quarry himself; The Public Servant | [Senator Mehr Stonehallow](https://warcraft.wiki.gg/wiki/Senator_Mehr_Stonehallow) |
+| Innkeeper Firebrew keeps the Stonefire Tavern, a warm host of drinks and stories | [Innkeeper Firebrew](https://warcraft.wiki.gg/wiki/Innkeeper_Firebrew) |
