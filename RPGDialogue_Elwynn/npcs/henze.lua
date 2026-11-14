@@ -33,6 +33,7 @@ P:NPC {
           text = "A dwarf! Ye wouldnae have a drop of somethin' warmin' on ye? For medicinal purposes. Medicinal." },
         { id = "h_dwarf_shaman", when = { race = "Dwarf", class = "SHAMAN" },
           text = "A dwarf talkin' to the elements! My granddad would've fallen off his stool. I'm just glad somebody's listenin' to the ground. It's got plenty to say." },
+        { id = "h_dead", when = { metBefore = true }, text = "Still dead-ish? No, still alive. I check every morning. It's a good habit once ye've been the other thing." },
       },
       choices = {
         { text = "What was it like?", next = "dead" },

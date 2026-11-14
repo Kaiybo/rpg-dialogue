@@ -35,6 +35,7 @@ P:NPC {
           text = "You've read The Seven Kingdoms? Then you know Stromgarde won't let go of what it was. Neither will I, of the Abbey." },
         { id = "h_kind", when = { alignment = { axis = "light", min = 40 } },
           text = "There's a kindness about you. It shows, you know. It always shows." },
+        { id = "h_asleep", when = { metBefore = true }, text = "I fell asleep in the library again, friend. Face-down in a book of prayers. The Light, I'm told, found it very funny." },
       },
       choices = {
         { text = "Tell me about the Abbey.", next = "abbey" },

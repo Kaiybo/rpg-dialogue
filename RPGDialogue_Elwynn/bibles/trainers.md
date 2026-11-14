@@ -53,3 +53,6 @@ One bible for nine small parts. Each trainer warms to their own class and is sho
 ## Remen Marcot (key: remen)
 - Source: https://warcraft.wiki.gg/wiki/Remen_Marcot (Lion's Pride Inn cellar with Maximillian Crowe and Cylina Darkheart; Gakin's Summons)
 - Voice: smooth, quiet, wry about Farley. Notices: imps. Authored: Farley thinks it's a storeroom.
+
+## Depth pass (0.25.0, authored, not canon)
+A repeat-visit line in the voice above.

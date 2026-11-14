@@ -36,3 +36,6 @@ Trustworthy on the Abbey's history. Generous to everyone, including people who d
 
 ## Topics
 northshire_abbey, defias
+
+## Depth pass (0.25.0, authored, not canon)
+A repeat-visit line in the voice above.

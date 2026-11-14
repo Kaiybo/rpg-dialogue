@@ -36,3 +36,6 @@ Honest, and right.
 
 ## Topics
 maybell_tommy, kobolds
+
+## Depth pass (0.25.0, authored, not canon)
+A repeat-visit line in the voice above.

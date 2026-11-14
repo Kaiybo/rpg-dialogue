@@ -32,6 +32,7 @@ P:NPC {
           text = "He wants a pie. The thief wants a pie, before he'll talk. Fine. Bring me good boar meat and I'll bake it. I'll hate every minute." },
         { id = "h_after", tags = { "news" }, when = { questRecent = { TODO_QUEST("Goldtooth"), days = 3 } },
           text = "So the boy didn't take it. Hm. I suppose I'll have to bake him another pie. An apology pie. Don't tell Ma." },
+        { id = "h_bread", when = { metBefore = true }, text = "Bread rose proper this morning. First time all week. Don't you dare let the door slam." },
       },
       choices = {
         { text = "What about the Maclures?", next = "maclures" },
@@ -80,6 +81,7 @@ P:NPC {
           text = "Out in the fields, gorging herself. Bring me her collar so I know it's done." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Princess Must Die!"), days = 3 } },
           text = "First carrot I've pulled whole all season. I nearly cried. I'm not a crier." },
+        { id = "h_billy", when = { metBefore = true }, text = "Tommy Joe's mooning by the fence again. Over that Maclure girl. A Stonefield and a Maclure! I ask you." },
       },
       choices = {
         { text = "Couldn't you talk to the Brackwells?", next = "brackwells" },
@@ -129,6 +131,7 @@ P:NPC {
           text = "Auntie Bernice makes the best pie in Elwynn. Don't tell my ma. Pork belly. Get boar meat. Good boar meat." },
         { id = "h_tell", tags = { "news" }, when = { questActive = TODO_QUEST("Goldtooth") },
           text = "Goldtooth's got it. I saw. He likes shiny things. Don't tell anyone I told. Don't tell anyone I was there." },
+        { id = "h_denial", when = { metBefore = true }, text = "I didn't eat the pie. I didn't! Ma says I did. Ma's wrong. Mostly." },
       },
       choices = {
         { text = "Are you sure you didn't take it?", next = "sure" },

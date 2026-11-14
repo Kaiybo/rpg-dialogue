@@ -37,6 +37,7 @@ P:NPC {
           text = "The trainees by the barracks. Mend them, don't lecture them. The lecturing comes later, and it's my job." },
         { id = "h_other", when = { ["not"] = { class = "PRIEST" } },
           text = "Whatever your path, don't turn your back on the Light. It has a long memory, and a kind one." },
+        { id = "h_cots", when = { metBefore = true }, text = "Three cots full this morning, and all three of them got up and walked out by noon. I'll take that." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "PRIEST" } },
@@ -89,6 +90,7 @@ P:NPC {
           text = "Magic is dangerous to the untrained. You're untrained. I'm only pointing out the arithmetic." },
         { id = "h_level", when = { class = "MAGE", minLevel = 10 },
           text = "You've outgrown my little room. Goldshire, the Lion's Pride, upstairs. Wefhellt will take you from here. Try not to set the inn alight." },
+        { id = "h_basics", when = { metBefore = true }, text = "Back for more fundamentals? Good. Everyone else wants fireballs. You'd be amazed how many of them set the library curtains alight." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "MAGE" } },
@@ -138,6 +140,7 @@ P:NPC {
           text = "You read the letter, or you couldn't have found me. Good. Lesson one: never trust anything you didn't decode yourself." },
         { id = "h_defias", when = { class = "ROGUE", topicKnown = "defias" },
           text = "The Brotherhood will try to recruit you. People who move like you are worth a lot to them. Don't let anyone own you. Whoever asks." },
+        { id = "h_seen", when = { metBefore = true }, text = "Heard you coming three steps off. Better than last time. Last time it was ten." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "ROGUE" } },
@@ -185,6 +188,7 @@ P:NPC {
           text = "McBride's letter, and his nose wrinkled as he wrote it, I'm sure. Welcome. The arcane devours the weak. We'll see what it makes of you." },
         { id = "h_level", when = { class = "WARLOCK", minLevel = 10 },
           text = "Goldshire. The cellar of the Lion's Pride. Ask for Marcot. Don't ask for anything else down there." },
+        { id = "h_brothers", when = { metBefore = true }, text = "The Brothers prayed for me again this morning. Loudly. I find it touching, in its way." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "WARLOCK" } },
@@ -234,6 +238,7 @@ P:NPC {
           text = "Your training's not finished. There's someone you need to see, and you'll have to go and find them. That's part of it." },
         { id = "h_wilhelm", when = { class = "PALADIN" },
           text = "Wilhelm's round the side. Tell him I'll have the practice yard back by noon. He'll know what that means." },
+        { id = "h_dawn", when = { metBefore = true }, text = "You're up early. Good. The recruits weren't. They are now." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
@@ -282,6 +287,7 @@ P:NPC {
           text = "There's more for you beyond Goldshire. Go and learn it. I'll be here, envying you a little." },
         { id = "h_young", when = { maxLevel = 12 },
           text = "When I was your age I wanted to see the whole world. I stayed in Goldshire instead. Don't do that. Go." },
+        { id = "h_go", when = { metBefore = true }, text = "You're still here? Good, and not good. The world's bigger than Goldshire, little one. Go and see it, and come back and tell me." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "PRIEST" } },
@@ -331,6 +337,7 @@ P:NPC {
           text = "Jennea in the city wants a word with you. She's sharper than I am. Don't tell her I said so; she'll have it engraved." },
         { id = "h_report", when = { questActive = TODO_QUEST("Report to Jennea") },
           text = "Jennea again. Twice in one apprenticeship. She must like you. I'd be worried." },
+        { id = "h_stable", when = { metBefore = true }, text = "The stable boy has taken to whistling beneath my window. Every morning. In a key I'm fairly certain doesn't exist." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "MAGE" } },
@@ -372,6 +379,7 @@ P:NPC {
           text = "Old Town, in the city. Don't ask anyone for directions. If you can't find SI:7 without help, SI:7 doesn't need you." },
         { id = "h_si7_done", when = { questDone = TODO_QUEST("Seek out SI:7") },
           text = "So the Master's seen you. Did he smile? He doesn't, as a rule. If he did, start worrying." },
+        { id = "h_book", when = { metBefore = true }, text = "I'm on chapter nine. It's dreadful. I'll finish it anyway. Everyone needs a vice that isn't the job." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "ROGUE" } },
@@ -417,6 +425,7 @@ P:NPC {
           text = "Gakin wants you in the city. That means he thinks you're ready for a voidwalker. He's usually right. Usually." },
         { id = "h_drusilla", when = { class = "WARLOCK", maxLevel = 12 },
           text = "La Salle sent you down from Northshire? She sends the patient ones. Don't disappoint her. She has a long memory and short temper." },
+        { id = "h_farley", when = { metBefore = true }, text = "Farley came down for a barrel yesterday and looked straight at us. Then he took the barrel and left. I've grown fond of him." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "WARLOCK" } },

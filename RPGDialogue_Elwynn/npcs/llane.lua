@@ -33,6 +33,8 @@ P:NPC {
           text = "Hunters. Always trying to win a fight from across the field." },
         { id = "h_other", when = { ["not"] = { class = { "WARRIOR", "HUNTER" } } },
           text = "Not my student. The drills wouldn't kill you, though. Probably." },
+        { id = "h_bruise", when = { metBefore = true, class = "WARRIOR" }, text = "You're standing straighter. Bruises in better places. That's progress, recruit." },
+        { id = "h_dawn", when = { metBefore = true }, text = "Recruits ran the yard twice this morning. One cried. One laughed. The one who laughed is the one I'm worried about." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },

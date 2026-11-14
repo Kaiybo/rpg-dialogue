@@ -34,6 +34,7 @@ P:NPC {
           text = "Six. Red, not burlap; the Northshire lot wear sacks on their heads, and I can't do anything with sacks." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Red Linen Goods"), days = 3 } },
           text = "A sash and a shirt out of six thieves' bandanas. If any of them come asking for their linen back, send them to me." },
+        { id = "h_thread", when = { metBefore = true }, text = "Ran out of blue thread halfway through a hem. Finished it in brown. Nobody's noticed. You didn't either, until I told you." },
       },
       choices = {
         { text = "Isn't that a little grim?", next = "grim" },
