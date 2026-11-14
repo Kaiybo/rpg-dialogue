@@ -100,6 +100,8 @@ C.PROBE_LIST = {
   "GetServerTime", "Enum.PlayerInteractionType",
   "C_GossipInfo.SelectAvailableQuest", "C_GossipInfo.SelectActiveQuest", "SelectAvailableQuest", "GetActiveTitle",
   "C_GamePad.IsEnabled", "TooltipDataProcessor.AddTooltipPostCall",
+  "NineSliceUtil.ApplyLayoutByName", "C_Texture.GetAtlasInfo", "SetPortraitTexture",
+  "GetMaterialTextColors", "QuestUtil.GetQuestIconOfferForQuestID",
 }
 
 -- Old functions kept only as fallbacks; a modern client is expected not to have them.
@@ -296,6 +298,108 @@ function C.IconMarkup(file, size)
   if type(file) ~= "number" and type(file) ~= "string" then return "" end
   if file == 0 or file == "" then return "" end
   return ("|T%s:%d:%d|t "):format(tostring(file), size, size)
+end
+
+---------------------------------------------------------------------------
+-- The game's own window art, for the "game style" look. Names and paths are from
+-- Blizzard's 12.1.5 interface code (GossipFrame, ButtonFrameTemplate, NineSliceLayouts,
+-- QuestUtils; see DESIGN.md §3.10). Every piece checks the client has it first.
+---------------------------------------------------------------------------
+function C.HasAtlas(name)
+  return type(name) == "string" and call("C_Texture.GetAtlasInfo", name) ~= nil
+end
+
+-- The frame borders (NineSliceUtil and the layouts we use) and the quest parchment.
+function C.GameArtAvailable()
+  local getLayout = resolve("NineSliceUtil.GetLayout")
+  if type(getLayout) ~= "function" or type(resolve("NineSliceUtil.ApplyLayoutByName")) ~= "function" then
+    noteMissing("NineSliceUtil")
+    return false
+  end
+  for _, name in ipairs({ "PortraitFrameTemplate", "SimplePanelTemplate", "InsetFrameTemplate" }) do
+    local ok, layout = pcall(getLayout, name)
+    if not ok or type(layout) ~= "table" then return false end
+  end
+  return C.HasAtlas("QuestBG-Parchment") and C.HasAtlas("UI-Frame-PortraitMetal-CornerTopLeft")
+end
+
+-- Puts one of the game's frame borders on a frame of ours (as textures on that frame).
+function C.ApplyNineSlice(frame, layoutName)
+  local fn = resolve("NineSliceUtil.ApplyLayoutByName")
+  if type(fn) ~= "function" then return false end
+  return (pcall(fn, frame, layoutName))
+end
+
+-- A child frame drawn as part of its parent (so the parent's text can sit above it).
+function C.UseParentLevel(frame)
+  if type(frame.SetUsingParentLevel) ~= "function" then return false end
+  return (pcall(frame.SetUsingParentLevel, frame, true))
+end
+
+function C.SetPortrait(texture, unit)
+  if not unit then return false end
+  local fn = resolve("SetPortraitTexture")
+  if type(fn) ~= "function" then return false end
+  return (pcall(fn, texture, unit))
+end
+
+-- The player's "Quest Text Contrast" accessibility setting (0 = normal parchment, 1-3 lighter
+-- parchments, 4 = dark background with light text).
+function C.QuestTextContrast()
+  local v = call({ "GetCVarNumberOrDefault", "GetCVar" }, "questTextContrast")
+  return tonumber(v) or 0
+end
+
+-- The quest parchment the game itself would show (follows the contrast setting).
+function C.QuestBackgroundAtlas(dark)
+  if dark and C.HasAtlas("QuestBG-Parchment-Accessibility4") then return "QuestBG-Parchment-Accessibility4" end
+  local atlas = call("QuestTextContrast.GetDefaultBackgroundAtlas")
+  if type(atlas) == "string" and C.HasAtlas(atlas) then return atlas end
+  return "QuestBG-Parchment"
+end
+
+-- Text and title colors the game uses on a material ("Parchment", "Stone"), as {r, g, b}.
+local MATERIAL_FALLBACK = {
+  Parchment = { { 0.18, 0.12, 0.06 }, { 0, 0, 0 } },
+  Stone = { { 1, 1, 1 }, { 0.993, 0.831, 0.380 } },
+}
+function C.MaterialTextColors(material)
+  local text, title = call("GetMaterialTextColors", material)
+  local fb = MATERIAL_FALLBACK[material] or MATERIAL_FALLBACK.Parchment
+  local function ok(c) return type(c) == "table" and type(c[1]) == "number" and type(c[3]) == "number" end
+  return ok(text) and text or fb[1], ok(title) and title or fb[2]
+end
+
+-- The icon the game's gossip window shows for a quest: { atlas = name } or { file = path,
+-- desaturate = bool }. Asks the game's own helper first (campaign, daily, legendary...).
+function C.QuestIcon(q)
+  if q.questID then
+    local path = q.active and "QuestUtil.GetQuestIconActiveForQuestID" or "QuestUtil.GetQuestIconOfferForQuestID"
+    local fn = resolve(path)
+    if type(fn) == "function" then
+      local ok, asset, isAtlas
+      if q.active then ok, asset, isAtlas = pcall(fn, q.questID, q.complete == true)
+      else ok, asset, isAtlas = pcall(fn, q.questID) end
+      if ok and type(asset) == "string" and asset ~= "" then
+        if not isAtlas then return { file = asset } end
+        if C.HasAtlas(asset) then return { atlas = asset } end
+      end
+    end
+  end
+  if not q.active then return { file = "Interface\\GossipFrame\\AvailableQuestIcon" } end
+  if q.complete then return { file = "Interface\\GossipFrame\\ActiveQuestIcon" } end
+  if C.HasAtlas("SideInProgressquesticon") then return { atlas = "SideInProgressquesticon" } end
+  return { file = "Interface\\GossipFrame\\ActiveQuestIcon", desaturate = true }
+end
+
+-- An icon ({ atlas } or { file }) as inline text markup, or "".
+function C.IconToMarkup(icon, size)
+  if type(icon) ~= "table" then return "" end
+  if icon.atlas then
+    local m = C.AtlasMarkup(icon.atlas, size)
+    return m ~= "" and (m .. " ") or ""
+  end
+  return C.IconMarkup(icon.file, size)
 end
 
 -- Fonts other addons share through LibSharedMedia-3.0 (if any addon loaded it). Read-only.

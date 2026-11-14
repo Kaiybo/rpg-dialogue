@@ -14,8 +14,19 @@ local Theme = UI.Theme
 local D = {}
 UI.Dialogue = D
 
-local PAD, PORTRAIT, WIDTH = 20, 92, 600
+local PAD, PORTRAIT = 20, 92
+-- The game look is shaped like the game's gossip window (338 wide; a little wider here
+-- for longer lines); the wood look is a wide box with the portrait beside the text.
+local WOOD_WIDTH, GAME_WIDTH = 600, 360
+-- Game look: the metal header is 60 pixels (title bar, then the subtitle beside the round
+-- portrait), the inset starts there, text sits 12 inside it. The bottom bar is 26 high.
+local GAME_HEADER, GAME_INSET_PAD, GAME_BAR = 60, 12, 26
 local MAX_BUTTONS = 10
+
+-- Icons the game's gossip window uses: a speech bubble for talking, a bullet otherwise.
+local ICON_TALK = { file = "Interface\\GossipFrame\\GossipGossipIcon" }
+local ICON_BULLET = { file = "Interface\\QuestFrame\\UI-Quest-BulletPoint" }
+local PORTRAIT_FALLBACK = "Interface\\Icons\\INV_Misc_QuestionMark"
 
 local frame
 local view
@@ -46,6 +57,8 @@ local function utf8Len(s)
 end
 
 local function settings() return ns.db.settings end
+local function isGame() return Theme.IsGame() end
+local function width() return isGame() and GAME_WIDTH or WOOD_WIDTH end
 
 local function instant()
   local s = settings()
@@ -76,6 +89,10 @@ function D.FinishText() if reveal.active then finishReveal() end end
 local function makeButton(i)
   local b = CreateFrame("Button", nil, frame)
   b:SetHeight(20)
+  b.icon = b:CreateTexture(nil, "ARTWORK")
+  b.icon:SetSize(16, 16)
+  b.icon:SetPoint("TOPLEFT", 3, -2)
+  b.icon:Hide()
   b.label = b:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
   b.label:SetPoint("TOPLEFT", 4, -3)
   b.label:SetJustifyH("LEFT")
@@ -106,7 +123,7 @@ end
 
 local function create()
   frame = CreateFrame("Frame", nil, UIParent)
-  frame:SetSize(WIDTH, 260)
+  frame:SetSize(width(), 260)
   frame:SetFrameStrata("DIALOG")
   frame:SetToplevel(true)
   frame:SetClampedToScreen(true)
@@ -116,7 +133,7 @@ local function create()
   frame:SetScript("OnDragStart", function(self) self:StartMoving() end)
   frame:SetScript("OnDragStop", function(self) self:StopMovingOrSizing(); D.SavePosition() end)
   frame:Hide()
-  Theme.Decorate(frame, 7)
+  Theme.Decorate(frame, 7, { portrait = true })
   -- A short fade-in when the box opens (off with reduce motion).
   frame.fadeIn = frame:CreateAnimationGroup()
   local fade = frame.fadeIn and frame.fadeIn:CreateAnimation("Alpha")
@@ -140,31 +157,25 @@ local function create()
   frame.model:SetSize(PORTRAIT, PORTRAIT)
   frame.model:SetPoint("TOPLEFT", PAD, -PAD)
 
-  local textLeft = PAD + PORTRAIT + 14
-  local textWidth = WIDTH - textLeft - PAD - 22
+  -- Name and subtitle: beside the portrait (wood), or in the title bar and the header
+  -- (game). Placed in D.Style. The name draws above the frame's metal title bar.
   frame.name = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
-  frame.name:SetPoint("TOPLEFT", textLeft, -PAD + 2)
-  frame.name:SetJustifyH("LEFT")
+  frame.name:SetDrawLayer("OVERLAY", 7)
   frame.subtitle = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
-  frame.subtitle:SetPoint("TOPLEFT", frame.name, "BOTTOMLEFT", 0, -2)
-  frame.subtitle:SetJustifyH("LEFT")
+  frame.subtitle:SetDrawLayer("OVERLAY", 7)
 
-  -- A rule under the name, and another above the replies (placed in D.Layout).
+  -- A rule under the name, and another above the replies (wood look; placed in D.Style
+  -- and D.Layout).
   frame.rule = Theme.Divider(frame)
-  frame.rule:SetPoint("TOPLEFT", frame.subtitle, "BOTTOMLEFT", 0, -6)
-  frame.rule:SetPoint("RIGHT", frame, "RIGHT", -PAD - 46, 0)
   frame.replyRule = Theme.Divider(frame)
 
   frame.text = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
-  frame.text:SetPoint("TOPLEFT", frame.subtitle, "BOTTOMLEFT", 0, -14)
-  frame.text:SetWidth(textWidth)
   frame.text:SetJustifyH("LEFT")
   frame.text:SetJustifyV("TOP")
   frame.text:SetWordWrap(true)
 
   frame.reaction = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
   frame.reaction:SetPoint("TOPLEFT", frame.text, "BOTTOMLEFT", 0, -8)
-  frame.reaction:SetWidth(textWidth)
   frame.reaction:SetJustifyH("LEFT")
   frame.reaction:SetWordWrap(true)
 
@@ -177,20 +188,18 @@ local function create()
   frame.buttons = {}
   for i = 1, MAX_BUTTONS do frame.buttons[i] = makeButton(i) end
 
-  frame.close = Theme.Button(frame, "x", 20, 20)
-  frame.close:SetPoint("TOPRIGHT", -12, -12)
+  frame.close = Theme.CloseButton(frame)
   frame.close:SetScript("OnClick", function() ns.Conversation.Business() end)
-  frame.close:SetScript("OnEnter", function(self)
+  frame.close:HookScript("OnEnter", function(self)
     GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
     GameTooltip:SetText(L.GET_ON_WITH_IT)
     GameTooltip:Show()
   end)
-  frame.close:SetScript("OnLeave", function() GameTooltip:Hide() end)
+  frame.close:HookScript("OnLeave", function() GameTooltip:Hide() end)
 
   -- "This line is wrong"
   frame.flag = CreateFrame("Button", nil, frame)
   frame.flag:SetSize(16, 16)
-  frame.flag:SetPoint("TOPRIGHT", -38, -14)
   frame.flag:SetAlpha(0.55)
   frame.flag.icon = frame.flag:CreateTexture(nil, "ARTWORK")
   frame.flag.icon:SetAllPoints()
@@ -207,13 +216,11 @@ local function create()
 
   -- "Ask about..."
   frame.ask = Theme.Button(frame, L.ASK_BUTTON, 116, 22)
-  frame.ask:SetPoint("BOTTOMRIGHT", -16, 14)
   frame.ask:SetScript("OnClick", function() UI.AskAbout.Toggle(frame) end)
   frame.ask:Hide()
 
   frame.flagBox = CreateFrame("EditBox", nil, frame, C.Template("editbox"))
-  frame.flagBox:SetSize(WIDTH - 2 * PAD - 120, 20)
-  frame.flagBox:SetPoint("BOTTOMLEFT", PAD + 6, 10)
+  frame.flagBox:SetSize(WOOD_WIDTH - 2 * PAD - 120, 20)
   frame.flagBox:SetAutoFocus(false)
   frame.flagBox:SetMaxLetters(140)
   frame.flagBox:Hide()
@@ -226,7 +233,6 @@ local function create()
   end)
   frame.flagBox:SetScript("OnEscapePressed", function(self) self:ClearFocus(); self:Hide(); D.Layout() end)
   frame.flagHint = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
-  frame.flagHint:SetPoint("LEFT", frame.flagBox, "RIGHT", 8, 0)
 
   frame:EnableKeyboard(true)
   frame:SetPropagateKeyboardInput(true)
@@ -243,10 +249,73 @@ end
 ---------------------------------------------------------------------------
 -- Styling, layout, position
 ---------------------------------------------------------------------------
+-- Positions that differ between the two looks.
+local function placeParts(game)
+  local W = width()
+  frame:SetWidth(W)
+  local n, sub = frame.name, frame.subtitle
+  n:ClearAllPoints(); sub:ClearAllPoints()
+  frame.text:ClearAllPoints()
+  frame.close:ClearAllPoints()
+  frame.flag:ClearAllPoints()
+  frame.ask:ClearAllPoints()
+  frame.flagBox:ClearAllPoints()
+  frame.flagHint:ClearAllPoints()
+  frame.rule:ClearAllPoints()
+  if game then
+    -- Like the gossip window: name in the title bar, subtitle in the header beside the
+    -- portrait, text inside the parchment inset, buttons on the bottom bar.
+    n:SetPoint("TOPLEFT", 58, -5)
+    n:SetPoint("TOPRIGHT", -24, -5)
+    n:SetJustifyH("CENTER")
+    n:SetWordWrap(false)
+    sub:SetPoint("TOPLEFT", 62, -32)
+    sub:SetPoint("TOPRIGHT", -12, -32)
+    sub:SetJustifyH("CENTER")
+    frame.text:SetPoint("TOPLEFT", 4 + GAME_INSET_PAD, -(GAME_HEADER + GAME_INSET_PAD))
+    frame.close:SetPoint("TOPRIGHT", 1, 0)
+    frame.flag:SetSize(14, 14)
+    frame.flag:SetPoint("TOPRIGHT", -26, -4)
+    frame.ask:SetPoint("BOTTOMRIGHT", -6, 4)
+    frame.flagBox:SetPoint("BOTTOMLEFT", 12, 5)
+    -- The metal border reaches past the frame (most at the portrait corner and the top).
+    frame:SetClampRectInsets(-13, 4, 16, -3)
+  else
+    local textLeft = PAD + PORTRAIT + 14
+    n:SetPoint("TOPLEFT", textLeft, -PAD + 2)
+    n:SetJustifyH("LEFT")
+    n:SetWordWrap(true)
+    sub:SetPoint("TOPLEFT", n, "BOTTOMLEFT", 0, -2)
+    sub:SetJustifyH("LEFT")
+    frame.rule:SetPoint("TOPLEFT", sub, "BOTTOMLEFT", 0, -6)
+    frame.rule:SetPoint("RIGHT", frame, "RIGHT", -PAD - 46, 0)
+    frame.text:SetPoint("TOPLEFT", sub, "BOTTOMLEFT", 0, -14)
+    frame.close:SetPoint("TOPRIGHT", -12, -12)
+    frame.flag:SetSize(16, 16)
+    frame.flag:SetPoint("TOPRIGHT", -38, -14)
+    frame.ask:SetPoint("BOTTOMRIGHT", -16, 14)
+    frame.flagBox:SetPoint("BOTTOMLEFT", PAD + 6, 10)
+    frame.flagHint:SetPoint("LEFT", frame.flagBox, "RIGHT", 8, 0)
+    frame:SetClampRectInsets(0, 0, 0, 0)
+  end
+  for _, part in ipairs({ frame.model, frame.portraitBg, frame.portraitTrim, frame.portraitInner }) do
+    part:SetShown(not game)
+  end
+  frame.rule:SetShown(not game)
+  frame.replyRule:SetShown(not game)
+end
+
+local function textWidth()
+  if isGame() then return GAME_WIDTH - 4 - 6 - 2 * GAME_INSET_PAD end
+  return WOOD_WIDTH - (PAD + PORTRAIT + 14) - PAD - 22
+end
+
 function D.Style()
   if not frame then return end
   local size = Theme.TextSize()
+  local game = isGame()
   Theme.Recolor(frame)
+  placeParts(game)
   local p = Theme.Palette()
   frame.portraitBg:SetColorTexture(p.wood[1], p.wood[2], p.wood[3], 1)
   frame.portraitTrim:SetColorTexture(p.trim[1], p.trim[2], p.trim[3], 1)
@@ -255,25 +324,32 @@ function D.Style()
   Theme.ColorDivider(frame.replyRule)
   Theme.StyleButton(frame.ask)
   Theme.StyleButton(frame.close, 12)
-  Theme.SetFont(frame.name, "name", size + 6)
-  Theme.SetFont(frame.subtitle, "body", size - 2)
+  if game then
+    -- The title bar's size, gold with a shadow, as on the game's own windows.
+    Theme.SetFont(frame.name, "name", 13)
+    Theme.SetFont(frame.subtitle, "body", size - 2)
+  else
+    Theme.SetFont(frame.name, "name", size + 6)
+    Theme.SetFont(frame.subtitle, "body", size - 2)
+  end
+  Theme.Shadow(frame.name, game)
+  Theme.Shadow(frame.subtitle, game)
   Theme.SetFont(frame.text, "body", size)
   Theme.SetFont(frame.reaction, "body", size - 1)
   Theme.SetFont(frame.flagHint, "body", size - 3)
   frame.text:SetSpacing(settings().lineSpacing or 3)
   frame.reaction:SetSpacing(settings().lineSpacing or 3)
-  Theme.TextColor(frame.name, "name")
-  Theme.TextColor(frame.subtitle, "subtitle")
+  Theme.TextColor(frame.name, "title")
+  Theme.TextColor(frame.subtitle, "header")
   Theme.TextColor(frame.text, "text")
   Theme.TextColor(frame.reaction, "reaction")
   Theme.TextColor(frame.flagHint, "dim")
   for _, b in ipairs(frame.buttons) do
     Theme.SetFont(b.label, "body", size)
     Theme.SetFont(b.marker, "name", size)
-    Theme.TextColor(b.marker, "name")
+    Theme.TextColor(b.marker, "marker")
     b.label:SetSpacing(2)
-    b.hl:SetColorTexture(p.highlight[1], p.highlight[2], p.highlight[3], p.highlight[4])
-    b.stripe:SetColorTexture(p.accent[1], p.accent[2], p.accent[3], p.accent[4])
+    Theme.StyleRow(b)
     Theme.TextColor(b.label, D.ColorKey(b))
   end
   frame:SetScale(settings().scale or 1)
@@ -281,35 +357,66 @@ end
 
 function D.Layout()
   if not frame then return end
-  local textWidth = WIDTH - (PAD + PORTRAIT + 14) - PAD - 22
+  local game = isGame()
+  local W, tw = width(), textWidth()
+  frame.text:SetWidth(tw)
+  frame.reaction:SetWidth(tw)
   -- Measure with the full text so the window doesn't grow while typing.
   local current = frame.text:GetText()
   frame.text:SetText(reveal.full)
-  local h = (frame.name:GetStringHeight() or 20) + (frame.subtitle:GetStringHeight() or 0) + 12
-    + (frame.text:GetStringHeight() or 14)
+  local textH = frame.text:GetStringHeight() or 14
   frame.text:SetText(current)
-  if frame.reaction:IsShown() then h = h + 8 + (frame.reaction:GetStringHeight() or 14) end
-  local top = math.max(PORTRAIT, h)
-  local y = -(PAD + top + 16)
-  frame.replyRule:ClearAllPoints()
-  frame.replyRule:SetPoint("TOPLEFT", PAD, y)
-  frame.replyRule:SetPoint("TOPRIGHT", -PAD, y)
-  y = y - 8
+  local reactionH = frame.reaction:IsShown() and (8 + (frame.reaction:GetStringHeight() or 14)) or 0
+  local rowLeft, rowWidth, y
+  if game then
+    rowLeft, rowWidth = 4 + GAME_INSET_PAD - 4, W - 10 - 2 * (GAME_INSET_PAD - 4)
+    y = -(GAME_HEADER + GAME_INSET_PAD) - textH - reactionH - 14
+  else
+    local h = (frame.name:GetStringHeight() or 20) + (frame.subtitle:GetStringHeight() or 0) + 12 + textH + reactionH
+    rowLeft, rowWidth = PAD, W - 2 * PAD
+    y = -(PAD + math.max(PORTRAIT, h) + 16)
+    frame.replyRule:ClearAllPoints()
+    frame.replyRule:SetPoint("TOPLEFT", PAD, y)
+    frame.replyRule:SetPoint("TOPRIGHT", -PAD, y)
+    y = y - 8
+  end
   for _, b in ipairs(frame.buttons) do
     if b:IsShown() then
       if b.gap then y = y - 8 end   -- a little space before the game's own options
+      local indent = b.icon:IsShown() and 22 or 4
       b:ClearAllPoints()
-      b:SetPoint("TOPLEFT", PAD, y)
-      b:SetWidth(WIDTH - 2 * PAD)
-      b.label:SetWidth(WIDTH - 2 * PAD - 8)
-      local bh = (b.label:GetStringHeight() or 14) + 6
+      b:SetPoint("TOPLEFT", rowLeft, y)
+      b:SetWidth(rowWidth)
+      b.label:ClearAllPoints()
+      b.label:SetPoint("TOPLEFT", indent, -3)
+      b.label:SetWidth(rowWidth - indent - 4)
+      local bh = math.max((b.label:GetStringHeight() or 14) + 6, b.icon:IsShown() and 20 or 0)
       b:SetHeight(bh)
       y = y - bh - 2
     end
   end
-  if frame.flagBox:IsShown() or frame.ask:IsShown() then y = y - 36 end
-  frame:SetHeight(-y + PAD - 4)
-  frame.text:SetWidth(textWidth)
+  local barShown = frame.flagBox:IsShown() or frame.ask:IsShown()
+  if game then
+    local bottom = barShown and GAME_BAR or 4
+    -- The flag hint ("say what's wrong", "saved") gets its own line above the bar.
+    if frame.flagBox:IsShown() or (frame.flagHint:GetText() or "") ~= "" then
+      y = y - 16
+      frame.flagHint:ClearAllPoints()
+      frame.flagHint:SetPoint("BOTTOMLEFT", frame, "BOTTOMLEFT", 4 + GAME_INSET_PAD, bottom + 6)
+    end
+    local inset = Theme.GamePart(frame, "inset")
+    if inset then
+      inset:ClearAllPoints()
+      inset:SetPoint("TOPLEFT", 4, -GAME_HEADER)
+      inset:SetPoint("BOTTOMRIGHT", -6, bottom)
+    end
+    frame.flagBox:SetWidth(W - 12 - 16 - (frame.ask:IsShown() and 124 or 0))
+    frame:SetHeight(math.max(-y + 8 + bottom, 170))
+  else
+    frame.flagBox:SetWidth(WOOD_WIDTH - 2 * PAD - 120)
+    if barShown then y = y - 36 end
+    frame:SetHeight(-y + PAD - 4)
+  end
 end
 
 function D.SavePosition()
@@ -324,6 +431,9 @@ local function place(anchor)
     frame:SetPoint(pos[1], UIParent, pos[2], pos[3], pos[4])
   elseif anchor then
     frame:SetPoint("TOPLEFT", anchor, "TOPLEFT", 0, 0)
+  elseif isGame() then
+    -- Where the game opens its own quest and gossip windows.
+    frame:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 16, -116)
   else
     frame:SetPoint("CENTER", UIParent, "CENTER", 0, 120)
   end
@@ -351,7 +461,9 @@ function D.Show(v)
 
   frame.flagHint:SetText("")
   frame.ask:SetShown(v.canAsk == true)
-  D.Style()
+  D.Style()   -- also builds the current look's parts, the round portrait among them
+  local portrait = Theme.GamePart(frame, "portrait")
+  if portrait and not C.SetPortrait(portrait, v.unit) then portrait:SetTexture(PORTRAIT_FALLBACK) end
   reveal.full = v.text or ""
   reveal.total = utf8Len(reveal.full)
   reveal.shown = 0
@@ -379,6 +491,9 @@ function D.RenderChoices(choices)
     b.gap = c.gap
     local num = c.locked and ((i % 10) .. ". ") or (Theme.Hex("number") .. (i % 10) .. ".|r ")
     b.label:SetText(num .. (c.locked and (L.LOCKED_MARK .. " ") or "") .. c.text)
+    -- The game's own options keep their icons in both looks; in the game look the NPC's
+    -- replies get the gossip window's speech bubble, like any talk option there.
+    D.SetRowIcon(b, c.icon or (isGame() and not c.game and ICON_TALK) or nil, c.locked)
     b:Show()
     n = i
   end
@@ -386,6 +501,7 @@ function D.RenderChoices(choices)
   getOn.locked = false
   getOn.gap = n > 0
   getOn.label:SetText(((n + 1) % 10) .. ". " .. L.GET_ON_WITH_IT)
+  D.SetRowIcon(getOn, isGame() and ICON_BULLET or nil, false)
   getOn:Show()
   for i = 1, MAX_BUTTONS do
     frame.buttons[i].isGetOn = (i == n + 1)
@@ -394,6 +510,22 @@ function D.RenderChoices(choices)
   -- Keyboard and gamepad users keep a selection from one node to the next.
   D.Select(nil)
   if navMode then D.Move(1) end
+end
+
+-- icon: { atlas = name } or { file = path or fileID, desaturate = bool }, or nil.
+function D.SetRowIcon(b, icon, faded)
+  if not icon then
+    b.icon:Hide()
+    return
+  end
+  b.icon:SetTexCoord(0, 1, 0, 1)
+  local okSet
+  if icon.atlas then okSet = b.icon:SetAtlas(icon.atlas) else okSet = b.icon:SetTexture(icon.file) end
+  if okSet == false and icon ~= ICON_BULLET then return D.SetRowIcon(b, ICON_BULLET, faded) end
+  b.icon:SetSize(16, 16)
+  b.icon:SetDesaturated((icon.desaturate or faded) and true or false)
+  b.icon:SetAlpha(faded and 0.5 or 1)
+  b.icon:Show()
 end
 
 ---------------------------------------------------------------------------
@@ -440,6 +572,16 @@ function D.SetChoices(choices)
   if view then view.choices = choices end
   D.RenderChoices(choices)
   D.Style()
+  D.Layout()
+end
+
+-- After a settings change (look, fonts, sizes): draw everything again in place.
+function D.Restyle()
+  if not frame then return end
+  if frame:IsShown() and view then D.RenderChoices(view.choices) end
+  D.Style()
+  local portrait = Theme.GamePart(frame, "portrait")
+  if portrait and view and not C.SetPortrait(portrait, view.unit) then portrait:SetTexture(PORTRAIT_FALLBACK) end
   D.Layout()
 end
 

@@ -33,6 +33,10 @@ local DEFAULT_STATE = {
   secret = {},
   tooltip = {},     -- unit -> { lines }
   inRange = true,
+  gameArt = true,       -- the client has the game's window art (atlases, NineSliceUtil)
+  missingAtlas = {},    -- atlas name -> true: this client lacks it
+  questTextContrast = 0,
+  nineSliceFails = false,
   globals = { DRUNK_MESSAGE_SELF1 = "You feel sober again.", DRUNK_MESSAGE_SELF2 = "You feel tipsy.",
     DRUNK_MESSAGE_SELF3 = "You feel drunk.  Woah!", DRUNK_MESSAGE_SELF4 = "You feel completely smashed." },
 }
@@ -129,6 +133,15 @@ function frameMethods.CreateFontString(self, _, _, template)
   return fs
 end
 function frameMethods.CreateTexture(self) return Mock.NewFrame("Texture", nil, self) end
+function frameMethods.CreateMaskTexture(self) return Mock.NewFrame("MaskTexture", nil, self) end
+-- Textures remember what they show, so tests can check which art was picked.
+function frameMethods.SetAtlas(self, name) self._atlas = name; self._texture = nil end
+function frameMethods.SetTexture(self, file) self._texture = file; self._atlas = nil; return true end
+function frameMethods.SetColorTexture(self, r, g, b, a) self._color = { r, g, b, a }; self._texture, self._atlas = nil, nil end
+function frameMethods.GetAtlas(self) return self._atlas end
+function frameMethods.GetTexture(self) return self._texture end
+function frameMethods.SetTextColor(self, r, g, b) self._textColor = { r, g, b } end
+function frameMethods.GetTextColor(self) local c = self._textColor or { 1, 1, 1 }; return c[1], c[2], c[3] end
 function frameMethods.CreateAnimationGroup(self) return Mock.NewFrame("AnimationGroup", nil, self) end
 function frameMethods.CreateAnimation(self) return Mock.NewFrame("Animation", nil, self) end
 function frameMethods.GetFrameLevel() return 1 end
@@ -168,6 +181,47 @@ SlashCmdList = {}
 BackdropTemplateMixin = {}
 SOUNDKIT = { IG_QUEST_LIST_OPEN = 1, IG_QUEST_LIST_CLOSE = 2, IG_MAINMENU_OPTION_CHECKBOX_ON = 3 }
 function PlaySound(id) Mock.calls[#Mock.calls + 1] = { "PlaySound", id } end
+
+---------------------------------------------------------------------------
+-- The game's window art: atlases, frame borders, portraits, material colors
+---------------------------------------------------------------------------
+C_Texture = {
+  GetAtlasInfo = function(name)
+    if not S().gameArt or S().missingAtlas[name] then return nil end
+    return { width = 16, height = 16, file = 1 }
+  end,
+}
+local NINE = { "TopLeftCorner", "TopRightCorner", "BottomLeftCorner", "BottomRightCorner",
+  "TopEdge", "BottomEdge", "LeftEdge", "RightEdge" }
+NineSliceUtil = {
+  GetLayout = function(name) if S().gameArt then return { name = name } end end,
+  ApplyLayoutByName = function(container, name)
+    if S().nineSliceFails then error("layout " .. tostring(name) .. " failed") end
+    for _, piece in ipairs(NINE) do
+      if not rawget(container, piece) then rawset(container, piece, container:CreateTexture()) end
+      rawget(container, piece):SetAtlas(name .. ":" .. piece)
+    end
+  end,
+}
+function SetPortraitTexture(tex, u)
+  Mock.calls[#Mock.calls + 1] = { "SetPortraitTexture", u }
+  tex._portrait = u
+end
+function GetMaterialTextColors(material)
+  if material == "Stone" then return { 1, 1, 1 }, { 1, 0.82, 0.4 } end
+  return { 0.2, 0.12, 0.06 }, { 0, 0, 0 }
+end
+function GetCVarNumberOrDefault(name)
+  if name == "questTextContrast" then return S().questTextContrast end
+end
+QuestTextContrast = { GetDefaultBackgroundAtlas = function() return "QuestBG-Parchment" end }
+QuestUtil = {
+  GetQuestIconOfferForQuestID = function() return "Interface/GossipFrame/AvailableQuestIcon", false end,
+  GetQuestIconActiveForQuestID = function(_, complete)
+    if complete then return "Interface/GossipFrame/ActiveQuestIcon", false end
+    return "SideInProgressquesticon", true
+  end,
+}
 
 function Mock.Fire(event, ...)
   for _, f in ipairs(Mock.frames) do

@@ -458,7 +458,7 @@ function Conv.BuildChoices(node, isStart)
   local choices = {}
   for i, entry in ipairs(entries) do
     if entry.game then
-      choices[i] = { text = entry.choice.text, game = true, gap = entry.firstGame and i > 1 }
+      choices[i] = { text = entry.choice.text, game = true, gap = entry.firstGame and i > 1, icon = entry.choice.icon }
     else
       choices[i] = {
         text = Conv.Slur(choiceLabel(entry), ctx.drunk, env.seed + i),
@@ -683,21 +683,17 @@ ns.On("QUEST_COMPLETE", function() questStage = "complete"; deferStart("quest", 
 Conv.MAX_GAME_OPTIONS = 5
 
 local function questRank(q) return q.active and (q.complete and 1 or 3) or 2 end
--- The game's own quest marks (yellow ! and ?), when this client has them; the words stay.
-local function questIcon(q)
-  local atlas = q.active and (q.complete and "QuestTurnin" or "QuestActive") or "QuestNormal"
-  local mark = C.AtlasMarkup(atlas, 14)
-  return mark ~= "" and (mark .. " ") or ""
-end
+-- The words say what kind of entry it is; the icon (the game's own quest marks, the
+-- gossip window's option icons) is drawn by the window.
 local function questLabel(q)
   local fmt = q.active and (q.complete and L.GAME_TURN_IN or L.GAME_QUEST_ACTIVE) or L.GAME_QUEST
-  return questIcon(q) .. fmt:format(q.title or "?")
+  return fmt:format(q.title or "?")
 end
 
 function Conv.GameOptions(s)
   local out = {}
   if not s or s.kind == "talk" then return out end
-  local function add(text, game) out[#out + 1] = { choice = { text = text }, game = game } end
+  local function add(text, game, icon) out[#out + 1] = { choice = { text = text, icon = icon }, game = game } end
   local gossip, quest = C.BlizzardFrame("gossip"), C.BlizzardFrame("quest")
   local onGossip = gossip and gossip:IsShown()
   local onQuest = quest and quest:IsShown()
@@ -711,11 +707,13 @@ function Conv.GameOptions(s)
       return (a.title or "") < (b.title or "")
     end)
     for _, q in ipairs(quests) do
-      add(questLabel(q), { kind = "gossipQuest", questID = q.questID, active = q.active })
+      add(questLabel(q), { kind = "gossipQuest", questID = q.questID, active = q.active }, C.QuestIcon(q))
     end
     for _, o in ipairs(C.GossipOptions()) do
       if type(o.name) == "string" and o.name ~= "" then
-        add(C.IconMarkup(o.icon, 14) .. o.name, { kind = "gossipOption", id = o.id })
+        local icon = (type(o.icon) == "number" and o.icon > 0 or type(o.icon) == "string" and o.icon ~= "")
+          and { file = o.icon } or nil
+        add(o.name, { kind = "gossipOption", id = o.id }, icon)
       end
     end
   elseif onQuest then
@@ -726,13 +724,14 @@ function Conv.GameOptions(s)
         return a.index < b.index
       end)
       for _, q in ipairs(quests) do
-        add(questLabel(q), { kind = "greetingQuest", index = q.index, active = q.active })
+        add(questLabel(q), { kind = "greetingQuest", index = q.index, active = q.active }, C.QuestIcon(q))
       end
     else
       local title = C.QuestFrameText().title
       if type(title) == "string" and title ~= "" then
         local handIn = questStage == "progress" or questStage == "complete"
-        add((handIn and L.GAME_TURN_IN or L.GAME_QUEST):format(title), { kind = "reveal" })
+        add((handIn and L.GAME_TURN_IN or L.GAME_QUEST):format(title), { kind = "reveal" },
+          C.QuestIcon({ questID = C.QuestFrameText().questID, active = handIn, complete = handIn }))
       end
     end
   end

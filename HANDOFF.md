@@ -3,7 +3,7 @@
 > Read this first, then `DESIGN.md`, then `CONTENT_GUIDE.md` (and `PACK_AUTHORING.md` before adding a zone). You won't remember earlier sessions; these files are your memory.
 > The original brief is the Project doc `rpg-dialogue-build-prompt (1).md`. Re-read it when a decision isn't covered here.
 
-**Last session:** 2026-11-13 · **M0–M8 all built; three rounds of in-game results are in.** The addon loads, packs load, `/rpgd why` works, and the Skyborne race token is "Skyborne". **Versions now: core 0.9.0, World 1.0.0, Elwynn 1.1.0** (`python3 tools/version.py`).
+**Last session:** 2026-11-13 · **M0–M8 all built; three rounds of in-game results are in.** The addon loads, packs load, `/rpgd why` works, and the Skyborne race token is "Skyborne". **Versions now: core 0.10.0, World 1.0.0, Elwynn 1.1.0** (`python3 tools/version.py`).
 
 **First in-game test (user, 2026-11-13):**
 - **Test character: Skyborne Druid, level 22 (Blooded), faction not confirmed, tested in Northshire Valley.** Content for that character is thin: the slice is written for level 1–10 characters doing Northshire/Goldshire quests (only 4 Skyborne lines and 1 druid line exist). Asked the user where they actually play, for the next content pass.
@@ -18,18 +18,20 @@
   - Polish: shadow, gradient parchment, brass trim, framed portrait, rules, reply rows with hover band and accent stripe, themed buttons everywhere, game quest and option icons (atlases, with a blank fallback), fade-in.
   - Versions in the AddOns list title (grey), TOC `## Version`, `/rpgd packs`, settings header, login line. `tools/version.py` keeps TOC, code and changelogs in step; `tools/build_zip.py` builds `tools/out/RPGDialogue-<ver>.zip` and refuses on a mismatch. When bumping: `python3 tools/version.py set <folder> <x.y.z>`, then add the changelog heading.
 
+- **Then: "If possible, can it become closer to WoW's original style?"** Read as: look like the game's own quest and gossip windows. Done in 0.10.0 (DESIGN §3.10): a "game" look (new default) built at runtime from the client's own art, found in Blizzard's 12.1.5 UI code (cloned the public `Gethe/wow-ui-source` mirror to read `GossipFrame.xml`, `SharedUIPanelTemplates.xml`, `NineSliceLayouts.lua`, `QuestUtils.lua`...). The 0.9.0 look stays as "Parchment and dark wood". Told the user that if they meant the 2004 classic look specifically, that can be a third style. No preview image was possible (the art lives in the client).
+
 ## Assumptions made while the user was away (confirm or correct)
 1. **Interface number** 16001 (from warcraft.wiki.gg, patch 1.60.1). TOCs say `16001, 16002` to cover the next patch too.
 2. **Vertical slice:** Northshire Valley + Goldshire (Elwynn Forest).
 3. **Test character:** now known (Skyborne Druid 22). The class-trainer requirement was covered with Llane Beshere (warrior); a druid trainer belongs wherever the user plays.
 4. **Name and license:** "RPG Dialogue", MIT.
-5. **Visual style:** the brief's example, "parchment and dark wood, very readable, uncluttered" (built from color textures, no art files).
+5. **Visual style:** now the game's own window art by default (user asked for "closer to WoW's original style"); the brief's example "parchment and dark wood" remains as the other style.
 6. **Where the code lives:** zips per milestone plus the docs in this Project. No GitHub repo was set up (the workflows in `.github/` are ready for when one is).
 7. **Commit identity:** placeholder `RPG Dialogue Dev <rpg-dialogue@users.noreply.localhost>`.
 8. **DESIGN.md §6 decisions accepted** as written. One change: TODO-id NPCs are matched by name at runtime always (not only in dev mode), so the slice is testable before capture data exists. The validator still flags every TODO.
 9. **Other dialogue addons:** RPG Dialogue steps back by default.
 10. **Total RP 3:** name and title both on by default when it's loaded ("Sir Aldric": title + first name).
-11. **Fonts:** default stays Friz Quadrata for text and Morpheus for names (the game's own look). Bundled, all SIL OFL 1.1: Atkinson Hyperlegible, Crimson Pro, Cinzel. Users who had the old readable font on get Atkinson for text and "same" for names.
+11. **Fonts:** Friz Quadrata for text; names "the window's own" (Friz in the game look's title bar, Morpheus on wood; schema 4 moved the old Morpheus default to it). Bundled, all SIL OFL 1.1: Atkinson Hyperlegible, Crimson Pro, Cinzel. Users who had the old readable font on get Atkinson for text and "same" for names.
 12. **Per-pack versions:** each pack keeps its own version in `pack.lua` plus a `CHANGELOG.md` in its folder; the TOC `## Version` is the release build.
 13. **"Something new" tooltip marker:** first meetings don't count as "new" (only unheard news lines and thread beats).
 
@@ -43,7 +45,7 @@
 - **M6** (979fcc5): spirit healer tree, books, insanity, drunk replies, ghosts, barks, errands.
 - **M7** (bbefce7): `tools/new_zone.py` (plan → approve tiers → scaffold), `tools/check_all.py`, impossible-quest-reference check, copied-wording check, flag replay lines, `/rpgd capture zone`, `tests/test_tools.py`.
 - **M8** (c2e6a2e): Total RP 3 (read-only), accessibility pass (keyboard selection, gamepad, Ask About keybinding, bundled readable font, "(Locked)" and ">" markers, journal tab keys), the optional "something new" tooltip marker (an M2 item that had been missed), pack `requires` reported in game and validated, per-pack versions and changelogs, `PACK_AUTHORING.md`, `.pkgmeta` checked against the packager's source, Blizzard UI policy checked and enforced by `check_all.py --release`, GitHub workflows, README rewrite.
-- **After the in-game tests:** box every visit with the game's options, safety net, right-click talk, Melika, fonts, polish, versions. **Checks now:** 134 Lua tests (new `tests/ux_spec.lua`), 8 Python tool tests, luacheck clean, validator 0 errors (106 warnings, all TODO placeholders), voice check 0 failures, simulation 0 runtime errors / 0 contradictions / 0 impossible quest references.
+- **After the in-game tests:** box every visit with the game's options, safety net, right-click talk, Melika, fonts, polish, versions. **Checks now:** 143 Lua tests (new `tests/ux_spec.lua`, `tests/look_spec.lua`), 8 Python tool tests, luacheck clean, validator 0 errors (106 warnings, all TODO placeholders), voice check 0 failures, simulation 0 runtime errors / 0 contradictions / 0 impossible quest references.
 - Earlier: **Checks at the end of M8:** 118 Lua tests, 7 Python tool tests, luacheck clean, validator 0 errors (101 warnings, all TODO placeholders), voice check 0 failures, simulation 0 runtime errors / 0 contradictions / 0 impossible quest references.
 
 ## Half-done
@@ -61,7 +63,8 @@
 - Gamepad (`EnableGamePadButton`, `OnGamePadButtonDown`, `C_GamePad.IsEnabled`).
 - The bundled font paths loading (`Interface\AddOns\RPGDialogue\Media\Fonts\*.ttf`), and the sizes looking even across fonts (scales in `Theme.FONT_LIST`).
 - Right-click talk: the `WorldFrame` OnMouseDown/OnMouseUp hooks, and that the box never races a game window.
-- `Texture:SetGradient` with `CreateColor` (fallbacks exist), the quest atlases (`QuestNormal`, `QuestTurnin`, `QuestActive`) and the fade-in animation.
+- `Texture:SetGradient` with `CreateColor` (fallbacks exist) and the fade-in animation.
+- The game look (0.10.0): `NineSliceUtil.ApplyLayoutByName` on our own frames, the inset child with `SetUsingParentLevel`, the round portrait mask, the title text above the metal title bar, `RedButton-Exit` atlases, `Interface\GossipFrame\GossipGossipIcon`, `QuestUtil` quest icons, `GetMaterialTextColors`, the `questTextContrast` CVar, clamp insets. All read from Blizzard's 12.1.5 code, none seen running. If it looks wrong, `look = "wood"` is one click away in settings.
 - `TooltipDataProcessor.AddTooltipPostCall` for the tooltip marker.
 - Total RP 3's `AddOn_TotalRP3.Player.GetCurrentUser()` and its `GetFirstName` / `GetTitle` / `GetRoleplayingName` methods (method names are from TRP3's public player object as other addons use it; not read from TRP3's source).
 - A real tagged build with the BigWigs packager (the `.pkgmeta` was checked by reading the packager's code; running it here was not allowed).
@@ -97,7 +100,9 @@ Still all of DESIGN.md §4 (section 9 answers, slice zone, where the repo lives,
 - `python3 tools/check_all.py` runs everything (about a minute); `--quick` skips the simulation.
 
 ## Exact next step
-User installs 0.9.0 (**full game restart**, not /reload), right-clicks Melika and checks: her own lines (as a Skyborne druid: "A sky-folk druid..."), the new look, the font pickers, the versions in the AddOns list. Fix whatever they report about the look or fonts. Then ask where the druid actually plays and write content there (Skyborne facts only from brief §10).
+User installs 0.10.0 (**full game restart**, not /reload), right-clicks Melika and a gossip NPC and checks the game-style box (screenshot welcome): frame, portrait, title, parchment, icons, red buttons. Fix what's off; if they meant the 2004 classic look, add it as a third style. Then ask where the druid actually plays and write content there (Skyborne facts only from brief §10).
+
+Previous next step (0.9.0): user installs, right-clicks Melika and checks: her own lines (as a Skyborne druid: "A sky-folk druid..."), the new look, the font pickers, the versions in the AddOns list.
 
 Previous next step: user retests: right-click Melika (box, her lines; as a Skyborne druid she should open with "A sky-folk druid."), then a gossip NPC (box with the menu's options), a quest giver (pick a quest from the box), a vendor. Answer: gossip NPCs keep the box, or the plain game window? Then content where the druid plays.
 

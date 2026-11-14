@@ -16,7 +16,8 @@ local y
 local function s() return ns.db.settings end
 
 local function refreshUI()
-  if UI.Dialogue.Frame() then UI.Dialogue.Style(); UI.Dialogue.Layout() end
+  UI.Dialogue.Restyle()
+  if UI.AskAbout.IsShown() then UI.AskAbout.Style() end
 end
 
 local function header(text)
@@ -155,6 +156,8 @@ local function build()
   header(L.ADDON_NAME .. "  |cff8a8a8a" .. ns.VERSION .. "|r")
   checkbox(L.OPT_ENABLED, "enabled")
   cycle(L.OPT_OPEN_MODE, "openMode", { "full", "compact", "skip" }, { L.OPEN_FULL, L.OPEN_COMPACT, L.OPEN_SKIP })
+  cycle(L.OPT_LOOK, "look", { "game", "wood" }, { L.LOOK_GAME, L.LOOK_WOOD })
+  if not UI.Theme.GameArt() then note(L.OPT_LOOK_MISSING) end
   checkbox(L.OPT_RIGHT_CLICK, "rightClickTalk")
   checkbox(L.OPT_FADE, "fadeDefault")
   slider(L.OPT_ACK, "ackChance", 0, 1, 0.05, "%.2f")

@@ -106,16 +106,14 @@ function Ask.Style()
   Theme.TextColor(panel.title, "name")
   Theme.SetFont(panel.empty, "body", size - 2)
   Theme.TextColor(panel.empty, "dim")
-  local p = Theme.Palette()
   for _, row in ipairs(panel.rows) do
     Theme.SetFont(row.label, "body", size - 1)
     Theme.SetFont(row.marker, "name", size - 1)
-    Theme.TextColor(row.marker, "name")
+    Theme.TextColor(row.marker, "marker")
     Theme.SetFont(row.cat, "body", size - 4)
     Theme.TextColor(row.label, "choice")
     Theme.TextColor(row.cat, "dim")
-    row.hl:SetColorTexture(p.highlight[1], p.highlight[2], p.highlight[3], p.highlight[4])
-    row.stripe:SetColorTexture(p.accent[1], p.accent[2], p.accent[3], p.accent[4])
+    Theme.StyleRow(row)
   end
   Theme.ColorDivider(panel.rule)
   Theme.StyleButton(panel.archive)
@@ -130,7 +128,9 @@ function Ask.Toggle(anchor)
   panel.search:SetText("")
   Ask.Style()
   panel:ClearAllPoints()
-  if anchor then panel:SetPoint("TOPLEFT", anchor, "TOPRIGHT", 4, 0) else panel:SetPoint("CENTER") end
+  -- The game look's metal frame reaches a few pixels past the box's edge.
+  local gap = Theme.IsGame() and 12 or 4
+  if anchor then panel:SetPoint("TOPLEFT", anchor, "TOPRIGHT", gap, 0) else panel:SetPoint("CENTER") end
   offset, selected = 0, nil
   refresh()
   panel:Show()

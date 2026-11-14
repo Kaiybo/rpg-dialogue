@@ -41,7 +41,7 @@ local function create()
   frame.action = Theme.Button(frame, "", 140, 22)
   frame.action:SetPoint("BOTTOMRIGHT", -16, 14)
   frame.action:SetScript("OnClick", function() X.Action() end)
-  frame.close = Theme.Button(frame, "x", 20, 20)
+  frame.close = Theme.CloseButton(frame)
   frame.close:SetPoint("TOPRIGHT", -12, -12)
   frame.close:SetScript("OnClick", function() frame:Hide() end)
 end

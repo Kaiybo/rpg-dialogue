@@ -7,7 +7,7 @@ local U = ns.Util
 local SD = {}
 ns.SavedData = SD
 
-SD.SCHEMA = 3
+SD.SCHEMA = 4
 
 SD.ACCOUNT_DEFAULTS = {
   schema = SD.SCHEMA,
@@ -35,8 +35,9 @@ SD.ACCOUNT_DEFAULTS = {
     fadeDefault = true,         -- fade Blizzard's window while ours covers it
     textSize = 14,
     lineSpacing = 3,
+    look = "game",              -- "game" (the game's own quest window art) | "wood"
     fontBody = "friz",          -- see Theme.FONT_LIST ("lsm:<name>" for SharedMedia fonts)
-    fontName = "morpheus",      -- or "same" (as the text)
+    fontName = "auto",          -- "auto" (the window's own) | "same" (as the text) | a font
     textSpeed = 70,             -- characters per second
     instantText = false,
     autoAdvance = false,
@@ -105,6 +106,12 @@ SD.MIGRATIONS.account[3] = function(db)
     db.settings.fontName = "same"
   end
   if type(db.settings) == "table" then db.settings.readableFont = nil end
+end
+
+-- Schema 4: the "game style" look. Names default to the window's own font (Friz Quadrata
+-- in the game's title bar, Morpheus on wood), which is what Morpheus, the old default, was.
+SD.MIGRATIONS.account[4] = function(db)
+  if type(db.settings) == "table" and db.settings.fontName == "morpheus" then db.settings.fontName = "auto" end
 end
 
 SD.LIMITS = { seen = 1500, journal = 2000, deaths = 500, debug = 300, flagged = 500 }

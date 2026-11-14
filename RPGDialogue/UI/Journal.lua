@@ -183,7 +183,7 @@ local function create()
 
   frame.title = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
   frame.title:SetPoint("TOPLEFT", 18, -14)
-  frame.close = Theme.Button(frame, "x", 20, 20)
+  frame.close = Theme.CloseButton(frame)
   frame.close:SetPoint("TOPRIGHT", -12, -12)
   frame.close:SetScript("OnClick", function() frame:Hide() end)
 

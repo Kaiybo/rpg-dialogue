@@ -2,6 +2,18 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.10.0 (2026-11-13)
+Packs unchanged: World 1.0.0, Elwynn Forest 1.1.0.
+
+### The game's own window style
+- **New default look: the game's own quest and gossip window.** The conversation box is built from your client's own art, so it matches your quest windows: the metal frame with the NPC's round portrait in the corner, their name in the title bar, the quest parchment, replies listed like gossip options (speech bubbles; the game's own quest and option icons; the gossip list's highlight bar), "Get on with it" with a bullet, and red buttons ("Ask about..." on the bottom bar, the red close button). It's gossip-window shaped (360 wide) and opens where the game opens its quest windows, or right over the game's window. Names use the game's title-bar font.
+- The Ask list, the short-line bar, the journal and the export window get the game's panel border, parchment and red buttons.
+- Follows the game's **Quest Text Contrast** setting (Options → Accessibility): lighter parchments, or the dark background with light text. RPG Dialogue's own high-contrast option uses that dark background too.
+- Settings → **"Window style"**: "The game's own (like the quest window)" or "Parchment and dark wood" (the 0.9.0 look). Changes apply at once, even mid-conversation. If your client lacks any of the art, windows use parchment and wood, and settings say so.
+- Name font: new choice **"The window's own"** (the default): Friz Quadrata in the game style, Morpheus on wood. The old default (Morpheus) moves over to it once (saved-data schema 4); other choices are kept.
+- Quest icons now come from the game's own helper (campaign, daily and other quest kinds show their own marks) in both looks.
+- How it's built (sources, sizes, the fallback): DESIGN.md §3.10. 143 Lua tests.
+
 ## 0.9.0 (2026-11-13)
 First build with version numbers. Packs in this build: World 1.0.0, Elwynn Forest 1.1.0.
 

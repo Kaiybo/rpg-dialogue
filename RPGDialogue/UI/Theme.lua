@@ -1,16 +1,47 @@
--- Look: parchment and dark wood, very readable, uncluttered. Built from solid color
--- textures (no external art), so nothing can show up as a missing-texture box.
--- High-contrast theme for accessibility. Color is never the only signal.
+-- Two looks for our windows (setting "look"):
+--  * "game" (default): the game's own quest and gossip window art, read from the client at
+--    runtime: the metal frame with the round portrait, the rock header, the quest parchment
+--    (following the game's "Quest Text Contrast" setting), red panel buttons, the gossip
+--    list's highlight bar. It matches whatever the player's own quest windows look like.
+--  * "wood": RPG Dialogue's parchment and dark wood, built from solid color textures only.
+-- If the client lacks any piece of the game art, every window falls back to "wood".
+-- High-contrast theme for accessibility in both. Color is never the only signal.
 local _, ns = ...
+
+local C = ns.Compat
 
 ns.UI = ns.UI or {}
 local Theme = {}
 ns.UI.Theme = Theme
 
+---------------------------------------------------------------------------
+-- Look
+---------------------------------------------------------------------------
+local artChecked, artOK, artBroken = false, false, false
+
+-- Does this client have the game art the "game" look is made of?
+function Theme.GameArt()
+  if not artChecked then
+    artChecked = true
+    artOK = C.GameArtAvailable() and true or false
+  end
+  return artOK and not artBroken
+end
+
+function Theme.Look()
+  local s = ns.db and ns.db.settings
+  if (not s or s.look ~= "wood") and Theme.GameArt() then return "game" end
+  return "wood"
+end
+
+function Theme.IsGame() return Theme.Look() == "game" end
+
+---------------------------------------------------------------------------
 -- Fonts. The text and the names each pick from: the game's own fonts, three bundled open
 -- fonts (SIL Open Font License 1.1, licence files in Media/Fonts), and any fonts other
 -- addons share through LibSharedMedia. The bundled fonts cover Latin scripts only, so other
 -- client languages get the game's standard font. `scale` evens out how big fonts look.
+---------------------------------------------------------------------------
 local MEDIA = "Interface\\AddOns\\RPGDialogue\\Media\\Fonts\\"
 Theme.FONT_LIST = {
   { id = "friz", path = "Fonts\\FRIZQT__.TTF", game = true },
@@ -21,17 +52,21 @@ Theme.FONT_LIST = {
   { id = "cinzel", path = MEDIA .. "Cinzel-Regular.ttf", scale = 0.95, latin = true },
   { id = "skurri", path = "Fonts\\SKURRI.TTF", game = true, latin = true },
 }
-Theme.DEFAULT_FONT = { body = "friz", name = "morpheus" }
+-- Names default to "the window's own": Friz Quadrata in the game's title bar, Morpheus on wood.
+Theme.DEFAULT_FONT = { body = "friz", name = "auto" }
 
 -- { { id, label, path, scale }, ... } for the settings: built-in fonts, then SharedMedia's.
 function Theme.FontChoices(kind)
   local L = ns.L
   local out = {}
-  if kind == "name" then out[#out + 1] = { id = "same", label = L.FONT_SAME } end
+  if kind == "name" then
+    out[#out + 1] = { id = "auto", label = L.FONT_AUTO }
+    out[#out + 1] = { id = "same", label = L.FONT_SAME }
+  end
   for _, f in ipairs(Theme.FONT_LIST) do
     out[#out + 1] = { id = f.id, label = L["FONT_" .. f.id:upper()] or f.id, path = f.path, scale = f.scale }
   end
-  for _, f in ipairs(ns.Compat.SharedMediaFonts()) do
+  for _, f in ipairs(C.SharedMediaFonts()) do
     out[#out + 1] = { id = "lsm:" .. f.name, label = f.name .. " (SharedMedia)", path = f.path }
   end
   return out
@@ -41,7 +76,7 @@ local function findFont(id)
   for _, f in ipairs(Theme.FONT_LIST) do if f.id == id then return f end end
   if type(id) == "string" and id:find("^lsm:") then
     local name = id:sub(5)
-    for _, f in ipairs(ns.Compat.SharedMediaFonts()) do
+    for _, f in ipairs(C.SharedMediaFonts()) do
       if f.name == name then return { id = id, path = f.path } end
     end
   end
@@ -53,44 +88,14 @@ function Theme.FontPath(kind)
   local s = ns.db and ns.db.settings or {}
   local id = kind == "name" and (s.fontName or Theme.DEFAULT_FONT.name) or (s.fontBody or Theme.DEFAULT_FONT.body)
   if id == "same" then return Theme.FontPath("body") end
-  local f = findFont(id) or findFont(Theme.DEFAULT_FONT[kind == "name" and "name" or "body"])
-  if f.latin and not ns.Compat.LatinClient() then f = nil end
-  if not f or (f.id == "friz" and not ns.Compat.LatinClient()) then
-    return ns.Compat.GlobalString("STANDARD_TEXT_FONT") or "Fonts\\FRIZQT__.TTF", 1
+  if id == "auto" then id = Theme.IsGame() and "friz" or "morpheus" end
+  local f = findFont(id) or findFont(kind == "name" and "morpheus" or Theme.DEFAULT_FONT.body)
+  if f.latin and not C.LatinClient() then f = nil end
+  if not f or (f.id == "friz" and not C.LatinClient()) then
+    return C.GlobalString("STANDARD_TEXT_FONT") or "Fonts\\FRIZQT__.TTF", 1
   end
   return f.path, f.scale or 1
 end
-
-Theme.PALETTES = {
-  parchment = {
-    bg = { 0.93, 0.87, 0.71, 0.97 }, bgTop = { 0.96, 0.91, 0.77, 0.98 }, bgBottom = { 0.87, 0.79, 0.61, 0.98 },
-    inner = { 0.88, 0.80, 0.62, 1 }, shade = { 0.62, 0.50, 0.32, 0.45 },
-    wood = { 0.24, 0.15, 0.07, 1 }, woodLight = { 0.42, 0.27, 0.13, 1 }, trim = { 0.74, 0.57, 0.27, 1 },
-    text = { 0.16, 0.10, 0.04 }, name = { 0.42, 0.17, 0.04 }, subtitle = { 0.40, 0.29, 0.17 },
-    choice = { 0.20, 0.12, 0.05 }, hover = { 0.55, 0.22, 0.02 }, number = { 0.55, 0.30, 0.08 },
-    highlight = { 0.55, 0.38, 0.16, 0.16 }, accent = { 0.55, 0.25, 0.05, 0.9 },
-    dim = { 0.45, 0.38, 0.30 }, locked = { 0.52, 0.47, 0.40 }, reaction = { 0.30, 0.20, 0.10 },
-    divider = { 0.42, 0.27, 0.13, 0.30 },
-    button = { 0.30, 0.19, 0.09, 1 }, buttonText = { 0.96, 0.90, 0.76 }, buttonHover = { 1, 0.92, 0.70, 0.14 },
-  },
-  contrast = {
-    bg = { 0, 0, 0, 0.96 }, bgTop = { 0, 0, 0, 0.97 }, bgBottom = { 0, 0, 0, 0.97 },
-    inner = { 0.08, 0.08, 0.08, 1 }, shade = { 0.3, 0.3, 0.3, 0.6 },
-    wood = { 1, 1, 1, 1 }, woodLight = { 0.7, 0.7, 0.7, 1 }, trim = { 1, 0.82, 0, 1 },
-    text = { 1, 1, 1 }, name = { 1, 0.82, 0 }, subtitle = { 0.85, 0.85, 0.85 },
-    choice = { 1, 1, 0.55 }, hover = { 1, 1, 1 }, number = { 1, 0.82, 0 },
-    highlight = { 1, 1, 1, 0.18 }, accent = { 1, 0.82, 0, 1 },
-    dim = { 0.75, 0.75, 0.75 }, locked = { 0.6, 0.6, 0.6 }, reaction = { 0.85, 0.95, 1 },
-    divider = { 1, 1, 1, 0.45 },
-    button = { 0.12, 0.12, 0.12, 1 }, buttonText = { 1, 1, 1 }, buttonHover = { 1, 1, 1, 0.2 },
-  },
-}
-
-function Theme.Palette()
-  local s = ns.db and ns.db.settings
-  return (s and s.highContrast) and Theme.PALETTES.contrast or Theme.PALETTES.parchment
-end
-
 
 function Theme.TextSize()
   return (ns.db and ns.db.settings.textSize) or 14
@@ -106,10 +111,102 @@ function Theme.SetFont(fs, kind, size)
   size = math.floor((size or Theme.TextSize()) * (scale or 1) + 0.5)
   fs:SetFont(path, size, "")
   -- A font file that failed to load leaves the string with no font at all; fall back.
-  if not fs:GetFont() then fs:SetFont(ns.Compat.GlobalString("STANDARD_TEXT_FONT") or "Fonts\\FRIZQT__.TTF", size, "") end
+  if not fs:GetFont() then fs:SetFont(C.GlobalString("STANDARD_TEXT_FONT") or "Fonts\\FRIZQT__.TTF", size, "") end
   if not fs:GetFont() then fs:SetFontObject("GameFontHighlight") end
 end
 
+-- A drop shadow like the game's title fonts (or none).
+function Theme.Shadow(fs, on)
+  if on then
+    fs:SetShadowOffset(1, -1)
+    fs:SetShadowColor(0, 0, 0, 1)
+  else
+    fs:SetShadowOffset(0, 0)
+  end
+end
+
+---------------------------------------------------------------------------
+-- Colors
+---------------------------------------------------------------------------
+Theme.PALETTES = {
+  parchment = {
+    bg = { 0.93, 0.87, 0.71, 0.97 }, bgTop = { 0.96, 0.91, 0.77, 0.98 }, bgBottom = { 0.87, 0.79, 0.61, 0.98 },
+    inner = { 0.88, 0.80, 0.62, 1 }, shade = { 0.62, 0.50, 0.32, 0.45 },
+    wood = { 0.24, 0.15, 0.07, 1 }, woodLight = { 0.42, 0.27, 0.13, 1 }, trim = { 0.74, 0.57, 0.27, 1 },
+    text = { 0.16, 0.10, 0.04 }, name = { 0.42, 0.17, 0.04 }, subtitle = { 0.40, 0.29, 0.17 },
+    title = { 0.42, 0.17, 0.04 }, header = { 0.40, 0.29, 0.17 },
+    choice = { 0.20, 0.12, 0.05 }, hover = { 0.55, 0.22, 0.02 }, number = { 0.55, 0.30, 0.08 },
+    marker = { 0.42, 0.17, 0.04 },
+    highlight = { 0.55, 0.38, 0.16, 0.16 }, accent = { 0.55, 0.25, 0.05, 0.9 },
+    dim = { 0.45, 0.38, 0.30 }, locked = { 0.52, 0.47, 0.40 }, reaction = { 0.30, 0.20, 0.10 },
+    divider = { 0.42, 0.27, 0.13, 0.30 },
+    button = { 0.30, 0.19, 0.09, 1 }, buttonText = { 0.96, 0.90, 0.76 }, buttonTextHover = { 1, 0.95, 0.82 },
+    buttonHover = { 1, 0.92, 0.70, 0.14 },
+  },
+  contrast = {
+    bg = { 0, 0, 0, 0.96 }, bgTop = { 0, 0, 0, 0.97 }, bgBottom = { 0, 0, 0, 0.97 },
+    inner = { 0.08, 0.08, 0.08, 1 }, shade = { 0.3, 0.3, 0.3, 0.6 },
+    wood = { 1, 1, 1, 1 }, woodLight = { 0.7, 0.7, 0.7, 1 }, trim = { 1, 0.82, 0, 1 },
+    text = { 1, 1, 1 }, name = { 1, 0.82, 0 }, subtitle = { 0.85, 0.85, 0.85 },
+    title = { 1, 0.82, 0 }, header = { 0.85, 0.85, 0.85 },
+    choice = { 1, 1, 0.55 }, hover = { 1, 1, 1 }, number = { 1, 0.82, 0 }, marker = { 1, 0.82, 0 },
+    highlight = { 1, 1, 1, 0.18 }, accent = { 1, 0.82, 0, 1 },
+    dim = { 0.75, 0.75, 0.75 }, locked = { 0.6, 0.6, 0.6 }, reaction = { 0.85, 0.95, 1 },
+    divider = { 1, 1, 1, 0.45 },
+    button = { 0.12, 0.12, 0.12, 1 }, buttonText = { 1, 1, 1 }, buttonTextHover = { 1, 1, 0.6 },
+    buttonHover = { 1, 1, 1, 0.2 },
+  },
+}
+
+-- The game look takes its ink from the game itself (the colors its quest text uses on
+-- parchment, or on the dark background of the highest contrast setting).
+local gameCache = {}
+local function gamePalette(dark)
+  local key = dark and "dark" or "light"
+  if gameCache[key] then return gameCache[key] end
+  local text, title = C.MaterialTextColors(dark and "Stone" or "Parchment")
+  local p
+  if dark then
+    p = { text = text, choice = { 1, 1, 1 }, hover = { 1, 1, 1 }, number = { 1, 0.82, 0 }, marker = { 1, 0.82, 0 },
+          name = { 1, 0.82, 0 }, subtitle = { 0.85, 0.85, 0.85 }, dim = { 0.75, 0.75, 0.75 },
+          locked = { 0.6, 0.6, 0.6 }, reaction = { 0.85, 0.95, 1 }, divider = { 1, 1, 1, 0.3 },
+          bg = { 0.08, 0.07, 0.06, 1 } }
+  else
+    p = { text = text, choice = title, hover = title, number = { 0.42, 0.27, 0.10 }, marker = { 0.42, 0.27, 0.10 },
+          name = { 0.24, 0.12, 0 }, subtitle = { 0.34, 0.24, 0.13 }, dim = { 0.34, 0.26, 0.18 },
+          locked = { 0.46, 0.41, 0.35 }, reaction = { 0.28, 0.17, 0.07 }, divider = { 0.32, 0.20, 0.08, 0.35 },
+          bg = { 0.86, 0.78, 0.60, 1 } }
+  end
+  -- Gold on the metal title bar, white on the rock header, gold button lettering: the game's.
+  p.title, p.header = { 1, 0.82, 0 }, { 1, 1, 1 }
+  p.buttonText, p.buttonTextHover = { 1, 0.82, 0 }, { 1, 1, 1 }
+  p.dark = dark
+  setmetatable(p, { __index = Theme.PALETTES.parchment })
+  gameCache[key] = p
+  return p
+end
+
+function Theme.Palette()
+  local s = ns.db and ns.db.settings
+  local contrast = s and s.highContrast
+  if Theme.IsGame() then return gamePalette(contrast or C.QuestTextContrast() == 4) end
+  return contrast and Theme.PALETTES.contrast or Theme.PALETTES.parchment
+end
+
+-- "|cffRRGGBB" for a palette color, for a number or marker inside a line of text.
+function Theme.Hex(key)
+  local c = Theme.Palette()[key]
+  return ("|cff%02x%02x%02x"):format(math.floor(c[1] * 255 + 0.5), math.floor(c[2] * 255 + 0.5), math.floor(c[3] * 255 + 0.5))
+end
+
+function Theme.TextColor(fs, key)
+  local c = Theme.Palette()[key or "text"]
+  fs:SetTextColor(c[1], c[2], c[3])
+end
+
+---------------------------------------------------------------------------
+-- Frames
+---------------------------------------------------------------------------
 local function color(tex, c) tex:SetColorTexture(c[1], c[2], c[3], c[4] or 1) end
 
 local function edges(f, layer, sub, inset, size)
@@ -123,40 +220,140 @@ local function edges(f, layer, sub, inset, size)
 end
 
 local function paint(e, c) for _, t in pairs(e) do color(t, c) end end
+local function showAll(list, on) for _, r in ipairs(list) do r:SetShown(on) end end
 
--- A soft drop shadow, a parchment gradient, a dark wood frame with a brass hairline inside
--- it, and a faint shade line where the parchment meets the trim.
-function Theme.Decorate(f, thickness)
+local NINE_PIECES = { "TopLeftCorner", "TopRightCorner", "BottomLeftCorner", "BottomRightCorner",
+  "TopEdge", "BottomEdge", "LeftEdge", "RightEdge", "Center" }
+
+local ROCK = "Interface\\FrameGeneral\\UI-Background-Rock"
+local PORTRAIT_MASK = "Interface\\CharacterFrame\\TempPortraitAlphaMask"
+
+-- The game look's parts for one frame, made the first time they're needed. A portrait
+-- frame is built like the game's gossip window (ButtonFrameTemplate): metal frame with the
+-- portrait ring, rock behind a 60-pixel header, an inset holding the quest parchment. Any
+-- other window gets the plain metal panel border around parchment.
+local function buildGame(f)
+  local t = f.rpgdTex
+  if t.game ~= nil then return t.game end
+  local g = { regions = {} }
+  local function keep(r) g.regions[#g.regions + 1] = r; return r end
+  local layout
+  if t.opts.portrait then
+    layout = "PortraitFrameTemplate"
+    g.rock = keep(f:CreateTexture(nil, "BACKGROUND", nil, -6))
+    g.rock:SetTexture(ROCK, "REPEAT", "REPEAT")
+    g.rock:SetHorizTile(true)
+    g.rock:SetVertTile(true)
+    g.rock:SetPoint("TOPLEFT", 2, -21)
+    g.rock:SetPoint("BOTTOMRIGHT", -2, 2)
+    g.streaks = keep(f:CreateTexture(nil, "BORDER"))
+    if C.HasAtlas("_UI-Frame-TopTileStreaks") then
+      g.streaks:SetAtlas("_UI-Frame-TopTileStreaks")
+      g.streaks:SetHorizTile(true)
+    end
+    g.streaks:SetHeight(43)
+    g.streaks:SetPoint("TOPLEFT", 6, -21)
+    g.streaks:SetPoint("TOPRIGHT", -2, -21)
+    -- The inset's own border needs a frame drawn at our level, under our text.
+    g.inset = CreateFrame("Frame", nil, f)
+    if C.UseParentLevel(g.inset) then C.ApplyNineSlice(g.inset, "InsetFrameTemplate") end
+    g.paper = keep(f:CreateTexture(nil, "BACKGROUND", nil, 2))
+    g.paper:SetPoint("TOPLEFT", g.inset, "TOPLEFT", 3, -3)
+    g.paper:SetPoint("BOTTOMRIGHT", g.inset, "BOTTOMRIGHT", -3, 3)
+    -- The round portrait sits in the frame's corner ring, above it.
+    g.portrait = keep(f:CreateTexture(nil, "OVERLAY", nil, 6))
+    g.portrait:SetSize(62, 62)
+    g.portrait:SetPoint("TOPLEFT", -5, 7)
+    if type(f.CreateMaskTexture) == "function" and type(g.portrait.AddMaskTexture) == "function" then
+      local m = f:CreateMaskTexture()
+      m:SetTexture(PORTRAIT_MASK, "CLAMPTOBLACKADDITIVE", "CLAMPTOBLACKADDITIVE")
+      m:SetPoint("TOPLEFT", g.portrait, "TOPLEFT", 2, 0)
+      m:SetPoint("BOTTOMRIGHT", g.portrait, "BOTTOMRIGHT", -2, 4)
+      g.portrait:AddMaskTexture(m)
+    end
+  else
+    layout = "SimplePanelTemplate"
+    g.paper = keep(f:CreateTexture(nil, "BACKGROUND", nil, 2))
+    g.paper:SetPoint("TOPLEFT", 2, -2)
+    g.paper:SetPoint("BOTTOMRIGHT", -2, 2)
+  end
+  if not C.ApplyNineSlice(f, layout) then
+    -- Something about the game art didn't work after all: wood for everyone from now on.
+    for _, r in ipairs(g.regions) do r:Hide() end
+    if g.inset then g.inset:Hide() end
+    artBroken = true
+    t.game = false
+    return false
+  end
+  for _, name in ipairs(NINE_PIECES) do
+    local piece = rawget(f, name) or f[name]
+    if type(piece) == "table" then keep(piece) end
+  end
+  t.game = g
+  return g
+end
+
+-- Decorate a window. opts.portrait: the conversation box (portrait, header and inset in the
+-- game look). thickness: the wood frame's width.
+function Theme.Decorate(f, thickness, opts)
   thickness = thickness or 6
   f.rpgdTex = f.rpgdTex or {}
   local t = f.rpgdTex
+  t.opts = opts or t.opts or {}
   if not t.bg then
+    t.wood = {}
     t.shadow = {}
     for i, spread in ipairs({ 3, 7, 12 }) do
       local sh = f:CreateTexture(nil, "BACKGROUND", nil, -8 + i)
       sh:SetPoint("TOPLEFT", -spread + 2, spread - 4)
       sh:SetPoint("BOTTOMRIGHT", spread + 2, -spread - 4)
       t.shadow[i] = sh
+      t.wood[#t.wood + 1] = sh
     end
     t.bg = f:CreateTexture(nil, "BACKGROUND", nil, 1)
     t.bg:SetPoint("TOPLEFT", thickness, -thickness)
     t.bg:SetPoint("BOTTOMRIGHT", -thickness, thickness)
-    t.wood = edges(f, "BORDER", 0, 0, thickness)
+    t.wood[#t.wood + 1] = t.bg
+    t.woodEdge = edges(f, "BORDER", 0, 0, thickness)
     t.trim = edges(f, "BORDER", 1, thickness, 1)
     t.shade = edges(f, "BORDER", 2, thickness + 1, 1)
+    for _, set in ipairs({ t.woodEdge, t.trim, t.shade }) do
+      for _, r in pairs(set) do t.wood[#t.wood + 1] = r end
+    end
   end
   Theme.Recolor(f)
 end
 
+-- Show the parts of the current look and color them. Every window's Style calls this.
 function Theme.Recolor(f)
   local t = f.rpgdTex
   if not t then return end
+  local g = Theme.IsGame() and buildGame(f) or nil
+  local game = g and true or false
+  showAll(t.wood, not game)
+  if t.game then
+    showAll(t.game.regions, game)
+    if t.game.inset then t.game.inset:SetShown(game) end
+  end
   local p = Theme.Palette()
+  if game then
+    if g.paper:SetAtlas(C.QuestBackgroundAtlas(p.dark)) == false then color(g.paper, p.bg) end
+    return
+  end
   for i, sh in ipairs(t.shadow) do sh:SetColorTexture(0, 0, 0, ({ 0.30, 0.16, 0.07 })[i]) end
-  ns.Compat.SetGradient(t.bg, "VERTICAL", p.bgBottom, p.bgTop)
-  paint(t.wood, p.wood)
+  C.SetGradient(t.bg, "VERTICAL", p.bgBottom, p.bgTop)
+  paint(t.woodEdge, p.wood)
   paint(t.trim, p.trim)
   paint(t.shade, p.shade)
+end
+
+-- A part of the game look on a decorated frame ("portrait", "inset"), or nil (wood look,
+-- or not built).
+function Theme.GamePart(f, key)
+  local t = f.rpgdTex
+  local g = t and t.game
+  if not g or not Theme.IsGame() then return nil end
+  return g[key]
 end
 
 -- A thin horizontal rule.
@@ -171,45 +368,159 @@ function Theme.ColorDivider(d)
   color(d, Theme.Palette().divider)
 end
 
--- A flat wood button with a brass edge and parchment lettering, to replace the game's red
--- panel buttons inside our windows. SetText/GetText work as on any button.
+---------------------------------------------------------------------------
+-- Rows (replies, topics): a highlight on hover and on the keyboard selection. The game
+-- look uses the gossip window's own highlight bar; wood a soft band with an accent stripe.
+---------------------------------------------------------------------------
+local ROW_HIGHLIGHT = "Interface\\QuestFrame\\UI-QuestTitleHighlight"
+
+function Theme.StyleRow(row)
+  local p = Theme.Palette()
+  if Theme.IsGame() then
+    row.hl:SetTexture(ROW_HIGHLIGHT)
+    row.hl:SetBlendMode("ADD")
+    row.hl:SetVertexColor(1, 1, 1, 1)
+    row.stripe:Hide()
+  else
+    row.hl:SetBlendMode("BLEND")
+    row.hl:SetColorTexture(p.highlight[1], p.highlight[2], p.highlight[3], p.highlight[4])
+    row.stripe:Show()
+    row.stripe:SetColorTexture(p.accent[1], p.accent[2], p.accent[3], p.accent[4])
+  end
+end
+
+---------------------------------------------------------------------------
+-- Buttons. One button object carries both looks: the game's red panel button (the same
+-- textures as UIPanelButtonTemplate) and a flat wood button with a brass edge.
+-- SetText/GetText work as on any button.
+---------------------------------------------------------------------------
+local RED = "Interface\\Buttons\\UI-Panel-Button-"
+local RED_COORDS = { { 0, 0.09375 }, { 0.09375, 0.53125 }, { 0.53125, 0.625 } }
+
+local function setRed(b, state)
+  for _, tex in ipairs(b.red) do tex:SetTexture(RED .. state) end
+end
+
+local function hoverColor(b, on)
+  if b.isClose and b.gameLook then return end
+  local c = Theme.Palette()[on and "buttonTextHover" or "buttonText"]
+  b.label:SetTextColor(c[1], c[2], c[3])
+end
+
 function Theme.Button(parent, text, width, height)
   local b = CreateFrame("Button", nil, parent)
   b:SetSize(width, height)
+  b.woodSize = { width, height }
+  -- wood
   b.bg = b:CreateTexture(nil, "BACKGROUND")
   b.bg:SetAllPoints()
   b.edge = edges(b, "BORDER", 0, 0, 1)
   b.hl = b:CreateTexture(nil, "HIGHLIGHT")
   b.hl:SetPoint("TOPLEFT", 1, -1)
   b.hl:SetPoint("BOTTOMRIGHT", -1, 1)
+  -- game: left cap, middle, right cap, and the additive highlight
+  b.red = {}
+  for i = 1, 3 do
+    local tex = b:CreateTexture(nil, "BACKGROUND", nil, 1)
+    tex:SetTexCoord(RED_COORDS[i][1], RED_COORDS[i][2], 0, 0.6875)
+    b.red[i] = tex
+  end
+  b.red[1]:SetPoint("TOPLEFT"); b.red[1]:SetPoint("BOTTOMLEFT"); b.red[1]:SetWidth(12)
+  b.red[3]:SetPoint("TOPRIGHT"); b.red[3]:SetPoint("BOTTOMRIGHT"); b.red[3]:SetWidth(12)
+  b.red[2]:SetPoint("TOPLEFT", b.red[1], "TOPRIGHT")
+  b.red[2]:SetPoint("BOTTOMRIGHT", b.red[3], "BOTTOMLEFT")
+  setRed(b, "Up")
+  b.redHl = b:CreateTexture(nil, "HIGHLIGHT", nil, 1)
+  b.redHl:SetAllPoints()
+  b.redHl:SetTexture(RED .. "Highlight")
+  b.redHl:SetTexCoord(0, 0.625, 0, 0.6875)
+  b.redHl:SetBlendMode("ADD")
+
   b.label = b:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
   b.label:SetPoint("CENTER", 0, 0)
   b.SetText = function(self, t) self.label:SetText(t) end
   b.GetText = function(self) return self.label:GetText() end
-  b:SetScript("OnMouseDown", function(self) self.label:SetPoint("CENTER", 1, -1) end)
-  b:SetScript("OnMouseUp", function(self) self.label:SetPoint("CENTER", 0, 0) end)
+  b:SetScript("OnMouseDown", function(self)
+    self.label:SetPoint("CENTER", 1, -1)
+    if self.gameLook then
+      if self.isClose then Theme.CloseArt(self, true) else setRed(self, "Down") end
+    end
+  end)
+  b:SetScript("OnMouseUp", function(self)
+    self.label:SetPoint("CENTER", 0, 0)
+    if self.gameLook then
+      if self.isClose then Theme.CloseArt(self, false) else setRed(self, "Up") end
+    end
+  end)
+  b:SetScript("OnEnter", function(self) hoverColor(self, true) end)
+  b:SetScript("OnLeave", function(self) hoverColor(self, false) end)
   b.rpgdButton = true
   Theme.StyleButton(b)
   b:SetText(text or "")
   return b
 end
 
+-- The red close button (game look) or a small wood "x" button.
+function Theme.CloseButton(parent)
+  local b = Theme.Button(parent, "x", 20, 20)
+  b.isClose = true
+  b.closeArt = b:CreateTexture(nil, "ARTWORK")
+  b.closeArt:SetAllPoints()
+  b.closeHl = b:CreateTexture(nil, "HIGHLIGHT", nil, 2)
+  b.closeHl:SetAllPoints()
+  Theme.StyleButton(b)
+  return b
+end
+
+-- The game's close button art: atlases on modern clients, the classic files otherwise.
+function Theme.CloseArt(b, pressed)
+  if C.HasAtlas("RedButton-Exit") then
+    b.closeArt:SetAtlas(pressed and "RedButton-exit-pressed" or "RedButton-Exit")
+    b.closeHl:SetAtlas("RedButton-Highlight")
+  else
+    b.closeArt:SetTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-" .. (pressed and "Down" or "Up"))
+    b.closeHl:SetTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+  end
+  b.closeHl:SetBlendMode("ADD")
+end
+
 function Theme.StyleButton(b, size)
   local p = Theme.Palette()
-  color(b.bg, p.button)
-  paint(b.edge, p.trim)
-  color(b.hl, p.buttonHover)
-  Theme.SetFont(b.label, "body", size or math.max(10, Theme.TextSize() - 2))
+  local game = Theme.IsGame()
+  b.gameLook = game
+  local wood = { b.bg, b.hl, b.edge.top, b.edge.bottom, b.edge.left, b.edge.right }
+  if b.isClose and b.closeArt then
+    showAll(wood, not game)
+    showAll(b.red, false)
+    b.redHl:Hide()
+    b.closeArt:SetShown(game)
+    b.closeHl:SetShown(game)
+    b.label:SetShown(not game)
+    if game then
+      b:SetSize(24, 24)
+      Theme.CloseArt(b, false)
+      return
+    end
+    b:SetSize(b.woodSize[1], b.woodSize[2])
+  else
+    showAll(wood, not game)
+    showAll(b.red, game)
+    b.redHl:SetShown(game)
+  end
+  size = size or math.max(10, Theme.TextSize() - 2)
+  if game then
+    -- The game's button lettering (GameFontNormal: Friz Quadrata 12 with a shadow, gold,
+    -- white on hover), following the text size setting.
+    b.label:SetFont(C.GlobalString("STANDARD_TEXT_FONT") or "Fonts\\FRIZQT__.TTF", size, "")
+    if not b.label:GetFont() then b.label:SetFontObject("GameFontNormal") end
+    Theme.Shadow(b.label, true)
+    setRed(b, "Up")
+  else
+    color(b.bg, p.button)
+    paint(b.edge, p.trim)
+    color(b.hl, p.buttonHover)
+    Theme.SetFont(b.label, "body", size)
+    Theme.Shadow(b.label, false)
+  end
   b.label:SetTextColor(p.buttonText[1], p.buttonText[2], p.buttonText[3])
-end
-
--- "|cffRRGGBB" for a palette color, for a number or marker inside a line of text.
-function Theme.Hex(key)
-  local c = Theme.Palette()[key]
-  return ("|cff%02x%02x%02x"):format(math.floor(c[1] * 255 + 0.5), math.floor(c[2] * 255 + 0.5), math.floor(c[3] * 255 + 0.5))
-end
-
-function Theme.TextColor(fs, key)
-  local c = Theme.Palette()[key or "text"]
-  fs:SetTextColor(c[1], c[2], c[3])
 end
