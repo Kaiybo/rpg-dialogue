@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.1.0 (unreleased)
+- Tirion Fordring answers the spirit healer's count of the missing (the souls the Scourge takes before they reach the hill).
+
 ## 1.0.0 (first release, unreleased)
 - Light's Hope Chapel (both factions): Lord Maxwell Tyrosus, Leonid Barthalomew the Revered; the Argent Guards.
 - By the Thondroril River: Tirion Fordring and his horse Mirador.

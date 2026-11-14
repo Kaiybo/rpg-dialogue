@@ -543,6 +543,14 @@ def("npcFlag", 0, "gate", nil, function(_, v, env)
   return flags[v] ~= nil, "npc flag " .. tostring(v)
 end)
 
+-- An NPC flag set in an earlier conversation, not this one (memory's `last` is stamped
+-- when a conversation ends). For "last time you said..." lines.
+def("npcFlagBefore", 0, "gate", nil, function(_, v, env)
+  local m = mem(env)
+  local at = (m.flags or {})[v]
+  return at ~= nil and m.last ~= nil and at <= m.last, "npc flag from an earlier visit " .. tostring(v)
+end)
+
 ---------------------------------------------------------------------------
 -- Evaluation
 ---------------------------------------------------------------------------

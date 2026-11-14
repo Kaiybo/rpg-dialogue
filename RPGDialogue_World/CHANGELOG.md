@@ -5,6 +5,8 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 ## 1.14.0 (unreleased)
 - **The spirit healer, rewritten.** A real argument now: does coming back cheapen death, is it mercy or a cage, is the one who wakes the one who died, and what happens if you refuse to go back (you may; the healer does not make it easy). The healer argues honestly, turns questions on you, and can concede.
 - Mysteries that stay open (claims `spirithealer_other_hand`, `spirithealer_was_mortal`, `spirithealer_the_door`): pages at the back of your file in another hand, dated ahead; a healer who half-remembers being alive; a door past the mist nobody opens. Two Persuade checks and a Deceive the healer always sees through.
+- **The one with the lantern:** a ghost who refused to go back, waiting for someone. One chapter per visit, six in all, and you can promise to watch the road for them.
+- Lines for where you fell: the Plaguelands (the missing the Scourge takes first), Duskwood, Felwood, Tirisfal, Desolace, the Blasted Lands, Silithus, Winterspring.
 - The healer remembers the argument: the next visit picks it up once (the cage, the ones who stay, the other hand, their own face, whether you are the same one who left, the promise to say your name).
 - New death lines (wild creatures, unknown causes), race and class lines for everyone, what became of your people's dead, a send-off before you return, two noticing moments, journal entries, Scarlet Crusade and Argent Dawn topics. Voice bible in `bibles/spirithealer.md`.
 

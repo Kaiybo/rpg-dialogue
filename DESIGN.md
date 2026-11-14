@@ -266,7 +266,7 @@ Each key has a **weight** (its contribution to the score) and a **kind**. *Hinge
 | Level | `band` · `minLevel`/`maxLevel` · `capital` · `resting` · `atInn` | 10 | hinge |
 | Small touches | `gender` · `timeOfDay` · `faction` · `party` {race,class} | 5 | hinge |
 | Story (M4) | `gossip` {topic, stance, delay, chance} (30) · `contradiction` topic (40) · `lieCaught` claim (60) · `money` {min,max} (10) | 10–60 | hinge |
-| Gates | `chance` 0–1 · `flag` · `npcFlag` | 0 | gate |
+| Gates | `chance` 0–1 · `flag` · `npcFlag` · `npcFlagBefore` (set in an earlier conversation) | 0 | gate |
 | Combinators | `all` (sum of children) · `any` (best passing branch) · `not` (0: an absence isn't specific) | — | — |
 
 The validator rejects unknown keys. Some keys come from fields the brief lists in `ctx` (`durability`, `nearlyNaked`, `profession` and so on). That's allowed, since the brief's list is open ("such as").

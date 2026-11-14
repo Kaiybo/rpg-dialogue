@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.3.0 (unreleased)
+- Madame Eva reacts to the spirit healer: the line from the other hand in your file turns up on her Death card, the Lantern card is lit once the lantern-bearer is gone, and she knows the door past the mist.
+
 ## 1.2.0 (unreleased)
 - Depth pass: repeat visits bring personal lines (habits, worries, running jokes), and some NPCs get night-time lines. Ello, Althea, Daltry, Jitters, Sven, Smitts, Madame Eva.
 

@@ -121,7 +121,9 @@ P:Pool {
     { id = "g_plain", text = "Your body is waiting. So am I." },
     { id = "g_hush", text = "Quietly. The others are listening today." },
     { id = "g_thinking", when = { timesTalked = { min = 3 } }, text = "You. I was just thinking about something you said." },
-    { id = "g_stay", when = { npcFlag = "asked_stay" }, priority = 10, text = "Staying this time? No. I can see you aren't." },
+    { id = "g_stay", when = { npcFlagBefore = "asked_stay" }, priority = 10, text = "Staying this time? No. I can see you aren't." },
+    { id = "g_lantern", priority = 10, when = { npcFlagBefore = "lantern2", ["not"] = { npcFlag = "lantern6" } },
+      text = "The one with the lantern asked after you." },
     { id = "g_hundred", when = { deaths = { min = 100 } }, text = "A hundred doors and more. Ask me your question again." },
   },
   notice = {
@@ -157,6 +159,23 @@ P:Pool {
           text = "{deathplace} again. You keep returning to the same door, as if it might open differently." },
         { id = "h_streak", tags = { "news" }, when = { daysSinceDeath = { min = 14 } },
           text = "A long while since I last saw you. The file had begun to gather dust. I was almost glad." },
+        -- Where you fell. Priority lets these stand beside the death-cause lines.
+        { id = "z_plague", key = true, priority = 20, when = { zone = { "Eastern Plaguelands", "Western Plaguelands" } },
+          text = "Not everyone who dies in this land reaches me. Something gets to them first and stands them back up. I count the missing. I always will." },
+        { id = "z_duskwood", priority = 20, when = { zone = "Duskwood" },
+          text = "The dead of these woods do not rest, and they do not come to me either. Some nights I hear them knocking at the wrong door." },
+        { id = "z_felwood", priority = 20, when = { zone = "Felwood" },
+          text = "The forest you fell in is sick. Some of the sickness tried to follow you up the hill. I sent it back down." },
+        { id = "z_tirisfal", priority = 20, when = { zone = "Tirisfal Glades" },
+          text = "Lordaeron's own soil. I knew these fields when they were farms. I knew the farmers, too. Later." },
+        { id = "z_desolace", priority = 20, when = { zone = "Desolace" },
+          text = "This land is mostly ghosts already. Kodo come here to die, and centaur khans, and now you. Crowded company." },
+        { id = "z_blasted", priority = 20, when = { zone = "Blasted Lands" },
+          text = "Something vast leans against the world near here. I can feel it through the mist, like a hand flat on the other side of a door." },
+        { id = "z_silithus", priority = 20, when = { zone = "Silithus" },
+          text = "Something under the sand is dreaming. It does not dream of you. Be grateful for that." },
+        { id = "z_winterspring", priority = 20, when = { zone = "Winterspring" },
+          text = "The cold keeps a body well. When you go back, do not be alarmed at how little has changed. Be alarmed at how quiet it is." },
         { id = "h_young", when = { maxLevel = 10 }, text = "So new. Your body had barely learned it was yours, and already you have stepped out of it." },
         { id = "h_old", when = { minLevel = 60 }, text = "You have walked very far to die. The great ones I send back usually say nothing. Say something." },
         { id = "k_shaman", when = { class = "SHAMAN", minLevel = 30 }, text = "You carry your own way back. No ankh today?" },
@@ -179,17 +198,17 @@ P:Pool {
         { id = "a_light", when = { alignment = { axis = "light", min = 40 } }, text = "Gently, now. You have done more good than your file shows." },
         { id = "a_shadow", when = { alignment = { axis = "light", max = -40 } }, text = "I will return you. I am not required to approve." },
         -- Callbacks: the healer picks up last visit's argument, once each.
-        { id = "cb_cage", once = true, priority = 30, when = { npcFlag = "asked_cage", timesTalked = { min = 1 } },
+        { id = "cb_cage", once = true, priority = 30, when = { npcFlagBefore = "asked_cage", timesTalked = { min = 1 } },
           text = "Last time you called this a cage. I have thought of little else. Cages have doors, you know. That is the unsettling part." },
-        { id = "cb_stay", once = true, priority = 30, when = { npcFlag = "heard_thin", timesTalked = { min = 1 } },
+        { id = "cb_stay", once = true, priority = 30, when = { npcFlagBefore = "heard_thin", timesTalked = { min = 1 } },
           text = "You asked what happens to the ones who stay. One of them asked about you, after you left. I did not give your name." },
-        { id = "cb_hand", once = true, priority = 30, when = { npcFlag = "read_hand", timesTalked = { min = 1 } },
+        { id = "cb_hand", once = true, priority = 30, when = { npcFlagBefore = "read_hand", timesTalked = { min = 1 } },
           text = "The other hand in your file has written nothing since you asked. I find that more worrying, not less." },
-        { id = "cb_mortal", once = true, priority = 30, when = { npcFlag = "heard_mortal", timesTalked = { min = 1 } },
+        { id = "cb_mortal", once = true, priority = 30, when = { npcFlagBefore = "heard_mortal", timesTalked = { min = 1 } },
           text = "Since you asked, I have tried to remember my face. I got as far as the eyes. Kind, I think. Or only tired." },
-        { id = "cb_turn", once = true, priority = 30, when = { npcFlag = "answered_turn", timesTalked = { min = 1 } },
+        { id = "cb_turn", once = true, priority = 30, when = { npcFlagBefore = "answered_turn", timesTalked = { min = 1 } },
           text = "Are you the same one who left here last time? Do not answer. Just notice that you had to think about it." },
-        { id = "cb_name", once = true, priority = 30, when = { npcFlag = "promised_name", timesTalked = { min = 1 } },
+        { id = "cb_name", once = true, priority = 30, when = { npcFlagBefore = "promised_name", timesTalked = { min = 1 } },
           text = "I have been saying your name, as I promised. Out there. You are not in the gray, so they only look puzzled." },
       },
       choices = {
@@ -265,7 +284,7 @@ P:Pool {
           fx = { hear = "spirithealer_other_hand", npcFlag = { set = "saw_hand" } } },
         { id = "pg_grown", when = { deaths = { min = 25 } }, fx = { hear = "spirithealer_other_hand", npcFlag = { set = "saw_hand" } },
           text = "The pages at the back have grown. Whoever writes them is keeping pace with you. Perhaps a little ahead." },
-        { id = "pg_again", priority = 10, when = { npcFlag = "read_hand" },
+        { id = "pg_again", priority = 10, when = { npcFlagBefore = "read_hand" },
           text = "The other pages again. The last line is still the one I read you. Nothing has been added. Nothing has been crossed out, either." },
       },
       choices = {
@@ -338,7 +357,7 @@ P:Pool {
     mystery = {
       lines = {
         { id = "m_default", text = "I am the one who stands here. That is all I am permitted to know, and more than most ask." },
-        { id = "m_again", priority = 10, when = { npcFlag = "asked_what" },
+        { id = "m_again", priority = 10, when = { npcFlagBefore = "asked_what" },
           text = "You asked that before. My answer has not changed. I have, a little." },
       },
       choices = {
@@ -383,7 +402,7 @@ P:Pool {
         { id = "s_default", key = true,
           text = "I think so. There are things I know without having learned them. The weight of a cloak. How bread smells. Grief.",
           fx = { hear = "spirithealer_was_mortal", npcFlag = { set = "heard_mortal" } } },
-        { id = "s_again", priority = 10, when = { npcFlag = "heard_mortal" },
+        { id = "s_again", priority = 10, when = { npcFlagBefore = "heard_mortal" },
           text = "Still thinking about that? So am I. Yesterday I remembered a door with a blue latch. I do not know whose." },
       },
       choices = {
@@ -620,7 +639,7 @@ P:Pool {
       big = true,
       lines = {
         { id = "st0_default", text = "Then don't. You are allowed to refuse me. Few do." },
-        { id = "st0_again", priority = 10, when = { npcFlag = "heard_thin" },
+        { id = "st0_again", priority = 10, when = { npcFlagBefore = "heard_thin" },
           text = "You keep asking. One day you will mean it, and I will have to let you." },
       },
       choices = {
@@ -694,7 +713,7 @@ P:Pool {
       lines = {
         { id = "by_default", text = "I have looked. The mist looks back." },
         { id = "by_default2", text = "Something patient. That is all I am sure of. It has never once been in a hurry." },
-        { id = "by_again", priority = 10, when = { npcFlag = "asked_beyond" },
+        { id = "by_again", priority = 10, when = { npcFlagBefore = "asked_beyond" },
           text = "Last time I told you the mist looks back. I was being poetic, I thought. I am less sure now that I was." },
       },
       choices = {
@@ -759,7 +778,7 @@ P:Pool {
       choices = {
         { text = "What do they want?", next = "others_want" },
         { text = "Are any of them mine?", next = "mine" },
-        { text = "Are they dangerous?", next = "others_danger" },
+        { text = "Tell me about one of them.", next = "lantern" },
         { text = "Back to my questions.", next = "ask" },
       },
     },
@@ -805,6 +824,62 @@ P:Pool {
           text = "Yours came all at once, from under a mountain, gasping and green. I remember the day. I would rather not." },
       },
       choices = { { text = "Return me to life.", next = "parting" }, { text = "Back to my questions.", next = "ask" } },
+    },
+    -- The one with the lantern: a story told one chapter per visit (npcFlagBefore gates
+    -- each chapter on the previous one being heard in an earlier conversation).
+    lantern = {
+      big = true,
+      lines = {
+        { id = "ln1", key = true, fx = { npcFlag = { set = "lantern1" } },
+          text = "There is one out there who carries a lantern. They refused me, long ago. They said they were waiting for someone, and would need a light to see them coming." },
+        { id = "ln2", priority = 10, when = { npcFlagBefore = "lantern1" }, fx = { npcFlag = { set = "lantern2" } },
+          text = "The one with the lantern asked whether the living still use the east road. I said I did not know. They have waited so long, the road may not be there." },
+        { id = "ln3", priority = 20, when = { npcFlagBefore = "lantern2" }, fx = { npcFlag = { set = "lantern3" } },
+          text = "The lantern is dimmer, and so is their face; the mist shows through it now. They still lift the light whenever someone comes up the hill. It is never who they want." },
+        { id = "ln4", priority = 30, when = { npcFlagBefore = "lantern3" }, fx = { npcFlag = { set = "lantern4" } },
+          text = "I asked who they are waiting for. They have forgotten the name. They remember the waiting. That, it seems, is the last thing to go." },
+        { id = "ln5", priority = 40, when = { npcFlagBefore = "lantern4" }, fx = { npcFlag = { set = "lantern5" } },
+          text = "They lifted the lantern when you arrived just now. Do not turn around. It is not you either. But they smiled, I think, at being looked for." },
+        { id = "ln6", key = true, priority = 50, when = { npcFlagBefore = "lantern5" }, fx = { npcFlag = { set = "lantern6" } },
+          text = "They are gone. They walked into the mist with the lantern lit, stopped at the edge to listen, and ran. As if someone had called their name." },
+        { id = "ln6_promise", key = true, priority = 60, when = { npcFlagBefore = "lantern5", npcFlag = "lantern_promise" },
+          fx = { npcFlag = { set = "lantern6" } },
+          text = "They are gone. They asked me to thank you for watching the road, then walked into the mist, stopped, listened, and ran. As if someone had called." },
+        { id = "ln7", priority = 70, when = { npcFlagBefore = "lantern6" },
+          text = "Sometimes, at the edge of the mist, there is a small light. I tell myself it is the lantern, held up on the far side for the next one. I have decided to believe it." },
+      },
+      choices = {
+        { text = "Why didn't you make them go?", next = "lantern_why" },
+        { text = "Tell them I'll watch the road for whoever it is.", next = "lantern_promise",
+          when = { npcFlag = "lantern3", ["not"] = { npcFlag = "lantern6" } },
+          fx = { npcFlag = { set = "lantern_promise" }, trait = { kind = 1 } } },
+        { text = "Are the others dangerous?", next = "others_danger" },
+        { text = "Back to my questions.", next = "ask" },
+      },
+    },
+    lantern_why = {
+      big = true,
+      lines = {
+        { id = "lw_default", text = "Because a choice I take away is not a mercy. It is only me, deciding. I have enough of that already." },
+      },
+      choices = { { text = "Even if it's hurting them?", next = "lantern_hurt" }, { text = "Back to my questions.", next = "ask" } },
+    },
+    lantern_hurt = {
+      lines = {
+        { id = "lh_default", text = "Waiting hurts. So does hope. You do both every time you go back down the hill, and I have never once taken that from you either." },
+      },
+      choices = { { text = "Return me to life.", next = "parting" }, { text = "Back to my questions.", next = "ask" } },
+    },
+    lantern_promise = {
+      lines = {
+        { id = "lp_default", key = true,
+          text = "I will tell them. They will not understand. They will hold the lantern a little higher, though. I have seen that much already." },
+      },
+      choices = {
+        { text = "Return me to life.", next = "parting",
+          journal = { first = "There's a ghost with a lantern, waiting for someone. I promised to watch the road for them.",
+                      third = "{name} promised a ghost with a lantern to watch the road." } },
+      },
     },
     others_danger = {
       lines = {

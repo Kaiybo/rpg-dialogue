@@ -32,6 +32,8 @@ P:NPC {
           text = "You've earned the story, then. Sit, and I'll tell you about my son." },
         { id = "h_memories", when = { any = { { questActive = TODO_QUEST("Of Forgotten Memories") }, { questActive = TODO_QUEST("Of Lost Honor") }, { questActive = TODO_QUEST("Of Love and Family") } } },
           text = "Pieces of a life I lost. A hammer, an honor, a painting. Bring them to me, and I'll find the courage to use them." },
+        { id = "h_missing", once = true, when = { heardLine = "pool:spirithealer.z_plague" },
+          text = "So the healer told you about the missing. Every soul the Scourge lifts from the ground is one the healer never sees. That's why the Dawn burns what the plague leaves." },
         { id = "h_myranda", when = { questActive = TODO_QUEST("Find Myranda") },
           text = "Myranda can help you walk among the Crusade unseen. I don't trust her. I don't need to. I only need her to be good at what she does." },
       },

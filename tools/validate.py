@@ -139,6 +139,8 @@ def main():
                 pools.append((pack, tbl, f, line))
                 for slot, node, ln, gid in P.iter_lines(tbl, "pool:" + str(tbl.get("id"))):
                     all_lines.setdefault(gid, (pack, f, ln))
+                    if ln.get("key"):
+                        key_lines[gid] = True
             elif kind == "Generic":
                 generic.append((pack, tbl, f, line))
             elif kind in defs:

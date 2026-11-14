@@ -2,6 +2,16 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.26.0 (unreleased)
+Packs: World 1.14.0, Duskwood 1.3.0, Elwynn 1.9.0, Eastern Plaguelands 1.1.0. No new folders.
+
+### The spirit healer
+Rewritten as a philosophical debate with horror at the edges and hope in the last word: whether coming back cheapens death, mercy or cage, whether the one who wakes is the one who died, and what happens if you refuse to go back. Open mysteries (another hand writing in your file, a healer who half-remembers being alive, a door past the mist), a ghost with a lantern whose story unfolds one chapter per visit, lines for where you fell (the Plaguelands, Duskwood, Felwood and more), and the healer picks up last visit's argument. Madame Eva, Brother Sammuel and Tirion Fordring react to what the healer told you.
+
+### Core
+- Condition `npcFlagBefore`: an NPC flag set in an earlier conversation, not this one (for "last time you said..." lines).
+- The validator now registers `key = true` lines in pools, so other NPCs can echo a pool line with `heardLine`.
+
 ## 0.25.0 (2026-11-14)
 Packs: Arathi 1.1.0, Ashenvale 1.1.0, Badlands 1.1.0, Barrens 1.2.0, Darkshore 1.1.0, Darnassus 1.1.0, Desolace 1.1.0, Durotar 1.1.0, Duskwood 1.2.0, Dustwallow 1.1.0, Elwynn 1.8.0, Feralas 1.1.0, Hillsbrad 1.1.0, Hinterlands 1.1.0, Ironforge 1.3.0, LochModan 1.1.0, Moonglade 1.1.0, Mulgore 1.2.0, Orgrimmar 1.2.0, Redridge 1.2.0, Silverpine 1.1.0, Stonetalon 1.1.0, Stormwind 1.4.0, Stranglethorn 1.2.0, SwampOfSorrows 1.1.0, Tanaris 1.1.0, Teldrassil 1.2.0, ThousandNeedles 1.1.0, ThunderBluff 1.2.0, Tirisfal 1.1.0, UnGoro 1.1.0, Undercity 1.1.0, Westfall 1.3.0, Wetlands 1.1.0, Winterspring 1.1.0, World 1.13.0, Zephras 1.0.1, and three new ones: Felwood 1.0.0, Searing Gorge 1.0.0, Eastern Plaguelands 1.0.0. **New folders: exit the game fully, copy them in, and tick them.**
 

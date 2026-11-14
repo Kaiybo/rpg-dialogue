@@ -31,6 +31,18 @@ The player can argue with the healer, and the healer argues back honestly and ca
 - `spirithealer_was_mortal`: the healer remembers a cloak, bread, grief, a blue latch. Perhaps someone stood aside for them.
 - `spirithealer_the_door`: a door past the mist, sometimes warm, never opened, because someone is always coming up the hill.
 
+## The one with the lantern
+A ghost who refused the healer long ago, waiting on the hill with a lantern for someone they can no longer name. One chapter per visit (`lantern` node, `npcFlagBefore` gating): the east road, the face going thin, the name forgotten but the waiting kept, the lantern lifted when you arrive, and at last they run into the mist as if called. Afterward there is sometimes a small light at the far edge, and the healer chooses to believe it is theirs. From chapter three you can promise to watch the road; they thank you before they go.
+The debate in miniature: the healer won't take the choice away ("a choice I take away is not a mercy"), even though the waiting hurts.
+
+## Where you fell
+Zone lines in `hello`: the Plaguelands (souls the Scourge raises never reach the hill, and the healer counts the missing), Duskwood (dead knocking at the wrong door), Felwood, Tirisfal, Desolace, the Blasted Lands and Silithus (something vast and something dreaming, both unnamed), Winterspring.
+
+## Echoes elsewhere
+- Madame Eva (Duskwood): the other hand's words turn up on her Death card; the Lantern card is lit once the lantern-bearer has gone; the Threshold.
+- Brother Sammuel (Northshire): you have the look of someone who argued with the healer about the cage.
+- Tirion Fordring (Eastweald): the missing are why the Dawn burns what the plague leaves.
+
 ## Horror and hope
 Horror is quiet and specific: the others watching past the healer's shoulder, the player's edges softening, the healer's own footsteps on other hills, a page that is suddenly wet. Hope is always the last word: names said aloud every day, the mist is only the edge of the page, "you are still falling", go and write something.
 

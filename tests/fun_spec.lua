@@ -62,6 +62,31 @@ describe("Spirit healers", function()
     talkTo("Spirit Healer", 6491, "Goldshire")
     eq(text(ns):find("Last time you called this a cage", 1, true), nil, "the callback is said once")
   end)
+
+  it("tells the lantern story one chapter per visit", function()
+    local ns = bootReal()
+    Mock.state.ghost = true
+    ns.Slash.Handle("die trivial")
+    local function lantern()
+      ns.UI.Dialogue.Click(3)                   -- I have questions.
+      ns.UI.Dialogue.Click(4)                   -- Who else is out there in the gray?
+      ns.UI.Dialogue.Click(3)                   -- Tell me about one of them.
+      return text(ns)
+    end
+    talkTo("Spirit Healer", 6491, "Northshire Valley")
+    contains(lantern(), "carries a lantern")
+    ns.UI.Dialogue.Click(4)                     -- Back to my questions.
+    ns.UI.Dialogue.Click(4)                     -- Who else is out there in the gray?
+    ns.UI.Dialogue.Click(3)                     -- Tell me about one of them.
+    contains(text(ns), "carries a lantern", "no second chapter in the same visit")
+    leave(ns)
+    talkTo("Spirit Healer", 6491, "Goldshire")
+    contains(lantern(), "east road")
+    leave(ns)
+    talkTo("Spirit Healer", 6491, "Goldshire")
+    contains(lantern(), "lantern is dimmer")
+    leave(ns)
+  end)
 end)
 
 describe("Ghosts", function()
