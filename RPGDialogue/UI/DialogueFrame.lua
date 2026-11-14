@@ -14,7 +14,7 @@ local Theme = UI.Theme
 local D = {}
 UI.Dialogue = D
 
-local PAD, PORTRAIT, WIDTH = 18, 92, 580
+local PAD, PORTRAIT, WIDTH = 20, 92, 600
 local MAX_BUTTONS = 10
 
 local frame
@@ -80,16 +80,28 @@ local function makeButton(i)
   b.label:SetPoint("TOPLEFT", 4, -3)
   b.label:SetJustifyH("LEFT")
   b.label:SetWordWrap(true)
+  -- Hover (and keyboard selection): a soft band with an accent stripe on the left.
   b.hl = b:CreateTexture(nil, "HIGHLIGHT")
   b.hl:SetAllPoints()
+  b.stripe = b:CreateTexture(nil, "HIGHLIGHT", nil, 1)
+  b.stripe:SetPoint("TOPLEFT")
+  b.stripe:SetPoint("BOTTOMLEFT")
+  b.stripe:SetWidth(3)
   b.marker = b:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
   b.marker:SetPoint("RIGHT", b, "LEFT", -2, 0)
   b.marker:SetText(">")
   b.marker:Hide()
   b:SetScript("OnClick", function() D.Click(i) end)
   b:SetScript("OnEnter", function(self) Theme.TextColor(self.label, self.locked and "locked" or "hover") end)
-  b:SetScript("OnLeave", function(self) Theme.TextColor(self.label, self.locked and "locked" or "choice") end)
+  b:SetScript("OnLeave", function(self) Theme.TextColor(self.label, D.ColorKey(self)) end)
   return b
+end
+
+-- Replies in ink, locked ones faded, "Get on with it" quieter than the rest.
+function D.ColorKey(b)
+  if b.locked then return "locked" end
+  if b.isGetOn then return "dim" end
+  return "choice"
 end
 
 local function create()
@@ -105,10 +117,25 @@ local function create()
   frame:SetScript("OnDragStop", function(self) self:StopMovingOrSizing(); D.SavePosition() end)
   frame:Hide()
   Theme.Decorate(frame, 7)
+  -- A short fade-in when the box opens (off with reduce motion).
+  frame.fadeIn = frame:CreateAnimationGroup()
+  local fade = frame.fadeIn and frame.fadeIn:CreateAnimation("Alpha")
+  if fade then
+    fade:SetFromAlpha(0)
+    fade:SetToAlpha(1)
+    fade:SetDuration(0.15)
+  end
 
+  -- Portrait in a wood frame with a brass hairline.
   frame.portraitBg = frame:CreateTexture(nil, "ARTWORK")
-  frame.portraitBg:SetSize(PORTRAIT + 6, PORTRAIT + 6)
-  frame.portraitBg:SetPoint("TOPLEFT", PAD - 3, -PAD + 3)
+  frame.portraitBg:SetSize(PORTRAIT + 8, PORTRAIT + 8)
+  frame.portraitBg:SetPoint("TOPLEFT", PAD - 4, -PAD + 4)
+  frame.portraitTrim = frame:CreateTexture(nil, "ARTWORK", nil, 1)
+  frame.portraitTrim:SetSize(PORTRAIT + 2, PORTRAIT + 2)
+  frame.portraitTrim:SetPoint("TOPLEFT", PAD - 1, -PAD + 1)
+  frame.portraitInner = frame:CreateTexture(nil, "ARTWORK", nil, 2)
+  frame.portraitInner:SetSize(PORTRAIT, PORTRAIT)
+  frame.portraitInner:SetPoint("TOPLEFT", PAD, -PAD)
   frame.model = CreateFrame("PlayerModel", nil, frame)
   frame.model:SetSize(PORTRAIT, PORTRAIT)
   frame.model:SetPoint("TOPLEFT", PAD, -PAD)
@@ -122,8 +149,14 @@ local function create()
   frame.subtitle:SetPoint("TOPLEFT", frame.name, "BOTTOMLEFT", 0, -2)
   frame.subtitle:SetJustifyH("LEFT")
 
+  -- A rule under the name, and another above the replies (placed in D.Layout).
+  frame.rule = Theme.Divider(frame)
+  frame.rule:SetPoint("TOPLEFT", frame.subtitle, "BOTTOMLEFT", 0, -6)
+  frame.rule:SetPoint("RIGHT", frame, "RIGHT", -PAD - 46, 0)
+  frame.replyRule = Theme.Divider(frame)
+
   frame.text = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
-  frame.text:SetPoint("TOPLEFT", frame.subtitle, "BOTTOMLEFT", 0, -10)
+  frame.text:SetPoint("TOPLEFT", frame.subtitle, "BOTTOMLEFT", 0, -14)
   frame.text:SetWidth(textWidth)
   frame.text:SetJustifyH("LEFT")
   frame.text:SetJustifyV("TOP")
@@ -144,31 +177,37 @@ local function create()
   frame.buttons = {}
   for i = 1, MAX_BUTTONS do frame.buttons[i] = makeButton(i) end
 
-  frame.close = CreateFrame("Button", nil, frame, C.Template("close"))
-  frame.close:SetPoint("TOPRIGHT", -2, -2)
+  frame.close = Theme.Button(frame, "x", 20, 20)
+  frame.close:SetPoint("TOPRIGHT", -12, -12)
   frame.close:SetScript("OnClick", function() ns.Conversation.Business() end)
+  frame.close:SetScript("OnEnter", function(self)
+    GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+    GameTooltip:SetText(L.GET_ON_WITH_IT)
+    GameTooltip:Show()
+  end)
+  frame.close:SetScript("OnLeave", function() GameTooltip:Hide() end)
 
   -- "This line is wrong"
   frame.flag = CreateFrame("Button", nil, frame)
   frame.flag:SetSize(16, 16)
-  frame.flag:SetPoint("TOPRIGHT", -30, -9)
+  frame.flag:SetPoint("TOPRIGHT", -38, -14)
+  frame.flag:SetAlpha(0.55)
   frame.flag.icon = frame.flag:CreateTexture(nil, "ARTWORK")
   frame.flag.icon:SetAllPoints()
   frame.flag.icon:SetTexture("Interface\\Icons\\INV_Misc_Note_01")
   frame.flag:SetScript("OnClick", function() D.ToggleFlagBox() end)
   frame.flag:SetScript("OnEnter", function(self)
+    self:SetAlpha(1)
     GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
     GameTooltip:SetText(L.FLAG_TIP)
     GameTooltip:AddLine(L.FLAG_TIP2, 1, 1, 1, true)
     GameTooltip:Show()
   end)
-  frame.flag:SetScript("OnLeave", function() GameTooltip:Hide() end)
+  frame.flag:SetScript("OnLeave", function(self) self:SetAlpha(0.55); GameTooltip:Hide() end)
 
   -- "Ask about..."
-  frame.ask = CreateFrame("Button", nil, frame, C.Template("button"))
-  frame.ask:SetSize(110, 20)
-  frame.ask:SetPoint("BOTTOMRIGHT", -14, 10)
-  frame.ask:SetText(L.ASK_BUTTON)
+  frame.ask = Theme.Button(frame, L.ASK_BUTTON, 116, 22)
+  frame.ask:SetPoint("BOTTOMRIGHT", -16, 14)
   frame.ask:SetScript("OnClick", function() UI.AskAbout.Toggle(frame) end)
   frame.ask:Hide()
 
@@ -210,6 +249,12 @@ function D.Style()
   Theme.Recolor(frame)
   local p = Theme.Palette()
   frame.portraitBg:SetColorTexture(p.wood[1], p.wood[2], p.wood[3], 1)
+  frame.portraitTrim:SetColorTexture(p.trim[1], p.trim[2], p.trim[3], 1)
+  frame.portraitInner:SetColorTexture(p.wood[1] * 0.6, p.wood[2] * 0.6, p.wood[3] * 0.6, 1)
+  Theme.ColorDivider(frame.rule)
+  Theme.ColorDivider(frame.replyRule)
+  Theme.StyleButton(frame.ask)
+  Theme.StyleButton(frame.close, 12)
   Theme.SetFont(frame.name, "name", size + 6)
   Theme.SetFont(frame.subtitle, "body", size - 2)
   Theme.SetFont(frame.text, "body", size)
@@ -228,7 +273,8 @@ function D.Style()
     Theme.TextColor(b.marker, "name")
     b.label:SetSpacing(2)
     b.hl:SetColorTexture(p.highlight[1], p.highlight[2], p.highlight[3], p.highlight[4])
-    Theme.TextColor(b.label, b.locked and "locked" or "choice")
+    b.stripe:SetColorTexture(p.accent[1], p.accent[2], p.accent[3], p.accent[4])
+    Theme.TextColor(b.label, D.ColorKey(b))
   end
   frame:SetScale(settings().scale or 1)
 end
@@ -244,7 +290,11 @@ function D.Layout()
   frame.text:SetText(current)
   if frame.reaction:IsShown() then h = h + 8 + (frame.reaction:GetStringHeight() or 14) end
   local top = math.max(PORTRAIT, h)
-  local y = -(PAD + top + 14)
+  local y = -(PAD + top + 16)
+  frame.replyRule:ClearAllPoints()
+  frame.replyRule:SetPoint("TOPLEFT", PAD, y)
+  frame.replyRule:SetPoint("TOPRIGHT", -PAD, y)
+  y = y - 8
   for _, b in ipairs(frame.buttons) do
     if b:IsShown() then
       if b.gap then y = y - 8 end   -- a little space before the game's own options
@@ -257,7 +307,7 @@ function D.Layout()
       y = y - bh - 2
     end
   end
-  if frame.flagBox:IsShown() or frame.ask:IsShown() then y = y - 30 end
+  if frame.flagBox:IsShown() or frame.ask:IsShown() then y = y - 36 end
   frame:SetHeight(-y + PAD - 4)
   frame.text:SetWidth(textWidth)
 end
@@ -306,8 +356,10 @@ function D.Show(v)
   reveal.total = utf8Len(reveal.full)
   reveal.shown = 0
   D.Layout()
-  if not frame:IsShown() then place(ns.Conversation.session and ns.Conversation.session.blizz) end
+  local opening = not frame:IsShown()
+  if opening then place(ns.Conversation.session and ns.Conversation.session.blizz) end
   frame:Show()
+  if opening and frame.fadeIn and not settings().reduceMotion then frame.fadeIn:Play() end
   if instant() then
     finishReveal()
   else
@@ -325,13 +377,14 @@ function D.RenderChoices(choices)
     local b = frame.buttons[i]
     b.locked = c.locked
     b.gap = c.gap
-    b.label:SetText((i % 10) .. ". " .. (c.locked and (L.LOCKED_MARK .. " ") or "") .. c.text)
+    local num = c.locked and ((i % 10) .. ". ") or (Theme.Hex("number") .. (i % 10) .. ".|r ")
+    b.label:SetText(num .. (c.locked and (L.LOCKED_MARK .. " ") or "") .. c.text)
     b:Show()
     n = i
   end
   local getOn = frame.buttons[n + 1]
   getOn.locked = false
-  getOn.gap = false
+  getOn.gap = n > 0
   getOn.label:SetText(((n + 1) % 10) .. ". " .. L.GET_ON_WITH_IT)
   getOn:Show()
   for i = 1, MAX_BUTTONS do

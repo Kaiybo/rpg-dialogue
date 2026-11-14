@@ -130,6 +130,7 @@ function frameMethods.CreateFontString(self, _, _, template)
 end
 function frameMethods.CreateTexture(self) return Mock.NewFrame("Texture", nil, self) end
 function frameMethods.CreateAnimationGroup(self) return Mock.NewFrame("AnimationGroup", nil, self) end
+function frameMethods.CreateAnimation(self) return Mock.NewFrame("Animation", nil, self) end
 function frameMethods.GetFrameLevel() return 1 end
 function frameMethods.GetFrameStrata() return "MEDIUM" end
 function frameMethods.GetObjectType(self) return self._type end

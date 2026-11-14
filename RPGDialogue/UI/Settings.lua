@@ -84,6 +84,39 @@ local function slider(label, key, min, max, step, fmt)
   return sl
 end
 
+-- A font picker: a button that cycles through the fonts (its label drawn in that font),
+-- and a sample line underneath in the chosen font.
+local function fontPicker(label, key, kind)
+  local text = content:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+  text:SetPoint("TOPLEFT", 20, y - 4)
+  text:SetText(label)
+  local choices = UI.Theme.FontChoices(kind)
+  local b = CreateFrame("Button", nil, content, C.Template("button"))
+  b:SetSize(260, 22)
+  b:SetPoint("TOPLEFT", 300, y)
+  local sample = content:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+  sample:SetPoint("TOPLEFT", 304, y - 26)
+  sample:SetWidth(280)
+  sample:SetJustifyH("LEFT")
+  local function show()
+    local cur = s()[key]
+    for _, c in ipairs(choices) do if c.id == cur then b:SetText(c.label) end end
+    UI.Theme.SetFont(sample, kind, 15)
+    sample:SetText(kind == "name" and "Melika Isenstrider" or L.FONT_PREVIEW)
+  end
+  b:SetScript("OnClick", function()
+    local idx = 0
+    for i, c in ipairs(choices) do if c.id == s()[key] then idx = i end end
+    s()[key] = choices[idx % #choices + 1].id
+    show()
+    refreshUI()
+  end)
+  b.refresh = show
+  controls[#controls + 1] = b
+  y = y - 52
+  return b
+end
+
 -- A button that cycles through values (instead of a dropdown).
 local function cycle(label, key, values, labels)
   local text = content:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
@@ -119,7 +152,7 @@ local function build()
   scroll:SetScrollChild(content)
   y = -8
 
-  header(L.ADDON_NAME)
+  header(L.ADDON_NAME .. "  |cff8a8a8a" .. ns.VERSION .. "|r")
   checkbox(L.OPT_ENABLED, "enabled")
   cycle(L.OPT_OPEN_MODE, "openMode", { "full", "compact", "skip" }, { L.OPEN_FULL, L.OPEN_COMPACT, L.OPEN_SKIP })
   checkbox(L.OPT_RIGHT_CLICK, "rightClickTalk")
@@ -155,7 +188,8 @@ local function build()
   header(L.OPT_HEADER_ACCESS)
   slider(L.OPT_TEXT_SIZE, "textSize", 10, 24, 1)
   slider(L.OPT_SPACING, "lineSpacing", 0, 10, 1)
-  checkbox(L.OPT_READABLE, "readableFont")
+  fontPicker(L.OPT_FONT_TEXT, "fontBody", "body")
+  fontPicker(L.OPT_FONT_NAME, "fontName", "name")
   slider(L.OPT_SPEED, "textSpeed", 20, 200, 10)
   checkbox(L.OPT_INSTANT, "instantText")
   checkbox(L.OPT_AUTO, "autoAdvance")

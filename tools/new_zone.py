@@ -385,8 +385,8 @@ def cmd_scaffold(args):
     toc_path = os.path.join(folder, addon + ".toc")
     if not os.path.exists(toc_path):
         write_new(toc_path, "\n".join([
-            "## Interface: 16001, 16002", f"## Title: RPG Dialogue: {title}", f"## Notes: Dialogue for {zone}.",
-            "## Author: RPG Dialogue", "## Version: @project-version@", "## Dependencies: RPGDialogue",
+            "## Interface: 16001, 16002", f"## Title: RPG Dialogue: {title} |cff8a8a8a0.1.0|r", f"## Notes: Dialogue for {zone}.",
+            "## Author: RPG Dialogue", "## Version: 0.1.0", "## Dependencies: RPGDialogue",
             "## LoadOnDemand: 1", f"## X-RPGD-Pack: {pack_id}", "## X-RPGD-Format: 1", "## X-RPGD-Load: zone",
             f"## X-RPGD-Zones: {token}", "", "pack.lua", "pools.lua", *npc_files, ""]), made)
     else:

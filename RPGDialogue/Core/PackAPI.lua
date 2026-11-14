@@ -227,10 +227,30 @@ function API:RegisterPack(meta)
     ns.Print(("Content pack %s was not loaded: %s. Update RPG Dialogue."):format(pack.name, pack.refused))
   end
   Packs.byID[meta.id] = pack
+  Packs.CheckFileList(pack)
   local found = false
   for i, p in ipairs(Packs.list) do if p.id == meta.id then Packs.list[i] = pack; found = true end end
   if not found then Packs.list[#Packs.list + 1] = pack end
   return pack
+end
+
+-- WoW reads an addon's file list (its .toc) only when the game starts; /reload re-reads the
+-- Lua files but not the list. So after an update that adds files, the TOC's Version (from
+-- the old list) disagrees with the version in the code. Say so, once, with the fix.
+local toldRestart = {}
+function Packs.TellRestart(title, listed, loaded)
+  if toldRestart[title] then return end
+  toldRestart[title] = true
+  ns.Print(ns.L.RESTART_NEEDED:format(title, tostring(loaded), tostring(listed)))
+end
+
+function Packs.CheckFileList(pack)
+  for name, entry in pairs(Packs.byAddon) do
+    if entry.id == pack.id and entry.tocVersion and pack.version and entry.tocVersion ~= pack.version
+       and tostring(pack.version):match("^%d") then
+      Packs.TellRestart(entry.title or name, entry.tocVersion, pack.version)
+    end
+  end
 end
 
 -- Handle for a pack's data files. Works even if pack.lua hasn't run yet.
@@ -283,7 +303,10 @@ function Packs.Discover()
       entry.load = C.AddOnMeta(name, "X-RPGD-Load") or "zone"
       entry.format = tonumber(C.AddOnMeta(name, "X-RPGD-Format") or "1") or 1
       entry.zones = splitList(C.AddOnMeta(name, "X-RPGD-Zones"))
-      entry.title = C.AddOnMeta(name, "Title") or name
+      -- Titles carry a grey version for the AddOns list ("... |cff8a8a8a1.1.0|r"); drop it here.
+      local title = C.AddOnMeta(name, "Title") or name
+      entry.title = (title:gsub("%s*|c%x%x%x%x%x%x%x%x[%w%.%-]+|r%s*$", ""))
+      entry.tocVersion = C.AddOnMeta(name, "Version")
       entry.loaded = C.IsAddOnLoaded(name)
       Packs.byAddon[name] = entry
       for _, z in ipairs(entry.zones) do
@@ -362,6 +385,7 @@ function Packs.List()
 end
 
 function Packs.PrintList()
+  ns.Print(ns.L.VERSION_LINE:format(ns.VERSION))
   ns.Print("Content packs:")
   for _, p in ipairs(Packs.List()) do
     local state = p.refused and "|cffff4040refused|r" or (not p.enabled and "|cff888888off|r")

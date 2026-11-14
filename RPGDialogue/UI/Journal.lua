@@ -183,14 +183,13 @@ local function create()
 
   frame.title = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
   frame.title:SetPoint("TOPLEFT", 18, -14)
-  frame.close = CreateFrame("Button", nil, frame, C.Template("close"))
-  frame.close:SetPoint("TOPRIGHT", -2, -2)
+  frame.close = Theme.Button(frame, "x", 20, 20)
+  frame.close:SetPoint("TOPRIGHT", -12, -12)
   frame.close:SetScript("OnClick", function() frame:Hide() end)
 
   frame.tabs = {}
   for i, id in ipairs(TABS) do
-    local b = CreateFrame("Button", nil, frame, C.Template("button"))
-    b:SetSize(84, 22)
+    local b = Theme.Button(frame, "", 84, 22)
     b:SetPoint("TOPLEFT", 14 + (i - 1) * 88, -40)
     b:SetText(L["J_TAB_" .. id:upper()])
     b:SetScript("OnClick", function() J.Show(id) end)
@@ -238,8 +237,7 @@ local function create()
   frame.blurb:SetAutoFocus(false)
   frame.blurb:SetScript("OnEnterPressed", function(self) ns.Origins.SetBlurb(self:GetText()); self:ClearFocus(); J.Show("sheet") end)
   frame.blurb:SetScript("OnEscapePressed", function(self) self:ClearFocus() end)
-  frame.originBtn = CreateFrame("Button", nil, frame, C.Template("button"))
-  frame.originBtn:SetSize(100, 22)
+  frame.originBtn = Theme.Button(frame, "", 100, 22)
   frame.originBtn:SetPoint("BOTTOMRIGHT", -14, 8)
   frame.originBtn:SetScript("OnClick", function() J.CycleOrigin() end)
 end
@@ -271,6 +269,9 @@ end
 function J.Style()
   local size = Theme.TextSize()
   Theme.Recolor(frame)
+  Theme.StyleButton(frame.close, 12)
+  Theme.StyleButton(frame.originBtn)
+  for _, b in pairs(frame.tabs) do Theme.StyleButton(b) end
   Theme.SetFont(frame.title, "name", size + 6)
   Theme.TextColor(frame.title, "name")
   Theme.SetFont(frame.text, "body", size)

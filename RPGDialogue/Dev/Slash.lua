@@ -196,5 +196,7 @@ C.SetGlobal("BINDING_NAME_RPGD_JOURNAL", L.BINDING_JOURNAL)
 C.SetGlobal("BINDING_NAME_RPGD_ASK", L.BINDING_ASK)
 
 ns.OnLogin(function()
-  if ns.db.settings.dev then ns.Print(L.LOADED) end
+  if ns.db.settings.dev then ns.Print(L.LOADED:format(ns.VERSION)) end
+  local listed = C.AddOnMeta(ns.name, "Version")
+  if listed and listed ~= ns.VERSION then ns.Packs.TellRestart(L.ADDON_NAME, listed, ns.VERSION) end
 end)

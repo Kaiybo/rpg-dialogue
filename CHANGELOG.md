@@ -2,7 +2,14 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
-## [Unreleased]
+## 0.9.0 (2026-11-13)
+First build with version numbers. Packs in this build: World 1.0.0, Elwynn Forest 1.1.0.
+
+### Fonts, look and version numbers (2026-11-13)
+- **Choose your fonts.** Settings → "Font for what people say" and "Font for names", each with a live sample line. Text: Friz Quadrata (game default), Crimson Pro (book serif), Atkinson Hyperlegible (most readable), Arial Narrow, Morpheus, Cinzel, Skurri. Names: the same list plus "Same as the text". Fonts other addons register through SharedMedia are listed too. Crimson Pro and Cinzel are bundled (SIL Open Font License, licence files included). Fonts are sized so each choice reads at about the same size, and Latin-only fonts fall back to the game's font on non-Latin clients. The old "readable font" checkbox moves over once (saved-data schema 3).
+- **Polish**: soft drop shadow; parchment shaded top to bottom; brass trim inside the wood frame; a framed portrait; a thin rule under the name and above the replies; replies as full-width rows with a colored number, a hover band and an accent stripe on the marked one; "Get on with it" set apart and dimmed; themed buttons (close, Ask about, journal tabs, export) instead of the game's red ones; quest and option icons from the game's own art; a short fade-in (off with reduce motion). Same in the Ask list, short-line bar, journal and export windows.
+- **Version numbers on every folder**: in the AddOns list (grey, after the name), each TOC's `## Version`, `/rpgd packs`, the settings header and the login line. `tools/version.py` shows and sets them (TOC, code and changelog in step); `tools/build_zip.py` refuses a zip when they disagree.
+- **"Restart the game" warning**: the game reads an addon's file list only at start-up, so a /reload after an update can leave new files (like Melika's) unloaded. RPG Dialogue now notices a version or file-list mismatch and says to exit and restart the game.
 
 ### Second in-game test (2026-11-13)
 - **Fixed: the conversation box failed to draw in the game** ("FontString:SetText(): Font not set"): every text in our windows now has a font from the moment it's created. The test mock now refuses text without a font, like the real client, so this can't come back unnoticed.

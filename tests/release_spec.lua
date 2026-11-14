@@ -227,31 +227,62 @@ describe("Accessibility", function()
     eq(ns.Insanity.Strength(), 0)
   end)
 
-  it("readable font: the bundled hyperlegible font for text and names, Latin clients only", function()
-    local ns = bootUI({ readableFont = true })
+  it("fonts: text and names each pick a font; bundled ones fall back on non-Latin clients", function()
+    local ns = bootUI({ fontBody = "atkinson", fontName = "cinzel" })
     local fs = Mock.NewFrame("FontString")
-    local set
-    fs.SetFont = function(_, path) set = path end
+    local set, setSize
+    fs.SetFont = function(_, path, size) set, setSize = path, size end
     fs.GetFont = function() return set end
-    ns.UI.Theme.SetFont(fs, "name", 14)
-    contains(set, "AtkinsonHyperlegible-Regular.ttf")
-    _G.GetLocale = function() return "koKR" end
     ns.UI.Theme.SetFont(fs, "body", 14)
-    eq(set, "Fonts\\FRIZQT__.TTF")
+    contains(set, "AtkinsonHyperlegible-Regular.ttf")
+    ns.UI.Theme.SetFont(fs, "name", 20)
+    contains(set, "Cinzel-Regular.ttf")
+    eq(setSize, 19, "Cinzel is scaled to look the same size")
+    ns.db.settings.fontBody = "crimson"
+    ns.db.settings.fontName = "same"
+    ns.UI.Theme.SetFont(fs, "name", 14)
+    contains(set, "CrimsonPro-Regular.ttf", "names follow the text")
+    _G.GetLocale = function() return "koKR" end
+    _G.STANDARD_TEXT_FONT = "Fonts\\2002.TTF"
+    ns.UI.Theme.SetFont(fs, "body", 14)
+    eq(set, "Fonts\\2002.TTF", "the client's own font for other scripts")
     _G.GetLocale = nil
-    ns.db.settings.readableFont = false
+    _G.STANDARD_TEXT_FONT = "Fonts\\FRIZQT__.TTF"
+    ns.db.settings.fontBody, ns.db.settings.fontName = "friz", "morpheus"
     ns.UI.Theme.SetFont(fs, "name", 14)
     eq(set, "Fonts\\MORPHEUS.TTF")
   end)
 
-  it("readable font falls back if the file can't load", function()
-    local ns = bootUI({ readableFont = true })
+  it("fonts: SharedMedia fonts are offered when another addon shares them", function()
+    local ns = bootUI()
+    local lsm = { fonts = { ["Expressway"] = "Interface\\AddOns\\SharedMedia\\Expressway.ttf" } }
+    function lsm:List() return { "Expressway" } end
+    function lsm:Fetch(_, name) return self.fonts[name] end
+    _G.LibStub = setmetatable({}, { __call = function(_, name) if name == "LibSharedMedia-3.0" then return lsm end end })
+    local found
+    for _, c in ipairs(ns.UI.Theme.FontChoices("body")) do if c.id == "lsm:Expressway" then found = c end end
+    ok(found, "listed")
+    ns.db.settings.fontBody = "lsm:Expressway"
+    eq((ns.UI.Theme.FontPath("body")), "Interface\\AddOns\\SharedMedia\\Expressway.ttf")
+    _G.LibStub = nil
+    eq((ns.UI.Theme.FontPath("body")), "Fonts\\FRIZQT__.TTF", "gone again: back to the default")
+  end)
+
+  it("fonts: the old readable-font switch moves over", function()
+    local ns = Loader.Boot({ db = { schema = 2, settings = { readableFont = true } } })
+    eq(ns.db.settings.fontBody, "atkinson")
+    eq(ns.db.settings.fontName, "same")
+    eq(ns.db.settings.readableFont, nil)
+  end)
+
+  it("a font file that won't load falls back to the game's font", function()
+    local ns = bootUI({ fontBody = "crimson" })
     local fs = Mock.NewFrame("FontString")
     local set
-    fs.SetFont = function(_, path) if not path:find("Atkinson") then set = path end end
+    fs.SetFont = function(_, path) if not path:find("Crimson") then set = path end end
     fs.GetFont = function() return set end
     ns.UI.Theme.SetFont(fs, "body", 14)
-    eq(set, "Fonts\\ARIALN.TTF")
+    eq(set, "Fonts\\FRIZQT__.TTF")
   end)
 
   it("sounds off: the addon plays nothing", function()
@@ -260,5 +291,38 @@ describe("Accessibility", function()
     talkTo("Marshal McBride")
     ns.Conversation.Business()
     for _, c in ipairs(Mock.calls) do ok(c[1] ~= "PlaySound", "played a sound") end
+  end)
+end)
+
+describe("Versions", function()
+  it("says to restart the game when a folder was updated but its old file list is still loaded", function()
+    local ns = Loader.Boot({
+      packs = { "RPGDialogue_TestPack" },
+      setup = function(state)
+        for _, a in ipairs(state.addons) do
+          if a.name == "RPGDialogue_TestPack" then a.meta.Version = "0.5" end
+        end
+        state.addons[#state.addons + 1] = { name = "RPGDialogue", meta = { Version = "0.8.0" }, loaded = true }
+      end,
+    })
+    local text = table.concat(Mock.chat, "\n")
+    contains(text, "RPG Dialogue was updated to " .. ns.VERSION .. ", but the game still has the old file list (0.8.0)")
+    contains(text, "Test Pack")
+    contains(text, "a /reload isn't enough")
+  end)
+
+  it("stays quiet when the versions agree, and lists them", function()
+    local ns = Loader.Boot({
+      packs = { "RPGDialogue_TestPack" },
+      setup = function(state)
+        for _, a in ipairs(state.addons) do
+          if a.name == "RPGDialogue_TestPack" then a.meta.Version = "1" end
+        end
+      end,
+    })
+    ok(not table.concat(Mock.chat, "\n"):find("old file list"), "no warning")
+    Mock.chat = {}
+    ns.Slash.Handle("packs")
+    contains(table.concat(Mock.chat, "\n"), "RPG Dialogue " .. ns.VERSION)
   end)
 end)

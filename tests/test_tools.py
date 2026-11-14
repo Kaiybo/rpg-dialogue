@@ -211,6 +211,31 @@ class ReleaseChecksTest(ScratchRepo):
         self.assertRegex(out, r"RPGDialogue_Elwynn: pack.lua version '9.9.9' doesn't match CHANGELOG.md \(\d+\.\d+\.\d+\)")
 
 
+class VersionTest(ScratchRepo):
+    def test_check_set_and_zip(self):
+        self.assertIn("versions agree", self.tool("version.py", "--check").stdout)
+        out = self.tool("version.py", "set", "RPGDialogue_Elwynn", "7.8.9").stdout
+        self.assertIn("RPGDialogue_Elwynn is now 7.8.9", out)
+        self.assertIn("add a '## 7.8.9 (date)' heading", out)
+        toc = read(os.path.join(self.root, "RPGDialogue_Elwynn", "RPGDialogue_Elwynn.toc"))
+        self.assertIn("## Version: 7.8.9", toc)
+        self.assertIn("## Title: RPG Dialogue: Elwynn Forest |cff8a8a8a7.8.9|r", toc)
+        self.assertIn('version = "7.8.9"', read(os.path.join(self.root, "RPGDialogue_Elwynn", "pack.lua")))
+        bad = self.tool("version.py", "--check", check=False)
+        self.assertEqual(bad.returncode, 1)
+        self.assertIn("the newest CHANGELOG.md heading", bad.stdout)
+        self.assertEqual(self.tool("build_zip.py", check=False).returncode, 1, "won't build with versions out of step")
+        cl = os.path.join(self.root, "RPGDialogue_Elwynn", "CHANGELOG.md")
+        write(cl, read(cl).replace("## ", "## 7.8.9 (test)\n- test\n\n## ", 1))
+        out = self.tool("build_zip.py").stdout
+        self.assertIn("RPGDialogue-", out)
+        import zipfile
+        core = [r for r in out.split() if r.endswith(".zip")][0]
+        names = zipfile.ZipFile(os.path.join(self.root, core)).namelist()
+        self.assertIn("RPGDialogue_Elwynn/npcs/melika.lua", names)
+        self.assertFalse(any("/bibles/" in n or n.endswith(".md") for n in names))
+
+
 class ImportCaptureTest(ScratchRepo):
     def test_registry_keeps_lowest_level_and_factions(self):
         self.tool("import_capture.py", self.capture)

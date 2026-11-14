@@ -683,9 +683,15 @@ ns.On("QUEST_COMPLETE", function() questStage = "complete"; deferStart("quest", 
 Conv.MAX_GAME_OPTIONS = 5
 
 local function questRank(q) return q.active and (q.complete and 1 or 3) or 2 end
+-- The game's own quest marks (yellow ! and ?), when this client has them; the words stay.
+local function questIcon(q)
+  local atlas = q.active and (q.complete and "QuestTurnin" or "QuestActive") or "QuestNormal"
+  local mark = C.AtlasMarkup(atlas, 14)
+  return mark ~= "" and (mark .. " ") or ""
+end
 local function questLabel(q)
   local fmt = q.active and (q.complete and L.GAME_TURN_IN or L.GAME_QUEST_ACTIVE) or L.GAME_QUEST
-  return fmt:format(q.title or "?")
+  return questIcon(q) .. fmt:format(q.title or "?")
 end
 
 function Conv.GameOptions(s)
@@ -708,7 +714,9 @@ function Conv.GameOptions(s)
       add(questLabel(q), { kind = "gossipQuest", questID = q.questID, active = q.active })
     end
     for _, o in ipairs(C.GossipOptions()) do
-      if type(o.name) == "string" and o.name ~= "" then add(o.name, { kind = "gossipOption", id = o.id }) end
+      if type(o.name) == "string" and o.name ~= "" then
+        add(C.IconMarkup(o.icon, 14) .. o.name, { kind = "gossipOption", id = o.id })
+      end
     end
   elseif onQuest then
     if questStage == "greeting" then

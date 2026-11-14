@@ -7,7 +7,7 @@ local U = ns.Util
 local SD = {}
 ns.SavedData = SD
 
-SD.SCHEMA = 2
+SD.SCHEMA = 3
 
 SD.ACCOUNT_DEFAULTS = {
   schema = SD.SCHEMA,
@@ -35,7 +35,8 @@ SD.ACCOUNT_DEFAULTS = {
     fadeDefault = true,         -- fade Blizzard's window while ours covers it
     textSize = 14,
     lineSpacing = 3,
-    readableFont = false,
+    fontBody = "friz",          -- see Theme.FONT_LIST ("lsm:<name>" for SharedMedia fonts)
+    fontName = "morpheus",      -- or "same" (as the text)
     textSpeed = 70,             -- characters per second
     instantText = false,
     autoAdvance = false,
@@ -95,6 +96,15 @@ SD.MIGRATIONS = { account = {}, char = {} }
 -- first meetings and news, with a short line otherwise). Moves the old default over.
 SD.MIGRATIONS.account[2] = function(db)
   if type(db.settings) == "table" and db.settings.openMode == "compact" then db.settings.openMode = "full" end
+end
+
+-- Schema 3: the "high-readability font" switch became a font choice.
+SD.MIGRATIONS.account[3] = function(db)
+  if type(db.settings) == "table" and db.settings.readableFont == true then
+    db.settings.fontBody = "atkinson"
+    db.settings.fontName = "same"
+  end
+  if type(db.settings) == "table" then db.settings.readableFont = nil end
 end
 
 SD.LIMITS = { seen = 1500, journal = 2000, deaths = 500, debug = 300, flagged = 500 }

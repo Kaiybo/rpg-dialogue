@@ -267,6 +267,53 @@ end
 
 function C.ShiftDown() return call("IsShiftKeyDown") == true end
 
+-- A vertical or horizontal color gradient on a texture (modern ColorMixin form, then the
+-- older one, then a flat average). c1 is the bottom (or left) color, c2 the top (or right).
+function C.SetGradient(tex, orientation, c1, c2)
+  tex:SetColorTexture(1, 1, 1, 1)
+  local create = resolve("CreateColor")
+  if create and type(tex.SetGradient) == "function" then
+    local ok = pcall(tex.SetGradient, tex, orientation,
+      create(c1[1], c1[2], c1[3], c1[4] or 1), create(c2[1], c2[2], c2[3], c2[4] or 1))
+    if ok then return end
+  end
+  if type(tex.SetGradientAlpha) == "function" then
+    local ok = pcall(tex.SetGradientAlpha, tex, orientation, c1[1], c1[2], c1[3], c1[4] or 1, c2[1], c2[2], c2[3], c2[4] or 1)
+    if ok then return end
+  end
+  tex:SetColorTexture((c1[1] + c2[1]) / 2, (c1[2] + c2[2]) / 2, (c1[3] + c2[3]) / 2, ((c1[4] or 1) + (c2[4] or 1)) / 2)
+end
+
+-- Inline atlas icon for text ("|A:name:h:w|a"), or "" if this client doesn't have it.
+function C.AtlasMarkup(name, size)
+  local info = call("C_Texture.GetAtlasInfo", name)
+  if not info then return "" end
+  return ("|A:%s:%d:%d|a"):format(name, size, size)
+end
+
+-- Inline texture icon for text ("|T<file>:h:w|t ") from a file ID or path, or "".
+function C.IconMarkup(file, size)
+  if type(file) ~= "number" and type(file) ~= "string" then return "" end
+  if file == 0 or file == "" then return "" end
+  return ("|T%s:%d:%d|t "):format(tostring(file), size, size)
+end
+
+-- Fonts other addons share through LibSharedMedia-3.0 (if any addon loaded it). Read-only.
+function C.SharedMediaFonts()
+  local out = {}
+  local libstub = resolve("LibStub")
+  if not libstub then return out end
+  local ok, lsm = pcall(libstub, "LibSharedMedia-3.0", true)
+  if not ok or type(lsm) ~= "table" or type(lsm.List) ~= "function" then return out end
+  local okList, names = pcall(lsm.List, lsm, "font")
+  if not okList or type(names) ~= "table" then return out end
+  for _, name in ipairs(names) do
+    local okFetch, path = pcall(lsm.Fetch, lsm, "font", name, true)
+    if okFetch and type(path) == "string" then out[#out + 1] = { name = name, path = path } end
+  end
+  return out
+end
+
 -- Client languages written in Latin script (the bundled readable font covers these).
 local LATIN = { enUS = true, enGB = true, deDE = true, frFR = true, esES = true, esMX = true, itIT = true, ptBR = true }
 function C.LatinClient()

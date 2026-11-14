@@ -57,8 +57,6 @@ def release_checks():
         meta, _ = P.read_toc(toc)
         rel = os.path.relpath(toc, ROOT)
         interfaces.setdefault(meta.get("Interface", "?"), []).append(rel)
-        if meta.get("Version") != "@project-version@":
-            problems.append(f"{rel}: Version should be @project-version@ (the packager fills it in from the git tag)")
         if not meta.get("Title") or not meta.get("Notes"):
             problems.append(f"{rel}: needs Title and Notes")
     if len(interfaces) > 1:
@@ -143,6 +141,7 @@ def main():
         ("lua_tests", [lua, "tests/run.lua"] if lua else None, "Lua engine tests (mock client)"),
         ("tool_tests", [PY, "-m", "unittest", "discover", "-s", "tests", "-p", "test_*.py"], "Python tool tests"),
         ("luacheck", ["luacheck", "--no-color", "."] if shutil.which("luacheck") else None, "luacheck (lint, no stray globals)"),
+        ("versions", tool("version.py", "--check"), "Version numbers (TOC, title, code, changelog)"),
         ("validate", tool("validate.py", "--quiet", *(["--strict"] if args.release else [])), "Content validator"),
         ("voicecheck", tool("voicecheck.py"), "AI-voice checker"),
         ("simulate", None if args.quick else tool("simulate.py", "--characters", str(args.characters)), "Simulation"),

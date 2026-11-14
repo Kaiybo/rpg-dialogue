@@ -3,7 +3,7 @@
 > Read this first, then `DESIGN.md`, then `CONTENT_GUIDE.md` (and `PACK_AUTHORING.md` before adding a zone). You won't remember earlier sessions; these files are your memory.
 > The original brief is the Project doc `rpg-dialogue-build-prompt (1).md`. Re-read it when a decision isn't covered here.
 
-**Last session:** 2026-11-13 · **M0–M8 all built; first in-game results are in.** The addon loads, packs load, `/rpgd why` works, and the Skyborne race token is "Skyborne".
+**Last session:** 2026-11-13 · **M0–M8 all built; three rounds of in-game results are in.** The addon loads, packs load, `/rpgd why` works, and the Skyborne race token is "Skyborne". **Versions now: core 0.9.0, World 1.0.0, Elwynn 1.1.0** (`python3 tools/version.py`).
 
 **First in-game test (user, 2026-11-13):**
 - **Test character: Skyborne Druid, level 22 (Blooded), faction not confirmed, tested in Northshire Valley.** Content for that character is thin: the slice is written for level 1–10 characters doing Northshire/Goldshire quests (only 4 Skyborne lines and 1 druid line exist). Asked the user where they actually play, for the next content pass.
@@ -12,6 +12,11 @@
 - **Second test:** the safety net caught the drawing bug: "FontString:SetText(): Font not set" (text set before any font; the real client refuses, the mock didn't). Fixed: font objects at creation, and the mock now enforces it.
 - **The user asked for Melika Isenstrider** (Assistant Innkeeper, Lion's Pride Inn; no gossip menu) **to open the box on right-click, and NPCs with a gossip menu to use that menu.** Done: WorldFrame click hooks (DESIGN §3.6 "Right-click talk"), and Melika's bible and NPC file (Elwynn 1.1.0). For gossip NPCs the box opens with the game's window and lists its options; asked the user whether they'd rather keep the plain game window for those.
 - The user wants **a box that opens automatically on right-click with the options right away**. Done: the full box is now the default every time (schema 2 migration), and it lists the NPC's quests and gossip options, handing the pick to the game's window (DESIGN §3.6).
+- **Third test (screenshot of Melika's box):** "Looks good!" (taken as: keep the box for gossip NPCs too). But she showed **innkeeper pool lines, not her own**: her new file wasn't loaded because WoW reads a TOC's file list only at game start, and the user had /reloaded. Added a version and file-list mismatch check that says "exit and restart the game".
+- The user then asked to **choose the font, polish the visuals, and put version numbers on the folders**. Done (CHANGELOG 0.9.0 "Fonts, look and version numbers"):
+  - Two font pickers with a sample line (Settings: "Font for what people say", "Font for names"); seven built-in choices plus SharedMedia fonts; Crimson Pro and Cinzel bundled (OFL). Schema 3 migration replaces `readableFont` with `fontBody` / `fontName`. Code: `UI/Theme.lua` `FONT_LIST`, `SetFont`.
+  - Polish: shadow, gradient parchment, brass trim, framed portrait, rules, reply rows with hover band and accent stripe, themed buttons everywhere, game quest and option icons (atlases, with a blank fallback), fade-in.
+  - Versions in the AddOns list title (grey), TOC `## Version`, `/rpgd packs`, settings header, login line. `tools/version.py` keeps TOC, code and changelogs in step; `tools/build_zip.py` builds `tools/out/RPGDialogue-<ver>.zip` and refuses on a mismatch. When bumping: `python3 tools/version.py set <folder> <x.y.z>`, then add the changelog heading.
 
 ## Assumptions made while the user was away (confirm or correct)
 1. **Interface number** 16001 (from warcraft.wiki.gg, patch 1.60.1). TOCs say `16001, 16002` to cover the next patch too.
@@ -24,7 +29,7 @@
 8. **DESIGN.md §6 decisions accepted** as written. One change: TODO-id NPCs are matched by name at runtime always (not only in dev mode), so the slice is testable before capture data exists. The validator still flags every TODO.
 9. **Other dialogue addons:** RPG Dialogue steps back by default.
 10. **Total RP 3:** name and title both on by default when it's loaded ("Sir Aldric": title + first name).
-11. **Readable font:** bundled Atkinson Hyperlegible (SIL OFL 1.1). Names also switch to it when the readable font is on.
+11. **Fonts:** default stays Friz Quadrata for text and Morpheus for names (the game's own look). Bundled, all SIL OFL 1.1: Atkinson Hyperlegible, Crimson Pro, Cinzel. Users who had the old readable font on get Atkinson for text and "same" for names.
 12. **Per-pack versions:** each pack keeps its own version in `pack.lua` plus a `CHANGELOG.md` in its folder; the TOC `## Version` is the release build.
 13. **"Something new" tooltip marker:** first meetings don't count as "new" (only unheard news lines and thread beats).
 
@@ -38,7 +43,8 @@
 - **M6** (979fcc5): spirit healer tree, books, insanity, drunk replies, ghosts, barks, errands.
 - **M7** (bbefce7): `tools/new_zone.py` (plan → approve tiers → scaffold), `tools/check_all.py`, impossible-quest-reference check, copied-wording check, flag replay lines, `/rpgd capture zone`, `tests/test_tools.py`.
 - **M8** (c2e6a2e): Total RP 3 (read-only), accessibility pass (keyboard selection, gamepad, Ask About keybinding, bundled readable font, "(Locked)" and ">" markers, journal tab keys), the optional "something new" tooltip marker (an M2 item that had been missed), pack `requires` reported in game and validated, per-pack versions and changelogs, `PACK_AUTHORING.md`, `.pkgmeta` checked against the packager's source, Blizzard UI policy checked and enforced by `check_all.py --release`, GitHub workflows, README rewrite.
-- **After the first in-game test:** 125 Lua tests (new `tests/ux_spec.lua`). **Checks at the end of M8:** 118 Lua tests, 7 Python tool tests, luacheck clean, validator 0 errors (101 warnings, all TODO placeholders), voice check 0 failures, simulation 0 runtime errors / 0 contradictions / 0 impossible quest references.
+- **After the in-game tests:** box every visit with the game's options, safety net, right-click talk, Melika, fonts, polish, versions. **Checks now:** 134 Lua tests (new `tests/ux_spec.lua`), 8 Python tool tests, luacheck clean, validator 0 errors (106 warnings, all TODO placeholders), voice check 0 failures, simulation 0 runtime errors / 0 contradictions / 0 impossible quest references.
+- Earlier: **Checks at the end of M8:** 118 Lua tests, 7 Python tool tests, luacheck clean, validator 0 errors (101 warnings, all TODO placeholders), voice check 0 failures, simulation 0 runtime errors / 0 contradictions / 0 impossible quest references.
 
 ## Half-done
 - Nothing half-built. `check_all.py --release` fails until capture data replaces the TODO ids (by design).
@@ -53,7 +59,9 @@
 - Fading GossipFrame/QuestFrame with `SetAlpha` and covering it with our own mouse blocker: check for taint (`/console taintLog 1`, then `Logs/taint.log`).
 - Keyboard capture (`SetPropagateKeyboardInput` inside OnKeyDown), now including arrow keys and Tab.
 - Gamepad (`EnableGamePadButton`, `OnGamePadButtonDown`, `C_GamePad.IsEnabled`).
-- The bundled font path loading (`Interface\AddOns\RPGDialogue\Media\Fonts\AtkinsonHyperlegible-Regular.ttf`).
+- The bundled font paths loading (`Interface\AddOns\RPGDialogue\Media\Fonts\*.ttf`), and the sizes looking even across fonts (scales in `Theme.FONT_LIST`).
+- Right-click talk: the `WorldFrame` OnMouseDown/OnMouseUp hooks, and that the box never races a game window.
+- `Texture:SetGradient` with `CreateColor` (fallbacks exist), the quest atlases (`QuestNormal`, `QuestTurnin`, `QuestActive`) and the fade-in animation.
 - `TooltipDataProcessor.AddTooltipPostCall` for the tooltip marker.
 - Total RP 3's `AddOn_TotalRP3.Player.GetCurrentUser()` and its `GetFirstName` / `GetTitle` / `GetRoleplayingName` methods (method names are from TRP3's public player object as other addons use it; not read from TRP3's source).
 - A real tagged build with the BigWigs packager (the `.pkgmeta` was checked by reading the packager's code; running it here was not allowed).
@@ -80,7 +88,8 @@ Install by linking or copying `RPGDialogue`, `RPGDialogue_World`, `RPGDialogue_E
 Still all of DESIGN.md §4 (section 9 answers, slice zone, where the repo lives, commit identity, probe output, §6 OK), plus the assumptions above.
 
 ## Known bugs
-- Fixed (second test): the conversation window didn't draw ("Font not set"). Needs confirming in game.
+- Fixed (second test): the conversation window didn't draw ("Font not set"). Confirmed fixed in the third test (the box drew).
+- Not a bug, but easy to hit: after installing a new version, /reload isn't enough when files were added. The addon now warns.
 
 ## Environment notes
 - The cloud workspace had Lua 5.1, luac5.1, LuaRocks and luacheck installed by hand (`apt-get install lua5.1 luarocks liblua5.1-0-dev && luarocks install luacheck`), plus Python 3. A new session may need to reinstall them.
@@ -88,7 +97,9 @@ Still all of DESIGN.md §4 (section 9 answers, slice zone, where the repo lives,
 - `python3 tools/check_all.py` runs everything (about a minute); `--quick` skips the simulation.
 
 ## Exact next step
-User retests: right-click Melika (box, her lines; as a Skyborne druid she should open with "A sky-folk druid."), then a gossip NPC (box with the menu's options), a quest giver (pick a quest from the box), a vendor. Answer: gossip NPCs keep the box, or the plain game window? Then content where the druid plays.
+User installs 0.9.0 (**full game restart**, not /reload), right-clicks Melika and checks: her own lines (as a Skyborne druid: "A sky-folk druid..."), the new look, the font pickers, the versions in the AddOns list. Fix whatever they report about the look or fonts. Then ask where the druid actually plays and write content there (Skyborne facts only from brief §10).
+
+Previous next step: user retests: right-click Melika (box, her lines; as a Skyborne druid she should open with "A sky-folk druid."), then a gossip NPC (box with the menu's options), a quest giver (pick a quest from the box), a vendor. Answer: gossip NPCs keep the box, or the plain game window? Then content where the druid plays.
 
 Earlier plan (kept for context): ask the user to retest: right-click McBride, a vendor and a quest giver; paste any "Something went wrong" chat line; check the box lists their quests and that picking one opens the quest. Fix whatever error the safety net reports (start with `UI/DialogueFrame.lua` D.Show/create). Then plan content for where the Skyborne druid actually plays (ask which zones), plus Skyborne and druid reactions across the existing NPCs (only facts from brief §10 for Skyborne).
 
