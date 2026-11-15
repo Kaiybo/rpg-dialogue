@@ -433,7 +433,7 @@ P:NPC {
         { id = "h_default", text = "Jandria. I teach the practical side of things here: how to keep your mana when the fight runs long, and how to heal a Sentinel who won't stop moving." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Night is when the wounded come up from the portal, so I keep my hands busy and my lessons short." },
       },
-      again = { { id = "h_again", text = "What else? Be quick, I've a student waiting." } },
+      again = { { id = "h_again", text = "Something more? Be quick about it, because a student of mine is kneeling by the pool and pretending not to listen." } },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "What's the hardest thing to teach?", next = "hard" },
@@ -607,7 +607,7 @@ P:NPC {
           text = "You're going after Lady Sathrah, aren't you? Be gentle with her, if you can, because she was beautiful once." },
       },
       again = {
-        { id = "h_again", text = "What else? I've nowhere to be until the bell." },
+        { id = "h_again", text = "What else? The bell won't ring for my lessons for a while yet, so ask away." },
         { id = "h_again2", text = "Ask me anything; I'll tell you if I know, and if I don't I'll find out." },
       },
       choices = {
@@ -723,7 +723,7 @@ P:NPC {
         { id = "h_voucher", tags = { "news" }, when = { questActive = TODO_QUEST("Calm Before the Storm") },
           text = "Gracina Spiritmight has told me to expect you. When you bring her voucher, I'm to withdraw something from her account and present it to you, so congratulations would seem to be in order." },
       },
-      again = { { id = "h_again", text = "Is there anything else I can do for you?" } },
+      again = { { id = "h_again", text = "Is there anything else? Your coin is as safe under the Temple's roof as anywhere in Darnassus." } },
       choices = {
         { text = "I'd like to see my box.", next = "BUSINESS" },
         { text = "Who keeps accounts here?", next = "accounts" },
