@@ -83,3 +83,9 @@ P:Topic { id = "valley_of_heroes", keywords = { "Valley of Heroes" }, name = "Th
 -- Elwynn (Elwynn pack 1.10.0)
 P:Topic { id = "heroes_vigil", keywords = { "Heroes' Vigil", "Stone of Remembrance" }, name = "Heroes' Vigil", category = "places", learned = "Henze Faulk, on Stone Cairn Lake" }
 P:Topic { id = "brotherhood_northshire", keywords = { "Brotherhood of Northshire" }, name = "The Brotherhood of Northshire", category = "people", learned = "Brother Sammuel at Northshire Abbey" }
+
+-- Duskwood (Duskwood pack 1.3.0)
+P:Topic { id = "morbent_fel", keywords = { "Morbent" }, name = "Morbent Fel", category = "threats", learned = "Sven Yorgen, or the council in Darkshire" }
+P:Topic { id = "embalmer", keywords = { "Embalmer" }, name = "The Embalmer", category = "rumors", learned = "Lord Ello Ebonlocke, after the hermit's note" }
+P:Topic { id = "dark_riders", keywords = { "Dark Riders" }, name = "The Dark Riders", category = "threats", learned = "Sven Yorgen or Jitters" }
+P:Topic { id = "raven_hill", keywords = { "Raven Hill" }, name = "Raven Hill", category = "places", learned = "Darkshire, or the road west" }
