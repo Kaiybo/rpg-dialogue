@@ -548,5 +548,20 @@ P:Town {
 -- 0.35.0: Blasted Lands (towns for that pack go below this line)
 
 -- 0.35.0: Azshara (towns for that pack go below this line)
+P:Town {
+  id = "talrendis_point", name = "Talrendis Point",
+  subzones = { "Talrendis Point", "Shadowsong Shrine" },
+  related = { astranaar = 0.05 },
+  tiers = { Hero = "Friend of the Sentinels" },
+  quests = { { TODO_QUEST("A Land Filled with Hatred"), 3 }, { TODO_QUEST("Spiritual Unrest"), 3 } },
+}
+
+P:Town {
+  id = "valormok", name = "Valormok",
+  subzones = { "Valormok" },
+  related = { orgrimmar = 0.05 },
+  tiers = { Hero = "Avenger of Valormok" },
+  quests = { { TODO_QUEST("Betrayed (2)"), 3 }, { TODO_QUEST("Betrayed (3)"), 6 }, { TODO_QUEST("Stealing Knowledge"), 3 } },
+}
 
 -- 0.35.0: Silithus (towns for that pack go below this line)
