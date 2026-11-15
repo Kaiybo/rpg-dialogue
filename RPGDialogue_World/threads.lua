@@ -593,8 +593,8 @@ P:Thread {
   theme = "The Light answers differently in the Plaguelands, and everyone who serves it there has had to decide what it's for.",
   title = "The Light in the Plaguelands",
   story = {   -- the journal's Stories page, by state
-    stirring = { first = "High Priestess MacDonnell says the Light has two hands in the Plaguelands, one for mending and one for burning, and that most priests who come north are startled by which one it offers first.",
-      third = "{name} heard High Priestess MacDonnell say that the Light offers burning before mending in the Plaguelands." },
+    stirring = { first = "High Priestess MacDonnell teaches the priests at Chillwind to hold the dead in mind when they call on the Light. Some come back steadier for it and some come back frightened of their own hands, and she says she never knows which beforehand.",
+      third = "{name} heard High Priestess MacDonnell speak of what calling the Light against the dead does to the priests who learn it." },
     unfolding = { first = "Leonid Barthalomew is dead, and the Light answers him anyway. Tirion Fordring was stripped of it, and still listens for it by his river. Nobody up here serves the Light the way they were taught to.",
       third = "{name} met a dead priest the Light still answered and an exiled paladin who still listened for it, and began to wonder what the Light was for in Lordaeron." },
     resolved = { first = "Archbishop Benedictus asked the Light every night for a year whether it had left Lordaeron. He said he was glad to see someone come home from there still asking.",
@@ -610,14 +610,14 @@ P:Thread {
   },
   pacing = { minConversations = 2, minSeconds = 900 },
   reflection = {
-    first = "A priestess who burns, a dead man the Light still answers, a paladin it was taken from: nobody in the Plaguelands serves the Light the way the Cathedral taught it.",
+    first = "A priestess who teaches the Light to burn, a dead man it still answers, a paladin it was taken from: nobody in the Plaguelands serves the Light the way the Cathedral taught it.",
     third = "{name} had met three servants of the Light in the Plaguelands, and none of them served it the way the Cathedral taught.",
   },
   beats = {
     {
       id = "b1_macdonnell", npc = "macdonnell",
       when = { class = { "PRIEST", "PALADIN" }, thread = { id = "plague_light", notBeat = "b1_macdonnell" } },
-      text = "Out here the Light has two hands, friend, one for mending and one for burning, and most priests who come north are startled by which one it offers first. Mind you notice which one you start reaching for.",
+      text = "I teach every priest who comes through that gate to hold the dead in mind when they call on the Light, and I've watched what it does to them. Some come back to the fire steadier and some come back frightened of their own hands, and I've never once guessed which beforehand.",
       fx = { thread = { id = "plague_light", beat = "b1_macdonnell", state = "stirring" } },
     },
     {
