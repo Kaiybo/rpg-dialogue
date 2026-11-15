@@ -91,7 +91,7 @@ P:NPC {
       },
     },
     headhunter = {
-      lines = { { id = "hd_default", text = "The old way, eh? That be good, child. Bring the tribe's enemies down clean and give their spirits to the loa proper, and never take a head for pride, because that be how a hunter turns into something else." } },
+      lines = { { id = "hd_default", text = "The old way, eh? That be good to hear, child, so bring the tribe's enemies down clean and give their spirits to the loa proper, and never take a head for pride, because that be how a hunter turns into something else." } },
       choices = { { text = "Clean, and never for pride.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "A head taken for pride still scares the enemy.", next = "BACK", fx = { align = { honor = -1 } } } },
     },
