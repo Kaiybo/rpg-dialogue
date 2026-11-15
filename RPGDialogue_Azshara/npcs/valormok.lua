@@ -64,7 +64,7 @@ P:NPC {
       },
     },
     betrayal_ran = {
-      lines = { { id = "br_default", text = "We sent everything we had at her after that, and none of them came back. Some are dead, I'm sure, and some simply ran, and I don't know which I'd rather believe." } },
+      lines = { { id = "br_default", text = "After that I threw every warrior I had left at her, and not one came home. Some are dead, I'm sure, and some simply ran, and I don't know which I'd rather believe." } },
       choices = {
         { text = "Not every warrior is a hero.", next = "betrayal_names" },
         { text = "Something else.", next = "BACK" },
@@ -106,7 +106,7 @@ P:NPC {
       },
     },
     camp_why = {
-      lines = { { id = "cw_default", text = "Because the days we've spent here aren't our best, but there's still blood in our veins, and we'll have a victory out of this forest yet. If we left now, the dead would have died for nothing." } },
+      lines = { { id = "cw_default", text = "Because this forest hasn't given us our finest hours, but we're young and our blood's hot, and we'll have a victory out of it yet. If we left now, the dead would have died for nothing." } },
       choices = {
         { text = "Then I'll stand with you.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 }, standing = { valormok = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -164,7 +164,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Jediga, and I'm not here for glory or for honour, before you ask. I'm here because of one orc's pride, and I mean to make enough coin out of this exile to buy my way home." },
+          text = "Jediga, and I'm not out here for glory or honour, before you ask. One orc's wounded pride put me in this forest, and I mean to make enough coin out of my exile to buy my way home." },
         { id = "h_tablets", when = { questActive = TODO_QUEST("Stealing Knowledge") },
           text = "Four tablets in the Ruins of Eldarath, each named for a Highborne wizard, and each one worth a tidy sum to the right buyer. Get them all and you get a cut; that's how partners work." },
         { id = "h_xylem", when = { questActive = TODO_QUEST("Delivery to Archmage Xylem") },
@@ -235,7 +235,7 @@ P:NPC {
       },
     },
     xylem_harmless = {
-      lines = { { id = "xh_default", text = "Harmless people don't live alone on cliffs with no stairs. Maybe he can be trusted after all, but I'll keep counting my fingers after every handshake, just the same." } },
+      lines = { { id = "xh_default", text = "Harmless people don't live alone on cliffs with no stairs. He paid, I'll grant him that, but I'll keep counting my fingers after every handshake, just the same." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { skeptical = 1 } } } },
     },
 

@@ -21,3 +21,8 @@ npcs\city.lua
 npcs\city2.lua
 npcs\city3.lua
 npcs\city4.lua
+npcs\cathedral_square.lua
+npcs\keep.lua
+npcs\mage_quarter.lua
+npcs\dwarven_district.lua
+npcs\park.lua

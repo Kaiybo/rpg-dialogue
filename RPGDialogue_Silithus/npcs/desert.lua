@@ -393,6 +393,8 @@ P:NPC {
         { text = "What are you digging for?", next = "dig" },
         { text = "Why won't Ironforge send help?", next = "ironforge" },
         { text = "Who's the monkey?", next = "monkey" },
+        { text = "I'll carry word to Ironforge myself.", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "Did the rubbings make any sense?", next = "glyphs", when = { questDone = TODO_QUEST("Glyph Chasing") } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -434,6 +436,17 @@ P:NPC {
         { text = "Forget Ironforge. Find your own army.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    dwarf = {
+      lines = { { id = "dw_default", text = "Would ye? Then tell the Hall of Explorers we've found glyphs nobody in Ironforge has ever seen, and tell them the bugs have tripled. One of those two ought to get their attention." } },
+      choices = {
+        { text = "I'll make them listen.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    glyphs = {
+      lines = { { id = "gl_default", text = "Not a scrap, and that's what bothers me. I've read glyphs from Uldaman to the Badlands, and these ones don't read like writing at all; they read like a lock waiting for a key." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     monkey = {
       lines = { { id = "m_default", text = "Glibb. Don't ask; he's a monkey, and he saved all our hides when Natalia went wild, so he eats first now." } },

@@ -142,7 +142,7 @@ P:NPC {
       },
     },
     morphaz_where = {
-      lines = { { id = "mw_default", text = "Deep in the sunken temple of Atal'Hakkar, in the Swamp of Sorrows, where the trolls drowned their own god. He's in good company down there, and none of it's friendly." } },
+      lines = { { id = "mw_default", text = "Down in Atal'Hakkar, the trolls' drowned temple in the Swamp of Sorrows, where they tried to raise their own god. He's in good company down there, and none of it's friendly." } },
       choices = {
         { text = "I'll find him.", next = "BACK", fx = { trait = { brave = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -346,7 +346,7 @@ P:NPC {
     },
     master = {
       lines = { { id = "m_default", fx = { learn = { "xylem" } },
-        text = "Brilliant, impatient and entirely beyond your understanding. I do not question his orders, and I advise you not to question them either, especially to his face." } },
+        text = "Brilliant, impatient and entirely beyond your understanding. I never second-guess what he commands, and I advise you not to either, especially to his face." } },
       choices = {
         { text = "You're very loyal to him.", next = "master_loyal" },
         { text = "Is he dangerous?", next = "master_danger" },

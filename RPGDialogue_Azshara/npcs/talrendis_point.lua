@@ -257,7 +257,7 @@ P:NPC {
 
   topics = {
     knows = {
-      { id = "tp_knows", text = "I know a little of this land, mostly from walking it and listening. Ask me what you will, and I will tell you what I have learned honestly." },
+      { id = "tp_knows", text = "I know a little of this land, mostly from walking it and listening. Ask what you will, and you will have it honestly, as I learned it." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "For you, friend, I will tell everything I know, and say plainly where my knowing runs out." },
     },
     background = {

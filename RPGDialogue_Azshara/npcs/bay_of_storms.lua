@@ -35,11 +35,11 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Hydraxis, Duke of the Waterlords. You are not an elemental, and so you cannot understand our struggle, but perhaps we may come to an arrangement that serves us both." },
+          text = "I am Hydraxis, Duke of the Waterlords. Your kind were not born of the deep, mortal, and our war is beyond you, but a mortal may still be useful to it, and be rewarded for it." },
         { id = "h_poison", when = { questActive = TODO_QUEST("Poisoned Water") },
           text = "The aspect of Neptulon will drive the plague from my scouts, and the struggle will drive them mad. Defeat the madness and bring me their bracers; I will not suffer that affront to our purity any longer." },
         { id = "h_silithus", when = { questActive = TODO_QUEST("Stormers and Rumblers") },
-          text = "The servants of air and earth hide in the Crystal Vale of Silithus, guarding things from mortals for reasons of their own. Show me your conviction, and destroy them." },
+          text = "In the Crystal Vale of Silithus, the wind's creatures and the stone's stand guard over things they keep from your kind. Go there, prove your conviction, and break them." },
         { id = "h_ember", when = { questActive = TODO_QUEST("Eye of the Emberseer") },
           text = "The orcs of Blackrock Spire hold a servant of fire in chains, high in their fortress. Free it only to destroy it, and bring me its eye; then I will know your strength." },
         { id = "h_proved", tags = { "news" }, when = { questRecent = { TODO_QUEST("Eye of the Emberseer"), days = 7 } },
@@ -151,14 +151,14 @@ P:NPC {
       choices = { { text = "As you say.", next = "BACK" } },
     },
     mortals_fail = {
-      lines = { { id = "mf_default", text = "Then you will be forgotten, as most rain is. Cowardice is not a thing the Waterlords hold in regard, but neither do we waste anger on it." } },
+      lines = { { id = "mf_default", text = "Then you will be forgotten, as most rain is. The Waterlords have no use for cowards, but neither do we waste anger on them." } },
       choices = { { text = "I won't be forgotten.", next = "BACK", fx = { trait = { brave = 1 } } } },
     },
 
     plague = {
       lines = {
         { id = "pl_default", fx = { learn = { "new_plague" } },
-          text = "I sent a force of scouts to the eastern lands of Lordaeron, and the disease of that place crept into them and twisted them. Water carries everything that is put into it, mortal, and the dead have put a great deal of filth into those rivers." },
+          text = "My scouts went east, into the dead lands of Lordaeron, and the sickness there crept into their waters and twisted them. Water carries everything that is put into it, mortal, and the dead have put a great deal of filth into those rivers." },
         { id = "pl_done", when = { questDone = TODO_QUEST("Poisoned Water") },
           text = "My scouts are cured, those who could be, and their madness is ended. Our strength is in our purity; you have restored a little of it, and the Waterlords remember." },
       },
@@ -245,7 +245,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Can you see them, mortal? The shapes at the edge of the tide, the shadows that are not shadows? No, I did not think you could. Sight without seeing is your people's gift and their curse, and it is why I am here and you are only visiting." },
+          text = "Can you see them, mortal? The shapes at the edge of the tide, the shadows that are not shadows? No; I thought not. Your kind have eyes and see nothing with them, which spares you a great deal, and is why I live here and you are only visiting." },
         { id = "h_story", when = { questActive = TODO_QUEST("Loramus") },
           text = "So you wish to fight demons. Then sit, and hear what you are fighting, and do not interrupt me, {race}; I tell this only once." },
         { id = "h_ward", when = { questActive = TODO_QUEST("Breaking the Ward") },
@@ -328,7 +328,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "ra_default", fx = { learn = { "loramus" } },
-          text = "Razelikh the Defiler, the cruellest of Kazzak's lieutenants in the old war. When his master was driven back into the Tainted Scar, Razelikh was left to hold the Blasted Lands, and he has held them while your kingdoms quarrelled over fields and borders." },
+          text = "Razelikh the Defiler, the cruellest of Kazzak's lieutenants in the old war. Kazzak lost that war and crawled away to lick his wounds, and he set Razelikh to hold the Blasted Lands for him, which he has done while your kingdoms quarrelled over fields and borders." },
       },
       choices = {
         { text = "How has he held them?", next = "razelikh_triad" },
@@ -429,7 +429,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "A small thing climbs into the temple of the one. Speak, small thing, before the one grows bored." },
     { id = "g_back", when = { metBefore = true }, text = "The small thing returns. The one remembers you." },
-    { id = "g_done", when = { questDone = TODO_QUEST("The Name of the Beast") }, text = "The one worthy of the wisdom of Arkkoroc. Come, come; my sons will not touch you now." },
+    { id = "g_done", when = { questDone = TODO_QUEST("The Name of the Beast") }, text = "The hydra-slayer returns to the one. Come, come; my sons will not touch you now." },
   },
 
   notice = {
@@ -447,8 +447,6 @@ P:NPC {
           text = "Arkkoroc is the one who rules these waters, the god of the deep folk and the lord of this temple. The makrura bow to the one, the murlocs sing to the one, and the sea itself remembers the one's name." },
         { id = "h_name", when = { questActive = TODO_QUEST("The Name of the Beast") },
           text = "A demon lord, the demon hunter says? The one knows the name you seek, and will give it, but first you must do something for the one." },
-        { id = "h_heads", when = { questActive = TODO_QUEST("The Name of the Beast") },
-          text = "Where are they? Hetaera's heads, all of them; the one does not bargain for half a hydra." },
       },
       again = {
         { id = "h_again", text = "What else does the small thing want of the one?" },
@@ -466,7 +464,7 @@ P:NPC {
       lines = { { id = "go_default", fx = { learn = { "arkkoroc" } },
         text = "The deep folk worship the one, and the one answers them, which is more than most gods do. Call it what you like, small thing; Arkkoroc does not need your word for it." } },
       choices = {
-        { text = "Then you are a god, great one.", next = "BACK", fx = { affinity = 2, align = { honor = -1 } } },
+        { text = "Then you are a god, great one.", next = "BACK", fx = { affinity = 2 } },
         { text = "You're a giant, not a god.", next = "god_insult" },
         { text = "Something else.", next = "BACK" },
       },
@@ -480,7 +478,7 @@ P:NPC {
     },
     sons = {
       big = true,
-      lines = { { id = "so_default", text = "Hetaera. She kills the one's children, she who calls herself the ruler of these oceans; a false god, nothing more, with too many heads and too little sense. She roams the clutch to the southwest, and the one counts fewer sons with every tide." } },
+      lines = { { id = "so_default", text = "Hetaera. She kills the one's children and names herself queen of all the seas, a false god with too many heads and too little sense. She roams the clutch to the southwest, and the one counts fewer sons with every tide." } },
       choices = {
         { text = "I'll bring you her heads.", next = "sons_vow" },
         { text = "How many sons have you lost?", next = "sons_count" },

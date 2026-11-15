@@ -38,7 +38,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "I am Ogtinc, and I serve the Cenarion Circle. I keep watch on this cliff over the Ruins of Eldarath, and I gather what the Circle needs to heal the lands the demons left sick." },
         { id = "h_aid", when = { questActive = TODO_QUEST("Cenarion Aid") },
-          text = "Your arrival takes a weight from my shoulders. The Circle has a need, and it is the kind a priest understands; there is much to do." },
+          text = "You have come, and I breathe easier for it. The Circle has a need, and it is the kind a priest understands; there is much to do." },
         { id = "h_coursers", when = { questActive = TODO_QUEST("Of Coursers We Know") },
           text = "The mosshoof coursers graze south and east of here. Take only what is needed, and take it quickly, so that they do not suffer." },
         { id = "h_ichor", when = { questActive = TODO_QUEST("The Ichor of Undeath") },
@@ -124,7 +124,7 @@ P:NPC {
       },
     },
     coursers_why = {
-      lines = { { id = "cw_default", text = "Because what lets them resist the poison lives in their blood and glands, and that is the cure Felwood needs. It grieves me; the courser is sacred to the Circle, and each one we kill weakens its spirit a little." } },
+      lines = { { id = "cw_default", text = "Because what lets them resist the poison lives in their blood and glands, and that is the cure Felwood needs. It grieves me; the Circle holds the courser sacred, and each one we kill weakens its spirit a little." } },
       choices = {
         { text = "Is there no other way?", next = "coursers_names" },
         { text = "Something else.", next = "BACK" },
@@ -149,12 +149,12 @@ P:NPC {
       },
     },
     circle_poison = {
-      lines = { { id = "cp_default", text = "Because a cure that has never met the sickness does not know how to fight it. The ichor of undeath is a wretched thing to hold, but it is a necessary evil, and the salve is stronger for it." } },
+      lines = { { id = "cp_default", text = "Because a cure that has never met the sickness does not know how to fight it. The ichor of undeath is a wretched thing to hold, and I wash my paws twice after, but the salve is stronger for it." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
     circle_drake = {
       lines = { { id = "cd_default", fx = { learn = { "morphaz" } },
-        text = "The blood of a green drake called Morphaz, who sleeps in the sunken temple of Atal'Hakkar. No poison or sickness touches him, and many druids died to learn that much." } },
+        text = "The blood of a green drake called Morphaz, who lairs in the drowned troll temple in the Swamp of Sorrows. No poison or sickness touches him, and many druids died to learn that much." } },
       choices = {
         { text = "The Archmage on the cliff hates that drake.", next = "BACK", fx = { trait = { curious = 1 } }, when = { heardLine = "xylem.h_default" } },
         { text = "Something else.", next = "BACK" },
@@ -339,7 +339,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Kim'jael, they call me. Kim'jael indeed! Do you know what that means to the elves? Little rat, or something like it, and they called me that the whole time they were paying me, the big bullies." },
+          text = "Kim'jael, they call me. Kim'jael indeed! It's elvish for little rat, near enough, and those bullies called me that the whole time they were paying me." },
         { id = "h_gear", when = { questActive = TODO_QUEST("Kim'jael Indeed!") },
           text = "My compass, my scope, my stuffed chicken and my wizzlegoober, all sitting in that elf camp. Get them back, and you'll be paid, just like we said." },
         { id = "h_rune", when = { questActive = TODO_QUEST("Kim'jael's \"Missing\" Equipment") },
@@ -360,7 +360,7 @@ P:NPC {
     hired = {
       big = true,
       lines = { { id = "hi_default", fx = { learn = { "rimtori" } },
-        text = "Magus Rimtori and her Thalassian crowd. They hired me to scout for treasure, and I jumped aboard the moment they said a number. Then they turned on me and tried to kill me, me, their loyal goblin partner, and kept my equipment!" } },
+        text = "Magus Rimtori and her Thalassian crowd. They wanted a scout for treasure, and I signed up the second I heard the word, and the price. Then the knives came out, for me, their loyal goblin partner, and they kept my equipment!" } },
       choices = {
         { text = "That's outrageous.", next = "hired_rage" },
         { text = "You'd have done the same.", next = "BACK", fx = { affinity = -1, trait = { skeptical = 1 } } },
@@ -471,7 +471,7 @@ P:NPC {
     wreck = {
       big = true,
       lines = { { id = "w_default", fx = { learn = { "horizon_scout" } },
-        text = "We were off the coast looking for a safe anchorage, and the sun hadn't been down an hour when they came up out of the water. They tore the Scout open below the waterline, and the reef finished what the naga started." } },
+        text = "We were hunting along this coast for somewhere to drop anchor, and the sun was barely down when they came up out of the water. They tore the Scout open below the waterline, and the reef finished what the naga started." } },
       choices = {
         { text = "It wasn't your fault, Captain.", next = "wreck_fault" },
         { text = "How many did you lose?", next = "wreck_lost" },
@@ -494,7 +494,7 @@ P:NPC {
     },
     naga = {
       lines = { { id = "n_default", fx = { learn = { "spitelash" } },
-        text = "I wish I knew. They went through the wreck like they were looking for something, and whatever it was, they didn't find it, because they've already come back once." } },
+        text = "I wish I knew. They went through the wreck like thieves through a purse, and whatever they wanted wasn't there, or they wouldn't keep coming back for us." } },
       choices = {
         { text = "Something aboard, then.", next = "BACK", fx = { trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -585,7 +585,7 @@ P:NPC {
       choices = { { text = "Fair enough.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     naga = {
-      lines = { { id = "n_default", text = "Not to me, they're not. They swim, I fly, and there hasn't been much trouble along the coast, maybe because the naga are all underwater. Either way, that's not my problem; I patrol the skies." } },
+      lines = { { id = "n_default", text = "Not to me, they're not. They swim, I fly, and so far the coast's been quiet from up there, which might just mean they keep their heads under the water. The sea's somebody else's watch; mine's the sky." } },
       choices = {
         { text = "That's convenient.", next = "naga_job" },
         { text = "Something else.", next = "BACK" },
@@ -599,7 +599,7 @@ P:NPC {
       },
     },
     machine = {
-      lines = { { id = "m_default", text = "Ironforge's finest, built in the hangar in the Military Ward and patched by me in a dozen fields since. She's loud, she's ugly, and she's never once dropped me in the sea, which is more than I can say for gryphons." } },
+      lines = { { id = "m_default", text = "Ironforge's finest, built in the Military Ward's hangar and patched by me in a dozen fields since. She's loud, she's ugly, and she's never once dropped me in the sea, which is more than I can say for gryphons." } },
       choices = {
         { text = "She's beautiful, Xiggs.", next = "BACK", fx = { affinity = 2 } },
         { text = "Something else.", next = "BACK" },
