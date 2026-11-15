@@ -259,7 +259,7 @@ P:Pool {
     },
     gnomeregan = { { id = "t_gnomeregan", text = "Somethin' came up from under it, an' then the gnomes flooded the place wi' poison tae stop it, an' half their own folk wi' it. They don't like talkin' about it, so be kind." } },
     dark_iron = { { id = "t_darkiron", text = "Fire-worshippin' cousins of ours, down in the Searing Gorge an' under the Blackrock. They've been rotten since before my granddad's day, an' they show no sign o' gettin' better." } },
-    _none = { { id = "t_none", text = "Never heard of it. Ask at the Hall of Explorers; they know everythin' an' they'll tell ye twice." } },
+    _none = { { id = "t_none", text = "That's beyond me, friend. The scholars at the Hall of Explorers might know, an' they'll be glad tae lecture ye." } },
   },
 }
 
@@ -654,7 +654,7 @@ P:Pool {
   topics = {
     knows = {
       { id = "t_kn1", text = "The roads between the mountain an' the loch carry plenty o' gossip, an' I catch most of it. Here's the lot." },
-      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell ye what's common, an' then ye can be on yer way." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "Ye'll get the gossip everybody at the Stoutlager already knows, an' not a drop more till I know ye." },
     },
     troggs = { { id = "t_troggs", text = "Stone-eatin' brutes from under the earth, an' there's no end tae them. Somebody dug too deep somewhere, an' we're all payin' for it." } },
     _none = { { id = "t_none", text = "Never heard tell of it. Try the Stoutlager; somebody'll make somethin' up." } },
@@ -881,7 +881,7 @@ P:Pool {
   topics = {
     knows = {
       { id = "t_kn1", text = "The scouts bring the news in, and most of it's bad, but it's still news. Here's what I've heard." },
-      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you what the whole camp knows, and then I've a fire to keep." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "Since Stromgarde fell, I don't hand out more than I must to people I don't know; here's that much." },
     },
     syndicate = { { id = "t_syndicate", text = "Alterac's old nobility, gone to banditry once their kingdom fell. They hide in the hills and the ruins, and they kill for coin or for spite, whichever's closer." } },
     _none = { { id = "t_none", text = "I don't know that one. The Captain keeps track of what's happening in the highlands; ask her." } },
@@ -908,7 +908,7 @@ P:Pool {
   topics = {
     knows = {
       { id = "t_kn1", text = "The gryphon riders see everythin' from the sky, an' they tell all of it in the tavern after. Here's what's been flyin' about." },
-      { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "Ye're a friend o' the Wildhammer, so pull up a stool, an' I'll tell ye the lot." },
+      { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "Ye've flown true by the Wildhammer, so I'll hold nothin' back from ye." },
     },
     _none = { { id = "t_none", text = "Never heard tell of it. Ask the Thane, for he'll know, or he'll say it loud enough that it sounds like he does." } },
   },
@@ -963,7 +963,7 @@ P:Pool {
   topics = {
     knows = {
       { id = "t_kn1", text = "Out here the front line is everywhere, so the news comes from all sides at once. Here's what I've heard." },
-      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you the common talk, and then I've a watch to stand." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "Ask quickly, if you must; the archers on the Spire don't wait for anyone to finish a sentence." },
     },
     windsor = { { id = "t_windsor", text = "A brave man who went into the mountain to learn what the Dark Irons were planning. He didn't come back, and the soldiers here still raise a cup to him every night." } },
     _none = { { id = "t_none", text = "I don't know. The Marshal knows the Steppes better than any of us, so ask him." } },
@@ -1103,7 +1103,7 @@ P:Pool {
   topics = {
     knows = {
       { id = "t_kn1", text = "News comes up from the depths an' down from the Spire, an' I hear most of it at the forge. Here's what's goin' round." },
-      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell ye the common talk, an' then ye can be on yer way." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "Strangers at the Point get the common gossip an' a long look, so here's the gossip." },
     },
     dark_iron = { { id = "t_darkiron", text = "My kin, aye, but no' my friends any more. They serve the Firelord under the mountain, an' they'd kill the lot of us for leavin', if they could reach us." } },
     _none = { { id = "t_none", text = "Never heard of it. Ask the Overseer, for he knows everythin', or so he tells us." } },
@@ -1188,10 +1188,10 @@ P:Pool {
   topics = {
     knows = {
       { id = "t_kn1", text = "Every caravan stops at the Crossroads, and every caravan has a story to trade for water. Here's what I've heard." },
-      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you what the whole camp knows, and then I've a kodo to unload." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "Any kodo-driver could tell you this much, and that's all you'll get from me today." },
     },
     wailing_caverns = { { id = "t_wailing", text = "The druids went down there to make the Barrens green again. Something went wrong in the dark, and now the druids are mad and the caves are full of things with fangs." } },
-    _none = { { id = "t_none", text = "I don't know. Ask up on the tower; the officers know more than a water-carrier." } },
+    _none = { { id = "t_none", text = "That's past what a water-carrier hears. The officers on the tower might know." } },
   },
 }
 
@@ -1218,7 +1218,7 @@ P:Pool {
       { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "Ask, and keep it short, because I've work waiting." },
     },
     burning_blade = { { id = "t_blade", text = "Orcs who'd drink the demons' blood all over again if they could. They hide in the canyons, and the hunters here bring back their robes when they find them." } },
-    _none = { { id = "t_none", text = "I don't know. Try the barracks; somebody there gets paid to know things." } },
+    _none = { { id = "t_none", text = "That's not something I know. Try the barracks, where somebody's paid to know things." } },
   },
 }
 
@@ -1269,7 +1269,7 @@ P:Pool {
   topics = {
     knows = {
       { id = "t_kn1", text = "News reaches Tarren Mill from Southshore and from the hills, and none of it is cheerful. Here's what I've heard." },
-      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you the common talk, and then I've work to see to." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll share what the whole Mill knows, nothing more, until the Deathstalkers tell me you can be trusted." },
     },
     syndicate = { { id = "t_syndicate", text = "Thieves and cutthroats led by the old lords of Alterac, who want their kingdom back. They'll take it a coin at a time, and a throat at a time, if they must." } },
     _none = { { id = "t_none", text = "I don't know. The Deathstalkers might, if you can find one who'll admit to being there." } },
@@ -1323,7 +1323,7 @@ P:Pool {
   topics = {
     knows = {
       { id = "t_kn1", text = "The wind carries news up to the mesas, and I've learned to listen to it. Here's what I've heard." },
-      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you a little, but I'm careful with strangers out here." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "Up on the needles we've learned to be sparing with strangers, so I'll give you only a little." },
     },
     grimtotem = { { id = "t_grimtotem", text = "A clan of our own people who hate the orcs and the Horde with them. They keep to the old, hard ways, and they'll kill anyone who stands in their path." } },
     _none = { { id = "t_none", text = "I don't know. Ask the watchers on the cliff; they see everything from up there." } },
@@ -1350,7 +1350,7 @@ P:Pool {
   topics = {
     knows = {
       { id = "t_kn1", text = "News comes to the camp from the south and the east, usually with somebody bleeding. Here's what I've heard." },
-      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you the common talk, and then I've hides to scrape." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "You are a stranger to this camp, so I will give you only what every hunter here already knows." },
     },
     _none = { { id = "t_none", text = "I don't know. Ask the camp's leader; he knows the southern Barrens better than anyone." } },
   },
@@ -1402,7 +1402,7 @@ P:Pool {
   topics = {
     knows = {
       { id = "t_kn1", text = "News blows into Kargath with the dust, from the mountain and from the Badlands. Here's what I've heard." },
-      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you the common talk, and then I've a wall to patch." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "Dust in my throat and work on my hands, so you get the short version, stranger." },
     },
     uldaman = { { id = "t_uldaman", text = "A great vault in the cliffs, built by somebody long before the dwarves. The dwarves want what's inside, and the troggs that live there want the dwarves." } },
     _none = { { id = "t_none", text = "I don't know. Ask up the tower; the officers know more than a water-carrier." } },
@@ -1429,7 +1429,7 @@ P:Pool {
   topics = {
     knows = {
       { id = "t_kn1", text = "News reaches Splintertree from Orgrimmar and from the forest, and the forest's news is mostly arrows. Here's what I've heard." },
-      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you the common talk, and then I've timber to stack." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "Grunts who talk too freely end up with an elf's arrow in them, so I'll keep my answers small." },
     },
     warsong = { { id = "t_warsong", text = "Hellscream's old clan, cutting the forest for the Horde. The elves hate us for every stump, and they've made us pay for most of them." } },
     _none = { { id = "t_none", text = "I don't know. Try the commander's tent; they get the reports." } },
@@ -1456,7 +1456,7 @@ P:Pool {
   topics = {
     knows = {
       { id = "t_kn1", text = "Every scout in Silverpine reports to the Sepulcher, and the dead have long ears. Here's what I've heard." },
-      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you the common talk, and then I've graves to tend." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "The dead are patient, but I'm not in the mood to be, so here's only what's common in the graveyard." },
     },
     _none = { { id = "t_none", text = "I don't know. The High Executor reads every report; ask him." } },
   },
@@ -1482,7 +1482,7 @@ P:Pool {
   topics = {
     knows = {
       { id = "t_kn1", text = "News comes in with every zeppelin and every scout back from the jungle. Here's what I've heard." },
-      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you the common talk, and then I've crates to move." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "Zeppelin's due any minute and those crates won't load themselves, so here's the quick of it." },
     },
     _none = { { id = "t_none", text = "I don't know. Ask the camp's commander; he knows the jungle." } },
   },
@@ -1496,7 +1496,7 @@ P:Pool {
   },
   notice = {
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
-      text = "Was it the ogres or the gnolls? Feralas is full of both, so rest here a while before you go back under the trees." },
+      text = "Ogre clubs leave marks like those, and you've a few. Sit by our fire and let the bruises settle before you hunt again." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "Welcome to the camp, cousin. The Grimtotem keep a camp in this forest too, so be careful which fires you sit at." },
   },
@@ -1508,7 +1508,7 @@ P:Pool {
   topics = {
     knows = {
       { id = "t_kn1", text = "News comes to Camp Mojache from the forest and from the coast. Here's what I've heard." },
-      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you a little, but I'm careful with strangers out here." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "The Grimtotem walk under these trees too, so forgive me if I tell a stranger only what anyone could." },
     },
     grimtotem = { { id = "t_grimtotem", text = "Tauren who turned from Cairne and from the Horde, and follow their own hard ways. They've a camp in Feralas, and they're always watching ours." } },
     _none = { { id = "t_none", text = "I don't know. Ask the elders; they know more than I do." } },
@@ -1535,7 +1535,7 @@ P:Pool {
   topics = {
     knows = {
       { id = "t_kn1", text = "News comes to Hammerfall from all across the highlands. Here's what I've heard." },
-      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you the common talk, and then I've ovens to tend." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "These walls taught my father not to trust strangers, and he taught me, so you'll get the plain talk only." },
     },
     _none = { { id = "t_none", text = "I don't know. Ask the one who leads here; he hears everything." } },
   },
@@ -1561,7 +1561,7 @@ P:Pool {
   topics = {
     knows = {
       { id = "t_kn1", text = "News comes to Brackenwall from the marsh and the coast, wet and late. Here's what I've heard." },
-      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you the common talk, and then I've nets to mend." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "The marsh makes everyone suspicious, and you're no exception, so I'll keep it to what the whole village says." },
     },
     black_dragonflight = { { id = "t_dragons", text = "Black dragons, in the southern marsh. They're big and clever, and they're plotting something, because black dragons always are." } },
     _none = { { id = "t_none", text = "I don't know. The chieftain knows the marsh better than I do." } },
@@ -1576,19 +1576,19 @@ P:Pool {
   },
   notice = {
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
-      text = "The forest chewed on you. Get mended, and scrub your hands before you eat, because everything out there is tainted." },
+      text = "That's tainted muck on your gear, and it'll eat the leather if you leave it. Scrub it off before it gets into you as well." },
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
       text = "A druid! The ones at the sanctuary south of here are trying to heal this forest, and they could use every pair of hands that understands it." },
   },
   lines = {
     { id = "l_corruption", text = "Demons poisoned this forest in the war, and the poison stayed when they left. Every tree here is twisted, and so is everything that lives under them." },
     { id = "l_jaedenar", text = "There's a camp of warlocks in the south called Jaedenar, worse than any demon. They chose this, which is the part I can't get past." },
-    { id = "l_druids", text = "The druids at the sanctuary think they can heal this place, given time. I hope they're right, because I'd hate to have stood here for nothing." },
+    { id = "l_druids", text = "There's a grove to the south where the druids are trying to heal the soil, one patch at a time. I've seen a green shoot there myself, which is more than I expected." },
   },
   topics = {
     knows = {
       { id = "t_kn1", text = "News comes to Bloodvenom from the forest and from the north, and none of it smells good. Here's what I've heard." },
-      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you the common talk, and then I've water to boil, twice." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "Felwood makes a body wary of anything that walks in from the trees, so I'll tell you only the safe parts." },
     },
     furbolgs = { { id = "t_furbolgs", text = "The Deadwood tribes have gone mad from the poison, every one. The Timbermaw to the north are still sane, and they hate what's happened to their cousins." } },
     _none = { { id = "t_none", text = "I don't know. Ask the one who sends people into the trees; he'll know." } },
