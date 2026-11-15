@@ -348,6 +348,10 @@ function IsMounted() return S().mounted end
 function IsStealthed() return S().stealthed end
 function IsInInstance() return S().inInstance, S().inInstance and "party" or "none" end
 function GetShapeshiftFormID() return S().form end
+function GetFactionInfoByID(id)
+  local st = S().reputation and S().reputation[id]
+  if st then return "Faction " .. id, "", st end
+end
 function GetBindLocation() return S().bind end
 function ItemTextGetItem() return S().bookTitle end
 

@@ -18,6 +18,52 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from rpgd import packs as P  # noqa: E402
 from rpgd.luadata import LTable, TodoRef  # noqa: E402
 
+# The depth standard (CONTENT_GUIDE.md "Depth"): talk branches from the opening node, nodes in
+# all, the longest chain of nodes from the opening, and replies only some characters get.
+DEPTH_STANDARD = {
+    "major": {"branches": 4, "nodes": 10, "depth": 3, "gated": 2},
+    "quest": {"branches": 3, "nodes": 6, "depth": 3, "gated": 1},
+    "service": {"branches": 2, "nodes": 3, "depth": 2, "gated": 0},
+}
+EXITS = ("END", "BUSINESS", "BACK", None)
+IDENTITY = {"reputation", "race", "class", "gender", "faction", "money", "drunk", "pet", "durability", "visited", "origin", "band", "minLevel", "maxLevel", "form", "profession",
+            "alignment", "trait", "townStanding", "questDone", "questActive", "questRecent", "heardLine",
+            "heardClaim", "topicKnown", "opinion", "deed", "rep", "metBefore", "timesTalked", "flag", "claim"}
+
+
+def depth_of(tbl):
+    """(branches, nodes, depth, gated) for an NPC's conversation tree."""
+    nodes = tbl.get("nodes").named() if isinstance(tbl.get("nodes"), LTable) else {}
+    start = tbl.get("start") or "hello"
+    edges, gated = {}, 0
+    for nid, node in nodes.items():
+        outs = []
+        for ch in P.arr(node.get("choices")) if isinstance(node, LTable) else []:
+            if not isinstance(ch, LTable):
+                continue
+            if ch.get("next") not in EXITS and ch.get("next") in nodes:
+                outs.append(ch.get("next"))
+            keys = set()
+            P.walk_conditions(ch.get("when"), lambda k, v, path: keys.add(k))
+            if keys & IDENTITY or ch.get("tag"):
+                gated += 1
+        edges[nid] = outs
+    branches = len(set(edges.get(start, [])))
+
+    best = 0
+    def walk(n, seen):
+        nonlocal best
+        best = max(best, len(seen))
+        if best >= 12:
+            return
+        for t in edges.get(n, []):
+            if t not in seen:
+                walk(t, seen | {t})
+    if start in nodes:
+        walk(start, {start})
+    return branches, len(nodes), best, gated
+
+
 PHASE = {"questBefore": "before", "questActive": "during", "questObjective": "during", "questReady": "during",
          "questRecent": "after", "questDone": "after", "questLater": "later"}
 
@@ -95,6 +141,29 @@ def main():
               f"{', '.join(sorted(combos)) or '-'} | {', '.join(sorted(genders)) or '-'} | {', '.join(sorted(cats)) or '-'} | "
               f"{', '.join(sorted(t for t in topics if t != '_none')) or '-'} |")
         w("")
+    w("## Depth: how far each conversation goes\n")
+    w("Standard (CONTENT_GUIDE.md \"Depth\"): " + "; ".join(
+        f"{t}: {d['branches']}+ branches, {d['nodes']}+ nodes, {d['depth']}+ deep, {d['gated']}+ replies only some characters get"
+        for t, d in DEPTH_STANDARD.items()) + "\n")
+    w("| pack | NPC | tier | branches | nodes | deep | gated | meets |\n|---|---|---|---|---|---|---|---|")
+    met = collections.Counter()
+    total = collections.Counter()
+    for pack in P.load_all():
+        for kind, tbl, f, line in pack.defs:
+            if kind != "NPC" or tbl.get("scaffold"):
+                continue
+            tier = tbl.get("tier") or "quest"
+            std = DEPTH_STANDARD.get(tier)
+            if not std:
+                continue
+            b, n, d, g = depth_of(tbl)
+            ok = b >= std["branches"] and n >= std["nodes"] and d >= std["depth"] and g >= std["gated"]
+            total[tier] += 1
+            met[tier] += ok
+            w(f"| {pack.addon.replace('RPGDialogue_', '')} | {tbl.get('key')} | {tier} | {b} | {n} | {d} | {g} | {'yes' if ok else 'no'} |")
+    w("")
+    w("Meeting the standard: " + ", ".join(f"{t} {met[t]}/{total[t]}" for t in DEPTH_STANDARD) + "\n")
+    depth_summary = ", ".join(f"{t} {met[t]}/{total[t]}" for t in DEPTH_STANDARD)
     w("## Quests: reactions before, during, after, later\n")
     w("| quest | before | during | after | later |\n|---|---|---|---|---|")
     for q in sorted(quests):
@@ -111,7 +180,8 @@ def main():
     os.makedirs(os.path.dirname(args.out), exist_ok=True)
     with open(args.out, "w", encoding="utf-8") as fh:
         fh.write("\n".join(out) + "\n")
-    print(f"Coverage report: {os.path.relpath(args.out, P.ROOT)} ({len(quests)} quests referenced, {len(threads)} thread(s))")
+    print(f"Coverage report: {os.path.relpath(args.out, P.ROOT)} ({len(quests)} quests referenced, {len(threads)} thread(s); "
+          f"depth standard met: {depth_summary})")
     return 0
 
 

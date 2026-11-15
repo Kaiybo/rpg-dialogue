@@ -32,9 +32,18 @@ P:NPC {
           text = "Take our plea to the Alliance. Tell them Stromgarde still stands, in tents if not in stone." },
         { id = "h_northfold", when = { questActive = TODO_QUEST("Northfold Manor") },
           text = "Northfold Manor's crawling with Syndicate. Clear it. Every house they hold is one more we have to win back." },
+        { id = "h_badges_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Stromgarde Badges"), days = 3 } },
+          text = "The badges went out with the last rider south. Some families will open a letter this month and finally know. Thank you. I don't say it often." },
       },
+      again = { { id = "h_again", text = "What else? Briefly." }, { id = "h_again2", text = "Go on. The tent can wait. The hills can't." } },
       choices = {
         { text = "Why not leave and regroup?", next = "leave" },
+        { text = "Who holds the keep now?", next = "keep" },
+        { text = "Who are the Syndicate?", next = "syndicate" },
+        { text = "There's a Horde camp east of here.", next = "hammerfall" },
+        { text = "Lordaeron fell too. I know what that's like.", next = "lordaeron", when = { origin = "human_lordaeron_refugee" } },
+        { text = "Put me in the line, Captain.", next = "line", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "Let me bless the badges before they go home.", next = "priest_badges", when = { class = "PRIEST", questActive = TODO_QUEST("Stromgarde Badges") } },
         { text = "I'll fight for Stromgarde.", next = "END", fx = { affinity = 2, align = { honor = 1 }, standing = { refuge_pointe = 1 } } },
       },
     },
@@ -43,11 +52,64 @@ P:NPC {
       lines = {
         { id = "l_default", text = "Because if we leave, nobody comes back. Others have asked me to send soldiers to guard the bridges and the passes. I said no. Duty keeps us here." },
       },
-      choices = { { text = "I understand.", next = "END", fx = { affinity = 2, trait = { stern = 1 } } } },
+      choices = {
+        { text = "The bridges matter too.", next = "leave_bridge", fx = { align = { order = 1 } } },
+        { text = "I understand.", next = "BACK", fx = { affinity = 2, trait = { stern = 1 } } },
+      },
+    },
+    leave_bridge = {
+      lines = { { id = "lb_default", text = "To someone. Not to Stromgarde. If the Alliance wants the Thandol Span guarded, the Alliance can send the guards. I've none to spare and I won't pretend otherwise." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    keep = {
+      lines = { { id = "k_default", text = "Syndicate in the halls, ogres in the yard, trolls on the walls. Everyone but the people it belongs to. I can see the towers from the ridge. I go and look, some evenings." } },
+      choices = {
+        { text = "You'll take it back.", next = "BACK", fx = { affinity = 2 } },
+        { text = "With what army?", next = "keep_army", fx = { trait = { skeptical = 1 } } },
+      },
+    },
+    keep_army = {
+      lines = { { id = "ka_default", text = "This one. Small, stubborn and still here. And whoever walks in off the road willing to help. Today, that's you." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    syndicate = {
+      lines = { { id = "s_default", text = "Alterac's leftovers. Nobles who lost their kingdom and found a trade in knives. They rob the dead and call it business." } },
+      choices = {
+        { text = "Why take the badges?", next = "syndicate_badges" },
+        { text = "Then they'll answer for it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+      },
+    },
+    syndicate_badges = {
+      lines = { { id = "sb_default", text = "To sell, or to wear, or to walk into a village as one of ours. I don't know which. I know the families get nothing to bury." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    hammerfall = {
+      lines = { { id = "h2_default", text = "Hammerfall. It was a camp for orc prisoners, once. They broke it open and kept the ruins. We leave each other alone, most days. Most days is enough, for now." } },
+      choices = {
+        { text = "Fair enough.", next = "BACK", fx = { opinion = { peace = "for" } } },
+        { text = "They should be driven out.", next = "BACK", fx = { align = { order = 1 }, opinion = { peace = "against" } } },
+      },
+    },
+    lordaeron = {
+      lines = { { id = "lo_default", text = "Then you know the worst part isn't losing it. It's the people who tell you to stop looking at what you lost. Don't stop. Not yet." } },
+      choices = { { text = "I won't.", next = "BACK", fx = { affinity = 3, trait = { brave = 1 } } } },
+    },
+    line = {
+      lines = { { id = "ln_default", text = "Northfold first. Then the farms past it. Then, one day, the keep. Stand where I tell you and don't retreat unless I do. I won't." } },
+      choices = { { text = "Understood.", next = "BACK", fx = { affinity = 2, standing = { refuge_pointe = 1 } } } },
+    },
+    priest_badges = {
+      lines = { { id = "pba_default", text = "The families need their dead back, and a blessing is the next best thing. Bless them, and I'll write in every letter that a priest stood over each one." } },
+      choices = {
+        { text = "Every one.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, standing = { refuge_pointe = 2 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
   topics = {
+    background = { { id = "tp_ba", text = "Soldier of Stromgarde, captain of what's left of it. That's the whole of my story until the keep is ours again.", next = "keep" } },
+    advice = { { id = "tp_ad", text = "Never sleep in the open in the highlands. Ogres, trolls or Syndicate: one of them is always awake." } },
     _none = { { id = "tp_none", text = "Not Stromgarde's concern. Ask someone with more soldiers than we have." } },
   },
 }

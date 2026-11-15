@@ -148,11 +148,7 @@ end
 ---------------------------------------------------------------------------
 -- State
 ---------------------------------------------------------------------------
-B.form = function()
-  local id = C.FormID()
-  if not id or id == 0 then return nil end
-  return W.FORMS[id] or ("form" .. id)
-end
+B.form = function() return W.FormName(C.FormID()) end
 B.mounted = function() return C.IsMounted() end
 B.stealthed = function() return C.IsStealthed() end
 B.ghost = function() return C.IsGhost() end

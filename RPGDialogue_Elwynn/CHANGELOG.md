@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.9.0 (unreleased)
+- Priestess Anetta and Priestess Josetta deepened for priests, and both notice Shadowform.
+
 ## 1.8.0 (unreleased)
 - Depth pass: repeat visits bring personal lines (habits, worries, running jokes), and some NPCs get night-time lines. Elwynn's nine class trainers, Marshal McBride's neighbours (Llane, Neals, Henze), the Stonefields, Sara, Danil, Gerard. Neighbours remark on each other in Goldshire (Corina and Kurran, Toddrick on Dobbins, Adele on Helene).
 

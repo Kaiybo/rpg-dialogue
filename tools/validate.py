@@ -91,6 +91,12 @@ def main():
     args = ap.parse_args()
 
     spec = P.condition_spec()
+    _wd = open(os.path.join(P.ROOT, "RPGDialogue", "Core", "WorldData.lua"), encoding="utf-8").read()
+    _fm = re.search(r"W\.FACTION_IDS = \{(.*?)\n\}", _wd, re.S)
+    faction_ids = set(re.findall(r'(?:\["([^"]+)"\]|(\w+))\s*=\s*\d+', _fm.group(1))) if _fm else set()
+    faction_ids = {a or b for a, b in faction_ids}
+    _sm = re.search(r"W\.STANDINGS = \{(.*?)\}", _wd)
+    standings = set(re.findall(r"(\w+)\s*=", _sm.group(1))) if _sm else set()
     fx_keys = P.effect_keys()
     tokens = P.token_names()
     registry = load_registry(os.path.join(P.ROOT, "tools", "registry", "ids.json"))
@@ -130,6 +136,11 @@ def main():
                     continue
                 if key in npcs and npcs[key][0] is pack:
                     rep.error(pack, f, line, f"NPC key {key!r} defined twice in this pack")
+                elif key in npcs and npcs[key][1].get("name") != tbl.get("name"):
+                    # Keys are global: two packs with one key merge into one character.
+                    other = npcs[key][0].addon
+                    rep.error(pack, f, line, f"NPC key {key!r} is already {npcs[key][1].get('name')!r} in {other}; "
+                                             f"two packs sharing a key merge into one NPC (pick another key)")
                 npcs.setdefault(key, (pack, tbl, f, line))
                 for slot, node, ln, gid in P.iter_lines(tbl, key):
                     all_lines.setdefault(gid, (pack, f, ln))
@@ -191,6 +202,14 @@ def main():
                     rep.error(pack, f, when.line, f"{where}: thread {tid!r} isn't defined")
             if k in ("heardClaim", "claimExposed", "lieCaught") and v not in defs["Claim"]:
                 rep.error(pack, f, when.line, f"{where}: claim {v!r} isn't defined")
+            if k == "reputation":
+                fac = v.get("faction") if isinstance(v, LTable) else None
+                if fac not in faction_ids:
+                    rep.error(pack, f, when.line, f"{where}: reputation faction {fac!r} isn't in World.FACTION_IDS")
+                for side in ("min", "max"):
+                    st = v.get(side) if isinstance(v, LTable) else None
+                    if st is not None and st not in standings and not isinstance(st, (int, float)):
+                        rep.error(pack, f, when.line, f"{where}: reputation {side} {st!r} isn't a standing")
             if k == "topicKnown" and v not in defs["Topic"]:
                 rep.warn(pack, f, when.line, f"{where}: topic {v!r} isn't defined")
             if k == "townStanding":
@@ -295,6 +314,11 @@ def main():
                 rep.error(pack, f, ln.line, f"{where}.{lid}: place must be before/after/replace")
         if slot == "react" and ln.get("on") not in P.REACT_EVENTS:
             rep.error(pack, f, ln.line, f"{where}.{lid}: on must be one of {sorted(P.REACT_EVENTS)}")
+        if slot == "react" and ln.get("on") == "form":
+            w = ln.get("when")
+            if not (isinstance(w, LTable) and w.get("form") is not None):
+                rep.warn(pack, f, ln.line, f"{where}.{lid}: a form reaction should say which forms "
+                         "(a priest's Shadowform is a form too)")
 
     def check_choice(pack, f, ch, where, nodes):
         check_text(pack, f, ch, where, is_choice=True)
@@ -315,7 +339,7 @@ def main():
         for t in targets:
             if t is None:
                 rep.warn(pack, f, ch.line, f"{where}: no next; it will end the conversation (write next = \"END\")")
-            elif t not in ("END", "BUSINESS") and t not in nodes:
+            elif t not in ("END", "BUSINESS", "BACK") and t not in nodes:
                 rep.error(pack, f, ch.line, f"{where}: next {t!r} isn't a node")
         return [t for t in targets if t]
 
@@ -353,6 +377,9 @@ def main():
         start = tbl.get("start") or "hello"
         if nodes and start not in nodes:
             rep.error(pack, f, line, f"{where}: start node {start!r} doesn't exist")
+        for slot, node, ln, gid in P.iter_lines(tbl, key):
+            if slot == "topic" and ln.get("next") is not None and ln.get("next") not in nodes:
+                rep.error(pack, f, ln.line, f"{where}.topics.{node}.{ln.get('id')}: next {ln.get('next')!r} isn't one of this NPC's nodes")
         edges = {}
         for nid, node in nodes.items():
             if not isinstance(node, LTable):
@@ -366,11 +393,23 @@ def main():
             choices = [c for c in P.arr(node.get("choices")) if isinstance(c, LTable)]
             if not choices:
                 rep.error(pack, f, node.line, f"{where}.{nid}: node has no choices (no exit)")
-            if len(choices) > 4:
-                rep.warn(pack, f, node.line, f"{where}.{nid}: {len(choices)} choices; at most 4 are shown at once")
+            always = [c for c in choices if c.get("when") is None]
+            if len(always) > 6:
+                rep.warn(pack, f, node.line, f"{where}.{nid}: {len(always)} choices without conditions; at most 6 are shown at once")
             edges[nid] = []
             for i, ch in enumerate(choices, 1):
                 edges[nid] += check_choice(pack, f, ch, f"{where}.{nid}.choice{i}", nodes)
+        # "BACK" returns to the last hub: the start node or a node marked hub = true. Those
+        # should have short "again" lines for the return, or a greeting is shown instead.
+        hubs = [start] + [nid for nid, node in nodes.items() if isinstance(node, LTable) and node.get("hub")]
+        returns = any(t == "BACK" or (t in hubs and t != nid) for nid, outs in edges.items() for t in outs)
+        if returns:
+            for h in hubs:
+                if h in nodes and isinstance(nodes[h], LTable) and not P.arr(nodes[h].get("again")):
+                    rep.warn(pack, f, nodes[h].line, f"{where}.{h}: replies come BACK here, but it has no 'again' lines (a greeting is shown instead)")
+        for nid in edges:
+            if "BACK" in edges[nid]:
+                edges[nid] = [t for t in edges[nid] if t != "BACK"] + hubs
         # reachability and exits
         seen, todo = set(), [start] if start in nodes else []
         while todo:
@@ -456,9 +495,19 @@ def main():
         for t in P.arr(tbl.get("topics")):
             if t not in defs["Topic"]:
                 rep.warn(pack, f, line, f"book {bid}: topic {t!r} isn't defined")
+    words = {}
     for tid, (pack, tbl, f, line) in defs["Topic"].items():
         if not tbl.get("name") or not tbl.get("category"):
             rep.error(pack, f, line, f"topic {tid}: needs name and category")
+        # Keywords: words that name the topic in what people say (heard, learned, linked).
+        for w in P.arr(tbl.get("keywords")):
+            if not isinstance(w, str) or len(w.strip()) < 4:
+                rep.error(pack, f, line, f"topic {tid}: keyword {w!r} must be a string of 4+ letters")
+                continue
+            other = words.get(w.lower())
+            if other and other != tid:
+                rep.warn(pack, f, line, f"topic {tid}: keyword {w!r} also names topic {other!r}; the longer match wins")
+            words[w.lower()] = tid
     for cid, (pack, tbl, f, line) in defs["Claim"].items():
         truth = tbl.get("truth")
         if truth not in ("true", "false", "partly", "disputed", "unknown"):

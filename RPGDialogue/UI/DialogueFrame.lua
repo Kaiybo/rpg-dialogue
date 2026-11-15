@@ -32,7 +32,9 @@ local PORTRAIT_FALLBACK = "Interface\\Icons\\INV_Misc_QuestionMark"
 
 local frame
 local view
-local reveal = { full = "", shown = 0, active = false, total = 0 }
+-- full: plain text typed out letter by letter; linked: the same text with topic words as
+-- links (Topics.Hear), shown once typing finishes so a half-typed link never shows.
+local reveal = { full = "", linked = nil, shown = 0, active = false, total = 0 }
 local autoTimer
 local selected, navMode = nil, false
 
@@ -69,12 +71,34 @@ end
 
 local function finishReveal()
   reveal.active = false
-  frame.text:SetText(reveal.full)
+  frame.text:SetText(reveal.linked or reveal.full)
   frame:SetScript("OnUpdate", nil)
+  -- The click-to-finish cover is only needed while typing; off, so links can be clicked.
+  if frame.textClick then frame.textClick:Hide() end
   D.StartAutoAdvance()
 end
 
-local function onUpdate(_, elapsed)
+local function startReveal()
+  if frame.textClick then frame.textClick:Show() end
+  reveal.active = true
+  frame.text:SetText("")
+  frame:SetScript("OnUpdate", D.OnUpdate)
+end
+
+-- A topic word in the text was clicked: ask about it. Hovering shows what a click does.
+local function onLink(_, link)
+  local id = ns.Topics and ns.Topics.FromLink(link)
+  if id and ns.Conversation then ns.Conversation.Ask(id) end
+end
+local function onLinkEnter(_, link)
+  local id = ns.Topics and ns.Topics.FromLink(link)
+  local def = id and ns.Data.topics[id]
+  if not def then return end
+  C.ShowTextTooltip(frame, L.ASK_LINK_TOOLTIP:format(def.name))
+end
+local function onLinkLeave() C.HideTooltip() end
+
+function D.OnUpdate(_, elapsed)
   if not reveal.active then return end
   reveal.shown = reveal.shown + elapsed * (settings().textSpeed or 70)
   local n = math.floor(reveal.shown)
@@ -193,6 +217,9 @@ local function create()
   frame.textClick:SetPoint("TOPLEFT", frame.text, "TOPLEFT")
   frame.textClick:SetPoint("BOTTOMRIGHT", frame.text, "BOTTOMRIGHT")
   frame.textClick:SetScript("OnClick", D.FinishText)
+
+  -- Topic words in the text are links (Topics.Hear): click to ask about them.
+  C.EnableHyperlinks(frame, onLink, onLinkEnter, onLinkLeave)
 
   frame.buttons = {}
   for i = 1, MAX_BUTTONS do frame.buttons[i] = makeButton(i) end
@@ -522,6 +549,7 @@ function D.Show(v)
   local portrait = Theme.GamePart(frame, "portrait")
   if portrait and not C.SetPortrait(portrait, v.unit) then portrait:SetTexture(PORTRAIT_FALLBACK) end
   reveal.full = v.text or ""
+  reveal.linked = v.linkedText
   reveal.total = utf8Len(reveal.full)
   reveal.shown = 0
   D.Layout()
@@ -532,9 +560,7 @@ function D.Show(v)
   if instant() then
     finishReveal()
   else
-    reveal.active = true
-    frame.text:SetText("")
-    frame:SetScript("OnUpdate", onUpdate)
+    startReveal()
   end
   if settings().sounds then C.PlaySound("IG_QUEST_LIST_OPEN") end
 end
@@ -548,7 +574,10 @@ function D.RenderChoices(choices)
     b.gap = c.gap
     b.tooltip = c.tooltip
     local num = c.locked and ((i % 10) .. ". ") or (Theme.Hex("number") .. (i % 10) .. ".|r ")
-    b.label:SetText(num .. (c.locked and (L.LOCKED_MARK .. " ") or "") .. c.text)
+    -- A branch explored in an earlier conversation is dimmed (it's also listed after the
+    -- fresh ones, so order carries the same news without the color).
+    local text = c.explored and (Theme.Hex("dim") .. c.text .. "|r") or c.text
+    b.label:SetText(num .. (c.locked and (L.LOCKED_MARK .. " ") or "") .. text)
     -- The game's own options keep their icons in both looks; in the game look the NPC's
     -- replies get the gossip window's speech bubble, like any talk option there.
     D.SetRowIcon(b, c.icon or (isGame() and not c.game and ICON_TALK) or nil, c.locked)
@@ -649,11 +678,12 @@ function D.Restyle()
 end
 
 -- An answer from "Ask about...": replaces the main text, keeps the choices.
-function D.ShowAnswer(text, topicName)
+function D.ShowAnswer(text, topicName, linked)
   if not frame or not frame:IsShown() then return end
   frame.reaction:SetText("")
   frame.reaction:Hide()
   reveal.full = text or ""
+  reveal.linked = linked
   reveal.total = utf8Len(reveal.full)
   reveal.shown = 0
   if topicName then frame.subtitle:SetText("<" .. topicName .. ">") end
@@ -661,9 +691,7 @@ function D.ShowAnswer(text, topicName)
   if instant() then
     finishReveal()
   else
-    reveal.active = true
-    frame.text:SetText("")
-    frame:SetScript("OnUpdate", onUpdate)
+    startReveal()
   end
 end
 

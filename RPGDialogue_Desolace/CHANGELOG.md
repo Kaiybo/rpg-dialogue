@@ -2,6 +2,16 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.4.0 (unreleased)
+- Brother Anton: the letter to Raleigh the Devout, and the end of the Scarlet Path: tell him what Raleigh saw at the Monastery, or let him keep his Crusade. He remembers either way.
+- Fixed: the Valley of Bones is south of Nijel's Point, not southeast.
+
+## 1.3.0 (unreleased)
+- For a priest: Captain Pentigast's men need a chaplain.
+
+## 1.2.0 (unreleased)
+- Depth: Pentigast, Marandis, Kreldig, Brother Anton and Lyshaerya, with their own story and advice.
+
 ## 1.1.0 (unreleased)
 - Depth pass: repeat visits bring personal lines (habits, worries, running jokes), and some NPCs get night-time lines. Lyshaerya, Kreldig.
 

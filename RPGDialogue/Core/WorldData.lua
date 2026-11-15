@@ -57,6 +57,26 @@ W.FORMS = {
   [1] = "cat", [2] = "tree", [3] = "travel", [4] = "aquatic", [5] = "bear", [8] = "bear",
   [16] = "ghostwolf", [27] = "flight", [28] = "shadow", [29] = "flight", [31] = "moonkin", [35] = "moonkin",
 }
+-- Also reported as forms, but nobody can see them: warrior stances and rogue stealth
+-- (stealth has its own condition and reaction). Treated as no form at all.
+W.NOT_SHAPES = { [17] = true, [18] = true, [19] = true, [30] = true }
+
+-- The shape the player visibly wears, or nil.
+function W.FormName(id)
+  if not id or id == 0 or W.NOT_SHAPES[id] then return nil end
+  return W.FORMS[id] or ("form" .. id)
+end
+
+-- Reputation: faction names used in `reputation = { faction = "...", min = "..." }` -> faction IDs
+-- (from each faction's warcraft.wiki.gg page), and standings (the game's 1-8).
+W.FACTION_IDS = {
+  Stormwind = 72, Ironforge = 47, Darnassus = 69, Gnomeregan = 54,
+  Orgrimmar = 76, ["Thunder Bluff"] = 81, Undercity = 68, ["Darkspear Trolls"] = 530,
+  ["Argent Dawn"] = 529, ["Timbermaw Hold"] = 576, ["Cenarion Circle"] = 609, ["Thorium Brotherhood"] = 59,
+  ["Steamwheedle Cartel"] = 169, ["Bloodsail Buccaneers"] = 87, ["Hydraxian Waterlords"] = 749,
+  ["Brood of Nozdormu"] = 910, ["Zandalar Tribe"] = 270,
+}
+W.STANDINGS = { hated = 1, hostile = 2, unfriendly = 3, neutral = 4, friendly = 5, honored = 6, revered = 7, exalted = 8 }
 
 W.SPELLS = {
   resurrectionSickness = 15007,
@@ -111,9 +131,10 @@ W.NAME_ROLES = {
   { "deathguard", "guard" }, { "sentinel$", "guard" }, { "grunt$", "guard" }, { "brave$", "guard" },
   { "protector$", "guard" }, { "defender$", "guard" }, { "watcher$", "guard" },
   { "peon$", "peon" }, { "militia", "militia" }, { "peacekeeper", "guard" }, { "empyrean blade", "guard" }, { "^watcher ", "guard" },
-  { "bruiser$", "guard" }, { "mountaineer$", "guard" }, { "^mountaineer ", "guard" }, { "warden$", "guard" }, { "^brave ", "guard" }, { "sentry$", "guard" }, { "lookout$", "guard" },
+  { "bruiser$", "guard" }, { "mountaineer$", "guard" }, { "^mountaineer ", "guard" }, { "warden$", "guard" }, { "^brave ", "guard" }, { "sentry$", "guard" }, { "^sentry ", "guard" }, { "lookout$", "guard" },
   { "^spirit healer$", "spirithealer" }, { "^spirit guide$", "spirithealer" },
   { "orphan", "child" }, { "child$", "child" }, { "^young ", "child" },
+  { "^diseased soldier$", "soldier" }, { "^farholde laborer$", "worker" }, { "^farholde scout$", "guard" },
 }
 
 -- Roles that are services: compact mode by default.

@@ -103,6 +103,13 @@ local function liveNearby(event)
     Barks.React(event)
   end
 end
-ns.On("UPDATE_SHAPESHIFT_FORM", liveNearby("form"))
+local formNearby, lastForm = liveNearby("form"), nil
+ns.On("UPDATE_SHAPESHIFT_FORM", function()
+  -- Only on taking a shape, as in conversation (Conv.OnForm).
+  local form = ns.World.FormName(C.FormID())
+  local changed = form ~= nil and form ~= lastForm
+  lastForm = form
+  if changed then formNearby() end
+end)
 ns.On("UPDATE_STEALTH", liveNearby("stealth"))
 ns.On("PLAYER_MOUNT_DISPLAY_CHANGED", liveNearby("mount"))

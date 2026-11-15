@@ -14,7 +14,7 @@ P:Pool {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Something down there chewed on you. Go see the merchants before it comes back for seconds." },
   },
-  react = { { id = "r_form", on = "form", text = "Whoa! Oh. You're a druid. Don't do that. Every animal down there is trying to eat us." } },
+  react = { { id = "r_form", on = "form", when = { form = { "bear", "cat", "travel" } }, text = "Whoa! Oh. You're a druid. Don't do that. Every animal down there is trying to eat us." } },
   lines = {
     { id = "l_default", text = "The expedition hired us to keep the crater out of the camp. Half the crater wants in. We keep busy." },
   },

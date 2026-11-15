@@ -31,6 +31,7 @@ Honest; repeats what adults say.
 ## What he notices
 1. Wonder: druid forms, pets.
 2. Far: Skyborne, dwarves and gnomes (the tram).
+3. Form: a priest going dark in Shadowform (does it hurt? Bolvar will want to know).
 
 ## Topics
 westfall, defias, tome_of_divinity

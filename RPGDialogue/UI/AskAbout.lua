@@ -25,25 +25,50 @@ local rows = MAX_ROWS   -- rows that fit the panel right now
 
 local function width() return Theme.IsGame() and GAME_WIDTH or WOOD_WIDTH end
 
+-- One row per entry: a category header (not clickable) or a topic. Topics already asked
+-- of this NPC say so; "ask anyone" topics come first.
+local function isTopic(i) return filtered[i] ~= nil and filtered[i].topic ~= nil end
+
 local function refresh()
-  local list = ns.Topics.Filter(ns.Topics.Known(showArchive), panel.search:GetText())
-  filtered = list
+  local text = panel.search:GetText()
+  local list = ns.Topics.Filter(ns.Topics.Known(showArchive), text)
+  filtered = ns.Topics.Rows(list, text ~= nil and text ~= "")
+  local s = ns.Conversation.session
+  local npcKey = s and s.memKey
   for i = 1, MAX_ROWS do
     local row = panel.rows[i]
-    local t = i <= rows and list[i + offset]
-    if t then
+    local e = i <= rows and filtered[i + offset]
+    if e and e.header then
+      row.topic = nil
+      row.label:SetText(e.header)
+      Theme.TextColor(row.label, "dim")
+      row.cat:SetText("")
+      row:UnlockHighlight()
+      row.marker:Hide()
+      row:EnableMouse(false)
+      row:Show()
+    elseif e then
+      local t = e.topic
       row.topic = t.id
-      row.label:SetText(t.name .. (t.archived and (" |cff888888(" .. L.ASK_ARCHIVED .. ")|r") or ""))
-      row.cat:SetText(t.category)
+      local asked = npcKey and ns.Topics.AskedOf(t.id, npcKey)
+      local suffix = ""
+      if t.archived then suffix = " |cff888888(" .. L.ASK_ARCHIVED .. ")|r" end
+      if asked then suffix = suffix .. " " .. Theme.Hex("dim") .. "(" .. L.ASK_ASKED .. ")|r" end
+      row.label:SetText("  " .. t.name .. suffix)
+      Theme.TextColor(row.label, "choice")
+      row.cat:SetText("")
       local on = (selected == i + offset)
       if on then row:LockHighlight() else row:UnlockHighlight() end
       row.marker:SetShown(on)
+      row:EnableMouse(true)
       row:Show()
     else
       row:Hide()
     end
   end
-  panel.empty:SetShown(#list == 0)
+  local any = false
+  for i = 1, #filtered do if isTopic(i) then any = true; break end end
+  panel.empty:SetShown(not any)
   panel.archive:SetText(showArchive and L.ASK_HIDE_ARCHIVE or L.ASK_SHOW_ARCHIVE)
 end
 
@@ -209,25 +234,38 @@ function Ask.Toggle(anchor)
   panel:Show()
 end
 
--- Keyboard / gamepad: move through the list (scrolling as needed) and ask.
+-- Keyboard / gamepad: move through the topics (skipping headers, scrolling as needed) and ask.
 function Ask.Move(delta)
-  if not panel or #filtered == 0 then return end
-  if not selected then
-    selected = delta > 0 and 1 or #filtered
-  else
-    selected = (selected - 1 + delta) % #filtered + 1
-  end
-  if selected <= offset then offset = selected - 1 end
+  if not panel then return end
+  local n = #filtered
+  local any = false
+  for i = 1, n do if isTopic(i) then any = true; break end end
+  if not any then return end
+  local i = selected or (delta > 0 and 0 or n + 1)
+  repeat
+    i = i + (delta > 0 and 1 or -1)
+    if i > n then i = 1 elseif i < 1 then i = n end
+  until isTopic(i)
+  selected = i
+  -- Keep a header in view above the first topic of its group.
+  local top = (selected > 1 and not isTopic(selected - 1)) and selected - 1 or selected
+  if top <= offset then offset = top - 1 end
   if selected > offset + rows then offset = selected - rows end
   refresh()
 end
 
 function Ask.Confirm()
-  local t = selected and filtered[selected]
-  if t then ns.Conversation.Ask(t.id) end
+  local e = selected and filtered[selected]
+  if e and e.topic then ns.Conversation.Ask(e.topic.id) end
 end
 
-function Ask.Selected() return selected and filtered[selected] and filtered[selected].id end
+function Ask.Selected()
+  local e = selected and filtered[selected]
+  return e and e.topic and e.topic.id
+end
+
+-- After an answer: redraw, so the topic just asked shows as asked.
+function Ask.Refresh() if panel and panel:IsShown() then refresh() end end
 
 function Ask.Hide() if panel then panel:Hide() end end
 function Ask.IsShown() return panel ~= nil and panel:IsShown() end

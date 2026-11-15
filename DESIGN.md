@@ -179,7 +179,7 @@ Inside the braces you may use strings, numbers, booleans, nested tables and the 
 | `Generic` | `generic/*.lua` | World | the last link in every fallback chain |
 | `Thread` | `threads/<id>.lua` | World | a throughline: theme, NPCs, beats (keyed by NPC), states, endings, pacing |
 | `Claim` | `claims/<id>.lua` | World | an NPC claim: who says it, truth status, what can expose it, or "deliberately open" |
-| `Topic` | `topics/<id>.lua` | World | an "Ask about…" topic: name, category, how it's learned |
+| `Topic` | `topics/<id>.lua` | World | an "Ask about…" topic: name, category, how it's learned, `keywords` that name it in speech, `standard` for "ask anyone" topics (§3.11) |
 | `Town` | `towns/<id>.lua` | World | town standing: subzones, member NPCs, related towns and spread, tier names, quests |
 | `Origin` | `origins/<race>.lua` | World | the origin list for a race, including class-specific entries |
 | `Rumors` | `rumors/<region>.lua` | World or zone | innkeeper rumor tables |
@@ -228,7 +228,9 @@ Working examples of every kind are in the two shipped packs; `PACK_AUTHORING.md`
 
 ### 2.6 Node and choice
 
-A **node** is `{ lines = {…}, choices = {…}, big = true|nil, journal = … }`. `big` marks a conversation that matters: alignment-reactive lines are allowed there, and alignment shifts count more.
+A **node** is `{ lines = {…}, again = {…}, choices = {…}, big = true|nil, hub = true|nil, journal = … }`. `big` marks a conversation that matters: alignment-reactive lines are allowed there, and alignment shifts count more. `hub` marks a node that `BACK` returns to (the start node always is one). `again` holds short lines shown when the player comes back to a node already shown in this conversation (0.26.0; CONTENT_GUIDE §7a).
+
+**Exploring (0.26.0).** The session keeps the nodes shown (`s.visited`); NPC memory keeps every node shown in any conversation (`mem.nodes`). `Engine.Choices` hides a reply whose target was already shown in this conversation, unless the target is a hub or the reply is `repeatable`; replies to nodes explored in earlier conversations are marked `explored` (dimmed in the box). At most `Engine.MAX_CHOICES` (6) show, in the writer's order; when there are more, explored replies drop first, then unconditional branches, then any branch; exits stay.
 
 A **choice**:
 
@@ -239,7 +241,8 @@ A **choice**:
 | `tag` | `Persuade` / `Intimidate` / `Deceive`, or an identity tag (`Paladin`, `Westfall farmhand`, `Hero of Goldshire`) |
 | `check` | for Persuade/Intimidate/Deceive: `{ pass = { conditions } }`. Defaults come from the NPC's `temper` (3.9) |
 | `fx` | effects (2.8) |
-| `next` | a node id, `"END"`, or `"BUSINESS"` (closes our window and leaves the Blizzard window that is already open underneath) |
+| `next` | a node id, `"END"`, `"BUSINESS"` (closes our window and leaves the Blizzard window that is already open underneath), or `"BACK"` (the last hub visited) |
+| `repeatable` | keep offering it after its node was shown in this conversation |
 | `fail` | for checks: `{ fx = …, next = … }` |
 | `journal` | `{ first = …, third = … }` |
 
@@ -261,7 +264,7 @@ Each key has a **weight** (its contribution to the score) and a **kind**. *Hinge
 | Dark | `taint` {min} · `insanity` {min} | 40 | hinge |
 | Knowledge | `topicKnown` · `bookRead` · `homeInn` | 30 | hinge |
 | Relationship | `metBefore` bool · `timesTalked` {min,max} · `daysSince` {min,max} · `affinity` {min,max} · `townStanding` {town, tier/min} | 20 | hinge |
-| State | `form` · `mounted` · `stealthed` · `ghost` · `pet` {family,type,named} · `debuffType` · `aura` spellID · `resSick` · `drunk` · `camping` · `durability` {max} · `nearlyNaked` · `tabard` · `equipped` · `outOfPlace` · `rep` {faction,min} · `profession` {name,min} | 15 | hinge |
+| State | `form` · `mounted` · `stealthed` · `ghost` · `pet` {family,type,named} · `debuffType` · `aura` spellID · `resSick` · `drunk` · `camping` · `durability` {max} · `nearlyNaked` · `tabard` · `equipped` · `outOfPlace` · `reputation` {faction,min,max} (faction names in `World.FACTION_IDS`, standings hated..exalted) · `profession` {name,min} | 15 | hinge |
 | World | `zone` · `subzone` · `holiday` · `power` (relative bucket) | 15 | hinge |
 | Level | `band` · `minLevel`/`maxLevel` · `capital` · `resting` · `atInn` | 10 | hinge |
 | Small touches | `gender` · `timeOfDay` · `faction` · `party` {race,class} | 5 | hinge |
@@ -812,6 +815,15 @@ If a line throws an error, paste the error instead. That tells us something too.
 | M7 | zone planning and scaffolding, one-command checks, simulation and voice-check additions | bbefce7 |
 | M8 | Total RP 3, accessibility pass (keyboard, gamepad, readable font, no color-only signals), tooltip marker, `PACK_AUTHORING.md`, packaging and policy checks, release workflow | c2e6a2e |
 
+### 3.11 "Ask about..." (Morrowind-style, 0.27.0)
+
+- **Hearing topics.** Every line the NPC says in the box (main line, noticing moment, rumor, an answer) goes through `Topics.Hear`: topic words in it are learned, and linked. The words are each topic's `keywords` plus its name without a leading "The " or anything after a comma or bracket (`linkName = false` turns the name off, for ordinary phrases like "The Collector"). Whole words only, a plural "s" and a possessive count, longest match first, one link per topic per line, never inside an existing colour code or link, never a topic linking to itself in its own answer.
+- **Links.** `|Hrpgdtopic:<id>|h<colour>word|r|h` on the box's own frame (`C.EnableHyperlinks`: `SetHyperlinksEnabled` plus `OnHyperlinkClick`/`Enter`/`Leave`, guarded). The typewriter types the plain text and swaps in the linked text when it finishes, so no half-typed codes show; the click-to-finish cover hides then, so the words can be clicked. Click: `Conversation.Ask(id)`; hover: "Ask about <topic>". Setting `topicLinks` (default on) turns the links off; topics are still learned. Colour `topic` in every palette; the "Ask about..." list carries every topic too, so nothing depends on colour. Inside DialogueUI the text stays plain.
+- **Ask anyone.** Topics with `standard = true` (Their story, Their work, A little advice, Latest rumors: `RPGDialogue_World/topics.lua`) are always known, listed first, never archived or linked. `Engine.PickTopic` skips brush-offs for them. A named NPC's story is their own take or a generic deflection, never a role's. Their work and advice fall back to the role. Latest rumors: the NPC's own, then any rumor set tied to their zone or town whatever their role (`Rumors.SetsFor(info, ctx, true)`), then role and generic.
+- **Question-only pools.** `askOnly = true` pools (`RPGDialogue_World/asks.lua`) answer topics and nothing else: `Data.PoolsFor(info, ctx)` leaves them out, `Data.PoolsFor(info, ctx, true)` (topics only) includes them, so they never make an unnamed NPC talk.
+- **Answers that lead somewhere.** A topic line with `next = "<node>"` shows the answer, then that node's replies (the node counts as visited; BACK returns to the hub). The validator checks the node exists.
+- **The list.** Grouped by category under headers ("Ask anyone" first, then categories in order of their newest topic), flat while searching; a topic already asked of this NPC (`mem.topics`) says "(asked)"; keys and the gamepad skip headers.
+
 ### 3.10 Window style (look)
 
 Two looks, setting "Window style" (`look`), switchable while a conversation is open:
@@ -839,7 +851,7 @@ Two looks, setting "Window style" (`look`), switchable while a conversation is o
 
 **Inside DialogueUI (0.11.0, the default with it: `otherAddons = "auto"`).** The user asked for "the UI to entirely be DialogueUI". `Integrations/DialogueUIView.lua` draws conversations in DUIQuestFrame: it wraps the window's handlers (HandleGossip, HandleQuestGreeting, HandleQuestDetail/Progress/Complete, instance fields copied in by its mixin) so that, while a page is set, the page is laid out from the window's own pooled parts exactly as HandleGossip does (ReleaseAllObjects, UseQuestLayout(false), FormatParagraph, AcquireOptionButton + SetGossip with the speech-bubble icon 132053 and our own `onClickFunc`, AcquireExitButton + SetButtonExitGossip, SetScrollRange, FadeInContentFrame); number keys through its key listener's SetIndexedAction (found among the window's children). It is the same interface as the box (Show, SetChoices, ShowAnswer, ShowReaction, Hide, IsShown), chosen per conversation by `Conv.View(s)`. Game options and Get on with it release the page and DialogueUI's own pages carry on. Fallbacks to the box: methods missing (checked with rawget, since the mixin copies them onto the window), a layout error (`V.Broke`), or its window not showing within a second.
 
-**The game's pages in the box (0.11.0).** `Conv.ShowGamePage`: after a game option or quest is picked in the box (`s.following`), the next GOSSIP_SHOW / QUEST_* for the same visit renders the page in the box: gossip text and options; quest offer (text, objectives, rewards via `GetQuestItemInfo`, money, XP; Accept = `AcceptQuest` or `AcknowledgeAutoAcceptQuest`, Decline = `CloseQuest`); progress (required items; Continue = `CompleteQuest`, locked until `IsQuestCompletable`); reward (choices as rows with tooltips via `GameTooltip:SetQuestItem`; picking one only marks it, "(chosen)" with a check, and the "Complete quest, taking X" row below stays locked until a choice is made, then calls `GetQuestReward(i)`; a single choice is listed in the text and taken by "Complete quest"). Turn-in polish (0.26.0): item names in their quality color (`Theme.QualityHex`, deeper shades on parchment, common items in ink), "(you can't use this)" in words, required items as have/need (`GetQuestItemLink` + `GetItemCount`, capped at the need, green/red via `Theme.StatusHex`), a locked Continue that says "not finished yet", and the game's quest-complete sound on hand-in. PvP quests and paid hand-ins go to the game's window (its confirmation popups). Service windows end the box (`Conv.HandOver`). The window under the box is re-adopted on every page, and the previous one's alpha restored. Setting `pagesInBox` (on).
+**The game's pages in the box (0.11.0).** `Conv.ShowGamePage`: after a game option or quest is picked in the box (`s.following`), the next GOSSIP_SHOW / QUEST_* for the same visit renders the page in the box: gossip text and options; quest offer (text, objectives, rewards via `GetQuestItemInfo`, money, XP; Accept = `AcceptQuest` or `AcknowledgeAutoAcceptQuest`, Decline = `CloseQuest`); progress (required items; Continue = `CompleteQuest`, locked until `IsQuestCompletable`); reward (choices as rows with tooltips via `GameTooltip:SetQuestItem`; picking one only marks it, "(chosen)" with a check, and the "Complete quest, taking X" row below stays locked until a choice is made, then calls `GetQuestReward(i)`; a single choice is listed in the text and taken by "Complete quest"). Turn-in polish (0.29.1): item names in their quality color (`Theme.QualityHex`, deeper shades on parchment, common items in ink), "(you can't use this)" in words, required items as have/need (`GetQuestItemLink` + `GetItemCount`, capped at the need, green/red via `Theme.StatusHex`), a locked Continue that says "not finished yet", and the game's quest-complete sound on hand-in. PvP quests and paid hand-ins go to the game's window (its confirmation popups). Service windows end the box (`Conv.HandOver`). The window under the box is re-adopted on every page, and the previous one's alpha restored. Setting `pagesInBox` (on).
 
 **No game menu in between (0.24.0).** The user: "make sure there aren't options that bring up the normal menu as much as possible... constantly switching between default and ours is jarring." With `pagesInBox` on (the default), the game's gossip and quest windows never come back on their own:
 - **"Get on with it"** (`Conv.Business(hint)`) no longer reveals the game's window. On a gossip page it picks the NPC's service straight away when there's one to pick (`Conv.ServiceOption`: the option the reply's words ask for, else the one the NPC's role implies, else the only option when there's nothing else), so the vendor, trainer, flight map or bank opens without the menu first; otherwise it shows the NPC's menu (quests and every option, uncapped) in the box; with nothing on the menu, the visit ends. On a quest window it shows the quest page in the box.

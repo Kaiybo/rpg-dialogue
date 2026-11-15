@@ -38,6 +38,8 @@ A noticing moment is *this* NPC reacting to something about the player *they in 
 - They're rare by design: about one in three conversations rolls for one, at most one per conversation, and each category cools down (30 min across NPCs, 3 days per NPC). Don't fight the pacing by adding more.
 - Pools may carry noticing moments only for **narrow roles** (children, flight masters, innkeepers, guards, blacksmiths, spirit healers, trainers, stable masters), or when the pool is narrowed to one town (`community`) or one kind of NPC by title (`subtitle`). The voice checker fails broad-pool noticing moments. A trainer pool narrowed by title should notice things only that trainer would: pair race notices with the class (`{ race = "Orc", class = "MAGE" }`), or an orc warrior asking the mage trainer for directions gets the orc-mage line.
 
+- **Shapes:** `form` is the shape the player visibly wears: `bear`, `cat`, `travel`, `aquatic`, `moonkin`, `tree`, `flight`, `ghostwolf`, or `shadow` (a priest's Shadowform). Warrior stances and Stealth are not shapes. A live reaction `on = "form"` fires only when the player *takes* a shape, and must say which shapes it means (`when = { form = { "bear", "cat" } }`): a line about claws said to a priest in Shadowform is a bug the validator warns about.
+
 Good: a blacksmith winces at your broken armor before you speak. A trapper eyes a druid's bear form: "I've skinned bears. Don't take it personally."
 Bad: "Greetings, night elf druid." (a mad-lib, and anyone could say it)
 
@@ -70,6 +72,39 @@ Tag fresh reactions `tags = { "news" }`: they open the full conversation on an o
 - `greetings` are the compact-bar lines: short, varied, can carry conditions (quest progress, standing, time of day).
 - Service NPCs (vendors, trainers, flight masters, bankers, stable masters) default to compact. They should still have one or two lines that make the full conversation worth opening.
 
+## 7a. Depth: conversations the player can explore
+
+A conversation is a place to explore, not one line and a goodbye. The player should always have more than one real thing to say, and following a thread should lead somewhere.
+
+**Shape: a hub with branches.** The opening node is the hub. Each reply opens a branch (a subject: their quest, their past, the people around them, the place, the player). A branch runs two or three nodes deep, then offers `next = "BACK"` ("Something else." in the player's own words, varied) to return to the hub, or an exit. Long branches can have their own hub (`hub = true`); BACK returns to the last hub visited.
+
+**What the engine does with it:**
+- A branch the player already went down in this conversation disappears from the hub (asked and answered). Replies that lead to a hub (BACK, or `next` = the start node) never disappear. A reply that should stay can say `repeatable = true`.
+- On a later visit, branches explored before are still offered, dimmed, and drop first when there are too many.
+- Returning to a hub shows one of its `again` lines (`again = { { id = "h_again", text = "..." } }`): a short "what else?" in this person's voice. Write two or three per hub; they can carry conditions like any line. Without them a greeting is shown.
+- Up to **six** replies show at once, plus "Get on with it". When there are more, explored branches drop first, then branches without conditions; exits and replies that exist because of who the player is stay.
+
+**The standard** (the coverage report's "Depth" table measures it):
+
+| tier | branches from the hub | nodes | longest chain | replies only some characters get |
+|---|---|---|---|---|
+| major | 4+ | 10+ | 3+ | 2+ |
+| quest | 3+ | 6+ | 3+ | 1+ |
+| service | 2+ | 3+ | 2+ | - |
+
+Reputation counts as who the player is too: `reputation = { faction = "Stormwind", min = "exalted" }` (names in `World.FACTION_IDS`; standings `hated` to `exalted`). Use it where the game itself cares (Katie Hunter sells Stormwind's horses to humans or to anyone exalted with Stormwind), or where an NPC would know (the Argent Dawn's quartermaster, a Timbermaw sentry).
+
+"Replies only some characters get" are choices with a `when` on who the player is (race, class, origin, level band, a quest done, a line heard, a topic known, standing, alignment...) or a special tag. They are how a dwarf paladin and a gnome mage have different conversations with the same person: write them for the characters this NPC would actually react to, Alliance first while the user plays Alliance, then everyone.
+
+**What makes a branch worth taking:**
+- **Each reply is a different stance**, not a rewording: ask, push back, joke, sympathize, offer help, lie, change the subject. Replies carry the effects (alignment, traits, affinity, opinions) and the NPC answers the stance, not just the words.
+- **Something is learned at each step**: a fact from their quests or lore, a topic (`learn`), a name to ask someone else about, a claim, an opinion of a neighbour. If a node only says "Yes." it isn't a node.
+- **The NPC asks back.** People ask the player things ("You've come from Stormwind? How's the harbor?"), and the player's answer is a reply with effects. That's where traits and opinions come from.
+- **Branches reach the rest of the world**: other NPCs ("Ask Kebok, if you can stand him"), quests nearby (before/during/after), threads, topics.
+- **Lines inside branches react too.** A branch's node can have conditional lines (race, class, quest state) like the hub does; the deeper the node, the fewer conditions it needs.
+- **Keep the rules in section 5.** One or two things about the player per line; 1–3 sentences per line; replies 15 words or fewer. Depth comes from more nodes, not longer lines.
+- Lore discipline doesn't loosen with depth. A minor NPC with three branches talks about their work, their place and their neighbours; they don't grow an invented life story (section 1). If there isn't enough source for a fourth branch, write three good ones.
+
 ## 8. Agendas, claims and unreliable narrators
 
 - People have agendas, grudges and blind spots: **bias** (honest but one-sided), **mistakes**, **half-truths**, **lies**, **manipulation**.
@@ -93,6 +128,9 @@ Tag fresh reactions `tags = { "news" }`: they open the full conversation on an o
 - **Echoes:** an NPC reacts to a specific line the player heard elsewhere: `when = { heardLine = "npc.lineid" }`. The target line needs `key = true`.
 - **Opinions:** choices record `fx = { opinion = { topic = "stance" } }`, remembered with who heard it. Other members of the same community may bring it up later (gossip network, M4).
 - **Topics:** NPC files answer `topics = { topic_id = { lines } }`. Order of preference: the NPC's own take, their community's, their role's, then a brush-off in their voice. Answers can be claims, teach new topics (`learn`), move threads, or cost you.
+- **Topics are heard (Morrowind-style).** When anyone says a topic's name or one of its `keywords` in the box, the player learns it and the word becomes a link to ask about it. So name things: "Ask Ashe" teaches nothing, "the Siege of Farholde" does. Give a topic `keywords` for the short forms people actually say ("Kurzen", "Bloodsail"); never a keyword that's an everyday word ("Fern" is borderline and only lives in Riverglades lines). `linkName = false` for a topic whose name is an ordinary phrase.
+- **Ask anyone.** Every NPC can be asked `background` (Their story), `trade` (Their work), `advice` (A little advice) and `rumors` (Latest rumors). Write `background` and `advice` for every named NPC you write or deepen: one or two lines each, from their bible, and no invented life story (a deflection in their voice is better than a made-up childhood; Cady Lloydriel's is "No."). Roles cover `trade` (`RPGDialogue_World/asks.lua`), and zone rumors cover `rumors`, unless the NPC has a better one.
+- **Answers that lead somewhere.** A topic line can say `next = "node"`: after the answer, that subject's replies follow. Use it when the topic is one of the NPC's branches (Demar on Fern Crimsonleaf, Ashe on the Twilight's Hammer). Give the topic a second line without `next` too, so asking again isn't always the same door.
 - **Rumors:** innkeepers pass on local news, word from nearby and reactions to the player's own deeds. They're hearsay (claims), gated by level, zone and deeds, and they rotate.
 
 ## 11. Origins and town standing
@@ -136,6 +174,6 @@ Never says:
 - Pack files are data: `local P = RPGDialogueAPI:Pack("<pack id>")`, `local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST`, then `P:NPC { ... }` calls only. No variables, functions or concatenation (the validator rejects them).
 - **Never invent NPC or quest IDs.** Use `TODO_NPC("Name")` / `TODO_QUEST("Title")`. They match by name/title at runtime so content is testable early, and the validator lists every one.
 - Line ids are unique within their NPC; global ids are `npc_key.line_id`. Don't rename a `key = true` line without updating every `heardLine` that points to it.
-- Every node has at least one line without `when` (or it can go silent) and at least one choice; every path reaches `END` or `BUSINESS`. "Get on with it" is added automatically.
+- Every node has at least one line without `when` (or it can go silent) and at least one choice; every path reaches `END` or `BUSINESS` (`BACK` returns to the last hub, see 7a). "Get on with it" is added automatically.
 - Special options (`tag = "Persuade" | "Intimidate" | "Deceive"`) are rare, need a `fail = { next, fx }`, and succeed from who the player is (`check = { pass = { conditions } }`, or the NPC's `temper` defaults). No bribes.
 - Journal templates come in both voices: `journal = { first = "...", third = "{name} ..." }`.

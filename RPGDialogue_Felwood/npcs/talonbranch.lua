@@ -28,9 +28,11 @@ P:NPC {
         { id = "h_night", when = { timeOfDay = "night" },
           text = "The moonwell is brightest now. Look at it, then look at the trees. That's the difference we're fighting for." },
       },
+      again = { { id = "h_again", text = "What else?" } },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "Why teach here?", next = "why" },
+        { text = "What's Talonbranch Glade like?", next = "glade" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -38,11 +40,17 @@ P:NPC {
       lines = {
         { id = "w_default", text = "Because a forest this sick needs druids who aren't afraid of it. I can't make the young ones unafraid. I can make them used to it." },
       },
-      choices = { { text = "That's a hard lesson.", next = "END", fx = { affinity = 2, trait = { brave = 1 } } } },
+      choices = { { text = "That's a hard lesson.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } } },
+    },
+    glade = {
+      lines = { { id = "g_default", text = "A clearing that's held out longer than most. The moonwell keeps it clean, mostly. We guard the well. The well guards us." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 
   topics = {
+    background = { { id = "tp_ba", text = "A teacher of druids. The rest is under the hood, and stays there." } },
+    advice = { { id = "tp_ad", text = "Learn the sick places as well as the healthy ones. A healer who only knows health is no healer." } },
     cenarion_circle = { { id = "tp_circle", text = "The Emerald Circle heals the south of the forest. We hold the north. The middle belongs to the demons, for now." } },
     _none = { { id = "tp_none", text = "I don't know." } },
   },
