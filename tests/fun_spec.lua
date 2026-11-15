@@ -53,7 +53,9 @@ describe("Spirit healers", function()
     ns.UI.Dialogue.Click(2)                     -- Why send us back at all?
     ns.UI.Dialogue.Click(2)                     -- Doesn't sending us back cheapen death?
     contains(text(ns), "song")
-    ns.UI.Dialogue.Click(4)                     -- Maybe it's a cage.
+    for i, b in ipairs(ns.UI.Dialogue.Frame().buttons) do
+      if b:IsShown() and b.label:GetText():find("Maybe it's a cage", 1, true) then ns.UI.Dialogue.Click(i) break end
+    end
     contains(text(ns), "cage")
     leave(ns)
     talkTo("Spirit Healer", 6491, "Goldshire")
