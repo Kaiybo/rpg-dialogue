@@ -290,7 +290,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Ishnu-alah. If you need to fly, the hippogryphs are rested." },
-    { id = "g_back", when = { metBefore = true }, text = "You return. The birds remember you, which is more than they do for most." },
+    { id = "g_back", when = { metBefore = true }, text = "You have come back to the Point, and the hippogryphs lift their heads at your step. They choose their friends carefully." },
   },
 
   notice = {
