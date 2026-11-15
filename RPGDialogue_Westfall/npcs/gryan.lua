@@ -78,6 +78,11 @@ P:NPC {
         { text = "About Magistrate Solomon's letter.", next = "solomon", when = { questActive = TODO_QUEST("Messenger to Westfall") } },
         { text = "VanCleef is dead. What happens now?", next = "after", when = { deed = "dungeon:The Deadmines" } },
         { text = "I'm at your service.", next = "END", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Put me on the wall, Stoutmantle. I'm a soldier.", next = "warrior", when = { class = "WARRIOR" } },
+        { text = "I can track the Defias through these hills.", next = "hunter", when = { class = "HUNTER" } },
+        { text = "The land here is grieving, Stoutmantle. I can hear it.", next = "shaman", when = { class = "SHAMAN" } },
+        { text = "My father was a Stonemason. The nobles never paid him.", next = "mason_child", when = { origin = "human_stonemason_child" } },
+        { text = "The Sentinels would never abandon a province like this.", next = "kaldorei", when = { race = "NightElf" } },
         { text = "I'll help, but I answer to no militia.", next = "END", fx = { align = { order = -1 } } },
       },
     },
@@ -400,6 +405,75 @@ P:NPC {
       choices = {
         { text = "Understood, Commander.", next = "BACK" },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    warrior = {
+      big = true,
+      lines = {
+        { id = "warrior_l", text = "There's no wall, friend, only a hill and a tower and men who used to be farmers. But if you want a post, take the road to Moonbrook at dusk and stand where the Defias can see you; they've grown used to nobody standing anywhere." },
+        { id = "warrior_guard", when = { origin = "human_city_guard" },
+          text = "A Watch soldier, come out from the city on your own? That's more than the Keep has sent me this year. There's no wall here, only a hill, but take the Moonbrook road at dusk and stand where the Defias can see you." },
+      },
+      choices = {
+        { text = "Then I'll stand there.", next = "warrior2", fx = { affinity = 2, trait = { brave = 1 } } },
+        { text = "Why not march on Moonbrook?", next = "warrior_march" },
+      },
+    },
+    warrior2 = {
+      lines = { { id = "warrior2_l", text = "Then you'll be the first soldier this province has seen in a season. Come back and tell me who blinked first." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    warrior_march = {
+      lines = { { id = "warrior_march_l", text = "With what? Danuvin's drilled farmers and Galiaan's map? The Defias have the mines, the ships and the Deadmines, and we have a hill. We bleed them slowly, or they bleed us quickly." } },
+      choices = {
+        { text = "Slowly, then. Patience wins.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Slowly lets them grow. Strike now.", next = "BACK", fx = { align = { order = -1 }, trait = { brave = 1 } } },
+      },
+    },
+    hunter = {
+      lines = {
+        { id = "hunter_l", text = "Can you? Then you're worth three of my men, because the Defias have learned to move by the dry creek beds where a boot leaves no mark. Galiaan's been trying to map them for months." },
+        { id = "hunter_woods", when = { origin = "human_eastvale_woodsman" },
+          text = "An Eastvale woodsman, with a bow and a beast. Then you're worth three of my men, because the Defias move by the dry creek beds where a boot leaves no mark." },
+      },
+      choices = {
+        { text = "My beast doesn't need boot marks.", next = "hunter2" },
+        { text = "I'll go and see Galiaan.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    hunter2 = {
+      lines = { { id = "hunter2_l", text = "No, I suppose it doesn't. Bring Galiaan anything it finds, and if it finds VanCleef's bedroll, I'll buy it a ham." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    shaman = {
+      lines = { { id = "shaman_l", text = "Grieving? Aye, I'd believe that; it's had enough to grieve over. I don't know what to make of a dwarf who hears the earth talk, but if it says anything about where the Defias are hiding, tell me first." } },
+      choices = {
+        { text = "It says the dust is hiding something under Moonbrook.", next = "shaman2" },
+        { text = "It doesn't speak of Defias. Only of loss.", next = "BACK", fx = { trait = { kind = 1 } } },
+      },
+    },
+    shaman2 = {
+      lines = { { id = "shaman2_l", text = "Under Moonbrook. Of course it is; that's where the old mine runs. Your earth and my scouts agree, and that's the first good news I've had in a week." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, learn = { "defias" } } } },
+    },
+    mason_child = {
+      big = true,
+      lines = { { id = "mason_child_l", text = "Then your father was wronged, and I'll say so to anyone in Stormwind who'll listen. But some of the men he laid stone beside are out there in red masks, and I've buried farmers they killed, so forgive me if I can't say more than that." } },
+      choices = {
+        { text = "He never wore a mask. He stayed honest.", next = "mason_child2" },
+        { text = "The masks are what the nobles bought with their debts.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "A wrong done to you doesn't excuse a farmer's grave.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+      },
+    },
+    mason_child2 = {
+      lines = { { id = "mason_child2_l", text = "Then he did the hardest thing of all, which is to stay angry and stay decent at once. If you've half of that in you, there's a place on this hill for you." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    kaldorei = {
+      lines = { { id = "kaldorei_l", text = "Maybe they wouldn't, and I'd be glad to see a few of them on this hill if Darnassus is offering. Stormwind didn't abandon us, exactly; it just forgot to remember, which is worse." } },
+      choices = {
+        { text = "Then the Alliance should remember for it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A kingdom that forgets doesn't deserve its provinces.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
   },

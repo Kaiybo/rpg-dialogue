@@ -56,6 +56,7 @@ P:NPC {
         { text = "When the day comes, I'll bless the wedding.", next = "priest", when = { class = "PRIEST" } },
         { text = "I worked a Westfall farm. Land's worth more than grudges.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
         { text = "I've a letter from Maybell.", next = "BUSINESS", when = { questActive = TODO_QUEST("Young Lovers") } },
+        { text = "I could carry your letters without anyone seeing.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Good luck, Tommy Joe.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -164,6 +165,13 @@ P:NPC {
       choices = {
         { text = "It should.", next = "BACK", fx = { affinity = 1, opinion = { maybell_tommy = "romantic" } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    rogue = {
+      lines = { { id = "rogue_l", text = "Could you really? Ma reads everything that comes up the lane, and Maybell's pa watches the river like a hawk. You wouldn't read them, would you?" } },
+      choices = {
+        { text = "Never. A courier's word is everything.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Only the interesting parts.", next = "BACK", fx = { align = { honor = -1 }, trait = { witty = 1 } } },
       },
     },
   },

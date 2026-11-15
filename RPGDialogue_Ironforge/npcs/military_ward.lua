@@ -56,6 +56,7 @@ P:NPC {
         { text = "How do you pass the days?", next = "days" },
         { text = "What did the King say?", next = "king", when = { questDone = TODO_QUEST("Sara Balloo's Plea") } },
         { text = "Would you like me to pray with you?", next = "pray", when = { class = "PRIEST" } },
+        { text = "I'm a soldier too, Sara.", next = "soldier", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "Take care, Sara.", next = "END" },
       },
     },
@@ -154,6 +155,23 @@ P:NPC {
         { text = "Sometimes words help more than silence.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
+    soldier = {
+      lines = {
+        { id = "sd_default", text = "Then ye'll have someone waitin' for ye an' all, somewhere, askin' strangers the same question I ask. Write tae them, will ye, even a line, for I've learned what a line weighs." },
+        { id = "sd_ward", when = { origin = "dwarf_military_ward" },
+          text = "Ward-born, are ye? Then ye'll know my Sully, or know o' him; he drilled wi' Kelstrum's lot afore they sent him tae the Span." },
+      },
+      choices = {
+        { text = "I'll write. I promise.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Nobody waits for me, Sara.", next = "soldier_nobody" },
+      },
+    },
+    soldier_nobody = {
+      lines = {
+        { id = "sn_default", text = "Then I'll wait for ye a wee bit, alongside Sully, for I'm doin' it anyway. Come back through the Ward an' let me see ye're still in one piece." },
+      },
+      choices = { { text = "I will, Sara.", next = "BACK", fx = { affinity = 3 } } },
+    },
   },
 
   topics = {
@@ -190,6 +208,10 @@ P:NPC {
       text = "A human warrior. Ye're taller than my usual lot, so ye'll be gettin' hit in the head more; mind yer helmet." },
     { id = "n_gnome_war", cat = "class", when = { class = "WARRIOR", race = "Gnome" },
       text = "A gnome warrior! Bilban says ye're all the best at gettin' under a guard, an' I'll admit he has a point, low as it is." },
+    { id = "n_dwarf_war", cat = "class", when = { class = "WARRIOR", race = "Dwarf" },
+      text = "A dwarf warrior, standin' like the Ward taught ye, more or less. Shoulders back; ye're no' carryin' a keg." },
+    { id = "n_paladin", cat = "class", when = { class = "PALADIN" },
+      text = "One o' Brandur's lot, by the shine on ye. Mind ye don't blind my students, for they've enough trouble seein' a punch comin'." },
   },
 
   start = "hello",
@@ -211,6 +233,9 @@ P:NPC {
         { text = "What's this famous regimen?", next = "regimen" },
         { text = "What makes a good warrior?", next = "good" },
         { text = "I'd last a day, I'll wager.", next = "wager", when = { ["not"] = { class = "WARRIOR" } } },
+        { text = "What comes next for me, trainer?", next = "next", when = { class = "WARRIOR" } },
+        { text = "A paladin can hold a line as well as any warrior.", next = "paladin", when = { class = "PALADIN" } },
+        { text = "I don't fight fair, Kelstrum.", next = "rogue", when = { class = "ROGUE" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -247,6 +272,56 @@ P:NPC {
       choices = {
         { text = "Then I'll be the first.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
         { text = "Maybe I'll keep my wager for another day.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    next = {
+      lines = {
+        { id = "nx_default", text = "Ye pick a side o' yerself an' ye sharpen it. Shield an' stance for the ones who stand in front, two hands an' a temper for the ones who'd rather end the fight early, an' both are warriors, whatever the shield lot tell ye." },
+        { id = "nx_ward", when = { origin = "dwarf_military_ward" },
+          text = "Ye grew up in this Ward, so ye've heard me say it a hundred times through the wall: a shield first, an' a temper second. I'll say it a hundred an' one, because ye're still standin' crooked." },
+        { id = "nx_gnome", when = { race = "Gnome" },
+          text = "Ye pick a side o' yerself an' sharpen it, though wi' a gnome the side's mostly knees. Bilban'll tell ye about angles; I'll tell ye a shield's a door an' ye're the hinge." },
+      },
+      choices = {
+        { text = "The shield. Someone has to stand in front.", next = "next_shield", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Two hands. The fight ends faster.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Can I learn both?", next = "next_both" },
+      },
+    },
+    next_shield = {
+      lines = {
+        { id = "ns_default", text = "Then ye'll be the one the healers love an' the orcs hate, which is the best reputation a warrior can have. Learn tae taunt, learn tae take it on the shield an' no' the face, an' never step back unless the whole line does." },
+      },
+      choices = {
+        { text = "I won't step back.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    next_both = {
+      lines = {
+        { id = "nb_default", text = "Ye can, an' ye'll be middlin' at both for a long while. The ones who last carry two sets o' gear an' a strong back, an' they change stance faster than a Senator changes his vote." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+    },
+    paladin = {
+      lines = {
+        { id = "pa_default", text = "Hold it, aye, an' then stop tae pray over the fella beside ye, an' the line's got a hole in it. I'm teasin' ye, mostly; Brandur's lot are the only ones who come in here an' don't flinch when I shout." },
+        { id = "pa_dwarf", when = { race = "Dwarf" },
+          text = "Hold it, aye, wi' a hammer in one hand an' the Light in the other, an' I'll admit I've seen dwarves o' the Silver Hand hold the Span when my own lads broke. Don't tell Brandur I said so." },
+      },
+      choices = {
+        { text = "Faith is what keeps the line standing.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Steel holds the line. The prayer's for after.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rogue = {
+      lines = {
+        { id = "rg_default", text = "Nobody fights fair once they've been in a real fight, so ye've just learned it sooner than most. I'll say this, though: my warriors take the blows so ye can get round the back, an' ye'd best make it count when ye get there." },
+      },
+      choices = {
+        { text = "Fair fights are for people who expect to lose.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll make it count, and I'll thank the shield.", next = "BACK", fx = { align = { honor = 1 }, affinity = 2 } },
       },
     },
   },
@@ -299,6 +374,8 @@ P:NPC {
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
         { text = "Why does a gnome take up arms?", next = "why" },
         { text = "Combat is like engineering?", next = "engineering" },
+        { text = "Calibrate me, Bilban. Where am I weakest?", next = "calib", when = { class = "WARRIOR" } },
+        { text = "Why not engineering, like the rest of us?", next = "gnome", when = { race = "Gnome", ["not"] = { class = "WARRIOR" } } },
         { text = "Good day, Bilban.", next = "END" },
       },
     },
@@ -333,6 +410,36 @@ P:NPC {
         { id = "bo_default", text = "Your left side, at present; you favor it when you stand. I'd charge a fee for that diagnosis, but I'm told the Hall of Arms frowns on it." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    calib = {
+      lines = {
+        { id = "ca_default", text = "Your recovery after a missed swing is slow by nearly half a second, which in a fight is the length of a sentence. The fix is to stop admiring your own swing and plan the second one before the first has landed." },
+        { id = "ca_rear", when = { origin = "gnome_rearguard" },
+          text = "You fight like someone who learned in a corridor with no room behind them, which is efficient but narrow. I have a diagram for open ground, and you are going to look at it." },
+      },
+      choices = {
+        { text = "I'll drill until it's gone.", next = "calib_drill" },
+        { text = "A diagram won't win a fight, Bilban.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Your method works. I'll follow it to the letter.", next = "BACK", fx = { align = { order = 1 }, affinity = 2 } },
+      },
+    },
+    calib_drill = {
+      lines = {
+        { id = "cd_default", text = "Excellent, and do it slowly first, because speed is merely accuracy repeated. Kelstrum will tell you to do it fast and loud, and you may do that after you have done it correctly." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    gnome = {
+      lines = {
+        { id = "gn_default", text = "Because a gear does not care whether you are frightened, and a trogg very much does, and I discovered I could use that. You chose a different specification yourself, so you understand that the old plans did not survive Gnomeregan." },
+        { id = "gn_mage", when = { class = "MAGE" },
+          text = "Because I failed my first-year arcana examination twice, and the second time I set the examiner's beard alight. You passed yours, clearly, so you will appreciate that the Hall of Arms is a great deal less flammable." },
+      },
+      choices = {
+        { text = "Every gnome should still learn to fight.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "We're builders. Fighting is a detour.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -377,6 +484,8 @@ P:NPC {
           text = "Grif Wildheart's waitin' for ye in Kharanos. He'll put ye on the path tae a beast o' yer own, an' mind ye listen tae him; he's never been wrong about an animal." },
         { id = "h_hunter_young", when = { class = "HUNTER", maxLevel = 12 },
           text = "A young hunter, an' ye've no' got a beast yet, have ye? Go an' see Grif Wildheart in Kharanos; he'll know when ye're ready." },
+        { id = "h_hunter_beast", when = { class = "HUNTER", pet = { type = "Beast" } },
+          text = "Let me see that beast o' yers before ye say a word; it'll tell me more about how ye've been huntin' than ye will. Good, it's fed an' it's no' limpin', so ye're doin' somethin' right." },
       },
       again = {
         { id = "h_again", text = "Anythin' else?" },
@@ -386,6 +495,10 @@ P:NPC {
         { text = "Train me.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "How do you choose a beast?", next = "beast" },
         { text = "Who's Grif Wildheart?", next = "grif" },
+        { text = "Have a look at my beast, Daera.", next = "pet", when = { class = "HUNTER", pet = { type = "Beast" } } },
+        { text = "Humans don't take the bow much, they tell me.", next = "human", when = { race = "Human", class = "HUNTER" } },
+        { text = "I ride a nightsaber at home, Daera.", next = "elf", when = { race = "NightElf", class = "HUNTER" } },
+        { text = "Why do dwarves keep rams?", next = "rams" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -407,6 +520,70 @@ P:NPC {
         { text = "I'll bark politely.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    pet = {
+      lines = {
+        { id = "pe_default", text = "Good coat, clear eyes, an' it's watchin' me instead o' ye, which means it thinks I'm the danger here. That's a beast that knows its job, so feed it well an' it'll keep doin' it." },
+        { id = "pe_bear", when = { origin = "dwarf_bear_tracker" },
+          text = "Ye've tracked bears in the high snows, I can see it in how ye stand next tae this one, a hand off its shoulder an' never in front o' its face. Who taught ye that, an' did they keep all their fingers?" },
+      },
+      choices = {
+        { text = "I let it eat first, always.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "It obeys because I'm the stronger one.", next = "BACK", fx = { align = { order = 1 }, affinity = -1 } },
+        { text = "It stays with me because it chooses to.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "How do I train it better?", next = "pet_train" },
+      },
+    },
+    pet_train = {
+      lines = {
+        { id = "pt_default", text = "Ye don't train it so much as agree on things wi' it, one at a time, an' never two in a day. Grif Wildheart says the same, only shorter an' wi' more growlin'." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    human = {
+      lines = {
+        { id = "hu_default", text = "They tell ye right; I've trained more Darnassians than Stormwinders, an' most humans I see wi' a bow are poachers or soldiers. So who put a bow in yer hand, an' what made ye want a beast at yer side instead o' a squad?" },
+        { id = "hu_eastvale", when = { origin = "human_eastvale_woodsman" },
+          text = "Eastvale, is it? I've heard o' the woodsmen there; they hunt the wolves an' the bears, an' they know the forest better than the Stormwind lads. Ye'll do well, as long as ye remember a mountain isnae a forest." },
+      },
+      choices = {
+        { text = "A squad leaves you. A beast doesn't.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Somebody had to, so it may as well be humans.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "Do dwarves look down on human hunters?", next = "human_look" },
+      },
+    },
+    human_look = {
+      lines = {
+        { id = "hl_default", text = "We look down on everyone, it's a matter o' height. But the beast decides if ye're a hunter, no' me an' no' the Ward, an' that one o' yers seems tae have decided." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    elf = {
+      lines = {
+        { id = "el_default", text = "I've seen a few o' those cats come through the gates, an' every ram in the stables goes quiet. A sabercat on the snow's a different beast from one in yer forests, so mind its paws on the ice, they're no' made for it." },
+        { id = "el_rider", when = { origin = "nightelf_nightsaber_rider" },
+          text = "Ye ride them, ye said, no' just hunt beside one. The Sentinels' cats are a different breed from the wild ones, I'm told, an' I'd give a month's pay tae see how ye train them." },
+      },
+      choices = {
+        { text = "My saber will learn the ice.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Our ways would work on your rams.", next = "BACK", fx = { trait = { curious = 1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rams = {
+      lines = {
+        { id = "ra_default", text = "Because they're the only beast in Dun Morogh as stubborn as we are, an' they'll climb where a horse would sit down an' weep. Veron Amberstill breeds the best o' them out past Kharanos, an' he'll tell ye so himself." },
+      },
+      choices = {
+        { text = "Is a ram a fit companion for a hunter?", next = "rams_pet" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rams_pet = {
+      lines = {
+        { id = "rp_default", text = "For ridin', aye, but no' for huntin'; a ram'll butt yer quarry an' then wander off tae eat the bushes. Take a bear or a boar from the hills if ye want somethin' that'll stay." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 

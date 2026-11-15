@@ -58,6 +58,13 @@ P:NPC {
         { text = "Do you like Lady Prestor?", next = "prestor" },
         { text = "Would you like a paladin's blessing?", next = "bless", when = { class = "PALADIN" } },
         { text = "What's it like being king?", next = "king" },
+        { text = "I came all the way from Teldrassil, Your Majesty.", next = "teldrassil", when = { race = "NightElf" } },
+        { text = "Ironforge sends its greetings, Your Majesty.", next = "ironforge", when = { race = "Dwarf" } },
+        { text = "I'm from Gnomeregan, Your Majesty.", next = "gnomeregan", when = { race = "Gnome" } },
+        { text = "My people came down from the sky, Your Majesty.", next = "sky", when = { race = "Skyborne" } },
+        { text = "Would you like to meet {pet}, Your Majesty?", next = "pet", when = { class = "HUNTER", pet = { type = "Beast" } } },
+        { text = "Shall I show you a proper sword stance?", next = "sword", when = { class = "WARRIOR" } },
+        { text = "Would you like to see me turn into a bear, Your Majesty?", next = "bear", when = { class = "DRUID" } },
         { text = "Long live the king.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -147,6 +154,86 @@ P:NPC {
         { text = "Fair enough, Your Majesty.", next = "BACK" },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    teldrassil = {
+      lines = { { id = "te_default", text = "From the big tree? Lady Prestor says it's only a large tree, but the Highlord says it's taller than the Cathedral, and I'd rather believe him. Do you have to climb it to get home?" } },
+      choices = {
+        { text = "There's a portal at its foot, Your Majesty.", next = "teldrassil_old" },
+        { text = "Every step of the way.", next = "teldrassil_old", fx = { trait = { witty = 1 } } },
+      },
+    },
+    teldrassil_old = {
+      lines = { { id = "to_default", text = "I knew it! My tutor says your people lived here before there were any humans at all. Is it rude to ask how old you are? It's rude, isn't it. I'm sorry." } },
+      choices = { { text = "It's not rude, Your Majesty.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } } },
+    },
+    ironforge = {
+      lines = { { id = "if_default", text = "Thank you, and please greet them back for me! Is King Magni really as loud as the Highlord says? He says you can hear him from the tram." } },
+      choices = {
+        { text = "Louder, Your Majesty.", next = "ironforge_tram" },
+        { text = "A king should be heard.", next = "ironforge_tram", fx = { trait = { stern = 1 } } },
+      },
+    },
+    ironforge_tram = {
+      lines = { { id = "it_default", text = "I've only ridden the tram once, and I wasn't scared, though I held the rail the whole way. Bolvar says the dwarves dug it so the Alliance could never be cut in two." } },
+      choices = { { text = "Something else, Your Majesty.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    gnomeregan = {
+      lines = { { id = "gn_default", text = "The city that got lost? I'm sorry; that's what I heard someone call it, and it's not a very kingly thing to say. Do you miss it, the way I miss my father?" } },
+      choices = {
+        { text = "Every day, Your Majesty.", next = "gnomeregan_home" },
+        { text = "We'll take it back. Gnomes always fix things.", next = "gnomeregan_home", fx = { trait = { brave = 1 } } },
+      },
+    },
+    gnomeregan_home = {
+      lines = { { id = "gh_default", text = "Then I hope you get it back, and I'll ask the Highlord about it at council, even if he says I'm too young. I'm allowed to ask; I'm the king." } },
+      choices = { { text = "Thank you, Your Majesty.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    sky = {
+      lines = { { id = "sk_default", text = "From the sky! Is it true there's an island up there that floats? Bolvar told me, and then he said he wasn't sure, and he's usually sure about everything." } },
+      choices = {
+        { text = "It's true, Your Majesty. The winds held it up.", next = "sky_wind" },
+        { text = "Some secrets a people keeps, Your Majesty.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    sky_wind = {
+      lines = { { id = "sw_default", text = "I'd be frightened of falling off, I think. Maybe I wouldn't be, if I'd grown up there; you probably don't think about it at all." } },
+      choices = { { text = "Something else, Your Majesty.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    pet = {
+      lines = { { id = "pt_yes", text = "Yes, please! Does {pet} bite? I won't mind if it does, only a little, and the guards won't see if you're quick about it." } },
+      choices = {
+        { text = "Only people who deserve it.", next = "pet_pat" },
+        { text = "Gently, Your Majesty. Hold out your hand.", next = "pet_pat", fx = { trait = { kind = 1 } } },
+      },
+    },
+    pet_pat = {
+      lines = { { id = "ptp_warm", text = "It's warm! I wanted a dog, but Lady Prestor says a king can't have a dog in the throne room. I think a king should be allowed one dog." } },
+      choices = {
+        { text = "A king should have whatever dog he likes.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
+        { text = "Lady Prestor has a point, Your Majesty.", next = "BACK", fx = { align = { order = 1 } } },
+      },
+    },
+    sword = {
+      lines = { { id = "swd_default", text = "Would you? The Highlord only lets me hold a wooden one, and only in the courtyard. He says a king needs to know how swords work so he knows what he's asking of people." } },
+      choices = {
+        { text = "He's right. Feet apart, Your Majesty.", next = "sword_stance" },
+        { text = "Better you never need one.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+      },
+    },
+    sword_stance = {
+      lines = { { id = "ss_default", text = "Like this? I'm going to practise it every morning, and then I'll show the Highlord, and he'll pretend to be surprised, the way he always does." } },
+      choices = { { text = "Something else, Your Majesty.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    bear = {
+      lines = { { id = "bear_l", text = "A real bear? In the throne room? The Highlord will say no, so please do it quickly, before he looks up from his papers." } },
+      choices = {
+        { text = "A small one, Your Majesty. Just for a moment.", next = "bear2" },
+        { text = "Perhaps somewhere with fewer guards.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    bear2 = {
+      lines = { { id = "bear2_l", text = "That was amazing, and the guards all jumped, did you see? I'm going to remember that forever, even when I'm old and boring like the House of Nobles." } },
+      choices = { { text = "Something else, Your Majesty.", next = "BACK", fx = { affinity = 2 } } },
     },
   },
 

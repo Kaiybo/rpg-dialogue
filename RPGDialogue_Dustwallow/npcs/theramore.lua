@@ -56,6 +56,9 @@ P:NPC {
         { text = "The Kirin Tor know my people. Do you?", next = "skyborne", when = { race = "Skyborne" } },
         { text = "I've met Thrall.", next = "thrall", when = { heardLine = "thrall.h_default" } },
         { text = "Does the Light still answer you, after everything?", next = "priest_light", when = { class = "PRIEST" } },
+        { text = "I'd serve in Theramore's guard, my lady.", next = "x_warrior", when = { class = "WARRIOR" } },
+        { text = "Dalaran would have burned me. Will you?", next = "x_warlock", when = { class = "WARLOCK" } },
+        { text = "Dwarves helped build these walls, I hear.", next = "x_dwarf", when = { race = "Dwarf" } },
         { text = "Farewell, my lady.", next = "END" },
       },
     },
@@ -207,6 +210,44 @@ P:NPC {
         { text = "Of course, my lady.", next = "BACK" },
       },
     },
+    x_warrior = {
+      lines = {
+        { id = "xw_default", text = "Then speak to Captain Vimes, and he'll tell you the hardest part of guarding Theramore is the order not to draw your sword. I need soldiers who can hold a line and still let a Horde envoy walk through it unharmed." },
+        { id = "xw_guard", when = { origin = "human_city_guard" }, text = "You've stood a gate in Stormwind, I can tell from the way you watch the door. Theramore's gates are smaller, but I promise the visitors are far more interesting." },
+      },
+      choices = {
+        { text = "I can keep my sword sheathed when peace asks it.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, standing = { theramore = 1 } } },
+        { text = "If the Horde comes armed, I'll draw first.", next = "BACK", fx = { affinity = -2, align = { order = -1 } } },
+        { text = "Something else, my lady.", next = "BACK" },
+      },
+    },
+    x_warlock = {
+      lines = {
+        { id = "xwl_default", text = "Dalaran had its reasons, and I studied with the people who wrote those rules, so I won't pretend I'm comfortable with what you carry. But I've made peace with orcs whose fathers drank demon blood, and it would be a poor sort of peace if I couldn't spare a little of it for you." },
+      },
+      choices = {
+        { text = "Then trust me as you trust the orcs.", next = "x_warlock_trust" },
+        { text = "Dalaran's rules didn't save Dalaran.", next = "BACK", fx = { affinity = -1, trait = { skeptical = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_warlock_trust = {
+      lines = { { id = "xwt_default", text = "Carefully, then, and with my eyes open, which is exactly how I trust the orcs. Keep your demons on a short leash in my city, and you and I will get along." } },
+      choices = {
+        { text = "You'll have no trouble from me, my lady.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My demons answer to me, not to Theramore.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_dwarf = {
+      lines = {
+        { id = "xd_default", text = "They did, and they complained about my architects every single day, and the walls are still standing, so I suppose they were right. The dwarves who came west with me out of Lordaeron still drink at Janene's most nights, grumbling as if they'd never left the mountain." },
+      },
+      choices = {
+        { text = "Dwarven stone outlasts everything, my lady.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -265,6 +306,8 @@ P:NPC {
         { text = "What's the Lady like to serve?", next = "jaina" },
         { text = "What do the shadowshards do?", next = "shards", when = { questActive = TODO_QUEST("Shadowshard Fragments") } },
         { text = "Any advice for a mage on their own?", next = "mage", when = { class = "MAGE" } },
+        { text = "A gnome could rig your garden proper irrigation.", next = "x_gnome", when = { race = "Gnome" } },
+        { text = "Your herbs would grow better by moonlight.", next = "x_nightelf", when = { race = "NightElf" } },
         { text = "I'll be quick.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -308,6 +351,24 @@ P:NPC {
     mage = {
       lines = { { id = "m_default", text = "Keep your own notes, in your own hand. Committees lose things, but you won't, if it's your handwriting nobody else can read." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    x_gnome = {
+      lines = {
+        { id = "xg_default", text = "Could you? The last gnome who offered built me something with eleven valves and a whistle, and the whistle was the only part that ever worked. I'm independent, not ungrateful, so put it in writing and I'll read it between diplomats." },
+      },
+      choices = {
+        { text = "Eleven valves was too few. I'd use twenty.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "I'll stick to spells, then.", next = "BACK" },
+      },
+    },
+    x_nightelf = {
+      lines = {
+        { id = "xn_default", text = "Every kaldorei who passes through tells me something of the kind, and I'm starting to suspect it's a plot to keep me up late. I'll admit the herbs along the east wall do better than anything I plant by the book, and they get the most moon." },
+      },
+      choices = {
+        { text = "Elune favors a patient gardener.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Archmage.", next = "BACK" },
+      },
     },
   },
 
@@ -367,6 +428,7 @@ P:NPC {
         { text = "You speak orcish?", next = "orcish" },
         { text = "Let me read the tracks myself.", next = "tracks", when = { class = { "HUNTER", "ROGUE", "DRUID" } } },
         { text = "I could sit with James Hyal.", next = "priest_hyal", when = { class = "PRIEST" } },
+        { text = "Want another sword in the Guard, Captain?", next = "x_warrior", when = { class = "WARRIOR" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2, align = { order = 1 }, standing = { theramore = 1 } } },
         { text = "It was the Horde, and everyone knows it.", next = "END", fx = { affinity = -1, align = { order = -1 } } },
       },
@@ -431,6 +493,16 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    x_warrior = {
+      lines = {
+        { id = "xw_default", text = "I want a sword that stays in its sheath until I say otherwise, and that's harder to find than you'd think. Half my recruits came out here to fight orcs, and I spend more time talking them out of it than I spend drilling them." },
+      },
+      choices = {
+        { text = "I'll follow your orders, Captain.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "If an orc swings at me, I swing back.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -482,6 +554,7 @@ P:NPC {
         { text = "The ones who walked away?", next = "deserters" },
         { text = "How do you keep track of it all?", next = "system" },
         { text = "Do you have a file on me?", next = "file", when = { townStanding = { town = "theramore", min = 20 } } },
+        { text = "Records on deserters? I'd be hard to find.", next = "x_rogue", when = { class = "ROGUE" } },
         { text = "Thank you.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -507,6 +580,15 @@ P:NPC {
     file = {
       lines = { { id = "f_default", text = "Of course, a short one, very complimentary. The Captain wrote 'useful' and underlined it, and he doesn't underline things." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    x_rogue = {
+      lines = {
+        { id = "xr_default", text = "Everyone says that, and then they order the same drink in the same tavern twice, and somebody writes it down. Deserters aren't caught by soldiers, they're caught by habits, and I keep records of those as well." },
+      },
+      choices = {
+        { text = "I don't have habits.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Good thing I'm not deserting, then.", next = "BACK", fx = { affinity = 1 } },
+      },
     },
   },
 
@@ -557,6 +639,7 @@ P:NPC {
         { text = "I'd like a room.", next = "BUSINESS" },
         { text = "What's the talk at the tables?", next = "talk" },
         { text = "What's good to eat?", next = "food" },
+        { text = "Do you keep a proper dwarven stout?", next = "x_dwarf", when = { race = "Dwarf" } },
         { text = "Just passing through.", next = "END" },
       },
     },
@@ -567,6 +650,15 @@ P:NPC {
     food = {
       lines = { { id = "f_default", text = "Fish stew, because we're on an island, and bread, because the dwarves insisted. And something the quel'dorei like that nobody else will touch." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    x_dwarf = {
+      lines = {
+        { id = "xd_default", text = "I keep what the boat brings, love, and the dwarves who've been here since the walls went up tell me every night that it isn't proper. They drink it all the same, so pull up a stool and complain along with them." },
+      },
+      choices = {
+        { text = "I'll join the complaining, then.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 

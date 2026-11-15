@@ -59,6 +59,7 @@ P:NPC {
         { text = "What's it like, being dead?", next = "dead" },
         { text = "I could help you find rest, captain.", next = "priest", when = { class = "PRIEST" } },
         { text = "We're both dead. Why aren't you bitter?", next = "scourge", when = { race = "Scourge" } },
+        { text = "My people scatter the dead to the wind, Captain.", next = "skyborne", when = { race = "Skyborne" } },
         { text = "Rest easy, captain.", next = "END" },
       },
     },
@@ -174,6 +175,17 @@ P:NPC {
         { text = "Fair enough, Captain.", next = "BACK" },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    skyborne = {
+      lines = { { id = "skyborne_l", text = "To the wind! Now that's a sailor's funeral if I ever heard one, better than a hole in a field. Would the wind have me, do you think, or am I too heavy with the things I owe?" } },
+      choices = {
+        { text = "The wind takes everyone, Captain.", next = "skyborne2", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Pay your debts first, then ask the wind.", next = "skyborne2", fx = { trait = { stern = 1 } } },
+      },
+    },
+    skyborne2 = {
+      lines = { { id = "skyborne2_l", text = "Aye, maybe so. Tell me how it goes, someday, your way of saying goodbye, and I'll tell you if it's better than mine." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 

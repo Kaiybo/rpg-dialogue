@@ -63,6 +63,9 @@ P:NPC {
         { text = "Stormwind could use a port like this.", next = "stormwind", when = { faction = "Alliance" } },
         { text = "The Horde's ships dock here too. Do you trust them?", next = "horde", when = { faction = "Horde" } },
         { text = "Is there a chapel anywhere in Booty Bay?", next = "priest_chapel", when = { class = "PRIEST" } },
+        { text = "What does a rogue owe the Baron, working his docks?", next = "k_rogue", when = { class = "ROGUE" } },
+        { text = "This was troll country before it was Cartel country, Baron.", next = "k_troll", when = { race = "Troll" } },
+        { text = "Will the Baron let a warlock keep rooms here?", next = "k_lock", when = { class = "WARLOCK" } },
         { text = "Good day, Baron.", next = "END" },
       },
     },
@@ -198,6 +201,38 @@ P:NPC {
         { text = "Suit yourself, Baron.", next = "BACK" },
       },
     },
+    k_rogue = {
+      big = true,
+      lines = {
+        { id = "xro_default", text = "A cut, and a little courtesy. Pick a sailor's pocket on the docks and that's between you and the sailor, but pick one of mine and the Bruisers will find you before you've counted it, because in Booty Bay everything worth stealing already has my name in the ledger." },
+        { id = "xro_canal", when = { origin = "human_canal_pickpocket" },
+          text = "A canal rat from Stormwind, by those fingers. Stormwind's watch is slow and my Bruisers are not, so pick sailors' pockets if you must and leave mine alone." },
+      },
+      choices = {
+        { text = "Then I'll work for you, Baron, not against you.", next = "BACK", fx = { align = { order = 1 }, affinity = 2 } },
+        { text = "Every ledger has a gap, Baron. I'll find yours.", next = "BACK", fx = { align = { order = -1 }, affinity = -2 } },
+        { text = "What does the Baron's ledger say about me?", next = "ledger" },
+      },
+    },
+    k_troll = {
+      lines = {
+        { id = "xtr_default", text = "It was, and the Gurubashi will tell you so if you ask them politely through an arrow. The Cartel pays rent in the only coin trolls here take, which is staying out of their temples, and the Darkspear left long before we built a single plank." },
+      },
+      choices = {
+        { text = "My people will remember who sits on their coast.", next = "BACK", fx = { align = { honor = 1 }, affinity = -1 } },
+        { text = "Coin is coin. I don't care who built the dock.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "What does the Cartel want with a jungle?", next = "cartel" },
+      },
+    },
+    k_lock = {
+      lines = {
+        { id = "xlk_default", text = "Let you? Friend, I'd let a dragon keep rooms if it paid in advance and didn't eat the staff. Keep your little friend off the balconies and out of the kitchen, and if it sets anything on fire, it's on your bill." },
+      },
+      choices = {
+        { text = "Fair terms, Baron.", next = "BACK", fx = { affinity = 2 } },
+        { text = "My imp has better manners than your Bruisers.", next = "BACK", fx = { affinity = -1, trait = { witty = 1 } } },
+      },
+    },
   },
 
   topics = {
@@ -237,6 +272,8 @@ P:NPC {
       text = "One of the herd, this far from the plains! I traded the grass for the sea long ago and I've never regretted it, save once, in a storm." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "You look like you've been keelhauled twice and dried in the sun. Get that armor patched before the Bloodsail notice." },
+    { id = "n_troll", cat = "race", when = { race = "Troll" },
+      text = "A Darkspear on my docks! Your people knew these waters before any goblin put a plank on them, and I'd wager you still know how to read a tide." },
   },
 
   react = {
@@ -267,6 +304,9 @@ P:NPC {
         { text = "Got a sea story for me?", next = "story" },
         { text = "Do you miss the plains, ever?", next = "plains", when = { race = "Tauren" } },
         { text = "I've never been on a ship.", next = "landlubber", when = { race = { "Dwarf", "Gnome" } } },
+        { text = "The sea has spirits too, Fleet Master. Do you hear them?", next = "k_shaman", when = { class = "SHAMAN" } },
+        { text = "My people were sailors once, before Thrall.", next = "k_troll", when = { race = "Troll" } },
+        { text = "My ancestors sailed west from the Feralas coast.", next = "k_sky", when = { race = "Skyborne" } },
         { text = "Fair winds, Fleet Master.", next = "END" },
       },
     },
@@ -349,6 +389,36 @@ P:NPC {
       },
       choices = { { text = "Noted.", next = "BACK", fx = { affinity = 1 } } },
     },
+    k_shaman = {
+      lines = {
+        { id = "xsh_default", text = "Hear them? Ha! Every night in my bunk they sing me to sleep, and every storm they shout me awake. A shaman at sea is worth a crew of ten, for you'll know the squall before the gulls do, so if you ever want a berth, you've got one." },
+        { id = "xsh_tauren", when = { race = "Tauren" },
+          text = "Hear them? Ha! My grandmother swore no tauren could hear the Earth Mother out on the waves, and she was wrong about that. A tauren shaman on a deck is a sight I'd pay to see, and I'd give you the wheel for a day." },
+      },
+      choices = {
+        { text = "The sea spirits are wild. I'd leave them be.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The spirits respect a steady hand. I'll take the berth.", next = "BACK", fx = { align = { order = 1 }, affinity = 2 } },
+        { text = "Why does a tauren go to sea?", next = "why" },
+      },
+    },
+    k_troll = {
+      lines = {
+        { id = "xtr_default", text = "That you were, and good ones! The Darkspear canoes on the Echo Isles could cut through surf my ships wallow in. You ever want to remember what your grandmothers knew, come aboard, and I'll put you in the rigging where you belong." },
+      },
+      choices = {
+        { text = "One day I'll sail these waters again.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
+        { text = "My people walk on land now, Fleet Master.", next = "BACK", fx = { affinity = -1 } },
+      },
+    },
+    k_sky = {
+      lines = {
+        { id = "xsk_default", text = "West from Feralas, you say, into open water? Then your ancestors were braver sailors than any I know, because there's nothing out that way but weather. Did they ever say what they sailed toward, or were they only sailing away?" },
+      },
+      choices = {
+        { text = "Away. The winds found them after.", next = "BACK", fx = { affinity = 2 } },
+        { text = "That's a story for another day, Fleet Master.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
   },
 
   topics = {
@@ -414,6 +484,7 @@ P:NPC {
         { text = "What's the Baron like to work for?", next = "baron" },
         { text = "What's the rumor about me?", next = "about_me", when = { metBefore = true } },
         { text = "How are the rebels up north holding out?", next = "rebels", when = { faction = "Alliance" } },
+        { text = "I trade in information too, Krazek.", next = "k_rogue", when = { class = "ROGUE" } },
         { text = "Thanks, Krazek.", next = "END" },
       },
     },
@@ -519,6 +590,15 @@ P:NPC {
         { text = "It was worth a try.", next = "BACK" },
       },
     },
+    k_rogue = {
+      lines = {
+        { id = "xro_default", text = "Then you're competition, and I don't like competition, but I like partners, and a partner's just competition who splits the fee. Tell me something I don't know and I'll tell you something you don't, and we'll see who comes out ahead." },
+      },
+      choices = {
+        { text = "The Bloodsail are watching the Baron's ships.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "I'll tell you something, but it'll be made up.", next = "BACK", fx = { align = { honor = -1 }, trait = { witty = 1 } } },
+      },
+    },
   },
 
   topics = {
@@ -584,6 +664,7 @@ P:NPC {
         { text = "How do you collect from a dead man?", next = "dead" },
         { text = "Shaky Phillipe is terrified of you.", next = "shaky", when = { heardLine = "shaky.h_default" } },
         { text = "Undead pay their debts too, then?", next = "forsaken", when = { race = "Scourge" } },
+        { text = "I know a marked deck when I see one, MacKinley.", next = "k_rogue", when = { class = "ROGUE" } },
         { text = "I'll keep my purse closed, thanks.", next = "END" },
       },
     },
@@ -645,6 +726,15 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    k_rogue = {
+      lines = {
+        { id = "xro_default", text = "Do you, now? Then you'll know the deck's honest, friend, because I don't need to mark cards to win; I only need people to keep playing. That's the whole secret of the trade, and I've given it to you for nothing, which I never do." },
+      },
+      choices = {
+        { text = "Then deal me in, and we'll see.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+        { text = "I'll keep watching your hands all the same.", next = "BACK", fx = { affinity = -1, trait = { skeptical = 1 } } },
+      },
+    },
   },
 
   topics = {
@@ -701,6 +791,7 @@ P:NPC {
         { text = "Troll tusks sold as tiger fangs? That's fraud.", next = "fraud" },
         { text = "What happened to your agents?", next = "agents" },
         { text = "I'm a troll, Kebok.", next = "troll", when = { race = "Troll" } },
+        { text = "I hunt tigers myself. You're selling troll tusks as fangs?", next = "k_hunter", when = { class = "HUNTER" } },
         { text = "Not interested.", next = "END" },
       },
     },
@@ -754,6 +845,15 @@ P:NPC {
       choices = {
         { text = "For now.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
         { text = "The Bloodscalp aren't my people. Hunt them.", next = "BACK", fx = { affinity = 2 } },
+      },
+    },
+    k_hunter = {
+      lines = {
+        { id = "xhu_default", text = "Keep your voice down, friend, the customers can hear you. A hunter knows the difference, but a merchant in Stormwind doesn't, and as long as he doesn't, the business is very healthy." },
+      },
+      choices = {
+        { text = "I'll keep quiet, for a cut.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "I'll tell every buyer I meet.", next = "BACK", fx = { align = { honor = 1 }, affinity = -2 } },
       },
     },
   },
@@ -900,6 +1000,7 @@ P:NPC {
         { text = "Negolash is dead. How does it feel?", next = "after", when = { questDone = TODO_QUEST("Facing Negolash") } },
         { text = "Shall I say words for your crew, Captain?", next = "priest_words", when = { class = "PRIEST" } },
         { text = "I'll get your things back.", next = "END", fx = { affinity = 2, standing = { booty_bay = 1 } } },
+        { text = "The sea spirits took your crews, Captain. Not luck.", next = "k_shaman", when = { class = "SHAMAN" } },
         { text = "I'll leave you to it, Captain.", next = "END" },
       },
     },
@@ -977,6 +1078,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    k_shaman = {
+      lines = {
+        { id = "xsh_default", text = "Spirits, is it? Then the spirits had a giant's face and a giant's fists, and they laughed while they did it. Don't tell me the sea took them, shaman; Negolash took them, and I mean to have my cutlass back from him." },
+      },
+      choices = {
+        { text = "Then I'll help you face him.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
+        { text = "Some things the sea gives back, Captain. Some it doesn't.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
+      },
+    },
   },
 
   topics = {
@@ -1032,6 +1142,7 @@ P:NPC {
         { text = "Want me to teach you to hide properly?", next = "hide", when = { class = "ROGUE" } },
         { text = "Your secret's safe. For now.", next = "END", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Pay MacKinley what you owe, and you'll stop shaking.", next = "END", fx = { align = { honor = 1 } } },
+        { text = "Want me to lean on MacKinley for you?", next = "k_warrior", when = { class = "WARRIOR" } },
         { text = "Calm down. Nobody's after you.", next = "END", fx = { affinity = 1, trait = { kind = 1 } } },
       },
     },
@@ -1114,6 +1225,15 @@ P:NPC {
         { text = "Fine, Phillipe.", next = "BACK" },
       },
     },
+    k_warrior = {
+      lines = {
+        { id = "xwa_default", text = "Lean on him? Oh, no, no, no, please don't, because MacKinley's got friends who lean back, and they lean on me, and they lean harder. I'm sorry, I'm grateful, I'm terrified, all at once." },
+      },
+      choices = {
+        { text = "Then I'll stand by you if they come.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Then pay him, Shaky.", next = "BACK", fx = { trait = { stern = 1 } } },
+      },
+    },
   },
 
   topics = {
@@ -1169,6 +1289,7 @@ P:NPC {
         { text = "The Horde has no love for the Bloodsail either.", next = "horde", when = { faction = "Horde" } },
         { text = "A goblin pirate who hates pirates?", next = "goblin", when = { race = "Goblin" } },
         { text = "I'll find their plan.", next = "END", fx = { affinity = 2, standing = { booty_bay = 1 }, learn = { "bloodsail" } } },
+        { text = "I could slip aboard a Bloodsail ship for you.", next = "k_rogue", when = { class = "ROGUE" } },
         { text = "Later, Crazz.", next = "END" },
       },
     },
@@ -1228,6 +1349,15 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } } },
     },
+    k_rogue = {
+      lines = {
+        { id = "xro_default", text = "Would you? Oh, that'd be grand, that'd be the best thing since the cannon! Bring back anything with writing on it, because those Bloodsail scum write everything down, and the Fleet Master'll want to read every word." },
+      },
+      choices = {
+        { text = "Anything with writing. Got it.", next = "BACK", fx = { affinity = 2, standing = { booty_bay = 1 } } },
+        { text = "How do you know they're planning something?", next = "proof" },
+      },
+    },
   },
 
   topics = {
@@ -1282,6 +1412,7 @@ P:NPC {
         { text = "I'm a gnome. I know a scheme when I see one.", next = "gnome", when = { race = "Gnome" } },
         { text = "I'm listening, so tell me the job.", next = "END", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "I don't work for swindlers, Crank.", next = "END", fx = { align = { honor = 1 } } },
+        { text = "Those singing crystals are just quartz. I'm a mage.", next = "k_mage", when = { class = "MAGE" } },
         { text = "Not today, Crank.", next = "END" },
       },
     },
@@ -1364,6 +1495,15 @@ P:NPC {
         { text = "Worth a try.", next = "BACK" },
       },
     },
+    k_mage = {
+      lines = {
+        { id = "xmg_default", text = "Shh! Quartz, yes, technically, but quartz with a very pleasing hum, and the customers don't own a mage. Besides, if you were really sure, you wouldn't have come over to look so closely, would you?" },
+      },
+      choices = {
+        { text = "Fine. I'll keep your secret.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "I'll tell your customers the truth.", next = "BACK", fx = { align = { honor = 1 }, affinity = -2 } },
+      },
+    },
   },
 
   topics = {
@@ -1419,6 +1559,7 @@ P:NPC {
         { text = "What makes this port so special?", next = "port" },
         { text = "Toast me, then.", next = "toast" },
         { text = "A gnome who drinks like a dwarf?", next = "gnome", when = { race = { "Dwarf", "Gnome" } } },
+        { text = "Pour me something big. I'm a tauren.", next = "k_tauren", when = { race = "Tauren" } },
         { text = "Cheers.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -1468,6 +1609,15 @@ P:NPC {
         { id = "g_default", text = "Like a dwarf! I drink like three dwarves stacked in a coat. Ironforge taught me, and Ironforge regretted it." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    k_tauren = {
+      lines = {
+        { id = "xta_default", text = "Big! Ha, the Fleet Master says that every night, and every night the tankards come back empty and the floor comes back cracked. To the biggest drinkers in Booty Bay, and may the floorboards hold." },
+      },
+      choices = {
+        { text = "To the floorboards!", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -1597,6 +1747,7 @@ P:NPC {
         { text = "What do you cook?", next = "cook" },
         { text = "Would you sail with him again?", next = "again" },
         { text = "Shall I say a prayer for the crew?", next = "pray", when = { class = { "PRIEST", "PALADIN", "SHAMAN", "DRUID" } } },
+        { text = "I conjure my own food, cook.", next = "k_mage", when = { class = "MAGE" } },
         { text = "I'm glad you made it.", next = "END", fx = { affinity = 2 } },
       },
     },
@@ -1657,6 +1808,15 @@ P:NPC {
         { text = "I've no words for the sea, Sprogger, and I'm sorry.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
+    k_mage = {
+      lines = {
+        { id = "xmg_default", text = "I've tasted that conjured bread, and it's bread the way a painted fish is a fish. A cook's food remembers where it came from, mate, and yours remembers nothing at all." },
+      },
+      choices = {
+        { text = "It keeps me alive. That's enough.", next = "BACK", fx = { affinity = -1 } },
+        { text = "Fair. Cook me something real, then.", next = "BACK", fx = { affinity = 2 } },
+      },
+    },
   },
 
   topics = {
@@ -1701,6 +1861,7 @@ P:NPC {
         { text = "A gorilla's heart? Who says that works?", next = "cure" },
         { text = "Let me look at you.", next = "healer", when = { class = { "PRIEST", "SHAMAN", "DRUID", "PALADIN" } } },
         { text = "What'll you do when you're well?", next = "after" },
+        { text = "I could hunt the gorilla for you.", next = "k_hunter", when = { class = "HUNTER" } },
         { text = "Feel better.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -1742,6 +1903,15 @@ P:NPC {
         { id = "a_default", text = "Back on a Blackwater ship with the Bloodsail in sight and the cannons going, and never, ever anywhere near a pond." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "bloodsail" } } } },
+    },
+    k_hunter = {
+      lines = {
+        { id = "xhu_default", text = "Could you? Mokk the Savage, the big one up the hill, and don't let your pet near him because he throws things. I'd go myself, but I can't hold a cup still, never mind a rifle." },
+      },
+      choices = {
+        { text = "Mokk won't be throwing anything for long.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
+        { text = "A gorilla's heart? Who says that works?", next = "cure" },
+      },
     },
   },
 
@@ -1795,6 +1965,7 @@ P:NPC {
         { text = "Any ships to Stormwind or Menethil?", next = "ships", when = { faction = "Alliance" } },
         { text = "What's in the Horde crate?", next = "crate", when = { faction = "Horde" } },
         { text = "How do you know who to trust?", next = "trust" },
+        { text = "My people arrived by sky, not ship, wharfmaster.", next = "k_sky", when = { race = "Skyborne" } },
         { text = "I'll watch my purse.", next = "END", fx = { affinity = 1, trait = { cautious = 1 } } },
       },
     },
@@ -1844,6 +2015,15 @@ P:NPC {
     trust_which = {
       lines = { { id = "tw_default", text = "The tide tables. The sea's the most honest thing in this town: it'll drown you, but it tells you when." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    k_sky = {
+      lines = {
+        { id = "xsk_default", text = "Did they, now? Then they didn't pay my wharf fees, and I'll be putting that in the ledger as a loss. I've seen a few of your kind on my docks lately, and nobody here knows what to make of you, so I'll make you a customer and leave it there." },
+      },
+      choices = {
+        { text = "A customer is fine, wharfmaster.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 

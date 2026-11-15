@@ -29,6 +29,8 @@ P:NPC {
       text = "A dwarf, and you've got that look your people get when anyone says 'Dark Iron' too near you. Good; you'll be useful." },
     { id = "n_deputy", cat = "deputy", place = "before", when = { questDone = TODO_QUEST("The True Masters") },
       text = "So you're Bolvar's deputy. I asked the Keep for a regiment, and I'll grant you've done more than most regiments I've known." },
+    { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
+      text = "You carry that blade like someone who's used it on more than training dummies. Good; this ridge has had enough of people who haven't." },
   },
 
   start = "hello",
@@ -69,6 +71,9 @@ P:NPC {
         { text = "My people owe the Dark Irons a debt.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Windsor's alive. I saw him in the Depths.", next = "windsor_alive", when = { questDone = TODO_QUEST("Marshal Windsor") } },
         { text = "Bijou's map names their master: Nefarian.", next = "nefarian", when = { questDone = TODO_QUEST("Message to Maxwell") } },
+        { text = "Put me on the line, Marshal. I'm a soldier.", next = "k_warrior", when = { class = "WARRIOR" } },
+        { text = "What happened to Jalinda's mages?", next = "k_mage", when = { class = "MAGE" } },
+        { text = "I could scout the mountain for you, unseen.", next = "k_rogue", when = { class = { "ROGUE", "HUNTER" } } },
         { text = "I'll see what I can do, Marshal.", next = "END", fx = { affinity = 1, standing = { morgans_vigil = 1 } } },
       },
     },
@@ -271,6 +276,42 @@ P:NPC {
       },
       choices = { { text = "As you say, Marshal.", next = "BACK" } },
     },
+    k_warrior = {
+      lines = {
+        { id = "xwa_default", text = "Then stand by the north wall when the light goes, because that's when the worg riders test it. I've thirty soldiers fit to fight and twice that many who'll tell you they are, so one more who means it counts." },
+        { id = "xwa_guard", when = { origin = "human_city_guard" },
+          text = "City Watch, were you? Then you've stood a post in the rain while officers argued above your head, and you'll feel right at home. Take the north wall at dusk; the worg riders test it then." },
+        { id = "xwa_dwarf", when = { race = "Dwarf" },
+          text = "A dwarf with an axe, and I'll thank Ironforge for you in my next report, which they'll also not read. Take the north wall at dusk, for the worg riders test it then, and your folk never seem to tire." },
+      },
+      choices = {
+        { text = "I'll hold the wall, Marshal.", next = "BACK", fx = { align = { order = 1 }, affinity = 2, standing = { morgans_vigil = 1 } } },
+        { text = "Walls don't win wars. Let me hit them first.", next = "BACK", fx = { align = { order = -1 }, trait = { brave = 1 } } },
+        { text = "Who commands the riders?", next = "enemy_spire" },
+      },
+    },
+    k_mage = {
+      lines = {
+        { id = "xmg_default", text = "Fire happened to them, the one thing a fire mage can't argue with when there's that much of it. Jalinda's still trying to find a way past the elementals at the Depths' door, and she'd take a fresh pair of hands, though she'll pretend she won't." },
+      },
+      choices = {
+        { text = "I'll go and help her.", next = "BACK", fx = { affinity = 1, standing = { morgans_vigil = 1 } } },
+        { text = "Something else, Marshal.", next = "BACK" },
+      },
+    },
+    k_rogue = {
+      big = true,
+      lines = {
+        { id = "xro_default", text = "Unseen is what Windsor was, until he wasn't. I won't order anyone into that mountain alone, but if you go, come back with something I can write down, and come back." },
+        { id = "xro_hunter", when = { class = "HUNTER" },
+          text = "Your beast might get further than my scouts did, I'll grant you, and it won't talk if they catch it. I won't order anyone into that mountain alone, but if you go, come back with something I can write down." },
+      },
+      choices = {
+        { text = "Orders or not, I'm going.", next = "BACK", fx = { align = { order = -1 }, trait = { brave = 1 } } },
+        { text = "Then I'll wait for your order, Marshal.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "What happened to Windsor?", next = "windsor" },
+      },
+    },
   },
 
   topics = {
@@ -349,6 +390,9 @@ P:NPC {
         { text = "I can feel the land here. It hurts.", next = "druid", when = { class = "DRUID" } },
         { text = "Is it right to pity the beasts we kill?", next = "pity", when = { class = { "PRIEST", "HUNTER" } } },
         { text = "Solomon took your letter all the way to the Regent.", next = "letter_news", when = { questDone = TODO_QUEST("The True Masters") } },
+        { text = "The stone here is in pain, Helendis. I can hear it.", next = "k_shaman", when = { race = "Dwarf", class = "SHAMAN" } },
+        { text = "My people came from Eldre'Thalas, long ago.", next = "k_sky", when = { race = "Skyborne" } },
+        { text = "My saber hates these ashes.", next = "k_saber", when = { race = "NightElf", class = "HUNTER" } },
         { text = "Elune keep you, Helendis.", next = "END" },
       },
     },
@@ -496,6 +540,43 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    k_shaman = {
+      lines = {
+        { id = "xsh_default", text = "A dwarf who hears the stone. I have known druids who heard the trees for a thousand years, and never a dwarf who would admit to hearing anything but his own forge. What does it say, when it is in pain?" },
+      },
+      choices = {
+        { text = "It remembers the fire that made the Steppes.", next = "ruins_fire" },
+        { text = "Only that it wants to be left alone.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
+      },
+    },
+    k_sky = {
+      big = true,
+      lines = {
+        { id = "xsk_default", text = "Eldre'Thalas. I know the name from the old histories, and I know what was done there by Highborne who would not give up their magic. You are welcome at this fire, but you will understand if I ask which side of that quarrel your ancestors took." },
+      },
+      choices = {
+        { text = "The side that rebelled against the prince.", next = "k_sky_shal" },
+        { text = "We kept our magic. We won't apologize for it.", next = "BACK", fx = { align = { order = -1 }, affinity = -2 } },
+        { text = "That quarrel is ten thousand years old. Let it rest.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+      },
+    },
+    k_sky_shal = {
+      lines = {
+        { id = "xss_default", text = "Then your people paid for their courage with exile, and mine stayed and paid in other coin. Perhaps we are not so far apart, though I would still like to know why the winds took you in and not us." },
+      },
+      choices = { { text = "Something else, Helendis.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    k_saber = {
+      lines = {
+        { id = "xsa_default", text = "So does every cat that comes up this road; their paws were made for moss, and the ash gets between the pads and burns. Wash its feet in the stream below the Vigil each night, and do not let it hunt the worgs alone." },
+        { id = "xsa_rider", when = { origin = "nightelf_nightsaber_rider" },
+          text = "You ride as well as hunt with it, I see from the saddle marks. Then you know a saber's feet are its life; wash the ash from its pads each night, or it will be lame before the month is out." },
+      },
+      choices = {
+        { text = "I'll tend it every night.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -567,6 +648,7 @@ P:NPC {
         { text = "Where did you serve before the Vigil?", next = "served" },
         { text = "Reporting for duty, sir!", next = "salute", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "Are you well, Oralius? The Light can ease a troubled mind.", next = "priest", when = { class = "PRIEST" } },
+        { text = "Does Captain Winky need a rogue on his crew?", next = "k_rogue", when = { class = "ROGUE" } },
         { text = "Dismissed, then.", next = "END" },
       },
     },
@@ -666,6 +748,16 @@ P:NPC {
         journal = { first = "I prayed with Oralius at Morgan's Vigil. For a moment, he was quiet.",
                     third = "{name} prayed with Oralius at Morgan's Vigil, and for a moment the old soldier was quiet." } } },
     },
+    k_rogue = {
+      lines = {
+        { id = "xro_default", text = "Winky says he'd take you on as a powder monkey, but you'd have to swear off stealing from the Vigil's stores, which he says you've been eyeing. I told him that's slander, soldier, so tell me it is." },
+      },
+      choices = {
+        { text = "Slander, sir. Pure slander.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } },
+        { text = "Tell Winky I'll steal from the orcs instead.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+        { text = "Who's Captain Winky?", next = "winky" },
+      },
+    },
   },
 
   topics = {
@@ -729,6 +821,7 @@ P:NPC {
         { text = "Any advice for a mage near that much fire?", next = "mage", when = { class = "MAGE" } },
         { text = "Do you ever think of Gnomeregan?", next = "gnome", when = { race = "Gnome" } },
         { text = "Let me look at your mages' burns.", next = "priest", when = { class = { "PRIEST", "PALADIN", "DRUID", "SHAMAN" } } },
+        { text = "My imps don't mind fire, Jalinda.", next = "k_lock", when = { class = "WARLOCK" } },
         { text = "Take care, Jalinda.", next = "END" },
       },
     },
@@ -802,6 +895,17 @@ P:NPC {
         { text = "If they'd rather pretend, let them; pain teaches its own lessons.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
+    k_lock = {
+      lines = {
+        { id = "xlk_default", text = "No, they don't, do they? I've thought about it, I'll admit, sending something that won't burn through the door first. But Maxwell would have my hide, and my mages would have the rest, and I'm not sure they'd be wrong." },
+        { id = "xlk_gnome", when = { race = "Gnome" },
+          text = "No, they don't, and I've thought about asking you gnome warlocks for exactly that, since we're all scraping by on whatever works since Gnomeregan. But Maxwell would have my hide, and I'm not sure he'd be wrong." },
+      },
+      choices = {
+        { text = "Then let the imps go first. It saves lives.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
+        { text = "Maxwell's right. Some help costs too much.", next = "BACK", fx = { align = { light = 1 } } },
+      },
+    },
   },
 
   topics = {
@@ -865,6 +969,7 @@ P:NPC {
         { text = "The Spire's no place to go shopping.", next = "spire" },
         { text = "My family dines with the Ridgewells.", next = "noble", when = { origin = "human_minor_noble" } },
         { text = "The Light keeps you alive, you said?", next = "priest", when = { class = "PRIEST" } },
+        { text = "Treasure hunting's my trade too, my lady.", next = "k_rogue", when = { class = "ROGUE" } },
         { text = "Good luck with the hunt.", next = "END" },
       },
     },
@@ -935,6 +1040,16 @@ P:NPC {
         { text = "It doesn't mind sincerity either.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Haste suits me, and the Light can wait until the fighting's done.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    k_rogue = {
+      lines = {
+        { id = "xro_default", text = "I'm sure it is, darling, though I suspect your methods involve fewer letters of introduction. The Count pays for provenance; he likes to know a thing was found and not lifted, so do tell me which you'd call it." },
+      },
+      choices = {
+        { text = "Found. Always found.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1, trait = { witty = 1 } } },
+        { text = "Lifted, from people who'd earned it.", next = "BACK", fx = { align = { honor = 1 }, affinity = -1 } },
+        { text = "What have you found in Thaurissan?", next = "ruins" },
       },
     },
   },

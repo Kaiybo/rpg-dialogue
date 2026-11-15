@@ -83,6 +83,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    gnome_um = {
+      lines = {
+        { id = "gum_default", text = "Finally, someone with taste! The goblins here think a sense of humour is something you sell by the pound. Bring me the fur and the springs, and I'll put your name on the schematic, small, in the corner, but it'll be there." },
+      },
+      choices = {
+        { text = "Make it big. Goblins deserve big.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } },
+        { text = "Isn't it a little cruel?", next = "prank_cruel" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -97,6 +106,7 @@ P:NPC {
         { text = "Who are you scaring?", next = "prank" },
         { text = "Teach me.", next = "BUSINESS", when = { profession = "Engineering" } },
         { text = "Why a yeti?", next = "yeti" },
+        { text = "A gnome scaring goblins? Count me in.", next = "gnome_um", when = { race = "Gnome" } },
         { text = "I'll find parts.", next = "END", fx = { affinity = 2 } },
       },
     },
@@ -151,6 +161,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    paladin_gr = {
+      lines = {
+        { id = "pgr_default", text = "The Dawn needs every paladin who'll come, and it doesn't ask whether you knelt in Stormwind or Ironforge. The Silver Hand has been broken for years, and some of its knights found their way to us instead, so you'd not be alone at Light's Hope." },
+        { id = "pgr_risen", when = { race = "Scourge", class = "PALADIN" },
+          text = "You carry the Light, and you're dead. I've seen a great many strange things for the Dawn, but never that, and I don't know whether to kneel or reach for my sword, so I'll do neither and say you're welcome." },
+      },
+      choices = {
+        { text = "The Light chooses whom it will. I'm proof.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "I fight the Scourge. The Light is just a tool.", next = "BACK", fx = { align = { light = -1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -167,6 +188,7 @@ P:NPC {
         { text = "What's the difference between you and the Scarlet Crusade?", next = "scarlet" },
         { text = "The Dawn would take one of the Forsaken?", next = "forsaken", when = { race = "Scourge" } },
         { text = "I'll carry word.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I carry the Light. Does the Dawn need paladins?", next = "paladin_gr", when = { class = "PALADIN" } },
         { text = "The Dawn can carry its own reports; I've business of my own.", next = "END", fx = { align = { light = -1 } } },
       },
     },

@@ -49,6 +49,8 @@ P:NPC {
         { text = "Who sent you?", next = "modera" },
         { text = "Isn't Dalaran in ruins?", next = "ruins" },
         { text = "I trained in Dalaran's ways. Tell me plainly.", next = "mage", when = { class = "MAGE" } },
+        { text = "My order came to the Kirin Tor from the sky.", next = "xskyborne", when = { race = "Skyborne" } },
+        { text = "Does Dalaran have room for a warlock's help?", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "I'll think on it, Emissary.", next = "END" },
       },
     },
@@ -118,6 +120,28 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    xskyborne = {
+      lines = { { id = "xsk_default", text = "Yes, I've heard of the High Order, though only what's said in the corridors. Archmage Runeweaver speaks well of your people, and I confess I'd hoped to meet one before I was sent so far south." } },
+      choices = {
+        { text = "What do they say in the corridors?", next = "xskyborne_say" },
+        { text = "Then you've met one. Ask your favour.", next = "trouble", fx = { affinity = 1 } },
+      },
+    },
+    xskyborne_say = {
+      lines = { { id = "xss_default", text = "That you came looking for what your ancestors lost, and that you've a great deal of catching up to do on the last ten thousand years. Mostly they wonder, which in Dalaran is the highest compliment there is." } },
+      choices = {
+        { text = "Let them wonder.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = { { id = "xwl_default", text = "Dalaran has a long memory where your arts are concerned, and its walls have wards against them for good reason. I'd be grateful for your help, and I'd also be grateful if you never mentioned it to anyone in the Violet Citadel." } },
+      choices = {
+        { text = "Dalaran's wards keep out the wrong things.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Discretion it is. Dalaran's rules are Dalaran's rules.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+      },
+    },
   },
 
   topics = {
@@ -171,6 +195,7 @@ P:NPC {
         { text = "What happened to Alterac?", next = "alterac" },
         { text = "What about Tarren Mill?", next = "tarren" },
         { text = "Why does history matter, out here?", next = "matter" },
+        { text = "Dwarves fought over these hills in the Second War too.", next = "xdwarf", when = { race = "Dwarf" } },
         { text = "I'll leave you to your notes.", next = "END" },
       },
     },
@@ -238,6 +263,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdwarf = {
+      lines = {
+        { id = "xdw_default", text = "They did, and the Wildhammer gryphon riders are in my notes more than any king, since they came down out of the Hinterlands when nobody had asked them yet. I wrote it all down, of course, for later." },
+        { id = "xdw_kin", when = { origin = "dwarf_wildhammer_kin" },
+          text = "You'll have heard the tale from the other side, then, with Aerie Peak kin as you have. I'd give a great deal to compare your family's version with mine." },
+      },
+      choices = {
+        { text = "Ironforge fought here too. Write that down.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "Tell me the Second War here.", next = "history" },
+      },
+    },
   },
 
   topics = {
@@ -292,6 +328,7 @@ P:NPC {
         { text = "Tell me about Bilger.", next = "bilger" },
         { text = "Who drinks here?", next = "regulars" },
         { text = "Is gossip any way to run an inn?", next = "gossip_right" },
+        { text = "Gossip's my trade too. Want to compare notes?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Just passing through.", next = "END" },
       },
     },
@@ -338,6 +375,13 @@ P:NPC {
         { text = "Loose talk ruins people. Keep your counsel.", next = "BACK", fx = { align = { honor = 1 }, affinity = -1 } },
         { text = "Knowledge is armour. Keep listening.", next = "BACK", fx = { align = { honor = -1 }, affinity = 2 } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      lines = { { id = "xro_default", text = "Compare notes with a stranger who walks that quietly? I'll tell you what everyone knows and keep what only I know, and you'll do the same, and we'll both feel very clever about it." } },
+      choices = {
+        { text = "Fair trade. What does everyone know?", next = "gossip" },
+        { text = "I'll keep my notes, then.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },
   },
@@ -396,6 +440,7 @@ P:NPC {
         { text = "What do you think the Forsaken are doing?", next = "plague" },
         { text = "Why did you leave the Kirin Tor?", next = "kirintor" },
         { text = "What should be done about Tarren Mill?", next = "mill" },
+        { text = "I studied the arcane too. Why leave the Kirin Tor?", next = "xmage", when = { class = "MAGE" } },
         { text = "Good hunting, Phin.", next = "END" },
       },
     },
@@ -462,6 +507,14 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xmage = {
+      lines = { { id = "xma_default", text = "You'll understand better than most, then. The Kirin Tor wanted me reading in a tower while the plague was being brewed a day's ride from Southshore, and I'd rather be wrong out here than right up there." } },
+      choices = {
+        { text = "Knowledge matters more than one village.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
+        { text = "You chose right. Theory never stopped a plague.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
+        { text = "What's being brewed?", next = "plague" },
+      },
+    },
   },
 
   topics = {
@@ -515,6 +568,7 @@ P:NPC {
         { text = "Who else takes your horses?", next = "thieves" },
         { text = "Tell me about your horses.", next = "horses" },
         { text = "Should we hunt every lion in Alterac?", next = "hunt" },
+        { text = "I could tame one of those lions instead of killing it.", next = "xhunter", when = { class = "HUNTER" } },
         { text = "I'll keep an eye out.", next = "END" },
       },
     },
@@ -562,6 +616,13 @@ P:NPC {
         { text = "The town's horses come first. Thin them hard.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Leave the hills wild. Build a better fence.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhunter = {
+      lines = { { id = "xhu_default", text = "Tame one? I swear on my granddaddy's grave, you'd be the first person in Hillsbrad to make one of those thieves useful. Just don't bring it near my stalls, because the horses won't care that it's tame." } },
+      choices = {
+        { text = "It'll stay outside. Promise.", next = "BACK", fx = { affinity = 2 } },
+        { text = "A tame lion's better than a dead one.", next = "BACK", fx = { trait = { kind = 1 } } },
       },
     },
   },
@@ -616,6 +677,7 @@ P:NPC {
         { text = "What's in it?", next = "recipe" },
         { text = "Do folk really come from Darkshire?", next = "darkshire" },
         { text = "Is good cooking worth risking lives for?", next = "worth" },
+        { text = "I hunt. Where are the turtles you need?", next = "xhunter", when = { class = "HUNTER" } },
         { text = "Smells good. Goodbye.", next = "END" },
       },
     },
@@ -653,6 +715,13 @@ P:NPC {
         { text = "A good meal is worth fighting for.", next = "BACK", fx = { align = { light = 1 }, affinity = 2 } },
         { text = "Soup's soup. Stay home and stay alive.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhunter = {
+      lines = { { id = "xhu_default", text = "Along the coast north of here, where the murlocs have made themselves at home, more's the pity. A hunter who can bring me turtle meat without bringing home a murloc spear in the leg would be the finest friend this kitchen ever had." } },
+      choices = {
+        { text = "I'll bring you turtle.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Why is the bisque so important?", next = "bisque" },
       },
     },
   },
@@ -713,6 +782,7 @@ P:NPC {
         { text = "Why did the Silver Hand call you mad?", next = "mad" },
         { text = "I need feed for a spirit horse.", next = "feed", when = { class = "PALADIN", minLevel = 60 } },
         { text = "Was the Silver Hand wrong about you?", next = "silverhand" },
+        { text = "My people ride nightsabers. Why horses?", next = "xnightelf", when = { race = "NightElf" } },
         { text = "Fine horses. Good day.", next = "END" },
       },
     },
@@ -758,6 +828,13 @@ P:NPC {
         { text = "They were wrong. You deserve an apology.", next = "BACK", fx = { align = { honor = 1 }, affinity = 2 } },
         { text = "Grudges are poison. Let it go.", next = "BACK", fx = { align = { honor = -1 }, affinity = -1 } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    xnightelf = {
+      lines = { { id = "xne_default", text = "Because a horse doesn't eat its rider when the oats run short, and I've heard what a saber costs to feed. I'll not sell you one of mine, since you didn't ask, but I'll admit your cats are handsome beasts." } },
+      choices = {
+        { text = "Sabers are loyal. More loyal than people.", next = "BACK", fx = { affinity = 1, trait = { skeptical = 1 } } },
+        { text = "Fair. Something else.", next = "BACK" },
       },
     },
   },

@@ -31,6 +31,8 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Williden Marshal, leader of the Marshal Expedition. My sister and I brought scholars and explorers down into Un'Goro for crystals and rare plants, but the crater had other plans, and we lost our base camps and fell back up here." },
+        { id = "h_hunter", when = { class = "HUNTER" },
+          text = "A hunter, and I can see you sizing up the crater already. If it's a devilsaur you've got your eye on, I watched one take a supply wagon in its jaws, mule and all, so pick your ground before it picks you." },
         { id = "h_journal", tags = { "news" }, when = { questActive = TODO_QUEST("Williden's Journal") },
           text = "My journal! It's somewhere back in the old camp, and everything we learned before we ran is in those pages." },
         { id = "h_salvation", when = { questActive = TODO_QUEST("Expedition Salvation") },
@@ -47,6 +49,8 @@ P:NPC {
         { text = "Your sister?", next = "sister" },
         { text = "Am I ready for the crater?", next = "ready", when = { maxLevel = 50 } },
         { text = "What do the beasts here eat?", next = "beasts", when = { class = { "HUNTER", "DRUID" } } },
+        { text = "My people tell of a world like this, long ago.", next = "x_tauren", when = { race = "Tauren" } },
+        { text = "Your guards couldn't hold the camps?", next = "x_warrior", when = { class = "WARRIOR" } },
         { text = "I'll help the expedition.", next = "END", fx = { affinity = 2, standing = { marshals_refuge = 1 } } },
       },
     },
@@ -108,6 +112,25 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    x_tauren = {
+      lines = {
+        { id = "xt_default", text = "I've heard tauren say this crater looks like the world when it was young, and after a year down here I'm inclined to believe them. Those great beasts walk about as though nobody ever told them the world moved on." },
+      },
+      choices = {
+        { text = "Then leave it wild. Some places should stay as they were.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "Study it carefully, and the crater will teach you.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Something else, Williden.", next = "BACK" },
+      },
+    },
+    x_warrior = {
+      lines = {
+        { id = "xw_default", text = "We had guards, good ones, and the crater ate them anyway, because there's no holding a line against something that weighs as much as a house. If you go down, fight from the rocks, and don't ever try to stand your ground against King Mosh." },
+      },
+      choices = {
+        { text = "Some ground you hold anyway.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "I'll keep to the rocks, then.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
   },
 
   topics = {
@@ -161,6 +184,7 @@ P:NPC {
         { text = "Who looks after you here?", next = "friends" },
         { text = "Do you remember Gnomeregan?", next = "gnomeregan", when = { race = "Gnome" } },
         { text = "Want to spar?", next = "spar", when = { class = "WARRIOR" } },
+        { text = "Do you recognize my people, Linken?", next = "x_skyborne", when = { race = "Skyborne" } },
         { text = "I'll help you remember.", next = "END", fx = { affinity = 3, trait = { kind = 1 } } },
       },
     },
@@ -195,6 +219,15 @@ P:NPC {
     spar = {
       lines = { { id = "sp_default", text = "Yes! Or no, maybe? My arm remembers more than my head does, but let's not, because if my head gets hit again I might forget you, and I've only just learned you." } },
       choices = { { text = "Fair enough.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    x_skyborne = {
+      lines = {
+        { id = "xs_default", text = "I keep thinking I ought to, and then the thought wanders off, the way they all do! You've got the look of someone who's come a very long way to get home, though, and I suppose that makes two of us." },
+      },
+      choices = {
+        { text = "We have come a long way.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Maybe you'll remember us yet.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+      },
     },
   },
 
@@ -245,6 +278,7 @@ P:NPC {
         { text = "Why live in a cave?", next = "cave" },
         { text = "Can you really help Linken?", next = "linken" },
         { text = "I can feel them. The crystals.", next = "resonate", when = { class = { "MAGE", "PRIEST", "SHAMAN" } } },
+        { text = "A gnome scholar out here? I'd have studied with you.", next = "x_gnome", when = { race = "Gnome" } },
         { text = "I'll gather crystals.", next = "END", fx = { affinity = 2, trait = { curious = 1 } } },
       },
     },
@@ -270,6 +304,17 @@ P:NPC {
     resonate = {
       lines = { { id = "r_default", text = "You can? Then hold this one, and don't drop it! What do you hear? No, don't tell me yet; write it down first and then tell me, because I want it in your own words." } },
       choices = { { text = "It hums.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } } },
+    },
+    x_gnome = {
+      lines = {
+        { id = "xg_default", text = "Oh, would you? Then you know how it feels to start an experiment over for the eleventh time and still be delighted when it fails in a brand-new way! I came out here with a pack full of notebooks and no plan, and the crystals have been more patient with me than any teacher ever was." },
+        { id = "xg_student", when = { origin = "gnome_last_student" }, text = "You were a student too, weren't you, before everything went wrong at home? You'll like it here, then, because nobody grades you and the crystals never get tired of questions." },
+      },
+      choices = {
+        { text = "Show me what you've learned about them.", next = "crystals" },
+        { text = "A failure's only a failure if you stop.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -318,6 +363,7 @@ P:NPC {
         { text = "How do supplies even get here?", next = "supplies" },
         { text = "Why did you leave Gadgetzan?", next = "gadgetzan" },
         { text = "How's Ringo now?", next = "ringo_after", when = { questDone = TODO_QUEST("A Little Help From My Friends") } },
+        { text = "Could a pterrordax be tamed, do you think?", next = "x_hunter", when = { class = "HUNTER" } },
         { text = "I'll look for Ringo.", next = "END", fx = { affinity = 3, trait = { kind = 1 } } },
       },
     },
@@ -343,6 +389,15 @@ P:NPC {
     ringo_after = {
       lines = { { id = "ra_default", text = "He's thirsty, loud and alive, all three at once, all day long, and I've never been happier to be annoyed." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    x_hunter = {
+      lines = {
+        { id = "xh_default", text = "Tamed? You want one of those on a leash? They drop out of the sky like falling rocks, and I've lost more supply bags to them than I can count, so if you try it, please do it somewhere far away from my tent." },
+      },
+      choices = {
+        { text = "Anything can be tamed, with patience.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "I'd rather thin their numbers for you.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+      },
     },
   },
 

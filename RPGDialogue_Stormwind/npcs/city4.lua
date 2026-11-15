@@ -43,6 +43,8 @@ P:NPC {
           text = "My guards stand in the rain all night, and a blessing does more for them than another cloak. I'm glad you came by the gate." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "The statues look taller at night. I walk the valley before the watch changes and say good evening to each of them, though they never answer." },
+        { id = "h_guard", when = { origin = "human_city_guard" },
+          text = "One of the Watch's own, come back up the valley with a warrior's kit. I remember the recruits who leave for the provinces; you were right to go, and I'm sorry we couldn't keep you." },
       },
       again = {
         { id = "h_again", text = "Something else, citizen? Ask away; it's a quiet watch." },
@@ -56,6 +58,11 @@ P:NPC {
         { text = "What becomes of the Lordaeron insignia?", next = "insignia",
           when = { any = { { questActive = TODO_QUEST("Bloodied Insignia") }, { questDone = TODO_QUEST("Bloodied Insignia") }, { origin = "human_lordaeron_refugee" } } } },
         { text = "Shall I bless your guards?", next = "priest", when = { class = "PRIEST" } },
+        { text = "Reporting for duty, General.", next = "duty", when = { class = "WARRIOR" } },
+        { text = "Do you need scouts in the hills, General?", next = "scouts", when = { class = "HUNTER" } },
+        { text = "Ironforge's soldiers would come if you asked, General.", next = "dwarves", when = { race = "Dwarf" } },
+        { text = "The Sentinels hold Ashenvale with fewer than you have.", next = "sentinels", when = { race = "NightElf" } },
+        { text = "Ironforge's shamans could help guard your walls, General.", next = "shaman", when = { class = "SHAMAN" } },
         { text = "Good day, General.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -156,6 +163,60 @@ P:NPC {
       choices = {
         { text = "I'll be there at dusk.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, standing = { stormwind = 1 } } },
         { text = "The watch has heard enough sermons, so I'll let them be.", next = "BACK", fx = { align = { light = -1 } } },
+      },
+    },
+    duty = {
+      big = true,
+      lines = {
+        { id = "duty_l", text = "I've no regiment to put you in, soldier, and I'll not pretend otherwise. The army Lothar and Turalyon marched to Blackrock Spire is scattered across four provinces, and half of what's left is guarding nobles' warehouses." },
+        { id = "duty_dwarf", when = { race = "Dwarf" },
+          text = "A dwarf reporting to a Stormwind general, and I'll take it gladly, though I've no regiment to put you in. The army Lothar and Turalyon led is scattered across four provinces." },
+      },
+      choices = {
+        { text = "Then what should a soldier do?", next = "duty_what" },
+        { text = "Guarding warehouses is still duty, General.", next = "BACK", fx = { align = { order = 2 } } },
+        { text = "Then I'll fight where I'm needed, not where I'm posted.", next = "BACK", fx = { align = { order = -1 }, trait = { brave = 1 } } },
+      },
+    },
+    duty_what = {
+      lines = { { id = "duty_what_l", text = "What Lothar's soldiers did when the orders ran out: find the nearest people in trouble and stand in front of them. Redridge, if you want my advice; Lakeshire's watch can't hold that bridge alone." } },
+      choices = { { text = "Something else, General.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    scouts = {
+      lines = { { id = "scouts_l", text = "I need them everywhere. The army never trained many; a human with a bow and a hound was a poacher, in my day, and now I'd pay one in gold to tell me what the Blackrock are doing in the Redridge hills." } },
+      choices = {
+        { text = "Times change, General.", next = "scouts_change" },
+        { text = "I'll take a look at Redridge.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+      },
+    },
+    scouts_change = {
+      lines = { { id = "scouts_change_l", text = "They do, and an old soldier has to change with them or be left on the wall with the statues. Bring me what you see; I'll read it twice, like the letters." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    dwarves = {
+      lines = { { id = "dwarves_l", text = "They would, and Magni has said so himself. But Ironforge has the Dark Irons at its back door and troggs in Gnomeregan, and I'll not ask a friend to bleed for our neglect when he's busy with his own." } },
+      choices = {
+        { text = "That's pride talking, General.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "That's how allies should treat each other.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Who was Kurdran to you?", next = "kurdran" },
+      },
+    },
+    sentinels = {
+      lines = { { id = "sentinels_l", text = "So I hear, and I hear they do it well. Your Sentinels are all volunteers and all soldiers, which is more than I can say of the Watch; I'd learn from them if Darnassus weren't so far." } },
+      choices = {
+        { text = "They'd teach you, if you asked.", next = "sentinels_ask" },
+        { text = "Something else, General.", next = "BACK" },
+      },
+    },
+    sentinels_ask = {
+      lines = { { id = "sentinels_ask_l", text = "Then perhaps I will. The Watch would grumble at taking lessons from elves, and that's precisely why they should." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    shaman = {
+      lines = { { id = "shaman_l", text = "Shamans on Stormwind's walls. The men who fought the Horde would choke on their ale to hear it, and I'm one of them. Still, if Ironforge vouches for you, I'll judge you by how you stand a watch, not by what you call on." } },
+      choices = {
+        { text = "That's all I ask, General.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "The spirits don't care what old soldiers think.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
       },
     },
   },
@@ -306,6 +367,8 @@ P:NPC {
           text = "Orinelle's asking to come home again. Tell him his request has been received. Tell him nothing else." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "Clergy approach the court through Bishop DeLavey in the Petitioner's Chamber, not through me, and certainly not today." },
+        { id = "h_guard", when = { origin = "human_city_guard" },
+          text = "I remember you from the Trade District rolls; you were one of the few recruits who could stand a whole night watch without leaning on the lamp-post. Don't lean on anything in here, either." },
       },
       again = {
         { id = "h_again", text = "Anything else? Briefly." },
@@ -317,6 +380,7 @@ P:NPC {
         { text = "How should I conduct myself here?", next = "conduct" },
         { text = "Lieutenant Orinelle speaks of you.", next = "farren",
           when = { any = { { heardLine = "farren.h_default" }, { questActive = TODO_QUEST("Reassignment") } } } },
+        { text = "Has the Keep guard room for a warrior, Major?", next = "warrior", when = { class = "WARRIOR" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -363,6 +427,13 @@ P:NPC {
     farren_review = {
       lines = { { id = "fr_default", text = "I review assignments next month, and he'll hear when he hears. If you see him, he heard none of this from you." } },
       choices = { { text = "Not a word.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    warrior = {
+      lines = { { id = "warrior_l", text = "The Keep guard is chosen, not recruited, and chosen from men who've stood the Watch for years. You'd do more good in Redridge than standing beside me looking at tapestries." } },
+      choices = {
+        { text = "Guarding the king matters more than Redridge.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then Redridge it is. The tapestries can guard themselves.", next = "BACK", fx = { align = { order = -1 } } },
+      },
     },
   },
 

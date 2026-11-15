@@ -28,6 +28,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    warrior_ag = {
+      lines = {
+        { id = "wag_default", text = "Answer for them, then, and do it properly. They died in a ruin, betrayed and outnumbered, without a chance to see who killed them; whatever you do in their name, make sure the elf sees your face." },
+        { id = "wag_grunt", when = { origin = "orc_razor_hill_grunt" },
+          text = "Razor Hill, eh? Half the warriors buried here learned their trade on that same parade ground. They'd want one of their own doing this, so I'll not argue." },
+      },
+      choices = {
+        { text = "She'll see me coming. On my honour.", next = "BACK", fx = { align = { honor = 1 }, standing = { valormok = 1 } } },
+        { text = "She betrayed them. She gets no warning.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -46,6 +57,7 @@ P:NPC {
         { text = "Why did Belgrom trust an elf?", next = "belgrom" },
         { text = "How does Valormok hold out here?", next = "camp" },
         { text = "The spirits of your dead deserve rites.", next = "rites", when = { class = { "SHAMAN", "PRIEST" } } },
+        { text = "I'm a warrior. Let me answer for your dead.", next = "warrior_ag", when = { class = "WARRIOR" } },
         { text = "Lok'tar, Ag'tor.", next = "END", fx = { affinity = 1, standing = { valormok = 1 } } },
       },
     },
@@ -161,6 +173,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    mage_jd = {
+      lines = {
+        { id = "mjd_default", text = "An orc mage, out here with the tablets? Somebody in Orgrimmar's going to have kittens about that. Read all you like, but you'll pay what Magatha's agents pay, because a mage's curiosity is worth more to me than his loyalty." },
+        { id = "mjd_camp", when = { origin = "orc_camp_primer" },
+          text = "Learned your letters from a primer in the internment camps, I'd bet; plenty of us did. Look where it's got you, reading dead elves' homework in a ruined forest, same as me." },
+      },
+      choices = {
+        { text = "Knowledge shouldn't be sold.", next = "BACK", fx = { align = { order = 1 }, affinity = -1 } },
+        { text = "Fair price. Everything's for sale.", next = "BACK", fx = { align = { order = -1 }, affinity = 2 } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -182,6 +205,7 @@ P:NPC {
         { text = "What do you make of the Archmage?", next = "xylem" },
         { text = "What would you do back in Orgrimmar?", next = "home" },
         { text = "You and me both, I could use a drink.", next = "drink", when = { drunk = true } },
+        { text = "I'm an orc mage. These tablets interest me.", next = "mage_jd", when = { race = "Orc", class = "MAGE" } },
         { text = "Good luck, Jediga.", next = "END" },
       },
     },

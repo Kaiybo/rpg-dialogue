@@ -24,6 +24,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    warrior_c = {
+      lines = {
+        { id = "wc_default", text = "That's a warrior's answer, and some days it's the right one. But the sickness in these wells has no throat to cut yet, so carry the vial first, and keep the blade for whatever we find at the bottom of it." },
+      },
+      choices = {
+        { text = "Then I'll wait until there's something to strike.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Waiting is how things get worse.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -45,6 +54,7 @@ P:NPC {
         { text = "Which wells do you watch?", next = "which" },
         { text = "I can feel something in the water too.", next = "feel", when = { class = { "PRIEST", "DRUID" } } },
         { text = "I'll carry the vial.", next = "END", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If something fouls the wells, I'll cut it down.", next = "warrior_c", when = { class = "WARRIOR" } },
         { text = "Wells go stale, and I doubt the tree's in any danger.", next = "END", fx = { affinity = -1, align = { light = -1 } } },
       },
     },
@@ -126,6 +136,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    hunter_a = {
+      lines = {
+        { id = "ha_default", text = "Rabid is the right word, and it grieves me to hear a hunter say it so easily. The Gnarlpine kept these woods with us for longer than you've been alive, so take what you must, but look at their eyes before you loose, and tell me what you see." },
+      },
+      choices = {
+        { text = "I'll hunt them as I'd hunt any sick beast.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll spare any I can. They didn't choose this.", next = "BACK", fx = { align = { light = 1 }, affinity = 2 } },
+        { text = "What should I look for?", next = "moss" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -148,6 +168,7 @@ P:NPC {
         { text = "Can the furbolgs be saved?", next = "saved" },
         { text = "Who are the sleeping druids?", next = "talon" },
         { text = "I can tell a sick beast from an angry one.", next = "druidtest", when = { class = "DRUID" } },
+        { text = "I've hunted Gnarlpine. They fought like rabid wolves.", next = "hunter_a", when = { class = "HUNTER" } },
         { text = "I'll look into it.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -229,6 +250,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    rogue_t = {
+      lines = {
+        { id = "rt_default", text = "Could you? The furbolgs sleep in my neighbours' beds now and they wake at a twig snapping, so if you can get in and out of my house without a fight, you're a better thief than I'd like to know about." },
+      },
+      choices = {
+        { text = "No one need ever know I was there.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "I'd rather they knew who took it back.", next = "BACK", fx = { align = { honor = 1 }, trait = { brave = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -248,6 +278,7 @@ P:NPC {
         { text = "What was the dreamcatcher to you?", next = "dreamcatcher" },
         { text = "What happened to Starbreeze Village?", next = "starbreeze" },
         { text = "Who is Lord Melenas?", next = "melenas", when = { questActive = TODO_QUEST("Twisted Hatred") } },
+        { text = "I could slip into Starbreeze and take it back unseen.", next = "rogue_t", when = { class = "ROGUE" } },
         { text = "I'll protect the village.", next = "END", fx = { affinity = 2, standing = { dolanaar = 1 } } },
       },
     },
@@ -312,6 +343,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    warrior_sy = {
+      lines = {
+        { id = "wsy_default", text = "The Council has no shortage of those, and most of them involve Zenn Foulhoof's errands or Denalan's lake, which the young ones avoid. Ask me for the dull orders, though, and I'll know you're serious." },
+      },
+      choices = {
+        { text = "I'll take the dull ones. Someone must.", next = "BACK", fx = { align = { order = 1 }, affinity = 2 } },
+        { text = "Dull orders are for other people.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -332,6 +372,7 @@ P:NPC {
         { text = "Who is Zenn Foulhoof?", next = "zenn" },
         { text = "I'm an herbalist. What grows here?", next = "herbs", when = { profession = "Herbalism" } },
         { text = "I'll take on the Council's orders.", next = "END", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Give me the orders nobody else will take.", next = "warrior_sy", when = { class = "WARRIOR" } },
         { text = "I'll help where I see a need, not where the Council points.", next = "END", fx = { align = { order = -1 } } },
       },
     },
@@ -472,6 +513,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    hunter_ly = {
+      lines = {
+        { id = "hly_default", text = "Sleeps, maybe, but does she sleep well? Most hunters I meet curl up with their companions and wake stiff as a branch, so there's more to it than lying down in the leaves." },
+        { id = "hly_pet", when = { class = "HUNTER", pet = { named = true } },
+          text = "And {pet} will keep you warmer than any blanket, if you let it lie on the windward side. You'd be surprised how many hunters get that backwards." },
+      },
+      choices = {
+        { text = "Then teach me properly.", next = "teach", fx = { learn = { "camping" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -488,6 +540,7 @@ P:NPC {
         { text = "Why sleep outdoors?", next = "why" },
         { text = "Where have you camped?", next = "where" },
         { text = "I'm a cook. What can I bring to a camp?", next = "cook", when = { profession = "Cooking" } },
+        { text = "A hunter sleeps outdoors already.", next = "hunter_ly", when = { class = "HUNTER" } },
         { text = "Not now.", next = "END" },
       },
     },

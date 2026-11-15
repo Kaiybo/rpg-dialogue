@@ -35,12 +35,38 @@ P:NPC {
       choices = {
         { text = "How did you come to Durotar?", next = "came" },
         { text = "What happens in the valley?", next = "valley" },
+        { text = "Do the Darkspear get the same welcome as orcs?", next = "troll", when = { race = "Troll" } },
+        { text = "I was born in the camps too.", next = "campborn", when = { origin = "orc_camp_born" } },
         { text = "I'm on my way.", next = "END" },
       },
+      again = {
+        { id = "h_again", text = "Something else? Ask it quickly; there's more new blood coming up the road behind you." },
+        { id = "h_again2", text = "Go on, then. Gornek can wait a moment, though don't tell him I said so." },
+      },
+    },
+    troll = {
+      lines = {
+        { id = "tr_default", text = "The same welcome, and the same boars, and the same Gornek shouting at you. Your people bled beside us on the crossing, troll, and nobody in this valley gets to forget it." },
+        { id = "tr_sailed", when = { origin = "troll_sailed_with_thrall" },
+          text = "You were on the ships with us? Then you've earned your welcome twice over, and if any orc in the Den says otherwise, send him to me." },
+      },
+      choices = {
+        { text = "Then the Darkspear will earn it again.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Welcomes are words. I'll trust the orcs who fight beside me.", next = "BACK", fx = { align = { honor = -1 }, trait = { skeptical = 1 } } },
+        { text = "Did you know any Darkspear on the crossing?", next = "troll_crossing" },
+      },
+    },
+    troll_crossing = {
+      lines = { { id = "tc_default", text = "One, a tall fellow who could gut a fish faster than I could draw breath. He's at Sen'jin now, I think. Ask Master Gadrin; he knows every troll who came ashore." } },
+      choices = { { text = "I'll ask him.", next = "BACK" } },
+    },
+    campborn = {
+      lines = { { id = "cb_default", text = "Then you know the smell of those pens, and you know why I stand at this gate. Nobody greeted us when the humans opened the doors, and I swore that every orc who came after would get a name and a road." } },
+      choices = { { text = "Thank you, Kaltunk.", next = "BACK", fx = { affinity = 3 } } },
     },
     valley = {
       lines = { { id = "v_default", text = "Boars, scorpids and cultists in the northern caves. You'll fight all three, and you'll come out the other end Horde, or you won't." } },
-      choices = { { text = "I will.", next = "END", fx = { affinity = 2, trait = { brave = 1 } } } },
+      choices = { { text = "I will.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } } },
     },
     came = {
       lines = {
@@ -92,8 +118,64 @@ P:NPC {
       },
       choices = {
         { text = "What do I need to prove?", next = "prove" },
+        { text = "Teach me to fight, then. That's what I came for.", next = "warrior", when = { class = "WARRIOR" } },
+        { text = "I'm no cultist, Gornek. My power answers to me.", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "An orc with a spellbook. Say what you're thinking.", next = "orcmage", when = { race = "Orc", class = "MAGE" } },
+        { text = "My people hunted the jungles long before this valley.", next = "headhunter", when = { race = "Troll", class = "HUNTER" } },
         { text = "I'll get to work.", next = "END", fx = { affinity = 1, standing = { valley_of_trials = 1 } } },
       },
+      again = {
+        { id = "h_again", text = "Something else, recruit? Make it quick, because the boars aren't going to wait for you." },
+        { id = "h_again2", text = "Speak. I'd rather hear it now than find out later you were too proud to ask." },
+      },
+    },
+    warrior = {
+      lines = {
+        { id = "wa_default", text = "Then you'll hear it from me before anyone else. A warrior who swings first and thinks second dies in his first real fight, so you'll learn to take a blow on the shield before I let you near anything that bleeds." },
+        { id = "wa_grunt", when = { origin = "orc_razor_hill_grunt" },
+          text = "Razor Hill already has its eye on you, I hear. Good, but Gar'Thok won't want a grunt who falls over, so we start with standing up again." },
+      },
+      choices = {
+        { text = "Why the shield before the blade?", next = "warrior_why" },
+        { text = "A good warrior ends the fight before it starts.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll take the hits and stay standing.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+      },
+    },
+    warrior_why = {
+      lines = { { id = "ww_default", text = "Because the first lesson is getting back up. In the camps the guards beat us until we stopped getting up, and the Warchief was the first one I saw who never stopped. Every warrior I train learns that before they learn anything else." } },
+      choices = { { text = "Then I'll learn it first.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    warlock = {
+      big = true,
+      lines = {
+        { id = "wl_default", text = "So every cultist in that coven told himself, right up until his power started answering to something else. I watched orcs drink that fire once, and I'm still burying the ones it ruined." },
+        { id = "wl_troll", when = { race = "Troll" },
+          text = "A troll who whispers to demons, and that's new to me. The Darkspear had their witch doctors, but I never heard of one calling up imps, and I'd like to know who taught you." },
+      },
+      choices = {
+        { text = "I'll use it against the Blade and nothing else.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Power is power. The Horde should use what it has.", next = "BACK", fx = { affinity = -2, align = { light = -1 } } },
+        { text = "What did you see it do to them?", next = "warlock_saw" },
+      },
+    },
+    warlock_saw = {
+      lines = { { id = "ws_default", text = "Green eyes in faces I'd known all my life, and a hunger that never filled. Zureetha uses the same art you do and hates the Blade more than I do, so go and listen to her before you listen to them." } },
+      choices = { { text = "I'll speak with Zureetha.", next = "BACK" } },
+    },
+    orcmage = {
+      lines = {
+        { id = "om_default", text = "I'm thinking our people already burned once for reaching after power we didn't understand. You'll get no trouble from me if you work hard, but the grunts will test you, so don't give them a reason." },
+        { id = "om_primer", when = { origin = "orc_camp_primer" },
+          text = "A human guard's primer, I heard, read by candle stub in the camps. Clever, and the grunts will hate that you learned it from them, so you'd better be good with it." },
+      },
+      choices = {
+        { text = "It's a tool, like an axe. I'll prove it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let them test me. I'll do things my own way.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
+    headhunter = {
+      lines = { { id = "hh_default", text = "I've seen your people throw a spear, and I wouldn't want to be the boar. Kill clean out there and show these orc recruits how it's done, and they might stop complaining about trolls in the Den." } },
+      choices = { { text = "They'll see.", next = "BACK", fx = { affinity = 2 } } },
     },
     prove = {
       big = true,
@@ -101,8 +183,8 @@ P:NPC {
         { id = "p_default", text = "That you'll get back up. Strength comes later. Anyone can swing an axe; not everyone stands again after the first one hits them." },
       },
       choices = {
-        { text = "I'll stand.", next = "END", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "I'd rather not get hit in the first place.", next = "END", fx = { align = { honor = -1 } } },
+        { text = "I'll stand.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "I'd rather not get hit in the first place.", next = "BACK", fx = { align = { honor = -1 } } },
       },
     },
   },
@@ -151,8 +233,37 @@ P:NPC {
       },
       choices = {
         { text = "Who are the Burning Blade?", next = "blade" },
+        { text = "You draw on the same power the Blade do, don't you?", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "The spirits here feel sick near those caves.", next = "shaman", when = { class = "SHAMAN" } },
         { text = "I'll go north.", next = "END" },
       },
+      again = {
+        { id = "h_again", text = "What else? Be quick, because the imps are thicker after sundown." },
+        { id = "h_again2", text = "Ask, then. I'd rather you knew too much about the Blade than too little." },
+      },
+    },
+    warlock = {
+      big = true,
+      lines = {
+        { id = "wl_default", text = "The same power, yes, and that's exactly why I hate them. They've made every orc who touches the dark a suspect, and I'll spend my life proving a warlock can bind a demon without kneeling to it." },
+        { id = "wl_cleft", when = { origin = "orc_cleft_initiate" },
+          text = "You've been down to the Cleft of Shadow already? Then you've met the smiling ones there, and you'll know some of them miss the old fire far too much. Learn their spells, but keep your own counsel." },
+        { id = "wl_troll", when = { race = "Troll", class = "WARLOCK" },
+          text = "A Darkspear warlock, which the old orcs will find stranger than I do. If the voice you listen to isn't a loa, be very sure you know what it is before you answer it." },
+      },
+      choices = {
+        { text = "A demon is a tool. I bind it, it serves.", next = "warlock_bind" },
+        { text = "I'll never kneel. You have my word.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Maybe the Blade understand something the rest of us fear.", next = "BACK", fx = { affinity = -2, align = { light = -1 } } },
+      },
+    },
+    warlock_bind = {
+      lines = { { id = "wb_default", text = "That's what the first warlocks said, back in Draenor, and they said it right up until the day they woke up serving. Bind it, yes, but never forget it's waiting for you to slip." } },
+      choices = { { text = "I won't forget.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    shaman = {
+      lines = { { id = "sh_default", text = "They would be, with the Blade calling fel things up through the rock. Thrall's shamans are trying to heal this land, and the Blade are tearing holes in it, so every imp you kill is a stitch in the wound." } },
+      choices = { { text = "Then I'll stitch it closed.", next = "BACK", fx = { affinity = 2 } } },
     },
     blade = {
       big = true,
@@ -160,7 +271,7 @@ P:NPC {
         { id = "b_default", text = "Orcs who never let go of the old fire. The Warchief broke the demons' hold on us, and these fools want it back. I won't let them have it." },
       },
       choices = {
-        { text = "Neither will I.", next = "END", fx = { affinity = 2, align = { light = 1 }, learn = { "burning_blade" } } },
+        { text = "Neither will I.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, learn = { "burning_blade" } } },
         { text = "The old fire made the Horde strong, whatever it cost.", next = "END", fx = { align = { light = -1 }, learn = { "burning_blade" } } },
       },
     },
@@ -206,12 +317,28 @@ P:NPC {
       },
       choices = {
         { text = "Why not let them rest?", next = "rest" },
+        { text = "I know a few things about blackjacks, Foreman.", next = "rogue", when = { class = "ROGUE" } },
+        { text = "Want me to shout them awake instead?", next = "warrior", when = { class = "WARRIOR" } },
         { text = "I'll wake them.", next = "END" },
       },
+      again = {
+        { id = "h_again", text = "Anything else? Ask fast, before another one of them nods off." },
+      },
+    },
+    rogue = {
+      lines = { { id = "ro_default", text = "Do you now? Then you'll know the trick is a tap and not a crack, because a peon who can't stand up can't haul lumber either. Show them some of that light touch your sort is famous for." } },
+      choices = {
+        { text = "A light tap. Understood.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Where's the fun in a light tap?", next = "BACK", fx = { affinity = -1, trait = { cruel = 1 } } },
+      },
+    },
+    warrior = {
+      lines = { { id = "wr_default", text = "I've tried shouting, and they sleep through it, and I've tried a war drum, and two of them used it as a pillow. Go and try your battle shout on them if you like, but bring the blackjack anyway." } },
+      choices = { { text = "Ha. I'll bring both.", next = "BACK", fx = { affinity = 1 } } },
     },
     rest = {
       lines = { { id = "r_default", text = "Rest? Orgrimmar's walls won't build themselves. Well, they will if the peons build them, and that's the problem." } },
-      choices = { { text = "Ha.", next = "END", fx = { affinity = 1 } } },
+      choices = { { text = "Ha.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 
@@ -253,18 +380,34 @@ P:NPC {
       choices = {
         { text = "Where did you learn to cook?", next = "cook" },
         { text = "What's the surprise?", next = "surprise" },
+        { text = "Have you got anything my pet would eat?", next = "pet", when = { class = "HUNTER", pet = { type = "Beast" } } },
+        { text = "Do tauren even eat scorpid?", next = "tauren", when = { race = "Tauren" } },
         { text = "Thanks, Galgar.", next = "END" },
       },
+      again = {
+        { id = "h_again", text = "Something else? Talk while I stir; the pot doesn't stop for anybody." },
+      },
+    },
+    pet = {
+      lines = { { id = "pe_default", text = "{pet}, is it? Ha, I've got a whole bucket of boar scraps the recruits won't touch, and that one looks like it isn't fussy. Hunters' beasts are the only ones in this valley who've ever thanked me for a meal." } },
+      choices = {
+        { text = "A beast that's fed well fights well.", next = "BACK", fx = { affinity = 2 } },
+        { text = "It hunts for itself. Keep the scraps.", next = "BACK" },
+      },
+    },
+    tauren = {
+      lines = { { id = "ta_default", text = "A tauren this far east! I hear your people eat mostly plains fowl and roots, so you'll find scorpid a bit crunchy. Give it a week, though, and you'll be asking for the tail like everyone else." } },
+      choices = { { text = "I'll try one. Just one.", next = "BACK", fx = { affinity = 2 } } },
     },
     surprise = {
       lines = { { id = "s_default", text = "That it tastes good. Nobody expects that from a cactus." } },
-      choices = { { text = "...", next = "END", fx = { affinity = 1 } } },
+      choices = { { text = "...", next = "BACK", fx = { affinity = 1 } } },
     },
     cook = {
       lines = {
         { id = "c_camp", text = "In the camps, where you learn to make something out of nothing or you starve. Out here we've got scorpids, and that's not nothing; that's practically a feast." },
       },
-      choices = { { text = "I'll try the scorpid.", next = "END", fx = { affinity = 2 } } },
+      choices = { { text = "I'll try the scorpid.", next = "BACK", fx = { affinity = 2 } } },
     },
   },
 
@@ -302,7 +445,22 @@ P:NPC {
           text = "Gornek sent you about the training weapons? Good. Bring me six and I'll mend them for the next lot of recruits." },
         { id = "h_edge", when = { metBefore = true }, text = "You're back, and the blade's still in one piece? Good. That means you're using the edge and not the flat." },
       },
-      choices = { { text = "I'll find them.", next = "END" } },
+      choices = {
+        { text = "What should a warrior carry out of this valley?", next = "warrior", when = { class = "WARRIOR" } },
+        { text = "Do you sell anything for a rogue's hand?", next = "rogue", when = { class = "ROGUE" } },
+        { text = "I'll find them.", next = "END" },
+      },
+      again = {
+        { id = "h_again", text = "Anything else, or are you buying?" },
+      },
+    },
+    warrior = {
+      lines = { { id = "wa_default", text = "Something heavy that you can keep swinging, and a shield if you've got the sense. Recruits all want a big axe, and then they drop it in the scrub because their arms gave out." } },
+      choices = { { text = "Sense, then. I'll take a shield.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    rogue = {
+      lines = { { id = "ro_default", text = "Daggers, two of them, and keep them sharp, since you'll be striking where the armor isn't. I don't ask what you use them for, and I'd thank you not to tell me." } },
+      choices = { { text = "Two daggers, then.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 

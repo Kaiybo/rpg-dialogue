@@ -59,6 +59,10 @@ P:NPC {
         { text = "Can the Light do anything for your people?", next = "light", when = { class = "PRIEST" } },
         { text = "Will we ever go home, High Tinker?", next = "home_q", when = { race = "Gnome" } },
         { text = "I'm an engineer myself.", next = "eng", when = { profession = "Engineering" } },
+        { text = "I studied what Gnomeregan sealed away, High Tinker.", next = "lock", when = { race = "Gnome", class = "WARLOCK" } },
+        { text = "I studied magic in Gnomeregan, before.", next = "mage", when = { race = "Gnome", class = "MAGE" } },
+        { text = "I've been back down into the city, High Tinker.", next = "rogue", when = { race = "Gnome", class = "ROGUE" } },
+        { text = "I held the line when we ran.", next = "rear", when = { race = "Gnome", class = "WARRIOR" } },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -254,6 +258,94 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    lock = {
+      big = true,
+      lines = {
+        { id = "lk_default", text = "Ah. Yes. I'd heard some of our people had taken up the darker sort of study, and I'd hoped it was a rumor I could file under rumors. I won't pretend I like it, but I'd like to understand it, if you'll explain." },
+        { id = "lk_texts", when = { origin = "gnome_forbidden_texts" },
+          text = "The sealed stacks, the ones the Assembly voted to lock and then forgot the vote on? Oh dear, I signed that order myself, I think, and now here you are, reading what I locked." },
+      },
+      choices = {
+        { text = "Our people need every weapon now, High Tinker.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I keep it leashed. I know what it costs.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Why lock the books at all?", next = "lock_why" },
+      },
+    },
+    lock_why = {
+      lines = {
+        { id = "lw_default", text = "Because a book's a very tempting machine with no safety catch, and gnomes pull levers to find out what they do. I trusted the wrong advisor once already, so forgive me if I'm slow to trust a demon." },
+      },
+      choices = {
+        { text = "That's fair, High Tinker.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mage = {
+      lines = {
+        { id = "mg_default", text = "Then you're one of the few who got out with their spellbooks, and I'd guess you left half your class behind. Bink keeps a list in the Hall of Mysteries of every student who made it to the surface, and it's a short list." },
+        { id = "mg_last", when = { origin = "gnome_last_student" },
+          text = "The last one up from the lecture halls, I'm told, still carrying a satchel of notes nobody else lived to read. I'm so sorry, and I'm so glad you're here, both at once." },
+      },
+      choices = {
+        { text = "Magic will rebuild Gnomeregan, High Tinker.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "I don't study for Gnomeregan anymore. I study for me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Could magic clear the radiation?", next = "mage_rad" },
+      },
+    },
+    mage_rad = {
+      lines = {
+        { id = "mr_default", text = "I've asked the Kirin Tor, very politely and at some length, and they wrote back that it's an interesting problem. When a Dalaran mage calls something interesting, it means they haven't the faintest idea either." },
+      },
+      choices = {
+        { text = "Then we'll find the answer ourselves.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rogue = {
+      big = true,
+      lines = {
+        { id = "ro_default", text = "Back down? Into the city, past the troggs and the leper gnomes, without an expedition or a permit? I ought to scold you, and instead I want to know whether my workshop on the fourth tier is still standing." },
+        { id = "ro_scav", when = { origin = "gnome_scavenger" },
+          text = "Oh, you're one of the ones who slips down for parts and sells them in Tinker Town. Castpipe complains about you weekly, and weekly I tell him to buy what you bring." },
+      },
+      choices = {
+        { text = "Your workshop's picked clean, High Tinker. I'm sorry.", next = "rogue_shop" },
+        { text = "What's left down there belongs to whoever can carry it.", next = "BACK", fx = { align = { order = -1 }, affinity = -1 } },
+        { text = "Everything I bring up goes back to our people.", next = "BACK", fx = { align = { order = 1 }, affinity = 2 } },
+      },
+    },
+    rogue_shop = {
+      lines = {
+        { id = "rs_default", text = "Well, it was a workshop, not a shrine, and I'd sooner the parts kept somebody warm than rusted in the dark. Only, if you ever find a little brass bird with a bent wing, bring it up, would you?" },
+      },
+      choices = {
+        { text = "I'll keep an eye out.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rear = {
+      big = true,
+      lines = {
+        { id = "re_default", text = "Then you were one of the gnomes standing between the troggs and the ones running, while I was at the front of the line giving orders. I've never known quite how to thank people like you, so I'll just say it badly: thank you." },
+        { id = "re_guard", when = { origin = "gnome_rearguard" },
+          text = "The rearguard, at the last gate. I read every name on that roster, and there were more names than there were gnomes coming out, and you're one of the ones who came out." },
+      },
+      choices = {
+        { text = "You gave the order to vent the city.", next = "rear_vent" },
+        { text = "Somebody had to hold. I'm glad it was me.", next = "BACK", fx = { align = { honor = 1 }, affinity = 2 } },
+        { text = "I held because there was no way out behind me.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
+    },
+    rear_vent = {
+      lines = {
+        { id = "rv_default", text = "I did, on my advisor's urging, and you heard it from the wrong side of the door. Thermaplugg pressed for it, but it was my hand that signed it, and I've never once let myself forget that." },
+      },
+      choices = {
+        { text = "It was the right order, High Tinker.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "It cost too much. You know that.", next = "BACK", fx = { align = { order = -1 }, affinity = -1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -317,6 +409,8 @@ P:NPC {
         { text = "How did Ironforge begin?", next = "three_hammers" },
         { text = "I was there when Lordaeron fell.", next = "witness", when = { origin = "human_lordaeron_refugee" } },
         { text = "Your plague book. Did the Light help anyone?", next = "plague_light", when = { class = "PRIEST" } },
+        { text = "Your book on curses. I've studied a few myself.", next = "curses", when = { class = "WARLOCK" } },
+        { text = "What do your histories say of the Wildhammer?", next = "wildhammer", when = { race = "Dwarf", class = "SHAMAN" } },
         { text = "Another time.", next = "END" },
       },
     },
@@ -432,6 +526,28 @@ P:NPC {
         { text = "That's grim, Historian.", next = "BACK" },
       },
     },
+    curses = {
+      lines = {
+        { id = "cu_default", text = "Have ye, now? I can hear it in yer voice, a sort of smoke at the back of it. I wrote that book so folk would know what to fear, and I'd hate to think it served as a primer instead." },
+      },
+      choices = {
+        { text = "Knowing a curse is how you break one.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "A primer was exactly what I needed.", next = "BACK", fx = { align = { light = -1 }, affinity = -2 } },
+        { text = "Something else, historian.", next = "BACK" },
+      },
+    },
+    wildhammer = {
+      lines = {
+        { id = "wh_default", text = "That they kept the old ways when we went down into the stone, and spoke with the storm while we spoke with the forge. Now here's a Bronzebeard voice asking about it, which I'll be writing down, by yer leave." },
+        { id = "wh_kin", when = { origin = "dwarf_wildhammer_kin" },
+          text = "Ah, and some Wildhammer blood in ye besides, I'd wager, from the burr. Then ye've heard the War of the Three Hammers told from the other side, and I'd dearly like to hear it." },
+      },
+      choices = {
+        { text = "The old ways were never lost. Only ignored.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Bronzebeard and Wildhammer should keep to their own roads.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -499,6 +615,8 @@ P:NPC {
         { text = "Where are your people digging now?", next = "sites" },
         { text = "I trained with the League, High Explorer.", next = "apprentice", when = { origin = "dwarf_explorers_league" } },
         { text = "About that relic from the Wetlands...", next = "prism", when = { questDone = TODO_QUEST("Prehistoric Prism") } },
+        { text = "The League could use a hunter's eye in the field.", next = "hunter", when = { class = "HUNTER" } },
+        { text = "The stone in Uldaman spoke to me, High Explorer.", next = "stone", when = { race = "Dwarf", class = "SHAMAN" } },
         { text = "Good luck with your work.", next = "END" },
       },
     },
@@ -614,6 +732,37 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
+    hunter = {
+      lines = {
+        { id = "hu_default", text = "It could, it could indeed! Half my Prospectors couldn't tell a raptor's track from a basilisk's, and they find out the difference the hard way. The Badlands camp and the Wetlands digs are always short of someone who can read the ground." },
+        { id = "hu_bear", when = { origin = "dwarf_bear_tracker" },
+          text = "A tracker out of the high snows, too, if I read that coat right. Ironband's men lose their way between the loch and the dig every winter, and they'd follow you anywhere." },
+      },
+      choices = {
+        { text = "I hunt for food and safety, not for your catalogue.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Put me on the League's rolls, then.", next = "BACK", fx = { align = { order = 1 }, affinity = 2 } },
+        { text = "Where's the League short most?", next = "sites" },
+      },
+    },
+    stone = {
+      big = true,
+      lines = {
+        { id = "st_default", text = "Spoke to you? The stone itself, in Uldaman, where the discs were? Oh, please, sit down, and tell me exactly what it said, and I'll take it all down word for word, however strange." },
+      },
+      choices = {
+        { text = "It said we were made, not born.", next = "stone_made" },
+        { text = "Some things the stone tells me aren't for books.", next = "BACK", fx = { align = { order = -1 }, affinity = -1 } },
+        { text = "Write it down. The League should know.", next = "BACK", fx = { align = { order = 1 }, affinity = 2 } },
+      },
+    },
+    stone_made = {
+      lines = {
+        { id = "sm_default", text = "That's what the discs suggest, and I've had sleepless nights over it. If the stone and the Titans' discs say the same thing, then I've some very uncomfortable letters to write to the Senate." },
+      },
+      choices = {
+        { text = "Something else, High Explorer.", next = "BACK", fx = { affinity = 1, learn = { "uldaman" } } },
+      },
+    },
   },
 
   topics = {
@@ -677,6 +826,7 @@ P:NPC {
         { text = "They say you can read any cipher.", next = "cipher" },
         { text = "What happened at Uldaman?", next = "uldaman" },
         { text = "I met a Mountaineer Stormpike at Algaz.", next = "clan", when = { questDone = TODO_QUEST("Mountaineer Stormpike's Task") } },
+        { text = "Mages read ciphers too, Prospector.", next = "mage", when = { class = "MAGE" } },
         { text = "Sorry to bother you.", next = "END" },
       },
     },
@@ -755,6 +905,15 @@ P:NPC {
         { text = "Proud and rich. I noticed.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
+    mage = {
+      lines = {
+        { id = "mg_default", text = "Aye, an' they read them wrong, wi' a great deal o' confidence. I've had a Dalaran man tell me a rune meant 'beware' when it meant 'storeroom', so ye'll forgive me if I do my own readin'." },
+      },
+      choices = {
+        { text = "Then let's compare readings sometime.", next = "BACK", fx = { affinity = 1, trait = { curious = 1 } } },
+        { text = "Fair enough. Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -811,6 +970,8 @@ P:NPC {
         { text = "What's the quarry for?", next = "quarry" },
         { text = "I grew up in the mines under the mountain.", next = "miner", when = { origin = "dwarf_ironforge_miner" } },
         { text = "A Wildhammer's camped above your quarry.", next = "farsen", when = { questDone = TODO_QUEST("Farsen's Watch") } },
+        { text = "Send me after the troggs, Senator. I'm a warrior.", next = "warrior", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "I'm a gnome, Senator. These troggs took my city.", next = "gnome", when = { race = "Gnome" } },
         { text = "Good luck, Senator.", next = "END" },
       },
     },
@@ -876,6 +1037,27 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    warrior = {
+      lines = {
+        { id = "wa_default", text = "That's what I like tae hear, an' it's more than I hear in the Senate in a month o' sittings. Mind ye, the Rockjaw come up in threes, an' the third one's always behind ye." },
+        { id = "wa_ward", when = { origin = "dwarf_military_ward" },
+          text = "Ward-trained, are ye? Then ye'll know the drill better than my diggers, who swing a pick at a trogg as if it were a seam o' copper." },
+      },
+      choices = {
+        { text = "I'll clear your quarry, Senator.", next = "BACK", fx = { affinity = 2, standing = { ironforge = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gnome = {
+      lines = {
+        { id = "gn_default", text = "Aye, an' I'm sorry for it, truly; I'd no' wish those brutes on anyone. They came up through yer city first an' through my quarry second, so ye an' I have the same enemy, an' that's a start." },
+      },
+      choices = {
+        { text = "The Senate should have helped us sooner.", next = "BACK", fx = { align = { order = -1 }, affinity = -1 } },
+        { text = "Ironforge took us in. That's enough help.", next = "BACK", fx = { align = { order = 1 }, affinity = 2 } },
+        { text = "Something else, Senator.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -932,6 +1114,7 @@ P:NPC {
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "Tell me a story.", next = "story" },
         { text = "Who drinks here?", next = "regulars" },
+        { text = "A shaman's toast: to the fire under the mountain.", next = "shaman", when = { race = "Dwarf", class = "SHAMAN" } },
         { text = "Just a drink.", next = "END" },
       },
     },
@@ -957,6 +1140,15 @@ P:NPC {
         { id = "rj_default", text = "More than ye'd think, for a dwarf cannae stand bein' asked twice in front o' his friends. John knows it, too; he's a clever man." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    shaman = {
+      lines = {
+        { id = "sh_default", text = "Ha! I'll drink tae that, an' so will the fire, by the way it's crackin'. Half my regulars think ye shamans are Wildhammers in disguise, an' the other half want ye tae make the hearth burn hotter." },
+      },
+      choices = {
+        { text = "The fire burns how it likes, Firebrew.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 

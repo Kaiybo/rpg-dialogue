@@ -59,6 +59,8 @@ P:NPC {
         { text = "Who named that boar Bellygrub?", next = "bellygrub" },
         { text = "Keeshan's home. How is he?", next = "keeshan_after", when = { questDone = TODO_QUEST("Missing In Action") } },
         { text = "My people have fought the Blackrock for generations.", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "Give me a post, Marshal. I'll hold it.", next = "warrior", when = { class = "WARRIOR" } },
+        { text = "I can scout Render's Valley for you.", next = "hunter", when = { class = "HUNTER" } },
         { text = "I'll keep my eyes east.", next = "END" },
       },
     },
@@ -172,6 +174,28 @@ P:NPC {
         { text = "Kill whoever's giving the orders. They break.", next = "BACK", fx = { affinity = 2, trait = { stern = 1 } } },
         { text = "Never let them choose the ground.", next = "BACK", fx = { affinity = 2, trait = { cautious = 1 } } },
         { text = "Hit them harder than they hit you.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+      },
+    },
+    warrior = {
+      lines = { { id = "wa_default", text = "I've got three posts and one guard for each, and you'd make two of them. Take the bridge road at dusk, when the Blackrock scouts like to test us, and count every orc you put down." } },
+      choices = {
+        { text = "Why count them?", next = "warrior_count" },
+        { text = "Done.", next = "BACK", fx = { affinity = 2, standing = { lakeshire = 1 } } },
+      },
+    },
+    warrior_count = {
+      lines = { { id = "wc_default", text = "Because Solomon writes letters and letters want numbers. Stormwind won't move for a frightened town, but it might move for a column of figures." } },
+      choices = { { text = "Something else, Marshal.", next = "BACK" } },
+    },
+    hunter = {
+      lines = {
+        { id = "hu_default", text = "Good, because my guards stomp like oxen and the orcs hear them a mile off. Keep your beast quiet, watch for smoke from the camps, and don't go near Stonewatch on your own." },
+        { id = "hu_pet", when = { pet = { type = "Beast" } },
+          text = "That animal of yours has better ears than any guard I've got. Take it up Render's Valley and see what it smells; I'll want to know where the camps have moved." },
+      },
+      choices = {
+        { text = "I'll go alone. I'm quieter that way.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "What should I look for?", next = "bad" },
       },
     },
   },

@@ -53,6 +53,7 @@ P:NPC {
         { text = "Why trust a fisherman over the guard?", next = "contacts" },
         { text = "Your Grace, how does a priest serve at court?", next = "priest", when = { class = "PRIEST" } },
         { text = "My family has a seat in the House.", next = "noble", when = { origin = "human_minor_noble" } },
+        { text = "Your fisherman would make a fine spy, Your Grace.", next = "rogue", when = { class = "ROGUE" } },
         { text = "I'll leave you to your petitions.", next = "END" },
       },
     },
@@ -140,6 +141,18 @@ P:NPC {
         { text = "I'll remember that.", next = "BACK", fx = { affinity = 2 } },
         { text = "My family can speak for itself.", next = "BACK", fx = { trait = { stern = 1 } } },
       },
+    },
+    rogue = {
+      lines = { { id = "rogue_l", text = "He'd be appalled to hear it, and he'd be very good at it. The Church has its listeners, child, as SI:7 has its knives, and I'd thank you not to compare them in Master Shaw's hearing." } },
+      choices = {
+        { text = "Listening is the same work, whoever pays.", next = "BACK", fx = { align = { honor = -1 }, trait = { witty = 1 } } },
+        { text = "The Church's way is the honest one.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Who else listens for the Church?", next = "rogue2" },
+      },
+    },
+    rogue2 = {
+      lines = { { id = "rogue2_l", text = "Fishermen, washerwomen and a great many grandmothers, all of whom think they're simply gossiping with their bishop. They're right, and that's what makes it work." } },
+      choices = { { text = "Something else, Your Grace.", next = "BACK" } },
     },
   },
 
@@ -333,6 +346,7 @@ P:NPC {
         { text = "Will the House listen?", next = "house" },
         { text = "Don't drink anything sent from the Mage Quarter.", next = "warn", when = { questActive = TODO_QUEST("A Noble Brew") } },
         { text = "The Church stands with you, my lord.", next = "priest", when = { class = "PRIEST" } },
+        { text = "The Mage Quarter isn't all demon-callers, my lord.", next = "mage", when = { class = "MAGE" } },
         { text = "Good luck with your speech.", next = "END" },
       },
     },
@@ -392,6 +406,18 @@ P:NPC {
         { text = "I'll speak to Bishop DeLavey.", next = "BACK", fx = { affinity = 2 } },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    mage = {
+      lines = { { id = "mage_l", text = "Isn't it? The Sanctum sits on the same street as that tavern and pretends not to smell the brimstone. If you mages were as clean as you claim, I'd not have to give this speech." } },
+      choices = {
+        { text = "The Sanctum fights the same rot, quietly.", next = "mage2" },
+        { text = "You're right. The Quarter turns a blind eye.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Your speech is about your bar tab, my lord.", next = "BACK", fx = { affinity = -2, align = { order = -1 } } },
+      },
+    },
+    mage2 = {
+      lines = { { id = "mage2_l", text = "Then it can say so in front of the House, and I'll applaud. Until then I'll assume silence means guilt, as one generally should." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 

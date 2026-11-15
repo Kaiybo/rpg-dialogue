@@ -22,6 +22,10 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_warrior", cat = "kin", when = { race = "Skyborne", class = "WARRIOR" },
+      text = "A blade. Good; the Peacekeepers will be glad of you, though they'll ask you to keep it sheathed around the other order's people, and you'd do well to listen." },
+    { id = "n_rogue", cat = "kin", when = { race = "Skyborne", class = "ROGUE" },
+      text = "You came in without the guards noticing, which tells me two things about you, child, and I approve of only one of them." },
     { id = "n_druid", cat = "kin", when = { race = "Skyborne", class = "DRUID" },
       text = "A druid, and there are so few of you. Your faith leans to the elements before Elune; don't let anyone on the mainland tell you that's backwards." },
     { id = "n_shaman", cat = "kin", when = { race = "Skyborne", class = "SHAMAN" },
@@ -34,8 +38,41 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    warrior_ta = {
+      lines = {
+        { id = "wta_default", text = "Everywhere, and that's the trouble. The Peacekeepers are stretched between the Al'Aketh and the two orders, and a blade that keeps its temper is worth more to me just now than one that only keeps its edge." },
+        { id = "wta_blade", when = { origin = "skyborne_empyrean_recruit" },
+          text = "A recruit of the Empyrean Blades. They guarded the Shal'nan once, and they've guarded nobody so important since; don't let them tell you that makes the work smaller." },
+      },
+      choices = {
+        { text = "I'll keep the orders apart, then. Both of them.", next = "BACK", fx = { align = { order = 1 }, affinity = 2 } },
+        { text = "I'll pick a side. Standing between gets you cut.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Tell me about the Peacekeepers.", next = "peacekeepers" },
+      },
+    },
+    hunter_ta = {
+      lines = {
+        { id = "hta_default", text = "The Rangers of Thendal Grove; then you know the island better than half the Council. The mainland will be strange to you, and none of us yet knows how strange, but keep your eyes as sharp as Thendal taught them and you'll manage." },
+      },
+      choices = {
+        { text = "I'll miss the island's winds.", next = "BACK", fx = { affinity = 1 } },
+        { text = "A strange land is a hunter's best teacher.", next = "BACK", fx = { trait = { brave = 1 } } },
+      },
+    },
+    rogue_ta = {
+      big = true,
+      lines = {
+        { id = "rta_default", text = "There's always a place for quiet, child; the Council simply prefers not to say so out loud. Lorthuna's Al'Aketh were broken once, not ended, and somebody among us had better learn where the rest of them went." },
+      },
+      choices = {
+        { text = "I'll watch the Al'Aketh. Nothing more.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1, learn = { "al_aketh" } } },
+        { text = "If I find them, they won't be a problem.", next = "BACK", fx = { align = { honor = -1 }, learn = { "al_aketh" } } },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_nightclaw", when = { origin = "skyborne_nightclaw" },
+          text = "You came down out of Shadowgale Forest, I'm told, and the Nightclaw don't send their own to the Council's door lightly. Whatever they've taught you, child, keep their secrets; they've kept ours long enough." },
         { id = "h_default", text = "Talaanis Shadowsong, High Elder, by the Council's choice and much against my own. Ask what you need to." },
         { id = "h_alliance", when = { race = "Skyborne", faction = "Alliance" },
           text = "The High Order has gone to the Kirin Tor. Elaadrin Evengale leads them from the Sky Enclave in Dalaran. Go with my blessing, and with your temper in hand." },
@@ -59,6 +96,9 @@ P:NPC {
         { text = "I'm one of the few druids among us.", next = "druid", when = { race = "Skyborne", class = "DRUID" } },
         { text = "The High Order sent me to the Kirin Tor's mages.", next = "mage", when = { race = "Skyborne", class = "MAGE" } },
         { text = "I've passed the Windshaper trials.", next = "shaman", when = { race = "Skyborne", class = "SHAMAN" } },
+        { text = "I trained with the Peacekeepers. Where am I needed?", next = "warrior_ta", when = { race = "Skyborne", class = "WARRIOR" } },
+        { text = "I ranged with the hunters of Thendal Grove.", next = "hunter_ta", when = { race = "Skyborne", class = "HUNTER" } },
+        { text = "I work quietly, Elder. Is there a place for that?", next = "rogue_ta", when = { race = "Skyborne", class = "ROGUE" } },
         { text = "Winds be with you, Elder.", next = "END" },
       },
     },

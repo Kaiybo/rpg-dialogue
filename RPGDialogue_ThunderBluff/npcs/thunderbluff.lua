@@ -48,8 +48,75 @@ P:NPC {
         { text = "Why do you let Magatha live on Elder Rise?", tag = "Persuade", next = "magatha_close",
           check = { pass = { any = { { disposition = { min = 65 } }, { heardLine = "magatha.h_default" }, { race = "Tauren", trait = "kind" } } } },
           fail = { next = "magatha_closed", fx = { affinity = -1 } } },
+        { text = "You spoke for my people before the Warchief. Why?", next = "forsaken", when = { race = "Scourge" } },
+        { text = "I'm Forsaken, chieftain, and I carry the Light.", next = "paladin", when = { race = "Scourge", class = "PALADIN" } },
+        { text = "Hamuul has taught me the druid's way, chieftain.", next = "druid", when = { race = "Tauren", class = "DRUID" } },
+        { text = "I'm a warrior. Teach me how you fought, chieftain.", next = "warrior", when = { class = "WARRIOR" } },
+        { text = "The Earth Mother's spirits answer me now.", next = "shaman", when = { race = "Tauren", class = "SHAMAN" } },
         { text = "Earth Mother keep you, chieftain.", next = "END", fx = { affinity = 1 } },
       },
+      again = {
+        { id = "h_again", text = "What else is on your mind, young one? The wind will wait." },
+        { id = "h_again2", text = "Speak on. An old bull has more time than he lets the council know." },
+      },
+    },
+    forsaken = {
+      big = true,
+      lines = {
+        { id = "fk_default", text = "Because you were made into something you never chose, and you came to us still able to choose. The tauren know what it is to be hunted and homeless, and if there is any way back toward what you lost, I would like the Earth Mother's children to help find it." },
+        { id = "fk_soldier", when = { origin = "forsaken_lordaeron_soldier" },
+          text = "You stood in Lordaeron's ranks once, against orcs, perhaps. And here you are in the Horde's tallest city. The Earth Mother has a long memory and a short grudge, and I try to keep both the same way." },
+      },
+      choices = {
+        { text = "There's no way back. I want only vengeance on the Scourge.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "If there's a cure, I'll take it gladly.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Do the other tribes agree with you?", next = "forsaken_tribes" },
+      },
+    },
+    forsaken_tribes = {
+      lines = { { id = "ft_default", text = "Not all of them, and Magatha least of all, though she offers your people her remedies when it suits her. Some elders say the dead should stay in the earth. I say the earth gave you back, and it's not for an old bull to argue with the earth." } },
+      choices = { { text = "Thank you, chieftain.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    paladin = {
+      lines = { { id = "pa_default", text = "The Light burns you, they say, and you carry it anyway. I don't understand the Light; the tauren never needed it. But I understand a warrior who takes up a burden that hurts him because he thinks it right, and I won't mock you for it." } },
+      choices = {
+        { text = "It's right. That's enough for me.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "It's useful. The pain is a fair price.", next = "BACK", fx = { align = { light = -1 } } },
+      },
+    },
+    druid = {
+      lines = {
+        { id = "dr_default", text = "Then you are what Hamuul worked for, and what twenty generations of our people forgot how to be. When you take the shape of the bear, think of the ones who waited, and walk a little proudly for them." },
+        { id = "dr_pupil", when = { origin = "tauren_hamuul_pupil" },
+          text = "Hamuul speaks of you by name at the council fire, you know. He counts his students the way I count the herds, and he worries over every one of them." },
+      },
+      choices = {
+        { text = "I'll be worthy of them, chieftain.", next = "BACK", fx = { affinity = 3 } },
+        { text = "Why did our people forget?", next = "druid_forgot" },
+      },
+    },
+    druid_forgot = {
+      lines = { { id = "df_default", text = "Wandering does that. When every day is spent running from the centaur, you keep only what keeps you alive, and the deep ways fell away from us. Mulgore gave us the peace to remember." } },
+      choices = { { text = "Then we'll remember.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    warrior = {
+      lines = {
+        { id = "wa_default", text = "With my whole body and no fear of tomorrow, when I was young, and that is how young warriors die. Now I fight like an old bull: I choose the ground, I let them come to me, and I don't stop until it's done." },
+        { id = "wa_orc", when = { race = "Orc" },
+          text = "Your Warchief fought beside me against the centaur, and I've never seen anyone swing a hammer like it. Learn from him before you learn from me." },
+      },
+      choices = {
+        { text = "Choose the ground, then hold it. I'll remember.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Better to strike first, before they choose for you.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
+    },
+    shaman = {
+      lines = {
+        { id = "sh_default", text = "Good, good. The elements and the Earth Mother are not strangers, whatever the orcs' teachers say. Go to the Spirit Rise and sit with the seers; they speak to the spirits of our ancestors, and it will do you good to hear them." },
+        { id = "sh_rise", when = { origin = "tauren_spirit_rise" },
+          text = "A child of the Spirit Rise. The seers there sent word you had the gift before you knew it yourself. Keep listening, young one; they're rarely wrong." },
+      },
+      choices = { { text = "I'll go to the Spirit Rise.", next = "BACK", fx = { affinity = 2 } } },
     },
     magatha_close = {
       lines = {
@@ -75,15 +142,15 @@ P:NPC {
         { id = "m_default", text = "The centaur hunted us across the plains. A young orc named Thrall fought beside us, and when his people found their land, we found ours. We built the Bluff high so we would never be caught in the open again." },
       },
       choices = {
-        { text = "A good home.", next = "END", fx = { affinity = 2 } },
+        { text = "A good home.", next = "BACK", fx = { affinity = 2 } },
         { text = "And you swore to the Horde.", next = "thrall" },
       },
     },
     thrall = {
       lines = { { id = "t_default", text = "He came to us as a stranger and fought for us as kin. A debt like that isn't paid in one lifetime. The Horde has my word, and my word holds." } },
       choices = {
-        { text = "For honor.", next = "END", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "Debts are for paying, not for a lifetime of service.", next = "END", fx = { align = { honor = -1 } } },
+        { text = "For honor.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Debts are for paying, not for a lifetime of service.", next = "BACK", fx = { align = { honor = -1 } } },
       },
     },
   },
@@ -141,7 +208,45 @@ P:NPC {
         { text = "Did Fandral's refusal hurt more than you admit?", tag = "Persuade", next = "fandral_sting",
           check = { pass = { any = { { disposition = { min = 65 } }, { class = "DRUID" }, { heardLine = "fandral.h_default" } } } },
           fail = { next = "fandral_polite", fx = { affinity = -1 } } },
+        { text = "I studied under you, Arch Druid. Am I ready for Moonglade?", next = "pupil", when = { origin = "tauren_hamuul_pupil" } },
+        { text = "I'm a druid of the sky isles. Will the Circle have me?", next = "skyborne", when = { race = "Skyborne", class = "DRUID" } },
+        { text = "The elements speak to me. Is that so different from the wild?", next = "shaman", when = { class = "SHAMAN" } },
+        { text = "Does the wild have any place for my kind?", next = "forsaken", when = { race = "Scourge" } },
         { text = "Farewell, Arch Druid.", next = "END" },
+      },
+      again = {
+        { id = "h_again", text = "What else? Ask, ask; I'm too old to be in a hurry." },
+        { id = "h_again2", text = "Go on. The old ones on the Rise won't mind a little more talk." },
+      },
+    },
+    pupil = {
+      lines = { { id = "pu_default", text = "Ready to go, yes, and not ready to stay, which is as it should be. Moonglade will make you feel small, and the night elves will watch you as though you might stampede. Let them watch, and be calm, and come home and tell me which of them stared hardest." } },
+      choices = {
+        { text = "I'll be calm, Arch Druid.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "If they stare, I'll stare right back.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+      },
+    },
+    skyborne = {
+      lines = { { id = "sk_default", text = "It will, though Fandral will make a face about it, and so will some of mine. You come to the wild through the elements rather than through Elune or the Earth Mother, and I think the Circle could learn something from that, if it's willing." } },
+      choices = {
+        { text = "Then I'll show them, gently.", next = "BACK", fx = { affinity = 2, learn = { "cenarion_circle" } } },
+        { text = "Does it trouble you, the difference?", next = "skyborne_trouble" },
+      },
+    },
+    skyborne_trouble = {
+      lines = { { id = "st_default", text = "Trouble me? I'm a tauren who learned from a night elf. If I worried about druids coming to the wild by the wrong road, I'd have to start with myself." } },
+      choices = { { text = "Ha. Fair enough.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    shaman = {
+      lines = { { id = "sh_default", text = "Less than either of our orders likes to admit. The shaman asks the spirits for help, and the druid tries to become a part of the thing the spirits live in. Both are listening; we simply sit in different places." } },
+      choices = { { text = "Then we're neighbours, Arch Druid.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    forsaken = {
+      big = true,
+      lines = { { id = "fk_default", text = "That is a hard question, and I won't give you an easy answer. The wild is a circle of living and dying, and you stand outside it, but the Chieftain believes you can be brought back in, and I've learned not to bet against him." } },
+      choices = {
+        { text = "Then help me find the way back in.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I don't need your circle, druid.", next = "BACK", fx = { affinity = -2, align = { light = -1 } } },
       },
     },
     fandral_sting = {
@@ -167,11 +272,11 @@ P:NPC {
       lines = {
         { id = "t_default", text = "That the wild isn't something you command; it's something you join. I was the first of my people in twenty generations to hear that, and I mean not to be the last." },
       },
-      choices = { { text = "You won't be.", next = "END", fx = { affinity = 2, learn = { "cenarion_circle" } } } },
+      choices = { { text = "You won't be.", next = "BACK", fx = { affinity = 2, learn = { "cenarion_circle" } } } },
     },
     lesson = {
       lines = { { id = "l_default", text = "Strength without wisdom is only a stampede, and I say it to every young druid. Most nod and a few listen, and you can tell the difference in about ten years." } },
-      choices = { { text = "I'm listening.", next = "END", fx = { affinity = 2, trait = { patient = 1 } } } },
+      choices = { { text = "I'm listening.", next = "BACK", fx = { affinity = 2, trait = { cautious = 1 } } } },
     },
   },
 
@@ -227,24 +332,61 @@ P:NPC {
         { text = "How did you become a druid?", next = "path" },
         { text = "Train me.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "What is the Great Balance?", next = "balance" },
+        { text = "Which form should I learn to trust first?", next = "forms", when = { class = "DRUID" } },
+        { text = "I hunted before I heard the call, like you.", next = "hunter", when = { class = "DRUID", origin = { "tauren_narache_hunter", "tauren_plains_runner" } } },
+        { text = "The sky isles never taught me the Earth Mother.", next = "skyborne", when = { race = "Skyborne", class = "DRUID" } },
+        { text = "I'm a hunter. Is there anything you'd teach me?", next = "hunterclass", when = { class = "HUNTER" } },
         { text = "Farewell.", next = "END" },
       },
+      again = {
+        { id = "h_again", text = "Another question? Good; a druid who asks is a druid who's learning." },
+        { id = "h_again2", text = "Sit a while longer. The Balance can wait for one more question." },
+      },
+    },
+    forms = {
+      big = true,
+      lines = {
+        { id = "fo_default", text = "The bear, because it teaches you to stand your ground, and every druid needs that before anything else. The cat teaches you to move, and the water teaches you to let go, but those come later, when you've learned you can stand." },
+        { id = "fo_skyborne", when = { race = "Skyborne" },
+          text = "For you, perhaps the travel form, since your people seem to dislike standing still on solid ground. But learn the bear anyway; the ground here doesn't move, and you'll need to be as heavy as it is." },
+      },
+      choices = {
+        { text = "The bear first, then. Patience before speed.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "I'd rather be the cat. Speed wins fights.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "And what does the bear ask in return?", next = "forms_ask" },
+      },
+    },
+    forms_ask = {
+      lines = { { id = "fa_default", text = "That you don't stay in it too long. The bear is content and slow and very hard to argue with, and some young druids find they like that more than being themselves. Come back to your own shape each night, and you'll be fine." } },
+      choices = { { text = "I'll come back each night.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } } },
+    },
+    hunter = {
+      lines = { { id = "hu_default", text = "Then you know the moment I told you about, when the hunt turns around and the beast looks back at you. Don't lose the hunter's eye, young one; a druid who can track is twice as useful to the Arch Druid." } },
+      choices = { { text = "I'll keep both eyes open.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    skyborne = {
+      lines = { { id = "sb_default", text = "No, and I won't make you pretend she was there all along. Honor the elements that raised you; the Earth Mother is patient, and she'll be glad of you whenever you find your way to her." } },
+      choices = { { text = "I'd like to learn about her.", next = "BACK", fx = { affinity = 2, learn = { "cenarion_circle" } } } },
+    },
+    hunterclass = {
+      lines = { { id = "hc_default", text = "Only what I learned when I put the bow down: that the beast you're tracking is often tracking you. Jorn Skyseer at Taurajo teaches the rest, and better than I could." } },
+      choices = { { text = "I'll find Jorn.", next = "BACK" } },
     },
     balance = {
       lines = { { id = "b_default", text = "Everything in its place, and everything with a place. When we forget our place, the world reminds us, gently if we're lucky." } },
-      choices = { { text = "Thank you.", next = "END", fx = { affinity = 1, learn = { "cenarion_circle" } } } },
+      choices = { { text = "Thank you.", next = "BACK", fx = { affinity = 1, learn = { "cenarion_circle" } } } },
     },
     path = {
       lines = {
         { id = "p_stag", text = "I hunted, first, and I tracked a stag three days and lost it. On the fourth morning it found me: stood there in the grass, watching, and I put the bow down. Hamuul found me a week later, still sitting there." },
       },
-      choices = { { text = "That's a good story.", next = "END", fx = { affinity = 2 } }, { text = "What did the stag want?", next = "stag" } },
+      choices = { { text = "That's a good story.", next = "BACK", fx = { affinity = 2 } }, { text = "What did the stag want?", next = "stag" } },
     },
     stag = {
       lines = {
         { id = "s_default", text = "I've wondered for years. I think it wanted to see if I'd keep chasing, and I didn't, and that was the lesson." },
       },
-      choices = { { text = "I'll remember it.", next = "END", fx = { affinity = 2, trait = { patient = 1 } } } },
+      choices = { { text = "I'll remember it.", next = "BACK", fx = { affinity = 2, trait = { cautious = 1 } } } },
     },
   },
 
@@ -296,8 +438,46 @@ P:NPC {
       choices = {
         { text = "What do you think of Cairne?", next = "cairne" },
         { text = "What do the Grimtotem want?", next = "want" },
+        { text = "Then let's test it. Whose voice do the elements prefer?", next = "shaman", when = { class = "SHAMAN" } },
+        { text = "What can your ways give back to my people?", next = "forsaken", when = { race = "Scourge" } },
+        { text = "I was born Grimtotem, Elder Crone.", next = "grimtotem", when = { origin = "tauren_grimtotem_born" } },
+        { text = "Hamuul made me a druid. You disapprove.", next = "druid", when = { race = "Tauren", class = "DRUID" } },
         { text = "I'll go.", next = "END" },
       },
+      again = {
+        { id = "h_again", text = "Still here? Then ask, and be quick about it." },
+        { id = "h_again2", text = "Well? I've no time for children who stand about thinking." },
+      },
+    },
+    shaman = {
+      lines = {
+        { id = "sh_default", text = "Ha! Mine, child, because I've been speaking to them since before your grandmother was weaned. But I'll grant you this: a shaman with a spine is rarer up here than one with a gift, and you seem to have both." },
+        { id = "sh_orc", when = { race = "Orc" },
+          text = "An orc shaman, taught by the Warchief's people. The elements were here long before your Warchief, and they'll be here long after him; remember whose land they're speaking for." },
+      },
+      choices = {
+        { text = "The elements speak for no one tribe, Elder.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
+        { text = "Then teach me to make them speak louder.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
+      },
+    },
+    forsaken = {
+      big = true,
+      lines = { { id = "fk_default", text = "A little of what you've lost: the taste of things, the feel of the sun, perhaps, for a while. The old remedies were made for living flesh, but flesh is flesh, and I'm curious to see what they do to yours. Cairne calls it charity, and I let him." } },
+      choices = {
+        { text = "I'll take whatever you can give me.", next = "BACK", fx = { affinity = 2, align = { light = -1 } } },
+        { text = "I won't be your experiment, crone.", next = "BACK", fx = { affinity = -2, align = { light = 1 } } },
+      },
+    },
+    grimtotem = {
+      lines = { { id = "gt_default", text = "I know who you were born to, and I know who you kneel to now. The Grimtotem don't forget, child, but neither do I give up on blood. When Cairne's handshakes run out, you'll know where your people are." } },
+      choices = {
+        { text = "My people are the Horde now.", next = "BACK", fx = { affinity = -2, align = { honor = 1 } } },
+        { text = "I'll remember where they are.", next = "BACK", fx = { affinity = 2, align = { honor = -1 } } },
+      },
+    },
+    druid = {
+      lines = { { id = "dr_default", text = "Disapprove? I find it embarrassing, which is worse. Tauren learning their own land from a night elf's student. Still, you can wear the bear, and the bear was ours before Elune ever heard of it, so wear it proudly and forget who taught you." } },
+      choices = { { text = "I'll never forget who taught me.", next = "BACK", fx = { affinity = -1, trait = { kind = 1 } } } },
     },
     cairne = {
       big = true,
@@ -306,7 +486,7 @@ P:NPC {
       },
       choices = {
         { text = "That's bold.", next = "bold" },
-        { text = "He's a great leader.", next = "END", fx = { affinity = -2 } },
+        { text = "He's a great leader.", next = "BACK", fx = { affinity = -2 } },
       },
     },
     bold = {
@@ -366,12 +546,20 @@ P:NPC {
       choices = {
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "Why 'the Cat and the Shaman'?", next = "name" },
+        { text = "Do the Forsaken ever stay here?", next = "forsaken", when = { race = "Scourge" } },
         { text = "Just resting.", next = "END" },
       },
+      again = {
+        { id = "h_again", text = "Anything else, love? Ask while the stew warms." },
+      },
+    },
+    forsaken = {
+      lines = { { id = "fk_default", text = "Now and then, the apothecaries mostly, on their way to see Magatha. They don't eat my stew, which wounds me, but they sit nearest the fire every time, so I keep a seat there for them. You're welcome to it." } },
+      choices = { { text = "Thank you, Pala.", next = "BACK", fx = { affinity = 2 } } },
     },
     name = {
       lines = { { id = "n_default", text = "Ask three regulars and you'll get three stories, and my favourite has the cat winning. Make up your own; everyone else does." } },
-      choices = { { text = "Ha.", next = "END", fx = { affinity = 1 } } },
+      choices = { { text = "Ha.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 

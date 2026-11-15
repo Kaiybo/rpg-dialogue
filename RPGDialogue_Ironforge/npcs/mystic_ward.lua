@@ -71,6 +71,9 @@ P:NPC {
         { text = "What troubles you, High Priest?", tag = "Persuade", next = "worry",
           check = { pass = { any = { { disposition = { min = 65 } }, { class = "PRIEST" }, { trait = { kind = 3 } } } } },
           fail = { next = "worry_no", fx = { affinity = -1 } } },
+        { text = "I'm a paladin, High Priest. Teach me what the priests know.", next = "paladin", when = { class = "PALADIN" } },
+        { text = "I listen to the earth, High Priest, not the Light.", next = "shaman", when = { race = "Dwarf", class = "SHAMAN" } },
+        { text = "Will you turn me away for the fel, High Priest?", next = "warlock", when = { class = "WARLOCK" } },
         { text = "Light keep you, High Priest.", next = "END" },
       },
     },
@@ -291,6 +294,55 @@ P:NPC {
       },
       choices = {
         { text = "Of course, High Priest.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    paladin = {
+      lines = {
+        { id = "xpa_default", text = "That ye cannae strike a man and heal him in the same breath an' mean both, so pick which one he needs before ye swing. Brandur teaches ye the hammer, an' I'd like ye tae leave this Hall knowin' when tae put it down." },
+        { id = "xpa_dwarf", when = { race = "Dwarf" },
+          text = "That a dwarf's temper an' a paladin's zeal make a fine fire an' a poor judge. Half the paladins in this Hall learned that the hard way, an' I'd spare ye the hard way if I can." },
+      },
+      choices = {
+        { text = "Judgment is part of the oath, High Priest.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Mercy comes first. The hammer waits.", next = "BACK", fx = { align = { light = 1 }, affinity = 2 } },
+        { text = "When should the hammer stay down?", next = "paladin_when" },
+      },
+    },
+    paladin_when = {
+      lines = {
+        { id = "pw_default", text = "When yer enemy's on his knees an' yer anger's still on its feet. If ye notice that ye want tae swing more than ye need tae, ye've yer answer." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } } },
+    },
+    shaman = {
+      big = true,
+      lines = {
+        { id = "sh_default", text = "An' ye came into the Hall o' Mysteries tae say so, which is either very brave or very rude, an' I'll take it as brave. Half my priests are fumin' about the dwarves takin' up the old ways, but I'd sooner ye listened tae somethin' than nothin'." },
+        { id = "sh_acolyte", when = { origin = "dwarf_mystic_acolyte" },
+          text = "Ye served in this very Hall as a young one, I remember the face, an' now ye've gone an' found a different voice. I'm no' angry, lad or lass, only curious what it said that we didnae." },
+      },
+      choices = {
+        { text = "The Light came from outside. The earth was always ours.", next = "BACK", fx = { align = { light = -1 }, affinity = -1 } },
+        { text = "There's room in the mountain for both.", next = "BACK", fx = { align = { light = 1 }, affinity = 2 } },
+        { text = "Why are your priests so angry?", next = "shaman_angry" },
+      },
+    },
+    shaman_angry = {
+      lines = {
+        { id = "sa_default", text = "Because the humans brought us the Light only a generation ago, an' it took a fair bit o' convincin' tae make dwarves believe in somethin' they couldnae hit wi' a hammer. Now some feel the mountain's callin' its own back, an' they're afraid." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    warlock = {
+      lines = {
+        { id = "wl_default", text = "I've never turned anyone away from this floor, an' I'll no' start wi' ye. But I'll say what I'd say tae my own: the thing ye bargain wi' keeps better books than ye do, an' one day it'll show ye the ledger." },
+        { id = "wl_gnome", when = { race = "Gnome" },
+          text = "Turn ye away? I've tended gnomes since the day they came up the tunnels coughin', an' ye're no different for what ye carry. But the thing ye bargain wi' keeps better books than ye do." },
+      },
+      choices = {
+        { text = "I keep my own ledger, High Priest.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Pray for me, then. I'll need it.", next = "BACK", fx = { align = { light = 1 }, affinity = 2 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -644,6 +696,8 @@ P:NPC {
         { text = "How did you come to the Light?", next = "came" },
         { text = "Brandur speaks highly of you.", next = "brandur" },
         { text = "I've earned my oaths, Tiza.", next = "oath", when = { class = "PALADIN" } },
+        { text = "My family's carried the Silver Hand since the Second War.", next = "hand", when = { race = "Dwarf", class = "PALADIN" } },
+        { text = "I'm no paladin, but I'd stand with one.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Light keep you.", next = "END" },
       },
     },
@@ -734,6 +788,27 @@ P:NPC {
         { text = "I've been too busy fighting to count.", next = "BACK", fx = { align = { honor = -1 }, affinity = -1 } },
       },
     },
+    hand = {
+      lines = {
+        { id = "hd_default", text = "Then ye've heard the old stories at supper, about Uther comin' tae the Ward wi' his recruiters an' the first dwarves takin' the oath. The Hand's been broken since, but a broken order's still an order, as long as some of us keep it." },
+        { id = "hd_origin", when = { origin = "dwarf_silver_hand" },
+          text = "Aye, I know yer family's name; it was on the rolls when I took my own oath, two lines above mine. Ye've big boots tae fill, an' I've no doubt ye'll fill them, but dinnae rush it." },
+      },
+      choices = {
+        { text = "The Hand will rise again.", next = "BACK", fx = { align = { order = 1 }, affinity = 2 } },
+        { text = "The Hand's gone. We're paladins on our own now.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    warrior = {
+      lines = {
+        { id = "wa_default", text = "That's a gift, an' I mean it; half o' what a paladin is, is knowin' who'll stand wi' ye. My husband an' Narm Faulk stood together against the Dark Irons at Helm's Bed Lake, an' it's the only reason either o' them came home." },
+      },
+      choices = {
+        { text = "Who's Narm Faulk?", next = "husband_narm" },
+        { text = "Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
   },
 
   topics = {
@@ -793,6 +868,7 @@ P:NPC {
         { text = "Tell me about Narm.", next = "narm" },
         { text = "Are you badly hurt?", next = "hurt" },
         { text = "Let me pray over those wounds.", next = "pray", when = { class = "PRIEST" } },
+        { text = "Tell me how to fight the Dark Irons, Muiredon.", next = "fight", when = { class = { "WARRIOR", "PALADIN", "HUNTER" } } },
         { text = "Mend well, Muiredon.", next = "END" },
       },
     },
@@ -868,6 +944,18 @@ P:NPC {
       },
       choices = { { text = "Your secret's safe.", next = "BACK", fx = { affinity = 1 } } },
     },
+    fight = {
+      lines = {
+        { id = "fi_default", text = "Ha! Don't let them pick the ground, for they always pick ground ye cannae see the end of. An' when one o' them starts chantin' fire, hit him first, because it's always the chanter that gets ye." },
+        { id = "fi_paladin", when = { class = "PALADIN" },
+          text = "Don't let them pick the ground, an' don't stop tae heal me if I'm lyin' in it, which is a lesson Tiza's still angry I learned. Hit the chanters first; it's always the chanter that gets ye." },
+      },
+      choices = {
+        { text = "Hit first, ask questions later. I like it.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "I'll give them a fair fight anyway.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -914,6 +1002,8 @@ P:NPC {
           text = "Off to see Tabetha, are we? Her cottage is west of Theramore, past the Stonemaul ruins, and take friends, because Tabetha's errands tend to end in Zul'Farrak." },
         { id = "h_mage_high", when = { class = "MAGE", minLevel = 40 },
           text = "Look at you, all grown up and crackling! There's a colleague of mine in Dustwallow Marsh, Tabetha, who's quarrelling with a troll down in Zul'Farrak, and you might be just the mage to help her win it." },
+        { id = "h_gnome_mage", when = { race = "Gnome", class = "MAGE" },
+          text = "Oh, another one of us! Every gnome mage who walks into this Hall makes the list a little longer, and I do like a longer list. What can I do for you?" },
       },
       again = {
         { id = "h_again", text = "What else? Quickly, before the frost melts." },
@@ -924,6 +1014,9 @@ P:NPC {
         { text = "Why should I befriend a mage?", next = "friend" },
         { text = "Who's Tabetha?", next = "tabetha", when = { class = "MAGE", minLevel = 35 } },
         { text = "What's it like, gnome mages in a dwarven temple?", next = "hall" },
+        { text = "What should I study next, Bink?", next = "study", when = { class = "MAGE" } },
+        { text = "I studied in the Mage Quarter of Stormwind.", next = "quarter", when = { race = "Human", class = "MAGE" } },
+        { text = "I'd have made a fine mage, once.", next = "lock", when = { class = "WARLOCK" } },
         { text = "Farewell, Bink.", next = "END" },
       },
     },
@@ -962,6 +1055,48 @@ P:NPC {
       choices = {
         { text = "Faith and study belong under one roof.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
         { text = "A temple is no place for fireballs.", next = "BACK", fx = { align = { order = 1 } } },
+      },
+    },
+    study = {
+      lines = {
+        { id = "st_default", text = "Frost, fire or the arcane itself, and everyone tells you to pick one, but I say learn all three until one of them likes you back. Fire likes nearly everyone, which is why I recommend sand." },
+        { id = "st_last", when = { origin = "gnome_last_student" },
+          text = "Oh, you're the one with the satchel from the old lecture halls! I'd study whatever's in that satchel first, because some of those notes are older than the Kirin Tor's copies, and I'd very much like to borrow them." },
+      },
+      choices = {
+        { text = "Fire, then. Quick and certain.", next = "BACK", fx = { align = { order = -1 }, trait = { brave = 1 } } },
+        { text = "Frost. Control first, then everything else.", next = "BACK", fx = { align = { order = 1 }, trait = { cautious = 1 } } },
+        { text = "What does the arcane offer?", next = "study_arcane" },
+      },
+    },
+    study_arcane = {
+      lines = {
+        { id = "sa_default", text = "Everything, and a headache with it! The arcane is magic with nothing added, so it's the hardest to learn and the easiest to get wrong, which is why Dalaran loves it and Ironforge keeps it at arm's length." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
+    },
+    quarter = {
+      lines = {
+        { id = "qu_default", text = "The Mage Quarter, with the towers and the violet lamps! I visited once and got lost for a day, and I'm told that's how they teach first-years. How do you find our Hall, compared?" },
+        { id = "qu_origin", when = { origin = "human_mage_quarter" },
+          text = "Grew up under those violet lamps, did you? Then you'll find us very cramped and very loud, and I hope you'll find us good company too, because we're trying." },
+      },
+      choices = {
+        { text = "Your Hall's warmer, Bink.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Stormwind's towers teach more discipline.", next = "BACK", fx = { align = { order = 1 }, affinity = -1 } },
+        { text = "Here, nobody minds the odd explosion.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+      },
+    },
+    lock = {
+      lines = {
+        { id = "lk_default", text = "I don't doubt it, and it's a shame, if you'll let me say so. The difference between us is only where the power comes from, but that's the difference between a stove and a house fire." },
+        { id = "lk_gnome", when = { race = "Gnome" },
+          text = "I don't doubt it, and I think I know which stacks you were reading in after Gnomeregan; we all did, a little. I stopped, and you didn't, and I'm not sure which of us was braver." },
+      },
+      choices = {
+        { text = "A stove is too slow for what's coming.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll take care not to burn the house.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },
@@ -1014,6 +1149,8 @@ P:NPC {
         { text = "Train me.", next = "BUSINESS", when = { class = "MAGE", minLevel = 40 } },
         { text = "How does a portal work?", next = "how" },
         { text = "What happens to a careless portal?", next = "careless" },
+        { text = "Why must I wait for portals?", next = "wait", when = { class = "MAGE", maxLevel = 39 } },
+        { text = "The Kirin Tor brought my people to Dalaran.", next = "sky", when = { race = "Skyborne", class = "MAGE" } },
         { text = "Good day, then.", next = "END" },
       },
     },
@@ -1041,6 +1178,27 @@ P:NPC {
         { id = "cb_default", text = "Just the boots, thank goodness, though he did walk home along the tram in his stockings. I tell every student that story, and they all laugh, and then they all check their feet." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    wait = {
+      lines = {
+        { id = "wa_default", text = "Because a portal holds two places at once, and at your present stage you can barely hold one. Come back when your teleports stop arriving a foot above the floor, and then we'll talk." },
+        { id = "wa_gnome", when = { race = "Gnome" },
+          text = "Because a portal holds two places at once, and you are presently still learning to hold one, however clever you are. A foot above the floor is a long way for a gnome to fall, so practice your teleports first." },
+      },
+      choices = {
+        { text = "I'm readier than you think, Milstaff.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll be patient and practice.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+      },
+    },
+    sky = {
+      lines = {
+        { id = "sk_default", text = "So I'm told, to the Sky Enclave, and the Kirin Tor are very pleased with themselves about it. I'd like to know how a people folds an island into the Plane of Air, but I suspect you'd like to know that too." },
+      },
+      choices = {
+        { text = "The winds did it, not us.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Our magisters were masters of more than portals.", next = "BACK", fx = { affinity = -1 } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 

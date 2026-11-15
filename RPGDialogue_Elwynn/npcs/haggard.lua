@@ -45,6 +45,8 @@ P:NPC {
           text = "You've a soldier's stance, but you're heavy on the back foot. Shift forward a touch... there, now you're harder to knock down." },
         { id = "h_burlguard", tags = { "news" }, when = { questActive = TODO_QUEST("Marshal Haggard") },
           text = "Burlguard, is that you? No, it isn't; walking up like that, I took you for a gnoll. So Burlguard sent you, did he? Come closer." },
+        { id = "h_woodsman", when = { origin = "human_eastvale_woodsman" },
+          text = "That voice. You're one of the Eastvale woodsfolk who used to bring wolf pelts to the logging camp, aren't you? Grown, and with a bow; my eyes can't see you, but my ears remember." },
       },
       again = {
         { id = "h_again", text = "If you're still there, speak up, will you?" },

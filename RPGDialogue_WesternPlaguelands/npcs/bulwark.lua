@@ -58,6 +58,8 @@ P:NPC {
         { text = "You don't think much of Undercity's politics.", next = "politics" },
         { text = "We both serve the Dark Lady, Executor.", next = "forsaken", when = { race = "Scourge" } },
         { text = "Do the Forsaken truly trust the living here?", next = "living", when = { race = { "Orc", "Tauren", "Troll" } } },
+        { text = "Our warlocks could turn the dead on the Crusade.", next = "x_warlock", when = { class = "WARLOCK" } },
+        { text = "I prefer a knife in the dark to a banner.", next = "x_rogue", when = { class = "ROGUE" } },
         { text = "Send me east.", next = "END", fx = { affinity = 1, standing = { bulwark = 1 } } },
       },
     },
@@ -144,6 +146,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    x_warlock = {
+      lines = {
+        { id = "xw_default", text = "They could, and some of them are already trying, which pleases me rather more than it pleases the Dawn's officers at the gate. I care what works, warlock; bring me a demon that will burn a Scarlet camp, and I'll find it a place on the wall." },
+      },
+      choices = {
+        { text = "Then I'll set the Crusade burning.", next = "BACK", fx = { affinity = 2, align = { honor = -1 } } },
+        { text = "Some weapons cost more than they're worth, Executor.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_rogue = {
+      lines = {
+        { id = "xr_default", text = "So do I, and so does the Dark Lady, whatever the politicians in Undercity like to pretend. Set the Crusade and the Scourge at each other's throats and walk away clean, and you'll have done more for this wall than a regiment." },
+        { id = "xr_stalker", when = { origin = "forsaken_deathstalker_recruit" }, text = "A deathstalker, or near enough to one. Good, because the Bulwark has too many soldiers and nowhere near enough knives." },
+      },
+      choices = {
+        { text = "Let them kill each other. I'll watch from the trees.", next = "BACK", fx = { affinity = 2, align = { honor = -1 } } },
+        { text = "I'd rather face them than trick them.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -204,6 +227,7 @@ P:NPC {
         { text = "How do the samples help?", next = "samples" },
         { text = "What do you make of Derrington?", next = "derrington" },
         { text = "I'm a priest too. Does the shadow cost much?", next = "priest", when = { class = "PRIEST" } },
+        { text = "The Earth Mother's light isn't like yours.", next = "x_tauren", when = { race = "Tauren" } },
         { text = "I'll fetch your samples.", next = "END", fx = { affinity = 1, standing = { bulwark = 1 }, learn = { "plague_cauldrons" } } },
       },
     },
@@ -251,6 +275,16 @@ P:NPC {
       choices = {
         { text = "I still trust the Light.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "I'll remember that.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+      },
+    },
+    x_tauren = {
+      lines = {
+        { id = "xt_default", text = "Nobody's light is like mine, tauren, which is rather the point of shadow. Your Earth Mother hasn't come to the Plaguelands that I've noticed, so until she does, I'll keep using what works." },
+      },
+      choices = {
+        { text = "She's here, in whatever's left of the land.", next = "BACK", fx = { affinity = -1, align = { light = 1 } } },
+        { text = "Use what works, then. I won't judge.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },
@@ -315,6 +349,7 @@ P:NPC {
         { text = "Tell me about this key.", next = "key" },
         { text = "How's the knee?", next = "knee" },
         { text = "What's in your quickener?", next = "alch", when = { profession = "Alchemy" } },
+        { text = "My knee aches too, Apothecary.", next = "x_forsaken", when = { race = "Scourge" } },
         { text = "I'll gather what you need.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -362,6 +397,15 @@ P:NPC {
         { id = "al_default", text = "Ah, a fellow professional, but I'm afraid the Society would have my other knee if I told you. Let's say it's mostly very angry arcane powder, and leave it there." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    x_forsaken = {
+      lines = {
+        { id = "xf_default", text = "Does it? Splendid, I mean, how dreadful, but splendid for science, because I've been trying to prove the ache is a weather sense and nobody will lend me their knee. Which one is it, left or right, and does it go off before rain or before wind?" },
+      },
+      choices = {
+        { text = "The left, and always before wind.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } },
+        { text = "My knees are my own business.", next = "BACK", fx = { affinity = -1 } },
+      },
     },
   },
 
@@ -425,6 +469,7 @@ P:NPC {
         { text = "What's in it for me?", next = "pay" },
         { text = "What was your family like?", next = "family" },
         { text = "We were both freed by the Dark Lady.", next = "forsaken", when = { race = "Scourge" } },
+        { text = "I could take care of Weldon for you.", next = "x_rogue", when = { class = "ROGUE" } },
         { text = "I'll look for the deeds.", next = "END", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "I won't do a Barov's dirty work, living or dead.", next = "END", fx = { affinity = -1, align = { honor = 1 } } },
       },
@@ -495,6 +540,16 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    x_rogue = {
+      lines = {
+        { id = "xr_default", text = "Could you? How refreshing, a guttersnipe with initiative. But no, I want the deeds first and my brother second, and I want to see his face when he understands which order it went in." },
+      },
+      choices = {
+        { text = "Deeds first, then. Your coin, your order.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I don't kill on command, Barov.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -555,6 +610,7 @@ P:NPC {
         { text = "You write to an Alliance officer?", next = "pureheart" },
         { text = "I'm Alliance. Am I welcome here?", next = "alliance", when = { faction = "Alliance" } },
         { text = "Does the Horde not need you more?", next = "orc", when = { race = "Orc" } },
+        { text = "Can the spirits even be heard here, Garush?", next = "x_shaman", when = { class = "SHAMAN" } },
         { text = "I'll bring you stones.", next = "END", fx = { affinity = 1, learn = { "argent_dawn" } } },
       },
     },
@@ -612,6 +668,15 @@ P:NPC {
       choices = {
         { text = "Lok'tar, then.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "Orgrimmar's right, and the Forsaken can bury their own dead.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_shaman = {
+      lines = {
+        { id = "xs_default", text = "The shamans who pass through the Bulwark say the spirits here mutter like a sick old wolf, and some days they can't be heard at all over the plague. They fight anyway, and that's all the Dawn asks of anyone." },
+      },
+      choices = {
+        { text = "The spirits will wake again when the plague is burned.", next = "BACK", fx = { affinity = 2 } },
         { text = "Something else.", next = "BACK" },
       },
     },

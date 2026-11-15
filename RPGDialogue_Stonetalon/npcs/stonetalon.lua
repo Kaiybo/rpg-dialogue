@@ -19,6 +19,8 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_troll", cat = "race", when = { race = "Troll" },
+      text = "A Darkspear up here, where the wind could knock you off the rock. Your people's witch doctor down at Malaka'jin keeps strange company, so mind you don't catch it." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "You've been bloodied. Good; it means you fought. Now mend, and fight smarter." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
@@ -27,6 +29,47 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    warrior_mg = {
+      lines = {
+        { id = "wmg_default", text = "Windshear Crag, where the Bloodfury nest, and the Webwinder Path, where the spiders take whoever the harpies miss. I lost my patience for small fights long ago, warrior, so take the big ones and leave the small ones to the braves." },
+        { id = "wmg_grunt", when = { origin = "orc_razor_hill_grunt" },
+          text = "A Razor Hill grunt, a long way up a mountain. Orgrimmar trains its grunts to hold a gate; up here there are no gates, only cliffs, and the harpies come at you from every one of them." },
+      },
+      choices = {
+        { text = "The big ones, then. I'll start with the Ripper.", next = "BACK", fx = { align = { honor = 1 }, trait = { brave = 1 } } },
+        { text = "I'll pick them off where they're weakest.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
+    },
+    shaman_mg = {
+      lines = {
+        { id = "smg_default", text = "Not to me; I'm a warrior, whatever my name says, and the spirits stopped talking to me when I stopped listening. The wind up here is kind to my old wounds, though, and I suppose that is the spirits' way of speaking to someone too stubborn to hear." },
+        { id = "smg_rise", when = { origin = "tauren_spirit_rise" },
+          text = "You stood at the Spirit Rise and they answered you, I can see it in how you carry the totems. Then ask the wind about the Charred Vale, because it was screaming the night the fires came, and I've never known why." },
+      },
+      choices = {
+        { text = "The wind here is restless. Something hurts it.", next = "shaman_mg2" },
+        { text = "Something else, Maggran.", next = "BACK" },
+      },
+    },
+    shaman_mg2 = {
+      lines = {
+        { id = "smg2_default", text = "The Venture Company's saws and the goblins' fires, most likely, and the harpies on top of it. If you can soothe what's angry up here, do it; I'd sooner have the spirits on our side than one more brave." },
+      },
+      choices = {
+        { text = "The spirits ask for balance, not for sides.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll ask them to stand with Sun Rock.", next = "BACK", fx = { align = { order = 1 }, affinity = 2 } },
+      },
+    },
+    forsaken_mg = {
+      big = true,
+      lines = {
+        { id = "fmg_default", text = "Then you and I have both lost something we can't get back, though I'd say you lost more of it. Cairne sent me here to heal; I don't know who sends your kind anywhere to heal, or whether you would go." },
+      },
+      choices = {
+        { text = "Some of us would. If there were anywhere.", next = "BACK", fx = { align = { light = 1 }, affinity = 2 } },
+        { text = "Healing's for the living. I want my due.", next = "BACK", fx = { align = { light = -1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -54,6 +97,9 @@ P:NPC {
         { text = "The Ripper is dead. How do you feel?", next = "after", when = { questDone = TODO_QUEST("Bloodfury Bloodline") } },
         { text = "Cairne sent you here. Why?", next = "cairne", when = { race = "Tauren" } },
         { text = "I'll help hold Sun Rock.", next = "END", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "I'm a warrior. Put me where the harpies hit hardest.", next = "warrior_mg", when = { class = "WARRIOR" } },
+        { text = "Do the spirits of this mountain speak to you?", next = "shaman_mg", when = { class = "SHAMAN" } },
+        { text = "I was gentle once too, before I died.", next = "forsaken_mg", when = { race = "Scourge" } },
         { text = "Sun Rock can hold itself. I have my own road.", next = "END", fx = { align = { honor = -1 } } },
       },
     },
@@ -213,6 +259,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    shaman_ta = {
+      lines = {
+        { id = "sta_default", text = "I thought so, though I've only the dirt under my nails to tell me. If you could ask them to be patient a little longer, I'd be grateful, because these shoots need a spring without the ground shaking under them." },
+      },
+      choices = {
+        { text = "I'll speak for your garden.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "The spirits don't take requests, Tammra.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Tammra Windfield, and I tend what grows on Sun Rock and try to bring back what doesn't. Every mountain can heal, given time and stubbornness." },
@@ -235,6 +290,7 @@ P:NPC {
         { text = "How is your niece?", next = "kaya", when = { questDone = TODO_QUEST("Kaya's Alive") } },
         { text = "I'm a druid. Could I help the shoots along?", next = "druid", when = { class = "DRUID" } },
         { text = "Did the seeds take, in the Charred Vale?", next = "future", when = { questDone = TODO_QUEST("New Life") } },
+        { text = "The earth spirits here are angry. I can feel it.", next = "shaman_ta", when = { class = "SHAMAN" } },
         { text = "Good luck with your garden.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -362,6 +418,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    forsaken_b = {
+      lines = {
+        { id = "fb_default", text = "Did you? Then you remember what it felt like to cast in a city that wanted you to, and you'll understand why this mountain makes me furious. Every spell up here leaks like a bucket full of holes, and the druids like it that way." },
+        { id = "fb_dal", when = { origin = "forsaken_dalaran_apprentice" },
+          text = "An apprentice of the Violet Citadel, walking about with a jaw that doesn't quite close. The Kirin Tor would have you burned, and I would have you help me, which is the better offer." },
+      },
+      choices = {
+        { text = "Magic should flow freely. I'll help you.", next = "BACK", fx = { align = { order = -1 }, affinity = 2 } },
+        { text = "The druids have their reasons. I won't kill them for it.", next = "BACK", fx = { align = { order = 1 }, affinity = -1 } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -385,6 +452,7 @@ P:NPC {
         { text = "Jaedenar? That's the Shadow Council's hold.", next = "council", when = { class = "WARLOCK" } },
         { text = "You knew Ordanus. What was he to you?", next = "ordanus", when = { any = { { questActive = TODO_QUEST("Ordanus") }, { questDone = TODO_QUEST("Ordanus") } } } },
         { text = "I'm a druid. You're speaking of my order.", next = "druid", when = { class = "DRUID" } },
+        { text = "I studied in Dalaran, before I died.", next = "forsaken_b", when = { race = "Scourge", class = "MAGE" } },
         { text = "I'll think about it.", next = "END" },
       },
     },
@@ -513,6 +581,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    warlock_j = {
+      big = true,
+      lines = {
+        { id = "wj_default", text = "Ah, so you be one of dose. Jin'Zil keep elves in cages and boil dere eyes, so I ain't gonna lecture you, but the loa know who you talk to, nephew, and dey don't forget it." },
+        { id = "wj_voice", when = { origin = "troll_other_voice" },
+          text = "Dat other voice been with you since you were small, eh? Some witch doctors say send it back, some say make it work for you, and Jin'Zil say find out what it want before it find out what you want." },
+      },
+      choices = {
+        { text = "The loa had their chance. I'll use what answers.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll keep the voice on a short leash.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -535,6 +616,7 @@ P:NPC {
         { text = "What do the spirits tell you?", next = "spirits" },
         { text = "What became of the elves in the cages?", next = "after", when = { questDone = TODO_QUEST("Jin'Zil's Forest Magic") } },
         { text = "The Echo Isles send their greetings, uncle.", next = "troll", when = { race = "Troll" } },
+        { text = "I hear another voice when I cast, uncle. Not the loa.", next = "warlock_j", when = { race = "Troll", class = "WARLOCK" } },
         { text = "I'll be going.", next = "END" },
       },
     },
@@ -739,6 +821,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    tauren_al = {
+      lines = {
+        { id = "tal_default", text = "And I return them, gladly. Malfurion chose well when he taught your people, whatever the Archdruid in Darnassus says about it, and this grove has seen tauren druids walk its paths with more care than some of my own kind." },
+        { id = "tal_pupil", when = { origin = "tauren_hamuul_pupil" },
+          text = "You learned at Hamuul's own fire? Then you'll know his patience, and you'll need it here, for the vale won't heal for any of us in a single season." },
+      },
+      choices = {
+        { text = "The Circle should be one, whatever its races.", next = "BACK", fx = { align = { order = 1 }, affinity = 2 } },
+        { text = "My people walk their own path, Keeper.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
+    sky_al = {
+      lines = {
+        { id = "sal_default", text = "I've heard there were druids among the sky-folk, and that they lean to the winds more than to Elune. You're welcome in this grove, though I'll admit you're the first of your people I've ever spoken to, and I'm curious what the wind tells you about the vale." },
+      },
+      choices = {
+        { text = "It tells me the fire isn't finished.", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "Very little. The winds here are strangers.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -762,6 +864,8 @@ P:NPC {
         { text = "Have humans ever come up here before?", next = "human", when = { race = "Human" } },
         { text = "Can the Light heal burned land?", next = "priest", when = { class = "PRIEST" } },
         { text = "I'll help the grove.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Hamuul Runetotem sends his respects, Keeper.", next = "tauren_al", when = { race = "Tauren", class = "DRUID" } },
+        { text = "My people's druids honour the Circle too.", next = "sky_al", when = { race = "Skyborne", class = "DRUID" } },
         { text = "The vale's already burned, and I've no time for trees.", next = "END", fx = { align = { light = -1 } } },
       },
     },

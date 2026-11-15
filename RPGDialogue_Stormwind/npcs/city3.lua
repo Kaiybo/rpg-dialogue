@@ -493,6 +493,8 @@ P:NPC {
           text = "Half my guards could use a priest, and the other half need a better excuse than the one they gave the Captain." },
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "Oh, thank the Light, it's you. You're the one person in this city I'm actually glad to see coming down those stairs." },
+        { id = "h_canals", when = { origin = "human_canal_pickpocket" },
+          text = "I know your face from the canal sweeps, years back; you were too small to keep and too quick to catch. Don't make me regret letting you go, please, not this week." },
       },
       again = {
         { id = "h_again", text = "Yes, what else? Be quick about it, please." },
@@ -503,6 +505,7 @@ P:NPC {
         { text = "Who do you keep down there?", next = "cells" },
         { text = "Who was Thredd's visitor?", next = "visitor", when = { questDone = TODO_QUEST("The Stockade Riots") } },
         { text = "Your prisoners could use a priest.", next = "priest", when = { class = "PRIEST" } },
+        { text = "I've seen the inside of a cell or two, Warden.", next = "rogue", when = { class = "ROGUE" } },
         { text = "I'll be discreet.", next = "END", fx = { affinity = 2 } },
       },
     },
@@ -586,6 +589,17 @@ P:NPC {
         { text = "Fine. Something else.", next = "BACK" },
         { text = "I'll leave it for now.", next = "BACK" },
       },
+    },
+    rogue = {
+      lines = { { id = "rogue_l", text = "Not mine, I hope, or I'd have to write a report about how you got out. Which locks, if you don't mind my asking, purely so I can change them?" } },
+      choices = {
+        { text = "The north block. The hinges are rusted.", next = "rogue2", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "A rogue never tells, Warden.", next = "rogue2", fx = { align = { honor = -1 }, trait = { witty = 1 } } },
+      },
+    },
+    rogue2 = {
+      lines = { { id = "rogue2_l", text = "Lovely. Wonderful. I'll add it to the list of things I can't afford to fix and can't tell the Captain about." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 

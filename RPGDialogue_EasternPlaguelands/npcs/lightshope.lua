@@ -49,6 +49,8 @@ P:NPC {
         { text = "My training ended when the Hand broke apart.", next = "squire", when = { origin = "human_paladin_squire" } },
         { text = "Gregor Greystone in Everlook sends his regards.", next = "gregor", when = { heardLine = "gregor.h_default" } },
         { text = "What does the Dawn need from a healer?", next = "priest_dawn", when = { class = "PRIEST" } },
+        { text = "Will the Dawn take a warlock's help?", next = "x_warlock", when = { class = "WARLOCK" } },
+        { text = "Ironforge sends you little, my lord. I came anyway.", next = "x_dwarf", when = { race = "Dwarf" } },
         { text = "How can I help?", next = "END", fx = { affinity = 2, standing = { light_hope = 1 } } },
       },
     },
@@ -142,6 +144,26 @@ P:NPC {
       },
       choices = { { text = "Fair enough.", next = "BACK" } },
     },
+    x_warlock = {
+      lines = {
+        { id = "xw_default", text = "The Dawn will take help from anyone who stands against the Scourge and keeps their word, which is the very reason I left the Silver Hand when it stopped believing that. I ask only that you keep your demons outside these walls; this chapel has seen enough of things that do not belong here." },
+      },
+      choices = {
+        { text = "My demons stay outside. You have my word.", next = "BACK", fx = { affinity = 2, align = { honor = 1 }, standing = { light_hope = 1 } } },
+        { text = "What I bring with me is my own affair, my lord.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_dwarf = {
+      lines = {
+        { id = "xd_default", text = "Ironforge has its own wars under the mountain, and I don't fault the dwarves who stayed; I honor the ones who came. Some of the steadiest guards on this wall have beards to their belts, and they curse the cold in a way I've come to find almost comforting." },
+        { id = "xd_hand", when = { origin = "dwarf_silver_hand" }, text = "You trained with the Silver Hand, before it broke apart? Then you'll find more of your old order in this chapel than in all of the Crusade's halls, though fewer of us than I would like." },
+      },
+      choices = {
+        { text = "Where do you need me, my lord?", next = "BACK", fx = { affinity = 1 } },
+        { text = "I came for the Scourge, not for the Dawn.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+      },
+    },
   },
 
   topics = {
@@ -198,6 +220,7 @@ P:NPC {
         { text = "Why the Dawn, and not the Banshee Queen?", next = "why" },
         { text = "Who is Ras Frostwhisper?", next = "ras" },
         { text = "We're the same, you and I.", next = "forsaken", when = { race = "Scourge" } },
+        { text = "The Light answers me too, Revered.", next = "x_paladin", when = { race = "Scourge", class = "PALADIN" } },
         { text = "I'd like to help the Dawn, if you'll have me.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "I'll work with the dead when I must, but I won't trust them.", next = "END", fx = { align = { light = -1 } } },
       },
@@ -229,6 +252,16 @@ P:NPC {
       choices = {
         { text = "I'll choose well.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
         { text = "I'll choose what keeps me standing, and kindness rarely does.", next = "BACK", fx = { align = { light = -1 } } },
+      },
+    },
+    x_paladin = {
+      lines = {
+        { id = "xp_default", text = "Then we are two of a strange kind, you and I, and I am glad of the company. The living will tell you it should not be possible, and some mornings I think they are right, but the warmth comes anyway, and I have stopped asking it why." },
+      },
+      choices = {
+        { text = "The Light judges what we do, not what we are.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Perhaps it isn't the Light that answers us.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },

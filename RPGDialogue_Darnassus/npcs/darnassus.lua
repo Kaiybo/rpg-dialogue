@@ -41,6 +41,57 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    mage_t = {
+      big = true,
+      lines = {
+        { id = "mt_default", text = "Then you study the thing that broke the world. The Highborne drank from the Well until the sea swallowed Zin-Azshari, and my people swore that power off for ten thousand years, so forgive me if I watch your hands while you speak." },
+        { id = "mt_sky", when = { race = "Skyborne", class = "MAGE" },
+          text = "Your forebears in Eldre'Thalas kept that magic when the rest of us put it down. I don't hold you to account for their prince, but I can't pretend I'm glad to see the arcane in Elune's house." },
+      },
+      choices = {
+        { text = "Magic is a tool, High Priestess. Pride was their sin.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Your caution is earned. Some power should stay sealed.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "What became of the Highborne who survived?", next = "mage_t2" },
+      },
+    },
+    mage_t2 = {
+      lines = {
+        { id = "mt2_default", text = "Those who would not give up the arcane were sent across the sea, and in time they became the high elves of Quel'Thalas. Your Kirin Tor has known their children well; I have not spoken with one in a very long while, and I've not missed it." },
+      },
+      choices = {
+        { text = "Exile seems harsh for studying magic.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "Something else, High Priestess.", next = "BACK" },
+      },
+    },
+    warrior_t = {
+      big = true,
+      lines = {
+        { id = "wt_default", text = "In Ashenvale, at Astranaar, where the Warsong push further into the forest every season. My Sentinels hold the trees, but every blade that stands with them buys a grove another year." },
+        { id = "wt_watch", when = { origin = "nightelf_auberdine_watch" },
+          text = "You stood the watch at Auberdine, I'm told, so you've already seen what Darkshore is becoming. Then you know why I want blades on that shore as badly as I want them in Ashenvale." },
+      },
+      choices = {
+        { text = "Meet the Warsong in the open and break them.", next = "BACK", fx = { align = { honor = 1 }, trait = { brave = 1 } } },
+        { text = "Strike their camps by night. Let them fear the dark.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Why so few warriors among the kaldorei?", next = "warrior_t2" },
+      },
+    },
+    warrior_t2 = {
+      lines = {
+        { id = "wt2_default", text = "For ten thousand years our men slept in the Dream as druids and our women stood guard as Sentinels, and the sword was left to the few who chose it. Now the druids sleep less and the borders are wider, and I am glad of every one who chooses it." },
+      },
+      choices = { { text = "Then I chose well. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    dwarf_t = {
+      lines = {
+        { id = "dwt_default", text = "It troubles my Sentinels more than it troubles me. Your diggers are careful, mostly, and they ask before they open a barrow, mostly, but some of what lies under Darkshore was buried for a reason, and I'd rather they heard that from me than learned it with a shovel." },
+      },
+      choices = {
+        { text = "Old ruins should teach the living. Let them dig.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The dead's ground should stay closed.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -77,6 +128,9 @@ P:NPC {
         { text = "How can I serve the Temple, High Priestess?", next = "sister", when = { class = "PRIEST", race = "NightElf" } },
         { text = "Should I heed the Archdruid?", next = "druid", when = { class = "DRUID" } },
         { text = "My people left Eldre'Thalas long ago.", next = "eldre", when = { race = "Skyborne" } },
+        { text = "I study the arcane, High Priestess.", next = "mage_t", when = { class = "MAGE" } },
+        { text = "I fight with a blade. Where am I needed?", next = "warrior_t", when = { class = "WARRIOR" } },
+        { text = "The Explorers' League digs your ruins in Darkshore.", next = "dwarf_t", when = { race = "Dwarf" } },
         { text = "Elune be with you.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -328,6 +382,8 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_mage", cat = "class", when = { class = "MAGE" },
+      text = "A mage in the Enclave. Touch nothing that is growing, and nothing that is not; I would rather not find out which you'd ruin first." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren", class = "DRUID" },
       text = "A tauren druid; Malfurion's generosity, still walking about. I will not pretend I ever agreed with it." },
     { id = "n_skyborne", cat = "race", when = { race = "Skyborne", class = "DRUID" },
@@ -338,6 +394,52 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    hunter_f = {
+      lines = {
+        { id = "hf_default", text = "Everyone keeps the balance these days, if you ask them. A hunter takes from the forest and a druid becomes it, so do not mistake the one for the other in my Enclave." },
+        { id = "hf_saber", when = { origin = "nightelf_nightsaber_rider" },
+          text = "A nightsaber rider, yes, I can tell by the scratches. The cats are the forest's own, and they choose their riders more carefully than the Temple chooses its priestesses." },
+      },
+      choices = {
+        { text = "Taking and giving are both part of the balance.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A druid's way is higher. I accept that.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Something else, Archdruid.", next = "BACK" },
+      },
+    },
+    mage_f = {
+      big = true,
+      lines = {
+        { id = "mf_default", text = "Faster, yes, which is exactly what the Highborne said before every disaster they ever made. Druids grew Teldrassil and druids will tend it, so keep your spells off its bark." },
+      },
+      choices = {
+        { text = "You grew it without the dragons' blessing. You're no purer.", next = "mage_f2", fx = { align = { order = -1 }, affinity = -2 } },
+        { text = "Then the tree is the Circle's to tend.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mage_f2 = {
+      lines = {
+        { id = "mf2_default", text = "How dare you. The dragons were asked and they dithered, and while they dithered my people slept on bare ground, so I gave them a home. Get out of my sight before I remember you are a guest." },
+      },
+      choices = { { text = "I'll go.", next = "END" } },
+    },
+    warlock_f = {
+      big = true,
+      lines = {
+        { id = "wf_default", text = "You have seen it because you carry it. Felwood was a forest of the Circle once, and the masters of your craft rotted it to the root, so tell me why I should let you stand under my tree." },
+      },
+      choices = {
+        { text = "I'll carry it to burn the demons out.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'm learning how to put it down.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Can Felwood be cleansed?", next = "warlock_f2" },
+      },
+    },
+    warlock_f2 = {
+      lines = {
+        { id = "wf2_default", text = "The Circle has druids at Emerald Sanctuary trying, and they are braver than they are successful. A forest is slow to heal and quick to forget who wounded it, so it will outlive both of us before it trusts anyone again." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -372,6 +474,9 @@ P:NPC {
           when = { class = "PRIEST", ["not"] = { race = "NightElf" } } },
         { text = "Teach me, Archdruid.", next = "kin", when = { class = "DRUID", race = "NightElf" } },
         { text = "My people's druids honour the winds.", next = "sky", when = { class = "DRUID", race = "Skyborne" } },
+        { text = "My nightsaber and I keep the balance too, Archdruid.", next = "hunter_f", when = { class = "HUNTER" } },
+        { text = "The arcane could heal this tree faster.", next = "mage_f", when = { class = "MAGE" } },
+        { text = "I've seen what the fel does to a forest.", next = "warlock_f", when = { class = "WARLOCK" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -544,6 +649,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    claw_w = {
+      lines = {
+        { id = "cw_default", text = "You hold the line with a shield you can put down, and we hold it with a body we have to remember to take off. Some of the first Druids of the Claw forgot how, long ago, which is why I teach the heart before the claws." },
+      },
+      choices = {
+        { text = "Could a warrior learn that kind of calm?", next = "claw_w2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    claw_w2 = {
+      lines = {
+        { id = "cw2_default", text = "The good ones already have it, the ones who can stop swinging when the fight is done. Watch yourself after a battle and see how long your hands shake; that is your rage telling you how much of you it owns." },
+      },
+      choices = {
+        { text = "My rage serves me, not the other way.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd rather let it run and ride it.", next = "BACK", fx = { align = { order = -1 }, trait = { brave = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Mathrengyl Bearwalker. I train the druids of the Enclave. Once I stood at the Archdruid's side; now I stand with the young ones, which suits me better." },
@@ -572,6 +695,7 @@ P:NPC {
         { text = "You serve the Archdruid?", next = "second" },
         { text = "What's wrong in Auberdine?", next = "auberdine" },
         { text = "What can a priest learn from a druid?", next = "healers", when = { class = "PRIEST" } },
+        { text = "Bear and warrior both stand in front. What's the difference?", next = "claw_w", when = { class = "WARRIOR" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -656,6 +780,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    gnome_a = {
+      lines = {
+        { id = "ga_default", text = "You carry it with you, little star; you look up at the branches as if you were checking for the ceiling. My people lost our home too, when the Well fell, and I can tell you the moon finds you wherever you end up." },
+      },
+      choices = {
+        { text = "We'll take Gnomeregan back one day.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+        { text = "Thank you, Priestess.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am A'moora, a priestess of the Sisterhood, and I tend the Temple's pool and those who come to it. Most come tired, and I try to send them out less so." },
@@ -681,6 +814,7 @@ P:NPC {
         { text = "Who was Lady Sathrah?", next = "sathrah" },
         { text = "Does Elune hear a priest of the Light?", next = "light",
           when = { class = "PRIEST", ["not"] = { race = "NightElf" } } },
+        { text = "I'm a long way from Gnomeregan, Priestess.", next = "gnome_a", when = { race = "Gnome" } },
         { text = "Thank you, Priestess.", next = "END" },
       },
     },
@@ -784,6 +918,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    hunter_g = {
+      lines = {
+        { id = "hg_default", text = "Then tell me this, hunter: did one ever run from you? Wolves scatter when the leader falls and boars bolt when they're hurt, but I've never once read of a silithid turning back, and that frightens me more than the mandibles." },
+      },
+      choices = {
+        { text = "No. They kept coming, every one of them.", next = "hunter_g2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hunter_g2 = {
+      lines = {
+        { id = "hg2_default", text = "As I feared. Something behind them gives the orders, somewhere deeper than Feralas or Tanaris, and a creature that doesn't fear for itself is only a hand on someone else's arm. I'd give a great deal to know whose." },
+      },
+      choices = { { text = "I'll keep my eyes open.", next = "BACK", fx = { trait = { curious = 1 } } } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Gracina Spiritmight, priestess and scholar. I study the creatures that belong to this world alone. Lately, the ones that don't seem to belong to it at all." },
@@ -808,6 +957,7 @@ P:NPC {
         { text = "What are the silithid?", next = "silithid" },
         { text = "I carried that report. What now?", next = "silithid_done", when = { questDone = TODO_QUEST("Rise of the Silithid") } },
         { text = "A priestess who studies insects?", next = "priest_g", when = { class = "PRIEST" } },
+        { text = "I've tracked beasts across Kalimdor. These insects too.", next = "hunter_g", when = { class = "HUNTER" } },
         { text = "Good luck with your studies.", next = "END" },
       },
     },

@@ -483,6 +483,8 @@ P:NPC {
           text = "You've met Renzik. He talks about himself in the third person and I talk about myself as little as possible, and between us the door's well minded." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "This is my hour. The city's asleep and the alleys are honest about what they are, which is more than the day can say." },
+        { id = "h_canals", when = { origin = "human_canal_pickpocket" },
+          text = "I know you; you were the canal brat who lifted a sergeant's purse off his belt in broad daylight, and I was the one who told Shaw to let it go. Don't make a liar of me, now." },
       },
       again = {
         { id = "h_again", text = "Anything else? Quietly, now." },
@@ -494,6 +496,11 @@ P:NPC {
         { text = "What's behind that door?", next = "door" },
         { text = "Who's Lord Ravenholdt?", next = "ravenholdt", when = { class = "ROGUE", minLevel = 50 } },
         { text = "Do you trust the people you train?", next = "trust" },
+        { text = "What should I be practising?", next = "practise", when = { class = "ROGUE" } },
+        { text = "The Defias pay better than SI:7, I hear.", next = "defias_pay", when = { class = "ROGUE" } },
+        { text = "Ironforge taught me a smuggler's tricks. Any use here?", next = "dwarf_rogue", when = { race = "Dwarf", class = "ROGUE" } },
+        { text = "A gnome can go where your people can't.", next = "gnome_rogue", when = { race = "Gnome", class = "ROGUE" } },
+        { text = "What do you make of the other trainers in the city?", next = "others" },
         { text = "I'll be going.", next = "END" },
       },
     },
@@ -552,6 +559,59 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    practise = {
+      lines = {
+        { id = "practise_l", text = "Standing still. Every new rogue wants to learn to move, and the ones who live learn to wait in a doorway for an hour without fidgeting. After that, poisons, and after that, patience again." },
+        { id = "practise_old", when = { minLevel = 40 },
+          text = "You've the hands already; now practise your exits. Every room you walk into, find two ways out before you find the mark, and if there's only one, you're the mark." },
+      },
+      choices = {
+        { text = "An hour in a doorway? Surely not.", next = "practise_door" },
+        { text = "I'll practise until nobody sees me.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
+      },
+    },
+    practise_door = {
+      lines = { { id = "practise_door_l", text = "Two, some nights, and I've stood in this one longer than that. The fidgeters get noticed, and the noticed get a visit from someone like me." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    defias_pay = {
+      big = true,
+      lines = { { id = "defias_pay_l", text = "They do, at first, in coin they took off a farmer's corpse. VanCleef pays everyone well right up to the day he needs someone to hang for him, and that day always comes." } },
+      choices = {
+        { text = "Coin is coin, wherever it comes from.", next = "BACK", fx = { align = { honor = -2 }, affinity = -1 } },
+        { text = "I'll not take a dead farmer's coin.", next = "BACK", fx = { affinity = 1, align = { honor = 2 } } },
+        { text = "Why did VanCleef turn?", next = "defias_why" },
+      },
+    },
+    defias_why = {
+      lines = { { id = "defias_why_l", text = "Ask the nobles who never paid the Stonemasons, or ask Shaw, who knew him. I only know that a man with a grievance and a talent is the most dangerous thing in this city.", fx = { learn = { "defias" } } } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    dwarf_rogue = {
+      lines = { { id = "dwarf_rogue_l", text = "More than you'd think. A smuggler knows which guards look at cargo and which look at faces, and that's half of what I teach. Just remember the Watch here doesn't take its bribes in ale." } },
+      choices = {
+        { text = "Then what does it take them in?", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "I've left that life behind.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    gnome_rogue = {
+      lines = { { id = "gnome_rogue_l", text = "Under tables, through vents and into the gaps between the crates. I've watched gnomes clear a warehouse while the guards were looking for someone tall, and I'd be a fool not to use that." } },
+      choices = {
+        { text = "So long as you don't call me small.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "Use it, then.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    others = {
+      lines = { { id = "others_l", text = "The Cathedral's lot are honest, which makes them easy to read, and the mages think we're beneath them, which makes them easy to rob. The ones under the Slaughtered Lamb, I watch, and so does everyone behind this door." } },
+      choices = {
+        { text = "And the warriors' hall?", next = "others_warriors" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    others_warriors = {
+      lines = { { id = "others_warriors_l", text = "Wu Shen and his lot drill by daylight and drink by night, a few doors down, and they think a rogue is a warrior who's lost his nerve. I let them think it; it's cheaper than correcting them." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
   },
 
   topics = {
@@ -609,6 +669,7 @@ P:NPC {
         { text = "What does a shady dealer sell?", next = "wares" },
         { text = "Why keep quiet from my elf friend?", next = "alba",
           when = { any = { { questActive = TODO_QUEST("Detonation at a Distance") }, { questDone = TODO_QUEST("Detonation at a Distance") } } } },
+        { text = "Want a gnome to look over that powder?", next = "gnome", when = { race = "Gnome" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -650,6 +711,17 @@ P:NPC {
     alba = {
       lines = { { id = "a_default", text = "Because your kaldorei friend in Westfall has her own people to answer to, and SI:7 prefers not to appear in anyone's reports but its own. Tell her an engineer helped you, which is true." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    gnome = {
+      lines = { { id = "gnome_l", text = "A gnome offering to check my explosives, and I'm meant to feel safer? Go on, then, but if you start humming while you work, I'm leaving the room." } },
+      choices = {
+        { text = "Your fuses are too short, by the way.", next = "gnome2" },
+        { text = "On second thought, I like my eyebrows.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    gnome2 = {
+      lines = { { id = "gnome2_l", text = "Too short? I'll have a word with my supplier, quietly, and you'll forget you ever saw the crate. SI:7 appreciates a sharp eye, even one at belt height." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 

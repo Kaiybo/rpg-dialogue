@@ -58,6 +58,10 @@ P:NPC {
         { text = "I've seen the ruins of Alterac.", next = "alterac_seen", when = { questDone = TODO_QUEST("Crushridge Warmongers") } },
         { text = "I'm doing Lieutenant Orinelle's murloc work.", next = "errand", when = { questActive = TODO_QUEST("Farren's Proof") } },
         { text = "I'll help.", next = "BUSINESS", fx = { affinity = 2, standing = { southshore = 1 } } },
+        { text = "Your militia needs drilling, Marshal. I can do it.", next = "xwarrior", when = { class = "WARRIOR" } },
+        { text = "I've been hunting in the Alterac foothills.", next = "xhunter", when = { class = "HUNTER" } },
+        { text = "The Stormpike are digging into Alterac, I hear.", next = "xdwarf", when = { race = "Dwarf" } },
+        { text = "My people came to Dalaran from the sky.", next = "xskyborne", when = { race = "Skyborne" } },
         { text = "Good day, Marshal.", next = "END" },
       },
     },
@@ -239,6 +243,49 @@ P:NPC {
         { text = "Fair enough.", next = "BACK" },
       },
     },
+    xwarrior = {
+      big = true,
+      lines = {
+        { id = "xwa_default", text = "It does, and it's had nobody but me to do it since the war, and I'm a headman, not a sergeant. Half of them are fishermen who hold a spear like an oar, and the other half are Stormwind's grandchildren who think a spear is a story." },
+      },
+      choices = {
+        { text = "Then they'll learn the way soldiers learn: by rote.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, standing = { southshore = 1 } } },
+        { text = "Fishermen with oars fight dirty. Let them.", next = "BACK", fx = { affinity = 1, align = { order = -1 }, trait = { witty = 1 } } },
+        { text = "How many can actually fight?", next = "xwarrior_count" },
+      },
+    },
+    xwarrior_count = {
+      lines = { { id = "xwc_default", text = "Forty I'd trust on the wall, and another forty who'd try. Against Tarren Mill that's not enough, so I don't say the number aloud in the inn." } },
+      choices = {
+        { text = "I won't say it either.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
+        { text = "Something else, Marshal.", next = "BACK" },
+      },
+    },
+    xhunter = {
+      lines = {
+        { id = "xhu_default", text = "Then you've seen the Crushridge fires and you've had the sense to stay downwind of them. Ogres I can hold off, but the lions keep taking Malvew's horses, and he'll talk your ear off about it." },
+        { id = "xhu_human", when = { race = "Human" },
+          text = "A Stormwind {g:lad|lass} with a bow and a beast at heel; my grandfather would have called you a ranger and asked where your elves were. Times change, and you're welcome to the hills." },
+      },
+      choices = {
+        { text = "Who's Malvew?", next = "town_people" },
+        { text = "I'll thin the lions.", next = "BACK", fx = { affinity = 1, standing = { southshore = 1 } } },
+      },
+    },
+    xdwarf = {
+      lines = { { id = "xdw_default", text = "So I hear, and I hear the Frostwolves don't care for it either. I'll take any dwarf with a hammer who wants to stand between us and the mountains, Stormpike or Wildhammer or Ironforge; I'm not particular." } },
+      choices = {
+        { text = "The Frostwolves are orcs. Ask me again what I think.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "What's in the mountains that frightens you?", next = "crushridge" },
+      },
+    },
+    xskyborne = {
+      lines = { { id = "xsk_default", text = "From the sky, as if it were Menethil! Southshore's had Stormwind's refugees and Dalaran's wizards and Alterac's ghosts, so I suppose we'll get used to elves falling out of the clouds as well." } },
+      choices = {
+        { text = "We didn't fall. We came looking.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "You've a welcoming town, Marshal.", next = "BACK", fx = { affinity = 2 } },
+      },
+    },
   },
 
   topics = {
@@ -310,6 +357,7 @@ P:NPC {
         { text = "I could get inside the Syndicate for you.", next = "rogue", when = { class = "ROGUE" } },
         { text = "My family knew some of the Alterac houses.", next = "noble", when = { origin = "human_minor_noble" } },
         { text = "Baron Vardus is dead.", next = "vardus", when = { questDone = TODO_QUEST("Baron's Demise") } },
+        { text = "I could make the Syndicate fear the shadows.", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "Good day, Magistrate.", next = "END" },
       },
     },
@@ -410,6 +458,15 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2, standing = { southshore = 2 } } } },
     },
+    xwarlock = {
+      big = true,
+      lines = { { id = "xwl_default", text = "I'm sure you could, and I'm sure Southshore would never sleep again either. I'm a magistrate, not a general, but even I know you don't put out one fire by lighting a bigger one." } },
+      choices = {
+        { text = "Sometimes a bigger fire is the only cure.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "Then I'll do it with a sword instead.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Something else, Magistrate.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -475,6 +532,7 @@ P:NPC {
         { text = "A soldier shouldn't hide in an inn, Lieutenant.", next = "push", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "Major Samuelson read your report.", next = "reassign", when = { questDone = TODO_QUEST("Reassignment") } },
         { text = "Fine, I'll deal with the murlocs.", next = "BUSINESS", fx = { affinity = 1 } },
+        { text = "The naga were kaldorei once.", next = "xnightelf", when = { race = "NightElf" } },
         { text = "I'll leave you to your chair.", next = "END" },
       },
     },
@@ -601,6 +659,13 @@ P:NPC {
         { text = "Have it your way, Lieutenant.", next = "BACK" },
       },
     },
+    xnightelf = {
+      lines = { { id = "xne_default", text = "Were they? Light, I'd rather not have known that. I've been telling myself they were some sort of fish with ambitions, and now I'll have to think of them as your cousins every time one comes up the shore." } },
+      choices = {
+        { text = "Not cousins. Traitors.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "Think of them as fish. It helps.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+      },
+    },
   },
 
   topics = {
@@ -648,6 +713,8 @@ P:NPC {
           text = "Foggy paid up, hic! In moonshine, which is the only coin he's got, an' the best one." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Night shift in the cellar, hic. The casks talk at night, ye know, an' mostly they say 'more'." },
+        { id = "h_xsilverhand", when = { origin = "dwarf_silver_hand" },
+          text = "Ye've the look o' a dwarf who knelt before Uther, same as I did, hic, an' ye're still sober, which is more than I can say. Sit doon, brother, an' don't tell the others what I used to be." },
       },
       again = {
         { id = "h_again", text = "Hic. What else, {g:lad|lass}?" },

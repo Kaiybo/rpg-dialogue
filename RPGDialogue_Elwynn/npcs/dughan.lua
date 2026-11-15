@@ -68,6 +68,8 @@ P:NPC {
           text = "Ah, you. Pull up that crate, because you're one of the few people who walks into this office and makes my day shorter instead of longer." },
         { id = "h_cold", when = { disposition = { max = 34 } },
           text = "I've a desk full of trouble already, and I'm told some of it has your name on it. What do you want?" },
+        { id = "h_woodsman", when = { origin = "human_eastvale_woodsman" },
+          text = "An Eastvale woodsman with a bow on his back instead of an axe. Marshal Haggard says you lot can track a wolf across bare rock, so I've a gnoll problem you might like." },
       },
       again = {
         { id = "h_again", text = "What else? The desk isn't getting any emptier." },
@@ -85,6 +87,10 @@ P:NPC {
         { text = "I'm from Westfall. Nobody came for us.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
         { text = "My family has a name in the city.", next = "noble", when = { origin = "human_minor_noble" } },
         { text = "I could say words for the footmen you lost.", next = "footmen", when = { class = "PRIEST", questDone = TODO_QUEST("Discover Rolf's Fate") } },
+        { text = "I've a sword, Marshal. You said take a job.", next = "warrior", when = { class = "WARRIOR" } },
+        { text = "I can track Hogger's gnolls for you.", next = "hunter", when = { class = "HUNTER" } },
+        { text = "The Defias move like trained thieves, Marshal.", next = "rogue", when = { class = "ROGUE" } },
+        { text = "Do dwarves turn up in Goldshire much, Marshal?", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Good day, Marshal.", next = "END" },
       },
     },
@@ -308,6 +314,57 @@ P:NPC {
         { text = "I'm no priest, Marshal, and prayers won't bring them back.", next = "BACK", fx = { align = { light = -2 } } },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    warrior = {
+      lines = {
+        { id = "warrior_l", text = "I did, and I meant it. The posters by the door are the jobs: murlocs east, kobolds in the mines, gnolls west and Hogger worst of all, and every one of them pays in coin and in Goldshire sleeping easier." },
+        { id = "warrior_guard", when = { origin = "human_city_guard" },
+          text = "City Watch, weren't you? You've the walk. Then you know how a posting works: the posters by the door are the jobs, and every one of them pays in coin and in Goldshire sleeping easier." },
+      },
+      choices = {
+        { text = "Which one's the worst?", next = "warrior_worst" },
+        { text = "I'll take them in order, Marshal.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll take whichever pays best.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
+    warrior_worst = {
+      lines = { { id = "warrior_worst_l", text = "Hogger, and don't go at him alone; I've buried two who thought a sword and a temper were enough. Bring a friend with a prayer, or come back taller." } },
+      choices = { { text = "Something else, Marshal.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+    },
+    hunter = {
+      lines = {
+        { id = "hunter_l", text = "Can you, now? The Riverpaw move at night and leave the forest floor looking like a herd of pigs went through it, so any fool can follow them; the trick is knowing where they'll be tomorrow." },
+        { id = "hunter_human", when = { race = "Human" },
+          text = "A human with a bow and a beast; Eastvale breeds a few of you, I suppose. The Riverpaw leave a trail any fool can follow, so the trick is knowing where they'll be tomorrow." },
+      },
+      choices = {
+        { text = "They'll be near water. Gnolls always are.", next = "hunter2", fx = { trait = { curious = 1 } } },
+        { text = "I'll find out and report back.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    hunter2 = {
+      lines = { { id = "hunter2_l", text = "The river by the Brackwell farm, then, and the old camp at Forest's Edge. If you're right, I'll owe you a drink, and if you're wrong, take a number." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    rogue = {
+      big = true,
+      lines = { { id = "rogue_l", text = "Trained thieves are still thieves, and that's what I tell Goldshire, because a town that thinks an army's coming stops planting. You'd know how a thief moves, I suppose, so I'll ask you to keep the rest to yourself." } },
+      choices = {
+        { text = "Goldshire deserves the truth.", next = "BACK", fx = { affinity = -1, align = { honor = 2 } } },
+        { text = "Keeping folk calm is wise. I'll keep quiet.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "What do you really make of them?", next = "defias" },
+      },
+    },
+    dwarf = {
+      lines = { { id = "dwarf_l", text = "Now and then, on the way to the city with a cart full of Ironforge steel. They drink Farley out of ale and pay without arguing, which makes them the best guests in Elwynn." } },
+      choices = {
+        { text = "Any trouble with them?", next = "dwarf2" },
+        { text = "Something else, Marshal.", next = "BACK" },
+      },
+    },
+    dwarf2 = {
+      lines = { { id = "dwarf2_l", text = "Once, over a song, and the song started it. If you want work, the Jasperlode and Fargodeep mines are full of kobolds, and a dwarf knows a mine better than any footman I've got." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 

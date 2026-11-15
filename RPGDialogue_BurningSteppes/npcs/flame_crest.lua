@@ -54,6 +54,9 @@ P:NPC {
         { text = "Maxwell calls you a coward.", next = "coward", when = { heardLine = "maxwell.wc_default" } },
         { text = "Pour me one, cousin.", next = "dwarf_drink", when = { race = "Dwarf" } },
         { text = "Why does an Alliance dwarf drink with the Horde's goblins?", next = "neutral", when = { faction = "Horde" } },
+        { text = "Running was the smart play, John. I'd have done the same.", next = "k_rogue", when = { class = "ROGUE" } },
+        { text = "Those Blackrock orcs aren't my Horde, dwarf.", next = "k_orc", when = { race = "Orc" } },
+        { text = "Is your milk for the living or the dead, John?", next = "k_scourge", when = { race = "Scourge" } },
         { text = "I'll leave you to your cask.", next = "END" },
       },
     },
@@ -213,6 +216,35 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    k_rogue = {
+      big = true,
+      lines = {
+        { id = "xro_default", text = "Would ye, now? *hic* Then ye're either honest or a liar, an' I cannae tell which from here. Maxwell says I ran, an' ye say I was smart, an' I've been in this cave a long while decidin' which o' ye's right." },
+      },
+      choices = {
+        { text = "Dead men carry no warnings. You did right.", next = "BACK", fx = { align = { honor = -1 }, affinity = 2 } },
+        { text = "Smart, maybe. Still running, though.", next = "BACK", fx = { align = { honor = 1 }, affinity = -1 } },
+        { text = "What did you see before you ran?", next = "st1" },
+      },
+    },
+    k_orc = {
+      lines = {
+        { id = "xor_default", text = "No, they're no', an' that's the only reason I let ye in the cave. Thrall's lot drink their grog an' mind their manners round Flame Crest, an' Rend's lot set fire tae anythin' that moves, so I can tell ye apart, mostly by the smell o' burnin'." },
+      },
+      choices = {
+        { text = "Then drink with me, dwarf. Truce.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Mostly? Watch your tongue.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
+      },
+    },
+    k_scourge = {
+      lines = {
+        { id = "xsc_default", text = "Ha! For the livin', mostly, but I'll pour ye a cup an' we'll see what it does tae a dead man. *hic* Ye've no' got a stomach left tae burn, so ye might be the only one in the Steppes who can drink it straight." },
+      },
+      choices = {
+        { text = "Pour it. I've drunk worse in the Undercity.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
+        { text = "I'll pass. Some of us still have standards.", next = "BACK", fx = { affinity = -1, trait = { witty = 1 } } },
+      },
+    },
   },
 
   topics = {
@@ -276,6 +308,7 @@ P:NPC {
         { text = "Why live in a cave beside a volcano?", next = "cave" },
         { text = "I can read old scripts, if you need a scribe.", next = "scholar", when = { class = { "MAGE", "PRIEST" } } },
         { text = "The Royal Historian told me about Thaurissan.", next = "archesonus", when = { heardLine = "archesonus.t_default" } },
+        { text = "The Seven's sorcery interests me, Maxwort. Professionally.", next = "k_lock", when = { class = "WARLOCK" } },
         { text = "Good hunting, Maxwort.", next = "END" },
       },
     },
@@ -337,6 +370,16 @@ P:NPC {
       choices = {
         { text = "She said the accounts all stop at the blast.", next = "BACK", fx = { affinity = 1 } },
         { text = "I'm not telling you.", next = "BACK", fx = { affinity = -1, trait = { witty = 1 } } },
+      },
+    },
+    k_lock = {
+      lines = {
+        { id = "xlk_default", text = "Professionally! Now that's a word I like, my friend, because professionals pay for what they want and don't ask silly questions about the price. The Seven called up something big under that mountain, and you can bet they wrote down how." },
+      },
+      choices = {
+        { text = "Find me the tablet and name your price.", next = "BACK", fx = { align = { light = -1 }, affinity = 2 } },
+        { text = "Whatever they called up, I want it kept down.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Who were the Seven?", next = "seven" },
       },
     },
   },
@@ -405,6 +448,7 @@ P:NPC {
         { text = "Who's Felnok Steelspring?", next = "felnok" },
         { text = "Can I see your schematics?", next = "engineer", when = { profession = "Engineering" } },
         { text = "Leonid told me who your patron really serves.", next = "leonid", when = { questDone = TODO_QUEST("Leonid Barthalomew") } },
+        { text = "Could a hunter tame one of those whelps?", next = "k_hunter", when = { class = "HUNTER" } },
         { text = "Good luck with the dragons.", next = "END" },
       },
     },
@@ -482,6 +526,15 @@ P:NPC {
         { text = "Curiosity's no crime. Study what you like and ignore the paymasters.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
+    k_hunter = {
+      lines = {
+        { id = "xhu_default", text = "Tame one! Oh, I'd love to see you try, and I'd write it all down, every scream. A black whelp has a dragon's temper in a dog's body, and I've lost three gloves and a very good hat learning that much." },
+      },
+      choices = {
+        { text = "Some beasts aren't meant to be tamed.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
+        { text = "Every beast can be tamed, with patience.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+      },
+    },
   },
 
   topics = {
@@ -541,6 +594,7 @@ P:NPC {
         { text = "Tell me about Ribbly.", next = "ribbly" },
         { text = "Your sister Yorba says hello.", next = "yorba", when = { questDone = TODO_QUEST("Yuka Screwspigot") } },
         { text = "Got anything an engineer can't find elsewhere?", next = "engineer", when = { profession = "Engineering" } },
+        { text = "I could find Ribbly for you. Quietly.", next = "k_rogue", when = { class = "ROGUE" } },
         { text = "Goodbye, Yuka.", next = "END" },
       },
     },
@@ -592,6 +646,16 @@ P:NPC {
       choices = {
         { text = "Show me.", next = "BUSINESS" },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    k_rogue = {
+      lines = {
+        { id = "xro_default", text = "Quietly's how you'd have to do it, because he's down in the Depths with the Dark Irons and a price on his head big enough to buy this shop twice. Family's family, but a bounty's a bounty, and I haven't decided which I like better." },
+      },
+      choices = {
+        { text = "Family first, Yuka.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Take the bounty. He'd do the same.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "Tell me about Ribbly.", next = "ribbly" },
       },
     },
   },
@@ -650,6 +714,7 @@ P:NPC {
         { text = "Who's Bijou?", next = "bijou" },
         { text = "What would you give for my companion?", next = "hunter", when = { class = "HUNTER" } },
         { text = "A druid could teach you a thing about beasts.", next = "druid", when = { class = "DRUID" } },
+        { text = "Would your rich clients buy an imp?", next = "k_lock", when = { class = "WARLOCK" } },
         { text = "Goodbye, Kibler.", next = "END" },
       },
     },
@@ -709,6 +774,15 @@ P:NPC {
       lines = { { id = "dr_default", text = "I'm sure you could, but could you teach a spider to sit? No? Then we're both still learning, and I'll stick to cages." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
+    k_lock = {
+      lines = {
+        { id = "xlk_default", text = "An imp? Pal, I sold a worg pup to a baron who cried when it chewed his boots, so I know my market, and my market doesn't want something that sets the drapes on fire and laughs about it. Keep your little friend on a short leash near my cages, would you?" },
+      },
+      choices = {
+        { text = "My imp behaves better than your worgs.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "I'll keep it close. Your animals don't deserve that.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+      },
+    },
   },
 
   topics = {
@@ -765,6 +839,8 @@ P:NPC {
         { text = "Teach me what your master knew.", next = "mage", when = { class = "MAGE" } },
         { text = "The Light could ease that hunger.", next = "priest", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Your people brought this on themselves.", next = "kaldorei", when = { race = "NightElf" } },
+        { text = "My people are Highborne too, from Eldre'Thalas.", next = "k_sky", when = { race = "Skyborne" } },
+        { text = "I know that hunger. Mine comes from the Nether.", next = "k_lock", when = { class = "WARLOCK" } },
         { text = "I'll leave you.", next = "END" },
       },
     },
@@ -830,6 +906,26 @@ P:NPC {
     kaldorei = {
       lines = { { id = "k_default", text = "Perhaps we did. And perhaps you'll find, on a cold night far from your moon, that every people pays for its gifts sooner or later." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { skeptical = 1 } } } },
+    },
+    k_sky = {
+      big = true,
+      lines = {
+        { id = "xsk_default", text = "Eldre'Thalas. My master died there, in the place they call Dire Maul now, and you tell me your ancestors walked its halls when they were whole. Forgive me if I stare; I have met very few elves since Quel'Thalas burned who were not mourning something." },
+      },
+      choices = {
+        { text = "We mourn too. Our winds fell silent.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Your hunger is what drove my people away.", next = "BACK", fx = { align = { light = 1 }, affinity = -2 } },
+        { text = "Magic is our birthright. Take what you need.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
+      },
+    },
+    k_lock = {
+      lines = {
+        { id = "xlk_default", text = "Then you know nothing of it, for mine is a thirst and yours is a bargain. I drink what the librams give and pay for it in my own hands shaking, while you pay in something you will not see the bill for until the end." },
+      },
+      choices = {
+        { text = "At least I chose my price.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Perhaps neither of us should be drinking.", next = "BACK", fx = { align = { light = 1 }, affinity = -1 } },
+      },
     },
   },
 

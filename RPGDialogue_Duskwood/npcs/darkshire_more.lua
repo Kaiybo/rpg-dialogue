@@ -58,6 +58,7 @@ P:NPC {
         { text = "What does your family actually do?", next = "family" },
         { text = "You speak of walking under the Light.", next = "light", when = { class = "PRIEST" } },
         { text = "About the hermit you sent me to...", next = "hermit_after", when = { questDone = TODO_QUEST("Translation to Ello") } },
+        { text = "I walk under the Light too, with a hammer.", next = "paladin", when = { class = "PALADIN" } },
         { text = "I'll keep my eyes open.", next = "END", fx = { standing = { darkshire = 1 } } },
       },
     },
@@ -171,6 +172,13 @@ P:NPC {
       },
       choices = { { text = "I will.", next = "BACK", fx = { trait = { pious = 1 } } } },
     },
+    paladin = {
+      lines = { { id = "pa_default", text = "Then walk it out to the Yorgen farm sometime, because the folk out there haven't seen a friendly face in a month. A hammer's welcome, but it's the walking that matters most." } },
+      choices = {
+        { text = "I'll walk it.", next = "BACK", fx = { affinity = 2, standing = { darkshire = 1 } } },
+        { text = "Who's out there?", next = "sven" },
+      },
+    },
   },
 
   topics = {
@@ -233,6 +241,7 @@ P:NPC {
         { text = "Why does Darkshire supply Nethergarde?", next = "why" },
         { text = "Do you answer to the Night Watch?", next = "watch" },
         { text = "I've walked that road. It's worse than you say.", next = "veteran", when = { questDone = TODO_QUEST("Supplies for Nethergarde") } },
+        { text = "Nethergarde's mages. What do they need so badly?", next = "mage", when = { class = "MAGE" } },
         { text = "Safe roads, Watchmaster.", next = "END" },
       },
     },
@@ -316,6 +325,13 @@ P:NPC {
       choices = {
         { text = "The swamp. Don't let them stop there.", next = "BACK", fx = { affinity = 2 } },
         { text = "Everywhere. Pay your drivers more.", next = "BACK", fx = { affinity = 1, trait = { generous = 1 } } },
+      },
+    },
+    mage = {
+      lines = { { id = "ma_default", text = "You'd know better than me, since you're one of them, more or less. They watch the Dark Portal day and night, and from what the drivers tell me, they burn through reagents like a forge burns coal." } },
+      choices = {
+        { text = "Then the crate matters. I'll see it there.", next = "crate_mages", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },
@@ -799,6 +815,7 @@ P:NPC {
         { text = "How do the animals take Duskwood?", next = "beasts" },
         { text = "Do you hear the wolves at night?", next = "wolves" },
         { text = "Who else leaves animals with you?", next = "customers" },
+        { text = "Can {pet} stay with you while I'm in the woods?", next = "hunter", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -844,6 +861,13 @@ P:NPC {
         { text = "Some beasts must die so the town can live.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "The wolves aren't to blame. Something's twisting them.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    hunter = {
+      lines = { { id = "hu_default", text = "I'll keep {pet} if you ask, and gladly, though it's been watching the treeline since you walked in. Out there a beast like that will warn you sooner than any lamp, so think twice before you leave it behind." } },
+      choices = {
+        { text = "Good advice. Thank you.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Let me see the stables.", next = "BUSINESS" },
       },
     },
   },

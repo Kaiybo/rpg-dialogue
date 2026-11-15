@@ -41,12 +41,75 @@ P:NPC {
       },
       choices = {
         { text = "What does a hunter learn first?", next = "first" },
+        { text = "Teach me the four great beasts, teacher.", next = "hunter", when = { class = "HUNTER" } },
+        { text = "How do I know my companion trusts me?", next = "pet", when = { class = "HUNTER", pet = { type = "Beast" } } },
+        { text = "My people hunted with spears and voodoo, not patience.", next = "troll", when = { race = "Troll", class = "HUNTER" } },
+        { text = "The skies of my home had beasts too.", next = "skyborne", when = { race = "Skyborne", class = "HUNTER" } },
+        { text = "Do you teach druids, or only hunters?", next = "druid", when = { class = "DRUID" } },
         { text = "Thank you, teacher.", next = "END" },
       },
+      again = {
+        { id = "h_again", text = "What else would you learn? Sit, there's light enough yet." },
+        { id = "h_again2", text = "Another question? Good. A hunter who stops asking stops seeing." },
+      },
+    },
+    hunter = {
+      big = true,
+      lines = {
+        { id = "hu_default", text = "Ishamuhale, Lakota'mani, Owatanka and Washte Pawne: the lizard, the kodo, the hawk and the serpent. Each one teaches something a bow can't, and only a hunter who has faced all four truly knows the Barrens." },
+        { id = "hu_runner", when = { origin = "tauren_plains_runner" },
+          text = "You've run these plains since you could stand, so you've seen Lakota'mani's tracks already, I'd wager. Now you'll learn why the runners never follow them alone." },
+        { id = "hu_orc", when = { race = "Orc" },
+          text = "Orc hunters come to me thinking a beast is something to break. The four will teach you otherwise, if you let them, and if you don't, Lakota'mani will teach you with his hooves." },
+      },
+      choices = {
+        { text = "Which should I face first?", next = "hunter_first" },
+        { text = "I'll face them to honor the land.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "I'll face them for the trophies, teacher.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+      },
+    },
+    hunter_first = {
+      lines = { { id = "hf_default", text = "Ishamuhale, the thunder lizard, because he'll teach you to read the ground before he charges. Then the kodo for patience, the hawk for the sky, and the serpent last, because she teaches humility, and that lesson hurts." } },
+      choices = { { text = "I'll start with the lizard.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } } },
+    },
+    pet = {
+      lines = {
+        { id = "pe_default", text = "Watch {pet} when you're hurt. A beast that only follows you will hang back, but a beast that trusts you will put itself between you and the danger. When you see that, you'll have something no trainer can give you." },
+      },
+      choices = {
+        { text = "{pet} already does that.", next = "pet_already" },
+        { text = "Then I'll earn it.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+      },
+    },
+    pet_already = {
+      lines = { { id = "pa_default", text = "Then never send it into a fight you wouldn't walk into yourself. A beast's trust is the most patient thing in the world, and the easiest to spend." } },
+      choices = { { text = "I won't.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    troll = {
+      lines = { { id = "tr_default", text = "Spears and voodoo have served the Darkspear well, and I won't ask you to give them up. But the Barrens are wider than any jungle, and out here the hunter who waits outlives the hunter who charges. Learn to wait, and then throw your spear." } },
+      choices = {
+        { text = "A headhunter strikes first. That's our way.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll learn your patience, and keep my spear.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+      },
+    },
+    skyborne = {
+      lines = { { id = "sk_default", text = "I'd like to hear of them one day, though I suspect your hawks were bigger than ours. The Windshapers' hunters who came through Taurajo walk the grass as if they expect it to blow away beneath them, and I find that charming." } },
+      choices = {
+        { text = "The ground here is very still.", next = "BACK", fx = { affinity = 2 } },
+        { text = "What did they ask you?", next = "skyborne_ask" },
+      },
+    },
+    skyborne_ask = {
+      lines = { { id = "sa_default", text = "Whether the wind on the plains has a spirit that would answer them. I told them to ask Owatanka, the thunderhawk, and they laughed, but I wasn't joking." } },
+      choices = { { text = "Maybe I'll ask him.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    druid = {
+      lines = { { id = "dr_default", text = "Hamuul's druids come to sit with me now and then, to learn how a hunter reads the grass. A druid who can wear a cat's body still has to learn to think like one, and the cats here are very good teachers." } },
+      choices = { { text = "Then teach me how a cat thinks.", next = "BACK", fx = { affinity = 2 } } },
     },
     first = {
       lines = { { id = "f_default", text = "Stillness. Anyone can run and anyone can shoot, but stillness is what lets you choose when to do either." } },
-      choices = { { text = "I'll practice.", next = "END", fx = { affinity = 2, trait = { cautious = 1 } } } },
+      choices = { { text = "I'll practice.", next = "BACK", fx = { affinity = 2, trait = { cautious = 1 } } } },
     },
   },
 
@@ -92,21 +155,38 @@ P:NPC {
       choices = {
         { text = "Why help us at all?", next = "why" },
         { text = "Who is Agamaggan?", next = "agamaggan" },
+        { text = "That lock wouldn't take me long to pick.", next = "rogue", when = { class = "ROGUE" } },
+        { text = "I'm tauren. Why should I help you?", next = "tauren", when = { race = "Tauren" } },
         { text = "You're not getting out of that cage.", next = "END", fx = { affinity = -1 } },
       },
+      again = {
+        { id = "h_again", text = "*snort* More questions? Mangletooth answers, for a price." },
+      },
+    },
+    rogue = {
+      big = true,
+      lines = { { id = "ro_default", text = "*snort* Quiet, quiet! The cow-folk will hear. Mangletooth knows a sneaky one when he smells one, and a sneaky one who opened this cage would get the best of the boar god's gifts, all of them." } },
+      choices = {
+        { text = "The camp keeps its prisoner. I'm not a traitor.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
+        { text = "Keep talking. Maybe one day, for the right gifts.", next = "BACK", fx = { affinity = 2, align = { honor = -1 } } },
+      },
+    },
+    tauren = {
+      lines = { { id = "ta_default", text = "*snort* Because Bristlebacks raid your kodo too, cow-folk, and Mangletooth tells you where they sleep. You hate quilboar, Mangletooth hates Bristlebacks, and today the hates point the same way." } },
+      choices = { { text = "Today. Not tomorrow.", next = "BACK", fx = { trait = { skeptical = 1 } } } },
     },
     agamaggan = {
       big = true,
       lines = {
         { id = "a_default", text = "*snort* The great boar fell long ago, fighting for this world, and where his blood touched the earth, the thorns grew. His bones lie in the south, and the quilboar remember." },
       },
-      choices = { { text = "Interesting.", next = "END", fx = { affinity = 1, trait = { curious = 1 } } } },
+      choices = { { text = "Interesting.", next = "BACK", fx = { affinity = 1, trait = { curious = 1 } } } },
     },
     why = {
       lines = {
         { id = "w_hate", text = "*snort* Mangletooth hates cages, but Mangletooth hates Bristlebacks more. A clever boar picks which hate to feed, and today Mangletooth feeds the bigger one." },
       },
-      choices = { { text = "I'll remember you said that.", next = "END", fx = { trait = { skeptical = 1 } } } },
+      choices = { { text = "I'll remember you said that.", next = "BACK", fx = { trait = { skeptical = 1 } } } },
     },
   },
 
@@ -145,13 +225,33 @@ P:NPC {
         { id = "h_weapons", tags = { "news" }, when = { questActive = TODO_QUEST("Weapons of Choice") },
           text = "I'd like to see what the enemy fights with. Bring me their weapons. I promise to study them before I melt them." },
       },
-      choices = { { text = "What have you learned so far?", next = "learned" }, { text = "I'll bring you something interesting.", next = "END", fx = { affinity = 2, trait = { curious = 1 } } } },
+      choices = {
+        { text = "What have you learned so far?", next = "learned" },
+        { text = "What does my weapon tell you about me?", next = "warrior", when = { class = "WARRIOR" } },
+        { text = "A shaman's totems are made here too. Do you study them?", next = "shaman", when = { class = "SHAMAN" } },
+        { text = "I'll bring you something interesting.", next = "END", fx = { affinity = 2, trait = { curious = 1 } } },
+      },
+      again = {
+        { id = "h_again", text = "Something else? My hands are busy, but my ears aren't." },
+      },
+    },
+    warrior = {
+      lines = {
+        { id = "wa_default", text = "Let me see the edge. Hm, you've been fighting things with hide, not armor, because it's dull in the middle and sharp at the tip. You stab more than you think you do, warrior." },
+        { id = "wa_tauren", when = { race = "Tauren" },
+          text = "A tauren warrior's grip wears the haft smooth just above the middle, every time, because you swing from the shoulders like a kodo. I've written a whole page on it." },
+      },
+      choices = { { text = "Then I'll learn to swing better.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } } },
+    },
+    shaman = {
+      lines = { { id = "sh_default", text = "I would if anyone let me hold one long enough! The shamans here say a totem is carved for a spirit and not for study, and I respect that, though I'd still like to know which wood takes the lightning best." } },
+      choices = { { text = "I'll ask the spirits for you.", next = "BACK", fx = { affinity = 2 } } },
     },
     learned = {
       lines = {
         { id = "l_bone", text = "That the quilboar sharpen bone better than most smiths sharpen steel, and the centaur don't sharpen anything at all; they just hit harder. I'm writing it all down for the Warchief, and he may never read it, but I'm writing it anyway." },
       },
-      choices = { { text = "Somebody should.", next = "END", fx = { affinity = 2, trait = { curious = 1 } } } },
+      choices = { { text = "Somebody should.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } } },
     },
   },
 

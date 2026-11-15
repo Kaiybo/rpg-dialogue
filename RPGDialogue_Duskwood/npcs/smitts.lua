@@ -65,6 +65,9 @@ P:NPC {
         { text = "Would your regulars take a blessing?", next = "priest", when = { class = "PRIEST" } },
         { text = "Was it Mistmantle? Be honest.", next = "suspect", when = { topicKnown = "stalvan" } },
         { text = "That juice you sent the hermit...", next = "juice", when = { questDone = TODO_QUEST("Juice Delivery") } },
+        { text = "People tell barkeeps things. Tell me what they don't say.", next = "rogue", when = { class = "ROGUE" } },
+        { text = "You serve dwarven stout here, I hope.", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "A gnome in Darkshire. Does anyone notice?", next = "gnome", when = { race = "Gnome" } },
         { text = "Just warming up.", next = "END" },
       },
     },
@@ -223,6 +226,29 @@ P:NPC {
       choices = {
         { text = "You couldn't have known.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "I'm not sure it was.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+      },
+    },
+    rogue = {
+      big = true,
+      lines = { { id = "ro_default", text = "That's a trade question, and I'll give you a trade answer: the regulars all talk about the wolves and none of them talk about the Mistmantle manor. Haggard said that was the first thing a sharp eye should notice." } },
+      choices = {
+        { text = "Then I'll go and look at the manor.", next = "rumors_manor" },
+        { text = "Secrets are coin. I'd sell yours to the highest bidder.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "I'll keep what you tell me to myself.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+      },
+    },
+    dwarf = {
+      lines = { { id = "dw_default", text = "When the road's open, yes, and the road's open about one week in three. A dwarf from Menethil swore my last barrel was brewed in a swamp, so I've taken to calling it the Duskwood dark." } },
+      choices = {
+        { text = "Pour me the Duskwood dark, then.", next = "BUSINESS", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gnome = {
+      lines = { { id = "gn_default", text = "Herble up the hill gets stared at for the first month, and then folk start bringing him their broken lanterns. You'll find Darkshire grows used to anyone who's useful after dark." } },
+      choices = {
+        { text = "I'm very useful after dark.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Who's Herble?", next = "regulars" },
       },
     },
   },

@@ -68,6 +68,9 @@ P:NPC {
         { text = "Ever had trouble in here?", next = "trouble" },
         { text = "Falkhaan sent me down the road.", next = "falkhaan", when = { questDone = TODO_QUEST("Rest and Relaxation") } },
         { text = "What's down in your cellar, Farley?", next = "cellar", when = { class = "WARLOCK" } },
+        { text = "What ale do you keep, Farley?", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "Can {pet} sleep in my room?", next = "pet", when = { class = "HUNTER", pet = { type = "Beast" } } },
+        { text = "Does the mage upstairs ever complain?", next = "mage", when = { class = "MAGE" } },
         { text = "Just stopping in.", next = "END" },
       },
     },
@@ -234,6 +237,39 @@ P:NPC {
       choices = {
         { text = "Wise man.", next = "BACK", fx = { affinity = 1 } },
         { text = "You should ask.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+      },
+    },
+    dwarf = {
+      lines = { { id = "dwarf_l", text = "Why, the best in Elwynn! A good dark from Thunderbrew, when the carts get through, and our own brown when they don't, which I'll stand against anything in Ironforge, and have, and lost, but only narrowly." } },
+      choices = {
+        { text = "Thunderbrew, then. Nothing else will do.", next = "dwarf2" },
+        { text = "I'll try the brown, for Goldshire's honour.", next = "dwarf2", fx = { affinity = 1 } },
+      },
+    },
+    dwarf2 = {
+      lines = { { id = "dwarf2_l", text = "Ha! Dobbins, a mug for our friend! The last dwarf who sat at that table taught the whole room a song about a goat, and we sing it still, though none of us know what it means." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    pet = {
+      lines = {
+        { id = "pet_l", text = "Well, now, that depends. Does {pet} use the bed, or the floor? Because the last hunter's bear ate a pillow, and my sister still talks about it at every holiday." },
+        { id = "pet_human", when = { race = "Human" },
+          text = "A human with a pet beast, under my roof! Does {pet} use the bed or the floor, though, because the last hunter's bear ate a pillow and my sister still talks about it." },
+      },
+      choices = {
+        { text = "The floor. {pet} is very well behaved.", next = "pet2" },
+        { text = "{pet} goes where I go.", next = "pet2", fx = { trait = { stern = 1 } } },
+      },
+    },
+    pet2 = {
+      lines = { { id = "pet2_l", text = "Then {pet} is welcome, the floor's swept, and I'll warn the cook. Just no imps in the beds; that's the one rule, and the warlocks downstairs know why." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    mage = {
+      lines = { { id = "mage_l", text = "Wefhellt? Every evening, when the singing starts, and every evening I tell him it's an inn, not a library. He tried a silencing spell on the common room once, and I'll not have that, not in the Lion's Pride." } },
+      choices = {
+        { text = "Quite right. An inn should be loud.", next = "BACK", fx = { affinity = 1 } },
+        { text = "A little quiet wouldn't hurt anyone.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },
   },

@@ -52,6 +52,8 @@ P:NPC {
         { text = "Hold still. Let me see to that head.", next = "priest", when = { class = "PRIEST" } },
         { text = "Shield up, Corporal. We go together.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "How are you holding up, Corporal?", next = "after", when = { questDone = TODO_QUEST("Missing In Action") } },
+        { text = "The Light kept you alive, Corporal. Stand with me.", next = "paladin", when = { class = "PALADIN" } },
+        { text = "I'll scout ahead. Stay in my shadow.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Let's get moving.", next = "END" },
       },
     },
@@ -123,6 +125,21 @@ P:NPC {
       lines = { { id = "af_default", text = "Some nights I'm back on that rock. Then I wake and I'm not. Every time, it surprises me, and every time it's a good surprise." } },
       choices = {
         { text = "It'll get easier.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    paladin = {
+      lines = { { id = "pa_default", text = "Maybe it did, though I'd have liked it to be quicker about it. Walk in front, then, and if that hammer starts glowing, I'll take it as a good sign." } },
+      choices = {
+        { text = "The Light was with you every day in that cave.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "You kept yourself alive. Take the credit.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rogue = {
+      lines = { { id = "ro_default", text = "Your shadow, is it? I'll try, though I've been sitting on a rock for weeks and my knees crack like kindling. If you hear me trip, that's your signal to start stabbing." } },
+      choices = {
+        { text = "I'll go slow.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

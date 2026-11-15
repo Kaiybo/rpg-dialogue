@@ -153,6 +153,10 @@ P:NPC {
         { text = "Has anything ever been stolen from this library?", next = "library" },
         { text = "Is the Light a kind of magic?", next = "light", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Where do I go when you're done with me?", next = "after", when = { class = "MAGE", maxLevel = 12 } },
+        { text = "What should I be practising?", next = "practise", when = { class = "MAGE" } },
+        { text = "Gnomes learn magic by taking it apart first.", next = "gnome", when = { race = "Gnome", class = "MAGE" } },
+        { text = "My people kept the old Highborne arts.", next = "skyborne", when = { race = "Skyborne", class = "MAGE" } },
+        { text = "What do you make of the other teachers here?", next = "teachers" },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -219,6 +223,44 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    practise = {
+      lines = {
+        { id = "practise_l", text = "Frostbolt, until you can cast it without thinking about your hands, and then stopping a Fireball halfway, until you can do that without thinking either. Everyone practises the first; nobody practises the second until they've set something they love on fire." },
+      },
+      choices = {
+        { text = "Why stop a spell halfway?", next = "practise_stop" },
+        { text = "I'll practise both.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
+      },
+    },
+    practise_stop = {
+      lines = { { id = "practise_stop_l", text = "Because one day a recruit will run in front of your target, and you'll have half a heartbeat to decide. Make the decision now, in this room, where it's cheap." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    gnome = {
+      lines = { { id = "gnome_l", text = "So I've noticed, and I've lost two practice wands to it this season. I'll grant your people understand the parts better than mine, but the four rules still apply to gnomes, however small the explosion." } },
+      choices = {
+        { text = "Understanding the parts is the whole point.", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "I'll put your wands back together.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+      },
+    },
+    skyborne = {
+      lines = { { id = "skyborne_l", text = "Did they? Then I'd ask you not to show the novices, because they'll want to skip straight to it, and I'd ask you to show me, because I'm a hypocrite and a scholar." } },
+      choices = {
+        { text = "Some things aren't mine to show.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "I'll show you, after the novices leave.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } },
+      },
+    },
+    teachers = {
+      lines = { { id = "teachers_l", text = "Anetta keeps the recruits alive, Beshere keeps them standing, and Kerridan keeps them out of my library, mostly. La Salle among the graves I'd rather not discuss, except to say she reads more than any of us." } },
+      choices = {
+        { text = "You sound almost fond of La Salle.", next = "teachers_lasalle" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    teachers_lasalle = {
+      lines = { { id = "teachers_lasalle_l", text = "Fond is a strong word. I respect anyone who reads the whole book, even when the book is dreadful, and hers usually are." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
 
   topics = {
@@ -265,6 +307,8 @@ P:NPC {
           text = "A priest, behind the stables? Either you're lost or you've come to save me, and I'll take lost; it's less work for both of us." },
         { id = "h_veteran", when = { class = "ROGUE", minLevel = 20 },
           text = "There you are, and I didn't hear you at all that time. Don't look so pleased; I'm getting old, is all." },
+        { id = "h_canals", when = { origin = "human_canal_pickpocket", class = "ROGUE" },
+          text = "Canal-born; I can tell by how you count the exits before the faces. You'll skip half of lesson one, and I'll make you sit through it anyway." },
       },
       again = {
         { id = "h_again", text = "What else? Keep your voice down; the horses gossip." },
@@ -276,6 +320,10 @@ P:NPC {
         { text = "Your letter said business has never been better.", next = "trade", when = { class = "ROGUE" } },
         { text = "Why teach behind the stables?", next = "stables" },
         { text = "What would you teach someone like me?", next = "outsider", when = { ["not"] = { class = "ROGUE" } } },
+        { text = "What should I be practising?", next = "practise", when = { class = "ROGUE" } },
+        { text = "Dwarves aren't meant to be quiet, they tell me.", next = "dwarf", when = { race = "Dwarf", class = "ROGUE" } },
+        { text = "The Watchers taught me to go unseen.", next = "watchers", when = { race = "NightElf", class = "ROGUE" } },
+        { text = "What do you think of the other teachers?", next = "teachers" },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -326,6 +374,43 @@ P:NPC {
       lines = { { id = "op_default", text = "This time, it is, and that's the lesson. It's free of charge, which is more than my students get." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { cautious = 1 }, affinity = 1 } } },
     },
+    practise = {
+      lines = { { id = "practise_l", text = "Walking across the gravel behind the stables without a sound, and then doing it again with a kobold candle on your head. When the candle stays lit, we'll talk about knives." } },
+      choices = {
+        { text = "A candle? Really?", next = "practise_candle" },
+        { text = "I'll start tonight.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
+      },
+    },
+    practise_candle = {
+      lines = { { id = "practise_candle_l", text = "Really. It teaches you to keep your head still, and a still head is a quiet body. The kobolds use them for the same reason, they just don't know it." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    dwarf = {
+      lines = {
+        { id = "dwarf_l", text = "They tell you wrong. A dwarf stands still better than anyone I've trained, and still is most of quiet. It's the boots that give you away, so we'll start with the boots." },
+        { id = "dwarf_loch", when = { origin = "dwarf_loch_smuggler" },
+          text = "They tell you wrong, and you know it; a smuggler who ran the Loch at night knows quiet better than most. It's the boots that give you away, so we'll start with the boots." },
+      },
+      choices = { { text = "Leave my boots out of this.", next = "BACK", fx = { trait = { stern = 1 } } } },
+    },
+    watchers = {
+      lines = { { id = "watchers_l", text = "Then you'll find my lessons crude, and you'll be right. But Northshire isn't a forest, and humans look at shadows differently than your people do; I'll teach you how a human guard thinks, which is the half the Watchers couldn't." } },
+      choices = {
+        { text = "How does a human guard think?", next = "watchers_guard" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    watchers_guard = {
+      lines = { { id = "watchers_guard_l", text = "About his supper, mostly, and whether the sergeant's watching. Give him a reason to look away and he'll take it gladly." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    teachers = {
+      lines = { { id = "teachers_l", text = "Bremen thinks I stole a book from his library. I didn't, but I know who did, and I've let him keep worrying because it keeps him locking doors." } },
+      choices = {
+        { text = "Tell him the truth.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A worried mage locks more doors. Clever.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+      },
+    },
   },
 
   topics = {
@@ -375,6 +460,8 @@ P:NPC {
           text = "I've read three chapters of it. You were right to fetch it, and the Brothers were right to lock it up. Both can be true." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "A priest among my graves. Have you come to bless them? They're past it, and if you've come to bless me, so am I." },
+        { id = "h_lamb", when = { origin = "human_lamb_cellar", class = "WARLOCK" },
+          text = "Gakin's cellar sent you, did it, or rather you sent yourself there, down those stairs, and kept going. You'll find the graves quieter, and the lessons slower." },
       },
       again = {
         { id = "h_again", text = "Well? The dead are patient, but I am less so." },
@@ -386,6 +473,9 @@ P:NPC {
         { text = "Is there anything in their library you want?", next = "tome", when = { class = "WARLOCK" } },
         { text = "The Light would call this dabbling in darkness.", next = "priest", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Who's the man beside you?", next = "dane" },
+        { text = "What should I be practising?", next = "practise", when = { class = "WARLOCK" } },
+        { text = "Do warlocks serve the Burning Legion?", next = "legion", when = { class = "WARLOCK" } },
+        { text = "Gnomeregan's forbidden shelves taught me the basics.", next = "gnome", when = { race = "Gnome", class = "WARLOCK" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -450,6 +540,41 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    practise = {
+      lines = { { id = "practise_l", text = "Your imp's obedience and your own patience, which are the same lesson from two ends. Command it to fetch, and when it sulks, wait it out; whoever tires first loses." } },
+      choices = {
+        { text = "And if it never stops sulking?", next = "practise_sulk" },
+        { text = "I'll outlast it.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
+      },
+    },
+    practise_sulk = {
+      lines = { { id = "practise_sulk_l", text = "Then you'll have learned that patience is power, which is the whole of my teaching, and you'll have learned it from an imp. There are worse teachers." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    legion = {
+      big = true,
+      lines = { { id = "legion_l", text = "The Legion made the creatures we bind, as a smith makes a sword. A sword doesn't serve the smith, and neither do I, though the Brothers would tell you there's no difference." } },
+      choices = {
+        { text = "The smith may want his sword back.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then we take the Legion's weapons and turn them.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Has anyone come asking for theirs?", next = "legion_ask" },
+      },
+    },
+    legion_ask = {
+      lines = { { id = "legion_ask_l", text = "Not yet, and I'd rather not discuss it among the graves. They're very good listeners, as I said." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    gnome = {
+      lines = {
+        { id = "gnome_l", text = "Then you've learned the basics badly and from a book with nobody to stop you, which is how most of the Defias' novices learn their trade too. We'll unlearn it, slowly." },
+        { id = "gnome_texts", when = { origin = "gnome_forbidden_texts" },
+          text = "You took those books while your city burned, and nobody was there to stop you reading the wrong chapters first. We'll unlearn it, slowly." },
+      },
+      choices = {
+        { text = "My method was perfectly sound.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "Slowly, then.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
   },
 
   topics = {
@@ -500,6 +625,8 @@ P:NPC {
           text = "Beshere's work, from the Abbey. I can tell by the feet. He teaches stance like it's scripture. Good. Now we'll see what you do with it." },
         { id = "h_veteran", when = { class = "WARRIOR", minLevel = 25 },
           text = "Look at you, with a shield that's been used and armour that's been mended twice. Stormwind's lucky to have you, though don't tell it I said so." },
+        { id = "h_guard", when = { origin = "human_city_guard", class = "WARRIOR" },
+          text = "A Watch recruit, by that grip, come out to the country to learn what a real fight smells like. Good; the halberd taught you to stand, and I'll teach you to stop leaning on it." },
       },
       again = {
         { id = "h_again", text = "What else? Keep your shield up while you ask." },
@@ -511,6 +638,11 @@ P:NPC {
         { text = "Why is Stormwind's strength in its people?", next = "pillar" },
         { text = "Who is this Harry Burlguard?", next = "harry", when = { class = "WARRIOR", minLevel = 10 } },
         { text = "I worked Westfall's fields before this.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
+        { text = "What should I be practising?", next = "practise", when = { class = "WARRIOR" } },
+        { text = "Dwarves fight differently from your farm hands.", next = "dwarf", when = { race = "Dwarf", class = "WARRIOR" } },
+        { text = "Does a gnome have a place in your line?", next = "gnome", when = { race = "Gnome", class = "WARRIOR" } },
+        { text = "The Sentinels trained me with a glaive.", next = "kaldorei", when = { race = "NightElf", class = "WARRIOR" } },
+        { text = "What do you think of the other trainers in Goldshire?", next = "trainers" },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -564,6 +696,58 @@ P:NPC {
     farmhand = {
       lines = { { id = "f_default", text = "Then you've lifted more than half my recruits ever will. Lift a shield like a sack of grain, close to the body, and you'll be fine." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    practise = {
+      lines = {
+        { id = "practise_l", text = "Rend, Heroic Strike and Charge, every morning, on the dummies behind the smithy, and then again when you're tired. Anyone can swing fresh; it's the tired swing that keeps you alive at Jasperlode." },
+        { id = "practise_old", when = { minLevel = 20 },
+          text = "Your shield, and changing stance in the middle of a fight. You've got the swinging down; now learn to stop swinging when the thing in front of you is bigger than you are." },
+      },
+      choices = {
+        { text = "Why practise tired?", next = "practise_tired" },
+        { text = "I'll be at the dummies at dawn.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+      },
+    },
+    practise_tired = {
+      lines = { { id = "practise_tired_l", text = "Because the kobolds won't wait for you to catch your breath. Train tired, fight fresh, that's the whole of it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    dwarf = {
+      lines = {
+        { id = "dwarf_l", text = "They do, and better, some of them. You plant your feet like the ground owes you money, and I'll not change that; I'll only teach you how Stormwind's lines form up, so you're not standing alone in front of one." },
+        { id = "dwarf_ward", when = { origin = "dwarf_military_ward" },
+          text = "Military Ward, I'd wager, by the way you stand. You plant your feet like the ground owes you money, and I'll only teach you how Stormwind's lines form, so you're not alone in front of one." },
+      },
+      choices = {
+        { text = "A dwarf is never alone. We stand together.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll stand where I please, lines or none.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
+    gnome = {
+      lines = { { id = "gnome_l", text = "Low in it, under the shields, where the gnolls can't reach you and you can reach their knees. My farm hands laugh until the first sparring match, and then they ask you for lessons." } },
+      choices = { { text = "Let them laugh.", next = "BACK", fx = { trait = { brave = 1 } } } },
+    },
+    kaldorei = {
+      lines = {
+        { id = "kaldorei_l", text = "So I see; you move like a blade that's been dancing for a thousand years, and maybe you have. I've nothing to teach you about grace, but I can teach you how a human line moves, and why it moves so badly." },
+        { id = "kaldorei_watch", when = { origin = "nightelf_auberdine_watch" },
+          text = "You stood watch on a beach, I'd guess, where the sand shifts under you; it shows. I can teach you how a human line moves, and why it moves so badly." },
+      },
+      choices = { { text = "Show me, then.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    trainers = {
+      lines = { { id = "trainers_l", text = "Wilhelm shares my yard and my patience, the priestess upstairs patches my recruits, and the mage keeps them from playing with fire. Whatever's in Farley's cellar, I don't ask, and I don't send my recruits down there." } },
+      choices = {
+        { text = "Why not ask?", next = "trainers_cellar" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    trainers_cellar = {
+      lines = { { id = "trainers_cellar_l", text = "Because the kingdom wants them, and the kingdom pays me, and I'd rather not know what my pay is standing next to. A soldier picks her battles." } },
+      choices = {
+        { text = "They should be run out of Goldshire.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The kingdom needs every weapon it has.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
   },
 
@@ -720,6 +904,10 @@ P:NPC {
         { text = "What does Jennea want with me?", next = "jennea", when = { class = "MAGE", minLevel = 10 } },
         { text = "What's the worst a mage can become?", next = "worst" },
         { text = "How does the Light feel? Warm, mostly.", next = "light", when = { class = "PRIEST" } },
+        { text = "What should I be practising?", next = "practise", when = { class = "MAGE" } },
+        { text = "Gnomes make better mages than humans, you know.", next = "gnome", when = { race = "Gnome", class = "MAGE" } },
+        { text = "Would you like to see a High Order form?", next = "skyborne", when = { race = "Skyborne", class = "MAGE" } },
+        { text = "What do you make of the cellar below?", next = "cellar" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -765,6 +953,41 @@ P:NPC {
     light = {
       lines = { { id = "l_default", text = "Warm, mostly. You see, that's exactly the sort of answer the Cathedral gives, but I'll put it in my notes anyway, and thank you." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    practise = {
+      lines = { { id = "practise_l", text = "Arcane Intellect on everyone you travel with, whether they ask or not, and conjuring water before you're thirsty. A mage's first duty is to be useful, and the glamorous duties come a distant second." } },
+      choices = {
+        { text = "I'd rather practise the glamorous ones.", next = "practise_glam" },
+        { text = "Useful first. I understand.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    practise_glam = {
+      lines = { { id = "practise_glam_l", text = "Everyone would, and the ones who do end up like Morganth, alone in a tower with gnolls for company. Conjure the water, and be loved." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "morganth" } } } },
+    },
+    gnome = {
+      lines = { { id = "gnome_l", text = "Better engineers of spells, certainly, and worse at stopping to wonder whether they should. I've had gnome students rebuild a Polymorph and turn me into a very confused sheep." } },
+      choices = {
+        { text = "That was an improvement, surely.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Wondering whether is a human luxury.", next = "BACK", fx = { trait = { stern = 1 } } },
+      },
+    },
+    skyborne = {
+      lines = { { id = "skyborne_l", text = "Would I! Here, on this rug, and mind the inkwell. Fascinating; it's older than anything the Sanctum teaches, and it's beautiful, and I'll be insufferable to Jennea about it for a month." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    cellar = {
+      big = true,
+      lines = { { id = "cellar_l", text = "That it's under the same floorboards as I am, which I try not to dwell upon. Mages and warlocks start from the same books, you know; the difference is which chapter they couldn't resist." } },
+      choices = {
+        { text = "Then the books should be locked away.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Every chapter should be read. That's scholarship.", next = "BACK", fx = { align = { order = -1 }, trait = { curious = 1 } } },
+        { text = "Which chapter tempts you?", next = "cellar_you" },
+      },
+    },
+    cellar_you = {
+      lines = { { id = "cellar_you_l", text = "None, I'm proud to say, and the chapter on stable boys' whistling most of all. Ask me again after the singing starts." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
   },
 
@@ -823,6 +1046,10 @@ P:NPC {
         { text = "What are you reading?", next = "book" },
         { text = "The Defias tried to recruit me.", next = "defias", when = { class = "ROGUE", topicKnown = "defias" } },
         { text = "Is this room open to anyone?", next = "room", when = { ["not"] = { class = "ROGUE" } } },
+        { text = "What should I be practising?", next = "practise", when = { class = "ROGUE" } },
+        { text = "I go back into Gnomeregan for parts nobody else will fetch.", next = "gnome", when = { origin = "gnome_scavenger" } },
+        { text = "A kaldorei sees things a human misses.", next = "kaldorei", when = { race = "NightElf", class = "ROGUE" } },
+        { text = "What do you think of the other trainers here?", next = "trainers" },
         { text = "Wrong room. Sorry.", next = "END" },
       },
     },
@@ -866,6 +1093,36 @@ P:NPC {
     },
     room = {
       lines = { { id = "r_default", text = "To anyone who reads quietly. You're failing the second part already. Try the common room; it's louder, and so are you." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    practise = {
+      lines = {
+        { id = "practise_l", text = "Reading a room before you enter it, from the sounds through the door. I can tell you how many people are in the common room right now, which of them are drunk and which one's pretending; can you?" },
+        { id = "practise_old", when = { minLevel = 20 },
+          text = "Poisons, and patience with them. A blade that kills slowly is a blade that lets you leave before anyone knows there's been a killing, and leaving is the craft." },
+      },
+      choices = {
+        { text = "Seven. Three drunk. The one by the fire is pretending.", next = "practise_count" },
+        { text = "Teach me.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    practise_count = {
+      lines = { { id = "practise_count_l", text = "Eight; you missed the girl under the stairs. But the one by the fire, yes, he's SI:7, and if you tell him I said so I'll deny I've ever met you." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    gnome = {
+      lines = { { id = "gnome_l", text = "Do you, now? Then you've done more burglary than any of my students, in worse conditions and under worse guards, and you call it salvage. I'd say the Master would like to meet you, but he'd rather you didn't know he'd heard of you." } },
+      choices = {
+        { text = "It is salvage. Gnomeregan is ours.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Call it whatever pays.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+      },
+    },
+    kaldorei = {
+      lines = { { id = "kaldorei_l", text = "And misses things a human sees, like when a farmer's lying about his harvest. Your people are hard to fool in the forest and easy to fool in a tavern, and I'd fix that before Goldshire does it for you." } },
+      choices = { { text = "Fair enough.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    trainers = {
+      lines = { { id = "trainers_l", text = "Josetta's kind, Wefhellt's vain and Du Lac thinks I'm a coward because I won't fight her in the yard. I won't fight her because she'd win, which isn't cowardice, it's arithmetic." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
   },
@@ -913,6 +1170,8 @@ P:NPC {
           text = "There you are. I spend half my days hunting for La Salle's students, and they walk down my stairs the moment I stop looking." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "A priest in the cellar. You'll want to go back up the stairs, friend. Nothing down here needs blessing, and some of it would object." },
+        { id = "h_lamb", when = { origin = "human_lamb_cellar", class = "WARLOCK" },
+          text = "Gakin wrote that one of his cellar's own was coming down my stairs. You'll find ours drier and Farley friendlier, so mind you don't get too comfortable." },
       },
       again = {
         { id = "h_again", text = "Anything else? Keep it low, because the floor's thin and Farley's ears aren't." },
@@ -924,6 +1183,8 @@ P:NPC {
         { text = "Who are the other two down here?", next = "others" },
         { text = "What's a voidwalker like?", next = "void", when = { class = "WARLOCK", minLevel = 8 } },
         { text = "I could tell the brothers what goes on here.", next = "threat", when = { class = { "PRIEST", "PALADIN" } } },
+        { text = "What should I be practising?", next = "practise", when = { class = "WARLOCK" } },
+        { text = "Gnomeregan had warlocks long before Goldshire did.", next = "gnome", when = { race = "Gnome", class = "WARLOCK" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -966,6 +1227,20 @@ P:NPC {
       choices = {
         { text = "I'll be watching.", next = "BACK", fx = { align = { light = 1, order = 1 }, affinity = -1 } },
         { text = "Fair enough.", next = "BACK", fx = { align = { light = -1 } } },
+      },
+    },
+    practise = {
+      lines = { { id = "practise_l", text = "Corruption and Life Tap, until you can spend your own blood without wincing, and Fear, until you can use it without enjoying it. The first keeps you casting and the second keeps you sane." } },
+      choices = {
+        { text = "I can't promise not to enjoy it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll practise without enjoying it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+      },
+    },
+    gnome = {
+      lines = { { id = "gnome_l", text = "It did, and Gakin says the best of them came south after the city fell, and the worst stayed and went mad in the dark. Which are you, I wonder, and do you know yet?" } },
+      choices = {
+        { text = "The best, obviously.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "I'm still finding out.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
       },
     },
   },

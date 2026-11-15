@@ -54,6 +54,7 @@ P:NPC {
         { text = "Who crosses on your boats?", next = "boats" },
         { text = "I fish. Where's the best water?", next = "fisher", when = { profession = "Fishing" } },
         { text = "I've had my brew. Let's talk.", next = "brew", when = { drunk = { min = 1 } } },
+        { text = "My pet could chase the murlocs off your docks.", next = "hunter", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "I'll leave you to your boats.", next = "END" },
       },
     },
@@ -115,6 +116,13 @@ P:NPC {
     brew = {
       lines = { { id = "br_default", text = "Ha! You took me at my word. Sit on that crate, then, and ask me anything that isn't about fish. I'll answer about fish anyway." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    hunter = {
+      lines = { { id = "hu_default", text = "Could it, now? The last dog that tried came back without its tail and spent a week barking at the water. Keep {pet} away from the edge, because those murlocs drag down anything that splashes." } },
+      choices = {
+        { text = "{pet} can handle a murloc.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "I'll keep to the planks.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
+      },
     },
   },
 

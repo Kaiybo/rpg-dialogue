@@ -55,6 +55,9 @@ P:NPC {
         { text = "Alchemist to alchemist: what's in it?", next = "recipe", when = { profession = "Alchemy" } },
         { text = "Slow fall? I can do that already.", next = "slowfall", when = { class = "MAGE" } },
         { text = "Sprinkle calls you Noggy.", next = "noggy", when = { heardLine = "sprinkle.n_default" } },
+        { text = "I could ask the spirits for rain, you know.", next = "x_shaman", when = { class = "SHAMAN" } },
+        { text = "Do the Sandfury trolls give you trouble?", next = "x_troll", when = { race = "Troll" } },
+        { text = "A gnome could improve that elixir.", next = "x_gnome", when = { race = "Gnome" } },
         { text = "Good luck with it.", next = "END" },
       },
     },
@@ -130,6 +133,51 @@ P:NPC {
         { text = "It was worth a try.", next = "BACK" },
       },
     },
+    x_shaman = {
+      lines = {
+        { id = "xs_default", text = "Rain, over Gadgetzan? You'd put the Water Company out of business by suppertime, and then who'd be left to buy my elixirs? Mind you, if your spirits ever want to knock a few degrees off this oven, I'll sign whatever contract they like." },
+      },
+      choices = {
+        { text = "The spirits aren't for hire, Marin.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
+        { text = "Everything's for hire in Gadgetzan. Make me an offer.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "What would you even pay a rainstorm?", next = "x_shaman_pay" },
+        { text = "Never mind the weather.", next = "BACK" },
+      },
+    },
+    x_shaman_pay = {
+      lines = { { id = "xsp_default", text = "In elixirs, naturally, since gold goes soft in this heat. I'm joking, mostly, though I did once try to bottle a dust storm and it cost me a perfectly good roof." } },
+      choices = {
+        { text = "I'll tell the spirits you made an offer.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else, Marin.", next = "BACK" },
+      },
+    },
+    x_troll = {
+      lines = {
+        { id = "xt_default", text = "The Sandfury? They're nobody's cousins I'd invite in, and they treat the whole desert around Zul'Farrak as if it was theirs by right. You, on the other hand, are welcome to spend your coin here, because coin has never once asked me about tusks." },
+      },
+      choices = {
+        { text = "The Sandfury are no kin of the Darkspear.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "They hold the desert. Smart goblins would pay the toll.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_gnome = {
+      lines = {
+        { id = "xg_default", text = "A gnome in my laboratory, offering improvements? I've heard what happens when your people let an idea run away from them, and I've already got one of those bubbling on the stove." },
+      },
+      choices = {
+        { text = "What does the elixir do to a gnome, anyway?", next = "x_gnome_size" },
+        { text = "Suit yourself. Gnomish method would've made it great.", next = "BACK", fx = { affinity = -1, trait = { witty = 1 } } },
+        { text = "Fair enough. Something else.", next = "BACK" },
+      },
+    },
+    x_gnome_size = {
+      lines = { { id = "xgs_default", text = "Well, it shrinks some folks a little, and you're starting from very nearly the bottom of the scale already. I'd want you sitting down, with a goblin nearby who can do sums, before you so much as sniffed it." } },
+      choices = {
+        { text = "I'll take my chances.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "On second thought, no.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -183,6 +231,7 @@ P:NPC {
         { text = "What's Marin like?", next = "marin" },
         { text = "Tell me about your sister's cooking.", next = "sister" },
         { text = "Trade a recipe?", next = "trade", when = { profession = "Cooking" } },
+        { text = "Hinterlands cooking, is it? I know Wildhammer cooking.", next = "x_dwarf", when = { race = "Dwarf" } },
         { text = "Thanks, Sprinkle.", next = "END" },
       },
     },
@@ -219,6 +268,24 @@ P:NPC {
     trade = {
       lines = { { id = "t_default", text = "A cook who shares! All right: a pinch of salt in anything sweet, and a squeeze of lemon in anything that came out of a swamp. That one's free, but the secret isn't." } },
       choices = { { text = "Thank you.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    x_dwarf = {
+      lines = {
+        { id = "xd_default", text = "Now who told you that, sweetie? Never mind, I can see it in the beard, and I'll tell you what I tell Noggy: you can taste the hills in it all you like and still never guess the rest." },
+        { id = "xd_wild", when = { origin = "dwarf_wildhammer_kin" }, text = "Wildhammer, are you? Then you've eaten off those hillsides yourself, so you'll understand why I won't say another word about it, not even to family." },
+      },
+      choices = {
+        { text = "Keep your secret. A cook's entitled to one.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Just one hint, and I'll stop guessing.", next = "x_dwarf_hint" },
+        { text = "Something else, Sprinkle.", next = "BACK" },
+      },
+    },
+    x_dwarf_hint = {
+      lines = { { id = "xdh_default", text = "One, then, because you asked so nicely: it grows where the mornings are cold and the afternoons are warm. Noggy has never been anywhere like that in his life, which is exactly how I like it." } },
+      choices = {
+        { text = "Ha. Your secret's safe with me.", next = "BACK", fx = { affinity = 1 } },
+        { text = "That narrows it down to half of Azeroth.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
     },
   },
 
@@ -271,6 +338,7 @@ P:NPC {
         { text = "Who are the Wastewanders?", next = "bandits" },
         { text = "Who runs the Water Company?", next = "company" },
         { text = "Let me look at that pump.", next = "pump", when = { profession = "Engineering" } },
+        { text = "Point me at the Wastewanders, Chief.", next = "x_warrior", when = { class = "WARRIOR" } },
         { text = "Good luck with the pressure.", next = "END" },
       },
     },
@@ -296,6 +364,16 @@ P:NPC {
     pump = {
       lines = { { id = "p_default", text = "See the seal? There's sand in it, there's always sand, because you can't keep sand out of anything in Tanaris. I've stopped trying, and now I build things that like sand." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    x_warrior = {
+      lines = {
+        { id = "xw_default", text = "Finally, somebody who looks like they hit things for a living instead of writing reports about it! The Wastewanders sit by our towers with our water in their bellies, so knock some sense into them, and please, please don't dent the pipes." },
+      },
+      choices = {
+        { text = "I'll meet them in the open, where they can see me coming.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll hit their camps at night, while they sleep.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Tell me more first.", next = "BACK" },
+      },
     },
   },
 
@@ -348,6 +426,7 @@ P:NPC {
         { text = "How do you find water in a desert?", next = "dowsing" },
         { text = "What happened to the old sources?", next = "maps" },
         { text = "Pestlezugg thinks they come from Un'Goro.", next = "ungoro", when = { heardLine = "pestlezugg.h_march" } },
+        { text = "The earth would tell me where water runs.", next = "x_shaman", when = { class = "SHAMAN" } },
         { text = "I'll go and look.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -377,6 +456,23 @@ P:NPC {
       lines = { { id = "u_default", text = "Pestlezugg reads more than I do. If he says the crater, I believe him, and I'm going to start sleeping with the lamp on." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    x_shaman = {
+      lines = {
+        { id = "xs_default", text = "Would it, now? My widget tells me the same thing, and I've learned not to trust the widget either. Tell your earth that the Wastewanders reached the last three springs before I did, so whatever it knows, someone's already drinking it." },
+      },
+      choices = {
+        { text = "The spirits are uneasy here. Something's stirring under the sand.", next = "x_shaman_uneasy" },
+        { text = "Keep your widget, then.", next = "BACK", fx = { affinity = -1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_shaman_uneasy = {
+      lines = { { id = "xsu_default", text = "Uneasy is not a word a surveyor likes to hear, though it's the very word I'd use for those insects at Sandsorrow Watch. Tell me if your spirits say any more, would you, because I'd like it written down before anyone tells me I'm imagining things." } },
+      choices = {
+        { text = "I'll tell you what I hear.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Not everything fits in a ledger, surveyor.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+      },
+    },
   },
 
   topics = {
@@ -405,6 +501,8 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_imp", cat = "pet", when = { class = "WARLOCK", pet = { type = "Demon" } },
+      text = "Rose, under the counter, now! Sorry, she can smell brimstone a street away, and that little friend of yours is practically steaming." },
     { id = "n_alch", cat = "craft", when = { profession = "Alchemy" },
       text = "A fellow alchemist! I've some insect samples you'd find fascinating, or horrifying, and usually both." },
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
@@ -431,6 +529,7 @@ P:NPC {
         { text = "Who's Rose?", next = "rose" },
         { text = "What did you find in the insect parts?", next = "insects" },
         { text = "Talk shop with me.", next = "shop", when = { profession = "Alchemy" } },
+        { text = "Your rat doesn't like my imp much.", next = "x_warlock", when = { class = "WARLOCK" } },
         { text = "Just browsing.", next = "END" },
       },
     },
@@ -459,6 +558,24 @@ P:NPC {
     shop = {
       lines = { { id = "s_default", text = "Keep your reagents dry, your vials corked, and your rat out of the cupboard. I manage two of those." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    x_warlock = {
+      lines = {
+        { id = "xw_default", text = "Rose has a nose for brimstone and she doesn't care for it, and between you and me, neither do I. Keep the little horror on your side of the counter and away from the sulfur, because I'm short this week as it is." },
+      },
+      choices = {
+        { text = "My imp does exactly as it's told.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My imp does as it likes. I've stopped arguing.", next = "BACK", fx = { align = { order = -1 }, trait = { witty = 1 } } },
+        { text = "Do you sell anything for my kind of work?", next = "x_warlock_shop" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_warlock_shop = {
+      lines = { { id = "xws_default", text = "Herbs, vials and the odd jar of something that fizzes, and what you do with them afterward is your own affair. If any of it ends up in a summoning circle, though, I'd rather not hear about it." } },
+      choices = {
+        { text = "Then I won't tell you.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Fair enough.", next = "BACK" },
+      },
     },
   },
 
@@ -511,6 +628,7 @@ P:NPC {
         { text = "What's it like being Krazek's cousin?", next = "krazek" },
         { text = "Who buys this stuff?", next = "buyers" },
         { text = "I've coin. Let me invest.", next = "invest", when = { money = { min = 500000 } } },
+        { text = "I know a smuggler when I see one, Tran'rek.", next = "x_rogue", when = { class = "ROGUE" } },
         { text = "I'll bring them.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -563,6 +681,16 @@ P:NPC {
         { text = "Fine, keep your secrets.", next = "BACK" },
       },
     },
+    x_rogue = {
+      lines = {
+        { id = "xr_default", text = "And I know a cutpurse when one walks in squinting at my crates, so we're even, aren't we? Shells are shells, friend, and where they go once they leave this tent is between me and my cousin." },
+      },
+      choices = {
+        { text = "Cut me in, and I'll forget I saw anything.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "Your business is yours. I'm not here to rob you.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -612,6 +740,7 @@ P:NPC {
         { text = "I'd like a room.", next = "BUSINESS" },
         { text = "What's the news in town?", next = "news" },
         { text = "Why 'the Road Warrior'?", next = "name" },
+        { text = "Do the Sandfury ever drink here?", next = "x_troll", when = { race = "Troll" } },
         { text = "Just a drink, thanks.", next = "END" },
       },
     },
@@ -622,6 +751,15 @@ P:NPC {
     name = {
       lines = { { id = "na_default", text = "Because everyone who walks in has crossed a desert to get here, so every guest's a road warrior, and flattery sells rooms." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    x_troll = {
+      lines = {
+        { id = "xt_default", text = "The Sandfury? Not a chance, they'd sooner drink the sand. You're the first troll this month to come in through the front door instead of over the wall, so sit down and I'll tell everyone you're with me." },
+      },
+      choices = {
+        { text = "Thanks, Fizzgrimble.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'll keep my tusks off the furniture.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
     },
   },
 
@@ -676,6 +814,7 @@ P:NPC {
         { text = "What's in the shipment?", next = "shipment" },
         { text = "Why not just sail away?", next = "leave" },
         { text = "What's MacKinley like, to owe?", next = "mackinley", when = { heardLine = "mackinley.h_default" } },
+        { text = "I'm not here to judge you, Stoley.", next = "x_paladin", when = { class = "PALADIN" } },
         { text = "You should pay your debts.", next = "END", fx = { affinity = -1, align = { order = 1 } } },
         { text = "Debts in Booty Bay are for fools who get caught.", next = "END", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Good luck.", next = "END", fx = { affinity = 1 } },
@@ -703,6 +842,16 @@ P:NPC {
     mackinley = {
       lines = { { id = "m_default", text = "Patient, and that's the frightening part. A shouting man you can run from, but a patient one is already waiting where you're running to." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+    },
+    x_paladin = {
+      lines = {
+        { id = "xp_default", text = "You say that, but you've got a hammer and a holy symbol, and in my experience that's exactly how judgment dresses. I owe a man in Booty Bay, that's all, and I'll pay him when the shipment comes in, I swear it on anything you like." },
+      },
+      choices = {
+        { text = "A debt's a debt. Pay the man, Stoley.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
+        { text = "MacKinley can wait. Booty Bay can afford it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -752,9 +901,14 @@ P:NPC {
         { id = "h_union", when = { metBefore = true },
           text = "The Repairers' Union pulled my right to mend armor once, saying I was undercutting them, so I filed a complaint, and then I filed five more. Now I mend armor again, and that's persistence for you, friend." },
       },
+      again = {
+        { id = "h_again", text = "Anything else? Make it quick, the forge doesn't wait for conversation." },
+        { id = "h_again2", text = "Still here? Then you're either buying or haggling, and I don't haggle." },
+      },
       choices = {
         { text = "Who else buys these molds?", next = "who" },
         { text = "Show me your stock.", next = "BUSINESS" },
+        { text = "Goblin steel? Let's see if it meets a dwarf's standards.", next = "x_dwarf", when = { race = "Dwarf" } },
       },
     },
     who = {
@@ -762,6 +916,15 @@ P:NPC {
         { id = "w_default", text = "Couriers from the north, mostly, with bags of bones and long faces. I don't ask what the keys are for. That's the secret of a long career in Gadgetzan." },
       },
       choices = { { text = "Wise.", next = "END", fx = { affinity = 1 } } },
+    },
+    x_dwarf = {
+      lines = {
+        { id = "xd_default", text = "Go on, knock on it, bend it, breathe your beard all over it; I've had Ironforge smiths in here before, and every one of them left carrying something. Dwarves complain the loudest and buy the most, which is why I keep a little extra on the rack for your lot." },
+      },
+      choices = {
+        { text = "Not bad, for goblin work.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I've seen better at the Great Forge.", next = "BACK", fx = { affinity = -1, trait = { skeptical = 1 } } },
+      },
     },
   },
 

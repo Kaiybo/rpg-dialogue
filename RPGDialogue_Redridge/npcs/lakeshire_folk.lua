@@ -40,6 +40,8 @@ P:NPC {
         { id = "h_solomon", when = { heardLine = "solomon.s_default" },
           text = "The Magistrate told you about his letters? I carry them to the courier myself. They are very thorough letters, and they come back very thin." },
         { id = "h_morning", when = { metBefore = true }, text = "It's been a long morning and my temper's short, so talk fast." },
+        { id = "h_cityguard", when = { origin = "human_city_guard" },
+          text = "You stand like a city guardsman, citizen, which is more than I can say for the deputies. The court could use someone who knows how a warrant is served." },
       },
       again = {
         { id = "h_again", text = "The court will hear further business." },
@@ -52,6 +54,7 @@ P:NPC {
         { text = "Theocritus says Morganth stole a book from Stormwind's mages.", next = "theft", when = { heardLine = "theocritus.mo_default" } },
         { text = "I'm sworn to the Light, Bailiff.", next = "oath", when = { class = "PALADIN" } },
         { text = "Was justice done, Bailiff?", next = "justice", when = { questDone = TODO_QUEST("Solomon's Law") } },
+        { text = "I've kept the peace with a sword before, Bailiff.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Good day, Bailiff.", next = "END" },
       },
     },
@@ -121,6 +124,14 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    warrior = {
+      lines = { { id = "wa_default", text = "Keeping the peace with a sword is how it's mostly done here, citizen, though the court prefers a warrant first and the sword after. Out in the hills, I'm told, they come in the other order." } },
+      choices = {
+        { text = "Law means nothing to a gnoll. Swing first.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Warrant first. That's what makes us different.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -176,6 +187,7 @@ P:NPC {
         { text = "Who watches the road south?", next = "parker" },
         { text = "I'm good with numbers. Let me help.", next = "gnome", when = { race = "Gnome" } },
         { text = "I counted them for you. What now?", next = "after", when = { questDone = TODO_QUEST("Assessing the Threat") } },
+        { text = "I track things for a living. Want help counting?", next = "hunter", when = { class = "HUNTER" } },
         { text = "Stay safe, Deputy.", next = "END" },
       },
     },
@@ -237,6 +249,13 @@ P:NPC {
       lines = { { id = "af_default", text = "Now the count goes up the hill, and the Magistrate adds it to his letter. You've made the letter heavier, and that's something." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    hunter = {
+      lines = { { id = "hu_default", text = "Help? I'd weep with gratitude, and I might yet. You read tracks, so tell me whether those gnolls are coming down from the hills in packs or wandering in by ones and twos, because my count changes depending." } },
+      choices = {
+        { text = "Packs. Someone's organizing them.", next = "BACK", fx = { affinity = 1, trait = { skeptical = 1 } } },
+        { text = "I'll go look and tell you.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
   },
 
   topics = {
@@ -294,6 +313,7 @@ P:NPC {
         { text = "What's the trouble in Redridge?", next = "trouble" },
         { text = "Darcy made you lunch.", next = "lunch", when = { questActive = TODO_QUEST("A Free Lunch") } },
         { text = "Darcy loved the daffodils.", next = "flowers", when = { questDone = TODO_QUEST("Delivering Daffodils") } },
+        { text = "I came up that road and you never saw me.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Carry on.", next = "END" },
       },
     },
@@ -347,6 +367,13 @@ P:NPC {
       choices = {
         { text = "Martie's favourites, I hear.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    rogue = {
+      lines = { { id = "ro_default", text = "Didn't I? Well, that's a fine thing to tell a man whose whole job is seeing people on that road. If you can slip past me, so can a Blackrock scout, and I'd rather not think about that." } },
+      choices = {
+        { text = "Watch the ditches, not the road.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Don't worry. Orcs are louder than me.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
   },
@@ -409,6 +436,7 @@ P:NPC {
         { text = "So... Parker.", next = "parker" },
         { text = "I delivered the lunch. He ate every bite.", next = "lunch_done", when = { questDone = TODO_QUEST("A Free Lunch") } },
         { text = "Do you like the daffodils?", next = "daffodils", when = { questDone = TODO_QUEST("Delivering Daffodils") } },
+        { text = "I could conjure you bread for the tables.", next = "mage", when = { class = "MAGE" } },
         { text = "Just passing through.", next = "END" },
       },
     },
@@ -465,6 +493,13 @@ P:NPC {
     daffodils = {
       lines = { { id = "da_default", text = "I love them. They're Martie's favourites, though, and I can't stop wondering whether she knew. If they wilt early, I'll know why." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    mage = {
+      lines = { { id = "ma_default", text = "Oh, love, that's sweet, and I've tasted that conjured bread; a soldier left a loaf on the counter once. It filled him up fine, but nobody ever sat at a table and lingered over it, did they?" } },
+      choices = {
+        { text = "Food's food when people are hungry.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "Fair point. Yours smells better.", next = "BACK", fx = { affinity = 2 } },
+      },
     },
   },
 
@@ -529,6 +564,7 @@ P:NPC {
         { text = "The daffodils were from Parker. For Darcy.", next = "told", when = { questDone = TODO_QUEST("Delivering Daffodils") },
           fx = { align = { honor = -1 } } },
         { text = "Somebody asked me to deliver daffodils, and I won't say who.", next = "END", when = { questDone = TODO_QUEST("Delivering Daffodils") }, fx = { align = { honor = 1 } } },
+        { text = "Could I tame Bellygrub?", next = "hunter", when = { class = "HUNTER" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -583,6 +619,20 @@ P:NPC {
       lines = { { id = "to_default", text = "Ah. For Darcy, of course they were. Well, they'll look lovely on her windowsill." } },
       choices = {
         { text = "I'm sorry, Martie.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hunter = {
+      lines = { { id = "hu_default", text = "Tame him? Oh, I'd love to see you try, so long as you do it well away from my rows. He's had every carrot in this garden and bitten the last man who waved a stick at him." } },
+      choices = {
+        { text = "Would you miss him?", next = "hunter_miss" },
+        { text = "Maybe not, then.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    hunter_miss = {
+      lines = { { id = "hm_default", text = "That's a wicked question, and I'll answer it honestly: a little. He's a horrible pig, but he's our horrible pig, and the town's talked about nothing else for a year." } },
+      choices = {
+        { text = "Then he stays wild.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -642,6 +692,7 @@ P:NPC {
         { text = "Who works your kitchen?", next = "kitchen" },
         { text = "I cook. Can I lend a hand?", next = "cook", when = { profession = "Cooking" } },
         { text = "Shall I bless the pot?", next = "priest", when = { class = "PRIEST" } },
+        { text = "I've eaten army rations. This is a feast.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Smells good.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -694,6 +745,13 @@ P:NPC {
       choices = {
         { text = "I'll bless them both.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
         { text = "A blessing won't fill anyone's stomach.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    warrior = {
+      lines = { { id = "wa_default", text = "Then you know why I fight so hard over a pot of goulash. A soldier on hard biscuit loses heart a day before he loses the wall, and I won't have it in my kitchen." } },
+      choices = {
+        { text = "A full belly wins more fights than a sharp sword.", next = "BACK", fx = { affinity = 2 } },
         { text = "Something else.", next = "BACK" },
       },
     },

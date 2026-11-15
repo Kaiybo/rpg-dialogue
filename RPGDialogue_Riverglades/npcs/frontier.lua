@@ -39,6 +39,7 @@ P:NPC {
         { text = "Who's been raiding your woodpiles?", next = "raids" },
         { text = "How's the logging?", next = "logging" },
         { text = "How's Curly holding up?", next = "curly_after", when = { questDone = TODO_QUEST("Helping Hands") } },
+        { text = "I'm a druid. These trees aren't yours to fell.", next = "xdruid", when = { class = "DRUID" } },
         { text = "Good luck, Hurley.", next = "END" },
       },
     },
@@ -67,6 +68,14 @@ P:NPC {
     curly_after = {
       lines = { { id = "ca_default", text = "Bandaged, grumpy, and eating for three. Halligan's docking his pay for the axe he lost, and he'll pay it, and I'll help." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdr_default", text = "Not mine, no, they're Turner's, or the Brotherhood's, or Stormwind's if anyone there remembers us. But the keep needs walls and the walls need timber, and I'd rather cut a tree than bury a soldier." } },
+      choices = {
+        { text = "Walls first. The forest will grow back.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Take what you need, and not one tree more.", next = "BACK", fx = { align = { order = -1 } } },
+      },
     },
   },
 
@@ -112,6 +121,7 @@ P:NPC {
         { text = "What's it like working for the Brotherhood?", next = "brotherhood" },
         { text = "Hurley says you're hard on Curly.", next = "curly", when = { heardLine = "hurley.h_default" } },
         { text = "I worked land like this, once.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
+        { text = "I could swing an axe for you, if you're short.", next = "xwarrior", when = { class = "WARRIOR" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -137,6 +147,13 @@ P:NPC {
     farmhand = {
       lines = { { id = "f_default", text = "Then you know how long a day is out here. Grab a saw if you get bored; I pay in stew." } },
       choices = { { text = "Maybe I will.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    xwarrior = {
+      lines = { { id = "xwa_default", text = "Short? I'm always short, and a fighter who knows which way a trunk will fall is worth two who don't. Stay an afternoon, and if the raiders come, you'll already be holding the right tool for them as well." } },
+      choices = {
+        { text = "An afternoon, then.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Is it safe out here?", next = "safe" },
+      },
     },
   },
 
@@ -179,6 +196,7 @@ P:NPC {
         { text = "Why stay?", next = "stay" },
         { text = "Farholde's close. Can't they help?", next = "farholde" },
         { text = "Harvest golems ran my family off our farm too.", next = "westfall", when = { origin = "human_westfall_farmhand" } },
+        { text = "Those reapers are machines. I could take one apart.", next = "xgnome", when = { race = "Gnome" } },
         { text = "Take care, Benjy.", next = "END" },
       },
     },
@@ -204,6 +222,13 @@ P:NPC {
     westfall = {
       lines = { { id = "w_default", text = "Westfall? I heard it's bad over there, so you know they don't stop for anything. Stay off the rows after dark." } },
       choices = { { text = "I will.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    xgnome = {
+      lines = { { id = "xgn_default", text = "Take one apart? I'd be glad to see it in pieces, so long as nobody puts it back together after. They click all night in the rows, and I can't tell anymore whether I'm hearing them or dreaming them." } },
+      choices = {
+        { text = "I'll bring you a gear for luck.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Where did they come from?", next = "reapers" },
+      },
     },
   },
 

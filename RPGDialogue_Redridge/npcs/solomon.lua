@@ -60,6 +60,8 @@ P:NPC {
           text = "Ah, you. The court is glad of a friendly face, and so, for that matter, is the magistrate. Sit, if you can find a chair under the letters." },
         { id = "h_cold", when = { disposition = { max = 34 } },
           text = "The court recognises you, which is not the same as welcoming you. State your business." },
+        { id = "h_redridge_born", when = { origin = "human_redridge_born" },
+          text = "One of our own, back from the wider world. The court remembers your family's name, and it would rather see you on the walls than on a list of the missing." },
       },
       again = {
         { id = "h_again", text = "What else? Quickly, if you would; the docket is long and the day is not." },
@@ -77,6 +79,10 @@ P:NPC {
         { text = "I came south from Lordaeron.", next = "lordaeron", when = { origin = "human_lordaeron_refugee" } },
         { text = "The Blackrock are Ironforge's enemies too.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Highlord Bolvar's deputy, reporting.", next = "deputy", when = { questDone = TODO_QUEST("The True Masters") } },
+        { text = "Put me on the walls, Magistrate. I can hold a line.", next = "warrior", when = { class = "WARRIOR" } },
+        { text = "I've been tracking gnolls through your hills.", next = "hunter", when = { class = "HUNTER" } },
+        { text = "Morganth's tower. What do you know of his arts?", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "Gnomeregan knows what it is to lose a city.", next = "gnome", when = { race = "Gnome" } },
         { text = "I'll leave you to your letters.", next = "END" },
       },
     },
@@ -386,6 +392,73 @@ P:NPC {
       choices = {
         { text = "Fair enough, Magistrate.", next = "BACK" },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    warrior = {
+      big = true,
+      lines = {
+        { id = "wa_default", text = "The court would take a hundred of you if Stormwind would send them, and it will take one gladly. Marshal Marris decides who stands where, but tell him I said the east wall first." },
+        { id = "wa_guard", when = { origin = "human_city_guard" },
+          text = "City Guard, by your bearing. Then you know how it feels to be told the kingdom has no soldiers to spare while the kingdom's soldiers polish the Trade District." },
+      },
+      choices = {
+        { text = "Why the east wall?", next = "warrior_east" },
+        { text = "A town should fight for itself before it begs for soldiers.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "I'll stand where the Marshal puts me.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, standing = { lakeshire = 1 } } },
+        { text = "Something else, Magistrate.", next = "BACK" },
+      },
+    },
+    warrior_east = {
+      lines = { { id = "we_default", text = "Because the Blackrock come down from Render's Valley and the east wall is the one they test, every time, the way a man worries a loose tooth. The day it gives, the court will be holding session in the lake." } },
+      choices = {
+        { text = "Then it won't give.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hunter = {
+      lines = {
+        { id = "hu_default", fx = { learn = { "redridge_gnolls" } },
+          text = "Then you've seen more of Redridge than my bailiff has this month. The court would be grateful for an honest count of the Redridge gnolls, and more grateful still for fewer of them." },
+        { id = "hu_human", when = { race = "Human" },
+          text = "A Stormwind hunter, and not a ranger from the north. I'd heard the young ones were taking up the bow and the beast; I hadn't expected one in my hall." },
+      },
+      choices = {
+        { text = "Are they working with the orcs?", next = "hunter_orcs" },
+        { text = "I'll bring you a count.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    hunter_orcs = {
+      lines = { { id = "ho_default", text = "The court has no proof, and the court hates guessing aloud. But gnolls never raided this boldly before the Blackrock came over the mountains, and I don't believe in coincidences that cost me farms." } },
+      choices = {
+        { text = "Then I'll find your proof.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    warlock = {
+      big = true,
+      lines = {
+        { id = "wl_default", fx = { learn = { "morganth" } },
+          text = "I know he raises the dead and calls things out of the dark in that tower, and I know you've just asked me about it with more interest than I'd like. The court will assume that was professional curiosity." },
+      },
+      choices = {
+        { text = "It was. Know your enemy, Magistrate.", next = "warlock_enemy" },
+        { text = "Power isn't evil. It's how a man uses it.", next = "BACK", fx = { affinity = -2, align = { light = -1 } } },
+        { text = "Morganth's arts are a sickness. I mean to end him.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    warlock_enemy = {
+      lines = { { id = "wle_default", text = "A fair principle, and one I've heard from a great many people shortly before they joined the enemy. Do your work in the hills, not in my town, and the court won't ask what you carry in your pack." } },
+      choices = {
+        { text = "Understood.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gnome = {
+      lines = { { id = "gn_default", text = "It does, and I'm sorry for it; I read the reports when they came through. Lakeshire hasn't fallen yet, and I'd be glad of advice from anyone who has seen how a city is lost." } },
+      choices = {
+        { text = "It starts when help is promised and doesn't come.", next = "BACK", fx = { affinity = 2, trait = { stern = 1 } } },
+        { text = "Build your defenses before you need them.", next = "BACK", fx = { affinity = 1 } },
       },
     },
   },

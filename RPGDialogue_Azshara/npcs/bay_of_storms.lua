@@ -32,6 +32,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    mage_hy = {
+      big = true,
+      lines = {
+        { id = "mhy_default", text = "It makes you a mortal playing with a spark of my enemy's essence, which is a very different thing from being him. Your fire is borrowed and small, and it goes out; his does not, and that is why the Waterlords make war on it." },
+      },
+      choices = {
+        { text = "Then I'll turn my fire on his servants.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Fire's a tool. I'll use what serves me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Who is your enemy, Duke?", next = "war" },
+      },
+    },
+    dwarf_hy = {
+      lines = {
+        { id = "dhy_default", text = "Then you know who woke the Firelord, mortal, and you know what they've become in his service. The Dark Iron dwarves called him into this world, and every flame beneath Blackrock Mountain is their debt; I would see it paid." },
+      },
+      choices = {
+        { text = "So would I. Point me at them.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 }, learn = { "blackrock_depths" } } },
+        { text = "Not every dwarf of that mountain chose it.", next = "BACK", fx = { trait = { kind = 1 } } },
+      },
+    },
+    druid_hy = {
+      lines = {
+        { id = "dyh_default", text = "Your Circle says so, and I don't dispute it, but balance is a word the land-folk use when they mean peace. The sea has never been at peace, druid; it is a war that has learned to look calm from the shore." },
+      },
+      choices = {
+        { text = "Balance needs both calm and storm.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then the Circle must keep the storm in check.", next = "BACK", fx = { align = { order = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -62,6 +91,9 @@ P:NPC {
         { text = "The elements speak to me as well, Duke.", next = "shaman", when = { class = "SHAMAN" } },
         { text = "The wind spirits sheltered my people once.", next = "skyborne", when = { race = "Skyborne" } },
         { text = "The Emberseer is ash, Duke.", next = "emberseer", when = { questDone = TODO_QUEST("Eye of the Emberseer") } },
+        { text = "I wield fire, Duke. Does that make me your enemy?", next = "mage_hy", when = { class = "MAGE" } },
+        { text = "My people have fought the Dark Irons for centuries.", next = "dwarf_hy", when = { race = "Dwarf" } },
+        { text = "The tides are part of the balance I serve.", next = "druid_hy", when = { class = "DRUID" } },
         { text = "I'll take my leave, Duke.", next = "END" },
       },
     },
@@ -242,6 +274,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    hunter_lo = {
+      lines = {
+        { id = "hlo_default", text = "Honest, yes, and it will die the first time it meets what my hounds were bred to hunt. A beast sees with its eyes; mine see with what was burned into them, and I trust them over any honest creature on this coast." },
+      },
+      choices = {
+        { text = "I'd rather trust a friend than a weapon.", next = "BACK", fx = { align = { light = 1 }, affinity = -1 } },
+        { text = "Fair. Use what sees the enemy.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
+      },
+    },
+    sky_lo = {
+      big = true,
+      lines = {
+        { id = "slo_default", text = "Tortheldrin, yes; I know the name, and the crystals, and what they drank from. Your rebels left before the worst of it, which was wise, but don't imagine the Nether forgot the city because your people stopped looking at it." },
+      },
+      choices = {
+        { text = "We remember what it cost. We won't touch it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Power like that could be turned against demons.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -271,6 +323,8 @@ P:NPC {
         { text = "The Light can stand against any demon.", next = "priest", when = { class = "PRIEST" } },
         { text = "I command demons too, demon hunter.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "Our people cast out demon hunters.", next = "nelf", when = { race = "NightElf" } },
+        { text = "Your hounds are demons. My beast is honest.", next = "hunter_lo", when = { class = "HUNTER" } },
+        { text = "My forebears in Eldre'Thalas fought a prince who drank the Nether.", next = "sky_lo", when = { race = "Skyborne" } },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },
@@ -443,6 +497,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    troll_ar = {
+      lines = {
+        { id = "tar_default", text = "The one has heard of the loa, the spirits your little islands feed. They are hungry gods; the one is a patient god, and the makrura have never once starved for want of the one's favour." },
+      },
+      choices = {
+        { text = "Patience is easy when you live under water.", next = "BACK", fx = { trait = { witty = 1 }, affinity = -1 } },
+        { text = "I'll remember the one's name.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -459,6 +522,7 @@ P:NPC {
         { text = "Who threatens your children?", next = "sons" },
         { text = "This was a temple of Elune, once.", next = "temple" },
         { text = "I seek the name of a demon lord.", next = "name", when = { questActive = TODO_QUEST("The Name of the Beast") } },
+        { text = "My people know gods too. The loa.", next = "troll_ar", when = { race = "Troll" } },
         { text = "I'll go, great one.", next = "END", fx = { affinity = 1 } },
       },
     },

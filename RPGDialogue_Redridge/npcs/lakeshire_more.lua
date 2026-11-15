@@ -52,6 +52,7 @@ P:NPC {
         { text = "Why Redridge, of all places?", next = "redridge" },
         { text = "Is it wise to drink before a fight?", next = "wisdom" },
         { text = "I'm no warrior. Can I still run it?", next = "notwarrior", when = { class = { "PRIEST", "MAGE", "WARLOCK", "ROGUE", "HUNTER", "DRUID", "PALADIN", "SHAMAN" } } },
+        { text = "A dwarf can hold his drink, Yorus.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Pour me one, Yorus.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -125,6 +126,13 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    dwarf = {
+      lines = { { id = "dw_default", text = "Every dwarf says so, and every dwarf who's run my gauntlet came back swearing the Scalder was brewed by a dragon. Hold it you might, friend, but run on it? That's the test." } },
+      choices = {
+        { text = "Pour it. I'll show you a dwarf running.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
+        { text = "A dwarf doesn't run. He walks, steady.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
   },
 
   topics = {
@@ -183,6 +191,7 @@ P:NPC {
         { text = "Who are you working for?", next = "who" },
         { text = "What do you make of Lakeshire?", next = "town" },
         { text = "Is opening other people's locks honest work?", next = "honest" },
+        { text = "Gnomes build better locks than this.", next = "gnome", when = { race = "Gnome" } },
         { text = "I'll leave you to your boats.", next = "END" },
       },
     },
@@ -248,6 +257,13 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    gnome = {
+      lines = { { id = "gn_default", text = "Gnomes build cleverer locks, which isn't the same thing; a clever lock has a clever flaw, and I've opened plenty. Show me one of yours sometime and I'll prove it." } },
+      choices = {
+        { text = "My locks don't have flaws.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "Then teach me the flaw.", next = "teach", fx = { affinity = 1 } },
+      },
+    },
   },
 
   topics = {
@@ -303,6 +319,8 @@ P:NPC {
         { text = "Why don't you swim for it?", next = "swim" },
         { text = "Do you really want to be a hero?", next = "hero" },
         { text = "Catching anything?", next = "fish" },
+        { text = "This is {pet}. Want to say hello?", next = "hunter", when = { class = "HUNTER", pet = { type = "Beast" } } },
+        { text = "I'm a paladin. That's a sort of hero.", next = "paladin", when = { class = "PALADIN" } },
         { text = "I'll keep an eye out for it.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -350,6 +368,20 @@ P:NPC {
         { id = "f_default", text = "Nothing all day, because the murlocs eat all the good ones. Effsee caught a frog, though, and she was very proud of it, so we counted that." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    hunter = {
+      lines = { { id = "hu_default", text = "Can I really? Hilary's going to be so jealous, because her mum won't even let us have a cat. Does {pet} like fish, do you think, because I've caught three little ones and nobody wants them." } },
+      choices = {
+        { text = "{pet} loves fish. Go on.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Careful. Pets bite strangers.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    paladin = {
+      lines = { { id = "pa_default", text = "A real paladin, with the Light and the hammer and everything? Could you make it glow, just a little, so I can tell Hilary I saw it?" } },
+      choices = {
+        { text = "Just a little.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "The Light isn't a trick for showing off.", next = "BACK", fx = { trait = { stern = 1 } } },
+      },
     },
   },
 

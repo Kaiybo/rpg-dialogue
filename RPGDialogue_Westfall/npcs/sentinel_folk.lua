@@ -235,6 +235,7 @@ P:NPC {
         { text = "Ever lost a rider?", next = "lost" },
         { text = "Lewis's note has to reach Stormwind.", next = "message", when = { questActive = TODO_QUEST("Continue to Stormwind") } },
         { text = "Ironforge's gryphons look sturdier than these.", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "The winds over Westfall are restless today, Thor.", next = "shaman", when = { class = "SHAMAN" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -274,6 +275,13 @@ P:NPC {
     dwarf = {
       lines = { { id = "dw_default", text = "Sturdier, maybe, but mine fly through sea wind and dust every day and come home grumbling. That's all the sturdy I need." } },
       choices = { { text = "Fair. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    shaman = {
+      lines = { { id = "shaman_l", text = "Aye, the birds felt it too; they've been snapping at each other since dawn. If you can tell when the wind turns, you're welcome to stand by the roost and warn me before it does." } },
+      choices = {
+        { text = "It'll turn by dusk. Ground the birds.", next = "BACK", fx = { affinity = 2 } },
+        { text = "The wind doesn't take orders from me.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
     },
   },
 
@@ -328,6 +336,7 @@ P:NPC {
         { text = "What's it like, living up here?", next = "tower" },
         { text = "Bet I could slip past your watch.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Sentinels keep watches like this at home.", next = "nightelf", when = { race = "NightElf" } },
+        { text = "I could scout the hills for you as a cat.", next = "druid", when = { class = "DRUID" } },
         { text = "Carry on, scout.", next = "END" },
       },
     },
@@ -387,6 +396,13 @@ P:NPC {
     nightelf = {
       lines = { { id = "ne_default", text = "In trees, I've heard. We've no trees to speak of out here, only plenty of sky and nothing to hide in, which suits a lookout fine." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    druid = {
+      lines = { { id = "druid_l", text = "As a cat? Well, the Defias shoot at anything that moves on two legs out there, so a cat would get further than I would. Mind the coyotes, and come back before dawn, or I'll assume you've been eaten." } },
+      choices = {
+        { text = "I'll be back before the watch changes.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Coyotes are the ones who should be careful.", next = "BACK", fx = { trait = { brave = 1 } } },
+      },
     },
   },
 

@@ -56,6 +56,7 @@ P:NPC {
         { text = "How do you make soldiers out of farmers?", next = "drill" },
         { text = "Let me drill your recruits a while.", next = "teach", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "My family farmed out here. I've come back.", next = "home", when = { origin = "human_westfall_farmhand" } },
+        { text = "A hunter could teach your recruits to track.", next = "hunter", when = { class = "HUNTER" } },
         { text = "I'll be on my way.", next = "END" },
       },
     },
@@ -159,6 +160,13 @@ P:NPC {
       choices = {
         { text = "I mean it.", next = "BACK", fx = { affinity = 2, standing = { sentinel_hill = 2 } } },
         { text = "I'm only visiting.", next = "BACK" },
+      },
+    },
+    hunter = {
+      lines = { { id = "hunter_l", text = "Track? Half of them can't find their own boots in the morning. But a man who can read a trail is worth his weight in grain out here, so if you've a week, I'll give you the youngest three." } },
+      choices = {
+        { text = "Give me the youngest three.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "I hunt alone, Captain.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
   },

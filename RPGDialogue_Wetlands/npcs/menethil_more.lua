@@ -52,6 +52,7 @@ P:NPC {
         { text = "What's Captain Stoutfist like?", next = "stoutfist" },
         { text = "How should we deal with the Dragonmaw?", next = "dragonmaw" },
         { text = "I came through Algaz. It's bad.", next = "through", when = { questDone = TODO_QUEST("The Algaz Gauntlet") } },
+        { text = "Send me to Algaz, Ironjaw. I'll hold the pass.", next = "xwarrior", when = { class = "WARRIOR" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -111,6 +112,13 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2, standing = { menethil = 1 } } } },
     },
+    xwarrior = {
+      lines = { { id = "xwa_default", text = "Ye'd hold it an' all, by the look o' ye, but holdin' isn't the problem. We've held Algaz for years; it's the supplies gettin' through to the lads that's killin' us, an' ye can't block a pass wi' a shield an' feed it at the same time." } },
+      choices = {
+        { text = "Then I'll guard the wagons.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Why does the road matter so much?", next = "road" },
+      },
+    },
   },
 
   topics = {
@@ -169,6 +177,7 @@ P:NPC {
         { text = "Who's Longbraid?", next = "longbraid" },
         { text = "Why not go yourself?", next = "go" },
         { text = "When will the killing end, do you think?", next = "killing", when = { questDone = TODO_QUEST("In Search of The Excavation Team") } },
+        { text = "Dwarves don't leave kin in the marsh, Tarrel.", next = "xdwarf", when = { race = "Dwarf" } },
         { text = "I hope she writes soon.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -216,6 +225,13 @@ P:NPC {
         { text = "That day will come. Keep hoping.", next = "BACK", fx = { align = { light = 1 }, affinity = 2 } },
         { text = "It won't. Fight for what's yours instead.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdwarf = {
+      lines = { { id = "xdw_default", text = "No, we don't, an' it's good to hear it said by somebody who means it. Everyone in the keep tells me to wait, an' waitin's the one thing I was never built for." } },
+      choices = {
+        { text = "Then I'll go to the dig for you.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Waiting's what keeps you alive, Tarrel.", next = "go" },
       },
     },
   },
@@ -270,6 +286,7 @@ P:NPC {
         { text = "Why did he leave?", next = "leave" },
         { text = "Why didn't you go with him?", next = "stay" },
         { text = "Was it right to abandon Lordaeron?", next = "abandon" },
+        { text = "Lady Proudmoore was a student of Dalaran, like me.", next = "xmage", when = { class = "MAGE" } },
         { text = "Good luck to him.", next = "END" },
       },
     },
@@ -313,6 +330,13 @@ P:NPC {
         { text = "He did right. A new land needed people.", next = "BACK", fx = { align = { order = -1 }, affinity = 2 } },
         { text = "Lordaeron needed people more. He should have stayed.", next = "BACK", fx = { align = { order = 1 }, affinity = -1 } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      lines = { { id = "xma_default", text = "Was she? James always wrote that she could freeze the sea itself if she had a mind to, and I took it for a sailor's tale. If you ever cross to Theramore, tell my brother a mage said it was true." } },
+      choices = {
+        { text = "I'll tell him.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Why didn't you go with him?", next = "stay" },
       },
     },
   },
@@ -367,6 +391,7 @@ P:NPC {
         { text = "Who's Fiora Longears?", next = "fiora" },
         { text = "Why don't you go to sea yourself?", next = "sea" },
         { text = "Is it right to send folk away from home?", next = "away" },
+        { text = "Kalimdor is my home, sailor.", next = "xnightelf", when = { race = "NightElf" } },
         { text = "Maybe someday.", next = "END" },
       },
     },
@@ -410,6 +435,13 @@ P:NPC {
         { text = "The young should stay and defend home.", next = "BACK", fx = { align = { order = 1 }, affinity = -1 } },
         { text = "Let them go. Freedom's worth the risk.", next = "BACK", fx = { align = { order = -1 }, affinity = 2 } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    xnightelf = {
+      lines = { { id = "xne_default", text = "Then you've the advantage of me, and I'll stop selling it to you. Tell me true, is there a place on that coast where the trees come right down to the water and the sea turns silver at night, or did some drunk make that up for my benefit?" } },
+      choices = {
+        { text = "Darkshore. It's real, and it's beautiful.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "A drunk made it up. Stay home.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
   },
@@ -464,6 +496,7 @@ P:NPC {
         { text = "What's in the bag?", next = "bag" },
         { text = "Which ooze took it?", next = "ooze" },
         { text = "Do you have family here?", next = "family" },
+        { text = "My pet could sniff out which ooze took it.", next = "xhunter", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "I'll keep an eye out.", next = "END" },
       },
     },
@@ -510,6 +543,13 @@ P:NPC {
         { text = "Talk to him. Forgive, whoever's wrong.", next = "BACK", fx = { align = { light = 1 }, affinity = -1 } },
         { text = "Stand your ground if you're right.", next = "BACK", fx = { align = { light = -1 }, affinity = 2 } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhunter = {
+      lines = { { id = "xhu_default", text = "Sniff it out? Those oozes smell like a privy in summer, so I'd not wish that on any beast, but I'll thank you for the thought. Just bring the bag back unopened, and don't let {pet} chew on it." } },
+      choices = {
+        { text = "Unopened. Promise.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "No promises about the opening.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
       },
     },
   },

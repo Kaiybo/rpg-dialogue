@@ -61,6 +61,7 @@ P:NPC {
         { text = "Where does all your iron go?", next = "iron" },
         { text = "I'm a smith myself.", next = "smith", when = { profession = "Blacksmithing" } },
         { text = "Will you shoe my warhorse?", next = "warhorse", when = { class = "PALADIN", minLevel = 40 } },
+        { text = "I need an edge that won't fold on an orc's skull.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Good luck with the horses.", next = "END" },
       },
     },
@@ -151,6 +152,13 @@ P:NPC {
         { text = "Fair enough.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "It's a gift of the Light, smith.", next = "BACK", fx = { align = { light = 1 }, affinity = -1 } },
         { text = "Then it can go unshod, for all I care.", next = "BACK", fx = { align = { light = -1 } } },
+      },
+    },
+    warrior = {
+      lines = { { id = "wa_default", text = "So does every guard in Lakeshire, and they've had all my iron for it. Bring me a few bars from the hills and I'll put an edge on whatever you're swinging, because a warrior with a dull blade is just a man holding a bar." } },
+      choices = {
+        { text = "Where's the nearest ore?", next = "iron" },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },

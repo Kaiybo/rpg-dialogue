@@ -65,6 +65,7 @@ P:NPC {
         { text = "What is ghost hair thread really for?", next = "thread", when = { questDone = TODO_QUEST("Return the Comb") } },
         { text = "The Light doesn't need cards.", next = "priest", when = { class = "PRIEST" } },
         { text = "Deal for me. If you dare.", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "The spirits speak to me too, madame.", next = "dwarf_shaman", when = { race = "Dwarf", class = "SHAMAN" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -227,6 +228,13 @@ P:NPC {
         { text = "It does know my name.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Whatever's beyond that door, I keep it shut.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    dwarf_shaman = {
+      lines = { { id = "ds_default", text = "Do they? Then you're the first dwarf who's ever sat at my table and not laughed at the cards. Tell me, child of stone, what do your spirits say about these woods, because mine have stopped answering." } },
+      choices = {
+        { text = "That the earth here is sick, and frightened.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } },
+        { text = "Nothing. They won't speak here either.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },
   },

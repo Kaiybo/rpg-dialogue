@@ -50,6 +50,9 @@ P:NPC {
         { text = "Put me in the line, Captain.", next = "line", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "Let me bless the badges before they go home.", next = "priest_badges", when = { class = "PRIEST", questActive = TODO_QUEST("Stromgarde Badges") } },
         { text = "I'll fight for Stromgarde.", next = "END", fx = { affinity = 2, align = { honor = 1 }, standing = { refuge_pointe = 1 } } },
+        { text = "The Syndicate wouldn't see me coming, Captain.", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "I can scout the Highlands for you.", next = "xhunter", when = { class = "HUNTER" } },
+        { text = "Arathor's first mages learned their craft in these hills.", next = "xmage", when = { class = "MAGE" } },
         { text = "I'll help where it pays, Captain, and Stromgarde's coin is as good as any.", next = "END", fx = { align = { honor = -1 } } },
       },
     },
@@ -140,6 +143,33 @@ P:NPC {
         { text = "Understood, Captain.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xro_default", text = "They're Alterac's nobles with their faces covered, and they'd see you coming the way thieves see each other. Still, they cut the badges off my dead, and I've stopped being particular about who takes them back." } },
+      choices = {
+        { text = "Then I'll take them back their way: knives in the dark.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'll get the badges, and I'll do it cleanly.", next = "BACK", fx = { affinity = 2, align = { honor = 1 }, standing = { refuge_pointe = 1 } } },
+        { text = "Why do the badges matter so much?", next = "syndicate_badges" },
+      },
+    },
+    xhunter = {
+      lines = {
+        { id = "xhu_default", text = "Good. My scouts went out to Northfold last week and only one came back. Watch the ridges for Witherbark and the low ground for Boulderfist, and tell me where the Horde's riders are going." },
+        { id = "xhu_dwarf", when = { race = "Dwarf" },
+          text = "A dwarf with a rifle and a beast, and Ironforge's eyes, I hope. My scouts went to Northfold last week and only one came back, so look sharp for Witherbark on the ridges." },
+      },
+      choices = {
+        { text = "Why the Horde's riders?", next = "hammerfall" },
+        { text = "I'll bring you a map.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    xmage = {
+      lines = { { id = "xma_default", text = "So the old stories say: a hundred of Arathor's people taught by the elves to fight the trolls, and Strom stood at the heart of it. I'd give a great deal for one of those hundred today, so you'll have to do." } },
+      choices = {
+        { text = "I'll do.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
+        { text = "Who holds the keep now?", next = "keep" },
+      },
+    },
   },
 
   topics = {
@@ -202,6 +232,9 @@ P:NPC {
         { text = "Lok'tar, chieftain. I came to fight.", next = "orc", when = { race = "Orc" } },
         { text = "The Witherbark are trolls. Do you trust me?", next = "troll", when = { race = "Troll" } },
         { text = "Korin worries for you, Drum Fel.", next = "korin", when = { questDone = TODO_QUEST("The Real Threat") } },
+        { text = "The elements are with Hammerfall, chieftain.", next = "xshaman", when = { class = "SHAMAN" } },
+        { text = "I wield fel magic. Does that trouble you?", next = "xwarlock", when = { class = "WARLOCK" } },
+        { text = "The Dark Lady sends her regards to Hammerfall.", next = "xforsaken", when = { race = "Scourge" } },
         { text = "I'll fight.", next = "END", fx = { affinity = 2, standing = { hammerfall = 1 } } },
       },
     },
@@ -294,6 +327,33 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xshaman = {
+      lines = {
+        { id = "xsh_default", text = "Good, because the trolls have their own spirits and the ogres have their own fists, and I'll take all the help the earth will give us. Korin listens for the omens, but a shaman who can call the lightning down is worth ten omens." },
+        { id = "xsh_tauren", when = { race = "Tauren" },
+          text = "A tauren who speaks to the elements, in my fortress. Thrall would like that. Call the storm on the Witherbark, friend, and Hammerfall will remember your name." },
+      },
+      choices = {
+        { text = "The elements aren't a weapon to aim.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "Show me where to call the storm.", next = "enemies", fx = { affinity = 1 } },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = { { id = "xwl_default", fx = { learn = { "burning_blade" } },
+        text = "It troubles me more than any ogre, and I'll tell you why: I've seen the Burning Blade, and I remember what that magic did to our people. Thrall allows your kind in the Horde, so I allow you in Hammerfall, but I'll be watching where you point it." } },
+      choices = {
+        { text = "Watch, then. It points at the Horde's enemies.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Power is power. Hammerfall needs mine.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+      },
+    },
+    xforsaken = {
+      lines = { { id = "xfo_default", text = "Does she? Then you can carry mine back: Hammerfall holds, and it holds without Undercity's apothecaries. Fight the Boulderfist beside my grunts and we'll get along well enough." } },
+      choices = {
+        { text = "I'll fight. Nothing more.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Who's attacking you?", next = "enemies" },
+      },
+    },
   },
 
   topics = {
@@ -355,6 +415,7 @@ P:NPC {
         { text = "Teach me your patience.", next = "hunter", when = { class = "HUNTER" } },
         { text = "I'm Darkspear. What does the chief need of me?", next = "troll", when = { race = "Troll" } },
         { text = "I've met Nimboya, in Grom'gol.", next = "nimboya", when = { heardLine = "nimboya.h_default" } },
+        { text = "I hear voices the loa don't send.", next = "xwarlock", when = { race = "Troll", class = "WARLOCK" } },
         { text = "Ha. Let's get it.", next = "END", fx = { affinity = 2, trait = { brave = 1 } } },
       },
     },
@@ -444,6 +505,22 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "yenniku" } } } },
     },
+    xwarlock = {
+      big = true,
+      lines = { { id = "xwl_default", text = "Zengu hear that about some Darkspear, mon, and Zengu don't like it. The Gurubashi listen to voices too, and look where it got them, all bowing to a blood god in the jungle." } },
+      choices = {
+        { text = "I listen, but I don't bow.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "You're right. I'll be careful with them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "What would Vol'jin say?", next = "xwarlock_voljin" },
+      },
+    },
+    xwarlock_voljin = {
+      lines = { { id = "xwv_default", text = "Vol'jin say a troll be judged by what he do with the gift, not where it come from. Zengu still be watching you, but Zengu watch everybody." } },
+      choices = {
+        { text = "Fair enough.", next = "BACK", fx = { trait = { patient = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -493,6 +570,7 @@ P:NPC {
         { text = "How does a tauren fare among orcs?", next = "among" },
         { text = "What do the grunts sing about?", next = "songs" },
         { text = "We're a long way from Mulgore, you and I.", next = "home", when = { race = "Tauren" } },
+        { text = "Thunder Bluff sent me here, innkeeper.", next = "xskyborne", when = { race = "Skyborne" } },
         { text = "Just a rest, thank you.", next = "END" },
       },
     },
@@ -522,6 +600,13 @@ P:NPC {
         { id = "h2_default", text = "A long way, but the Earth Mother is under this stone too, if you listen for her. Sit with me a while and we'll both pretend the wind smells of grass." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    xskyborne = {
+      lines = { { id = "xsk_default", text = "Then you are welcome twice, once for the Horde and once for the Bluff. I have not met your people before, so forgive me if I stare; sit by the fire, and the grunts will soon find someone else to look at." } },
+      choices = {
+        { text = "Winds be with you, innkeeper.", next = "BACK", fx = { affinity = 2 } },
+        { text = "How does a tauren fare among orcs?", next = "among" },
+      },
     },
   },
 

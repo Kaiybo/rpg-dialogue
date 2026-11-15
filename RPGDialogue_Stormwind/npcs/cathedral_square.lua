@@ -55,6 +55,7 @@ P:NPC {
         { text = "How do you fight a necromancer with faith?", next = "fel" },
         { text = "Bishop, what do you teach young priests?", next = "priest", when = { class = "PRIEST" } },
         { text = "I've come from the Night Watch in Darkshire.", next = "watch", when = { questDone = TODO_QUEST("Seeking Wisdom") } },
+        { text = "Did Morbent Fel start out as someone like me?", next = "warlock", when = { class = "WARLOCK" } },
         { text = "Nothing weighs on me today, Bishop.", next = "END" },
       },
     },
@@ -138,6 +139,18 @@ P:NPC {
         { text = "They're holding, Bishop, and they're proud of it.", next = "BACK", fx = { affinity = 2, opinion = { night_watch = "holding" } } },
       },
     },
+    warlock = {
+      big = true,
+      lines = { { id = "warlock_l", text = "I don't know how he started, and I'd be lying if I said the question didn't frighten me. Every one of them was somebody's apprentice once; what matters is that you asked, and that you still can." } },
+      choices = {
+        { text = "I'll never become that.", next = "warlock2", fx = { align = { light = 1 } } },
+        { text = "Power isn't evil. What he did with it was.", next = "warlock2", fx = { align = { light = -1 } } },
+      },
+    },
+    warlock2 = {
+      lines = { { id = "warlock2_l", text = "Then come back and tell me so in a year, and in five, and I'll believe you a little more each time. The door of this altar doesn't close, whatever my brothers mutter." } },
+      choices = { { text = "Something else, Bishop.", next = "BACK", fx = { affinity = 1 } } },
+    },
   },
 
   topics = {
@@ -201,6 +214,7 @@ P:NPC {
         { text = "Where is the book now?", next = "book" },
         { text = "What does Fortitude mean to you, Brother?", next = "fortitude", when = { class = "PRIEST" } },
         { text = "I know iron, Brother, and it's honest stuff.", next = "smith", when = { any = { { profession = "Blacksmithing" }, { profession = "Mining" } } } },
+        { text = "Fortitude is getting up after you're knocked down, Brother.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Good luck with the sermon.", next = "END" },
       },
     },
@@ -261,6 +275,17 @@ P:NPC {
         { text = "It hisses, mostly, but call it singing anyway.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } },
         { text = "It sings, Brother.", next = "BACK", fx = { affinity = 1 } },
       },
+    },
+    warrior = {
+      lines = { { id = "warrior_l", text = "Oh, that's good, may I use that? I'd been circling round it for three pages, and you've said it in one breath, like someone who's actually been knocked down." } },
+      choices = {
+        { text = "Use it. Fortitude needs no priest to explain it.", next = "warrior2", fx = { trait = { stern = 1 } } },
+        { text = "Use it, but leave out my name.", next = "warrior2", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    warrior2 = {
+      lines = { { id = "warrior2_l", text = "A warrior I met at the altar, I'll say, which is true and mysterious and will make the old ladies sit up. Iron bends before it breaks, and so do we." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
     },
   },
 
@@ -448,6 +473,7 @@ P:NPC {
         { text = "Do you like serving at the altar?", next = "altar" },
         { text = "Who's the strictest priest here?", next = "strict" },
         { text = "Would you like to be a priest someday?", next = "priest", when = { class = "PRIEST" } },
+        { text = "Would you like to be a paladin someday?", next = "paladin", when = { class = "PALADIN" } },
         { text = "Off you go, then.", next = "END" },
       },
     },
@@ -488,6 +514,17 @@ P:NPC {
         { text = "Once or twice, and you get past it.", next = "BACK", fx = { affinity = 3, trait = { kind = 1 } } },
         { text = "Never. You'll have to toughen up.", next = "BACK", fx = { trait = { stern = 1 } } },
       },
+    },
+    paladin = {
+      lines = { { id = "paladin_l", text = "Yes! No. Maybe? Lord Shadowbreaker says I'm too young and too short, and Arthur says height has nothing to do with it, and I'm on Arthur's side." } },
+      choices = {
+        { text = "Arthur's right. Keep lighting candles.", next = "paladin2", fx = { trait = { kind = 1 } } },
+        { text = "Start by lifting heavier candlesticks.", next = "paladin2", fx = { trait = { witty = 1 } } },
+      },
+    },
+    paladin2 = {
+      lines = { { id = "paladin2_l", text = "I already carry the big brass ones on feast days, both at once! Will you show me how you hold your hammer, before you go?" } },
+      choices = { { text = "Like this. Gently.", next = "BACK", fx = { affinity = 2 } } },
     },
   },
 
@@ -551,6 +588,7 @@ P:NPC {
         { text = "Who helps you here?", next = "help" },
         { text = "What became of Jeremy Heartweaver?", next = "jeremy", when = { questDone = TODO_QUEST("Remember That I Love You") } },
         { text = "I was one of them, once. From Lordaeron.", next = "refugee", when = { origin = "human_lordaeron_refugee" } },
+        { text = "Would the children like to see a bear, Matron?", next = "druid", when = { class = "DRUID" } },
         { text = "Good day, Matron.", next = "END" },
       },
     },
@@ -607,6 +645,17 @@ P:NPC {
         { text = "Work. Something to do with my hands.", next = "BACK", fx = { affinity = 3 } },
         { text = "Nothing helped. You just get older.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
       },
+    },
+    druid = {
+      lines = { { id = "druid_l", text = "Oh, my word. They'd adore it, and then they'd have nightmares, and I'd be up till dawn with all of them. Could you be a small bear, dear?" } },
+      choices = {
+        { text = "A very small, very gentle bear.", next = "druid2" },
+        { text = "Perhaps a cat would frighten them less.", next = "druid2", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    druid2 = {
+      lines = { { id = "druid2_l", text = "Then come by at Children's Week, when they're all in good spirits, and I'll tell them a friend of the kaldorei is visiting. They'll talk of nothing else for a month." } },
+      choices = { { text = "Something else, Matron.", next = "BACK", fx = { affinity = 2 } } },
     },
   },
 

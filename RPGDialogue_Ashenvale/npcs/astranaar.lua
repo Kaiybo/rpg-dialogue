@@ -20,6 +20,8 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_warlock", cat = "class", when = { class = "WARLOCK" },
+      text = "Ashenvale has satyrs enough already, warlock, and they started out much like you. Keep that imp on a short leash inside my walls." },
     { id = "n_pet", cat = "pet", when = { pet = true },
       text = "That's a good companion. Korra likes the look of it, though Dagri isn't sure yet; he's never sure about anyone at first." },
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
@@ -30,6 +32,46 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    warrior_r = {
+      lines = {
+        { id = "wr_default", text = "There is no front, warrior, and that's the trouble with this war. The Warsong come through the trees from the east wherever they like, so a good warrior here learns to fight from behind a trunk, the way my scouts do." },
+        { id = "wr_watch", when = { origin = "nightelf_auberdine_watch" },
+          text = "A veteran of the Auberdine watch, and you still want more? Good. Ashenvale needs exactly that kind of stubbornness, because the Warsong have plenty of their own." },
+      },
+      choices = {
+        { text = "Then I'll learn to fight like a scout.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "I'll stand in the open and let them come.", next = "BACK", fx = { align = { honor = 1 }, trait = { brave = 1 } } },
+      },
+    },
+    rogue_r = {
+      big = true,
+      lines = {
+        { id = "rr_default", text = "Could you? The Warsong post guards on their saws and their wolves smell elves at fifty paces, but a rogue who can get close could learn how many axes they have, and where they mean to cut next." },
+        { id = "rr_watch", when = { origin = "nightelf_watcher_trained" },
+          text = "You move like the Watchers, and I'll not ask where you learned it. Scout the lumber camps for me and I'll count it a debt between us." },
+      },
+      choices = {
+        { text = "I'll scout and report. No killing unless I must.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "I'll do more than count. Their foremen won't wake.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    human_r = {
+      big = true,
+      lines = {
+        { id = "hmr_default", text = "I know, and I've heard Stormwind's soldiers talk about it around our fires. Yet your king keeps the orcs in camps, and their Warchief has built a nation across the sea, and here are his axes in my trees anyway." },
+      },
+      choices = {
+        { text = "Orcs can change. Some of them have.", next = "human_r2", fx = { align = { light = 1 } } },
+        { text = "An orc with an axe is an orc with an axe.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
+      },
+    },
+    human_r2 = {
+      lines = {
+        { id = "hmr2_default", text = "Maybe, and maybe one day I'll meet one. Until then I'll judge them by what reaches Astranaar, which is smoke and stumps and the bodies of my scouts." },
+      },
+      choices = { { text = "Something else, Raene.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -61,6 +103,9 @@ P:NPC {
         { text = "How do you keep two companions at once?", next = "hunter_r", when = { class = "HUNTER" } },
         { text = "What do you need from a druid?", next = "druid_r", when = { class = "DRUID" } },
         { text = "Do your scouts need a healer?", next = "priest_r", when = { class = "PRIEST" } },
+        { text = "Put me at the front when the Warsong come.", next = "warrior_r", when = { class = "WARRIOR" } },
+        { text = "I could get into their lumber camps unseen.", next = "rogue_r", when = { class = "ROGUE" } },
+        { text = "My people fought the orcs in our own fields.", next = "human_r", when = { race = "Human" } },
         { text = "I'll help defend the forest.", next = "END", fx = { affinity = 2, standing = { astranaar = 1 } } },
       },
     },
@@ -197,6 +242,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    mage_p = {
+      lines = {
+        { id = "mp_default", text = "A spell? My mother would have thrown you out of the house for saying it, and the Sentinels would agree with her. But I've tried every herb in Ashenvale, so tell me plainly: can your magic touch a fever that comes from a dream?" },
+      },
+      choices = {
+        { text = "No. Honestly, it can't. I'm sorry.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "It might. I'd try anything, as you have.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -221,6 +275,7 @@ P:NPC {
         { text = "Who is Orendil?", next = "orendil" },
         { text = "Fallen Sky Lake?", next = "lake" },
         { text = "Let me look at her.", next = "look", when = { class = { "PRIEST", "DRUID", "PALADIN" } } },
+        { text = "I'm a mage. Let me try a spell on her fever.", next = "mage_p", when = { class = "MAGE" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -292,6 +347,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    gnome_r = {
+      lines = {
+        { id = "gnr_default", text = "Yes! Is it that you're all really children? Papa says you're not, but you're the same size as me, and you've got a much better hat." },
+      },
+      choices = {
+        { text = "No, but we build machines that walk.", next = "BACK", fx = { affinity = 2 } },
+        { text = "It's a secret. Get well and I'll tell you.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Relara, and I'm sick, but Papa's fixing it. The dreams are bad, but you're not in them, so that's good." },
@@ -308,6 +372,7 @@ P:NPC {
         { text = "What's your papa like?", next = "papa" },
         { text = "Do you like the Sentinels?", next = "sentinels_r" },
         { text = "Would you like to meet my companion?", next = "pet_r", when = { pet = true } },
+        { text = "Want to know a secret about gnomes?", next = "gnome_r", when = { race = "Gnome" } },
         { text = "Get well soon.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -362,6 +427,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    pet_f = {
+      lines = {
+        { id = "pf_default", text = "Nobody has ever asked me that. Very well; {pet}, out on the roads with you, and I'll want to see both names come back through this gate, so look after each other." },
+      },
+      choices = {
+        { text = "We always do.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Faldreas. I keep track of who goes out on the roads and who ought to have come back by now, and the second list is longer than I'd like." },
@@ -380,6 +454,7 @@ P:NPC {
         { text = "The forest spirits speak to you?", next = "spirits" },
         { text = "Where do the roads go from here?", next = "roads" },
         { text = "I'm a long way from home. Will you remember me?", next = "far", when = { race = { "Human", "Dwarf", "Gnome" } } },
+        { text = "Put my companion on your list too.", next = "pet_f", when = { class = "HUNTER", pet = { named = true } } },
         { text = "I'll keep my eyes open.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -518,6 +593,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    warlock_d = {
+      big = true,
+      lines = {
+        { id = "wd_default", text = "I'd guessed what you were, friend, and I've been trying to decide whether to say it. If you can read what they read, you can tell me what they want, but the Light will be watching what you do with the knowing, and so will I." },
+      },
+      choices = {
+        { text = "Read it and burn it. That's my offer.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "What I learn from their books is mine.", next = "BACK", fx = { align = { light = -1 }, affinity = -2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -539,6 +625,7 @@ P:NPC {
         { text = "How do you find the night elves?", next = "elves_d" },
         { text = "I'm a paladin too. How can I help?", next = "pal_d", when = { class = "PALADIN" } },
         { text = "Would your company welcome a priest's blessing?", next = "priest_d", when = { class = "PRIEST" } },
+        { text = "I know the Dark Strand's craft. I could read their tomes.", next = "warlock_d", when = { class = "WARLOCK" } },
         { text = "Light keep you.", next = "END", fx = { affinity = 1 } },
       },
     },

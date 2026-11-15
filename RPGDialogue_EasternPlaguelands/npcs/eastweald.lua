@@ -52,6 +52,8 @@ P:NPC {
         { text = "Who's the horse?", next = "mirador" },
         { text = "Does the Light still hear you?", next = "paladin", when = { class = { "PALADIN", "PRIEST" } } },
         { text = "An orc saved your life?", next = "eitrigg", when = { race = { "Orc", "Human", "Dwarf" } } },
+        { text = "Would you show mercy to the dead, Tirion?", next = "x_forsaken", when = { race = "Scourge" } },
+        { text = "What turns a soldier into a zealot?", next = "x_warrior", when = { class = "WARRIOR" } },
         { text = "I'll help you.", next = "END", fx = { affinity = 2, align = { light = 1, honor = 1 } } },
         { text = "You chose an orc over your own people, and I can't respect that.", next = "END", fx = { affinity = -1, align = { light = -1 } } },
       },
@@ -142,6 +144,29 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    x_forsaken = {
+      lines = {
+        { id = "xf_default", text = "I defended an orc when my own people called him a monster, and I've had a long time by this river to wonder where mercy ought to end. You came here to talk with an old man instead of raising a hand to him, so I'll judge you by that, as I'd judge anyone." },
+        { id = "xf_knight", when = { origin = "forsaken_risen_knight" }, text = "You were a knight once, before the plague; I can see it in the way you stand, even now. I may well have known your name, and I'm sorry that I can't recall it." },
+        { id = "xf_paladin", when = { race = "Scourge", class = "PALADIN" }, text = "You carry the Light, and you carry it dead. I'd have called that impossible once, but I've been wrong about a great many things, so tell me, child: does it burn?" },
+      },
+      choices = {
+        { text = "It burns. I carry it anyway.", next = "BACK", when = { class = "PALADIN" }, fx = { affinity = 3, trait = { brave = 1 } } },
+        { text = "Mercy is all the dead have left, Tirion.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I don't need anyone's mercy, old man.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_warrior = {
+      lines = {
+        { id = "xw_default", text = "Fear, mostly, and a commander who tells you that your fear is righteous. I watched good men of Hearthglen's garrison follow that voice into the Crusade, and I couldn't call them back, because by then they'd stopped listening to anything that sounded like doubt." },
+      },
+      choices = {
+        { text = "A soldier follows orders. The blame is the commander's.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
+        { text = "Every soldier answers for what their own hands do.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -190,8 +215,15 @@ P:NPC {
         { id = "h_back", when = { metBefore = true },
           text = "Still alive? Adequate; most of those she sends me are not." },
       },
+      again = {
+        { id = "h_again", text = "More? Ask it quickly, because the plaguebats won't wait on your curiosity." },
+        { id = "h_again2", text = "Go on, then, though I warn you my patience is thinner than these fields." },
+      },
       choices = {
         { text = "This was your home?", next = "home" },
+        { text = "Teach me what the elves taught you.", next = "x_hunter", when = { class = "HUNTER" } },
+        { text = "We both woke in the dark, Blightcaller.", next = "x_forsaken", when = { race = "Scourge" } },
+        { text = "Another elf, Blightcaller. Do you hate us all?", next = "x_skyborne", when = { race = "Skyborne" } },
         { text = "I'll clear the fields.", next = "END", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll hunt where I please, Blightcaller, not where you point.", next = "END", fx = { align = { order = -1 } } },
       },
@@ -201,6 +233,36 @@ P:NPC {
         { id = "hm_default", text = "I was born in that house, and I was a ranger lord when there were still lords in Lordaeron. The Scourge took it, and me. The Queen returned me; the house, I'll take back myself." },
       },
       choices = { { text = "Then let's take it back.", next = "END", fx = { affinity = 2 } } },
+    },
+    x_hunter = {
+      lines = {
+        { id = "xh_default", text = "Teach you? The elves spent years teaching me, and every lesson came with a sneer for the human who dared to learn it. I'll tell you the one thing they never managed to: a ranger is measured by what he kills, not by the blood he was born with." },
+      },
+      choices = {
+        { text = "Then measure me by my kills.", next = "BACK", fx = { affinity = 2, align = { light = -1 } } },
+        { text = "A ranger's measured by what he protects.", next = "BACK", fx = { affinity = -1, align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_forsaken = {
+      lines = {
+        { id = "xf_default", text = "We did, and we both woke to her voice, which is the only reason either of us is more than a ghoul in a field. Remember that whenever you're tempted to think your will is your own; it is, now, because she made it so." },
+        { id = "xf_soldier", when = { origin = "forsaken_lordaeron_soldier" }, text = "You wore Lordaeron's colors once, as I did. Then you know what this land was, and you'll fight for what it can be under her." },
+      },
+      choices = {
+        { text = "My will is my own, Blightcaller. Nobody gave it to me.", next = "BACK", fx = { affinity = -2, align = { order = -1 } } },
+        { text = "I owe her everything, and I'll repay it here.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_skyborne = {
+      lines = {
+        { id = "xs_default", text = "I don't know your people, elf, and I've no wish to, but I knew the ones who trained me, and I watched them smile while they called me a hound that had learned tricks. If you're different, prove it on the plaguebats, and I'll decide later whether your name is worth remembering." },
+      },
+      choices = {
+        { text = "I'll prove it in the field.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+        { text = "Your grudge is with other elves, not with me.", next = "BACK", fx = { affinity = -1, trait = { skeptical = 1 } } },
+      },
     },
   },
 

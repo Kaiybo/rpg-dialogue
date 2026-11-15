@@ -25,6 +25,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    lesson = {
+      lines = {
+        { id = "le_default", text = "How a forest sounds when it's dying, which is not how it sounds when it sleeps. Moonglade will teach you the healthy song, and Felwood will teach you the other one, and you need both before you can call yourself a healer of anything." },
+      },
+      choices = {
+        { text = "I'd rather learn it from a book.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "I'll listen, then.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Golhine, and I teach the druids who come this far north, though few do. A druid who only knows healthy places hasn't learned much." },
@@ -38,6 +47,7 @@ P:NPC {
         { text = "Train me.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "Why teach here?", next = "why" },
         { text = "What's Talonbranch Glade like?", next = "glade" },
+        { text = "What does a druid learn here that she can't at home?", next = "lesson", when = { class = "DRUID" } },
         { text = "Farewell.", next = "END" },
       },
     },

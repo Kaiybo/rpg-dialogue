@@ -51,6 +51,8 @@ P:NPC {
           text = "The loggers talk about you, and so do my men, the ones I have left. It's all good talk." },
         { id = "h_seasoned", when = { minLevel = 25, questDone = TODO_QUEST("Report to Thomas") },
           text = "You found my men, once, and now look at you. I still stand on this bridge, because somebody has to." },
+        { id = "h_guard", when = { origin = "human_city_guard" },
+          text = "You've the look of the Watch about you; I'd know that tired squint anywhere. Well, this bridge is the same work as the Trade District, only wetter and with murlocs." },
       },
       again = {
         { id = "h_again", text = "Anything further, citizen?" },
@@ -62,6 +64,7 @@ P:NPC {
         { text = "What do you know about the murlocs?", next = "murlocs" },
         { text = "Why is the bridge so thinly held?", next = "army" },
         { text = "I came from Westfall. Nobody held a bridge for us.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
+        { text = "I'll hold this bridge with you, Guard.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Carry on, guard.", next = "END" },
       },
     },
@@ -172,6 +175,18 @@ P:NPC {
         { text = "It's something, coming from a soldier.", next = "BACK", fx = { align = { order = 1 }, affinity = 2 } },
         { text = "Someone should answer for it.", next = "BACK", fx = { align = { order = -1 }, opinion = { westfall = "abandoned" } } },
       },
+    },
+    warrior = {
+      big = true,
+      lines = { { id = "warrior_l", text = "Would you? I've had three volunteers this month, and two of them ran when the murlocs came up out of the water singing. It's the singing that does it." } },
+      choices = {
+        { text = "I'll stand till relief comes.", next = "warrior2", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "I'll go after them instead of waiting here.", next = "warrior2", fx = { align = { order = -1 }, trait = { brave = 1 } } },
+      },
+    },
+    warrior2 = {
+      lines = { { id = "warrior2_l", text = "Either one's more than the Keep has sent me. Keep your shield low; they come in at the knees." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 

@@ -47,6 +47,7 @@ P:NPC {
         { text = "Tell me about your brother.", next = "brother" },
         { text = "Who commands the cult out here?", next = "council", when = { questDone = TODO_QUEST("Aurel Goldleaf") } },
         { text = "Is it hard, fighting so far from Mulgore?", next = "tauren", when = { race = "Tauren" } },
+        { text = "Let me break some cultist heads, Bor.", next = "x_warrior", when = { class = "WARRIOR" } },
         { text = "I'll bring you whatever I find on them.", next = "END", fx = { standing = { cenarion_hold = 1 } } },
       },
     },
@@ -103,6 +104,15 @@ P:NPC {
     tauren = {
       lines = { { id = "ta_default", text = "Some days. Then I remember the plains are safe because we're out here, and I hit the next cultist a little harder." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    x_warrior = {
+      lines = {
+        { id = "xw_default", text = "Ha! That's the spirit, friend, and there are plenty of heads out west in the Twilight camps, though do bring me their papers before you break anything else. Big brother says strike the leaders and spare the followers, but between you and me, the followers hit back too." },
+      },
+      choices = {
+        { text = "Leaders first, then. Your brother's right.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
+        { text = "I'll hit whatever hits me first.", next = "BACK", fx = { trait = { brave = 1 } } },
+      },
     },
   },
 
@@ -161,6 +171,7 @@ P:NPC {
         { text = "Your brother calls them crazies.", next = "brother" },
         { text = "The dead here are restless. Can they be helped?", next = "spirit_help", when = { class = { "PRIEST", "SHAMAN" } } },
         { text = "Who did you send me to see next?", next = "aurel", when = { questDone = TODO_QUEST("Vyral the Vile") } },
+        { text = "My people speak with the loa, not the Earth Mother.", next = "x_troll", when = { race = "Troll" } },
         { text = "May the Earth Mother watch over you.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -211,6 +222,15 @@ P:NPC {
       lines = { { id = "a_default", fx = { learn = { "abyssal_council" } },
         text = "Aurel Goldleaf, our craftsman. The cult answers to a power called the Abyssal Council, which speaks through the wind stones in their camps, and Aurel believes a clever enough disguise could put you face to face with it." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    x_troll = {
+      lines = {
+        { id = "xt_default", text = "The loa, the Earth Mother, the spirits of the wind; perhaps they are many voices in one song, young one, and perhaps they are not. But I would hear what your loa say of this place, for the land here weeps, and I would know whether every spirit hears it." },
+      },
+      choices = {
+        { text = "The loa say the dead here are not at rest.", next = "BACK", fx = { affinity = 2 } },
+        { text = "The loa keep their own counsel, elder.", next = "BACK", fx = { affinity = -1 } },
+      },
     },
   },
 
@@ -269,6 +289,7 @@ P:NPC {
         { text = "Who commands the Twilight's Hammer?", next = "council" },
         { text = "You'd send me in disguise? Is that honourable?", next = "honor" },
         { text = "I've worn a false face before.", next = "rogue", when = { class = "ROGUE" } },
+        { text = "Why not an illusion instead of a disguise?", next = "x_mage", when = { class = "MAGE" } },
         { text = "I'll leave you to your bench.", next = "END" },
       },
     },
@@ -310,6 +331,15 @@ P:NPC {
     rogue = {
       lines = { { id = "r_default", text = "Then you know the trick: it isn't the coat, it's the walk. Wear my medallion like you've worn it for years, and the stones will never know." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    x_mage = {
+      lines = {
+        { id = "xm_default", text = "Because the Council's servants can smell a spell the way you'd smell smoke, and a mage hidden behind an illusion might as well carry a lantern on their head. Good cloth, the right medallion and a steady face hide a person better than any magic I know." },
+      },
+      choices = {
+        { text = "Craft over spellwork, then. This once.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'd still trust my magic over your stitching.", next = "BACK", fx = { affinity = -1, trait = { skeptical = 1 } } },
+      },
     },
   },
 
@@ -365,6 +395,7 @@ P:NPC {
         { text = "Why do you watch the hive?", next = "hive" },
         { text = "The bronze one has returned. I saw him.", next = "risen", when = { questDone = TODO_QUEST("What Tomorrow Brings") } },
         { text = "Our people fought here once.", next = "kaldorei", when = { race = "NightElf" } },
+        { text = "The land remembers the old war, Watcher.", next = "x_druid", when = { class = "DRUID" } },
         { text = "Farewell, Baristolth.", next = "END" },
       },
     },
@@ -416,6 +447,15 @@ P:NPC {
     kaldorei = {
       lines = { { id = "k_default", text = "Fought, and bled, and won, and then chose to forget, which is the one thing the Brood would never do. I remember for them, and for you, whether or not you thank me for it." } },
       choices = { { text = "I thank you.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    x_druid = {
+      lines = {
+        { id = "xd_default", text = "It remembers, child of Cenarius, though the sand has buried what the land will not speak of. Walk softly when you wear a beast's shape here, mortal, for the hive is sensitive to living things, and it has a long memory of druids." },
+      },
+      choices = {
+        { text = "I'll walk softly, Watcher.", next = "BACK", fx = { affinity = 1 } },
+        { text = "The Circle doesn't fear the hive.", next = "BACK", fx = { trait = { brave = 1 } } },
+      },
     },
   },
 

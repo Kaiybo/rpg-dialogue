@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    hunter_i = {
+      lines = {
+        { id = "hi_default", text = "Your companion would cull them too, young hunter, and without any of the guilt. The glade has more boars and nightsabers than it can feed this year, and thinning them keeps the rest from starving through winter." },
+      },
+      choices = {
+        { text = "Then the cull is a kindness.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The glade would find its own balance without us.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -53,6 +62,7 @@ P:NPC {
         { text = "Who sends the sigils?", next = "sigils" },
         { text = "I've seen the world since. It's not balanced.", next = "world", when = { minLevel = 20 } },
         { text = "I'm a long way from home here.", next = "stranger", when = { ["not"] = { race = "NightElf" } } },
+        { text = "Must I cull beasts when my companion is one of them?", next = "hunter_i", when = { class = "HUNTER" } },
         { text = "Thank you, Conservator.", next = "END" },
       },
     },
@@ -133,6 +143,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    rogue_m = {
+      lines = {
+        { id = "rm_default", text = "Of course you can; you're quiet enough to hear it, which is more than I can say for most of the young warriors. The tree doesn't care what you do in the dark, only whether you listen to it in the daylight." },
+      },
+      choices = {
+        { text = "I listen. That's half my trade.", next = "BACK", fx = { affinity = 1 } },
+        { text = "What does it say?", next = "hum" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -152,6 +171,7 @@ P:NPC {
         { text = "Are you kin to the Arch Druid?", next = "kin" },
         { text = "Who is Tarindrella?", next = "dryad" },
         { text = "Teach me what you know.", next = "druid_m", when = { class = "DRUID" } },
+        { text = "Even a rogue can feel Aldrassil hum.", next = "rogue_m", when = { class = "ROGUE" } },
         { text = "I'll help.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -232,6 +252,47 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    warrior_tn = {
+      lines = {
+        { id = "wtn_default", text = "Start with the grells and the mangy wolves at the glade's edge, and don't be ashamed of them, because every Sentinel in Ashenvale started there. When you can walk to Dolanaar without stopping to bind a wound, go and see Elanaria on the Warrior's Terrace." },
+        { id = "wtn_watch", when = { origin = "nightelf_auberdine_watch" },
+          text = "You've a soldier's way of standing already, and I'd guess somebody at Auberdine taught it to you. The glade will feel small after a coast watch, but its lessons are older than any watch." },
+      },
+      choices = {
+        { text = "I'll go straight for the strongest thing out there.", next = "warrior_tn2", fx = { align = { order = -1 }, trait = { brave = 1 } } },
+        { text = "I'll take it in order, as you say.", next = "warrior_tn2", fx = { align = { order = 1 } } },
+        { text = "Who is Elanaria?", next = "warrior_tn2" },
+      },
+    },
+    warrior_tn2 = {
+      lines = {
+        { id = "wtn2_default", text = "A proud one, and she'll test you before she teaches you, which is the right way round. From up here I've watched a great many young warriors run down that path, and the ones who came back were never the fastest." },
+      },
+      choices = { { text = "Something else, Tenaron.", next = "BACK" } },
+    },
+    hunter_tn = {
+      lines = {
+        { id = "htn_default", text = "Whatever the forest has too much of this year, and Conservator Ilthalaine will tell you what that is. A hunter who takes what the glade can spare is welcome here, and one who takes more won't be for long." },
+        { id = "htn_saber", when = { origin = "nightelf_nightsaber_rider" },
+          text = "I've seen you with the sabers in the paddock below; they don't let just anyone close. When you're grown into that bow, Jocaste in the Enclave will teach you to keep a companion of your own." },
+      },
+      choices = {
+        { text = "I'll take only what's needed.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "The strong eat. That's the forest's way too.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
+    rogue_tn = {
+      lines = {
+        { id = "rtn_default", text = "So I noticed, since you were halfway up the stair before I heard you. We need quiet feet as much as loud swords, more so where the satyrs hide, but quiet feet need a good heart behind them, so keep yours." },
+        { id = "rtn_watch", when = { origin = "nightelf_watcher_trained" },
+          text = "Someone has trained you who doesn't usually train children, I think, and I won't ask who. Just remember the glade raised you before they did." },
+      },
+      choices = {
+        { text = "I'll use the shadows to protect the glade.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "A heart is a weakness in my line of work.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -258,6 +319,9 @@ P:NPC {
         { text = "I've been down in the world. It's hard.", next = "world_t", when = { minLevel = 20 } },
         { text = "I'm not kaldorei. Am I welcome here?", next = "welcome", when = { ["not"] = { race = "NightElf" } } },
         { text = "Corithras told me the rest of the story.", next = "story", when = { questDone = TODO_QUEST("Crown of the Earth") } },
+        { text = "I was raised to the blade. Where do I start?", next = "warrior_tn", when = { class = "WARRIOR" } },
+        { text = "My bow is strung. What should I hunt first?", next = "hunter_tn", when = { class = "HUNTER" } },
+        { text = "I learned to move quietly before I could fight.", next = "rogue_tn", when = { class = "ROGUE" } },
         { text = "I'll go when I'm ready.", next = "END" },
       },
     },
@@ -393,6 +457,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    rogue_d = {
+      lines = {
+        { id = "rd_default", text = "Do you? Then you'll know that spider venom is quick at first and slow afterwards, and that Iverron hasn't got much of the slow part left. Please don't tell me how you learned it; just help me make the antidote." },
+      },
+      choices = {
+        { text = "I'll help. The how doesn't matter.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -413,6 +486,7 @@ P:NPC {
         { text = "Tell me about Iverron.", next = "iverron" },
         { text = "What's wrong in Shadowglen?", next = "glen" },
         { text = "Where do I find what the antidote needs?", next = "herbs", when = { questActive = TODO_QUEST("Iverron's Antidote") } },
+        { text = "I know a thing or two about poisons.", next = "rogue_d", when = { class = "ROGUE" } },
         { text = "I'll help him.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -474,6 +548,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    hunter_g = {
+      lines = {
+        { id = "hgl_default", text = "Please don't send it into Shadowthread Cave on my account. The Webwood spiders treat anything with four legs as a meal, and I'd rather study them from these steps than write an account of how your companion died." },
+      },
+      choices = {
+        { text = "My companion goes where I go.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "Then I'll watch from a distance with you.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -496,6 +579,7 @@ P:NPC {
         { text = "Why sit out here on the steps?", next = "steps" },
         { text = "What's in Shadowthread Cave?", next = "cave" },
         { text = "I'm an alchemist. Venom interests me.", next = "alch", when = { profession = "Alchemy" } },
+        { text = "My companion could take a spider's measure for you.", next = "hunter_g", when = { class = "HUNTER" } },
         { text = "I'll go to the cave.", next = "END", fx = { affinity = 1, trait = { brave = 1 } } },
       },
     },

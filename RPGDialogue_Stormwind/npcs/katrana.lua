@@ -53,6 +53,10 @@ P:NPC {
         { text = "What of the Defias, my lady?", next = "defias" },
         { text = "Lakeshire is begging for soldiers.", next = "letters", when = { visited = "Lakeshire" } },
         { text = "What do you advise, my lady?", next = "advise" },
+        { text = "Power is power, my lady, wherever it comes from.", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "A rogue hears a great deal at court, my lady.", next = "rogue", when = { class = "ROGUE" } },
+        { text = "Gnomeregan needs Stormwind's help, my lady.", next = "gnome", when = { race = "Gnome" } },
+        { text = "Ironforge's gold paid for much of this city, my lady.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Excuse me.", next = "END" },
       },
     },
@@ -147,6 +151,62 @@ P:NPC {
         { text = "As you say, my lady.", next = "BACK" },
         { text = "Something else, then.", next = "BACK" },
       },
+    },
+    warlock = {
+      big = true,
+      lines = { { id = "wl_default", text = "How refreshing; nobody at this court says anything so honest. The priests downstairs would faint, of course, but the strong never did take their manners from the timid, little one." } },
+      choices = {
+        { text = "The strong rule, and the rest pray.", next = "warlock_strong", fx = { align = { light = -2 } } },
+        { text = "Power needs a leash, my lady, even mine.", next = "warlock_leash", fx = { align = { light = 1 } } },
+        { text = "And what kind of power do you hold?", next = "warlock_hers" },
+      },
+    },
+    warlock_strong = {
+      lines = { { id = "ws_default", text = "Now you sound like someone worth knowing. Do keep that to yourself in the Cathedral district, though; the Watch can be tiresome about the Slaughtered Lamb." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    warlock_leash = {
+      lines = { { id = "wle_default", text = "How dull of you. Still, a leash is only a matter of who's holding the other end, and I suspect you'll find out soon enough." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    warlock_hers = {
+      lines = { { id = "wh_default", text = "The Regent's ear, darling, which is worth more than any imp. Influence doesn't scorch the carpets." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    rogue = {
+      lines = { { id = "ro_default", text = "Does one? Then you'll have heard that I reward discretion and remember indiscretion, so tell me, little one: who are you listening for?" } },
+      choices = {
+        { text = "For the crown, my lady.", next = "rogue_answer", fx = { align = { order = 1 } } },
+        { text = "For whoever pays best.", next = "rogue_answer", fx = { align = { order = -1, honor = -1 } } },
+        { text = "For myself. I'd rather not say more.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    rogue_answer = {
+      lines = { { id = "ra_default", text = "Of course you are. Master Shaw's people say the same, and I find them very useful when they forget which of us they're watching." } },
+      choices = { { text = "Something else, my lady.", next = "BACK", fx = { learn = { "si7" } } } },
+    },
+    gnome = {
+      lines = { { id = "gn_default", text = "Does it? Your little city poisoned itself with its own machines, and now Stormwind is asked to pay for the cleaning. I'm sure High Tinker Mekkatorque is very clever, but cleverness isn't a budget." } },
+      choices = {
+        { text = "We bled for the Alliance in the Second War.", next = "gnome_war" },
+        { text = "Then we'll owe Stormwind nothing when we retake it.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
+      },
+    },
+    gnome_war = {
+      lines = { { id = "gw_default", text = "And built very fine flying machines for it, most of which exploded. The crown remembers, little one; it simply can't afford to remember everything at once." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    dwarf = {
+      lines = { { id = "dw_default", text = "And Ironforge reminds us of it at every council, in that charming burr. King Magni's friendship is very valuable to the crown, which is precisely why it should never be taken for granted, by either side." } },
+      choices = {
+        { text = "Is that a warning, my lady?", next = "dwarf_warn" },
+        { text = "Ironforge doesn't sell its friendship.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Everything has a price, even friendship.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+      },
+    },
+    dwarf_warn = {
+      lines = { { id = "dwa_default", text = "Merely advice, freely given. I give a great deal of it, and the wise ones take it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 

@@ -51,6 +51,7 @@ P:NPC {
         { text = "Who's Roberto?", next = "roberto" },
         { text = "How does a winery do on the canals?", next = "canals" },
         { text = "A good red is a small blessing.", next = "priest", when = { class = "PRIEST" } },
+        { text = "Someone's skimming your tally, I'd wager.", next = "rogue_tally", when = { class = "ROGUE" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -101,6 +102,17 @@ P:NPC {
         { text = "Blessings aren't for selling.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
         { text = "Sell it. The Light won't mind the profit.", next = "BACK", fx = { align = { light = -1 } } },
       },
+    },
+    rogue_tally = {
+      lines = { { id = "rogue_tally_l", text = "Is that a guess or a confession? Because the numbers have been short by two bottles a week since spring, and I've been blaming Roberto's thirst." } },
+      choices = {
+        { text = "A guess. I'd look at the canal side door.", next = "rogue_tally2" },
+        { text = "Nobody skims from family. Forget I said it.", next = "BACK", fx = { trait = { kind = 1 } } },
+      },
+    },
+    rogue_tally2 = {
+      lines = { { id = "rogue_tally2_l", text = "The canal door, of course, where the barges tie up. I'll put a bell on it tonight, and if it's Roberto after all, I'll hang the bell round his neck." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } } },
     },
   },
 
@@ -169,6 +181,7 @@ P:NPC {
         { text = "Is your name Felstone?", next = "felstone",
           when = { any = { { questActive = TODO_QUEST("Good Natured Emma") }, { questDone = TODO_QUEST("Good Natured Emma") } } } },
         { text = "I come from the north too.", next = "north", when = { origin = "human_lordaeron_refugee" } },
+        { text = "The Silver Hand fought for the north, Emma.", next = "silverhand", when = { class = "PALADIN" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -251,6 +264,18 @@ P:NPC {
         { text = "I won't forget.", next = "BACK", fx = { affinity = 3, align = { honor = 1 } } },
         { text = "Forgetting's how some of us survived.", next = "BACK", fx = { align = { honor = -1 } } },
       },
+    },
+    silverhand = {
+      big = true,
+      lines = { { id = "silverhand_l", text = "Did it? Then where was it the week the grain carts came, dearie, and the sickness after? Your sort rode through our village once, all shining, and never came back when we needed you." } },
+      choices = {
+        { text = "You're right, and I'm sorry. We failed you.", next = "silverhand2", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "The Hand bled for Lordaeron. Don't forget that.", next = "silverhand2", fx = { affinity = -1, align = { light = -1 }, trait = { stern = 1 } } },
+      },
+    },
+    silverhand2 = {
+      lines = { { id = "silverhand2_l", text = "Well. You can carry a bucket, at least, which is more than the last one did. Pick it up, then, and we'll call it a start." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 
@@ -561,6 +586,7 @@ P:NPC {
         { text = "Tell me about the biggest fish.", next = "fish" },
         { text = "Are there monsters in the sea?", next = "monsters" },
         { text = "Who's Adam?", next = "adam" },
+        { text = "Want to see a real hunter's beast, Billy?", next = "pet", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "Good luck fishing, Billy.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -589,6 +615,10 @@ P:NPC {
     adam = {
       lines = { { id = "a_default", text = "He's my best friend, but he can't fish, and my daddy catches way more fish than Adam's daddy, and that's a fact." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    pet = {
+      lines = { { id = "pet_l", text = "Whoa! Is it yours? Does it eat fish? Adam, look, it's a real one, not a dog, a real one!" } },
+      choices = { { text = "It eats fish. Want to feed it?", next = "BACK", fx = { affinity = 2 } } },
     },
   },
 

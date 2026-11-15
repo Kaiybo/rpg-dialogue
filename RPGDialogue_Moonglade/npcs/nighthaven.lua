@@ -21,6 +21,8 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_forsaken", cat = "race", when = { race = "Scourge" },
+      text = "The dead walk into Moonglade, and the glade lets them. I have never seen it before, and I find I am more curious than afraid." },
     { id = "n_bear", cat = "form", when = { form = "bear" },
       text = "You wear the bear well: heavy, patient, slow to anger. Let the shape teach you while you wear it." },
     { id = "n_cat", cat = "form", when = { form = "cat" },
@@ -33,6 +35,47 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    orc_re = {
+      big = true,
+      lines = {
+        { id = "ore_default", text = "You are. Grom Hellscream slew my father with demon blood in his veins, and then he spent his life to kill the demon who gave it to him; I have had a long time to weigh those two deeds, and I find I cannot hate a people for the first without honouring the second." },
+        { id = "ore_warsong", when = { origin = "orc_warsong_kin" },
+          text = "Warsong, are you? Then you carry Grom's name closer than most. Carry it well in this glade, child of his clan, and remember that the forest his axe fell in is still bleeding." },
+      },
+      choices = {
+        { text = "Grom freed us. I won't apologise for him.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "His axe cost you dearly. I'm sorry for it.", next = "BACK", fx = { align = { honor = -1 }, affinity = 2 } },
+        { text = "How can you forgive so easily?", next = "orc_re2" },
+      },
+    },
+    orc_re2 = {
+      lines = {
+        { id = "ore2_default", text = "Easily? No, not easily, and not quickly either. But I am a keeper of the Dream as well as a son, and the Dream does not hold grudges; it only remembers, and I try to do the same." },
+      },
+      choices = { { text = "Something else, Keeper.", next = "BACK" } },
+    },
+    warlock_re = {
+      big = true,
+      lines = {
+        { id = "wre_default", text = "I would not turn anyone from Moonglade who comes in peace, for the glade is protected and you cannot harm it here. But the fel you carry is the same that rots Felwood beyond these hills, and I would ask you to look at that forest before you call on it again." },
+      },
+      choices = {
+        { text = "I've looked. I use it anyway, and carefully.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll look, Keeper. Maybe it will change me.", next = "BACK", fx = { align = { light = 1 }, affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hunter_re = {
+      lines = {
+        { id = "hre_default", text = "Not here, within the glade, where every creature is under the Circle's protection. Beyond the hills the forest has its own laws, and a hunter who keeps them is no enemy of mine; my father hunted too, in his way." },
+        { id = "hre_pet", when = { class = "HUNTER", pet = { named = true } },
+          text = "{pet} knows the rule already; look how it walks, as if the grass might wake. The beasts understand the glade better than most of the druids who visit it." },
+      },
+      choices = {
+        { text = "I'll keep the peace here.", next = "BACK", fx = { affinity = 1 } },
+        { text = "How did Cenarius hunt?", next = "family" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -66,6 +109,9 @@ P:NPC {
         { text = "I serve the Light. Is a priest welcome here?", next = "priest", when = { class = "PRIEST" } },
         { text = "A human, this far north. Do you see many of us?", next = "human", when = { race = "Human" } },
         { text = "You welcomed my people when others wouldn't.", next = "tauren", when = { race = "Tauren" } },
+        { text = "An orc killed your father. Yet I'm welcome here?", next = "orc_re", when = { race = "Orc" } },
+        { text = "I carry the fel, Keeper. Will you turn me away?", next = "warlock_re", when = { class = "WARLOCK" } },
+        { text = "I hunt, Keeper. Does the glade allow it?", next = "hunter_re", when = { class = "HUNTER" } },
         { text = "I'll leave you to the glade.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -290,6 +336,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    forsaken_rb = {
+      lines = {
+        { id = "frb_default", text = "Welcome is a large word, and I'm a careful man with large words. You're permitted, as all are permitted who keep the peace; whether the druids will meet your eye is their business, though I'd note that most of them have been dead in all but body for centuries, asleep in the Dream." },
+      },
+      choices = {
+        { text = "Permitted is enough. I'll keep the peace.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "I go where I like, permitted or not.", next = "BACK", fx = { align = { order = -1 }, affinity = -1 } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Rabine Saturna, majordomo to Keeper Remulos. He watches the glade; I watch everything else, so he needn't. It's a quieter job than it sounds, most days." },
@@ -315,6 +370,7 @@ P:NPC {
         { text = "Another human lives here, I'm told?", next = "umber", when = { race = "Human" } },
         { text = "My people came from Eldre'Thalas, long ago.", next = "skyborne", when = { race = "Skyborne" } },
         { text = "The Keeper told me about the Dream.", next = "dream", when = { heardLine = "remulos.t_default" } },
+        { text = "Is one of the Forsaken welcome in Moonglade?", next = "forsaken_rb", when = { race = "Scourge" } },
         { text = "Goodbye, Rabine.", next = "END" },
       },
     },
@@ -451,6 +507,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    tauren_dn = {
+      lines = {
+        { id = "tdn_default", text = "The same trials, the same spirits, the same cold water, and I mark them the same way. Some in Darnassus would rather I didn't, but Moonglade answers to Remulos and to the Circle as a whole, and the Great Bear has never once asked which city you came from." },
+        { id = "tdn_pupil", when = { origin = "tauren_hamuul_pupil" },
+          text = "Hamuul's own student! He was one of the first of your people Malfurion taught, and he sends me the most stubborn ones, which I've come to take as a compliment." },
+      },
+      choices = {
+        { text = "Then I'll pass them as any druid would.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Darnassus can think what it likes.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -481,6 +548,7 @@ P:NPC {
         { text = "I'm no druid. May I watch the trials?", next = "nondruid", when = { ["not"] = { class = "DRUID" } } },
         { text = "Where do I look for the pendant halves?", next = "pendant", when = { questActive = TODO_QUEST("Trial of the Sea Lion") } },
         { text = "My faith leans to the winds. Does that matter?", next = "winds", when = { race = "Skyborne", class = "DRUID" } },
+        { text = "Hamuul taught me. Are the trials the same for tauren?", next = "tauren_dn", when = { race = "Tauren", class = "DRUID" } },
         { text = "Thank you, Dendrite.", next = "END" },
       },
     },
@@ -609,6 +677,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    darnassus_lg = {
+      lines = {
+        { id = "dlg_default", text = "The Archdruid does, I know, and he says it loudly enough to be heard from here. I came to Moonglade because I wanted to teach where the Circle is whole, Horde and Alliance both, and if that makes me a fool then I'm a contented one." },
+      },
+      choices = {
+        { text = "Fandral built our home. He's earned his say.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The Circle should be whole. You're right.", next = "BACK", fx = { align = { order = -1 }, affinity = 2 } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Loganaar, and I train the druids who find their way to Nighthaven. Balance isn't somewhere you go; it's something you carry, and I help you pack." },
@@ -616,10 +693,15 @@ P:NPC {
           text = "One day the Dream will call you, and you'll sleep a long while among the purest of things. Learn all you can awake, first." },
         { id = "h_tea", when = { metBefore = true }, text = "Sit, if you have a moment, not for training but only to sit. Most druids forget to, and it shows in their bears." },
       },
+      again = {
+        { id = "h_again", text = "Something more? There's no hurry in Nighthaven, whatever they tell you in the cities." },
+        { id = "h_again2", text = "Go on. I've packed a great many druids' questions, and there's always room for another." },
+      },
       choices = {
         { text = "What brought you to Nighthaven?", next = "why" },
         { text = "Train me.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "How do you find balance?", next = "balance" },
+        { text = "In Darnassus they call Moonglade's druids fools.", next = "darnassus_lg", when = { race = "NightElf", class = "DRUID" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -666,6 +748,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    warrior_gb = {
+      lines = {
+        { id = "wgb_default", text = "Strength. You use the word as if it were a weapon, little one, but the bear's strength is mostly standing still, and sleeping through winters, and not being moved. Can a warrior stand still?" },
+      },
+      choices = {
+        { text = "When it matters, I won't be moved.", next = "BACK", fx = { align = { order = 1 }, affinity = 2 } },
+        { text = "A warrior who stands still dies.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "(Sit quietly with the spirit.)", next = "sit" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Old as the hills you walked to reach me, I am, and I do not hurry. Sit, and when you are still, I will speak." },
@@ -685,6 +777,7 @@ P:NPC {
         { text = "I seek your blessing, to learn the way of the Claw.", next = "blessing", when = { class = "DRUID" } },
         { text = "I'm a priest. I came to pray where it's quiet.", next = "pray", when = { class = "PRIEST" } },
         { text = "(Sit quietly a while.)", next = "sit", fx = { affinity = 2 } },
+        { text = "I'm a warrior. I came to learn strength, not shapes.", next = "warrior_gb", when = { class = "WARRIOR" } },
         { text = "(Rise and leave the spirit in peace.)", next = "END" },
       },
     },

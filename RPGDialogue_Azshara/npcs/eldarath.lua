@@ -33,6 +33,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    tauren_og = {
+      lines = {
+        { id = "tog_default", text = "Kin in spirit, perhaps, for we both honour the land and the old ways. The tauren druids I've met walk gently and speak little, which is the highest praise a furbolg can give, and the Circle is better for them." },
+      },
+      choices = {
+        { text = "The Earth Mother watches over us both.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -66,6 +75,7 @@ P:NPC {
         { text = "I've come to earn the hunter's charm.", next = "hunter", when = { class = "HUNTER" } },
         { text = "Cenarius guide your hunt, brother.", next = "druid", when = { class = "DRUID" } },
         { text = "The Timbermaw call me friend.", next = "timbermaw", when = { reputation = { faction = "Timbermaw Hold", min = "friendly" } } },
+        { text = "My people are kin to yours, I've heard.", next = "tauren_og", when = { race = "Tauren" } },
         { text = "Walk the divine path, Ogtinc.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -336,6 +346,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    gnome_kj = {
+      lines = {
+        { id = "gkj_default", text = "Oh, laugh it up, gnome! You lot lost a whole city to troggs and radiation, so don't you go lecturing Kim'jael about bad business partners. Now are you going to help me get my gear back or just stand there being short?" },
+      },
+      choices = {
+        { text = "Fine. I'll help. Partly out of pity.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "I'll stand here being short, thanks.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -354,6 +373,7 @@ P:NPC {
         { text = "What did the elves want here?", next = "treasure" },
         { text = "Why not leave Azshara?", next = "leave" },
         { text = "What's a wizzlegoober?", next = "wizzle" },
+        { text = "Funny. A goblin hired by elves, robbed by elves.", next = "gnome_kj", when = { race = "Gnome" } },
         { text = "Later, Kim'jael.", next = "END" },
       },
     },
@@ -449,6 +469,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    warrior_bl = {
+      lines = {
+        { id = "wbl_default", text = "Gladly, and I'll put my bosun beside you, because he's the only one of my crew who can still swing an axe straight. The naga come up out of the surf at night, so stand with your back to the fire and your eyes on the waves." },
+      },
+      choices = {
+        { text = "I'll hold until your crew is safe.", next = "BACK", fx = { align = { honor = 1 }, affinity = 2 } },
+        { text = "Better to strike their camp before they come.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -465,6 +494,7 @@ P:NPC {
         { text = "What do the naga want?", next = "naga" },
         { text = "Who were your passengers?", next = "passengers" },
         { text = "Let me tend your wounded.", next = "heal", when = { class = { "PRIEST", "PALADIN", "DRUID", "SHAMAN" } } },
+        { text = "Put me on the line facing the water.", next = "warrior_bl", when = { class = "WARRIOR" } },
         { text = "I'll stand with your crew if they come.", next = "END", fx = { affinity = 1, trait = { brave = 1 } } },
       },
     },
@@ -557,6 +587,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    gnome_xg = {
+      lines = {
+        { id = "gxg_default", text = "Ha! A gnome designed her, a dwarf built her an' I flew her, which is why she's still in one piece. Yer people draw the best plans in the world, but ye can't be trusted near a wrench when ye're excited." },
+      },
+      choices = {
+        { text = "Without our plans, you'd be walking.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Fair. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -570,6 +609,7 @@ P:NPC {
         { text = "Aren't the naga a danger here?", next = "naga" },
         { text = "Tell me about your flying machine.", next = "machine" },
         { text = "What's she running on, Xiggs?", next = "machine_eng", when = { profession = "Engineering" } },
+        { text = "Did a gnome build your flying machine?", next = "gnome_xg", when = { race = "Gnome" } },
         { text = "Safe flight, Xiggs.", next = "END" },
       },
     },

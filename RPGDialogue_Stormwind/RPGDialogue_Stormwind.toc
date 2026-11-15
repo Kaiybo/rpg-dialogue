@@ -28,4 +28,5 @@ npcs\dwarven_district.lua
 npcs\park.lua
 npcs\trade_district.lua
 npcs\old_town.lua
+npcs\warriors.lua
 npcs\canals.lua

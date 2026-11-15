@@ -39,6 +39,7 @@ P:NPC {
         { text = "Tell me about Hammertoe.", next = "hammertoe" },
         { text = "What chased you out of the dig?", next = "chased" },
         { text = "I'm with the League too.", next = "league", when = { origin = "dwarf_explorers_league" } },
+        { text = "I'll go in after Hammertoe. I'm a fighter.", next = "k_fighter", when = { class = { "WARRIOR", "PALADIN", "HUNTER" } } },
         { text = "I'll help.", next = "END", fx = { affinity = 2 } },
       },
     },
@@ -90,6 +91,17 @@ P:NPC {
         { id = "cd_default", text = "What I do or don't blame maself for is between me an' Hammertoe. Now, are ye here tae dig or tae preach?" },
       },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    k_fighter = {
+      lines = {
+        { id = "xfi_default", text = "Then go in wi' yer eyes open, for there's Dark Iron an' troggs both in that dig, an' they've decided they like it better than we did. Hammertoe went in wi' a pick an' a lantern, an' I'd sooner ye went in wi' more." },
+        { id = "xfi_hunter", when = { class = "HUNTER" },
+          text = "Then take yer beast an' let it go first, for it'll smell the troggs before ye see them. Hammertoe went in wi' a pick an' a lantern, an' look what that got him." },
+      },
+      choices = {
+        { text = "I'll bring him out, or what's left.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
+        { text = "Why didn't you go in after him?", next = "chased" },
+      },
     },
   },
 
@@ -147,6 +159,8 @@ P:NPC {
         { text = "Who's Lucien?", next = "lucien" },
         { text = "Why rock?", next = "rock" },
         { text = "Engineer to engineer: what are you building?", next = "engineer", when = { profession = "Engineering" } },
+        { text = "I study magic too, Lotwil.", next = "k_mage", when = { class = { "MAGE", "WARLOCK" } } },
+        { text = "The elements speak to me. You only measure them.", next = "k_shaman", when = { class = "SHAMAN" } },
         { text = "For science.", next = "END", fx = { affinity = 2, trait = { curious = 1 } } },
       },
     },
@@ -194,6 +208,37 @@ P:NPC {
         { id = "ac_default", text = "Great things? From whom, I wonder, since the only people who've heard of us are Lucien and Servo. That's very kind of you, but you needn't flatter a gnome to get a straight answer." },
       },
       choices = { { text = "Fair. Something else.", next = "BACK" } },
+    },
+    k_mage = {
+      lines = {
+        { id = "xmg_default", text = "Do you! Then you'll appreciate that my method is to bind an elemental in shackles of my own design and examine it, which the Kirin Tor considers terribly reckless. Would you like to see the shackles? They're mostly rock." },
+        { id = "xmg_lock", when = { class = "WARLOCK" },
+          text = "Do you! Well, binding is binding, whether it's a demon or a lump of animate rock, and I suspect we'd have a great deal to argue about. My shackles are sturdier than any circle you'll draw, I'll wager." },
+      },
+      choices = {
+        { text = "Binding things is how we learn them.", next = "BACK", fx = { align = { order = 1 }, trait = { curious = 1 } } },
+        { text = "Binding things is how they get angry.", next = "BACK", fx = { align = { order = -1 }, trait = { cautious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    k_shaman = {
+      big = true,
+      lines = {
+        { id = "xsh_default", text = "Measure them is precisely what I do, and they've never once complained to me. Though you're the third shaman this month to look at my shackles as if I'd chained a puppy, so I'll ask: what does it say?" },
+        { id = "xsh_dwarf", when = { race = "Dwarf" },
+          text = "A dwarf shaman, at my camp! I'd heard of such a thing and assumed it was a misprint. You look at my shackles as if I'd chained a puppy, so do tell me what it says." },
+      },
+      choices = {
+        { text = "It says let it go.", next = "BACK", fx = { align = { order = -1 }, affinity = -2 } },
+        { text = "It's angry, but it will learn its place.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "What happens if it breaks free?", next = "k_shaman_free" },
+      },
+    },
+    k_shaman_free = {
+      lines = {
+        { id = "xshf_default", text = "Then it goes back to being a rock with opinions, and I go back to my notes with a singed sleeve. I've a theory about why they get loose, which I'll publish when the Assembly reconvenes." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
   },
 
