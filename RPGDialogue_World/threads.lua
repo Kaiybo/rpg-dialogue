@@ -330,3 +330,51 @@ P:Thread {
     },
   },
 }
+
+-- The Scarlet Path: the Crusade recruits under the Cathedral of Light. Its road runs from
+-- Brother Crowley to Brother Anton in Desolace to Raleigh the Devout in Southshore, who
+-- walked off it. The player decides whether Anton hears the truth. (Classic quests:
+-- Brother Anton, Down the Scarlet Path (twice), In the Name of the Light.)
+P:Thread {
+  id = "scarlet_path",
+  theme = "The Scarlet Crusade recruits under the Cathedral of Light, and the man at the end of its road has left it.",
+  npcs = { "crowley", "anton", "raleigh", "tyrosus" },
+  states = { "dormant", "stirring", "unfolding", "resolved", "soured" },
+  endings = {
+    resolved = "The player told Brother Anton what Raleigh saw at the Monastery. For once Anton had no answer ready, and asked them to pray with him.",
+    soured = "The player let Brother Anton keep his Crusade, and told him Raleigh sent his blessing.",
+  },
+  pacing = { minConversations = 2, minSeconds = 600 },
+  reflection = {
+    first = "The Crusade sent me from the Cathedral to Desolace to Southshore, and the man waiting at the end of the road had walked off it.",
+    third = "{name} followed the Scarlet Crusade's road from the Cathedral to Southshore, and found the man at its end had left it.",
+  },
+  beats = {
+    {
+      id = "b1_crowley", npc = "crowley",
+      when = { minLevel = 30, thread = { id = "scarlet_path", notBeat = "b1_crowley" } },
+      text = "Understand what you'd be joining. The Crusade asks for everything, your doubts and sometimes your neighbours, and gives you a purpose back. Most call it a fair trade.",
+      fx = { thread = { id = "scarlet_path", beat = "b1_crowley", state = "stirring" }, learn = { "scarlet_crusade" } },
+    },
+    {
+      id = "b2_anton", npc = "anton",
+      when = { any = { { thread = { id = "scarlet_path", beat = "b1_crowley" } }, { questDone = TODO_QUEST("Brother Anton") } },
+               ["not"] = { thread = { id = "scarlet_path", beat = "b2_anton" } } },
+      text = "Prove yourself in the valley and I'll send you to Raleigh the Devout, in Southshore, a true son of the Crusade. He writes less often than he used to. Busy, I expect.",
+      fx = { thread = { id = "scarlet_path", beat = "b2_anton", state = "unfolding" }, learn = { "raleigh" } },
+    },
+    {
+      id = "b3_raleigh", npc = "raleigh",
+      when = { any = { { thread = { id = "scarlet_path", beat = "b2_anton" } }, { questActive = TODO_QUEST("Down the Scarlet Path") } },
+               ["not"] = { thread = { id = "scarlet_path", beat = "b3_raleigh" } } },
+      text = "Anton sends me the faithful, and I send them home with the truth. He thinks I'm still one of them. I was, until the Monastery.",
+      fx = { thread = { id = "scarlet_path", beat = "b3_raleigh", state = "unfolding" }, learn = { "scarlet_monastery" } },
+    },
+    {
+      id = "b4_tyrosus", npc = "tyrosus",
+      when = { thread = { id = "scarlet_path", beat = "b3_raleigh" }, ["not"] = { thread = { id = "scarlet_path", beat = "b4_tyrosus" } } },
+      text = "You found Raleigh. Some of us left the Hand before it became the Crusade; some, like him, left after. I don't rank them. The Dawn has room for both.",
+      fx = { thread = { id = "scarlet_path", beat = "b4_tyrosus" } },
+    },
+  },
+}

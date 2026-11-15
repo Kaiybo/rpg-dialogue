@@ -285,9 +285,15 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Brother Anton, an emissary of the Scarlet Crusade. We fight the undead wherever they rise. Brother Crowley in Stormwind sends me the willing." },
         { id = "h_path", tags = { "news" }, when = { questActive = TODO_QUEST("Down the Scarlet Path") },
-          text = "The Valley of Bones, to the southeast. The dead walk there. Destroy them, and the Crusade will welcome you." },
+          text = "The Valley of Bones, to the south. The dead walk there. Destroy them, and the Crusade will welcome you." },
         { id = "h_crowley", when = { questActive = TODO_QUEST("Brother Anton") },
           text = "Brother Crowley sent you! Good. Then you're ready to prove yourself to the Crusade." },
+        { id = "h_letter", tags = { "news" }, when = { questDone = TODO_QUEST("Down the Scarlet Path"), ["not"] = { questDone = TODO_QUEST("In the Name of the Light") } },
+          text = "You've proven yourself in the valley. The true fight is in Lordaeron. Take my letter to Raleigh the Devout, in Southshore; he'll see you to the Monastery." },
+        { id = "h_resolved", key = true, when = { thread = { id = "scarlet_path", state = "resolved" } },
+          text = "I've been praying on what you told me about Raleigh. I haven't finished. I'm starting to think I'm not meant to." },
+        { id = "h_soured", when = { thread = { id = "scarlet_path", state = "soured" } },
+          text = "Raleigh sends his blessing, you said. I think of it every night when the valley goes quiet. It helps." },
       },
       again = { { id = "h_again", text = "Yes, friend? The Light hears every question." } },
       choices = {
@@ -295,6 +301,8 @@ P:NPC {
         { text = "What's in the Valley of Bones?", next = "valley" },
         { text = "Who is Brother Crowley?", next = "crowley" },
         { text = "Pray with me, Brother.", next = "pray", when = { class = { "PALADIN", "PRIEST" } } },
+        { text = "Raleigh read your letter, Brother.", next = "raleigh",
+          when = { thread = { id = "scarlet_path", beat = "b3_raleigh", state = { "stirring", "unfolding" } } } },
         { text = "I'll go to the valley.", next = "END", fx = { affinity = 1, align = { light = 1 } } },
       },
     },
@@ -318,6 +326,39 @@ P:NPC {
     },
     crowley = {
       lines = { { id = "c_default", text = "Our brother in Stormwind. He finds the brave and sends them to me. I've never met a better judge of courage." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    raleigh = {
+      big = true,
+      lines = { { id = "r_default", text = "Raleigh! How is he? He hasn't written since I came west. Did he take you north, to the Monastery?" } },
+      choices = {
+        { text = "He left the Crusade. He told me why.", next = "raleigh_truth" },
+        { text = "He's well. He sends his blessing.", next = "raleigh_lie",
+          fx = { thread = { id = "scarlet_path", state = "soured" }, trait = { kind = 1 } } },
+      },
+    },
+    raleigh_truth = {
+      lines = { { id = "rt_default", text = "Left? Raleigh? He was the most devout of us. What could make a man like that walk away?" } },
+      choices = {
+        { text = "I've been to the Monastery. He was right.", next = "raleigh_told", when = { questDone = TODO_QUEST("In the Name of the Light") },
+          fx = { thread = { id = "scarlet_path", state = "resolved" }, align = { honor = 1, light = 1 } } },
+        { text = "They torture innocents and call them plagued.", next = "raleigh_told",
+          fx = { thread = { id = "scarlet_path", state = "resolved" }, align = { honor = 1 } } },
+        { text = "I shouldn't have said anything.", next = "raleigh_lie",
+          fx = { thread = { id = "scarlet_path", state = "soured" }, trait = { cautious = 1 } } },
+      },
+    },
+    raleigh_told = {
+      lines = {
+        { id = "rto_default", key = true, text = "I told you the rumors were only rumors. I've been saying it a long time, out here where it was easy. Pray with me; I don't know yet what for." },
+      },
+      choices = {
+        { text = "I'll pray with you.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, trait = { pious = 1 } } },
+        { text = "Take off the tabard, Brother.", next = "BACK", fx = { affinity = -1, align = { honor = 1 }, trait = { stern = 1 } } },
+      },
+    },
+    raleigh_lie = {
+      lines = { { id = "rl_default", text = "Good. Good, I knew he would be. Go with the Light, then. The valley won't empty itself." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     pray = {

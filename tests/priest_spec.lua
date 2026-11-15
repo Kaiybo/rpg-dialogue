@@ -28,6 +28,13 @@ local function talk(name, id)
   Mock.RunTimers()
 end
 
+local function leave(ns)
+  if _G.GossipFrame then _G.GossipFrame:Hide() end
+  if ns.Conversation.session then ns.Conversation.Finish() end
+  Mock.Fire("GOSSIP_CLOSED", false)
+  Mock.RunTimers()
+end
+
 local function text(ns) return plain(ns.UI.Dialogue.Frame().text:GetText()) or "" end
 local function reaction(ns)
   local r = ns.UI.Dialogue.Frame().reaction
@@ -138,5 +145,51 @@ describe("The Cathedral, for a priest", function()
     for _, p in ipairs(pools) do if p.pool.id == "trainer_priest" then found = p.pool end end
     ok(found, "the priest trainer pool applies")
     ok(found.nodes.shadow_fear, "with a branch for a priest in Shadowform")
+  end)
+end)
+
+describe("A first horse at forty", function()
+  it("Katie Hunter sells to a human at 40, and asks a younger one to wait", function()
+    local ns = boot({ zone = "Elwynn Forest", subzone = "Eastvale Logging Camp" })
+    talk("Katie Hunter", 384)
+    eq(ns.Conversation.session.info.key, "katie_hunter")
+    ok(click(ns, "Show me the horses."), "a human at 40 can buy")
+    leave(ns)
+    local young = boot({ zone = "Elwynn Forest", subzone = "Eastvale Logging Camp", level = 30 })
+    talk("Katie Hunter", 384)
+    contains(text(young), "You'll need Randal's lessons first")
+    ok(not click(young, "Show me the horses."))
+  end)
+
+  it("Randal Hunter has a word for a priest", function()
+    local ns = boot({ zone = "Elwynn Forest", subzone = "Eastvale Logging Camp" })
+    talk("Randal Hunter", 4732)
+    ok(click(ns, "Can a priest ride like a knight?"))
+    contains(text(ns), "something left to heal the knights")
+  end)
+end)
+
+
+describe("Reputation", function()
+  it("an exalted night elf may buy a horse; one who isn't may only pat one", function()
+    local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Elwynn" }, setup = function(state)
+      local p = state.units.player
+      p.race, p.raceFile, p.level = "Night Elf", "NightElf", 45
+      state.zone, state.subzone = "Elwynn Forest", "Eastvale Logging Camp"
+    end })
+    ns.db.settings.instantText = true
+    Mock.Fire("ZONE_CHANGED_NEW_AREA"); Mock.RunTimers()
+    local Cond = ns.Conditions
+    local want = { reputation = { faction = "Stormwind", min = "exalted" } }
+    ok(not Cond.Eval(want, ns.Context.New({}), {}), "unknown standing fails")
+    Mock.state.reputation = { [72] = 7 }
+    ok(not Cond.Eval(want, ns.Context.New({}), {}), "revered isn't enough")
+    Mock.state.reputation = { [72] = 8 }
+    ok(Cond.Eval(want, ns.Context.New({}), {}), "exalted")
+    ok(Cond.Eval(want, ns.Context.New({ spoof = { reputation = { Stormwind = 8 } } }), {}), "spoofed")
+    Mock.state.units.npc = { guid = "Creature-0-1-0-1-384-AB", name = "Katie Hunter", level = 30, reaction = 5 }
+    local f = _G.GossipFrame or Mock.NewFrame("Frame", "GossipFrame")
+    f:Show(); Mock.Fire("GOSSIP_SHOW"); Mock.RunTimers()
+    contains(plain(ns.UI.Dialogue.Frame().text:GetText()), "Stormwind trusts you completely")
   end)
 end)
