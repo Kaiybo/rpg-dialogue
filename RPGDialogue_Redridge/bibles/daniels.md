@@ -46,3 +46,9 @@ blackrock, everstill_bridge
 
 ## Depth pass (0.25.0, authored, not canon)
 A repeat-visit line (night line for some) in the voice above.
+
+## Depth rewrite (Redridge 1.3.0)
+Sources read: Barkeep_Daniels, Dry_Times (shipment long overdue; four drinks from four places; completion: his wife is a seamstress who made the reward cloak), Innkeeper_Brianna (welcomes weary travellers, "make this inn your home"), Narnie (a house cat), Lakeshire (no chapel or priest in town).
+- Daniels: news (what the guards say), why the bar's dry (four roads), Wiley, who keeps the place running (his wife's needle). Gated: dwarf (Grimbooze Thunderbrew), visited Darkshire.
+- Brianna (service): Narnie, the town, a priest's question about wounded upstairs.
+- Authored, not canon: half of Lakeshire's cloaks are his wife's stitching; wounded in Brianna's rooms; Narnie's hearth.

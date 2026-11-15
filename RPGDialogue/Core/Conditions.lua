@@ -488,6 +488,29 @@ def("profession", 15, "hinge", nil, function(ctx, v)
   return true, name .. " " .. skill
 end)
 
+-- reputation = { faction = "Stormwind", min = "exalted" } (or max; standings by name or 1-8).
+-- Spoof with reputation = { Stormwind = 8 }.
+local function standingOf(ctx, faction)
+  local W = ns.World
+  local id = type(faction) == "number" and faction or W.FACTION_IDS[faction]
+  if not id then return nil end
+  local sp = ctx.spoofed and ctx.spoofed.reputation
+  if type(sp) == "table" then return sp[faction] or sp[id] end
+  local cache = rawget(ctx, "_rep")
+  if not cache then cache = {}; rawset(ctx, "_rep", cache) end
+  if cache[id] == nil then cache[id] = tonumber((ns.Compat.Rep(id))) or false end
+  return cache[id] or nil
+end
+
+def("reputation", 15, "hinge", nil, function(ctx, v)
+  if type(v) ~= "table" then return false, "reputation needs a table" end
+  local S = ns.World.STANDINGS
+  local s = standingOf(ctx, v.faction)
+  if not s then return false, "reputation with " .. tostring(v.faction) .. ": unknown" end
+  local lo, hi = S[v.min] or tonumber(v.min), S[v.max] or tonumber(v.max)
+  return (not lo or s >= lo) and (not hi or s <= hi), "reputation with " .. tostring(v.faction) .. ": " .. s
+end)
+
 ---------------------------------------------------------------------------
 -- Level and place (10)
 ---------------------------------------------------------------------------
