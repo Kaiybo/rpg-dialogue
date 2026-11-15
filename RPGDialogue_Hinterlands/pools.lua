@@ -4,8 +4,8 @@ local P = RPGDialogueAPI:Pack("rpgd.hinterlands")
 P:Pool {
   id = "guard_aeriepeak", role = "guard", community = "aerie_peak",
   barks = {
-    { id = "b_gryphon", text = "Hear that screech? That's a happy gryphon. The angry ones you don't hear till it's too late." },
-    { id = "b_trolls", text = "Witherbark smoke over the hills again. They never learn." },
+    { id = "b_gryphon", text = "Hear that screech? That's a happy gryphon, for the angry ones ye don't hear till it's too late." },
+    { id = "b_trolls", text = "Witherbark smoke over the hills again, an' they never learn." },
   },
   greetings = {
     { id = "g_peak", text = "Welcome tae Aerie Peak, friend. Mind the gryphons; they bite strangers, an' they decide who's a stranger." },
@@ -14,14 +14,14 @@ P:Pool {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "An Ironforge dwarf, by the look o' ye? Welcome anyway. Up here we judge a dwarf by the sky, not the mountain." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
-      text = "Trolls gave ye a hiding. Get mended. Then go give 'em one back." },
+      text = "The trolls gave ye a hiding, so get mended, then go an' give 'em one back." },
   },
   react = { { id = "r_stealth", on = "stealth", text = "Sneakin' about the aviary? The gryphons can smell ye, even if I can't see ye." } },
   lines = {
-    { id = "l_default", text = "The Wildhammer keep the Hinterlands free, from the sky. The trolls hate us for it. We don't mind." },
+    { id = "l_default", text = "The Wildhammer keep the Hinterlands free, from the sky, an' the trolls hate us for it, but we don't mind." },
   },
   choices = { { text = "For the Wildhammer.", next = "END", fx = { standing = { aerie_peak = 1 } } } },
   topics = {
-    _none = { { id = "t_none", text = "Ask the Thane. He'll answer loud, mind." } },
+    _none = { { id = "t_none", text = "Ask the Thane, though he'll answer loud, mind." } },
   },
 }

@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.2.2 (unreleased)
+- Voice pass: Marshal's Refuge now talks in whole sentences instead of clipped fragments. Linken still loses his thread and Spraggle still worries, but as people talking, not telegrams.
+
 ## 1.2.1 (unreleased)
 - Marshal's Refuge reacts only to beast shapes, never to a priest's Shadowform.
 

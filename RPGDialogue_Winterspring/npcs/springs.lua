@@ -14,7 +14,7 @@ P:NPC {
 
   notice = {
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
-      text = "A druid! Then ye'll feel it too. Somethin's poisonin' the furbolgs, an' it's no' natural." },
+      text = "A druid! Then ye'll feel it too: somethin's poisonin' the furbolgs, an' it's no' natural." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A dwarf, all this way north! We're a long way from Khaz Modan, the both of us." },
   },
@@ -24,15 +24,15 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Donova Snowden. I study the springs, an' the creatures that live by 'em. These days I mostly study the Winterfall. The furbolgs used tae keep tae themselves. Now they're drinkin' somethin' that makes 'em mad as a kicked hive." },
+          text = "Donova Snowden's the name, an' I study the springs an' the creatures that live by 'em, though these days it's mostly the Winterfall. The furbolgs used tae keep tae themselves, but now they're drinkin' somethin' that makes 'em mad as a kicked hive." },
         { id = "h_firewater", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("Winterfall Firewater") }, { questActive = TODO_QUEST("Falling to Corruption") } } },
-          text = "Firewater. The Winterfall are swillin' it by the barrel. It's no' just drink. It's turnin' 'em. I want tae know who's brewin' it, an' why." },
+          text = "It's firewater, an' the Winterfall are swillin' it by the barrel, but it's no' just drink; it's turnin' 'em. I want tae know who's brewin' it, an' why." },
         { id = "h_goo", when = { any = { { questActive = TODO_QUEST("Mystery Goo") }, { questActive = TODO_QUEST("Toxic Horrors") } } },
-          text = "Look at this goo. Smell it. No, on second thought, don't. Whatever's in the firewater is in this too." },
+          text = "Look at this goo, an' smell it... no, on second thought, don't. Whatever's in the firewater is in this too." },
         { id = "h_chief", when = { any = { { questActive = TODO_QUEST("High Chief Winterfall") }, { questActive = TODO_QUEST("Words of the High Chief") } } },
-          text = "The High Chief knows who's behind it. He'll no' tell us kindly. Make him tell us anyway." },
+          text = "The High Chief knows who's behind it, an' he'll no' tell us kindly, so make him tell us anyway." },
         { id = "h_linken", when = { questActive = TODO_QUEST("It's a Secret to Everybody") },
-          text = "A gnome's sword, found in a crater? An' ye want me tae temper it? Well, the springs are hot enough. Leave it with me." },
+          text = "A gnome's sword, found in a crater, an' ye want me tae temper it? Well, the springs are hot enough, so leave it with me." },
       },
       again = { { id = "h_again", text = "Aye? The spring's warm; take yer time." } },
       choices = {
@@ -44,14 +44,14 @@ P:NPC {
       },
     },
     before = {
-      lines = { { id = "b_default", text = "Shy. Gruff. Kept tae their dens an' left travellers be. I used tae trade them fish for news. Now they'd sooner take my arm than my fish." } },
+      lines = { { id = "b_default", text = "Shy an' gruff, an' they kept tae their dens an' left travellers be. I used tae trade them fish for news, but now they'd sooner take my arm than my fish." } },
       choices = {
         { text = "Can they be brought back?", next = "before_back" },
         { text = "Something else.", next = "BACK" },
       },
     },
     before_back = {
-      lines = { { id = "bb_default", text = "If the drink stops. Maybe. I'd like tae think so. A creature's no' its worst week." } },
+      lines = { { id = "bb_default", text = "If the drink stops, maybe, an' I'd like tae think so. A creature's no' its worst week." } },
       choices = { { text = "Something else.", next = "BACK", fx = { align = { light = 1 }, trait = { kind = 1 } } } },
     },
     springs = {
@@ -70,8 +70,8 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_ba", text = "A dwarf who likes the cold an' loves a puzzle. Winterspring has plenty o' both." } },
-    advice = { { id = "tp_ad", text = "Never drink anythin' a furbolg offers ye. No' this year." } },
-    _none = { { id = "tp_none", text = "Couldnae tell ye. Ask me about the springs instead. I know the springs." } },
+    advice = { { id = "tp_ad", text = "Never drink anythin' a furbolg offers ye, no' this year." } },
+    _none = { { id = "tp_none", text = "Couldnae tell ye, but ask me about the springs instead, for I know the springs." } },
   },
 }
 
@@ -82,12 +82,12 @@ P:NPC {
   notices = { "race", "class" },
 
   greetings = {
-    { id = "g_hello", text = "Ah, a visitor come all dis way to see Mau'ari! Smart, you are. Or lost. Either way, sit." },
+    { id = "g_hello", text = "Ah, a visitor come all dis way to see Mau'ari! Smart, you are, or maybe lost, but either way, sit." },
   },
 
   notice = {
     { id = "n_troll", cat = "race", when = { race = "Troll" },
-      text = "A Darkspear, up here in de ice! You be feelin' de cold in your tusks, eh? Mau'ari too." },
+      text = "A Darkspear, up here in de ice! You be feelin' de cold in your tusks, eh? Mau'ari feel it too." },
     { id = "n_shaman", cat = "class", when = { class = { "SHAMAN", "PRIEST", "DRUID" } },
       text = "You know de spirits. Den you know what Mau'ari be talkin' about when she say every beast got a little magic left in it." },
   },
@@ -97,14 +97,14 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Witch Doctor Mau'ari. Every creature in dis frozen place carry a little spirit, a little E'ko. Bring it to Mau'ari, and she make you juju. Good juju. Mostly." },
+          text = "Mau'ari be de witch doctor up here, mon. Every creature in dis frozen place carry a little spirit, a little E'ko, and if you bring it to Mau'ari, she make you juju, good juju, mostly." },
         { id = "h_cache", tags = { "news" }, when = { questActive = TODO_QUEST("Cache of Mau'ari") },
-          text = "First, Mau'ari need her cache back. In it be de charm you need for catchin' E'ko. No charm, no E'ko. No E'ko, no juju." },
+          text = "First, Mau'ari need her cache back, because in it be de charm you need for catchin' E'ko. No charm, no E'ko, and no E'ko, no juju." },
         { id = "h_luck", when = { any = { { questActive = TODO_QUEST("A Little Luck") }, { questActive = TODO_QUEST("Luck Be With You") } } },
-          text = "Luck, you want? Mau'ari got plenty. Bring de right E'ko, and maybe some find its way to you." },
-        { id = "h_cold", when = { metBefore = true }, text = "Mau'ari been up here a long time, mon. Long enough to stop complainin' about the cold. Not long enough to stop feelin' it." },
+          text = "Luck, you want? Mau'ari got plenty, so bring de right E'ko, and maybe some find its way to you." },
+        { id = "h_cold", when = { metBefore = true }, text = "Mau'ari been up here a long time, mon, long enough to stop complainin' about de cold, but not long enough to stop feelin' it." },
       },
-      again = { { id = "h_again", text = "More questions? Mau'ari got answers. Some even true." } },
+      again = { { id = "h_again", text = "More questions? Mau'ari got answers, and some of dem even true." } },
       choices = {
         { text = "What is E'ko, exactly?", next = "eko" },
         { text = "What does the juju do?", next = "juju" },
@@ -114,34 +114,34 @@ P:NPC {
       },
     },
     eko = {
-      lines = { { id = "e_default", text = "De little bit of spirit every beast carry. When dey fall, it linger. Mau'ari's charm catch it before it blow away on de wind." } },
+      lines = { { id = "e_default", text = "It be de little bit of spirit every beast carry, and when dey fall, it linger. Mau'ari's charm catch it before it blow away on de wind." } },
       choices = {
         { text = "Is that right, to take it?", next = "eko_right", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     eko_right = {
-      lines = { { id = "er_default", text = "Better Mau'ari use it than de wind waste it. De spirits don't mind. Mau'ari asked. Dey said yes. Mostly." } },
+      lines = { { id = "er_default", text = "Better Mau'ari use it than de wind waste it, and de spirits don't mind. Mau'ari asked, and dey said yes... mostly." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     juju = {
-      lines = { { id = "j_default", text = "Make you faster, make you tougher, make you a little lucky. Never all at once. Even Mau'ari not dat good. Yet." } },
+      lines = { { id = "j_default", text = "It make you faster, or tougher, or a little lucky, but never all at once, because even Mau'ari not dat good, not yet." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     why = {
-      lines = { { id = "w_default", text = "De spirits up here be old and strange. Strange is interestin'. Warm is boring. Mau'ari choose interestin' every time." } },
+      lines = { { id = "w_default", text = "De spirits up here be old and strange, and strange is interestin', where warm is just boring. Mau'ari choose interestin' every time." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     troll = {
-      lines = { { id = "t_default", text = "Same reason as you be anywhere, mon. Somethin' called. You answer. De cold just come with it." } },
+      lines = { { id = "t_default", text = "Same reason as you be anywhere, mon: somethin' called and you answer, and de cold just come with it." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
     },
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "Mau'ari be a witch doctor. Dat's de story. De rest she keep, like a good charm." } },
+    background = { { id = "tp_ba", text = "Mau'ari be a witch doctor, and dat's de story; de rest she keep, like a good charm." } },
     advice = { { id = "tp_ad", text = "Wear two pairs of socks, mon. De spirits don't care, but your toes will." } },
-    echo_isles = { { id = "tp_echo_isles", text = "De islands, warm and green. Mau'ari remember. She come up here anyway. De magic in de snow be stranger." } },
-    _none = { { id = "tp_none", text = "Mau'ari know many t'ings. Not dat one." } },
+    echo_isles = { { id = "tp_echo_isles", text = "De islands, warm and green, Mau'ari remember dem well. She come up here anyway, because de magic in de snow be stranger." } },
+    _none = { { id = "tp_none", text = "Mau'ari know many t'ings, but not dat one, mon." } },
   },
 }

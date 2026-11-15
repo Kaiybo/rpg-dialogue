@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.2.1 (unreleased)
+- Voice pass: Aerie Peak now talks in whole sentences instead of clipped fragments. The Wildhammer keep their brogue, Falstad is as loud as ever and Talonaxe as gruff, in connected speech rather than scraps.
+
 ## 1.2.0 (unreleased)
 - Depth: Falstad (the trolls, the Alliance, Quel'Danil, a word for Ironforge, a Skyborne's glide), Talonaxe (Sharpbeak), Fraggar (a reply for Ironforge dwarf shamans) and Thulfram.
 
