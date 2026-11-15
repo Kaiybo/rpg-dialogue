@@ -14,6 +14,7 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 - New death lines (wild creatures, unknown causes), race and class lines for everyone, what became of your people's dead, a send-off before you return, two noticing moments, journal entries, Scarlet Crusade and Argent Dawn topics. Voice bible in `bibles/spirithealer.md`.
 - Voice pass for the healer (whole sentences, as everywhere else since 1.18.0).
 - Western Plaguelands: towns Chillwind Camp and the Bulwark; topics the plague cauldrons, Andorhal, the Scholomance; claim `barov_heir` (disputed, left open).
+- Burning Steppes: towns Morgan's Vigil (related to Lakeshire) and Flame Crest; topics the black dragonflight, Blackrock Spire, Blackrock Depths, Marshal Windsor, the ruins of Thaurissan, the Firegut ogres; claim `windsor_alive` (Ragged John; true, settled by Marshal Windsor); Marshal Maxwell carries a beat of Solomon's letters (`b8_maxwell`).
 
 ## 1.18.0 (unreleased)
 - Voice pass: the shared pools (children, guards, innkeepers, trainers, the spirit healer and the rest), the "ask anyone" answers, the generic lines, the inn rumors and the throughline beats now talk in whole sentences instead of clipped fragments; what they say is unchanged.

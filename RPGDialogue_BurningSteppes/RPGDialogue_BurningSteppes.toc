@@ -1,0 +1,16 @@
+## Interface: 16001, 16002
+## Title: RPG Dialogue: Burning Steppes |cff8a8a8a1.0.0|r
+## Notes: Morgan's Vigil, where a marshal waits for proof and a lost commander, and Flame Crest, a cave of goblin dealers, a dragon scholar and the one dwarf who saw Windsor taken.
+## Author: RPG Dialogue
+## Version: 1.0.0
+## Dependencies: RPGDialogue
+## LoadOnDemand: 1
+## X-RPGD-Pack: rpgd.burningsteppes
+## X-RPGD-Format: 1
+## X-RPGD-Load: zone
+## X-RPGD-Zones: Burning_Steppes
+
+pack.lua
+npcs\morgans_vigil.lua
+npcs\flame_crest.lua
+npcs\steppes.lua
