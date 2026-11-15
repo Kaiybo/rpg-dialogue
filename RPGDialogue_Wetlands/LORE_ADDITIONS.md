@@ -33,6 +33,8 @@ Depth rewrite of Menethil Harbor (Stoutfist, Fitzsimmons, Glorin, Harlo, Karl, H
 
 **Corrections to earlier content (ids kept):** Stoutfist's `h_banners` and Flagongut's `h_default`, `h_stoutfist`, `d_default`, `tp_dragonmaw` said the Dragonmaw camped on Whelgar's dig; the sources put them at Angerfang in the hills, with raptors on the dig.
 
+**Voice pass (2026-11-15):** every line in the pack, the guard pool included, was rewritten as whole sentences (wording only: same facts, ids, conditions). The topic takes below are written in the new voice too.
+
 **Authored, not canon:** see "Depth rewrite (Wetlands 1.2.0)" in `bibles/menethil.md` (Stoutfist's night watch and burial ground, Fitzsimmons's dreams and mutiny joke, Glorin hiding the mead and asking where a priest trained, Harlo counting Dark Irons, Karl's lantern count, Helbrek's good mugs, Flagongut's two ales, Mikhail's full mug).
 
 ### World-pack additions (ready to paste)
@@ -46,16 +48,16 @@ P:Topic { id = "thandol_span", keywords = { "Thandol Span" }, name = "The Thando
 Then these takes can go into the NPCs' `topics` tables in `RPGDialogue_Wetlands/npcs/menethil.lua` (each `next` is an existing node):
 ```lua
 -- stoutfist
-grim_batol = { { id = "tp_grim_batol", text = "Red dragonkin at the gates, an' nobody goin' up that road. Suits me.", next = "grim_batol" } },
+grim_batol = { { id = "tp_grim_batol", text = "Red dragonkin hold the gates, an' nobody goes up that road, which suits me fine.", next = "grim_batol" } },
 thandol_span = { { id = "tp_span", text = "One bridge down, one standin', an' Longbraid's lads between the Dark Irons an' the rest." } },
 -- fitzsimmons
-third_fleet = { { id = "tp_fleet", text = "My fleet. Don't make me say it sober.", next = "fleet" } },
-grim_batol = { { id = "tp_grim_batol", text = "That's where the dragons came from. I don't look east anymore." } },
+third_fleet = { { id = "tp_fleet", text = "That was my fleet, and don't make me talk about it sober.", next = "fleet" } },
+grim_batol = { { id = "tp_grim_batol", text = "That's where the dragons came from, and I don't look east anymore." } },
 -- glorin
 third_fleet = { { id = "tp_fleet", text = "Out o' Lordaeron, burned off this coast. I've buried more of it than I'd like.", next = "wrecks" } },
-grim_batol = { { id = "tp_grim_batol", text = "A dark place. I've never been. I've never wanted to." } },
+grim_batol = { { id = "tp_grim_batol", text = "A dark place, by all accounts, an' I've never been nor wanted to." } },
 -- harlo
-thandol_span = { { id = "tp_span", text = "Where it started. Ask me, if ye've the stomach.", next = "span" } },
+thandol_span = { { id = "tp_span", text = "That's where it all started, an' I'll tell ye, if ye've the stomach for it.", next = "span" } },
 -- karl
 third_fleet = { { id = "tp_fleet", text = "Every captain steers wide of those wrecks. Nobody needs telling twice." } },
 ```
@@ -63,4 +65,9 @@ Rumor for `RPGDialogue_World/rumors/wetlands.lua`, `wetlands_inns`:
 ```lua
     { id = "statuette", when = { questRecent = { TODO_QUEST("Return the Statuette"), days = 7 } },
       text = "The Blind Princess got her statuette back, the old king with his hammer up. The Captain wants it off to Stormwind before the orcs hear." },
+```
+
+The voice checker fails one World line about Menethil (`RPGDialogue_World/rumors/wetlands.lua`, `wetlands_word.menethil`, outside this pack). Suggested text:
+```lua
+      text = "The road north from Ironforge goes down into the Wetlands, and the Wetlands have orcs on the road again. Menethil's holding, though barely, and wetly." },
 ```

@@ -11,6 +11,8 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 - Loremaster Dibbs: the Arm of Gri'lek, the ogres as critics, Prospector Stormpike and the Syndicate's ciphers; mages and Lordaeron refugees get their own replies.
 - Innkeeper Anderson: the regulars, Farren's usual, the missing horses.
 - Tarren Mill: High Executor Darthalia's orders (the farms, then the smith, then Southshore), the Syndicate and Durnholde, Varimathras; Forsaken, orcs, trolls and tauren each get a reply. Apothecary Lydon's Umpi, the new plague, his misery at the fresh air, his reagents for alchemists; tauren, trolls and Forsaken get their own replies. Innkeeper Shay remembers the old town like a map.
+- Raleigh the Devout, upstairs at the Southshore inn: the Scarlet Crusade from the inside, Brother Anton's letter and the Monastery (the Scarlet Path throughline).
+- Voice pass: every line in the pack, Raleigh's included, now reads as whole sentences in the speaker's own voice (Bilger's hiccups fold into his sentences, Darthalia's chill and Lydon's gloom stay) instead of clipped fragments. Same meanings, facts and line ids.
 
 ## 1.1.0 (unreleased)
 - Depth pass: repeat visits bring personal lines (habits, worries, running jokes), and some NPCs get night-time lines. Shay, Dibbs, Farren, Maleb, Bilger, Anderson.

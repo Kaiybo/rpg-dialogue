@@ -37,6 +37,8 @@ Depth rewrite of Southshore (Redpath, Maleb, Farren, Bilger, Dibbs, Anderson) an
 
 **Corrections to earlier content (ids kept):** Lydon's `u_default` called Umpi "he"; the wiki says "her". Anderson's `h_bilger` gave him a father who knew Bilger; now "folk here say".
 
+**Voice pass (2026-11-15):** every line in the pack was rewritten as whole sentences, `raleigh.lua` included (wording only: same facts, ids, conditions; the phrases `tests/scarlet_spec.lua` checks are kept, and the Speech line in `bibles/raleigh.md` now says whole sentences). The topic takes below are written in the new voice too.
+
 **Authored, not canon:** see "Depth rewrite (Hillsbrad 1.2.0)" in `bibles/hillsbrad.md` (Redpath's lantern and grave-watching, Maleb's shutters, Farren's canal lamps, Bilger's plate taken in, Dibbs's question to refugees, Darthalia's short reports, Lydon's stain on the wall, Shay's map).
 
 ### World-pack additions (ready to paste)
@@ -51,24 +53,24 @@ P:Topic { id = "new_plague", keywords = { "new plague" }, name = "The new plague
 (Another agent may propose `silver_hand` too; keep one.) Takes for the NPCs' `topics` tables (each `next` is an existing node):
 ```lua
 -- redpath (southshore.lua)
-syndicate = { { id = "tp_syndicate", text = "Thieves with old names. The Magistrate keeps their papers. I keep the road.", next = "syndicate" } },
-alterac = { { id = "tp_alterac", text = "Ogres in the old capital now. Next step, my front door.", next = "crushridge" } },
+syndicate = { { id = "tp_syndicate", text = "Thieves with old names; the Magistrate keeps their papers, and I keep the road.", next = "syndicate" } },
+alterac = { { id = "tp_alterac", text = "There are ogres in the old capital now, and their next step is my front door.", next = "crushridge" } },
 silver_hand = { { id = "tp_hand", text = "Some of the old knights live here still, quieter than they were." } },
 new_plague = { { id = "tp_plague", text = "Across the valley they're brewing something. I don't need a scholar to tell me what." } },
 -- maleb
 syndicate = { { id = "tp_syndicate", text = "Read their supply list and you'll stop calling them thieves. Thieves don't order twenty black masks.", next = "plans" } },
 -- bilger
-silver_hand = { { id = "tp_hand", text = "Hic. Ask me sober. No. Ask me now, I'll only lie sober.", next = "hand" } },
+silver_hand = { { id = "tp_hand", text = "Ask me sober, hic... no, ask me now, for I'll only lie when I'm sober.", next = "hand" } },
 -- dibbs
-alterac = { { id = "tp_alterac", text = "A library, under ogres. I could weep. I have.", next = "why_books" } },
+alterac = { { id = "tp_alterac", text = "A whole library, under ogres. I could weep, and I have.", next = "why_books" } },
 -- anderson
-syndicate = { { id = "tp_syndicate", text = "They don't drink here. That's how you know them. Everyone drinks here." } },
+syndicate = { { id = "tp_syndicate", text = "They never drink here, and that's how you know them, because everyone drinks here." } },
 -- darthalia (tarrenmill.lua)
 syndicate = { { id = "tp_syndicate", text = "Wanted dead, by the Dark Lady's decree. There is nothing else to say about them.", next = "syndicate" } },
 new_plague = { { id = "tp_plague", text = "The Society's work. Until it is ready, we hold the fields.", next = "plague" } },
 -- lydon
-new_plague = { { id = "tp_plague", text = "Close. So close. I'd be excited, if I still did that.", next = "plague" } },
-syndicate = { { id = "tp_syndicate", text = "Their shadow mages collect innocent blood. I collect it from them. A sort of partnership." } },
+new_plague = { { id = "tp_plague", text = "We're close, so very close, and I'd be excited if I still did that.", next = "plague" } },
+syndicate = { { id = "tp_syndicate", text = "Their shadow mages collect innocent blood, and I collect it from them; it's a sort of partnership." } },
 ```
 Rumors (new file or added to an existing rumors file, with `local TODO_QUEST = P.TODO_QUEST`):
 ```lua

@@ -11,6 +11,7 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 - Karl Boran: the Bluegill raid on the Blind Princess and the statuette of a young King Terenas (a Lordaeron refugee answers differently), the boats and the marines on payday, night elves off the Auberdine boat.
 - Innkeeper Helbrek, Archaeologist Flagongut (the Stone of Relu in a raptor, the conference that laughed; League apprentices and night elves get their own replies) and Mikhail (the room he watches, Samor Festivus upstairs, Elling's errand, a rogue's eye).
 - Corrected: the Dragonmaw camp is in the hills (Angerfang), and raptors, not orcs, sit on Whelgar's dig.
+- Voice pass: every line in the pack, Menethil's guards included, now reads as whole sentences in the speaker's own voice (a dwarf's burr, a drunk sailor's run-ons, a retired spy's dry asides) instead of clipped fragments. Same meanings, facts and line ids.
 
 ## 1.1.0 (unreleased)
 - Depth pass: repeat visits bring personal lines (habits, worries, running jokes), and some NPCs get night-time lines. Helbrek.
