@@ -11,14 +11,14 @@ P:NPC {
   notices = { "race", "class" },
 
   greetings = {
-    { id = "g_chief", text = "The High Rise greets you, young one. The Earth Mother's wind blows strong up here. Stand firm." },
-    { id = "g_tauren", when = { race = "Tauren" }, text = "Tauren-born. The plains go with you wherever you walk. I see them in your step." },
+    { id = "g_chief", text = "The High Rise greets you, young one. The Earth Mother's wind blows strong up here, so stand firm." },
+    { id = "g_tauren", when = { race = "Tauren" }, text = "Tauren-born! The plains go with you wherever you walk; I see them in your step." },
     { id = "g_back", when = { metBefore = true }, text = "Good, you've come again. An old bull likes faces he knows." },
   },
 
   notice = {
     { id = "n_druid", cat = "class", when = { class = "DRUID", race = "Tauren" },
-      text = "A tauren druid. Twenty generations we waited for one, and now you walk among us. Hamuul's work. Be worthy of it." },
+      text = "A tauren druid. Twenty generations we waited for one, and now you walk among us, thanks to Hamuul's work. Be worthy of it." },
     { id = "n_skyborne", cat = "race", when = { race = "Skyborne", faction = "Horde" },
       text = "The sky-people who came down to Mulgore. The Earthen Ring spoke for you, and the tauren keep the word of friends. Walk freely here." },
     { id = "n_alliance", cat = "race", when = { faction = "Alliance" },
@@ -30,11 +30,11 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Cairne Bloodhoof. I lead the Bloodhoof, and all the tribes who call Mulgore home. We wandered for generations. Now we have a home, and I mean to keep it." },
+          text = "I am Cairne Bloodhoof, and I lead the Bloodhoof and all the tribes who call Mulgore home. We wandered for generations, but now we have a home, and I mean to keep it." },
         { id = "h_baine", when = { heardLine = "baine.h_default" },
-          text = "You've met my son in the village. He listens better than I did at his age. Don't tell him I said so." },
+          text = "You've met my son in the village. He listens better than I did at his age, but don't tell him I said so." },
         { id = "h_journey", tags = { "news" }, when = { questActive = TODO_QUEST("Journey into Thunder Bluff") },
-          text = "You've climbed the lifts and found your way to me. Good. A tauren who knows the Bluff knows where home is. Now, let me look at you." },
+          text = "You've climbed the lifts and found your way to me, and well done; a tauren who knows the Bluff knows where home is. Now, let me look at you." },
         { id = "h_rites", when = { questDone = TODO_QUEST("Rites of the Earthmother") },
           text = "You walked the rites of the Earth Mother. I see it on you. Carry it lightly; it's heavy enough on its own." },
       },
@@ -61,7 +61,7 @@ P:NPC {
   },
 
   topics = {
-    cenarion_circle = { { id = "tp_circle", text = "Hamuul's road. The night elves let him walk it, some more gladly than others. I'm proud of him." } },
+    cenarion_circle = { { id = "tp_circle", text = "That is Hamuul's road, and the night elves let him walk it, some more gladly than others. I'm proud of him." } },
     _none = { { id = "tp_none", text = "Ask the elders on their rise. They've more patience for questions than an old warrior." } },
   },
 }
@@ -73,15 +73,15 @@ P:NPC {
   notices = { "form", "race" },
 
   greetings = {
-    { id = "g_rise", text = "Peace, traveller. You're on Elder Rise. Speak softly; the old ones are thinking." },
-    { id = "g_druid", when = { class = "DRUID" }, text = "Another druid! Come, come. Every one of you is a gift. Not so long ago there were none of us at all." },
+    { id = "g_rise", text = "Peace, traveller. You're on Elder Rise, so speak softly; the old ones are thinking." },
+    { id = "g_druid", when = { class = "DRUID" }, text = "Another druid! Come, come; every one of you is a gift, when not so long ago there were none of us at all." },
   },
 
   notice = {
     { id = "n_bear", cat = "form", when = { form = "bear" },
-      text = "Ha! The bear. My favourite. Remember: the bear is strong because it rests. Rest, young one." },
+      text = "Ha! The bear, my favourite. Remember that the bear is strong because it rests, so rest, young one." },
     { id = "n_skyborne", cat = "race", when = { race = "Skyborne", class = "DRUID" },
-      text = "A shen'dorei druid. You honour the elements first, I'm told. Good. The Earth Mother is the earth, after all. We'll get along." },
+      text = "A shen'dorei druid! You honour the elements first, I'm told, which suits me; the Earth Mother is the earth, after all. We'll get along." },
   },
 
   start = "hello",
@@ -93,8 +93,8 @@ P:NPC {
         { id = "h_rau", when = { heardLine = "rau.h_default" },
           text = "You've spoken with Rau at Freewind. He learned to listen to the land here, on Elder Rise. I'm glad it's serving him in the Needles." },
         { id = "h_fandral", when = { heardLine = "fandral.h_default" },
-          text = "So Fandral has received you in Darnassus. He didn't want me taught. He was wrong, and I don't hold it against him. Mostly." },
-        { id = "h_young", when = { metBefore = true }, text = "Every young druid who comes up the lift reminds me how few of us there were. I count you all, you know. I'm not ashamed of it." },
+          text = "So Fandral has received you in Darnassus. He didn't want me taught, and he was wrong, but I don't hold it against him. Mostly." },
+        { id = "h_young", when = { metBefore = true }, text = "Every young druid who comes up the lift reminds me how few of us there were. I count you all, you know, and I'm not ashamed of it." },
       },
       choices = {
         { text = "What did Malfurion teach you?", next = "taught" },
@@ -105,19 +105,19 @@ P:NPC {
     taught = {
       big = true,
       lines = {
-        { id = "t_default", text = "That the wild isn't something you command. It's something you join. I was the first of my people in twenty generations to hear that. I mean not to be the last." },
+        { id = "t_default", text = "That the wild isn't something you command; it's something you join. I was the first of my people in twenty generations to hear that, and I mean not to be the last." },
       },
       choices = { { text = "You won't be.", next = "END", fx = { affinity = 2, learn = { "cenarion_circle" } } } },
     },
     lesson = {
-      lines = { { id = "l_default", text = "Strength without wisdom is only a stampede. I say it to every young druid. Most nod. A few listen. You can tell the difference in about ten years." } },
+      lines = { { id = "l_default", text = "Strength without wisdom is only a stampede, and I say it to every young druid. Most nod and a few listen, and you can tell the difference in about ten years." } },
       choices = { { text = "I'm listening.", next = "END", fx = { affinity = 2, trait = { patient = 1 } } } },
     },
   },
 
   topics = {
     cenarion_circle = { { id = "tp_circle", text = "I'm the highest of the tauren in it, which mostly means I'm the one who gets glared at in Darnassus. Remulos is kinder." } },
-    _none = { { id = "tp_none", text = "Ask Turak, or the Chieftain. Or the wind. It knows more than both of us." } },
+    _none = { { id = "tp_none", text = "Ask Turak, or the Chieftain, or the wind; it knows more than both of us." } },
   },
 }
 
@@ -134,26 +134,26 @@ P:NPC {
 
   notice = {
     { id = "n_cat", cat = "form", when = { form = "cat" },
-      text = "Swift and quiet. Mind the cat doesn't make you forget the rest of what you are." },
+      text = "Swift and quiet, the cat. Mind it doesn't make you forget the rest of what you are." },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Turak Runetotem. I help the Arch Druid train the young ones. I teach the steps; he teaches why they matter." },
+        { id = "h_default", key = true, text = "I'm Turak Runetotem, and I help the Arch Druid train the young ones. I teach the steps; he teaches why they matter." },
         { id = "h_call", tags = { "news" }, when = { questActive = TODO_QUEST("Heeding the Call") },
-          text = "The call reached you, then. Good. Sit. Before you can be more than one creature, you must understand the one you are." },
+          text = "The call reached you, then, and good. Sit, for before you can be more than one creature, you must understand the one you are." },
         { id = "h_back", when = { questActive = TODO_QUEST("Back to Thunder Bluff") },
-          text = "You've sat with the Great Bear Spirit. Few forget that look. Tell me what you felt." },
+          text = "You've sat with the Great Bear Spirit; few forget that look. Tell me what you felt." },
         { id = "h_poison", when = { questActive = TODO_QUEST("Power over Poison") },
           text = "The Crossroads has troubles with poison. A druid who can draw it out of the living is worth a dozen healers' herbs." },
         { id = "h_aquatic", when = { questDone = TODO_QUEST("Aquatic Form") },
-          text = "Now the water's yours too. Few tauren take to it. You'll be a strange sight in the rivers. Enjoy it." },
-        { id = "h_bear", when = { metBefore = true, class = "DRUID" }, text = "How does the bear sit with you now? Heavy at first, for most. It gets lighter. Or you get stronger. Same thing, in the end." },
+          text = "Now the water's yours too, though few tauren take to it. You'll be a strange sight in the rivers, so enjoy it." },
+        { id = "h_bear", when = { metBefore = true, class = "DRUID" }, text = "How does the bear sit with you now? It's heavy at first, for most, and then it gets lighter, or you get stronger, which is the same thing in the end." },
         { id = "h_listen", when = { metBefore = true }, text = "The Arch Druid speaks to the Circle. I speak to the young ones. Between the two of us, someone is always being listened to." },
-        { id = "h_skyborne", when = { race = "Skyborne", class = "DRUID" }, text = "A druid from the sky isles. Your people lean on the elements before Elune, I'm told. Good. The Earth Mother made the winds too. She won't mind sharing you." },
-        { id = "h_night", when = { timeOfDay = "night" }, text = "Mu'sha has her eye open. The White Lady brings sleep to the plains. Not to me, tonight." },
+        { id = "h_skyborne", when = { race = "Skyborne", class = "DRUID" }, text = "A druid from the sky isles! Your people lean on the elements before Elune, I'm told, and I'm glad of it. The Earth Mother made the winds too, and she won't mind sharing you." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "Mu'sha has her eye open, and the White Lady brings sleep to the plains, though not to me, tonight." },
       },
       choices = {
         { text = "How did you become a druid?", next = "path" },
@@ -163,25 +163,25 @@ P:NPC {
       },
     },
     balance = {
-      lines = { { id = "b_default", text = "Everything in its place, and everything with a place. When we forget our place, the world reminds us. Gently, if we're lucky." } },
+      lines = { { id = "b_default", text = "Everything in its place, and everything with a place. When we forget our place, the world reminds us, gently if we're lucky." } },
       choices = { { text = "Thank you.", next = "END", fx = { affinity = 1, learn = { "cenarion_circle" } } } },
     },
     path = {
       lines = {
-        { id = "p_stag", text = "I hunted, first. I tracked a stag three days and lost it. On the fourth morning it found me: stood there in the grass, watching. I put the bow down. Hamuul found me a week later, still sitting there." },
+        { id = "p_stag", text = "I hunted, first, and I tracked a stag three days and lost it. On the fourth morning it found me: stood there in the grass, watching, and I put the bow down. Hamuul found me a week later, still sitting there." },
       },
       choices = { { text = "That's a good story.", next = "END", fx = { affinity = 2 } }, { text = "What did the stag want?", next = "stag" } },
     },
     stag = {
       lines = {
-        { id = "s_default", text = "I've wondered for years. I think it wanted to see if I'd keep chasing. I didn't. That was the lesson." },
+        { id = "s_default", text = "I've wondered for years. I think it wanted to see if I'd keep chasing, and I didn't, and that was the lesson." },
       },
       choices = { { text = "I'll remember it.", next = "END", fx = { affinity = 2, trait = { patient = 1 } } } },
     },
   },
 
   topics = {
-    cenarion_circle = { { id = "tp_circle", text = "Our order, and the Arch Druid's pride. Go to Moonglade when you can. It's quieter than here." } },
+    cenarion_circle = { { id = "tp_circle", text = "Our order, and the Arch Druid's pride. Go to Moonglade when you can; it's quieter than here." } },
     _none = { { id = "tp_none", text = "Ask Hamuul. I only teach what I'm sure of." } },
   },
 }
@@ -194,16 +194,16 @@ P:NPC {
 
   greetings = {
     { id = "g_crone", text = "Hm. Another one come to stare at the old crone. Well, stare, and then be useful or be gone." },
-    { id = "g_tauren", when = { race = "Tauren" }, text = "A child of the plains. Good. You at least have the sense to be born tauren." },
+    { id = "g_tauren", when = { race = "Tauren" }, text = "A child of the plains, good. You at least have the sense to be born tauren." },
   },
 
   notice = {
     { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
-      text = "A shaman. The elements speak to you? They speak to me louder. Remember that, if we ever disagree." },
+      text = "A shaman? The elements speak to you, do they? They speak to me louder, so remember that, if we ever disagree." },
     { id = "n_undead", cat = "race", when = { race = "Scourge" },
-      text = "Forsaken. Don't flinch; I don't hate you. Our ways might give you back a little of what you lost. Some here think I've other reasons. Let them think." },
+      text = "Forsaken. Don't flinch; I don't hate you, and our ways might give you back a little of what you lost. Some here think I've other reasons, so let them think." },
     { id = "n_outsider", cat = "race", when = { race = { "Human", "Dwarf", "Gnome", "NightElf" } },
-      text = "The lesser races walk on Elder Rise now. What a time we live in. Keep your hands where I can see them." },
+      text = "The lesser races walk on Elder Rise now; what a time we live in. Keep your hands where I can see them." },
   },
 
   start = "hello",
@@ -213,9 +213,9 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Magatha, Elder Crone of the Grimtotem. Cairne lets me live up here so he can keep an eye on me. I let him think it works." },
         { id = "h_crone", tags = { "news" }, when = { questActive = TODO_QUEST("The Elder Crone") },
-          text = "Someone sent you to me. Good. I have uses for capable hands, and fewer for chatter. Listen carefully; I won't say it twice." },
+          text = "Someone sent you to me? Good; I have uses for capable hands, and fewer for chatter. Listen carefully, because I won't say it twice." },
         { id = "h_forsaken", when = { questActive = TODO_QUEST("Forsaken Aid") },
-          text = "The Forsaken want to remember being alive. I can help with that. Whether I should, the Chieftain has opinions. I'll ask for his when I want them." },
+          text = "The Forsaken want to remember being alive, and I can help with that. Whether I should, the Chieftain has opinions, and I'll ask for his when I want them." },
         { id = "h_fire", when = { questActive = TODO_QUEST("Sacred Fire") },
           text = "Sacred fire, for sacred work. Fetch it, and don't let anyone ask you what it's for." },
         { id = "h_skyborne", when = { race = "Skyborne" },
@@ -230,7 +230,7 @@ P:NPC {
     cairne = {
       big = true,
       lines = {
-        { id = "c_default", text = "A good warrior. A kind old bull. And a chieftain who gives our people's future away to orcs and outsiders one handshake at a time. I would lead them better. I have said so, to his face." },
+        { id = "c_default", text = "A good warrior and a kind old bull, and a chieftain who gives our people's future away to orcs and outsiders one handshake at a time. I would lead them better, and I have said so, to his face." },
       },
       choices = {
         { text = "That's bold.", next = "bold" },
@@ -238,17 +238,17 @@ P:NPC {
       },
     },
     bold = {
-      lines = { { id = "b_default", text = "It's honest. The tauren used to value that. Now we value getting along. It's not the same thing, child." } },
+      lines = { { id = "b_default", text = "It's honest, and the tauren used to value that. Now we value getting along, and it's not the same thing, child." } },
       choices = { { text = "...", next = "END" } },
     },
     want = {
-      lines = { { id = "w_default", text = "What was ours. The old lands, wherever they lie. Kalimdor was the tauren's before it was anyone's. I haven't forgotten. I'm old enough not to." } },
+      lines = { { id = "w_default", text = "What was ours: the old lands, wherever they lie. Kalimdor was the tauren's before it was anyone's, and I haven't forgotten; I'm old enough not to." } },
       choices = { { text = "...", next = "END", fx = { learn = { "grimtotem" } } } },
     },
   },
 
   topics = {
-    cenarion_circle = { { id = "tp_circle", text = "Night elves teaching tauren to be tauren. Hamuul is proud of it. I find it embarrassing." } },
+    cenarion_circle = { { id = "tp_circle", text = "Night elves teaching tauren to be tauren! Hamuul is proud of it, and I find it embarrassing." } },
     grimtotem = { { id = "tp_grimtotem", text = "You've heard about Arnak, I suppose. Every clan has its hotheads. Mine simply has more of them, and better reasons." } },
     _none = { { id = "tp_none", text = "Not my concern, and not yours either, I expect." } },
   },
@@ -267,21 +267,21 @@ P:NPC {
 
   notice = {
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.25 } },
-      text = "Oh, look at you. Sit, sit. Stew first. Then sleep. Then you can go and get hurt again." },
+      text = "Oh, look at you! Sit, sit; stew first, then sleep, and then you can go and get hurt again." },
     { id = "n_forsaken", cat = "race", when = { race = "Scourge" },
-      text = "You look chilled through. Sit by the fire anyway. Warm's warm, whatever's underneath." },
+      text = "You look chilled through, but sit by the fire anyway; warm's warm, whatever's underneath." },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "Pala. I keep the Cat and the Shaman. Warriors, druids, traders off the lifts: everyone gets the same welcome and the same stew." },
+        { id = "h_default", text = "I'm Pala, and I keep the Cat and the Shaman. Warriors, druids, traders off the lifts: everyone gets the same welcome and the same stew." },
         { id = "h_skyborne", when = { race = "Skyborne", faction = "Horde" },
           text = "Sky-folk, from down at the camp? Sit by the fire; up here the wind's colder than you'd think, even for you." },
-        { id = "h_lifts", when = { metBefore = true }, text = "The lift-runners eat here every night. Strongest backs in the city and the softest hearts. Don't tell them I said so." },
-        { id = "h_night", when = { timeOfDay = "night" }, text = "Late and windy. Listen to the totems creak. Sounds like the whole bluff is breathing." },
-        { id = "h_turak", when = { heardLine = "turak.h_default" }, text = "You've been up to Turak on Elder Rise? He eats here twice a moon. Sits by the window and doesn't speak. Tips well, though." },
+        { id = "h_lifts", when = { metBefore = true }, text = "The lift-runners eat here every night, the strongest backs in the city and the softest hearts. Don't tell them I said so." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "Late and windy tonight, so listen to the totems creak; it sounds like the whole bluff is breathing." },
+        { id = "h_turak", when = { heardLine = "turak.h_default" }, text = "You've been up to Turak on Elder Rise? He eats here twice a moon, and sits by the window and doesn't speak, but he tips well." },
       },
       choices = {
         { text = "Make this my home.", next = "BUSINESS" },
@@ -290,7 +290,7 @@ P:NPC {
       },
     },
     name = {
-      lines = { { id = "n_default", text = "Ask three regulars, get three stories. My favourite has the cat winning. Make up your own; everyone else does." } },
+      lines = { { id = "n_default", text = "Ask three regulars and you'll get three stories, and my favourite has the cat winning. Make up your own; everyone else does." } },
       choices = { { text = "Ha.", next = "END", fx = { affinity = 1 } } },
     },
   },

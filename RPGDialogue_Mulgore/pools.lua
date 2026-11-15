@@ -4,12 +4,12 @@ local P = RPGDialogueAPI:Pack("rpgd.mulgore")
 P:Pool {
   id = "guard_bloodhoof", role = "guard", community = "bloodhoof",
   barks = {
-    { id = "b_plains", text = "Grass is high this year. Good for the kodo. Good for hiding gnolls, too." },
-    { id = "b_wells", text = "Don't drink from the wells to the north. Not until Mull says so." },
+    { id = "b_plains", text = "The grass is high this year, which is good for the kodo, and good for hiding gnolls, too." },
+    { id = "b_wells", text = "Don't drink from the wells to the north, not until Mull says so." },
   },
   greetings = {
-    { id = "g_village", text = "Bloodhoof Village. The bluffs are north, the gnolls are west, and the goblins are everywhere they shouldn't be." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "Mulgore is quiet at night. Too quiet, some nights. Stay near the fires." },
+    { id = "g_village", text = "Here in Bloodhoof Village, the bluffs are to the north and the gnolls to the west, and the goblins are everywhere they shouldn't be." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Mulgore is quiet at night, and too quiet, some nights. Stay near the fires." },
   },
   notice = {
     { id = "n_green", cat = "greenness", when = { maxLevel = 8 },
@@ -17,9 +17,9 @@ P:Pool {
     { id = "n_skyborne", cat = "race", when = { race = "Skyborne" },
       text = "One of the sky-folk from Gev'rek. Thunder Bluff called you friends, so you're friends here. Earth Mother keep you." },
   },
-  react = { { id = "r_stealth", on = "stealth", text = "The grass moved, and not with the wind. Come out. We don't sneak in Bloodhoof." } },
+  react = { { id = "r_stealth", on = "stealth", text = "The grass moved, and not with the wind. Come out; we don't sneak in Bloodhoof." } },
   lines = {
-    { id = "l_default", text = "Baine keeps the village. We keep the roads. Ask, and we'll point you where you're going." },
+    { id = "l_default", text = "Baine keeps the village and we keep the roads, so ask, and we'll point you where you're going." },
   },
   choices = { { text = "Thank you, Brave.", next = "END", fx = { standing = { bloodhoof = 1 } } } },
   topics = {
@@ -30,14 +30,14 @@ P:Pool {
 P:Pool {
   id = "guard_narache", role = "guard", community = "narache",
   barks = {
-    { id = "b_quilboar", text = "Bristleback scouts on the ridge again. They never learn." },
+    { id = "b_quilboar", text = "Bristleback scouts are on the ridge again; they never learn." },
   },
   greetings = {
-    { id = "g_camp", text = "Camp Narache. Walk tall here. The Greatmother would have wanted it." },
+    { id = "g_camp", text = "Camp Narache welcomes you. Walk tall here, as the Greatmother would have wanted." },
   },
   notice = {
     { id = "n_green", cat = "greenness", when = { maxLevel = 4 },
-      text = "New to the hunt. The Chief will set you a task. Do it well and the tribe will remember." },
+      text = "New to the hunt, are you? The Chief will set you a task, and if you do it well, the tribe will remember." },
   },
   react = { { id = "r_stealth", on = "stealth", text = "Who hides in the camp? If you're quilboar, you're a clever one." } },
   lines = {

@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.1.1 (unreleased)
+- Voice pass: the Valley of Trials, Razor Hill and Sen'jin now talk in whole sentences instead of clipped fragments, each in their own voice (Gornek's drill, Gar'Thok's terse orders, Orgnil's grimness, Thazz'ril's exasperation, Grosk's dry humour, Gadrin's troll lilt). Same lines, same facts, same conditions.
+
 ## 1.1.0 (unreleased)
 - Depth pass: repeat visits bring personal lines (habits, worries, running jokes), and some NPCs get night-time lines. Kaltunk's and Galgar's stories from the camps; Thazz'ril, Kzan, Grosk.
 

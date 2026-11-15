@@ -12,17 +12,17 @@ P:NPC {
 
   greetings = {
     { id = "g_winds", text = "Winds be with you." },
-    { id = "g_stranger", when = { ["not"] = { race = "Skyborne" } }, text = "A guest. We have few. Winds be with you all the same." },
-    { id = "g_back", when = { metBefore = true, race = "Skyborne" }, text = "Back again, child. The Council can spare me a moment. Barely." },
+    { id = "g_stranger", when = { ["not"] = { race = "Skyborne" } }, text = "A guest, and we have few. Winds be with you all the same." },
+    { id = "g_back", when = { metBefore = true, race = "Skyborne" }, text = "Back again, child? The Council can spare me a moment, barely." },
   },
 
   notice = {
     { id = "n_druid", cat = "kin", when = { race = "Skyborne", class = "DRUID" },
-      text = "A druid. There are so few of you. Your faith leans to the elements before Elune; don't let anyone on the mainland tell you that's backwards." },
+      text = "A druid, and there are so few of you. Your faith leans to the elements before Elune; don't let anyone on the mainland tell you that's backwards." },
     { id = "n_shaman", cat = "kin", when = { race = "Skyborne", class = "SHAMAN" },
-      text = "A Windshaper. You've passed your trials, then. Good. The elements will need more friends than ever, now our patrons are gone." },
+      text = "A Windshaper! You've passed your trials, then, and good; the elements will need more friends than ever, now our patrons are gone." },
     { id = "n_mage", cat = "kin", when = { race = "Skyborne", class = "MAGE" },
-      text = "The High Order's newest. Your ancestors were magisters. Remember it, and remember what Prince Tortheldrin did with power like theirs." },
+      text = "The High Order's newest, I see. Your ancestors were magisters, so remember it, and remember what Prince Tortheldrin did with power like theirs." },
     { id = "n_stranger", cat = "stranger", when = { ["not"] = { race = "Skyborne" } },
       text = "You're the first of your people I've spoken with. I find I have more questions than manners. Forgive me." },
   },
@@ -35,7 +35,7 @@ P:NPC {
         { id = "h_alliance", when = { race = "Skyborne", faction = "Alliance" },
           text = "The High Order has gone to the Kirin Tor. Elaadrin Evengale leads them from the Sky Enclave in Dalaran. Go with my blessing, and with your temper in hand." },
         { id = "h_horde", when = { race = "Skyborne", faction = "Horde" },
-          text = "Ayessa Dawnsinger has taken the Windshapers to the Horde, to Camp Gev'rek in Mulgore. Go with my blessing. Don't go looking for the High Order's people. Not yet." },
+          text = "Ayessa Dawnsinger has taken the Windshapers to the Horde, to Camp Gev'rek in Mulgore. Go with my blessing, but don't go looking for the High Order's people, not yet." },
         { id = "h_young", when = { race = "Skyborne", maxLevel = 5 },
           text = "You'll have been given your heirloom not long ago. Someone carried it before you, and someone will after. Remember that when you're tempted to be reckless with it." },
         { id = "h_died", when = { race = "Skyborne", deaths = { min = 3 } },
@@ -63,7 +63,7 @@ P:NPC {
     windlord = {
       lines = {
         { id = "w_default", key = true,
-          text = "I told the Council the Windlord might take years to act. Decades, even. I did not say never. Everyone heard the first part." },
+          text = "I told the Council the Windlord might take years to act, decades even, but I did not say never. Everyone heard the first part." },
       },
       choices = {
         { text = "Then we have time.", next = "END", fx = { trait = { brave = 1 } } },
@@ -72,7 +72,7 @@ P:NPC {
     },
     who = {
       lines = {
-        { id = "wh_default", text = "Shen'dorei. The hidden people. Our ancestors left Eldre'Thalas ten thousand years ago rather than kneel to a prince who drank from the Nether. We hid. Now we've stopped hiding." },
+        { id = "wh_default", text = "Shen'dorei, the hidden people. Our ancestors left Eldre'Thalas ten thousand years ago rather than kneel to a prince who drank from the Nether, and we hid, and now we've stopped hiding." },
       },
       choices = {
         { text = "Welcome back to Azeroth.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
@@ -82,7 +82,7 @@ P:NPC {
     orders = {
       big = true,
       lines = {
-        { id = "o_default", text = "The High Order wants back what the magisters knew. The Windshapers feel they owe the spirits everything. Both are right. There have been deaths over sacred places. Both remember them." },
+        { id = "o_default", text = "The High Order wants back what the magisters knew, and the Windshapers feel they owe the spirits everything, and both are right. There have been deaths over sacred places, and both remember them." },
       },
       choices = {
         { text = "Someone has to make peace.", next = "END", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
@@ -91,7 +91,7 @@ P:NPC {
     },
     shalnan = {
       lines = {
-        { id = "sh_default", text = "Our first leader. The Shal'nan gave up the seat and vanished along with the spirits. Where, I don't know. Nobody knows. That's why we have a Council." },
+        { id = "sh_default", text = "The Shal'nan was our first leader, until the seat was given up and the Shal'nan vanished along with the spirits. Where they went, nobody knows, which is why we have a Council." },
       },
       choices = { { text = "I hope they're found.", next = "END", fx = { affinity = 1 } } },
     },
@@ -100,8 +100,8 @@ P:NPC {
   topics = {
     al_aketh = { { id = "tp_aketh", text = "Grey robes, shaved heads, and worship for a Windlord our own patrons would hardly speak of. Ansirem Runeweaver and Muln Earthfury helped us break them once. Once may not be enough." } },
     two_orders = { { id = "tp_orders", text = "Two roads out of the same house. I'd like them both to come home for dinner, someday." } },
-    shal_nan = { { id = "tp_shalnan", text = "Gone with the spirits. If you hear anything, anything at all, you bring it to me first." } },
+    shal_nan = { { id = "tp_shalnan", text = "Gone with the spirits, and if you hear anything, anything at all, you bring it to me first." } },
     windstones = { { id = "tp_windstones", text = "They light our lamps and fill our purses. When they fail, I suspect we'll learn which mattered more." } },
-    _none = { { id = "tp_none", text = "The Council has many questions and fewer answers. That's one of the many." } },
+    _none = { { id = "tp_none", text = "The Council has many questions and fewer answers, and that's one of the many." } },
   },
 }

@@ -5,19 +5,19 @@ local TODO_QUEST = P.TODO_QUEST
 P:Pool {
   id = "guard_crossroads", role = "guard", community = "crossroads",
   barks = {
-    { id = "b_dust", text = "Dust on the north road. Riders, or just wind." },
-    { id = "b_quilboar", text = "Smells like quilboar. Smells like quilboar everywhere, out here." },
+    { id = "b_dust", text = "There's dust on the north road. Could be riders, could be just the wind." },
+    { id = "b_quilboar", text = "Smells like quilboar, but then everything smells like quilboar out here." },
     { id = "b_hero", when = { townStanding = { town = "crossroads", min = 30 } }, text = "That one's done more for the Crossroads than half the garrison." },
   },
   greetings = {
-    { id = "g_cross", text = "Lok'tar. You're at the Crossroads. Water's at the well, trouble's everywhere else." },
+    { id = "g_cross", text = "Lok'tar, and welcome to the Crossroads. The water's at the well, and the trouble's everywhere else." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Inside the walls after dark. Centaur ride at night, and they don't stop to ask whose side you're on." },
-    { id = "g_liked", when = { townStanding = { town = "crossroads", min = 30 } }, text = "Friend of the Crossroads. Pass, and welcome." },
-    { id = "g_distrust", when = { townStanding = { town = "crossroads", max = -20 } }, text = "Thork knows your name. Mind yourself." },
+    { id = "g_liked", when = { townStanding = { town = "crossroads", min = 30 } }, text = "Pass, friend of the Crossroads, and be welcome; that name counts for something here." },
+    { id = "g_distrust", when = { townStanding = { town = "crossroads", max = -20 } }, text = "Thork knows your name, stranger, so mind yourself while you're inside these walls." },
   },
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
-      text = "The Barrens chewed on you. Traugh can fix that. The Barrens will just do it again, but still." },
+      text = "The Barrens has been chewing on you. Traugh can fix that, though the Barrens will only do it again." },
     { id = "n_alliance", cat = "race", when = { faction = "Alliance" },
       text = "You're a long way from your walls, outsider. Keep walking and keep your hands empty." },
   },
@@ -29,6 +29,6 @@ P:Pool {
   choices = { { text = "Lok'tar.", next = "END", fx = { standing = { crossroads = 1 } } } },
   topics = {
     wailing_caverns = { { id = "t_caverns", text = "Ask Tonga. All I know is the water tastes wrong near there, and the druids who went in came out strange." } },
-    _none = { { id = "t_none", text = "Ask Thork. He's on the tower, glaring at the horizon." } },
+    _none = { { id = "t_none", text = "Ask Thork. He's up on the tower, glaring at the horizon as usual." } },
   },
 }
