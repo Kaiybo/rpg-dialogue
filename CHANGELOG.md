@@ -27,6 +27,7 @@ Brother Crowley recruits in the Cathedral's lower level, Brother Anton sends you
 - **Reputation condition:** `reputation = { faction = "Stormwind", min = "exalted" }`. An exalted non-human can buy Katie's horses, as in the game.
 - **34 new Ask about topics**, from SI:7 and the Stockade to Grim Batol, the Sentinels and the troggs.
 - Lines that called every player "lad" or "brother" now follow the player's gender.
+- **Fixed:** Galiaan and Gryan's lines about the Harvest Watchers lost their story effect (two `fx` tables on one line, so only the second counted); both effects apply again.
 
 ## 0.29.1 (2026-11-15)
 Core only; packs unchanged. /reload is enough.
