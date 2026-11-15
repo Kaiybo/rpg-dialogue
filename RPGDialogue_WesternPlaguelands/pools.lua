@@ -13,7 +13,7 @@ P:Pool {
   },
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
-      text = "The ghouls have been chewing on you, I see. Wash those cuts before they turn green, and I mean that, because out here they really do turn green." },
+      text = "The ghouls have been chewing on you, I see. Wash those cuts before they turn green, and I mean that, since out here they really do turn green." },
     { id = "n_horde", cat = "race", when = { faction = "Horde" },
       text = "Horde, here in the camp? The Dawn says you're welcome, but the Dawn isn't the one standing next to you, so mind how you behave." },
   },
@@ -25,7 +25,7 @@ P:Pool {
   topics = {
     andorhal = { { id = "t_andorhal", text = "Andorhal's north of here, friend, and you shouldn't go alone, or at all, if the commander hasn't sent you." } },
     argent_dawn = { { id = "t_dawn", text = "They're Pureheart's lot, and good soldiers, though a bit preachy for my taste." } },
-    _none = { { id = "t_none", text = "Ask the commander, because I'm paid to watch the road, not to know things." } },
+    _none = { { id = "t_none", text = "Ask the commander. I'm paid to watch the road, friend, not to know things." } },
   },
 }
 
@@ -52,6 +52,6 @@ P:Pool {
   topics = {
     andorhal = { { id = "t_andorhal", text = "It's east of here and full of the dead, and not our kind of dead, either." } },
     scarlet_crusade = { { id = "t_scarlet", text = "They come at us from the north as well, so it seems everyone wants the Bulwark, which is very flattering." } },
-    _none = { { id = "t_none", text = "Ask the High Executor, because I hold a spear, and that's the whole of my job." } },
+    _none = { { id = "t_none", text = "Ask the High Executor. I hold a spear, and that's the whole of my job." } },
   },
 }

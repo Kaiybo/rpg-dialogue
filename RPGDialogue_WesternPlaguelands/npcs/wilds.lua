@@ -14,7 +14,7 @@ P:NPC {
     { id = "g_free", when = { questDone = TODO_QUEST("Two Halves Become One") }, text = "You came back, and I remember you now, I remember everything. It's so much quieter, remembering." },
   },
 
-  react = { { id = "r_stealth", on = "stealth", text = "Someone's there, I know it, even though I can't see you, because I can't see anything clearly anymore." } },
+  react = { { id = "r_stealth", on = "stealth", text = "Someone's there, I know it, even though I can't see you. I can't see anything clearly anymore." } },
 
   start = "hello",
   nodes = {
@@ -32,7 +32,7 @@ P:NPC {
           text = "There's so much to do, the cart to pack and the horse to feed and a letter to Emma in Stormwind, and did I write to Emma? Someone should tell her I'm sorry." },
       },
       again = {
-        { id = "h_again", text = "You're still here, aren't you, and I'm glad, because the house is so quiet when nobody talks." },
+        { id = "h_again", text = "You're still here, aren't you, and I'm glad of it, the house is so quiet when nobody talks." },
         { id = "h_again2", text = "What was I saying? You'll have to remind me, I lose things so easily now." },
       },
       choices = {
@@ -46,7 +46,7 @@ P:NPC {
     },
     john = {
       lines = {
-        { id = "j_default", text = "My John went out to see about the noise in the field, and he hasn't come back in yet. He has the other half of our charm, so tell him to come inside, because it's getting dark." },
+        { id = "j_default", text = "My John went out to see about the noise in the field, and he hasn't come back in yet. He has the other half of our charm, so tell him to come inside now, it's getting dark." },
       },
       choices = {
         { text = "I'll look for him.", next = "BACK", fx = { affinity = 2 } },
@@ -100,7 +100,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_ba", text = "This is our farm, John's and mine, and we're leaving soon, as soon as the package is sent and the cart is packed." } },
-    advice = { { id = "tp_ad", text = "Keep away from the fields after dark, because something walks there, and it doesn't stop to say hello." } },
+    advice = { { id = "tp_ad", text = "Keep away from the fields after dark. Something walks there, and it doesn't stop to say hello." } },
     _none = { { id = "tp_none", text = "I can't think about that now, not with the plague coming. Can't you smell it on the wind?" } },
   },
 }
@@ -112,7 +112,7 @@ P:NPC {
   notices = { "race", "class" },
 
   greetings = {
-    { id = "g_dying", text = "Come closer, little one, because my voice doesn't carry the way it did, and neither do my legs." },
+    { id = "g_dying", text = "Come closer, little one, for my voice doesn't carry the way it did, and neither do my legs." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned, and I'm still here, though not for long, so let's not waste the time we have." },
     { id = "g_dead", when = { any = { { questActive = TODO_QUEST("Glyphed Oaken Branch") }, { questDone = TODO_QUEST("Glyphed Oaken Branch") } } },
       text = "(The tauren lies still. Whatever he was holding onto, he has let it go.)" },
@@ -120,7 +120,7 @@ P:NPC {
 
   notice = {
     { id = "n_alliance", cat = "race", when = { faction = "Alliance" },
-      text = "Yes, I speak your tongue, and no, we are not beasts, whatever your soldiers say of us. Put that aside, because the land is dying, and it doesn't care whose flag you fly." },
+      text = "Yes, I speak your tongue, and no, we are not beasts, whatever your soldiers say of us. Put that aside, for the land is dying, and it doesn't care whose flag you fly." },
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
       text = "A druid, so you feel it too, the land crying out under the plague. I came to quiet it and I failed, but perhaps you won't." },
   },
@@ -157,7 +157,7 @@ P:NPC {
     cure = {
       big = true,
       lines = {
-        { id = "c_default", text = "Nothing, and I've known it for weeks, so don't grieve for me, little one. Grieve for the wolves, if you must grieve, and then go and help them, because that's better than grief.", fx = { learn = { "cenarion_circle" } } },
+        { id = "c_default", text = "Nothing, and I've known it for weeks, so don't grieve for me, little one. Grieve for the wolves, if you must grieve, and then go and help them, which is better than grief.", fx = { learn = { "cenarion_circle" } } },
       },
       choices = {
         { text = "I'll do what you ask.", next = "BACK", fx = { affinity = 3, trait = { kind = 1 } } },
@@ -206,7 +206,7 @@ P:NPC {
     },
     druid = {
       lines = {
-        { id = "dr_default", text = "Then don't stay here too long, because the pain will get into you the way it got into me. Do what good you can and go back to the green places, and remember this land as it ought to be." },
+        { id = "dr_default", text = "Then don't stay here too long, or the pain will get into you the way it got into me. Do what good you can and go back to the green places, and remember this land as it ought to be." },
       },
       choices = { { text = "I'll remember it.", next = "BACK", fx = { affinity = 3, trait = { kind = 1 } } } },
     },
@@ -229,7 +229,7 @@ P:NPC {
 
   greetings = {
     { id = "g_pamela", text = "Have you come from the east, from Darrowshire? Please, have you seen a little girl on the road?" },
-    { id = "g_back", when = { metBefore = true }, text = "Oh, you came back to me! Did you find... no, I'll let you speak first, because I promised myself I would." },
+    { id = "g_back", when = { metBefore = true }, text = "Oh, you came back to me! Did you find... no, I'll let you speak first, as I promised myself I would." },
   },
 
   notice = {
@@ -310,8 +310,8 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_ba", text = "I lived on Sorrow Hill, on the road to Darrowshire, and I suppose I still do, in a way.", next = "darrowshire" } },
-    advice = { { id = "tp_ad", text = "If you go east to Darrowshire, go gently, because the people there were brave, and some of them haven't stopped fighting." } },
-    _none = { { id = "tp_none", text = "I'm sorry, I don't know, because I only know Darrowshire and the road there, and Pamela." } },
+    advice = { { id = "tp_ad", text = "If you go east to Darrowshire, go gently. The people there were brave, and some of them haven't stopped fighting." } },
+    _none = { { id = "tp_none", text = "I'm sorry, I don't know. I only know Darrowshire and the road there, and Pamela." } },
   },
 }
 
@@ -342,7 +342,7 @@ P:NPC {
         { id = "h_business", tags = { "news" }, when = { questActive = TODO_QUEST("Unfinished Business") },
           text = "Their camp's south of here, by the little barricade, full of medics, hunters, magi and knights. Thin them out for me, and then we'll talk about the real job." },
         { id = "h_elling", when = { heardLine = "elling.h_default" },
-          text = "You've been to the Trade District in Stormwind, haven't you, so you've probably had the cheese. Don't look at me like that, because everyone's had the cheese." },
+          text = "You've been to the Trade District in Stormwind, haven't you, so you've probably had the cheese. Don't look at me like that, everyone in Stormwind has had the cheese." },
         { id = "h_crusade", when = { metBefore = true },
           text = "I believe in the Light as much as anyone in Stormwind, but I watched them hang a farmer for not praying loudly enough. That isn't the Light, that's just a uniform." },
       },
@@ -371,7 +371,7 @@ P:NPC {
     },
     cheese = {
       lines = {
-        { id = "c_default", text = "He's a lovely man who makes a wonderful cheddar, and there's nothing else to say about him, nothing at all. Are we done here, do you think, because I really think we're done." },
+        { id = "c_default", text = "He's a lovely man who makes a wonderful cheddar, and there's nothing else to say about him, nothing at all. Are we done here, do you think, since I really think we're done." },
       },
       choices = { { text = "We're done.", next = "BACK", fx = { affinity = 1 } } },
     },
@@ -401,7 +401,7 @@ P:NPC {
     },
     heal = {
       lines = {
-        { id = "he_default", text = "Would you? Oh, that's better already, thank you, and I won't forget it. You'd make a terrible scout, mind, because you're far too kind to people who sneak about in bushes." },
+        { id = "he_default", text = "Would you? Oh, that's better already, thank you, and I won't forget it. You'd make a terrible scout, mind, being far too kind to people who sneak about in bushes." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 3, trait = { kind = 1 }, align = { light = 1 } } } },
     },
@@ -421,7 +421,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_ba", text = "I'm a scout for Stormwind, and that's all I'm allowed to say, so that's all I'm saying." } },
-    advice = { { id = "tp_ad", text = "Never count guards from the same bush twice, because somebody always notices the second time." } },
+    advice = { { id = "tp_ad", text = "Never count guards from the same bush twice. Somebody always notices the second time, and usually with a crossbow." } },
     scarlet_crusade = { { id = "tp_scarlet", text = "They're tougher than I gave them credit for, and crueler, too, and Hearthglen is full of them." } },
     _none = { { id = "tp_none", text = "That's above my pay, I'm afraid, and most things are." } },
   },
@@ -435,7 +435,7 @@ P:NPC {
 
   greetings = {
     { id = "g_formal", text = "Good day to you, and do forgive the state of the grounds, for we are no longer able to keep them." },
-    { id = "g_back", when = { metBefore = true }, text = "You've returned, and Lucien will be glad of it, though he won't say so, because he was trained not to." },
+    { id = "g_back", when = { metBefore = true }, text = "You've returned, and Lucien will be glad of it, though he won't say so, having been trained not to." },
   },
 
   notice = {
@@ -518,7 +518,7 @@ P:NPC {
     },
     pray = {
       lines = {
-        { id = "pr_default", text = "You're very kind, and I'd be grateful, though I don't know if the Light still hears people like us. Pray for Lucien first, if you would, because he was always the better of the two of us." },
+        { id = "pr_default", text = "You're very kind, and I'd be grateful, though I don't know if the Light still hears people like us. Pray for Lucien first, if you would; he was always the better of the two of us." },
       },
       choices = { { text = "(Pray for them both.)", next = "BACK", fx = { affinity = 3, align = { light = 1 } } } },
     },
@@ -532,7 +532,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_ba", text = "I was head maid of House Barov for many years, {g:sir|madam}, and I'm afraid I still am, in a manner of speaking.", next = "story" } },
-    advice = { { id = "tp_ad", text = "If you go into the keep, keep to the walls and mind the stairs, because the servants' ways are the quietest, as Lucien and I learned." } },
+    advice = { { id = "tp_ad", text = "If you go into the keep, keep to the walls and mind the stairs. The servants' ways are the quietest, as Lucien and I learned." } },
     scholomance = { { id = "tp_scholomance", text = "It was a house, and a fine one, until the Barovs gave it away for a promise, and everyone in it paid." } },
     _none = { { id = "tp_none", text = "I'm afraid I wouldn't know, {g:sir|madam}, for we didn't hear much news inside the walls." } },
   },

@@ -9,7 +9,7 @@ P:NPC {
   notices = { "class", "kit" },
 
   greetings = {
-    { id = "g_camp", text = "On your feet or on your way, soldier, because Chillwind hasn't room for anyone sitting down." },
+    { id = "g_camp", text = "On your feet or on your way, soldier, for Chillwind hasn't room for anyone sitting down." },
     { id = "g_back", when = { metBefore = true }, text = "Back in one piece, good. I counted you out of that gate, and I'm glad to count you in again." },
     { id = "g_hero", when = { questDone = TODO_QUEST("Mission Accomplished!") }, text = "There's the hero of the cauldrons! Somebody find this soldier a stool, and don't let anyone tell you it isn't earned." },
   },
@@ -34,7 +34,7 @@ P:NPC {
         { id = "h_cleared", when = { questRecent = { TODO_QUEST("Clear the Way"), days = 3 } },
           text = "Sorrow Hill's quieter, though it won't stay that way, since the dead never tire. Still, quieter is a start, and I've learned to be grateful for starts out here." },
         { id = "h_towers", tags = { "news" }, when = { questActive = TODO_QUEST("All Along the Watchtowers") },
-          text = "The Scourge moves its troops by four towers in Andorhal, so mark every one of them with the beacon torch. And bring that torch back to me, because it's the only one we have." },
+          text = "The Scourge moves its troops by four towers in Andorhal, so mark every one of them with the beacon torch. And bring that torch back to me, mind, as it's the only one we have." },
         { id = "h_araj", tags = { "news" }, when = { questActive = TODO_QUEST("Alas, Andorhal") },
           text = "Araj the Summoner is a lich, and he sits at the heart of the city. Don't go in alone, and I mean that, because I've written enough letters to mothers this year." },
         { id = "h_araj_dead", when = { questDone = TODO_QUEST("Alas, Andorhal") },
@@ -45,8 +45,8 @@ P:NPC {
           text = "I count the camp every morning and every night, and most days it's the same number. On the days it isn't, I write the letters myself." },
       },
       again = {
-        { id = "h_again", text = "What else? Be quick about it, because the dead don't wait on our conversations." },
-        { id = "h_again2", text = "Go on, then, I've a minute before the next patrol comes in." },
+        { id = "h_again", text = "What else? Be quick about it, the dead don't wait on our conversations." },
+        { id = "h_again2", text = "Out with it, then, while the scouts are still on the road." },
       },
       choices = {
         { text = "What do you need?", next = "need" },
@@ -129,7 +129,7 @@ P:NPC {
     paladin = {
       big = true,
       lines = {
-        { id = "pa_default", text = "Then you're one of his best, because he doesn't waste a paladin on a trip this long. Out here the Light isn't a sermon, it's a weapon, and I'll ask you to use it every day you're under my command." },
+        { id = "pa_default", text = "Then you're one of his best, for he doesn't waste a paladin on a trip this long. Out here the Light isn't a sermon, it's a weapon, and I'll ask you to use it every day you're under my command." },
       },
       choices = {
         { text = "It's what I'm for.", next = "BACK", fx = { affinity = 2, align = { light = 1, order = 1 }, standing = { chillwind_camp = 1 } } },
@@ -164,7 +164,7 @@ P:NPC {
     scholomance = { { id = "tp_scholomance", text = "That's the Barovs' old home on Caer Darrow, where the necromancers learn their trade. Arbington knows more about it than any sane man should." } },
     scarlet_crusade = { { id = "tp_scarlet", text = "They're holding Hearthglen and they don't want our help, which is fine by me. They don't get to shoot at my scouts either, though, and they do." } },
     argent_dawn = { { id = "tp_dawn", text = "They're Pureheart's people, and they'll fight beside anyone at all. I don't care for all the company they keep, but I've never turned down a sword." } },
-    _none = { { id = "tp_none", text = "If it isn't a threat to this camp, it isn't on my desk. Try Pureheart, because she has more patience than I do." } },
+    _none = { { id = "tp_none", text = "If it isn't a threat to this camp, it isn't on my desk. Try Pureheart, who has more patience than I do." } },
   },
 }
 
@@ -181,7 +181,7 @@ P:NPC {
 
   notice = {
     { id = "n_priest", cat = "class", when = { class = { "PRIEST", "PALADIN" } },
-      text = "One of the Light's own, good. Out here you'll learn it isn't only for healing, because it burns too, if you ask it the right way." },
+      text = "One of the Light's own, good. Out here you'll learn it isn't only for healing. It burns too, if you ask it the right way." },
     { id = "n_forsaken", cat = "race", when = { race = "Scourge" },
       text = "One of the Banshee's... no, forgive me, that's the old soldier in me talking. The Dawn would have me welcome you and I'll try, but I'd stand clear of the holy water if I were you." },
   },
@@ -249,7 +249,7 @@ P:NPC {
     },
     worst = {
       lines = {
-        { id = "wo_default", text = "Gahrron's Withering, without a doubt, because the dead there aren't content to stay in their bones. Go to that one last, when you know the work, and take a friend who can heal." },
+        { id = "wo_default", text = "Gahrron's Withering, without a doubt, where the dead aren't content to stay in their bones. Go to that one last, when you know the work, and take a friend who can heal." },
       },
       choices = {
         { text = "I'll remember that.", next = "BACK", fx = { trait = { cautious = 1 } } },
@@ -290,7 +290,7 @@ P:NPC {
 
   greetings = {
     { id = "g_busy", text = "Mind the cauldron, and mind the bottles, and actually, if you'd just stand right there and not move, I'd be ever so grateful." },
-    { id = "g_back", when = { metBefore = true }, text = "You again! You're a terrible influence, you know, because every time you visit I end up doing something brave by proxy." },
+    { id = "g_back", when = { metBefore = true }, text = "You again! You're a terrible influence, you know. Every time you visit I end up doing something brave by proxy." },
   },
 
   notice = {
@@ -388,7 +388,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_ba", text = "I'm an alchemist who studied the wrong school for too many years, and now Stormwind finds that useful, which I suppose is a sort of compliment." } },
-    advice = { { id = "tp_ad", text = "Use the quickener the moment you get it, because it spoils in half an hour, and don't carry it in a pocket you're fond of." } },
+    advice = { { id = "tp_ad", text = "Use the quickener the moment you get it, since it spoils in half an hour, and don't carry it in a pocket you're fond of." } },
     scholomance = { { id = "tp_scholomance", text = "Don't go in without a key and don't go in without friends, and if you can possibly manage it, don't go in at all." } },
     plague_cauldrons = { { id = "tp_cauldrons", text = "Bring me what the creatures carry, with the focuser on you, or it's just bones. Osseous, somatic and ectoplasmic sound terribly grand, but I promise you they aren't." } },
     _none = { { id = "tp_none", text = "That's out of my field, I'm afraid, as most things are out here. My field is very small and rather full of bones." } },
@@ -445,7 +445,7 @@ P:NPC {
     darrow = {
       big = true,
       lines = {
-        { id = "d_default", text = "My father bargained with Kel'Thuzad for immortality, and the whole house got it, after a fashion. I ran, because I was the only one of us with the sense to run." },
+        { id = "d_default", text = "My father bargained with Kel'Thuzad for immortality, and the whole house got it, after a fashion. I ran, being the only one of us with the sense to run." },
       },
       choices = {
         { text = "I'm sorry.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
@@ -537,7 +537,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Argent Officer Pureheart, of the Argent Dawn. We're no kingdom, only people who fight the Scourge, and anyone who fights it is our friend, because Alliance and Horde are all one to the dead." },
+          text = "Argent Officer Pureheart, of the Argent Dawn. We're no kingdom, only people who fight the Scourge, and anyone who fights it is our friend. Alliance and Horde are all one to the dead." },
         { id = "h_commission", tags = { "news" }, when = { questActive = TODO_QUEST("Argent Dawn Commission") },
           text = "Wear the commission, and you'll find the Scourge carry stones, the dark power that binds them made solid. Bring those stones to me, and the Dawn will remember who helped." },
         { id = "h_everlook", tags = { "news" }, when = { questActive = TODO_QUEST("The Everlook Report") },
@@ -549,7 +549,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else can I tell you? The Dawn has no secrets worth keeping from a friend." },
-        { id = "h_again2", text = "Ask what you like, I've time while the patrols are out." },
+        { id = "h_again2", text = "Ask what you like, friend; the Dawn's work keeps till you're done." },
       },
       choices = {
         { text = "Why did you leave the Silver Hand?", next = "left" },
@@ -600,7 +600,7 @@ P:NPC {
     },
     priest = {
       lines = {
-        { id = "pr_default", text = "Right beside the paladins, and some days in front of them, because a wounded defender who walks home is worth three who don't. If you've the Light in your hands, the Dawn has more use for it than you can imagine." },
+        { id = "pr_default", text = "Right beside the paladins, and some days in front of them. A wounded defender who walks home is worth three who don't. If you've the Light in your hands, the Dawn has more use for it than you can imagine." },
       },
       choices = {
         { text = "Then put me to work.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, standing = { chillwind_camp = 1 } } },
@@ -609,7 +609,7 @@ P:NPC {
     },
     paladin = {
       lines = {
-        { id = "pa_default", text = "Then hold on to the teaching and let go of the banner, because the banner's in Hearthglen now, and it's gone red. The Light was never in the cloth, and the Dawn can show you that." },
+        { id = "pa_default", text = "Then hold on to the teaching and let go of the banner, which hangs in Hearthglen now, and it's gone red. The Light was never in the cloth, and the Dawn can show you that." },
       },
       choices = { { text = "I'll think on it.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } } },
     },
@@ -638,7 +638,7 @@ P:NPC {
 
   greetings = {
     { id = "g_mill", text = "Good afternoon, or whatever this is, since the sky never seems to decide up here." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again? Any word from Northridge? Bad news counts, because I'd rather know than wonder." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again? Any word from Northridge? Bad news counts too, for I'd rather know than wonder." },
   },
 
   notice = {
@@ -725,7 +725,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_ba", text = "I'm a miller's son from Northridge who grew up in Stormwind, and now I've come home to a place that doesn't want me back.", next = "family" } },
-    advice = { { id = "tp_ad", text = "Don't drink from the rivers up here, however clear they look, because the plague's in the water as much as the soil." } },
+    advice = { { id = "tp_ad", text = "Don't drink from the rivers up here, however clear they look. The plague's in the water as much as the soil." } },
     scarlet_crusade = { { id = "tp_scarlet", text = "They fight the Scourge, and I'll grant them that, but they also took a family's home and called it holy work." } },
     _none = { { id = "tp_none", text = "I don't know anything about that, I'm afraid. I know timber, and I know grief, so pick one of those." } },
   },
@@ -739,7 +739,7 @@ P:NPC {
 
   greetings = {
     { id = "g_fly", text = "Wings ready! Well, their wings are ready, anyway, since mine are purely theoretical." },
-    { id = "g_back", when = { metBefore = true }, text = "Back for a ride? Good timing, because Snowtail's in a mood today, so I'll give you the nice one." },
+    { id = "g_back", when = { metBefore = true }, text = "Back for a ride? Good timing, too, since Snowtail's in a mood today, so I'll give you the nice one." },
   },
 
   notice = {
@@ -765,7 +765,7 @@ P:NPC {
     },
     routes = {
       lines = {
-        { id = "r_default", text = "Aerie Peak, every time, because the Wildhammer keep their skies clean and their ale cold. Light's Hope is the brave one, since you fly right over the worst of the Plaguelands to get there, so hold on tight and don't look down." },
+        { id = "r_default", text = "Aerie Peak, every time, since the Wildhammer keep their skies clean and their ale cold. Light's Hope is the brave one, as you fly right over the worst of the Plaguelands to get there, so hold on tight and don't look down." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },

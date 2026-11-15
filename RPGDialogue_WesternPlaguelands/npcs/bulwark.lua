@@ -16,7 +16,7 @@ P:NPC {
 
   notice = {
     { id = "n_living", cat = "race", when = { race = { "Orc", "Tauren", "Troll" } },
-      text = "One of our living allies, I see. You'll want to sleep with your mouth covered, because the air out there gets into the breathing." },
+      text = "One of our living allies, I see. You'll want to sleep with your mouth covered; the air out there gets into the breathing." },
     { id = "n_warlock", cat = "class", when = { class = { "WARLOCK", "PRIEST" } },
       text = "You deal in the darker arts, and good. Out here delicacy is a luxury, and the Scourge has no shortage of corpses to argue with." },
   },
@@ -38,9 +38,9 @@ P:NPC {
         { id = "h_araj", tags = { "news" }, when = { questActive = TODO_QUEST("Alas, Andorhal") },
           text = "Araj the Summoner is a lich, and he sits at the heart of Andorhal. Take allies, take his phylactery, and take your time dying if you must, only not before he does." },
         { id = "h_araj_dead", when = { questDone = TODO_QUEST("Alas, Andorhal") },
-          text = "Araj is destroyed, and the Dark Lady will be told it was the Bulwark's doing. You'll be mentioned too, briefly, because that's how glory works in Undercity." },
+          text = "Araj is destroyed, and the Dark Lady will be told it was the Bulwark's doing. You'll be mentioned too, briefly, which is how glory works in Undercity." },
         { id = "h_living", when = { metBefore = true },
-          text = "Our living allies eat three times a day and expect thanks for it. I don't mind, really, because it reminds me what we're guarding." },
+          text = "Our living allies eat three times a day and expect thanks for it. I don't mind, really, since it reminds me what we're guarding." },
       },
       again = {
         { id = "h_again", text = "Something else? Make it useful, and make it quick." },
@@ -142,11 +142,11 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_ba", text = "I died, I rose, and the Dark Lady gave me back my mind and a wall to hold. The rest isn't your concern." } },
-    advice = { { id = "tp_ad", text = "Burn whatever you kill out there, if you've the time, because the Scourge wastes nothing." } },
+    advice = { { id = "tp_ad", text = "Burn whatever you kill out there, if you've the time. The Scourge wastes nothing, and neither should you." } },
     andorhal = { { id = "tp_andorhal", text = "That's where the Scourge gathers in the west, under a lich, and if we break it, the west is ours to reclaim for the Dark Lady.", next = "andorhal" }, { id = "tp_andorhal2", text = "It's east of the wall, and it's the one place I'd send my best and expect to lose some." } },
     scarlet_crusade = { { id = "tp_scarlet", text = "They're fanatics from Hearthglen, and useful fanatics, when they're pointed the right way." } },
     plague_cauldrons = { { id = "tp_cauldrons", text = "The cauldrons are the Lich King's breath on the land, and Vandis and Dithers mean to sour it." } },
-    _none = { { id = "tp_none", text = "Does it come over the wall? If not, take it to Undercity, because they have time for such things there." } },
+    _none = { { id = "tp_none", text = "Does it come over the wall? If not, take it to Undercity, where they have time for such things." } },
   },
 }
 
@@ -196,7 +196,7 @@ P:NPC {
     shadow = {
       big = true,
       lines = {
-        { id = "s_default", text = "The Light chose who it would stay with when the plague came, and it wasn't us. The shadow doesn't choose, because it's there for anyone willing to reach for it, and I reached." },
+        { id = "s_default", text = "The Light chose who it would stay with when the plague came, and it wasn't us. The shadow doesn't choose; it's there for anyone willing to reach for it, and I reached." },
       },
       choices = {
         { text = "The Light may still answer you.", next = "faith", fx = { affinity = 1, align = { light = 1 } } },
@@ -243,9 +243,9 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_ba", text = "I prayed to the Light when I was alive, and then I was dead, and now I'm a priestess of something that actually answers. That's all the story there is.", next = "shadow" } },
-    advice = { { id = "tp_ad", text = "Don't pray where the dead can hear you out there, because they've learned what the sound means." } },
+    advice = { { id = "tp_ad", text = "Don't pray aloud where the dead can hear you out there, for they've learned what the sound means." } },
     plague_cauldrons = { { id = "tp_cauldrons", text = "Kill the cauldron lord, take his key and fill a bottle, which is simple enough, if you don't count the dying." } },
-    _none = { { id = "tp_none", text = "I don't care to guess, so ask Derrington, because he enjoys knowing things." } },
+    _none = { { id = "tp_none", text = "I don't care to guess, so ask Derrington, who enjoys knowing things." } },
   },
 }
 
@@ -280,7 +280,7 @@ P:NPC {
         { id = "h_scarab", tags = { "news" }, when = { questActive = TODO_QUEST("Araj's Scarab") },
           text = "Araj ran the Scholomance before he moved to Andorhal, so his scarab ought to fit that door like a ring on a finger. A dead finger, naturally, but you know what I mean." },
         { id = "h_key", when = { questDone = TODO_QUEST("The Key to Scholomance") },
-          text = "You've got the key! Bring me back a souvenir, would you, a note or a bone or a recipe, only not a student, because students follow you home." },
+          text = "You've got the key! Bring me back a souvenir, would you, a note or a bone or a recipe, only not a student, please. Students follow you home." },
         { id = "h_knee", when = { metBefore = true },
           text = "I can tell a storm three days off by the ache in my knee, or two if it's the exposed bit. The Society wanted to study it, and they can have it when I'm finished with it." },
       },
@@ -345,8 +345,8 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_ba", text = "I'm an apothecary of the Royal Society, and I was something else before I died, but I find this suits me far better." } },
-    advice = { { id = "tp_ad", text = "Label everything you carry out there, because the ghouls won't, and you'll forget which bottle was which." } },
-    scholomance = { { id = "tp_scholomance", text = "It's a school of necromancy, and just imagine the library! Actually, don't, because I've imagined it, and I didn't sleep, though of course I don't sleep anyway.", fx = { learn = { "scholomance" } } } },
+    advice = { { id = "tp_ad", text = "Label everything you carry out there, or you'll forget which bottle was which, and the ghouls certainly won't remind you." } },
+    scholomance = { { id = "tp_scholomance", text = "It's a school of necromancy, and just imagine the library! Actually, don't, since I've imagined it, and I didn't sleep, though of course I don't sleep anyway.", fx = { learn = { "scholomance" } } } },
     plague_cauldrons = { { id = "tp_cauldrons", text = "They're my life's work, this month at least. Next month it'll be something else that wants to kill everyone." } },
     _none = { { id = "tp_none", text = "I really couldn't say, and my knee doesn't know either." } },
   },
@@ -417,7 +417,7 @@ P:NPC {
     },
     pay = {
       lines = {
-        { id = "p_default", text = "Gold, and a great deal of it, more than you've ever seen in one place, I'd wager. I would know, because I've seen your boots." },
+        { id = "p_default", text = "Gold, and a great deal of it, more than you've ever seen in one place, I'd wager. I would know, having seen your boots." },
       },
       choices = {
         { text = "Deal.", next = "BACK", fx = { affinity = 1 } },
@@ -467,7 +467,7 @@ P:NPC {
     { id = "n_orc", cat = "race", when = { race = "Orc" },
       text = "Another orc, then you know what it is to be a weapon someone else aimed. The Dawn aims at one thing only, and I like that about it." },
     { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
-      text = "A shaman, so you'll feel how sick the spirits are here. Fight anyway, because they'll thank you for it when they're well again." },
+      text = "A shaman, so you'll feel how sick the spirits are here. Fight anyway, and they'll thank you for it when they're well again." },
   },
 
   start = "hello",
@@ -477,7 +477,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Argent Officer Garush, orc, Horde-born, and a soldier of the Argent Dawn, where every race faces one enemy. I fought for the Horde all my life, and now I fight for everybody." },
         { id = "h_commission", tags = { "news" }, when = { questActive = TODO_QUEST("Argent Dawn Commission") },
-          text = "Wear the commission, and you'll find the dead out there carry scourgestones, what's left of the will that drives them. Bring them here, because every stone is one less thing walking." },
+          text = "Wear the commission, and you'll find the dead out there carry scourgestones, what's left of the will that drives them. Bring them here, and every stone you bring is one less thing walking." },
         { id = "h_everlook", tags = { "news" }, when = { questActive = TODO_QUEST("The Everlook Report") },
           text = "A report from Everlook, in Gregor's hand? He writes small and I read slowly, but we always get there in the end." },
         { id = "h_pureheart", when = { metBefore = true },
@@ -485,7 +485,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else, friend? Ask it plain, and I'll answer plain." },
-        { id = "h_again2", text = "Something more? I'm here until the next patrol." },
+        { id = "h_again2", text = "Something more? Ask it, I'm here at the wall until the sun goes down." },
       },
       choices = {
         { text = "Why join the Dawn?", next = "why" },
@@ -524,7 +524,7 @@ P:NPC {
     },
     stones = {
       lines = {
-        { id = "st_default", text = "The Dawn's respect, which is worth more than it sounds, because the Dawn keeps count and its quartermasters remember. Mostly you get fewer dead, though, and I'd hope that's enough." },
+        { id = "st_default", text = "The Dawn's respect, which is worth more than it sounds, for the Dawn keeps count and its quartermasters remember. Mostly you get fewer dead, though, and I'd hope that's enough." },
       },
       choices = { { text = "It's enough.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } } },
     },
@@ -553,8 +553,8 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_ba", text = "I'm an orc who fought the Horde's wars, sat in the camps, and came out wanting a better fight. I found one here.", next = "why" } },
-    advice = { { id = "tp_ad", text = "Keep moving out there, because the dead are slow, but they never stop." } },
+    advice = { { id = "tp_ad", text = "Keep moving out there. The dead are slow, but they never stop, and they never tire of following." } },
     argent_dawn = { { id = "tp_dawn", text = "There are no kings and no warchiefs in the Dawn, only the dead and the people who won't let them win." } },
-    _none = { { id = "tp_none", text = "I don't know, friend. Ask Derrington, because he knows everything and tells you half." } },
+    _none = { { id = "tp_none", text = "I don't know, friend, so ask Derrington, who knows everything and tells you half." } },
   },
 }
