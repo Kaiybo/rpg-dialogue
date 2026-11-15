@@ -214,7 +214,7 @@ Working examples of every kind are in the two shipped packs; `PACK_AUTHORING.md`
 | Field | Meaning |
 |---|---|
 | `id` | unique within the NPC. The global id is `<npckey>.<id>` |
-| `text` | 1–3 sentences. Tokens allowed |
+| `text` | 1–3 whole sentences (no stacked fragments; CONTENT_GUIDE §2). Tokens allowed |
 | `when` | conditions, all of which must pass |
 | `weight` | relative chance among tied lines (default 1) |
 | `priority` | small score adjustment (default 0). Use sparingly |
@@ -264,7 +264,7 @@ Each key has a **weight** (its contribution to the score) and a **kind**. *Hinge
 | Dark | `taint` {min} · `insanity` {min} | 40 | hinge |
 | Knowledge | `topicKnown` · `bookRead` · `homeInn` | 30 | hinge |
 | Relationship | `metBefore` bool · `timesTalked` {min,max} · `daysSince` {min,max} · `affinity` {min,max} · `townStanding` {town, tier/min} | 20 | hinge |
-| State | `form` · `mounted` · `stealthed` · `ghost` · `pet` {family,type,named} · `debuffType` · `aura` spellID · `resSick` · `drunk` · `camping` · `durability` {max} · `nearlyNaked` · `tabard` · `equipped` · `outOfPlace` · `rep` {faction,min} · `profession` {name,min} | 15 | hinge |
+| State | `form` · `mounted` · `stealthed` · `ghost` · `pet` {family,type,named} · `debuffType` · `aura` spellID · `resSick` · `drunk` · `camping` · `durability` {max} · `nearlyNaked` · `tabard` · `equipped` · `outOfPlace` · `reputation` {faction,min,max} (faction names in `World.FACTION_IDS`, standings hated..exalted) · `profession` {name,min} | 15 | hinge |
 | World | `zone` · `subzone` · `holiday` · `power` (relative bucket) | 15 | hinge |
 | Level | `band` · `minLevel`/`maxLevel` · `capital` · `resting` · `atInn` | 10 | hinge |
 | Small touches | `gender` · `timeOfDay` · `faction` · `party` {race,class} | 5 | hinge |
