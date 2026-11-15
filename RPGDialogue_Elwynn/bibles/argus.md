@@ -14,7 +14,7 @@ Smith Argus <Journeyman Blacksmith> · Goldshire · Alliance · Human · blacksm
 Personality: proud, blunt, craftsman, judges people by their gear
 Speech: short, workshop words, winces out loud
 Knows and cares about: steel, mending, his reputation against Elmore's
-Relationships: Elmore in Stormwind (old teacher)
+Relationships: Grimand Elmore in Stormwind (respected; not his teacher, see the 1.10.0 note); Verner Osgood in Lakeshire (a customer who'd rather not pay)
 Default attitudes: smiths are kin; dwarves are judges he'd like to impress
 Lore anchors: Year 1 Goldshire
 Never says: that he can fix things for free
@@ -37,3 +37,10 @@ Trustworthy on steel. His guess that "someone is arming" the Defias is a guess.
 
 ## Topics
 defias, kobolds
+
+## Depth pass (Elwynn 1.10.0)
+Sources read: the wiki pages Smith Argus, Elmore's Task, The Price of Shoes, Return to Verner.
+- Canon used: Classic title Journeyman Blacksmith; Classic gossip: busy making horseshoes for Verner Osgood in Lakeshire; Verner used his iron outfitting the Stormwind Guard and needs shoes for the stable; "SPEAK UP!" when you hand him the note (hard of hearing); fifty horseshoes, with a note asking Verner to pay; Grimand Elmore, the dwarven weaponsmith in Stormwind's Dwarven District, needs a delivery to his homeland; "we must keep our ties strong with the dwarves".
+- **Correction:** the old q_elmore line said Elmore trained Argus. Not sourced (Elmore's known student is Furen Longbeard). Same id; it now says Elmore is the best weaponsmith in the city.
+- Branches: steel (and the apprentice), the horseshoes (and the bill), a dwarf's verdict on his quench, a priest's question. He keeps no `background` or `trade` topic: the askabout spec uses him as the named NPC who deflects.
+- Authored, not canon: the deaf ear ("the anvil's had my good ear").
