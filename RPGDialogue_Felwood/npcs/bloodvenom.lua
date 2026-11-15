@@ -25,7 +25,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Winna Hazzard! Alchemist, of a sort, and keeper of one kitten. Felwood is the most interesting place I've ever been. Everything in it is wrong in some new way. *cackles*" },
+          text = "Winna Hazzard, alchemist of a sort and keeper of one kitten! Felwood is the most interesting place I've ever been, because everything in it is wrong in some new way. *cackles*" },
         { id = "h_strange", tags = { "news" }, when = { questActive = TODO_QUEST("A Strange One") },
           text = "There's something odd out in the trees for you, odder than usual, and odd is my favourite!" },
         { id = "h_well", when = { questActive = TODO_QUEST("Well of Corruption") },
@@ -40,7 +40,7 @@ P:NPC {
     },
     kitten = {
       lines = {
-        { id = "k_default", text = "Name? It doesn't need a name. It knows who it is. *cackles* Which is more than most of the people at this post can say." },
+        { id = "k_default", text = "A name? It doesn't need a name, because it knows who it is. *cackles* Which is more than most of the people at this post can say." },
       },
       choices = { { text = "Fair enough.", next = "END", fx = { affinity = 2 } } },
     },

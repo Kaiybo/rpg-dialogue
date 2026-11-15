@@ -119,7 +119,7 @@ P:NPC {
   notices = { "class" },
 
   greetings = {
-    { id = "g_aviary", text = "Aye? What is it? I'd rather be up in the air than down here talkin'. But the gryphons won't take orders from the ground, so somebody has tae." },
+    { id = "g_aviary", text = "Aye, what is it? I'd rather be up in the air than down here talkin', but the gryphons won't take orders from the ground, so somebody has tae." },
   },
 
   notice = {
@@ -203,7 +203,7 @@ P:NPC {
   notices = { "class" },
 
   greetings = {
-    { id = "g_spirits", text = "Sit, friend. My eyes are no' what they were, but I hear the land well enough. It's no' happy." },
+    { id = "g_spirits", text = "Sit, friend. My eyes are no' what they were, but I hear the land well enough, an' it's no' happy." },
   },
 
   notice = {

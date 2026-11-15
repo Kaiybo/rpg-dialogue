@@ -9,7 +9,7 @@ P:NPC {
   notices = { "race", "profession" },
 
   greetings = {
-    { id = "g_point", text = "Welcome tae Thorium Point. Everything that happens here, I'm responsible for. Including you, now." },
+    { id = "g_point", text = "Welcome tae Thorium Point, where everything that happens is my responsibility, an' that includes you, now." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, good. Ye're either useful or lost, an' I'm hopin' useful." },
   },
 

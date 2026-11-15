@@ -87,7 +87,7 @@ P:NPC {
 
   notice = {
     { id = "n_troll", cat = "race", when = { race = "Troll" },
-      text = "A Darkspear, up here in de ice! You be feelin' de cold in your tusks, eh? Mau'ari too." },
+      text = "A Darkspear, up here in de ice! You be feelin' de cold in your tusks, eh? Mau'ari feel it too." },
     { id = "n_shaman", cat = "class", when = { class = { "SHAMAN", "PRIEST", "DRUID" } },
       text = "You know de spirits. Den you know what Mau'ari be talkin' about when she say every beast got a little magic left in it." },
   },

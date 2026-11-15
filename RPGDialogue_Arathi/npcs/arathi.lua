@@ -121,7 +121,7 @@ P:NPC {
   notices = { "race", "kit" },
 
   greetings = {
-    { id = "g_fort", text = "You're in Hammerfall. Here we fight, and soon we'll prosper. Which are you here for?" },
+    { id = "g_fort", text = "You're in Hammerfall, where we fight now and soon we'll prosper. Which are you here for?" },
     { id = "g_back", when = { metBefore = true }, text = "You again, good, because the hills won't clear themselves." },
   },
 

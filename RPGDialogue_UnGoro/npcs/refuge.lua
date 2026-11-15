@@ -9,7 +9,7 @@ P:NPC {
   notices = { "level", "kit" },
 
   greetings = {
-    { id = "g_refuge", text = "Welcome, welcome! You made it up the rim in one piece. That puts you ahead of most of my expedition." },
+    { id = "g_refuge", text = "Welcome, welcome! You made it up the rim in one piece, which puts you ahead of most of my expedition." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still in one piece! The crater must like you, and it doesn't like many." },
   },
 
@@ -198,7 +198,7 @@ P:NPC {
           text = "There's a water spirit called Aquementas that may be able to help with what Linken needs. Be polite to it, though, because spirits that old take offense easily." },
         { id = "h_singed", when = { metBefore = true }, text = "I lost an eyebrow this morning, putting a red crystal and a blue one too close together. Worth it, I think, and it'll grow back, I think." },
       },
-      again = { { id = "h_again", text = "Another question? Lovely. Questions are my favourite thing after crystals." } },
+      again = { { id = "h_again", text = "Another question? Lovely, because questions are my favourite thing after crystals." } },
       choices = {
         { text = "What do the crystals do?", next = "crystals" },
         { text = "Why live in a cave?", next = "cave" },

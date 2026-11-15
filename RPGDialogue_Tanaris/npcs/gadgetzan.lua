@@ -168,7 +168,7 @@ P:NPC {
       },
     },
     marin_pay = {
-      lines = { { id = "mp_default", text = "Oh, he pays. In stories, and in promises, and once in a very nice hat. I'm keeping the hat." } },
+      lines = { { id = "mp_default", text = "Oh, he pays, in stories and in promises, and once in a very nice hat, which I'm keeping." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     sister = {

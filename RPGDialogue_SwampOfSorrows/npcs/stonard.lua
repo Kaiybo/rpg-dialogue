@@ -9,15 +9,15 @@ P:NPC {
   notices = { "kit", "class" },
 
   greetings = {
-    { id = "g_hall", text = "Another pair of boots. Good. I send them out, and the swamp sends back what's left of the maps." },
-    { id = "g_back", when = { metBefore = true }, text = "You're back, and dry-ish. Report." },
+    { id = "g_hall", text = "Another pair of boots, good. I send them out, and the swamp sends back what's left of the maps." },
+    { id = "g_back", when = { metBefore = true }, text = "You're back, and dry-ish, so report." },
   },
 
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
-      text = "Mud to the knees and armor in pieces. You've been doing real work. Get mended." },
+      text = "Mud to the knees and armor in pieces, so you've been doing real work. Get mended." },
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
-      text = "A hunter. I need eyes that read tracks in mud. My scouts would be glad of the company." },
+      text = "A hunter! I need eyes that read tracks in mud, and my scouts would be glad of the company." },
   },
 
   start = "hello",
@@ -25,13 +25,13 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Dispatch Commander Ruag. Stonard is the Horde's eyes in these lands. From here we scout what nobody has charted, and we send word back faster than anyone else can." },
+          text = "Dispatch Commander Ruag. Stonard is the Horde's eyes in these lands; from here we scout what nobody has charted, and we send word back faster than anyone else can." },
         { id = "h_aggrogosh", when = { heardLine = "aggrogosh.h_default" },
           text = "You've come from Grom'gol? Aggro'gosh pushes his caravans through jungle and over mountains to reach us. Every one that arrives, I count too." },
         { id = "h_disgraced", tags = { "news" }, when = { questActive = TODO_QUEST("The Disgraced One") },
-          text = "There's an orc out in the swamp who left in disgrace. He may still be useful. Go and find out." },
+          text = "There's an orc out in the swamp who left in disgrace, and he may still be useful, so go and find out." },
         { id = "h_orders", when = { questActive = TODO_QUEST("The Missing Orders") },
-          text = "Orders went out, and never arrived. In this swamp that happens. It still has to be fixed." },
+          text = "Orders went out and never arrived, which happens in this swamp, but it still has to be fixed." },
       },
       choices = {
         { text = "Why scout a swamp?", next = "scout" },
@@ -48,7 +48,7 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Not charted yet. Want the job?" } },
+    _none = { { id = "tp_none", text = "That's not charted yet, so do you want the job?" } },
   },
 }
 
@@ -59,14 +59,14 @@ P:NPC {
   notices = { "class" },
 
   greetings = {
-    { id = "g_temple", text = "You feel it too? The swamp hums near the Pool of Tears. Something old is awake down there." },
+    { id = "g_temple", text = "You feel it too? The swamp hums near the Pool of Tears, because something old is awake down there." },
   },
 
   notice = {
     { id = "n_warlock", cat = "class", when = { class = "WARLOCK" },
-      text = "A warlock. Then you'll know the difference between power you hold and power that holds you. The trolls in that temple forgot it." },
+      text = "A warlock, then, so you'll know the difference between power you hold and power that holds you. The trolls in that temple forgot it." },
     { id = "n_troll", cat = "class", when = { class = { "SHAMAN", "PRIEST" } },
-      text = "You hear the spirits. Down by the temple, they aren't speaking. They're screaming." },
+      text = "You hear the spirits, so you know that down by the temple they aren't speaking, they're screaming." },
   },
 
   start = "hello",
@@ -74,21 +74,21 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Fel'zerul. The Warchief sent me to watch the Temple of Atal'Hakkar. The trolls who built it worshipped something terrible, and something there is stirring." },
+          text = "I am Fel'zerul, and the Warchief sent me to watch the Temple of Atal'Hakkar. The trolls who built it worshipped something terrible, and something there is stirring." },
         { id = "h_pool", tags = { "news" }, when = { questActive = TODO_QUEST("Pool of Tears") },
           text = "The Pool of Tears hides what's left of the temple's outer works. Bring me what the old priests left behind." },
         { id = "h_exile", when = { any = { { questActive = TODO_QUEST("The Atal'ai Exile") }, { questActive = TODO_QUEST("Return to Fel'Zerul") } } },
-          text = "One of the Atal'ai was cast out by his own. An exile knows what the faithful won't say. Find him." },
+          text = "One of the Atal'ai was cast out by his own, and an exile knows what the faithful won't say, so find him." },
         { id = "h_temple", when = { questActive = TODO_QUEST("The Temple of Atal'Hakkar") },
-          text = "Into the temple, then. Bring enough friends. Bring more than that." },
+          text = "Into the temple, then, and bring enough friends, and then bring more than that." },
       },
       choices = { { text = "What's stirring?", next = "END", fx = { affinity = 1, trait = { curious = 1 } } } },
     },
   },
 
   topics = {
-    burning_blade = { { id = "tp_blade", text = "Fools. I walk the same road they did and I stopped where the Warchief told us to. They didn't." } },
-    _none = { { id = "tp_none", text = "Ask me about the temple. That, I know too much about." } },
+    burning_blade = { { id = "tp_blade", text = "Fools! I walk the same road they did, and I stopped where the Warchief told us to, but they didn't." } },
+    _none = { { id = "tp_none", text = "Ask me about the temple instead, because that I know too much about." } },
   },
 }
 
@@ -99,12 +99,12 @@ P:NPC {
   notices = { "kit" },
 
   greetings = {
-    { id = "g_post", text = "Can't stand still in this place. Mud's always trying to keep you." },
+    { id = "g_post", text = "Can't stand still in this place, because the mud's always trying to keep you." },
   },
 
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
-      text = "Rough road? The roads out of here are all rough. Neeka would laugh at your boots." },
+      text = "Rough road? The roads out of here are all rough, and Neeka would laugh at your boots." },
   },
 
   start = "hello",
@@ -112,17 +112,17 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Helgrum the Swift. They call me that because I'm fast, not because I'm clever. Neeka Bloodscar's the clever one. She's out there somewhere." },
+          text = "Helgrum the Swift, and they call me that because I'm fast, not because I'm clever. Neeka Bloodscar's the clever one, and she's out there somewhere." },
         { id = "h_neeka", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("Neeka Bloodscar") }, { questActive = TODO_QUEST("Report to Helgrum") } } },
-          text = "Neeka's been out a long while. If you find her, she'll have a report for me. She always does." },
-        { id = "h_fast", when = { metBefore = true }, text = "Ran to the edge of the swamp and back this morning. Before breakfast. Don't ask me why. I wasn't thinking. I'm the swift one, remember." },
+          text = "Neeka's been out a long while, and if you find her, she'll have a report for me; she always does." },
+        { id = "h_fast", when = { metBefore = true }, text = "I ran to the edge of the swamp and back this morning, before breakfast, and don't ask me why, because I wasn't thinking. I'm the swift one, remember." },
       },
       choices = { { text = "I'll look for her.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } } },
     },
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Don't know. Ask Neeka when she's back. She knows things." } },
+    _none = { { id = "tp_none", text = "Don't know, but ask Neeka when she's back, because she knows things." } },
   },
 }
 
@@ -133,12 +133,12 @@ P:NPC {
   notices = { "weary" },
 
   greetings = {
-    { id = "g_cough", text = "Don't look at me like that. It's the swamp air. Everyone coughs here." },
+    { id = "g_cough", text = "Don't look at me like that; it's the swamp air, and everyone coughs here." },
   },
 
   notice = {
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
-      text = "You look like I feel. Sit. We'll be sick together and say nothing about it." },
+      text = "You look like I feel, so sit, and we'll be sick together and say nothing about it." },
   },
 
   start = "hello",
@@ -146,11 +146,11 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Bengor. I've served the Horde longer than you've been alive, and I'll keep serving until something stops me. Nothing has yet." },
+          text = "Bengor's my name. I've served the Horde longer than you've been alive, and I'll keep serving until something stops me, and nothing has yet." },
         { id = "h_orders", when = { questActive = TODO_QUEST("The Missing Orders") },
-          text = "The orders. Somebody carried them into the swamp and didn't carry them out. Find what happened." },
+          text = "Somebody carried those orders into the swamp and didn't carry them out, so find out what happened." },
         { id = "h_talker", tags = { "news" }, when = { questActive = TODO_QUEST("The Swamp Talker") },
-          text = "The Swamp Talker. Find it. I want to know if the stories are true before I'm done." },
+          text = "Find the Swamp Talker for me, because I want to know if the stories are true before I'm done." },
       },
       choices = {
         { text = "Are you ill?", next = "ill" },
@@ -158,13 +158,13 @@ P:NPC {
       },
     },
     ill = {
-      lines = { { id = "i_default", text = "I'm old. Old and stubborn. If it's an illness, it's going to have to try harder." } },
+      lines = { { id = "i_default", text = "I'm old, old and stubborn, and if it's an illness, it's going to have to try harder." } },
       choices = { { text = "Fair enough.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } } },
     },
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Before my time, or after it. Either way, not mine." } },
+    _none = { { id = "tp_none", text = "Before my time, or after it, but either way, not mine." } },
   },
 }
 
@@ -175,15 +175,15 @@ P:NPC {
   notices = { "weary", "drink" },
 
   greetings = {
-    { id = "g_inn", text = "Boots off by the door. Mud stays outside. You don't have to." },
-    { id = "g_home", when = { homeInn = { "Stonard" } }, text = "Back in Stonard. Bed's dry. That's the best thing anyone can say in this swamp." },
+    { id = "g_inn", text = "Boots off by the door, because the mud stays outside, even if you don't have to." },
+    { id = "g_home", when = { homeInn = { "Stonard" } }, text = "Back in Stonard, then. Your bed's dry, and that's the best thing anyone can say in this swamp." },
   },
 
   notice = {
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
-      text = "You look half-drowned and half-dead. Sit. Eat. In that order." },
+      text = "You look half-drowned and half-dead, so sit and eat, in that order." },
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
-      text = "Slow down. Fall in the swamp drunk and the crocolisks get supper." },
+      text = "Slow down, because if you fall in the swamp drunk, the crocolisks get supper." },
   },
 
   start = "hello",
@@ -191,14 +191,14 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Innkeeper Karakul. Scouts come back muddy and hungry, and I send them out fed. It's not glory. It keeps the Horde walking." },
-        { id = "h_mud", when = { metBefore = true }, text = "Scouts track half the swamp in on their boots. I've started charging them a bucket of water each. They pay in mud." },
+          text = "Innkeeper Karakul. Scouts come back muddy and hungry, and I send them out fed, which isn't glory, but it keeps the Horde walking." },
+        { id = "h_mud", when = { metBefore = true }, text = "The scouts track half the swamp in on their boots, so I've started charging them a bucket of water each, and they pay in mud." },
       },
       choices = { { text = "Just a meal, thanks.", next = "END" } },
     },
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "I feed scouts. The scouts know things. Ask them." } },
+    _none = { { id = "tp_none", text = "I feed scouts, and the scouts know things, so ask them." } },
   },
 }

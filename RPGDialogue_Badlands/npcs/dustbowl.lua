@@ -28,7 +28,7 @@ P:NPC {
         { id = "h_hope", when = { any = { { questActive = TODO_QUEST("A Sign of Hope") }, { questActive = TODO_QUEST("Prospect of Faith") } } },
           text = "These are Hammertoe's notes; he found somethin' before the end, an' he thought it was Uldaman. Take them tae Ironforge, where somebody will know what they mean." },
       },
-      again = { { id = "h_again", text = "Aye? I'm listenin'. Not much else tae do out here but listen an' dig." } },
+      again = { { id = "h_again", text = "Aye? I'm listenin', for there's not much else tae do out here but listen an' dig." } },
       choices = {
         { text = "What's Uldaman?", next = "uldaman" },
         { text = "Tell me about Hammertoe.", next = "hammertoe" },
@@ -124,7 +124,7 @@ P:NPC {
       },
     },
     assembly_never = {
-      lines = { { id = "an_default", text = "Never is just a deadline nobody's met yet. I've seen a dwarf and a goblin share a cart. Anything's possible." } },
+      lines = { { id = "an_default", text = "Never is just a deadline nobody's met yet! I've seen a dwarf and a goblin share a cart, so anything's possible." } },
       choices = { { text = "Something else.", next = "BACK", fx = { opinion = { peace = "for" } } } },
     },
     lucien = {

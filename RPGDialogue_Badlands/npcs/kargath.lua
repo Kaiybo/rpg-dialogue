@@ -9,7 +9,7 @@ P:NPC {
   notices = { "race", "class", "level" },
 
   greetings = {
-    { id = "g_tower", text = "Another one climbs my tower! Good. I was starting to talk to the vultures." },
+    { id = "g_tower", text = "Another one climbs my tower, good! I was starting to talk to the vultures." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and still alive! That's more than I can say for the last three I sent up the road." },
   },
 
@@ -72,7 +72,7 @@ P:NPC {
   notices = { "race" },
 
   greetings = {
-    { id = "g_fire", text = "Oh, a new face at the fire! Sit, sit. You simply must tell me something dreadful. It's been a dull week in the dust." },
+    { id = "g_fire", text = "Oh, a new face at the fire! Sit, sit, darling, and you simply must tell me something dreadful, because it's been a dull week in the dust." },
   },
 
   notice = {
