@@ -4,7 +4,9 @@
 - https://warcraft.wiki.gg/wiki/Guard_Thomas (bridge west of Eastvale Logging Camp; Stormwind Army; formal greeting; quests listed below)
 - https://warcraft.wiki.gg/wiki/Find_the_Lost_Guards (Rolf Hartford and Malakai Stone, sent north along the river; Malakai's medallion)
 - https://warcraft.wiki.gg/wiki/Discover_Rolf's_Fate (webbed tracks along Stone Cairn Lake; murloc village; Rolf's medallion)
-- https://warcraft.wiki.gg/wiki/Protect_the_Frontier (wolves and bears bolder away from Goldshire; logging camp attacked)
+- https://warcraft.wiki.gg/wiki/Protect_the_Frontier (wolves and bears bolder away from Goldshire; logging camp attacked; something in the forest is making them bold)
+- https://warcraft.wiki.gg/wiki/Further_Concerns (murlocs have settled the streams of eastern Elwynn; nobody knows why; aggressive and semi-intelligent; stationed at the bridge a week)
+- https://warcraft.wiki.gg/wiki/Deliver_Thomas%27_Report (Classic: the murlocs can't be contained by the current troop presence)
 
 ## Their quests
 - Further Concerns (turned in to him, from Dughan): he asked for help and got you.
@@ -40,3 +42,9 @@ Trustworthy. Confirms the murloc claim (`murlocs_in_elwynn`).
 
 ## Topics
 murlocs_east, lost_footmen, eastvale, defias
+
+## Depth and voice rewrite (Elwynn, second half; authored, not canon unless sourced)
+- Regret: he knew his men's names, posts and rota, and wishes he'd asked more (no invented details about Rolf or Malakai).
+- Worry goes up the chain in writing "and stops somewhere".
+- Gated: priest says the footmen's names at the bridge (no grave; the lake has them), human_westfall_farmhand, Find the Lost Guards done; heardClaim murlocs_in_elwynn line.
+- Voice pass (2026-11-15): every line rewritten as whole spoken sentences (no stacked fragments); meaning, ids and conditions unchanged.

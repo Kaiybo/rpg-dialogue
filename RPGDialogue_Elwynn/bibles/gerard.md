@@ -37,3 +37,8 @@ maybell_tommy
 
 ## Depth pass (0.25.0, authored, not canon)
 The vines and the crows.
+
+## Depth and voice rewrite (Elwynn, second half; authored, not canon unless sourced)
+- Authored: the Maclures pay fair and shout about the Stonefields; he watches everything from the vines and tells nothing; Billy goes up toward the mine.
+- Gated: priest (bless the crows away), human_westfall_farmhand.
+- Voice pass (2026-11-15): every line rewritten as whole spoken sentences (no stacked fragments); meaning, ids and conditions unchanged.
