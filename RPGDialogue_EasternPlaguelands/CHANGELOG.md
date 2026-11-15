@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.5.0 (2026-11-15)
+- Tirion Fordring, once the spirit healer has told you about the missing the Scourge takes first.
+
 ## 1.4.0 (unreleased)
 - Voice pass: Tyrosus, Leonid, Tirion, Nathanos and the Light's Hope guards now talk in whole sentences instead of clipped fragments, each in their own voice; what they say is unchanged.
 

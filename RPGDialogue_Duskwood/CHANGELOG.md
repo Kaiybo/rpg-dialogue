@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.4.0 (2026-11-15)
+- Madame Eva's cards react to what the spirit healer told you: another hand in your file, the lantern lit, the door past the mist.
+
 ## 1.3.0 (unreleased)
 - Voice: every line in the pack, the Night Watch included, now speaks in whole sentences instead of clipped fragments. Jitters still stammers and Sven is still curt, but each as one nervous or blunt sentence rather than a string of scraps.
 - Depth: every Darkshire and Raven Hill NPC is now a conversation to explore, with several subjects that each go two or three steps deep and come back with "Something else". Ello, Althea and Smitts have the most; Trelayne and Clarise a little more than before.

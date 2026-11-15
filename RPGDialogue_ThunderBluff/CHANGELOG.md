@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.3.0 (2026-11-15)
+- Hamuul Runetotem asks after Mulgris Deepriver once you've met him in the Western Plaguelands.
+
 ## 1.2.1 (unreleased)
 - Voice pass: the High Rise, Elder Rise and the Cat and the Shaman now talk in whole sentences instead of clipped fragments, slow and deliberate the tauren way (Cairne's gravity, Hamuul's wry calm, Turak's patience, Magatha's open ambition, Pala's mothering). Same lines, same facts, same conditions.
 
