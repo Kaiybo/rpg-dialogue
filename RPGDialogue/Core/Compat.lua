@@ -944,13 +944,49 @@ end
 -- QuestFrame makes, 12.1.5: QuestFrame.lua / QuestInfo.lua).
 ---------------------------------------------------------------------------
 -- Items on the current quest page. kind: "choice" (pick one), "reward", "required".
+-- Each: name, texture, count, quality (nil if unknown), usable (false only when the game
+-- says the player can't use it), itemID (nil if unknown), loading (true while the game
+-- hasn't got the item's name yet: the name is then a placeholder, and the game is asked
+-- to load it; GET_ITEM_INFO_RECEIVED / QUEST_ITEM_UPDATE follow), and for required items,
+-- have (how many the player carries, nil if unknown).
 local ITEM_COUNTERS = { choice = "GetNumQuestChoices", reward = "GetNumQuestRewards", required = "GetNumQuestItems" }
+
+-- A name the game hasn't really got yet: empty, a bare number or item string, or the
+-- client's "Retrieving item information" placeholder.
+local function unloadedName(name)
+  if type(name) ~= "string" or name == "" then return true end
+  if name:find("^%s*%[?%s*%d+%s*%]?%s*$") or name:find("item:%d") then return true end
+  local retrieving = G.RETRIEVING_ITEM_INFO
+  return type(retrieving) == "string" and retrieving ~= "" and name:find(retrieving, 1, true) == 1
+end
+
 function C.QuestItems(kind)
   local out = {}
   for i = 1, tonumber(call(ITEM_COUNTERS[kind])) or 0 do
-    local name, texture, count = call("GetQuestItemInfo", kind, i)
-    if type(name) == "string" and name ~= "" then
-      out[#out + 1] = { index = i, name = clean(name), texture = texture, count = tonumber(count) or 1, kind = kind }
+    local name, texture, count, quality, usable, itemID = call("GetQuestItemInfo", kind, i)
+    name = clean(name)
+    local link = call("GetQuestItemLink", kind, i)
+    link = type(link) == "string" and link or nil
+    itemID = tonumber(itemID) or tonumber(link and link:match("item:(%d+)"))
+    local loading = false
+    if unloadedName(name) then
+      local byID = itemID and call({ "C_Item.GetItemNameByID", "GetItemInfo" }, itemID)
+      if not unloadedName(byID) then
+        name = byID
+      else
+        loading = true
+        name = nil
+        if itemID then call("C_Item.RequestLoadItemDataByID", itemID) end
+      end
+    end
+    if name or loading then
+      local it = { index = i, name = loading and "..." or name, texture = texture,
+                   count = tonumber(count) or 1, kind = kind, quality = tonumber(quality),
+                   usable = usable ~= false, itemID = itemID, loading = loading }
+      if kind == "required" then
+        it.have = tonumber(call({ "C_Item.GetItemCount", "GetItemCount" }, itemID or link or name))
+      end
+      out[#out + 1] = it
     end
   end
   return out

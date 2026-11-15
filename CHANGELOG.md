@@ -2,6 +2,19 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.29.1 (2026-11-15)
+Core only; packs unchanged. /reload is enough.
+
+### Turning in quests
+The user: "Improve the UI when turning in quests." When you hand in a quest in the conversation box:
+- **Rewards to choose from are picked, then confirmed.** Clicking a reward (or its number) marks it "(chosen)" with a check; "Complete quest, taking ..." below then hands it in. Until something is chosen that row is locked and says "choose a reward first", so a stray click or key can no longer take the wrong reward.
+- **Item names in their quality color** (green, blue, purple...), in deeper shades that stay readable on parchment, and items your character can't use say "(you can't use this)", with the icon greyed.
+- **Required items show what you carry:** "Kobold Ear  3/5", green when you have enough, red when you don't. A Continue that isn't ready yet says "not finished yet" instead of just being locked.
+- **Items the game hasn't loaded yet** no longer show as a broken item-number string (the user's screenshot of Halligan Turner's page): they show "..." while the game fetches them, then the page fills in their names in place. Counts use the item's ID.
+- **Bigger reward icons:** about twice the text's height, and the rewards you choose from are rows with a large icon and the name centered beside it.
+- **A single reward** is now listed on the reward page (it was missing), and "Choose your reward:" heads the choices.
+- Headings follow the window's colors (they were dark brown even on the dark, high-contrast background), and the game's quest-complete sound plays on hand-in.
+
 ## 0.29.0 (2026-11-14)
 Packs: World 1.16.0, Stormwind 1.5.0, Elwynn 1.9.0, Stranglethorn 1.5.0, Riverglades 1.2.0, Dustwallow 1.3.0, Feralas 1.3.0, Desolace 1.3.0, Arathi 1.3.0, EasternPlaguelands 1.2.0, Badlands 1.2.1, Felwood 1.1.1, UnGoro 1.2.1, Winterspring 1.2.1 (the rest as in 0.28.0). No new folders: /reload is enough.
 

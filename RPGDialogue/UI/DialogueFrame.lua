@@ -451,14 +451,25 @@ function D.Layout()
   for _, b in ipairs(frame.buttons) do
     if b:IsShown() then
       if b.gap then y = y - 8 end   -- a little space before the game's own options
-      local indent = game and GAME_ROW_TEXT or (b.icon:IsShown() and 22 or 4)
+      -- A big icon (a reward to choose) gets room beside it, with the text centered on it.
+      local big = b.icon:IsShown() and (b.iconSize or 16) > 16
+      local indent = big and (b.iconSize + 10) or (game and GAME_ROW_TEXT or (b.icon:IsShown() and 22 or 4))
       b:ClearAllPoints()
       b:SetPoint("TOPLEFT", rowLeft, y)
       b:SetWidth(rowWidth)
       b.label:ClearAllPoints()
-      b.label:SetPoint("TOPLEFT", indent, game and -2 or -3)
       b.label:SetWidth(rowWidth - indent - 4)
-      local bh = math.max((b.label:GetStringHeight() or 14) + (game and 4 or 6), b.icon:IsShown() and (game and 18 or 20) or 0)
+      local labelH = b.label:GetStringHeight() or 14
+      local iconH = b.icon:IsShown() and (big and (b.iconSize + 6) or (game and 18 or 20)) or 0
+      local bh = math.max(labelH + (game and 4 or 6), iconH)
+      b.icon:ClearAllPoints()
+      if big then
+        b.icon:SetPoint("LEFT", 3, 0)
+        b.label:SetPoint("LEFT", indent, 0)
+      else
+        b.icon:SetPoint("TOPLEFT", 3, -2)
+        b.label:SetPoint("TOPLEFT", indent, game and -2 or -3)
+      end
       b:SetHeight(bh)
       y = y - bh - rowGap
     end
@@ -593,13 +604,15 @@ end
 function D.SetRowIcon(b, icon, faded)
   if not icon then
     b.icon:Hide()
+    b.iconSize = nil
     return
   end
   b.icon:SetTexCoord(0, 1, 0, 1)
   local okSet
   if icon.atlas then okSet = b.icon:SetAtlas(icon.atlas) else okSet = b.icon:SetTexture(icon.file) end
   if okSet == false and icon ~= ICON_BULLET then return D.SetRowIcon(b, ICON_BULLET, faded) end
-  b.icon:SetSize(16, 16)
+  b.iconSize = icon.size or 16
+  b.icon:SetSize(b.iconSize, b.iconSize)
   b.icon:SetDesaturated((icon.desaturate or faded) and true or false)
   b.icon:SetAlpha(faded and 0.5 or 1)
   b.icon:Show()
@@ -643,11 +656,13 @@ function D.Confirm()
   return false
 end
 
--- Replace the choices in place (after an errand step).
-function D.SetChoices(choices)
+-- Replace the choices in place (after an errand step, a reward picked). focus: the row a
+-- keyboard or gamepad selection moves to (the next step, such as "Complete quest").
+function D.SetChoices(choices, focus)
   if not frame or not frame:IsShown() then return end
   if view then view.choices = choices end
   D.RenderChoices(choices)
+  if navMode and focus and frame.buttons[focus] and frame.buttons[focus]:IsShown() then D.Select(focus) end
   D.Style()
   D.Layout()
 end
@@ -677,6 +692,20 @@ function D.ShowAnswer(text, topicName, linked)
     finishReveal()
   else
     startReveal()
+  end
+end
+
+-- New text for the same page (an item's name arrived): typing carries on where it was, and
+-- finished text is simply replaced.
+function D.UpdateText(text)
+  if not frame or not frame:IsShown() then return end
+  reveal.full = text or ""
+  reveal.total = utf8Len(reveal.full)
+  D.Layout()
+  if reveal.active then
+    reveal.shown = math.min(reveal.shown, reveal.total)
+  else
+    frame.text:SetText(reveal.full)
   end
 end
 

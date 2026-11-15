@@ -113,7 +113,8 @@ function frameMethods.GetAlpha(self) return self._alpha or 1 end
 function frameMethods.GetName(self) return self._name end
 function frameMethods.GetParent(self) return self._parent end
 function frameMethods.GetWidth() return 100 end
-function frameMethods.GetHeight() return 20 end
+function frameMethods.GetHeight(self) return self._height or 20 end
+function frameMethods.SetHeight(self, h) self._height = h end
 function frameMethods.GetStringHeight() return 14 end
 function frameMethods.GetStringWidth() return 80 end
 function frameMethods.GetNumLetters(self) return #(self._text or "") end
@@ -414,7 +415,8 @@ function GetObjectiveText() return S().questFrame.objectives end
 function GetProgressText() return S().questFrame.progress end
 function GetRewardText() return S().questFrame.reward end
 function GetGreetingText() return S().questFrame.greeting end
--- Quest pages: state.questFrame.choices / rewards / required = { { name, texture, count } },
+-- Quest pages: state.questFrame.choices / rewards / required = { { name, texture, count, quality, usable } },
+-- state.bags = { [itemName] = count } for GetItemCount,
 -- money, xp, cost, completable, auto, pvp.
 local QUEST_LISTS = { choice = "choices", reward = "rewards", required = "required" }
 local function questList(kind) return S().questFrame[QUEST_LISTS[kind]] or {} end
@@ -423,8 +425,33 @@ function GetNumQuestRewards() return #questList("reward") end
 function GetNumQuestItems() return #questList("required") end
 function GetQuestItemInfo(kind, i)
   local it = questList(kind)[i]
-  if it then return it[1], it[2], it[3] or 1, 1, true end
+  if it then
+    local name = (S().itemsLoading or {})[it[1]] and "" or it[1]
+    return name, it[2], it[3] or 1, it[4] or 1, it[5] ~= false
+  end
 end
+function GetQuestItemLink(kind, i)
+  local it = questList(kind)[i]
+  if it then return "|Hitem:" .. tostring(it[2]) .. "|h[" .. it[1] .. "]|h" end
+end
+-- Item IDs on the quest page are their texture numbers (as in GetQuestItemLink above).
+local function itemNameForID(id)
+  for _, kind in ipairs({ "choice", "reward", "required" }) do
+    for _, it in ipairs(questList(kind)) do if tonumber(it[2]) == tonumber(id) then return it[1] end end
+  end
+end
+function GetItemCount(item)
+  local name = tonumber(item) and itemNameForID(item) or tostring(item):match("%[(.-)%]") or item
+  return (S().bags or {})[name] or 0
+end
+-- Items whose names the client hasn't loaded yet: state.itemsLoading = { [name] = true }.
+-- GetQuestItemInfo gives "" for them until a test clears the flag and fires GET_ITEM_INFO_RECEIVED.
+C_Item = C_Item or {}
+function C_Item.GetItemNameByID(id)
+  local name = itemNameForID(id)
+  if name and not (S().itemsLoading or {})[name] then return name end
+end
+function C_Item.RequestLoadItemDataByID(id) Mock.calls[#Mock.calls + 1] = { "RequestLoadItemDataByID", id } end
 function GetRewardMoney() return S().questFrame.money or 0 end
 function GetRewardXP() return S().questFrame.xp or 0 end
 function GetQuestMoneyToGet() return S().questFrame.cost or 0 end
