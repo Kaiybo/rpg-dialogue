@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.2.0 (unreleased)
+- The Mirage Raceway to the depth standard: Pozzik (what makes a car fast, Gazlowe the sponsor, why the gnomes got faster), Fizzle Brassbolts (the flying engine, Martek, the Brassbolts brothers, indurium from Uldaman), Kravel Koalbeard (how he makes a sure thing, what was in the stout; replies for priests, paladins and dwarves).
+- Fixed: Razzeric is already the eighteenth pilot; the gnomes are the ones with indurium; Martek is a smith.
+
 ## 1.1.0 (unreleased)
 - Depth pass: repeat visits bring personal lines (habits, worries, running jokes), and some NPCs get night-time lines. Abeqwa, Thalia, Rau.
 

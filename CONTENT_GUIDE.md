@@ -21,7 +21,14 @@ How to write dialogue for RPG Dialogue, for people and for AI sessions. Read it 
 ## 2. The voice
 
 - **No AI voice.** `banned_phrases.txt` is enforced. The test: hide the name, and you should still know who's talking.
-- **Short.** 1–3 sentences per NPC line. Fragments are a voice ("Big. Angry. Southwest."), speeches aren't. Replies about 15 words or fewer.
+- **People talk in sentences.** The user, playing it: "too choppy... characters want to have one liners 'He did. I didn't.' Have them talk like normal people, have the writing be more authentic to WoW." So:
+  - 1–3 complete sentences per NPC line (a fourth if it flows), joined the way speech joins them: *and, but, so, though, because, which*. Read it aloud: one breath of conversation, not a telegram.
+  - **No stacked fragments.** One short sentence for punch is fine; two in a row, or three in a line, fails the voice checker ("Big. Angry. Southwest.", "He did. I didn't.", "A chest? A cutlass? A sash? No?"). An opening "Ah!" or "Oh." doesn't count.
+  - **Warcraft's register.** Classic quest text is the model: concrete about the place and the trouble, warm or gruff or grand, a little old-fashioned, and spoken *to* the player ("friend", "{class}", their name, sparingly). Character shows in word choice and attitude (a dwarf's burr, a goblin's sales pitch, a Forsaken's dry chill), not in chopping sentences up.
+  - Nervous or childish speakers can stumble, as one run-on nervous sentence, not five fragments.
+  - Before: "Light preserve us. Oh. One of the Cathedral's. Carry on. Slowly." After: "Light preserve us! Oh, you're one of the Cathedral's lot. Carry on, then, but go gently; you'll frighten the canal folk."
+  - Before: "I'm the king. For now. Until my father comes back. Everyone's been very kind about it." After: "I'm the king, at least until my father comes home. Everyone's been very kind about it, though I don't think I'm very good at it yet."
+  - Replies the player picks stay short: about 15 words or fewer.
 - **Original writing.** Read Blizzard's text in `reference/` to learn a voice; never copy it. Reference events in your own words.
 - **Timeline discipline.** Year 1 only: after *Forsaken Kingdom*, before Molten Core and the Dark Portal reopening. Nothing from Burning Crusade onward, nothing from retail Cataclysm-era Elwynn. Unsure? Leave it out.
 - **Hyper-specific beats generic.** Nearby place names, the quest just finished, the player's pet's name (`{pet}`).
@@ -92,6 +99,8 @@ A conversation is a place to explore, not one line and a goodbye. The player sho
 | quest | 3+ | 6+ | 3+ | 1+ |
 | service | 2+ | 3+ | 2+ | - |
 
+Reputation counts as who the player is too: `reputation = { faction = "Stormwind", min = "exalted" }` (names in `World.FACTION_IDS`; standings `hated` to `exalted`). Use it where the game itself cares (Katie Hunter sells Stormwind's horses to humans or to anyone exalted with Stormwind), or where an NPC would know (the Argent Dawn's quartermaster, a Timbermaw sentry).
+
 "Replies only some characters get" are choices with a `when` on who the player is (race, class, origin, level band, a quest done, a line heard, a topic known, standing, alignment...) or a special tag. They are how a dwarf paladin and a gnome mage have different conversations with the same person: write them for the characters this NPC would actually react to, Alliance first while the user plays Alliance, then everyone.
 
 **What makes a branch worth taking:**
@@ -100,7 +109,7 @@ A conversation is a place to explore, not one line and a goodbye. The player sho
 - **The NPC asks back.** People ask the player things ("You've come from Stormwind? How's the harbor?"), and the player's answer is a reply with effects. That's where traits and opinions come from.
 - **Branches reach the rest of the world**: other NPCs ("Ask Kebok, if you can stand him"), quests nearby (before/during/after), threads, topics.
 - **Lines inside branches react too.** A branch's node can have conditional lines (race, class, quest state) like the hub does; the deeper the node, the fewer conditions it needs.
-- **Keep the rules in section 5.** One or two things about the player per line; 1–3 sentences per line; replies 15 words or fewer. Depth comes from more nodes, not longer lines.
+- **Keep the rules in sections 2 and 5.** One or two things about the player per line; 1–3 whole sentences per line, never stacked fragments; replies 15 words or fewer. Depth comes from more nodes, not longer lines.
 - Lore discipline doesn't loosen with depth. A minor NPC with three branches talks about their work, their place and their neighbours; they don't grow an invented life story (section 1). If there isn't enough source for a fourth branch, write three good ones.
 
 ## 8. Agendas, claims and unreliable narrators
