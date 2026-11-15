@@ -243,6 +243,7 @@ P:NPC {
   },
 
   topics = {
+    thandol_span = { { id = "tp_span", text = "One bridge down, one standin', an' Longbraid's lads between the Dark Irons an' the rest of us." } },
     background = { { id = "tp_bg", text = "Ironforge gave me a wall an' a harbour behind it, an' that's the whole o' my story. I like it short." } },
     advice = { { id = "tp_ad", text = "Dinnae walk Dun Algaz alone, an' dinnae walk it at night. Ye'll meet orcs either way, but it's better to see them first." } },
     dragonmaw = {
@@ -414,6 +415,8 @@ P:NPC {
   },
 
   topics = {
+    third_fleet = { { id = "tp_fleet", text = "That was my fleet, and don't make me talk about it sober.", next = "fleet" } },
+    grim_batol = { { id = "tp_grim_batol", text = "That's where the dragons came from, and I don't look east anymore." } },
     background = { { id = "tp_bg", text = "First mate of the Wave Mistress, Third Fleet of Kul Tiras. If you say it fast enough, it doesn't hurt.", next = "fleet" } },
     advice = { { id = "tp_ad", text = "Never sail under a red sky, friend, or a red dragon, and mostly mind the dragon." } },
     dragonmaw = { { id = "tp_dragonmaw", text = "Them, the very same, up in the hills now without their dragons. I hope they miss them as much as I miss my ship." } },
@@ -582,6 +585,8 @@ P:NPC {
   },
 
   topics = {
+    third_fleet = { { id = "tp_fleet", text = "Out o' Lordaeron, an' burned off this coast. I've buried more of it than I'd like.", next = "wrecks" } },
+    grim_batol = { { id = "tp_grim_batol", text = "A dark place, by all accounts, an' I've never been nor wanted to." } },
     background = { { id = "tp_bg", text = "An Ironforge priest o' the Church, posted to a marsh. Somebody up the chain has a sense o' humour." } },
     advice = { { id = "tp_ad", text = "Keep yer socks dry an' yer soul drier. The marsh gets into both." } },
     dragonmaw = { { id = "tp_dragonmaw", text = "I bury what the Captain's lads bring back, so ask him about the orcs an' ask me about the buryin'." } },
@@ -712,6 +717,7 @@ P:NPC {
   },
 
   topics = {
+    thandol_span = { { id = "tp_span", text = "That's where it all started, an' I'll tell ye about it, if ye've the stomach for it.", next = "span" } },
     background = { { id = "tp_bg", text = "I served in Longbraid's regiment at Dun Modr. I'm a soldier an' I'll be one again, an' that's the whole of it.", next = "longbraid" } },
     advice = { { id = "tp_ad", text = "Watch the bridges up north. They're no' as solid as they look anymore." } },
     dark_iron = { { id = "tp_dark_iron", text = "They put me in this bed. I'll put a few o' them in worse. That's a promise, no' a threat." } },
@@ -839,6 +845,7 @@ P:NPC {
   },
 
   topics = {
+    third_fleet = { { id = "tp_fleet", text = "Every captain steers wide of those wrecks, and nobody needs telling twice." } },
     background = { { id = "tp_bg", text = "Merchant marine. I go where the cargo goes, and lately the cargo comes here." } },
     advice = { { id = "tp_ad", text = "Count your crates twice and your fingers three times. This coast takes both." } },
     dragonmaw = { { id = "tp_dragonmaw", text = "They've cut the road east, so everything goes by sea now, which is good for me and bad for everyone else." } },

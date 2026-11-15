@@ -8,7 +8,7 @@ P:Rumors {
     { id = "lights", text = "Lights up at Manor Mistmantle again, and nobody's lived there in years. Nobody living, anyway." },
     { id = "thread", when = { questBefore = TODO_QUEST("Note to the Mayor") },
       text = "The hermit at Raven Hill's been buying thread by the bolt. Thread! What does a hermit stitch?" },
-    { id = "stitches", when = { questRecent = { TODO_QUEST("The Embalmer's Revenge"), days = 7 } },
+    { id = "stitches", when = { questRecent = { TODO_QUEST("Translation to Ello"), days = 7 } },
       text = "A great stitched thing came walking down the road and someone put it down before it reached the square. The mayor's still shaking, and so am I." },
     { id = "yorgen", text = "Sven Yorgen still camps by the water; he won't come into town and he won't go home, and I can't blame him." },
     { id = "letters", text = "Lord Ello's written to Stormwind again, the fifth time this season. The rider took the long way back, and I can't blame him either." },

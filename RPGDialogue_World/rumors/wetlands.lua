@@ -5,6 +5,8 @@ local TODO_QUEST = P.TODO_QUEST
 P:Rumors {
   id = "wetlands_inns", roles = { "innkeeper" }, zones = { "Wetlands" },
   lines = {
+    { id = "statuette", when = { questRecent = { TODO_QUEST("Return the Statuette"), days = 7 } },
+      text = "The Blind Princess got her statuette back, the old king with his hammer raised, and the Captain wants it sent to Stormwind before the orcs hear of it." },
     { id = "catapults", when = { questBefore = TODO_QUEST("Defeat Nek'rosh") },
       text = "The orcs in the hills are building siege engines, the lads say, proper ones. Somebody up there remembers the Second War fondly." },
     { id = "nekrosh", when = { questRecent = { TODO_QUEST("Defeat Nek'rosh"), days = 7 } },

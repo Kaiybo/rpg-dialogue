@@ -24,6 +24,7 @@ rumors\westfall.lua
 rumors\redridge.lua
 rumors\duskwood.lua
 rumors\wetlands.lua
+rumors\hillsbrad.lua
 rumors\kalimdor.lua
 rumors\riverglades.lua
 books.lua

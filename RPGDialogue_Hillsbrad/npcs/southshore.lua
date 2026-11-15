@@ -209,6 +209,9 @@ P:NPC {
   },
 
   topics = {
+    alterac = { { id = "tp_alterac", text = "There are ogres in the old capital now, and their next step is my front door.", next = "crushridge" } },
+    silver_hand = { { id = "tp_hand", text = "Some of the old knights live here still, quieter than they were." } },
+    new_plague = { { id = "tp_plague", text = "Across the valley they're brewing something, and I don't need a scholar to tell me what." } },
     background = { { id = "tp_bg", text = "First headman, then marshal: the same town and the same people, only a bigger sword.", next = "boats" } },
     advice = { { id = "tp_ad", text = "Stay off the hill roads after dark. Between the ogres, the Syndicate and the dead, somebody up there's always awake." } },
     defias = { { id = "tp_defias", text = "Stormwind's thieves? We've our own here, the Syndicate: the same rot, only with different noble names on the deeds." } },
@@ -656,6 +659,7 @@ P:NPC {
   },
 
   topics = {
+    silver_hand = { { id = "tp_hand", text = "Ask me sober, hic... no, ask me now, for I only lie when I'm sober.", next = "hand" } },
     background = { { id = "tp_bg", text = "First a paladin, then no' a paladin, an' now a brewmeister, hic. It's a short story wi' a long middle.", next = "hand" } },
     advice = { { id = "tp_ad", text = "Drink slow, pray quick, an' never trust a dwarf who says he's had enough, hic, because he's lyin'." } },
     _none = { { id = "tp_none", text = "Dunno, hic. Ask me again after the next cask." } },
@@ -782,6 +786,7 @@ P:NPC {
   },
 
   topics = {
+    alterac = { { id = "tp_alterac", text = "A whole library, lost under ogres. I could weep, and I have.", next = "why_books" } },
     background = { { id = "tp_bg", text = "I gather what Alterac left behind, for Milton and the Royal Library. Before that I read, and I still do.", next = "grilek" } },
     advice = { { id = "tp_ad", text = "Wash your hands before you touch a book, and after you touch an ogre. Ideally twice." } },
     seven_kingdoms = { { id = "tp_seven", text = "Seven, until Alterac sold itself to the Horde and stopped being one. The books remember, though the ogres are working on that." } },
@@ -861,6 +866,7 @@ P:NPC {
   },
 
   topics = {
+    syndicate = { { id = "tp_syndicate", text = "They never drink here, and that's how you know them, because everyone drinks here." } },
     background = { { id = "tp_bg", text = "I keep the inn. Somebody has to, and the fish stew won't make itself." } },
     advice = { { id = "tp_ad", text = "Sleep with your boots by the bed. In Southshore you never know which night you'll need them in a hurry." } },
     _none = { { id = "tp_none", text = "Ask the Marshal. He knows everyone in town by name and most of their grandparents." } },
