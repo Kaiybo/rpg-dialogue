@@ -17,6 +17,9 @@ Copy these folders into `World of Warcraft/<your Forever folder>/Interface/AddOn
 - `RPGDialogue_Redridge`: Lakeshire and the Redridge Mountains
 - `RPGDialogue_Duskwood`: Darkshire, Raven Hill and the woods
 - `RPGDialogue_BurningSteppes`: Morgan's Vigil (Alliance), Flame Crest (neutral, with the Horde's wind riders) and a dragonspawn at Slither Rock
+- `RPGDialogue_BlastedLands`: Nethergarde Keep and the watch on the Dark Portal
+- `RPGDialogue_Azshara`: the ruins of the Highborne, Archmage Xylem's tower and the Bay of Storms
+- `RPGDialogue_Silithus`: Cenarion Hold and Valor's Rest, the silithid and the Twilight's Hammer
 - `RPGDialogue_WesternPlaguelands`: Chillwind Camp (Alliance), the Bulwark (Horde, on the Tirisfal border) and the ghosts of the farms
 - `RPGDialogue_EasternPlaguelands`: Light's Hope Chapel (both factions), Tirion Fordring, the Marris Stead (Horde)
 - `RPGDialogue_SearingGorge`: Thorium Point (both factions)
