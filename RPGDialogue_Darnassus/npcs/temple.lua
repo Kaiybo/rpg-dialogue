@@ -509,7 +509,7 @@ P:NPC {
       lines = {
         { id = "h_default", text = "I'm Lariia. I teach here, and when I'm not teaching I watch the pool, because the moonlight on it tells you a great deal about the night if you look long enough." },
       },
-      again = { { id = "h_again", text = "Something more? Speak softly, the pool listens." } },
+      again = { { id = "h_again", text = "Is there more you wish to know? Keep your voice low by the moonwell, for it carries." } },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "What does the pool tell you?", next = "pool" },
