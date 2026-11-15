@@ -19,6 +19,10 @@ origins\dwarf.lua
 origins\gnome.lua
 origins\nightelf.lua
 origins\skyborne.lua
+origins\orc.lua
+origins\troll.lua
+origins\tauren.lua
+origins\forsaken.lua
 rumors\elwynn.lua
 rumors\westfall.lua
 rumors\redridge.lua
