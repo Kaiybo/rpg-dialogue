@@ -272,7 +272,7 @@ P:NPC {
         { id = "h_again2", text = "Aye? Lean in, the tent's thin." },
       },
       choices = {
-        { text = "[Intimidate] You're rigging races. I could tell the crews.", tag = "Intimidate", next = "hush",
+        { text = "You're rigging races. I could tell the crews.", tag = "Intimidate", next = "hush",
           check = { pass = { any = { { trait = "stern" }, { minLevel = 40 } } } },
           fail = { next = "laugh" } },
         { text = "What's the sure thing?", next = "sure" },

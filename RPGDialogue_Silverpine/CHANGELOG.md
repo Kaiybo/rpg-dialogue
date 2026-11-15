@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.2.0 (2026-11-15)
+- Persuade, Intimidate and Deceive checks on the major people here, each with its own success and failure; lines and replies that depend on how warmly they regard you (disposition); a lead-in for "What do you know?".
+
 ## 1.1.1 (unreleased)
 - Voice pass: the Sepulcher now talks in whole sentences instead of clipped fragments, each in their own voice (Hadrec's iron brevity, Renferrel's fussiness, Dalar's dry pride, Allister's smoothness, Bates' crypt-keeper hospitality). Same lines, same facts, same conditions.
 

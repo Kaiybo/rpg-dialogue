@@ -557,7 +557,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, then; I'm only shuffling." },
       },
       choices = {
-        { text = "[Persuade] Deal me in. One game.", tag = "Persuade", next = "game",
+        { text = "Deal me in. One game.", tag = "Persuade", next = "game",
           check = { pass = { money = { min = 100000 } } },
           fail = { next = "broke" } },
         { text = "What do people owe you for?", next = "owe" },
@@ -1066,7 +1066,7 @@ P:NPC {
     },
     confess_no = {
       lines = {
-        { id = "cn_default", text = "You wouldn't! You... you wouldn't, would you? No, you're bluffing, because I've watched MacKinley bluff and you're not nearly frightening enough." },
+        { id = "cn_default", text = "You wouldn't dare, would you, not really? No, you're bluffing, because I've watched MacKinley bluff and you're not nearly frightening enough." },
         { id = "cn_gnome", when = { race = "Gnome" },
           text = "You're going to tell on me? You're barely taller than the barrel I hide in, and I'm frightened of a great many things, but not that." },
       },

@@ -2,6 +2,25 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.34.0 (2026-11-15)
+Packs: every content pack has a new version (`python3 tools/version.py` lists them). **One new file in the core (Systems\Disposition.lua): exit the game fully and start it again**; /reload won't load it.
+
+### Ask about
+- **"What do you know?"** is the first thing you can ask anyone. They answer in their own voice and list the subjects they could tell you about, each one clickable. You learn every subject they name, so asking around is now how you find new things to ask about.
+- **The list remembers what each person knows.** Subjects they named sit in a group of their own, "What they can tell you about", right under "Ask anyone". Subjects they had nothing to say about are marked "(nothing to say)" instead of just "(asked)".
+- **Hover a subject** to see who you first heard it from.
+- **The button shows how many subjects you know:** "Ask about... (23)".
+- **Inside DialogueUI** the Ask list now holds every subject you know, a page at a time (More topics, Previous topics, Back), where before it showed only the newest few. After an answer you stay on the list, so the next question is one click away.
+
+### RPG elements
+- **Disposition (Morrowind-style).** Everyone you talk to has a disposition toward you, from Hostile through Cold, Wary, Neutral, Warm and Friendly to Devoted. It's shown at the bottom of the box; hover it to see why, with numbers. It depends on what has passed between you, what their town thinks of you, whether they value the kind of person you've shown yourself to be (kind, brave, pious...), their temperament, and where you stand on what they care about. The journal's People page uses it too.
+- **People confide in those they like.** Many characters say things only at Warm or above, and some are curt when they think little of you.
+- **Persuade, Intimidate and Deceive, for real.** About 80 new checks on the major people across both continents: Bolvar, Prestor, Shaw, Benedictus, Laurena, Anduin, McBride, Gryan, Solomon, Ello, Magni, Mekkatorque, Tyrande, Jaina, Revilgaz, Demar Brant, Shandris, Remulos, Tirion, Valorfist, Maxwell, Thrall, Sylvanas, Cairne and many more. They succeed from who you are, never dice: a warm enough disposition, or your class (priests have a way in with many of them), race, character, or what you've done for them. Success gets you a real confidence, an admission or their honest opinion; failure has its own answer.
+- **You're told how it went.** After a check, a quiet note under the answer says "Persuade: success." or "Persuade: failed."
+- **People react to what you say (Dragon Age-style).** "Marshal Dughan approves." or "...disapproves greatly." appears under the answer, along with their new disposition when it changes.
+- **Replies say where they come from (Baldur's Gate-style).** A reply that's there because of who you are is tagged: [Priest], [Human Priest], [Dwarf], [Alchemy], [Kind], or your origin.
+- All of these can be turned off in Settings (Story section).
+
 ## 0.33.0 (2026-11-15)
 Packs: every content pack with dialogue has a new version (`python3 tools/version.py` lists them). No new files: /reload is enough.
 

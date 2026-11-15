@@ -351,7 +351,7 @@ P:Pool {
       },
       choices = {
         { text = "Who were you?", next = "self2" },
-        { text = "[Persuade] You were one of us. Someone sent you back here.", tag = "Persuade", next = "self_reveal",
+        { text = "You were one of us. Someone sent you back here.", tag = "Persuade", next = "self_reveal",
           check = { pass = { any = { { trait = "curious" }, { deaths = { min = 25 } }, { affinity = { min = 3 } } } } },
           fail = { next = "self_closed" } },
         { text = "That's terribly sad.", next = "self_sad", fx = { trait = { kind = 1 } } },
@@ -551,7 +551,7 @@ P:Pool {
       choices = {
         { text = "Yes. Let me choose.", next = "stay", fx = { align = { order = -1 }, npcFlag = { set = "asked_stay" } } },
         { text = "No. Not yet.", next = "parting", fx = { align = { order = 1 } } },
-        { text = "[Persuade] You're caged too, aren't you?", tag = "Persuade", next = "healer_cage",
+        { text = "You're caged too, aren't you?", tag = "Persuade", next = "healer_cage",
           check = { pass = { any = { { trait = "curious" }, { trait = "kind" }, { deaths = { min = 25 } } } } },
           fail = { next = "cage_fail" } },
         { text = "Back to my questions.", next = "ask" },
@@ -591,7 +591,7 @@ P:Pool {
       },
       choices = {
         { text = "What happens to the ones who stay?", next = "stay_what" },
-        { text = "[Deceive] I'm ready. I'm not afraid.", tag = "Deceive", next = "stay_what",
+        { text = "I'm ready. I'm not afraid.", tag = "Deceive", next = "stay_what",
           fail = { next = "stay_seen" } },
         { text = "I was only asking.", next = "hello" },
         { text = "Send me back.", next = "parting" },

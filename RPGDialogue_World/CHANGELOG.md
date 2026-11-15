@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.22.0 (2026-11-15)
+- "What do you know?" lead-ins for every role pool, the generic fallback and the spirit healer; warm and cold versions of role answers by disposition.
+- The spirit healer's checks lose the written-in tags (the UI adds them now).
+
 ## 1.21.0 (2026-11-15)
 - Alignment now comes only from statements, never questions, and every reply that shifts alignment has an opposing one beside it. Taking one stance with someone closes the others for good.
 
