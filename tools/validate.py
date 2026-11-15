@@ -91,6 +91,12 @@ def main():
     args = ap.parse_args()
 
     spec = P.condition_spec()
+    _wd = open(os.path.join(P.ROOT, "RPGDialogue", "Core", "WorldData.lua"), encoding="utf-8").read()
+    _fm = re.search(r"W\.FACTION_IDS = \{(.*?)\n\}", _wd, re.S)
+    faction_ids = set(re.findall(r'(?:\["([^"]+)"\]|(\w+))\s*=\s*\d+', _fm.group(1))) if _fm else set()
+    faction_ids = {a or b for a, b in faction_ids}
+    _sm = re.search(r"W\.STANDINGS = \{(.*?)\}", _wd)
+    standings = set(re.findall(r"(\w+)\s*=", _sm.group(1))) if _sm else set()
     fx_keys = P.effect_keys()
     tokens = P.token_names()
     registry = load_registry(os.path.join(P.ROOT, "tools", "registry", "ids.json"))
@@ -196,6 +202,14 @@ def main():
                     rep.error(pack, f, when.line, f"{where}: thread {tid!r} isn't defined")
             if k in ("heardClaim", "claimExposed", "lieCaught") and v not in defs["Claim"]:
                 rep.error(pack, f, when.line, f"{where}: claim {v!r} isn't defined")
+            if k == "reputation":
+                fac = v.get("faction") if isinstance(v, LTable) else None
+                if fac not in faction_ids:
+                    rep.error(pack, f, when.line, f"{where}: reputation faction {fac!r} isn't in World.FACTION_IDS")
+                for side in ("min", "max"):
+                    st = v.get(side) if isinstance(v, LTable) else None
+                    if st is not None and st not in standings and not isinstance(st, (int, float)):
+                        rep.error(pack, f, when.line, f"{where}: reputation {side} {st!r} isn't a standing")
             if k == "topicKnown" and v not in defs["Topic"]:
                 rep.warn(pack, f, when.line, f"{where}: topic {v!r} isn't defined")
             if k == "townStanding":
@@ -265,11 +279,11 @@ def main():
             if words > 15:
                 rep.warn(pack, f, ln.line, f"{where}: reply is {words} words (aim for 15 or fewer)")
         else:
-            # Short fragments ("Big. Angry. Southwest.") are a voice, not a speech. Flag only
-            # lines that are both many sentences and long.
+            # One line is one breath of conversation: 1-3 whole sentences (the voice checker
+            # fails stacked fragments). Flag only lines too long to read at a glance.
             n_sent, n_words = sentences(text), len(text.split())
-            if (n_sent > 3 and n_words > 30) or n_words > 50:
-                rep.warn(pack, f, ln.line, f"{where}: {n_sent} sentences, {n_words} words (aim for 1-3 short sentences)")
+            if n_words > 60 or (n_sent > 4 and n_words > 45):
+                rep.warn(pack, f, ln.line, f"{where}: {n_sent} sentences, {n_words} words (aim for 1-3 sentences; split a speech into nodes)")
 
     def check_journal(pack, f, line, j, where):
         if j is None:

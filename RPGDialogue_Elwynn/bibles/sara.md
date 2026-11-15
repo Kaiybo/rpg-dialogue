@@ -37,3 +37,9 @@ defias, eastvale
 
 ## Depth pass (0.25.0, authored, not canon)
 A repeat-visit line in the voice above.
+
+## Depth and voice rewrite (Elwynn, second half; authored, not canon unless sourced)
+- Source: her Classic gossip (sit, have a meal; she listens while sewing). The Stormwind Army commission (a Cataclysm quest) is not used.
+- Authored: she sews out front and hears the camp's news; the Defias were masons once, so they know materials (the masons' grievance is canon); wash red linen cold.
+- Gated: Tailoring, priest, rogue.
+- Voice pass (2026-11-15): every line rewritten as whole spoken sentences (no stacked fragments); meaning, ids and conditions unchanged.

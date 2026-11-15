@@ -2,6 +2,18 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.10.0 (unreleased)
+- Depth rewrite for Northshire, Goldshire's named NPCs and seven class trainers: every conversation is now a hub with branches to explore and come back from. Marshal McBride (the garrison, Echo Ridge, who drills the Defias, Dughan), Marshal Dughan (a hub of Elwynn's threats: the mines and the Collector, Westbrook and Westfall, the murlocs and the lost footmen; the Stonemasons' ring after Manhunt) and Innkeeper Farley (his family, his brother Frandis lost on a caravan to Lordaeron, the messenger who fled into the rain) are the deepest.
+- Deputy Willem, Eagan Peltskinner (and his wife Helene's pelt orders), Brother Neals (the Abbey's wars, Medivh, the locked library wing), Milly Osworth, Remy, Melika, Brother Wilhelm, Llane Beshere, Brother Danil and Smith Argus (Verner's horseshoes) reach the standard too.
+- Khelden, Jorik, Drusilla (Powers of the Void), Lyria, Zaldimar, Keryn and Remen each react to their own class and to others, send their students on, and have a branch or two for everyone else.
+- Replies that depend on who you are: priests (a prayer for Farley's brother, words for Dughan's lost footmen, the Light and magic, faith with Neals), abbey novices, Westfall farmhands, minor nobles, Lordaeron refugees, dwarves, gnomes, night elves and Skyborne in Northshire, and veterans coming back at level 20 and up. Every NPC has their own story and advice under Ask about (Argus keeps only advice).
+- Voice pass: these NPCs, all nine class trainers and the Eastvale stables now talk in whole sentences, the way people speak, instead of clipped fragments ("Count, don't charge." became "count them, recruit; don't charge them"). Remy still says things twice, inside the sentence.
+- Fixes: Keryn's quest is "Seek out SI: 7"; Milly's vineyard was never said to be her mother's, nor Argus Elmore's student, and Faol rebuilt the Abbey rather than founding it.
+- Depth rewrite, second half of Elwynn: Falkhaan, Maybell, Tommy Joe, Gramma, Bernice, Ma Stonefield, Billy, Gerard, Pestle, Sam Sarsaparilla, Guard Thomas, Marshal Haggard, Supervisor Raelen, Sara Timberlain, Theocritus, Deputy Rainer, Henze Faulk and Brother Sammuel are now hubs with three to ten branches each, and all fourteen Goldshire townsfolk have two or three branches of their own trade talk. All 32 meet the depth standard.
+- Replies only some characters get: priests (blessings for the lovers, prayers for Thomas's footmen and Bernice's husband, Haggard's eyes, Raelen's loggers, Henze), the human origins (Westfall farmhand at Thomas, Rainer, Raelen, Ma, Gerard and Tommy Joe; noble at Gramma, Haggard and Theocritus; Abbey novice at Falkhaan and Sammuel; Lordaeron refugee at Sammuel), warriors, rogues, mages, warlocks, hunters, gnomes and dwarves where those NPCs would care; quest history and echoes between neighbours (Billy's slip reaches Bernice, Billy's gossip reaches Maybell, Raelen and Rainer answer each other, Adele and Helene).
+- Classic facts corrected: Princess lives at the Brackwell patch and the Brackwells are gone; Billy did take the necklace; Bernice is a widow; Haggard took Dead-tooth Jack for Dughan; Helene is Eagan's wife; Tharynn trades from a wagon. Invented family histories for Sammuel, Michelle, Helene and Krighton were removed.
+- Voice pass: every line in these files now reads as whole spoken sentences, with no stacked fragments (the new house style).
+
 ## 1.9.0 (unreleased)
 - Priestess Anetta and Priestess Josetta deepened for priests, and both notice Shadowform.
 

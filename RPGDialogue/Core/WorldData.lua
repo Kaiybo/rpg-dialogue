@@ -67,6 +67,17 @@ function W.FormName(id)
   return W.FORMS[id] or ("form" .. id)
 end
 
+-- Reputation: faction names used in `reputation = { faction = "...", min = "..." }` -> faction IDs
+-- (from each faction's warcraft.wiki.gg page), and standings (the game's 1-8).
+W.FACTION_IDS = {
+  Stormwind = 72, Ironforge = 47, Darnassus = 69, Gnomeregan = 54,
+  Orgrimmar = 76, ["Thunder Bluff"] = 81, Undercity = 68, ["Darkspear Trolls"] = 530,
+  ["Argent Dawn"] = 529, ["Timbermaw Hold"] = 576, ["Cenarion Circle"] = 609, ["Thorium Brotherhood"] = 59,
+  ["Steamwheedle Cartel"] = 169, ["Bloodsail Buccaneers"] = 87, ["Hydraxian Waterlords"] = 749,
+  ["Brood of Nozdormu"] = 910, ["Zandalar Tribe"] = 270,
+}
+W.STANDINGS = { hated = 1, hostile = 2, unfriendly = 3, neutral = 4, friendly = 5, honored = 6, revered = 7, exalted = 8 }
+
 W.SPELLS = {
   resurrectionSickness = 15007,
   -- Forever-only spells: IDs unknown until captured with /rpgd auras.

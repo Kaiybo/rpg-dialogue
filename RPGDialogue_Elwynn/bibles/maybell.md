@@ -3,9 +3,12 @@
 ## Sources
 - https://warcraft.wiki.gg/wiki/Maybell_Maclure (Maclure Vineyards; loves Tommy Joe; families are enemies; Gramma Stonefield and William Pestle help with an invisibility potion)
 - https://warcraft.wiki.gg/wiki/The_Escape_(Alliance) (she feels guilty deceiving her family but goes to Tommy Joe)
+- https://warcraft.wiki.gg/wiki/Young_Lovers (Tommy Joe is usually at the river west of Stonefield Farm, due west of the vineyard)
+- https://warcraft.wiki.gg/wiki/Maclure (Billy is her younger brother)
+- https://warcraft.wiki.gg/wiki/A_Visit_With_Maybell (added in patch 4.0.3a: Cataclysm, not used)
 
 ## Their quests
-- A Visit With Maybell / Young Lovers: she asks you to find Tommy Joe by the river. She can't go herself.
+- Young Lovers (starts with her in Classic): she asks you to take her letter to Tommy Joe by the river. She can't go herself.
 - The Escape (turned in to her): the Invisibility Liquor. She's nervous, guilty and determined.
 
 ## Identity
@@ -36,3 +39,9 @@ Honest with you, not with her family.
 
 ## Topics
 maybell_tommy, lions_pride
+
+## Depth and voice rewrite (Elwynn, second half; authored, not canon unless sourced)
+- Billy, her little brother, is the family's worst secret-keeper; she suspects he took the necklace and doesn't ask.
+- How she met Tommy Joe: "across a fence", no more. The river visit (quiet, peacebloom from the same patch).
+- Gated: priest blessing ("you were blessing the grapes"), rogue offering to teach stealth (she refuses: they'd blame the Stonefields), heardLine billy.m_river, The Escape done.
+- Voice pass (2026-11-15): every line rewritten as whole spoken sentences (no stacked fragments); meaning, ids and conditions unchanged.

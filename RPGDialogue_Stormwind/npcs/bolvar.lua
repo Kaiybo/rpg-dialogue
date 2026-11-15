@@ -29,7 +29,7 @@ P:NPC {
       lines = {
         { id = "h_default", text = "Bolvar Fordragon. I keep the kingdom for King Anduin until his father comes home, or until he's grown. Whichever the Light allows first." },
         { id = "h_new", when = { maxLevel = 15 },
-          text = "You're young for this hall. Good. The young still believe the kingdom's worth defending. Don't lose that in Westfall." },
+          text = "You're young for this hall, and that's good, because the young still believe the kingdom's worth defending. Don't lose that in Westfall." },
         { id = "h_westfall", when = { thread = { id = "westfall_left", beat = "b3_danuvin" } },
           text = "You've been to Sentinel Hill. Stoutmantle is a better man than this court deserves. Tell him I said so, if he'll hear it from me." },
         { id = "h_varian", when = { minLevel = 30 },
@@ -79,7 +79,7 @@ P:NPC {
     },
     varian = {
       lines = {
-        { id = "v_default", text = "None I can share. Lady Prestor advised that the crown pass to Anduin, to keep order. It has kept order. It hasn't brought his father home." },
+        { id = "v_default", text = "None I can share. Lady Prestor advised that the crown pass to Anduin, to keep order, and it has kept order, but it hasn't brought his father home." },
       },
       choices = { { text = "I hope he returns.", next = "BACK", fx = { affinity = 1 } } },
     },
@@ -94,7 +94,7 @@ P:NPC {
       },
     },
     prestor = {
-      lines = { { id = "pr_default", text = "Her counsel has kept this city steady through a hard few years. She's sharper than half the court together. Some find her cold. I find her useful, and a regent needs useful more than warm." } },
+      lines = { { id = "pr_default", text = "Her counsel has kept this city steady through a hard few years, and she's sharper than half the court together. Some find her cold; I find her useful, and a regent needs useful more than warm." } },
       choices = {
         { text = "Useful to whom?", next = "BACK", fx = { trait = { skeptical = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -102,7 +102,7 @@ P:NPC {
     },
     church = {
       big = true,
-      lines = { { id = "ch_default", text = "His Grace has my ear whenever he wants it, and the Cathedral's doors are the one thing in this city nobody argues about. Pray for the king. Both of them." } },
+      lines = { { id = "ch_default", text = "His Grace has my ear whenever he wants it, and the Cathedral's doors are the one thing in this city nobody argues about. Pray for the king, both of them, if you would." } },
       choices = {
         { text = "I pray for them every day.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
         { text = "And for the people outside the walls?", next = "church_outside", fx = { align = { light = 1 } } },
@@ -113,18 +113,18 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     refugee = {
-      lines = { { id = "rf_default", text = "Then you know what it is to have a home taken, and another one offered. I hope Stormwind has been a good one. Tell me if it hasn't. I'd rather hear it from you than from a riot." } },
+      lines = { { id = "rf_default", text = "Then you know what it is to have a home taken and another one offered. I hope Stormwind has been a good one, and if it hasn't, tell me, because I'd rather hear it from you than from a riot." } },
       choices = { { text = "It has, Highlord.", next = "BACK", fx = { affinity = 2, standing = { stormwind = 1 } } } },
     },
     suspicion = {
-      lines = { { id = "s_default", text = "Then show me. I'm not a stubborn man. I'm a careful one. The difference matters, in this chair." } },
+      lines = { { id = "s_default", text = "Then show me. I'm not a stubborn man but a careful one, and the difference matters, in this chair." } },
       choices = { { text = "Understood.", next = "BACK" } },
     },
   },
 
   topics = {
     defias = { { id = "tp_defias", text = "Thieves with a grievance and better organization than I'd like. Westfall bleeds for it." } },
-    westfall = { { id = "tp_westfall", text = "Stoutmantle holds it. Barely, and without us. I'm not proud of that." } },
+    westfall = { { id = "tp_westfall", text = "Gryan Stoutmantle holds Westfall with farmers and pitchforks, and he does it without a single soldier from this city. I'm not proud of that." } },
     tome_of_divinity = { { id = "tp_tome", text = "Duthorian Rall's test. Pass it, and you'll have earned the right to call yourself one of us." } },
     _none = { { id = "tp_none", text = "Bring that to one of my officers. I have a kingdom on this desk." } },
   },

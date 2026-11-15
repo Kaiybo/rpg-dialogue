@@ -12,7 +12,7 @@
 ## Identity
 Trader and gossip · Goldshire · Alliance · Human · quest giver
 Personality: excitable, nervous, wheedling, harmless, a little shifty
-Speech: says the key phrase twice; exclamations; "my friend"
+Speech: says the key phrase twice, inside the sentence with a comma ("at your service, at your service!"), never as stacked fragments (voice pass, 1.10.0); exclamations; "my friend"
 Knows and cares about: gold dust, prices, rumors
 Relationships: Dughan (wary of him); Farley (competition in gossip)
 Default attitudes: everyone is a customer or a threat; rogues are both
@@ -37,3 +37,9 @@ Rumors: often right (murlocs). About his own business: unreliable.
 
 ## Topics
 gold_dust, murlocs_east, the_collector, hogger
+
+## Depth pass (Elwynn 1.10.0)
+Sources read: the wiki pages Remy "Two Times", Gold Dust Exchange, A Fishy Peril.
+- Canon used: a merchant who came from Redridge to the east looking for business; repeats the ends of his sentences; kobolds carry gold dust (Fargodeep to the south, Jasperlode to the northeast), "best price in town"; his reward includes a token "from associates of mine"; murlocs swimming up the streams of eastern Elwynn, scaring the fish and attacking gentle folk; Dughan more worried about gnolls and bandits.
+- Branches: news and the murlocs (asking you to persuade Dughan), where he's from (and the dust), his associates (after Gold Dust Exchange), a fence joke for rogues; the Intimidate branch and the thread unchanged.
+- Authored, not canon: his evasions about Redridge ("better prices"); dwarves and gold.

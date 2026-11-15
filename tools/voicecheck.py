@@ -81,6 +81,27 @@ def reference_shingles():
     return out
 
 
+def _sentences(t):
+    t = re.sub(r"\{[a-z]+(:[^}]*)?\}", "X", t)
+    return [p.strip() for p in re.split(r"(?<=[.!?])\s+", t) if p.strip()]
+
+
+def _words(s):
+    return len(re.findall(r"[A-Za-z0-9'’]+", s))
+
+
+def is_choppy(text):
+    ss = _sentences(text)
+    if ss and _words(ss[0]) <= 2 and len(ss) > 1:
+        ss = ss[1:]
+    short = [_words(x) <= 4 for x in ss]
+    run = best = 0
+    for sh in short:
+        run = run + 1 if sh else 0
+        best = max(best, run)
+    return best >= 2 or sum(short) >= 3
+
+
 def main():
     plain, regex = load_banned(os.path.join(P.ROOT, "banned_phrases.txt"))
     fails, warns = [], []
@@ -127,6 +148,13 @@ def main():
         for rx in regex:
             if rx.search(text):
                 fails.append(f"banned pattern /{rx.pattern}/ in {gid}: {text}")
+
+    # Clipped fragments ("He did. I didn't.", "Big. Angry. Southwest."): people in Warcraft
+    # talk in whole sentences. Fails a line with two short sentences (4 words or fewer) in a
+    # row, or three anywhere, after an optional opening interjection ("Ah!", "Oh.").
+    for owner, pack, gid, text, slot, is_choice in entries:
+        if not is_choice and is_choppy(text):
+            fails.append(f"choppy (stacked short sentences; write it as a person would say it) in {gid}: {text}")
 
     # Copied Blizzard wording (only checkable with local reference files)
     ref = reference_shingles()

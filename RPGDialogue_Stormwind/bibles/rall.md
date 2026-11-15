@@ -36,3 +36,8 @@ Trustworthy.
 
 ## Topics
 tome_of_divinity, northshire_abbey, defias
+
+## Depth pass (Stormwind 1.6.0)
+Sources added: https://warcraft.wiki.gg/wiki/The_Tome_of_Divinity_(human_9) (Gazin takes the Defias Script to the King's advisors after Rall has seen it), https://warcraft.wiki.gg/wiki/The_Test_of_Righteousness (Jordan Stilwell was to be a paladin before his father's craft took him; among the most faithful), https://warcraft.wiki.gg/wiki/The_Tome_of_Nobility_(Stormwind_City) (Arthur the Faithful sends paladins at 40 to Rall and warns against arrogance; Rall speaks of treacherous enemies).
+Branches: the virtues (the Scarlet Crusade as bravery without compassion), why he tests (and who tests him), the Tome (charity first; Stephanie), the test of valor (Daphne, Jordan), the Defias script (after the Symbol of Life), a squire of the fallen Order, a priest's question.
+Authored, not canon: Rall keeps count of paladins who come back worse; he tells priests the Light is a test, not a gift; the Crusade as his example of bravery without compassion (an opinion).

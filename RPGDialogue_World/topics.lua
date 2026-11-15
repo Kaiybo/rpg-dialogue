@@ -29,6 +29,8 @@ P:Topic { id = "windstones", keywords = { "windstone" }, name = "Windstones", ca
 P:Topic { id = "blackrock", keywords = { "Blackrock" }, name = "The Blackrock orcs", category = "threats", learned = "Lakeshire" }
 P:Topic { id = "everstill_bridge", name = "The Everstill Bridge", category = "places", learned = "Foreman Oslow" }
 P:Topic { id = "redridge_gnolls", name = "Redridge's gnolls", category = "threats", learned = "Verner Osgood" }
+P:Topic { id = "stonewatch_keep", keywords = { "Stonewatch" }, name = "Stonewatch Keep", category = "places", learned = "Magistrate Solomon or Marshal Marris in Lakeshire" }
+P:Topic { id = "keeshan", keywords = { "Keeshan" }, name = "Corporal Keeshan", category = "people", learned = "the notice outside the Lakeshire Inn, or Marshal Marris" }
 P:Topic { id = "night_watch", name = "The Night Watch", category = "people", learned = "Darkshire" }
 P:Topic { id = "worgen", keywords = { "worgen" }, name = "The worgen of Duskwood", category = "threats", learned = "Darkshire, or the woods" }
 P:Topic { id = "stalvan", keywords = { "Stalvan" }, name = "Stalvan Mistmantle", category = "rumors", learned = "Tavernkeep Smitts, or the Legend of Stalvan" }
@@ -71,3 +73,13 @@ P:Topic { id = "background", name = "Their story", category = "anyone", standard
 P:Topic { id = "trade", name = "Their work", category = "anyone", standard = true, order = 2, learned = "anyone" }
 P:Topic { id = "advice", name = "A little advice", category = "anyone", standard = true, order = 3, learned = "anyone" }
 P:Topic { id = "rumors", name = "Latest rumors", category = "anyone", standard = true, order = 4, learned = "anyone" }
+
+-- Stormwind (Stormwind pack 1.6.0)
+P:Topic { id = "si7", keywords = { "SI:7" }, name = "SI:7", category = "people", learned = "Mathias Shaw, Renzik or Elling Trias in Stormwind" }
+P:Topic { id = "stonemasons", keywords = { "Stonemasons" }, name = "The Stonemasons' Guild", category = "people", learned = "Baros Alexston, Mathias Shaw or Arthur the Faithful" }
+P:Topic { id = "the_stockade", keywords = { "Stockade" }, name = "The Stockade", category = "places", learned = "Warden Thelwater, or Baros Alexston's Bazil Thredd" }
+P:Topic { id = "valley_of_heroes", keywords = { "Valley of Heroes" }, name = "The Valley of Heroes", category = "places", learned = "General Marcus Jonathan" }
+
+-- Elwynn (Elwynn pack 1.10.0)
+P:Topic { id = "heroes_vigil", keywords = { "Heroes' Vigil", "Stone of Remembrance" }, name = "Heroes' Vigil", category = "places", learned = "Henze Faulk, on Stone Cairn Lake" }
+P:Topic { id = "brotherhood_northshire", keywords = { "Brotherhood of Northshire" }, name = "The Brotherhood of Northshire", category = "people", learned = "Brother Sammuel at Northshire Abbey" }

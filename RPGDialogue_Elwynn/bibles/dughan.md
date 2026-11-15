@@ -44,3 +44,9 @@ Trustworthy on bounties and quests. Bends the truth about the Defias, for the to
 
 ## Topics
 defias, hogger, murlocs_east, the_collector, gold_dust
+
+## Depth pass (Elwynn 1.10.0)
+Sources read: the wiki pages Marshal Dughan, Report to Goldshire, The Fargodeep Mine, The Jasperlode Mine, Westbrook Garrison Needs Help!, WANTED: "Hogger" (Classic), A Fishy Peril, Further Concerns, The Collector (Classic), Manhunt (Classic), Cloth and Leather Armor, Goldshire.
+- Canon used: in charge of Goldshire's security; worried about kobolds north and gnolls and thieves west; "hard enough keeping order without new troubles" (gossip); most of the army busy "for who knows which noble", politics hard to follow (Report to Goldshire); Fargodeep due south between the Stonefield and Maclure homesteads, Jasperlode east to the Tower of Azora then north into the foothills, Northshire's mine "isn't the only one with problems"; Westbrook wants soldiers he can't spare; he respects Remy as a merchant but needs a military report before sending troops east; Thomas confirmed murlocs, aggressive and semi-intelligent; Rolf Hartford and Malakai Stone died to the murlocs (Goldshire page); "we haven't had our people working the Elwynn mines for months" (The Collector); the Collector at the Brackwell Pumpkin Patch and the Stonemasons' Guild ring (Manhunt); Hogger has overpowered all attempts at capture and the army put a bounty on him.
+- Branches: Defias / confront / admit (now with the Manhunt ring, and who he guesses trains them), Hogger, a sub-hub of Elwynn's threats (`hub = true`: the mines and the Collector, the west and Westfall, the murlocs and the lost footmen), the army abroad; replies for Westfall farmhands, minor nobles, and priests after Discover Rolf's Fate.
+- Authored, not canon: his guess aloud ("someone who was owed money"); "a desk I see more of than my bed"; asking a priest to say words at Thomas's bridge.

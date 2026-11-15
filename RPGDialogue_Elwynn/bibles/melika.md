@@ -38,3 +38,9 @@ Trustworthy about the inn and who comes through it; secondhand about everything 
 
 ## Topics
 lions_pride (her own take), hogger, defias, murlocs_east, maybell_tommy, gold_dust; brush-off sends you to Farley.
+
+## Depth pass (Elwynn 1.10.0)
+Sources read: the wiki pages Melika Isenstrider, Lion's Pride Inn (Tomas the cook, Toddrick the butcher, Barkeep Dobbins), Innkeeper Farley (he and his wife lend a sympathetic ear).
+- Branches now return with BACK and have again lines: the kitchen (who cooks), news (who'd know more), Falkhaan, Farley (what he's like when someone's crying into their ale), the road for level 18+, a healer's errand for priests, the Skyborne greeting.
+- Test pins: the first reply stays "What's in the kitchen tonight?" and leads to the stew; h_sky_druid and "Winds be with you." stay.
+- Authored, not canon: Dobbins' scalded hand; tasting the stew behind Tomas's back.

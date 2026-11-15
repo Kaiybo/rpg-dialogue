@@ -35,3 +35,9 @@ Trustworthy, biased about the inn.
 
 ## Topics
 lions_pride, northshire_abbey, defias
+
+## Depth and voice rewrite (Elwynn, second half; authored, not canon unless sourced)
+- Hub: the inn and Farley (kind, loud; they argue whose job is harder), why he stands on the road, advice (rest before you need to; rest comes to anyone under the inn's roof), Melika (family, relation still unstated).
+- Westfall folk pass him going the other way, asking where there's work; he points them at Eastvale and Farley's kitchen.
+- Gated: priest (rest as prayer, vespers joke), human_abbey_novice (the first night out of the Abbey), level 20+ return.
+- Voice pass (2026-11-15): every line rewritten as whole spoken sentences (no stacked fragments); meaning, ids and conditions unchanged.

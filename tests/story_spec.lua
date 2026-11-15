@@ -77,7 +77,7 @@ describe("Ask about", function()
     ns.Conversation.Ask("hogger")
     contains(text(ns), "Dughan's problem")
     ns.Conversation.Ask("maybell_tommy")
-    eq(text(ns), "Not a garrison matter. Ask the brothers. They read.")
+    eq(text(ns), "That's not a garrison matter. Ask the brothers; they read.")
     ok(ns.char.topics.hogger.asked, "asking is remembered")
   end)
 

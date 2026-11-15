@@ -38,3 +38,9 @@ blackrock
 
 ## Depth pass (0.25.0, authored, not canon)
 A repeat-visit line (night line for some) in the voice above.
+
+## Depth rewrite (Redridge 1.3.0)
+Sources read: John_J._Keeshan (Classic section only), Missing_In_Action (Classic text: his regiment overpowered, most killed, a blow to the head, held in a cave, hurt badly; on return, "Corporal Keeshan of the 12th Sabre Regiment"), 12th_Sabre_Regiment (a mounted cavalry unit), Missing:_Corporal_Keeshan, Render's_Rock. Bravo_Company read and not used: the name comes from Cataclysm.
+- Fixed: h_rescue no longer says Marris sent you (Keeshan starts the quest himself).
+- Branches: what he saw (orders, numbers), the fall of Stonewatch (the 12th Sabre), can he walk. Gated: priest (heals his head), warrior, after the rescue.
+- Authored, not canon: he'll write down his comrades' names for Marris; overheard orders (earlier pass); "cavalry on a wall".

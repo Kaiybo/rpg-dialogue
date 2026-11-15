@@ -13,7 +13,7 @@ Billy Maclure · Maclure Vineyards · Alliance · Human · child
 Personality: cheeky, hungry, wounded at being suspected
 Speech: kid talk, "Ma says", repeats himself for emphasis
 Knows and cares about: pie, Goldtooth, who goes where
-Relationships: the Maclures (family; exact ties to Maybell unknown, so unstated), Bernice (accuser, pie-maker)
+Relationships: Maybell's little brother (https://warcraft.wiki.gg/wiki/Maclure), Bernice (accuser, pie-maker)
 Default attitudes: grown-ups don't listen
 Lore anchors: Year 1
 Never says: where Goldtooth is, or what Goldtooth is (not sourced)
@@ -28,7 +28,7 @@ Pie; vindication.
 None.
 
 ## Reliability
-Honest, and right.
+Lies about the necklace: he took it and dropped it while playing near the Fargodeep Mine, where Goldtooth picked it up (https://warcraft.wiki.gg/wiki/Billy_Maclure; the Goldtooth turn-in has his slip, "I dropped, er... I mean I saw"). Right about who has it now.
 
 ## What he notices
 1. Food: cooks.
@@ -39,3 +39,9 @@ maybell_tommy, kobolds
 
 ## Depth pass (0.25.0, authored, not canon)
 A repeat-visit line in the voice above.
+
+## Depth and voice rewrite (Elwynn, second half; authored, not canon unless sourced)
+- s_slip (key) is his slip, paraphrased; Bernice can be told. m_river (key) is the line Maybell answers.
+- Goldtooth "screams if you go near his candles" (paraphrased; his Blizzard bark is not quoted).
+- Gated: Goldtooth active or Back to Billy done (where he was playing), rogue.
+- Voice pass (2026-11-15): every line rewritten as whole spoken sentences (no stacked fragments); meaning, ids and conditions unchanged.
