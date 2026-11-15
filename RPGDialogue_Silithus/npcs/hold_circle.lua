@@ -334,7 +334,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Look behind you, mortal. The hive stirs." },
+    { id = "g_default", text = "Look behind you, mortal, and see how the hive stirs." },
     { id = "g_back", when = { metBefore = true }, text = "You again. The sands have shifted a little since you were last here." },
     { id = "g_risen", when = { questDone = TODO_QUEST("What Tomorrow Brings") }, text = "It is as it should be. My watch nears its end." },
   },
@@ -394,7 +394,7 @@ P:NPC {
       },
     },
     promise_worthy = {
-      lines = { { id = "pw_default", text = "Not yet. Perhaps not ever. But you came and asked, and most do not, so there is that." } },
+      lines = { { id = "pw_default", text = "Not yet, and perhaps not ever, but you came and asked, and most do not." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     hive = {

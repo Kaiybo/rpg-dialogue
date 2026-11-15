@@ -22,7 +22,7 @@ P:NPC {
 
   notice = {
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
-      text = "A priest. My wife wore robes not unlike yours, and for a moment, with the sun behind you, I thought... no matter. You're welcome here." },
+      text = "A priest. My wife wore robes not unlike yours, and for a moment, with the sun behind you, I thought you were someone else. You're welcome here, all the same." },
     { id = "n_shadow", cat = "form", place = "before", when = { form = "shadow" },
       text = "Put that shadow away while you stand in my hall, if you would. I have seen what it does to the faithful, and I don't care to see it again." },
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
@@ -602,7 +602,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else? The view won't watch itself." },
-        { id = "h_again2", text = "Go on. Quickly." },
+        { id = "h_again2", text = "Go on, and be quick about it." },
       },
       choices = {
         { text = "What's wrong with the Commander?", next = "cmd" },
@@ -639,7 +639,7 @@ P:NPC {
       },
     },
     vish_curt = {
-      lines = { { id = "vu_default", text = "From questions, mostly. Off you go." } },
+      lines = { { id = "vu_default", text = "From questions, mostly, so off you go." } },
       choices = { { text = "As you say.", next = "BACK" } },
     },
 
