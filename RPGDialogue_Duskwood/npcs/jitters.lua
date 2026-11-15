@@ -10,49 +10,49 @@ P:NPC {
   notices = { "fright", "hunger" },
 
   greetings = {
-    { id = "g_flinch", text = "Wh- who's there? Oh. Oh, it's a person. Good. You're a person, right?" },
-    { id = "g_food", when = { questActive = TODO_QUEST("Jitters' Growling Gut") }, text = "Food? Is that food? Please say that's food." },
-    { id = "g_after", when = { questDone = TODO_QUEST("Return to Sven") }, text = "Oh. You. You told him. Didn't you. It's fine. It's fine." },
-    { id = "g_ravenhill", when = { questActive = TODO_QUEST("Raven Hill") }, text = "Don't! Don't shoot! It's only me. Only Jitters. Harmless Jitters." },
+    { id = "g_flinch", text = "Wh-who's there... oh, it's only a person, thank the Light, because you are a person, aren't you?" },
+    { id = "g_food", when = { questActive = TODO_QUEST("Jitters' Growling Gut") }, text = "Is that food? Please tell me that's food you've got there." },
+    { id = "g_after", when = { questDone = TODO_QUEST("Return to Sven") }, text = "Oh, it's you... you told him, didn't you, and it's fine, really, it's fine." },
+    { id = "g_ravenhill", when = { questActive = TODO_QUEST("Raven Hill") }, text = "Don't shoot, please don't shoot, it's only me, harmless old Jitters!" },
   },
 
   notice = {
     { id = "n_stealth", cat = "fright", place = "replace", when = { stealthed = true },
-      text = "AH! Don't do that! Don't ever do that! My heart's not what it was. It was never much to start with." },
+      text = "AH! Don't ever do that to me again, my heart's not what it was, and it was never much to start with." },
     { id = "n_worgen", cat = "fright", when = { form = { "bear", "cat" } },
-      text = "Get back! Get- oh. A druid. You're a druid. I knew that. I'm going to sit down now." },
+      text = "Get back, get- oh, you're a druid, of course you're a druid, I knew that, and I'm just going to sit down for a moment now." },
     { id = "n_cook", cat = "hunger", when = { profession = "Cooking" },
-      text = "You smell like a kitchen. Any chance you've got something? Anything? I've been eating bark. The bark here tastes like fog." },
+      text = "You smell like a kitchen... I don't suppose you've got anything on you, anything at all? I've been eating bark, and the bark here tastes like fog." },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "Jitters, they call me. On account of the jitters. I jump at things. You'd jump too, if you'd seen what I've seen in these woods." },
+        { id = "h_default", text = "They call me Jitters, on account of the jitters, because I jump at things. You'd jump too, if you'd seen what I've seen in these woods." },
         { id = "h_ravenhill", tags = { "news" }, when = { questActive = TODO_QUEST("Raven Hill") },
-          text = "A monster? In Raven Hill? N-no. That light in the window was me. Sorry about the light. I'll stop lighting it." },
+          text = "A monster, in Raven Hill? N-no, that light in the window was only me, and I'm sorry about the light, I'll stop lighting it, I promise." },
         { id = "h_found", tags = { "news" }, when = { questActive = TODO_QUEST("Finding the Shadowy Figure") },
-          text = "That's my book. My old book. You dug up the stump. Oh, no. Then you've read it. Then you only know half." },
+          text = "That's my book, my old book... you dug up the stump, didn't you, oh no, so you've read it, and now you only know half of it." },
         { id = "h_gut", tags = { "news" }, when = { questActive = TODO_QUEST("Jitters' Growling Gut") },
-          text = "Can't go to town. Can't go in the woods. Can't go anywhere. And I'm so hungry I can hear my stomach arguing with itself." },
+          text = "I can't go to town and I can't go in the woods, I can't go anywhere, and I'm so hungry I can hear my stomach arguing with itself." },
         { id = "h_gut_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Jitters' Growling Gut"), days = 3 } },
-          text = "That was the best meal I've had in a year. Maybe ever. Don't tell anyone where I am. Please." },
+          text = "That was the best meal I've had in a year, maybe ever, so please don't tell anyone where I am." },
         { id = "h_sven", when = { questActive = TODO_QUEST("Return to Sven") },
-          text = "You're going to tell Sven, aren't you. Tell him I didn't do anything. Tell him I just watched. That's worse, isn't it. It's worse." },
+          text = "You're going to tell Sven, aren't you? Tell him I didn't do anything, that I only watched... but that's worse, isn't it, it's so much worse." },
         { id = "h_defias", when = { topicKnown = "defias" },
-          text = "I wore the red, once. Before. I'm not proud of it. I'm not proud of much. I'm alive, though. That's something." },
+          text = "I wore the red, once, before all this, and I'm not proud of it, or of much else, but I'm alive, and I suppose that's something." },
         { id = "h_skyborne", when = { race = "Skyborne" },
-          text = "AH! Oh. An elf. From the sky? I didn't know elves came from the sky. I don't know anything. That's fine. That's fine." },
+          text = "AH! Oh... an elf, from the sky? I didn't know elves came from the sky, but then I don't know anything, and that's fine, that's fine." },
         { id = "h_priest", when = { class = "PRIEST" },
-          text = "A priest? Are you here for me? I'm not dead. I'm nearly sure I'm not dead. Check, would you?" },
+          text = "A priest? Are you here for me? I'm not dead, I'm nearly sure I'm not dead, but you'd better check, just in case." },
         { id = "h_rogue", when = { class = "ROGUE" },
-          text = "You walk like them. Quiet. Heel first. Please say you're not Brotherhood. Please say nobody sent you." },
-        { id = "h_sleep", when = { metBefore = true }, text = "I slept two hours last night. Two whole hours. Nobody came for me. I-I'm almost disappointed. No. No, I'm not." },
+          text = "You walk like them, quiet and heel first... please say you're not Brotherhood, please say nobody sent you." },
+        { id = "h_sleep", when = { metBefore = true }, text = "I slept two whole hours last night and nobody came for me, and I-I'm almost disappointed... no, no, I'm not, I'm not at all." },
       },
       again = {
-        { id = "h_again", text = "W-what else? Ask quick. Something's moving by the well. It's probably nothing." },
-        { id = "h_again2", text = "You're still here. Good. Stay a bit. Nobody stays." },
+        { id = "h_again", text = "W-what else? Ask quickly, because something's moving by the well, though it's probably nothing." },
+        { id = "h_again2", text = "You're still here, that's good, stay a bit, would you? Nobody ever stays." },
       },
       choices = {
         { text = "What did you see?", next = "saw" },
@@ -69,7 +69,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "s_default", key = true,
-          text = "Riders. In black. At the Yorgen farm, looking for something. They killed everyone. I was in the barn. I didn't move. I didn't do anything. I just watched." },
+          text = "Riders in black came to the Yorgen farm looking for something, and they killed everyone there. I was in the barn the whole time, and I didn't move, I didn't do anything, I just watched." },
       },
       choices = {
         { text = "You couldn't have stopped them.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 }, align = { light = 1 } } },
@@ -79,7 +79,7 @@ P:NPC {
     },
     saw_wife = {
       lines = {
-        { id = "sw_default", text = "She was brave. Braver than anyone. She told them she knew where the thing was, so they'd take her and leave the children. They didn't believe her.",
+        { id = "sw_default", text = "She was braver than anyone I've ever known. She told them she knew where the thing was, so they'd take her and leave the children, but they didn't believe her.",
           fx = { learn = { "dark_riders" } } },
       },
       choices = {
@@ -90,7 +90,7 @@ P:NPC {
     saw_name = {
       big = true,
       lines = {
-        { id = "sn_default", text = "I don't know. I never knew. He called her 'dearest', the children called her 'mama'. I'm the only one who saw what she did, and I don't know her name." },
+        { id = "sn_default", text = "I don't know, I never knew... he called her 'dearest' and the children called her 'mama', and I'm the only one who saw what she did, and I don't even know her name." },
       },
       choices = {
         { text = "Then remember what she did.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
@@ -100,7 +100,7 @@ P:NPC {
 
     hiding = {
       lines = {
-        { id = "h2_default", text = "From the worgen. From the riders. From Sven, mostly. He saw me burying something once. He thinks it's my fault. Maybe he's right." },
+        { id = "h2_default", text = "From the worgen, and the riders, and from Sven most of all, because he saw me burying something once and he thinks it's all my fault, and maybe he's right." },
       },
       choices = {
         { text = "What did you bury?", next = "hiding_book" },
@@ -109,7 +109,7 @@ P:NPC {
     },
     hiding_book = {
       lines = {
-        { id = "hb_default", text = "My journal. The first one. I couldn't run and carry it, so I buried it by the stump. I started another. Writing helps. Don't ask me why." },
+        { id = "hb_default", text = "My journal, the first one; I couldn't run and carry it, so I buried it by the stump and started another. Writing helps, though don't ask me why." },
       },
       choices = {
         { text = "Writing is a kind of confession.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
@@ -119,7 +119,7 @@ P:NPC {
 
     mine = {
       lines = {
-        { id = "mi_default", text = "I came with... friends. Working men. We went into a mine called Roland's Doom. There was something in the rubble. Rune-carved wood. I pulled it free." },
+        { id = "mi_default", text = "I came here with... friends, working men, and we went into a mine called Roland's Doom. There was something in the rubble, rune-carved wood, and I pulled it free." },
       },
       choices = {
         { text = "What happened?", next = "mine_worgen" },
@@ -129,7 +129,7 @@ P:NPC {
     mine_worgen = {
       big = true,
       lines = {
-        { id = "mw_default", text = "The torches went wrong, and whispers came out like shouts. Then wolves, out of the floor and off the ceiling, and I ran. I'm good at running.",
+        { id = "mw_default", text = "The torches went wrong, and whispers came out like shouts, and then the wolves came out of the floor and off the ceiling, and I ran. I'm good at running.",
           fx = { learn = { "worgen" } } },
       },
       choices = {
@@ -139,7 +139,7 @@ P:NPC {
     },
     mine_defias = {
       lines = {
-        { id = "md_default", text = "...Yes. The red. We were doing well in Duskwood, they said. Then the mine. Now I'm nobody's. They don't let you leave. I left.",
+        { id = "md_default", text = "...Yes, I wore the red. We were doing well in Duskwood, they said, right up until the mine, and now I'm nobody's, because they don't let you leave, and I left.",
           fx = { learn = { "defias" } } },
       },
       choices = {
@@ -150,7 +150,7 @@ P:NPC {
 
     food = {
       lines = {
-        { id = "fd_default", text = "Grubs. Weeds. Bark, once. I'd go to town, but town has eyes, and the road has teeth." },
+        { id = "fd_default", text = "Grubs and weeds, mostly, and bark once, when it got bad. I'd go into town, but town has eyes, and the road has teeth." },
       },
       choices = {
         { text = "I'll bring you something.", next = "food_grual" },
@@ -159,16 +159,16 @@ P:NPC {
     },
     food_grual = {
       lines = {
-        { id = "fg_default", text = "Would you? Chef Grual at the Scarlet Raven makes crab cakes. I don't care what's in them. I really, truly don't." },
+        { id = "fg_default", text = "Would you? Chef Grual at the Scarlet Raven makes crab cakes, and I don't care what's in them, I really, truly don't." },
         { id = "fg_done", when = { questDone = TODO_QUEST("Return to Jitters") },
-          text = "Again? You'd do it again? Grual's cakes. Anything Grual makes. I'm not proud. I used to be. It didn't fill me up." },
+          text = "You'd do it again? Grual's cakes, or anything Grual makes, really... I used to be proud, but it never once filled me up." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2, standing = { raven_hill = 1 } } } },
     },
 
     pray = {
       lines = {
-        { id = "pr_default", text = "Pray? With me? I never learned. I prayed once, in the barn. For her. It didn't work." },
+        { id = "pr_default", text = "You want to pray with me, when I never even learned how? I prayed once, in the barn, for her, and it didn't work." },
       },
       choices = {
         { text = "It isn't a trade. Pray anyway.", next = "pray_together" },
@@ -178,7 +178,7 @@ P:NPC {
     pray_together = {
       big = true,
       lines = {
-        { id = "pt_default", text = "...All right. You say the words. I'll keep my eyes open. Somebody has to." },
+        { id = "pt_default", text = "...All right, you say the words, and I'll keep my eyes open, because somebody has to." },
       },
       choices = {
         { text = "Then keep watch. I'll pray.", next = "BACK", fx = { affinity = 3, align = { light = 1 }, trait = { pious = 1 } },
@@ -189,7 +189,7 @@ P:NPC {
 
     rogue = {
       lines = {
-        { id = "ro_default", text = "I know. I know! I didn't run from the Brotherhood. I ran from the mine. Tell them that. No. Don't tell them anything." },
+        { id = "ro_default", text = "I know they don't, I know! I didn't run from the Brotherhood, I ran from the mine, so tell them that... no, wait, don't tell them anything at all." },
       },
       choices = {
         { text = "I won't tell them.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
@@ -199,13 +199,13 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Jitters. That's all of me now. The rest I wrote down and gave away." } },
-    advice = { { id = "tp_ad", text = "Never pick anything up in a mine. Never. I don't care how old it looks. Leave it in the rocks." } },
-    worgen = { { id = "tp_worgen", text = "My friends. The ones I came here with. The wolves got them. I ran. I'm good at running." } },
-    defias = { { id = "tp_defias", text = "Don't. Please. They don't let people leave. I left." } },
-    stalvan = { { id = "tp_stalvan", text = "The manor? I don't go near the manor. I don't go near anything." } },
-    dark_riders = { { id = "tp_riders", text = "Don't say it so loud. They're still looking. I know they're still looking." } },
-    night_watch = { { id = "tp_watch", text = "They'd ask questions. I don't have good answers. I've got true ones, which is worse." } },
-    _none = { { id = "tp_none", text = "I don't know! I don't know anything! That's how I've stayed alive." } },
+    background = { { id = "tp_bg", text = "I'm Jitters, and that's all there is of me now, because the rest I wrote down and gave away." } },
+    advice = { { id = "tp_ad", text = "Never pick anything up in a mine, never, I don't care how old it looks; just leave it in the rocks where it is." } },
+    worgen = { { id = "tp_worgen", text = "They got my friends, the ones I came here with, and I ran, because I'm good at running." } },
+    defias = { { id = "tp_defias", text = "Please don't ask me about them, because they don't let people leave, and I left." } },
+    stalvan = { { id = "tp_stalvan", text = "The manor? I don't go near the manor; I don't go near anything if I can help it." } },
+    dark_riders = { { id = "tp_riders", text = "Don't say it so loud, they're still looking, I know they're still looking." } },
+    night_watch = { { id = "tp_watch", text = "They'd only ask questions, and I don't have good answers, just true ones, which is worse." } },
+    _none = { { id = "tp_none", text = "I don't know, I don't know anything, and that's how I've stayed alive this long!" } },
   },
 }

@@ -13,7 +13,7 @@
 ## Identity
 Jitters · Raven Hill · Alliance (friendly to both) · Human · questgiver
 Personality: terrified, guilty, honest about his cowardice, oddly likeable
-Speech: stammers, repeats himself, sudden confessions
+Speech: stammers and runs on in one nervous breath (dashes, ellipses, "it's fine, it's fine"), sudden confessions; never a string of fragments
 Knows and cares about: staying alive, the riders, his guilt, Sven's wife, food
 Relationships: Sven Yorgen (fear, guilt), the Defias (left them), Smitts (an unpaid tab, authored), Grual (feeds him)
 Default attitudes: everyone is a threat until proven otherwise; rogues most of all

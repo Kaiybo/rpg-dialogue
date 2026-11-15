@@ -18,7 +18,7 @@
 ## Identity
 Sven Yorgen · camp by the Hushed Bank · Alliance · Human · questgiver
 Personality: bitter, blunt, grieving, hard to warm
-Speech: short, flat, sudden bursts of feeling
+Speech: plain, blunt, whole sentences with little ornament; sudden bursts of feeling
 Knows and cares about: his lost family, the riders, Morbent Fel, Jitters, the old green forest
 Relationships: Jitters (blame), Lars (companion), the Carevins (supply him), Bishop Farthing (trusts him), Madame Eva (consults)
 Default attitudes: suspicious of everyone; respects the prepared

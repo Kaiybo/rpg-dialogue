@@ -10,47 +10,47 @@ P:NPC {
   notices = { "soldier", "night" },
 
   greetings = {
-    { id = "g_watch", text = "Night Watch. State your business, then be useful." },
-    { id = "g_recruit", when = { questDone = TODO_QUEST("The Night Watch") }, text = "One of mine, near enough. Report." },
-    { id = "g_hero", when = { townStanding = { town = "darkshire", min = 55 } }, text = "There's the reason half my watchers are still alive. Sit. Briefly." },
-    { id = "g_ladim", when = { questActive = TODO_QUEST("Mor'Ladim") }, text = "Mor'Ladim. Take friends. I mean it." },
+    { id = "g_watch", text = "Night Watch. State your business, {class}, and then make yourself useful." },
+    { id = "g_recruit", when = { questDone = TODO_QUEST("The Night Watch") }, text = "You're one of mine now, or near enough, so report." },
+    { id = "g_hero", when = { townStanding = { town = "darkshire", min = 55 } }, text = "There's the reason half my watchers are still alive. Sit down, if only for a moment." },
+    { id = "g_ladim", when = { questActive = TODO_QUEST("Mor'Ladim") }, text = "If you're going after Mor'Ladim, take friends with you, and I mean that." },
   },
 
   notice = {
     { id = "n_soldier", cat = "soldier", when = { class = { "WARRIOR", "PALADIN", "HUNTER" }, minLevel = 20 },
-      text = "You'd make a decent watcher. We don't pay, we don't sleep, and the woods want to eat us. Interested?" },
+      text = "You'd make a decent watcher. We don't pay, we don't sleep, and the woods want to eat us, so are you interested?" },
     { id = "n_night", cat = "night", when = { timeOfDay = "night" },
-      text = "Out after dark. In Duskwood. Either you're very brave or you haven't been here long. Stay in the lamplight." },
+      text = "Out after dark, in Duskwood? Either you're very brave or you haven't been here long, so stay in the lamplight." },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "Commander Ebonlocke, the Night Watch. We're sworn to keep Darkshire's people alive. Some nights that's the whole of the oath, and it's plenty." },
+        { id = "h_default", text = "I'm Commander Ebonlocke of the Night Watch. We're sworn to keep Darkshire's people alive, and some nights that's the whole of the oath, and plenty." },
         { id = "h_watch", tags = { "news" }, when = { questActive = TODO_QUEST("The Night Watch") },
-          text = "The dead don't stay in the cemeteries out here. Thin them. Every skeleton you put down is one less at our gate." },
+          text = "The dead don't stay in the cemeteries out here, so thin them for me. Every skeleton you put down is one less at our gate." },
         { id = "h_watch_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Night Watch"), days = 3 } },
-          text = "My watchers slept a full night. Two of them didn't know what to do with themselves." },
+          text = "My watchers slept a full night, and two of them didn't know what to do with themselves." },
         { id = "h_stalvan", when = { questActive = TODO_QUEST("The Legend of Stalvan") },
-          text = "An old murder. Visiting nobles, years ago. Smitts never let it go, and now neither will you. Follow it to the end." },
+          text = "It's an old murder of some visiting nobles, years ago. Smitts never let it go, and now it seems neither will you, so follow it to the end." },
         { id = "h_morgan", when = { questActive = TODO_QUEST("Morgan Ladimore") },
-          text = "Sirra sent you with a name. Ladimore. Most of us stopped using it. We call what's left of him Mor'Ladim, when we call him anything." },
+          text = "Sirra sent you with a name, did he? Ladimore. Most of us stopped using it; we call what's left of him Mor'Ladim, when we call him anything at all." },
         { id = "h_ladim", tags = { "news" }, when = { questActive = TODO_QUEST("Mor'Ladim") },
-          text = "He walks the cemetery in a slow, crooked circle and ends at his own grave. He's killed some of my strongest. Don't go alone." },
-        { id = "h_ello", text = "The mayor writes to Stormwind. I train farmers to hold a pike. One of us will save this town, and it won't be the letters." },
+          text = "He walks the cemetery in a slow, crooked circle and always ends at his own grave. He's killed some of my strongest, so don't go alone." },
+        { id = "h_ello", text = "The mayor writes to Stormwind while I train farmers to hold a pike. One of us will save this town, and it won't be the letters." },
         { id = "h_new", when = { maxLevel = 22 },
           text = "You're green for Duskwood. Keep to the road, keep a torch lit, and don't follow lights into the trees." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "Can your people see through this fog any better than mine? No? Then you're as welcome as anyone else holding a sword." },
         { id = "h_priest", when = { class = "PRIEST" },
-          text = "A priest. Good. My watchers bleed, and all I have for them is bandages and bad jokes. Stay a night, if you can stand the howling." },
-        { id = "h_roll", when = { metBefore = true }, text = "Lost no one last night. Write that down somewhere. It doesn't happen often enough." },
+          text = "A priest, good. My watchers bleed, and all I have for them is bandages and bad jokes, so stay a night if you can stand the howling." },
+        { id = "h_roll", when = { metBefore = true }, text = "We lost no one last night. Write that down somewhere, because it doesn't happen often enough." },
       },
       again = {
-        { id = "h_again", text = "What else? Quickly. The lamps won't light themselves." },
+        { id = "h_again", text = "What else? Be quick about it, because the lamps won't light themselves." },
         { id = "h_again2", text = "Go on. I've a shift change in an hour and nothing better to do until then." },
-        { id = "h_again3", when = { timeOfDay = "night" }, text = "Ask, then. Keep half an eye on the gate while you do." },
+        { id = "h_again3", when = { timeOfDay = "night" }, text = "Ask, then, and keep half an eye on the gate while you do." },
       },
       choices = {
         { text = "What's out in the woods?", next = "woods" },
@@ -68,7 +68,7 @@ P:NPC {
     woods = {
       big = true,
       lines = {
-        { id = "w_default", text = "Worgen. Walking dead. Ogres from the pass. And the fog, which isn't a creature but behaves like one. Pick your poison." },
+        { id = "w_default", text = "Worgen, the walking dead, and ogres down from the pass. Then there's the fog, which isn't a creature but behaves like one, so pick your poison." },
       },
       choices = {
         { text = "I'll take them all.", next = "BACK", fx = { trait = { brave = 1 }, affinity = 1, learn = { "worgen" } } },
@@ -77,12 +77,12 @@ P:NPC {
       },
     },
     live = {
-      lines = { { id = "l_default", text = "Badly. Together. And with a lot of lamp oil." } },
+      lines = { { id = "l_default", text = "Badly, and together, and with a great deal of lamp oil." } },
       choices = { { text = "Fair.", next = "BACK", fx = { affinity = 1 } } },
     },
     woods_dead = {
       lines = {
-        { id = "wd_default", text = "The cemeteries. Raven Hill's has swallowed the village it served. The scouts say something in a house above it keeps the dead walking. A man, not a monster." },
+        { id = "wd_default", text = "From the cemeteries, and Raven Hill's has swallowed the village it served. The scouts say something in a house above it keeps the dead walking, and that it's a man, not a monster." },
       },
       choices = {
         { text = "Who is he?", next = "woods_fel" },
@@ -91,7 +91,7 @@ P:NPC {
     },
     woods_fel = {
       lines = {
-        { id = "wf_default", text = "Morbent Fel. A necromancer on Forlorn Rowe, above the graves. Sven Yorgen, out by the western river, has made him the whole of his life. Ask Sven.",
+        { id = "wf_default", text = "Morbent Fel, a necromancer on Forlorn Rowe, above the graves. Sven Yorgen, out by the western river, has made him the whole of his life, so ask Sven.",
           fx = { learn = { "morbent_fel" } } },
       },
       choices = {
@@ -102,7 +102,7 @@ P:NPC {
 
     help = {
       lines = {
-        { id = "hp_default", text = "Talk to my watchers at the posts. They know what needs killing this week. It changes. It never shrinks." },
+        { id = "hp_default", text = "Talk to my watchers at the posts, because they know what needs killing this week. It changes from week to week, but it never shrinks." },
       },
       choices = {
         { text = "I will.", next = "BACK", fx = { learn = { "night_watch" }, standing = { darkshire = 1 } } },
@@ -111,7 +111,7 @@ P:NPC {
     },
     help_week = {
       lines = {
-        { id = "hw_default", text = "Skeletons in Tranquil Gardens, south of town. Live through that, and there's Raven Hill's graveyard. Live through that, and I'll find you something worse." },
+        { id = "hw_default", text = "Skeletons in Tranquil Gardens, south of town. Live through that and there's Raven Hill's graveyard, and if you live through that, I'll find you something worse." },
       },
       choices = {
         { text = "You make it sound inviting.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
@@ -121,7 +121,7 @@ P:NPC {
 
     watchers = {
       lines = {
-        { id = "wa_default", text = "Farmers, bakers, a tanner, two brothers who never agree on anything. Stormwind pulled its guards out. We trained our own, and they're good." },
+        { id = "wa_default", text = "Farmers, bakers, a tanner, and two brothers who never agree on anything. Stormwind pulled its guards out, so we trained our own, and they're good." },
       },
       choices = {
         { text = "Do they get paid?", next = "watchers_pay" },
@@ -130,7 +130,7 @@ P:NPC {
     },
     watchers_pay = {
       lines = {
-        { id = "wp_default", text = "In lamp oil and gratitude. The council gives what it has, which is the lamp oil. The gratitude's mine." },
+        { id = "wp_default", text = "In lamp oil and gratitude. The council gives what it has, which is the lamp oil, and the gratitude is mine." },
       },
       choices = {
         { text = "They're lucky to have you.", next = "BACK", fx = { affinity = 1 } },
@@ -141,7 +141,7 @@ P:NPC {
     morladim = {
       big = true,
       lines = {
-        { id = "ml_default", text = "A dead knight who won't lie down. He walks Raven Hill's cemetery and kills my watchers on patrol. Some of my strongest. I'd like him gone." },
+        { id = "ml_default", text = "He's a dead knight who won't lie down. He walks Raven Hill's cemetery and kills my watchers on patrol, some of my strongest among them, and I'd like him gone." },
       },
       choices = {
         { text = "Who was he, alive?", next = "morladim_who" },
@@ -150,7 +150,7 @@ P:NPC {
     },
     morladim_who = {
       lines = {
-        { id = "mw_default", text = "Morgan Ladimore. Sirra knew him before the war and keeps the whole sorry tale on a shelf. Read it. Then come back and ask me for the hard part.",
+        { id = "mw_default", text = "Morgan Ladimore. Sirra knew him before the war and keeps the whole sorry tale on a shelf, so read it, then come back and ask me for the hard part.",
           fx = { learn = { "ladimore" } } },
       },
       choices = {
@@ -160,7 +160,7 @@ P:NPC {
     },
     morladim_know = {
       lines = {
-        { id = "mk_default", text = "Harder. Always harder. Know it anyway. The ones who don't know end up swinging at shadows, and he isn't one." },
+        { id = "mk_default", text = "No, it always makes it harder, but know it anyway. The ones who don't end up swinging at shadows, and he isn't one." },
       },
       choices = {
         { text = "I understand.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
@@ -170,7 +170,7 @@ P:NPC {
 
     ello = {
       lines = {
-        { id = "el_default", text = "Kin, yes. He talks to Stormwind; I talk to the dead, mostly with a pike. We each think the other is wasting their time. We're both right." },
+        { id = "el_default", text = "Kin, yes. He talks to Stormwind and I talk to the dead, mostly with a pike, and we each think the other is wasting their time. We're both right." },
       },
       choices = {
         { text = "Does he know you think that?", next = "ello_know" },
@@ -179,14 +179,14 @@ P:NPC {
     },
     ello_know = {
       lines = {
-        { id = "ek_default", text = "He's a politician. He knows exactly what everyone thinks, and he writes the letters anyway. I respect that more than I'd ever tell him." },
+        { id = "ek_default", text = "He's a politician, so he knows exactly what everyone thinks, and he writes the letters anyway. I respect that more than I'd ever tell him." },
       },
       choices = { { text = "Your secret's safe.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } } },
     },
 
     priest = {
       lines = {
-        { id = "pr_default", text = "Then welcome. The ones back from Raven Hill don't sleep. Some ask whether the dead up there feel anything. I've no answer for them. You might." },
+        { id = "pr_default", text = "Then you're welcome here. The ones back from Raven Hill don't sleep, and some of them ask whether the dead up there feel anything. I've no answer for them, but you might." },
       },
       choices = {
         { text = "I'll sit with them tonight.", next = "BACK", fx = { affinity = 3, standing = { darkshire = 2 }, align = { light = 1 } },
@@ -197,7 +197,7 @@ P:NPC {
     },
     priest_answer = {
       lines = {
-        { id = "pa_default", text = "Whatever's true. They'll know if it isn't. Watchers can smell a lie; Stormwind's been feeding them comfortable ones for years." },
+        { id = "pa_default", text = "Tell them whatever's true, because they'll know if it isn't. Watchers can smell a lie; Stormwind's been feeding them comfortable ones for years." },
       },
       choices = {
         { text = "Then they'll get the truth.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { pious = 1 } } },
@@ -207,7 +207,7 @@ P:NPC {
 
     stalvan = {
       lines = {
-        { id = "st_default", text = "I've had my eye on that tutor for years. Proof's the trouble. Smitts has pages; Daltry has the town's signatures. Lay them side by side and I'll do the rest." },
+        { id = "st_default", text = "I've had my eye on that tutor for years, but proof's the trouble. Smitts has pages and Daltry has the town's signatures, so lay them side by side and I'll do the rest." },
       },
       choices = {
         { text = "And if they match?", next = "stalvan_match" },
@@ -216,7 +216,7 @@ P:NPC {
     },
     stalvan_match = {
       lines = {
-        { id = "sm_default", text = "Then someone walks up to that manor north of town with a sword and my order. I'd go myself. Darkshire won't let me leave the gate." },
+        { id = "sm_default", text = "Then someone walks up to that manor north of town with a sword and my order. I'd go myself, but Darkshire won't let me leave the gate." },
       },
       choices = {
         { text = "Send me.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 }, learn = { "stalvan" } } },
@@ -227,7 +227,7 @@ P:NPC {
     stitches = {
       big = true,
       lines = {
-        { id = "sc_default", text = "It came down the road from Raven Hill bellowing for Darkshire and went through two of my camps. Don't tell me who made it. I know." },
+        { id = "sc_default", text = "It came down the road from Raven Hill bellowing for Darkshire and went through two of my camps. Don't tell me who made it, because I already know." },
       },
       choices = {
         { text = "I fetched his supplies. I didn't know.", next = "stitches_guilt" },
@@ -236,25 +236,25 @@ P:NPC {
     },
     stitches_guilt = {
       lines = {
-        { id = "sg_default", text = "Nobody did. He was sweet to half this town. Next time a hermit wants thread, ask him what he's sewing." },
+        { id = "sg_default", text = "Nobody did; he was sweet to half this town. Next time a hermit wants thread, ask him what he's sewing." },
       },
       choices = { { text = "I will.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 }, learn = { "embalmer" } } } },
     },
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Commander of the Night Watch. I don't have a story. I have a roster, and every name on it matters more than mine." } },
-    advice = { { id = "tp_ad", text = "Roads by day. Lamps by night. Never follow a light into the trees, whoever seems to be holding it." } },
-    night_watch = { { id = "tp_watch", text = "Volunteers, mostly. Farmers, bakers, a tanner who swears he's killed forty ghouls. He's killed six." } },
-    worgen = { { id = "tp_worgen", text = "Don't ask where they came from. Ask how many. That's the useful question." } },
-    stalvan = { { id = "tp_stalvan", text = "A tutor who killed the girl he taught, and the man she was to marry. Maybe more. That's the short version. The long one keeps Smitts up at night." } },
-    westfall = { { id = "tp_westfall", text = "Stoutmantle runs a militia too. I'd like to meet him. I'd like to compare notes on being forgotten." } },
+    background = { { id = "tp_bg", text = "I command the Night Watch. I don't have a story so much as a roster, and every name on it matters more than mine." } },
+    advice = { { id = "tp_ad", text = "Keep to the roads by day and the lamps by night, and never follow a light into the trees, whoever seems to be holding it." } },
+    night_watch = { { id = "tp_watch", text = "Volunteers, mostly: farmers, bakers, and a tanner who swears he's killed forty ghouls, though he's killed six." } },
+    worgen = { { id = "tp_worgen", text = "Don't ask me where they came from; ask how many there are, because that's the useful question." } },
+    stalvan = { { id = "tp_stalvan", text = "A tutor who killed the girl he taught and the man she was to marry, and maybe more besides. That's the short version, and the long one keeps Smitts up at night." } },
+    westfall = { { id = "tp_westfall", text = "Stoutmantle runs a militia too. I'd like to meet him some day and compare notes on being forgotten." } },
     ladimore = {
-      { id = "tp_ladimore_next", text = "Mor'Ladim. My watchers' worst night, most weeks. Ask what you want to know.", next = "morladim" },
-      { id = "tp_ladimore", text = "He was one of ours once, a knight of this town. Now he's the thing my patrols walk around." },
+      { id = "tp_ladimore_next", text = "Mor'Ladim is my watchers' worst night, most weeks. Ask me what you want to know.", next = "morladim" },
+      { id = "tp_ladimore", text = "He was one of ours once, a knight of this town, and now he's the thing my patrols walk around." },
     },
-    morbent_fel = { { id = "tp_morbent", text = "A necromancer up on Forlorn Rowe. The dead he raises are my watchers' business. He's Sven Yorgen's." } },
-    embalmer = { { id = "tp_embalmer", text = "A children's story, until it walked down my road. I've doubled the lamps on the Raven Hill side since." } },
-    _none = { { id = "tp_none", text = "Not a Watch matter. If it becomes one, it'll find me." } },
+    morbent_fel = { { id = "tp_morbent", text = "He's a necromancer up on Forlorn Rowe. The dead he raises are my watchers' business, but the man himself is Sven Yorgen's." } },
+    embalmer = { { id = "tp_embalmer", text = "That was a children's story until it walked down my road, and I've doubled the lamps on the Raven Hill side since." } },
+    _none = { { id = "tp_none", text = "That's not a Watch matter, and if it ever becomes one, it'll find me." } },
   },
 }

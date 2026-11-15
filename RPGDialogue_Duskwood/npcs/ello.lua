@@ -10,16 +10,16 @@ P:NPC {
   notices = { "status", "stormwind" },
 
   greetings = {
-    { id = "g_mayor", text = "The mayor's time is precious. Darkshire's more so." },
-    { id = "g_army", when = { minLevel = 25 }, text = "Has Stormwind sent you? Tell me Stormwind has sent you." },
-    { id = "g_hero", when = { townStanding = { town = "darkshire", min = 55 } }, text = "Ah. Darkshire's favourite. Come in, come in. Mind the council's chairs; they're older than they look." },
-    { id = "g_distrust", when = { townStanding = { town = "darkshire", max = -20 } }, text = "The Night Watch has a file on you. A thick one." },
-    { id = "g_bride", when = { questActive = TODO_QUEST("Bride of the Embalmer") }, text = "Have you the heart? Don't make that face. You know which heart." },
+    { id = "g_mayor", text = "The mayor's time is precious, {class}, and Darkshire's is more precious still." },
+    { id = "g_army", when = { minLevel = 25 }, text = "Has Stormwind sent you? Please, tell me that Stormwind has finally sent you." },
+    { id = "g_hero", when = { townStanding = { town = "darkshire", min = 55 } }, text = "Ah, Darkshire's favourite! Come in, come in, and mind the council's chairs, because they're older than they look." },
+    { id = "g_distrust", when = { townStanding = { town = "darkshire", max = -20 } }, text = "The Night Watch keeps a file on you, and I'm told it's a thick one." },
+    { id = "g_bride", when = { questActive = TODO_QUEST("Bride of the Embalmer") }, text = "Have you brought the heart? Don't make that face at me; you know perfectly well which heart I mean." },
   },
 
   notice = {
     { id = "n_tabard", cat = "stormwind", when = { class = { "PALADIN", "WARRIOR" }, minLevel = 25 },
-      text = "You've a soldier's bearing. Are you the vanguard, then? Is the Army behind you? No? No. Of course not." },
+      text = "You've a soldier's bearing about you. Are you the vanguard, then, with the Army marching behind? No, of course you aren't." },
     { id = "n_shabby", cat = "status", when = { durability = { max = 0.25 } },
       text = "You'll forgive me if I don't offer you a seat. The council's upholstery has suffered enough this year." },
   },
@@ -29,34 +29,34 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Lord Ello Ebonlocke, mayor of Darkshire, head of its council. I have petitioned Stormwind for soldiers more times than I can count. The Night Watch cannot do this alone." },
+          text = "I am Lord Ello Ebonlocke, mayor of Darkshire and head of its council. I have petitioned Stormwind for soldiers more times than I can count, because the Night Watch cannot do this alone." },
         { id = "h_messenger", tags = { "news" }, when = { questActive = TODO_QUEST("Messenger to Darkshire") },
-          text = "A letter from Lakeshire? Solomon wants my help? I wrote to Stormwind for help. Perhaps Stormwind writes to Solomon. We could all save on ink." },
+          text = "A letter from Lakeshire, and Solomon wants my help? I wrote to Stormwind for help. Perhaps Stormwind could write to Solomon, and we'd all save on ink." },
         { id = "h_embalmer", tags = { "news" }, when = { questActive = TODO_QUEST("Note to the Mayor") },
           text = "A letter for me, from an Abercrombie? I know no one by that name. And this script is ancient; I can't read a word of it." },
         { id = "h_translate", when = { questActive = TODO_QUEST("Translate Abercrombie's Note") },
-          text = "Sirra reads the old scripts. He reads them slowly. Today, of all days, I would like him to read quickly." },
+          text = "Sirra reads the old scripts, though he reads them slowly. Today, of all days, I would like him to read quickly." },
         { id = "h_revenge", tags = { "news" }, when = { questRecent = { TODO_QUEST("Translation to Ello"), days = 1 } },
-          text = "Whatever that hermit made is coming for Darkshire. Stop it before it reaches the square. I'll be in the Town Hall. Directing." },
+          text = "Whatever that hermit made is coming for Darkshire, so stop it before it reaches the square! I'll be in the Town Hall, directing." },
         { id = "h_bride", when = { questActive = TODO_QUEST("Bride of the Embalmer") },
-          text = "His own heart, in his dead wife's breast. Nannies tell that story to frighten children. I'm asking you to dig it up." },
+          text = "His own heart, in his dead wife's breast. Nannies tell that story to frighten children, and now I'm asking you to dig it up." },
         { id = "h_revenge_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Bride of the Embalmer"), days = 5 } },
-          text = "The council has voted you its thanks. Unanimously. That has never happened. Please don't make a habit of being necessary." },
+          text = "The council has voted you its thanks, unanimously, which has never once happened before. Please don't make a habit of being necessary." },
         { id = "h_westfall", when = { thread = { id = "westfall_left", beat = "b3_danuvin" } },
-          text = "Westfall feels forgotten? Stormwind pulled its soldiers out of Duskwood when the king vanished. We've been forgotten so long we've started to rot." },
+          text = "Westfall feels forgotten? Stormwind pulled its soldiers out of Duskwood when the king vanished, and we've been forgotten so long we've started to rot." },
         { id = "h_skyborne", when = { race = "Skyborne" },
-          text = "One of the sky folk. I don't suppose your people can do anything about the dark? No. A pity. You'd be very popular here." },
+          text = "One of the sky folk! I don't suppose your people can do anything about the dark? A pity, because you'd be very popular here if you could." },
         { id = "h_priest", when = { class = "PRIEST" },
-          text = "A priest of the Church, in my hall. Stormwind sends us prayers by letter, you know. You're the first one that walked." },
+          text = "A priest of the Church, in my hall. Stormwind sends us its prayers by letter, you know, and you're the first one that ever walked here." },
         { id = "h_noble", when = { origin = "human_minor_noble" },
-          text = "You've the manners of the capital. Then you know the House of Nobles. You might know who reads my petitions, if anyone does." },
-        { id = "h_letter", when = { metBefore = true }, text = "I have written to Stormwind again. Eloquently. At length. I expect the King's court is using my letters to start fires. It's cold in the capital, I hear." },
-        { id = "h_night", when = { timeOfDay = "night" }, text = "Night in Darkshire. Listen to the howling and tell me again that Stormwind has no cause to send soldiers." },
+          text = "You've the manners of the capital, so you'll know the House of Nobles. Perhaps you even know who reads my petitions, if anyone does." },
+        { id = "h_letter", when = { metBefore = true }, text = "I have written to Stormwind again, eloquently and at great length. I expect the King's court is using my letters to start its fires; it's cold in the capital, I hear." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "This is night in Darkshire. Listen to that howling, and then tell me again that Stormwind has no cause to send soldiers." },
       },
       again = {
-        { id = "h_again", text = "Go on. The council can wait. The council always waits." },
-        { id = "h_again2", text = "What else? Briefly, if you can. I've a letter to finish." },
-        { id = "h_again3", when = { timeOfDay = "night" }, text = "Ask. Nobody in Darkshire sleeps before the howling stops anyway." },
+        { id = "h_again", text = "Go on. The council can wait, as the council always waits." },
+        { id = "h_again2", text = "What else? Be brief if you can, because I've a letter to finish." },
+        { id = "h_again3", when = { timeOfDay = "night" }, text = "Ask away. Nobody in Darkshire sleeps before the howling stops anyway." },
       },
       choices = {
         { text = "What does Darkshire need?", next = "need" },
@@ -74,7 +74,7 @@ P:NPC {
 
     need = {
       lines = {
-        { id = "n_default", text = "Soldiers. Walls. Light that lasts past noon. Failing those, the Night Watch and whatever adventurers wander in out of the fog." },
+        { id = "n_default", text = "Soldiers, walls, and a light that lasts past noon. Failing those, we have the Night Watch and whatever adventurers wander in out of the fog." },
       },
       choices = {
         { text = "Then I'll help the Night Watch.", next = "BACK", fx = { affinity = 2, standing = { darkshire = 1 }, align = { order = 1 } } },
@@ -84,7 +84,7 @@ P:NPC {
     },
     need_walls = {
       lines = {
-        { id = "nw_default", text = "A fence, a gate and a great many lanterns. The dead climb badly. The worgen climb well. The council does not discuss the worgen after dark." },
+        { id = "nw_default", text = "We have a fence, a gate and a great many lanterns. The dead climb badly and the worgen climb well, which is why the council does not discuss the worgen after dark." },
       },
       choices = {
         { text = "Then why does anyone stay?", next = "need_stay" },
@@ -94,7 +94,7 @@ P:NPC {
     need_stay = {
       big = true,
       lines = {
-        { id = "ns_default", text = "Because this was Grand Hamlet before it was Darkshire, and our graves are here. And because I'm the mayor. Mayors who leave are called something else." },
+        { id = "ns_default", text = "Because this was Grand Hamlet long before it was Darkshire, and our graves are here. And because I'm the mayor, and mayors who leave are called something else." },
       },
       choices = {
         { text = "That's courage, my lord.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
@@ -105,7 +105,7 @@ P:NPC {
     army = {
       big = true,
       lines = {
-        { id = "a_default", text = "Because Duskwood is far from the Keep and close to everything that frightens it. So they leave the fog to us and send letters of support. I could paper the Town Hall with them." },
+        { id = "a_default", text = "Because Duskwood is far from the Keep and close to everything that frightens it. So they leave the fog to us and send letters of support instead; I could paper the Town Hall with them." },
       },
       choices = {
         { text = "Darkshire deserves better.", next = "BACK", fx = { affinity = 2, opinion = { stormwind = "abandoned_its_own" } } },
@@ -114,7 +114,7 @@ P:NPC {
       },
     },
     enough = {
-      lines = { { id = "e_default", text = "Tell that to the families at Raven Hill. Tell it loudly. They're hard of hearing, being dead." } },
+      lines = { { id = "e_default", text = "Then tell that to the families at Raven Hill, and tell it loudly, because they're hard of hearing, being dead." } },
       choices = {
         { text = "That was careless of me.", next = "BACK", fx = { affinity = 1 } },
         { text = "Someone has to say it.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
@@ -122,7 +122,7 @@ P:NPC {
     },
     letters = {
       lines = {
-        { id = "l_default", text = "Eleven this year. Each more eloquent than the last. The replies grow shorter. The latest was two lines and a seal. I've had it framed." },
+        { id = "l_default", text = "Eleven this year, each more eloquent than the last, and the replies grow shorter every time. The latest was two lines and a seal, and I've had it framed." },
       },
       choices = {
         { text = "What did the two lines say?", next = "letters_reply" },
@@ -131,7 +131,7 @@ P:NPC {
     },
     letters_reply = {
       lines = {
-        { id = "lr_default", text = "That the Crown is aware of Darkshire's situation. Aware. I am aware of the fog. Being aware of it has never once made it lift." },
+        { id = "lr_default", text = "That the Crown is aware of Darkshire's situation. Aware! I am aware of the fog, too, and being aware of it has never once made it lift." },
       },
       choices = {
         { text = "The court is slow for everyone.", next = "BACK", fx = { opinion = { stormwind = "patience" } } },
@@ -141,7 +141,7 @@ P:NPC {
 
     watch = {
       lines = {
-        { id = "w_default", text = "My kinswoman Althea commands it. Farmers, smiths, a baker or two. Stormwind took its guard home, so we raised and trained our own." },
+        { id = "w_default", text = "My kinswoman Althea commands it, and it's made of farmers, smiths and a baker or two. Stormwind took its guard home, so we raised and trained our own." },
       },
       choices = {
         { text = "Could you spare any of them elsewhere?", next = "solomon" },
@@ -150,9 +150,9 @@ P:NPC {
     },
     solomon = {
       lines = {
-        { id = "so_default", text = "Solomon asked me for my Watch. Had I sent them, the dead would be in our square before they reached the forest's edge. I told him so. Politely." },
+        { id = "so_default", text = "Magistrate Solomon asked me for my Watch. Had I sent them, the dead would have been in our square before they ever reached the forest's edge, and I told him so as politely as I could." },
         { id = "so_done", when = { questDone = TODO_QUEST("Messenger to Darkshire") },
-          text = "You carried his plea, and my refusal back. I'm sorry you had to. Solomon will curse me, and he'll be right to, and I'd do it again." },
+          text = "You carried his plea here and my refusal back, and I'm sorry you had to. Solomon will curse me for it, and he'll be right to, and I would do it again." },
       },
       choices = {
         { text = "Lakeshire's fighting orcs alone.", next = "solomon_push", fx = { align = { honor = 1 } } },
@@ -161,14 +161,14 @@ P:NPC {
     },
     solomon_push = {
       lines = {
-        { id = "sp_default", text = "And we fight the dead alone. Tell Solomon I'm sorry. Then tell him to write to Stormwind. They adore letters there." },
+        { id = "sp_default", text = "And we fight the dead alone. Tell Solomon I'm sorry, and then tell him to write to Stormwind, since they adore letters there." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = -1 } } },
     },
 
     council = {
       lines = {
-        { id = "c_default", text = "Roads, graves, quarrels, and justice, when Stormwind permits it. This year we sentenced a grave robber to death. Stormwind took him off our hands instead." },
+        { id = "c_default", text = "Roads, graves and quarrels, and justice too, when Stormwind permits it. This year we sentenced a grave robber to death, and Stormwind took him off our hands instead." },
       },
       choices = {
         { text = "Who was he?", next = "council_ward" },
@@ -178,7 +178,7 @@ P:NPC {
     council_ward = {
       big = true,
       lines = {
-        { id = "cw_default", text = "Dextren Ward, who sold our dead out of Raven Hill to Morbent Fel, the necromancer on the hill. The Nobles keep him in their Stockade. Millstipe hasn't slept since.",
+        { id = "cw_default", text = "Dextren Ward, who sold our dead out of Raven Hill to Morbent Fel, the necromancer on the hill. The House of Nobles keeps him in their Stockade, and Councilman Millstipe hasn't slept since.",
           fx = { learn = { "morbent_fel" } } },
       },
       choices = {
@@ -190,7 +190,7 @@ P:NPC {
     embalmer = {
       big = true,
       lines = {
-        { id = "em_default", text = "A nursery tale. A kind alchemist who couldn't let his wife go. We tell it to make children come home before dark. I thought it was a story." },
+        { id = "em_default", text = "It's a nursery tale, about a kind alchemist who couldn't let his wife go. We tell it to make children come home before dark, and I truly thought it was only a story." },
       },
       choices = {
         { text = "I carried his supplies. I didn't know.", next = "embalmer_guilt" },
@@ -199,7 +199,7 @@ P:NPC {
     },
     embalmer_guilt = {
       lines = {
-        { id = "eg_default", text = "No one did. You were kind to a lonely old man, and kindness nearly doomed this town. Let's see what it can do for us now." },
+        { id = "eg_default", text = "No one did. You were kind to a lonely old man, and that kindness nearly doomed this town, so let's see what it can do for us now." },
       },
       choices = {
         { text = "I'll make it right.", next = "BACK", fx = { affinity = 2, align = { honor = 1 }, standing = { darkshire = 1 } } },
@@ -208,7 +208,7 @@ P:NPC {
     },
     embalmer_heart = {
       lines = {
-        { id = "eh_default", text = "In the story he put his own heart in her, and the curse made her hungry, so he keeps her buried. His heart is his power. Take it from her.",
+        { id = "eh_default", text = "In the story he put his own heart in her, and the curse made her hungry, so he keeps her buried. His heart is his power, so take it from her and bring it to me.",
           fx = { learn = { "embalmer" } } },
       },
       choices = {
@@ -219,7 +219,7 @@ P:NPC {
 
     priest = {
       lines = {
-        { id = "pr_default", text = "Prayed over it? There's more cemetery at Raven Hill than village now. Pray if you like. Then pray the dead hear it and stay where they're put." },
+        { id = "pr_default", text = "Prayed over it? There's more cemetery at Raven Hill than village now. Pray if you like, and then pray the dead hear you and stay where they're put." },
       },
       choices = {
         { text = "Has no one tended those graves?", next = "priest_graves" },
@@ -228,7 +228,7 @@ P:NPC {
     },
     priest_graves = {
       lines = {
-        { id = "pg_default", text = "Not since a knight came home from Lordaeron, found his family's stones, and cut down the attendants. Few go up there to tend anything now. Ask Sirra.",
+        { id = "pg_default", text = "Not since a knight came home from Lordaeron, found his family's stones and cut down the attendants. Few go up there to tend anything now; ask Sirra if you want the whole tale.",
           fx = { learn = { "ladimore" } } },
       },
       choices = {
@@ -238,7 +238,7 @@ P:NPC {
     },
     noble = {
       lines = {
-        { id = "nb_default", text = "Then you've sat in that chamber. When my letters are read aloud, does anyone listen? Or do they wait politely for luncheon?" },
+        { id = "nb_default", text = "Then you've sat in that chamber yourself. When my letters are read aloud, does anyone actually listen, or do they wait politely for luncheon?" },
       },
       choices = {
         { text = "They wait for luncheon.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
@@ -250,7 +250,7 @@ P:NPC {
     },
     soldier = {
       lines = {
-        { id = "sd_default", text = "One sword. Stormwind sends me soldiers one at a time, by accident, on their way somewhere else. I'll take it. Report to Althea before you change your mind." },
+        { id = "sd_default", text = "One sword, then. Stormwind sends me soldiers one at a time, by accident, on their way somewhere else, and I'll gladly take it. Report to Althea before you change your mind." },
       },
       choices = {
         { text = "I'll report to her.", next = "BACK", fx = { affinity = 2, standing = { darkshire = 1 }, learn = { "night_watch" } } },
@@ -260,17 +260,17 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Mayor of Darkshire, head of its council, and author of more letters to the Crown than any man living. The town is my story." } },
-    advice = { { id = "tp_ad", text = "Keep to the road and inside the lamplight. If you must die in Duskwood, do it in Darkshire. We still bury people properly here." } },
-    night_watch = { { id = "tp_watch", text = "Brave, underpaid, and outnumbered. My kinswoman runs it. Better than I would, I admit." } },
-    worgen = { { id = "tp_worgen", text = "In the woods, every night. Closer every season. The council does not discuss them after dark." } },
-    stalvan = { { id = "tp_stalvan", text = "Old business. Unpleasant business. Ask Smitts; he never let it go." } },
-    blackrock = { { id = "tp_blackrock", text = "Lakeshire's problem. We have our own. Many of them." } },
+    background = { { id = "tp_bg", text = "I'm the mayor of Darkshire, head of its council, and the author of more letters to the Crown than any man living. The town is my story, and it's a long one." } },
+    advice = { { id = "tp_ad", text = "Keep to the road and inside the lamplight. If you must die in Duskwood, do it in Darkshire, where we still bury people properly." } },
+    night_watch = { { id = "tp_watch", text = "They're brave, underpaid and outnumbered. My kinswoman runs it, and I'll admit she runs it better than I would." } },
+    worgen = { { id = "tp_worgen", text = "They're in the woods every night, and closer every season. The council does not discuss them after dark." } },
+    stalvan = { { id = "tp_stalvan", text = "That's old and unpleasant business. Ask Smitts at the Raven, because he never let it go." } },
+    blackrock = { { id = "tp_blackrock", text = "The Blackrock orcs are Lakeshire's problem, and we have more than enough of our own." } },
     morbent_fel = { { id = "tp_morbent", text = "A necromancer in a house above Raven Hill, buying our dead. If Stormwind wants a reason to send soldiers, there it sits." } },
     embalmer = {
-      { id = "tp_embalmer_next", when = { questDone = TODO_QUEST("Translation to Ello") }, text = "A nursery tale that came down the road at us. Ask what you came to ask.", next = "embalmer" },
-      { id = "tp_embalmer", text = "A story nannies tell in Darkshire. A husband, a dead wife, his own heart. I'd like it to stay a story." },
+      { id = "tp_embalmer_next", when = { questDone = TODO_QUEST("Translation to Ello") }, text = "It's a nursery tale that came walking down the road at us. Ask what you came to ask.", next = "embalmer" },
+      { id = "tp_embalmer", text = "It's a story nannies tell in Darkshire, about a husband, a dead wife and his own heart. I'd like it to stay a story." },
     },
-    _none = { { id = "tp_none", text = "The council has no position on that. The council has too many positions on everything else." } },
+    _none = { { id = "tp_none", text = "The council has no position on that, though it has far too many positions on everything else." } },
   },
 }

@@ -42,7 +42,7 @@ Quests (Classic IDs): Jitters' Growling Gut 5, Morbent Fel 55, Seasoned Wolf Kab
 
 ### Year 1 notes
 - **The Scythe of Elune is Classic content in Duskwood.** The wiki is clear: Jitters' Completed Journal names it, Sven's Classic chain turns on it, and The Scythe of Elune (Classic) chain (Caravaneer Ruzzgot, Daltry, Jonathan Carevin, Thyn'tel Bladeweaver in Darnassus; removed in 4.0.3a) is about it. What's post-Classic is its night elf history (Goldrinn, Druids of the Pack, *Curse of the Worgen*, the *Dark Riders* comic, Gilneas). Following the brief, nothing new names the Scythe or links the worgen to night elves; Jitters says "rune-carved wood" and "the thing". Existing lines that mention "a scythe" (Sven f_default), "something found in Roland's Doom" (Eva tp_worgen) and Jonathan's Carevin Family line about "a night elf priestess" were left as they were: they're accurate to Classic.
-- **The Embalmer's Revenge is the Cataclysm quest**; Classic has Translation to Ello (Stitches walks) and Bride of the Embalmer. Ello and Abercrombie now use those. Still on the old title, outside this pack's NPC files: `RPGDialogue_Duskwood/pools.lua` (guard l_stitches), `RPGDialogue_World/rumors/duskwood.lua` (stitches) and `RPGDialogue_World/towns.lua` (darkshire quests). Replacements below.
+- **The Embalmer's Revenge is the Cataclysm quest**; Classic has Translation to Ello (Stitches walks) and Bride of the Embalmer. Ello, Abercrombie and the Night Watch pool (`pools.lua` l_stitches, fixed during the voice pass) now use those. Still on the old title, in the World pack: `RPGDialogue_World/rumors/duskwood.lua` (stitches) and `RPGDialogue_World/towns.lua` (darkshire quests). Replacements below.
 - Bishop Farthing appears only as Year 1's kind bishop of the Cathedral (Seeking Wisdom). Nothing later about him is hinted.
 - Natalie Seline is never mentioned. Raven Hill's dead are Morgan Ladimore's family, Eliza, and the town's.
 - Lady Prestor's part in the withdrawal is never stated: Millstipe says only "someone at court".
@@ -72,8 +72,14 @@ Classic quest fixes for lines outside the NPC files (the Cataclysm quest The Emb
     { id = "stitches", when = { questRecent = { TODO_QUEST("Translation to Ello"), days = 7 } },
 -- RPGDialogue_World/towns.lua, darkshire quests:
     { TODO_QUEST("The Night Watch"), 6 }, { TODO_QUEST("Bride of the Embalmer"), 15 },
--- RPGDialogue_Duskwood/pools.lua, guard_darkshire line "l_stitches":
-    { id = "l_stitches", when = { questDone = TODO_QUEST("Translation to Ello") }, text = "..." },
+```
+
+Voice: three Duskwood inn rumors in `RPGDialogue_World/rumors/duskwood.lua` fail the new choppy check (they're World's, so not edited here). Ready-to-paste text, same ids:
+
+```lua
+    { id = "stitches", ..., text = "A great stitched thing came walking down the road, and someone put it down before it reached the square, but the mayor's still shaking, and so am I." },
+    { id = "yorgen", text = "Sven Yorgen still camps out by the water, and he won't come into town or go home, and I can't say I blame him." },
+    { id = "nightwatch_you", ..., text = "The Watch says the cemetery's been quieter since you went through it, and they're drinking to you, quietly, the way they do everything." },
 ```
 
 ### World changelog bullets

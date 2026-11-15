@@ -34,7 +34,7 @@
 - How the Gnarltrees are related.
 
 ## Voices
-- Jonathan: clipped, suspicious, controlled. Questions back. A shapechanger in his town gets a warning first.
+- Jonathan: terse but whole sentences, suspicious, controlled. Questions back. A shapechanger in his town gets a warning first.
 - Calor: zealous, impatient, "Master Carevin". Left the Watch out of frustration, not contempt.
 - Sirra: fussy, digressive, delighted by scripts; makes people wait. Authored: loves the dull town ledgers.
 - Viktori: eager rationalist, wants a measurable reason; talks about lenses and fog. Kind to druids, unconvinced by them.

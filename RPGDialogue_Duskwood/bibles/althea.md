@@ -16,7 +16,7 @@
 ## Identity
 Commander Althea Ebonlocke · Darkshire · Alliance · Human · soldier
 Personality: steady, dry, practical, tired, fiercely protective
-Speech: short orders, gallows wit
+Speech: direct, soldierly sentences and orders, gallows wit (whole sentences, never a telegram)
 Knows and cares about: the Watch, the woods, Darkshire's people
 Relationships: Lord Ello (kinsman), Smitts (old case), Sirra (sends people to her about Ladimore), her watchers
 Default attitudes: values anyone who'll stand a shift
