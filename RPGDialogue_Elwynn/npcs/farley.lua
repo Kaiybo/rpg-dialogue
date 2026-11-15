@@ -19,21 +19,21 @@ P:NPC {
     { id = "n_imp", cat = "pet", place = "before", when = { pet = { family = "Imp" } },
       text = "Your imp doesn't sleep in the beds. I don't care what it promises you." },
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
-      text = "That's enough for tonight, friend. Dobbins! Water for this one, and bread." },
+      text = "That's enough for tonight, friend. Dobbins, bring water for this one, and some bread!" },
     { id = "n_away", cat = "guest", when = { homeInn = { "Goldshire", "Lion's Pride Inn" }, daysSince = { min = 14 } },
-      text = "Look who remembered where they sleep! Two weeks, near enough. I nearly let your room." },
+      text = "Look who remembered where they sleep! Two weeks, near enough, and I nearly let your room." },
   },
 
   react = {
-    { id = "r_imp", on = "pet", when = { pet = { family = "Imp" } }, text = "Not in here! Not near the curtains!" },
-    { id = "r_bear", on = "form", when = { form = "bear" }, text = "Mind the tables! That's oak, that is." },
+    { id = "r_imp", on = "pet", when = { pet = { family = "Imp" } }, text = "Not in here, and not near the curtains!" },
+    { id = "r_bear", on = "form", when = { form = "bear" }, text = "Mind the tables, friend, that's good oak!" },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "My family's kept the Lion's Pride since the first King Llane's day. We've never watered a drink. Ask anyone." },
+        { id = "h_default", key = true, text = "My family's kept the Lion's Pride since the first King Llane's day, and we've never watered a drink. Ask anyone!" },
         { id = "h_falkhaan", tags = { "news" }, when = { questRecent = { TODO_QUEST("Rest and Relaxation"), days = 1 } },
           text = "Falkhaan sent you? Then take the good chair by the fire. Any friend of his is a friend of mine." },
         { id = "h_liked", when = { townStanding = { town = "goldshire", min = 30 } },
@@ -43,7 +43,7 @@ P:NPC {
         { id = "h_stalvan", when = { questActive = TODO_QUEST("The Legend of Stalvan") },
           text = "Stalvan? He did stay here, years back. Paid in coin, kept to himself, wrote letters he never sent." },
         { id = "h_skyborne", when = { race = "Skyborne" },
-          text = "Winds be with you! That's what your people say, isn't it? I've been practising. Did I say it right? Melika says I didn't." },
+          text = "Winds be with you! That's what your people say, isn't it? I've been practising, though Melika says I still don't say it right." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "A priest! Josetta's upstairs, if it's her you're after. If it's a drink you're after, I'll not tell her." },
         { id = "h_veteran", when = { minLevel = 20, metBefore = true },
@@ -76,13 +76,13 @@ P:NPC {
           text = "Another hunter went after Hogger yesterday. Came back on a cart. They always come back on a cart.",
           fx = { hear = "hogger_unbeatable", learn = { "hogger" } } },
         { id = "r_hogger_you", when = { questRecent = { TODO_QUEST("WANTED: \"Hogger\""), days = 3 } },
-          text = "They say someone finally put Hogger down. That wasn't you, was it? Sit, sit. Tell me everything.",
+          text = "They say someone finally put Hogger down. That wasn't you, was it? Sit, sit, and tell me everything.",
           tags = { "news" } },
         { id = "r_murlocs", key = true, when = { questBefore = TODO_QUEST("A Fishy Peril") },
           text = "Remy's telling everyone there are murlocs in the eastern streams. Telling them twice, naturally.",
           fx = { hear = "murlocs_in_elwynn", learn = { "murlocs_east" } } },
         { id = "r_lovers", when = { questActive = TODO_QUEST("Collecting Kelp") },
-          text = "William's been mixing something private upstairs. Smells of the sea. I asked no questions. I'm a good innkeeper.",
+          text = "William's been mixing something private upstairs that smells of the sea. I asked no questions, because I'm a good innkeeper.",
           fx = { learn = { "maybell_tommy" } } },
         { id = "r_necklace", when = { questActive = TODO_QUEST("Lost Necklace") },
           text = "Auntie Bernice is telling the bar Billy Maclure stole her necklace. Billy's telling it he's hungry. Make of that what you will." },
@@ -101,7 +101,7 @@ P:NPC {
     },
     rumors_who = {
       lines = {
-        { id = "rw_default", text = "Nobody! Well. Remy hears everything twice. Melika hears it once and remembers it. And the Marshal hears it last and does something about it." },
+        { id = "rw_default", text = "Nobody! Well, Remy hears everything twice, Melika hears it once and remembers it, and the Marshal hears it last and does something about it." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -137,7 +137,7 @@ P:NPC {
     },
     brother_prayer = {
       lines = {
-        { id = "bp_default", text = "Would you? Verina lights a candle for him every winter. I never know what to say. You'd know the words. I'd be grateful." },
+        { id = "bp_default", text = "Would you? Verina lights a candle for him every winter, and I never know what to say. You'd know the words, and I'd be grateful." },
       },
       choices = {
         { text = "Light keep Frandis, wherever he walks.", next = "brother_after", fx = { affinity = 3, align = { light = 2 }, trait = { pious = 1 }, standing = { goldshire = 2 } },
@@ -148,13 +148,13 @@ P:NPC {
     },
     brother_after = {
       lines = {
-        { id = "ba_default", text = "Wherever he walks. Aye. I like that better than the other kind. Thank you, friend. Now sit down before I start crying in front of Dobbins." },
+        { id = "ba_default", text = "Wherever he walks. Aye, I like that better than the other kind. Thank you, friend, and now sit down before I start crying in front of Dobbins." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     brother_north = {
       lines = {
-        { id = "bn_default", text = "Did you? Then tell me one thing, and tell me true. Up there, at the end. Was it quick? For most of them?" },
+        { id = "bn_default", text = "Did you? Then tell me one thing, and tell me true. Up there, at the end, was it quick for most of them?" },
       },
       choices = {
         { text = "For most of them, yes.", next = "brother_quick", fx = { affinity = 3, align = { honor = -1, light = 1 }, trait = { kind = 1 } } },
@@ -162,11 +162,11 @@ P:NPC {
       },
     },
     brother_quick = {
-      lines = { { id = "bq_default", text = "Good. Good. I'll tell Verina that. She's always wanted to hear it. So have I." } },
+      lines = { { id = "bq_default", text = "Good, good. I'll tell Verina that; she's always wanted to hear it, and so have I." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     brother_slow = {
-      lines = { { id = "bs_default", text = "No. I didn't think so. Thank you for not dressing it up. Nobody else would tell me anything at all." } },
+      lines = { { id = "bs_default", text = "No, I didn't think so. Thank you for not dressing it up, when nobody else would tell me anything at all." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
@@ -191,7 +191,7 @@ P:NPC {
     },
     messenger = {
       lines = {
-        { id = "me_default", text = "Once. A stormy night, years back. A messenger took a room upstairs. At midnight he came down those stairs screaming, in his nightshirt, and ran out into the rain." },
+        { id = "me_default", text = "Once, on a stormy night years back. A messenger took a room upstairs, and at midnight he came down those stairs screaming in his nightshirt and ran out into the rain." },
       },
       choices = {
         { text = "What frightened him?", next = "messenger_why" },
@@ -200,7 +200,7 @@ P:NPC {
     },
     messenger_why = {
       lines = {
-        { id = "mw_default", text = "Never found out. The room's fine. I've slept in it myself. Once." },
+        { id = "mw_default", text = "I never found out. The room's fine; I've slept in it myself, once." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
@@ -233,15 +233,15 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Fredrik Farley, of the Lion's Pride, like my father and his before him. The inn's the story. I just pour.", next = "inn" } },
-    advice = { { id = "tp_ad", text = "Eat something hot, sleep somewhere dry, and never pick a fight in another man's inn. Especially mine." } },
-    lions_pride = { { id = "t_inn", text = "Best inn between Stormwind and Lakeshire, and I'll argue with anyone who says otherwise. Politely." } },
+    background = { { id = "tp_bg", text = "Fredrik Farley, of the Lion's Pride, like my father and his before him. The inn's the real story; I just pour.", next = "inn" } },
+    advice = { { id = "tp_ad", text = "Eat something hot, sleep somewhere dry, and never pick a fight in another man's inn, especially mine." } },
+    lions_pride = { { id = "t_inn", text = "Best inn between Stormwind and Lakeshire, and I'll argue with anyone who says otherwise, politely." } },
     defias = { { id = "t_defias", text = "They rob travelers on the Westfall road. Bad for business, worse for the travelers." } },
     hogger = { { id = "t_hogger", text = "Can't be killed, they say. Every hunter that tries comes back on a cart.", fx = { hear = "hogger_unbeatable" } } },
     murlocs_east = { { id = "t_murlocs", text = "Remy swears by it. Remy swears by a lot of things." } },
-    the_collector = { { id = "t_collector", text = "Some rider paid me in gold dust once. Gold dust! Never saw him again." } },
+    the_collector = { { id = "t_collector", text = "Some rider paid me in gold dust once, gold dust of all things, and I never saw him again." } },
     gold_dust = { { id = "t_dust", text = "Remy buys it, Remy sells it, Remy talks about it. Mostly he talks about it." } },
-    stalvan = { { id = "tp_stalvan", text = "He stayed a few nights, years back. Quiet man. The messenger who ran screaming was carrying one of his letters.", next = "messenger_back" } },
-    _none = { { id = "t_none", text = "Not a word of that's reached my bar. That's rare." } },
+    stalvan = { { id = "tp_stalvan", text = "He stayed a few nights, years back, a quiet man. The messenger who ran off screaming was carrying one of his letters.", next = "messenger_back" } },
+    _none = { { id = "t_none", text = "Not a word of that's reached my bar, and that's rare." } },
   },
 }

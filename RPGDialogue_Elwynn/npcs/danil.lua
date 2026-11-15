@@ -11,7 +11,7 @@ P:NPC {
   greetings = {
     { id = "g_faithful", text = "Supplies for the faithful, and for anyone else with coin." },
     { id = "g_poor", when = { money = { max = 100 } }, text = "Browsing is free. Everything else, regrettably, is not." },
-    { id = "g_regular", when = { timesTalked = { min = 6 } }, text = "My best customer! Don't tell the others." },
+    { id = "g_regular", when = { timesTalked = { min = 6 } }, text = "My best customer! Don't tell the others, they'd be jealous." },
   },
 
   notice = {
@@ -24,8 +24,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", text = "Bread, water, a little thread. The Abbey's stores are humble, but honest." },
-        { id = "h_rich", when = { money = { min = 100000 } }, text = "Ten gold on you, at least. I can hear it. The Abbey roof leaks, you know." },
-        { id = "h_roof", when = { metBefore = true }, text = "The roof leaked on the bread again. I've told the Brothers. They told me to pray. I prayed. It rained." },
+        { id = "h_rich", when = { money = { min = 100000 } }, text = "Ten gold on you, at least; I can hear it from here. The Abbey roof leaks, you know." },
+        { id = "h_roof", when = { metBefore = true }, text = "The roof leaked on the bread again. I told the Brothers, and they told me to pray, so I prayed, and it rained." },
         { id = "h_hunter", when = { class = "HUNTER", maxLevel = 15 },
           text = "A bow. Then you'll want arrows, and you'll want more than you think. Recruits always think a quiver lasts a week." },
         { id = "h_novice", when = { origin = "human_abbey_novice" },
@@ -48,7 +48,7 @@ P:NPC {
     },
     wagon = {
       lines = {
-        { id = "w_default", text = "The brothers would rather coin didn't change hands under the Abbey roof. So it changes hands out here, under mine. Mine leaks less." },
+        { id = "w_default", text = "The brothers would rather coin didn't change hands under the Abbey roof, so it changes hands out here, under mine, and mine leaks less." },
       },
       choices = {
         { text = "Who buys the most?", next = "wagon_buyers" },
@@ -68,7 +68,7 @@ P:NPC {
     },
     tools = {
       lines = {
-        { id = "t_default", text = "Everyone comes back from those woods wanting to keep something. Ore, hides, herbs. I'd rather they did it with a proper knife than a borrowed spoon." },
+        { id = "t_default", text = "Everyone comes back from those woods wanting to keep something, whether it's ore, hides or herbs. I'd rather they did it with a proper knife than a borrowed spoon." },
       },
       choices = {
         { text = "Do the brothers approve?", next = "tools_approve" },
@@ -102,9 +102,9 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "A brother of Northshire with a head for sums, so they gave me the wagon. Some brothers get visions. I got a ledger." } },
+    background = { { id = "tp_bg", text = "A brother of Northshire with a head for sums, so they gave me the wagon. Some brothers get visions; I got a ledger." } },
     advice = { { id = "tp_ad", text = "Carry water. Everyone remembers the sword and forgets the water. The kobolds don't forget anything." } },
-    northshire_abbey = { { id = "tp_abbey", text = "Lovely building. Leaks. I've said so in every prayer for a year." } },
+    northshire_abbey = { { id = "tp_abbey", text = "A lovely building, and it leaks. I've said so in every prayer for a year." } },
     kobolds = { { id = "tp_kobolds", text = "Good for business, kobolds. Every recruit who goes up that hill comes back hungry." } },
     _none = { { id = "t_none", text = "I keep the stores, not the secrets. Ask Brother Neals." } },
   },

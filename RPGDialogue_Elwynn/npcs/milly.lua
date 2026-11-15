@@ -10,7 +10,7 @@ P:NPC {
 
   greetings = {
     { id = "g_vines", text = "Mind the vines!" },
-    { id = "g_crates", when = { questActive = TODO_QUEST("Milly's Harvest") }, text = "Any crates? Even a few?" },
+    { id = "g_crates", when = { questActive = TODO_QUEST("Milly's Harvest") }, text = "Have you any crates for me? Even a few would help." },
     { id = "g_thanks", when = { questDone = TODO_QUEST("Milly's Harvest") }, text = "There's my harvest hero. Mind the vines all the same." },
   },
 
@@ -31,20 +31,20 @@ P:NPC {
         { id = "q_harvest_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Milly's Harvest"), days = 2 } },
           text = "You found them! I'd hug you if my hands weren't sticky to the elbow." },
         { id = "q_manifest", when = { questActive = TODO_QUEST("Grape Manifest") },
-          text = "Take that manifest to Brother Neals. He'll want to know exactly how much the Abbey's getting. Exactly." },
+          text = "Take that manifest to Brother Neals. He'll want to know exactly how much the Abbey's getting, to the last bushel." },
         { id = "o_contradict", tags = { "news" }, when = { contradiction = "defias" },
           text = "You told the Marshal one thing about the Defias and Willem another. Word gets around a valley this small. Which is it?" },
         { id = "e_dughan", tags = { "news" }, when = { heardLine = "dughan.d_common_thieves" },
           text = "Common thieves? Common thieves don't post a guard on a stolen grape crate. You tell Marshal Dughan that from me.",
           fx = { hear = "defias_trained" } },
         { id = "h_willem", when = { questRecent = { TODO_QUEST("Milly Osworth"), days = 1 } },
-          text = "Willem sent you? Bless him. He'd come himself, but they keep him nailed to the Abbey door. This is past him anyway." },
+          text = "Willem sent you? Bless him, he'd come himself if they didn't keep him nailed to the Abbey door, and this trouble's past him anyway." },
         { id = "h_garrick_done", when = { questDone = TODO_QUEST("Bounty on Garrick Padfoot") },
           text = "No more Garrick in the shack past my rows. The rest of them are still across the river, mind. But I sleep a bit better." },
       },
       again = {
-        { id = "h_again", text = "What else? Talk while I sort these." },
-        { id = "h_again2", text = "Go on. My hands are busy, not my ears." },
+        { id = "h_again", text = "What else? You can talk while I sort these." },
+        { id = "h_again2", text = "Go on, my hands are busy but my ears aren't." },
       },
       choices = {
         { text = "Where are your crates?", next = "BUSINESS" },
@@ -59,7 +59,7 @@ P:NPC {
     },
     happened = {
       lines = {
-        { id = "hp_default", text = "They walked in mid-harvest. I'd most of the grapes in buckets and crates, and I left them in the rows to the southeast. Ran for the guards." },
+        { id = "hp_default", text = "They walked in right in the middle of the harvest. I'd most of the grapes in buckets and crates, and I left them in the rows to the southeast and ran for the guards." },
       },
       choices = {
         { text = "And the guards?", next = "happened_guards" },
@@ -77,7 +77,7 @@ P:NPC {
     },
     happened_grapes = {
       lines = {
-        { id = "hgr_default", text = "The guards are paid either way. The grapes are all I've got. Short on guards these days, aren't we? Not short on grapes, if I can help it." },
+        { id = "hgr_default", text = "The guards are paid either way, but the grapes are all I've got. We're short on guards these days, aren't we? Well, we'll not be short on grapes, if I can help it." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -89,12 +89,12 @@ P:NPC {
       },
     },
     leave_die = {
-      lines = { { id = "ld_default", text = "Tell that to Brother Neals come winter, with nothing to pour. I'll not die for it. I'll not run from it either." } },
+      lines = { { id = "ld_default", text = "Tell that to Brother Neals come winter, with nothing to pour. I'll not die for it, but I'll not run from it either." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     abbey = {
       lines = {
-        { id = "a_default", text = "The Abbey. Brother Neals keeps their food and drink, and he counts every barrel twice. Tastes them three times.",
+        { id = "a_default", text = "The Abbey buys them. Brother Neals keeps their food and drink, and he counts every barrel twice and tastes it three times.",
           fx = { learn = { "northshire_abbey" } } },
       },
       choices = {
@@ -103,18 +103,18 @@ P:NPC {
       },
     },
     abbey_neals = {
-      lines = { { id = "an_default", text = "Up the bell tower, where he thinks nobody can see. Everybody can see. He's a dear. He'll bless every bushel and drink half of one." } },
+      lines = { { id = "an_default", text = "Up the bell tower, where he thinks nobody can see him, though everybody can. He's a dear, mind; he'll bless every bushel and drink half of one." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     farm = {
-      lines = { { id = "f_default", text = "Then you know. They say Westfall's lost. Don't let them say it about Northshire." } },
+      lines = { { id = "f_default", text = "Then you know. They say Westfall's lost, so don't you let them say it about Northshire." } },
       choices = {
         { text = "I won't.", next = "BACK", fx = { affinity = 2, standing = { northshire = 1 } } },
         { text = "Westfall wasn't lost. It was left.", next = "farm_left" },
       },
     },
     farm_left = {
-      lines = { { id = "fl_default", text = "Left. Aye. That's the word Willem won't say. Well, nobody's leaving my vines. Not while I've a wagon and two hands.",
+      lines = { { id = "fl_default", text = "Left, aye, that's the word Willem won't say. Well, nobody's leaving my vines, not while I've a wagon and two good hands.",
         fx = { learn = { "westfall" } } } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, opinion = { defias = "hardline" } } } },
     },
@@ -132,10 +132,10 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I grow grapes. The Abbey buys them. The Defias took them. That's my whole story this year.", next = "happened" } },
+    background = { { id = "tp_bg", text = "I grow grapes, the Abbey buys them, and this year the Defias took them. That's my whole story.", next = "happened" } },
     advice = { { id = "tp_ad", text = "Never leave a harvest in the field overnight. I learned that one the hard way, didn't I." } },
     defias = { { id = "t_defias", text = "They took my harvest and my sleep. Ask me again when they give either back." } },
     northshire_abbey = { { id = "t_abbey", text = "The brothers buy our wine. Brother Neals counts every barrel twice." } },
-    _none = { { id = "t_none", text = "Grapes I know. That, I don't." } },
+    _none = { { id = "t_none", text = "Grapes I know, but that I don't." } },
   },
 }

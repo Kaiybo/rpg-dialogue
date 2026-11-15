@@ -12,7 +12,7 @@
 ## Identity
 Trader and gossip · Goldshire · Alliance · Human · quest giver
 Personality: excitable, nervous, wheedling, harmless, a little shifty
-Speech: says the key phrase twice; exclamations; "my friend"
+Speech: says the key phrase twice, inside the sentence with a comma ("at your service, at your service!"), never as stacked fragments (voice pass, 1.10.0); exclamations; "my friend"
 Knows and cares about: gold dust, prices, rumors
 Relationships: Dughan (wary of him); Farley (competition in gossip)
 Default attitudes: everyone is a customer or a threat; rogues are both

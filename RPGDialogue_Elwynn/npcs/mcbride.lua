@@ -9,10 +9,10 @@ P:NPC {
   notices = { "greenness", "kit", "follow_through" },
 
   greetings = {
-    { id = "g_brief", text = "Recruit. Make it quick." },
+    { id = "g_brief", text = "Speak up, recruit, and make it quick. I've a valley to hold." },
     { id = "g_reports", text = "If it's the mine, I've read the reports. If it isn't, speak up." },
-    { id = "g_regular", when = { timesTalked = { min = 4 } }, text = "You again. Good. Means you're still alive." },
-    { id = "g_dusk", when = { timeOfDay = "dusk" }, text = "Quietly. The brothers are at prayers." },
+    { id = "g_regular", when = { timesTalked = { min = 4 } }, text = "You again, recruit? Good, that means you're still alive, and I like my recruits that way." },
+    { id = "g_dusk", when = { timeOfDay = "dusk" }, text = "Keep your voice down, recruit. The brothers are at their prayers." },
     { id = "g_count", when = { questObjective = { TODO_QUEST("Kobold Camp Cleanup"), left = { min = 1 } } }, text = "Count's not done, recruit." },
     { id = "g_echo", when = { questObjective = { TODO_QUEST("Skirmish at Echo Ridge"), left = { min = 1 } } }, text = "Echo Ridge isn't going to clear itself." },
   },
@@ -21,9 +21,9 @@ P:NPC {
     { id = "n_kit_broken", cat = "kit", place = "before", when = { durability = { max = 0.25 } },
       text = "Before you say anything, get that armor to a smith. I don't send recruits out held together with string." },
     { id = "n_kit_naked", cat = "kit", place = "replace", when = { nearlyNaked = true },
-      text = "Where is your armor, recruit? No. I don't want to know. Go and find some." },
+      text = "Where is your armor, recruit? No, I don't want to know; just go and find some." },
     { id = "n_green_deaths", cat = "greenness", place = "after", when = { band = "Greenhorn", deaths = { min = 3 } },
-      text = "You keep coming back down that hill in worse shape than you went up. They carry candles, recruit. Not swords." },
+      text = "You keep coming back down that hill in worse shape than you went up, recruit. They carry candles, not swords, so think hard about how you're losing to them." },
     { id = "n_ressick", cat = "greenness", place = "before", when = { resSick = true },
       text = "You look like the brothers just finished with you. Sit down before you fall down." },
   },
@@ -43,7 +43,7 @@ P:NPC {
         { id = "h_return", tags = { "news" }, priority = 15, when = { metBefore = true, daysSince = { min = 7 } },
           text = "Thought we'd lost you to Goldshire. What brings you back up the hill?" },
         { id = "h_dwarf_shaman", when = { race = "Dwarf", class = "SHAMAN" },
-          text = "A dwarf who talks to the weather. I've had stranger recruits this year. Not many." },
+          text = "A dwarf who talks to the weather. I've had stranger recruits this year, though not many." },
         { id = "h_human_hunter", when = { race = "Human", class = "HUNTER" },
           text = "A hunter. Good. I've wolves on one side and kobolds on the other, and I'd like both of them counted from a distance." },
         { id = "h_skyborne", when = { race = "Skyborne" },
@@ -57,30 +57,30 @@ P:NPC {
         { id = "q_kobold_progress", when = { questObjective = { TODO_QUEST("Kobold Camp Cleanup"), left = { min = 1 } } },
           text = "That count isn't done. They multiply in those woods faster than I can find recruits." },
         { id = "q_kobold_ready", when = { questReady = TODO_QUEST("Kobold Camp Cleanup") },
-          text = "That's the count? Good. Hand it in properly and I'll sign it off." },
+          text = "That's the count? Good, then hand it in properly and I'll sign it off." },
         { id = "q_kobold_recent", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Kobold Camp Cleanup"), days = 2 } },
           text = "First quiet night the brothers have had in a week. They'll pray for you. I'll settle for you staying sharp." },
         { id = "q_adventurer", when = { questActive = TODO_QUEST("The Adventurer") },
-          text = "There's a newcomer camped on the road by Goldshire. Probably harmless. Find out, and tell me if I'm wrong." },
+          text = "There's a newcomer camped on the road by Goldshire, probably harmless. Find out for me, and tell me if I'm wrong." },
         { id = "q_echo_active", when = { questActive = TODO_QUEST("Investigate Echo Ridge") },
-          text = "My scouts say there's more of them than we thought. Go and see. Count, don't charge." },
+          text = "My scouts say there are more of them than we thought. Go and see for yourself, and count them, recruit; don't charge them." },
         { id = "q_echo_later", when = { questLater = { TODO_QUEST("Skirmish at Echo Ridge"), days = 5 } },
-          text = "Echo Ridge has gone quiet. They always come back, mind. Fewer, since you went through." },
+          text = "Echo Ridge has gone quiet. They always come back, mind, but there are fewer of them since you went through." },
         { id = "q_thieves_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Brotherhood of Thieves"), days = 2 } },
           text = "Willem's tally of bandanas is the only thing in this valley growing faster than the kobolds. Your doing, I hear." },
         { id = "e_dughan_thieves", tags = { "news" }, when = { heardLine = "dughan.d_common_thieves" },
-          text = "Dughan told you they're common thieves? Common thieves don't drill. Someone is training them.",
+          text = "Dughan told you they're common thieves? Common thieves don't drill, recruit, and these do. Someone is training them.",
           fx = { hear = "defias_trained" } },
         { id = "h_priest", when = { class = "PRIEST", maxLevel = 10 },
-          text = "One of Anetta's. Good. Recruits bleed and kobolds bite. Keep my people on their feet and you're worth three swords to me." },
+          text = "One of Anetta's, are you? Good, because recruits bleed and kobolds bite, and if you keep my people on their feet you're worth three swords to me." },
         { id = "h_veteran", when = { minLevel = 20, metBefore = true },
-          text = "Look at you. Most of the ones I send down that road don't come back up it. The ones who do never look like this." },
+          text = "Look at you. Most of the ones I send down that road never come back up it, and the ones who do don't look like this." },
         { id = "h_novice", when = { origin = "human_abbey_novice", maxLevel = 10 },
-          text = "I know you. You were carrying the brothers' candles through these halls last spring. Now you'll go and take the kobolds' candles off them. Same job, more teeth." },
+          text = "I know you; you were carrying the brothers' candles through these halls last spring. Now you'll be taking the kobolds' candles off them instead, which is the same job with more teeth." },
       },
       again = {
-        { id = "h_again", text = "What else, recruit? Quickly." },
-        { id = "h_again2", text = "Go on. The maps aren't going anywhere. Neither are the kobolds." },
+        { id = "h_again", text = "What else do you need, recruit? Be quick about it." },
+        { id = "h_again2", text = "Go on, then. The maps aren't going anywhere, and neither, sadly, are the kobolds." },
         { id = "h_again3", when = { minLevel = 20 }, text = "Something else? You've earned a few more minutes than most." },
       },
       choices = {
@@ -103,7 +103,7 @@ P:NPC {
 
     kobolds = {
       lines = {
-        { id = "k_default", text = "Laugh if you like. They've moved into Echo Ridge Mine, and they come out bolder every week. I'd rather laugh after." },
+        { id = "k_default", text = "Laugh if you like, but they've moved into Echo Ridge Mine and they come out bolder every week. I'd rather do my laughing after." },
       },
       choices = {
         { text = "What are they doing in the mine?", next = "kobolds_mine" },
@@ -113,7 +113,7 @@ P:NPC {
     },
     kobolds_mine = {
       lines = {
-        { id = "km_default", text = "Digging. Deeper every week, and the deeper they dig, the harder they are to root out. Thieves and cowards, one at a time. A threat in numbers.",
+        { id = "km_default", text = "Digging, deeper every week, and the deeper they dig the harder they are to root out. One at a time they're thieves and cowards, but in numbers they're a threat to this whole valley.",
           fx = { learn = { "echo_ridge", "kobolds" } } },
       },
       choices = {
@@ -125,7 +125,7 @@ P:NPC {
       lines = {
         { id = "kn_default", text = "No. Nothing in this valley is ever finished. You clear the mine, and next month there may be more. Then I find someone else to send." },
         { id = "kn_done", when = { questDone = TODO_QUEST("Skirmish at Echo Ridge") },
-          text = "You cleared more of it than anyone. There may still be some down there. I'll send others. That's not a failure, recruit. That's a garrison." },
+          text = "You cleared more of it than anyone. There may still be some down there, and I'll send others after them; that's not a failure, recruit, it's what a garrison is for." },
       },
       choices = {
         { text = "Then I'll keep coming back.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
@@ -135,9 +135,9 @@ P:NPC {
 
     orders = {
       lines = {
-        { id = "o_default", text = "Good. I've more work than hands. Let's see what fits you." },
+        { id = "o_default", text = "Good, because I've more work than hands. Let's see what fits you." },
         { id = "o_kobolds", when = { questBefore = TODO_QUEST("Kobold Camp Cleanup") },
-          text = "Kobold camp, north woods. Thin it out, then report to me. Not to the brothers." },
+          text = "There's a kobold camp in the woods to the north. Thin it out, then report back to me, not to the brothers." },
         { id = "o_done_here", when = { questDone = TODO_QUEST("Skirmish at Echo Ridge") },
           text = "Nothing left here that needs you. Marshal Dughan in Goldshire can use a recruit who finishes things." },
       },
@@ -149,7 +149,7 @@ P:NPC {
     },
     garrison = {
       lines = {
-        { id = "ga_default", text = "Soldiers. Half the guard's fighting in other lands. So we take anyone willing to defend their home. We're getting a lot of you. I hope it's enough." },
+        { id = "ga_default", text = "Soldiers. Half the guard is fighting in other lands, so we take anyone willing to defend their home. We're getting a lot of you these days, and I hope it's enough." },
       },
       choices = {
         { text = "Can't Stormwind send more?", next = "garrison_more" },
@@ -161,7 +161,7 @@ P:NPC {
       lines = {
         { id = "gm_default", text = "Ask me something else, recruit." },
         { id = "gm_liked", when = { affinity = { min = 4 } },
-          text = "I've asked. Twice. The answer came back with a seal on it and nothing in it. Keep that to yourself." },
+          text = "I've asked, twice, and the answer came back with a seal on it and nothing inside. Keep that to yourself, recruit." },
       },
       choices = {
         { text = "Understood, Marshal.", next = "BACK", fx = { align = { order = 1 } } },
@@ -196,9 +196,9 @@ P:NPC {
     },
     defias_leaders = {
       lines = {
-        { id = "dl_default", text = "I don't know. That's what keeps me up. Thieves don't hold a line. These do. Garrick Padfoot fights like a man who's been drilled." },
+        { id = "dl_default", text = "I don't know, and that's what keeps me up at night. Thieves don't hold a line, but these do, and Garrick Padfoot fights like a man who's been drilled." },
         { id = "dl_garrick", when = { questDone = TODO_QUEST("Bounty on Garrick Padfoot") },
-          text = "I don't know. You've met Garrick Padfoot. Did he fight like a cutthroat to you? Or like a man who'd been drilled?" },
+          text = "I don't know. You've met Garrick Padfoot, though, so tell me: did he fight like a cutthroat to you, or like a man who'd been drilled?" },
       },
       choices = {
         { text = "Drilled. Someone trained him.", next = "BACK", fx = { hear = "defias_trained", affinity = 1 } },
@@ -217,7 +217,7 @@ P:NPC {
     },
     dughan = {
       lines = {
-        { id = "du_default", text = "A good officer with too much ground. He'll tell you the Defias are Westfall's problem. He keeps Goldshire calm that way. I don't blame him. I don't agree with him." },
+        { id = "du_default", text = "A good officer with too much ground to hold. He'll tell you the Defias are Westfall's problem, because that keeps Goldshire calm, and I don't blame him for it, but I don't agree with him either." },
       },
       choices = {
         { text = "Should I tell him you said so?", next = "dughan_tell" },
@@ -233,7 +233,7 @@ P:NPC {
 
     farmhand = {
       lines = {
-        { id = "fh_default", text = "Westfall. Every one of you up this hill says 'before the Defias came'. That tells me what I need to know about them.",
+        { id = "fh_default", text = "Westfall, is it? Every one of you who comes up this hill says 'before the Defias came', and that tells me all I need to know about them.",
           fx = { learn = { "defias" } } },
       },
       choices = {
@@ -244,7 +244,7 @@ P:NPC {
 
     priest = {
       lines = {
-        { id = "pr_default", text = "Good. I'd rather one healer than three more swords. Stay behind the fighters. If you're in front, something's gone wrong, and it's usually my fault." },
+        { id = "pr_default", text = "Good; I'd rather have one healer than three more swords. Stay behind the fighters, and if you ever find yourself in front of them, something's gone wrong, and it's usually my fault." },
       },
       choices = {
         { text = "And if the fighting comes to me?", next = "priest_fight" },
@@ -253,14 +253,14 @@ P:NPC {
     },
     priest_fight = {
       lines = {
-        { id = "pf_default", text = "Then you swing whatever you're holding. The Light won't mind, and neither will I. Then you heal the idiot who let it through." },
+        { id = "pf_default", text = "Then you swing whatever you're holding; the Light won't mind, and neither will I. After that, you heal the idiot who let it through." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { brave = 1 } } } },
     },
 
     allies = {
       lines = {
-        { id = "al_default", text = "Because the Alliance is supposed to mean something. We're enlisting anyone willing to defend their home, and their alliance. That means you." },
+        { id = "al_default", text = "Because the Alliance is supposed to mean something. We're enlisting anyone willing to defend their home and their alliance, and that means you as much as any farm lad from Elwynn." },
         { id = "al_dwarf", when = { race = "Dwarf" },
           text = "Ironforge stood with us in the Second War. I'll not turn a dwarf away from a kobold. You lot are better in tunnels than we are anyway." },
         { id = "al_skyborne", when = { race = "Skyborne" },
@@ -272,7 +272,7 @@ P:NPC {
     lordaeron = {
       big = true,
       lines = {
-        { id = "lo_default", text = "Lordaeron. Yes. Then you know why I don't laugh at kobolds, or bandits, or anything else that grows while nobody's watching." },
+        { id = "lo_default", text = "Lordaeron, yes. Then you know why I don't laugh at kobolds, or bandits, or anything else that grows while nobody's watching it." },
       },
       choices = {
         { text = "That's why I'm here.", next = "BACK", fx = { affinity = 3, align = { order = 1 } } },
@@ -280,13 +280,13 @@ P:NPC {
       },
     },
     lordaeron_watch = {
-      lines = { { id = "lw_default", text = "No. So I watch now. That's all a marshal is, recruit. Someone who watches so the brothers can sleep." } },
+      lines = { { id = "lw_default", text = "No, nobody did, so I watch now. That's all a marshal really is, recruit: someone who keeps watch so the brothers can sleep." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
 
     veteran = {
       lines = {
-        { id = "v_default", text = "I did. And I remember the ones who come back. What brings someone your size back up my hill?" },
+        { id = "v_default", text = "I did, and I remember the ones who come back. What brings someone your size back up my hill?" },
       },
       choices = {
         { text = "Visiting the Abbey. And you.", next = "veteran_visit", fx = { affinity = 2 } },
@@ -294,23 +294,23 @@ P:NPC {
       },
     },
     veteran_visit = {
-      lines = { { id = "vv_default", text = "Me? Light's sake. Don't let the recruits see. They'll think I'm soft." } },
+      lines = { { id = "vv_default", text = "Me? Light's sake, don't let the recruits hear you say that, or they'll think I've gone soft." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     veteran_need = {
-      lines = { { id = "vn_default", text = "Always. Not for kobolds, though. Go and do what we trained you for, somewhere it matters more than my woods." } },
+      lines = { { id = "vn_default", text = "Always, though not for kobolds. Go and do what we trained you for, somewhere it matters more than my woods." } },
       choices = { { text = "Something else.", next = "BACK", fx = { align = { order = 1 } } } },
     },
   },
 
   topics = {
     background = { { id = "tp_bg", text = "A marshal of the Stormwind Army with a valley to hold and not enough soldiers to hold it. That's the whole story, recruit.", next = "garrison" } },
-    advice = { { id = "tp_ad", text = "Count before you charge. Scouts first, steel second. Most of the recruits I bury got that the wrong way round." } },
+    advice = { { id = "tp_ad", text = "Count before you charge: scouts first, steel second. Most of the recruits I've had to bury got that the wrong way round." } },
     kobolds = { { id = "t_kobolds", text = "Vermin with candles and shovels. Don't underestimate the shovels." } },
     echo_ridge = { { id = "t_echo", text = "An old mine north of here. The kobolds took it, and they dig deeper every week." } },
-    defias = { { id = "t_defias", text = "Organized, and closer to the Abbey than I like. Ask Willem. He's been counting bandanas.", fx = { hear = "defias_trained" } } },
+    defias = { { id = "t_defias", text = "Organized, and closer to the Abbey than I like. Ask Willem, since he's been counting their bandanas.", fx = { hear = "defias_trained" } } },
     hogger = { { id = "t_hogger", text = "Dughan's problem, thank the Light. Don't go near him at your size." } },
-    northshire_abbey = { { id = "tp_abbey", text = "The brothers pray. I post sentries. Between us, the Abbey stays standing." } },
-    _none = { { id = "t_none", text = "Not a garrison matter. Ask the brothers. They read." } },
+    northshire_abbey = { { id = "tp_abbey", text = "The brothers pray and I post sentries, and between the two of us the Abbey stays standing." } },
+    _none = { { id = "t_none", text = "That's not a garrison matter. Ask the brothers; they read." } },
   },
 }

@@ -7,6 +7,7 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 - Deputy Willem, Eagan Peltskinner (and his wife Helene's pelt orders), Brother Neals (the Abbey's wars, Medivh, the locked library wing), Milly Osworth, Remy, Melika, Brother Wilhelm, Llane Beshere, Brother Danil and Smith Argus (Verner's horseshoes) reach the standard too.
 - Khelden, Jorik, Drusilla (Powers of the Void), Lyria, Zaldimar, Keryn and Remen each react to their own class and to others, send their students on, and have a branch or two for everyone else.
 - Replies that depend on who you are: priests (a prayer for Farley's brother, words for Dughan's lost footmen, the Light and magic, faith with Neals), abbey novices, Westfall farmhands, minor nobles, Lordaeron refugees, dwarves, gnomes, night elves and Skyborne in Northshire, and veterans coming back at level 20 and up. Every NPC has their own story and advice under Ask about (Argus keeps only advice).
+- Voice pass: these NPCs, all nine class trainers and the Eastvale stables now talk in whole sentences, the way people speak, instead of clipped fragments ("Count, don't charge." became "count them, recruit; don't charge them"). Remy still says things twice, inside the sentence.
 - Fixes: Keryn's quest is "Seek out SI: 7"; Milly's vineyard was never said to be her mother's, nor Argus Elmore's student, and Faol rebuilt the Abbey rather than founding it.
 
 ## 1.9.0 (unreleased)

@@ -11,51 +11,51 @@ P:NPC {
   notices = { "purse", "sneak" },
 
   barks = {
-    { id = "b_buying", text = "Buying gold dust! Buying gold dust!" },
-    { id = "b_murlocs", when = { questBefore = TODO_QUEST("A Fishy Peril") }, text = "Murlocs in the east, I tell you! Murlocs!" },
+    { id = "b_buying", text = "Buying gold dust, buying gold dust, best price in town!" },
+    { id = "b_murlocs", when = { questBefore = TODO_QUEST("A Fishy Peril") }, text = "There are murlocs in the east, I tell you, murlocs in the east!" },
   },
 
   greetings = {
-    { id = "g_dust", text = "Gold dust? Got any gold dust? Any at all?" },
-    { id = "g_friend", when = { affinity = { min = 3 } }, text = "My friend! My good friend! What news?" },
-    { id = "g_cold", when = { affinity = { max = -3 } }, text = "Oh. You. You again." },
+    { id = "g_dust", text = "Gold dust? Got any gold dust, friend, any at all, any at all?" },
+    { id = "g_friend", when = { affinity = { min = 3 } }, text = "My friend, my good friend! What news have you got for Remy, what news?" },
+    { id = "g_cold", when = { affinity = { max = -3 } }, text = "Oh, it's you. You again, is it, you again." },
   },
 
   notice = {
     { id = "n_rich", cat = "purse", when = { money = { min = 500000 } },
-      text = "That's a heavy purse. Heavy purse! You'll want a man who knows where to spend it." },
+      text = "That's a heavy purse, a heavy purse! You'll want a man who knows where to spend it, and you've found one." },
     { id = "n_rogue", cat = "sneak", when = { class = "ROGUE" },
-      text = "Hands where I can see them, friend. I know your sort. I am your sort, on Tuesdays." },
+      text = "Hands where I can see them, friend, because I know your sort. I am your sort, on Tuesdays." },
   },
 
   react = {
-    { id = "r_stealth", on = "stealth", text = "Where'd you go? Where'd you go! Don't do that, it's bad for my heart." },
+    { id = "r_stealth", on = "stealth", text = "Where'd you go, where'd you go? Don't do that, friend, it's bad for my heart." },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "Remy, at your service. At your service! Whatever you need, I know a fellow who knows a fellow." },
+        { id = "h_default", text = "Remy, at your service, at your service! Whatever you need, I know a fellow who knows a fellow." },
         { id = "q_dust_active", when = { questActive = TODO_QUEST("Gold Dust Exchange") },
-          text = "Kobolds keep it in little pouches. Little pouches! Bring me what you find and we'll both be happy." },
+          text = "The kobolds keep it in little pouches, little pouches! Bring me what you find and we'll both be happy." },
         { id = "q_dust_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Gold Dust Exchange"), days = 2 } },
-          text = "Lovely dust. Lovely! I knew you had an honest face. Mostly honest." },
+          text = "Lovely dust, just lovely! I knew you had an honest face, a mostly honest face, anyway." },
         { id = "q_murlocs_told", when = { questDone = TODO_QUEST("Further Concerns") },
-          text = "Told you. Told you! Murlocs. Nobody listens to Remy until somebody gets eaten.",
+          text = "I told you, I told you! Murlocs, and nobody listens to Remy until somebody gets eaten.",
           fx = { expose = "murlocs_in_elwynn" } },
         { id = "e_thomas", tags = { "news" }, priority = 5, when = { heardLine = "thomas.h_report" },
-          text = "Thomas said that? A drink, for Remy? For Remy! I'll hold him to it. I'll hold him to it twice." },
+          text = "Thomas said that? A drink, for Remy, for Remy! I'll hold him to it, I'll hold him to it twice." },
         { id = "h_skyborne", when = { race = "Skyborne" },
-          text = "A sky elf! Never sold to a sky elf. Never! What do your people buy? Whatever it is, I've got some. Probably." },
+          text = "A sky elf! I've never sold to a sky elf, never once! What do your people buy? Whatever it is, I've probably got some." },
         { id = "q_peril_active", when = { questActive = TODO_QUEST("A Fishy Peril") },
-          text = "Did you tell him? Did you tell him? The Marshal, about the murlocs? Tell him twice. He only hears things the second time." },
+          text = "Did you tell him, did you tell him? The Marshal, about the murlocs? Tell him twice, because he only hears things the second time." },
         { id = "h_dwarf", when = { race = "Dwarf" },
-          text = "A dwarf! Dwarves know gold. Know gold! You wouldn't have a little dust in that beard, would you? A little dust?" },
+          text = "A dwarf! Dwarves know gold, know gold! You wouldn't have a little dust in that beard, would you, a little dust?" },
       },
       again = {
-        { id = "h_again", text = "What else, what else? Time's money. Money's money too." },
-        { id = "h_again2", text = "More? More! I like a customer who talks." },
+        { id = "h_again", text = "What else, what else? Time's money, friend, and money's money too." },
+        { id = "h_again2", text = "More, is it, more? I like a customer who talks." },
       },
       choices = {
         { text = "What are you buying?", next = "BUSINESS" },
@@ -72,9 +72,9 @@ P:NPC {
     },
     news = {
       lines = {
-        { id = "n_default", text = "News? News! The price of eggs is a scandal, and Farley waters nothing, which is also a scandal." },
+        { id = "n_default", text = "News, news! The price of eggs is a scandal, and Farley waters nothing, which is also a scandal." },
         { id = "n_murlocs", key = true, when = { questBefore = TODO_QUEST("A Fishy Peril") },
-          text = "Murlocs! Up the streams in the east. Murlocs! Nobody believes me, but they will.",
+          text = "Murlocs, up the streams in the east, murlocs! Nobody believes me, but they will.",
           fx = { hear = "murlocs_in_elwynn", learn = { "murlocs_east" } } },
       },
       choices = {
@@ -85,7 +85,7 @@ P:NPC {
     },
     murlocs = {
       lines = {
-        { id = "mu_default", text = "Swimming up the eastern streams! Scaring off the fish, going for gentle folk! I told the Marshal. He's worried about gnolls and bandits. Gnolls and bandits!",
+        { id = "mu_default", text = "They're swimming up the eastern streams, scaring off the fish and going for gentle folk! I told the Marshal, but he's worried about gnolls and bandits, gnolls and bandits!",
           fx = { learn = { "murlocs_east" } } },
       },
       choices = {
@@ -95,7 +95,7 @@ P:NPC {
     },
     murlocs_dughan = {
       lines = {
-        { id = "md_default", text = "You will? You will! Persuade him. Troops to the east. He respects me as a merchant, he says. Respects me! Then he doesn't listen." },
+        { id = "md_default", text = "You will, you will? Persuade him to send troops to the east! He respects me as a merchant, he says, respects me, and then he doesn't listen." },
       },
       choices = {
         { text = "Then let's make it official.", next = "BUSINESS" },
@@ -104,7 +104,7 @@ P:NPC {
     },
     home = {
       lines = {
-        { id = "ho_default", text = "Redridge. East, past the mountains. Came west looking for business. Looking for business! Found Goldshire. Goldshire found me." },
+        { id = "ho_default", text = "Redridge, east past the mountains. I came west looking for business, looking for business, and I found Goldshire, or Goldshire found me." },
       },
       choices = {
         { text = "Why leave Redridge?", next = "home_why" },
@@ -113,7 +113,7 @@ P:NPC {
     },
     home_why = {
       lines = {
-        { id = "hw_default", text = "Why does anybody leave anywhere? Better prices. Better prices! Don't ask me about Redridge. Ask me about dust. I like dust." },
+        { id = "hw_default", text = "Why does anybody leave anywhere? Better prices, better prices! Don't ask me about Redridge, friend; ask me about dust, because I like dust." },
       },
       choices = {
         { text = "All right. Tell me about the dust.", next = "dust" },
@@ -122,14 +122,14 @@ P:NPC {
     },
     dust = {
       lines = {
-        { id = "du_default", text = "Kobolds pick it out of the mines. Fargodeep to the south, Jasperlode to the northeast. They carry it in pouches. I buy it. Simple! Simple.",
+        { id = "du_default", text = "The kobolds pick it out of the mines, Fargodeep to the south and Jasperlode to the northeast, and carry it about in pouches. I buy it from whoever takes it off them, simple as that, simple as that!",
           fx = { learn = { "gold_dust" } } },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     associates = {
       lines = {
-        { id = "as_default", text = "Associates! Friends. Friends of friends. They send me little tokens for good customers. Good customers! Don't ask what the token's for. I don't." },
+        { id = "as_default", text = "Associates! Friends, and friends of friends, who send me little tokens for good customers, good customers! Don't ask what the token's for, because I don't." },
       },
       choices = {
         { text = "That's not reassuring, Remy.", next = "BACK", fx = { trait = { skeptical = 1 } } },
@@ -138,7 +138,7 @@ P:NPC {
     },
     fence = {
       lines = {
-        { id = "fe_default", text = "Fence? Me? A merchant! A respectable merchant. Respectable! ...What are you selling? Just asking. Just asking." },
+        { id = "fe_default", text = "A fence, me? I'm a merchant, a respectable merchant! ...What are you selling, though? I'm just asking, just asking." },
       },
       choices = {
         { text = "Nothing. Yet.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
@@ -148,25 +148,25 @@ P:NPC {
     talks = {
       lines = {
         { id = "t_default", key = true,
-          text = "All right! All right! Riders. Night riders, out by the pumpkin patch. They pay the kobolds before I can. I never sold to them, I swear it.",
+          text = "All right, all right! Riders, night riders, out by the pumpkin patch, and they pay the kobolds before I can. I never sold to them, I swear it.",
           fx = { expose = "remy_only_buyer", learn = { "the_collector" }, thread = { id = "elwynn_gold", beat = "b_remy_talks" } } },
       },
       choices = { { text = "That wasn't so hard.", next = "END", fx = { trait = { stern = 1 }, affinity = -1 } } },
     },
     clams = {
-      lines = { { id = "c_default", text = "Buy? Me? I only sell. Only sell! Is that the time? It's the time." } },
+      lines = { { id = "c_default", text = "Buy, me? I only sell, friend, only sell! Goodness, is that the time? I must be going, must be going." } },
       choices = { { text = "We'll talk again, Remy.", next = "END" } },
     },
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "From Redridge, looking for business. Looking for business! Found plenty. Found plenty.", next = "home" } },
-    advice = { { id = "tp_ad", text = "Never sell to a gnoll. Gnolls don't pay. And always count your change twice. Twice!" } },
-    gold_dust = { { id = "t_dust", text = "Mine. My trade. Nobody in Elwynn buys dust but Remy. Nobody but Remy!",
+    background = { { id = "tp_bg", text = "From Redridge, looking for business, looking for business! And I found plenty, plenty.", next = "home" } },
+    advice = { { id = "tp_ad", text = "Never sell to a gnoll, because gnolls don't pay. And always count your change twice, twice!" } },
+    gold_dust = { { id = "t_dust", text = "It's mine, my trade! Nobody in Elwynn buys dust but Remy, nobody but Remy!",
       fx = { hear = "remy_only_buyer" } } },
-    murlocs_east = { { id = "t_murlocs", text = "Real! Real as rain. Ask the fishermen. Ask the ones that are left." } },
-    the_collector = { { id = "t_collector", text = "Never heard of him. Never heard of him. Why do you ask? Why?" } },
-    hogger = { { id = "t_hogger", text = "Don't sell to gnolls. Gnolls don't pay. Hogger especially doesn't pay." } },
-    _none = { { id = "t_none", text = "Don't know, don't know. Ask Farley, he hears everything twice as fast as me." } },
+    murlocs_east = { { id = "t_murlocs", text = "Real, real as rain! Ask the fishermen, the ones that are left." } },
+    the_collector = { { id = "t_collector", text = "Never heard of him, never heard of him. Why do you ask, why?" } },
+    hogger = { { id = "t_hogger", text = "Don't sell to gnolls, because gnolls don't pay, and Hogger especially doesn't pay." } },
+    _none = { { id = "t_none", text = "Don't know, don't know! Ask Farley; he hears everything twice as fast as me." } },
   },
 }
