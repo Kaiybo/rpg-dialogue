@@ -173,7 +173,7 @@ P:NPC {
   notice = {
     { id = "n_priest", cat = "priest", when = { class = "PRIEST" },
       text = "You'll know the prayer of Fortitude, {g:brother|sister}; every priest learns it early. Have you ever wondered why it's that word, and not strength or health? That's my whole sermon, really." },
-    { id = "n_smith", cat = "craft", when = { profession = { "Blacksmithing", "Mining" } },
+    { id = "n_smith", cat = "craft", when = { any = { { profession = "Blacksmithing" }, { profession = "Mining" } } },
       text = "You work with metal! Then you'll know better than I do that iron is strongest when it's been through the fire, and I'd love to hear you say it in your own words." },
   },
 
@@ -200,7 +200,7 @@ P:NPC {
         { text = "Let me hear the opening.", next = "opening" },
         { text = "Where is the book now?", next = "book" },
         { text = "What does Fortitude mean to you, Brother?", next = "fortitude", when = { class = "PRIEST" } },
-        { text = "I know iron. It's honest stuff.", next = "smith", when = { profession = { "Blacksmithing", "Mining" } } },
+        { text = "I know iron. It's honest stuff.", next = "smith", when = { any = { { profession = "Blacksmithing" }, { profession = "Mining" } } } },
         { text = "Good luck with the sermon.", next = "END" },
       },
     },

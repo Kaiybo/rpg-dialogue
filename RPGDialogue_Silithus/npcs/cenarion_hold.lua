@@ -89,7 +89,7 @@ P:NPC {
       },
     },
     circle_wall = {
-      lines = { { id = "cw_default", text = "A city older than ours, and the things that built it. I wasn't born when our people fought here, and those who were don't speak of it lightly; I've heard enough to want the wall to hold until the sand buries it." } },
+      lines = { { id = "cw_default", text = "A city older than ours, and the things that built it. I wasn't on this sand when our people fought here, and those who were don't speak of it lightly; I've heard enough to want the wall to hold until the sand buries it." } },
       choices = {
         { text = "Does all the Circle agree on that?", next = "circle_fandral" },
         { text = "Something else.", next = "BACK" },
@@ -139,7 +139,7 @@ P:NPC {
     },
     nat_doubt = {
       big = true,
-      lines = { { id = "nd_default", text = "No. I saw her three times, talking to the empty air as if someone answered, and each time I told myself it was prayer, because I wanted it to be. I've commanded soldiers for longer than most kingdoms have stood, and I looked away from the one thing in front of me." } },
+      lines = { { id = "nd_default", text = "No. I saw her three times, talking to the empty air as if someone answered, and each time I told myself it was prayer, because I wanted it to be. I've commanded soldiers for centuries, and I looked away from the one thing in front of me." } },
       choices = {
         { text = "You loved her. That isn't a failing.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Then don't look away again, Commander.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
@@ -450,7 +450,7 @@ P:NPC {
       { id = "tp_knows", text = "Rocks, bugs and cultists, in about that order of how much I like them. Ask away." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "For you, I'll even put down the hammer. What would ye know?" },
     },
-    background = { { id = "tp_bg", text = "A miner's daughter from Dun Morogh who learned to read the rock before she could read a book. The Circle needed someone who could tell them what the desert was made of, and nobody else wanted the job." } },
+    background = { { id = "tp_bg", text = "A geologist from Ironforge who goes wherever the rocks are strangest. The Circle needed someone to tell them what this desert's made of, and nobody else wanted the job." } },
     advice = { { id = "tp_ad", text = "Never sleep with your ear to the ground out here. Ye'll dream things ye don't want to have dreamed." } },
     silithid = { { id = "tp_silithid", text = "Clever, for bugs, and cleverer near the crystals. That's the part that keeps me up at night.", next = "crystals" } },
     twilights_hammer = { { id = "tp_hammer", text = "They write a lot down for people who claim to want the world to end. I'd like to read it all." } },
@@ -542,6 +542,8 @@ P:NPC {
         { id = "em_default", text = "Good. The Circle sent emissaries to Ironforge and Orgrimmar both, asking for anyone who could stand the heat, and you're what the asking brought me." },
         { id = "em_alliance", when = { faction = "Alliance" },
           text = "Jademoon found you in Ironforge, then. I'm glad the dwarves let her speak; Ironforge is a busy place, and Silithus is a long way from its forges." },
+        { id = "em_horde", when = { faction = "Horde" },
+          text = "Blackhoof found you in Orgrimmar, then. The Warchief's city has never lacked for fighters, and I'm glad he spared us a few." },
       },
       choices = { { text = "I'm glad to be here.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
@@ -557,7 +559,7 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "I know what comes up the road and what doesn't make it. Pick something." } },
-    background = { { id = "tp_bg", text = "A windcaller of the Circle from the plains of Mulgore, sent here because someone has to count the grain, and I count better than most." } },
+    background = { { id = "tp_bg", text = "A windcaller of the Circle, sent here because someone has to count the grain, and I count better than most." } },
     advice = { { id = "tp_ad", text = "Carry twice the water you think you'll need. Then carry a little more." } },
     cenarion_circle = { { id = "tp_circle", text = "Tauren and night elves, druids all, and more of us in this fort than anywhere outside Moonglade. We argue about everything but the bugs." } },
     silithid = { { id = "tp_silithid", text = "Dangerous, but predictable. The worms are neither." } },

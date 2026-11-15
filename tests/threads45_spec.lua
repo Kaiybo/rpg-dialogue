@@ -29,6 +29,12 @@ local function talk(ns, name)
 end
 
 local function text(ns) return plain(ns.UI.Dialogue.Frame().text:GetText()) or "" end
+local function click(ns, needle)
+  for i, b in ipairs(ns.UI.Dialogue.Frame().buttons) do
+    if b:IsShown() and (plain(b.label:GetText()) or ""):find(needle, 1, true) then ns.UI.Dialogue.Click(i); return true end
+  end
+  return false
+end
 
 -- A quest the player has turned in (TODO_QUEST resolves through capture data).
 local function questDone(ns, id, title)
@@ -175,6 +181,20 @@ describe("The Light in the Plaguelands", function()
     local t = heard(ns, "plague_light", "unfolding", { "b1_macdonnell", "b2_leonid" })
     eq(talk(ns, "Archbishop Benedictus"), "benedictus")
     contains(text(ns), "still asking")
+    eq(t.state, "unfolding", "the beat alone doesn't end it")
+    ok(click(ns, "praying in Lordaeron"), "the priest can tell him")
+    contains(text(ns), "what did it say back")
+    ok(click(ns, "It still answers"))
     eq(t.state, "resolved")
+    contains(ns.Journal.Text("stories"), "(ended)")
+  end)
+
+  it("or it sours, if the Light up there was only a weapon", function()
+    local ns = boot("Stormwind City", "Cathedral Square", { "RPGDialogue_World", "RPGDialogue_Stormwind" })
+    local t = heard(ns, "plague_light", "unfolding", { "b1_macdonnell", "b2_leonid", "b4_benedictus" })
+    talk(ns, "Archbishop Benedictus")
+    ok(click(ns, "praying in Lordaeron"))
+    ok(click(ns, "a weapon"))
+    eq(t.state, "soured")
   end)
 end)

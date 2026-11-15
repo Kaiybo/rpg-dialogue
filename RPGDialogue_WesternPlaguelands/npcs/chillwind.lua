@@ -634,7 +634,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Argent Officer Pureheart keeps a table where nobody draws steel, whatever colors they wear. There's an easy warmth to him that seems to have been earned the hard way.",
+    first = "Argent Officer Pureheart keeps a table where nobody draws steel, whatever colors they wear. There's an easy warmth to her that seems to have been earned the hard way.",
     third = "{name} met Argent Officer Pureheart, who speaks for the Argent Dawn at Chillwind Camp.",
   },
 

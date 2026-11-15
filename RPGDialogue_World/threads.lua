@@ -639,7 +639,7 @@ P:Thread {
       when = { class = { "PRIEST", "PALADIN" }, any = { { thread = { id = "plague_light", beat = "b2_leonid" } }, { thread = { id = "plague_light", beat = "b3_tirion" } } },
                ["not"] = { thread = { id = "plague_light", beat = "b4_benedictus" } } },
       text = "You've been praying in Lordaeron, child; I can see it in how you kneel. When it fell I asked the Light every night for a year whether it had left those people, and I'm glad to see someone come home from there still asking.",
-      fx = { thread = { id = "plague_light", beat = "b4_benedictus", state = "resolved" } },
+      fx = { thread = { id = "plague_light", beat = "b4_benedictus", state = "unfolding" } },
     },
   },
 }

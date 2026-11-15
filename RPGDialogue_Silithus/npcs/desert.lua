@@ -381,7 +381,7 @@ P:NPC {
         { id = "h_glyphs", when = { questActive = TODO_QUEST("Glyph Chasing") },
           text = "Rubbings from all three hives, mind, not two. And if ye find a crazy night elf lass in one of them, give her a kick from us." },
         { id = "h_prism", when = { questDone = TODO_QUEST("Unraveling the Mystery") },
-          text = "Larksbane says the glyphs aren't a code at all, just a lock that turns. I've been reading locks wrong for fifty years, apparently." },
+          text = "Larksbane says the glyphs aren't a code at all, just a lock that turns. I've been reading locks wrong most of my life, apparently." },
       },
       again = {
         { id = "h_again", text = "What else? I've got rubbings to sort." },
@@ -456,7 +456,7 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "Glyphs, hives and Bronzebeards. Pick one, and be quick." } },
-    background = { { id = "tp_bg", text = "Explorers' League, thirty years, and never been ignored like this. Ask me again when I've calmed down." } },
+    background = { { id = "tp_bg", text = "Explorers' League, born and bred, and never been ignored like this. Ask me again when I've calmed down." } },
     advice = { { id = "tp_ad", text = "Never touch a glowing rock with your face. Should be obvious, but here we are." } },
     explorers_league = { { id = "tp_league", text = "The finest scholars in Ironforge, and the worst letter-answerers." } },
     natalia = { { id = "tp_natalia", text = "Poor lass. She wasn't herself, at the end.", next = "natalia" } },

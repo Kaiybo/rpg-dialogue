@@ -72,8 +72,35 @@ P:NPC {
         { text = "Your Grace, how do I become a better priest?", next = "priest", when = { class = "PRIEST" } },
         { text = "What does the Church make of shadow, in a priest?", next = "shadow", when = { class = "PRIEST", minLevel = 20 } },
         { text = "I came out of Lordaeron, Your Grace.", next = "lordaeron", when = { origin = "human_lordaeron_refugee" } },
+        { text = "I've been praying in Lordaeron, Your Grace.", next = "plague_prayer",
+          when = { class = { "PRIEST", "PALADIN" }, thread = { id = "plague_light", beat = "b4_benedictus", state = "unfolding" } } },
         { text = "Thank you, Your Grace.", next = "END" },
       },
+    },
+    plague_prayer = {
+      big = true,
+      lines = {
+        { id = "pp_default", key = true,
+          text = "Then tell me plainly, because I have only letters from up there and letters are kind. When you called on the Light among the dead, what did it say back to you?" },
+      },
+      again = { { id = "pp_again", text = "You've told me already, and I keep turning it over. Go on, child." } },
+      choices = {
+        { text = "It still answers, Your Grace, even there, even for the dead.", next = "plague_answers",
+          fx = { thread = { id = "plague_light", state = "resolved" }, align = { light = 1 }, affinity = 1 } },
+        { text = "Up there the Light is a weapon, nothing more.", next = "plague_weapon",
+          fx = { thread = { id = "plague_light", state = "soured" }, align = { light = -1 } } },
+        { text = "I'd rather not speak of it yet.", next = "BACK" },
+      },
+    },
+    plague_answers = {
+      lines = { { id = "pa_default",
+        text = "Then I was wrong to stop asking, and I'm glad you didn't. Sit with me a while before you go back; I want to pray for the ones you prayed for." } },
+      choices = { { text = "I'll sit with you.", next = "BACK" }, { text = "Thank you, Your Grace.", next = "END" } },
+    },
+    plague_weapon = {
+      lines = { { id = "pw_default",
+        text = "I've heard Tirion's people say the same, and I understand why. But a weapon is held by someone, child, and I'd ask you to remember who's holding it." } },
+      choices = { { text = "I'll remember.", next = "BACK" }, { text = "Thank you, Your Grace.", next = "END" } },
     },
     faol = {
       lines = {

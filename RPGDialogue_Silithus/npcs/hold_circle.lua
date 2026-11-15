@@ -343,7 +343,7 @@ P:NPC {
     { id = "n_kaldorei", cat = "race", when = { race = "NightElf" },
       text = "One of my own people, though you would not know my face. We have both forgotten a great deal, you and I, but I was made to remember." },
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
-      text = "A druid of the Circle. Your Arch Druid's predecessors stood on this sand once, beside the Brood, and some of them were brave." },
+      text = "A druid of the Circle. Druids stood on this sand once before, beside the Brood, and some of them were very brave." },
   },
 
   start = "hello",
@@ -406,7 +406,7 @@ P:NPC {
       },
     },
     hive_qiraji = {
-      lines = { { id = "hq_default", text = "The masters of the hive, sealed in their city a thousand years ago. Your people's commander has learned to fear them by another name; I have feared them by theirs for a very long time." } },
+      lines = { { id = "hq_default", text = "The masters of the hive, sealed in their city a thousand years ago, and not nearly as asleep as your kind would like to believe. I have feared them for a very long time." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     risen = {

@@ -569,6 +569,7 @@ P:NPC {
         { text = "Why does Tymor want rubbings?", next = "tymor" },
         { text = "Aren't the naga a danger here?", next = "naga" },
         { text = "Tell me about your flying machine.", next = "machine" },
+        { text = "What's she running on, Xiggs?", next = "machine_eng", when = { profession = "Engineering" } },
         { text = "Safe flight, Xiggs.", next = "END" },
       },
     },
@@ -596,6 +597,13 @@ P:NPC {
       choices = {
         { text = "Someone should deal with the naga, though.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Can't argue with that.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+      },
+    },
+    machine_eng = {
+      lines = { { id = "me_default", text = "Ha! A proper question at last. Thorium coils, a gnomish rotor I'll swear blind I built myself, and enough blasting powder in the tank to see me to Ironforge, or to the moon, dependin' on the weather." } },
+      choices = {
+        { text = "That's a lot of powder, Xiggs.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Sounds like a fine machine.", next = "BACK", fx = { affinity = 2 } },
       },
     },
     machine = {
