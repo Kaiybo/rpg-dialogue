@@ -16,7 +16,7 @@ P:NPC {
 
   notice = {
     { id = "n_green", cat = "greenness", when = { maxLevel = 2 },
-      text = "Newly woken to the world, and already sent to me. Let's begin gently. The forest will be less gentle later." },
+      text = "Newly woken to the world, and already sent to me! Let us begin gently, for the forest will be less gentle with you later." },
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
       text = "A young druid! There's word waiting for you from your teacher. The glade has been expecting you." },
   },
@@ -26,15 +26,15 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Conservator Ilthalaine. I keep the balance in Shadowglen. It's a lovely place, and lovely places need keeping more than most." },
+          text = "I am Conservator Ilthalaine, and I keep the balance in Shadowglen. It's a lovely place, and lovely places need keeping more than most." },
         { id = "h_balance", tags = { "news" }, when = { questActive = TODO_QUEST("The Balance of Nature") },
-          text = "Heavy spring rains, and now more young nightsabers and thistle boars than the glade can feed. Thin them, gently. Balance is a matter of numbers, not hatred." },
+          text = "The spring rains were heavy, and now there are more young nightsabers and thistle boars than the glade can feed. Thin them gently, for balance is a matter of numbers, not of hatred." },
         { id = "h_sigil", when = { any = {
             { questActive = TODO_QUEST("Verdant Sigil") }, { questActive = TODO_QUEST("Hallowed Sigil") },
             { questActive = TODO_QUEST("Simple Sigil") }, { questActive = TODO_QUEST("Etched Sigil") },
             { questActive = TODO_QUEST("Encrypted Sigil") } } },
           text = "Your teacher's sigil came for you by messenger. Read it, then find them in Aldrassil. They'll show you the next step." },
-        { id = "h_cubs", when = { metBefore = true }, text = "I counted nightsaber cubs this morning. Seven. Last spring there were five. The glade is generous this year, and that worries me a little." },
+        { id = "h_cubs", when = { metBefore = true }, text = "I counted the nightsaber cubs this morning and found seven, where last spring there were five. The glade is generous this year, and that worries me a little." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Elune's light on the glade. This is the hour I remember why I asked to keep it." },
         { id = "h_grown", when = { minLevel = 20 },
           text = "You've grown since the glade last saw you. Out there in the world, is the balance kept any better than in here?" },
@@ -55,7 +55,7 @@ P:NPC {
     balance = {
       big = true,
       lines = {
-        { id = "b_default", text = "That nothing takes more than its share. Not the beasts, not the furbolgs, not us. When one thing grows too much, the rest of the forest pays for it." },
+        { id = "b_default", text = "It means that nothing takes more than its share: not the beasts, not the furbolgs, and not us. When one thing grows too much, the rest of the forest pays for it." },
       },
       choices = {
         { text = "I'll remember that.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, learn = { "cenarion_circle" } } },
@@ -63,7 +63,7 @@ P:NPC {
       },
     },
     balance_kill = {
-      lines = { { id = "bk_default", text = "Even then. Killing for balance is a sorrow. Killing for pleasure is where corruption begins. Learn the difference here, while it's easy to see." } },
+      lines = { { id = "bk_default", text = "Even then. Killing for balance is a sorrow, but killing for pleasure is where corruption begins, so learn the difference here while it's easy to see." } },
       choices = {
         { text = "A necessary sorrow, then.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll try to tell them apart.", next = "BACK", fx = { trait = { kind = 1 } } },
@@ -78,7 +78,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     world = {
-      lines = { { id = "w_default", text = "No, I don't suppose it is. Sit a moment. Was it the beasts that were out of balance, or the people?" } },
+      lines = { { id = "w_default", text = "No, I don't suppose it is. Sit with me a moment and tell me: was it the beasts that were out of balance, or the people?" } },
       choices = {
         { text = "The people. Always the people.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
         { text = "The beasts. Something's sickening them.", next = "BACK", fx = { affinity = 1, trait = { curious = 1 } } },
@@ -93,9 +93,9 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I keep Shadowglen. That's the whole of my story, and it's plenty." } },
-    advice = { { id = "tp_ad", text = "Walk softly in a young forest. It remembers everything." } },
+    advice = { { id = "tp_ad", text = "Walk softly in a young forest, because it remembers everything." } },
     cenarion_circle = { { id = "tp_circle", text = "The Circle teaches what I try to practice. They're better at it than I am, but I'm more cheerful about it." } },
-    _none = { { id = "tp_none", text = "No idea! Isn't it lovely, though, not knowing things? It leaves room." } },
+    _none = { { id = "tp_none", text = "I have no idea! Isn't it lovely, though, not knowing things? It leaves room for wonder." } },
   },
 }
 
@@ -123,10 +123,10 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Melithar Staghelm. I tend Aldrassil's roots and the young ones who come to it. Both need patience." },
+          text = "I am Melithar Staghelm. I tend Aldrassil's roots and the young ones who come to it, and both of them need patience." },
         { id = "h_woodland", tags = { "news" }, when = { questActive = TODO_QUEST("The Woodland Protector") },
           text = "Tarindrella the dryad has come back to Shadowglen, after years unseen. A Sentinel spotted her southwest of Aldrassil. Find out why she's come." },
-        { id = "h_hum", when = { metBefore = true }, text = "Aldrassil hums when the wind is right. Put your ear to the bark one day. Tenaron finds it undignified. Tenaron is wrong." },
+        { id = "h_hum", when = { metBefore = true }, text = "Aldrassil hums when the wind is right, so put your ear to the bark one day and listen. Tenaron finds it undignified, but Tenaron is wrong." },
         { id = "h_moss", when = { questDone = TODO_QUEST("The Woodland Protector") },
           text = "Fel Moss on the grells. Tarindrella was right to come. If it's in them, I fear it's in the Gnarlpine too." },
       },
@@ -143,19 +143,19 @@ P:NPC {
       },
     },
     kin = {
-      lines = { { id = "k_default", text = "Everyone asks. My work is here, at the roots. Whatever name I carry, the tree doesn't care, and neither should you." } },
+      lines = { { id = "k_default", text = "Everyone asks me that. My work is here, at the roots, and whatever name I carry, the tree doesn't care, and neither should you." } },
       choices = {
         { text = "Fair enough.", next = "BACK" },
         { text = "Would you tell me if you were?", next = "kin2", fx = { trait = { witty = 1 } } },
       },
     },
     kin2 = {
-      lines = { { id = "k2_default", text = "Probably not. A name is heavy enough without anyone else's hung on it." } },
+      lines = { { id = "k2_default", text = "Probably not, for a name is heavy enough without anyone else's hung on it." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     tending = {
       lines = {
-        { id = "t_slow", text = "Slow. A tree this old hurries for no one. I've learned to measure my days in new leaves, and my years in rings I'll never see." },
+        { id = "t_slow", text = "Slowly. A tree this old hurries for no one, and I've learned to measure my days in new leaves and my years in rings I'll never see." },
       },
       choices = {
         { text = "A patient life.", next = "BACK", fx = { affinity = 1, trait = { patient = 1 } } },
@@ -178,7 +178,7 @@ P:NPC {
       choices = { { text = "I'll look into it.", next = "BACK", fx = { affinity = 1, trait = { curious = 1 } } } },
     },
     druid_m = {
-      lines = { { id = "dm_default", text = "I'm no trainer; Mardant upstairs is. But I'll tell you something he won't. The bear is easy. Patience is hard." } },
+      lines = { { id = "dm_default", text = "I'm no trainer; Mardant upstairs is. But I will tell you something he won't: the bear is easy to learn, and patience is not." } },
       choices = { { text = "I'll work on patience.", next = "BACK", fx = { affinity = 1, trait = { patient = 1 } } } },
     },
   },
@@ -188,7 +188,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Stay on the paths until you know which roots trip." } },
     fel_moss = { { id = "tp_moss", text = "It's in the grells. Tarindrella thinks the furbolgs too. I hope she's wrong." } },
     cenarion_circle = { { id = "tp_circle", text = "Every druid in Shadowglen hopes the Circle will notice them one day. Few say so aloud." } },
-    _none = { { id = "tp_none", text = "I can't say. Ask Tenaron, in Aldrassil." } },
+    _none = { { id = "tp_none", text = "I couldn't say, but Tenaron might, at the top of Aldrassil." } },
   },
 }
 
@@ -199,7 +199,7 @@ P:NPC {
   notices = { "greenness", "race" },
 
   greetings = {
-    { id = "g_aldrassil", text = "Welcome to the top of Aldrassil. From here you can see most of Shadowglen. It looks small from up here. It isn't." },
+    { id = "g_aldrassil", text = "Welcome to the top of Aldrassil. From here you can see most of Shadowglen, and it looks small from up here, though it isn't." },
     { id = "g_back", when = { metBefore = true }, text = "You've made the climb again. I always have time for those who climb." },
   },
 
@@ -207,7 +207,7 @@ P:NPC {
     { id = "n_ready", cat = "greenness", when = { minLevel = 5, maxLevel = 9 },
       text = "You've grown since you came to the glade. It shows in how you stand. Soon you'll go down for the last time." },
     { id = "n_kaldorei", cat = "race", when = { race = "NightElf" },
-      text = "Child of the kaldorei. The forest remembers us even when we forget it. Remember it." },
+      text = "Child of the kaldorei, the forest remembers us even when we forget it, so remember it in turn." },
   },
 
   start = "hello",
@@ -217,17 +217,17 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Tenaron Stormgrip. I watch over Shadowglen from Aldrassil's crown. Every young elf who leaves the glade passes me on the way." },
         { id = "h_summons", tags = { "news" }, when = { questActive = TODO_QUEST("Tenaron's Summons") },
-          text = "You came when I called. Good. There's a task that will take you beyond the glade, and you're ready for it." },
+          text = "You came when I called, and that is good. There is a task that will take you beyond the glade, and you are ready for it." },
         { id = "h_crown", when = { questActive = TODO_QUEST("Crown of the Earth") },
           text = "Take this vial to the moonwell and fill it. Then carry it down to Dolanaar. Corithras will know what to do with it." },
         { id = "h_count", when = { metBefore = true }, text = "Every morning I watch the young ones walk the path down to Dolanaar. Most come back one day, taller. That's the part I like." },
         { id = "h_returned", when = { minLevel = 20 },
           text = "You came back up the tree. Most don't, once the world below has them. Sit, and tell me what you've seen down there." },
         { id = "h_visitor", when = { ["not"] = { race = "NightElf" } },
-          text = "A visitor, all the way to Aldrassil's crown. You're either very curious or very lost. Both are welcome." },
+          text = "A visitor, all the way up to Aldrassil's crown! You are either very curious or very lost, and both are welcome here." },
       },
       again = {
-        { id = "h_again", text = "What else? The view keeps." },
+        { id = "h_again", text = "What else would you ask? The view will keep." },
         { id = "h_again2", text = "Go on. I've been up here a long while; I can listen a while longer." },
       },
       choices = {
@@ -244,7 +244,7 @@ P:NPC {
     beyond = {
       big = true,
       lines = {
-        { id = "bd_default", text = "Dolanaar, then Darnassus, then the whole world below the tree. Some of it is beautiful. Some of it is sick. You'll learn to tell which. Go with my blessing." },
+        { id = "bd_default", text = "First Dolanaar, then Darnassus, and then the whole world below the tree. Some of it is beautiful and some of it is sick, and you will learn to tell which. Go with my blessing." },
       },
       choices = {
         { text = "Thank you.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, standing = { shadowglen = 1 } } },
@@ -270,14 +270,14 @@ P:NPC {
       choices = { { text = "I'll listen to Corithras.", next = "BACK", fx = { affinity = 1 } } },
     },
     hyjal = {
-      lines = { { id = "hy_default", text = "We fought the Legion beside orcs and humans, and the World Tree gave everything it had to end Archimonde. We won. We have been paying for it since." } },
+      lines = { { id = "hy_default", text = "We fought the Legion beside orcs and humans, and the World Tree gave everything it had to end Archimonde. We won, and we have been paying for it ever since." } },
       choices = {
         { text = "Paying how?", next = "hyjal2" },
         { text = "Something else.", next = "BACK" },
       },
     },
     hyjal2 = {
-      lines = { { id = "hy2_default", text = "We grow old now. We sicken. Some of my people can't bear it. I find I don't mind the years, so long as I spend them up here." } },
+      lines = { { id = "hy2_default", text = "We grow old now, and we sicken, and some of my people cannot bear it. I find I don't mind the years, so long as I spend them up here." } },
       choices = {
         { text = "That's a good way to spend them.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "I'd mind. I'd mind a great deal.", next = "BACK", fx = { trait = { stern = 1 } } },
@@ -291,11 +291,11 @@ P:NPC {
       },
     },
     view2 = {
-      lines = { { id = "v2_default", text = "Most, one day, taller. A few don't. I remember those names, and I say them up here where the wind carries." } },
+      lines = { { id = "v2_default", text = "Most of them do, one day, and taller than they left. A few never return, and I remember those names and say them up here, where the wind carries them." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     world_t = {
-      lines = { { id = "wt_default", text = "It is. Sit a moment. What's the worst of it, down there?" } },
+      lines = { { id = "wt_default", text = "It is. Sit with me a moment, and tell me what the worst of it is, down there." } },
       choices = {
         { text = "The Horde, cutting Ashenvale.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
         { text = "The corruption. It's everywhere.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
@@ -303,11 +303,11 @@ P:NPC {
       },
     },
     welcome = {
-      lines = { { id = "we_default", text = "You climbed Aldrassil. That's welcome enough. The glade asks only that you walk gently and leave it as you found it." } },
+      lines = { { id = "we_default", text = "You climbed Aldrassil, and that is welcome enough. The glade asks only that you walk gently and leave it as you found it." } },
       choices = { { text = "I will. Thank you.", next = "BACK", fx = { affinity = 1, standing = { shadowglen = 1 } } } },
     },
     story = {
-      lines = { { id = "so_default", text = "Then you know about the dragons' refusal, and the furbolgs. Good. Better you hear it from us than learn it from the sickness itself." } },
+      lines = { { id = "so_default", text = "Then you know about the dragons' refusal, and the furbolgs. It is better that you hear it from us than learn it from the sickness itself." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
@@ -332,7 +332,7 @@ P:NPC {
 
   notice = {
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
-      text = "What a fine companion. Be good to it. Friends are what get us through the dark parts of the forest." },
+      text = "What a fine companion! Be good to it, for friends are what get us through the dark parts of the forest." },
   },
 
   start = "hello",
@@ -347,7 +347,7 @@ P:NPC {
           text = "Hyacinth mushrooms, moonpetal lilies, and ichor from the very spiders that bit him. Bring them, and I'll make the antidote. Hurry, if you can." },
         { id = "h_saved", when = { questDone = TODO_QUEST("Iverron's Antidote") }, text = "Iverron's on his feet already, and talking about going back into the cave. Some friends you have to keep saving. Thank you for this time." },
         { id = "h_bitten", tags = { "news" }, when = { questActive = TODO_QUEST("A Friend in Need") },
-          text = "Bitten? By Githyiss? I've warned him about those spiders more times than I can count. All right. We can make an antidote." },
+          text = "Bitten by Githyiss? I've warned him about those spiders more times than I can count! All right, then, we can make an antidote." },
       },
       again = {
         { id = "h_again", text = "What else? Sorry, I keep looking toward the cave." },
@@ -374,7 +374,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     glen = {
-      lines = { { id = "gl_default", text = "Grells to the south, spiders to the north, and the furbolgs gone strange. All isn't well, I know. It's still home." } },
+      lines = { { id = "gl_default", text = "Grells to the south, spiders to the north, and the furbolgs gone strange... All isn't well, I know, but it is still home." } },
       choices = {
         { text = "What's wrong with the furbolgs?", next = "glen2" },
         { text = "Something else.", next = "BACK" },
@@ -385,13 +385,13 @@ P:NPC {
       choices = { { text = "I'll ask them.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
     herbs = {
-      lines = { { id = "he_default", text = "Hyacinth mushrooms grow under the trees, and the grells to the south hoard them. Moonpetal lilies only grow by the pools. The ichor... you know where." } },
+      lines = { { id = "he_default", text = "Hyacinth mushrooms grow under the trees, and the grells to the south hoard them, while moonpetal lilies only grow by the pools. The ichor you'll have to take from the spiders themselves." } },
       choices = { { text = "I'll be quick.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "These woods feel like home every time I come back. That's my story. Iverron's is longer, and more foolish." } },
+    background = { { id = "tp_bg", text = "These woods feel like home every time I come back, and that is my whole story. Iverron's is longer, and more foolish." } },
     advice = { { id = "tp_ad", text = "Never go into a spider cave alone. Tell Iverron that, if you see him." } },
     _none = { { id = "tp_none", text = "I'm sorry, my mind is on Iverron." } },
   },
@@ -404,7 +404,7 @@ P:NPC {
   notices = { "craft" },
 
   greetings = {
-    { id = "g_steps", text = "Oh. Hello. I was only sitting. The steps are good for sitting." },
+    { id = "g_steps", text = "Oh, hello. I was only sitting; the steps are good for sitting." },
   },
 
   notice = {
@@ -417,19 +417,19 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Gilshalan Windwalker. I study the Webwood spiders in the cave to the north. From a distance, mostly." },
+          text = "I'm Gilshalan Windwalker, and I study the Webwood spiders in the cave to the north, from a distance, mostly." },
         { id = "h_venom", tags = { "news" }, when = { questActive = TODO_QUEST("Webwood Venom") },
           text = "I need their venom sacs. I believe the new world tree has changed these spiders, and their venom will tell me how." },
         { id = "h_egg", when = { questActive = TODO_QUEST("Webwood Egg") },
           text = "There's a nest deep in Shadowthread Cave. Bring me an egg, unhatched. A live spider is more than either of us should handle." },
         { id = "h_summons", when = { questActive = TODO_QUEST("Tenaron's Summons") },
-          text = "Tenaron's asking for you, at the very top of the tree. He's patient. Don't test it." },
+          text = "Tenaron is asking for you, at the very top of the tree. He is a patient elf, but I wouldn't test it." },
         { id = "h_shipped", when = { questDone = TODO_QUEST("Webwood Egg") },
-          text = "The egg's gone to Darnassus with the venom. I'll follow when I'm done here. Or when it hatches, whichever comes first." },
+          text = "The egg has gone to Darnassus with the venom, and I'll follow when I'm done here, or when it hatches, whichever comes first." },
       },
       again = {
-        { id = "h_again", text = "Anything else? I'm only sitting." },
-        { id = "h_again2", text = "Ask away. The spiders aren't going anywhere. That's rather the problem." },
+        { id = "h_again", text = "Anything else? I'm only sitting, after all." },
+        { id = "h_again2", text = "Ask away. The spiders aren't going anywhere, which is rather the problem." },
       },
       choices = {
         { text = "Why study spiders?", next = "why" },
@@ -441,7 +441,7 @@ P:NPC {
     },
     why = {
       lines = {
-        { id = "w_silk", text = "Their silk is stronger than it has any right to be, and in the right hands their venom heals. Also, they frighten me. I'd like them to frighten me less." },
+        { id = "w_silk", text = "Their silk is stronger than it has any right to be, and in the right hands their venom heals. And they frighten me, if I'm honest, so I'd like them to frighten me less." },
       },
       choices = {
         { text = "Good luck with that.", next = "BACK", fx = { affinity = 1 } },
@@ -456,7 +456,7 @@ P:NPC {
       },
     },
     steps = {
-      lines = { { id = "s_default", text = "Inside, everyone asks me about spiders. Out here, only you do. It's a better ratio." } },
+      lines = { { id = "s_default", text = "Inside, everyone asks me about spiders, but out here only you do, which is a much better ratio." } },
       choices = { { text = "Fair.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } } },
     },
     cave = {
@@ -478,7 +478,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I came to Shadowglen to watch spiders. I'm still watching. From the steps, mostly." } },
+    background = { { id = "tp_bg", text = "I came to Shadowglen to watch spiders, and I'm still watching them, from the steps, mostly." } },
     advice = { { id = "tp_ad", text = "Never stand under a web you can't see the end of." } },
     _none = { { id = "tp_none", text = "Spiders, I know. Most other things, less so." } },
   },

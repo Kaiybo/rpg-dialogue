@@ -25,15 +25,15 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Corithras Moonrage. I watch the moonwells of Teldrassil. Something is wrong with them, and I mean to learn what." },
         { id = "h_crown", tags = { "news" }, when = { questActive = TODO_QUEST("Crown of the Earth") },
-          text = "Tenaron sent the vessel. Good. Fill a phial at each well I name, and bring it back. The waters will tell us what the tree won't." },
-        { id = "h_third", when = { metBefore = true }, text = "I tasted the third well again at dawn. Still wrong. I've stopped telling the Sentinels. They think I fuss." },
+          text = "Tenaron sent the vessel; good. Fill a phial at each well I name and bring it back to me, for the waters will tell us what the tree will not." },
+        { id = "h_third", when = { metBefore = true }, text = "I tasted the third well again at dawn, and it is still wrong. I've stopped telling the Sentinels, because they think I fuss." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "The wells shine brightest now. It's easier to see what's wrong in them with Elune watching too." },
         { id = "h_delivered", when = { questDone = TODO_QUEST("Crown of the Earth") },
-          text = "The vessel reached the Archdruid, I hear. He said we took our time over it. We did. The wells deserve that much." },
+          text = "The vessel reached the Archdruid, I hear, and he said we took our time over it. We did, and the wells deserved that much." },
       },
       again = {
         { id = "h_again", text = "What else? Speak softly near the well." },
-        { id = "h_again2", text = "Ask. The water is patient, and so am I." },
+        { id = "h_again2", text = "Ask what you like. The water is patient, and so am I." },
       },
       choices = {
         { text = "What's wrong with the wells?", next = "wells" },
@@ -68,7 +68,7 @@ P:NPC {
       },
     },
     story2 = {
-      lines = { { id = "s2_default", text = "With the Circle's approval, Staghelm and the strongest druids grew it. It is magnificent. It is also young, and I watch it the way you'd watch a feverish child." } },
+      lines = { { id = "s2_default", text = "With the Circle's approval, Staghelm and the strongest druids grew it. It is magnificent, but it is also young, and I watch it the way you would watch a feverish child." } },
       choices = {
         { text = "I hope the fever breaks.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -79,16 +79,16 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     feel = {
-      lines = { { id = "f_default", text = "Then I'm not imagining it. Thank you. You don't know how much I needed to hear that from someone who isn't me." } },
+      lines = { { id = "f_default", text = "Then I'm not imagining it, and I thank you. You cannot know how much I needed to hear that from someone who isn't me." } },
       choices = { { text = "You're not imagining it.", next = "BACK", fx = { affinity = 2, standing = { dolanaar = 1 } } } },
     },
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I listen to the moonwells. Someone ought to. They don't shout." } },
-    advice = { { id = "tp_ad", text = "Drink from a moonwell if a priestess says it's well. Even then, sip." } },
+    background = { { id = "tp_bg", text = "I listen to the moonwells, because someone ought to, and they never shout." } },
+    advice = { { id = "tp_ad", text = "Drink from a moonwell only if a priestess says it is well, and even then, only sip." } },
     teldrassil = { { id = "tp_teldrassil", text = "Young, and not as well as it looks. The wells say so before anyone else does." } },
-    cenarion_circle = { { id = "tp_circle", text = "The Circle says the tree will grow strong in time. I hope so. The wells are less certain." } },
+    cenarion_circle = { { id = "tp_circle", text = "The Circle says the tree will grow strong in time, and I hope so, though the wells are less certain." } },
     _none = { { id = "tp_none", text = "The wells don't speak of that, and neither can I." } },
   },
 }
@@ -100,16 +100,16 @@ P:NPC {
   notices = { "class", "form" },
 
   greetings = {
-    { id = "g_druid", text = "Speak plainly. The forest has troubles, and I've no patience for riddles today." },
+    { id = "g_druid", text = "Speak plainly, friend. The forest has troubles enough, and I've no patience for riddles today." },
   },
 
   notice = {
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
-      text = "A druid. Good. I need one who can tell a sick animal from an angry one. There's a difference, and it matters." },
+      text = "A druid, good. I need one who can tell a sick animal from an angry one, because there is a difference, and it matters." },
   },
 
   react = {
-    { id = "r_bear", on = "form", when = { form = "bear" }, text = "You wear the bear well. Ursal won't care. Be careful." },
+    { id = "r_bear", on = "form", when = { form = "bear" }, text = "You wear the bear well, but Ursal won't care, so be careful." },
   },
 
   start = "hello",
@@ -117,19 +117,19 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Athridas Bearmantle. I'm a druid of Dolanaar, and the Gnarlpine furbolgs are my concern. They were never our enemies. Now they are." },
+          text = "I am Athridas Bearmantle, a druid of Dolanaar, and the Gnarlpine furbolgs are my concern. They were never our enemies, but they are now." },
         { id = "h_corruption", tags = { "news" }, when = { questActive = TODO_QUEST("Gnarlpine Corruption") },
-          text = "Ursal and the Fel Moss? By the stars. Then Gaerolas was right to fear for the barrow den, and we may already be late." },
+          text = "Ursal and the Fel Moss? By the stars, then Gaerolas was right to fear for the barrow den, and we may already be too late." },
         { id = "h_relics", when = { questActive = TODO_QUEST("The Relics of Wakening") },
           text = "Gnarlpine raiders are in the Ban'ethil Barrow Den. The sleeping druids can't wake without the Relics of Wakening. Bring them to me." },
         { id = "h_ursal", when = { questActive = TODO_QUEST("Ursal the Mauler") },
-          text = "Ursal drove the Gnarlpine mad with Fel Moss. The waking ritual can't be finished while he lives. End him." },
+          text = "Ursal drove the Gnarlpine mad with Fel Moss, and the waking ritual cannot be finished while he lives, so end him." },
         { id = "h_breeze", when = { questActive = TODO_QUEST("A Troubling Breeze") },
           text = "Gaerolas Talvethren hasn't sent word from Starbreeze Village. He wards the sleeping Druids of the Talon. Go east and bring me his report." },
       },
       again = {
-        { id = "h_again", text = "What else? Quickly." },
-        { id = "h_again2", text = "Speak. The Gnarlpine won't wait on us." },
+        { id = "h_again", text = "What else? Speak quickly, if you would." },
+        { id = "h_again2", text = "Speak, then, for the Gnarlpine won't wait on us." },
       },
       choices = {
         { text = "Were the Gnarlpine ever friends?", next = "friends" },
@@ -140,7 +140,7 @@ P:NPC {
       },
     },
     saved = {
-      lines = { { id = "s_default", text = "Some. Not all. That's the hardest lesson a druid learns: you can't heal everything that's sick. Sometimes you can only stop it spreading." } },
+      lines = { { id = "s_default", text = "Some of them, but not all. That is the hardest lesson a druid learns: you cannot heal everything that's sick, and sometimes you can only stop it spreading." } },
       choices = {
         { text = "That's hard.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Then we stop it spreading.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
@@ -156,14 +156,14 @@ P:NPC {
       },
     },
     moss = {
-      lines = { { id = "m_default", text = "Fel Moss. Ursal, their chieftain, uses its power to drive them mad. Where it spreads, they turn." } },
+      lines = { { id = "m_default", text = "It was the Fel Moss. Ursal, their chieftain, uses its power to drive them mad, and wherever it spreads, they turn." } },
       choices = {
         { text = "Then Ursal's the root.", next = "BACK", fx = { trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     talon = {
-      lines = { { id = "t_default", text = "Druids of the Talon, hibernating in the Ban'ethil Barrow Den by a pact with Ysera. Gaerolas guards them. Disturb the ritual wrongly and they could be lost in the Dream." } },
+      lines = { { id = "t_default", text = "They are the Druids of the Talon, hibernating in the Ban'ethil Barrow Den by a pact with Ysera, and Gaerolas guards them. Disturb the ritual wrongly and they could be lost in the Dream." } },
       choices = {
         { text = "Lost in the Dream?", next = "talon2" },
         { text = "Something else.", next = "BACK" },
@@ -177,18 +177,18 @@ P:NPC {
       },
     },
     druidtest = {
-      lines = { { id = "dt_default", text = "Then tell me which the Gnarlpine are. ... Both. That's what makes this so hard. Remember it when you're standing over one." } },
+      lines = { { id = "dt_default", text = "Then tell me which the Gnarlpine are... You hesitate, and you're right to, because they are both. Remember that when you're standing over one." } },
       choices = { { text = "I'll remember.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } } },
     },
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "A druid of Dolanaar. The Gnarlpine are my charge now, whether I wanted it or not." } },
+    background = { { id = "tp_bg", text = "I'm a druid of Dolanaar, and the Gnarlpine are my charge now, whether I wanted it or not." } },
     advice = { { id = "tp_ad", text = "Don't fight a furbolg in its own hills. Draw it out where you can see the trees around you." } },
-    fel_moss = { { id = "tp_moss", text = "The Gnarlpine's ruin. Where it grows, they turn." } },
-    furbolgs = { { id = "tp_furbolgs", text = "Peaceful, once. Ask me again when Ursal is dead." } },
+    fel_moss = { { id = "tp_moss", text = "It is the Gnarlpine's ruin, for wherever it grows, they turn." } },
+    furbolgs = { { id = "tp_furbolgs", text = "They were peaceful, once. Ask me again when Ursal is dead." } },
     cenarion_circle = { { id = "tp_circle", text = "I serve the Circle as best I can from Dolanaar. They have bigger worries than furbolgs. Somebody has to have this one." } },
-    _none = { { id = "tp_none", text = "Not my concern. The Gnarlpine are." } },
+    _none = { { id = "tp_none", text = "That's not my concern; the Gnarlpine are." } },
   },
 }
 
@@ -218,11 +218,11 @@ P:NPC {
         { id = "h_ferocitas", when = { questActive = TODO_QUEST("Ferocitas the Dream Eater") },
           text = "Ferocitas the Dream Eater has the jewel from my dreamcatcher. He's north of Starbreeze. Bring it back, and I can mend the thing." },
         { id = "h_twisted", when = { questActive = TODO_QUEST("Twisted Hatred") },
-          text = "Lord Melenas. A satyr, gathering grells in Fel Rock to the north. Quickly and quietly, please. Bring me his head, and say nothing of it." },
+          text = "Lord Melenas is a satyr, and he has gathered grells in Fel Rock to the north. Deal with him quickly and quietly, bring me his head, and say nothing of it to anyone." },
       },
       again = {
         { id = "h_again", text = "Anything else, young one?" },
-        { id = "h_again2", text = "Go on. I'm listening." },
+        { id = "h_again2", text = "Go on, I'm listening." },
       },
       choices = {
         { text = "What was the dreamcatcher to you?", next = "dreamcatcher" },
@@ -241,7 +241,7 @@ P:NPC {
       },
     },
     dream2 = {
-      lines = { { id = "d2_default", text = "A little. Enough to tip things your way. I'd hate to tell Gaerolas his gift is sitting in a furbolg's den." } },
+      lines = { { id = "d2_default", text = "Only a little, enough to tip things your way. I'd hate to tell Gaerolas his gift is sitting in a furbolg's den." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     starbreeze = {
@@ -252,14 +252,14 @@ P:NPC {
       },
     },
     starbreeze2 = {
-      lines = { { id = "sb2_default", text = "When it's safe. Not before. Teldrassil has enough brave fools in it already; I'd rather be a careful one." } },
+      lines = { { id = "sb2_default", text = "When it's safe, and not before. Teldrassil has enough brave fools in it already, and I'd rather be a careful one." } },
       choices = {
         { text = "Wise.", next = "BACK", fx = { trait = { cautious = 1 } } },
         { text = "I'll make it safe.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
       },
     },
     melenas = {
-      lines = { { id = "me_default", text = "A satyr, and his story shames us. It's too close to home for me to tell it. Let it be enough that trust must be earned." } },
+      lines = { { id = "me_default", text = "He is a satyr, and his story shames us; it is too close to home for me to tell. Let it be enough that trust must be earned." } },
       choices = { { text = "I won't ask again.", next = "BACK", fx = { affinity = 1, trait = { discreet = 1 } } } },
     },
   },
@@ -278,12 +278,12 @@ P:NPC {
   notices = { "craft" },
 
   greetings = {
-    { id = "g_council", text = "Dolanaar welcomes those who welcome the land. Do you?" },
+    { id = "g_council", text = "Dolanaar welcomes those who welcome the land. Tell me, do you?" },
   },
 
   notice = {
     { id = "n_herb", cat = "craft", when = { profession = { "Herbalism", "Alchemy" } },
-      text = "You know your herbs. Teldrassil's soil is new; the plants here are still deciding what they'll be. Watch them closely." },
+      text = "You know your herbs. Teldrassil's soil is new, and the plants here are still deciding what they'll be, so watch them closely." },
   },
 
   start = "hello",
@@ -300,7 +300,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? There are always more orders." },
-        { id = "h_again2", text = "Speak. I'll find you something useful." },
+        { id = "h_again2", text = "Speak, and I'll find you something useful." },
       },
       choices = {
         { text = "What is the Council of the Forest?", next = "council" },
@@ -318,7 +318,7 @@ P:NPC {
       },
     },
     council2 = {
-      lines = { { id = "c2_default", text = "That's the Council's business. Mine is the orders. You'd be surprised how much quieter my life is that way." } },
+      lines = { { id = "c2_default", text = "That is the Council's business, and mine is the orders. You'd be surprised how much quieter my life is that way." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { discreet = 1 } } } },
     },
     denalan = {
@@ -333,7 +333,7 @@ P:NPC {
       },
     },
     zenn2 = {
-      lines = { { id = "z2_default", text = "Then set it right. Fel cones fall under the trees, smoking green. Feed him a few. He'll think you've brought a snack." } },
+      lines = { { id = "z2_default", text = "Then set it right. Fel cones fall under the trees, smoking green; feed him a few, and he'll think you've brought him a snack." } },
       choices = {
         { text = "I'll set it right.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "That's a dirty trick.", next = "BACK", fx = { trait = { witty = 1 } } },
@@ -359,13 +359,13 @@ P:NPC {
   notices = { "weary" },
 
   greetings = {
-    { id = "g_inn", text = "Rest a while. The inn is yours as long as you need it." },
+    { id = "g_inn", text = "Rest a while; the inn is yours for as long as you need it." },
     { id = "g_home", when = { homeInn = { "Dolanaar" } }, text = "Welcome home. The fire's low and warm, the way you like it." },
   },
 
   notice = {
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
-      text = "You've had a hard road back from somewhere grey. Sit. Elune's light reaches the inn too." },
+      text = "You've had a hard road back from somewhere grey. Sit down; Elune's light reaches the inn too." },
   },
 
   start = "hello",
@@ -375,13 +375,13 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Innkeeper Keldamyr. Travelers between Shadowglen and Darnassus all stop here, sooner or later. I like to think they leave lighter." },
         { id = "h_delivery", when = { questActive = TODO_QUEST("Dolanaar Delivery") },
-          text = "Herbs from Porthannius? Good. A pity he couldn't bring them himself; we've a great deal to talk about, he and I." },
+          text = "So these are the herbs from Porthannius. It's a pity he couldn't bring them himself, for we've a great deal to talk about, he and I." },
         { id = "h_joke", when = { metBefore = true }, text = "A Sentinel told me a joke last night. It wasn't funny, but she laughed so hard I laughed too. That's the inn on a good night." },
-        { id = "h_night", when = { timeOfDay = "night" }, text = "Late. The Sentinels coming off watch will want tea. They always want tea, and they never admit they're cold." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "It's late, and the Sentinels coming off watch will want tea. They always want tea, and they never admit they're cold." },
         { id = "h_corithras", when = { heardLine = "corithras.h_default" }, text = "Corithras and his wells. He tastes every one himself, you know, to find the trouble. I keep peppermint tea for him after." },
       },
       again = {
-        { id = "h_again", text = "Anything else? There's tea." },
+        { id = "h_again", text = "Anything else I can do for you? There's tea, if you'd like some." },
       },
       choices = {
         { text = "Make this my home.", next = "BUSINESS" },
@@ -424,7 +424,7 @@ P:NPC {
   notices = { "craft" },
 
   greetings = {
-    { id = "g_fire", text = "Come, sit. The fire's small, but it's honest, and there's room." },
+    { id = "g_fire", text = "Come and sit down. The fire's small, but it's honest, and there's room for one more." },
   },
 
   notice = {
@@ -440,10 +440,10 @@ P:NPC {
           text = "Lyreena Duskblade. I'd rather sleep under the canopy than under a roof. If you want to learn how, I'll teach you." },
         { id = "h_outdoors", tags = { "news" }, when = { questActive = TODO_QUEST("The Great Outdoors") },
           text = "Sit by the fire and stay there until you feel rested through. It comes slowly, then all at once." },
-        { id = "h_stars", when = { metBefore = true }, text = "Last night I counted the stars through the leaves until I fell asleep. I got to forty. That's further than usual." },
+        { id = "h_stars", when = { metBefore = true }, text = "Last night I counted the stars through the leaves until I fell asleep, and I got to forty, which is further than usual." },
       },
       again = {
-        { id = "h_again", text = "Anything else? The fire's still going." },
+        { id = "h_again", text = "Anything else? The fire's still going, so there's no hurry." },
       },
       choices = {
         { text = "Teach me.", next = "teach", fx = { affinity = 2, learn = { "camping" } } },
@@ -461,7 +461,7 @@ P:NPC {
       },
     },
     trades = {
-      lines = { { id = "tr_default", text = "A leatherworker's tent. A fisher's rack. A cook's pot. Put them round a fire and a camp starts to feel like a house without walls." } },
+      lines = { { id = "tr_default", text = "A leatherworker brings a tent, a fisher brings a rack and a cook brings a pot. Put them round a fire, and a camp starts to feel like a house without walls." } },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "camping" } } } },
     },
     why = {
@@ -469,7 +469,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     where = {
-      lines = { { id = "wh_default", text = "Wherever the road ran out. I don't keep a list. Lists are for innkeepers." } },
+      lines = { { id = "wh_default", text = "Wherever the road ran out. I don't keep a list of them; lists are for innkeepers." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     cook = {
@@ -482,6 +482,6 @@ P:NPC {
     camping = { { id = "tp_camping", text = "A fire, first. Then each trade brings its piece: a tent, a rack for fish, a pot. Anyone who passes may share it." } },
     background = { { id = "tp_bg", text = "I'd rather sleep under the canopy than under a roof. That's most of my story." } },
     advice = { { id = "tp_ad", text = "Sit by a fire before you sleep, even a small one. You wake up a different person." } },
-    _none = { { id = "tp_none", text = "I'm only passing through. Ask in the village." } },
+    _none = { { id = "tp_none", text = "I'm only passing through, I'm afraid, so ask in the village." } },
   },
 }
