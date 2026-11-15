@@ -87,7 +87,7 @@ P:NPC {
     greed_own = {
       big = true,
       lines = {
-        { id = "go_default", text = "It was mine, {race}, mine. Before I smelled greed on every race of this world, I smelled it on myself every morning, and I followed it further than I should have, and it left me here. Now you know why I hate the smell so." },
+        { id = "go_default", text = "It was my own greed, {race}. Before I smelled greed on every race of this world, I smelled it on myself every morning, and I followed it further than I should have, and it left me here. Now you know why I hate the smell so." },
       },
       choices = {
         { text = "Then you know it can be overcome.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
