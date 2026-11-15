@@ -175,6 +175,7 @@ P:NPC {
       choices = {
         { text = "Why can't I see her grave?", next = "priest_grave" },
         { text = "Then I'll pray for you both.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Then I'll save my prayers for someone who wants them.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
     priest_grave = {
@@ -183,6 +184,7 @@ P:NPC {
       },
       choices = {
         { text = "The dead should be left to rest.", next = "BACK", fx = { affinity = -1, align = { light = 1 }, trait = { pious = 1 } } },
+        { text = "The dead don't much care how they're kept.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },

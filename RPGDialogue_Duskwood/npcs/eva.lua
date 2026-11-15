@@ -171,6 +171,7 @@ P:NPC {
       choices = {
         { text = "Does she know?", next = "granddaughter_know" },
         { text = "I'll find him.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "I won't hunt a man down on the word of a card.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
       },
     },
     granddaughter_know = {
@@ -219,6 +220,7 @@ P:NPC {
       },
       choices = {
         { text = "It does know my name.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "Whatever's beyond that door, I keep it shut.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

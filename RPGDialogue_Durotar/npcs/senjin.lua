@@ -46,6 +46,7 @@ P:NPC {
       },
       choices = {
         { text = "We'll take it back.", next = "END", fx = { affinity = 2, align = { honor = 1 }, learn = { "echo_isles" } } },
+        { text = "Your people matter more than the isles, so let Zalazane keep them.", next = "END", fx = { align = { honor = -1 }, learn = { "echo_isles" } } },
         { text = "I'm sorry.", next = "END", fx = { affinity = 2, trait = { kind = 1 }, learn = { "echo_isles" } } },
       },
     },

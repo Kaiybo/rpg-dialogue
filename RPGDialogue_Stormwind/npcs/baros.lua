@@ -133,7 +133,10 @@ P:NPC {
 
     noble = {
       lines = { { id = "n_default", text = "Then your family's House voted not to pay mine. Don't apologise; you weren't there. Just remember it, next time they vote." } },
-      choices = { { text = "I'll remember.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } } },
+      choices = {
+        { text = "I'll remember.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "My family's votes are their business, not my debt.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
     },
   },
 

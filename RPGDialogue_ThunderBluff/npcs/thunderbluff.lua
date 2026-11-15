@@ -56,7 +56,10 @@ P:NPC {
     },
     thrall = {
       lines = { { id = "t_default", text = "He came to us as a stranger and fought for us as kin. A debt like that isn't paid in one lifetime. The Horde has my word, and my word holds." } },
-      choices = { { text = "For honor.", next = "END", fx = { affinity = 2, align = { honor = 1 } } } },
+      choices = {
+        { text = "For honor.", next = "END", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Debts are for paying, not for a lifetime of service.", next = "END", fx = { align = { honor = -1 } } },
+      },
     },
   },
 

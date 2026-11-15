@@ -55,7 +55,7 @@ P:NPC {
       },
       choices = {
         { text = "People are dying while you wait.", next = "dying", fx = { align = { honor = 1 }, affinity = -1 } },
-        { text = "I see your point.", next = "BACK", fx = { affinity = 1, opinion = { westfall = "patience" } } },
+        { text = "I see your point.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1, opinion = { westfall = "patience" } } },
       },
     },
     dying = {
@@ -69,6 +69,7 @@ P:NPC {
       lines = { { id = "m_default", text = "The Church says a great many lovely things, little priest, but it does not balance the treasury, raise the levies, or count the graves, and I do all three. Go and pray; it suits you." } },
       choices = {
         { text = "Someone has to remind you of the people.", next = "BACK", fx = { affinity = -2, align = { light = 2, honor = 1 } } },
+        { text = "You're right; prayer doesn't balance a treasury.", next = "BACK", fx = { align = { order = 1, light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -104,7 +105,7 @@ P:NPC {
       },
       choices = {
         { text = "Wise counsel.", next = "BACK", fx = { affinity = 1, align = { order = 1, light = -1 } } },
-        { text = "It sounds cold.", next = "BACK", fx = { affinity = -1 } },
+        { text = "It sounds cold.", next = "BACK", fx = { align = { light = 1 }, affinity = -1 } },
       },
     },
   },

@@ -99,7 +99,7 @@ P:NPC {
       },
       choices = {
         { text = "Lothar gave his life for the Alliance. You could rejoin it.", next = "BACK", fx = { align = { order = 2 }, affinity = -1 } },
-        { text = "Then the Brotherhood's in good company.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Then the Brotherhood's in good company.", next = "BACK", fx = { align = { order = -2 }, affinity = 1 } },
       },
     },
     sunnyglade = {
@@ -128,7 +128,7 @@ P:NPC {
       },
       choices = {
         { text = "Stormwind had its own war to fight.", next = "stormwind_defend", fx = { align = { order = 2 }, affinity = -1 } },
-        { text = "They abandoned you. That's unforgivable.", next = "stormwind_agree", fx = { affinity = 2, opinion = { stormwind = "abandoned_its_own" } } },
+        { text = "They abandoned you. That's unforgivable.", next = "stormwind_agree", fx = { align = { order = -2 }, affinity = 2, opinion = { stormwind = "abandoned_its_own" } } },
         { text = "Does Ashe feel the same?", next = "stormwind_ashe" },
       },
     },
@@ -260,7 +260,7 @@ P:NPC {
         { text = "I'd be honored.", next = "BACK", fx = { affinity = 2, standing = { farholde = 2 }, align = { light = 1 } },
           journal = { first = "Demar Brant told me the Brotherhood always has room for a paladin. Sir Howard's memorial is in the courtyard.",
                       third = "{name} told Knight Commander Brant they'd stand with the Brotherhood of the Horse." } },
-        { text = "I'm not looking to die gloriously.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "I'm not looking to die gloriously.", next = "BACK", fx = { align = { honor = -1 }, trait = { cautious = 1 } } },
       },
     },
     westfall = {
@@ -269,6 +269,7 @@ P:NPC {
       },
       choices = {
         { text = "Someone should make them answer for it.", next = "BACK", fx = { affinity = 2, align = { order = -2 }, opinion = { stormwind = "abandoned_its_own" } } },
+        { text = "Stormwind had good reasons for drawing its lines where it did.", next = "BACK", fx = { align = { order = 2 } } },
         { text = "Westfall's my fight. This one's yours.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -280,7 +281,7 @@ P:NPC {
         { text = "I'll tell them.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } },
           journal = { first = "Promised Demar Brant I'd tell the House of Nobles that Farholde still stands.",
                       third = "{name} promised Knight Commander Brant to carry word of Farholde to the House of Nobles." } },
-        { text = "They'd only laugh.", next = "BACK", fx = { affinity = -1 } },
+        { text = "They'd only laugh, so I won't waste my breath.", next = "BACK", fx = { align = { honor = -1 }, affinity = -1 } },
       },
     },
     dwarves = {
@@ -307,6 +308,7 @@ P:NPC {
       lines = { { id = "pb_default", text = "Sister Rowland does, when she can leave the chapel, which is rarely. Yes: at the gate, at dawn. They'll stand straighter for it, and some will come back because they did." } },
       choices = {
         { text = "At dawn, then.", next = "BACK", fx = { affinity = 3, standing = { farholde = 2 }, align = { light = 1 } } },
+        { text = "They'd stand straighter for a hot meal than a blessing.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -409,7 +411,7 @@ P:NPC {
       lines = { { id = "fd_default", text = "He would. He gave the order and watched his friends ride out through that gate, so he's earned his grudge. I just don't share it." } },
       choices = {
         { text = "Maybe you're both right.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
-        { text = "He's right. Stormwind failed you.", next = "BACK", fx = { opinion = { stormwind = "abandoned_its_own" } } },
+        { text = "He's right. Stormwind failed you.", next = "BACK", fx = { align = { order = -1 }, opinion = { stormwind = "abandoned_its_own" } } },
         { text = "You're right. It was the sensible choice.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
       },
     },
@@ -499,7 +501,11 @@ P:NPC {
     },
     warlock_tool = {
       lines = { { id = "wt_default", text = "Mine doesn't talk back, but the Hammer's trinkets do, and I suspect yours does too. I'll trust you, for now. Demar won't, so keep your little friend out of his sight." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { align = { light = -1 } } } },
+      choices = {
+        { text = "My demon answers to me, and I'm not ashamed of it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'd be rid of it, if the power came any other way.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
 
     riftan = {
@@ -589,6 +595,7 @@ P:NPC {
       },
       choices = {
         { text = "That's not natural.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Whatever's in them, I'd like a closer look myself.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Did your lads come right?", next = "trinkets_lads" },
       },
     },
@@ -659,6 +666,7 @@ P:NPC {
         { text = "Let me pray with you.", next = "pray", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "I know some field medicine.", next = "aid", when = { profession = "First Aid" } },
         { text = "The Light keep you, Sister.", next = "END", fx = { align = { light = 1 } } },
+        { text = "Prayer won't break a fever, Sister, but medicine might.", next = "END", fx = { align = { light = -1 } } },
       },
     },
     illness = {
@@ -688,7 +696,10 @@ P:NPC {
     },
     pray = {
       lines = { { id = "pr_default", text = "Please. I've prayed alone for weeks, and it's good to hear another voice say the words." } },
-      choices = { { text = "Amen.", next = "BACK", fx = { affinity = 2, align = { light = 2 }, trait = { pious = 1 } } } },
+      choices = {
+        { text = "Amen.", next = "BACK", fx = { affinity = 2, align = { light = 2 }, trait = { pious = 1 } } },
+        { text = "I'll say the words, but I've stopped believing anyone hears them.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
     aid = {
       lines = { { id = "ad_default", text = "Then roll up your sleeves. Bandages in the chest, boiled water on the fire. Don't let the big one by the window talk you into ale." } },

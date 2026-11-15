@@ -135,7 +135,7 @@ P:NPC {
       lines = { { id = "rs_default", text = "On your side today, yes. Plenty of these thieves were Stormwind men once, and some laid its stones, I hear, so sides do change." } },
       choices = {
         { text = "Mine won't.", next = "BACK", fx = { affinity = 1, align = { honor = 1 }, learn = { "defias" } } },
-        { text = "Fair. Watch me, then.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 }, learn = { "defias" } } },
+        { text = "Fair. Watch me, then.", next = "BACK", fx = { align = { honor = -1 }, affinity = 2, trait = { witty = 1 }, learn = { "defias" } } },
       },
     },
     hunter = {

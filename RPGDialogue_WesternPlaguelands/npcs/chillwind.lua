@@ -81,6 +81,7 @@ P:NPC {
       },
       choices = {
         { text = "Then we stop it here.", next = "BACK", fx = { affinity = 2, align = { honor = 1, order = 1 } } },
+        { text = "Lordaeron's lost, so better to hold the line at Southshore.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Stormwind's generous with other people's lands.", next = "why_push", fx = { affinity = -1, trait = { skeptical = 1 } } },
       },
     },
@@ -133,6 +134,7 @@ P:NPC {
       },
       choices = {
         { text = "It's what I'm for.", next = "BACK", fx = { affinity = 2, align = { light = 1, order = 1 }, standing = { chillwind_camp = 1 } } },
+        { text = "The Light's no weapon, Commander, whatever your orders say.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
         { text = "And the Silver Hand's teaching?", next = "BACK", fx = { trait = { devout = 1 } } },
       },
     },
@@ -142,7 +144,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll stay a while and help.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, standing = { chillwind_camp = 1 } } },
-        { text = "I'm more use out in the field.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "I'm more use out in the field.", next = "BACK", fx = { trait = { brave = 1 }, align = { light = -1 } } },
       },
     },
     refugee = {
@@ -225,6 +227,7 @@ P:NPC {
       },
       choices = {
         { text = "Poison against poison.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "It's a tidy answer, and it keeps the farmers alive.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Is that the Light's way?", next = "light" },
       },
     },
@@ -268,7 +271,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll try it at Felstone Field.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "That sounds like anger, not faith.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "That sounds like anger, not faith.", next = "BACK", fx = { trait = { skeptical = 1 }, align = { light = -1 } } },
       },
     },
   },
@@ -376,7 +379,10 @@ P:NPC {
       lines = {
         { id = "pr_default", text = "Oh, I'd love it to, but the Light and alchemy don't mix in a bottle, I've tried. Bless the people carrying my potions instead, and that'll do more good than blessing the potions." },
       },
-      choices = { { text = "Then I'll bless the carriers.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } } },
+      choices = {
+        { text = "Then I'll bless the carriers.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "A good potion does more than any blessing.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
     alch = {
       lines = {
@@ -440,6 +446,7 @@ P:NPC {
         { text = "My family lost everything in Lordaeron too.", next = "refugee", when = { origin = "human_lordaeron_refugee" } },
         { text = "Was it worth it, now he's gone?", next = "worth", when = { questDone = TODO_QUEST("The Last Barov") } },
         { text = "I'll see what I can find.", next = "END", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I won't help a man who'd murder his own brother.", next = "END", fx = { affinity = -1, align = { honor = 1 } } },
       },
     },
     darrow = {
@@ -449,7 +456,8 @@ P:NPC {
       },
       choices = {
         { text = "I'm sorry.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
-        { text = "You ran and left them?", next = "darrow_ran", fx = { affinity = -2, align = { honor = 1 } } },
+        { text = "You ran and left your family to it.", next = "darrow_ran", fx = { affinity = -2, align = { honor = 1 } } },
+        { text = "Running was the sensible thing to do.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
       },
     },
     darrow_ran = {
@@ -500,7 +508,7 @@ P:NPC {
         { id = "wo_default", text = "Worth it? I have my deeds and my brother is ash, so by any honest accounting, yes. Ask me again in a year, when I've had time to miss him, and I'll tell you the same thing." },
       },
       choices = {
-        { text = "I hope you find some peace.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "I hope you find some peace.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 }, align = { honor = 1 } } },
         { text = "Enjoy the money.", next = "END", fx = { align = { honor = -1 } } },
       },
     },
@@ -568,6 +576,7 @@ P:NPC {
       },
       choices = {
         { text = "You chose rightly.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Hate or not, the Crusade gets results against the dead.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
         { text = "The Crusade still fights the Scourge.", next = "crusade" },
       },
     },
@@ -604,6 +613,7 @@ P:NPC {
       },
       choices = {
         { text = "Then put me to work.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, standing = { chillwind_camp = 1 } } },
+        { text = "I'll keep my Light for my own fights, thank you.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -611,7 +621,10 @@ P:NPC {
       lines = {
         { id = "pa_default", text = "Then hold on to the teaching and let go of the banner, which hangs in Hearthglen now, and it's gone red. The Light was never in the cloth, and the Dawn can show you that." },
       },
-      choices = { { text = "I'll think on it.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } } },
+      choices = {
+        { text = "I'll think on it.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "The banner meant something, and I won't let go of it.", next = "BACK", fx = { align = { order = 1 } } },
+      },
     },
     horde = {
       lines = {
@@ -678,7 +691,7 @@ P:NPC {
         { id = "f_default", text = "We lost friends and cousins, some we buried and some we never got the chance to. Father made it to Stormwind and never stopped talking about the mill, so you see, I'm not really here for the wood." },
       },
       choices = {
-        { text = "You're here for him.", next = "BACK", fx = { affinity = 3, trait = { kind = 1 } } },
+        { text = "You're here for him.", next = "BACK", fx = { affinity = 3, trait = { kind = 1 }, align = { light = 1 } } },
         { text = "Revenge, then.", next = "revenge", fx = { affinity = 1, align = { light = -1 } } },
       },
     },
@@ -704,6 +717,7 @@ P:NPC {
       choices = {
         { text = "That's a hard choice.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Clever. Cruel, but clever.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "I'd rather we took the mill back whole, and properly.", next = "BACK", fx = { align = { order = 1 } } },
       },
     },
     mill = {

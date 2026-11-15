@@ -54,6 +54,7 @@ P:NPC {
       },
       choices = {
         { text = "You made the right choice.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "The Crusade's methods are harsh, but harsh times need them.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
         { text = "The Crusade does fight the Scourge.", next = "crusade" },
       },
     },
@@ -90,12 +91,15 @@ P:NPC {
       lines = { { id = "p_default", text = "Wherever the dead walk and someone stands against them. The Hand was a banner, but the Light was never in the banner; stand here long enough and you'll see it doesn't need one." } },
       choices = {
         { text = "Then I'll stand here.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, standing = { light_hope = 2 } } },
-        { text = "I still miss the banner.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "I still miss the banner.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 }, align = { order = 1 } } },
       },
     },
     squire = {
       lines = { { id = "sq_default", text = "Then you're one of hundreds who were halfway to something when the ground fell away, so finish it here. The Dawn knights people; we just don't make a fuss about it." } },
-      choices = { { text = "I'd like that.", next = "BACK", fx = { affinity = 3, align = { light = 1 } } } },
+      choices = {
+        { text = "I'd like that.", next = "BACK", fx = { affinity = 3, align = { light = 1 } } },
+        { text = "I'll fight beside the Dawn, but I don't need a title.", next = "BACK", fx = { align = { order = -1 } } },
+      },
     },
     gregor = {
       lines = { { id = "g_default", text = "Good man, Gregor. He writes the longest reports in the Dawn and every word is useful, which is rarer than courage." } },
@@ -105,6 +109,7 @@ P:NPC {
       lines = { { id = "pd2_default", text = "More than it needs swords. A sword stops the dead; a healer keeps the living from joining them. Stay a while at the chapel, priest, and Leonid and the wounded will both be glad of you." } },
       choices = {
         { text = "I'll stay a while.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, standing = { light_hope = 2 } } },
+        { text = "The wounded will keep, and I'd rather be out burning the dead.", next = "BACK", fx = { align = { light = -2 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -155,7 +160,8 @@ P:NPC {
         { text = "Why the Dawn, and not the Banshee Queen?", next = "why" },
         { text = "Who is Ras Frostwhisper?", next = "ras" },
         { text = "We're the same, you and I.", next = "forsaken", when = { race = "Scourge" } },
-        { text = "How can I help?", next = "END", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I'd like to help the Dawn, if you'll have me.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I'll work with the dead when I must, but I won't trust them.", next = "END", fx = { align = { light = -1 } } },
       },
     },
     light = {
@@ -182,7 +188,10 @@ P:NPC {
     },
     forsaken = {
       lines = { { id = "f_default", text = "In what we are, yes; in what we choose, we'll see. Choose well, and you'll find the living here are kinder than you expect, some of them." } },
-      choices = { { text = "I'll choose well.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } } },
+      choices = {
+        { text = "I'll choose well.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I'll choose what keeps me standing, and kindness rarely does.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
   },
 

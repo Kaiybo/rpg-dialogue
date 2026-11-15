@@ -152,6 +152,7 @@ P:NPC {
         { text = "What's the difference between you and the Scarlet Crusade?", next = "scarlet" },
         { text = "The Dawn would take one of the Forsaken?", next = "forsaken", when = { race = "Scourge" } },
         { text = "I'll carry word.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "The Dawn can carry its own reports; I've business of my own.", next = "END", fx = { align = { light = -1 } } },
       },
     },
     dawn = {

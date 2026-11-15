@@ -97,6 +97,7 @@ P:NPC {
       },
       choices = {
         { text = "That's a fine way to live.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Feeding thieves only teaches them where the food is.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "It won't stop the Defias.", next = "defias", fx = { trait = { stern = 1 } } },
       },
     },
@@ -112,7 +113,7 @@ P:NPC {
       lines = { { id = "fe_default", text = "I have. A hungry boy in a red mask is still a hungry boy, and he said thank you, and he's left my hens alone ever since. That's a kind of peace." } },
       choices = {
         { text = "That's real kindness.", next = "BACK", fx = { affinity = 2, align = { light = 2 }, trait = { kind = 1 } } },
-        { text = "He'll rob someone else tomorrow.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 }, opinion = { defias = "hardline" } } },
+        { text = "He'll rob someone else tomorrow.", next = "BACK", fx = { align = { light = -1 }, affinity = -1, trait = { stern = 1 }, opinion = { defias = "hardline" } } },
       },
     },
     help = {
@@ -148,12 +149,17 @@ P:NPC {
       lines = { { id = "pr_default", text = "Oh, go on with you! Say a word over the pot, then. The militia lads eat better when it's blessed, or they think they do, which comes to the same thing." } },
       choices = {
         { text = "Gladly. Light bless this house and all it feeds.", next = "BACK", fx = { affinity = 3, align = { light = 1 }, standing = { westfall_farms = 1 } } },
+        { text = "I'd rather not bless a soup pot, Salma.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Do you ever get to a church?", next = "priest_church" },
       },
     },
     priest_church = {
       lines = { { id = "pc_default", text = "Not since the roads went bad, so I pray at the stove. The Light knows where to find me; it's always warm here." } },
-      choices = { { text = "It does. Something else.", next = "BACK", fx = { align = { light = 1 } } } },
+      choices = {
+        { text = "It does, and the Light always finds the warm places first.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Warm or not, I doubt the Light looks in kitchens.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 

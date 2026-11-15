@@ -232,6 +232,7 @@ P:NPC {
         { text = "An Ironforge dwarf who hears the elements. What do you make of me?", next = "dwarfshaman", when = { race = "Dwarf", class = "SHAMAN" } },
         { text = "I hear them too.", next = "hear", when = { class = { "SHAMAN", "DRUID" } } },
         { text = "I'll help the spirits.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "The spirits can fend for themselves, old man.", next = "END", fx = { align = { light = -1 } } },
       },
     },
     spirits = {
@@ -257,6 +258,7 @@ P:NPC {
       lines = { { id = "a_default", text = "Blood, an' bindin', an' callin' on things that should stay asleep. The Vilebranch think the spirits answer them, an' somethin' answers, but it isnae the spirits." } },
       choices = {
         { text = "Then the altars must fall.", next = "BACK", fx = { affinity = 2, align = { light = 2 } } },
+        { text = "If something answers them, maybe it's worth hearing out.", next = "BACK", fx = { align = { light = -2 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

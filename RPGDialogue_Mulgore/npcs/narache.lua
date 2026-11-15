@@ -99,7 +99,10 @@ P:NPC {
     },
     lead = {
       lines = { { id = "l_default", text = "I'll lead the way my grandmother did, from the front. If that's not well, the tribe can tell me so." } },
-      choices = { { text = "I believe you.", next = "END", fx = { affinity = 2, align = { honor = 1 } } } },
+      choices = {
+        { text = "I believe you.", next = "END", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "A wise chief leads from where the spears can't reach.", next = "END", fx = { align = { honor = -1 } } },
+      },
     },
   },
 

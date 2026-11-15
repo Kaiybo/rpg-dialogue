@@ -45,6 +45,7 @@ P:NPC {
         { text = "Put me in the line, Captain.", next = "line", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "Let me bless the badges before they go home.", next = "priest_badges", when = { class = "PRIEST", questActive = TODO_QUEST("Stromgarde Badges") } },
         { text = "I'll fight for Stromgarde.", next = "END", fx = { affinity = 2, align = { honor = 1 }, standing = { refuge_pointe = 1 } } },
+        { text = "I'll help where it pays, Captain, and Stromgarde's coin is as good as any.", next = "END", fx = { align = { honor = -1 } } },
       },
     },
     leave = {
@@ -54,6 +55,7 @@ P:NPC {
       },
       choices = {
         { text = "The bridges matter too.", next = "leave_bridge", fx = { align = { order = 1 } } },
+        { text = "Stromgarde comes first. I'd have kept them here too.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "I understand.", next = "BACK", fx = { affinity = 2, trait = { stern = 1 } } },
       },
     },
@@ -77,6 +79,7 @@ P:NPC {
       choices = {
         { text = "Why take the badges?", next = "syndicate_badges" },
         { text = "Then they'll answer for it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'd sooner rob the robbers than wait on a court to do it.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
     syndicate_badges = {
@@ -86,7 +89,7 @@ P:NPC {
     hammerfall = {
       lines = { { id = "h2_default", text = "Hammerfall was a camp for orc prisoners, once, and they broke it open and kept the ruins. We leave each other alone, most days, and most days is enough, for now." } },
       choices = {
-        { text = "Fair enough.", next = "BACK", fx = { opinion = { peace = "for" } } },
+        { text = "Leaving each other be sounds fair enough to me.", next = "BACK", fx = { align = { order = -1 }, opinion = { peace = "for" } } },
         { text = "They should be driven out.", next = "BACK", fx = { align = { order = 1 }, opinion = { peace = "against" } } },
       },
     },
@@ -102,6 +105,7 @@ P:NPC {
       lines = { { id = "pba_default", text = "The families need their dead back, and a blessing is the next best thing. Bless them, and I'll write in every letter that a priest stood over each one." } },
       choices = {
         { text = "Every one.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, standing = { refuge_pointe = 2 } } },
+        { text = "The dead are past blessing, Captain. Words are for the living.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -172,6 +176,7 @@ P:NPC {
         { text = "Who lives here now?", next = "history_refuge" },
         { text = "Do the old camps still haunt you?", next = "history_camps" },
         { text = "Lok'tar ogar.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Doomhammer's way got him killed. I'd rather live to fight again.", next = "BACK", fx = { align = { honor = -1 } } },
       },
     },
     history_refuge = {
@@ -359,6 +364,7 @@ P:NPC {
       },
       choices = {
         { text = "That's cold.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "After what Trollbane's line did to your people, I wouldn't weep either.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -380,7 +386,10 @@ P:NPC {
       lines = {
         { id = "tr_default", text = "The same thing he need from Zengu: the sword, in our hands, so our fight in the jungle stop crawling and start running. Every Darkspear who help with this be helping Vol'jin himself." },
       },
-      choices = { { text = "Then I'll help.", next = "BACK", fx = { affinity = 3, align = { order = 1 } } } },
+      choices = {
+        { text = "Then I'll help.", next = "BACK", fx = { affinity = 3, align = { order = 1 } } },
+        { text = "I'll help, but for the Darkspear, not because Vol'jin says so.", next = "BACK", fx = { align = { order = -1 } } },
+      },
     },
     nimboya = {
       lines = {

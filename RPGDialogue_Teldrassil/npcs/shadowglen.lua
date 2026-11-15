@@ -59,6 +59,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll remember that.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, learn = { "cenarion_circle" } } },
+        { text = "The strong take what they can, and that's the forest's way too.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Even if it means killing?", next = "balance_kill" },
       },
     },
@@ -66,6 +67,7 @@ P:NPC {
       lines = { { id = "bk_default", text = "Even then. Killing for balance is a sorrow, but killing for pleasure is where corruption begins, so learn the difference here while it's easy to see." } },
       choices = {
         { text = "A necessary sorrow, then.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Hunting needs no excuse, since it's the oldest thing in the forest.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "I'll try to tell them apart.", next = "BACK", fx = { trait = { kind = 1 } } },
       },
     },
@@ -248,6 +250,7 @@ P:NPC {
       },
       choices = {
         { text = "Thank you.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, standing = { shadowglen = 1 } } },
+        { text = "I'll go, but I'll make my own way, blessing or not.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Which parts are sick?", next = "sick" },
       },
     },

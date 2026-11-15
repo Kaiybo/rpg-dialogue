@@ -42,6 +42,7 @@ P:NPC {
         { text = "Why is it so cold here?", next = "cold" },
         { text = "I met your sister Emma, in Stormwind.", next = "emma", when = { questDone = TODO_QUEST("Good Natured Emma") } },
         { text = "Rest now.", next = "END", when = { questDone = TODO_QUEST("Two Halves Become One") }, fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Spare me the thanks, because I've ghouls enough to deal with.", next = "END", when = { questDone = TODO_QUEST("Two Halves Become One") }, fx = { align = { light = -1 } } },
       },
     },
     john = {
@@ -61,6 +62,7 @@ P:NPC {
       choices = {
         { text = "I'll tell him.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "(Let her hope a little longer.)", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "John's gone, Janice, and that thing in the fields isn't him.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
       },
     },
     package = {
@@ -94,7 +96,10 @@ P:NPC {
       lines = {
         { id = "em_default", text = "You saw Emma, my Emma, and she had my parcel in her hands? Then she knows I didn't forget her, and that's one thing done right, at least." },
       },
-      choices = { { text = "She knows.", next = "BACK", fx = { affinity = 3, align = { light = 1 } } } },
+      choices = {
+        { text = "She knows.", next = "BACK", fx = { affinity = 3, align = { light = 1 } } },
+        { text = "She knows you're gone, Janice, and it's time to let go.", next = "BACK", fx = { align = { honor = 1 } } },
+      },
     },
   },
 
@@ -146,6 +151,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll ease their suffering.", next = "END", fx = { affinity = 2, trait = { kind = 1 }, align = { light = 1 } } },
+        { text = "Sick wolves are no concern of mine.", next = "END", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Can nothing be done for you?", next = "cure", when = { ["not"] = { questActive = TODO_QUEST("Glyphed Oaken Branch") } } },
         { text = "Why did you come so far from home?", next = "came", when = { ["not"] = { any = { { questActive = TODO_QUEST("Glyphed Oaken Branch") }, { questDone = TODO_QUEST("Glyphed Oaken Branch") } } } } },
         { text = "Tell me about the wolves.", next = "wolves", when = { ["not"] = { any = { { questActive = TODO_QUEST("Glyphed Oaken Branch") }, { questDone = TODO_QUEST("Glyphed Oaken Branch") } } } } },
@@ -195,6 +201,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll give it for you.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "They're dangerous, and that's reason enough to kill them.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -303,6 +310,7 @@ P:NPC {
       },
       choices = {
         { text = "(Pray with her.)", next = "BACK", fx = { affinity = 3, align = { light = 1 } } },
+        { text = "I'll look for Pamela, but I'm done with prayers.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -403,7 +411,10 @@ P:NPC {
       lines = {
         { id = "he_default", text = "Would you? Oh, that's better already, thank you, and I won't forget it. You'd make a terrible scout, mind, being far too kind to people who sneak about in bushes." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 3, trait = { kind = 1 }, align = { light = 1 } } } },
+      choices = {
+        { text = "It was nothing, Kirsta, and anyone would have done it.", next = "BACK", fx = { affinity = 3, trait = { kind = 1 }, align = { light = 1 } } },
+        { text = "Remember it the next time I need a favour.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
     elling = {
       lines = {
@@ -473,6 +484,7 @@ P:NPC {
         { text = "Let me pray for you both.", next = "pray", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "I'm not one of them, Eva.", next = "forsaken", when = { race = "Scourge" } },
         { text = "I'll help you rest.", next = "END", fx = { affinity = 2, trait = { kind = 1 }, align = { light = 1 } } },
+        { text = "I'm here for the Scholomance, not for ghosts.", next = "END", fx = { affinity = -1, align = { light = -1 } } },
       },
     },
     story = {
@@ -482,6 +494,7 @@ P:NPC {
       },
       choices = {
         { text = "He'll answer for it.", next = "BACK", fx = { affinity = 3, align = { light = 1 } } },
+        { text = "Then he'll die badly, and I'll make sure of it.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "(Take her hand, if you can.)", next = "BACK", fx = { affinity = 3, trait = { kind = 1 } } },
         { text = "And Lucien?", next = "lucien" },
       },
@@ -513,6 +526,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll see it done.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I'll kill the Butcher, but your bones can stay where they are.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -520,7 +534,10 @@ P:NPC {
       lines = {
         { id = "pr_default", text = "You're very kind, and I'd be grateful, though I don't know if the Light still hears people like us. Pray for Lucien first, if you would; he was always the better of the two of us." },
       },
-      choices = { { text = "(Pray for them both.)", next = "BACK", fx = { affinity = 3, align = { light = 1 } } } },
+      choices = {
+        { text = "(Pray for them both.)", next = "BACK", fx = { affinity = 3, align = { light = 1 } } },
+        { text = "I'm not sure the Light hears either of you anymore.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+      },
     },
     forsaken = {
       lines = {

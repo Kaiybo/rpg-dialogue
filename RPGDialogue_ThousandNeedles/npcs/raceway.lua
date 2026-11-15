@@ -61,6 +61,7 @@ P:NPC {
       lines = { { id = "wl_default", text = "Lately the gnomes are faster, with the same designs, and nobody can say why. Rizzle Brassbolts has been scribbling something day and night. I'd love a look at it." } },
       choices = {
         { text = "I could get you a look.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
+        { text = "Stealing their plans would be cheating, Pozzik.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Maybe they're just better.", next = "BACK", fx = { affinity = -2, trait = { witty = 1 } } },
       },
     },
@@ -199,6 +200,7 @@ P:NPC {
       lines = { { id = "b_default", text = "The Brassbolts brothers, yes! Wizzle handles the shells and fins, Rizzle handles the plans, and I handle the genius. It's a very efficient arrangement." } },
       choices = {
         { text = "Pozzik wants Rizzle's plans.", next = "brothers_plans", fx = { align = { honor = 1 } } },
+        { text = "I'll keep what I know about Pozzik to myself.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -280,7 +282,10 @@ P:NPC {
     },
     hush = {
       lines = { { id = "hu_default", text = "Now, now, nobody's rigged a thing. Here, for yer trouble an' yer short memory; we understand each other." } },
-      choices = { { text = "We do.", next = "END", fx = { affinity = -1, align = { order = -1 } } } },
+      choices = {
+        { text = "We do.", next = "END", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "Keep your coin, Kravel. I saw what I saw.", next = "END", fx = { align = { order = 1 } } },
+      },
     },
     laugh = {
       lines = { { id = "la_default", text = "Tell 'em! Pozzik'll think I'm helpin' Fizzle, Fizzle'll think I'm helpin' Pozzik, an' both'll pay me to stop." } },
@@ -315,6 +320,7 @@ P:NPC {
       lines = { { id = "st_default", text = "A Fool's Stout, an' a wee bit of somethin' extra from a friend in Booty Bay. Nothin' harmful, mostly; they'll wake up a touch slow an' very thirsty." } },
       choices = {
         { text = "That's poisoning, Kravel.", next = "BACK", fx = { align = { honor = 1 }, affinity = -2 } },
+        { text = "Slow and thirsty sounds like fair racing to me.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -322,6 +328,7 @@ P:NPC {
       lines = { { id = "li_default", text = "Does it? Well, the Light's no' placin' bets, so it's no' my concern. Pray for the losers if ye like; they'll need it more than me." } },
       choices = {
         { text = "I'll pray for you too.", next = "BACK", fx = { affinity = -1, align = { light = 1 }, trait = { pious = 1 } } },
+        { text = "Fair enough. The losers can pray for themselves.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

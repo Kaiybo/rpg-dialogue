@@ -178,7 +178,10 @@ P:NPC {
       lines = {
         { id = "pa_default", text = "Some still live here, quieter than they were. When Uther fell, the Hand came apart, and some of the men in it came apart too. Be kind to them." },
       },
-      choices = { { text = "I will.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } } },
+      choices = {
+        { text = "I will.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Men who ran when Uther fell don't deserve much kindness.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
     priest = {
       big = true,
@@ -187,6 +190,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll say the words with them.", next = "BACK", fx = { affinity = 2, align = { light = 2 }, standing = { southshore = 1 } } },
+        { text = "Skip the words. A torch by the grave serves the dead better.", next = "BACK", fx = { align = { light = -2 } } },
         { text = "No one should have to grieve like that.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
       },
     },
@@ -278,6 +282,7 @@ P:NPC {
       choices = {
         { text = "Who leads them?", next = "nobles" },
         { text = "Then we won't let them.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Alterac's lords had a fair grievance, if you ask me.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
     nobles = {
@@ -296,6 +301,7 @@ P:NPC {
       },
       choices = {
         { text = "Then we strike first.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, standing = { southshore = 1 } } },
+        { text = "Southshore should hire its own knives and beat them at their game.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Double the watch. Check every uniform.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
       },
     },
@@ -328,7 +334,11 @@ P:NPC {
       lines = {
         { id = "rg_default", text = "Some evenings. Then a fisherman thanks me for settling a quarrel over a net, and I stay. Small justice is still justice." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } } },
+      choices = {
+        { text = "Small justice is the kind that holds a town together.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Justice that small isn't worth keeping you here, Magistrate.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     argus = {
       big = true,
@@ -344,7 +354,10 @@ P:NPC {
       lines = {
         { id = "ro_default", text = "I'd rather you didn't tell me how. I'm a magistrate; there are things I'd have to write down. Bring me what you find, and I won't ask about the rest." },
       },
-      choices = { { text = "Understood.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } } },
+      choices = {
+        { text = "Understood. You won't hear how I did it.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'll do it cleanly, so there's nothing you'd need to write down.", next = "BACK", fx = { align = { honor = 1 } } },
+      },
     },
     noble = {
       lines = {
@@ -506,7 +519,10 @@ P:NPC {
       lines = {
         { id = "pu_default", text = "...You sound like Redpath, or worse, like Samuelson. Fine, fine! I'll go out tomorrow, probably." },
       },
-      choices = { { text = "I'll hold you to it.", next = "BACK", fx = { align = { honor = 1 }, trait = { stern = 1 } } } },
+      choices = {
+        { text = "I'll hold you to it.", next = "BACK", fx = { align = { honor = 1 }, trait = { stern = 1 } } },
+        { text = "Probably will do, Farren. Nobody's counting.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
     },
     reassign = {
       lines = {
@@ -575,7 +591,7 @@ P:NPC {
         { id = "h2_default", text = "Uther died, an' it was Arthas did it, hic. The rest of us scattered like rabbits: some kept the faith an' some found a cellar, an' I'm no' proud of which one I am." },
       },
       choices = {
-        { text = "It's not too late to go back.", next = "back", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "It's not too late to go back.", next = "back", fx = { affinity = 2 } },
         { text = "I understand.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -590,7 +606,10 @@ P:NPC {
       lines = {
         { id = "bm_default", text = "I know ye do, an' that's what frightens me, hic. Come back in a month an' ask again, an' maybe I'll have an answer, or maybe a new batch." },
       },
-      choices = { { text = "I'll ask.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } } },
+      choices = {
+        { text = "I'll ask.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Maybe the cellar's where you belong, Bilger.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
     ease = {
       lines = { { id = "e_default", text = "Ease off? I'm a brewmeister! It's research, hic, very serious research." } },
@@ -623,6 +642,7 @@ P:NPC {
       },
       choices = {
         { text = "You can still come back to it.", next = "BACK", fx = { affinity = 2, align = { light = 2 } } },
+        { text = "Some oaths stay broken, and yours might be one of them.", next = "BACK", fx = { align = { light = -2 } } },
         { text = "I won't ask.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -639,7 +659,10 @@ P:NPC {
       lines = {
         { id = "sd_default", text = "Up before the sun for prayers, then drill, then prayers again, an' no ale, no cards an' no excuses. Hic, I'd give the whole cellar to have one of those mornings back." },
       },
-      choices = { { text = "So would I.", next = "BACK", fx = { affinity = 3, align = { light = 1 } } } },
+      choices = {
+        { text = "So would I.", next = "BACK", fx = { affinity = 3, align = { light = 1 } } },
+        { text = "I'd keep the ale and the cards, myself.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
     priest = {
       lines = {
@@ -647,6 +670,7 @@ P:NPC {
       },
       choices = {
         { text = "Then go easier on the judge.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Judge yourself hard, then. You've earned it.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

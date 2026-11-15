@@ -146,6 +146,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll find the proof.", next = "stormwind_proof", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Proof or no proof, I'd stop waiting on the court.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "The court has its reasons.", next = "stormwind_court" },
         { text = "Something else, Marshal.", next = "BACK" },
       },
@@ -190,6 +191,7 @@ P:NPC {
         { text = "I'll walk the camp before I go.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, standing = { morgans_vigil = 2 } },
           journal = { first = "Marshal Maxwell's soldiers hadn't seen a priest in months. I walked the camp at Morgan's Vigil and blessed them.",
                       third = "{name} walked the camp at Morgan's Vigil, blessing soldiers who hadn't seen a priest in months." } },
+        { text = "They're soldiers, and they'll pray when they're ready, not when I say.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Has the Light gone quiet for you too?", next = "priest_quiet" },
       },
     },
@@ -197,12 +199,16 @@ P:NPC {
       lines = { { id = "pq_default", text = "I pray when Windsor's name comes up and not much otherwise, and I wouldn't say the Light owes me an answer. If it's listening, tell it we're still here." } },
       choices = {
         { text = "It's listening, Marshal.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I wouldn't count on it, Marshal. The Light's been quiet for a lot of us.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     paladin = {
       lines = { { id = "pa_default", text = "Then the Light has better timing than the Keep. Stand at the front when we go into that mountain, and let the orcs see what's coming." } },
-      choices = { { text = "Gladly.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, standing = { morgans_vigil = 1 } } } },
+      choices = {
+        { text = "Gladly.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, standing = { morgans_vigil = 1 } } },
+        { text = "I'd rather the orcs never saw me coming, Marshal.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
     },
     dwarf = {
       lines = { { id = "dw_default", fx = { learn = { "dark_iron", "blackrock_depths" } },
@@ -233,7 +239,10 @@ P:NPC {
     },
     nefarian_inside = {
       lines = { { id = "ni_default", text = "That's the part I don't put in reports, deputy. Dragons don't win wars with claws alone, and Windsor never trusted a soul at court." } },
-      choices = { { text = "Then neither will I.", next = "BACK", fx = { trait = { cautious = 1 }, align = { honor = -1 } } } },
+      choices = {
+        { text = "Then neither will I.", next = "BACK", fx = { trait = { cautious = 1 }, align = { honor = -1 } } },
+        { text = "The court's not perfect, but I'll trust it until it fails me.", next = "BACK", fx = { align = { honor = 1 } } },
+      },
     },
   },
 
@@ -395,7 +404,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll remember that.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "A beast is a beast.", next = "BACK", fx = { affinity = -1, trait = { skeptical = 1 } } },
+        { text = "A beast is a beast, and I won't waste pity on it.", next = "BACK", fx = { align = { light = -1 }, affinity = -1, trait = { skeptical = 1 } } },
       },
     },
 
@@ -420,7 +429,10 @@ P:NPC {
     },
     druid = {
       lines = { { id = "dr_default", text = "Then you understand why I can't sleep here. Do what you can for it, druid, even if it's only to walk lightly, because no one else will." } },
-      choices = { { text = "I'll walk lightly.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } } },
+      choices = {
+        { text = "I'll walk lightly.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
+        { text = "Let the Steppes burn. The people at the Vigil matter more to me.", next = "BACK", fx = { align = { order = 1 } } },
+      },
     },
     letter_news = {
       lines = { { id = "ln_default", text = "And the Regent asked for more proof and named you deputy instead of sending an army. That's more than I expected from a human court, and less than I hoped." } },
@@ -553,7 +565,10 @@ P:NPC {
     },
     ear_control = {
       lines = { { id = "ec_default", text = "Somebody's got to be in charge of all this, soldier, and it isn't the Marshal, bless him. Until Control answers, I give the orders, and you follow them." } },
-      choices = { { text = "Yes, sir.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } } },
+      choices = {
+        { text = "Yes, sir.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I don't take orders from you, friend.", next = "BACK", fx = { align = { order = -1 } } },
+      },
     },
 
     served = {
@@ -577,6 +592,7 @@ P:NPC {
       lines = { { id = "pr_default", text = "Troubled? I'm the only one here who ISN'T troubled, priest! But you can say your prayer if you like, and I'll stand still for it; Winky's the one who needs it, if you ask me." } },
       choices = {
         { text = "Then I'll pray for both of you.", next = "priest_pray", fx = { affinity = 3, align = { light = 2 } } },
+        { text = "Prayers are wasted on a man who isn't troubled.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Another time, then.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -709,7 +725,10 @@ P:NPC {
     },
     priest = {
       lines = { { id = "pr_default", text = "Would you? Oh, thank you; they're in the end tent, pretending not to be in pain. Tell them Jalinda sent you, and they'll let you look, though they'll grumble about it." } },
-      choices = { { text = "I'll see to them now.", next = "BACK", fx = { affinity = 3, align = { light = 1 }, standing = { morgans_vigil = 1 } } } },
+      choices = {
+        { text = "I'll see to them now.", next = "BACK", fx = { affinity = 3, align = { light = 1 }, standing = { morgans_vigil = 1 } } },
+        { text = "If they'd rather pretend, let them; pain teaches its own lessons.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
   },
 
@@ -834,6 +853,7 @@ P:NPC {
       lines = { { id = "pr_default", text = "I learned my prayers as a girl in Stormwind, like everyone, and found out up here that they work best said quickly. Don't look so shocked; the Light doesn't seem to mind a little haste." } },
       choices = {
         { text = "It doesn't mind sincerity either.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Haste suits me, and the Light can wait until the fighting's done.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

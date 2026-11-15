@@ -49,6 +49,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll help.", next = "END", fx = { affinity = 2, standing = { bloodhoof = 1 }, align = { honor = 1 } } },
+        { text = "The Venture Company pays well, and I won't cross them for a few hills.", next = "END", fx = { align = { honor = -1 } } },
       },
     },
     talk = {
@@ -110,7 +111,10 @@ P:NPC {
     },
     vision = {
       lines = { { id = "v_default", text = "Something different for everyone: a path, usually, and sometimes the end of one. The spirits choose; I only open the door." } },
-      choices = { { text = "I'm ready.", next = "END", fx = { affinity = 2, align = { light = 1 } } } },
+      choices = {
+        { text = "I'm ready.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I'd rather walk my own path than one the spirits pick for me.", next = "END", fx = { align = { light = -1 } } },
+      },
     },
     spirits = {
       lines = {
@@ -242,6 +246,7 @@ P:NPC {
       choices = {
         { text = "Who poisoned them?", next = "who" },
         { text = "I'll help cleanse them.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Goblin oil means goblin coin, and I won't stand in its way.", next = "END", fx = { align = { light = -1 } } },
       },
     },
     who = {

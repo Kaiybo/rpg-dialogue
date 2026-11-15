@@ -92,6 +92,7 @@ P:NPC {
       choices = {
         { text = "Including me.", next = "BACK", fx = { trait = { curious = 1 }, learn = { "worgen" } } },
         { text = "I'll help you find out.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Hunting for traitors will tear Darkshire apart faster than any worgen.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
         { text = "Who would help such things?", next = "wary_aid" },
       },
     },
@@ -121,6 +122,7 @@ P:NPC {
       choices = {
         { text = "Who's on it?", next = "BACK", fx = { trait = { curious = 1 } } },
         { text = "That's a dangerous list to keep.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "Good. Someone in Darkshire ought to keep that list.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
       },
     },
     watch = {
@@ -145,6 +147,7 @@ P:NPC {
       choices = {
         { text = "And if I fail his test?", next = "priest_test" },
         { text = "The Light doesn't need tests.", next = "BACK", fx = { affinity = -1, align = { light = 1 } } },
+        { text = "Let him test me, then; I've nothing to hide.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
       },
     },
     priest_test = {
@@ -305,7 +308,10 @@ P:NPC {
       lines = {
         { id = "pt_default", text = "For them? ...You're a better priest than I'd ever be. I'll think on it, but don't tell Master Carevin I said that." },
       },
-      choices = { { text = "I won't.", next = "BACK", fx = { affinity = 1, align = { light = 1 }, trait = { kind = 1 } } } },
+      choices = {
+        { text = "I won't.", next = "BACK", fx = { affinity = 1, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "I'll make no promises, because Carevin deserves to hear it.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
     },
     paladin = {
       lines = {
@@ -471,6 +477,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll say them.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { pious = 1 } } },
+        { text = "They were right to bury him quickly and be done with it.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Did a priest send him to the graves?", next = "priest_priest" },
       },
     },
@@ -480,6 +487,7 @@ P:NPC {
       },
       choices = {
         { text = "Someone had to tell him.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A kinder priest would have kept quiet about that gravestone.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -916,6 +924,7 @@ P:NPC {
       },
       choices = {
         { text = "Let's make sure it never comes to that.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Maybe Darkshire would do better without Stormwind.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -927,6 +936,7 @@ P:NPC {
         { text = "Word for word.", next = "BACK", fx = { affinity = 3, align = { honor = 1 }, standing = { darkshire = 1 } },
           journal = { first = "Councilman Millstipe gave me a message for the House of Nobles, about Darkshire's stolen dead.",
                       third = "{name} carried Councilman Millstipe's message for the House of Nobles." } },
+        { text = "I'll soften it a little, or they'll stop listening.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "They won't listen to me either.", next = "BACK", fx = { affinity = 1 } },
       },
     },

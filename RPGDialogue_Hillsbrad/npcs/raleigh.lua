@@ -59,6 +59,7 @@ P:NPC {
       choices = {
         { text = "Why didn't you stop them?", next = "left_stop", fx = { trait = { stern = 1 } } },
         { text = "You did the right thing.", next = "left_right", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "You ran when it got hard, and that's all it was.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -89,6 +90,7 @@ P:NPC {
       lines = { { id = "mw_default", text = "The High Inquisitor. People were taken to her suspected of the plague, and what was done to them is why I left. The rest you can see for yourself." } },
       choices = {
         { text = "I'll go.", next = "BACK", fx = { align = { light = 1 }, trait = { brave = 1 } } },
+        { text = "Whitemane's business is her own, and I'll stay clear of it.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -101,7 +103,7 @@ P:NPC {
         { id = "a_default", text = "Anton is a good man in the wrong colours. He's been in Desolace so long he thinks the Crusade is still what it was when he left. I can't bring myself to write and tell him." },
       },
       choices = {
-        { text = "Someone should tell him.", next = "anton_tell", fx = { align = { honor = 1 } } },
+        { text = "Someone should tell him.", next = "anton_tell" },
         { text = "Let him keep his cause.", next = "BACK", fx = { trait = { kind = 1 } } },
       },
     },
@@ -121,11 +123,17 @@ P:NPC {
     },
     paladin_pray = {
       lines = { { id = "pp_default", text = "Quietly, and with my eyes open. The Crusade prayed loud and closed its eyes to everything else, and I'd rather see what I'm asking the Light to bless." } },
-      choices = { { text = "That's a good way.", next = "BACK", fx = { affinity = 2, align = { light = 2 }, trait = { pious = 1 } } } },
+      choices = {
+        { text = "That's a good way.", next = "BACK", fx = { affinity = 2, align = { light = 2 }, trait = { pious = 1 } } },
+        { text = "Prayer won't keep my eyes open. A sharp blade will.", next = "BACK", fx = { align = { light = -2 } } },
+      },
     },
     refugee = {
       lines = { { id = "r_default", text = "Then you know how it was at the start, with everyone afraid of everyone. The Crusade made a faith of that fear, so don't let anyone make one of yours." } },
-      choices = { { text = "I won't.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } } },
+      choices = {
+        { text = "I won't.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Fear kept me alive back then, and I'll keep it.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
     after = {
       lines = { { id = "af_default", text = "No servant of the Light should be glad of a death, though some are still needed. Carry it, don't wear it; that's the difference between you and them." } },

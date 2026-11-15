@@ -52,7 +52,10 @@ P:NPC {
     },
     before_back = {
       lines = { { id = "bb_default", text = "If the drink stops, maybe, an' I'd like tae think so. A creature's no' its worst week." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { align = { light = 1 }, trait = { kind = 1 } } } },
+      choices = {
+        { text = "No creature should be judged by its worst week.", next = "BACK", fx = { align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "A creature's worst week tells you what it's capable of.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
     springs = {
       lines = { { id = "s_default", text = "Because they're warm in a place that isnae, an' life gathers round warm things. Ye learn a land by where it chooses tae live." } },
@@ -116,7 +119,8 @@ P:NPC {
     eko = {
       lines = { { id = "e_default", text = "It be de little bit of spirit every beast carry, and when dey fall, it linger. Mau'ari's charm catch it before it blow away on de wind." } },
       choices = {
-        { text = "Is that right, to take it?", next = "eko_right", fx = { align = { light = 1 } } },
+        { text = "Taking a beast's spirit doesn't sit right with me.", next = "eko_right", fx = { align = { light = 1 } } },
+        { text = "A spirit's no use to anyone, blowing on the wind.", next = "eko_right", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

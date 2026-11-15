@@ -42,7 +42,10 @@ P:NPC {
     },
     why = {
       lines = { { id = "w_default", text = "Roads to Orgrimmar, to Sen'jin and to the Barrens all run through here. Hold Razor Hill and you hold Durotar. Lose it and you lose the rest." } },
-      choices = { { text = "Then we won't lose it.", next = "END", fx = { affinity = 2, align = { honor = 1 } } } },
+      choices = {
+        { text = "Then we won't lose it.", next = "END", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "A good ambush on those roads would do more than any wall.", next = "END", fx = { align = { honor = -1 } } },
+      },
     },
   },
 

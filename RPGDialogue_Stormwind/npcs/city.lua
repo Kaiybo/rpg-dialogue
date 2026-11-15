@@ -83,6 +83,7 @@ P:NPC {
       lines = { { id = "hp_default", text = "Probably. Keep your eyes open and your mouth shut, and we'll find you when we need you. Don't come looking." } },
       choices = {
         { text = "Understood.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll come looking whenever I please, Shaw.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "How will you find me?", next = "help_find" },
       },
     },
@@ -98,6 +99,7 @@ P:NPC {
       lines = { { id = "sk_default", text = "Missing, on the road to Theramore. The whole city knows that much. What my people know beyond it stays in this building." } },
       choices = {
         { text = "Then I won't ask.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "The city has a right to know where its king is.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Do you know more?", next = "si7_know", fx = { trait = { curious = 1 } } },
       },
     },
@@ -112,6 +114,7 @@ P:NPC {
       choices = {
         { text = "And the court?", next = "court" },
         { text = "Good answer.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The crown and the court are the same snake, to my eye.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
     court = {
@@ -174,7 +177,7 @@ P:NPC {
       lines = { { id = "p_default", text = "People tell priests what they'd never tell me: grief, guilt, a brother home with too much coin. I'd never ask you to repeat a confession, only to listen well." } },
       choices = {
         { text = "I won't spy for you.", next = "priest_refuse", fx = { align = { light = 1, honor = 1 } } },
-        { text = "Listening is half my work anyway.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Listening is half my work anyway.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
       },
     },
     priest_refuse = {
@@ -193,6 +196,7 @@ P:NPC {
       lines = { { id = "nf_default", text = "Debts, mostly. Every noble house in Stormwind owes someone. The interesting question is never how much. It's to whom." } },
       choices = {
         { text = "I'll keep my family's debts in order.", next = "BACK", fx = { align = { order = 1 }, trait = { cautious = 1 } } },
+        { text = "I'd sooner collect debts than pay them, Shaw.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Whose debts interest you most?", next = "BACK", fx = { trait = { curious = 1 }, affinity = -1 } },
       },
     },
@@ -207,7 +211,11 @@ P:NPC {
     },
     lescovar_house = {
       lines = { { id = "lh_default", text = "The House will find a lord dead in his own garden and decide he had enemies, and they'll be right, but they won't ask which." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { align = { order = -1 } } } },
+      choices = {
+        { text = "A lord who betrays the crown earns his garden grave.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Even a traitor deserves a trial before the House.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -372,7 +380,7 @@ P:NPC {
     lamb_noble = {
       lines = { { id = "ln_default", text = "Then a lord with an unpaid bar tab finds out where we are and calls for an inquiry, as Lord Wishock has lately. Zardeth is keeping him busy, and don't ask how." } },
       choices = {
-        { text = "I won't ask.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I won't ask.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
         { text = "Blackmail, then.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
       },
     },

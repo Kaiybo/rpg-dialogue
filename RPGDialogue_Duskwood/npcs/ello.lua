@@ -78,6 +78,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll help the Night Watch.", next = "BACK", fx = { affinity = 2, standing = { darkshire = 1 }, align = { order = 1 } } },
+        { text = "I'd sooner hunt these woods alone than march with the Watch.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Walls? Darkshire has none?", next = "need_walls" },
         { text = "Sounds grim.", next = "BACK" },
       },
@@ -156,7 +157,7 @@ P:NPC {
       },
       choices = {
         { text = "Lakeshire's fighting orcs alone.", next = "solomon_push", fx = { align = { honor = 1 } } },
-        { text = "You chose your own people. That's fair.", next = "BACK", fx = { affinity = 1, learn = { "blackrock" } } },
+        { text = "You chose your own people. That's fair.", next = "BACK", fx = { affinity = 1, learn = { "blackrock" }, align = { honor = -1 } } },
       },
     },
     solomon_push = {
@@ -203,6 +204,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll make it right.", next = "BACK", fx = { affinity = 2, align = { honor = 1 }, standing = { darkshire = 1 } } },
+        { text = "It wasn't my doing, and I won't carry it.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -224,6 +226,7 @@ P:NPC {
       choices = {
         { text = "Has no one tended those graves?", next = "priest_graves" },
         { text = "I'll go at dawn.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, standing = { darkshire = 1 } } },
+        { text = "Prayers won't keep the dead in the ground, but steel will.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
     priest_graves = {
@@ -233,6 +236,7 @@ P:NPC {
       },
       choices = {
         { text = "Then the graves need a priest more than ever.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { pious = 1 } } },
+        { text = "Those graves are better left alone now.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -241,7 +245,7 @@ P:NPC {
         { id = "nb_default", text = "Then you've sat in that chamber yourself. When my letters are read aloud, does anyone actually listen, or do they wait politely for luncheon?" },
       },
       choices = {
-        { text = "They wait for luncheon.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "They wait for luncheon.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 }, align = { honor = -1 } } },
         { text = "Some of them listen.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll speak for Darkshire there.", next = "BACK", fx = { affinity = 3, standing = { darkshire = 2 } },
           journal = { first = "Told Lord Ello Ebonlocke I'd speak for Darkshire in the House of Nobles.",

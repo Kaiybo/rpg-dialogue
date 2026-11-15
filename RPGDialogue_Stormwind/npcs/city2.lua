@@ -66,6 +66,7 @@ P:NPC {
       lines = { { id = "hd_default", key = true, text = "What it always did, with fewer of us to stand for it. Lordaeron took our best. The rest of us hold the line they left." } },
       choices = {
         { text = "Then I'll help hold it.", next = "BACK", fx = { affinity = 2, align = { light = 1, order = 1 } } },
+        { text = "The line's not my burden, and I'll find my own fight.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Some say the Hand died with Uther.", next = "uther", fx = { trait = { skeptical = 1 } } },
         { text = "What does the Hand swear?", next = "hand_oath" },
       },
@@ -79,7 +80,11 @@ P:NPC {
     },
     uther_count = {
       lines = { { id = "uc_default", text = "Fewer than the oaths need, but enough that the oaths aren't empty. I count them every morning, and it doesn't take long." } },
-      choices = { { text = "Count me, someday.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } }, { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Count me, someday.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I'll keep my own oaths, not the Hand's.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     hand_oath = {
       lines = { { id = "ho_default", text = "By blood and honour we serve. It's cut into the stone under Turalyon's statue in the valley. The rest of the oath is longer, and harder to keep." } },
@@ -93,6 +98,7 @@ P:NPC {
       choices = {
         { text = "That's a hard word for them.", next = "BACK", fx = { learn = { "scarlet_crusade" } } },
         { text = "Mercy can get people killed.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "Mercy is worth the risk, even for them.", next = "BACK", fx = { align = { light = 1 } } },
       },
     },
 
@@ -113,6 +119,7 @@ P:NPC {
       lines = { { id = "tr_default", text = "Then begin with sacrifice. High Priest Rohan in Ironforge keeps an exorcism censer you'll need. Pay him well for it; his coin feeds Ironforge's poorest." } },
       choices = {
         { text = "The cost doesn't matter.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { generous = 1 } } },
+        { text = "I'll pay what it's worth and not a copper more.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -126,7 +133,10 @@ P:NPC {
     },
     needed_now = {
       lines = { { id = "nn_default", text = "Then wherever you stand. Duskwood has its dead, Westfall its thieves, Redridge its orcs. The Light was never kept for the Plaguelands alone." } },
-      choices = { { text = "Then I'll start where I stand.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } } },
+      choices = {
+        { text = "Then I'll start where I stand.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll go where I'm needed, not where I'm told.", next = "BACK", fx = { align = { order = -1 } } },
+      },
     },
 
     terenas = {
@@ -138,7 +148,10 @@ P:NPC {
     },
     terenas_north = {
       lines = { { id = "tn_default", text = "Then light a candle by it when you pass. He was your king before he was a statuette. The Light remembers that, even if the court forgets." } },
-      choices = { { text = "I will.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } } },
+      choices = {
+        { text = "I will.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Terenas raised the son who killed him, so I'll save my candles.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
 
     priest = {
@@ -205,6 +218,7 @@ P:NPC {
       },
       choices = {
         { text = "Maybe they're just as good.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Marble or rubble, prayers are only words.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Who did the rebuilding?", next = "served_masons" },
       },
     },
@@ -219,7 +233,10 @@ P:NPC {
     },
     pray = {
       lines = { { id = "pr_default", text = "Kneel, then, and no words are needed. The Light hears silence as well as it hears speeches, and better, some days." } },
-      choices = { { text = "Amen. Something else.", next = "BACK", fx = { align = { light = 1 }, trait = { pious = 1 } } } },
+      choices = {
+        { text = "Amen. Something else.", next = "BACK", fx = { align = { light = 1 }, trait = { pious = 1 } } },
+        { text = "I'll kneel, but I won't pretend anyone is listening.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
   },
 

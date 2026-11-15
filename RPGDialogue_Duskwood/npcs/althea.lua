@@ -181,7 +181,10 @@ P:NPC {
       lines = {
         { id = "ek_default", text = "He's a politician, so he knows exactly what everyone thinks, and he writes the letters anyway. I respect that more than I'd ever tell him." },
       },
-      choices = { { text = "Your secret's safe.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } } },
+      choices = {
+        { text = "Your secret's safe.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll make no promises; he might like to hear it.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
     },
 
     priest = {
@@ -192,6 +195,7 @@ P:NPC {
         { text = "I'll sit with them tonight.", next = "BACK", fx = { affinity = 3, standing = { darkshire = 2 }, align = { light = 1 } },
           journal = { first = "Sat a night with the Night Watch's wounded in Darkshire, at Commander Ebonlocke's welcome.",
                       third = "{name} sat a night with the Night Watch's wounded in Darkshire." } },
+        { text = "The dead feel nothing now, and they should hear that plainly.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "What do I tell them?", next = "priest_answer" },
       },
     },
@@ -201,6 +205,7 @@ P:NPC {
       },
       choices = {
         { text = "Then they'll get the truth.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { pious = 1 } } },
+        { text = "Sometimes a kind lie is what lets a man sleep.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -46,6 +46,7 @@ P:NPC {
         { text = "Does the Light still hear you?", next = "paladin", when = { class = { "PALADIN", "PRIEST" } } },
         { text = "An orc saved your life?", next = "eitrigg", when = { race = { "Orc", "Human", "Dwarf" } } },
         { text = "I'll help you.", next = "END", fx = { affinity = 2, align = { light = 1, honor = 1 } } },
+        { text = "You chose an orc over your own people, and I can't respect that.", next = "END", fx = { affinity = -1, align = { light = -1 } } },
       },
     },
     story = {
@@ -56,13 +57,17 @@ P:NPC {
       choices = {
         { text = "Do you regret it?", next = "regret" },
         { text = "That's a cruel reward for mercy.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Hearthglen's people were only protecting their own.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
       },
     },
     regret = {
       lines = {
         { id = "r_default", text = "Not for a moment. I regret what it cost my family, but I'd never regret what I did. A paladin who only protects his own kind isn't a paladin; he's a sword with a prayer painted on it." },
       },
-      choices = { { text = "I'll remember that.", next = "BACK", fx = { affinity = 3, align = { light = 2, honor = 1 }, trait = { kind = 1 } } } },
+      choices = {
+        { text = "I'll remember that.", next = "BACK", fx = { affinity = 3, align = { light = 2, honor = 1 }, trait = { kind = 1 } } },
+        { text = "Your family paid for that mercy, and I'd call that too high a price.", next = "BACK", fx = { align = { light = -2 } } },
+      },
     },
     son = {
       lines = { { id = "so_default", text = "Taelan was a boy when I lost him, and he's a man now, wearing the Crusade's red. He thinks his father died a traitor. I think of him every morning, and I fish, and I don't go to Hearthglen." } },
@@ -88,6 +93,7 @@ P:NPC {
       lines = { { id = "p_default", text = "They took my right to call on it, but they couldn't take the habit of listening. Some mornings I think I hear it, and some mornings I'm only an old man by a river." } },
       choices = {
         { text = "It hears you. I'm sure of it.", next = "BACK", fx = { affinity = 3, align = { light = 2 } } },
+        { text = "The Light let them strip you, so I'd stop listening for it.", next = "BACK", fx = { affinity = -1, align = { light = -2 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -144,6 +150,7 @@ P:NPC {
       choices = {
         { text = "This was your home?", next = "home" },
         { text = "I'll clear the fields.", next = "END", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll hunt where I please, Blightcaller, not where you point.", next = "END", fx = { align = { order = -1 } } },
       },
     },
     home = {

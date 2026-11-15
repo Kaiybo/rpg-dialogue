@@ -73,6 +73,7 @@ P:NPC {
       choices = {
         { text = "I'm sorry, Sven.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Then we find the riders.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 }, align = { honor = 1 }, learn = { "dark_riders" } } },
+        { text = "Give them the scythe, and maybe they'll leave you be.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Where were you?", next = "family_away" },
       },
     },
@@ -178,7 +179,10 @@ P:NPC {
       lines = {
         { id = "jp_default", text = "...He wrote that too, and I read it twice. I don't know what to do with it yet, so leave it with me a while." },
       },
-      choices = { { text = "I will.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } } },
+      choices = {
+        { text = "I will.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Prayers didn't save her, Sven, so don't let it trouble you.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
 
     priest = {

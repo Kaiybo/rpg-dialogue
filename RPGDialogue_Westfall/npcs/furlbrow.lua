@@ -60,7 +60,7 @@ P:NPC {
       },
       choices = {
         { text = "You will. Give it time.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 }, align = { light = 1 } } },
-        { text = "There's no shame in starting over.", next = "BACK", fx = { affinity = 1, trait = { skeptical = 1 } } },
+        { text = "There's no shame in starting over.", next = "BACK", fx = { align = { light = -1 }, affinity = 1, trait = { skeptical = 1 } } },
         { text = "What would it take?", next = "back_take" },
       },
     },
@@ -68,6 +68,7 @@ P:NPC {
       lines = { { id = "bt_default", text = "The thieves gone and the walking scarecrows gone, and me not jumping every time a crow lands. That last one's the hardest." } },
       choices = {
         { text = "The first two, I can help with.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Thieves and scarecrows are the militia's problem, not mine.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -114,6 +115,7 @@ P:NPC {
       lines = { { id = "fg_default", text = "To copy, the note said. Forge their own and call our farms theirs, all neat and legal. Paper's a weapon too, in the wrong hands." } },
       choices = {
         { text = "Then the deed's worth fighting for.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Paper's only paper. Hold the land and let them forge all they like.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -122,12 +124,15 @@ P:NPC {
       lines = { { id = "co_default", text = "Isn't it? It feels like one. A man's supposed to stand in front of his wife, not behind her holding the lamp." } },
       choices = {
         { text = "You got her out alive. That's what matters.", next = "BACK", fx = { affinity = 3, align = { light = 1 }, trait = { kind = 1 } } },
-        { text = "Then stand in front of her next time.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
+        { text = "Then stand in front of her next time.", next = "BACK", fx = { align = { light = -1 }, affinity = -1, trait = { stern = 1 } } },
       },
     },
     pumpkins = {
       lines = { { id = "pu_default", text = "You remember them? Rows and rows of them, orange right up to the hills, and somebody still remembers. Thank you for that, truly." } },
-      choices = { { text = "They'll grow again.", next = "BACK", fx = { affinity = 3, align = { light = 1 } } } },
+      choices = {
+        { text = "They'll grow again.", next = "BACK", fx = { affinity = 3, align = { light = 1 } } },
+        { text = "Those fields are gone, friend. Best let them go.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
   },
 

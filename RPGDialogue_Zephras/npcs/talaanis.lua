@@ -75,7 +75,7 @@ P:NPC {
           text = "I told the Council the Windlord might take years to act, decades even, but I did not say never. Everyone heard the first part." },
       },
       choices = {
-        { text = "Then we have time.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "Then we have time.", next = "BACK", fx = { align = { order = -1 }, trait = { brave = 1 } } },
         { text = "Then we should be ready.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Who stood with us against the Al'Aketh?", next = "allies" },
       },
@@ -133,7 +133,7 @@ P:NPC {
       },
       choices = {
         { text = "Someone has to make peace.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
-        { text = "Then let them settle it.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "Then let them settle it.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
         { text = "Who leads each order?", next = "leaders" },
       },
     },
@@ -187,6 +187,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll remember where we came from.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Power is power, and I'll take whatever the magisters can teach.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -196,6 +197,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll guard it.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Skysight should be shared freely, not guarded.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

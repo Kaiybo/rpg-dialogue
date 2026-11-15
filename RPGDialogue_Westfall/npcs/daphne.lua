@@ -56,6 +56,7 @@ P:NPC {
       },
       choices = {
         { text = "That's courage.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { brave = 1 } } },
+        { text = "I'd let the thieves have the apples before my neck.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "It sounds like stubbornness.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
         { text = "What frightens you most?", next = "afraid_most" },
       },
@@ -116,6 +117,7 @@ P:NPC {
       lines = { { id = "ra_default", text = "He sends his young ones out to learn that the Light protects farmers, not just kings. I'm the lesson, and I try to be a good one." } },
       choices = {
         { text = "You're a fine teacher.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "In my experience, the Light protects whoever can pay for a church.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "And I'm the test, I suppose.", next = "BACK", fx = { trait = { witty = 1 }, affinity = 1 } },
       },
     },
@@ -123,6 +125,7 @@ P:NPC {
       lines = { { id = "pr_default", text = "In the orchard, mornings, before the work. There's no chapel within a day's walk. Jordan says the Light isn't fussy about roofs." } },
       choices = {
         { text = "Then let's pray together, now.", next = "BACK", fx = { affinity = 3, align = { light = 2 } } },
+        { text = "Pray if you like. I'll keep watch on the road instead.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Does the Church know you're out here?", next = "pray_church" },
       },
     },

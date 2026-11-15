@@ -86,6 +86,7 @@ P:NPC {
           fx = { affinity = 3, align = { light = 2 }, trait = { kind = 1 } },
           journal = { first = "Taught the boy king a prayer for his father. He said it back to me twice, to be sure he had it.",
                       third = "{name} taught King Anduin a prayer for his missing father." } },
+        { text = "Prayers won't bring him home, Your Majesty, but the Regent's soldiers might.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "The Light hears you without the words.", next = "BACK", fx = { affinity = 1, trait = { pious = 1 } } },
       },
     },
@@ -103,11 +104,17 @@ P:NPC {
     },
     bless = {
       lines = { { id = "bl_default", text = "Really? Here, in the throne room? Bolvar does it before council sometimes, so go on, and I'll stand very still. Kings are good at standing still." } },
-      choices = { { text = "Light keep you, Your Majesty.", next = "BACK", fx = { affinity = 3, align = { light = 1 } } } },
+      choices = {
+        { text = "Light keep you, Your Majesty.", next = "BACK", fx = { affinity = 3, align = { light = 1 } } },
+        { text = "Kings make their own luck, Your Majesty. You don't need my blessing.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
     ask = {
       lines = { { id = "a_default", text = "Usually, \"but what about the people who aren't here?\" They hate that one." } },
-      choices = { { text = "Keep asking it.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } } },
+      choices = {
+        { text = "Keep asking it.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Learn when to stay quiet, Your Majesty, because courts punish awkward questions.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
     },
   },
 

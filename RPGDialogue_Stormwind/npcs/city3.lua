@@ -82,7 +82,7 @@ P:NPC {
     rebuilt = {
       lines = { { id = "r_default", text = "And were thanked. Thanks is a currency too, you know. Not everyone has the sense to accept it." } },
       choices = {
-        { text = "Thanks doesn't feed a family.", next = "rebuilt_queen", fx = { align = { honor = 1 } } },
+        { text = "Thanks doesn't feed a family.", next = "rebuilt_queen" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -92,6 +92,7 @@ P:NPC {
       choices = {
         { text = "That was one hand, not a whole guild.", next = "BACK", fx = { affinity = -1, align = { honor = 1 }, opinion = { defias = "masons_wronged" } } },
         { text = "I didn't know.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Then the masons got what they had coming.", next = "BACK", fx = { align = { honor = -1 } } },
       },
     },
     library = {
@@ -107,7 +108,11 @@ P:NPC {
     },
     church = {
       lines = { { id = "ch_default", text = "Does it? The masons built its Cathedral too. Has His Grace paid them a copper of his own? Do ask him, before he lectures the House again." } },
-      choices = { { text = "He's said so in the Keep, at least.", next = "BACK", fx = { align = { light = 1 }, affinity = -1 } }, { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "He's said so in the Keep, at least.", next = "BACK", fx = { align = { light = 1 }, affinity = -1 } },
+        { text = "Then His Grace is no better than the rest of you.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     farmhand = {
       lines = { { id = "fa_default", text = "How dreadful. The House sympathises enormously. Sympathy is, unfortunately, the only thing the treasury has in abundance." } },
@@ -455,6 +460,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll handle it.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Your prisoners can sort themselves out, Warden.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "You should tell someone.", next = "tell" },
       },
     },
@@ -481,6 +487,7 @@ P:NPC {
       lines = { { id = "ch_default", text = "Ask the nobles, because every time the rope's ready, a letter arrives. It's the same with Dextren Ward, who sold Raven Hill's dead to a necromancer, and Darkshire wants his hand." } },
       choices = {
         { text = "Robbing graves. The dead deserve better.", next = "BACK", when = { class = "PRIEST" }, fx = { align = { light = 1 } } },
+        { text = "The dead don't need their bodies, so let the man go.", next = "BACK", when = { class = "PRIEST" }, fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "night_watch" } } },
       },
     },
@@ -498,7 +505,10 @@ P:NPC {
     priest_mac = {
       big = true,
       lines = { { id = "pm_default", text = "One. Mac, a guard of fourteen, stopped them tearing blankets into red scarves, and one of them stabbed him for it. Say one for him, if you're saying them." } },
-      choices = { { text = "I will.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, trait = { pious = 1 } } } },
+      choices = {
+        { text = "I will.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, trait = { pious = 1 } } },
+        { text = "Prayers won't help Mac now, but justice for his killer might.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
   },
 

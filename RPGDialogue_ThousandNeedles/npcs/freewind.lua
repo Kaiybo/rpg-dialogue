@@ -106,6 +106,7 @@ P:NPC {
       },
       choices = {
         { text = "I will.", next = "BACK", fx = { affinity = 2, standing = { freewind = 1 }, align = { honor = 1 } } },
+        { text = "I'll pick them off quietly, and leave wrath out of it.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -135,6 +136,7 @@ P:NPC {
       choices = {
         { text = "Thalia's friend is free, too.", next = "BACK", when = { questDone = TODO_QUEST("Free at Last") }, fx = { affinity = 2, standing = { freewind = 1 } } },
         { text = "Justice was owed.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Justice had little to do with it. He was in my way.", next = "BACK", fx = { align = { honor = -1 } } },
       },
     },
     notes = {
@@ -425,6 +427,7 @@ P:NPC {
       },
       choices = {
         { text = "Then let's make it right.", next = "BACK", fx = { affinity = 2, align = { honor = 1 }, learn = { "grimtotem" } } },
+        { text = "It isn't my fight, Thalia.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Not every Grimtotem is Arnak.", next = "grimtotem" },
         { text = "...", next = "BACK", fx = { learn = { "grimtotem" } } },
       },
@@ -462,6 +465,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll carry them well.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "I'd sooner sell them than wear a dead man's things.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -545,6 +549,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll find something useful to do.", next = "BACK", fx = { affinity = 2, align = { honor = 1 }, learn = { "grimtotem" } } },
+        { text = "Then keep saying nothing. Hope would do her more harm.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

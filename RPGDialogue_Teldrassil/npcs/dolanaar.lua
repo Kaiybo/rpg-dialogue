@@ -41,6 +41,7 @@ P:NPC {
         { text = "Which wells do you watch?", next = "which" },
         { text = "I can feel something in the water too.", next = "feel", when = { class = { "PRIEST", "DRUID" } } },
         { text = "I'll carry the vial.", next = "END", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Wells go stale, and I doubt the tree's in any danger.", next = "END", fx = { affinity = -1, align = { light = -1 } } },
       },
     },
     wells = {
@@ -173,6 +174,7 @@ P:NPC {
       lines = { { id = "t2_default", text = "Their spirits walk the Dream while they sleep. Without the right relics, the waking can't be done, and they'd sleep forever without knowing it." } },
       choices = {
         { text = "Then the relics matter.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If they chose to sleep, then let them sleep.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -308,6 +310,7 @@ P:NPC {
         { text = "Who is Zenn Foulhoof?", next = "zenn" },
         { text = "I'm an herbalist. What grows here?", next = "herbs", when = { profession = "Herbalism" } },
         { text = "I'll take on the Council's orders.", next = "END", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll help where I see a need, not where the Council points.", next = "END", fx = { align = { order = -1 } } },
       },
     },
     council = {
@@ -330,12 +333,14 @@ P:NPC {
       choices = {
         { text = "I helped him. I didn't know.", next = "zenn2", when = { questDone = TODO_QUEST("Zenn's Bidding") } },
         { text = "I'll stay away from him.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Whose favours I do is my own business.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
       },
     },
     zenn2 = {
       lines = { { id = "z2_default", text = "Then set it right. Fel cones fall under the trees, smoking green; feed him a few, and he'll think you've brought him a snack." } },
       choices = {
         { text = "I'll set it right.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "The Council can keep its tally, because I owe it nothing.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "That's a dirty trick.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },

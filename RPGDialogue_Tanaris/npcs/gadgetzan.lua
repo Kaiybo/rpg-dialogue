@@ -562,6 +562,7 @@ P:NPC {
         { text = "Why not just sail away?", next = "leave" },
         { text = "What's MacKinley like, to owe?", next = "mackinley", when = { heardLine = "mackinley.h_default" } },
         { text = "You should pay your debts.", next = "END", fx = { affinity = -1, align = { order = 1 } } },
+        { text = "Debts in Booty Bay are for fools who get caught.", next = "END", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Good luck.", next = "END", fx = { affinity = 1 } },
       },
     },

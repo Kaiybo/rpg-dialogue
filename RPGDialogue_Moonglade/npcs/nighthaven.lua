@@ -70,6 +70,7 @@ P:NPC {
       choices = {
         { text = "Do all of you agree?", next = "staghelm" },
         { text = "I'd like to help keep it.", next = "BACK", fx = { affinity = 2, learn = { "cenarion_circle" }, align = { order = 1 } } },
+        { text = "Balance is for the wild to keep, not a circle of druids.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
     staghelm = {
@@ -98,6 +99,7 @@ P:NPC {
       lines = { { id = "s_default", text = "Everything can be stopped, little one, if enough hands hold it back. When you are strong, come and lend me yours." } },
       choices = {
         { text = "I will.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "The Dream's a druid problem, Keeper, and not mine.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Let me ask something else.", next = "BACK" },
       },
     },
@@ -107,6 +109,7 @@ P:NPC {
       },
       choices = {
         { text = "Then they need someone watching over them.", next = "BACK", fx = { affinity = 2, learn = { "malfurion" }, align = { light = 1 } } },
+        { text = "They chose to sleep, and the waking world has troubles enough.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "What else should I know?", next = "BACK", fx = { learn = { "malfurion" } } },
       },
     },
@@ -136,6 +139,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll remember him, if I go there.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Whatever he's become, I'll cut him down if he stands in my way.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -146,6 +150,7 @@ P:NPC {
       },
       choices = {
         { text = "He said to tell you his spirit lives on.", next = "BACK", fx = { affinity = 3, align = { light = 1 } } },
+        { text = "A seed seems a small thing to show for a whole life.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else, Keeper.", next = "BACK" },
       },
     },
@@ -173,6 +178,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll listen, Keeper.", next = "BACK", fx = { affinity = 2, standing = { nighthaven = 1 }, align = { order = 1 } } },
+        { text = "I'll learn by walking, Keeper, and find my own way.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -182,6 +188,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll heal what I can, and keep my voice low.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { pious = 1 } } },
+        { text = "My faith goes where I go, and I won't whisper it.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "The Light answers anyone who asks.", next = "priest_light" },
       },
     },
@@ -319,6 +326,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll help when I'm strong enough.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Burn the Felvine, then, because memories won't save anyone.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -489,6 +497,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll keep my eyes open.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "If Darnassus won't look, I'll go and see for myself.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -655,6 +664,7 @@ P:NPC {
       choices = {
         { text = "Am I ready, then?", next = "ready" },
         { text = "(Let the lesson settle.)", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Sometimes weighing both sides is what keeps a bear alive.", next = "BACK", fx = { align = { honor = -1 } } },
       },
     },
     ready = {
@@ -679,6 +689,7 @@ P:NPC {
       },
       choices = {
         { text = "(Pray a while beside the bear.)", next = "BACK", fx = { affinity = 2, trait = { pious = 1 }, align = { light = 1 } } },
+        { text = "I'll sit with you, but I've no prayer in me today.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "(Rise.)", next = "BACK" },
       },
     },

@@ -65,6 +65,7 @@ P:NPC {
       lines = { { id = "te_default", text = "Always: burns, cuts, and the ones who've stopped sleeping. Sit with that last lot, if you can; they'll talk to a priest who won't be here next week." } },
       choices = {
         { text = "I'll sit with them tonight.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, standing = { sentinel_hill = 1 } } },
+        { text = "I'll leave the sleepless ones to someone who's staying.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -360,7 +361,7 @@ P:NPC {
     rogue = {
       lines = { { id = "ro_default", text = "Try it, then; every thief in red has tried. A shadow moving against dry grass is the easiest thing in Westfall to see." } },
       choices = {
-        { text = "Challenge accepted.", next = "BACK", fx = { trait = { witty = 1 }, affinity = 1 } },
+        { text = "Challenge accepted.", next = "BACK", fx = { align = { order = -1 }, trait = { witty = 1 }, affinity = 1 } },
         { text = "Good. Keep it that way.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
       },
     },

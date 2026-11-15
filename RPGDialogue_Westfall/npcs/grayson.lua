@@ -65,6 +65,7 @@ P:NPC {
       },
       choices = {
         { text = "That's a noble penance.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "A dead man keeping a lamp lit is just stubbornness.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "You don't owe anyone anything now.", next = "owe", fx = { trait = { kind = 1 } } },
         { text = "Who was the keeper's family?", next = "family" },
       },
@@ -129,17 +130,21 @@ P:NPC {
       lines = { { id = "pr_default", text = "Rest? Kind of you. But I've a lamp to keep, and I'd not trust the next fellow to keep it. When this coast is safe, ask me again." } },
       choices = {
         { text = "Then I'll make it safe.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { brave = 1 } } },
+        { text = "Suit yourself. The lamp can keep you company forever.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Let me at least pray for your crew.", next = "priest_crew" },
       },
     },
     priest_crew = {
       lines = { { id = "pc_default", text = "Do, by all means. They were rough men and they'd laugh at you for it, but pray anyway; somebody should, and it can't be me." } },
-      choices = { { text = "Light keep them, wherever the sea put them.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, trait = { kind = 1 } } } },
+      choices = {
+        { text = "Light keep them, wherever the sea put them.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, trait = { kind = 1 } } },
+        { text = "If they'd laugh at prayer, I'll spare them one.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
     scourge = {
       lines = { { id = "sc_default", text = "Bitter? A dark lamp killed me, not a plague. No one did this to me but the rocks, and it's hard to hate rocks. You've better reason than I have." } },
       choices = {
-        { text = "I do.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "I do.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
         { text = "Maybe I'll try your way.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
       },
     },

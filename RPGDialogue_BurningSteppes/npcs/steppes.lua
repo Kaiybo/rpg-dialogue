@@ -97,6 +97,7 @@ P:NPC {
       lines = { { id = "l_default", text = "Then the Light is a fool, and so are you, which is at least consistent. Walk carefully, priest; the dark is very large, and it has been patient for a very long time." } },
       choices = {
         { text = "So has the Light.", next = "BACK", fx = { align = { light = 2 }, affinity = -1 } },
+        { text = "You might be right. The dark does seem to win in the end.", next = "BACK", fx = { align = { light = -2 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -73,6 +73,7 @@ P:NPC {
       },
       choices = {
         { text = "That's a kind teaching.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "The Light favors the strong, whatever Faol taught.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "What was he like?", next = "faol_man" },
       },
     },
@@ -88,6 +89,7 @@ P:NPC {
       },
       choices = {
         { text = "That takes faith.", next = "BACK", fx = { affinity = 2, align = { light = 2 }, trait = { pious = 1 } } },
+        { text = "I'd have stopped asking and turned my back on it.", next = "BACK", fx = { align = { light = -2 } } },
         { text = "Maybe there's no answer.", next = "none", fx = { trait = { skeptical = 1 } } },
       },
     },
@@ -121,7 +123,7 @@ P:NPC {
       big = true,
       lines = { { id = "cro_default", text = "To Southshore, I think, and a man who left them. I know what's said about the Monastery. I let Crowley keep his corner because some of the Crusade's people are good, and they come through these doors too. What did you find?" } },
       choices = {
-        { text = "Innocents tortured as plagued. Raleigh saw it.", next = "crusade_road2", fx = { align = { honor = 1 } } },
+        { text = "Innocents tortured as plagued. Raleigh saw it.", next = "crusade_road2" },
         { text = "Nothing I can prove.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },
@@ -129,7 +131,7 @@ P:NPC {
       lines = { { id = "cr2_default", text = "Then I'll stop pretending not to know. I won't close the doors; that isn't who we are. But no one goes down those stairs again without praying with me first." } },
       choices = {
         { text = "That's something.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "It isn't enough.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
+        { text = "It isn't enough.", next = "BACK", fx = { align = { light = -1 }, affinity = -1, trait = { stern = 1 } } },
       },
     },
     crusade_harm = {
@@ -141,6 +143,7 @@ P:NPC {
       lines = { { id = "p_default", text = "Heal the people who annoy you, bless the ones who don't thank you, and sit with the dying even when you can do nothing. The spells come with practice; that comes with choosing, every day." } },
       choices = {
         { text = "That's harder than any spell.", next = "BACK", fx = { affinity = 2, align = { light = 2 }, trait = { pious = 1 } } },
+        { text = "Healing people who never thank me isn't a habit I'll keep.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "And when I fail?", next = "priest_fail" },
       },
     },
@@ -174,7 +177,10 @@ P:NPC {
     },
     lordaeron = {
       lines = { { id = "lo_default", text = "Then you've seen what I only heard about, and heard about every night for a year. You're welcome here, and you always will be; light a candle for someone, if you'd like, as many do." } },
-      choices = { { text = "I will.", next = "BACK", fx = { affinity = 3, align = { light = 1 }, trait = { pious = 1 } } } },
+      choices = {
+        { text = "I will.", next = "BACK", fx = { affinity = 3, align = { light = 1 }, trait = { pious = 1 } } },
+        { text = "Candles won't bring them back, so I'll keep my grief to myself.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
   },
 
@@ -230,6 +236,7 @@ P:NPC {
         { text = "What became of the Defias papers?", next = "script", when = { questDone = TODO_QUEST("The Symbol of Life") } },
         { text = "Let me see to those wounds.", next = "priest", when = { class = "PRIEST" } },
         { text = "I'll bring him back.", next = "END", when = { class = "PALADIN" }, fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Henze is beyond saving, friend, so let him rest.", next = "END", when = { class = "PALADIN" }, fx = { align = { light = -1 } } },
         { text = "I'll leave you be.", next = "END" },
       },
     },
@@ -268,7 +275,10 @@ P:NPC {
     },
     priest = {
       lines = { { id = "pr_default", text = "Ach, the Cathedral's priests have done what they can, an' it's plenty. If ye've Light tae spare, spend it on Henze. I'll live." } },
-      choices = { { text = "Then I'll pray for Henze.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } } },
+      choices = {
+        { text = "Then I'll pray for Henze.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Henze is gone, Gazin, and my prayers are for the living.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
   },
 
@@ -332,6 +342,7 @@ P:NPC {
       },
       choices = {
         { text = "That's a hard thing.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 }, align = { light = 1 } } },
+        { text = "Orphans are the price of war, and they'd better learn it early.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Someone should do something.", next = "someone" },
       },
     },
@@ -513,6 +524,7 @@ P:NPC {
       choices = {
         { text = "That's frightening.", next = "lessons_fear", fx = { trait = { cautious = 1 } } },
         { text = "I'm ready for that.", next = "BACK", fx = { affinity = 2, align = { light = 2 }, trait = { brave = 1 } } },
+        { text = "I'd rather not have the Light judge me so plainly.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
     lessons_fear = {
@@ -536,7 +548,10 @@ P:NPC {
     },
     novice = {
       lines = { { id = "n_default", text = "Then you were taught by people who'd sooner scrub a floor than preach about it, and you should keep that. The Cathedral has marble, and marble makes some priests forget floors." } },
-      choices = { { text = "I won't forget.", next = "BACK", fx = { affinity = 3, align = { light = 1, order = 1 } } } },
+      choices = {
+        { text = "I won't forget.", next = "BACK", fx = { affinity = 3, align = { light = 1, order = 1 } } },
+        { text = "Marble suits a priest better than a scrubbing brush, frankly.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
   },
 
@@ -588,7 +603,11 @@ P:NPC {
     },
     pray = {
       lines = { { id = "p_default", text = "Badly, and often. Mostly I say thank you and then I listen. The listening is the part people skip." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { align = { light = 1 }, trait = { pious = 1 } } } },
+      choices = {
+        { text = "Listening is the part I skip, so I'll try harder.", next = "BACK", fx = { align = { light = 1 }, trait = { pious = 1 } } },
+        { text = "I'd rather talk than listen, and the Light can wait its turn.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -694,6 +713,7 @@ P:NPC {
         { text = "Tyrosus of the Argent Dawn told me why he left.", next = "tyrosus", when = { heardLine = "tyrosus.l_default" } },
         { text = "Raleigh told me what the Monastery does.", next = "raleigh", when = { thread = { id = "scarlet_path", beat = "b3_raleigh" } } },
         { text = "I'll go to Brother Anton.", next = "END", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll fight the dead my own way, without your tabard.", next = "END", fx = { align = { order = -1 } } },
       },
     },
     crusade = {
@@ -703,6 +723,7 @@ P:NPC {
       choices = {
         { text = "Purify how?", next = "burn" },
         { text = "Someone does have to.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Purity at the point of a sword isn't the Light's way.", next = "BACK", fx = { align = { light = 1 } } },
       },
     },
     burn = {
@@ -729,6 +750,7 @@ P:NPC {
       lines = { { id = "ri_default", text = "Innocent. Nobody in Lordaeron is innocent of the plague until they're proven clean. If that offends you, the stairs are behind you." } },
       choices = {
         { text = "The Light doesn't work that way.", next = "BACK", fx = { affinity = -2, align = { light = 2 } } },
+        { text = "In a plagued land, I'd suspect everyone too.", next = "BACK", fx = { align = { light = -2 } } },
         { text = "Something else.", next = "BACK", fx = { affinity = -1 } },
       },
     },
@@ -740,6 +762,7 @@ P:NPC {
       lines = { { id = "t_default", text = "Tyrosus left because the work got hard. The Dawn asks politely and hopes, but the Crusade doesn't hope; it acts, and you can tell him that next time." } },
       choices = {
         { text = "He'd say you've lost your way.", next = "BACK", fx = { affinity = -2, align = { light = 1 } } },
+        { text = "Acting beats hoping, and the Dawn could learn from you.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

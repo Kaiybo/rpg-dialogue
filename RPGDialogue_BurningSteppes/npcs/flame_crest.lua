@@ -184,7 +184,7 @@ P:NPC {
     neutral = {
       lines = { { id = "ne_default", text = "Because nobody else'll drink with me, and the goblins only care if ye pay. I'm nobody's soldier now, orc; sit down and have one, and we'll both forget whose side we're on." } },
       choices = {
-        { text = "One drink.", next = "BACK", fx = { affinity = 2 } },
+        { text = "One drink, then, and sides can wait until morning.", next = "BACK", fx = { align = { order = -1 }, affinity = 2 } },
         { text = "I remember whose side I'm on.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
       },
     },
@@ -437,6 +437,7 @@ P:NPC {
       choices = {
         { text = "The eggs are safe now. You did well.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Next time, ask who's paying.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
+        { text = "Curiosity's no crime. Study what you like and ignore the paymasters.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
   },
@@ -759,6 +760,7 @@ P:NPC {
       lines = { { id = "pr_default", text = "Your Light warms, and I am not cold, I am starving. Keep your prayers for the dying; I am only diminished, and that is worse." } },
       choices = {
         { text = "The offer stands.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then I'll save my prayers for someone who wants them.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "As you wish.", next = "BACK" },
       },
     },

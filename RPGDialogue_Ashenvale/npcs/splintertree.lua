@@ -68,7 +68,7 @@ P:NPC {
       lines = { { id = "es_default", text = "They tame these beasts; Ursangous's paw bears a crescent that I believe is their mark. To them we are poachers in their home, and I understand why they hate us, even when I cannot agree." } },
       choices = {
         { text = "That's generous.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "They'd do the same to us.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "They'd do the same to us.", next = "BACK", fx = { align = { honor = -1 }, trait = { stern = 1 } } },
       },
     },
     beasts = {
@@ -238,7 +238,11 @@ P:NPC {
     },
     debt = {
       lines = { { id = "de_default", text = "Thrall saved our people when the sea witch and the humans had us cornered, and he gave us a place in the Horde. Darkspear don't forget a debt like that, mon." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } } },
+      choices = {
+        { text = "A debt like that is worth honoring.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Thrall bought loyal soldiers cheaply. That was smart of him.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     outrun = {
       lines = { { id = "ou_default", text = "Numbers, mon: how many grunts, how many wagons, where the walls be weak. When they be blind, the Alliance thinks twice before it comes." } },

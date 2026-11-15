@@ -183,6 +183,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll say a prayer for Raven Hill's dead.", next = "BACK", fx = { affinity = 2, standing = { darkshire = 1 }, align = { light = 1 } } },
+        { text = "They don't need prayers; they need Raven Hill burned clean.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Who did they lose?", next = "priest_lost" },
       },
     },
@@ -193,6 +194,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll say the names for them.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Let them forget the names, because remembering won't help them fight.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

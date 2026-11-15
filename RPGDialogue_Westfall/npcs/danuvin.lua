@@ -62,6 +62,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll fight for it too.", next = "BACK", fx = { affinity = 2, align = { order = 1, honor = 1 } } },
+        { text = "I'd sooner pay the Defias off than bleed for a field.", next = "BACK", fx = { align = { order = -1, honor = -1 } } },
         { text = "Sounds like a lot of dying for wheat.", next = "wheat", fx = { affinity = -1, trait = { skeptical = 1 } } },
         { text = "Dignity's a big word for a farm fight.", next = "dignity" },
       },
@@ -139,7 +140,7 @@ P:NPC {
       lines = { { id = "ds_default", text = "My farmers want to keep swinging till the thief stops moving, so I teach them to stop when he's down and tie him up. Gryan wants prisoners, because prisoners talk." } },
       choices = {
         { text = "Mercy and sense, both.", next = "BACK", fx = { affinity = 1, align = { light = 1, order = 1 } } },
-        { text = "Dead thieves don't come back.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
+        { text = "Dead thieves don't come back.", next = "BACK", fx = { align = { light = -1 }, affinity = -1, trait = { stern = 1 } } },
       },
     },
     teach = {

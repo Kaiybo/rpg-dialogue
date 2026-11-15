@@ -137,6 +137,7 @@ P:NPC {
       choices = {
         { text = "What do they need most?", next = "need" },
         { text = "Ha. I'll keep them in mind.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Best not to take in more children than you can feed.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
     need = {
@@ -185,13 +186,19 @@ P:NPC {
       lines = {
         { id = "rf_default", text = "Then you know where most of mine come from. Lordaeron's children came south with nothing, and some of them still have nothing but us." },
       },
-      choices = { { text = "Thank you for them.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } } },
+      choices = {
+        { text = "Thank you for them.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Ironforge has enough mouths to feed without Lordaeron's.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+      },
     },
     pray = {
       lines = {
         { id = "pr_default", text = "Would you? They'd like that very much. Bring something sweet with you, because prayers go down easier with something sweet." },
       },
-      choices = { { text = "I will.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } } },
+      choices = {
+        { text = "I will.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "I'll bring the sweets, but you can keep the prayers.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
   },
 
@@ -253,6 +260,7 @@ P:NPC {
       choices = {
         { text = "Who was he?", next = "verigan_who" },
         { text = "Then I'll remember him.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Names fade, however many things you put them on.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
     verigan_who = {
@@ -317,6 +325,7 @@ P:NPC {
       choices = {
         { text = "The Order's loss.", next = "BACK", fx = { affinity = 2 } },
         { text = "You serve it anyway.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Your father's forge mattered more than any vow would have.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
   },

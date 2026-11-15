@@ -390,7 +390,7 @@ P:NPC {
         { id = "re_default", text = "Senator Barin Redstone, in the High Seat, an' a sour sort. If he asks, ye didn't help me, for I've been workin' very hard out here." },
       },
       choices = {
-        { text = "Your secret's safe.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Your secret's safe.", next = "BACK", fx = { affinity = 2, align = { honor = -1 } } },
         { text = "I won't lie for you.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
       },
     },

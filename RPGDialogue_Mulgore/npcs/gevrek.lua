@@ -50,7 +50,10 @@ P:NPC {
       lines = {
         { id = "b_default", text = "The four elements, and a debt to the wind that carried us. Our initiates pass the trials and take the sapta. The rest you learn by walking it." },
       },
-      choices = { { text = "I'd like to learn.", next = "END", fx = { affinity = 2, align = { light = 1 } } } },
+      choices = {
+        { text = "I'd like to learn.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "The elements don't need my worship, and I don't need theirs.", next = "END", fx = { align = { light = -1 } } },
+      },
     },
     order = {
       lines = {

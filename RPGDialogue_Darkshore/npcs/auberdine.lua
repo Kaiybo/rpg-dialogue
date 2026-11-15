@@ -75,6 +75,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll find the source.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Felwood's rot is the kaldorei's trouble, not mine.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Felwood?", next = "felwood" },
       },
     },
@@ -96,6 +97,7 @@ P:NPC {
       lines = { { id = "sh_default", text = "Because they came when they were needed and asked for nothing in return, which is rarer than it should be among elves or anyone. I will not judge a whole order by one fallen prince." } },
       choices = {
         { text = "That's generous of you.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'd judge an order by the men it lets fall.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -134,11 +136,17 @@ P:NPC {
     },
     paladin = {
       lines = { { id = "pa_default", text = "Then hear this: if Stilwell the blacksmith ever sends a paladin to me for a Kor gem, I will help them. The naga of Blackfathom Deeps carry such gems, though never clean ones." } },
-      choices = { { text = "I'll remember.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } } },
+      choices = {
+        { text = "I'll remember.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "I'll find my own way to a gem, thank you.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
     },
     priest_t = {
       lines = { { id = "pr_default", text = "Prayer will not cleanse a river by itself, but healers are needed whenever the furbolgs come out of the trees. And Gwennyth by the inn would welcome a priest's eye on her poor sea creatures." } },
-      choices = { { text = "I'll go and see her.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } } },
+      choices = {
+        { text = "I'll go and see her.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Her sea creatures are past saving, and I won't waste prayers on them.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
     boat = {
       lines = { { id = "bo_default", text = "Then you have seen Menethil Harbor. Tell me, is it as damp as our Sentinels complain, when they come back from guarding the Bravery's crossings?" } },
@@ -213,6 +221,7 @@ P:NPC {
       },
       choices = {
         { text = "Then we cut it out.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Then the furbolgs who've turned savage have to be put down.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Can it be cured?", next = "moss2" },
       },
     },
@@ -328,7 +337,10 @@ P:NPC {
     },
     priest_g = {
       lines = { { id = "pg_default", text = "You could. Walk the shore with me some evening and tell me what you sense in those remains; your Light and our Mother Moon may notice different things." } },
-      choices = { { text = "I'd be glad to.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } } },
+      choices = {
+        { text = "I'd be glad to.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I'll leave the dead creatures to your Mother Moon.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
   },
 
@@ -396,7 +408,7 @@ P:NPC {
       lines = { { id = "m2_default", text = "Pity them if you like, but keep your distance while you do. Auberdine's safety means I have to take a more realistic view than the people who write poems about them." } },
       choices = {
         { text = "Fair enough.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'll pity them anyway.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "I'll pity them anyway.", next = "BACK", fx = { align = { order = -1 }, trait = { kind = 1 } } },
       },
     },
     crystal = {

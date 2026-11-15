@@ -55,7 +55,10 @@ P:NPC {
       lines = {
         { id = "a_default", text = "Anyone who pays, Alliance or Horde, it makes no odds. We've had one master, an' we'll no' have another." },
       },
-      choices = { { text = "I understand.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } } },
+      choices = {
+        { text = "Free trade suits me better than any master.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
+        { text = "Picking no side is still picking a side, Oilfist.", next = "BACK", fx = { align = { order = 1 } } },
+      },
     },
     trade = {
       lines = { { id = "t_default", text = "The best steel this side o' the mountain, an' the plans for it, tae those who've earned our trust. Trust's dear here, an' ye pay for it in deeds." } },
@@ -77,7 +80,7 @@ P:NPC {
       lines = { { id = "d_default", text = "Aye, an' I was raised tae hate yours. We've both had a long while tae think about who taught us. Stand here an' talk, an' we'll see who's the better student." } },
       choices = {
         { text = "Fair. Let's talk.", next = "BACK", fx = { affinity = 3, align = { light = 1 } } },
-        { text = "Old hates die hard.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
+        { text = "Old hates die hard.", next = "BACK", fx = { align = { light = -1 }, affinity = -1, trait = { stern = 1 } } },
       },
     },
     craft = {
@@ -226,7 +229,11 @@ P:NPC {
     },
     maltorius = {
       lines = { { id = "m_default", text = "He's overseer o' the slaves still workin' the Gorge for the Firelord's people, an' it's whips, mostly. Ye can hear 'em from the cliff on a still night, an' I'd like tae stop hearin' 'em." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { align = { light = 1 } } } },
+      choices = {
+        { text = "Then someone should stop those whips.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Slaves in the Gorge are the Firelord's business, not mine.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     kalaran = {
       big = true,
@@ -285,6 +292,7 @@ P:NPC {
         { text = "What will the torch do?", next = "torch" },
         { text = "Lolo says you don't smell of grief.", next = "lolo", when = { heardLine = "lolo.h_kalaran" } },
         { text = "I'll help you.", next = "END", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Vengeance won't bring your father back, Kalaran.", next = "END", fx = { align = { light = 1 } } },
       },
     },
     father = {
@@ -304,6 +312,7 @@ P:NPC {
       lines = { { id = "w_default", text = "Does it matter? Dark Iron is Dark Iron, and those at the Point trade with anyone, so they'd have traded with his killers, too." } },
       choices = {
         { text = "The Brotherhood escaped the same masters.", next = "BACK", fx = { affinity = -1, align = { light = 1 } } },
+        { text = "You're right. Dark Iron is Dark Iron.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -40,6 +40,7 @@ P:NPC {
         { text = "What's the hardest part of holding the Crossroads?", next = "hardest" },
         { text = "What threatens the Crossroads?", next = "threats" },
         { text = "I'm loyal to the Horde.", next = "END", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "I look out for myself first, and the Horde second.", next = "END", fx = { align = { honor = -1 } } },
         { text = "Farewell, Thork.", next = "END" },
       },
     },
@@ -119,6 +120,7 @@ P:NPC {
       },
       choices = {
         { text = "They'll learn.", next = "END", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Then don't wait for them to learn. Go around them.", next = "END", fx = { align = { honor = -1 } } },
         { text = "Who resents you?", next = "who" },
       },
     },
@@ -244,7 +246,10 @@ P:NPC {
     },
     stop = {
       lines = { { id = "s_default", text = "By someone braver than me. Go into the caverns when you're strong and find who started this, and start with the water. Always start with the water." } },
-      choices = { { text = "I will.", next = "END", fx = { affinity = 2, align = { light = 1 } } } },
+      choices = {
+        { text = "I will.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I'll go when there's coin in it, and not before.", next = "END", fx = { align = { light = -1 } } },
+      },
     },
     druids = {
       lines = { { id = "d_default", text = "Druids meant well. That's the most frightening part, friend. Anyone can mean well and still go wrong in the dark." } },

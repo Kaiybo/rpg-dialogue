@@ -73,7 +73,7 @@ P:NPC {
       },
       choices = {
         { text = "You couldn't have stopped them.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 }, align = { light = 1 } } },
-        { text = "You should have tried.", next = "BACK", fx = { affinity = -2, trait = { stern = 1 } } },
+        { text = "You should have tried.", next = "BACK", fx = { affinity = -2, trait = { stern = 1 }, align = { light = -1 } } },
         { text = "Tell me about Sven's wife.", next = "saw_wife" },
       },
     },
@@ -173,6 +173,7 @@ P:NPC {
       choices = {
         { text = "It isn't a trade. Pray anyway.", next = "pray_together" },
         { text = "The Light heard you, Jitters.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Prayers don't stop riders, Jitters, so learn to fight instead.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
     pray_together = {
@@ -184,6 +185,7 @@ P:NPC {
         { text = "Then keep watch. I'll pray.", next = "BACK", fx = { affinity = 3, align = { light = 1 }, trait = { pious = 1 } },
           journal = { first = "Prayed with Jitters at Raven Hill, for Sven Yorgen's wife. He kept his eyes open the whole time.",
                       third = "{name} prayed with Jitters at Raven Hill, for a woman whose name neither of them knew." } },
+        { text = "The Light wasn't there for her, so I'll keep watch instead.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
 

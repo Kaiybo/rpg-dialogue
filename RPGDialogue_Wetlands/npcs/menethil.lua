@@ -76,6 +76,7 @@ P:NPC {
       },
       choices = {
         { text = "Then let's finish them.", next = "BACK", fx = { affinity = 2, learn = { "dragonmaw" }, align = { honor = 1 } } },
+        { text = "Let them rot in the hills, and spare our own dwarves.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "No dragons at all?", next = "none", fx = { learn = { "dragonmaw" } } },
       },
     },
@@ -93,6 +94,7 @@ P:NPC {
       choices = {
         { text = "Grim Batol was a dwarven hold, wasn't it?", next = "grim_batol_old" },
         { text = "Good riddance to the Dragonmaw.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Pity the dragons. They never chose their riders.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
     grim_batol_old = {
@@ -181,6 +183,7 @@ P:NPC {
       },
       choices = {
         { text = "Ironforge will win the rest again.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, standing = { menethil = 1 } } },
+        { text = "The Wetlands belong to the marsh now. Let them go.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Why not pull back to Loch Modan?", next = "dwarf_retreat" },
       },
     },
@@ -205,6 +208,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll pray with them before they go.", next = "BACK", fx = { affinity = 2, align = { light = 2 }, standing = { menethil = 1 } } },
+        { text = "Prayers won't stop a Dragonmaw axe. Better armour will.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "And the ones who don't return?", next = "priest_dead" },
       },
     },
@@ -213,7 +217,11 @@ P:NPC {
       lines = {
         { id = "pd_default", text = "We bury them on the high ground, where the sea cannae take them twice. Glorin says the words an' I stand there, an' I've never got used to it, nor want to." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } } },
+      choices = {
+        { text = "Then I'll stand with you at the next one.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Dead is dead, Captain. The high ground won't matter to them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
 
     lordaeron = {
@@ -394,6 +402,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll take the prayer out to them.", next = "BACK", fx = { affinity = 2, align = { light = 2 } } },
+        { text = "If the bay didn't answer Glorin, it won't answer me.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "The Light hears, even underwater.", next = "BACK", fx = { affinity = 1, trait = { pious = 1 } } },
       },
     },
@@ -410,6 +419,7 @@ P:NPC {
       choices = {
         { text = "Give it time, Fitz.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "They're at rest. You can be too.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Drink, then, if it keeps them quiet.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
   },
@@ -488,6 +498,7 @@ P:NPC {
       choices = {
         { text = "Tell me about Fitzsimmons.", next = "fitz" },
         { text = "I'll see to the wounded.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, standing = { menethil = 1 } } },
+        { text = "Fitzsimmons can save himself. I'm no nursemaid.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
     fitz = {
@@ -529,6 +540,7 @@ P:NPC {
       choices = {
         { text = "Who could work such metal?", next = "lightforge_smith" },
         { text = "Iron like that belongs in a paladin's hands.", next = "BACK", when = { class = "PALADIN" }, fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Iron like that would fetch a fine price in Ironforge.", next = "BACK", when = { class = "PALADIN" }, fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -580,7 +592,11 @@ P:NPC {
       lines = {
         { id = "pw_default", text = "The best school there is, an' the worst. Ye'll do, so take the next three blessings, would ye? They're for sailors, an' sailors always want three." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } } },
+      choices = {
+        { text = "Three blessings for the sailors, then, and gladly.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Sailors can make do with one blessing like everyone else.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -666,6 +682,7 @@ P:NPC {
       choices = {
         { text = "I'm sorry.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Then they'll pay for the bridge too.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Bringing down that bridge was clever, I'll grant them.", next = "BACK", fx = { align = { honor = -1 } } },
       },
     },
     longbraid = {
@@ -699,13 +716,19 @@ P:NPC {
       lines = {
         { id = "dw_default", text = "Aye, when the lads come home from the Alliance's wars an' see what happened while they were gone. Tell them so in Ironforge, an' tell them loud." },
       },
-      choices = { { text = "I'll tell them.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, standing = { menethil = 1 } } } },
+      choices = {
+        { text = "I'll tell them.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, standing = { menethil = 1 } } },
+        { text = "Ironforge has enough to hear about. Hold the line yourselves.", next = "BACK", fx = { align = { order = -1 } } },
+      },
     },
     priest = {
       lines = {
         { id = "pr_default", text = "Glorin's prayed over it twice an' grumbled over it ten times, so go on, then... oh, that's warm, that's very warm. Thank ye." },
       },
-      choices = { { text = "Rest. It'll mend.", next = "BACK", fx = { affinity = 3, align = { light = 2 } } } },
+      choices = {
+        { text = "Rest. It'll mend.", next = "BACK", fx = { affinity = 3, align = { light = 2 } } },
+        { text = "Keep your thanks. I did it to pass the time.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
     alive = {
       big = true,
@@ -1162,6 +1185,7 @@ P:NPC {
       },
       choices = {
         { text = "Old habits.", next = "BACK", fx = { affinity = 2, align = { honor = -1 } } },
+        { text = "I came up the stairs openly. I've nothing to hide.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Who trained you?", next = "rogue_trained" },
       },
     },

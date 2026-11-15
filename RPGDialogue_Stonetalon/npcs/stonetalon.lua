@@ -50,6 +50,7 @@ P:NPC {
         { text = "The Ripper is dead. How do you feel?", next = "after", when = { questDone = TODO_QUEST("Bloodfury Bloodline") } },
         { text = "Cairne sent you here. Why?", next = "cairne", when = { race = "Tauren" } },
         { text = "I'll help hold Sun Rock.", next = "END", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Sun Rock can hold itself. I have my own road.", next = "END", fx = { align = { honor = -1 } } },
       },
     },
     hard = {
@@ -214,6 +215,7 @@ P:NPC {
       choices = {
         { text = "Who burned it?", next = "venture" },
         { text = "I'll help it remember.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Burned ground is just ground. Let the goblins have it.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
     venture = {
@@ -232,6 +234,7 @@ P:NPC {
       choices = {
         { text = "How do you make it right?", next = "blessing" },
         { text = "I'm glad it's you.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Let the mountain mend itself. It isn't your burden.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
     blessing = {
@@ -266,7 +269,7 @@ P:NPC {
         { id = "k_default", text = "Safe with her father, my brother-in-law Makaba, and that's all I'll ask of the world this year. The Grimtotem took her from Camp Aparaje and kept her at their post, and I still can't think of it without shaking." },
       },
       choices = {
-        { text = "She's safe now. That's what matters.", next = "BACK", fx = { affinity = 3, trait = { kind = 1 } } },
+        { text = "She's safe now. That's what matters.", next = "BACK", fx = { align = { honor = -1 }, affinity = 3, trait = { kind = 1 } } },
         { text = "The Grimtotem will answer for it.", next = "BACK", fx = { affinity = 1, learn = { "grimtotem" }, align = { honor = 1 } } },
       },
     },
@@ -276,6 +279,7 @@ P:NPC {
       },
       choices = {
         { text = "(Kneel and lay a hand on the shoots.)", next = "BACK", fx = { affinity = 2, standing = { sun_rock = 1 }, align = { order = 1 } } },
+        { text = "They'll grow wild and strong without my coaxing.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -286,6 +290,7 @@ P:NPC {
       },
       choices = {
         { text = "I hope I see it.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "The goblins won't give up. They never do.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -404,7 +409,7 @@ P:NPC {
       },
       choices = {
         { text = "Your secret's safe with me.", next = "BACK", fx = { affinity = 2, align = { light = -1 } } },
-        { text = "We'll see.", next = "BACK", fx = { affinity = -1 } },
+        { text = "We'll see.", next = "BACK", fx = { align = { light = 1 }, affinity = -1 } },
       },
     },
     mage = {
@@ -412,7 +417,7 @@ P:NPC {
         { id = "mg_default", text = "Then you know what I mean by the bucket full of holes. Help me break the druids' grip on the peak, and you'll feel the flood come back, sweet as anything." },
       },
       choices = {
-        { text = "I'll consider it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'll consider it.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
         { text = "Not at that price.", next = "BACK", fx = { affinity = -1, align = { light = 1 } } },
       },
     },
@@ -506,6 +511,7 @@ P:NPC {
       choices = {
         { text = "What's in the brew?", next = "brew" },
         { text = "That's cruel, even for war.", next = "BACK", fx = { affinity = -1, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Let the elves taste their own magic, then.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
     brew = {
@@ -514,6 +520,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll fetch it.", next = "BACK", fx = { affinity = 2, align = { light = -1 } } },
+        { text = "I won't help you poison anyone, Jin'Zil.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -705,6 +712,7 @@ P:NPC {
         { text = "Have humans ever come up here before?", next = "human", when = { race = "Human" } },
         { text = "Can the Light heal burned land?", next = "priest", when = { class = "PRIEST" } },
         { text = "I'll help the grove.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "The vale's already burned, and I've no time for trees.", next = "END", fx = { align = { light = -1 } } },
       },
     },
     vale = {
@@ -796,6 +804,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll keep your planters alive.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { pious = 1 } } },
+        { text = "Your planters will have to keep themselves alive.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

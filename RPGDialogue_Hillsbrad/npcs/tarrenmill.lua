@@ -83,6 +83,7 @@ P:NPC {
       choices = {
         { text = "Something else.", next = "BACK" },
         { text = "That's no kind of war.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
+        { text = "Patience wins wars. Let the apothecaries do their work.", next = "BACK", fx = { align = { honor = -1 } } },
       },
     },
     orders = {
@@ -101,6 +102,7 @@ P:NPC {
       },
       choices = {
         { text = "Cold, but sound.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Starving farmers out isn't a war I'd want to win.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -134,7 +136,7 @@ P:NPC {
       },
       choices = {
         { text = "Understood, High Executor.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Someone should be asking.", next = "BACK", fx = { affinity = -1, trait = { skeptical = 1 } } },
+        { text = "Someone should be asking.", next = "BACK", fx = { align = { order = -1 }, affinity = -1, trait = { skeptical = 1 } } },
       },
     },
     forsaken = {
@@ -150,7 +152,10 @@ P:NPC {
       lines = {
         { id = "oc_default", text = "Durnholde, yes. Then we both have scores to settle here, yours older and mine fresher, and the Syndicate keep its ruins now, so start there." },
       },
-      choices = { { text = "Gladly.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } } },
+      choices = {
+        { text = "Gladly.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Your scores are your own. I'll settle mine my own way.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
     },
     troll = {
       lines = {
@@ -302,6 +307,7 @@ P:NPC {
       },
       choices = {
         { text = "You're beyond help.", next = "BACK", fx = { affinity = -1, align = { light = 1 } } },
+        { text = "Fair enough. Clean air never did me much good either.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

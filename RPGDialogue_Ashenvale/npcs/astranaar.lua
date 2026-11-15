@@ -99,6 +99,7 @@ P:NPC {
       lines = { { id = "ro_default", text = "I know how it sounds. But Teronis believed the rod could let someone walk among the furbolgs as one of them and learn what poisoned them, and I trust what Teronis believed." } },
       choices = {
         { text = "Then I'll finish what he started.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Walking among them in their own skins is a fine trick, and I like tricks.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "A wizard's tool sounds risky.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },
@@ -123,7 +124,10 @@ P:NPC {
     },
     priest_r = {
       lines = { { id = "pr_default", text = "They always do. The ones who come back from the Thistlefur hills come back torn, and some nights Kimlya's inn is more hospice than inn, so sit with them if you have the time." } },
-      choices = { { text = "I'll go there now.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, standing = { astranaar = 1 } } } },
+      choices = {
+        { text = "I'll go there now.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, standing = { astranaar = 1 } } },
+        { text = "The ones who went into the Thistlefur hills chose their wounds.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
   },
 
@@ -189,6 +193,7 @@ P:NPC {
       },
       choices = {
         { text = "We'll get it out.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "If it takes dark magic to drive it out, I'll use it.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something in the forest?", next = "forest" },
       },
     },
@@ -211,6 +216,7 @@ P:NPC {
       lines = { { id = "lo_default", text = "Would you really? Please be gentle with her. Whatever you can do, even if it only eases her for one night, I'll be grateful." } },
       choices = {
         { text = "I'll pray over her.", next = "BACK", fx = { affinity = 3, align = { light = 2 } } },
+        { text = "Prayer won't reach a magic fever, but I know darker remedies that might.", next = "BACK", fx = { align = { light = -2 } } },
         { text = "I'll do what I can.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -480,6 +486,7 @@ P:NPC {
       },
       choices = {
         { text = "Then we stop them.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Power is power, and I can't blame them for wanting it.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Why do people join them?", next = "elves" },
       },
     },
@@ -496,7 +503,10 @@ P:NPC {
     },
     orcish2 = {
       lines = { { id = "o2_default", text = "For now, yes. If there's ever a day when it's good for more than that, I'll be glad I already know the words." } },
-      choices = { { text = "I hope that day comes.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } } },
+      choices = {
+        { text = "I hope that day comes.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "I'd rather learn it to hear what they're plotting before they strike.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
     },
     elves_d = {
       lines = { { id = "ed_default", text = "I was unused to their manners at first, I'll admit, but I've grown to respect them greatly as allies. They fight this forest's battles with more patience than we would ever have." } },
@@ -504,11 +514,17 @@ P:NPC {
     },
     pal_d = {
       lines = { { id = "pd_default", text = "Then pray with me before you go into the satyrs' country, because their blood-soaked temples unsettle even seasoned fighters. After that, swing hard." } },
-      choices = { { text = "Let's pray, then.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } } },
+      choices = {
+        { text = "Let's pray, then.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Save the prayers. I'll trust my hammer in satyr country.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
     priest_d = {
       lines = { { id = "pq_default", text = "We'd be grateful for it. It's been months since anyone but me prayed over these lads, and I'm a better hammer than a priest." } },
-      choices = { { text = "Then gather them round.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, standing = { maestras_post = 1 } } } },
+      choices = {
+        { text = "Then gather them round.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, standing = { maestras_post = 1 } } },
+        { text = "These lads need sleep more than sermons, so I'll let them rest.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
   },
 

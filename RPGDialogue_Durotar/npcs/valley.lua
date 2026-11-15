@@ -92,7 +92,10 @@ P:NPC {
       lines = {
         { id = "p_default", text = "That you'll get back up. Strength comes later. Anyone can swing an axe; not everyone stands again after the first one hits them." },
       },
-      choices = { { text = "I'll stand.", next = "END", fx = { affinity = 2, align = { honor = 1 } } } },
+      choices = {
+        { text = "I'll stand.", next = "END", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "I'd rather not get hit in the first place.", next = "END", fx = { align = { honor = -1 } } },
+      },
     },
   },
 
@@ -141,7 +144,10 @@ P:NPC {
       lines = {
         { id = "b_default", text = "Orcs who never let go of the old fire. The Warchief broke the demons' hold on us, and these fools want it back. I won't let them have it." },
       },
-      choices = { { text = "Neither will I.", next = "END", fx = { affinity = 2, align = { light = 1 }, learn = { "burning_blade" } } } },
+      choices = {
+        { text = "Neither will I.", next = "END", fx = { affinity = 2, align = { light = 1 }, learn = { "burning_blade" } } },
+        { text = "The old fire made the Horde strong, whatever it cost.", next = "END", fx = { align = { light = -1 }, learn = { "burning_blade" } } },
+      },
     },
   },
 

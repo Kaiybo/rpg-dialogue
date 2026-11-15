@@ -63,6 +63,7 @@ P:NPC {
       },
       choices = {
         { text = "Clever.", next = "BACK", fx = { affinity = 2, align = { honor = -1 } } },
+        { text = "Waiting for your enemies to kill each other is a coward's game.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
         { text = "There's no honor in it.", next = "honor" },
       },
     },
@@ -396,6 +397,7 @@ P:NPC {
         { text = "What was your family like?", next = "family" },
         { text = "We were both freed by the Dark Lady.", next = "forsaken", when = { race = "Scourge" } },
         { text = "I'll look for the deeds.", next = "END", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I won't do a Barov's dirty work, living or dead.", next = "END", fx = { affinity = -1, align = { honor = 1 } } },
       },
     },
     spared = {
@@ -526,7 +528,10 @@ P:NPC {
       lines = {
         { id = "st_default", text = "The Dawn's respect, which is worth more than it sounds, for the Dawn keeps count and its quartermasters remember. Mostly you get fewer dead, though, and I'd hope that's enough." },
       },
-      choices = { { text = "It's enough.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } } },
+      choices = {
+        { text = "It's enough.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Respect won't feed me, so I'll want something more solid.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
     },
     pureheart = {
       lines = {
@@ -546,6 +551,7 @@ P:NPC {
       },
       choices = {
         { text = "Lok'tar, then.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Orgrimmar's right, and the Forsaken can bury their own dead.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

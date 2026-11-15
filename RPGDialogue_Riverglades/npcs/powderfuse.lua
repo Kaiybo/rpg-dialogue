@@ -273,7 +273,7 @@ P:NPC {
           journal = { first = "Told Gray that a dagger isn't a grave. He looked at me a long time, then got up and walked towards the keep.",
                       third = "{name} told Gray Dawnbright that Fern Crimsonleaf's dagger was no grave. He went up to the keep." } },
         { text = "Let her rest, Gray. He's right.", next = "fern_rest",
-          fx = { thread = { id = "farholde_lost", state = "soured" }, affinity = -2, trait = { stern = 1 } },
+          fx = { thread = { id = "farholde_lost", state = "soured" }, affinity = -2, align = { light = -1 }, trait = { stern = 1 } },
           journal = { first = "Told Gray to let Fern Crimsonleaf rest. He didn't argue. He didn't say anything at all.",
                       third = "{name} told Gray Dawnbright to let Fern Crimsonleaf rest. He fell silent." } },
       },
@@ -365,7 +365,7 @@ P:NPC {
     grim = {
       lines = { { id = "gr_default", text = "Grim? It's the same fighting with a roof and a snack cart, so I'm civilizing it." } },
       choices = {
-        { text = "That's one way to see it.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "Selling seats to a bloodbath isn't civilizing it, Jazzle.", next = "BACK", fx = { align = { honor = 1 }, trait = { skeptical = 1 } } },
         { text = "Fair point, actually.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
       },
     },

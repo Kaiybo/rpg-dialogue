@@ -182,13 +182,17 @@ P:NPC {
       choices = {
         { text = "Then let me try.", next = "light_try" },
         { text = "Faith and readings can work together.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Your readings will cure the plague long before prayers do.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
     light_try = {
       lines = {
         { id = "lr_default", text = "Then try, and tell me what you find, good or bad, and especially bad, because bad results are the ones that teach you something." },
       },
-      choices = { { text = "I will.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { pious = 1 } } } },
+      choices = {
+        { text = "I will.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { pious = 1 } } },
+        { text = "If it fails, I'll trust your readings instead.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
 
     home_q = {
@@ -384,6 +388,7 @@ P:NPC {
       },
       choices = {
         { text = "Then we must be quicker next time.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then the Light's no cure, and we'd best look elsewhere.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "That's grim, Historian.", next = "BACK" },
       },
     },
@@ -753,7 +758,7 @@ P:NPC {
       lines = { { id = "w_default", text = "The guards are on the walls, an' the walls are where they belong. A senator who won't get his boots dirty for his own district isn't worth the chair." } },
       choices = {
         { text = "Respect.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
-        { text = "And it wins votes.", next = "BACK", fx = { affinity = -1, trait = { witty = 1 } } },
+        { text = "And it wins votes.", next = "BACK", fx = { affinity = -1, trait = { witty = 1 }, align = { honor = -1 } } },
       },
     },
     troggs = {
@@ -771,7 +776,7 @@ P:NPC {
       },
       choices = {
         { text = "Honest of you.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Maybe you should stop.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Maybe you should stop.", next = "BACK", fx = { trait = { cautious = 1 }, align = { order = -1 } } },
       },
     },
     senate = {

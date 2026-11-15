@@ -90,6 +90,7 @@ P:NPC {
       },
       choices = {
         { text = "It's more than most have.", next = "BACK", fx = { affinity = 2, align = { order = 1, light = 1 } } },
+        { text = "Faith alone won't stop a knife in the dark, my lord.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Sometimes suspicion is enough.", next = "suspicion", fx = { trait = { skeptical = 1 } } },
       },
     },
@@ -105,7 +106,8 @@ P:NPC {
       lines = { { id = "ch_default", text = "His Grace has my ear whenever he wants it, and the Cathedral's doors are the one thing in this city nobody argues about. Pray for the king, both of them, if you would." } },
       choices = {
         { text = "I pray for them every day.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "And for the people outside the walls?", next = "church_outside", fx = { align = { light = 1 } } },
+        { text = "Prayers won't bring a king home, my lord.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "And for the people outside the walls?", next = "church_outside" },
       },
     },
     church_outside = {

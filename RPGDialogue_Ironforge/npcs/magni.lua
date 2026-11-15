@@ -72,6 +72,7 @@ P:NPC {
         { text = "Tell me about the Dark Iron.", next = "dark" },
         { text = "Where have your axes gone?", next = "reserve" },
         { text = "I'll lend mine.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Keep your axes at home, Your Majesty, because Ironforge comes first.", next = "BACK", fx = { align = { honor = -1 } } },
       },
     },
     dark = {
@@ -109,7 +110,7 @@ P:NPC {
       },
       choices = {
         { text = "Spoken like a king.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Your own valleys bleed for it.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
+        { text = "Your own valleys bleed for it.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 }, align = { honor = -1 } } },
       },
     },
 
@@ -144,6 +145,7 @@ P:NPC {
         { text = "Where is the sword now?", next = "blade_where" },
         { text = "The Light answers grief, Your Majesty. It answered yours.", next = "BACK",
           when = { class = { "PRIEST", "PALADIN" } }, fx = { affinity = 2, align = { light = 1 }, trait = { pious = 1 } } },
+        { text = "Grief made that sword, Your Majesty, not the Light.", next = "BACK", when = { class = { "PRIEST", "PALADIN" } }, fx = { align = { light = -1 } } },
         { text = "Grief makes hard steel.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -169,7 +171,10 @@ P:NPC {
         { id = "h2_ready", when = { minLevel = 50 },
           text = "Ye might be strong enough now. Others have gone intae that mountain for her. Mind that, an' come tae me when ye mean it." },
       },
-      choices = { { text = "I will.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } } },
+      choices = {
+        { text = "I will.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Perhaps she doesn't want bringing home, Your Majesty.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+      },
     },
 
     league = {
@@ -240,6 +245,7 @@ P:NPC {
       choices = {
         { text = "What did it do in steel?", next = "blade" },
         { text = "That's a kind of faith.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Steel and sense have served you better than prayer.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
 

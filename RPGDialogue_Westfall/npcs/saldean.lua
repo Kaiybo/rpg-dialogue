@@ -60,6 +60,7 @@ P:NPC {
       },
       choices = {
         { text = "Good for you.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Pay them off and live. Land can be bought back.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Pride won't stop a knife.", next = "pride", fx = { trait = { skeptical = 1 } } },
         { text = "Everyone else left. Doesn't that worry you?", next = "fool" },
       },
