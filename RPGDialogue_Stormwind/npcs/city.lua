@@ -13,7 +13,7 @@ P:NPC {
   greetings = {
     { id = "g_rogue", when = { class = "ROGUE" }, text = "Sit. I knew you were coming before you did." },
     { id = "g_other", when = { ["not"] = { class = "ROGUE" } }, text = "You've wandered into the wrong building. Wander out the same way." },
-    { id = "g_si7", when = { questActive = TODO_QUEST("Seek out SI:7") }, text = "Sylvius sent you, and she thinks you're promising, though she's said that before." },
+    { id = "g_si7", when = { questActive = TODO_QUEST("Seek out SI: 7") }, text = "Sylvius sent you, and she thinks you're promising, though she's said that before." },
     { id = "g_back", when = { metBefore = true }, text = "Back already. You took the stairs more quietly this time. Progress." },
   },
 
