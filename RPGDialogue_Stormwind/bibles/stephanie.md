@@ -35,3 +35,8 @@ Honest.
 
 ## Topics
 tome_of_divinity
+
+## Depth pass (Stormwind 1.6.0)
+Sources added: https://warcraft.wiki.gg/wiki/Orphanage_(Stormwind_City) (just south-east of the Cathedral; for orphans of the First and Second Wars and later the Scourge; young paladins donated clothes).
+Branches: the children, John in Ironforge, what they need (paladins and linen), a Lordaeron refugee (she asks what helped), a tailor.
+Authored, not canon: John's letters about Ironforge beer and slow purses; her winter worry.
