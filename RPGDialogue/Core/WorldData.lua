@@ -134,6 +134,7 @@ W.NAME_ROLES = {
   { "bruiser$", "guard" }, { "mountaineer$", "guard" }, { "^mountaineer ", "guard" }, { "warden$", "guard" }, { "^brave ", "guard" }, { "sentry$", "guard" }, { "^sentry ", "guard" }, { "lookout$", "guard" },
   { "^spirit healer$", "spirithealer" }, { "^spirit guide$", "spirithealer" },
   { "orphan", "child" }, { "child$", "child" }, { "^young ", "child" },
+  { "^nethergarde soldier$", "guard" }, { "^nethergarde officer$", "guard" }, { "^nethergarde elite$", "guard" }, { "infantry$", "guard" },
   { "^diseased soldier$", "soldier" }, { "^farholde laborer$", "worker" }, { "^farholde scout$", "guard" },
 }
 
