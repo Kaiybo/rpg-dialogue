@@ -375,12 +375,12 @@ P:NPC {
         { text = "I'll be back with it.", next = "END", fx = { affinity = 1 } },
       },
       again = {
-        { id = "h_again", text = "Something else, dear? I'm not going anywhere." },
+        { id = "h_again", text = "Something else, dear? I'll be in this chair until the tea goes cold, and it always does." },
       },
     },
     mage = {
       lines = {
-        { id = "ma_default", text = "Oh, would you? Hold it closer, then. Closer. No, nothing, though I think I saw my fingers flinch, which they haven't done in a long while. Thank you for trying, dear; it was kind of you." },
+        { id = "ma_default", text = "Oh, would you? Hold it closer, then, a little closer still. No, nothing, though I think I saw my fingers flinch, which they haven't done in a long while. Thank you for trying, dear; it was kind of you." },
       },
       choices = {
         { text = "I'll find a hotter spell one day.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
@@ -437,7 +437,7 @@ P:NPC {
         { text = "Just a room, thanks.", next = "END" },
       },
       again = {
-        { id = "h_again", text = "Anything else, love? Pull your chair in." },
+        { id = "h_again", text = "Anything else, love? Pull your chair in, and mind the bat on the rafter above you." },
       },
     },
     rogue = {
@@ -496,7 +496,7 @@ P:NPC {
         { text = "Safe travels.", next = "END" },
       },
       again = {
-        { id = "h_again", text = "Anything more? The kettle's nearly on." },
+        { id = "h_again", text = "Anything more? Tirisfal can wait while we talk; it has been waiting for years." },
       },
     },
     forsaken = {

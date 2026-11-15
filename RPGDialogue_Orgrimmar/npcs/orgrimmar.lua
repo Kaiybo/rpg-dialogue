@@ -557,7 +557,7 @@ P:NPC {
         { text = "Bye, Gamon.", next = "END" },
       },
       again = {
-        { id = "h_again", text = "Something else? I'm not going anywhere. I hardly ever am." },
+        { id = "h_again", text = "Something else? I'm not going anywhere, since I hardly ever do, unless somebody carries me." },
       },
     },
     warrior = {

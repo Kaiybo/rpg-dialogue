@@ -262,7 +262,7 @@ P:NPC {
         { text = "I'll see to it.", next = "END", fx = { affinity = 1 } },
       },
       again = {
-        { id = "h_again", text = "Something else? Ask while I watch; I can do both." },
+        { id = "h_again", text = "Something else? Ask away, and I'll keep one eye on the swoops while you do." },
       },
     },
     hunter = {

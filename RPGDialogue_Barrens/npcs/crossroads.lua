@@ -529,7 +529,7 @@ P:NPC {
     },
     rogue = {
       lines = {
-        { id = "ro_default", text = "Something for free? From Darsok? Fine, one lesson: harpies look up and never down, so come at them from below the ridge and they'll never see the knife. That one's worth gold in Ratchet." },
+        { id = "ro_default", text = "Something for free from Darsok, eh? Fine, here is one lesson: harpies look up and never down, so come at them from below the ridge and they'll never see the knife. That one's worth gold in Ratchet." },
         { id = "ro_deathstalker", when = { origin = "forsaken_deathstalker_recruit" },
           text = "A deathstalker, eh? The Dark Lady trains you lot to kill quiet and report back, and I only do the first part. Tell your masters Darsok sends his regards." },
       },
@@ -655,7 +655,7 @@ P:NPC {
         { text = "Just resting.", next = "END" },
       },
       again = {
-        { id = "h_again", text = "Anything else, little one? The kettle's on." },
+        { id = "h_again", text = "Anything else, little one? Ask it by the fire, where the Barrens wind can't reach us." },
       },
     },
     forsaken = {

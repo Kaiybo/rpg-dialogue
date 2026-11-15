@@ -48,7 +48,7 @@ P:NPC {
         { text = "For the Dark Lady.", next = "END", fx = { affinity = 1, standing = { sepulcher = 1 } } },
       },
       again = {
-        { id = "h_again", text = "What else? Make it brief." },
+        { id = "h_again", text = "What else? The worgen are moving tonight, so keep it to a report." },
         { id = "h_again2", text = "Speak. The forest won't wait, and neither will I." },
       },
     },

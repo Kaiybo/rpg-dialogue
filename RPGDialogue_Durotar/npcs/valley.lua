@@ -451,7 +451,7 @@ P:NPC {
         { text = "I'll find them.", next = "END" },
       },
       again = {
-        { id = "h_again", text = "Anything else, or are you buying?" },
+        { id = "h_again", text = "Anything else, recruit, or are you here to spend some coin on a decent edge?" },
       },
     },
     warrior = {

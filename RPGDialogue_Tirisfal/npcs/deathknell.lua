@@ -226,7 +226,7 @@ P:NPC {
       lines = {
         { id = "wa_default", text = "Good. The gate, then the camp to the southeast. You'll hit harder than the living Crusaders expect, and you won't flinch when they scream. Use both." },
         { id = "wa_soldier", when = { origin = "forsaken_lordaeron_soldier" },
-          text = "Lordaeron drill, I see it in your stance. Good. Same drill, different side. Hold the gate." },
+          text = "I see Lordaeron drill in your stance, and that is good. It is the same drill on a different side, so hold the gate." },
       },
       choices = {
         { text = "I'll hold it, Executor.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },

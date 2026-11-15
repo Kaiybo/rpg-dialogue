@@ -209,7 +209,7 @@ P:NPC {
         { text = "I'll go.", next = "END" },
       },
       again = {
-        { id = "h_again", text = "Still here? How very persistent. Ask, then." },
+        { id = "h_again", text = "Still here? How very persistent you are, so ask, then, and be quick about it." },
         { id = "h_again2", text = "Another question. The Dark Lady's servants are endlessly curious, I find." },
       },
     },
@@ -306,7 +306,7 @@ P:NPC {
         { text = "I'll leave you to your work.", next = "END" },
       },
       again = {
-        { id = "h_again", text = "Yes, yes, what else? Quickly, something is about to boil!" },
+        { id = "h_again", text = "Yes, yes, what else? Quickly, the green flask is making that noise again!" },
         { id = "h_again2", text = "More questions! How delightful. Ask away, and don't touch anything." },
       },
     },

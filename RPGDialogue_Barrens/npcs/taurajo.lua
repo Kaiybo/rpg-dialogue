@@ -50,7 +50,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else would you learn? Sit, there's light enough yet." },
-        { id = "h_again2", text = "Another question? Good. A hunter who stops asking stops seeing." },
+        { id = "h_again2", text = "Another question? Good, because a hunter who stops asking soon stops seeing the grass." },
       },
     },
     hunter = {

@@ -49,7 +49,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Make it a report, not a story." },
-        { id = "h_again2", text = "Go on. I've a minute before the next runner comes in." },
+        { id = "h_again2", text = "Go on. The next runner from Sen'jin is due, and you have until he arrives." },
       },
     },
     warrior = {
