@@ -92,3 +92,12 @@ P:Topic { id = "raven_hill", keywords = { "Raven Hill" }, name = "Raven Hill", c
 
 -- Westfall (Westfall pack 1.4.0)
 P:Topic { id = "deadmines", keywords = { "Deadmines" }, name = "The Deadmines", category = "places", learned = "Sentinel Hill, once the hideout is found" }
+
+-- Wetlands and Hillsbrad (packs 1.2.0)
+P:Topic { id = "grim_batol", keywords = { "Grim Batol" }, name = "Grim Batol", category = "places", learned = "Captain Stoutfist in Menethil Harbor" }
+P:Topic { id = "third_fleet", keywords = { "Third Fleet", "Wave Mistress" }, name = "The Third Fleet", category = "lore", learned = "First Mate Fitzsimmons in Menethil Harbor" }
+P:Topic { id = "thandol_span", keywords = { "Thandol Span" }, name = "The Thandol Span", category = "places", learned = "Harlo Barnaby in Menethil Harbor" }
+P:Topic { id = "syndicate", keywords = { "Syndicate" }, name = "The Syndicate", category = "threats", learned = "Magistrate Maleb or Marshal Redpath in Southshore" }
+P:Topic { id = "alterac", keywords = { "Alterac" }, name = "The ruins of Alterac", category = "places", learned = "Loremaster Dibbs or Marshal Redpath in Southshore" }
+P:Topic { id = "silver_hand", keywords = { "Silver Hand" }, name = "The Knights of the Silver Hand", category = "people", learned = "Brewmeister Bilger in Southshore" }
+P:Topic { id = "new_plague", keywords = { "new plague" }, name = "The new plague", category = "rumors", learned = "Apothecary Lydon or High Executor Darthalia in Tarren Mill" }
