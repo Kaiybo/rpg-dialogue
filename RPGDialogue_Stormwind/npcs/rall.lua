@@ -11,9 +11,9 @@ P:NPC {
   notices = { "readiness", "humility" },
 
   greetings = {
-    { id = "g_test", text = "Ready? No one is. Come anyway." },
-    { id = "g_wilhelm", tags = { "news" }, when = { questRecent = { TODO_QUEST("Tome of Divinity"), days = 2 } }, text = "Wilhelm sent you. He thinks well of you. Let us see if he's right." },
-    { id = "g_tome", when = { questActive = TODO_QUEST("The Tome of Divinity") }, text = "Still at your task? Good. Haste is not a virtue in this work." },
+    { id = "g_test", text = "Ready? No one ever is, so come anyway." },
+    { id = "g_wilhelm", tags = { "news" }, when = { questRecent = { TODO_QUEST("Tome of Divinity"), days = 2 } }, text = "Wilhelm sent you, and he thinks well of you. Let us see if he's right." },
+    { id = "g_tome", when = { questActive = TODO_QUEST("The Tome of Divinity") }, text = "Still at your task? Good, because haste is not a virtue in this work." },
   },
 
   notice = {
@@ -27,7 +27,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "Duthorian Rall. I test the paladins Brother Wilhelm and Brandur Ironhammer send me. Most pass. Not all the same way." },
+        { id = "h_default", text = "Duthorian Rall. I test the paladins Brother Wilhelm and Brandur Ironhammer send me, and most pass, though not all the same way." },
         { id = "h_other", when = { ["not"] = { class = "PALADIN" } },
           text = "You're not one of mine, but the Cathedral's doors are open to everyone. Even the ones who only come to look at the windows." },
         { id = "h_tome", tags = { "news" }, when = { questActive = TODO_QUEST("The Tome of Divinity") },
@@ -37,21 +37,21 @@ P:NPC {
         { id = "h_henze", tags = { "news" }, when = { questDone = TODO_QUEST("The Symbol of Life") },
           text = "Henze Faulk walks because you knelt by him. Remember how that felt. You'll need to remember it on the days the Light feels far off." },
         { id = "h_stephanie", when = { heardLine = "stephanie.h_tome" },
-          text = "Stephanie put you to work, did she? Good. Linen for orphans. You'd be amazed how many great paladins started there." },
+          text = "Stephanie put you to work, did she? Good; you'd be amazed how many great paladins started with linen for orphans." },
         { id = "h_dwarf", when = { race = "Dwarf", class = "PALADIN" },
-          text = "Ironforge's paladins usually go to Brandur. You came to me. Either you're curious or lost. Both are forgivable." },
+          text = "Ironforge's paladins usually go to Brandur, yet you came to me. Either you're curious or lost, and both are forgivable." },
         { id = "h_daphne", tags = { "news" }, when = { questActive = TODO_QUEST("The Tome of Valor") },
-          text = "Daphne Stilwell's farm, above the Westfall shore. The Brotherhood wants it. Stand with her. She'll likely save you as often as you save her." },
+          text = "Daphne Stilwell's farm stands above the Westfall shore, and the Brotherhood wants it. Stand with her, and she'll likely save you as often as you save her." },
         { id = "h_valor", when = { class = "PALADIN", minLevel = 20 },
-          text = "There's another test when you're ready. A test of valor, not compassion. Most paladins prefer it. That's why it comes second." },
+          text = "There's another test when you're ready, a test of valor rather than compassion. Most paladins prefer it, which is exactly why it comes second." },
         { id = "h_nobility", tags = { "news" }, when = { questActive = TODO_QUEST("The Tome of Nobility") },
-          text = "Arthur sent you. Good. Much has happened lately, and not all of it in the open. The Light has enemies closer to home than you'd like. Sit." },
+          text = "So Arthur sent you, and not a day too soon. Much has happened lately, and not all of it in the open; the Light has enemies closer to home than you'd like, so sit." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "You were taught that the Light is a gift, I expect. I teach that it's a test. We're both right, and the novices hate it." },
       },
       again = {
         { id = "h_again", text = "What else? Ask it straight." },
-        { id = "h_again2", text = "Go on. I've time for questions. Not for excuses." },
+        { id = "h_again2", text = "Go on; I've time for questions, though not for excuses." },
       },
       choices = {
         { text = "What does the Light ask of a paladin?", next = "ask" },
@@ -68,7 +68,7 @@ P:NPC {
     ask = {
       big = true,
       lines = {
-        { id = "a_default", text = "Compassion. Patience. Bravery. In that order. Anyone can be made brave. The other two have to be chosen, every day." },
+        { id = "a_default", text = "Compassion, patience and bravery, in that order. Anyone can be made brave, but the other two have to be chosen, every single day." },
       },
       choices = {
         { text = "Then I choose them.", next = "BACK", fx = { affinity = 2, align = { light = 2 }, trait = { pious = 1 } } },
@@ -90,7 +90,7 @@ P:NPC {
 
     why = {
       lines = {
-        { id = "w_default", text = "Because a paladin left untested goes soft. The tasks keep you honest. They keep me honest too." },
+        { id = "w_default", text = "Because a paladin left untested goes soft. The tasks keep you honest, and they keep me honest too." },
       },
       choices = {
         { text = "Who tests you?", next = "why_self" },
@@ -98,7 +98,7 @@ P:NPC {
       },
     },
     why_self = {
-      lines = { { id = "ws_default", text = "Every paladin I send out who comes back worse than they left. I keep count. It's a short list. I'd like it shorter." } },
+      lines = { { id = "ws_default", text = "Every paladin I send out who comes back worse than they left. I keep count, and it's a short list, but I'd like it shorter." } },
       choices = { { text = "I won't be on it.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } } },
     },
 
@@ -115,7 +115,7 @@ P:NPC {
     },
 
     valor = {
-      lines = { { id = "v_default", text = "Daphne Stilwell's farm, in Westfall, above the shore. The Defias want it. Stand with her. Then her husband in Ironforge will want to hear it from you." } },
+      lines = { { id = "v_default", text = "Daphne Stilwell's farm, in Westfall above the shore, and the Defias want it. Stand with her, and afterwards her husband in Ironforge will want to hear it from you." } },
       choices = {
         { text = "Who's her husband?", next = "valor_jordan" },
         { text = "Something else.", next = "BACK" },
@@ -133,12 +133,12 @@ P:NPC {
     },
 
     squire = {
-      lines = { { id = "sq_default", text = "Your training stopped. Your oaths didn't. Then finish it here. The Order broke. The Light didn't." } },
+      lines = { { id = "sq_default", text = "Your training stopped, but your oaths didn't, so finish it here. The Order broke; the Light didn't." } },
       choices = { { text = "I'm ready.", next = "BACK", fx = { affinity = 3, align = { light = 1, order = 1 } } } },
     },
 
     priest = {
-      lines = { { id = "pr_default", text = "Different first lessons. You begin with mercy and learn courage. We begin with courage and spend our lives learning mercy. Yours is the shorter road." } },
+      lines = { { id = "pr_default", text = "Different first lessons, that's all. You begin with mercy and learn courage, while we begin with courage and spend our lives learning mercy, so yours is the shorter road." } },
       choices = {
         { text = "It doesn't feel short.", next = "BACK", fx = { affinity = 1 } },
         { text = "Then I'll wait for you at the end of it.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } },
@@ -150,10 +150,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "A Knight of the Silver Hand whose work is making more of them. The rest of my story belongs to them.", next = "why" } },
     advice = { { id = "tp_ad", text = "Help someone today who can't help you back. Then do it tomorrow. That's the whole of the lesson; the rest is practice." } },
     tome_of_divinity = {
-      { id = "tp_tome", text = "The Abbey's book. It's been to the Deadmines and back. Read it slowly. It took its time with us.", next = "tome" },
+      { id = "tp_tome", text = "The Abbey's book, and it's been to the Deadmines and back. Read it slowly, because it took its time with us.", next = "tome" },
     },
-    northshire_abbey = { { id = "tp_abbey", text = "Where most of us began. Brother Sammuel still teaches there. Listen to him; he doesn't repeat himself." } },
-    defias = { { id = "tp_defias", text = "Lost men. Some can be found again. Most won't want to be." } },
+    northshire_abbey = { { id = "tp_abbey", text = "It's where most of us began, and Brother Sammuel still teaches there. Listen to him; he doesn't repeat himself." } },
+    defias = { { id = "tp_defias", text = "Lost men. Some can be found again, but most won't want to be." } },
     scarlet_crusade = { { id = "tp_scarlet", text = "Brave men who forgot the first virtue. I test my paladins so they never do." } },
     _none = { { id = "tp_none", text = "That's not a matter for the Cathedral. Ask in the Trade District; they'll sell you an answer." } },
   },

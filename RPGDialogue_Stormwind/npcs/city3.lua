@@ -13,14 +13,14 @@ P:NPC {
 
   greetings = {
     { id = "g_library", text = "Quietly, please. This is a library, not a market, whatever the Trade District has taught you." },
-    { id = "g_back", when = { metBefore = true }, text = "Ah. You. Still adventuring? How tireless of you." },
+    { id = "g_back", when = { metBefore = true }, text = "Ah, it's you again, still adventuring, I see. How very tireless of you." },
   },
 
   notice = {
     { id = "n_deadmines", cat = "deed", when = { deed = "dungeon:The Deadmines" },
-      text = "You've been down in that Westfall mine, I hear. Dreadful place. Did you bring anything back? Papers, ledgers? Purely curiosity, of course." },
+      text = "You've been down in that dreadful Westfall mine, I hear. Did you bring anything back, papers or ledgers? Purely out of curiosity, of course." },
     { id = "n_rogue", cat = "status", when = { class = "ROGUE" },
-      text = "Shaw's sort, by the look of you. Tell him I'm reading. It's all I ever do, here. Reading." },
+      text = "Shaw's sort, by the look of you. Tell him I'm reading; it's all I ever do here, reading." },
   },
 
   start = "hello",
@@ -30,15 +30,15 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Lord Gregor Lescovar, of the House of Nobles. I come here to think. The House is very loud, and very little of what's said there is worth hearing." },
         { id = "h_diplomat", when = { questActive = TODO_QUEST("The Missing Diplomat") },
-          text = "A missing diplomat? How careless of someone. Stormwind loses so many things these days. Diplomats. Patience. Masons." },
+          text = "A missing diplomat, you say? How very careless of someone. Stormwind loses so many things these days: diplomats, patience, masons." },
         { id = "h_prestor", when = { heardLine = "katrana.h_default" },
-          text = "So Lady Prestor has received you. A remarkable woman. She sees what needs doing, and does not trouble the Regent with the details. I admire that enormously." },
+          text = "So Lady Prestor has received you. A remarkable woman, who sees what needs doing and does not trouble the Regent with the details, and I admire that enormously." },
         { id = "h_skyborne", when = { race = "Skyborne", faction = "Alliance" },
-          text = "So you're one of the new elves. The Kirin Tor vouched for you, I'm told. How generous of the Kirin Tor. They're so rarely the ones who pay for anything." },
+          text = "So you're one of the new elves, and the Kirin Tor vouched for you, I'm told. How generous of the Kirin Tor, when they're so rarely the ones who pay for anything." },
         { id = "h_noble", when = { origin = "human_minor_noble" },
-          text = "One of the lesser houses. I know your family's name. I know it because it appears on several of my ledgers." },
+          text = "One of the lesser houses, I see. I know your family's name, because it appears on several of my ledgers." },
         { id = "h_priest", when = { class = "PRIEST" },
-          text = "Clergy, in the library. How refreshing. The Cathedral is so generous with its opinions on the treasury. Do give the Archbishop my regards." },
+          text = "Clergy, in the library, how refreshing. The Cathedral is so generous with its opinions on the treasury; do give the Archbishop my regards." },
         { id = "h_baros", when = { heardLine = "baros.e_default" },
           text = "Alexston told you his sad story, I see. He kept his post and his friend kept his pride. Both have done rather well out of the arrangement." },
       },
@@ -114,14 +114,14 @@ P:NPC {
       choices = { { text = "Keep your sympathy.", next = "BACK", fx = { affinity = -2, trait = { stern = 1 } } }, { text = "Something else.", next = "BACK" } },
     },
     papers = {
-      lines = { { id = "pa_default", text = "Did you? How enterprising. And where are they now? Purely for the archive, you understand. History is so easily lost." } },
+      lines = { { id = "pa_default", text = "Did you? How enterprising, and where are they now? Purely for the archive, you understand, because history is so easily lost." } },
       choices = {
         { text = "With Gryan Stoutmantle.", next = "BACK", fx = { trait = { brave = 1 } } },
         { text = "I burned them.", next = "papers_burned", fx = { trait = { cautious = 1 } } },
       },
     },
     papers_burned = {
-      lines = { { id = "pb_default", text = "Burned. What a pity. What a terrible, terrible pity. Do be more careful with history in future." } },
+      lines = { { id = "pb_default", text = "Burned? What a pity, what a terrible, terrible pity. Do be more careful with history in future." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
@@ -131,8 +131,8 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never say yes on the first asking. People value what they have to wait for. Even refusals." } },
     defias = { { id = "tp_defias", text = "Bandits. A Westfall matter. I can't imagine why anyone in this city would trouble themselves over it." } },
     westfall = { { id = "tp_westfall", text = "Dust and complaints. The farms will recover, or they won't. The House can't plough fields for them." } },
-    seven_kingdoms = { { id = "tp_seven", text = "Seven, then five, then fewer. Kingdoms come and go. Houses endure. Noble ones, I mean." } },
-    _none = { { id = "tp_none", text = "I'm sure I couldn't say. Ask a librarian. Sheaf's about somewhere." } },
+    seven_kingdoms = { { id = "tp_seven", text = "Seven, then five, then fewer. Kingdoms come and go, but houses endure; noble ones, I mean." } },
+    _none = { { id = "tp_none", text = "I'm sure I couldn't say. Ask a librarian; Sheaf is about somewhere." } },
   },
 }
 
@@ -145,12 +145,12 @@ P:NPC {
 
   greetings = {
     { id = "g_fist", text = "What're you lookin' at? No, go on, I'm askin'. I like to know what folk are lookin' at before I hit 'em." },
-    { id = "g_back", when = { metBefore = true }, text = "You! Ha! Pull up a stool. Mind the leg, I broke it on a fella last week." },
+    { id = "g_back", when = { metBefore = true }, text = "You! Ha, pull up a stool, but mind the leg, I broke it on a fella last week." },
   },
 
   notice = {
     { id = "n_big", cat = "body", when = { class = "WARRIOR" },
-      text = "Now there's a pair o' shoulders. Fancy a round? Not drinks. The other kind." },
+      text = "Now there's a pair o' shoulders. Fancy a round? Not o' drinks, mind, the other kind." },
     { id = "n_drink", cat = "drink", when = { drunk = { min = 2 } },
       text = "Ye're drunk. Good. Makes it fair, since I am too." },
   },
@@ -163,11 +163,11 @@ P:NPC {
         { id = "h_diplomat", key = true, tags = { "news" }, when = { questActive = TODO_QUEST("The Missing Diplomat") },
           text = "A diplomat? Never met one. Ask me again an' ye'll be askin' from the floor." },
         { id = "h_after", when = { questDone = TODO_QUEST("The Missing Diplomat"), heardLine = "dashel.h_diplomat" },
-          text = "No hard feelings. Ye hit like a mule. I respect a mule. Buy me a drink an' we'll call it square." },
+          text = "No hard feelings. Ye hit like a mule, an' I respect a mule, so buy me a drink an' we'll call it square." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Pig an' Whistle's still pourin'. That's the only clock I keep." },
         { id = "h_dwarf", when = { race = "Dwarf" },
-          text = "A dwarf! Ironforge send ye tae fetch me home? Tell 'em I'm busy. Tell 'em I'm winnin'." },
+          text = "A dwarf! Did Ironforge send ye tae fetch me home? Tell 'em I'm busy, an' tell 'em I'm winnin'." },
       },
       again = {
         { id = "h_again", text = "What else? Talk's thirsty work." },
@@ -183,7 +183,7 @@ P:NPC {
       },
     },
     fight = {
-      lines = { { id = "f_default", text = "Because nobody pays me to think. They pay me to stand in a door an' look unfriendly. It's honest work. Mostly." } },
+      lines = { { id = "f_default", text = "Because nobody pays me to think. They pay me to stand in a door an' look unfriendly, an' it's honest work, mostly." } },
       choices = { { text = "Who pays you?", next = "who" }, { text = "Fair enough.", next = "BACK" } },
     },
     who = {
@@ -198,22 +198,22 @@ P:NPC {
       },
     },
     friends_practice = {
-      lines = { { id = "fp_default", text = "Tae you, maybe. They'd call it practice. They call everythin' practice. Losin' especially." } },
+      lines = { { id = "fp_default", text = "Tae you, maybe, but they'd call it practice. They call everythin' practice, losin' especially." } },
       choices = { { text = "Ha. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     oldtown = {
-      lines = { { id = "ot_default", text = "Oldest part o' the city. The orcs didnae burn it, so nobody rebuilt it, so nobody cleans it. Best ale's here. Worst smell too." } },
+      lines = { { id = "ot_default", text = "Oldest part o' the city. The orcs didnae burn it, so nobody rebuilt it, so nobody cleans it, but the best ale's here, an' the worst smell too." } },
       choices = {
         { text = "And SI:7, right next door?", next = "oldtown_si7" },
         { text = "Something else.", next = "BACK" },
       },
     },
     oldtown_si7 = {
-      lines = { { id = "os_default", text = "Aye, the barracks. They watch me drink. I drink slower, out o' respect." } },
+      lines = { { id = "os_default", text = "Aye, the barracks, an' they watch me drink. I drink slower, out o' respect." } },
       choices = { { text = "Very considerate.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     plan = {
-      lines = { { id = "pl_default", text = "My bit finished when the first plan went sour. Adventurers, again. The second plan was a Menethil man they called Slim. Go an' bother him, no' me." } },
+      lines = { { id = "pl_default", text = "My bit finished when the first plan went sour, thanks tae adventurers again. The second plan was a Menethil man they called Slim, so go an' bother him, no' me." } },
       choices = { { text = "Thanks, Fist.", next = "BACK", fx = { affinity = 1 } }, { text = "If you're lying, I'll be back.", next = "BACK", fx = { trait = { stern = 1 } } } },
     },
     spar = {
@@ -225,8 +225,8 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Came tae Stormwind, found the ale an' the arguments, stayed for both. That's the whole tale." } },
     advice = { { id = "tp_ad", text = "Hit first. If ye cannae hit first, hit last. Never hit in the middle." } },
-    defias = { { id = "tp_defias", text = "Westfall lot. Not my crowd. I work in the city. Better ale." } },
-    _none = { { id = "tp_none", text = "Don't know, don't care. Want a fight?" } },
+    defias = { { id = "tp_defias", text = "Westfall lot, an' not my crowd. I work in the city, where the ale's better." } },
+    _none = { { id = "tp_none", text = "Don't know, don't care. D'ye want a fight instead?" } },
   },
 }
 
@@ -239,12 +239,12 @@ P:NPC {
 
   greetings = {
     { id = "g_shop", text = "Shields an' mail, made right. If it's got a dent, I'll take it out. If it's got a hole, I'll tell ye how ye got it." },
-    { id = "g_back", when = { metBefore = true }, text = "Back wi' more dents? Let's see the damage." },
+    { id = "g_back", when = { metBefore = true }, text = "Back wi' more dents, are ye? Let's see the damage, then." },
   },
 
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
-      text = "Look at the state o' that. Who did this tae ye? Was it a gnoll? It looks like a gnoll did it. Leave it wi' me." },
+      text = "Look at the state o' that! Who did this tae ye, a gnoll? It looks like a gnoll did it, so leave it wi' me." },
     { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
       text = "Fellow smith. Ye'll know the master, then, by reputation if no' by temper. Everyone knows the temper." },
   },
@@ -255,19 +255,19 @@ P:NPC {
       lines = {
         { id = "h_default", text = "Furen Longbeard. Shields an' armour. I learned from Grimand Elmore, an' I'm still learning, which he tells me daily." },
         { id = "h_elmore", when = { heardLine = "elmore.h_default" },
-          text = "Ye've met the master. Did he say anything about me? No? That means he's pleased. When he's not pleased, he says a great deal." },
+          text = "Ye've met the master, then. Did he say anything about me? No? That means he's pleased, because when he's not pleased, he says a great deal." },
         { id = "h_shield", when = { class = { "WARRIOR", "PALADIN" } },
-          text = "Ye'll want a shield ye can trust. Not pretty. Trust. Pretty shields get folk killed." },
+          text = "Ye'll want a shield ye can trust, no' a pretty one, because pretty shields get folk killed." },
         { id = "h_stormpike", tags = { "news" }, when = { questActive = TODO_QUEST("Stormpike's Order") },
-          text = "A letter from Loch Modan? Let's see it. A Stormpike wants a shield. Good. They're a proud clan, an' they pay on time." },
+          text = "A letter from Loch Modan? Let's see it. A Stormpike wants a shield, which is good, for they're a proud clan an' they pay on time." },
         { id = "h_scalder", tags = { "news" }, when = { questActive = TODO_QUEST("The Shieldsmith") },
-          text = "Is that Barleybrew Scalder? Yorus sent ye! Then I owe him, an' you'll have a shield. Sit, sit." },
+          text = "Is that Barleybrew Scalder? So Yorus sent ye, did he? Then I owe him, an' you'll have yer shield, so sit, sit." },
         { id = "h_mail", when = { questActive = TODO_QUEST("Fire Hardened Mail") },
-          text = "Spider fangs from the Wetlands, chimaera horn from Stonetalon, an' that vial from the Kraul. I'll have the forge ready. Mind the chimaeras." },
+          text = "Spider fangs from the Wetlands, chimaera horn from Stonetalon, an' that vial from the Kraul, an' I'll have the forge ready. Mind the chimaeras." },
       },
       again = {
         { id = "h_again", text = "Aye? What else needs fixin'?" },
-        { id = "h_again2", text = "Go on, I'm listenin'. The hammer's restin' anyway." },
+        { id = "h_again2", text = "Go on, I'm listenin', since the hammer's restin' anyway." },
       },
       choices = {
         { text = "What's Elmore like to learn from?", next = "master" },
@@ -305,7 +305,7 @@ P:NPC {
       },
     },
     orders_why = {
-      lines = { { id = "ow_default", text = "Because mine have never come back split. Well. Once. We dinnae talk about once." } },
+      lines = { { id = "ow_default", text = "Because mine have never come back split. Well, once, but we dinnae talk about once." } },
       choices = { { text = "Now I want to know.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
     why_here = {
@@ -313,7 +313,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     mail = {
-      lines = { { id = "ma_default", text = "Aye, if ye'll fetch the makings. Fire-hardened mail. Spider fangs, chimaera horn, an' worse. It's a long list an' a longer road." } },
+      lines = { { id = "ma_default", text = "Aye, if ye'll fetch the makings for fire-hardened mail: spider fangs, chimaera horn, an' worse. It's a long list an' a longer road." } },
       choices = { { text = "I'll fetch them.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } } },
     },
   },
@@ -321,7 +321,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Elmore's student. That's the only part that matters, an' he'd say it doesnae matter much yet.", next = "master" } },
     advice = { { id = "tp_ad", text = "Check yer straps before every fight. A good shield on a bad strap is a lid on a pot." } },
-    _none = { { id = "tp_none", text = "Ask the master. If ye dare." } },
+    _none = { { id = "tp_none", text = "Ask the master, if ye dare." } },
   },
 }
 
@@ -337,28 +337,28 @@ P:NPC {
     { id = "b_shine", text = "Armour shined, two coppers! One copper if you don't look too closely!" },
   },
   greetings = {
-    { id = "g_coin", text = "Friend! Kind face, that. Generous face. You've a generous face, has anyone ever told you?" },
-    { id = "g_back", when = { metBefore = true }, text = "My favourite benefactor returns! I've told everyone about you. Nobody believed me." },
+    { id = "g_coin", text = "Friend! That's a kind face, a generous face. Has anyone ever told you you've a generous face?" },
+    { id = "g_back", when = { metBefore = true }, text = "My favourite benefactor returns! I've told everyone about you, though nobody believed me." },
   },
 
   notice = {
     { id = "n_rich", cat = "wealth", when = { money = { min = 1000000 } },
-      text = "Oh, that purse is heavy. I can hear it from here. It's calling to me. It's saying 'Topper'." },
+      text = "Oh, that purse is heavy, I can hear it from here. It's calling to me, and it's saying 'Topper'." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.3 } },
-      text = "Rough day? I know rough days. I've had nothing but, since the farm. Sit down. Not too close. You smell like a fight." },
+      text = "Rough day? I know rough days; I've had nothing but, since the farm. Sit down, though not too close, because you smell like a fight." },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "Topper McNabb, at your service. Farmer, once. Now I sit here and let the city walk past. It never stops, but it rarely tips." },
+        { id = "h_default", text = "Topper McNabb, at your service, and a farmer once. Now I sit here and let the city walk past, and it never stops, but it rarely tips." },
         { id = "h_priest", when = { class = "PRIEST" },
-          text = "Bless me, would you, holy one? Go on. I've been told I need it. Mostly by the guards." },
+          text = "Bless me, would you, holy one? Go on, because I've been told I need it, mostly by the guards." },
       },
       again = {
-        { id = "h_again", text = "Anything else, friend? I've all day. I've had all day for years." },
-        { id = "h_again2", text = "Still here? Wonderful. Company's free." },
+        { id = "h_again", text = "Anything else, friend? I've all day, and I've had all day for years." },
+        { id = "h_again2", text = "Still here? Wonderful, because company's free." },
       },
       choices = {
         { text = "What happened to your farm?", next = "farm" },
@@ -378,23 +378,23 @@ P:NPC {
       },
     },
     truth = {
-      lines = { { id = "t_default", text = "Some of it. Depends who's paying. You paying? Then it's all true." } },
+      lines = { { id = "t_default", text = "Some of it, depending on who's paying. If you're paying, then it's all true." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     coin = {
-      lines = { { id = "c_default", text = "Bless you! I'll spend it wisely. On bread. Probably bread. Possibly ale, but bread-adjacent ale." } },
+      lines = { { id = "c_default", text = "Bless you! I'll spend it wisely, on bread, probably bread, or possibly ale, but bread-adjacent ale." } },
       choices = { { text = "Take care, Topper.", next = "END" }, { text = "Something else.", next = "BACK" } },
     },
     farmer = {
-      lines = { { id = "fa_default", text = "Did you! Then you know. Nobody tells it right, the losing of a farm. You tell me yours sometime and I'll tell you mine. Mine's got more orcs." } },
+      lines = { { id = "fa_default", text = "Did you! Then you know, because nobody tells it right, the losing of a farm. You tell me yours sometime and I'll tell you mine, though mine's got more orcs." } },
       choices = { { text = "Mine's got more thieves.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } } },
     },
   },
 
   topics = {
     background = { { id = "tp_bg", text = "Farmer, then not. The middle bit changes depending on who's listening and what they've got in their purse.", next = "farm" } },
-    advice = { { id = "tp_ad", text = "Never build your house in front of anyone's tower. That's free. The rest costs a copper." } },
-    defias = { { id = "tp_defias", text = "They asked me to join, once. I said I'd think about it. I'm still thinking. It's very restful, thinking." } },
+    advice = { { id = "tp_ad", text = "Never build your house in front of anyone's tower; that one's free. The rest costs a copper." } },
+    defias = { { id = "tp_defias", text = "They asked me to join, once, and I said I'd think about it. I'm still thinking, and it's very restful, thinking." } },
     _none = { { id = "tp_none", text = "I know nothing, friend. But for a copper I'll know something." } },
   },
 }
@@ -407,8 +407,8 @@ P:NPC {
   notices = { "soldier", "stealth" },
 
   greetings = {
-    { id = "g_quiet", text = "Yes? Quickly. And quietly, please. Everything about this place should be quiet. Especially lately." },
-    { id = "g_back", when = { metBefore = true }, text = "Oh, it's you. Good. No, I mean it. You're the only one who's ever made things better down there." },
+    { id = "g_quiet", text = "Yes? Quickly, and quietly, please, because everything about this place should be quiet, especially lately." },
+    { id = "g_back", when = { metBefore = true }, text = "Oh, it's you, good. No, I mean it: you're the only one who's ever made things better down there." },
   },
 
   notice = {
@@ -420,24 +420,24 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "Warden Thelwater, the Stockade. I keep Stormwind's worst under its canals. Most days. The other days, I'd thank you not to mention." },
+        { id = "h_default", text = "Warden Thelwater, of the Stockade. I keep Stormwind's worst under its canals most days, and the other days I'd thank you not to mention." },
         { id = "h_thredd", tags = { "news" }, when = { questActive = TODO_QUEST("Bazil Thredd") },
-          text = "Thredd. The Defias' man inside. He's behind all of it, I'm certain. Deal with him, and nobody has to write a report. Please." },
+          text = "Thredd, the Defias' man inside, is behind all of it, I'm certain. Deal with him, and nobody has to write a report, please." },
         { id = "h_riots", tags = { "news" }, when = { questActive = TODO_QUEST("The Stockade Riots") },
-          text = "They're loose on the lower tiers again. If the Captain finds out, I'm finished. So he won't find out. Will he?" },
+          text = "They're loose on the lower tiers again, and if the Captain finds out, I'm finished. So he won't find out, will he?" },
         { id = "h_visitor", when = { questActive = TODO_QUEST("The Curious Visitor") },
-          text = "Thredd's had a visitor. A strange one. Nobody signed him in, and nobody can tell me what he looked like. I'd very much like to know who he was." },
+          text = "Thredd's had a visitor, a strange one. Nobody signed him in, and nobody can tell me what he looked like, so I'd very much like to know who he was." },
         { id = "h_darkshire", when = { heardLine = "millstipe.h_ward" },
           text = "Darkshire writes to me about one of my prisoners. The House of Nobles writes to me about the same prisoner. I've stopped opening either." },
         { id = "h_mac", when = { questActive = TODO_QUEST("The Color of Blood") },
-          text = "Nikova sent you. Mac's grandmother. He was fourteen, and a guard, because the men had gone to the front. Don't say anything. Just get her what she asked for." },
+          text = "Nikova sent you, Mac's grandmother. He was fourteen, and a guard because the men had gone to the front, so don't say anything; just get her what she asked for." },
         { id = "h_quiet", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Stockade Riots"), days = 3 } },
-          text = "Thredd's dead and the cells are filling back up. Quietly. I'm sleeping again. Badly, but again." },
+          text = "Thredd's dead and the cells are filling back up, quietly. I'm sleeping again, badly, but again." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "Half my guards could use a priest, and the other half need a better excuse than the one they gave the Captain." },
       },
       again = {
-        { id = "h_again", text = "Yes, what else? Quickly." },
+        { id = "h_again", text = "Yes, what else? Be quick about it, please." },
         { id = "h_again2", text = "Something more? Not too loudly." },
       },
       choices = {
@@ -451,7 +451,7 @@ P:NPC {
     riots = {
       big = true,
       lines = {
-        { id = "r_default", text = "Nothing happened. A small disturbance. Some prisoners are out of their cells and some of my guards are, well. It's being handled. By you, I hope." },
+        { id = "r_default", text = "Nothing happened, only a small disturbance. Some prisoners are out of their cells and some of my guards are, well... it's being handled, by you, I hope." },
       },
       choices = {
         { text = "I'll handle it.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
@@ -459,18 +459,18 @@ P:NPC {
       },
     },
     tell = {
-      lines = { { id = "t_default", text = "I am telling someone. I'm telling you. You seem very capable and very unlikely to file anything." } },
+      lines = { { id = "t_default", text = "I am telling someone: I'm telling you. You seem very capable and very unlikely to file anything." } },
       choices = {
         { text = "And the Captain?", next = "tell_captain" },
         { text = "Something else.", next = "BACK" },
       },
     },
     tell_captain = {
-      lines = { { id = "tc_default", text = "The Captain hears the Stockade lost its own prisoners, and I'm guarding a fishmonger's cart by the end of the week. If I'm lucky. So he'll hear it's handled." } },
+      lines = { { id = "tc_default", text = "The Captain hears the Stockade lost its own prisoners, and I'm guarding a fishmonger's cart by the end of the week, if I'm lucky. So he'll hear it's handled." } },
       choices = { { text = "Your secret's safe.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } }, { text = "He deserves the truth.", next = "BACK", fx = { align = { honor = 1 }, affinity = -1 } } },
     },
     cells = {
-      lines = { { id = "ce_default", text = "Thieves, murderers, insurgents, and a few the House of Nobles would rather keep breathing. Targorr the Dread, for one. A Blackrock executioner. Sentenced, and still waiting.",
+      lines = { { id = "ce_default", text = "Thieves, murderers, insurgents, and a few the House of Nobles would rather keep breathing. Targorr the Dread, for one, a Blackrock executioner sentenced and still waiting.",
         fx = { learn = { "blackrock" } } } },
       choices = {
         { text = "Why is he still alive?", next = "cells_hold" },
@@ -478,14 +478,14 @@ P:NPC {
       },
     },
     cells_hold = {
-      lines = { { id = "ch_default", text = "Ask the nobles. Every time the rope's ready, a letter arrives. Same with Dextren Ward, who sold Raven Hill's dead to a necromancer. Darkshire wants his hand." } },
+      lines = { { id = "ch_default", text = "Ask the nobles, because every time the rope's ready, a letter arrives. It's the same with Dextren Ward, who sold Raven Hill's dead to a necromancer, and Darkshire wants his hand." } },
       choices = {
         { text = "Robbing graves. The dead deserve better.", next = "BACK", when = { class = "PRIEST" }, fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "night_watch" } } },
       },
     },
     visitor = {
-      lines = { { id = "v_default", text = "Maelik, his papers said. Once or twice a week for months, after years of nobody. His papers were in perfect order. That should have told me something." } },
+      lines = { { id = "v_default", text = "Maelik, his papers said, and he came once or twice a week for months, after years of nobody. His papers were in perfect order, and that should have told me something." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
     priest = {
@@ -504,8 +504,8 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "Warden of the Stockade. Before that, a man who thought being warden would be quiet. Never take a job for its quiet." } },
-    advice = { { id = "tp_ad", text = "Check the papers, then check the person. Then check the papers again. I didn't, once." } },
+    advice = { { id = "tp_ad", text = "Check the papers, then check the person, and then check the papers again. I didn't, once." } },
     defias = { { id = "tp_defias", text = "Half my cells are full of them, and the other half of their friends. They organise better in prison than the guards do outside it." } },
-    _none = { { id = "tp_none", text = "Not a Stockade matter. Thank the Light." } },
+    _none = { { id = "tp_none", text = "That's not a Stockade matter, thank the Light." } },
   },
 }

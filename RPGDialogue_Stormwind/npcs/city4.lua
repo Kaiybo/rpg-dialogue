@@ -18,7 +18,7 @@ P:NPC {
     { id = "n_soldier", cat = "soldier", when = { class = { "WARRIOR", "PALADIN" } },
       text = "You stand like a soldier. Stormwind's army could use you, if you ever tire of the road. We all tire of it eventually." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
-      text = "You've been in a real fight. Get to the smiths in the Dwarven District before you go back out. That's an order. A friendly one." },
+      text = "You've been in a real fight, so get to the smiths in the Dwarven District before you go back out. That's an order, though a friendly one." },
   },
 
   start = "hello",
@@ -28,20 +28,20 @@ P:NPC {
         { id = "h_default", key = true,
           text = "General Marcus Jonathan, High Commander of Stormwind's defence. I keep the city's walls and its army, such as the kingdom can spare of it." },
         { id = "h_messenger", tags = { "news" }, when = { questActive = TODO_QUEST("Messenger to Stormwind") },
-          text = "Magistrate Solomon writes again. Reinforcements for Lakeshire. I'll take it to the throne myself. Tell him the army hasn't forgotten Redridge." },
+          text = "Magistrate Solomon writes again, asking reinforcements for Lakeshire. I'll take it to the throne myself, and you can tell him the army hasn't forgotten Redridge." },
         { id = "h_messenger_done", when = { questDone = TODO_QUEST("Messenger to Stormwind") },
           text = "I promised Solomon support, and I meant it. Whether the Keep lets me send it is another matter. Between us." },
         { id = "h_solomon", when = { heardLine = "solomon.s_default" },
-          text = "Solomon's letters reach me. Every one. I read them twice. I can't answer them the way he'd like, and that sits badly with me." },
+          text = "Solomon's letters reach me, every one, and I read them twice. I can't answer them the way he'd like, and that sits badly with me." },
         { id = "h_insignia", tags = { "news" }, when = { questActive = TODO_QUEST("Bloodied Insignia") },
-          text = "Lordaeron insignia, from those ruins in the north. Set them down here, carefully. Many who fled that kingdom came to us. Some of their kin will want these back." },
+          text = "Lordaeron insignia, from those ruins in the north? Set them down here, carefully. Many who fled that kingdom came to us, and some of their kin will want these back." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "My guards stand in the rain all night, and a blessing does more for them than another cloak. I'm glad you came by the gate." },
         { id = "h_night", when = { timeOfDay = "night" },
-          text = "The statues look different at night. Taller. I walk the valley before the watch changes and say good evening to each of them. They never answer." },
+          text = "The statues look taller at night. I walk the valley before the watch changes and say good evening to each of them, though they never answer." },
       },
       again = {
-        { id = "h_again", text = "Something else, citizen? Ask. It's a quiet watch." },
+        { id = "h_again", text = "Something else, citizen? Ask away; it's a quiet watch." },
         { id = "h_again2", text = "Go on. The gate can spare me a moment more." },
       },
       choices = {
@@ -59,7 +59,7 @@ P:NPC {
     army = {
       big = true,
       lines = {
-        { id = "a_default", text = "It will. When the orders come. I've asked. I keep asking. The Regent has many voices in his ear, and not all of them speak for the soldiers." },
+        { id = "a_default", text = "It will, when the orders come. I've asked and I keep asking, but the Regent has many voices in his ear, and not all of them speak for the soldiers." },
       },
       choices = {
         { text = "Whose voices?", next = "voices", fx = { trait = { curious = 1 } } },
@@ -80,7 +80,7 @@ P:NPC {
     },
 
     statues = {
-      lines = { { id = "st_default", text = "The five who went through the Dark Portal to close it from the other side. Turalyon, Khadgar, Alleria, Danath, Kurdran. Presumed dead, the plaques say." } },
+      lines = { { id = "st_default", text = "The five who went through the Dark Portal to close it from the other side: Turalyon, Khadgar, Alleria, Danath and Kurdran. Presumed dead, the plaques say." } },
       choices = {
         { text = "Did you know any of them?", next = "turalyon" },
         { text = "Kurdran was a Wildhammer. My kin, near enough.", next = "kurdran", when = { race = "Dwarf" } },
@@ -89,14 +89,14 @@ P:NPC {
     },
     turalyon = {
       big = true,
-      lines = { { id = "tu_default", text = "I served under Turalyon in the Second War, beside Reginald Windsor. A paladin who could plan a campaign. I salute his statue every morning. He'd have hated that." } },
+      lines = { { id = "tu_default", text = "I served under Turalyon in the Second War, beside Reginald Windsor, and he was a paladin who could plan a campaign. I salute his statue every morning, and he'd have hated that." } },
       choices = {
         { text = "And Windsor?", next = "windsor" },
         { text = "Something else.", next = "BACK" },
       },
     },
     windsor = {
-      lines = { { id = "wi_default", text = "A good soldier. Better than me with a map. I haven't had word of him in a long while. In my trade, that's rarely good news." } },
+      lines = { { id = "wi_default", text = "A good soldier, and better than me with a map. I haven't had word of him in a long while, and in my trade, that's rarely good news." } },
       choices = { { text = "I hope you hear soon.", next = "BACK", fx = { affinity = 1 } } },
     },
     kurdran = {
@@ -112,7 +112,7 @@ P:NPC {
       },
     },
     walls_westfall = {
-      lines = { { id = "ww_default", text = "Stoutmantle holds it with farmers and a hill. I'd be ashamed, if I weren't so grateful. A soldier's matter, I say. The court says otherwise.",
+      lines = { { id = "ww_default", text = "Stoutmantle holds it with farmers and a hill, and I'd be ashamed if I weren't so grateful. A soldier's matter, I say, though the court says otherwise.",
         fx = { learn = { "people_militia", "westfall" } } } },
       choices = {
         { text = "Then send soldiers.", next = "BACK", fx = { align = { honor = 1 }, opinion = { westfall = "send_soldiers" } } },
@@ -138,7 +138,7 @@ P:NPC {
     },
 
     priest = {
-      lines = { { id = "pr_default", text = "Walk the wall at dusk, when the watch changes. Say whatever priests say. They'll pretend not to listen. They'll listen." } },
+      lines = { { id = "pr_default", text = "Walk the wall at dusk, when the watch changes, and say whatever priests say. They'll pretend not to listen, but they'll listen." } },
       choices = { { text = "I'll be there at dusk.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, standing = { stormwind = 1 } } } },
     },
   },
@@ -146,10 +146,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Second War, under Turalyon. Now the walls of this city. A soldier's life is short to tell, if it's a lucky one.", next = "turalyon" } },
     advice = { { id = "tp_ad", text = "Know where your exits are before you need them. Every general who forgot that has a statue. Or a grave." } },
-    defias = { { id = "tp_defias", text = "A Westfall matter, the court says. A soldier's matter, I say. We'll see who's right." } },
+    defias = { { id = "tp_defias", text = "A Westfall matter, the court says, and a soldier's matter, I say. We'll see who's right." } },
     blackrock = { { id = "tp_blackrock", text = "Orcs in Redridge, near enough to see from Lakeshire's walls. Near enough to worry me." } },
-    westfall = { { id = "tp_westfall", text = "Fed this city once. Now it feeds the Defias. Stoutmantle's doing my job with pitchforks.", next = "walls_westfall" } },
-    _none = { { id = "tp_none", text = "Not a military matter. Try City Hall." } },
+    westfall = { { id = "tp_westfall", text = "Westfall fed this city once, and now it feeds the Defias, while Stoutmantle does my job with pitchforks.", next = "walls_westfall" } },
+    _none = { { id = "tp_none", text = "That's not a military matter, I'm afraid. Try City Hall." } },
   },
 }
 
@@ -160,13 +160,13 @@ P:NPC {
   notices = { "class", "stealth" },
 
   greetings = {
-    { id = "g_rogue", when = { class = "ROGUE" }, text = "You got potential. Renzik can see it. Renzik can also see you're about to get yourself killed. Let's fix that." },
-    { id = "g_other", when = { ["not"] = { class = "ROGUE" } }, text = "You lost? This ain't the bank. Renzik don't do visitors." },
+    { id = "g_rogue", when = { class = "ROGUE" }, text = "You got potential, and Renzik can see it. Renzik can also see you're about to get yourself killed, so let's fix that." },
+    { id = "g_other", when = { ["not"] = { class = "ROGUE" } }, text = "You lost? This ain't the bank, pal, and Renzik don't do visitors." },
   },
 
   notice = {
     { id = "n_stealth", cat = "stealth", when = { stealthed = true },
-      text = "Cute. Renzik saw you come in. Renzik sees everybody come in. That's the job." },
+      text = "Cute, but Renzik saw you come in. Renzik sees everybody come in, 'cause that's the job." },
   },
 
   start = "hello",
@@ -176,21 +176,21 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Renzik. People call me the Shiv. Second to the boss here at SI:7. I don't like people much, but I like being the guy they gotta be polite to." },
         { id = "h_si7", tags = { "news" }, when = { questActive = TODO_QUEST("SI:7") },
-          text = "So you wanna work for us. Good. First you gotta not die. Go see Lucius in Redridge. He'll teach you the parts that keep you breathing." },
+          text = "So you wanna work for us? Good, but first you gotta not die, so go see Lucius in Redridge. He'll teach you the parts that keep you breathing." },
         { id = "h_redridge", when = { questActive = TODO_QUEST("Redridge Rendezvous") },
-          text = "Lucius is a pro. Do what he says, how he says. Don't improvise. Improvisers end up in rivers." },
+          text = "Lucius is a pro, so do what he says, how he says. Don't improvise, 'cause improvisers end up in rivers." },
         { id = "h_shakedown", when = { questActive = TODO_QUEST("Kingly Shakedown") },
-          text = "Some people forget who they owe. Remind 'em. Politely, if they're polite. Otherwise, the other way." },
+          text = "Some people forget who they owe, so remind 'em. Politely, if they're polite, and the other way if they ain't." },
         { id = "h_shaw", when = { heardLine = "shaw.h_default" },
-          text = "Talked to the boss, huh? He don't say much. Renzik says the rest. That's the arrangement." },
+          text = "Talked to the boss, huh? He don't say much, so Renzik says the rest, and that's the arrangement." },
         { id = "h_erion", tags = { "news" }, when = { questActive = TODO_QUEST("Erion's Behest") },
-          text = "Long trip from Darnassus, huh? Erion says you're good. Renzik decides what good means around here." },
+          text = "Long trip from Darnassus, huh? Erion says you're good, but Renzik decides what good means around here." },
         { id = "h_priest", when = { class = "PRIEST" },
-          text = "Holy robes, in SI:7. Now Renzik's seen everything. You here to bless the knives or confess to somethin'?" },
+          text = "Holy robes, in SI:7? Now Renzik's seen everything, so are you here to bless the knives or confess to somethin'?" },
       },
       again = {
         { id = "h_again", text = "What else? Renzik's got a schedule." },
-        { id = "h_again2", text = "Talk. Renzik's listening. Renzik's always listening." },
+        { id = "h_again2", text = "Go on and talk, pal, 'cause Renzik's always listening." },
       },
       choices = {
         { text = "Why do you talk about yourself like that?", next = "third" },
@@ -204,7 +204,7 @@ P:NPC {
     third = {
       big = true,
       lines = {
-        { id = "t_default", text = "Because Renzik is a reputation, pal. Me? I'm a goblin in a back room. Renzik is the guy nobody wants to meet in an alley. Gotta keep the reputation fed." },
+        { id = "t_default", text = "Because Renzik is a reputation, pal. Me, I'm just a goblin in a back room, but Renzik is the guy nobody wants to meet in an alley, and the reputation's gotta be fed." },
       },
       choices = {
         { text = "Fair enough.", next = "BACK", fx = { affinity = 2 } },
@@ -216,14 +216,14 @@ P:NPC {
       choices = { { text = "Your secret's safe.", next = "BACK", fx = { affinity = 1 } } },
     },
     goblin = {
-      lines = { { id = "g_default", text = "Sure. Know what happens when a goblin walks into Orgrimmar? Nothin'. Nobody looks twice. Try that with a human." } },
+      lines = { { id = "g_default", text = "Sure. Know what happens when a goblin walks into Orgrimmar? Nothin', 'cause nobody looks twice. Try that with a human." } },
       choices = {
         { text = "So why work for Stormwind?", next = "goblin_why" },
         { text = "Something else.", next = "BACK" },
       },
     },
     goblin_why = {
-      lines = { { id = "gw_default", text = "Pay's good. And folks here gotta be polite to me. Back home a goblin's feared or ignored. Here, Renzik gets called sir. Renzik likes sir." } },
+      lines = { { id = "gw_default", text = "Pay's good, and folks here gotta be polite to me. Back home a goblin's feared or ignored, but here Renzik gets called sir, and Renzik likes sir." } },
       choices = { { text = "Sir it is.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } } },
     },
     recruits = {
@@ -234,19 +234,19 @@ P:NPC {
       },
     },
     recruits_lucius = {
-      lines = { { id = "rl_default", text = "Lakeshire docks. Looks like a layabout. Is a layabout. Also the best teacher of not-dyin' Renzik ever met." } },
+      lines = { { id = "rl_default", text = "Lakeshire docks. He looks like a layabout, and he is a layabout, but he's also the best teacher of not-dyin' Renzik ever met." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     bless = {
-      lines = { { id = "b_default", text = "Ha! Go on, then. Renzik's knives could use the luck. Don't tell the boss. He thinks luck's for amateurs." } },
+      lines = { { id = "b_default", text = "Ha! Go on, then, 'cause Renzik's knives could use the luck. Just don't tell the boss; he thinks luck's for amateurs." } },
       choices = { { text = "Blessed. Something else.", next = "BACK", fx = { affinity = 2 } } },
     },
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Renzik's past is Renzik's business. Renzik's present is SI:7. That's all you get, pal." } },
+    background = { { id = "tp_bg", text = "Renzik's past is Renzik's business, and Renzik's present is SI:7. That's all you get, pal." } },
     advice = { { id = "tp_ad", text = "Never trust a guy who says he's got nothin' to hide. Everybody's got somethin'. The honest ones just know it." } },
-    defias = { { id = "tp_defias", text = "SI:7's business. Which means none of yours. Unless you want it to be. Then talk to Renzik." } },
+    defias = { { id = "tp_defias", text = "SI:7's business, which means none of yours, unless you want it to be. Then you talk to Renzik." } },
     _none = { { id = "tp_none", text = "Renzik don't know. And if Renzik don't know, it ain't worth knowing." } },
   },
 }
@@ -273,11 +273,11 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Major Samuelson, captain of the guard in the Keep. I keep the throne room orderly and the people in it safe. That's all you need to know." },
         { id = "h_farren", when = { heardLine = "farren.h_default" },
-          text = "Orinelle. I trained him. He's a good officer who thinks he's wasted in Southshore. He isn't. Don't tell him I said so." },
+          text = "Orinelle? I trained him. He's a good officer who thinks he's wasted in Southshore, and he isn't, but don't tell him I said so." },
         { id = "h_reassign", tags = { "news" }, when = { questActive = TODO_QUEST("Reassignment") },
           text = "Orinelle's asking to come home again. Tell him his request has been received. Tell him nothing else." },
         { id = "h_priest", when = { class = "PRIEST" },
-          text = "Clergy approach the court through Bishop DeLavey in the Petitioner's Chamber. Not through me. Not today." },
+          text = "Clergy approach the court through Bishop DeLavey in the Petitioner's Chamber, not through me, and certainly not today." },
       },
       again = {
         { id = "h_again", text = "Anything else? Briefly." },
@@ -293,7 +293,7 @@ P:NPC {
       },
     },
     guard = {
-      lines = { { id = "g2_default", text = "The Regent. The young King. The court. Everyone who stands in this room, whether I'd choose to guard them or not." } },
+      lines = { { id = "g2_default", text = "The Regent, the young King and the court: everyone who stands in this room, whether I'd choose to guard them or not." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     leave = {
@@ -306,7 +306,7 @@ P:NPC {
       },
     },
     leave_varian = {
-      lines = { { id = "lv_default", text = "A guard who answers that in this room is a fool. I keep the room ready. That's my answer." } },
+      lines = { { id = "lv_default", text = "A guard who answers that in this room is a fool. I keep the room ready, and that's my answer." } },
       choices = { { text = "Something else.", next = "BACK", fx = { align = { order = 1 } } } },
     },
     conduct = {
@@ -321,22 +321,22 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     farren = {
-      lines = { { id = "fa_default", text = "Orinelle. Good officer. Thinks Southshore is beneath him. His reports are excellent, which is exactly why he's still there." } },
+      lines = { { id = "fa_default", text = "Orinelle is a good officer who thinks Southshore is beneath him. His reports are excellent, which is exactly why he's still there." } },
       choices = {
         { text = "Will you bring him home?", next = "farren_review" },
         { text = "Something else.", next = "BACK" },
       },
     },
     farren_review = {
-      lines = { { id = "fr_default", text = "I review assignments next month. He'll hear when he hears. And if you see him, he heard none of this from you." } },
+      lines = { { id = "fr_default", text = "I review assignments next month, and he'll hear when he hears. If you see him, he heard none of this from you." } },
       choices = { { text = "Not a word.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Captain of the guard. Before that, a guard. That's all the background this room needs." } },
+    background = { { id = "tp_bg", text = "Captain of the guard, and before that, a guard. That's all the background this room needs." } },
     advice = { { id = "tp_ad", text = "Stand straight in the Keep. People decide who you are from the doorway." } },
-    _none = { { id = "tp_none", text = "Not my concern. My concern is this room." } },
+    _none = { { id = "tp_none", text = "That's not my concern; my concern is this room." } },
   },
 }
 
@@ -356,16 +356,16 @@ P:NPC {
 
   notice = {
     { id = "n_hungry", cat = "hunger", when = { durability = { max = 0.25 } },
-      text = "You look like you haven't eaten since Goldshire. Have a roll. Go on. Then buy six." },
+      text = "You look like you haven't eaten since Goldshire. Have a roll, go on, and then buy six." },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "Thomas Miller, baker. I walk the Trade District from dawn to dusk with a basket. My feet hate me. My customers love me. It evens out." },
-        { id = "h_foot", when = { metBefore = true }, text = "My left foot's been talking to me all morning. It says sit down. My basket says keep walking. The basket wins." },
-        { id = "h_night", when = { timeOfDay = "night" }, text = "Last loaves of the day. A bit squashed. They taste the same. Mostly." },
+        { id = "h_default", text = "Thomas Miller, baker. I walk the Trade District from dawn to dusk with a basket, and my feet hate me but my customers love me, so it evens out." },
+        { id = "h_foot", when = { metBefore = true }, text = "My left foot's been talking to me all morning, telling me to sit down, but my basket says keep walking, and the basket wins." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "These are the last loaves of the day, a bit squashed, but they taste the same, mostly." },
       },
       again = {
         { id = "h_again", text = "Something else, friend? Walk with me; I can't stop." },
@@ -389,7 +389,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     westfall = {
-      lines = { { id = "w_default", text = "Did they? Then I've likely baked your family's work. Best wheat there was. I'd give you a roll for it, if my margins let me. They don't." } },
+      lines = { { id = "w_default", text = "Did they? Then I've likely baked your family's work, because it was the best wheat there was. I'd give you a roll for it, if my margins let me, but they don't." } },
       choices = { { text = "I'll buy one, then.", next = "BUSINESS", fx = { affinity = 2 } }, { text = "Something else.", next = "BACK" } },
     },
   },
