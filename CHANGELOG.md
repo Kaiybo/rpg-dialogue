@@ -2,6 +2,26 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.35.0 (2026-11-15)
+Packs: every content pack has a new version (`python3 tools/version.py` lists them), and three are new: **Blasted Lands 1.0.0, Azshara 1.0.0, Silithus 1.0.0**. **New folders and many new files: exit the game fully, copy the three new folders in, tick them, and start the game again**; /reload won't load them.
+
+### You can talk to (almost) everyone
+- **The people in the streets answer now.** Before, anyone without a title and without lines of their own did nothing when right-clicked. Now every friendly person counts as a citizen, with lines of their own town: Stormwind's by district (the canals, Old Town, Cathedral Square...), every capital's, and 42 towns' from Goldshire to Everlook, on both sides. Priests, paladins, Shadowform, night elves, gnomes and others get noticed.
+- **More named people, important and obscure.** Stormwind gains 43 (Bishop Farthing, Brother Sarno at the Cathedral door, Matron Nightingale and the orphanage, Count Ridgewell and Lord Wishock at court, Crier Goodman, Morgan Pestle, Bartleby the drunk, Osborne outside SI:7, Ol' Emma, Maginor Dumas, the Deepforges, the Park's druids, the harbor's clerk and more). Ironforge gains 23 (High Priest Rohan and the Mystic Ward's priests, Sara Balloo, Tinker Town, the Hall of Explorers). Darkshire, Lakeshire, Southshore and Menethil Harbor gain 30 between them. Darnassus gains new people too.
+
+### Three new zones for levels 45-60
+- **The Blasted Lands:** Nethergarde Keep (Quartermaster Lungertz, Watcher Mahar Ba, Thadius Grimshade, Ambassador Ardalan) and Kum'isha the Collector at the Dark Portal; the bloodmages and Daio the Decrepit.
+- **Azshara:** Talrendis Point and Valormok, Loh'atu, Archmage Xylem, Ogtinc and the Cenarion Aid chain for priests, Duke Hydraxis, Loramus Thalipedes, Captain Beltis and her stranded crew.
+- **Silithus:** Cenarion Hold (Commander Mar'alith, Geologist Larksbane, the Wildmanes) and Valor's Rest (Layo Starstrike, Hermit Ortell). The gates of Ahn'Qiraj stay sealed, as they are in Forever.
+
+### The journal
+- **Six pages:** Diary, **Stories**, People, **Heard of**, Myself, Notes.
+- **Stories:** every larger story you've stumbled into, with where it stands (just begun, unfolding, ended, ended badly, left unfinished) and who told you what. Three new ones on the 45-60 road: the plague cauldrons, the Argent Dawn's letters, and, for priests and paladins, the Light in the Plaguelands, which ends with what you tell Archbishop Benedictus.
+- **People:** grouped by the zone where you met them, with their title, how they stand toward you, your first impression of them, what you've asked them about and the last thing they said. Searchable.
+- **Heard of:** every subject you've picked up, by category, who first mentioned it, and what each person said when you asked. Searchable.
+- **The diary writes itself:** a first impression after you first talk with any named person (every one has one), a line the first time you reach each zone, and lines for your first death (naming what killed you), every tenth level and your first dungeon.
+- **The journal button counts new diary entries** until you open it.
+
 ## 0.34.0 (2026-11-15)
 Packs: every content pack has a new version (`python3 tools/version.py` lists them). **One new file in the core (Systems\Disposition.lua): exit the game fully and start it again**; /reload won't load it.
 

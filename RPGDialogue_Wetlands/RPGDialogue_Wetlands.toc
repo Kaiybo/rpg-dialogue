@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: Wetlands |cff8a8a8a1.4.0|r
+## Title: RPG Dialogue: Wetlands |cff8a8a8a1.5.0|r
 ## Notes: Menethil Harbor: the Dragonmaw at the door, a drowned fleet in the bay, and a bartender who doesn't sell drinks.
 ## Author: RPG Dialogue
-## Version: 1.4.0
+## Version: 1.5.0
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.wetlands

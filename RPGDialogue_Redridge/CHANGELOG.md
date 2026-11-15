@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.7.0 (2026-11-15)
+- 7 new people in Lakeshire: Yorus Barleybrew, Lucius, Shawn, Matthew Hooper, Bartender Wental, Alma Jainrose, Bridge Worker Trent.
+- First impressions in your diary. New file: restart the game.
+
 ## 1.6.0 (2026-11-15)
 - Persuade, Intimidate and Deceive checks on the major people here, each with its own success and failure; lines and replies that depend on how warmly they regard you (disposition); a lead-in for "What do you know?".
 

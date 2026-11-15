@@ -2,6 +2,12 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.9.0 (2026-11-15)
+- 43 new people: the Trade District (Renato Gallina, Elaine Trias, Thurman Mullby, Gunther Weller, Crier Goodman, Dungar Longdrink, Morgan Pestle, Harlan Bagley), Old Town (Harry Burlguard, Bartleby, Elly Langston, Stephen Ryback, Simon Tanner, Osborne the Night Man, Jasper Fel), the canals and the harbor (Suzetta Gallina, Ol' Emma, Rema Schneider, Arnold Leland, Morris Lawry, Billy, Manifest Clerk Philmor), Cathedral Square (Bishop Farthing, Brother Kristoff, Brother Sarno, Thomas the altar boy, Matron Nightingale, Shellene), the Keep (Bishop DeLavey, Count Ridgewell, Lord Wishock), the Mage Quarter (Maginor Dumas, Elsharin, Larimaine Purdue, Zardeth, Ursula Deline, Spackle Thornberry), the Dwarven District (the Deepforges, Lilliam Sparkspindle, Gelman Stonehand) and the Park (Sheldras Moontree, Shylamiir).
+- Archbishop Benedictus: a priest or paladin back from Lordaeron can tell him what the Light said up there.
+- Every person writes a first impression in your diary.
+- New files: exit the game fully and restart.
+
 ## 1.8.0 (2026-11-15)
 - Persuade, Intimidate and Deceive checks on the major people here, each with its own success and failure; lines and replies that depend on how warmly they regard you (disposition); a lead-in for "What do you know?".
 

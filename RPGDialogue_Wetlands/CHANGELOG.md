@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.5.0 (2026-11-15)
+- 8 new people in Menethil Harbor: Valstag Ironjaw, Tarrel Rockweaver, Vincent Hyal, Red Jack Flint, Sida, Harold Riggs, Camerick Jongleur, Unger Statforth.
+- First impressions in your diary. New file: restart the game.
+
 ## 1.4.0 (2026-11-15)
 - Persuade, Intimidate and Deceive checks on the major people here, each with its own success and failure; lines and replies that depend on how warmly they regard you (disposition); a lead-in for "What do you know?".
 

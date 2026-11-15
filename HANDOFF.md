@@ -8,10 +8,10 @@ Short on purpose: current state and next step only. History is in `CHANGELOG.md`
 - Wants quick, efficient sessions: no constant re-validation; use `CLAUDE.md`'s checks.
 - Uses DialogueUI. Tests in game and sends screenshots.
 
-## State (0.34.0)
-- Core 0.34.0; every pack's version: `python3 tools/version.py`.
-- 0.34.0 (this release, the user asked for "further development of RPG elements" and "a button to ask about topics you've been exposed to, and prompt NPCs to see what they know"): "What do you know?" (standard topic `knows`), Ask list marks (what they know, nothing to say, heard from), topic count on the button, paged Ask list inside DialogueUI; disposition (DESIGN §3.12), identity tags, approval and check notes; ~80 Persuade/Intimidate/Deceive checks and disposition-gated lines across every pack; `knows` lead-ins for every role pool and ~250 named NPCs. Authored secrets are under "0.34.0" headings in the bibles.
-- Content: 44 packs; the depth rewrite is done for every Alliance zone and the Horde towns 30-60.
+## State (0.35.0)
+- Core 0.35.0; every pack's version: `python3 tools/version.py`. 47 folders (Blasted Lands, Azshara, Silithus new).
+- 0.35.0 (user asked for "a big content push", "work on the journal", then "I walk around Stormwind and can't talk to most people; add more NPCs, important and obscure"): citizens (any friendly person with no role is `citizen`, `Conv.IsCitizen`; 51 pools in `RPGDialogue_World/pools_citizens.lua`); ~100 new named NPCs (Stormwind 74 total now, Ironforge +23, Darkshire/Lakeshire/Southshore/Menethil +30, Darnassus +); three new zone packs; journal pages Stories and Heard of, People by zone (DESIGN §3.13); the diary writes itself (`Systems/Diary.lua`: NPC `impression` on every named NPC, `P:Arrival` per zone in `arrivals.lua`, deed lines); three new throughlines (`plague_cauldrons`, `dawn_letters`, `plague_light`; Benedictus ends the last by the player's answer).
+- Content: 47 packs; every Alliance zone and the Horde towns 30-60 meet the depth standard.
 - `check_all.py --release` fails until capture data replaces the TODO ids (by design).
 
 ## Standing decisions (confirm only if the user asks)
@@ -21,8 +21,8 @@ Short on purpose: current state and next step only. History is in `CHANGELOG.md`
 - "auto" with DialogueUI renders our conversations inside its window; Immersion: we step back.
 
 ## Not verified in game
-Disposition button tooltip (`GameTooltip:AddDoubleLine`) on the bottom bar; the DialogueUI paged Ask list in the real addon (tested against a stand-in only). Quest-item tooltips via `GameTooltip:SetQuestItem` from a hyperlink hover; the journal button's saved position; Shadowform as form 28; most of `Compat.lua` beyond `/rpgd probe`.
+Right-click on untitled townsfolk opening the box (citizen role via `UnitCreatureType`, which is localized: non-English clients may treat beasts as citizens); the journal button's count badge; Shadowform as form 28; most of `Compat.lua` beyond `/rpgd probe`; the DialogueUI paged Ask list in the real addon.
 
 ## Next step
-1. User installs 0.34.0 (**new core file: exit the game fully and restart**). Ask: does "What do you know?" feel useful (in DialogueUI too)? Is the disposition line welcome or clutter? Do the approval notes and [Priest] tags read well? Try a Persuade with Benedictus, Laurena or Bolvar.
-2. Then: depth for the Horde starting zones and capitals, new zones (Azshara, Alterac, Blasted Lands, Silithus), more `knows` lead-ins for minor named NPCs (they fall back to their role's), and any lines the user flags.
+1. User installs 0.35.0 (**three new folders and many new files: exit the game fully, copy in, tick them, restart**). Ask: walk Stormwind and right-click strangers: does the box open, and do the citizens sound right, or too samey? Open the journal: do Stories, People and Heard of earn their place? Is the diary filling in a way you like (impressions after first talks, zone arrivals), or too chatty?
+2. Then: more named NPCs in other towns (Goldshire, Sentinel Hill, Auberdine, Astranaar, Theramore, Booty Bay, Gadgetzan, Everlook), depth for the Horde starting zones and capitals, Alterac/Dalaran (Forever) once its NPCs are documented, Blackmaw Hold's quest givers (Azshara, Forever), and any lines the user flags.

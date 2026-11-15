@@ -2,6 +2,11 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.7.0 (2026-11-15)
+- 23 new people: the Mystic Ward's priests (High Priest Rohan, Theodrus Frostbeard, Toldren Deepiron, Braenna Flintcrag), Tiza and Muiredon Battleforge, Bink, Milstaff Stormeye; Sara Balloo and the Military Ward's trainers; Tinker Town (Overspark, Castpipe, Klockmort, Gnoarn); the Hall of Explorers and the Commons (Thorius, Mae Paledust, Karnik, Belgrum, Marblesten, Gryth Thurden, Hulfdan Blackbeard).
+- Every person writes a first impression in your diary.
+- New files: exit the game fully and restart.
+
 ## 1.6.0 (2026-11-15)
 - Persuade, Intimidate and Deceive checks on the major people here, each with its own success and failure; lines and replies that depend on how warmly they regard you (disposition); a lead-in for "What do you know?".
 

@@ -2,6 +2,13 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.23.0 (2026-11-15)
+- Citizens: anyone in the streets can now be talked to. 51 pools: every capital (Stormwind by district) and 42 towns.
+- Arrivals: a diary entry the first time you reach each of 48 zones, with faction variants.
+- Stories: titles and journal summaries for every throughline, and three new ones for the 45-60 road (the plague cauldrons, the Dawn's letters, the Light in the Plaguelands).
+- Towns and topics for the Blasted Lands, Azshara and Silithus.
+- New files: exit the game fully and restart.
+
 ## 1.22.0 (2026-11-15)
 - "What do you know?" lead-ins for every role pool, the generic fallback and the spirit healer; warm and cold versions of role answers by disposition.
 - The spirit healer's checks lose the written-in tags (the UI adds them now).
