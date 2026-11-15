@@ -268,7 +268,7 @@ P:NPC {
     },
     ort_why = {
       big = true,
-      lines = { { id = "ow_default", text = "All right, all right, put that look away! I had bad luck all my life, and they told me the end of the world would make sense of it, that it was all part of a plan. Then I watched them give a man to the elementals because he asked one question too many, and I ran that night, and I haven't stopped." } },
+      lines = { { id = "ow_default", text = "Put that look away! I'd had bad luck all my life, and they told me the end of the world would make sense of it. Then I watched them give a man to the elementals for asking one question too many, and I ran that night and haven't stopped." } },
       choices = {
         { text = "Running took courage, Ortell.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Joining took foolishness.", next = "BACK", fx = { trait = { stern = 1 } } },
