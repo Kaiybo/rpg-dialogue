@@ -2,6 +2,14 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.2.0 (unreleased)
+- Depth: Tyrande, Fandral, Mathrengyl, A'moora, Gracina and Saelienne are now conversations to explore, with a hub, branches two or three deep and "Something else" back to the start. Tyrande on Malfurion's barrow, immortality, the Warsong in Ashenvale, the Sentinels and Hyjal; Fandral on the dragons who refused his tree, Remulos, his vision for the kaldorei and Malfurion; Mathrengyl on the Great Bear Spirit and Auberdine's poisoned animals; A'moora on Lady Sathrah and Elune's warrior face; Gracina on the silithid (and on the Archdruid's certainty).
+- For a priest of the Light: Tyrande and A'moora greet human, dwarf and gnome priests as the Temple did in Year 1 (Priestess Alathea trained them), and each answers "Is the Light so different?" in their own way, without claiming the two faiths are one. Tyrande asks a priest in Shadowform to set it aside in the Temple.
+- Replies for druids (Fandral, Tyrande, Mathrengyl), night elf priests, humans (Tyrande remembers calling them mongrels before Hyjal), the Skyborne, and players who finished Reception from Tyrande, Rise of the Silithid or The Great Cat Spirit (Forever).
+- Ask about: every NPC has their own story and advice; Tyrande, Fandral and Gracina answer new topics (Malfurion, Teldrassil, the silithid) once the World pack adds them.
+- Year 1 fix: Tyrande calls Malfurion by name, not "husband" (they wed later).
+- Voice pass: every line now speaks in whole sentences; night elves sound old, calm and formal.
+
 ## 1.1.0 (unreleased)
 - Depth pass: repeat visits now bring personal lines (habits, worries, opinions of the neighbours), night-time lines, and a question or two about the person themselves, not only their quests.
 - Saelienne, Gracina, A'moora, Mathrengyl.

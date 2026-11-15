@@ -1,4 +1,6 @@
 -- Astranaar and Maestra's Post (Alliance). Voice: bibles/ashenvale.md
+-- Classic quests only: Trek to Ashenvale (Sentinel Selarin) is the road in, not the later
+-- Onward to Ashenvale; Faldreas sends travellers to Stonetalon Peak, not to the Edunes.
 local P = RPGDialogueAPI:Pack("rpgd.ashenvale")
 local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
@@ -9,17 +11,17 @@ P:NPC {
   notices = { "pet", "form", "class" },
 
   greetings = {
-    { id = "g_forest", text = "Ashenvale needs you. Truly. The forest needs every blade it can get, and every pair of eyes." },
-    { id = "g_back", when = { metBefore = true }, text = "Home from the trees. What did you see out there? Tell me everything." },
+    { id = "g_forest", text = "Ashenvale needs you, truly. The forest needs every blade it can get, and every pair of eyes." },
+    { id = "g_back", when = { metBefore = true }, text = "Home from the trees! Tell me what you saw out there, every bit of it." },
   },
 
   notice = {
     { id = "n_pet", cat = "pet", when = { pet = true },
-      text = "A good companion. Korra likes the look of it. Dagri's not sure yet. He's not sure about anyone, at first." },
+      text = "That's a good companion. Korra likes the look of it, though Dagri isn't sure yet; he's never sure about anyone at first." },
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
-      text = "A hunter. Then you know the forest isn't a place, it's a living thing. Help me keep it that way." },
+      text = "A hunter! Then you know the forest isn't a place but a living thing, so help me keep it that way." },
     { id = "n_druid", cat = "form", when = { class = "DRUID" },
-      text = "A druid. The trees will be glad of you. So will I. Something's making the furbolgs sick, and you'll see it sooner than I can." },
+      text = "A druid, and the trees will be glad of you. So will I, because something is making the furbolgs sick, and you'll see it sooner than I can." },
   },
 
   start = "hello",
@@ -27,47 +29,111 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Raene Wolfrunner. I command the scouts in Astranaar. The furbolgs are going mad to the north, the Horde is cutting the forest to the east, and I'd rather fight them all alone than watch another tree fall." },
-        { id = "h_trek", tags = { "news" }, when = { questActive = TODO_QUEST("Onward to Ashenvale") },
-          text = "Thundris sent you? Good, he said he would. There's more wrong in this forest than one scout can mend. Sit, and I'll tell you where to start." },
+          text = "I am Raene Wolfrunner, and I command the scouts of Astranaar. The furbolgs are going mad to the north and the Horde is cutting the forest to the east, and I would rather face them all alone than watch another tree fall." },
+        { id = "h_trek", tags = { "news" }, when = { questActive = TODO_QUEST("Trek to Ashenvale") },
+          text = "You've come from Darkshore, and Selarin sent you on quickly; good. I wish you'd come under happier circumstances, but there's more wrong in this forest than one scout can mend, so start by talking to the people of Astranaar." },
         { id = "h_aggressive", when = { questActive = TODO_QUEST("An Aggressive Defense") },
-          text = "The Foulweald have been falling on travellers along the roads. Thin their camp before they grow bold enough to come here." },
+          text = "The Foulweald have been falling on travellers along the road east, before the Falfarren River. Their camps are south of the road, so show them the same mercy they've shown our people." },
         { id = "h_cull", tags = { "news" }, when = { questActive = TODO_QUEST("Culling the Threat") },
-          text = "The Thistlefur grow in number every week, my scouts tell me. Dal Bloodclaw leads them. Bring him down, and the rest will scatter. Mostly." },
+          text = "My scouts say the Thistlefur north of Astranaar have grown greatly in number these past months, and if they grow much more they may find the courage to attack us. Bring me their chieftain Dal Bloodclaw's skull." },
         { id = "h_cleansing", tags = { "news" }, when = { questActive = TODO_QUEST("Raene's Cleansing") },
-          text = "Teronis was my friend. He was trying to learn why the furbolgs turned. Now he's dead in the forest and his work is scattered. Finish it. For him." },
+          text = "Teronis was my friend, and he died seeking a way to slow the furbolgs. I would rest much easier knowing his death was not in vain, so finish his work." },
         { id = "h_ran", when = { questDone = TODO_QUEST("Raene's Cleansing") },
-          text = "Ran Bloodtooth's skull hangs where the Thistlefur scouts can see it. I don't enjoy it. But they keep their distance now." },
+          text = "You took up Teronis's work when no one else would, and that means a great deal to me. He would have been proud of whoever finishes it." },
+        { id = "h_thundris", when = { heardLine = "thundris.h_ashenvale" },
+          text = "Thundris Windweaver sent you down from Auberdine? Then he thinks well of you, and he doesn't think well of many." },
+        { id = "h_priest", when = { class = "PRIEST" },
+          text = "A priest, good. My scouts come back from the Thistlefur hills with wounds that need more than bandages." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Korra's getting restless, and so am I." },
+        { id = "h_again2", text = "Ask away; I have a moment before the scouts report." },
       },
       choices = {
         { text = "Who are Korra and Dagri?", next = "pets" },
         { text = "Why are the furbolgs attacking?", next = "furbolgs" },
+        { text = "Tell me about Teronis.", next = "teronis" },
+        { text = "What about the Horde?", next = "horde" },
+        { text = "How do you keep two companions at once?", next = "hunter_r", when = { class = "HUNTER" } },
+        { text = "What do you need from a druid?", next = "druid_r", when = { class = "DRUID" } },
+        { text = "Do your scouts need a healer?", next = "priest_r", when = { class = "PRIEST" } },
         { text = "I'll help defend the forest.", next = "END", fx = { affinity = 2, standing = { astranaar = 1 } } },
       },
     },
     pets = {
-      lines = { { id = "p_default", text = "Korra's my wintersaber; Dagri's my wolf. They don't like each other much, but they like me, and they both hate furbolgs. That's enough for a family." } },
-      choices = { { text = "Good family.", next = "END", fx = { affinity = 1 } } },
+      lines = { { id = "p_default", text = "Korra is my saber cat and Dagri is my wolf. They don't like each other much, but they like me, and they both hate furbolgs, and that's enough for a family." } },
+      choices = {
+        { text = "Good family.", next = "BACK", fx = { affinity = 1 } },
+        { text = "How do they get along?", next = "pets2" },
+      },
+    },
+    pets2 = {
+      lines = { { id = "p2_default", text = "They tolerate each other for my sake, the way two old soldiers share a fire. It's more courtesy than either of them shows a furbolg." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     furbolgs = {
       big = true,
       lines = {
-        { id = "f_default", text = "They didn't use to. The furbolgs were peaceful, wise even, once. Something's poisoning them. Until I know what, I keep them away from the town with arrows." },
+        { id = "f_default", text = "They didn't use to. The furbolgs were peaceful once, even wise, but something is poisoning them, and until I know what it is, I keep them away from the town with arrows." },
       },
       choices = {
-        { text = "I'll find out what it is.", next = "END", fx = { affinity = 2, trait = { curious = 1 } } },
+        { text = "I'll find out what it is.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } },
         { text = "Why not just kill them all?", next = "all" },
       },
     },
     all = {
-      lines = { { id = "a_default", text = "Because they were our friends. And because something made them like this. I'd rather kill that." } },
-      choices = { { text = "...", next = "END" } },
+      lines = { { id = "a_default", text = "Because they were our friends, and because something made them like this. I would rather kill whatever that is." } },
+      choices = {
+        { text = "Fair.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    teronis = {
+      lines = { { id = "te_default", text = "He was a longtime friend, aiding the Sentinels here. He went looking for a gem for a rod made by Dartol, an evil wizard long dead, because he thought it could slow the furbolgs, and we found him dead on the shrine island in Lake Falathim." } },
+      choices = {
+        { text = "A dead wizard's rod?", next = "rod" },
+        { text = "I'm sorry for your loss.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+      },
+    },
+    rod = {
+      lines = { { id = "ro_default", text = "I know how it sounds. But Teronis believed the rod could let someone walk among the furbolgs as one of them and learn what poisoned them, and I trust what Teronis believed." } },
+      choices = {
+        { text = "Then I'll finish what he started.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "A wizard's tool sounds risky.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    horde = {
+      lines = { { id = "ho_default", text = "The Warsong cut to the east from their post at Splintertree, and my Sentinels answer every axe they swing. I would rather face them alone than watch them hack their way through these trees." } },
+      choices = {
+        { text = "Can't there ever be peace here?", next = "horde2" },
+        { text = "Then I'll fight them with you.", next = "BACK", fx = { affinity = 2, standing = { astranaar = 1 } } },
+      },
+    },
+    horde2 = {
+      lines = { { id = "ho2_default", text = "Perhaps, on the day they stop cutting. Ask Delgren at Maestra's Post; he's a human paladin who learned their tongue, and he'll give you a more patient answer than I can." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    hunter_r = {
+      lines = { { id = "hr_default", text = "With patience, and by never favouring one where the other can see. Your own companion will teach you the rest, if you let it." } },
+      choices = { { text = "I'll remember that.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    druid_r = {
+      lines = { { id = "dr_default", text = "Eyes that can see sickness. Walk the Thistlefur hills north of town and tell me whether the trees are sick too, or only the furbolgs." } },
+      choices = { { text = "I'll go and look.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } } },
+    },
+    priest_r = {
+      lines = { { id = "pr_default", text = "They always do. The ones who come back from the Thistlefur hills come back torn, and some nights Kimlya's inn is more hospice than inn, so sit with them if you have the time." } },
+      choices = { { text = "I'll go there now.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, standing = { astranaar = 1 } } } },
     },
   },
 
   topics = {
-    cenarion_circle = { { id = "tp_circle", text = "The druids could help here, if they'd look up from their arguments in Darnassus. A few have. Not enough." } },
-    _none = { { id = "tp_none", text = "Not mine to know. Ask a Sentinel. Or the trees, if you know how." } },
+    background = { { id = "tp_bg", text = "I'm a hunter of the Sentinels, and Ashenvale is the only home I care about. Korra and Dagri are all the family I need." } },
+    advice = { { id = "tp_ad", text = "Learn the forest as if it were part of you, and remember there is always more danger hidden in it than you can see." } },
+    furbolgs = { { id = "tp_furbolgs", text = "They were peaceful once, even wise. Something poisoned them, and I mean to find out what.", next = "furbolgs" } },
+    warsong = { { id = "tp_warsong", text = "Their axes are the sound I hate most in this whole forest." } },
+    cenarion_circle = { { id = "tp_circle", text = "The druids could help here, if they'd look up from their arguments in Darnassus. A few have, but not nearly enough." } },
+    _none = { { id = "tp_none", text = "That's not mine to know. Ask a Sentinel, or the trees, if you know how." } },
   },
 }
 
@@ -78,13 +144,13 @@ P:NPC {
   notices = { "class" },
 
   greetings = {
-    { id = "g_worried", text = "Please, speak softly. My daughter's sleeping. At least, I hope she's sleeping." },
-    { id = "g_back", when = { metBefore = true }, text = "Thank you for coming back. Every time someone comes back, I can breathe a little." },
+    { id = "g_worried", text = "Please, speak softly; my daughter is sleeping. At least, I hope she's sleeping." },
+    { id = "g_back", when = { metBefore = true }, text = "Thank you for coming back. Every time someone comes back, I can breathe a little easier." },
   },
 
   notice = {
     { id = "n_healer", cat = "class", when = { class = { "PRIEST", "DRUID", "PALADIN" } },
-      text = "You have healing in you. I can feel it. Would you look at her? Just look? I'll take anything." },
+      text = "You have healing in you; I can feel it. Would you look at her? Only look, please, and I'll be grateful for anything." },
   },
 
   start = "hello",
@@ -92,40 +158,67 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Pelturas Whitemoon. My daughter Relara has a fever no herb can touch, and nightmares she screams through. I'll try anything. I've tried most things." },
+          text = "I am Pelturas Whitemoon. My daughter Relara has a fever no herb can touch and nightmares that make her scream in her sleep, and I will try anything; I have tried most things already." },
         { id = "h_orendil", tags = { "news" }, when = { questActive = TODO_QUEST("Orendil's Cure") },
-          text = "Orendil Broadleaf knows healing better than anyone in the forest. Find him, please. Tell him it's a child." },
+          text = "This is from Orendil? His skill with herbs and healing is great, and this cure gives me hope where before I had very little." },
         { id = "h_tear", when = { questActive = TODO_QUEST("Elune's Tear") },
-          text = "Elune's Tear. If the Mother Moon weeps for anyone, let her weep for my girl." },
+          text = "Orendil's cure only slowed the sickness. He told me of Elune's Tear, a stone found only on the isle in Iris Lake, east of here, that washes corruption away, so please bring it to me." },
         { id = "h_stardust", when = { questActive = TODO_QUEST("The Ruins of Stardust") },
-          text = "Stardust, from the old ruins. For a poultice to bring her fever down. Hurry, if you can. Please." },
+          text = "The tear washed away some of the sickness and her nightmares have lessened, but the fever still rages. Orendil spoke of a frosted dust in the Ruins of Stardust to the south; bring me some, and I'll make a poultice." },
         { id = "h_moonstone", tags = { "news" }, when = { questActive = TODO_QUEST("Fallen Sky Lake") },
-          text = "A moonstone, from the Shadethicket Oracle at Fallen Sky Lake. It's the last piece. After this she'll be strong again. She has to be." },
+          text = "Her fever has passed, but she is so weak. We used to gather moonstones together at Fallen Sky Lake before the Shadethicket came, and now their Oracle hoards every one; I need one to give her strength back." },
         { id = "h_better", when = { questDone = TODO_QUEST("Fallen Sky Lake") },
-          text = "She's eating. She asked for honey cakes this morning. Honey cakes! I cried in front of the baker. I don't care who knows it." },
+          text = "She's eating! She asked for honey cakes this morning, and I cried in front of the baker, and I don't care who knows it." },
+      },
+      again = {
+        { id = "h_again", text = "Is there anything else? Forgive me, I keep listening for her." },
+        { id = "h_again2", text = "Go on, please. Talking helps with the waiting." },
       },
       choices = {
         { text = "What's wrong with her?", next = "wrong" },
+        { text = "Who is Orendil?", next = "orendil" },
+        { text = "Fallen Sky Lake?", next = "lake" },
+        { text = "Let me look at her.", next = "look", when = { class = { "PRIEST", "DRUID", "PALADIN" } } },
         { text = "I'll help.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
     wrong = {
       big = true,
       lines = {
-        { id = "w_default", text = "No one's sure. A fever that comes from magic, not sickness, and dreams that hurt her. Something in this forest reaches into sleep. I want it out of my daughter." },
+        { id = "w_default", text = "No one is sure. It's a fever that comes from magic rather than sickness, with dreams that hurt her, as if something in this forest reaches into sleep, and I want it out of my daughter." },
       },
       choices = {
-        { text = "We'll get it out.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "We'll get it out.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Something in the forest?", next = "forest" },
       },
     },
     forest = {
-      lines = { { id = "f_default", text = "The furbolgs went mad. The water's wrong in places. And now my girl dreams of things she's never seen. I'm not a druid. But I'm not a fool, either." } },
-      choices = { { text = "...", next = "END" } },
+      lines = { { id = "f_default", text = "The furbolgs went mad, the water is wrong in places, and now my girl dreams of things she has never seen. I'm no druid, but I'm not a fool either." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    orendil = {
+      lines = { { id = "o_default", text = "Orendil Broadleaf is a healer, and his skill with herbs is greater than anyone's in the forest. Each remedy he sends helps a little, and each time I pray it will be the last one we need." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    lake = {
+      lines = { { id = "l_default", text = "We used to go there together, she and I, and gather the fallen moonstones. Then the Shadethicket bog beasts came, and their Oracle took every stone for himself." } },
+      choices = {
+        { text = "Then I'll take one back.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    look = {
+      lines = { { id = "lo_default", text = "Would you really? Please be gentle with her. Whatever you can do, even if it only eases her for one night, I'll be grateful." } },
+      choices = {
+        { text = "I'll pray over her.", next = "BACK", fx = { affinity = 3, align = { light = 2 } } },
+        { text = "I'll do what I can.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+      },
     },
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "I'm Relara's father. That's all I am at the moment, and it's enough." } },
+    advice = { { id = "tp_ad", text = "Hold on to the people you love while you can. I'm learning that the hard way." } },
     _none = { { id = "tp_none", text = "I'm sorry, I can't think about anything else right now." } },
   },
 }
@@ -137,36 +230,67 @@ P:NPC {
   notices = { "pet" },
 
   greetings = {
-    { id = "g_sleep", text = "Is it morning? It's always dark when I wake up. Is Papa here?" },
-    { id = "g_better", when = { questDone = TODO_QUEST("Fallen Sky Lake") }, text = "Hello! I'm better. Papa says I mustn't run yet. I'm going to run anyway. Later." },
+    { id = "g_sleep", text = "Is it morning yet? It's always dark when I wake up... is Papa here?" },
+    { id = "g_better", when = { questDone = TODO_QUEST("Fallen Sky Lake") }, text = "Hello! I'm better now, and Papa says I mustn't run yet, but I'm going to run anyway, later." },
   },
 
   notice = {
     { id = "n_pet", cat = "pet", when = { pet = true },
-      text = "Is that yours? Can it come closer? I won't pull its ears. Promise." },
+      text = "Is that yours? Oh, can it come closer? I won't pull its ears, I promise!" },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "I'm Relara. I'm sick. Papa's fixing it. The dreams are bad, but you're not in them, so that's good." },
+        { id = "h_default", text = "I'm Relara, and I'm sick, but Papa's fixing it. The dreams are bad, but you're not in them, so that's good." },
         { id = "h_better", when = { questDone = TODO_QUEST("Fallen Sky Lake") },
-          text = "The bad dreams stopped. Now I just dream about honey cakes. Papa says that's normal. I think it's the best dream." },
-        { id = "h_sentinel", when = { metBefore = true }, text = "When I'm better, Papa says I can watch the Sentinels practise. I'm going to be a Sentinel. Or a hippogryph. Whichever one gets to fly." },
+          text = "The bad dreams stopped, and now I just dream about honey cakes. Papa says that's normal, but I think it's the best dream there is." },
+        { id = "h_sentinel", when = { metBefore = true }, text = "When I'm better, Papa says I can watch the Sentinels practise, and I'm going to be a Sentinel, or a hippogryph, whichever one gets to fly." },
+      },
+      again = {
+        { id = "h_again", text = "Are you still here? Good, then tell me something." },
+        { id = "h_again2", text = "Will you stay a little longer? Papa's busy talking to the Sentinels." },
       },
       choices = {
         { text = "What do you dream about?", next = "dreams", when = { questBefore = TODO_QUEST("Fallen Sky Lake") } },
+        { text = "What's your papa like?", next = "papa" },
+        { text = "Do you like the Sentinels?", next = "sentinels_r" },
+        { text = "Would you like to meet my companion?", next = "pet_r", when = { pet = true } },
         { text = "Get well soon.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
     dreams = {
-      lines = { { id = "d_default", text = "Everything's dark and twisty, and something's whispering. I don't like it. Can we talk about something else?" } },
-      choices = { { text = "Of course. Get some rest.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } } },
+      lines = { { id = "d_default", text = "Everything's dark and twisty, and something keeps whispering, and I don't like it... can we talk about something else?" } },
+      choices = {
+        { text = "Of course. Tell me about the Sentinels.", next = "sentinels_r", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Of course. Get some rest.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
+      },
+    },
+    papa = {
+      lines = { { id = "pa_default", text = "He's the best papa, and he knows everything except how to make the dreams stop. He used to take me to the lake to find moonstones, before the bog monsters came." } },
+      choices = {
+        { text = "Bog monsters?", next = "bog" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bog = {
+      lines = { { id = "bo_default", text = "Papa says they're called Shadethicket, and they're big and squelchy and they took all the moonstones, so when I'm better I'm going to go and tell them off." } },
+      choices = { { text = "I'll tell them off for you.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } } },
+    },
+    sentinels_r = {
+      lines = { { id = "se_default", text = "They're the bravest people in the whole forest, and they have owls and big cats! Raene's cat looked at me once, and I think she liked me." } },
+      choices = { { text = "I'm sure she did.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    pet_r = {
+      lines = { { id = "pe_default", text = "Yes, yes, please! Hello, {pet}, you're very handsome. Do you like honey cakes? Everybody should like honey cakes." } },
+      choices = { { text = "{pet} likes you.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } } },
     },
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "I'm Relara Whitemoon, and I live in Astranaar with Papa, and I'm going to be a Sentinel when I'm better." } },
+    advice = { { id = "tp_ad", text = "Always tell your papa when you have a bad dream, because he'll sit with you until morning." } },
     _none = { { id = "tp_none", text = "Papa would know. Papa knows everything except how to make the dreams stop." } },
   },
 }
@@ -178,30 +302,67 @@ P:NPC {
   notices = { "kit" },
 
   greetings = {
-    { id = "g_road", text = "Ishnu-alah, traveller. The roads out of Astranaar are long and not as safe as they look. Mind them." },
+    { id = "g_road", text = "Ishnu-alah, traveller. The roads out of Astranaar are long and not as safe as they look, so mind them." },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "Faldreas. I keep track of who's out on the roads and who should have come back by now. The list of the second kind is longer than I'd like." },
-        { id = "h_edunes", tags = { "news" }, when = { questActive = TODO_QUEST("Check in on the Edunes") },
-          text = "The Edunes haven't sent word in too long. Look in on them for me. I hope it's nothing. It's usually something." },
-        { id = "h_crossed", when = { metBefore = true }, text = "Three travellers came back yesterday. I crossed them off the list. Crossing names off the right way is the best part of my day." },
+        { id = "h_default", text = "I am Faldreas. I keep track of who goes out on the roads and who ought to have come back by now, and the second list is longer than I'd like." },
+        { id = "h_edunes", tags = { "news" }, when = { questActive = TODO_QUEST("Journey to Stonetalon Peak") },
+          text = "The forest spirits tell me you are brave and willing to travel. Take the Talondeep Path near Mystral Lake into the Stonetalon Mountains, then climb to Stonetalon Peak, where Keeper Albagorm is waiting for you." },
+        { id = "h_crossed", when = { metBefore = true }, text = "Three travellers came back yesterday and I crossed them off the list. Crossing names off the right way is the best part of my day." },
+        { id = "h_albagorm", when = { questDone = TODO_QUEST("Journey to Stonetalon Peak") },
+          text = "Keeper Albagorm sent word that you arrived, and that I'd listened well to the forest spirits. I usually do; they're better at keeping lists than I am." },
       },
-      choices = { { text = "Why keep the list?", next = "list" }, { text = "I'll keep my eyes open.", next = "END", fx = { affinity = 1 } } },
+      again = {
+        { id = "h_again", text = "What else? I've a list to keep." },
+        { id = "h_again2", text = "Ask, and then tell me where you're headed next, so I can write it down." },
+      },
+      choices = {
+        { text = "Why keep the list?", next = "list" },
+        { text = "The forest spirits speak to you?", next = "spirits" },
+        { text = "Where do the roads go from here?", next = "roads" },
+        { text = "I'm a long way from home. Will you remember me?", next = "far", when = { race = { "Human", "Dwarf", "Gnome" } } },
+        { text = "I'll keep my eyes open.", next = "END", fx = { affinity = 1 } },
+      },
     },
     list = {
       lines = {
-        { id = "l_remember", text = "Because someone has to remember who went out. If nobody remembers, nobody goes looking. I'd rather be the one who remembers." },
+        { id = "l_remember", text = "Because someone has to remember who went out. If nobody remembers, nobody goes looking, and I would rather be the one who remembers." },
       },
-      choices = { { text = "I'll check in when I'm back.", next = "END", fx = { affinity = 2, standing = { astranaar = 1 } } } },
+      choices = { { text = "I'll check in when I'm back.", next = "BACK", fx = { affinity = 2, standing = { astranaar = 1 } } } },
+    },
+    spirits = {
+      lines = { { id = "sp_default", text = "They whisper, mostly, and they aren't always clear, but they told me about you before you arrived. I've learned not to argue with them." } },
+      choices = {
+        { text = "What do they say about Ashenvale?", next = "spirits2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    spirits2 = {
+      lines = { { id = "sp2_default", text = "That it's hurting: the furbolgs in the north, the Horde's axes in the east, and Mystral Lake, which has come alive and attacks anyone on the path. I write it all down, like everything else." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
+    },
+    roads = {
+      lines = { { id = "ro_default", text = "South through the Talondeep Path to Stonetalon, west to Maestra's Post and the coast, and east toward the Horde's camps, which I'd advise against." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    far = {
+      lines = { { id = "fa_default", text = "I remember everyone who goes out, whatever their kingdom. Tell me where home is, so I know where to send word if I ever have to." } },
+      choices = {
+        { text = "Stormwind.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Ironforge, under the mountain.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Nowhere, these days.", next = "BACK", fx = { affinity = 2, trait = { cautious = 1 } } },
+      },
     },
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Raene would know. She knows everything that moves in this forest." } },
+    background = { { id = "tp_bg", text = "I keep the list of who's out on the roads. It's a small job, until someone doesn't come back." } },
+    advice = { { id = "tp_ad", text = "Tell someone where you're going before you go, and tell me, if there's no one else." } },
+    _none = { { id = "tp_none", text = "Raene would know; she knows everything that moves in this forest." } },
   },
 }
 
@@ -212,33 +373,55 @@ P:NPC {
   notices = { "weary" },
 
   greetings = {
-    { id = "g_rest", text = "Worn through, body and spirit both, by the look of you. Rest here a while. Elune keep your dreams gentle." },
-    { id = "g_home", when = { homeInn = { "Astranaar" } }, text = "Your bed's ready. The island's quiet tonight. The lake keeps the worst of the forest out." },
+    { id = "g_rest", text = "You look worn through, body and spirit both. Rest here a while, and may Elune keep your dreams gentle." },
+    { id = "g_home", when = { homeInn = { "Astranaar" } }, text = "Your bed's ready, and the island's quiet tonight; the lake keeps the worst of the forest out." },
   },
 
   notice = {
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.25 } },
-      text = "The furbolgs, was it? Or the Horde? Never mind. Sit. Whoever it was, they can't reach you in here." },
+      text = "Was it the furbolgs, or the Horde? Never mind; sit down, because whoever it was, they can't reach you in here." },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "Kimlya. I keep the inn for scouts, healers, travellers and the occasional lost adventurer. Most of them leave in better shape than they came." },
+        { id = "h_default", text = "I'm Kimlya, and I keep the inn for scouts, healers, travellers and the occasional lost adventurer. Most of them leave in better shape than they came." },
         { id = "h_relara", when = { heardLine = "pelturas.h_default" },
-          text = "So Pelturas told you. Poor man. I send broth up for little Relara every night. She doesn't eat it, but he does, and someone has to look after him." },
-        { id = "h_sentinel", when = { metBefore = true }, text = "A Sentinel fell asleep at that table last night, sitting up, spear still in her hand. I didn't have the heart to wake her." },
-        { id = "h_night", when = { timeOfDay = "night" }, text = "The lake's black as ink at night, and Astranaar's lanterns float on it. Prettiest thing in Ashenvale, and nobody stops to look." },
+          text = "So Pelturas told you about Relara. I send broth up for her every night, and she doesn't eat it, but he does, and someone has to look after him." },
+        { id = "h_sentinel", when = { metBefore = true }, text = "A Sentinel fell asleep at that table last night, sitting up with her spear still in her hand, and I didn't have the heart to wake her." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "The lake's black as ink at night, and Astranaar's lanterns float on it. It's the prettiest thing in Ashenvale, and nobody stops to look." },
+      },
+      again = {
+        { id = "h_again", text = "Anything else? Take your time; the fire's lit." },
       },
       choices = {
         { text = "Make this my home.", next = "BUSINESS" },
+        { text = "Who stays here?", next = "guests" },
+        { text = "How is Relara?", next = "relara_k" },
         { text = "Just resting.", next = "END" },
       },
+    },
+    guests = {
+      lines = { { id = "gu_default", text = "Raene's scouts, mostly, when they're back from the Thistlefur hills, and travellers waiting on the hippogryphs. The scouts pay their way in stories as often as in coin." } },
+      choices = {
+        { text = "Any stories worth hearing?", next = "story" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    story = {
+      lines = { { id = "st_default", text = "Only the worried kind, lately. The scouts say the Thistlefur grow bolder every month, and nobody laughs at the old jokes quite as much as they used to." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    relara_k = {
+      lines = { { id = "re_default", text = "Better some days and worse on others. Her father hardly sleeps, so I make sure he at least eats." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "I keep the inn on the island. There's not much more to me than a warm bed and a full pot." } },
+    advice = { { id = "tp_ad", text = "Sleep when you can and eat when you can, because Ashenvale gives you fewer chances than you'd think." } },
     _none = { { id = "tp_none", text = "Ask Raene, outside. She'll know, or she'll find out." } },
   },
 }
@@ -251,15 +434,17 @@ P:NPC {
   notices = { "class" },
 
   greetings = {
-    { id = "g_light", text = "Light keep you, friend! Maestra's Post bids you welcome. It's a long way from Lordaeron, but there's work for the righteous everywhere." },
-    { id = "g_human", when = { race = "Human" }, text = "Human! You've no idea how good that is to see, this far into elf country." },
+    { id = "g_light", text = "Light keep you, friend! Maestra's Post bids you welcome; it's a long way from home, but there's work for the righteous everywhere." },
+    { id = "g_human", when = { race = "Human" }, text = "A human! You've no idea how good that is to see, this far into elf country." },
   },
 
   notice = {
     { id = "n_paladin", cat = "class", when = { class = "PALADIN" },
-      text = "A brother of the Light! Which chapter? Doesn't matter. We'll trade stories later. For now, there's a cult to stop." },
+      text = "Another servant of the Light, and a paladin at that! We'll trade stories later, but for now there's a cult to stop." },
     { id = "n_warlock", cat = "class", when = { class = "WARLOCK" },
-      text = "Warlock. I'll be honest: my hand wants my hammer. I'll keep it still. You keep yours still too." },
+      text = "A warlock. I'll be honest: my hand wants my hammer, but I'll keep it still if you keep yours still too." },
+    { id = "n_priest", cat = "class", when = { class = "PRIEST" },
+      text = "A priest of the Light, out here! Bless you; I've been teaching young Balthule what I know of it, and I could use someone who knows it better." },
   },
 
   start = "hello",
@@ -267,41 +452,73 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Delgren, called the Purifier. Our company came to help the night elves against demons and the walking dead. We found a cult instead: the Dark Strand, nesting in the old tower to the north." },
+          text = "I'm Delgren, called the Purifier. Our company came to help the night elves against demons and the walking dead, and instead we found a cult, the Dark Strand, nesting in the old tower to the north." },
         { id = "h_tower", tags = { "news" }, when = { questActive = TODO_QUEST("The Tower of Althalaxx") },
-          text = "The Tower of Althalaxx. The Dark Strand gather there to call something they shouldn't. Balthule and Feero have their parts in this; I have mine. Will you take yours?" },
+          text = "The Dark Strand gather at the Tower of Althalaxx to work their warlock's magic. Balthule keeps watch there and Feero carries word to Auberdine, and I'd be glad of your help with the rest." },
         { id = "h_supplies", when = { questActive = TODO_QUEST("Supplies to Auberdine") },
-          text = "Supplies for Auberdine, across the water. The elves there have been generous to us. It's time we returned the favour." },
+          text = "Feero is carrying supplies and messages to Sentinel Starbreeze in Auberdine. The elves there have been generous to us, and it's time we returned the favour." },
         { id = "h_skyborne", when = { race = "Skyborne" },
-          text = "Sky-elves, truly! I'd heard. The Light shines in strange places these days. All the more reason to look for it." },
+          text = "Sky-elves, truly! I'd heard of you, and the Light shines in strange places these days, which is all the more reason to look for it." },
+      },
+      again = {
+        { id = "h_again", text = "What else, friend? The cult won't wait on us." },
+        { id = "h_again2", text = "Go on, I'm listening. The Light's in no hurry, even when I am." },
       },
       choices = {
         { text = "Who are the Dark Strand?", next = "strand" },
         { text = "Why learn Orcish?", next = "orcish" },
+        { text = "How do you find the night elves?", next = "elves_d" },
+        { text = "I'm a paladin too. How can I help?", next = "pal_d", when = { class = "PALADIN" } },
+        { text = "Would your company welcome a priest's blessing?", next = "priest_d", when = { class = "PRIEST" } },
         { text = "Light keep you.", next = "END", fx = { affinity = 1 } },
       },
     },
     strand = {
       big = true,
       lines = {
-        { id = "s_default", text = "A cult hungry for power that should have stayed lost, and willing to deal with demons to get it. I've seen what that bargain costs. They haven't, yet." },
+        { id = "s_default", text = "They're warlocks, hungry for power that should have stayed lost and willing to deal with demons to get it. I've seen what that bargain costs, but they haven't, yet." },
       },
       choices = {
-        { text = "Then we stop them.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Then we stop them.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Why do people join them?", next = "elves" },
       },
     },
     elves = {
-      lines = { { id = "e_default", text = "Grief and pride make fools of every people. Mine too. I don't judge anyone by their worst. I just stop it." } },
-      choices = { { text = "...", next = "END" } },
+      lines = { { id = "e_default", text = "Grief and pride make fools of every people, mine included. I don't judge anyone by their worst; I just stop it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     orcish = {
-      lines = { { id = "o_default", text = "Because one day there'll be peace, and someone will need to say so in both languages. I'd like to be there for it." } },
-      choices = { { text = "I hope you are.", next = "END", fx = { affinity = 2, align = { honor = 1 } } } },
+      lines = { { id = "o_default", text = "Many in my order scoffed when I chose to learn it, but understanding your enemy is half of beating him. Their writing's little better than a child's scribbles, mind you, though it served me well enough with the warlock Ilkrud's notes." } },
+      choices = {
+        { text = "Only to beat them?", next = "orcish2" },
+        { text = "Wise.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
+      },
+    },
+    orcish2 = {
+      lines = { { id = "o2_default", text = "For now, yes. If there's ever a day when it's good for more than that, I'll be glad I already know the words." } },
+      choices = { { text = "I hope that day comes.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } } },
+    },
+    elves_d = {
+      lines = { { id = "ed_default", text = "I was unused to their manners at first, I'll admit, but I've grown to respect them greatly as allies. They fight this forest's battles with more patience than we would ever have." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    pal_d = {
+      lines = { { id = "pd_default", text = "Then pray with me before you go into the satyrs' country, because their blood-soaked temples unsettle even seasoned fighters. After that, swing hard." } },
+      choices = { { text = "Let's pray, then.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } } },
+    },
+    priest_d = {
+      lines = { { id = "pq_default", text = "We'd be grateful for it. It's been months since anyone but me prayed over these lads, and I'm a better hammer than a priest." } },
+      choices = { { text = "Then gather them round.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, standing = { maestras_post = 1 } } } },
     },
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "I don't know, friend. But I'll pray on it, and that's a start." } },
+    background = { { id = "tp_bg", text = "I'm a paladin a long way from home, with a company that came to help our allies. That's all there is that matters." } },
+    advice = { { id = "tp_ad", text = "If you meet a warlock in these woods, assume he isn't alone." } },
+    dark_strand = {
+      { id = "tp_strandnext", text = "The cult at the Tower of Althalaxx. Ask, and I'll tell you what I know.", next = "strand" },
+      { id = "tp_strand", text = "Warlocks who think demons will keep their bargains. They're always wrong about that." },
+    },
+    _none = { { id = "tp_none", text = "I don't know, friend, but I'll pray on it, and that's a start." } },
   },
 }
