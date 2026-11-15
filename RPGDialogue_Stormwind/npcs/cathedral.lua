@@ -201,21 +201,64 @@ P:NPC {
           text = "He's alive. Grumblin', bruised, alive. I owe ye more than I can pay, an' I'm a dwarf, so I'll try anyway." },
         { id = "h_dwarf", when = { race = "Dwarf" },
           text = "A dwarf in the Cathedral. We're rarer here than ale. Glad tae see a friendly beard." },
+        { id = "h_priest", when = { class = "PRIEST" },
+          text = "Another o' the healers? Yer brothers here have patched me twice today. I'm mended. Save yer prayers for Henze." },
+      },
+      again = {
+        { id = "h_again", text = "Aye? What else?" },
+        { id = "h_again2", text = "Go on. Talkin' keeps me from pacin'." },
       },
       choices = {
         { text = "What were you investigating?", next = "proof" },
-        { text = "I'll bring him back.", next = "END", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Tell me about Henze.", next = "henze" },
+        { text = "What became of the Defias papers?", next = "script", when = { questDone = TODO_QUEST("The Symbol of Life") } },
+        { text = "Let me see to those wounds.", next = "priest", when = { class = "PRIEST" } },
+        { text = "I'll bring him back.", next = "END", when = { class = "PALADIN" }, fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll leave you be.", next = "END" },
       },
     },
     proof = {
       lines = {
-        { id = "p_default", text = "Who's feedin' the Defias, who's armin' them. Papers, mostly. Henze had the papers. That's why they went for him." },
+        { id = "p_default", text = "We'd heard the Defias were in Elwynn. Out on Heroes' Vigil we caught a pair o' them goin' over papers, so we went for the papers. Their wizards went for us." },
       },
-      choices = { { text = "Then the papers matter.", next = "END", fx = { learn = { "defias" } } } },
+      choices = {
+        { text = "Why you two?", next = "proof_why" },
+        { text = "Then the papers matter.", next = "BACK", fx = { learn = { "defias" } } },
+      },
+    },
+    proof_why = {
+      lines = { { id = "pw_default", text = "Because the King's advisors wouldnae believe the Defias were in Elwynn without proof in their hands. Henze an' me thought we'd put it there." } },
+      choices = { { text = "Brave of you.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    henze = {
+      lines = { { id = "he_default", text = "Henze Faulk. Stubborn as a rockslide an' braver than he's got sense for. He held them off on that island so I could run. So I ran." } },
+      choices = {
+        { text = "You had no choice.", next = "henze_guilt", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "You left him?", next = "henze_guilt", fx = { trait = { stern = 1 } } },
+      },
+    },
+    henze_guilt = {
+      big = true,
+      lines = { { id = "hg_default", text = "Aye. An' every night since, I've asked myself which o' us was the brave one. I know the answer. I dinnae like it." } },
+      choices = {
+        { text = "Running took courage too.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Then make it right.", next = "BACK", fx = { align = { honor = 1 }, trait = { stern = 1 } } },
+      },
+    },
+    script = {
+      lines = { { id = "sc_default", text = "Rall read it first, then it went up tae the King's advisors. Proof the Defias are in Elwynn, in their own hand. Let them call it rumour now.",
+        fx = { learn = { "defias" } } } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    priest = {
+      lines = { { id = "pr_default", text = "Ach, the Cathedral's priests have done what they can, an' it's plenty. If ye've Light tae spare, spend it on Henze. I'll live." } },
+      choices = { { text = "Then I'll pray for Henze.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } } },
     },
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "A dwarf who went lookin' for proof an' found more than he wanted. That's me lately. Ask me again when Henze is on his feet." } },
+    advice = { { id = "tp_ad", text = "If a friend tells ye tae run, run. Then come back with help. Dinnae skip the second part." } },
     defias = { { id = "tp_defias", text = "Organized, well-armed, an' meaner than they look. They look plenty mean." } },
     tome_of_divinity = { { id = "tp_tome", text = "Rall's book. I'm no paladin, but I've seen what it does tae the ones who finish it." } },
     _none = { { id = "tp_none", text = "Cannae help ye there. I'm a worrier, no' a scholar." } },
@@ -251,9 +294,19 @@ P:NPC {
         { id = "h_john", text = "John's up in Ironforge asking the dwarves for help. They're generous, once they've decided you're not a fool. It takes them a while." },
         { id = "h_war", when = { origin = "human_lordaeron_refugee" },
           text = "Some of my little ones came south from Lordaeron, same as you. They don't talk about it. Maybe you'd sit with them sometime." },
+        { id = "h_priest", when = { class = "PRIEST" },
+          text = "Oh, the little ones love a robe. Come by the orphanage, love, just past the Cathedral, and tell them a story with a happy ending. They're short of those." },
+      },
+      again = {
+        { id = "h_again", text = "What else, love? Quick, I've a hem to finish." },
+        { id = "h_again2", text = "Go on, I'm listening. My hands are busy, not my ears." },
       },
       choices = {
         { text = "How many children do you look after?", next = "children" },
+        { text = "Where's your husband?", next = "john" },
+        { text = "What do the children need most?", next = "needs" },
+        { text = "I came south from Lordaeron as a child.", next = "refugee", when = { origin = "human_lordaeron_refugee" } },
+        { text = "I sew, as it happens.", next = "sew", when = { profession = "Tailoring" } },
         { text = "I'll keep you in mind.", next = "END" },
       },
     },
@@ -262,17 +315,52 @@ P:NPC {
         { id = "c_default", text = "Too many, and not enough beds. The wars made orphans faster than anyone could build homes for them." },
       },
       choices = {
-        { text = "That's a hard thing.", next = "END", fx = { affinity = 2, trait = { kind = 1 }, align = { light = 1 } } },
+        { text = "That's a hard thing.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 }, align = { light = 1 } } },
         { text = "Someone should do something.", next = "someone" },
       },
     },
     someone = {
       lines = { { id = "s_default", text = "Someone is. Me. You're welcome to join in." } },
-      choices = { { text = "Ha. Fair.", next = "END", fx = { affinity = 1 } } },
+      choices = { { text = "Ha. Fair.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    john = {
+      lines = { { id = "j_default", text = "Ironforge, asking the dwarves for help. He writes that the beer is strong and the purses are slow to open. Then they open all the way." } },
+      choices = {
+        { text = "Is it enough?", next = "john_enough" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    john_enough = {
+      lines = { { id = "je_default", text = "It has been, every winter so far. Every winter I wonder whether this is the one it won't be. Then I go back to sewing." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
+    },
+    needs = {
+      lines = { { id = "n_default", text = "Shirts and trousers, mostly. They grow out of everything. Duthorian sends me his young paladins with linen. I'd take anyone's." } },
+      choices = {
+        { text = "Paladins bring you linen?", next = "needs_paladins" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    needs_paladins = {
+      lines = { { id = "np_default", text = "Part of their training. They come in proud and leave having hemmed a dozen sleeves. Best thing that could happen to them." } },
+      choices = { { text = "I can believe it.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    refugee = {
+      lines = { { id = "r_default", text = "Then tell me something, love. What helped you, that first winter here? I'll do more of it." } },
+      choices = {
+        { text = "Someone who didn't ask questions.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Bread, honestly.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } },
+      },
+    },
+    sew = {
+      lines = { { id = "se_default", text = "Then you know linen goes further than wool and wears out twice as fast. Bring me a few bolts sometime and I'll remember your name." } },
+      choices = { { text = "I'll bring some.", next = "BACK", fx = { affinity = 2, trait = { generous = 1 } } } },
     },
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "John's wife, and everything else the orphans need. There isn't time for more of a story than that, love. There's a hem waiting." } },
+    advice = { { id = "tp_ad", text = "Mend a thing before it tears all the way. Clothes, roofs, people. It's always cheaper early." } },
     tome_of_divinity = { { id = "tp_tome", text = "Duthorian's young paladins come to me. I put them to work. They go away a little kinder." } },
     _none = { { id = "tp_none", text = "Couldn't tell you, love. Ask me about children's sizes." } },
   },
@@ -310,14 +398,44 @@ P:NPC {
           text = "You look like you've got a nice house. With a fire. Cats love fires. Just saying." },
         { id = "h_bit", when = { metBefore = true }, text = "One of the kittens bit me today. I still love him. You should love him too." },
       },
+      again = {
+        { id = "h_again", text = "Do you want to hold her now? She's ready." },
+        { id = "h_again2", text = "She likes you. I can tell. She's purring. Or that's my tummy." },
+      },
       choices = {
         { text = "Let me see her.", next = "BUSINESS" },
+        { text = "Why won't your dad let you keep her?", next = "dad" },
+        { text = "Where do you walk her?", next = "walk" },
+        { text = "Shall I bless her?", next = "bless", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Sorry, Timmy.", next = "END" },
       },
     },
+    dad = {
+      lines = { { id = "d_default", text = "He keeps saying allergic. I don't know what it means. I don't think it has anything to do with kittens. And her sister needs a home too." } },
+      choices = {
+        { text = "Her sister?", next = "dad_sister" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dad_sister = {
+      lines = { { id = "ds_default", text = "There were two. Dad says no to both. That's two noes. I'm still working on him." } },
+      choices = { { text = "Good luck, Timmy.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    walk = {
+      lines = { { id = "w_default", text = "Along the canal from the Cathedral, over the bridges, through Old Town where the man shouts, then up by the dwarves. She likes the dwarves. They smell of smoke." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    bless = {
+      lines = { { id = "bl_default", text = "Does that make her holy? Holy kittens definitely need homes. That's in a book, probably." } },
+      choices = { { text = "It's in a book.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } } },
+    },
   },
 
-  topics = { _none = { { id = "t_none", text = "I don't know. Do you want a kitten, though?" } } },
+  topics = {
+    background = { { id = "tp_bg", text = "I'm Timmy. I'm nearly big. I find homes for kittens. That's my whole story so far." } },
+    advice = { { id = "tp_ad", text = "If you're sad, get a kitten. If you're happy, get a kitten. I have one, if you need one." } },
+    _none = { { id = "t_none", text = "I don't know. Do you want a kitten, though?" } },
+  },
 }
 
 -- The Cathedral's priest trainers and the Scarlet Crusade's emissary downstairs.

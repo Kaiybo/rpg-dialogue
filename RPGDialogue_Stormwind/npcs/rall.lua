@@ -44,41 +44,117 @@ P:NPC {
           text = "Daphne Stilwell's farm, above the Westfall shore. The Brotherhood wants it. Stand with her. She'll likely save you as often as you save her." },
         { id = "h_valor", when = { class = "PALADIN", minLevel = 20 },
           text = "There's another test when you're ready. A test of valor, not compassion. Most paladins prefer it. That's why it comes second." },
+        { id = "h_nobility", tags = { "news" }, when = { questActive = TODO_QUEST("The Tome of Nobility") },
+          text = "Arthur sent you. Good. Much has happened lately, and not all of it in the open. The Light has enemies closer to home than you'd like. Sit." },
+        { id = "h_priest", when = { class = "PRIEST" },
+          text = "You were taught that the Light is a gift, I expect. I teach that it's a test. We're both right, and the novices hate it." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Ask it straight." },
+        { id = "h_again2", text = "Go on. I've time for questions. Not for excuses." },
       },
       choices = {
         { text = "What does the Light ask of a paladin?", next = "ask" },
         { text = "Why test us at all?", next = "why" },
+        { text = "Tell me about the Tome of Divinity.", next = "tome" },
+        { text = "You spoke of a test of valor.", next = "valor", when = { class = "PALADIN", minLevel = 20 } },
+        { text = "Henze lives. What became of the Defias script?", next = "script", when = { questDone = TODO_QUEST("The Symbol of Life") } },
+        { text = "I was a squire when the Order fell.", next = "squire", when = { origin = "human_paladin_squire" } },
+        { text = "Do priests and paladins learn the same Light?", next = "priest", when = { class = "PRIEST" } },
         { text = "I'll go, Rall.", next = "END" },
       },
     },
+
     ask = {
       big = true,
       lines = {
         { id = "a_default", text = "Compassion. Patience. Bravery. In that order. Anyone can be made brave. The other two have to be chosen, every day." },
       },
       choices = {
-        { text = "Then I choose them.", next = "END", fx = { affinity = 2, align = { light = 2 }, trait = { pious = 1 } } },
+        { text = "Then I choose them.", next = "BACK", fx = { affinity = 2, align = { light = 2 }, trait = { pious = 1 } } },
         { text = "Bravery should come first.", next = "brave", fx = { trait = { brave = 1 } } },
       },
     },
     brave = {
       lines = { { id = "b_default", text = "Brave without patience is a dead knight. Brave without compassion is something worse. Think on it." } },
-      choices = { { text = "I will.", next = "END", fx = { align = { light = 1 } } } },
+      choices = {
+        { text = "Worse than dead?", next = "brave_worse" },
+        { text = "I will.", next = "BACK", fx = { align = { light = 1 } } },
+      },
     },
+    brave_worse = {
+      lines = { { id = "bw_default", text = "Brave men without compassion are how good orders become cruel ones. You've heard what the Scarlet Crusade does in the north, I take it.",
+        fx = { learn = { "scarlet_crusade" } } } },
+      choices = { { text = "I've heard.", next = "BACK", fx = { align = { light = 1 }, trait = { cautious = 1 } } } },
+    },
+
     why = {
       lines = {
         { id = "w_default", text = "Because a paladin left untested goes soft. The tasks keep you honest. They keep me honest too." },
       },
-      choices = { { text = "Fair.", next = "END", fx = { affinity = 1 } } },
+      choices = {
+        { text = "Who tests you?", next = "why_self" },
+        { text = "Fair.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    why_self = {
+      lines = { { id = "ws_default", text = "Every paladin I send out who comes back worse than they left. I keep count. It's a short list. I'd like it shorter." } },
+      choices = { { text = "I won't be on it.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } } },
+    },
+
+    tome = {
+      lines = { { id = "t_default", text = "Wilhelm puts the book in your hands; I set the tasks it asks for. Charity first, then a life held in your hands. The book only says what you should already know." } },
+      choices = {
+        { text = "Why charity first?", next = "tome_charity" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tome_charity = {
+      lines = { { id = "tc_default", text = "Because a paladin who won't kneel to sew a child's shirt has no business kneeling to the Light. Stephanie Turner has taught more of mine than I have." } },
+      choices = { { text = "Then I'll start there.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } } },
+    },
+
+    valor = {
+      lines = { { id = "v_default", text = "Daphne Stilwell's farm, in Westfall, above the shore. The Defias want it. Stand with her. Then her husband in Ironforge will want to hear it from you." } },
+      choices = {
+        { text = "Who's her husband?", next = "valor_jordan" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    valor_jordan = {
+      lines = { { id = "vj_default", text = "Jordan Stilwell, a smith. He was meant to be one of us, before his father's craft claimed him. One of the most faithful men I know, and he never took the oath." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+
+    script = {
+      lines = { { id = "sc_default", text = "Gazin brought it here, I read it, and it went up to the King's advisors. Proof in the Brotherhood's own hand. Nobody at court can call it rumour now.",
+        fx = { learn = { "defias" } } } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    squire = {
+      lines = { { id = "sq_default", text = "Your training stopped. Your oaths didn't. Then finish it here. The Order broke. The Light didn't." } },
+      choices = { { text = "I'm ready.", next = "BACK", fx = { affinity = 3, align = { light = 1, order = 1 } } } },
+    },
+
+    priest = {
+      lines = { { id = "pr_default", text = "Different first lessons. You begin with mercy and learn courage. We begin with courage and spend our lives learning mercy. Yours is the shorter road." } },
+      choices = {
+        { text = "It doesn't feel short.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Then I'll wait for you at the end of it.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } },
+      },
     },
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "A Knight of the Silver Hand whose work is making more of them. The rest of my story belongs to them.", next = "why" } },
+    advice = { { id = "tp_ad", text = "Help someone today who can't help you back. Then do it tomorrow. That's the whole of the lesson; the rest is practice." } },
     tome_of_divinity = {
-      { id = "tp_tome", text = "The Abbey's book. It's been to the Deadmines and back. Read it slowly. It took its time with us." },
+      { id = "tp_tome", text = "The Abbey's book. It's been to the Deadmines and back. Read it slowly. It took its time with us.", next = "tome" },
     },
     northshire_abbey = { { id = "tp_abbey", text = "Where most of us began. Brother Sammuel still teaches there. Listen to him; he doesn't repeat himself." } },
     defias = { { id = "tp_defias", text = "Lost men. Some can be found again. Most won't want to be." } },
+    scarlet_crusade = { { id = "tp_scarlet", text = "Brave men who forgot the first virtue. I test my paladins so they never do." } },
     _none = { { id = "tp_none", text = "That's not a matter for the Cathedral. Ask in the Trade District; they'll sell you an answer." } },
   },
 }
