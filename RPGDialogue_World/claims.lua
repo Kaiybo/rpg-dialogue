@@ -107,3 +107,10 @@ P:Claim {
   truthNote = "Canon: Tiffin was killed by a thrown rock while calming the rioting stonemasons, whose pay she had championed. Who threw it is never said. Lescovar, secretly allied with the Defias, uses it to defend the House.",
   open = true,
 }
+
+P:Claim {
+  id = "watchers_set_loose", by = "galiaan", truth = "true",
+  text = "Someone wound up the harvest watchers and set them on the farms.",
+  truthNote = "Wiley's Note (Classic): goblins built the metal monsters for the Defias to prey on farmers' superstitions. Galiaan can't prove it; Saldean doesn't know.",
+  exposedBy = { "gryan.wt_default" },
+}

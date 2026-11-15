@@ -89,3 +89,6 @@ P:Topic { id = "morbent_fel", keywords = { "Morbent" }, name = "Morbent Fel", ca
 P:Topic { id = "embalmer", keywords = { "Embalmer" }, name = "The Embalmer", category = "rumors", learned = "Lord Ello Ebonlocke, after the hermit's note" }
 P:Topic { id = "dark_riders", keywords = { "Dark Riders" }, name = "The Dark Riders", category = "threats", learned = "Sven Yorgen or Jitters" }
 P:Topic { id = "raven_hill", keywords = { "Raven Hill" }, name = "Raven Hill", category = "places", learned = "Darkshire, or the road west" }
+
+-- Westfall (Westfall pack 1.4.0)
+P:Topic { id = "deadmines", keywords = { "Deadmines" }, name = "The Deadmines", category = "places", learned = "Sentinel Hill, once the hideout is found" }
