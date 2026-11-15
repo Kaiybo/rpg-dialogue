@@ -10,14 +10,14 @@ P:NPC {
 
   greetings = {
     { id = "g_point", text = "Welcome tae Thorium Point. Everything that happens here, I'm responsible for. Including you, now." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again. Good. Ye're either useful or lost. I'm hopin' useful." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again, good. Ye're either useful or lost, an' I'm hopin' useful." },
   },
 
   notice = {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
-      text = "Ironforge, by yer beard. Our clans have bled each other for centuries. Up here, I've no time for it. Do ye?" },
+      text = "Ironforge, by yer beard. Our clans have bled each other for centuries, but up here I've no time for it; do ye?" },
     { id = "n_smith", cat = "profession", when = { profession = { "Blacksmithing", "Enchanting" } },
-      text = "A craftsman. Then ye'll understand us better than most. We were made tae forge, an' we forged for a tyrant. Now we choose." },
+      text = "A craftsman, then, an' ye'll understand us better than most. We were made tae forge, an' we forged for a tyrant, but now we choose." },
   },
 
   start = "hello",
@@ -25,11 +25,11 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Overseer Oilfist, of the Thorium Brotherhood. We're Dark Iron. We served Ragnaros in the depths of that mountain, makin' arms for his armies. Then we stopped." },
+          text = "Overseer Oilfist, of the Thorium Brotherhood. We're Dark Iron, an' we served Ragnaros in the depths o' that mountain, makin' arms for his armies, until we stopped." },
         { id = "h_kids", when = { metBefore = true },
-          text = "The young ones were playin' too near the lava spiders again. I've told Hansel tae deal with it. He was restin', he says. He's always restin'." },
+          text = "The young ones were playin' too near the lava spiders again, so I've told Hansel tae deal with it. He was restin', he says, but he's always restin'." },
         { id = "h_night", when = { timeOfDay = "night" },
-          text = "The forges never go cold, even now. Habit. Down in the mountain, cold forges meant punishment. We keep 'em lit for different reasons now." },
+          text = "The forges never go cold, even now, out o' habit. Down in the mountain, cold forges meant punishment, an' we keep 'em lit for different reasons now." },
       },
       again = { { id = "h_again", text = "Aye? Speak up over the forge." } },
       choices = {
@@ -44,7 +44,7 @@ P:NPC {
     escape = {
       big = true,
       lines = {
-        { id = "e_default", text = "We made our own way out. Enchanted gear, made at night, under the Firelord's own nose, piece by piece. When we had enough, we walked out of the depths and didnae look back. We settled across the gorge. Close enough tae the ore. Far enough tae sleep." },
+        { id = "e_default", text = "We made our own way out, with enchanted gear made at night under the Firelord's own nose, piece by piece. When we had enough, we walked out o' the depths an' didnae look back, an' we settled across the gorge, close enough tae the ore an' far enough tae sleep." },
       },
       choices = {
         { text = "That took courage.", next = "BACK", fx = { affinity = 3, trait = { brave = 1 } } },
@@ -53,23 +53,23 @@ P:NPC {
     },
     anyone = {
       lines = {
-        { id = "a_default", text = "Anyone who pays. Alliance, Horde, it makes no odds. We've had one master. We'll no' have another." },
+        { id = "a_default", text = "Anyone who pays, Alliance or Horde, it makes no odds. We've had one master, an' we'll no' have another." },
       },
       choices = { { text = "I understand.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } } },
     },
     trade = {
-      lines = { { id = "t_default", text = "The best steel this side o' the mountain, an' the plans for it, tae those who've earned our trust. Trust's dear here. Ye pay for it in deeds." } },
+      lines = { { id = "t_default", text = "The best steel this side o' the mountain, an' the plans for it, tae those who've earned our trust. Trust's dear here, an' ye pay for it in deeds." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     kin = {
-      lines = { { id = "k_default", text = "Still forgin' for the Firelord, still believin' he's a god. Some I knew by name. I don't say their names now. It's easier." } },
+      lines = { { id = "k_default", text = "They're still forgin' for the Firelord, still believin' he's a god. Some I knew by name, but I don't say their names now, because it's easier." } },
       choices = {
         { text = "Could they be freed?", next = "kin_free" },
         { text = "Something else.", next = "BACK" },
       },
     },
     kin_free = {
-      lines = { { id = "kf_default", text = "Some might, if they wanted it. Wantin' it is the hard part. We wanted it so badly we built our own way out. Most down there have forgotten how tae want." } },
+      lines = { { id = "kf_default", text = "Some might, if they wanted it, but wantin' it is the hard part. We wanted it so badly we built our own way out, an' most down there have forgotten how tae want." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
     },
     dwarf = {
@@ -89,7 +89,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "Born in the mountain, worked in the mountain, walked out o' the mountain. The last bit's the only part worth tellin'.", next = "escape" } },
     advice = { { id = "tp_ad", text = "Never trust a forge ye didnae light yerself." } },
-    dark_iron = { { id = "tp_dark_iron", text = "My kin. My shame and my sorrow. Most of them still bend the knee down there. I pray they'll stop. I've no' much hope." } },
+    dark_iron = { { id = "tp_dark_iron", text = "They're my kin, my shame an' my sorrow, an' most of them still bend the knee down there. I pray they'll stop, though I've no' much hope." } },
     _none = { { id = "tp_none", text = "If it's no' on the Point, it's no' my concern." } },
   },
 }
@@ -101,13 +101,13 @@ P:NPC {
   notices = { "race", "kit" },
 
   greetings = {
-    { id = "g_rest", text = "Och, what now? I'd just sat down. Fine. Fine! What is it?" },
-    { id = "g_back", when = { metBefore = true }, text = "You again! Good. Ye can do the thing they want me tae do. Everyone's happy." },
+    { id = "g_rest", text = "Och, what is it now, when I'd just sat down? Fine, fine, out with it." },
+    { id = "g_back", when = { metBefore = true }, text = "You again, good! Ye can do the thing they want me tae do, an' everyone's happy." },
   },
 
   notice = {
     { id = "n_orc", cat = "race", when = { race = { "Orc", "Tauren" } },
-      text = "Big, aren't ye? Folk say I'm built like an orc. I take it as a compliment. Do you?" },
+      text = "Big, aren't ye? Folk say I'm built like an orc, an' I take it as a compliment; do you?" },
   },
 
   start = "hello",
@@ -115,13 +115,13 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Hansel Heavyhands. I'm the one Lolo sends when somebody needs a firm word. Or a firm fist. I'm very firm. Also very tired." },
+          text = "Hansel Heavyhands. I'm the one Lolo sends when somebody needs a firm word, or a firm fist, an' I'm very firm, an' also very tired." },
         { id = "h_spiders", tags = { "news" }, when = { questActive = TODO_QUEST("Fiery Menace!") },
-          text = "The Overseer says the lava spiders are frightenin' the bairns. So now it's my job. Twenty of 'em. Ye do it. I'll supervise. From this chair." },
+          text = "The Overseer says the lava spiders are frightenin' the bairns, so now twenty of 'em are my job. Ye do it, an' I'll supervise from this chair." },
         { id = "h_incendosaurs", when = { questActive = TODO_QUEST("Incendosaurs? Whateverosaur is More Like It") },
-          text = "Incendosaurs. Fancy name for big burnin' lizards. Go an' put some out. Permanently." },
+          text = "Incendosaurs, they call 'em, which is a fancy name for big burnin' lizards. Go an' put some out, permanently." },
         { id = "h_tired", when = { metBefore = true },
-          text = "Ye know what the best part o' freedom is? Sittin' down whenever ye like. Nobody tells ye tae stand. Except the Overseer. An' Lolo. An' now you." },
+          text = "Ye know what the best part o' freedom is? Sittin' down whenever ye like, with nobody tellin' ye tae stand, except the Overseer, an' Lolo, an' now you." },
       },
       again = { { id = "h_again", text = "Aye? Ask quick, I've just got comfy." } },
       choices = {
@@ -133,38 +133,38 @@ P:NPC {
       },
     },
     resting = {
-      lines = { { id = "r_default", text = "Because for a long time I couldnae. Down in the mountain ye stood till ye dropped. Now I sit when I like. Every time I sit, it's a wee bit o' freedom." } },
+      lines = { { id = "r_default", text = "Because for a long time I couldnae. Down in the mountain ye stood till ye dropped, so now I sit when I like, an' every time I sit, it's a wee bit o' freedom." } },
       choices = {
         { text = "Then sit, Hansel.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     lolo = {
-      lines = { { id = "l_default", text = "Grand. Blind as a bat an' twice as stubborn. He always knows where I am. Says it's the snorin'. I don't snore." } },
+      lines = { { id = "l_default", text = "Grand, though he's blind as a bat an' twice as stubborn. He always knows where I am, an' says it's the snorin', but I don't snore." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     lizards = {
-      lines = { { id = "z_default", text = "Big as a cart, hot as a forge, an' stupid as a boot. The stupid's what makes 'em dangerous. They don't know tae run." } },
+      lines = { { id = "z_default", text = "Big as a cart, hot as a forge, an' stupid as a boot, an' the stupid's what makes 'em dangerous, because they don't know tae run." } },
       choices = {
         { text = "Why not deal with them yourself?", next = "lizards_why" },
         { text = "Something else.", next = "BACK" },
       },
     },
     lizards_why = {
-      lines = { { id = "zw_default", text = "I could. I'd have tae stand up, walk down the cliff, fight a lizard, walk back up the cliff. Or ye could. See? Teamwork." } },
+      lines = { { id = "zw_default", text = "I could, but I'd have tae stand up, walk down the cliff, fight a lizard an' walk back up the cliff, or ye could, an' that, ye see, is teamwork." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     wrestle = {
-      lines = { { id = "w_default", text = "Ha! Sit, then. No, ye sit. I'm already sittin'. That's my advantage. Ready? ...Ye nearly had me. Nearly." } },
+      lines = { { id = "w_default", text = "Ha! Sit, then... no, ye sit, since I'm already sittin', an' that's my advantage. Ready? ...Ye nearly had me there, nearly." } },
       choices = { { text = "Rematch, someday.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } } },
     },
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "Big, Dark Iron, free, an' tired. Mostly the last two.", next = "resting" } },
-    advice = { { id = "tp_ad", text = "Sit down whenever ye can. Ye never know when somebody'll make ye stand." } },
-    dark_iron = { { id = "tp_dark_iron", text = "They're no' us. We're nicer. An' we sit down more." } },
-    _none = { { id = "tp_none", text = "Couldnae tell ye. Couldnae be bothered, either. Ask Lolo." } },
+    background = { { id = "tp_ba", text = "Big, Dark Iron, free an' tired, an' mostly the last two.", next = "resting" } },
+    advice = { { id = "tp_ad", text = "Sit down whenever ye can, because ye never know when somebody'll make ye stand." } },
+    dark_iron = { { id = "tp_dark_iron", text = "They're no' us, for we're nicer, an' we sit down more." } },
+    _none = { { id = "tp_none", text = "Couldnae tell ye, an' couldnae be bothered either, so ask Lolo." } },
   },
 }
 
@@ -175,29 +175,29 @@ P:NPC {
   notices = { "drink", "stealth" },
 
   greetings = {
-    { id = "g_who", text = "Who goes there? Don't tell me. I'll know ye by yer step. Hmm. No idea. Who goes there?" },
-    { id = "g_back", when = { metBefore = true }, text = "Ah! I know that step now. Welcome back, friend. I never forget a footfall. Mostly." },
+    { id = "g_who", text = "Who goes there? No, don't tell me, I'll know ye by yer step... hmm, no idea at all. Who goes there?" },
+    { id = "g_back", when = { metBefore = true }, text = "Ah! I know that step now, so welcome back, friend, for I never forget a footfall, mostly." },
   },
 
   notice = {
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
-      text = "Ye've had a few! I can smell it. Good. A wee nip sharpens the nose. Mine's never been sharper." },
+      text = "Ye've had a few, I can smell it, an' good! A wee nip sharpens the nose, an' mine's never been sharper." },
   },
 
-  react = { { id = "r_stealth", on = "stealth", text = "Someone's sneakin'. Don't ask how I know. I've no eyes, but I've a nose like a hound an' ears like a bat." } },
+  react = { { id = "r_stealth", on = "stealth", text = "Someone's sneakin', an' don't ask how I know. I've no eyes, but I've a nose like a hound an' ears like a bat." } },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Lookout Captain Lolo Longstriker, at yer service. Blind as a mole, an' captain o' the lookouts. Don't laugh. Nobody's snuck up on the Point yet." },
+          text = "Lookout Captain Lolo Longstriker, at yer service, blind as a mole an' captain o' the lookouts. Don't laugh, for nobody's snuck up on the Point yet." },
         { id = "h_kalaran", key = true, when = { heardClaim = "kalaran_father" },
-          text = "That fellow southeast o' here, with the sad story about his father? I've never once smelled grief on him. Smelled somethin'. No' grief." },
+          text = "That fellow southeast o' here, with the sad story about his father? I've never once smelled grief on him; I smelled somethin', but no' grief." },
         { id = "h_maltorius", tags = { "news" }, when = { questActive = TODO_QUEST("WANTED: Overseer Maltorius") },
-          text = "Maltorius. Overseer o' the Dark Iron slaves in the Gorge, an' a cruel one. The poster's up. Bring me his head. I'll... know it when I feel it." },
+          text = "Maltorius is overseer o' the Dark Iron slaves in the Gorge, an' a cruel one. The poster's up, so bring me his head, an' I'll... know it when I feel it." },
         { id = "h_drink", when = { metBefore = true },
-          text = "Folk say I drink too much for a lookout. I say I'd see nothin' at all without it. They've no answer tae that. Neither have I, come tae think of it." },
+          text = "Folk say I drink too much for a lookout, an' I say I'd see nothin' at all without it. They've no answer tae that, an' neither have I, come tae think of it." },
       },
       again = { { id = "h_again", text = "Aye, aye, still here. I can hear ye fidgetin'." } },
       choices = {
@@ -210,7 +210,7 @@ P:NPC {
     },
     watch = {
       lines = {
-        { id = "w_default", text = "Wind on the cliff tells me what's comin' up the road. The forge tells me the time. Hansel's snorin' tells me where Hansel is. Between the lot of 'em, I see plenty." },
+        { id = "w_default", text = "The wind on the cliff tells me what's comin' up the road, the forge tells me the time, an' Hansel's snorin' tells me where Hansel is. Between the lot of 'em, I see plenty." },
       },
       choices = {
         { text = "Impressive.", next = "BACK", fx = { affinity = 2 } },
@@ -219,33 +219,33 @@ P:NPC {
     },
     watch_me = {
       lines = {
-        { id = "wm_default", text = "Light boots. Heavy purse. Ye stopped tae look at the lava twice on the way up. Everyone does, first time." },
-        { id = "wm_plate", when = { class = { "WARRIOR", "PALADIN" } }, text = "Plate. I heard ye a mile off. Don't take it personal. Ye're a walkin' bell." },
+        { id = "wm_default", text = "Light boots an' a heavy purse, an' ye stopped tae look at the lava twice on the way up. Everyone does, the first time." },
+        { id = "wm_plate", when = { class = { "WARRIOR", "PALADIN" } }, text = "Plate! I heard ye a mile off, an' don't take it personal, but ye're a walkin' bell." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     maltorius = {
-      lines = { { id = "m_default", text = "Overseer o' the slaves still workin' the Gorge for the Firelord's people. Whips, mostly. Ye can hear 'em from the cliff on a still night. I'd like tae stop hearin' 'em." } },
+      lines = { { id = "m_default", text = "He's overseer o' the slaves still workin' the Gorge for the Firelord's people, an' it's whips, mostly. Ye can hear 'em from the cliff on a still night, an' I'd like tae stop hearin' 'em." } },
       choices = { { text = "Something else.", next = "BACK", fx = { align = { light = 1 } } } },
     },
     kalaran = {
       big = true,
-      lines = { { id = "k_default", text = "Smoke. An' somethin' old. Like a cellar that's been shut a long while. Grief smells of salt an' sleeplessness. He doesnae smell of either." } },
+      lines = { { id = "k_default", text = "Smoke, an' somethin' old, like a cellar that's been shut a long while. Grief smells o' salt an' sleeplessness, an' he doesnae smell of either." } },
       choices = {
         { text = "Maybe your nose is wrong.", next = "BACK", fx = { trait = { kind = 1 } } },
         { text = "I'll keep my eyes open.", next = "BACK", fx = { trait = { skeptical = 1 }, affinity = 1 } },
       },
     },
     drink = {
-      lines = { { id = "d_default", text = "It helps me no' mind that I cannae see. Close enough. Don't tell the Overseer I said that." } },
+      lines = { { id = "d_default", text = "It helps me no' mind that I cannae see, which is close enough. Don't tell the Overseer I said that." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "Lookout since before I lost my eyes. Kept the job after. Nobody's dared take it off me." } },
-    advice = { { id = "tp_ad", text = "Listen more than ye look. Eyes lie. Wind doesnae." } },
-    _none = { { id = "tp_none", text = "Never seen it. Ha! Never seen anything. Ask someone else." } },
+    background = { { id = "tp_ba", text = "I was a lookout since before I lost my eyes, an' I kept the job after, for nobody's dared take it off me." } },
+    advice = { { id = "tp_ad", text = "Listen more than ye look, because eyes lie an' the wind doesnae." } },
+    _none = { { id = "tp_none", text = "Never seen it, ha, never seen anything! Ask someone else." } },
   },
 }
 
@@ -256,7 +256,7 @@ P:NPC {
   notices = { "class" },
 
   greetings = {
-    { id = "g_vengeance", text = "Another traveler. Good. I have need of someone with a strong arm and no love for the Dark Iron." },
+    { id = "g_vengeance", text = "Another traveler, good. I have need of someone with a strong arm and no love for the Dark Iron." },
   },
 
   notice = {
@@ -269,14 +269,14 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Kalaran Windblade. The Dark Iron took my father from me. Butchered him, here in this gorge. I mean to see them pay, and I can't do it alone.",
+          text = "I am Kalaran Windblade, and the Dark Iron took my father from me, butchered him, here in this gorge. I mean to see them pay, and I can't do it alone.",
           fx = { hear = "kalaran_father" } },
         { id = "h_retribution", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("Divine Retribution") }, { questActive = TODO_QUEST("The Flawless Flame") } } },
           text = "We'll need a flame that doesn't falter, and the means to carry it. Bring me what I ask, and I'll forge vengeance from it." },
         { id = "h_torch", when = { any = { { questActive = TODO_QUEST("The Torch of Retribution") }, { questActive = TODO_QUEST("Forging the Shaft") }, { questActive = TODO_QUEST("The Flame's Casing") } } },
           text = "The torch is nearly ready. Every piece you bring brings my father's killers closer to the reckoning they deserve." },
         { id = "h_father", when = { metBefore = true },
-          text = "I dream of him. Of what they did. You'd think the dreams would fade. They don't. Good. I don't want them to." },
+          text = "I dream of him, and of what they did. You'd think the dreams would fade, but they don't, and good; I don't want them to." },
       },
       again = { { id = "h_again", text = "What else? We have work to do." } },
       choices = {
@@ -289,7 +289,7 @@ P:NPC {
     },
     father = {
       lines = {
-        { id = "f_default", text = "He was... strong. Proud. The Dark Iron cut him down without a thought. That's all you need to know. That's all I'll say." },
+        { id = "f_default", text = "He was... strong, and proud, and the Dark Iron cut him down without a thought. That's all you need to know, and all I'll say." },
       },
       choices = {
         { text = "I'm sorry for your loss.", next = "BACK", fx = { affinity = 2 } },
@@ -297,30 +297,30 @@ P:NPC {
       },
     },
     father_push = {
-      lines = { { id = "fp_default", text = "It's the only story that matters. Where, when, how: none of it changes what's owed. Help me, or don't. I've no time for questions." } },
+      lines = { { id = "fp_default", text = "It's the only story that matters; where, when and how change nothing about what's owed. Help me or don't, but I've no time for questions." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { skeptical = 1 } } } },
     },
     which = {
-      lines = { { id = "w_default", text = "Does it matter? Dark Iron is Dark Iron. Those at the Point trade with anyone. They'd have traded with his killers, too." } },
+      lines = { { id = "w_default", text = "Does it matter? Dark Iron is Dark Iron, and those at the Point trade with anyone, so they'd have traded with his killers, too." } },
       choices = {
         { text = "The Brotherhood escaped the same masters.", next = "BACK", fx = { affinity = -1, align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     torch = {
-      lines = { { id = "t_default", text = "Burn. As he burned. Bring me the pieces and you'll see. You'll see a great deal, at the end." } },
+      lines = { { id = "t_default", text = "Burn, as he burned. Bring me the pieces and you'll see, and you'll see a great deal, at the end." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     lolo = {
-      lines = { { id = "l_default", text = "A blind drunk sniffs at me and you listen? Grief has no smell. It has a cost. I'm paying mine. Bring me what I asked for." } },
+      lines = { { id = "l_default", text = "A blind drunk sniffs at me and you listen? Grief has no smell; it has a cost, and I'm paying mine, so bring me what I asked for." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { skeptical = 1 } } } },
     },
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "My father's son. That is all I am until his killers are ash.", next = "father" } },
-    advice = { { id = "tp_ad", text = "Never forgive what was taken from you. Forgiveness is how they win." } },
-    dark_iron = { { id = "tp_dark_iron", text = "Murderers. Every one of them. Don't let the ones at Thorium Point fool you; it's in the blood." } },
-    _none = { { id = "tp_none", text = "That doesn't concern my vengeance. Nothing else matters." } },
+    background = { { id = "tp_ba", text = "I am my father's son, and that is all I am until his killers are ash.", next = "father" } },
+    advice = { { id = "tp_ad", text = "Never forgive what was taken from you, because forgiveness is how they win." } },
+    dark_iron = { { id = "tp_dark_iron", text = "Murderers, every one of them. Don't let the ones at Thorium Point fool you; it's in the blood." } },
+    _none = { { id = "tp_none", text = "That doesn't concern my vengeance, and nothing else matters." } },
   },
 }
