@@ -33,28 +33,89 @@ P:NPC {
           text = "East camp's the worst. Bring me their fins. Proof, and a warning to the rest." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Murloc Poachers"), days = 3 } },
           text = "The east shore's quiet. The fish don't know what to do with themselves." },
+        { id = "h_sunfish", when = { questActive = TODO_QUEST("Selling Fish") },
+          text = "Spotted sunfish, a good batch. Catch them yourself or take them off the murlocs. The fish won't mind which." },
         { id = "h_daniels", when = { heardLine = "daniels.h_default" },
           text = "Daniels told you his troubles? He's dry, I'm empty. Lakeshire's a lovely place for a holiday." },
         { id = "h_boats", when = { metBefore = true }, text = "Counted the boats this morning. All there. Counted the nets. All there. Something's about to go wrong, I can feel it." },
       },
+      again = {
+        { id = "h_again", text = "Anything else? Tide's out. Well, it's a lake. Nothing's out. Ask away." },
+        { id = "h_again2", text = "Go on, then. The boats can count themselves for a minute." },
+      },
       choices = {
         { text = "Is the lake really that bad?", next = "lake" },
+        { text = "Tell me about the sunfish.", next = "sunfish" },
+        { text = "Who crosses on your boats?", next = "boats" },
+        { text = "I fish. Where's the best water?", next = "fisher", when = { profession = "Fishing" } },
+        { text = "I've had my brew. Let's talk.", next = "brew", when = { drunk = { min = 1 } } },
         { text = "I'll leave you to your boats.", next = "END" },
       },
     },
+
     lake = {
       lines = {
         { id = "l_default", text = "Murlocs in the shallows, orcs on the far shore, and the fishermen tell stories about something big in the deep. I don't believe them. I don't swim out far, either." },
       },
-      choices = { { text = "Something big?", next = "big" } },
+      choices = {
+        { text = "Something big?", next = "big" },
+        { text = "Why are murlocs this far from the sea?", next = "inland" },
+      },
     },
     big = {
       lines = { { id = "b_default", text = "Every lake has a monster if you drink enough. Lake Everstill has a lot of drinkers." } },
-      choices = { { text = "Ha.", next = "END", fx = { affinity = 1 } } },
+      choices = { { text = "Ha.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    inland = {
+      big = true,
+      lines = { { id = "in_default", text = "That's what keeps me up. Murlocs belong on a coast. Either they walked a long way to eat my fish, or something drove them here." } },
+      choices = {
+        { text = "What could drive off a murloc?", next = "chase" },
+        { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } },
+      },
+    },
+    chase = {
+      lines = { { id = "ch_default", text = "Ask the deep water east of the bridge. I won't. Whatever lives out there, Oslow's toolbox is keeping it company." } },
+      choices = {
+        { text = "Maybe I'll swim out and see.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    sunfish = {
+      lines = { { id = "sf_default", text = "Spotted sunfish. Lake Everstill's pride, and there's always a buyer. I'm short, and the murlocs eat my stock before it's caught." } },
+      choices = {
+        { text = "I could bring you some.", next = "BUSINESS", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    boats = {
+      lines = { { id = "bo_default", text = "With the bridge out, everyone. Guards, grain, Oslow's crew. One boat went down under a catapult stone with Oslow's tools aboard. I still hear the crack some nights." } },
+      choices = {
+        { text = "Can the orcs reach the docks?", next = "docks" },
+        { text = "You should charge for passage.", next = "BACK", fx = { trait = { witty = 1 }, affinity = 1 } },
+      },
+    },
+    docks = {
+      lines = { { id = "dk_default", text = "They can see them, which is worse some days. I count my boats out under their eyes. They count them too, I reckon." } },
+      choices = {
+        { text = "Then I'll give them something else to count.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fisher = {
+      lines = { { id = "fi_default", text = "Off the end of this dock, if you like fish. Off the east shore past the murloc camps, if you like your fish to bite back." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    brew = {
+      lines = { { id = "br_default", text = "Ha! You took me at my word. Sit on that crate, then, and ask me anything that isn't about fish. I'll answer about fish anyway." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
     },
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "Dockmaster of Lakeshire. Boats, nets, weather. I've never wanted a bigger job; this one's big enough." } },
+    advice = { { id = "tp_ad", text = "Don't swim east of the bridge. Whatever's in the deep doesn't care who you are." } },
     murlocs_east = { { id = "tp_murlocs", text = "Elwynn's got them too? They must be breeding in the rivers. Lovely." } },
     blackrock = { { id = "tp_blackrock", text = "They don't fish. That's the only good thing I can say about them." } },
     everstill_bridge = { { id = "tp_bridge", text = "Until it's done, I'm the bridge. Every guard crosses on my boats. I should charge." } },

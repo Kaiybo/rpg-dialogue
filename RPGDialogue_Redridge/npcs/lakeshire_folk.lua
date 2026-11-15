@@ -29,16 +29,24 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Bailiff Conacher, of the Court of Lakeshire. The Magistrate rules; I see the rulings carried out. It's less glamorous than it sounds, and it doesn't sound glamorous." },
         { id = "h_law", tags = { "news" }, when = { questActive = TODO_QUEST("Solomon's Law") },
-          text = "Morganth commands the Shadowhide gnolls from the eastern hills. Aiding an enemy of the kingdom is a hanging matter under Lakeshire law. The Shadowhides have aided him. Bring me their pendants." },
+          text = "Morganth commands the Shadowhide gnolls from the eastern hills, and aiding an enemy of the kingdom is a hanging matter under Lakeshire law. Bring me their pendants." },
         { id = "h_law_done", when = { questDone = TODO_QUEST("Solomon's Law") },
           text = "The pendants are entered into evidence. All of them. The clerk has asked me, politely, to stop bringing him gnoll jewellery." },
         { id = "h_solomon", when = { heardLine = "solomon.s_default" },
           text = "The Magistrate told you about his letters. I carry them to the courier. They are very thorough letters. They come back very thin." },
         { id = "h_morning", when = { metBefore = true }, text = "Long morning. Short temper. Talk fast." },
       },
+      again = {
+        { id = "h_again", text = "The court will hear further business." },
+        { id = "h_again2", text = "Proceed. Briefly, if the court may ask." },
+      },
       choices = {
         { text = "What does a bailiff do?", next = "duty" },
         { text = "How is the town holding?", next = "town" },
+        { text = "Tell me about Magistrate Solomon.", next = "solomon" },
+        { text = "Theocritus says Morganth stole a book from Stormwind's mages.", next = "theft", when = { heardLine = "theocritus.mo_default" } },
+        { text = "I'm sworn to the Light, Bailiff.", next = "oath", when = { class = "PALADIN" } },
+        { text = "Was justice done, Bailiff?", next = "justice", when = { questDone = TODO_QUEST("Solomon's Law") } },
         { text = "Good day, Bailiff.", next = "END" },
       },
     },
@@ -47,21 +55,68 @@ P:NPC {
         { id = "d_default", text = "Serve writs, keep order in the hall, swear in witnesses. These days it's mostly writing death warrants for orcs who'll never read them." },
       },
       choices = {
-        { text = "Someone has to keep the law.", next = "END", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Someone has to keep the law.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
         { text = "Sounds like a lot of paper.", next = "paper" },
+        { text = "Who's on your docket?", next = "docket" },
       },
     },
     paper = {
       lines = { { id = "p_default", text = "Paper is how a town remembers it was a town. Without it we're a camp by a lake." } },
-      choices = { { text = "...", next = "END" } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    docket = {
+      lines = { { id = "dk_default", text = "Gath'Ilzogg, warlord. Fangore, gnoll. Morganth, sorcerer. Not one has answered a summons, and the court has stopped sending them." } },
+      choices = {
+        { text = "What's the charge against Morganth?", next = "law" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    law = {
+      big = true,
+      lines = {
+        { id = "lw_default", text = "Under the Law of Lakeshire, aiding an enemy of the kingdom carries death. Morganth is the enemy; the Shadowhides are the aid. The court finds the arithmetic simple.",
+          fx = { learn = { "morganth", "redridge_gnolls" } } },
+      },
+      choices = {
+        { text = "Then I'll carry out the sentence.", next = "BUSINESS", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Death for gnolls who follow orders?", next = "BACK", fx = { align = { light = 1 }, affinity = -1 } },
+      },
     },
     town = {
       lines = { { id = "t_default", text = "Holding. The court has ruled that it will continue to hold. The orcs have not yet been informed." } },
-      choices = { { text = "Ha.", next = "END", fx = { affinity = 1 } } },
+      choices = { { text = "Ha.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    solomon = {
+      lines = { { id = "so_default", text = "The Honourable Magistrate works longer than anyone in this hall, which the court considers improper. He writes every letter himself. I only carry them." } },
+      choices = {
+        { text = "Does anyone answer?", next = "answers" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    answers = {
+      lines = { { id = "an_default", text = "Politely. The court keeps a drawer for polite. It is a large drawer." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    theft = {
+      lines = { { id = "th_default", text = "Then the court adds theft to the warrant. A small charge beside the others, but the court likes a complete record." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    oath = {
+      lines = { { id = "oa_default", text = "Then you'll appreciate that the law is an oath too, only with more paperwork. Keep yours; I'll keep mine." } },
+      choices = { { text = "Agreed.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } } },
+    },
+    justice = {
+      lines = { { id = "ju_default", text = "Justice was carried out on the Shadowhides, by the record. Whether it was done is for the Light to say, not a bailiff." } },
+      choices = {
+        { text = "That's an honest answer.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "Bailiff to the Court of Lakeshire. I serve writs, swear in witnesses, and stand where the Magistrate points." } },
+    advice = { { id = "tp_ad", text = "Answer a court plainly. It saves everyone a morning." } },
     morganth = { { id = "tp_morganth", text = "A sorcerer in the eastern foothills, with the Shadowhides at his heel. Formally an enemy of the kingdom. Informally, worse." } },
     blackrock = { { id = "tp_blackrock", text = "Every warrant on my desk has a Blackrock name on it. Not one has been served." } },
     redridge_gnolls = { { id = "tp_gnolls", text = "Redridge gnolls, Shadowhide gnolls. The law makes a distinction. The gnolls don't." } },
@@ -97,8 +152,16 @@ P:NPC {
         { id = "h_assess_done", when = { questDone = TODO_QUEST("Assessing the Threat") },
           text = "Good work. It's in the report. If Stormwind reads past the first page, they'll be very worried. They won't read past the first page." },
       },
+      again = {
+        { id = "h_again", text = "What else? Quickly. I've lost count once today already." },
+        { id = "h_again2", text = "Go on. I'll keep one eye on the road." },
+      },
       choices = {
         { text = "How bad is it?", next = "bad" },
+        { text = "Why count gnolls at all?", next = "counting" },
+        { text = "Who watches the road south?", next = "parker" },
+        { text = "I'm good with numbers. Let me help.", next = "gnome", when = { race = "Gnome" } },
+        { text = "I counted them for you. What now?", next = "after", when = { questDone = TODO_QUEST("Assessing the Threat") } },
         { text = "Stay safe, Deputy.", next = "END" },
       },
     },
@@ -108,17 +171,63 @@ P:NPC {
         { id = "b_default", text = "Bad enough that if they push through here, there's nothing between them and Elwynn but farmers. And Elwynn doesn't know it." },
       },
       choices = {
-        { text = "Then we hold them here.", next = "END", fx = { affinity = 2, standing = { lakeshire = 1 }, learn = { "redridge_gnolls" } } },
+        { text = "Then we hold them here.", next = "BACK", fx = { affinity = 2, standing = { lakeshire = 1 }, learn = { "redridge_gnolls" } } },
         { text = "Elwynn has the city's guard.", next = "guard" },
+        { text = "What do you need from me?", next = "need" },
       },
     },
     guard = {
       lines = { { id = "g2_default", text = "Elwynn has a few men by a bridge and the Lion's Pride. I've been to Goldshire. I know." } },
-      choices = { { text = "...", next = "END" } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "lions_pride" } } } },
+    },
+    need = {
+      lines = { { id = "ne_default", text = "Numbers. Scout the southern road, thin the camps, and count what you see. I can't send men, so I'm sending you." } },
+      choices = {
+        { text = "I'll scout it.", next = "BUSINESS", fx = { affinity = 1, standing = { lakeshire = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    counting = {
+      lines = { { id = "c_default", text = "Because a report without numbers is a complaint. Stormwind ignores complaints. It ignores numbers more slowly." } },
+      choices = {
+        { text = "Who reads your reports?", next = "reports" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    reports = {
+      lines = { { id = "r_default", text = "The Marshal, then the Magistrate, then a courier, then someone in Stormwind who's very busy. I picture him often. He has a lovely desk." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    parker = {
+      lines = { { id = "pa_default", text = "Guard Parker, out at the Three Corners. He sends me word, and now and then somebody's lunch goes past me on its way to him." } },
+      choices = {
+        { text = "Just Parker? Alone?", next = "alone" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    alone = {
+      lines = { { id = "al_default", text = "Alone. That's our whole watch toward Elwynn: one guard and a crossroads. Don't repeat that." } },
+      choices = {
+        { text = "Your secret's safe.", next = "BACK", fx = { affinity = 1, learn = { "redridge_gnolls" } } },
+        { text = "Stormwind should hear that.", next = "BACK", fx = { opinion = { stormwind = "abandoned_its_own" } } },
+      },
+    },
+    gnome = {
+      lines = { { id = "gn_default", text = "Are you? Then tell me how many gnolls make a war. I've been trying to work it out, and every answer frightens me." } },
+      choices = {
+        { text = "More than you've got guards.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "Fewer than you fear. Count again.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+      },
+    },
+    after = {
+      lines = { { id = "af_default", text = "Now the count goes up the hill, and the Magistrate adds it to his letter. You've made the letter heavier. That's something." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "Deputy. South end of the bridge. I count." } },
+    advice = { { id = "tp_ad", text = "Stay on the road after dark. If the road's not safe, stay in town. If the town's not safe, tell me first." } },
     redridge_gnolls = { { id = "tp_gnolls", text = "Redridge clans, mostly. Bigger than the Riverpaw in Westfall, meaner than the Elwynn ones. They've started building." } },
     blackrock = { { id = "tp_blackrock", text = "The gnolls are the hands. I think the orcs are the arms. Don't tell anyone I said so until I can prove it." } },
     _none = { { id = "tp_none", text = "Not my patrol. Ask in town." } },
@@ -152,30 +261,80 @@ P:NPC {
         { id = "h_lunch", tags = { "news" }, when = { questActive = TODO_QUEST("A Free Lunch") },
           text = "Lunch? From Darcy? That's... that's very kind of her. Tell her it was very kind. No, tell her something better than that. I'll think of something." },
         { id = "h_herbalist", when = { questActive = TODO_QUEST("Visit the Herbalist") },
-          text = "Martie grows flowers by the lake. Ask her for something nice. For a thank-you. Don't make a thing of it." },
+          text = "Martie's garden, west end of town. Ask her for something nice. And don't tell her who it's from, or who it's for. Please." },
         { id = "h_after", when = { questDone = TODO_QUEST("Delivering Daffodils") },
           text = "She liked them? She said so? Good. Good. Eyes on the road, Parker. Eyes on the road." },
+      },
+      again = {
+        { id = "h_again", text = "Something else? Talk while I watch. I can do both. Mostly." },
+        { id = "h_again2", text = "Go on. My eyes are on the road, but my ears are yours." },
       },
       choices = {
         { text = "What's out on the road?", next = "road" },
         { text = "So, Darcy...", next = "darcy" },
+        { text = "What's the trouble in Redridge?", next = "trouble" },
+        { text = "Darcy made you lunch.", next = "lunch", when = { questActive = TODO_QUEST("A Free Lunch") } },
+        { text = "Darcy loved the daffodils.", next = "flowers", when = { questDone = TODO_QUEST("Delivering Daffodils") } },
         { text = "Carry on.", next = "END" },
       },
     },
     road = {
       lines = { { id = "r_default", text = "Gnolls in the hills, worse in the woods past the Duskwood line. Things come up out of that fog I don't have names for." } },
-      choices = { { text = "Stay sharp.", next = "END", fx = { learn = { "redridge_gnolls" } } } },
+      choices = {
+        { text = "Stay sharp.", next = "BACK", fx = { learn = { "redridge_gnolls" } } },
+        { text = "Gnolls this close to Elwynn?", next = "elwynn" },
+      },
+    },
+    elwynn = {
+      big = true,
+      lines = { { id = "e_default", text = "Camps north and east of here, more every week. If they push west, the first thing they find is Goldshire, and Goldshire's mostly farmers and one inn." } },
+      choices = {
+        { text = "I'll warn Deputy Feldon.", next = "BUSINESS", fx = { affinity = 1, standing = { lakeshire = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     darcy = {
       lines = { { id = "d_default", text = "Darcy's a friend. A good friend. She works at the inn. That's all there is to say. Why, has she said something?" } },
       choices = {
-        { text = "She asks after you.", next = "END", fx = { affinity = 2 } },
-        { text = "Nothing at all.", next = "END", fx = { affinity = -1 } },
+        { text = "She asks after you.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Nothing at all.", next = "BACK", fx = { affinity = -1 } },
+        { text = "You could just tell her.", next = "tell" },
+      },
+    },
+    tell = {
+      lines = { { id = "t_default", text = "Tell her what? I'm on this road from dawn to dark. Eye on the job. ...Flowers, maybe. Flowers say things so you don't have to." } },
+      choices = { { text = "Flowers, then.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } } },
+    },
+    trouble = {
+      lines = {
+        { id = "tr_default", text = "Ill times. The Blackrock hold Stonewatch, the Shadowhides crowd round their tower, and the Redridge pack grows every season. I hope you didn't come for a holiday.",
+          fx = { learn = { "blackrock", "redridge_gnolls" } } },
+      },
+      choices = {
+        { text = "Which is worst?", next = "worst" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    worst = {
+      lines = { { id = "w_default", text = "Whichever's closest to my road that night. Tonight I'd say the gnolls. Ask me again at dawn." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    lunch = {
+      lines = { { id = "l_default", text = "She did? It's still warm. Tell her thank you. Properly. Not the way I just said it." } },
+      choices = { { text = "I'll tell her properly.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    flowers = {
+      lines = { { id = "f_default", text = "She did? She said so? ...Daffodils. I only asked Martie for something nice. Huh. Martie picked daffodils." } },
+      choices = {
+        { text = "Martie's favourites, I hear.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "Stormwind guard. They gave me a road and told me to watch it. I'm watching it." } },
+    advice = { { id = "tp_ad", text = "Eye on the job. Everything else is how you get jumped." } },
     redridge_gnolls = { { id = "tp_gnolls", text = "They move at dusk and they're getting bolder. Last week one came right down to the road and looked at me. Just looked." } },
     worgen = { { id = "tp_worgen", text = "Heard them, past the line. Never seen one. I'd like to keep it that way." } },
     _none = { { id = "tp_none", text = "I just walk the road. Ask in Lakeshire." } },
@@ -208,7 +367,7 @@ P:NPC {
         { id = "h_lunch", tags = { "news" }, when = { questActive = TODO_QUEST("A Free Lunch") },
           text = "It's only lunch. For Parker, out on the road. He forgets to eat. Somebody has to remember for him. Don't tell him I said that." },
         { id = "h_daffodils", tags = { "news" }, when = { questActive = TODO_QUEST("Delivering Daffodils") },
-          text = "Daffodils! From Parker? Oh. Oh, they're lovely. They're Martie's favourites, though. Did she pick these? On purpose?" },
+          text = "Daffodils! From Parker? Oh, they're lovely. They're Martie's favourites, though. Did she pick these? On purpose?" },
         { id = "h_after", when = { questDone = TODO_QUEST("Delivering Daffodils") },
           text = "They're in a jar on the windowsill. I've moved them twice. Don't say anything." },
         { id = "h_parker", when = { heardLine = "parker.h_default" },
@@ -216,23 +375,78 @@ P:NPC {
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "Is it true your folk wear feathers in your hair? Hippogryph, a traveller told me. I'd never get them to stay put." },
       },
+      again = {
+        { id = "h_again", text = "What else, love? The tables can wait a minute." },
+        { id = "h_again2", text = "Go on. I'm all ears. Ears and plates." },
+      },
       choices = {
         { text = "Anything good tonight?", next = "food" },
         { text = "Heard any gossip?", next = "gossip" },
+        { text = "So... Parker.", next = "parker" },
+        { text = "I delivered the lunch. He ate every bite.", next = "lunch_done", when = { questDone = TODO_QUEST("A Free Lunch") } },
+        { text = "Do you like the daffodils?", next = "daffodils", when = { questDone = TODO_QUEST("Delivering Daffodils") } },
         { text = "Just passing through.", next = "END" },
       },
     },
     food = {
       lines = { { id = "f_default", text = "Whatever Breanna's making, and she's making goulash. She's always making goulash. You'll like it. Everyone pretends not to, then has seconds." } },
-      choices = { { text = "Goulash it is.", next = "END", fx = { affinity = 1 } } },
+      choices = {
+        { text = "Goulash it is.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Who's Breanna?", next = "breanna" },
+      },
+    },
+    breanna = {
+      lines = { { id = "br_default", text = "Chef Breanna, up the north end. She fed the whole Stormwind brigade through the last attack, and her cupboard's never recovered." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     gossip = {
       lines = { { id = "g2_default", text = "Martie's boar's been in her garden again. The Marshal's named it. Bellygrub. Now nobody can take it seriously, which is a problem, because it's enormous." } },
-      choices = { { text = "Ha.", next = "END", fx = { affinity = 1 } } },
+      choices = {
+        { text = "Ha.", next = "BACK", fx = { affinity = 1 } },
+        { text = "What about Martie herself?", next = "martie" },
+      },
+    },
+    martie = {
+      lines = { { id = "m_default", text = "Martie Jainrose? Sweet as honey to your face. I'd count my flowers after, that's all." } },
+      choices = {
+        { text = "That's unkind, Darcy.", next = "BACK", fx = { affinity = -1, trait = { kind = 1 } } },
+        { text = "You think she likes Parker?", next = "martie_parker" },
+      },
+    },
+    martie_parker = {
+      lines = { { id = "mp_default", text = "Everyone likes Parker. That's the trouble with Parker." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    parker = {
+      lines = { { id = "p_default", text = "Parker's a big, brave Stormwind guard who forgets his own lunch. Somebody has to remember. That's all it is." } },
+      choices = {
+        { text = "That's all?", next = "parker_all" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    parker_all = {
+      lines = { { id = "pa_default", text = "That's all! ...Mostly. Don't you dare tell him." } },
+      choices = {
+        { text = "Not a word.", next = "BACK", fx = { affinity = 2 } },
+        { text = "He might want to know.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
+    lunch_done = {
+      lines = { { id = "ld_default", text = "Every bite? Did he say anything? What did he say, exactly? Word for word, please." } },
+      choices = {
+        { text = "That you have a kind heart.", next = "BACK", fx = { affinity = 3 } },
+        { text = "He said it was tough work, guarding.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    daffodils = {
+      lines = { { id = "da_default", text = "I love them. They're Martie's favourites, though, and I can't stop wondering whether she knew. If they wilt early, I'll know why." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "I carry plates at the inn. Everyone talks to the one carrying the plates." } },
+    advice = { { id = "tp_ad", text = "Eat before you go out there. Nobody fights well hungry. Parker certainly doesn't." } },
     blackrock = { { id = "tp_blackrock", text = "Every soldier who comes through here talks about them and then orders a second drink. That tells you enough." } },
     _none = { { id = "tp_none", text = "Couldn't say, love. I just carry the plates. Ask Daniels, he hears more." } },
   },
@@ -264,21 +478,48 @@ P:NPC {
       lines = {
         { id = "h_default", text = "Martie Jainrose. I keep the garden by the lake and grow what the town needs. Herbs for the healer, flowers for nobody in particular." },
         { id = "h_boar", tags = { "news" }, when = { questActive = TODO_QUEST("An Unwelcome Guest") },
-          text = "That boar. That great fat boar. The Marshal calls it Bellygrub, as if it's a pet. It's trampled the beds I'd dug for new daffodils. That's a season gone. Bring me its tusk." },
+          text = "That great fat boar the Marshal calls Bellygrub has trampled the beds I'd dug for daffodils. That's a season gone. Bring me his tusk." },
         { id = "h_boar_done", when = { questDone = TODO_QUEST("An Unwelcome Guest") },
           text = "No more hoofprints. I keep looking for them, out of habit. I almost miss the brute. No, I don't." },
         { id = "h_parker", tags = { "news" }, when = { questActive = TODO_QUEST("Visit the Herbalist") },
-          text = "Flowers from Parker? How sweet. For... oh. For Darcy. Of course they are. Daffodils, then. Never mind which are my favourites." },
+          text = "Flowers? You've hardly arrived and you're buying flowers. Somebody's caught your eye. Daffodils, then; they're my favourite." },
+      },
+      again = {
+        { id = "h_again", text = "Anything else, dear? Mind the seedlings." },
+        { id = "h_again2", text = "Go on. The weeds will wait. They always do." },
       },
       choices = {
         { text = "What grows well here?", next = "grow" },
+        { text = "Tell me about Bellygrub.", next = "boar" },
         { text = "You seem sad about the flowers.", next = "sad" },
+        { text = "I'm an herbalist too.", next = "herbs", when = { profession = "Herbalism" } },
+        { text = "Your garden's struggling. Let me listen to it.", next = "druid", when = { class = "DRUID" } },
+        { text = "The daffodils were from Parker. For Darcy.", next = "told", when = { questDone = TODO_QUEST("Delivering Daffodils") },
+          fx = { align = { honor = -1 } } },
         { text = "Good day.", next = "END" },
       },
     },
     grow = {
       lines = { { id = "g_default", text = "Peacebloom, silverleaf, a little briarthorn by the wall. Anything, really, if the boars and the orcs leave it alone." } },
-      choices = { { text = "Thanks.", next = "END" } },
+      choices = {
+        { text = "Thanks.", next = "BACK" },
+        { text = "Who uses your herbs?", next = "buyers" },
+      },
+    },
+    buyers = {
+      lines = { { id = "bu_default", text = "Whoever's doing the healing, which is everyone lately. Peacebloom for the guards' cuts, silverleaf for the kitchen. Alma teaches the craft, if you want it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    boar = {
+      lines = { { id = "bo_default", text = "That forsaken boar roots in the field southwest of town and comes calling at night. The Marshal gave him a name, so now he's a character instead of a menace." } },
+      choices = {
+        { text = "I'll deal with him.", next = "BUSINESS", fx = { affinity = 1, standing = { lakeshire = 1 } } },
+        { text = "Why not let him be?", next = "boar_be" },
+      },
+    },
+    boar_be = {
+      lines = { { id = "bb_default", text = "Because I can't replant until next season now. Let him be, and there'll be no next season either." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     sad = {
       big = true,
@@ -286,12 +527,37 @@ P:NPC {
         { id = "s_default", text = "Sad? No. A garden teaches you that some things you plant come up in someone else's yard. That's all. Pass me that trowel, would you?" },
       },
       choices = {
-        { text = "Here you are.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Here you are.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Is it about Parker?", next = "parker" },
+      },
+    },
+    parker = {
+      lines = { { id = "pk_default", text = "Parker? He walks past the garden twice a day and says the weather's fine. It always is, when he says it." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
+    },
+    herbs = {
+      lines = { { id = "hb_default", text = "Then you'll know peacebloom bruises if you look at it wrong. Come and look at the silverleaf and tell me why it's sulking." } },
+      choices = {
+        { text = "Too much shade, I'd say.", next = "BACK", fx = { affinity = 2 } },
+        { text = "It's sulking because of the boar.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+      },
+    },
+    druid = {
+      lines = { { id = "dr_default", text = "Well? What's it saying? Don't tell me it's the boar. I know it's the boar." } },
+      choices = { { text = "It's the boar.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } } },
+    },
+    told = {
+      lines = { { id = "to_default", text = "Ah. For Darcy. Of course they were. Well. They'll look lovely on her windowsill." } },
+      choices = {
+        { text = "I'm sorry, Martie.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "I keep the garden at the west end of town. It keeps me, too, some years." } },
+    advice = { { id = "tp_ad", text = "Plant early, weed young, and never let a soldier name your boar." } },
     blackrock = { { id = "tp_blackrock", text = "They burned a farm last month. Smoke all day. You could smell it over the lake." } },
     redridge_gnolls = { { id = "tp_gnolls", text = "They've never come for the garden. Small mercies. The boar's worse." } },
     _none = { { id = "tp_none", text = "I'm only a gardener, dear. Ask the Magistrate." } },
@@ -322,34 +588,81 @@ P:NPC {
       lines = {
         { id = "h_default", text = "Breanna. I feed every soldier Stormwind's stationed in Lakeshire, and they're hungry, and there aren't nearly enough of them. Both of those are problems." },
         { id = "h_goulash", tags = { "news" }, when = { questActive = TODO_QUEST("Redridge Goulash") },
-          text = "Goulash for the garrison. I need meat, and the snouts off the big goretusks. Don't make that face. It's where the flavour lives." },
+          text = "Goulash? My cupboard's bare; I fed the whole Stormwind brigade through the last attack. Bring me condor, spider and goretusk snouts, and your bowl's the first one filled." },
         { id = "h_goulash_done", when = { questDone = TODO_QUEST("Redridge Goulash") },
-          text = "The whole garrison's eaten twice today. First time in weeks. You'd think they'd won a battle, the way they were singing." },
+          text = "The pot's full again. You had your bowl, the garrison smelled the rest and lined up. That's how goulash works." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "Elves eat goulash? Course you do. Everyone eats goulash in Lakeshire. It's that or the lake." },
       },
+      again = {
+        { id = "h_again", text = "What else? Talk while I chop." },
+        { id = "h_again2", text = "Go on. The onions won't cut themselves, but they'll wait." },
+      },
       choices = {
         { text = "How are the soldiers?", next = "soldiers" },
+        { text = "What goes in the goulash?", next = "goulash" },
+        { text = "Who works your kitchen?", next = "kitchen" },
+        { text = "I cook. Can I lend a hand?", next = "cook", when = { profession = "Cooking" } },
+        { text = "Shall I bless the pot?", next = "priest", when = { class = "PRIEST" } },
         { text = "Smells good.", next = "END", fx = { affinity = 1 } },
       },
     },
     soldiers = {
       big = true,
       lines = {
-        { id = "s_default", text = "Tired. Thin. They eat like it might be the last hot meal, and some days it is. Stormwind keeps promising more of them. I keep cooking for the ones I've got." },
+        { id = "s_default", text = "Tired and thin. They eat like it might be their last hot meal, and some days it is. Stormwind keeps promising more of them; I keep cooking for the ones I've got." },
       },
       choices = {
-        { text = "They're lucky to have you.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "They're lucky to have you.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "More are coming.", next = "coming" },
+        { text = "How many do you feed?", next = "count" },
       },
     },
     coming = {
       lines = { { id = "c_default", text = "So everyone says. I'll set an extra pot on when I see them on the bridge. Not before." } },
-      choices = { { text = "...", next = "END" } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    count = {
+      lines = { { id = "ct_default", text = "As many as Stormwind sends, which isn't enough, and as many as come back, which is fewer. I've stopped setting places by name." } },
+      choices = {
+        { text = "That's a hard thing to carry.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    goulash = {
+      lines = { { id = "gl_default", text = "Condor, spider, and the snout off a great goretusk. Don't make that face; the snout's where the flavour lives." } },
+      choices = {
+        { text = "Spider?", next = "spider" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    spider = {
+      lines = { { id = "sp_default", text = "Crisp spider. It crunches. Everyone has seconds and nobody asks twice." } },
+      choices = { { text = "I'll take your word for it.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    kitchen = {
+      lines = { { id = "k_default", text = "Crystal teaches cooking to anyone who'll stand still, and Gretchen carries plates and opinions. I do the rest, which is most of it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    cook = {
+      lines = { { id = "ck_default", text = "Then you know a bare cupboard when you see one. Bring the meat and I'll show you the recipe. That's how kitchens trade." } },
+      choices = {
+        { text = "Deal.", next = "BUSINESS", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    priest = {
+      lines = { { id = "pr_default", text = "Bless it if you like. Then bless the ones eating from it; they need it more than the pot does." } },
+      choices = {
+        { text = "I'll bless them both.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "I cook for Lakeshire's garrison. Same pots as before the attacks. More mouths." } },
+    advice = { { id = "tp_ad", text = "Eat when there's food. In Redridge, that isn't every day." } },
     blackrock = { { id = "tp_blackrock", text = "I count the bowls that don't come back to the kitchen. That's how I know how the fighting's going." } },
     _none = { { id = "tp_none", text = "Ask someone who isn't up to her elbows in onions." } },
   },
