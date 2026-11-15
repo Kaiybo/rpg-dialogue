@@ -32,7 +32,7 @@ P:Pool {
     { id = "n_travel", cat = "form", when = { form = "travel" },
       text = "You're so fast like that! Can you race the guards' horses? I bet you'd win, I bet you would." },
     { id = "n_moonkin", cat = "form", when = { form = "moonkin" }, place = "replace",
-      text = "You're a great big owl-bear! Do you hoot? Please hoot, just once." },
+      text = "You're a great big owl-bear! Please hoot for me, just once, and I promise I won't tell anybody." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "You're hardly any taller than me, but you're a grown-up, aren't you? Can you fix my wooden horse, because its wheel came off?" },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },

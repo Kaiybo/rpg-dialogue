@@ -196,7 +196,7 @@ P:Pool {
         { id = "l_other", when = { ["not"] = { class = "PALADIN" } }, text = "You're not of the order, but you're welcome all the same. The Light judges what you do, not what you were trained to do." },
       },
       again = {
-        { id = "a_again", text = "What else weighs on you?" },
+        { id = "a_again", text = "Is there more on your mind, or shall we get back to the hammer?" },
         { id = "a_again2", text = "Speak plainly; I have the time." },
       },
       choices = {
@@ -664,7 +664,7 @@ P:Pool {
         { id = "l_other", when = { ["not"] = { class = "SHAMAN" } }, text = "You don't walk with the spirits, but they see you all the same. Be kind to the land where you tread, and they'll remember it." },
       },
       again = {
-        { id = "a_again", text = "What else would you ask?" },
+        { id = "a_again", text = "The spirits are patient, and so am I. Ask what else you came to ask." },
         { id = "a_again2", text = "The fire's still burning; speak while it listens." },
       },
       choices = {
@@ -867,7 +867,7 @@ P:Pool {
       },
       again = {
         { id = "a_again", text = "What else? Quickly." },
-        { id = "a_again2", text = "Go on. Nobody's listening; I checked." },
+        { id = "a_again2", text = "Go on, then. I swept the corners for ears before you came in." },
       },
       choices = {
         { text = "Teach me.", next = "BUSINESS", when = { class = "ROGUE" } },
