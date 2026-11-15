@@ -140,25 +140,122 @@ P:NPC {
           text = "I am Drum Fel, and I lead Hammerfall. The Boulderfist ogres and the Witherbark trolls stand between us and the highlands, and once they fall, Hammerfall will thrive." },
         { id = "h_hammer", tags = { "news" }, when = { questActive = TODO_QUEST("The Hammer May Fall") },
           text = "The Boulderfist hit our walls and think we'll sit and take it. Show them otherwise." },
+        { id = "h_tallow", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Hammer May Fall"), days = 2 } },
+          text = "So Tallow sent you up from Tarren Mill, either hoping the ogres would finish you or thinking you could help. You're here now, so rest, and come back to me when you're ready to fight." },
         { id = "h_arms", when = { questActive = TODO_QUEST("Call to Arms") },
           text = "This is a call to arms: the Witherbark first, then whoever's next, because Hammerfall doesn't wait to be attacked." },
+        { id = "h_arms_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Call to Arms"), days = 2 } },
+          text = "There's blood on your gear and sweat on your brow, and that's how I like my soldiers to come home. Rest, then go again." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Say it plain; Hammerfall has no time for riddles." },
+        { id = "h_again2", text = "Speak. The walls are listening, and so am I." },
       },
       choices = {
         { text = "Tell me about this place.", next = "history" },
+        { text = "Who's attacking Hammerfall?", next = "enemies" },
+        { text = "Where do their leaders hide?", next = "stromgarde" },
+        { text = "What will Hammerfall become?", next = "future" },
+        { text = "Lok'tar, chieftain. I came to fight.", next = "orc", when = { race = "Orc" } },
+        { text = "The Witherbark are trolls. Do you trust me?", next = "troll", when = { race = "Troll" } },
+        { text = "Korin worries for you, Drum Fel.", next = "korin", when = { questDone = TODO_QUEST("The Real Threat") } },
         { text = "I'll fight.", next = "END", fx = { affinity = 2, standing = { hammerfall = 1 } } },
       },
     },
+
     history = {
       big = true,
       lines = {
         { id = "hi_default", text = "The humans built a camp here to hold our people in chains, and Thrall and Doomhammer tore it down. Doomhammer took a lance in that fight and didn't survive it, so we rebuilt on the ruins and named it for him." },
       },
-      choices = { { text = "Lok'tar ogar.", next = "END", fx = { affinity = 2, align = { honor = 1 } } } },
+      choices = {
+        { text = "Who lives here now?", next = "history_refuge" },
+        { text = "Do the old camps still haunt you?", next = "history_camps" },
+        { text = "Lok'tar ogar.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+      },
+    },
+    history_refuge = {
+      lines = {
+        { id = "hr_default", text = "Orcs who never found a place in the new cities, and a few who never looked for one. Hammerfall takes anyone who'll stand a wall and swing an axe, and doesn't ask much about the rest." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    history_camps = {
+      lines = {
+        { id = "hc_default", text = "Every orc behind these walls was in a camp, or was born to someone who was. We don't talk about it at the fire; we build on top of it, and that's our answer." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
+    },
+
+    enemies = {
+      lines = {
+        { id = "e_default", text = "The Witherbark trolls to the south and the Boulderfist ogres to the west, and they work together to drive us out of this land. We won't meet our end at their hands or anyone else's." },
+      },
+      choices = {
+        { text = "Trolls and ogres together?", next = "enemies_why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    enemies_why = {
+      lines = {
+        { id = "ew_default", text = "The trolls turned their backs on the Horde, and the ogres would use us for food and bedding if we let them. Neither likes the other, but both like us less." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    stromgarde = {
+      lines = {
+        { id = "s_default", text = "The Boulderfist lords and their shamans have made their lair in the ruins of Stromgarde, a fine monument to human weakness. Kill the head of the beast and the body stops coming at us." },
+      },
+      choices = {
+        { text = "Don't the humans still hold part of it?", next = "stromgarde_humans" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stromgarde_humans = {
+      lines = {
+        { id = "sh_default", text = "A prince with a handful of soldiers holds a corner of it, and the Syndicate thieves crawl through the rest. Zengu has business with that prince, so ask him, but my quarrel is with the ogres." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "syndicate" } } } },
+    },
+
+    future = {
+      lines = {
+        { id = "f_default", text = "A real stronghold, with fields and herds and young ones who've never seen a chain. Once the trolls and ogres are dealt with, Hammerfall will thrive in these highlands, and I mean to see it." },
+      },
+      choices = {
+        { text = "I'll help you build it.", next = "BACK", fx = { affinity = 2, standing = { hammerfall = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    orc = {
+      lines = {
+        { id = "o_default", text = "Then you've come to the right fortress, {g:brother|sister}. Rest tonight, because tomorrow I'll have more fighting for you than your arms can carry." },
+      },
+      choices = { { text = "Lok'tar!", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } } },
+    },
+    troll = {
+      lines = {
+        { id = "t_default", text = "You're Darkspear, and the Darkspear stood with Thrall when it mattered, which is more than the Witherbark ever did. Zengu sits by my fire, and so can you." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    korin = {
+      lines = {
+        { id = "k_default", text = "Korin reads her auguries and worries, and I read the hills and fight; between us we keep Hammerfall standing. Whatever she told you, she'd tell me herself if it were my business." },
+      },
+      choices = {
+        { text = "Of course.", next = "BACK", fx = { affinity = 1, trait = { discreet = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
   topics = {
     burning_blade = { { id = "tp_blade", text = "Not here, they're not; Doomhammer would have broken their necks himself." } },
+    background = { { id = "tp_ba", text = "I beat an ogre called Or'Kalar once, years ago, and I've been fighting his kind ever since. That's the only story an orc in Hammerfall needs." } },
+    advice = { { id = "tp_ad", text = "The Witherbark fight from the trees, so look up before you look ahead. The Boulderfist fight from the front, so look up anyway." } },
     _none = { { id = "tp_none", text = "That's not my concern; Hammerfall is." } },
   },
 }
@@ -192,18 +289,112 @@ P:NPC {
           text = "The sigil be broken in pieces, all over these hills, so bring the pieces; a key that open a tomb don't come easy." },
         { id = "h_trolkalar", when = { questActive = TODO_QUEST("Trol'kalar") },
           text = "Bring Trol'kalar out of that tomb, and the chief will hear your name." },
+        { id = "h_trolkalar_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Trol'kalar"), days = 3 } },
+          text = "For longer than anyone remember, Strom and Arathor cut down our people, and now their best blade be in troll hands. I see it get to Nimboya at Grom'gol, mon, and the Darkspear owe you a debt." },
       },
-      choices = { { text = "A human sword against trolls?", next = "joke" } },
+      again = {
+        { id = "h_again", text = "More? Zengu got all day, mon. Hunters always do." },
+      },
+      choices = {
+        { text = "A human sword against trolls?", next = "joke" },
+        { text = "Why does Vol'jin want it?", next = "why" },
+        { text = "How do we open the tomb?", next = "sigils" },
+        { text = "How do you hunt in these hills?", next = "hunt" },
+        { text = "Teach me your patience.", next = "hunter", when = { class = "HUNTER" } },
+        { text = "I'm Darkspear. What does the chief need of me?", next = "troll", when = { race = "Troll" } },
+        { text = "I've met Nimboya, in Grom'gol.", next = "nimboya", when = { heardLine = "nimboya.h_default" } },
+        { text = "Ha. Let's get it.", next = "END", fx = { affinity = 2, trait = { brave = 1 } } },
+      },
     },
+
     joke = {
       lines = { { id = "j_default", text = "Every blade cut whoever be in front of it, mon, and the humans forgot that, but Zengu didn't." } },
-      choices = { { text = "Ha. Let's get it.", next = "END", fx = { affinity = 2, trait = { brave = 1 } } } },
+      choices = {
+        { text = "Who made the sword?", next = "joke_history" },
+        { text = "Ha. Something else.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+      },
+    },
+    joke_history = {
+      lines = {
+        { id = "jh_default", text = "Long ago, when the forest trolls fight the empire of Arathor, their worst enemy be Lord Ignaeus of Strom, and they call him Trollbane. He ride into battle with Trol'kalar, and in the old tongue that mean troll slayer." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    why = {
+      lines = {
+        { id = "w_default", text = "Thoras Trollbane be dead and Stromgarde be ruins, so the chief say now be the time to take the sword from human hands. We use it in the battles to come against the trolls of Zul'Gurub." },
+      },
+      choices = {
+        { text = "Where will it go?", next = "why_nimboya" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    why_nimboya = {
+      lines = {
+        { id = "wn_default", text = "South, to Nimboya at Grom'gol, closer to the Gurubashi. A sword that kill trolls should be near the trolls that need killing." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "yenniku" } } } },
+    },
+
+    sigils = {
+      lines = {
+        { id = "s_default", text = "The tomb be warded, and the sigils that open it were shared out among the last of Stromgarde. The Syndicate grab one, the militia hold pieces of another, the cavalry captain carry one, and Prince Galen keep the last himself." },
+      },
+      choices = {
+        { text = "Pieces of another?", next = "sigils_torgan" },
+        { text = "The prince himself?", next = "sigils_galen" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sigils_torgan = {
+      lines = {
+        { id = "st_default", text = "Galen break the sigil of Thoradin into eleven bits and hand them to his defenders, clever boy. Bring the bits to Tor'gan, our shaman here, and he put it back together while you look away." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    sigils_galen = {
+      lines = {
+        { id = "sg_default", text = "He sit in a chapel deep in the militia's part of the keep, well guarded, and he be no slouch with a blade. The line of Trollbane hunt my people for ages, mon, so Zengu don't weep for it." },
+      },
+      choices = {
+        { text = "That's cold.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    hunt = {
+      lines = {
+        { id = "hu_default", text = "Slow, mon, and from downwind. The Highlands be open ground, so the one who move first be the one who get seen, and Zengu don't get seen." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    hunter = {
+      lines = {
+        { id = "hn_default", text = "Patience don't get taught, it get practiced. Sit on a rock from dawn to noon and don't move, and you be halfway there; the other half be not getting bored." },
+      },
+      choices = { { text = "I'll try it.", next = "BACK", fx = { affinity = 2, trait = { patient = 1 } } } },
+    },
+    troll = {
+      lines = {
+        { id = "tr_default", text = "The same thing he need from Zengu: the sword, in our hands, so our fight in the jungle stop crawling and start running. Every Darkspear who help with this be helping Vol'jin himself." },
+      },
+      choices = { { text = "Then I'll help.", next = "BACK", fx = { affinity = 3, align = { order = 1 } } } },
+    },
+    nimboya = {
+      lines = {
+        { id = "ni_default", text = "Then you know he carry a heavy load for the chief, and this sword be going to him when we done. Tell him Zengu say the hunt go well, if you see him first." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "yenniku" } } } },
     },
   },
 
   topics = {
     yenniku = { { id = "tp_yenniku", text = "The chief's boy, and bad business in the jungle. Nimboya see to that, and I see to this." } },
     echo_isles = { { id = "tp_isles", text = "One day, mon, but first the sword, then the rest." } },
+    background = { { id = "tp_ba", text = "A Darkspear hunter, sent by the chief because I be patient, and stealing a sword out of a tomb take patience.", next = "why" } },
+    advice = { { id = "tp_ad", text = "The Syndicate in Stromgarde wear masks, but their boots be loud. Listen for the boots, mon." } },
     _none = { { id = "tp_none", text = "Zengu only know the hunt, and the sword." } },
   },
 }
@@ -233,11 +424,46 @@ P:NPC {
         { id = "h_grass", when = { metBefore = true }, text = "I keep a little pot of Mulgore grass by the door, and it doesn't like the Highlands, but neither did I, at first. We're both getting used to it." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "The grunts sing old war songs after dark, and I don't know the words, so I hum, and they let me." },
       },
-      choices = { { text = "Just a rest, thank you.", next = "END" } },
+      again = { { id = "h_again", text = "Something else? The fire's in no hurry, and neither am I." } },
+      choices = {
+        { text = "How does a tauren fare among orcs?", next = "among" },
+        { text = "What do the grunts sing about?", next = "songs" },
+        { text = "We're a long way from Mulgore, you and I.", next = "home", when = { race = "Tauren" } },
+        { text = "Just a rest, thank you.", next = "END" },
+      },
+    },
+    among = {
+      lines = {
+        { id = "a_default", text = "Well enough. They're loud and they're proud and they eat like starving wolves, but they've never once let my fire go cold or my door go unguarded." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    songs = {
+      lines = {
+        { id = "s_default", text = "Doomhammer, mostly, and the night the camps were broken open. They sing it louder each time, as if the old warchief might hear them from wherever he's gone." },
+      },
+      choices = {
+        { text = "Do you ever join in?", next = "songs_hum" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    songs_hum = {
+      lines = {
+        { id = "sh_default", text = "I hum, and they pretend not to notice, and that's become a kind of song of its own. A tauren humming under an orc war chant would make all of Thunder Bluff laugh." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    home = {
+      lines = {
+        { id = "h2_default", text = "A long way, but the Earth Mother is under this stone too, if you listen for her. Sit with me a while and we'll both pretend the wind smells of grass." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
     },
   },
 
   topics = {
+    background = { { id = "tp_ba", text = "I came where the Horde needed a fire, and Hammerfall needed one more than most. That's all there is to tell." } },
+    advice = { { id = "tp_ad", text = "Eat before you climb to Stromgarde. Nobody fights well hungry, not even an orc, though they'll swear otherwise." } },
     _none = { { id = "tp_none", text = "Ask Drum Fel, for he knows the fort, and I know the fire." } },
   },
 }

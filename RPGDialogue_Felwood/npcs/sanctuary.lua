@@ -186,17 +186,105 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Maybess Riverbreeze, of the Emerald Circle. I ask the Horde to help take Felwood back from the poison, not by fighting, mostly, but by mending." },
         { id = "h_cleansing", tags = { "news" }, when = { questActive = TODO_QUEST("Cleansing Felwood") },
-          text = "There's a salve we make that can cleanse the corrupted plants. It needs gathering, a little every day. Will you start?" },
+          text = "Bring me blood amber, the sap of the Warpwood elementals in the Irontree Caverns to the north. They're beyond saving, and what I learn from them may save everything else." },
+        { id = "h_trusted", tags = { "news" }, when = { questRecent = { TODO_QUEST("Cleansing Felwood"), days = 3 } },
+          text = "I trust you now, friend, and I don't say that lightly in this forest. Take a Cenarion beacon, and let's begin on the plants." },
         { id = "h_alliance", when = { faction = "Alliance" },
           text = "You'll want Arathandris, to the south, who does for the Alliance what I do for the Horde. It's the same forest, and the same work." },
         { id = "h_daily", when = { metBefore = true },
           text = "Every day a little salve, and every day a little less poison. I'll not live to see it all clean, but somebody will." },
       },
-      choices = { { text = "I'll help mend it.", next = "END", fx = { affinity = 2, align = { light = 1 } } } },
+      again = {
+        { id = "h_again", text = "Something more? Ask while my hands are busy; they work better when I'm talking." },
+      },
+      choices = {
+        { text = "How do you mend a forest?", next = "mend" },
+        { text = "Why must I kill elementals to earn your trust?", next = "trust" },
+        { text = "What is the Emerald Circle?", next = "circle" },
+        { text = "What was Felwood before?", next = "past" },
+        { text = "I'm an herbalist. What should I look for?", next = "herb", when = { profession = "Herbalism" } },
+        { text = "I'm Alliance. Can I still help?", next = "alliance", when = { faction = "Alliance" } },
+        { text = "The alchemist at Bloodvenom wants the corruption.", next = "winna", when = { heardLine = "winna.h_default" } },
+        { text = "I'll help mend it.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
+      },
+    },
+
+    mend = {
+      lines = {
+        { id = "m_default", text = "With a salve the Cenarion Circle taught us, laid on the corrupted plants one by one. Some of them come back from it, and every one that does is a little root of the old forest taking hold again." },
+      },
+      choices = {
+        { text = "How do you find the sick ones?", next = "mend_beacon" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mend_beacon = {
+      lines = {
+        { id = "mb_default", text = "A Cenarion beacon shows you the taint the naked eye misses, the fel creep in the herbs and the sickness in the soil. I can make the salve from many things, so whatever your trade is, there's a way for you to help." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "cenarion_circle" } } } },
+    },
+
+    trust = {
+      big = true,
+      lines = {
+        { id = "t_default", text = "Because what I know about cleansing this forest would be a terrible weapon in the wrong hands, and I can't give it to just anyone who asks kindly. It seems odd, I know, that killing proves you'll help me heal." },
+      },
+      choices = {
+        { text = "It does seem odd.", next = "trust_odd" },
+        { text = "I understand.", next = "BACK", fx = { affinity = 2, trait = { cautious = 1 } } },
+      },
+    },
+    trust_odd = {
+      lines = {
+        { id = "to_default", text = "The Warpwood elementals are past any saving, and their sap may teach me how to save everything that isn't. When so many lives hang on it, I've decided the end has to justify the means, and I pray to the Earth Mother that I'm right." },
+      },
+      choices = {
+        { text = "I think you are.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "I'm not so sure.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+      },
+    },
+
+    circle = {
+      lines = {
+        { id = "c_default", text = "Those of us here at the sanctuary who answer to the Cenarion Circle, tauren and night elves both. We came to learn what's poisoning Felwood and to stop it, and the stopping is slower than the learning." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "cenarion_circle" } } } },
+    },
+
+    past = {
+      lines = {
+        { id = "p_default", text = "A green and peaceful forest, north of Ashenvale, before the demons came in the last war and twisted everything that grew here. The bears and the treants you see out there were whole once, and some part of them remembers it." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    herb = {
+      lines = {
+        { id = "h2_default", text = "The fel creep, which clings to the herbs here like black moss. With the beacon you'll see it, and if you bring it to me I can purify it into the salve itself." },
+      },
+      choices = { { text = "I'll gather it.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    alliance = {
+      lines = {
+        { id = "a_default", text = "Of course, though not from my hands; our peoples aren't ready for that, and I won't pretend otherwise. Arathandris to the south makes the same salve, and the plants won't care whose banner you fly." },
+      },
+      choices = { { text = "Thank you, Maybess.", next = "BACK", fx = { affinity = 1, opinion = { peace = "for" } } } },
+    },
+    winna = {
+      lines = {
+        { id = "w_default", text = "I've heard of her, and of the moonwell she wants water from. It grieves me that anyone of the Horde would look at this poison and see a tool, but I can't mend her, only the forest." },
+      },
+      choices = {
+        { text = "She's helping the Horde, in her way.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "I'll keep my distance from her.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+      },
     },
   },
 
   topics = {
+    background = { { id = "tp_ba", text = "A tauren of the Emerald Circle, who came to Felwood to heal what she could. I'll leave when it's healed, or when I'm too old to carry the salve." } },
+    advice = { { id = "tp_ad", text = "Don't drink from any stream in Felwood, however clear it looks. The poison here is patient, and it doesn't always show itself." } },
     _none = { { id = "tp_none", text = "I only know the forest, and only this bit of it." } },
   },
 }

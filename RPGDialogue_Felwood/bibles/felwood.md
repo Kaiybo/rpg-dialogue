@@ -22,7 +22,7 @@
 - Golhine: none (trainer).
 
 ## Never
-- Winna's Cataclysm slime experiments and the Slimeslaves: not a word, not a hint. Her laughing and her kitten are Classic; her curiosity stays harmless.
+- Winna's Cataclysm slime experiments and the Slimeslaves: not a word, not a hint. Her laughing and her kitten are Classic, and so is her purpose: per Well of Corruption and Corrupted Sabers she corrupts her kitten with moonwell water to find a weapon against the Alliance ("Some may say that I am exceptionally cruel"). She is cheerfully ruthless for the Forsaken cause, never more.
 - Talonbranch's worgen (Denmother Ulrica, James Hallow and the rest are later).
 - Kelek Skykeeper and the rest of the Cataclysm sanctuary roster; Ruins of Constellas as Eridan's home (later move).
 - Islen Waterseer's location (not given).
@@ -36,6 +36,15 @@
 - Greta: welcoming but wary; warns about the power.
 - Maybess: earnest, practical, kind.
 - Arathandris: determined, stubborn as the curse.
-- Winna: cackling, delighted by wrongness, harmless on the page.
+- Winna: cackling, delighted by wrongness, cheerfully ruthless in the Forsaken cause.
 - Trull: grim, dry Horde intelligence man.
 - Golhine: quiet, few words.
+
+## Depth rewrite (Horde towns, authored on sourced quests)
+Sources read for this pass (warcraft.wiki.gg, Classic sections): Maybess_Riverbreeze, Winna_Hazzard, Trull_Failbane, Bloodvenom_Post, A_Strange_One, Well_of_Corruption, Corrupted_Sabers, Wild_Guardians (1-3), Guarding_Secrets (1-2), Cleansing_Felwood_(Horde), Salve_via_Gathering.
+- Maybess: says "Taurahe?" to Alliance players; Cleansing Felwood asks for 15 blood amber from the Warpwood elementals of the Irontree Cavern, beyond saving, to prove trust, because her knowledge in the wrong hands "would spell disaster"; "the end of saving countless sentient beings must justify the means". Then Cenarion plant salve and the Cenarion beacon, which shows fel creep and taint the naked eye misses; salve by disenchanting, gathering, hunting, mining or skinning.
+- Winna: the Jadefire satyrs' corrupted moonwell at the Ruins of Constellas spawns more satyrs; one sip doubled her kitten's size; she has the player release it at the well and it comes back a corrupted cat; "The forsaken will resort to any means necessary to crush the alliance!"
+- Trull: wildkin in Winterspring (past Timbermaw, northeast) guard night elf secrets; ragged and raging owlbeasts, moontouched in the north, berserk ones by small caves in the south, gone mad from what they protect. He knows owlbeasts but not their magic; the Blue-Feathered Necklace goes to Nara Wildmane in Thunder Bluff, who says Elune made the wildkin to guard her sacred places. He respects hard work.
+- Bloodvenom Post: seems tauren-founded (architecture, tauren braves); on cliffs over the Bloodvenom River above Darkshore.
+- Fixed in this pass: Maybess's Cleansing Felwood line (blood amber, not the salve), Winna's Well of Corruption and Corrupted Sabers lines (she corrupts the kitten on purpose; she isn't saving sick cubs), Trull's Guarding Secrets line (Winterspring, not Felwood).
+- Authored, not canon: Trull's reports that nobody reads, Maybess's unease about Winna, Winna's claim that nobody sent her.
