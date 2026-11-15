@@ -43,3 +43,4 @@ npcs\henze.lua
 npcs\trainers.lua
 npcs\goldshire_folk.lua
 npcs\camping.lua
+npcs\eastvale_stables.lua

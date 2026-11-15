@@ -772,3 +772,44 @@ New in Forever (patch 1.60.1): a level 35-45 contested zone in southeastern Khaz
 **Year 1 discipline:** the bishop's story is backstory from before Year 1, published later; she is never named and nothing after Year 1 is mentioned (no Cult of Forgotten Shadow, no Conclave, no Xal'atath). Benedictus knows of her; nobody else brings her up.
 
 **Authored, not canon:** every NPC's reaction to Shadowform (Benedictus asking to see a priest's face, Laurena refusing to teach through it, Crowley's suspicion, Anduin's questions, guards' fright); priests' offers to bless riders, badges and graves; Jaina's prayer on the docks (a private memory, never an event); Smotts' cook having once asked him to say words for the crew.
+
+## The Scarlet Path (throughline; World 1.17.0, Hillsbrad, Desolace, Stormwind, Eastern Plaguelands)
+
+| Fact used | Source |
+|---|---|
+| Brother Crowley, Scarlet Crusade Emissary, a priest in the Cathedral of Light's lower level; sends Alliance adventurers to Brother Anton in Desolace (Brother Anton, level 39, requires 34) | [Brother Crowley](https://warcraft.wiki.gg/wiki/Brother_Crowley); [Brother Anton (quest)](https://warcraft.wiki.gg/wiki/Brother_Anton_(quest)) |
+| Anton: the Scarlet Crusade has sworn to fight the Scourge body and soul; prove yourself on the undead ravagers of the Valley of Bones, to the south of Nijel's Point (coords 60,90) | [Down the Scarlet Path](https://warcraft.wiki.gg/wiki/Down_the_Scarlet_Path) |
+| Anton's Letter of Commendation to Raleigh the Devout in Southshore, who is to escort the recruit to the Scarlet Monastery; the true threat is in Lordaeron; Raleigh is alarmed that Anton still spreads the Crusade's word | [Down the Scarlet Path (2)](https://warcraft.wiki.gg/wiki/Down_the_Scarlet_Path_(2)) |
+| Raleigh the Devout: human paladin, Southshore Inn upstairs; served the Crusade with pride, left after seeing at the Monastery in Tirisfal that everyone without the tabard was "plagued" to them and innocents were tortured; sends the player to kill High Inquisitor Whitemane, Scarlet Commander Mograine, Herod the Scarlet Champion and Houndmaster Loksey; afterwards: disciples of the Light don't revel in death, but some sacrifices are needed | [Raleigh the Devout](https://warcraft.wiki.gg/wiki/Raleigh_the_Devout); [In the Name of the Light](https://warcraft.wiki.gg/wiki/In_the_Name_of_the_Light) |
+| Scarlet Monastery wings (Classic): Houndmaster Loksey in the Library (Huntsman's Cloister), Herod in the Armory, Mograine and Whitemane in the Cathedral; Classic description: once a bastion of Lordaeron's priesthood, the Crusade sees all outsiders as potential plague carriers | [Scarlet Monastery](https://warcraft.wiki.gg/wiki/Scarlet_Monastery); [Scarlet Monastery Library](https://warcraft.wiki.gg/wiki/Scarlet_Monastery_Library); [Herod](https://warcraft.wiki.gg/wiki/Herod) |
+| Tyrosus left the Silver Hand when it became the Scarlet Crusade | Eastern Plaguelands section above |
+
+**Wiki IDs (not used; the packs keep `TODO_` names):** Brother Crowley 12336, Raleigh the Devout 3980 (vanilla). Quests: Brother Anton 6141, Down the Scarlet Path 261 (Anton's), Down the Scarlet Path 1052 (the letter; **same title: capture data will report it ambiguous**, so set it by hand on Raleigh's `h_letter` and the thread's b3 condition), In the Name of the Light 1053.
+
+**Year 1 discipline:** nothing from Raleigh's Burning Crusade appearance (Raleigh "the True" in Old Hillsbrad) or later (Southshore's ruin, Battle for Azeroth). The Monastery's leaders are named only as the quest names them; nothing about Whitemane and Mograine beyond that.
+
+**Fixed while writing it:** Anton said the Valley of Bones was "to the southeast" (it's south); Benedictus said Crowley sends recruits "east" (Desolace is west, across the sea).
+
+**Authored, not canon:** Crowley's warning about what the Crusade asks; Anton saying Raleigh writes less often; Raleigh watching the north road and not answering Anton's letters; the player's choice to tell Anton or spare him, and both of his reactions; Crowley calling Raleigh a deserter; Benedictus deciding to pray with everyone who goes down to Crowley. Raleigh's "a fortress with prayers painted on it" is his image, not a description of the building.
+
+## The Mirage Raceway, deeper (Thousand Needles 1.2.0)
+
+| Fact used | Source |
+|---|---|
+| Pozzik: vulture bones for light, strong frame tweaks (Load Lightening); Razzeric is the goblin team's eighteenth pilot, "a little off his rocker", who adds his own modifications (The Eighteenth Pilot); Gazlowe of Ratchet finds parts for the team, once worked on a rig, and owes them a prototype fuel regulator (Goblin Sponsorship); the gnomes got faster with identical designs, and Rizzle Brassbolts has been working on new plans (Keeping Pace); Rizzle's plans: indurium ore from Uldaman, heat-resistant (Rizzle's Schematics) | [Load Lightening](https://warcraft.wiki.gg/wiki/Load_Lightening); [The Eighteenth Pilot](https://warcraft.wiki.gg/wiki/The_Eighteenth_Pilot); [Goblin Sponsorship](https://warcraft.wiki.gg/wiki/Goblin_Sponsorship); [Keeping Pace](https://warcraft.wiki.gg/wiki/Keeping_Pace); [Rizzle's Schematics](https://warcraft.wiki.gg/wiki/Rizzle%27s_Schematics); [Razzeric](https://warcraft.wiki.gg/wiki/Razzeric) |
+| Fizzle: salt-heavy scorpid venom for a very hot fuel (Salt Flat Venom); an engine fast enough to fly, but pistons crack; Martek the Exiled, a great smith in a Badlands camp with a goblin (Martek the Exiled); Martek: indurium resists heat, but true ore must come from Uldaman (News for Fizzle); the Brassbolts brothers (Fizzle, Wizzle with shells and tail fins, Rizzle with the plans) | [Salt Flat Venom](https://warcraft.wiki.gg/wiki/Salt_Flat_Venom); [Martek the Exiled (quest)](https://warcraft.wiki.gg/wiki/Martek_the_Exiled_(quest)); [News for Fizzle](https://warcraft.wiki.gg/wiki/News_for_Fizzle); [Rizzle Brassbolts](https://warcraft.wiki.gg/wiki/Rizzle_Brassbolts); [Hardened Shells](https://warcraft.wiki.gg/wiki/Hardened_Shells) |
+| Martek the Exiled is an orc (Classic camp in the Valley of Fangs with goblins) | [Martek the Exiled](https://warcraft.wiki.gg/wiki/Martek_the_Exiled) |
+| Kravel: Delivery to the Gnomes (he removed a "small and worthless" piece from Fizzle's hydro ratchets and repeater bolts); Fool's Stout given to each pit boss (Get the Goblins Drunk / Get the Gnomes Drunk); Krazek in Booty Bay (The Rumormonger, Rumors for Kravel); Zanzil's Mixture via Crank Fizzlebub | [Delivery to the Gnomes](https://warcraft.wiki.gg/wiki/Delivery_to_the_Gnomes); [Get the Goblins Drunk](https://warcraft.wiki.gg/wiki/Get_the_Goblins_Drunk); [Kravel Koalbeard](https://warcraft.wiki.gg/wiki/Kravel_Koalbeard) |
+
+**Fixed:** Pozzik implied he still needed a pilot (Razzeric is the eighteenth already) and that the gnomes had no indurium (it's their edge); Fizzle said Martek knew about engines (he's a smith: metal).
+
+**Authored, not canon:** Pozzik's suspicion of gnome spies and the gnome crew's pink ears; Fizzle's MEGA jokes and the brothers' "efficient arrangement"; Kravel's view of Ironforge's rules, and his answer to the Light.
+
+## The Eastvale stables (Elwynn)
+
+| Fact used | Source |
+|---|---|
+| Katie Hunter, Horse Breeder, and Randal Hunter, Riding Trainer, relatives (relation not stated), at the stables in the north of Eastvale Logging Camp; Katie sells horses to humans, and to others only when exalted with Stormwind, as her gossip explains (years of careful breeding; the horses mustn't fall into enemy hands) | [Katie Hunter](https://warcraft.wiki.gg/wiki/Katie_Hunter); [Randal Hunter](https://warcraft.wiki.gg/wiki/Randal_Hunter) |
+| Classic riding: bought at level 40, one skill per race; another race's needed exalted reputation | [Riding](https://warcraft.wiki.gg/wiki/Riding) ("Classic system") |
+
+**Wiki IDs (not used):** Katie Hunter 384, Randal Hunter 4732. **Assumed:** Forever keeps riding at 40 (Classic). If it's lower, adjust the `minLevel = 40` gates in `npcs/eastvale_stables.lua`. An exalted non-human is treated like a human here (the `reputation` condition).

@@ -48,6 +48,8 @@ P:Topic { id = "mirage_raceway", keywords = { "Raceway" }, name = "The Mirage Ra
 P:Topic { id = "burning_blade", name = "The Burning Blade", category = "threats", learned = "Zureetha Fargaze or Orgnil Soulscar in Durotar" }
 P:Topic { id = "echo_isles", name = "The Echo Isles", category = "places", learned = "Master Gadrin in Sen'jin Village" }
 P:Topic { id = "scarlet_crusade", name = "The Scarlet Crusade", category = "threats", learned = "Executor Arren or Executor Zygand in Tirisfal" }
+P:Topic { id = "scarlet_monastery", keywords = { "Scarlet Monastery", "Monastery" }, name = "The Scarlet Monastery", category = "places", learned = "Raleigh the Devout in Southshore" }
+P:Topic { id = "raleigh", keywords = { "Raleigh" }, name = "Raleigh the Devout", category = "people", learned = "Brother Anton at Nijel's Point" }
 P:Topic { id = "uldaman", name = "Uldaman", category = "places", learned = "Prospector Ryedol in the Badlands" }
 P:Topic { id = "argent_dawn", name = "The Argent Dawn", category = "people", learned = "Gregor Greystone in Everlook" }
 P:Topic { id = "venture_company", keywords = { "Venture Company" }, name = "The Venture Company", category = "threats", learned = "Mull Thunderhorn in Bloodhoof Village" }
