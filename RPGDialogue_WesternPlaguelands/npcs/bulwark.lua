@@ -9,16 +9,16 @@ P:NPC {
   notices = { "race", "class" },
 
   greetings = {
-    { id = "g_wall", text = "The Bulwark. Junk and timber and the stubbornness of the dead. Speak quickly." },
-    { id = "g_back", when = { metBefore = true }, text = "You came back through the gate. Not everyone does. Report." },
-    { id = "g_hero", when = { questDone = TODO_QUEST("Mission Accomplished!") }, text = "The cauldron-breaker. The Dark Lady has your name. Try to deserve it twice." },
+    { id = "g_wall", text = "This is the Bulwark, built of junk and timber and the stubbornness of the dead, so speak quickly." },
+    { id = "g_back", when = { metBefore = true }, text = "You came back through the gate, which not everyone manages. Report, then." },
+    { id = "g_hero", when = { questDone = TODO_QUEST("Mission Accomplished!") }, text = "The cauldron-breaker returns, and the Dark Lady has your name now. Try to deserve it a second time." },
   },
 
   notice = {
     { id = "n_living", cat = "race", when = { race = { "Orc", "Tauren", "Troll" } },
-      text = "One of our living allies. You'll want to sleep with your mouth covered. The air out there gets into the breathing." },
+      text = "One of our living allies, I see. You'll want to sleep with your mouth covered, because the air out there gets into the breathing." },
     { id = "n_warlock", cat = "class", when = { class = { "WARLOCK", "PRIEST" } },
-      text = "You deal in the dark arts. Good. Out here, delicacy is a luxury and the Scourge has no shortage of corpses to argue with." },
+      text = "You deal in the darker arts, and good. Out here delicacy is a luxury, and the Scourge has no shortage of corpses to argue with." },
   },
 
   start = "hello",
@@ -26,57 +26,127 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "High Executor Derrington. In Undercity they scheme over who sits nearest the throne. Here we scheme over who stays standing until morning. I prefer our kind of politics." },
+          text = "High Executor Derrington. In Undercity they scheme over who sits nearest the throne, and here we scheme over who stays standing until morning, and I much prefer our kind of politics." },
         { id = "h_cauldrons", tags = { "news" }, when = { questActive = TODO_QUEST("The Scourge Cauldrons") },
-          text = "Four cauldrons in the west spew plague for the Scourge, and Shadow Priestess Vandis has a plan for them. Do what she says. Don't ask her about the Light." },
+          text = "Four cauldrons in the west spew plague for the Scourge, and Shadow Priestess Vandis has a plan for them. Do as she says, and whatever you do, don't ask her about the Light." },
         { id = "h_diversion", tags = { "news" }, when = { questActive = TODO_QUEST("Scarlet Diversions") },
-          text = "The Crusade's camped between Felstone Field and Dalson's Tears. Burn their command tent and plant this Scourge banner in the ashes. Let the dead and the zealots tire each other out." },
+          text = "The Crusade's camped between Felstone Field and Dalson's Tears, so burn their command tent and plant this Scourge banner in the ashes. Let the dead and the zealots wear each other out for a change." },
         { id = "h_diverted", when = { questRecent = { TODO_QUEST("Scarlet Diversions"), days = 3 } },
-          text = "My scout reports the Crusade took the bait. They're hunting ghouls with great enthusiasm. I almost admire them." },
+          text = "My scout reports that the Crusade took the bait, and they're hunting ghouls with tremendous enthusiasm. I very nearly admire them for it." },
         { id = "h_towers", tags = { "news" }, when = { questActive = TODO_QUEST("All Along the Watchtowers") },
-          text = "Andorhal's towers direct their troops. Mark them with the beacon. We have one torch and five charges, and I'm told the charges are not refundable." },
+          text = "Andorhal's towers direct their troops, so mark each of them with the beacon. We have one torch and five charges, and I'm told the charges are not refundable." },
         { id = "h_araj", tags = { "news" }, when = { questActive = TODO_QUEST("Alas, Andorhal") },
-          text = "Araj the Summoner sits at the heart of Andorhal. A lich. Take allies, take his phylactery, and take your time dying if you must. Just not before he does." },
+          text = "Araj the Summoner is a lich, and he sits at the heart of Andorhal. Take allies, take his phylactery, and take your time dying if you must, only not before he does." },
         { id = "h_araj_dead", when = { questDone = TODO_QUEST("Alas, Andorhal") },
-          text = "Araj is destroyed. The Dark Lady will be told it was the Bulwark's doing. You'll be mentioned. Briefly. That's how glory works in Undercity." },
+          text = "Araj is destroyed, and the Dark Lady will be told it was the Bulwark's doing. You'll be mentioned too, briefly, because that's how glory works in Undercity." },
         { id = "h_living", when = { metBefore = true },
-          text = "Our living allies eat three times a day and want thanks for it. I don't mind. It reminds me what we're guarding." },
+          text = "Our living allies eat three times a day and expect thanks for it. I don't mind, really, because it reminds me what we're guarding." },
+      },
+      again = {
+        { id = "h_again", text = "Something else? Make it useful, and make it quick." },
+        { id = "h_again2", text = "Go on, the wall can spare me for another minute." },
       },
       choices = {
         { text = "Why play the Crusade against the Scourge?", next = "play", when = { questBefore = TODO_QUEST("Mission Accomplished!") } },
         { text = "What's the Bulwark, exactly?", next = "wall" },
+        { text = "What's to be done about Andorhal?", next = "andorhal" },
+        { text = "You don't think much of Undercity's politics.", next = "politics" },
+        { text = "We both serve the Dark Lady, Executor.", next = "forsaken", when = { race = "Scourge" } },
+        { text = "Do the Forsaken truly trust the living here?", next = "living", when = { race = { "Orc", "Tauren", "Troll" } } },
         { text = "Send me east.", next = "END", fx = { affinity = 1, standing = { bulwark = 1 } } },
       },
     },
     play = {
       big = true,
       lines = {
-        { id = "p_default", text = "Because I have one wall and not enough soldiers for two wars. The Crusade would kill every Forsaken; the Scourge would kill everything. Busy killing each other, they aren't killing us." },
+        { id = "p_default", text = "Because I have one wall and not nearly enough soldiers for two wars. The Crusade would kill every Forsaken and the Scourge would kill everything, so while they're busy killing each other, they aren't killing us." },
       },
       choices = {
-        { text = "Clever.", next = "END", fx = { affinity = 2, align = { honor = -1 } } },
+        { text = "Clever.", next = "BACK", fx = { affinity = 2, align = { honor = -1 } } },
         { text = "There's no honor in it.", next = "honor" },
       },
     },
     honor = {
       lines = {
-        { id = "ho_default", text = "Honor. Yes, I remember it. I had some, when I was alive and losing. I've found I like winning better." },
+        { id = "ho_default", text = "Honor, yes, I remember it well enough. I had plenty of it when I was alive and losing, and I've since found I like winning a great deal better." },
       },
-      choices = { { text = "Fair enough.", next = "END", fx = { align = { honor = 1 } } } },
+      choices = {
+        { text = "Fair enough.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll keep mine, all the same.", next = "BACK", fx = { align = { honor = 1 }, trait = { stubborn = 1 } } },
+      },
     },
     wall = {
       lines = {
-        { id = "w_default", text = "When Capital City fell, the survivors fled here, to Uther's camp. Now it's our wall of debris, enough to keep the mindless out of Tirisfal. It wouldn't stop an army; we do that." },
+        { id = "w_default", text = "When Capital City fell, the survivors fled here, to Uther's camp, and now it's our wall of debris, enough to keep the mindless out of Tirisfal. It wouldn't stop an army, of course, which is what we're for." },
       },
-      choices = { { text = "Then I'll help hold it.", next = "END", fx = { affinity = 2, standing = { bulwark = 1 } } } },
+      choices = {
+        { text = "Uther's camp?", next = "wall_uther" },
+        { text = "Then I'll help hold it.", next = "BACK", fx = { affinity = 2, standing = { bulwark = 1 } } },
+      },
+    },
+    wall_uther = {
+      lines = {
+        { id = "wu_default", text = "The living gathered here once under the Lightbringer's banner, and some of them are still here, after a fashion, standing on the other side of the gate. I find that history has a sense of humor, if not a kind one." },
+      },
+      choices = {
+        { text = "That's grim.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    andorhal = {
+      lines = {
+        { id = "a_default", text = "Andorhal is where the Scourge gathers its strength in the west, under a lich who once ran the Scholomance. Break that city and the farms beyond it are ours to take back, for the Dark Lady.", fx = { learn = { "andorhal" } } },
+      },
+      choices = {
+        { text = "Tell me about the lich.", next = "andorhal_araj" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    andorhal_araj = {
+      lines = {
+        { id = "aa_default", text = "Araj the Summoner keeps his life bound up in a phylactery, as liches do, so bring me that along with the news of his death. I'll rest easier with it in my hands than in his." },
+      },
+      choices = {
+        { text = "I'll bring the phylactery.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    politics = {
+      lines = {
+        { id = "po_default", text = "In the Royal Quarter they count favors, and here we count arrows, and I know which sum keeps Tirisfal safe. Let them have their whispering, so long as they keep sending me supplies." },
+      },
+      choices = {
+        { text = "They'd hear that as disloyalty.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    forsaken = {
+      lines = {
+        { id = "fo_default", text = "We do, and she freed us both from the same master, so I'll expect more of you than of the living. The Scourge out there was us, once, and they'd make us theirs again given half a chance." },
+      },
+      choices = {
+        { text = "Never again.", next = "BACK", fx = { affinity = 2, standing = { bulwark = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    living = {
+      lines = {
+        { id = "li_default", text = "Trust is a large word for such a small wall. Your people fight out there beside mine and die beside them too, and for now that's all the trust either of us needs." },
+      },
+      choices = {
+        { text = "That will do.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
   topics = {
-    andorhal = { { id = "tp_andorhal", text = "Where the Scourge gathers in the west, under a lich. Break it, and the west is ours to reclaim. For the Dark Lady." } },
-    scarlet_crusade = { { id = "tp_scarlet", text = "Fanatics from Hearthglen. Useful fanatics, when pointed the right way." } },
-    plague_cauldrons = { { id = "tp_cauldrons", text = "The Lich King's breath on the land. Vandis and Dithers mean to sour it." } },
-    _none = { { id = "tp_none", text = "Does it come over the wall? No? Then take it to Undercity. They have time for such things." } },
+    background = { { id = "tp_ba", text = "I died, I rose, and the Dark Lady gave me back my mind and a wall to hold. The rest isn't your concern." } },
+    advice = { { id = "tp_ad", text = "Burn whatever you kill out there, if you've the time, because the Scourge wastes nothing." } },
+    andorhal = { { id = "tp_andorhal", text = "That's where the Scourge gathers in the west, under a lich, and if we break it, the west is ours to reclaim for the Dark Lady.", next = "andorhal" }, { id = "tp_andorhal2", text = "It's east of the wall, and it's the one place I'd send my best and expect to lose some." } },
+    scarlet_crusade = { { id = "tp_scarlet", text = "They're fanatics from Hearthglen, and useful fanatics, when they're pointed the right way." } },
+    plague_cauldrons = { { id = "tp_cauldrons", text = "The cauldrons are the Lich King's breath on the land, and Vandis and Dithers mean to sour it." } },
+    _none = { { id = "tp_none", text = "Does it come over the wall? If not, take it to Undercity, because they have time for such things there." } },
   },
 }
 
@@ -87,15 +157,15 @@ P:NPC {
   notices = { "class", "race" },
 
   greetings = {
-    { id = "g_dry", text = "Speak. I'm listening. I'm also counting your fingers. Habit." },
-    { id = "g_back", when = { metBefore = true }, text = "Back from the farms. Did you bring me something foul?" },
+    { id = "g_dry", text = "Speak, I'm listening, though I'm also counting your fingers, out of habit." },
+    { id = "g_back", when = { metBefore = true }, text = "Back from the farms, are you? I hope you've brought me something foul." },
   },
 
   notice = {
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
-      text = "Another priest. Holy or shadow? Don't answer. Out there they both kill ghouls. That's the only sermon I believe in." },
+      text = "Another priest, holy or shadow, and don't bother telling me which. Out there they both kill ghouls, and that's the only sermon I believe in." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
-      text = "A tauren, praying to the Earth Mother at the edge of the Plaguelands. She's not listening here. Nothing is." },
+      text = "A tauren, praying to the Earth Mother at the edge of the Plaguelands. She isn't listening here, I'm afraid, and neither is anything else." },
   },
 
   start = "hello",
@@ -103,34 +173,79 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Shadow Priestess Vandis. Bring me a sample from each of the four cauldrons, and the apothecaries will turn the plague on its makers. That's all the miracle we're getting." },
+          text = "Shadow Priestess Vandis. Bring me a sample from each of the four cauldrons and the apothecaries will turn the plague on its makers, which is all the miracle we're likely to get." },
         { id = "h_sample", tags = { "news" }, when = { questActive = TODO_QUEST("Return to the Bulwark") },
-          text = "You have a bottle. Hand it over, carefully. Dithers will have it opened, smelled and argued with before you've found a place to sit." },
+          text = "You have a bottle, so hand it over carefully. Dithers will have it opened, sniffed and argued with before you've found somewhere to sit." },
         { id = "h_returned", when = { questRecent = { TODO_QUEST("Return to the Bulwark"), days = 2 } },
-          text = "Dithers is pleased with your sample. He hummed. I've never heard him hum. It was unsettling." },
+          text = "Dithers is pleased with your sample, and he actually hummed. I've never heard him hum before, and I found it rather unsettling." },
         { id = "h_faith", when = { metBefore = true },
-          text = "When I was alive I prayed to the Light, and once it answered. When I died I prayed again. Nothing. I learned to stop asking and start taking." },
+          text = "When I was alive I prayed to the Light, and once it answered me. When I died I prayed again and heard nothing, so I learned to stop asking and start taking." },
+      },
+      again = {
+        { id = "h_again", text = "Is there more? Ask it, then, I've samples waiting." },
+        { id = "h_again2", text = "Still curious? It won't save you out there, but go on." },
       },
       choices = {
         { text = "Why shadow, not the Light?", next = "shadow" },
+        { text = "How do the samples help?", next = "samples" },
+        { text = "What do you make of Derrington?", next = "derrington" },
+        { text = "I'm a priest too. Does the shadow cost much?", next = "priest", when = { class = "PRIEST" } },
         { text = "I'll fetch your samples.", next = "END", fx = { affinity = 1, standing = { bulwark = 1 }, learn = { "plague_cauldrons" } } },
       },
     },
     shadow = {
       big = true,
       lines = {
-        { id = "s_default", text = "The Light chose who it would stay with when the plague came. It wasn't us. The shadow doesn't choose. It's there for anyone willing to reach. I reached." },
+        { id = "s_default", text = "The Light chose who it would stay with when the plague came, and it wasn't us. The shadow doesn't choose, because it's there for anyone willing to reach for it, and I reached." },
       },
       choices = {
-        { text = "The Light may still answer you.", next = "END", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Reaching works.", next = "END", fx = { affinity = 2, align = { light = -1 } } },
+        { text = "The Light may still answer you.", next = "faith", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Reaching works.", next = "BACK", fx = { affinity = 2, align = { light = -1 } } },
+      },
+    },
+    faith = {
+      lines = {
+        { id = "fa_default", text = "Perhaps it might, and perhaps the cauldrons will empty themselves out of shame. I've a great deal of work to do in the meantime, and I'd rather not wait on either of them." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    samples = {
+      lines = {
+        { id = "sa_default", text = "Every cauldron brews its plague a little differently, so the apothecaries need a taste of each before they can spoil it. You kill the cauldron lord, take his key, fill the bottle, and we do the rest.", fx = { learn = { "plague_cauldrons" } } },
+      },
+      choices = {
+        { text = "And Dithers does the spoiling?", next = "dithers" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dithers = {
+      lines = {
+        { id = "di_default", text = "Dithers does the spoiling, and the talking, and occasionally the singing. He's the best apothecary the Society could spare, and I suspect they were glad to spare him." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    derrington = {
+      lines = {
+        { id = "de_default", text = "He's clever and cold and he never wastes a soldier, which is rare in a commander, living or dead. I don't like him much, but I'd follow him." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    priest = {
+      lines = {
+        { id = "pr_default", text = "It costs exactly what you let it, and no more, whatever the priests in the cathedrals told you. Keep your wits and keep your purpose, and it'll serve you better than the Light ever served me." },
+      },
+      choices = {
+        { text = "I still trust the Light.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll remember that.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
       },
     },
   },
 
   topics = {
-    plague_cauldrons = { { id = "tp_cauldrons", text = "Kill the cauldron lord, take his key, fill a bottle. Simple, if you don't count dying." } },
-    _none = { { id = "tp_none", text = "I don't care to guess. Ask Derrington. He enjoys knowing things." } },
+    background = { { id = "tp_ba", text = "I prayed to the Light when I was alive, and then I was dead, and now I'm a priestess of something that actually answers. That's all the story there is.", next = "shadow" } },
+    advice = { { id = "tp_ad", text = "Don't pray where the dead can hear you out there, because they've learned what the sound means." } },
+    plague_cauldrons = { { id = "tp_cauldrons", text = "Kill the cauldron lord, take his key and fill a bottle, which is simple enough, if you don't count the dying." } },
+    _none = { { id = "tp_none", text = "I don't care to guess, so ask Derrington, because he enjoys knowing things." } },
   },
 }
 
@@ -141,15 +256,15 @@ P:NPC {
   notices = { "craft", "race" },
 
   greetings = {
-    { id = "g_knee", text = "Weather's turning. My knee says so. The bit of it that's showing, anyway." },
-    { id = "g_back", when = { metBefore = true }, text = "My favorite courier! Don't tell the others. I don't have others. Don't tell them anyway." },
+    { id = "g_knee", text = "Weather's turning, my knee says so, or at least the bit of it that's still showing does." },
+    { id = "g_back", when = { metBefore = true }, text = "My favorite courier! Don't tell the others, though I don't have any others, so don't tell them anyway." },
   },
 
   notice = {
     { id = "n_alch", cat = "craft", when = { profession = "Alchemy" },
-      text = "An alchemist! Come, smell this. No? Wise. I can't smell much anymore, which is a professional advantage." },
+      text = "An alchemist, how lovely, come and smell this! No? Very wise, though I can't smell much at all anymore, which in my line of work is a real advantage." },
     { id = "n_living", cat = "race", when = { race = { "Orc", "Troll", "Tauren" } },
-      text = "Living, are you? Don't lick anything out here. I say that to everyone. Living people never listen." },
+      text = "Living, are you? Then don't lick anything out here, which I say to everyone, and which the living never listen to." },
   },
 
   start = "hello",
@@ -157,35 +272,83 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Apothecary Dithers, of the Royal Apothecary Society, on loan to the Bulwark. I make the counter agent for the cauldrons, sell the quickener, and I'm building a key to the Scholomance out of bones. It's a busy afterlife." },
+          text = "Apothecary Dithers, of the Royal Apothecary Society, on loan to the Bulwark. I make the counter agent for the cauldrons and sell the quickener, and I'm building a key to the Scholomance out of bones, so it's a busy sort of afterlife." },
         { id = "h_fragments", tags = { "news" }, when = { questActive = TODO_QUEST("Skeletal Fragments") },
-          text = "Skeletal fragments, the sturdier the better. Andorhal's skeletons are lovely and dense. Don't tell them I said so." },
+          text = "Skeletal fragments, please, and the sturdier the better. Andorhal's skeletons are lovely and dense, but don't tell them I said so." },
         { id = "h_mold", tags = { "news" }, when = { questActive = TODO_QUEST("Mold Rhymes With...") },
-          text = "A goblin in Gadgetzan, Krinkle Goodsteel, makes molds for the unspeakable. Bring him the fragments and your purse. Mostly your purse." },
+          text = "There's a goblin in Gadgetzan, Krinkle Goodsteel, who makes molds for the unspeakable. Bring him the fragments and your purse, and mostly your purse." },
         { id = "h_scarab", tags = { "news" }, when = { questActive = TODO_QUEST("Araj's Scarab") },
-          text = "Araj ran the Scholomance before he moved to Andorhal. His scarab should fit the door like a ring on a finger. A dead finger. You know what I mean." },
+          text = "Araj ran the Scholomance before he moved to Andorhal, so his scarab ought to fit that door like a ring on a finger. A dead finger, naturally, but you know what I mean." },
         { id = "h_key", when = { questDone = TODO_QUEST("The Key to Scholomance") },
-          text = "You've the key! Bring me back a souvenir. A note, a bone, a recipe. Not a student. Students follow you home." },
+          text = "You've got the key! Bring me back a souvenir, would you, a note or a bone or a recipe, only not a student, because students follow you home." },
         { id = "h_knee", when = { metBefore = true },
-          text = "I can tell a storm three days off by the ache in my knee, two if it's the exposed bit. The Society wanted to study it. They can have it when I'm done with it." },
+          text = "I can tell a storm three days off by the ache in my knee, or two if it's the exposed bit. The Society wanted to study it, and they can have it when I'm finished with it." },
+      },
+      again = {
+        { id = "h_again", text = "More questions? Marvelous, I love questions, they're so much tidier than answers." },
+        { id = "h_again2", text = "Yes, yes, what else? Mind the green bottle, it's in a mood." },
       },
       choices = {
         { text = "How does the counter agent work?", next = "agent" },
+        { text = "Tell me about this key.", next = "key" },
+        { text = "How's the knee?", next = "knee" },
+        { text = "What's in your quickener?", next = "alch", when = { profession = "Alchemy" } },
         { text = "I'll gather what you need.", next = "END", fx = { affinity = 1 } },
       },
     },
     agent = {
       lines = {
-        { id = "a_default", text = "Every cauldron brews its own stew; we find what makes it sing and add a note that sours it. Quickener, runecloth and the right bits of the right dead. The quickener spoils in half an hour, so run.", fx = { learn = { "plague_cauldrons" } } },
+        { id = "a_default", text = "Every cauldron brews its own stew, so we find what makes it sing and add a note that sours it, quickener and runecloth and the right bits of the right dead. The quickener spoils in half an hour, though, so you'll have to run.", fx = { learn = { "plague_cauldrons" } } },
       },
-      choices = { { text = "Fascinating.", next = "END", fx = { affinity = 2, trait = { curious = 1 } } } },
+      choices = {
+        { text = "Why does it spoil so fast?", next = "agent_quick" },
+        { text = "Fascinating.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } },
+      },
+    },
+    agent_quick = {
+      lines = {
+        { id = "aq_default", text = "Because anything strong enough to quicken a reaction is strong enough to quicken itself right out of usefulness. It's like the living, really, burning bright and going off in no time at all." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
+    },
+    key = {
+      lines = {
+        { id = "k_default", text = "The Scholomance won't open for just anyone, so we make a key it can't refuse, out of the bones of the dead it already knows. A goblin pours the mold, a volcano sets it, and Araj's scarab gives it the right face." },
+      },
+      choices = {
+        { text = "Who's this goblin?", next = "key_krinkle" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    key_krinkle = {
+      lines = {
+        { id = "kk_default", text = "Krinkle Goodsteel, a smith in Gadgetzan, who'll make anything at all if you pay him enough, and he always asks for enough. I've never met him, but I admire his total lack of curiosity." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    knee = {
+      lines = {
+        { id = "kn_default", text = "It's very well, thank you for asking, and nobody ever does. Part of it is gone, which helps with the forecasting, and the rest of it creaks in a way I find quite companionable." },
+      },
+      choices = {
+        { text = "Glad to hear it.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    alch = {
+      lines = {
+        { id = "al_default", text = "Ah, a fellow professional, but I'm afraid the Society would have my other knee if I told you. Let's say it's mostly very angry arcane powder, and leave it there." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 
   topics = {
-    scholomance = { { id = "tp_scholomance", text = "A school. Of necromancy. Imagine the library. No, don't. I've imagined it. I didn't sleep. Well, I don't sleep. But I'd have stopped." , fx = { learn = { "scholomance" } } } },
-    plague_cauldrons = { { id = "tp_cauldrons", text = "My life's work, this month. Next month it'll be something else that wants to kill everyone." } },
-    _none = { { id = "tp_none", text = "Couldn't say. My knee doesn't know either." } },
+    background = { { id = "tp_ba", text = "I'm an apothecary of the Royal Society, and I was something else before I died, but I find this suits me far better." } },
+    advice = { { id = "tp_ad", text = "Label everything you carry out there, because the ghouls won't, and you'll forget which bottle was which." } },
+    scholomance = { { id = "tp_scholomance", text = "It's a school of necromancy, and just imagine the library! Actually, don't, because I've imagined it, and I didn't sleep, though of course I don't sleep anyway.", fx = { learn = { "scholomance" } } } },
+    plague_cauldrons = { { id = "tp_cauldrons", text = "They're my life's work, this month at least. Next month it'll be something else that wants to kill everyone." } },
+    _none = { { id = "tp_none", text = "I really couldn't say, and my knee doesn't know either." } },
   },
 }
 
@@ -196,15 +359,15 @@ P:NPC {
   notices = { "race", "kit" },
 
   greetings = {
-    { id = "g_bored", text = "Mm? Oh. Another one. Do try to be interesting." },
-    { id = "g_back", when = { metBefore = true }, text = "You again. Tell me you've brought me something that isn't your face." },
+    { id = "g_bored", text = "Mm? Oh, another one of you, how tiresome. Do try to be interesting." },
+    { id = "g_back", when = { metBefore = true }, text = "You again, is it? Tell me you've brought me something other than your face." },
   },
 
   notice = {
     { id = "n_forsaken", cat = "race", when = { race = "Scourge" },
-      text = "One of us, freed by the Dark Lady like me. Of course, I was a Barov before I was a corpse. You were... never mind, I don't need to know." },
+      text = "One of us, freed by the Dark Lady as I was. Of course, I was a Barov before I was a corpse, and what you were I really don't need to know." },
     { id = "n_rags", cat = "kit", when = { durability = { max = 0.3 } },
-      text = "Your armor is a disgrace. Bring me my fortune and you can buy better. You'll still be a peasant, but a well-dressed one." },
+      text = "Your armor is a disgrace. Bring me my fortune and you can buy better, and you'll still be a peasant, but at least a well-dressed one." },
   },
 
   start = "hello",
@@ -212,44 +375,80 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Alexi Barov. The family sold its soul to Kel'Thuzad, and I'm the one who got free of him. My brother Weldon kept his breath, and now he thinks he gets the money too.",
+          text = "Alexi Barov. My family sold its soul to Kel'Thuzad and I'm the one who got free of him, while my brother Weldon kept his breath and now imagines he gets the money too.",
           fx = { hear = "barov_heir" } },
         { id = "h_fortune", tags = { "news" }, when = { questActive = TODO_QUEST("Barov Family Fortune") },
-          text = "Four deeds, lost somewhere in the Scholomance. Caer Darrow, Brill, Tarren Mill, Southshore. Fetch them. Don't read them. You'll only feel poor." },
+          text = "There are four deeds lost somewhere in the Scholomance, for Caer Darrow, Brill, Tarren Mill and Southshore. Fetch them, and don't read them, or you'll only feel poor." },
         { id = "h_last", tags = { "news" }, when = { questActive = TODO_QUEST("The Last Barov") },
-          text = "My brother hides at Chillwind Camp, behind the Alliance's skirts. Slay him. Bring me his head. Do hurry; I'm told heads go off." },
+          text = "My brother hides at Chillwind Camp behind the Alliance's skirts, so slay him and bring me his head. Do hurry, because I'm told heads go off." },
         { id = "h_done", when = { questDone = TODO_QUEST("The Last Barov") },
-          text = "Weldon's gone, then. He spared me once, you know. Sentimental fool. I've no such weakness. I checked." },
+          text = "So Weldon's gone, then. He spared me once, you know, the sentimental fool, and I've no such weakness, I've checked." },
         { id = "h_signet", when = { metBefore = true },
-          text = "I still wear the family signet. My fingers are thinner now; I had it sized. A Barov keeps up appearances. Even this one." },
+          text = "I still wear the family signet, though my fingers are thinner now and I had it sized. A Barov keeps up appearances, even this Barov." },
+      },
+      again = {
+        { id = "h_again", text = "You're still here, I see. Well, go on, amuse me." },
+        { id = "h_again2", text = "Another question? How very thorough of you." },
       },
       choices = {
         { text = "He spared your life. Doesn't that matter?", next = "spared" },
         { text = "What's in it for me?", next = "pay" },
+        { text = "What was your family like?", next = "family" },
+        { text = "We were both freed by the Dark Lady.", next = "forsaken", when = { race = "Scourge" } },
         { text = "I'll look for the deeds.", next = "END", fx = { affinity = 1, align = { honor = -1 } } },
       },
     },
     spared = {
       big = true,
       lines = {
-        { id = "s_default", text = "He looked at me and couldn't do it: squeamishness, not mercy. If he'd finished me, he'd have his fortune. That's his mistake, not my debt." },
+        { id = "s_default", text = "He looked at me and couldn't do it, which was squeamishness, not mercy. If he'd finished me, he'd have his fortune, so that's his mistake, not my debt." },
       },
       choices = {
-        { text = "That's cold, even for the dead.", next = "END", fx = { affinity = -1, align = { light = 1 } } },
-        { text = "Understood.", next = "END", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "That's cold, even for the dead.", next = "BACK", fx = { affinity = -1, align = { light = 1 } } },
+        { text = "Do you hate him?", next = "hate" },
+        { text = "Understood.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
       },
+    },
+    hate = {
+      lines = {
+        { id = "ha_default", text = "Hate is for people with time on their hands, and I have eternity, which is quite different. I simply want what's mine, and he happens to be standing on it." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     pay = {
       lines = {
-        { id = "p_default", text = "Gold. A great deal of it. More than you've seen in one place, I'd wager, and I would know: I've seen your boots." },
+        { id = "p_default", text = "Gold, and a great deal of it, more than you've ever seen in one place, I'd wager. I would know, because I've seen your boots." },
       },
-      choices = { { text = "Deal.", next = "END", fx = { affinity = 1 } } },
+      choices = {
+        { text = "Deal.", next = "BACK", fx = { affinity = 1 } },
+        { text = "And what's in the deeds for you?", next = "deeds" },
+      },
+    },
+    deeds = {
+      lines = {
+        { id = "de_default", text = "The family's lands, of course, every acre from Caer Darrow to Southshore, and never mind who's living on them now. Kingdoms fall, but titles keep, and I intend to keep mine." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    family = {
+      lines = {
+        { id = "fa_default", text = "We were rich, and we were bored, and when Kel'Thuzad offered us forever we were foolish enough to accept. Father turned our home into his school, and the rest of us paid the tuition." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "scholomance" } } } },
+    },
+    forsaken = {
+      lines = {
+        { id = "fo_default", text = "Freed, yes, though some of us had rather more worth freeing. Still, you have the look of someone who could fetch a deed without losing it, which already puts you ahead of most." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 
   topics = {
-    scholomance = { { id = "tp_scholomance", text = "Home. Father turned it into a school for necromancers. The tuition was everyone we knew." } },
-    _none = { { id = "tp_none", text = "How tedious. Does it have money in it? No? Then why are we talking?" } },
+    background = { { id = "tp_ba", text = "I'm a Barov of Caer Darrow, dead and free and owed a fortune. What more could you possibly need to know?", next = "family" } },
+    advice = { { id = "tp_ad", text = "Never trust family, darling, and never, ever trust a brother with a conscience." } },
+    scholomance = { { id = "tp_scholomance", text = "It was our home, until Father turned it into a school for necromancers, and the tuition was everyone we knew." } },
+    _none = { { id = "tp_none", text = "How tedious. Is there money in it? No? Then why are we still talking about it?" } },
   },
 }
 
@@ -260,15 +459,15 @@ P:NPC {
   notices = { "race", "class" },
 
   greetings = {
-    { id = "g_dawn", text = "For the Dawn. Say it with me. It gets easier." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again. You've stones for me, or a story. I'll take either." },
+    { id = "g_dawn", text = "For the Dawn, friend, so say it with me, and it gets easier each time." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again, and you've brought me stones or a story. I'll gladly take either one." },
   },
 
   notice = {
     { id = "n_orc", cat = "race", when = { race = "Orc" },
-      text = "Another orc. Then you know what it is to be a weapon someone else aimed. The Dawn aims at one thing only. I like that." },
+      text = "Another orc, then you know what it is to be a weapon someone else aimed. The Dawn aims at one thing only, and I like that about it." },
     { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
-      text = "Shaman. The spirits are sick here. You'll feel it. Fight anyway. They'll thank you when they're well." },
+      text = "A shaman, so you'll feel how sick the spirits are here. Fight anyway, because they'll thank you for it when they're well again." },
   },
 
   start = "hello",
@@ -276,33 +475,86 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Argent Officer Garush, orc, Horde-born, and soldier of the Argent Dawn: every race, one enemy. I fought for the Horde all my life. Now I fight for everybody." },
+          text = "Argent Officer Garush, orc, Horde-born, and a soldier of the Argent Dawn, where every race faces one enemy. I fought for the Horde all my life, and now I fight for everybody." },
         { id = "h_commission", tags = { "news" }, when = { questActive = TODO_QUEST("Argent Dawn Commission") },
-          text = "Wear the commission. The dead out there carry scourgestones, what's left of the will that drives them. Bring them here. Every stone is one less thing walking." },
+          text = "Wear the commission, and you'll find the dead out there carry scourgestones, what's left of the will that drives them. Bring them here, because every stone is one less thing walking." },
         { id = "h_everlook", tags = { "news" }, when = { questActive = TODO_QUEST("The Everlook Report") },
-          text = "A report from Everlook? Gregor's hand. He writes small. I read slow. We get there." },
+          text = "A report from Everlook, in Gregor's hand? He writes small and I read slowly, but we always get there in the end." },
         { id = "h_pureheart", when = { metBefore = true },
-          text = "Pureheart's at Chillwind, on the Alliance side, and we write each other. Ten years ago one of us would've killed the other. Now we argue about rations." },
+          text = "Pureheart's at Chillwind on the Alliance side, and the two of us write to each other. Ten years ago one of us would have killed the other, and now we argue about rations." },
+      },
+      again = {
+        { id = "h_again", text = "What else, friend? Ask it plain, and I'll answer plain." },
+        { id = "h_again2", text = "Something more? I'm here until the next patrol." },
       },
       choices = {
         { text = "Why join the Dawn?", next = "why" },
+        { text = "What do the stones do?", next = "commission" },
+        { text = "You write to an Alliance officer?", next = "pureheart" },
+        { text = "I'm Alliance. Am I welcome here?", next = "alliance", when = { faction = "Alliance" } },
+        { text = "Does the Horde not need you more?", next = "orc", when = { race = "Orc" } },
         { text = "I'll bring you stones.", next = "END", fx = { affinity = 1, learn = { "argent_dawn" } } },
       },
     },
     why = {
       big = true,
       lines = {
-        { id = "w_default", text = "I had years in the camps after the war to think. When I got out, I wanted a fight to be proud of. The Scourge is the only enemy everyone agrees on, and that's rare.", fx = { learn = { "argent_dawn" } } },
+        { id = "w_default", text = "I had years in the camps after the war to think, and when I got out, I wanted a fight I could be proud of. The Scourge is the only enemy everyone agrees on, and that's a rare thing.", fx = { learn = { "argent_dawn" } } },
       },
       choices = {
-        { text = "That's honorable.", next = "END", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "The Horde needs you more.", next = "END", fx = { affinity = -1, align = { order = 1 } } },
+        { text = "That's honorable.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "The camps?", next = "camps" },
+        { text = "The Horde needs you more.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
+      },
+    },
+    camps = {
+      lines = {
+        { id = "ca_default", text = "The humans' internment camps, where a great many orcs sat out the years after the Second War. Thrall freed us, and I honor him for it, but I'll spend what's left of my life where it does the most good." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    commission = {
+      lines = {
+        { id = "cm_default", text = "A scourgestone is the binding that holds a dead thing up, made solid when it falls. Bring them to me, and they'll never hold anything up again." },
+      },
+      choices = {
+        { text = "And what do I get?", next = "stones" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stones = {
+      lines = {
+        { id = "st_default", text = "The Dawn's respect, which is worth more than it sounds, because the Dawn keeps count and its quartermasters remember. Mostly you get fewer dead, though, and I'd hope that's enough." },
+      },
+      choices = { { text = "It's enough.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } } },
+    },
+    pureheart = {
+      lines = {
+        { id = "pu_default", text = "I do, and she writes back, mostly about rations and the weather and how many we've each lost that week. It's strange to share a war with someone you'd have fought ten years ago, but I wouldn't trade it." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    alliance = {
+      lines = {
+        { id = "al_default", text = "At my table, yes, and at the wall, so long as you fight the dead. The Forsaken won't love you, but they'll leave you be if I ask, and I've asked." },
+      },
+      choices = { { text = "Thank you, Garush.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    orc = {
+      lines = {
+        { id = "or_default", text = "The Horde has thousands of young warriors, brother, and the Dawn has very few orcs. If the dead take Tirisfal, Undercity falls with it, so this is the Horde's fight too, whatever anyone in Orgrimmar says." },
+      },
+      choices = {
+        { text = "Lok'tar, then.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },
 
   topics = {
-    argent_dawn = { { id = "tp_dawn", text = "No kings, no warchiefs. Just the dead, and the people who won't let them win." } },
-    _none = { { id = "tp_none", text = "Don't know. Ask Derrington. He knows everything and tells you half." } },
+    background = { { id = "tp_ba", text = "I'm an orc who fought the Horde's wars, sat in the camps, and came out wanting a better fight. I found one here.", next = "why" } },
+    advice = { { id = "tp_ad", text = "Keep moving out there, because the dead are slow, but they never stop." } },
+    argent_dawn = { { id = "tp_dawn", text = "There are no kings and no warchiefs in the Dawn, only the dead and the people who won't let them win." } },
+    _none = { { id = "tp_none", text = "I don't know, friend. Ask Derrington, because he knows everything and tells you half." } },
   },
 }

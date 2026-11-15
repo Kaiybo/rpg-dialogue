@@ -604,15 +604,15 @@ P:NPC {
   notices = { "craft", "purse" },
 
   greetings = {
-    { id = "g_forge", text = "Welcome to the hottest forge in the hottest town in Kalimdor. Don't touch the anvil. Don't touch anything." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again! Buying, or mending? I do both now. Ask me how." },
+    { id = "g_forge", text = "Welcome to the hottest forge in the hottest town in Kalimdor, friend, and don't touch the anvil, or anything else for that matter." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again! Are you buying or mending, because I do both now, and you can ask me how." },
   },
 
   notice = {
     { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
-      text = "A smith! Thought so, from the forearms. Don't look so surprised. You don't look like one, but looks lie. Mine certainly do." },
+      text = "A smith! I thought so, from the forearms, so don't look so surprised. You don't look like one, but looks lie, and mine certainly do." },
     { id = "n_purse", cat = "purse", when = { money = { max = 1500 } },
-      text = "Light purse. Lighter than mine, anyway. Browse all you like. Browsing's free. Everything else isn't." },
+      text = "That's a light purse you've got there, lighter than mine, anyway. Browse all you like, because browsing's free, and everything else isn't." },
   },
 
   start = "hello",
@@ -626,7 +626,7 @@ P:NPC {
         { id = "h_plume", tags = { "news" }, when = { questActive = TODO_QUEST("Fire Plume Forged") },
           text = "The key needs a fire hot enough to set it, and my forge isn't it. Fire Plume Ridge, in Un'Goro. Find the hottest spot and hold your breath." },
         { id = "h_union", when = { metBefore = true },
-          text = "The Repairers' Union pulled my right to mend armor once. Said I was undercutting them. I filed a complaint. I filed six. I mend armor again. Persistence, friend." },
+          text = "The Repairers' Union pulled my right to mend armor once, saying I was undercutting them, so I filed a complaint, and then I filed five more. Now I mend armor again, and that's persistence for you, friend." },
       },
       choices = {
         { text = "Who else buys these molds?", next = "who" },
@@ -644,6 +644,6 @@ P:NPC {
   topics = {
     scholomance = { { id = "tp_scholomance", text = "Never been. Never going. I make the key; somebody else gets to use it. Best arrangement there is." } },
     steamwheedle = { { id = "tp_cartel", text = "The Cartel keeps the bruisers paid and the trade roads open. I pay my share. I complain about it, but I pay." } },
-    _none = { { id = "tp_none", text = "Not my trade. My trade is metal. Buy some?" } },
+    _none = { { id = "tp_none", text = "That's not my trade, friend, my trade is metal, so how about buying some?" } },
   },
 }
