@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.2.2 (unreleased)
+- Voice pass: Everlook, Donova and Mau'ari now talk in whole sentences instead of clipped fragments. Donova keeps her burr and Mau'ari her island speech and third person, as connected talk rather than scraps.
+
 ## 1.2.1 (unreleased)
 - Everlook's "another bear" is said only to bears.
 

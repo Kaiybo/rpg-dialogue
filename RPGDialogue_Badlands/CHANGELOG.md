@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.2.2 (unreleased)
+- Voice pass: Kargath, Ryedol and Lotwil now talk in whole sentences instead of clipped fragments. Lexlort is still a man of few words and Vivian still loses her composure, each in a sentence or two rather than a string of scraps.
+
 ## 1.2.1 (unreleased)
 - Kargath's guards react only to beast shapes (bear, cat, travel, ghost wolf), never to a priest's Shadowform.
 
