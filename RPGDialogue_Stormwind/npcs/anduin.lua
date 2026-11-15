@@ -163,7 +163,7 @@ P:NPC {
       },
     },
     teldrassil_old = {
-      lines = { { id = "to_default", text = "I knew it! My tutor says your people lived here before there were any humans at all. Is it rude to ask how old you are? It's rude, isn't it. I'm sorry." } },
+      lines = { { id = "to_default", text = "I knew it, because my tutor says your people lived here before there were any humans at all! Is it rude to ask how old you are? I think it might be, and I'm sorry if it is." } },
       choices = { { text = "It's not rude, Your Majesty.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } } },
     },
     ironforge = {
@@ -225,7 +225,7 @@ P:NPC {
       choices = { { text = "Something else, Your Majesty.", next = "BACK", fx = { affinity = 2 } } },
     },
     bear = {
-      lines = { { id = "bear_l", text = "A real bear? In the throne room? The Highlord will say no, so please do it quickly, before he looks up from his papers." } },
+      lines = { { id = "bear_l", text = "A real bear, in the throne room? The Highlord will say no, so please do it quickly, before he looks up from his papers." } },
       choices = {
         { text = "A small one, Your Majesty. Just for a moment.", next = "bear2" },
         { text = "Perhaps somewhere with fewer guards.", next = "BACK", fx = { trait = { cautious = 1 } } },

@@ -516,7 +516,7 @@ P:NPC {
       },
     },
     paladin = {
-      lines = { { id = "paladin_l", text = "Yes! No. Maybe? Lord Shadowbreaker says I'm too young and too short, and Arthur says height has nothing to do with it, and I'm on Arthur's side." } },
+      lines = { { id = "paladin_l", text = "Yes, I think so, or maybe! Lord Shadowbreaker says I'm too young and too short, and Arthur says height has nothing to do with it, and I'm on Arthur's side." } },
       choices = {
         { text = "Arthur's right. Keep lighting candles.", next = "paladin2", fx = { trait = { kind = 1 } } },
         { text = "Start by lifting heavier candlesticks.", next = "paladin2", fx = { trait = { witty = 1 } } },

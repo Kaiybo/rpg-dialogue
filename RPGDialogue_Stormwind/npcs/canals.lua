@@ -617,7 +617,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     pet = {
-      lines = { { id = "pet_l", text = "Whoa! Is it yours? Does it eat fish? Adam, look, it's a real one, not a dog, a real one!" } },
+      lines = { { id = "pet_l", text = "Whoa, is it yours, and does it eat fish? Adam, look, it's a real one, not a dog, a real one!" } },
       choices = { { text = "It eats fish. Want to feed it?", next = "BACK", fx = { affinity = 2 } } },
     },
   },

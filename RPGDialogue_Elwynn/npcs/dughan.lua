@@ -319,7 +319,7 @@ P:NPC {
       lines = {
         { id = "warrior_l", text = "I did, and I meant it. The posters by the door are the jobs: murlocs east, kobolds in the mines, gnolls west and Hogger worst of all, and every one of them pays in coin and in Goldshire sleeping easier." },
         { id = "warrior_guard", when = { origin = "human_city_guard" },
-          text = "City Watch, weren't you? You've the walk. Then you know how a posting works: the posters by the door are the jobs, and every one of them pays in coin and in Goldshire sleeping easier." },
+          text = "City Watch, weren't you, with that walk? Then you know how a posting works: the posters by the door are the jobs, and every one of them pays in coin and in Goldshire sleeping easier." },
       },
       choices = {
         { text = "Which one's the worst?", next = "warrior_worst" },

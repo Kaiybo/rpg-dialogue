@@ -203,8 +203,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_warrior", when = { class = "WARRIOR" }, text = "There's my recruit! Hit something today? Hit it harder tomorrow." },
-    { id = "g_other", when = { ["not"] = { class = "WARRIOR" } }, text = "Not a warrior? Shame. You've the shoulders for it, almost." },
+    { id = "g_warrior", when = { class = "WARRIOR" }, text = "There's my recruit! Did you hit something today, and will you hit it harder tomorrow?" },
+    { id = "g_other", when = { ["not"] = { class = "WARRIOR" } }, text = "Not a warrior? That's a shame, because you've almost got the shoulders for it." },
   },
 
   notice = {
@@ -342,7 +342,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_warrior", when = { class = "WARRIOR" }, text = "Shield up, chin down. Good. What do you need?" },
+    { id = "g_warrior", when = { class = "WARRIOR" }, text = "Shield up and chin down, that's good. What do you need?" },
     { id = "g_other", when = { ["not"] = { class = "WARRIOR" } }, text = "Not one of mine, but welcome all the same. The line has room for everyone." },
   },
 
@@ -362,7 +362,7 @@ P:NPC {
         { id = "h_veteran", when = { class = "WARRIOR", minLevel = 40 },
           text = "You came back. Not all of them do, you know, and I keep a list of the ones who don't; I'm glad to leave you off it." },
         { id = "h_redridge", when = { visited = "Lakeshire" },
-          text = "You've been through Lakeshire. How's the bridge holding? I trained three of the watchmen there, and I haven't had a letter since spring." },
+          text = "You've been through Lakeshire, so tell me how the bridge is holding. I trained three of the watchmen there, and I haven't had a letter since spring." },
         { id = "h_other", when = { ["not"] = { class = "WARRIOR" } },
           text = "Ander Germaine, warrior trainer. You've your own teachers, I'm sure, but if you ever need someone to stand in front of you, warriors are good for that." },
       },
