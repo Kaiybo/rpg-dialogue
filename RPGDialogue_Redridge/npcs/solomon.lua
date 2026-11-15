@@ -43,6 +43,8 @@ P:NPC {
           text = "Orcs don't plan like this. Somebody is directing them, and the letter you carried names who. Take it to the Keep before the next raid." },
         { id = "h_masters_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The True Masters"), days = 5 } },
           text = "The Highlord read it all and still won't send soldiers without more proof, so he sent a deputy instead, which is to say you. I suppose that's an answer." },
+        { id = "h_maxwell", when = { heardLine = "maxwell.h_default" },
+          text = "You've been up to Morgan's Vigil and met Marshal Maxwell, then. He and I write to the same deaf ears in Stormwind, and his letters are angrier than mine, which I hadn't thought possible." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "An elf from the sky, is it? If your people could fly I'd want a dozen on the walls, but I'm told you glide, and I'll gladly take gliders." },
         { id = "h_priest", when = { class = "PRIEST" },

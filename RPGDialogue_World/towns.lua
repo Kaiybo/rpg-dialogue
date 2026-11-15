@@ -472,6 +472,22 @@ P:Town {
   quests = { { TODO_QUEST("Scarlet Diversions"), 3 }, { TODO_QUEST("Return to the Bulwark"), 3 } },
 }
 
+-- Burning Steppes (Burning Steppes pack)
+P:Town {
+  id = "morgans_vigil", name = "Morgan's Vigil",
+  subzones = { "Morgan's Vigil" },
+  related = { lakeshire = 0.1 },
+  tiers = { Hero = "Hero of the Vigil" },
+  quests = { { TODO_QUEST("Extinguish the Firegut"), 2 }, { TODO_QUEST("Jail Break!"), 6 }, { TODO_QUEST("General Drakkisath's Demise"), 6 } },
+}
+
+P:Town {
+  id = "flame_crest", name = "Flame Crest",
+  subzones = { "Flame Crest" },
+  tiers = { Hero = "Friend of Flame Crest" },
+  quests = { { TODO_QUEST("Tablet of the Seven"), 2 }, { TODO_QUEST("Broodling Essence"), 2 }, { TODO_QUEST("Mother's Milk"), 3 } },
+}
+
 -- The other capitals. Their guards speak from pools_roles.lua; standing grows from quests
 -- each capital's own pack lists later.
 P:Town {
