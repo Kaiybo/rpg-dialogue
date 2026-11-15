@@ -279,11 +279,11 @@ def main():
             if words > 15:
                 rep.warn(pack, f, ln.line, f"{where}: reply is {words} words (aim for 15 or fewer)")
         else:
-            # Short fragments ("Big. Angry. Southwest.") are a voice, not a speech. Flag only
-            # lines that are both many sentences and long.
+            # One line is one breath of conversation: 1-3 whole sentences (the voice checker
+            # fails stacked fragments). Flag only lines too long to read at a glance.
             n_sent, n_words = sentences(text), len(text.split())
-            if (n_sent > 3 and n_words > 30) or n_words > 50:
-                rep.warn(pack, f, ln.line, f"{where}: {n_sent} sentences, {n_words} words (aim for 1-3 short sentences)")
+            if n_words > 60 or (n_sent > 4 and n_words > 45):
+                rep.warn(pack, f, ln.line, f"{where}: {n_sent} sentences, {n_words} words (aim for 1-3 sentences; split a speech into nodes)")
 
     def check_journal(pack, f, line, j, where):
         if j is None:

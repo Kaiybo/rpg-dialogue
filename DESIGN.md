@@ -214,7 +214,7 @@ Working examples of every kind are in the two shipped packs; `PACK_AUTHORING.md`
 | Field | Meaning |
 |---|---|
 | `id` | unique within the NPC. The global id is `<npckey>.<id>` |
-| `text` | 1–3 sentences. Tokens allowed |
+| `text` | 1–3 whole sentences (no stacked fragments; CONTENT_GUIDE §2). Tokens allowed |
 | `when` | conditions, all of which must pass |
 | `weight` | relative chance among tied lines (default 1) |
 | `priority` | small score adjustment (default 0). Use sparingly |
