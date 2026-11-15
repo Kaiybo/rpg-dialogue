@@ -561,7 +561,7 @@ P:Town {
   subzones = { "Valormok" },
   related = { orgrimmar = 0.05 },
   tiers = { Hero = "Avenger of Valormok" },
-  quests = { { TODO_QUEST("Betrayed (2)"), 3 }, { TODO_QUEST("Betrayed (3)"), 6 }, { TODO_QUEST("Stealing Knowledge"), 3 } },
+  quests = { { TODO_QUEST("Betrayed"), 4 }, { TODO_QUEST("Stealing Knowledge"), 3 } },
 }
 
 -- 0.35.0: Silithus (towns for that pack go below this line)

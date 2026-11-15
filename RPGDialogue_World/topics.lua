@@ -135,5 +135,17 @@ P:Topic { id = "firegut", keywords = { "Firegut" }, name = "The Firegut ogres", 
 -- 0.35.0: Blasted Lands (topics for that pack go below this line)
 
 -- 0.35.0: Azshara (topics for that pack go below this line)
+P:Topic { id = "highborne", keywords = { "Highborne" }, name = "The Highborne", category = "lore", learned = "Loh'atu at Talrendis Point, or Archmage Xylem" }
+P:Topic { id = "queen_azshara", keywords = { "Queen Azshara" }, name = "Queen Azshara", category = "lore", learned = "Loh'atu at Talrendis Point" }
+P:Topic { id = "eldarath", keywords = { "Eldarath" }, name = "The Ruins of Eldarath", category = "places", learned = "Loh'atu at Talrendis Point, or Ogtinc above the ruins" }
+P:Topic { id = "spitelash", keywords = { "Spitelash" }, name = "The Spitelash naga", category = "threats", learned = "Jarrodenus at Talrendis Point, or Archmage Xylem" }
+P:Topic { id = "satyrs", keywords = { "satyr" }, name = "The satyr of Azshara", category = "threats", learned = "Loh'atu at Talrendis Point" }
+P:Topic { id = "xylem", keywords = { "Xylem" }, name = "Archmage Xylem", category = "people", learned = "Loh'atu, Jediga, or Sanath Lim-yo below the tower" }
+P:Topic { id = "morphaz", keywords = { "Morphaz" }, name = "Morphaz the green drake", category = "threats", learned = "Archmage Xylem, or Ogtinc above Eldarath" }
+P:Topic { id = "rimtori", keywords = { "Rimtori" }, name = "Magus Rimtori's expedition", category = "threats", learned = "Ag'tor Bloodfist at Valormok, or Kim'jael" }
+P:Topic { id = "waterlords", keywords = { "Waterlords", "Hydraxis" }, name = "The Hydraxian Waterlords", category = "people", learned = "Duke Hydraxis in the Bay of Storms" }
+P:Topic { id = "loramus", keywords = { "Loramus" }, name = "Loramus the demon hunter", category = "people", learned = "Loramus Thalipedes on his island in the Bay of Storms" }
+P:Topic { id = "arkkoroc", keywords = { "Arkkoroc" }, name = "Lord Arkkoroc", category = "people", learned = "Loramus Thalipedes, or the Temple of Arkkoran" }
+P:Topic { id = "horizon_scout", keywords = { "Horizon Scout" }, name = "The wreck of the Horizon Scout", category = "rumors", learned = "Captain Vanessa Beltis in the Ruined Reaches" }
 
 -- 0.35.0: Silithus (topics for that pack go below this line)
