@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.20.0 (2026-11-15)
+- Burning Steppes: towns Morgan's Vigil (related to Lakeshire) and Flame Crest; topics the black dragonflight, Blackrock Spire, Blackrock Depths, Marshal Windsor, the ruins of Thaurissan, the Firegut ogres; claim `windsor_alive` (Ragged John; true, settled by Marshal Windsor); Marshal Maxwell carries a beat of Solomon's letters (`b8_maxwell`).
+
 ## 1.19.0 (2026-11-15)
 - **The spirit healer, rewritten.** A real argument now: does coming back cheapen death, is it mercy or a cage, is the one who wakes the one who died, and what happens if you refuse to go back (you may; the healer does not make it easy). The healer argues honestly, turns questions on you, and can concede.
 - Mysteries that stay open (claims `spirithealer_other_hand`, `spirithealer_was_mortal`, `spirithealer_the_door`): pages at the back of your file in another hand, dated ahead; a healer who half-remembers being alive; a door past the mist nobody opens. Two Persuade checks and a Deceive the healer always sees through.
@@ -14,7 +17,6 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 - New death lines (wild creatures, unknown causes), race and class lines for everyone, what became of your people's dead, a send-off before you return, two noticing moments, journal entries, Scarlet Crusade and Argent Dawn topics. Voice bible in `bibles/spirithealer.md`.
 - Voice pass for the healer (whole sentences, as everywhere else since 1.18.0).
 - Western Plaguelands: towns Chillwind Camp and the Bulwark; topics the plague cauldrons, Andorhal, the Scholomance; claim `barov_heir` (disputed, left open).
-- Burning Steppes: towns Morgan's Vigil (related to Lakeshire) and Flame Crest; topics the black dragonflight, Blackrock Spire, Blackrock Depths, Marshal Windsor, the ruins of Thaurissan, the Firegut ogres; claim `windsor_alive` (Ragged John; true, settled by Marshal Windsor); Marshal Maxwell carries a beat of Solomon's letters (`b8_maxwell`).
 
 ## 1.18.0 (unreleased)
 - Voice pass: the shared pools (children, guards, innkeepers, trainers, the spirit healer and the rest), the "ask anyone" answers, the generic lines, the inn rumors and the throughline beats now talk in whole sentences instead of clipped fragments; what they say is unchanged.

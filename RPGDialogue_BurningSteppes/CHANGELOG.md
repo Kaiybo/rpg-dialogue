@@ -2,7 +2,7 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
-## 1.0.0 (first release, unreleased)
+## 1.0.0 (2026-11-15)
 - Morgan's Vigil (Alliance): Marshal Maxwell (Windsor's lost proof, the Blackrock and the Spire, why Stormwind waits; the True Masters chain, the Depths, Jail Break!, Bijou's message, Drakkisath; replies for priests, paladins, dwarves and minor nobles), Helendis Riverhorn (the ruined Redridge range, the black dragonflight behind the Blackrock, Halycon and the worgs; replies for night elves, druids, priests and hunters, and Bolvar's deputy), Oralius and Captain Winky (the three phases against the Firegut; a priest can pray with him), Jalinda Sprig (her burned mages, Pyron, Incendius and the name under the mountain), Mayara Brightwing (Count Ridgewell's agent, Thaurissan's whispering stones, the Hall of Fortune), Borgus Stoutarm (gryphon master).
 - Flame Crest (neutral, with the Horde's wind riders): Ragged John and the whole of his tale of Windsor, Ironfoe and Franclorn Forgewright, told his own way; his Mother's Milk ale. Maxwort Uberglint (the Seven, the Heart of the Mountain), Tinkee Steamboil (dragon eggs, her gadgets, a patron she won't name), Yuka Screwspigot (supplies; her brother Ribbly's bounty), Kibler and Opus (exotic pets, Bijou, G.E.T.A.), Mathredis Firestar (the librams, his hunger, Quel'Thalas), Vahgruk (wind rider master; Rend Blackhand is no Warchief).
 - Slither Rock: Cyrus Therepentous, a black dragonspawn who wants the mountain's fire.
