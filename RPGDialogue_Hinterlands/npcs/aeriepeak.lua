@@ -15,7 +15,7 @@ P:NPC {
 
   notice = {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
-      text = "A dwarf o' Ironforge, here among the Wildhammer! The mountain's fine, lad, but ye've no seen anythin' till ye've seen it from a gryphon's back." },
+      text = "A dwarf o' Ironforge, here among the Wildhammer! The mountain's fine, {g:lad|lass}, but ye've no seen anythin' till ye've seen it from a gryphon's back." },
     { id = "n_hunter", cat = "class", when = { class = { "HUNTER", "SHAMAN" } },
       text = "Ye've the look o' someone who knows beasts, so the gryphons'll like ye, probably." },
   },
@@ -95,7 +95,7 @@ P:NPC {
       },
     },
     skyborne = {
-      lines = { { id = "s_default", text = "Glide! Downhill, aye? A gryphon goes up, lad. Up! Come back when yer wind can carry ye over a mountain, an' we'll talk about who flies better." } },
+      lines = { { id = "s_default", text = "Glide! Downhill, aye? A gryphon goes up, {g:lad|lass}. Up! Come back when yer wind can carry ye over a mountain, an' we'll talk about who flies better." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     friend = {

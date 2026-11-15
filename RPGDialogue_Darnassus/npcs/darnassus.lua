@@ -24,7 +24,7 @@ P:NPC {
     { id = "n_warlock", cat = "fel", place = "before", when = { class = "WARLOCK" },
       text = "I know that taint, for my people burned for it once. Say your piece quickly, and then take it out of Elune's house." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST", race = "NightElf" },
-      text = "A sister of the moon, and welcome. We are fewer than we were, and needed more than ever." },
+      text = "A {g:brother|sister} of the moon, and welcome. We are fewer than we were, and needed more than ever." },
     { id = "n_skyborne", cat = "race", when = { race = "Skyborne" },
       text = "Eldre'Thalas... I remember it as a city of light. I am told your people left it rather than bow to a prince's purge, and that speaks well of them." },
     { id = "n_shadow", cat = "form", place = "before", when = { form = "shadow" },

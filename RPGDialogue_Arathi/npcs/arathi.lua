@@ -127,7 +127,7 @@ P:NPC {
 
   notice = {
     { id = "n_orc", cat = "race", when = { race = "Orc" },
-      text = "Lok'tar, brother! Doomhammer fell on this ground setting us free, and we owe him a fortress worth the price." },
+      text = "Lok'tar, {g:brother|sister}! Doomhammer fell on this ground setting us free, and we owe him a fortress worth the price." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Boulderfist clubs, or Witherbark spears? Mend, and then go answer them." },
   },
