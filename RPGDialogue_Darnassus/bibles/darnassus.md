@@ -29,3 +29,24 @@
 - A'moora: gentle, "little star".
 - Gracina: intent naturalist, unsettled by hive minds.
 - Saelienne: warm innkeeper; the branches rock at night.
+
+## Depth pass (Darnassus 1.2.0)
+Sources read for this pass (warcraft.wiki.gg): Tyrande Whisperwind (WoW section, quests, WC3 quotes), Fandral Staghelm (Classic quests and gossip), Crown of the Earth (3)-(6), Teldrassil (quest), Grove of the Ancients (quest), The New Frontier (1)-(2), Mathrengyl Bearwalker, Heeding the Call / Moonglade / Back to Darnassus / Body and Heart / Lessons Anew / Power over Poison / A Lesson to Learn (Alliance), To Darnassus (Forever), The Temple of the Moon (Classic), Tears of the Moon (Classic), Sathrah's Sacrifice (quest), Lady Sathrah, Rise of the Silithid (Alliance, Feralas), March of the Silithid, Calm Before the Storm (Alliance), Reception from Tyrande, Doling Justice (2), Desperate Prayer (Darnassus), Arcane Feedback (Darnassus), Sisterhood of Elune, Elune, Temple of the Moon, Cenarion Enclave, Craftsmen's Terrace, Rut'theran Village. Full table: LORE_ADDITIONS.md.
+
+### Their quests (added)
+- Tyrande: Reception from Tyrande (Sentinel Thenysil, Stonetalon; she thanks the young hero), Doling Justice (2) (not used: the title is shared with part 1).
+- Fandral: Crown of the Earth (6) (complains the water took its time; the weight of Teldrassil's troubles is a yoke he'd gladly be rid of), Teldrassil (the Oracle Tree's report; fears his work may never be finished and immortality never restored), Grove of the Ancients (Onu: the Archdruid is always in a hurry), The New Frontier (calls Moonglade's druids fools; "It is I who led us out of the darkness").
+- Mathrengyl: his own first meeting with the Great Bear Spirit was bewildering but intense (Back to Darnassus); surprised by Auberdine's animal poisonings (Power over Poison); Forever: The Great Cat Spirit / To Darnassus (the spirit's trials vary by generation; as deadly as it is playful).
+- A'moora: The Temple of the Moon (Classic) comes from Sister Aquinne; Lady Sathrah, once beloved of Elune, spun silver dew that healed in the Temple; she went mad; her spinnerets are laid at the Temple fountain so she may be reborn.
+- Gracina: Rise of the Silithid reports come from Fizzledowser (Tanaris) and Shandris (Feralas); she thinks the silithid's strength lies deeper, in Un'Goro; she calls Fandral a fool about the silithid (Calm Before the Storm).
+
+### The two faiths (for a priest of the Light)
+- Year 1 source: Priestess Alathea (Temple of the Moon) trains human priests and sends them back to High Priestess Laurena ("Praise be to Elune, and to your Light"), and admits a distrust of arcane magic "be they divine inspired or not" (Desperate Prayer (Darnassus), Arcane Feedback (Darnassus), both Classic).
+- Not used: "Tyrande teaches that the Light and Elune's light are closely related" and "the Church sent members to the Sisterhood hoping to lead them to the Light" come from Season of Discovery quests (Meditation on Elune, Meditation on the Light), which the brief excludes. So Tyrande and A'moora say only what they have seen (both heal the same wounds) and leave the question open.
+
+### Never (added)
+- Tyrande calls Malfurion her husband (they wed in *Stormrage*, after Year 1). She says "Malfurion" or "my beloved".
+- Morrowgrain, the Emerald Nightmare, Valstann. Fandral's doubts stay his pride and his burden.
+
+### Authored, not canon (this pass)
+Tyrande: the Sentinels report at moonrise; her lines on Fandral ("he leads the druids; the rest of us he lectures"); asking a priest in Shadowform to set it aside in the Temple; trusting a stranger because strangers have no stake. Fandral: his line to priests about the Temple being across the gardens; "the Cathedral or the forest, which will stand in ten thousand years". Mathrengyl: the cat-form notice; inviting a priest to sit in on a lesson. A'moora: whom she names in her prayers; "she won't mind the accent". Gracina: the jar that bites; "the hive was certain too". Saelienne: the craftsmen grumbling about moonlight; humans asking where the walls are.

@@ -10,7 +10,7 @@
 - https://warcraft.wiki.gg/wiki/Innkeeper_Shaussiy (night elf innkeeper; tired spirits, rest, Elune guide your dreams)
 
 ## Their quests
-- Thundris: Bashal'Aran, Tools of the Highborne, The Cliffspring River, The Blackwood Corrupted, Seeking the Kor Gem, Onward to Ashenvale.
+- Thundris: Bashal'Aran, Tools of the Highborne, Thundris Windweaver (from Terenthis), The Cliffspring River, The Blackwood Corrupted, Seeking the Kor Gem. (Onward to Ashenvale is 2.0.3, not used.)
 - Terenthis: How Big a Threat?, A Lost Master, Escape Through Stealth.
 - Gwennyth: Washed Ashore, Beached Sea Creature, Beached Sea Turtle.
 - Glynda: The Red Crystal, As Water Cascades, WANTED: Murkdeep!
@@ -28,3 +28,14 @@
 - Glynda: urgent, protective Sentinel.
 - Cerellean: melancholy lover on the dock; ten thousand years of waiting.
 - Shaussiy: warm innkeeper; tea for Cerellean.
+
+## Depth pass (Darkshore 1.2.0)
+Sources read (Classic versions): Auberdine, Darkshore (Classic), Master's Glaive, Bashal'Aran (quest), Tools of the Highborne, The Cliffspring River, The Blackwood Corrupted, Seeking the Kor Gem, Thundris Windweaver (quest), How Big a Threat? (1)-(2), A Lost Master (1)-(2), Escape Through Stealth, Volcor, Grimclaw, Washed Ashore (1)-(2), Beached Sea Creature, Beached Sea Turtle, The Red Crystal, As Water Cascades, The Fragments Within, For Love Eternal, Trek to Ashenvale, Sentinel Selarin, Rut'theran Village, Prospector Remtravel. Full table: LORE_ADDITIONS.md.
+
+### Year 1 notes
+- Onward to Ashenvale was added in patch 2.0.3 (Burning Crusade); it is no longer used, nor the friendship it describes between Thundris and Raene. Classic's road from Darkshore to Astranaar is Sentinel Selarin's Trek to Ashenvale.
+- The Way to Auberdine (draenei) is Burning Crusade; not used.
+- In Classic the Bravery sails to Menethil and the Moonspray to Rut'theran; Auberdine's Sentinels guard the Bravery's crossings; dwarves keep a small smithy in town; the Explorers' League digs at Remtravel's Excavation.
+
+### Authored, not canon (this pass)
+Thundris's welcome to people off the Bravery, his question about Menethil's damp, his late lamps, "I know the smell of it"; Terenthis's account of Grimclaw standing in the road; Gwennyth's offer to walk the shore with a priest; Glynda's "people who write poems about them"; Cerellean's advice to tell people you love them today; Shaussiy's guests and the dwarves who complain about the damp.

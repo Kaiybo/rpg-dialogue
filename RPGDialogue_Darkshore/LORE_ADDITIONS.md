@@ -1,0 +1,29 @@
+# Lore additions: Darkshore depth (for the lead to merge into LORE_NOTES.md)
+
+## Darkshore depth (Darkshore pack 1.2.0)
+
+| Fact used | Source |
+|---|---|
+| Classic Auberdine: the Bravery to Menethil Harbor, the Moonspray to Rut'theran; Auberdine's Sentinels guard the Bravery's crossings; a mixed population including dwarves, gnomes and humans; dwarves keep a small smithy; murlocs threaten the fishing boats; the village council hires adventurers | [Auberdine](https://warcraft.wiki.gg/wiki/Auberdine) |
+| Thundris: Bashal'Aran overrun by demonic creatures (grells, satyrs) feeding on its magic, but they avoid one shrine with a blue aura (Asterion, a Highborne spirit glad of civil company after many years) | [Bashal'Aran (quest)](https://warcraft.wiki.gg/wiki/Bashal%27Aran_(quest)) |
+| Tools of the Highborne: Ameth'Aran to the south, Highborne spirits with ancient implements; Thundris "almost" feels the taint and has them destroyed | [Tools of the Highborne](https://warcraft.wiki.gg/wiki/Tools_of_the_Highborne) |
+| The Cliffspring River turning foul; Blackwood furbolgs up-river suspected but not the root; Felwood is the source, "one that I have seen in times past" | [The Cliffspring River](https://warcraft.wiki.gg/wiki/The_Cliffspring_River) |
+| The Blackwood Corrupted: a satyr corruptor's talisman; moonwell water and the furbolgs' food lure him out | [The Blackwood Corrupted](https://warcraft.wiki.gg/wiki/The_Blackwood_Corrupted) |
+| Seeking the Kor Gem: paladins sent by Jordan Stilwell; Thundris remembers him; Kor gems from the naga of Blackfathom Deeps; he purifies them; trusts the Silver Hand, not judging the order by one fallen member | [Seeking the Kor Gem](https://warcraft.wiki.gg/wiki/Seeking_the_Kor_Gem); [Thundris Windweaver](https://warcraft.wiki.gg/wiki/Thundris_Windweaver) |
+| Terenthis: some of his brethren were rescued from a corrupt furbolg on Teldrassil; kill pathfinders and windtalkers south of Auberdine; "wash the blood... do not mourn"; Grimclaw signalled Volcor's danger; enchanted moonstalker cloak from fine pelts; Volcor wounded in a cave to the south (Blackwood Den) | [How Big a Threat?](https://warcraft.wiki.gg/wiki/How_Big_a_Threat%3F); [How Big a Threat? (2)](https://warcraft.wiki.gg/wiki/How_Big_a_Threat%3F_(2)); [A Lost Master](https://warcraft.wiki.gg/wiki/A_Lost_Master); [A Lost Master (2)](https://warcraft.wiki.gg/wiki/A_Lost_Master_(2)); [Volcor](https://warcraft.wiki.gg/wiki/Volcor); [Escape Through Stealth](https://warcraft.wiki.gg/wiki/Escape_Through_Stealth) |
+| Gwennyth: sent by the Temple of the Moon; sea creatures beaching in growing numbers; Greymist murlocs feed on a giant thresher they could not have killed; remains sent to Darnassus by hippogryph; some think the creatures flee the waters around Teldrassil; the Temple gave her funds | [Washed Ashore](https://warcraft.wiki.gg/wiki/Washed_Ashore); [Washed Ashore (2)](https://warcraft.wiki.gg/wiki/Washed_Ashore_(2)); [Beached Sea Creature (1)](https://warcraft.wiki.gg/wiki/Beached_Sea_Creature_(1)) |
+| Glynda: moonkin once thought gentle, almost mystical; she keeps "a more realistic view"; the red crystal on the eastern range, maybe from Felwood; moonwell water revealed bone fragments and half a humanoid jawbone inside; she takes it to the council | [The Red Crystal](https://warcraft.wiki.gg/wiki/The_Red_Crystal); [As Water Cascades](https://warcraft.wiki.gg/wiki/As_Water_Cascades); [The Fragments Within](https://warcraft.wiki.gg/wiki/The_Fragments_Within) |
+| Cerellean: woke from the long sleep, wandered in a daze to Ameth'Aran and saw Anaya's spirit; could not raise his hand against her | [For Love Eternal](https://warcraft.wiki.gg/wiki/For_Love_Eternal); [Cerellean Whiteclaw](https://warcraft.wiki.gg/wiki/Cerellean_Whiteclaw) |
+| The Master's Glaive: Onu says an "old, old lord of the earth" fell there; the Twilight's Hammer hold it in Classic | [Master's Glaive](https://warcraft.wiki.gg/wiki/Master%27s_Glaive); [Darkshore (Classic)](https://warcraft.wiki.gg/wiki/Darkshore_(Classic)) |
+| Classic road to Astranaar: Sentinel Selarin, Raene's subordinate, came for Terenthis and sends adventurers to Raene instead (Trek to Ashenvale) | [Trek to Ashenvale](https://warcraft.wiki.gg/wiki/Trek_to_Ashenvale); [Sentinel Selarin](https://warcraft.wiki.gg/wiki/Sentinel_Selarin) |
+| The Explorers' League digs at Remtravel's Excavation | [Prospector Remtravel](https://warcraft.wiki.gg/wiki/Prospector_Remtravel) |
+
+**Wiki IDs seen (not used):** NPCs: Cerellean 3644, Volcor 3692, Grimclaw 3695, Sentinel Selarin 3694, Shaussiy 6737. Quests: Bashal'Aran 954, For Love Eternal 963, Tools of the Highborne 968, How Big a Threat? 984/985, A Lost Master 986/993, Escape Through Force 994, Escape Through Stealth 995, Seeking the Kor Gem 1442, Washed Ashore 3524/4681, Thundris Windweaver 4761, The Cliffspring River 4762, The Blackwood Corrupted 4763, The Red Crystal 4811, As Water Cascades 4812, The Fragments Within 4813, Trek to Ashenvale 990.
+
+**Assumptions (confirm in game):** that the quest from Terenthis is titled exactly "Thundris Windweaver"; that Forever keeps the Bravery and the Moonspray. Thundris's Forever quests (Bloom of the Heavens (2), Expanding Horizons, Making Do, It's All Fun and Games Until...), Gwennyth's Holy Diver and the WANTED: Jai'vhanel poster have no wiki pages yet, so they aren't referenced.
+
+**Year 1 notes:** Onward to Ashenvale was added in 2.0.3 and The Way to Auberdine is a draenei quest; neither is used, nor the Thundris-Raene rescue story from the former. Nothing of Auberdine's destruction, Lor'danel, or Cerellean and Grimclaw together.
+
+**Authored, not canon:** see the "Depth pass (Darkshore 1.2.0)" section of `bibles/auberdine.md`.
+
+World topics answered here (twilights_hammer already exists; fel_moss, furbolgs, sisterhood_of_elune proposed) are in `RPGDialogue_Darnassus/LORE_ADDITIONS.md`.
