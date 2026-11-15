@@ -42,3 +42,35 @@
 - Millstipe: indignant civic grievance, dry. Hates Stormwind's nobles, not Stormwind's people.
 - Trelayne (authored): practical, quietly kind; shutters closed, poker by the bed.
 - Clarise: wry, tired, generous with the Watch.
+
+## Depth pass (Duskwood 1.3.0)
+
+### More sources (read)
+- https://warcraft.wiki.gg/wiki/Worgen_in_the_Woods_(Classic) and parts 2 to 4: Master Carevin's quest is "the expulsion of evil and heresy"; Calor joined him disillusioned by the Watch's complacency; "Brightwood Grove (bright, hah!)"; the worgen seem to appear out of thin air and more refill the ranks; Calor puts his faith in Master Carevin; "those who stand for the Light will never fall"; a letter of recommendation; "a few more like you and we will outnumber the Night Watch"; Jonathan: we battle demons, the undead and those who would aid them; trust none who won't aid our cause; "Glory under the Light"; rewards a Consecrated Wand and Shield or Cloak of the Faith.
+- https://warcraft.wiki.gg/wiki/Elaine_Carevin, https://warcraft.wiki.gg/wiki/Raven_Hill_(quest), https://warcraft.wiki.gg/wiki/Deliveries_to_Sven: Elaine sends adventurers to Raven Hill (Calor saw shadows moving two nights running and a light in a window), to the hermit, and with supplies to Sven's camp.
+- https://warcraft.wiki.gg/wiki/The_Weathered_Grave_(quest), https://warcraft.wiki.gg/wiki/Morgan_Ladimore_(quest), https://warcraft.wiki.gg/wiki/The_Story_of_Morgan_Ladimore: Sirra knew Morgan before the war ("a noble and good man"), gives the book and sends the player to Althea; a priest in Darkshire told Morgan to look for a gravestone at Raven Hill; he refused, then went; he was buried quickly, without ceremony, on the cemetery's edge. The book is also in the Stormwind Library.
+- https://warcraft.wiki.gg/wiki/Darkshire: Grand Hamlet burned in the First War and was rebuilt by the Alliance after the Second; townsfolk once thought Karazhan the source of the curse.
+- https://warcraft.wiki.gg/wiki/Translate_Abercrombie%27s_Note, https://warcraft.wiki.gg/wiki/Wait_for_Sirra_to_Finish, https://warcraft.wiki.gg/wiki/Translation_to_Ello: Sirra doesn't know the hermit; the note is unspeakable; the air grows heavy as he finishes.
+- https://warcraft.wiki.gg/wiki/Look_To_The_Stars_(2), (3), (4), https://warcraft.wiki.gg/wiki/Blind_Mary: a reflective surface (Blind Mary's looking glass, taken by the Insane Ghoul), Viktori shows Cog each step and Cog is impressed, the lens is Zzarc'Vul's monocle in the Vul'Gol ogre mound.
+- https://warcraft.wiki.gg/wiki/Dusky_Crab_Cakes_(Classic), https://warcraft.wiki.gg/wiki/Seasoned_Wolf_Kabobs_(Classic): the "crab" is spider legs, which he won't say; skittering on a skillet; a recipe nearly as good; Stormwind Seasoning Herbs from Felicia Gump's canal-side flower shop.
+- https://warcraft.wiki.gg/wiki/Crime_and_Punishment_(Classic), https://warcraft.wiki.gg/wiki/Councilman_Millstipe: Ward sold bodies from the cemetery to Morbent Fel; the House of Nobles kept him; Stormwind must rise to Duskwood's needs or Darkshire will "break free" (used only as his fear of a dangerous lesson, never as a plan); "we need better representation from Stormwind".
+- https://warcraft.wiki.gg/wiki/Night_Watch, https://warcraft.wiki.gg/wiki/Darkshire: Stormwind's withdrawal followed the king's disappearance (Prestor's role is never stated; Millstipe only says "someone at court").
+- https://warcraft.wiki.gg/wiki/Clarise_Gnarltree: the screaming on the wind sounds like lambs.
+
+### What each got
+- Jonathan: the household's work (who hunts with him: Elaine and Sven's camp), suspicion (those who aid the dead; a townsman sold the dead), the Light and heresy, the Night Watch and Calor. Priest: "Glory under the Light", and Calor's test. Druid: change where there's light.
+- Calor: why he left the Watch (does he miss it), proving yourself (Brightwood), the worgen (faith until Master Carevin finds out), Raven Hill's ghost (before and after the Raven Hill quest). Priest: his one-line prayer; praying for the worgen. Paladin: ride out with him.
+- Sirra: Morgan (knew him; Althea handles him now), the oldest ledgers and Grand Hamlet, the fog (Karazhan blamed), languages and the hermit's note. Priest: who said the rites over Morgan, and the priest who sent him to the graves. Mage: a laundry list. Lordaeron refugee: did you come home to anything?
+- Viktori: the device (parts; the ogre's monocle), why the stars, Cog, the gap in the fog. Gnome, priest and engineer replies.
+- Grual: the crab cakes (crab-adjacent), this week's stew, who he cooks for (Jitters, after Growling Gut), ingredients (Felicia Gump). Cook and priest replies.
+- Millstipe: Stormwind (someone at court), the Council, Dextren Ward and the Stockade, what Stormwind should do (fifty soldiers and a priest; the dangerous lesson). Minor noble: a message for the House, word for word. After Crime and Punishment: justice or a message.
+- Trelayne: sleep and the shutters, who stays. Priest: bless the hinges.
+- Clarise: sleep (the lambs), what she makes for the Watch.
+
+### Fixes
+- Sirra's tp_ladimore no longer says he wrote the account (canon: he hands over a book that the Stormwind Library also keeps).
+- Calor's watch reply used a trait that doesn't exist ("fierce"); now brave.
+- Long lines shortened: grual.h_jitters_ack, millstipe.h_ward (key line; meaning unchanged for Thelwater's echo).
+
+### Authored, not canon
+Jonathan's list of heretics; Calor still drinking with watchers who'll have him, and his one-line prayer; Sirra's old liturgies on Raven Hill stones, the laundry-list test, his annoyance at the renaming; Viktori's "light pollution" and charting three new stars; Grual's stew, the turnip, sending food up to Jitters; Millstipe's "fifty soldiers"; Trelayne's warning about voices calling names, her poker and boots; Clarise's pike heads and hinges for the Watch.
