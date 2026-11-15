@@ -83,7 +83,7 @@ def reference_shingles():
 
 def _sentences(t):
     t = re.sub(r"\{[a-z]+(:[^}]*)?\}", "X", t)
-    return [p.strip() for p in re.split(r"(?<=[.!?])\s+", t) if p.strip()]
+    return [p.strip() for p in re.split(r"(?<!\b[A-Z]\.)(?<=[.!?])\s+", t) if p.strip()]
 
 
 def _words(s):
