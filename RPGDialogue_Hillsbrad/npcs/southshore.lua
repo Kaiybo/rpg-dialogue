@@ -30,36 +30,189 @@ P:NPC {
           text = "The Crushridge ogres come down out of Alterac and take whatever's loose. Including people. Thin them, and the hills breathe easier." },
         { id = "h_farren", when = { heardLine = "farren.h_default" },
           text = "Farren told you how much he hates it here? He tells everyone. I gave him the murlocs. He gave them to you, I suppose." },
+        { id = "h_warmongers", tags = { "news" }, when = { questActive = TODO_QUEST("Crushridge Warmongers") },
+          text = "The Warmongers are the ones who lead the raids. Cut down enough of them and the rest will remember where Alliance land starts." },
+        { id = "h_refugee", when = { origin = "human_lordaeron_refugee" },
+          text = "Another one out of the north. Southshore was taking in people with nothing long before you got here. You're welcome." },
+        { id = "h_night", when = { timeOfDay = "night" },
+          text = "Night's when the horses go missing. I keep a lantern lit by the stables. Not that the dead need the light." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Talk while I walk the line." },
+        { id = "h_again2", text = "Go on. I've a minute. Never two." },
+        { id = "h_again3", when = { timeOfDay = "night" }, text = "Ask. The night watch can spare me a moment, and I them." },
       },
       choices = {
         { text = "The first boats from Stormwind?", next = "boats" },
         { text = "What threatens Southshore?", next = "threats" },
-        { text = "I'll help.", next = "END", fx = { affinity = 2, standing = { southshore = 1 } } },
+        { text = "Tell me about the town.", next = "town" },
+        { text = "What do you make of Lieutenant Orinelle?", next = "farren" },
+        { text = "I fled the plague. Is there room for me here?", next = "refugee", when = { origin = "human_lordaeron_refugee" } },
+        { text = "Did Silver Hand knights ever come to Southshore?", next = "paladin", when = { class = "PALADIN" } },
+        { text = "The dead are so close. How do your people bear it?", next = "priest", when = { class = "PRIEST" } },
+        { text = "I've seen the ruins of Alterac.", next = "alterac_seen", when = { questDone = TODO_QUEST("Crushridge Warmongers") } },
+        { text = "I'm doing Lieutenant Orinelle's murloc work.", next = "errand", when = { questActive = TODO_QUEST("Farren's Proof") } },
+        { text = "I'll help.", next = "BUSINESS", fx = { affinity = 2, standing = { southshore = 1 } } },
+        { text = "Good day, Marshal.", next = "END" },
       },
     },
+
     boats = {
       big = true,
       lines = {
         { id = "b_default", key = true,
-          text = "After Stormwind fell, the first time. Lothar came off the lead ship, and a young mage with him called Khadgar. I put my fastest rider on the road to King Terenas that same hour. Willem rode like the dead were after him. They nearly were." },
+          text = "Lothar came off the lead ship, with a young mage called Khadgar. I sent Willem, my fastest rider, to King Terenas that hour. He rode like the dead were after him." },
       },
       choices = {
         { text = "You met Lothar?", next = "lothar" },
-        { text = "That's a lot of history.", next = "END", fx = { affinity = 1 } },
+        { text = "And the mage, Khadgar?", next = "khadgar" },
+        { text = "That's a lot of history.", next = "BACK", fx = { affinity = 1 } },
       },
     },
     lothar = {
       lines = { { id = "l_default", text = "For an hour. Tired, soaked, grieving, and still the most dangerous man I'd ever seen. I've never forgotten it." } },
-      choices = { { text = "...", next = "END" } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    khadgar = {
+      lines = {
+        { id = "kh_default", text = "A young man with an old man's eyes, even then. He went north with Lothar, and later through the Dark Portal with the expedition. None of them came back." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
     threats = {
       lines = { { id = "t_default", text = "Murlocs on the coast, naga past them, ogres in the hills. The Syndicate at Durnholde. And the dead in Tarren Mill, who'd like the whole valley." } },
-      choices = { { text = "...", next = "END" } },
+      choices = {
+        { text = "Tell me about the ogres.", next = "crushridge" },
+        { text = "Who are the Syndicate?", next = "syndicate" },
+        { text = "And Tarren Mill?", next = "tarren" },
+      },
+    },
+    crushridge = {
+      lines = {
+        { id = "cr_default", text = "Crushridge ogres, dug in in the Alterac Mountains and squatting in the ruins of the old capital. Let them get comfortable, and the foothills are next. Then my front door." },
+      },
+      choices = {
+        { text = "Then they won't get comfortable.", next = "BUSINESS", fx = { affinity = 2, trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    syndicate = {
+      lines = {
+        { id = "sy_default", text = "Thieves with old names, out of Alterac. They hold the ruins of Durnholde and take our horses and our shipments. The Magistrate keeps their papers. I keep the road." },
+      },
+      choices = {
+        { text = "Durnholde? The old keep?", next = "durnholde" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    durnholde = {
+      lines = {
+        { id = "du_default", text = "Where they held the captured orcs after the Second War. One of those orcs came back with an army and pulled the keep down around its lord. Now the Syndicate squat in the rubble." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
+    },
+    tarren = {
+      big = true,
+      lines = {
+        { id = "ta_default", text = "Tarren Mill was a town like this one. The plague came, the dead took it, and now they want our fields too. Hillsbrad's farms feed Southshore. They know it." },
+      },
+      choices = {
+        { text = "The Forsaken were people once.", next = "tarren_people" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tarren_people = {
+      lines = {
+        { id = "tpe_default", text = "So were the farmers they've killed. I don't hate them, mind. I just don't let them near the horses." },
+      },
+      choices = {
+        { text = "That's fair.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Someone should try talking to them.", next = "BACK", fx = { align = { light = 1 }, opinion = { forsaken = "talk" } } },
+      },
+    },
+
+    town = {
+      lines = {
+        { id = "to_default", text = "A fishing village before the boats, a seaport in the war, and now one of the last human towns in Lordaeron. We fish, we farm the fields up the valley, and we keep watch." },
+      },
+      choices = {
+        { text = "Who lives here now?", next = "town_people" },
+        { text = "Something else.", next = "BACK", fx = { standing = { southshore = 1 } } },
+      },
+    },
+    town_people = {
+      lines = {
+        { id = "tw_default", text = "Fishermen, mostly. A few old knights of the Silver Hand, a few Kirin Tor mages who never went back north, and refugees who stopped running here." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    farren = {
+      lines = {
+        { id = "fa_default", text = "Orinelle? A good guardsman in the wrong post. He gets the work done, eventually. Usually through someone else." },
+      },
+      choices = {
+        { text = "Through me, you mean.", next = "farren_you" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    farren_you = {
+      lines = {
+        { id = "fy_default", text = "Through you. He thinks I don't know. I've decided to let him keep thinking it. It gets the murlocs killed." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } } },
+    },
+
+    refugee = {
+      big = true,
+      lines = {
+        { id = "rf_default", text = "There's room. There's always room; it's what this town is for. It was for the Stormwind folk once. Tell Anderson at the inn I said so." },
+      },
+      choices = {
+        { text = "Thank you, Marshal.", next = "BACK", fx = { affinity = 3, standing = { southshore = 2 } } },
+        { text = "I won't be a burden. Put me to work.", next = "BUSINESS", fx = { affinity = 2, standing = { southshore = 2 }, trait = { proud = 1 } } },
+      },
+    },
+    paladin = {
+      lines = {
+        { id = "pa_default", text = "Some still live here, quieter than they were. When Uther fell, the Hand came apart, and some of the men in it came apart too. Be kind to them." },
+      },
+      choices = { { text = "I will.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } } },
+    },
+    priest = {
+      big = true,
+      lines = {
+        { id = "pr_default", text = "We bury our dead with the old words. Then we watch the grave for a few nights, to be sure. That's what Lordaeron is now." },
+      },
+      choices = {
+        { text = "Then I'll say the words with them.", next = "BACK", fx = { affinity = 2, align = { light = 2 }, standing = { southshore = 1 } } },
+        { text = "No one should have to grieve like that.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+      },
+    },
+    alterac_seen = {
+      lines = {
+        { id = "as_default", text = "Have you? Then tell me. How does the old city look these days? Bad, I'd guess. Ogres don't keep house." },
+      },
+      choices = {
+        { text = "Ruined, and filthy with ogres.", next = "BACK", fx = { affinity = 1 } },
+        { text = "There were still books in it.", next = "BACK", fx = { affinity = 1, trait = { curious = 1 } } },
+        { text = "Quieter, now.", next = "BACK", fx = { affinity = 2, standing = { southshore = 1 } } },
+      },
+    },
+    errand = {
+      lines = {
+        { id = "er_default", text = "Farren's errand-runner, are you? Thank you, then. Southshore needs people who'll do the work, whoever ends up taking the credit." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, standing = { southshore = 1 } } } },
     },
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "Headman, then marshal. Same town, same people, bigger sword.", next = "boats" } },
+    advice = { { id = "tp_ad", text = "Stay off the hill roads after dark. Between the ogres, the Syndicate and the dead, somebody up there's always awake." } },
     defias = { { id = "tp_defias", text = "Stormwind's thieves? We've our own. The Syndicate. Same rot, different noble names on the deeds." } },
+    seven_kingdoms = { { id = "tp_seven", text = "Alterac was one of the seven, until Lord Perenolde sold the Alliance to the Horde. Its nobles have been thieves ever since. Some were before." } },
     _none = { { id = "tp_none", text = "Ask the Magistrate. He's paid to know things. I'm paid to stand here." } },
   },
 }
@@ -92,10 +245,25 @@ P:NPC {
         { id = "h_council", tags = { "news" }, when = { questActive = TODO_QUEST("Dark Council") },
           text = "Whoever pulls these strings meets somewhere up in the mountains. Break them, and you'll do more for Southshore than ten years of my letters." },
         { id = "h_papers", when = { metBefore = true }, text = "Signed forty documents before breakfast. Read most of them. Some of them. The important ones. I hope." },
+        { id = "h_rings", when = { questActive = TODO_QUEST("Noble Deaths") },
+          text = "Signet rings. The nobles hide among their cutthroats, but they can't bear to take the rings off. Bring me the rings, and we'll know who's left." },
+        { id = "h_contract", tags = { "news" }, when = { questActive = TODO_QUEST("Baron's Demise") },
+          text = "Baron Vardus signed my death in red wax. Cold, cruel, and an Alterac lord to his boots. Find him in the mountains. Bring him to justice." },
+        { id = "h_vardus_done", when = { questDone = TODO_QUEST("Baron's Demise") },
+          text = "I slept through the night. The whole night. I'd forgotten what that was like." },
+      },
+      again = {
+        { id = "h_again", text = "What else? The depositions will keep a minute." },
+        { id = "h_again2", text = "Go on. I'll pretend this is official business." },
       },
       choices = {
         { text = "Who are the Syndicate?", next = "syndicate" },
+        { text = "What happened to the last magistrate?", next = "predecessor" },
         { text = "Why not go back to Stormwind?", next = "stormwind" },
+        { text = "If not the Syndicate, who wrote that letter?", next = "argus", when = { questDone = TODO_QUEST("Further Mysteries") } },
+        { text = "I could get inside the Syndicate for you.", next = "rogue", when = { class = "ROGUE" } },
+        { text = "My family knew some of the Alterac houses.", next = "noble", when = { origin = "human_minor_noble" } },
+        { text = "Baron Vardus is dead.", next = "vardus", when = { questDone = TODO_QUEST("Baron's Demise") } },
         { text = "Good day, Magistrate.", next = "END" },
       },
     },
@@ -105,17 +273,95 @@ P:NPC {
         { id = "s_default", text = "Alterac's lords, or their heirs, who never forgave the Alliance for taking their kingdom away. They took Durnholde and called it a home. They'd take Southshore too, if we let them." },
       },
       choices = {
-        { text = "Then we won't let them.", next = "END", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Who leads them?", next = "nobles" },
+        { text = "Then we won't let them.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+      },
+    },
+    nobles = {
+      lines = {
+        { id = "no_default", text = "Old Alterac names, hiding among the footpads. You can tell a noble by his signet ring; they never take them off. Strahnbrad, up in the mountains, is their den." },
+      },
+      choices = {
+        { text = "What do they want with Southshore?", next = "plans" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    plans = {
+      big = true,
+      lines = {
+        { id = "pl_default", text = "I've read their supply list too many times. Black masks, lamp oil for burning, paralytic poison, and the stolen uniforms of my own guard. They mean to come for us looking like us." },
+      },
+      choices = {
+        { text = "Then we strike first.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, standing = { southshore = 1 } } },
+        { text = "Double the watch. Check every uniform.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
+      },
+    },
+    predecessor = {
+      lines = {
+        { id = "pd_default", text = "Assassinated. The killers were never found, but everything points to the Syndicate. I took the post knowing that. I was young enough to think it wouldn't matter." },
+      },
+      choices = {
+        { text = "Aren't you afraid?", next = "afraid" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    afraid = {
+      lines = {
+        { id = "af_default", text = "Every night. I bolt the shutters, I check the guard, I read one more report. Fear's only useful if it makes you careful." },
+      },
+      choices = {
+        { text = "Careful keeps you alive.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
+        { text = "Then let me be your guard for a while.", next = "BUSINESS", fx = { affinity = 2, trait = { brave = 1 } } },
       },
     },
     stormwind = {
       lines = { { id = "st_default", text = "Because someone has to keep the law here, and everyone else who could has already gone. That's how most magistrates are made, I suspect." } },
-      choices = { { text = "...", next = "END" } },
+      choices = {
+        { text = "Do you regret coming?", next = "regret" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    regret = {
+      lines = {
+        { id = "rg_default", text = "Some evenings. Then a fisherman thanks me for settling a quarrel over a net, and I stay. Small justice is still justice." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } } },
+    },
+    argus = {
+      big = true,
+      lines = {
+        { id = "ar_default", text = "Not a thief, nor an Alterac noble. Something calling itself the Argus Wake stands behind the Syndicate, and I don't know what it is. That frightens me more than masks." },
+      },
+      choices = {
+        { text = "We'll find out.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rogue = {
+      lines = {
+        { id = "ro_default", text = "I'd rather you didn't tell me how. I'm a magistrate; there are things I'd have to write down. Bring me what you find, and I won't ask about the rest." },
+      },
+      choices = { { text = "Understood.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } } },
+    },
+    noble = {
+      lines = {
+        { id = "nb_default", text = "Then you'll understand why I check every signet ring twice. Old names don't die out. They hire people." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    vardus = {
+      lines = {
+        { id = "va_default", text = "Then the last magistrate is paid for, or near enough. Thank you. I may even open a shutter tonight." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2, standing = { southshore = 2 } } } },
     },
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "A commission young, a predecessor dead, and a desk full of Syndicate. That's my career so far.", next = "predecessor" } },
+    advice = { { id = "tp_ad", text = "Read everything twice. Especially whatever's been slipped under your door." } },
     defias = { { id = "tp_defias", text = "A Stormwind problem. I've a Syndicate problem. I'd trade, some days." } },
+    seven_kingdoms = { { id = "tp_seven", text = "Alterac was a kingdom once. Now it's a list of names I keep in a locked drawer." } },
     _none = { { id = "tp_none", text = "Not before the court. Ask Redpath; he knows the ground." } },
   },
 }
@@ -148,10 +394,25 @@ P:NPC {
         { id = "h_reassign", when = { questDone = TODO_QUEST("Reassignment") },
           text = "Still waiting on the reply. Any day now. Any day. I've packed. I've been packed for a month." },
         { id = "h_chair", when = { metBefore = true }, text = "Same chair, same murlocs, same sea. If you've come to tell me I've been recalled to Stormwind, I'll kiss you. If not, sit." },
+        { id = "h_coast", tags = { "news" }, when = { questActive = TODO_QUEST("Down the Coast") },
+          text = "Torn Fin murlocs, down the Western Strand. Kill a few for me, then a few more for Redpath. Then we'll both have something to talk about." },
+        { id = "h_night", when = { timeOfDay = "night" },
+          text = "Another evening in Southshore. The gulls have gone to bed. I envy the gulls." },
+      },
+      again = {
+        { id = "h_again", text = "Still here? Fine. I wasn't going anywhere. I never am." },
+        { id = "h_again2", text = "What else? Quickly, before I remember where I am." },
       },
       choices = {
         { text = "Why do you hate it here?", next = "hate" },
-        { text = "Fine, I'll deal with the murlocs.", next = "END", fx = { affinity = 1 } },
+        { text = "What's the trouble with the murlocs?", next = "murlocs" },
+        { text = "What was the City Guard like?", next = "guard" },
+        { text = "What about the naga?", next = "naga" },
+        { text = "I was in Stormwind not long ago.", next = "stormwind_news", when = { visited = "Trade District" } },
+        { text = "A soldier shouldn't hide in an inn, Lieutenant.", next = "push", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "Major Samuelson read your report.", next = "reassign", when = { questDone = TODO_QUEST("Reassignment") } },
+        { text = "Fine, I'll deal with the murlocs.", next = "BUSINESS", fx = { affinity = 1 } },
+        { text = "I'll leave you to your chair.", next = "END" },
       },
     },
     hate = {
@@ -161,16 +422,100 @@ P:NPC {
       },
       choices = {
         { text = "The people here need you.", next = "need", fx = { trait = { kind = 1 } } },
-        { text = "Sounds rough.", next = "END", fx = { affinity = 1 } },
+        { text = "Sounds rough.", next = "BACK", fx = { affinity = 1 } },
       },
     },
     need = {
       lines = { { id = "n_default", text = "...Low blow. Accurate, but low. Go and kill some murlocs before I start feeling guilty." } },
-      choices = { { text = "...", next = "END", fx = { affinity = 1 } } },
+      choices = {
+        { text = "Would you really leave them, if Stormwind called?", next = "conscience" },
+        { text = "Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    conscience = {
+      lines = {
+        { id = "co_default", text = "I'd write them a letter. A long one, with apologies. ...Fine. Probably not. Don't tell Redpath." },
+      },
+      choices = { { text = "Your secret's safe.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } } },
+    },
+    murlocs = {
+      lines = {
+        { id = "mu_default", text = "Torn Fins, on the Western Strand. Fish that grew legs and opinions. I've stopped eating fish, and in Southshore that's close to fasting." },
+      },
+      choices = {
+        { text = "Why not fight them yourself?", next = "fight" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fight = {
+      lines = {
+        { id = "fi_default", text = "I could clear a Stormwind tavern of drunks one-handed. Murlocs don't drink, don't argue, and don't respect a uniform. Different trade entirely." },
+      },
+      choices = {
+        { text = "Fair enough.", next = "BACK", fx = { affinity = 1 } },
+        { text = "That's an excuse, Lieutenant.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
+      },
+    },
+    guard = {
+      lines = {
+        { id = "gu_default", text = "Clean streets, a uniform people saluted, and Major Samuelson drilling us at dawn. He trained me. Best officer in the city." },
+      },
+      choices = {
+        { text = "Can he get you home?", next = "samuelson" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    samuelson = {
+      lines = {
+        { id = "sa_default", text = "He's captain of the guard in the Keep now. If anyone can get a man transferred, he can. So I write to him. Often. Very politely." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    naga = {
+      big = true,
+      lines = {
+        { id = "na_default", text = "Redpath wants them dealt with. High Command wants them dealt with, says my old mentor. And the man who deals with them gets noticed. By Stormwind." },
+      },
+      choices = {
+        { text = "So you'll fight the naga?", next = "naga_deal" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    naga_deal = {
+      lines = {
+        { id = "nd_default", text = "I will arrange for the naga to be fought. By a capable volunteer. Who might, by chance, be standing in front of me." },
+      },
+      choices = {
+        { text = "Fine. Point me at them.", next = "BUSINESS", fx = { affinity = 2 } },
+        { text = "Do your own fighting.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
+      },
+    },
+    stormwind_news = {
+      lines = {
+        { id = "sn_default", text = "You were? Tell me everything. No, wait. Just one thing. Do the lamps still come on along the canals at dusk?" },
+      },
+      choices = {
+        { text = "Every evening.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "I didn't notice.", next = "BACK", fx = { affinity = -1 } },
+      },
+    },
+    push = {
+      lines = {
+        { id = "pu_default", text = "...You sound like Redpath. Worse, you sound like Samuelson. Fine. Fine! I'll go out tomorrow. Probably." },
+      },
+      choices = { { text = "I'll hold you to it.", next = "BACK", fx = { align = { honor = 1 }, trait = { stern = 1 } } } },
+    },
+    reassign = {
+      lines = {
+        { id = "ra_default", text = "And? He'll take it into account. That's what they say in the Keep when they mean next month. It's always next month." },
+      },
+      choices = { { text = "Next month, then.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } } },
     },
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "Stormwind City Guard. Temporarily elsewhere. Very temporarily, I'm told.", next = "guard" } },
+    advice = { { id = "tp_ad", text = "Never volunteer. It's how I ended up here." } },
     _none = { { id = "tp_none", text = "Couldn't tell you. I've stopped learning things about Southshore. It only encourages it." } },
   },
 }
@@ -197,14 +542,27 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Bilger. I brew. Hic. Used to be a knight of the Silver Hand, strict as a church bell, never touched a drop. Then the Hand broke, an' I found out what I'd been missin'." },
+          text = "Bilger, brewmeister, hic. Used to be a knight o' the Silver Hand, strict as a church bell, never touched a drop. Then the Hand broke, an' I found out what I'd been missin'." },
         { id = "h_moonshine", tags = { "news" }, when = { questActive = TODO_QUEST("MacKreel's Moonshine") },
           text = "MacKreel's moonshine! Now that's a brew. Hic. Get me a jug an' I'll tell ye a story about Uther that'll curl yer hair." },
         { id = "h_brew", when = { metBefore = true }, text = "New batch. Hic. Smoother. The old Hand would've had me flogged for it. The old Hand's gone. The batch is here." },
+        { id = "h_paid", when = { questDone = TODO_QUEST("MacKreel's Moonshine") },
+          text = "Foggy paid up! Hic. In moonshine, which is the only coin he's got, an' the best one." },
+        { id = "h_night", when = { timeOfDay = "night" },
+          text = "Night shift in the cellar. Hic. The casks talk at night, ye know. Mostly they say 'more'." },
+      },
+      again = {
+        { id = "h_again", text = "Hic. What else, {g:lad|lass}?" },
+        { id = "h_again2", text = "Go on. I'm listenin'. To you an' the casks both." },
       },
       choices = {
         { text = "What happened to the Silver Hand?", next = "hand" },
         { text = "Maybe ease off the brew?", next = "ease" },
+        { text = "Who's this MacKreel?", next = "foggy" },
+        { text = "The Light hasn't left you, brother.", next = "paladin", when = { class = "PALADIN" } },
+        { text = "I squired for the Silver Hand before it broke.", next = "squire", when = { origin = "human_paladin_squire" } },
+        { text = "The Light forgives, Bilger.", next = "priest", when = { class = "PRIEST" } },
+        { text = "A dwarf in the Silver Hand?", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Cheers.", next = "END" },
       },
     },
@@ -215,20 +573,91 @@ P:NPC {
       },
       choices = {
         { text = "It's not too late to go back.", next = "back", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "I understand.", next = "END", fx = { affinity = 1 } },
+        { text = "I understand.", next = "BACK", fx = { affinity = 1 } },
       },
     },
     back = {
       lines = { { id = "b_default", text = "...Maybe. Hic. Ask me again when I'm sober. Bring breakfast. It'll be a while." } },
-      choices = { { text = "...", next = "END" } },
+      choices = {
+        { text = "I mean it, Bilger.", next = "back_more" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    back_more = {
+      lines = {
+        { id = "bm_default", text = "I know ye do. That's what frightens me. Hic. Come back in a month an' ask again. Maybe I'll have an answer. Maybe a new batch." },
+      },
+      choices = { { text = "I'll ask.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } } },
     },
     ease = {
       lines = { { id = "e_default", text = "Ease off? I'm a brewmeister! It's research. Hic. Very serious research." } },
-      choices = { { text = "Ha.", next = "END", fx = { affinity = 1 } } },
+      choices = {
+        { text = "Research into what?", next = "brew" },
+        { text = "Ha.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    brew = {
+      lines = { { id = "bw_default", text = "Barley, hops, an' forgettin'. Two o' the three are goin' very well." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
+    },
+    foggy = {
+      lines = {
+        { id = "fg_default", text = "Foggy MacKreel. One o' Longbraid's lads, up on the broken Thandol Span. Owes me money. Pays in moonshine, when he remembers, which is less than ye'd hope." },
+      },
+      choices = {
+        { text = "Is his moonshine any good?", next = "moonshine" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    moonshine = {
+      lines = { { id = "ms_default", text = "Good? Hic. It'd strip the paint off a church door. I'd know. I've tried." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    paladin = {
+      big = true,
+      lines = {
+        { id = "pa_default", text = "Has it no'? Hic. Then it's patient, I'll give it that. Go on, ask me who trained me. ...No. Don't. I'd only miss it more." },
+      },
+      choices = {
+        { text = "You can still come back to it.", next = "BACK", fx = { affinity = 2, align = { light = 2 } } },
+        { text = "I won't ask.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+      },
+    },
+    squire = {
+      lines = {
+        { id = "sq_default", text = "A squire, hic. Then ye knew it at its best, or near enough, an' I'm sorry ye saw it end. Sit a minute, but no' on that cask; that one bites." },
+      },
+      choices = {
+        { text = "Tell me about the old days.", next = "squire_days" },
+        { text = "Something else.", next = "BACK", fx = { affinity = 2 } },
+      },
+    },
+    squire_days = {
+      lines = {
+        { id = "sd_default", text = "Up before the sun. Prayers, drill, prayers again. No ale, no cards, no excuses. Hic. I'd give the whole cellar to have one of those mornings back." },
+      },
+      choices = { { text = "So would I.", next = "BACK", fx = { affinity = 3, align = { light = 1 } } } },
+    },
+    priest = {
+      lines = {
+        { id = "pr_default", text = "Does it? Hic. It's no' the Light I'm worried about. It's me. I'm the harder judge." },
+      },
+      choices = {
+        { text = "Then go easier on the judge.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dwarf = {
+      lines = {
+        { id = "dw_default", text = "Aye, a few of us. The Light never asked our height. Hic. The armourers did. Ye've no idea what it costs to have plate taken in." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
     },
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "Paladin. Then no' a paladin. Now a brewmeister. Hic. It's a short story wi' a long middle.", next = "hand" } },
+    advice = { { id = "tp_ad", text = "Drink slow, pray quick, an' never trust a dwarf who says he's had enough. Hic. He's lyin'." } },
     _none = { { id = "tp_none", text = "Dunno. Hic. Ask me after the next cask." } },
   },
 }
@@ -260,19 +689,101 @@ P:NPC {
         { id = "h_parchment", when = { questActive = TODO_QUEST("The Ensorcelled Parchment") },
           text = "This parchment has magic woven through it. Don't fold it. Don't read it aloud. Actually, don't read it at all." },
         { id = "h_page", when = { metBefore = true }, text = "I saved three pages from an ogre's cookfire yesterday. Three! A treatise on beekeeping. Not what I'd hoped. Still, it's knowledge." },
+        { id = "h_stormpike", when = { questActive = TODO_QUEST("Letter to Stormpike") },
+          text = "Stormpike will crow about this cipher for a month. Let him. He'll read it, and that's what matters." },
+        { id = "h_milton_done", when = { questDone = TODO_QUEST("Return to Milton") },
+          text = "Milton wrote to thank me. Three pages. Two of them about the bindings." },
+      },
+      again = {
+        { id = "h_again", text = "Another question? Good. Questions are the only thing I collect faster than books." },
+        { id = "h_again2", text = "Go on. I'll mark my place." },
       },
       choices = {
         { text = "What did the ogres do?", next = "ogres" },
+        { text = "What are you looking for, exactly?", next = "grilek" },
+        { text = "Can you read the Syndicate's letters?", next = "ciphers" },
+        { text = "Why not go to the ruins yourself?", next = "climb" },
+        { text = "I could help with your enchanted parchments.", next = "mage", when = { class = "MAGE" } },
+        { text = "I came out of Lordaeron myself.", next = "refugee", when = { origin = "human_lordaeron_refugee" } },
         { text = "Good luck with the books.", next = "END" },
       },
     },
     ogres = {
       lines = { { id = "o_default", text = "Burned some, sat on others, and used a history of the Alterac succession to prop up a table. Honestly, the history deserved it." } },
-      choices = { { text = "Ha.", next = "END", fx = { affinity = 1 } } },
+      choices = {
+        { text = "Why do these books matter so much?", next = "why_books" },
+        { text = "Ha.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    why_books = {
+      lines = {
+        { id = "wb_default", text = "Alterac kept what the other kingdoms didn't bother to write down. Lose it, and we lose the part of history that embarrassed people. That's usually the useful part." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
+    },
+    grilek = {
+      big = true,
+      lines = {
+        { id = "gr_default", text = "One book above all: the Arm of Gri'lek. Old troll lore. The last intact copy anyone knew of sat in Alterac's library." },
+      },
+      choices = {
+        { text = "Why troll lore?", next = "grilek_why" },
+        { text = "I'll look for it.", next = "BUSINESS", fx = { affinity = 2 } },
+      },
+    },
+    grilek_why = {
+      lines = {
+        { id = "gy_default", text = "Because the trolls were in these hills long before Arathor, and nobody ever asked them what they knew. Also, I'm curious. That's most of scholarship." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
+    },
+    ciphers = {
+      lines = {
+        { id = "ci_default", text = "The plain ones. Not the clever ones. Those go to Prospector Stormpike in Ironforge. I've been sending him a great deal of business lately." },
+      },
+      choices = {
+        { text = "Is he any good?", next = "stormpike" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stormpike = {
+      lines = {
+        { id = "sp_default", text = "Insufferable, and the best reader of ciphers north of Blackrock Spire. He calls me an old bookworm. He's not wrong." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "explorers_league" } } } },
+    },
+    climb = {
+      lines = {
+        { id = "cl_default", text = "Look at me. These bones wouldn't survive the climb, and the ogres would use what's left for a bookmark." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    mage = {
+      lines = {
+        { id = "ma_default", text = "Could you? Then please don't read anything aloud. Their mages weave spells into the very ink, and I'd like to keep my eyebrows." },
+      },
+      choices = { { text = "No promises.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } } },
+    },
+    refugee = {
+      lines = {
+        { id = "rf_default", text = "Then tell me. Did anyone carry books out of the north? Anyone at all?" },
+      },
+      choices = {
+        { text = "Only what we could carry.", next = "BACK", fx = { affinity = 2 } },
+        { text = "We carried children, not books.", next = "refugee_children" },
+      },
+    },
+    refugee_children = {
+      lines = {
+        { id = "rc_default", text = "...Yes. Of course you did. Forgive an old man his priorities. The books can wait. They always have." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } } },
     },
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "I gather what Alterac left behind, for Milton and the Royal Library. Before that, I read. I still read.", next = "grilek" } },
+    advice = { { id = "tp_ad", text = "Wash your hands before you touch a book, and after you touch an ogre. Ideally twice." } },
     seven_kingdoms = { { id = "tp_seven", text = "Seven, until Alterac sold itself to the Horde and stopped being one. The books remember. The ogres are working on that." } },
     _none = { { id = "tp_none", text = "Not in anything I've saved. Which isn't to say it isn't in something I haven't." } },
   },
@@ -300,18 +811,58 @@ P:NPC {
       lines = {
         { id = "h_default", text = "Anderson. I keep the inn. Fishermen, soldiers, and a lieutenant who's been sitting in that chair since last spring." },
         { id = "h_bilger", when = { heardLine = "bilger.h_default" },
-          text = "Bilger told you he was a paladin? He was. A good one, my father said. I keep the cellar unlocked for him. Somebody should be kind to him." },
+          text = "Bilger told you he was a paladin? He was. A good one, folk here say. I keep the cellar unlocked for him. Somebody should be kind to him." },
         { id = "h_chair", when = { metBefore = true }, text = "The lieutenant asked for his usual. I didn't have to ask what. That's either a good inn or a sad story. Both, maybe." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Fishermen come in at this hour smelling of the bay. I keep the windows open. Lord knows why. Habit." },
+        { id = "h_refugee", when = { origin = "human_lordaeron_refugee" },
+          text = "Up from the north? There's a bed. Pay when you can. Redpath would have my hide if I turned you away." },
+      },
+      again = {
+        { id = "h_again", text = "Anything else? The stew's hot and the chairs are dry. Mostly." },
+        { id = "h_again2", text = "Go on. I'm only wiping the same mug." },
       },
       choices = {
         { text = "Make this my home.", next = "BUSINESS" },
+        { text = "Who drinks here?", next = "regulars" },
+        { text = "Any news from the road?", next = "news" },
         { text = "Just resting.", next = "END" },
       },
+    },
+    regulars = {
+      lines = {
+        { id = "rg_default", text = "Fishermen, Redpath's guards off duty, the lieutenant in his chair, and Bilger down in the cellar. They all pay. Bilger pays in brew." },
+      },
+      choices = {
+        { text = "What's the lieutenant's usual?", next = "farren" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    farren = {
+      lines = {
+        { id = "fa_default", text = "Ale, and a seat facing the door, in case it's a messenger from Stormwind. It never is. I bring the ale anyway." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    news = {
+      lines = {
+        { id = "nw_default", text = "Horses going missing from the stables again. Some say the Syndicate, some say Tarren Mill, some say lions down from Alterac. Probably all three." },
+      },
+      choices = {
+        { text = "The Forsaken steal horses?", next = "news_horses" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    news_horses = {
+      lines = {
+        { id = "nh_default", text = "They don't eat, so I can't think what for. Riding, maybe. Or just to take something of ours. That'd be like them." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "I keep the inn. Somebody has to, and the fish stew won't make itself." } },
+    advice = { { id = "tp_ad", text = "Sleep with your boots by the bed. In Southshore you never know which night you'll need them in a hurry." } },
     _none = { { id = "tp_none", text = "Ask the Marshal. He knows everyone in town by name and most of their grandparents." } },
   },
 }
