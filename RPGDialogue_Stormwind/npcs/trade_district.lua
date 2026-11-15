@@ -80,7 +80,7 @@ P:NPC {
     offer_doubt = {
       lines = { { id = "od_default", text = "Nothing but that bottle, friend, I promise you. The rest costs coin, and Suzetta will make sure of it, because she likes my generosity a good deal less than I do." } },
       choices = {
-        { text = "An honest pitch. I like that.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "An honest pitch, and I like that.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Hook them cheap and bleed them later. Smart.", next = "BACK", fx = { align = { honor = -1 }, trait = { witty = 1 } } },
       },
     },
@@ -417,7 +417,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "Folk talk while they test an edge. Ask what you like, and I'll tell you if I've heard it over the whetstone." } },
     background = { { id = "tp_bg", text = "I sell steel with Marda, by the auction house. That's the part of my life anybody needs to hear about." } },
     advice = { { id = "tp_ad", text = "Hold it before you buy it, and swing it before you trust it. Shine never saved anybody." } },
-    _none = { { id = "tp_none", text = "Couldn't tell you. Ask me about steel." } },
+    _none = { { id = "tp_none", text = "Couldn't tell you, but ask me about steel and I'll talk all day." } },
   },
 }
 

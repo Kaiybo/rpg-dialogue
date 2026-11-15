@@ -148,7 +148,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "They call me Ol' Emma, as if I'd never been young, and I carry the water for this whole street. Of course I talk to myself, dearie; it's the only decent conversation in this city." },
         { id = "h_parcel", tags = { "news" }, when = { questActive = TODO_QUEST("Good Natured Emma") },
-          text = "Felstone? Who's been saying that name to you? I'd tell you to get off my lawn, if I had one, so you'd better tell me what you're holding." },
+          text = "Felstone? Who's been saying that name to you? I'd chase you off my lawn, if this city had left me one, so you'd better tell me what you're holding." },
         { id = "h_charm", tags = { "news" }, when = { questActive = TODO_QUEST("Good Luck Charm") },
           text = "You'll take it to her? Then go gently, because Janice always did startle easy, and I don't suppose being dead has helped." },
         { id = "h_charm_done", tags = { "news" }, when = { questDone = TODO_QUEST("Good Luck Charm") },
@@ -186,7 +186,7 @@ P:NPC {
     },
 
     water = {
-      lines = { { id = "w_default", text = "For the shops and the houses and that fool in the blue robe with all his brooms. Get the water, Emma, fetch the water, Emma, and if it weren't for me, that lot wouldn't know what water looks like." } },
+      lines = { { id = "w_default", text = "For the shops and the houses and that fool in the blue robe with all his brooms. Get the water, Emma, fetch the water, Emma, and without me that lot would forget what water's for." } },
       choices = {
         { text = "Who's the fool in the blue robe?", next = "water_robe" },
         { text = "They ought to carry their own.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
@@ -237,7 +237,7 @@ P:NPC {
       },
     },
     felstone_janice = {
-      lines = { { id = "fj_default", text = "Janice? Janice made this? Then she's... no, don't tell me what you saw out there; I don't want to know how you came by it. Just give it here, and let me look." } },
+      lines = { { id = "fj_default", text = "Janice made this, my Janice? Then she's... no, don't tell me what you saw out there; I don't want to know how you came by it. Just give it here, and let me look." } },
       choices = { { text = "Take your time, Emma.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } } },
     },
     felstone_back = {
@@ -259,7 +259,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "A farm wife from the north who carries water now, and that's all the story anybody needs.", next = "home" } },
     advice = { { id = "tp_ad", text = "Respect your elders, dearie, and carry their buckets now and again. You'll be old yourself, if you're lucky." } },
     scarlet_crusade = { { id = "tp_scarlet", text = "Burning half the north to save the other half, they tell me. I've seen enough burning; I don't need theirs." } },
-    _none = { { id = "tp_none", text = "How should I know? I carry water. Ask somebody who sits down for a living." } },
+    _none = { { id = "tp_none", text = "How should I know? I carry water, dearie, so ask somebody who sits down for a living." } },
   },
 }
 
@@ -340,7 +340,7 @@ P:NPC {
       lines = { { id = "tt_default", text = "He has good hands and no patience, and patience can be learned, I tell myself. If the Larsons can't teach it to him, nobody can." } },
       choices = {
         { text = "Let the boy find his own trade.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "A trade's a gift. He'll thank you.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "A trade's a gift, and he'll thank you.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
       },
     },
 
@@ -352,7 +352,7 @@ P:NPC {
     priest = {
       lines = { { id = "p_default", text = "Hold still. There's a tear by the cuff and the hem's coming down, and a robe that drags will trip you at the worst moment. Come by with them off, and I'll mend them for the usual price." } },
       choices = {
-        { text = "Thank you, Rema. I will.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Thank you, Rema, I will.", next = "BACK", fx = { affinity = 2 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -448,7 +448,7 @@ P:NPC {
 
   barks = {
     { id = "b_alms", text = "Alms for a poor bloke? Anything at all, guv, anything!" },
-    { id = "b_shine", text = "Shine yer armor for a copper, friend, it'll gleam like the King's own!" },
+    { id = "b_shine", text = "A copper, and I'll polish yer armor till it gleams like the King's own!" },
   },
 
   greetings = {
@@ -468,7 +468,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "Morris Lawry, at yer service, guv. I'll shine yer armor for a copper, carry yer bags for two, and pay ye back on Tuesday for a meal today, I swear it." },
+        { id = "h_default", text = "Morris Lawry, at yer service, guv. I'll polish yer armor for a copper, carry yer bags for two, and pay ye back on Tuesday for a meal today, I swear it." },
         { id = "h_back", when = { metBefore = true }, text = "You again! Ye've a kind face, I said so the first time, didn't I? Or I meant to." },
       },
       again = {
@@ -506,7 +506,7 @@ P:NPC {
       },
     },
     blind = {
-      lines = { { id = "b_default", text = "Blind? Me? I... why, I can see! I can see, friend, it's a miracle, and ye did it! That's worth a copper to a holy soul like yerself, surely." } },
+      lines = { { id = "b_default", text = "Blind, me? Why, I can see! I can see, friend, it's a miracle, and ye did it! That's worth a copper to a holy soul like yerself, surely." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
   },
@@ -543,14 +543,14 @@ P:NPC {
     { id = "n_human", cat = "kin", when = { race = "Human" },
       text = "Did you fish here when you were little? Did you catch anything? I bet I catch more." },
     { id = "n_pet", cat = "wonder", when = { pet = true },
-      text = "Whoa, is that yours? Does it eat fish? I'll catch it one, a really big one, if it wants!" },
+      text = "Whoa, is that yours? If it eats fish, I'll catch it one, a really big one, the biggest in the canal!" },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "I'm Billy, and me and Adam fish here every day, and one time at camp I caught a fish that was bigger than me, honest, but I threw it back because it was looking at me funny." },
+        { id = "h_default", text = "I'm Billy, and me and Adam fish here every day, and once, at camp, I pulled out a fish bigger than me, honest, but I threw it back because it was looking at me funny." },
         { id = "h_boot", when = { metBefore = true }, text = "Look, look, I caught something! Oh, it's just another stinky old boot, that's three this week." },
       },
       again = {
@@ -578,7 +578,7 @@ P:NPC {
     monsters = {
       lines = { { id = "m_default", text = "My daddy says there's fish in the ocean so big they can swallow a whole ship! And there's fish that walk on land and eat people, and they go mrrglgl, I heard it from a sailor." } },
       choices = {
-        { text = "Those are murlocs. They're real.", next = "monsters_real" },
+        { text = "Those are murlocs, and they're real.", next = "monsters_real" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -587,7 +587,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     adam = {
-      lines = { { id = "a_default", text = "He's my best friend, but he can't fish, and my daddy can catch more fish than his daddy, and that's a fact." } },
+      lines = { { id = "a_default", text = "He's my best friend, but he can't fish, and my daddy catches way more fish than Adam's daddy, and that's a fact." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },

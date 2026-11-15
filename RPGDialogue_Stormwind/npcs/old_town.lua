@@ -159,9 +159,9 @@ P:NPC {
         { id = "h_drunk_q", tags = { "news" }, when = { questActive = TODO_QUEST("Bartleby the Drunk") },
           text = "Burlguard's sent another one, I can smell it. Look at you, so clean and pretty; mind you don't chip a nail on my face." },
         { id = "h_beat", tags = { "news" }, when = { questActive = TODO_QUEST("Beat Bartleby") },
-          text = "You still want it? You're mad! You'll have to take it off me, and I've never let go of a mug in my life." },
+          text = "You still want my mug after all that? You're mad, you are, and you'll have to take it off me, because I've never let go of a mug in my life." },
         { id = "h_mug", tags = { "news" }, when = { questActive = TODO_QUEST("Bartleby's Mug") },
-          text = "You're tougher than you look, I'll say that. Take the mug back to Harry, then, and tell him I'm expecting my round." },
+          text = "There's more to you than clean boots, I'll say that. Take the mug back to Harry, then, and tell him I'm expecting my round." },
         { id = "h_mug_done", when = { questDone = TODO_QUEST("Bartleby's Mug") },
           text = "Harry gave it back, see, and filled it. Every one of you lot ends up buying me a drink eventually, one way or another." },
       },
@@ -200,7 +200,7 @@ P:NPC {
     fight_enough = {
       lines = { { id = "fe_default", text = "Enough? There's no such thing as enough, there's only empty. And my mug's half full, so we're nowhere near it yet." } },
       choices = {
-        { text = "Let him drink. It's his own business.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Let him drink; it's his own business.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
         { text = "Somebody ought to cut you off for your own good.", next = "BACK", fx = { align = { order = 1 }, affinity = -2 } },
       },
     },
@@ -375,7 +375,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "Folk talk while they eat. Ask, and I'll tell you what came back with the plates." } },
     background = { { id = "tp_bg", text = "I'm a cook. You can ask again, but you'll get the same answer.", next = "past" } },
     advice = { { id = "tp_ad", text = "Learn to cook what you kill. You'll eat better on the road, and you'll waste less." } },
-    _none = { { id = "tp_none", text = "I'm a cook. That's not cooking." } },
+    _none = { { id = "tp_none", text = "I'm a cook, and that isn't cooking." } },
   },
 }
 
@@ -421,7 +421,7 @@ P:NPC {
       },
     },
     randal = {
-      lines = { { id = "r_default", text = "Randal's a bit of a dandy, cares more about the colour of a jerkin than the stitching, but he's dependable, and that's rare. He'll make a fine leatherworker once the style stops getting in the way." } },
+      lines = { { id = "r_default", text = "Randal's something of a dandy, cares more about the colour of a jerkin than the stitching, but he's dependable, and that's rare. He'll make a fine leatherworker once the style stops getting in the way." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     students = {
@@ -593,7 +593,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Jasper Fel. I sell the tools of a quiet trade to the people who practise it, and I don't ask what they're for, so long as nobody asks me where I got them." },
         { id = "h_detonator", tags = { "news" }, when = { questActive = TODO_QUEST("Detonation at a Distance") },
-          text = "You'll be wanting something that explodes from a safe distance, then. Would this have to do with your business in Moonbrook? Don't look so surprised; SI:7 keeps track of everything in this kingdom." },
+          text = "You'll be wanting something that explodes from a safe distance, then. Something to do with your business in Moonbrook, I'd guess, and there's no need to look startled; SI:7 makes a habit of knowing what happens in the King's lands." },
         { id = "h_detonator_done", tags = { "news" }, when = { questDone = TODO_QUEST("Detonation at a Distance") },
           text = "I heard a bang from Westfall went off nicely. You were outside the caves, I trust, since you're standing here." },
         { id = "h_rogue", when = { class = "ROGUE" },
