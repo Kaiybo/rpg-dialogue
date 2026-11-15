@@ -2,6 +2,30 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.30.0 (2026-11-15)
+Packs: every content pack has a new version (World 1.18.0, Stormwind 1.6.0, Elwynn 1.10.0, Stranglethorn 1.6.0, Westfall 1.4.0, Redridge 1.3.0, Duskwood 1.3.0, Riverglades 1.3.0 and the rest; `python3 tools/version.py` lists them). No new folders, but **three new files** (Elwynn's Eastvale stables, Hillsbrad's Raleigh, World's Hillsbrad rumors): **exit the game fully and start it again**; /reload won't load new files.
+
+### People talk like people
+The user: "The writing is too choppy where it seems characters want to have one liners 'He did. I didn't' kinda stuff. Have them talk like normal people, have the writing be more authentic to WoW."
+- The old house style asked for 1-3 short sentences and called fragments "a voice". About a quarter of all lines read like telegrams ("Big. Angry. Southwest.").
+- Every line in every pack has been rewritten in whole sentences, in Warcraft's register: concrete, a little old-fashioned, spoken to you. Each character keeps their own voice (a dwarf's burr, a goblin's pitch, a Forsaken's chill), now without chopping it up. Ids, conditions, effects and facts are unchanged.
+- The voice checker now fails any line with two short sentences in a row, or three in one line; the validator no longer nags about longer lines. CONTENT_GUIDE section 2 has the new rule and before/after examples.
+
+### Deeper everywhere a human goes
+- Every NPC in Stormwind, Elwynn, Westfall, Redridge, Duskwood, the Wetlands, Hillsbrad (Southshore and Tarren Mill), Ironforge and Dun Morogh, Loch Modan, Darnassus, Teldrassil, Darkshore and Ashenvale now meets the depth standard: a hub with several branches, their own story and advice, and replies only some characters get. 296 of 409 NPCs meet it (102 at the start of this release).
+- For a human priest throughout: blessings, prayers for the dead, the Light and Elune, Shadowform, and the Northshire novice background. For every race and class where a person would really react to them.
+- Many quest references checked against Classic and fixed (Cataclysm and Burning Crusade quests that slipped in, wrong quest givers, invented family histories removed). Lore notes for all of it in LORE_NOTES.md.
+
+### The Scarlet Path (a new throughline)
+Brother Crowley recruits in the Cathedral's lower level, Brother Anton sends you through the Valley of Bones, and his letter takes you to Raleigh the Devout in Southshore (new), who left the Crusade after what he saw at the Monastery. Then you decide whether Anton hears the truth. Crowley, Benedictus and Tyrosus react.
+
+### Also
+- **The Mirage Raceway** to the depth standard (Pozzik, Fizzle, Kravel), with three lines that contradicted their quests fixed.
+- **A first horse at 40:** Katie and Randal Hunter at the Eastvale stables (new).
+- **Reputation condition:** `reputation = { faction = "Stormwind", min = "exalted" }`. An exalted non-human can buy Katie's horses, as in the game.
+- **34 new Ask about topics**, from SI:7 and the Stockade to Grim Batol, the Sentinels and the troggs.
+- Lines that called every player "lad" or "brother" now follow the player's gender.
+
 ## 0.29.0 (2026-11-14)
 Packs: World 1.16.0, Stormwind 1.5.0, Elwynn 1.9.0, Stranglethorn 1.5.0, Riverglades 1.2.0, Dustwallow 1.3.0, Feralas 1.3.0, Desolace 1.3.0, Arathi 1.3.0, EasternPlaguelands 1.2.0, Badlands 1.2.1, Felwood 1.1.1, UnGoro 1.2.1, Winterspring 1.2.1 (the rest as in 0.28.0). No new folders: /reload is enough.
 
