@@ -133,6 +133,13 @@ P:Topic { id = "thaurissan", keywords = { "Thaurissan" }, name = "The ruins of T
 P:Topic { id = "firegut", keywords = { "Firegut" }, name = "The Firegut ogres", category = "threats", learned = "Oralius or Marshal Maxwell at Morgan's Vigil" }
 
 -- 0.35.0: Blasted Lands (topics for that pack go below this line)
+P:Topic { id = "dark_portal", keywords = { "Dark Portal" }, name = "The Dark Portal", category = "places", learned = "anyone at Nethergarde Keep in the Blasted Lands" }
+P:Topic { id = "burning_legion", keywords = { "Burning Legion" }, name = "The Burning Legion", category = "threats", learned = "Watcher Mahar Ba or Ambassador Ardalan at Nethergarde Keep" }
+P:Topic { id = "nethergarde", keywords = { "Nethergarde" }, name = "Nethergarde Keep", category = "places", learned = "Quartermaster Lungertz, or the keep's soldiers" }
+P:Topic { id = "dreadmaul", keywords = { "Dreadmaul" }, name = "The Dreadmaul ogres", category = "threats", learned = "Quartermaster Lungertz at Nethergarde Keep" }
+P:Topic { id = "tainted_scar", keywords = { "Tainted Scar", "Kazzak" }, name = "The Tainted Scar", category = "threats", learned = "Quartermaster Lungertz, Ambassador Ardalan or Daio the Decrepit in the Blasted Lands" }
+P:Topic { id = "draenethyst", keywords = { "draenethyst" }, name = "Draenethyst", category = "trade", learned = "Kum'isha the Collector in the Blasted Lands" }
+P:Topic { id = "khadgar", keywords = { "Khadgar" }, name = "Archmage Khadgar", category = "people", learned = "Watcher Mahar Ba or Quartermaster Lungertz at Nethergarde Keep" }
 
 -- 0.35.0: Azshara (topics for that pack go below this line)
 P:Topic { id = "highborne", keywords = { "Highborne" }, name = "The Highborne", category = "lore", learned = "Loh'atu at Talrendis Point, or Archmage Xylem" }

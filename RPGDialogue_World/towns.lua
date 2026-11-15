@@ -546,6 +546,16 @@ P:Town {
 }
 
 -- 0.35.0: Blasted Lands (towns for that pack go below this line)
+P:Town {
+  id = "nethergarde", name = "Nethergarde Keep",
+  subzones = { "Nethergarde Keep" },
+  related = { darkshire = 0.05, stormwind = 0.03 },
+  tiers = { Hero = "Friend of Nethergarde" },
+  quests = {
+    { TODO_QUEST("Supplies for Nethergarde"), 4 }, { TODO_QUEST("Deliver the Shipment"), 4 },
+    { TODO_QUEST("The Lost Supplies"), 1 }, { TODO_QUEST("Mazen's Behest"), 2 },
+  },
+}
 
 -- 0.35.0: Azshara (towns for that pack go below this line)
 P:Town {
