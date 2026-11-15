@@ -33,6 +33,8 @@ P:NPC {
         { id = "h_diplomat", tags = { "news" }, when = { questActive = TODO_QUEST("The Missing Diplomat") },
           text = "Whatever Tervosh has you chasing, see it through. Someone has been working against us from the shadows, and I mean to learn who." },
         { id = "h_night", when = { timeOfDay = "night" },
+        { id = "h_warm", when = { disposition = { min = 75 } },
+          text = "I'm glad you came back. Sit, if you like; Tervosh says I don't sit nearly enough, and he's usually right." },
           text = "Still awake? So am I. The tower's quiet at night, and it's the only time I can hear myself think about anything but the next letter." },
       },
       again = {
@@ -126,6 +128,9 @@ P:NPC {
         { text = "Of course.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "You did what you had to.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Your father should have come first, my lady.", next = "BACK", fx = { affinity = -2, align = { order = -1 } } },
+        { text = "You can tell me, my lady. It won't leave this room.", tag = "Persuade", next = "father_true",
+          check = { pass = { any = { { disposition = { min = 70 } }, { origin = "human_lordaeron_refugee" }, { all = { { class = "PRIEST" }, { trait = "kind" } } } } } },
+          fail = { next = "father_no", fx = { affinity = -1 } } },
       },
     },
 
@@ -176,9 +181,35 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    father_true = {
+      lines = {
+        { id = "ft_default", text = "When my father's fleet came, I told my own soldiers to stand aside, and I sent word to Thrall instead of standing with my family. I chose the peace over my father, and I would choose it again, and I still don't know what kind of daughter that makes me." },
+        { id = "ft_refugee", when = { origin = "human_lordaeron_refugee" },
+          text = "You were on the ships, so you know what this peace cost us to build. When my father came to tear it down I told my soldiers to stand aside and chose it over him, and I'd choose it again, though I've stopped pretending it doesn't hurt." },
+      },
+      choices = {
+        { text = "It makes you the one who kept the peace.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    father_no = {
+      lines = {
+        { id = "fn_default", text = "I appreciate it, truly, but no. Some things I'll only say once, and I've already said them to myself." },
+        { id = "fn_mage", when = { class = "MAGE" },
+          text = "Dalaran taught us both to keep our own counsel, I think. Ask me something else, please, and I'll answer it gladly." },
+      },
+      choices = {
+        { text = "Of course, my lady.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Theramore hears from both sides of every border, and most of it reaches my desk eventually. Ask, and I'll tell you what I can." },
+      { id = "tp_knows_warm", when = { disposition = { min = 70 } },
+        text = "Ask me anything; you've earned plain answers in this tower. I'll tell you as much as I'd tell Tervosh." },
+    },
     background = { { id = "tp_bg", text = "Kul Tiras, Dalaran, Lordaeron, and now a tower in a swamp. Every step was further from home and closer to where I'm needed.", next = "lordaeron" } },
     advice = { { id = "tp_ad", text = "Learn the other side's words before you need them. Captain Vimes speaks orcish, and it's saved more lives than his sword." } },
     grimtotem = { { id = "tp_grimtotem", text = "There are tauren who'd like a war with us. Thrall isn't one of them, and neither am I. That's where we start." } },
@@ -271,6 +302,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I read more than is good for me, so I know a little about a great many things. Ask, and I'll try to be brief." },
+    },
     background = { { id = "tp_bg", text = "A great many books, and then the Lady's tower, because she asked and I'd run out of better reasons to say no." } },
     advice = { { id = "tp_ad", text = "Never eat anything from the marsh you can't name. I can name most of them, and I still don't eat them." } },
     _none = { { id = "tp_none", text = "Not in any book I own, which means it's either very new or very dangerous." } },
@@ -385,6 +419,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Asking questions is my job, but I'll answer a few of yours for a change. Pick one." },
+    },
     background = { { id = "tp_bg", text = "Soldier, then sergeant, then the man the Lady asks when something smells wrong. The last one's the job I'm good at." } },
     advice = { { id = "tp_ad", text = "Never believe the first story, especially when everyone agrees on it." } },
     grimtotem = { { id = "tp_grimtotem", text = "Tauren who want the Horde to break its peace. I've no proof of it, yet." } },
@@ -454,6 +491,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Every soldier's record passes through this office, and a fair bit of news comes with it. Ask, and I'll check my files." },
+    },
     background = { { id = "tp_bg", text = "Joined the Guard, discovered I could spell, and was never allowed near a sword again. I've made my peace with it." } },
     advice = { { id = "tp_ad", text = "Write things down. Memory flatters you, but paper doesn't." } },
     _none = { { id = "tp_none", text = "There's no file on that, which is itself worth noting." } },
@@ -506,6 +546,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Everyone in Theramore eats at my tables, and they talk while they eat. Ask me what you like." },
+    },
     background = { { id = "tp_bg", text = "I cook. I've cooked here since the walls were half built, and I'll cook here when they're finished, though they're never finished." } },
     advice = { { id = "tp_ad", text = "Dry your boots by the fire every night you're in the marsh. Rot starts in the toes." } },
     _none = { { id = "tp_none", text = "Plenty gets said over my bar, but not that. Ask at the citadel." } },

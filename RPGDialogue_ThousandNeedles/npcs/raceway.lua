@@ -107,6 +107,9 @@ P:NPC {
 
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I know everything worth knowing about these flats, and most of it's about engines! Ask me about any of these." },
+    },
     background = { { id = "tp_ba", text = "I grew up with grease under my nails and a stopwatch in my hand, and now I own half a racetrack, the better half." } },
     advice = { { id = "tp_ad", text = "Never bet against a goblin on a straight line. Corners, maybe, but straight lines, never." } },
     mirage_raceway = { { id = "tp_raceway", text = "Best thing ever built on a salt flat! Also the only thing, but that counts." } },

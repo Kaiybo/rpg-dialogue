@@ -151,7 +151,7 @@ P:NPC {
     },
     wine_caught = {
       lines = {
-        { id = "wc_default", text = "Short? Oh dear. Oh, dear me. Well, there may have been a cask from last autumn's pressing that needed tasting rather more thoroughly than the others, for the sake of the inventory." },
+        { id = "wc_default", text = "Short, is it? Oh dear, oh, dear me, well, there may have been a cask from last autumn's pressing that needed tasting rather more thoroughly than the others, for the sake of the inventory." },
         { id = "wc_after", text = "Several times, if I'm honest, and I am, as I said, very honest. Tell Sammuel I'll make up the difference from my own stipend, and perhaps don't mention the bell tower, where the cups are." },
       },
       choices = {

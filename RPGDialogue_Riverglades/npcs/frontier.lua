@@ -131,6 +131,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Loggers gossip worse than fishwives, and I hear all of it whether I want to or not. Ask what you want." },
+    },
     background = { { id = "tp_bg", text = "This is Turner's camp. My name's on it, so the blame is too." } },
     advice = { { id = "tp_ad", text = "Never stand downhill of a falling tree, or of a falling logger." } },
     brotherhood_horse = { { id = "tp_brotherhood", text = "Best customers I've got, and the only customers I've got." } },

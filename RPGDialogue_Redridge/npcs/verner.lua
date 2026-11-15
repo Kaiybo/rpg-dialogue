@@ -151,6 +151,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Half the town comes past this forge for something, and they all talk while they wait. Ask me about any of this." },
+    },
     background = { { id = "tp_bg", text = "Smith, and the stable with it. If I had to keep one, I'd keep the horses." } },
     advice = { { id = "tp_ad", text = "Stable your horse at night, because gnolls don't knock." } },
     redridge_gnolls = { { id = "tp_gnolls", text = "Horse thieves with fur, and Yowler leads them right into my paddock." } },

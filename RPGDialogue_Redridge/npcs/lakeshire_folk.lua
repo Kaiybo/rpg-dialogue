@@ -449,6 +449,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I hear everything at the tables, though I only pass on the nice parts, mostly. Ask me about any of this!" },
+    },
     background = { { id = "tp_bg", text = "I carry plates at the inn. Everyone talks to the one carrying the plates." } },
     advice = { { id = "tp_ad", text = "Eat something before you go out there, because nobody fights well hungry, and Parker certainly doesn't." } },
     blackrock = { { id = "tp_blackrock", text = "Every soldier who comes through here talks about them and then orders a second drink. That tells you enough." } },

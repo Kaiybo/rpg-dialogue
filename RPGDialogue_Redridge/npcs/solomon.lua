@@ -51,6 +51,10 @@ P:NPC {
           text = "A priest, in my hall. I asked the kingdom for soldiers and bandages. It seems to have sent the next best thing." },
         { id = "h_letters", when = { metBefore = true }, text = "Another letter to Stormwind this morning. The court notes that it is the fortieth. The court also notes that it expects no reply." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "The court is closed, but the magistrate is not. Say what you came to say, and say it briefly." },
+        { id = "h_warm", when = { disposition = { min = 70 } },
+          text = "Ah, you. The court is glad of a friendly face, and so, for that matter, is the magistrate. Sit, if you can find a chair under the letters." },
+        { id = "h_cold", when = { disposition = { max = 34 } },
+          text = "The court recognises you, which is not the same as welcoming you. State your business." },
       },
       again = {
         { id = "h_again", text = "What else? Quickly, if you would; the docket is long and the day is not." },
@@ -170,6 +174,9 @@ P:NPC {
       choices = {
         { text = "Careful, Magistrate. Stormwind's walls have ears.", next = "BACK", fx = { trait = { cautious = 1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "Off the record, Magistrate. What do you really suspect?", tag = "Persuade", next = "amiss_record",
+          check = { pass = { any = { { disposition = { min = 65 } }, { class = { "PRIEST", "PALADIN" } }, { questDone = TODO_QUEST("Messenger to Westfall") } } } },
+          fail = { next = "amiss_seal", fx = { affinity = -1 } } },
       },
     },
     prestor = {
@@ -353,9 +360,36 @@ P:NPC {
         { text = "One deputy beats no army.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
       },
     },
+    amiss_record = {
+      big = true,
+      lines = {
+        { id = "ar_default", text = "Nothing is off the record in a court, but very well. I have kept every reply from the Keep, and laid them side by side on this table, and they are written in four different hands and they all use the same word: patience." },
+        { id = "ar_after", text = "Four clerks don't choose the same word by accident; somebody chooses it for them. I've sealed copies in a box with instructions for the court, should anything befall its magistrate, and I'll thank you to forget I said so." },
+        { id = "ar_priest", when = { class = { "PRIEST", "PALADIN" } }, text = "You wear the Light's colours, so I'll say it plainly: I don't believe the Regent means us harm, and I don't believe the Regent is the one writing." },
+      },
+      choices = {
+        { text = "I've heard that word in the Keep myself.", next = "BACK", when = { heardClaim = "prestor_patience" }, fx = { affinity = 2 } },
+        { text = "Your secret's safe, Magistrate.", next = "BACK", fx = { affinity = 1 } },
+        { text = "That's a dangerous thing to suspect.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    amiss_seal = {
+      lines = {
+        { id = "as_default", text = "The court has said what it's prepared to say, and it has said it to you once already. I'm a magistrate, not a gossip at the Lakeshire Inn." },
+        { id = "as_default2", text = "Suspicions are for people who have time to entertain them. I have orcs on the ridge and a stack of letters to answer, so ask me something useful." },
+      },
+      choices = {
+        { text = "Fair enough, Magistrate.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Every report from the ridge and every letter from the Keep crosses this table, so the court is well informed, if poorly defended. Ask me about any of this." },
+      { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "The court will answer on these matters, and only these." },
+    },
     background = { { id = "tp_bg", text = "The township elected me to judge its quarrels and keep its peace. Lately the quarrels carry axes.", next = "court" },
                    { id = "tp_bg2", text = "I'm the Magistrate of Lakeshire, and the rest of my story is in the letters, which nobody reads." } },
     advice = { { id = "tp_ad", text = "Keep to the roads, and never trust a quiet night in Redridge. The orcs count on both." } },

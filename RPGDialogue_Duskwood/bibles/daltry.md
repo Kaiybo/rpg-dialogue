@@ -45,3 +45,6 @@ A repeat-visit line (night line for some) in the voice above.
 Branches: the records (the form for the walking dead), strangers (the player's own entry; blank books), how many live in Darkshire (and where the rest went), Stalvan (if known: Moonbrook, the signatures), a priest's death registers.
 Lore fix: h_book is now gated on The Shadowy Search Continues (the quest that ends with him), and shortened.
 Authored, not canon: the "walked off before burial" form; the short book of people the Watch speaks well of; that every resident signed the registry once.
+
+## 0.34.0
+- Daltry (Deceive, `census_padded`): he keeps some of the dead on Darkshire's register on purpose, because the Crown counts heads before it counts letters.

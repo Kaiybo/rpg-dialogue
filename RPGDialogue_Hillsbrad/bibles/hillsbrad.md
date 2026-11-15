@@ -58,3 +58,8 @@ Anderson knows Farren's usual without asking. Repeat-visit and night lines in th
 - Lydon: remembers liking things but not what it felt like; "frogs complain less, and they come back".
 - Shay: remembers the old town "the way you remember a map"; keeps the cellar locked for the living.
 - Corrected: Umpi is "she" (the wiki); Anderson's "my father said" about Bilger became "folk here say" (no invented family).
+
+## 0.34.0
+Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
+- Redpath (Persuade, lantern): fears Southshore goes the way of Tarren Mill (he knew folk there; they fished the same river); he is the one holding the stable lantern most nights, watching the hill road, while the town thinks he's seeing to the horses.
+- Farren (Intimidate, strand_truth): his first week here a Torn Fin nearly took his leg on the Western Strand, and he hasn't gone back; he isn't sure he could.

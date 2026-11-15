@@ -70,15 +70,39 @@ P:NPC {
     },
     seeds = {
       lines = { { id = "s_default", text = "Because the day one takes, I want to have been here. And because a druid who stops planting has already lost." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
+      choices = {
+        { text = "Do you ever stop believing one will take?", tag = "Persuade", next = "seeds_doubt",
+          check = { pass = { any = { { disposition = { min = 65 } }, { class = { "DRUID", "PRIEST" } }, { trait = "kind" } } } },
+          fail = { next = "seeds_hope", fx = { affinity = -1 } } },
+        { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } },
+      },
     },
     druid = {
       lines = { { id = "d_default", text = "Then you know why we stay. It doesn't hurt less with time; it only hurts more honestly." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
     },
+    seeds_doubt = {
+      lines = {
+        { id = "sd_default", text = "Most mornings, if I'm honest, and I've never said so inside the sanctuary. I plant the seed because my hands remember how to hope even when the rest of me has forgotten, and I've decided that has to be enough." },
+      },
+      choices = {
+        { text = "It is enough.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Then I'll plant one with you tomorrow.", next = "BACK", fx = { affinity = 3 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    seeds_hope = {
+      lines = {
+        { id = "sh_default", text = "Never, traveler, and I'd thank you not to put the thought in my head. Felwood has enough poison in it already." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The forest tells the Circle a great deal, if we listen gently enough. Ask me about any of these." },
+    },
     background = { { id = "tp_ba", text = "I'm a druid of the Circle, sent where the land hurts most, and Felwood hurts most.", next = "what" } },
     advice = { { id = "tp_ad", text = "Don't drink from the streams, don't eat the fruit, and don't trust anything that glows green." } },
     cenarion_circle = { { id = "tp_circle", text = "The Emerald Circle is the Cenarion Circle's hands in Felwood, and our hands are tired, but they're still working." } },
@@ -166,6 +190,10 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I'll speak only of what the Circle knows for certain, and these I know. Ask me, and stay on the path." },
+      { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "I'll tell you what any traveler might learn here, and I'll be watching while I do." },
+    },
     background = { { id = "tp_ba", text = "I'm a daughter of Mulgore who followed the Circle north. Some days I think I'll go home, and then I see one clean spring, and I stay." } },
     advice = { { id = "tp_ad", text = "If something here offers you strength, ask what it wants back. It always wants something back.", next = "tempt" } },
     _none = { { id = "tp_none", text = "That's not something the Circle has spoken of, and better I say nothing than something wrong." } },
@@ -362,6 +390,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I know the curse well, and a few other things besides. Ask me about any of these." },
+    },
     background = { { id = "tp_ba", text = "Kaldorei, Emerald Circle, and too stubborn to be told a forest can't be saved." } },
     advice = { { id = "tp_ad", text = "Do one good thing a day here, only one, and then do it again tomorrow, because that's how this works.", next = "harder" } },
     cenarion_circle = { { id = "tp_circle", text = "We are the Circle's in this forest, where few others would come." } },

@@ -43,11 +43,39 @@ P:NPC {
       lines = {
         { id = "c_default", text = "The living who survived the plague and learned only hatred from it. They call us abominations and burn whatever they can't understand. They mistake cruelty for purity." },
       },
-      choices = { { text = "Then we'll end them.", next = "END", fx = { affinity = 2, trait = { stern = 1 }, learn = { "scarlet_crusade" } } } },
+      choices = {
+        { text = "Then we'll end them.", next = "END", fx = { affinity = 2, trait = { stern = 1 }, learn = { "scarlet_crusade" } } },
+        { text = "Do you ever recognize faces among the Crusaders?", tag = "Persuade", next = "faces",
+          check = { pass = { any = { { disposition = { min = 65 } }, { race = "Scourge" }, { questDone = TODO_QUEST("At War With The Scarlet Crusade") } } } },
+          fail = { next = "faces_no", fx = { affinity = -1 } } },
+      },
+    },
+    faces = {
+      lines = {
+        { id = "fc_default", text = "Once. A young Crusader on the mill road, with the look of a family that farmed near Brill before the plague; I may have known his father. I cut him down without slowing, and I still can't tell whether that was the Dark Lady's freedom in me or something the Scourge left behind." },
+        { id = "fc_forsaken", when = { race = "Scourge" },
+          text = "You're one of us, so you know the question already. Yes. Some of them were born in these villages, and some of us buried their parents. I don't hesitate, and I keep count, and some nights the counting is the only thing that keeps the faces away." },
+      },
+      choices = {
+        { text = "You did your duty.", next = "BACK", fx = { affinity = 1 } },
+        { text = "That wasn't the Scourge in you.", next = "BACK", fx = { affinity = 2 } },
+      },
+    },
+    faces_no = {
+      lines = {
+        { id = "fn_default", text = "I recognize the enemy, and that is all I need to recognize." },
+        { id = "fn_living", text = "Sentiment belongs to the living. Ask me something useful, or let me work." },
+      },
+      choices = { { text = "As you say, Executor.", next = "BACK" } },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Reports reach me from every field and road in Tirisfal. Ask what you need, and keep it brief." },
+      { id = "tp_knows_warm", when = { disposition = { min = 65 } }, text = "You've served Brill well, so I'll tell you what the reports actually say, rather than what we announce." },
+      { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "I'll answer, because the Dark Lady expects it of me. Do not mistake that for a welcome." },
+    },
     scarlet_crusade = { { id = "tp_crusade", text = "Every Crusader we kill is one fewer torch at our door. I keep count." } },
     _none = { { id = "tp_none", text = "Ask the magistrate; administration is his burden, not mine." } },
   },

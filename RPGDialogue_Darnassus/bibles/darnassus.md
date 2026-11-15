@@ -50,3 +50,8 @@ Sources read for this pass (warcraft.wiki.gg): Tyrande Whisperwind (WoW section,
 
 ### Authored, not canon (this pass)
 Tyrande: the Sentinels report at moonrise; her lines on Fandral ("he leads the druids; the rest of us he lectures"); asking a priest in Shadowform to set it aside in the Temple; trusting a stranger because strangers have no stake. Fandral: his line to priests about the Temple being across the gardens; "the Cathedral or the forest, which will stand in ten thousand years". Mathrengyl: the cat-form notice; inviting a priest to sit in on a lesson. A'moora: whom she names in her prayers; "she won't mind the accent". Gracina: the jar that bites; "the hive was certain too". Saelienne: the craftsmen grumbling about moonlight; humans asking where the walls are.
+
+## 0.34.0
+Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
+- Tyrande (Persuade, barrow_vigil): she sits at Malfurion's barrow at night after the Sentinels' reports and tells him what his people did that day; she never tells him she is tired, so he will not wake to hear she wavered.
+- Fandral (Persuade, burden; dramatic irony only): he reads every moonwell report and furbolg sighting at night; admits the tree has not grown as cleanly as he promised; means to finish it 'whatever it costs me' and won't let dragons or priestesses name the price. Nothing more is hinted.

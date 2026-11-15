@@ -43,3 +43,7 @@ Sources read for this pass (warcraft.wiki.gg, Classic sections): Takata_Steelbla
 - Nataka: Cliffwatcher's report comes a year after his last letter, about unusual centaur activity; Catch of the Day: the smell of cooked fish missing at the post; Jinar'Zillen at Shadowprey Village; Bloodbelly fish, his favourite; "my hoof tingles". The Kodo Graveyard is the kodo's final resting place, and kodo apparitions rise among the bones. The centaur tribes (Kolkar, Gelkis, Magram, Maraudine) fight each other as much as anyone.
 - Fixed in this pass: Takata's Alliance Relations line (Keldran's worry about the Alliance's view of the Horde, not bargaining with a centaur clan).
 - Authored, not canon: Takata's view of an orc mage and of Maurin's other studies; Nataka's teasing of his brother; directions to Jinar'Zillen.
+
+## 0.34.0
+Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
+- Pentigast (Persuade, arithmetic): he calls it arithmetic (forty soldiers against three clans), but doesn't sleep the night after he breaks faith with a clan; the men aren't to know.

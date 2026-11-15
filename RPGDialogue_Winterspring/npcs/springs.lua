@@ -63,15 +63,39 @@ P:NPC {
     },
     who = {
       lines = { { id = "w_default", text = "Somebody who wants the Winterfall angry an' doesnae care what it costs them. I've a list o' guesses. None of 'em are good, an' none of 'em are proof." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Tell me your best guess. I won't hold you to it.", tag = "Persuade", next = "who_guess",
+          check = { pass = { any = { { disposition = { min = 65 } }, { trait = "curious" }, { class = "DRUID" } } } },
+          fail = { next = "who_proof", fx = { affinity = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     druid = {
       lines = { { id = "d_default", text = "Then ye'll feel it worse than me. It's like the woods are holdin' their breath. Go gentle near the dens; whatever's in them isnae all furbolg any more." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
     },
+    who_guess = {
+      lines = {
+        { id = "wg_default", text = "Between us, then, an' only as a guess: that goo smells like the water out o' Felwood, sick an' sweet at once, so I'd look south before I'd look anywhere else. Whoever's brewin' it wants the furbolgs mad an' doesnae care who they bite." },
+      },
+      choices = {
+        { text = "Then I'll keep an eye to the south.", next = "BACK", fx = { affinity = 2, learn = { "cenarion_circle" } } },
+        { text = "A guess is a start.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    who_proof = {
+      lines = {
+        { id = "wp_default", text = "Guesses get folk killed up here, so I keep mine in my notebook till I've proof. Bring me somethin' I can test, an' then we'll talk." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've studied these springs an' everythin' that drinks from 'em for a good long while. Ask me about any o' these." },
+    },
     background = { { id = "tp_ba", text = "A dwarf who likes the cold an' loves a puzzle. Winterspring has plenty o' both." } },
     advice = { { id = "tp_ad", text = "Never drink anythin' a furbolg offers ye, no' this year." } },
     _none = { { id = "tp_none", text = "Couldnae tell ye, but ask me about the springs instead, for I know the springs." } },
@@ -143,6 +167,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Mau'ari know many t'ings, mon, and some of dem she even tell. Ask about any of dese." },
+    },
     background = { { id = "tp_ba", text = "Mau'ari be a witch doctor, and dat's de story; de rest she keep, like a good charm." } },
     advice = { { id = "tp_ad", text = "Wear two pairs of socks, mon. De spirits don't care, but your toes will." } },
     echo_isles = { { id = "tp_echo_isles", text = "De islands, warm and green, Mau'ari remember dem well. She come up here anyway, because de magic in de snow be stranger." } },

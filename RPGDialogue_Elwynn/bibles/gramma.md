@@ -41,3 +41,6 @@ maybell_tommy, lions_pride, defias
 - On the family: Bernice bakes the way some folk pray since her husband didn't come home (canon widowhood, see bernice.md); Ma takes the pig personally.
 - Gated: priest (forgiveness), human_minor_noble (nobles feud over seats), The Escape done.
 - Voice pass (2026-11-15): every line rewritten as whole spoken sentences (no stacked fragments); meaning, ids and conditions unchanged.
+
+## 0.34.0
+- Gramma (Persuade, `why_sack`): the one she didn't forgive was someone she loved, over hard words about a fence line; the winter took them before she came round, and she sets out an extra cup on that day every year (identity kept vague).

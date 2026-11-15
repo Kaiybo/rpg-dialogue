@@ -83,3 +83,9 @@ Levels 50-58. The Classic (pre-Cataclysm) zone: everything below was read on war
 
 ## Topics
 - New in World: black_dragonflight, blackrock_spire, blackrock_depths, windsor, thaurissan, firegut. Also answered: blackrock, dark_iron, background, advice.
+
+## 0.34.0
+Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon, unless marked).
+- Maxwell (Persuade, `windsor_self`): Windsor left him to hold the ridge while he rode in; Maxwell wonders whether one more sword would have mattered, and his scorn for John is partly aimed at himself (authored).
+- Helendis (Persuade, `dragons_guess`): his unprovable guess is that something of great age commands the Spire's upper halls and the Blackrock are only the first people it means to use (no name).
+- Ragged John (Intimidate, `st_truth`): he watched from behind a rock far off and never heard Thaurissan speak (he pieced that part together), but saw Ironfoe and Windsor go separate ways, Windsor alive.

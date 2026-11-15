@@ -37,3 +37,7 @@ Sources read for this pass (warcraft.wiki.gg, Classic sections): Rok_Orhan, Orwi
 - Orwin: a goblin who just arrived; the ogres bury the cobalt to keep it from folks like him; his shovel; "look for the blue glow"; "time is money"; he'll take the samples on his travels and sell them.
 - Camp Mojache: over Wildwind Lake, a stream through the camp; known for thick hides and braves who protect travelers; gnolls sometimes attack from the west. Greul is a female tauren.
 - Authored, not canon: Rok eats standing up and sleeps with her axe; Greul's offer of a seat; Rok's advice on knees and slopes; Rok's reply to a Skyborne (BRIEF §10: the Skyborne descend from Eldre'Thalas, today's Dire Maul, in Feralas).
+
+## 0.34.0
+Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
+- Shandris (Persuade, tyrande_far): she'd rather be at Tyrande's side; nobody in the Temple would tell Tyrande to rest, so Shandris writes long reports and sends them fast, knowing Tyrande reads them at moonrise.

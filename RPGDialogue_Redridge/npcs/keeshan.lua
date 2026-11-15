@@ -124,6 +124,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've seen more of the Blackrock than any man in Lakeshire would want to, from both sides of the bars. Ask me about any of this." },
+    },
     background = { { id = "tp_bg", text = "Corporal, 12th Sabre Regiment, Stormwind Army. That's all a prisoner gives, and I'm still in the habit.", next = "fall" },
                    { id = "tp_bg2", text = "I'm a soldier. I was one before the cave, and I mean to be one after." } },
     advice = { { id = "tp_ad", text = "Keep your head down and your shield up; I only managed one of those." } },

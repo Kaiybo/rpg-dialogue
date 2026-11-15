@@ -80,7 +80,12 @@ P:NPC {
     why_cartel = {
       lines = { { id = "wc_default", text = "The Cartel says I owe them a cut, and I do: a small one, a very carefully calculated small one.",
         fx = { learn = { "steamwheedle" } } } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "The Cartel sent me to audit that small cut.", tag = "Deceive", next = "audit",
+          check = { pass = { any = { { class = "ROGUE" }, { trait = "witty" }, { disposition = { min = 60 } } } } },
+          fail = { next = "audit_no", fx = { affinity = -1 } } },
+      },
     },
     neighbors = {
       lines = {
@@ -107,9 +112,33 @@ P:NPC {
       lines = { { id = "p_default", text = "Partner? Ha! No, but you're a valued customer, and in Powderfuse that's better, because partners pay rent." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    audit = {
+      lines = {
+        { id = "au_default", text = "An audit? Here? All right, listen: the cut's figured on the boat fares I report, not the ones I collect, and nobody holds a deed to this sand, me included, so tell your bosses the books are being improved, and that I said so very respectfully." },
+        { id = "au_gnome", when = { race = "Gnome" },
+          text = "They sent a gnome to audit me? That's either an insult or a very clever move, so fine: the cut's figured on the fares I report, not the ones I collect, and nobody holds a deed to this sand, so tell them the books are being improved." },
+      },
+      choices = {
+        { text = "I'll put in a good word.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    audit_no = {
+      lines = {
+        { id = "an_default", text = "The Cartel's auditors wear better shoes than that, kid, and they never, ever smile. Nice try; I respect it, and I'll be charging you for it." },
+        { id = "an_paladin", when = { class = "PALADIN" },
+          text = "A paladin, auditing for the Cartel? The Light would have to be very short of work, kid, so try that one on somebody else." },
+      },
+      choices = {
+        { text = "You can't blame me for trying.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Information's like timber: it floats down to me eventually, and I sell it on. Ask, and we'll talk terms later." },
+    },
     background = { { id = "tp_bg", text = "Born with nothing, somewhere with less, and now I own a port. Do the sums; it's a very inspiring story." } },
     advice = { { id = "tp_ad", text = "Never build on land somebody else owns. Build first, and make them prove it." } },
     powderfuse_port = { { id = "tp_port", text = "Mine, all of it, so next question." } },
@@ -167,6 +196,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Everybody off the Tanaris boat comes through that door with a story! Ask, explorer, and I'll tell you everything I've heard." },
+    },
     background = { { id = "tp_bg", text = "I ran a kitchen, then a galley, and now an inn, and every step was a bigger pot." } },
     advice = { { id = "tp_ad", text = "Breathe through your mouth on the docks at low tide. Trust me." } },
     powderfuse_port = { { id = "tp_port", text = "Best little port on the coast! It's the only little port on the coast, but that still counts." } },
@@ -300,6 +332,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've been drinking here long enough to hear a few things. Ask, if Zizplink's filled this mug." },
+    },
     background = { { id = "tp_bg", text = "Brotherhood, married and thirsty, in that order, most days." } },
     advice = { { id = "tp_ad", text = "Don't stand too close to Demar when he's talking about Stormwind. He waves his hands." } },
     fern_crimsonleaf = { { id = "tp_fernnext", text = "Fern? Sit down and buy something, and then I'll tell you.", next = "fern" }, { id = "tp_fern", text = "She's alive, and don't argue with me about it." } },

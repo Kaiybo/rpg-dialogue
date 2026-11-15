@@ -94,6 +94,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Oh, I do love a question! Pick any of these and I'll tell you everything I know, and probably a little more besides." },
+    },
     background = { { id = "tp_bg", text = "I keep Shadowglen. That's the whole of my story, and it's plenty." } },
     advice = { { id = "tp_ad", text = "Walk softly in a young forest, because it remembers everything." } },
     cenarion_circle = { { id = "tp_circle", text = "The Circle teaches what I try to practice. They're better at it than I am, but I'm more cheerful about it." } },
@@ -186,6 +189,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Aldrassil's roots run deep, and so does what I've learned tending them. Ask, and be patient with my answers." },
+    },
     background = { { id = "tp_bg", text = "I tend Aldrassil's roots. I'm better at roots than at stories." } },
     advice = { { id = "tp_ad", text = "Stay on the paths until you know which roots trip." } },
     fel_moss = { { id = "tp_moss", text = "It's in the grells. Tarindrella thinks the furbolgs too. I hope she's wrong." } },
@@ -295,7 +301,12 @@ P:NPC {
     },
     view2 = {
       lines = { { id = "v2_default", text = "Most of them do, one day, and taller than they left. A few never return, and I remember those names and say them up here, where the wind carries them." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+      choices = {
+        { text = "Something else.", next = "BACK", fx = { affinity = 1 } },
+        { text = "You blame yourself for the ones who don't come back.", tag = "Persuade", next = "view_names",
+          check = { pass = { any = { { disposition = { min = 65 } }, { trait = "kind" }, { questDone = TODO_QUEST("Crown of the Earth") } } } },
+          fail = { next = "view_wind", fx = { affinity = -1 } } },
+      },
     },
     world_t = {
       lines = { { id = "wt_default", text = "It is. Sit with me a moment, and tell me what the worst of it is, down there." } },
@@ -313,9 +324,35 @@ P:NPC {
       lines = { { id = "so_default", text = "Then you know about the dragons' refusal, and the furbolgs. It is better that you hear it from us than learn it from the sickness itself." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    view_names = {
+      lines = {
+        { id = "vn_default", text = "Not blame, exactly, but I send each of them down with a blessing, and since Hyjal we are not what we were. A young elf who falls in the forest now does not get up again, and I am still learning to say goodbye as if it might be the last time." },
+        { id = "vn_kin", when = { race = "NightElf" },
+          text = "You were one of them not long ago, so I'll tell you plainly. Since Hyjal a fall in the forest can be the last one, and every time I bless one of you on your way down, I wonder whether I said enough." },
+      },
+      choices = {
+        { text = "You say enough, Tenaron. They remember it.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    view_wind = {
+      lines = {
+        { id = "vw_default", text = "The wind carries their names, and I let it. That is all there is to say about it on a morning as fine as this one." },
+        { id = "vw_world", when = { minLevel = 20 },
+          text = "You've been down in the world long enough to know there are things a person keeps to himself. Let an old watchman keep this one." },
+      },
+      choices = {
+        { text = "Of course.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "From the top of Aldrassil I see a great deal, and the wind brings me the rest. Ask what you like, young one." },
+      { id = "tp_knows_warm", when = { disposition = { min = 70 } },
+        text = "You always climb back up to me, and I'm glad of it. Ask me anything; there's little I would keep from you." },
+    },
     background = { { id = "tp_bg", text = "I watch over Shadowglen from up here. Someone should see the whole glade at once." } },
     advice = { { id = "tp_ad", text = "Stay on the road to Dolanaar. The forest has grown dangerous beasts of late." } },
     teldrassil = { { id = "tp_teldrassil", text = "Young, tall, and still growing. Too quickly, some say. I only see it from the top." } },

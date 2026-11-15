@@ -36,3 +36,7 @@ Sources read for this pass (warcraft.wiki.gg, Classic sections): Dispatch_Comman
 - Helgrum: Neeka Bloodscar is head scout of Kargath; communication between Stonard and Kargath is often cut (the Badlands lie close to Loch Modan); her last outrunner failed. Report to Helgrum: the Alliance has problems of its own, and some enemies may be shared.
 - Fixed in this pass: Helgrum no longer treats Neeka as missing; Bengor no longer speaks fluently or calls the Swamp Talker a story (he is the ambush survivor); Ruag's Disgraced One and Missing Orders lines now match the quests (he is the turn-in, then defensive about the orders).
 - Authored, not canon: Ruag's guilt over the papers, the bowl Karakul sets out for late scouts, Helgrum and Neeka's teasing, Bengor's halting speech (written as whole sentences slowed by commas, per CONTENT_GUIDE §2).
+
+## 0.34.0
+Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon, unless marked).
+- Ruag (Persuade, `grasp_night`): he can't say whether the orders would have saved Thrall's Grasp had they arrived, and that question, not the road gossip, keeps him at his desk (authored).

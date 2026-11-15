@@ -46,6 +46,10 @@ P:NPC {
       choices = {
         { text = "What does the Horde stand for?", next = "horde" },
         { text = "What of the humans at Theramore?", next = "theramore" },
+        { text = "You already suspect Neeru Fireblade, don't you?", tag = "Persuade", next = "neeru_suspect",
+          when = { heardLine = "neeru.h_default" },
+          check = { pass = { any = { { disposition = { min = 65 } }, { questDone = TODO_QUEST("Hidden Enemies") }, { trait = "skeptical" } } } },
+          fail = { next = "neeru_not_yet", fx = { affinity = -1 } } },
         { text = "For the Horde.", next = "END", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "I fight for myself first, Warchief.", next = "END", fx = { align = { honor = -1 } } },
       },
@@ -65,6 +69,24 @@ P:NPC {
       lines = { { id = "a_default", text = "No. Some still dream of the old fire, so I watch them, and I give them chances, and when they betray us, I don't miss." } },
       choices = { { text = "...", next = "END" } },
     },
+    neeru_suspect = {
+      lines = {
+        { id = "ns_default", text = "Since the day he offered to watch the Burning Blade for me. Nobody knows that much about a fire without standing close to it, and Neeru knows a great deal. I keep him where I can see him, and I let him think I'm grateful." },
+        { id = "ns_chasm", when = { questDone = TODO_QUEST("Hidden Enemies") },
+          text = "You've been down in the chasm and seen what crawls there, so yes, I suspect him. A snake I can see is safer than one I can't, and so he stays in the Cleft, and I watch him smile." },
+      },
+      choices = {
+        { text = "Your secret is safe with me, Warchief.", next = "BACK", fx = { affinity = 2 } },
+        { text = "I'll keep listening to him, then.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    neeru_not_yet = {
+      lines = {
+        { id = "nn_default", text = "Neeru serves the Horde, as you do. If you have proof, bring it to me; if you have only a feeling, keep it to yourself for now." },
+        { id = "nn_stranger", text = "I don't speak ill of my advisors to someone I barely know. Earn that, and ask me again." },
+      },
+      choices = { { text = "Understood, Warchief.", next = "BACK" } },
+    },
     theramore = {
       lines = { { id = "t_default", text = "Jaina Proudmoore is a friend, though her people and mine aren't. We keep the peace between us with our own hands, because nobody else will. It is harder than any battle I've fought." } },
       choices = { { text = "...", next = "END", fx = { affinity = 1 } } },
@@ -72,6 +94,11 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The Warchief hears from every corner of the Horde, though not always the truth. Ask me about these, and I'll tell you what I believe." },
+      { id = "tp_knows_warm", when = { disposition = { min = 65 } }, text = "You've earned straight answers from me, and I'll give you as many as I have." },
+      { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "I'll answer, because a Warchief answers his people, even the ones he isn't sure of yet." },
+    },
     cenarion_circle = { { id = "tp_circle", text = "The tauren walk with them, and I'm glad of it; the world needs more who heal than wound." } },
     wailing_caverns = { { id = "tp_caverns", text = "The tauren have told me of something sick under the Barrens. When our young warriors are ready, they'll go in." } },
     burning_blade = { { id = "tp_blade", text = "Some of my own people still kneel to the old fire. They hide better than they think, and not as well as they hope." } },
@@ -131,11 +158,39 @@ P:NPC {
       lines = {
         { id = "i_default", text = "Zalazane be my friend since we was small, and now he wear our home like a mask. Gadrin work to take it back, and one day we do it, mon. One day." },
       },
-      choices = { { text = "I'll help when that day comes.", next = "END", fx = { affinity = 2, learn = { "echo_isles" } } } },
+      choices = {
+        { text = "I'll help when that day comes.", next = "END", fx = { affinity = 2, learn = { "echo_isles" } } },
+        { text = "Part of you still hopes to find your friend in him.", tag = "Persuade", next = "zalazane_friend",
+          check = { pass = { any = { { disposition = { min = 65 } }, { race = "Troll" }, { heardLine = "gadrin.h_default" } } } },
+          fail = { next = "zalazane_closed", fx = { affinity = -1 } } },
+      },
+    },
+    zalazane_friend = {
+      lines = {
+        { id = "zf_default", text = "When we was small, Zalazane dare me to swim to the far rock, and when I tire, he swim out after me. Some nights I think that boy still be in there, under all the voodoo. Then I remember what he do to our people, and I know I got to stop him anyway." },
+        { id = "zf_troll", when = { race = "Troll" },
+          text = "You be Darkspear, so you know what it mean to lose a brother to bad magic. Yes, I hope. Hope be a foolish thing for a chief to carry, and I carry it anyway, and I don't tell the Warchief." },
+      },
+      choices = {
+        { text = "Hope isn't foolish, Vol'jin.", next = "BACK", fx = { affinity = 2 } },
+        { text = "I'll keep that to myself.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    zalazane_closed = {
+      lines = {
+        { id = "zc_default", text = "Zalazane be my enemy, and that be all you need to know about him, mon." },
+        { id = "zc_quick", text = "You reach for a chief's heart quick, mon. Slow down, and maybe one day I show you." },
+      },
+      choices = { { text = "Fair enough.", next = "BACK" } },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Vol'jin hear plenty, mon: from the Warchief, from the spirits, and from the trolls who whisper in the corners. Ask me about these." },
+      { id = "tp_knows_warm", when = { disposition = { min = 65 } }, text = "You be a friend now, so I tell you straight, with no riddles, or not many." },
+      { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "I tell you some, but Vol'jin don't hand his whole mind to strangers." },
+    },
     yenniku = { { id = "tp_yenniku", text = "He be my son. Say his name careful, mon; I say it every night." } },
     echo_isles = { { id = "tp_isles", text = "I see them in my sleep: the sand, the sea, the old huts, and Zalazane's puppets walking where my father walked." } },
     burning_blade = { { id = "tp_blade", text = "Orcs who miss the demons. The Warchief watch them closer than they think, and so do I." } },
@@ -177,6 +232,9 @@ P:NPC {
       choices = {
         { text = "What is the Burning Blade?", next = "blade" },
         { text = "What do you think of Thrall?", next = "thrall" },
+        { text = "Thrall's patience will be the death of the Horde.", tag = "Deceive", next = "neeru_opinion",
+          check = { pass = { any = { { disposition = { min = 60 } }, { class = "WARLOCK" }, { trait = "cruel" } } } },
+          fail = { next = "neeru_loyal", fx = { affinity = -1 } } },
         { text = "I'll be going.", next = "END" },
       },
     },
@@ -194,6 +252,24 @@ P:NPC {
       lines = { { id = "k_default", text = "One studies one's enemies, as surely you know. Now, I'm terribly busy." } },
       choices = { { text = "...", next = "END" } },
     },
+    neeru_opinion = {
+      lines = {
+        { id = "no_default", text = "Careful, speaking that way in Orgrimmar. Though between friends, the Warchief's patience is a marvel: he waits so long to strike that his enemies grow old and comfortable, and some of them grow rather powerful." },
+        { id = "no_warlock", when = { class = "WARLOCK" },
+          text = "A fellow practitioner, saying such things aloud! I agree entirely, in theory, of course. The Horde was strong once, when it wasn't afraid of what made it strong, and some of us haven't forgotten how that felt." },
+      },
+      choices = {
+        { text = "We understand each other.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'll remember you said that.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+      },
+    },
+    neeru_loyal = {
+      lines = {
+        { id = "nl_default", text = "What a curious thing to say to the Warchief's loyal servant. I shall pretend I didn't hear it, and you'll pretend you never said it." },
+        { id = "nl_clumsy", text = "Oh, that was clumsy, friend. If you want to know what I think, you'll have to be far more interesting than that." },
+      },
+      choices = { { text = "Forget I spoke.", next = "BACK" } },
+    },
     thrall = {
       lines = { { id = "t_default", text = "A great leader, with such vision, such patience, such faith in people. It's very touching." } },
       choices = { { text = "...", next = "END" } },
@@ -201,6 +277,10 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Oh, I hear all sorts of things down here in the Cleft, and I'm generous with most of them. Ask about whatever catches your eye." },
+      { id = "tp_knows_warm", when = { disposition = { min = 65 } }, text = "For a friend as capable as you, I'll share everything I know, or nearly everything; one must keep a little back." },
+    },
     _none = { { id = "tp_none", text = "I couldn't say, but do tell me if you hear anything interesting. I collect interesting things." } },
   },
 }
@@ -246,6 +326,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Everyone who eats at the Tusk talks with their mouth full, and I hear every word of it. Ask me about any of this, and then eat something." },
+    },
     _none = { { id = "tp_none", text = "Ask the regulars; they know everything, and drink to the rest." } },
   },
 }

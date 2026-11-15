@@ -46,6 +46,8 @@ P:NPC {
         { id = "h_priest", when = { class = "PRIEST" },
           text = "A priest, good. My watchers bleed, and all I have for them is bandages and bad jokes, so stay a night if you can stand the howling." },
         { id = "h_roll", when = { metBefore = true }, text = "We lost no one last night. Write that down somewhere, because it doesn't happen often enough." },
+        { id = "h_warm", when = { disposition = { min = 70 } },
+          text = "Good, it's you. My watchers stand a little straighter when you're in town, and I'll take every bit of that I can get." },
       },
       again = {
         { id = "h_again", text = "What else? Be quick about it, because the lamps won't light themselves." },
@@ -135,6 +137,9 @@ P:NPC {
       choices = {
         { text = "They're lucky to have you.", next = "BACK", fx = { affinity = 1 } },
         { text = "That's a hard way to keep an army.", next = "BACK", fx = { opinion = { stormwind = "abandoned_its_own" } } },
+        { text = "How many names have you lost this year, Commander?", tag = "Persuade", next = "watchers_names",
+          check = { pass = { any = { { disposition = { min = 65 } }, { class = { "PRIEST", "WARRIOR" } }, { townStanding = { town = "darkshire", min = 30 } } } } },
+          fail = { next = "watchers_roster", fx = { affinity = -1 } } },
       },
     },
 
@@ -245,9 +250,34 @@ P:NPC {
       },
       choices = { { text = "I will.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 }, learn = { "embalmer" } } } },
     },
+    watchers_names = {
+      big = true,
+      lines = {
+        { id = "wn_default", text = "Nine since the thaw, and I can tell you every one of them and where they fell, because I'm the one who knocks on the door afterwards. I don't let the council do it; they make speeches." },
+        { id = "wn_after", text = "I keep the roster with the dead names still on it, crossed through but not scratched out. Ello thinks it's morbid, and maybe it is, but I'll not have anyone in this town forget they stood a watch." },
+        { id = "wn_priest", when = { class = "PRIEST" }, text = "If you're staying the night, there are two mothers on the Raven Hill road who'd take a priest at the door better than they took me. I'd count it a kindness." },
+      },
+      choices = {
+        { text = "They won't be forgotten.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Then let's keep the tenth off that list.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+      },
+    },
+    watchers_roster = {
+      lines = {
+        { id = "wr_default", text = "Enough that I don't talk about it with strangers on the road. Ask me how to keep the rest alive instead; that's the question I can use." },
+        { id = "wr_default2", text = "The roster's my business, and the Watch's. You'll forgive me if I keep the count to myself." },
+      },
+      choices = {
+        { text = "Fair, Commander.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "My watchers bring me every report from the woods, and none of them are pleasant. Ask me about any of this, and I'll tell you plainly." },
+    },
     background = { { id = "tp_bg", text = "I command the Night Watch. I don't have a story so much as a roster, and every name on it matters more than mine." } },
     advice = { { id = "tp_ad", text = "Keep to the roads by day and the lamps by night, and never follow a light into the trees, whoever seems to be holding it." } },
     night_watch = { { id = "tp_watch", text = "Volunteers, mostly: farmers, bakers, and a tanner who swears he's killed forty ghouls, though he's killed six." } },

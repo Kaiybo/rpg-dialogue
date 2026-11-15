@@ -39,8 +39,29 @@ P:NPC {
         { text = "How did the tauren come to Mulgore?", next = "coming" },
         { text = "What troubles the plains?", next = "troubles" },
         { text = "Why talk, if they won't listen?", next = "talk" },
+        { text = "Does your father miss living on the plains?", tag = "Persuade", next = "baine_father",
+          check = { pass = { any = { { disposition = { min = 65 } }, { heardLine = "cairne.h_default" }, { race = "Tauren" } } } },
+          fail = { next = "baine_father_no", fx = { affinity = -1 } } },
         { text = "Earth Mother guide you.", next = "END", fx = { affinity = 1 } },
       },
+    },
+    baine_father = {
+      lines = {
+        { id = "bf_default", text = "Every season. He tells me the High Rise is a fine place to see the land from and a poor place to stand on it. He'd rather walk with the herds, I think, and he stays up there because the tribes need one place to look to. I've never told him I noticed." },
+        { id = "bf_heard", when = { heardLine = "cairne.h_default" },
+          text = "You've heard him speak of the land, so you know already. He talks about the plains the way old warriors talk about a battle they miss. I keep the village well so that he can at least look down and see it kept." },
+      },
+      choices = {
+        { text = "He's lucky in his son.", next = "BACK", fx = { affinity = 2 } },
+        { text = "I won't mention it to him.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    baine_father_no = {
+      lines = {
+        { id = "bn_default", text = "My father's heart is his own to speak of, friend." },
+        { id = "bn_ask", text = "Ask him yourself, on the High Rise. He'll tell you more than I should." },
+      },
+      choices = { { text = "Of course.", next = "BACK" } },
     },
     troubles = {
       big = true,
@@ -67,6 +88,11 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The plains bring news to Bloodhoof from every road, and I try to hear all of it. Ask me about these, and I'll tell you what I know." },
+      { id = "tp_knows_warm", when = { disposition = { min = 65 } }, text = "Sit with me, friend; you've earned the long answers, and the village can spare me a while." },
+      { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "I'll answer, as I'd answer anyone who asks honestly, and I hope you are asking honestly." },
+    },
     cenarion_circle = { { id = "tp_circle", text = "Hamuul studies with them. My father trusts them, and so do I. The land needs friends who listen to it." } },
     grimtotem = { { id = "tp_grimtotem", text = "They're tauren, whatever else they are. I'd rather reason with them than fight them, for as long as reason works." } },
     _none = { { id = "tp_none", text = "I don't know, but I'll ask, and I'll remember you asked first." } },

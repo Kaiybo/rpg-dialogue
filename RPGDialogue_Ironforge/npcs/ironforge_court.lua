@@ -39,6 +39,8 @@ P:NPC {
           text = "You got out. I say it to everyone who did: you got out, and I'm glad. The rest we'll sort out together." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "A priest, splendid! Gnomes never kept priests of our own, we kept wrenches, so the dwarves in the Hall of Mysteries have had to be very patient with us." },
+        { id = "h_warm", when = { disposition = { min = 70 } },
+          text = "Oh, splendid, it's you! Mind the coil there, it bites, and do sit down, because I've a hundred things to show you and time for about four." },
       },
       again = {
         { id = "h_again", text = "Where were we? I've lost the thread again; I lose a lot of threads, so I keep them in a drawer." },
@@ -77,6 +79,9 @@ P:NPC {
         { text = "That's a heavy thing to carry.", next = "BACK", fx = { affinity = 2 } },
         { text = "Then you share the blame.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
         { text = "Did he know it would fail?", next = "thermaplugg" },
+        { text = "What keeps you up at night, High Tinker?", tag = "Persuade", next = "whose_list",
+          check = { pass = { any = { { disposition = { min = 65 } }, { race = "Gnome" }, { class = "PRIEST" } } } },
+          fail = { next = "whose_busy", fx = { affinity = -1 } } },
       },
     },
     secret = {
@@ -222,9 +227,34 @@ P:NPC {
         { text = "Nothing that works yet.", next = "BACK", fx = { affinity = 1 } },
       },
     },
+    whose_list = {
+      big = true,
+      lines = {
+        { id = "wl_default", text = "A list. I made it on the tram platform with a borrowed pencil, every gnome who came out of Gnomeregan alive, and it's ever so much shorter than any list I've written before or since." },
+        { id = "wl_after", text = "I read it every night, front to back and then back to front, looking for a name I missed, because some nights I'm quite certain someone came out after I stopped writing. I haven't found one yet, but I'm very thorough, and I'll keep looking." },
+        { id = "wl_gnome", when = { race = "Gnome" }, text = "Your name's on it, I expect, or your family's, so you know exactly which list I mean. Don't tell the apprentices; they think I'm up late inventing things." },
+      },
+      choices = {
+        { text = "That list is why we'll go home.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
+        { text = "You can't carry all of them, High Tinker.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+      },
+    },
+    whose_busy = {
+      lines = {
+        { id = "wb_default", text = "Oh, gears, mostly, and the occasional sprocket! Nothing that would interest you, I promise, and I really must get back to this housing before it cools." },
+        { id = "wb_default2", text = "Up at night? I sleep like a well-oiled flywheel, thank you, which is to say not at all and very efficiently. Shall we talk about the tram?" },
+      },
+      choices = {
+        { text = "Of course, High Tinker.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've a head full of schematics and only a little room left over for everything else, but I'll share what's in there. Ask me about any of this." },
+    },
     background = { { id = "tp_bg", text = "Gearshaft University, then the mechanostrider, then a great many awards, until my apprentices made me build a trophy case. I keep spare parts in it." } },
     advice = { { id = "tp_ad", text = "Test it before you trust it. I learned that one the most expensive way there is.", next = "fall" } },
     gnomeregan = { { id = "tp_gnomeregan", text = "Our home, and radiant now, though not in a good way, with troggs in the halls and worse in the deep workshops. We'll go back; I've already drawn the plans." } },
@@ -395,6 +425,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've spent my life on the histories o' this mountain, an' now I have them read tae me, which is slower but no less thorough. Ask me about any o' these." },
+    },
     background = { { id = "tp_bg", text = "I'm historian to the King. My eyes went but my memory didn't, and a patient scribe writes down what I say, so between us we've filled a shelf." } },
     advice = { { id = "tp_ad", text = "Write down what ye saw on the day ye saw it. By the next day ye'll have improved it." } },
     dark_iron = { { id = "tp_dark_iron", text = "They were our kin once, and our enemies for far longer. History doesn't forgive, but it remembers both.", next = "thaurissan" } },
@@ -569,6 +602,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The League's charted more o' this world than any king's cartographer, an' I've read every report. Ask me about any o' this, an' pull up a chair." },
+    },
     background = { { id = "tp_bg", text = "Curious since I could crawl, and paying for it since I could read. Now I steer the League and answer all its letters." } },
     advice = { { id = "tp_ad", text = "Write it down: dates, places, who was with you. Memory is a liar with very good manners." } },
     explorers_league = { { id = "tp_league", text = "Mine to steer, for my sins, with hundreds of Prospectors across the world, and every one of them writes to me at once.", next = "league" } },
@@ -818,6 +854,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The Senate concerns itself wi' every matter that touches Khaz Modan, an' I make it my business tae know them all. Ask me about any o' these." },
+    },
     background = { { id = "tp_bg", text = "I'm a senator an' a League member, an' the only one o' either with boots this muddy." } },
     advice = { { id = "tp_ad", text = "If a job's worth a speech, do the job first, for the speech goes better after." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "The troggs came up through the gnomes first, an' now they're comin' up through us. Draw yer own conclusions." } },
@@ -892,6 +931,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Every dwarf in Ironforge drinks at the Stonefire sooner or later, an' every one o' them talks. Ask me about any o' this." },
+    },
     background = { { id = "tp_bg", text = "I've kept the Stonefire's kegs longer than some o' my regulars have had beards, an' longer than some o' the beards have had regulars." } },
     advice = { { id = "tp_ad", text = "Never drink wi' a gnome engineer who's brought his work along, for somethin' always goes off." } },
     dark_iron = { { id = "tp_dark_iron", text = "Don't say that name loud in here. The lads get worked up, an' worked-up dwarves break furniture." } },

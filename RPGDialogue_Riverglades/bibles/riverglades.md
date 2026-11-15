@@ -134,3 +134,9 @@ New Forever zone. Everything here was read on warcraft.wiki.gg and Blizzard's an
 - Fimbo: chef's boredom, big plans.
 - Argo: hiccups, bravado.
 - Gritta: fishwife bluntness.
+
+## 0.34.0
+Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
+- Demar (Persuade, isolde_true): Isolde rode at Howard's left and argued with him in every council, and was right more often than he told her; he wrote her tribute because nobody else would have got her right, and hasn't read it since the stone was set.
+- Ashe (Persuade, father_why_me): the black dragon took everyone in the camp but her; she has read every page of her father's notes looking for why it passed her by, and found nothing.
+- Melbin (Deceive, audit): the Cartel's cut is figured on the boat fares he reports, not the ones he collects, and nobody, Melbin included, holds a deed to the port's sand.

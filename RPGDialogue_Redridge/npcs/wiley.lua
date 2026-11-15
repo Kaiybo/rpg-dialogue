@@ -36,6 +36,8 @@ P:NPC {
         { id = "h_rude", when = { trait = "witty" },
           text = "Clever mouth. I like a clever mouth, but Gryan doesn't; Gryan likes manners, and that's why he needs me." },
         { id = "h_price", when = { metBefore = true }, text = "You're back, good. I've heard three new things since yesterday, and one of them's even true; guess which." },
+        { id = "h_cold", when = { disposition = { max = 34 } },
+          text = "You again. I don't sell to people I don't like, and you've been working hard to make the list." },
       },
       again = {
         { id = "h_again", text = "Something else? Keep your voice down, the floor's thin." },
@@ -148,6 +150,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I sit here and people talk, and what they say has a price. These, I might part with." },
+    },
     background = { { id = "tp_bg", text = "I sit in a corner and know things. Before that, I sat in other corners." } },
     advice = { { id = "tp_ad", text = "Keep your back to the wall and your eyes on the stairs, and the rest is luck." } },
     defias = { { id = "tp_defias", text = "Organized, paid and patient. Whoever pays them has deeper pockets than any thief." } },

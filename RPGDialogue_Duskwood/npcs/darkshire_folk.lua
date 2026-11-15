@@ -322,6 +322,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The Light lets me see more of Duskwood's troubles than I'd like. Ask me about any of this, and I'll answer as truly as I can." },
+    },
     background = { { id = "tp_bg", text = "I stood a Watch post for years, and now I hunt with Master Carevin, which is the only part of me worth knowing." } },
     advice = { { id = "tp_ad", text = "Count your fingers when you come out of the trees, because that's how you know you won." } },
     night_watch = { { id = "tp_watch", text = "I wore the lamp myself, so I don't speak against them, but I don't stand with them anymore." } },
@@ -949,6 +952,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "As a member of the council, I am obliged to be informed on a great many matters, and I take that obligation seriously. Ask me about any of these." },
+    },
     background = { { id = "tp_bg", text = "I'm a councilman of Darkshire: I sit, I argue, and I draft letters. Some days that feels like fighting, though most days it doesn't." } },
     advice = { { id = "tp_ad", text = "Write everything down and sign it, because when Stormwind finally asks what happened here, I want the answer in our own hand." } },
     night_watch = { { id = "tp_watch", text = "The Council funds them with what we have, which is gratitude and leftover pikes." } },

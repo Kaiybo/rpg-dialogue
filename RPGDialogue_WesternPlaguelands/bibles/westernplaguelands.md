@@ -97,3 +97,12 @@
 - Mulgris: race (Alliance races: "we are not animals"), class (druids).
 - Kirsta: class (rogues), race.
 - Eva: race (Forsaken: fear), class.
+
+## 0.34.0
+Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon, unless marked).
+- Valorfist (Persuade, `need_truth`): privately he believes Stormwind sent him to keep the plague off Southshore, not to win; Andorhal will fall to volunteers, not to the regiment he asked for and never got (authored opinion).
+- MacDonnell (Persuade, `priest_fear`): the Light answers her curses on the dead hot and fast and her prayers for the living soft, and she isn't sure what that says about her (authored confidence).
+- Weldon (Intimidate, `claim_truth`): nobody has read the deeds since the Scourge came, so he doesn't know whose name is on them; each brother swears Father meant them for him. The question stays open.
+- Alexi (Persuade, `hate_truth`): what he can't forgive is that Weldon spared him as one spares a dog while Alexi was still himself inside; the deeds' question stays open (authored feeling, canon spare).
+- Kirsta (Persuade, `job_rest`): Stormwind wants to know what the Crusade keeps behind Mardenholde Keep (Hearthglen is run from it, canon); her reason is authored.
+- Eva (Persuade, `jandice_truth`): she heard Lord Barov promise things to each son in turn, can't say which was meant to inherit, and thinks neither deserves it (authored; keeps the fortune open).

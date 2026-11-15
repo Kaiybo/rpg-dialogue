@@ -29,6 +29,8 @@ P:NPC {
         { id = "h_tyrande", when = { heardLine = "tyrande.h_default" },
           text = "You've stood before the High Priestess, so you know why I serve as I do. She found me when I had no one, and I've never left her side since." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Elune's light on the water. The naga hate it, and that's reason enough for me to love it." },
+        { id = "h_warm", when = { disposition = { min = 75 } },
+          text = "You're back, and the sisters will be glad of it; so am I, though I'll deny it if Latronicus asks." },
       },
       again = { { id = "h_again", text = "Report, or ask; either is useful." }, { id = "h_again2", text = "What else?" } },
       choices = {
@@ -86,6 +88,9 @@ P:NPC {
       choices = {
         { text = "A vow like that deserves respect.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Even vows can be broken when they stop making sense.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "You'd rather be at her side in Darnassus.", tag = "Persuade", next = "tyrande_far",
+          check = { pass = { any = { { disposition = { min = 65 } }, { heardLine = "tyrande.h_default" }, { trait = "brave" } } } },
+          fail = { next = "tyrande_no", fx = { affinity = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -127,9 +132,35 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    tyrande_far = {
+      lines = {
+        { id = "tf_default", text = "Every night. She carries our people alone while Malfurion sleeps, and the Temple is full of priestesses who would never tell her she looks tired, so I write my reports long and send them fast, because I know she reads them at moonrise." },
+        { id = "tf_heard", when = { heardLine = "tyrande.h_default" },
+          text = "You've stood before her, so you've seen it. She carries our people alone and nobody in that Temple would dare tell her to rest, so I write long reports and send them fast, because she reads them at moonrise and it's the only way I can be there." },
+      },
+      choices = {
+        { text = "She knows you're keeping your vow.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tyrande_no = {
+      lines = {
+        { id = "tno_default", text = "Where I'd rather be doesn't matter; she sent me here, and here is where I'm needed. Ask me about the naga." },
+        { id = "tno_kin", when = { race = "NightElf" },
+          text = "A Sentinel doesn't choose her post, {g:brother|sister}, and you know it as well as I do. Ask me about the naga." },
+      },
+      choices = {
+        { text = "As you say, General.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "My scouts cover every road and shore in Feralas, and every one of them reports to me. Ask what you need." },
+      { id = "tp_knows_warm", when = { disposition = { min = 70 } },
+        text = "You've earned a straight answer from the Sentinels, so ask me anything. I'll tell you what I'd tell my own second." },
+    },
     background = { { id = "tp_ba", text = "The High Priestess raised me and the Sentinels taught me, and Feralas is where I keep the promise I made to both.", next = "tyrande" } },
     advice = { { id = "tp_ad", text = "Keep the water at your back only if you can see what's in it. Here, you can't." } },
     cenarion_circle = { { id = "tp_circle", text = "The druids heal the land, and we keep it whole long enough for them to finish. It's a fair arrangement." } },
@@ -203,6 +234,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've patched a lot of leather and heard a lot of stories while doing it. Ask, and I'll tell you what I know." },
+    },
     background = { { id = "tp_ba", text = "Paladin, then leatherworker, then the only human on an island full of Sentinels. Each step was a smaller hammer.", next = "human" } },
     advice = { { id = "tp_ad", text = "Oil your straps. A buckle that snaps in a fight has killed more of us than any ogre." } },
     _none = { { id = "tp_none", text = "Couldn't tell you, friend. Ask the General; she knows everything on this island." } },
@@ -255,6 +289,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The Sentinels talk on their way to sleep, and I hear it all as I bank the fire. Ask, and I'll share what I've heard." },
+    },
     background = { { id = "tp_ba", text = "I've kept this inn as long as the Sentinels have kept this island. Neither of us has thought of leaving." } },
     advice = { { id = "tp_ad", text = "Dry your bowstring before you sleep. The damp here warps everything but a Sentinel's patience." } },
     _none = { { id = "tp_none", text = "I keep the inn, and the General keeps the rest." } },
@@ -424,6 +461,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I know these ogres and this land better than I'd like. Ask, and be brief." },
+    },
     grimtotem = { { id = "tp_grimtotem", text = "Tauren trouble. The tauren here watch for them, and I watch for ogres." } },
     background = { { id = "tp_ba", text = "A warrior of the Horde, sent from Orgrimmar to break ogres. There's no more to it, and I like it that way.", next = "belgrom" } },
     advice = { { id = "tp_ad", text = "Never fight a Gordunni on a slope where it's above you. Ogres fall downhill, and they don't care who's underneath." } },
@@ -525,6 +565,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I keep my ears open for anything that might be worth money, which is nearly everything. Ask!" },
+    },
     background = { { id = "tp_ba", text = "A goblin with a shovel, a sack and a nose for things that glow. That's the whole of the story, and the rest is profit." } },
     advice = { { id = "tp_ad", text = "Always dig where somebody else has been guarding. Nobody guards dirt." } },
     _none = { { id = "tp_none", text = "If it's not a rock, it's not my business." } },
@@ -593,6 +636,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Everyone who passes my fire leaves a little news behind. Ask, and I'll share what I've gathered." },
+    },
     background = { { id = "tp_ba", text = "I keep the fire at Mojache. Every tauren camp needs one, and this one is mine." } },
     advice = { { id = "tp_ad", text = "Rub your hides with fat before you go into the rain. The braves laugh at it, and then they borrow my pot." } },
     _none = { { id = "tp_none", text = "I keep the fire, and Rok Orhan keeps the ogres away, so ask her." } },

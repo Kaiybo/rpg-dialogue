@@ -201,6 +201,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I know things, I do, I hear them from out here, and some of them I wish I didn't. Ask me about any of this, but quietly, please, quietly." },
+    },
     background = { { id = "tp_bg", text = "I'm Jitters, and that's all there is of me now, because the rest I wrote down and gave away." } },
     advice = { { id = "tp_ad", text = "Never pick anything up in a mine, never, I don't care how old it looks; just leave it in the rocks where it is." } },
     worgen = { { id = "tp_worgen", text = "They got my friends, the ones I came here with, and I ran, because I'm good at running." } },

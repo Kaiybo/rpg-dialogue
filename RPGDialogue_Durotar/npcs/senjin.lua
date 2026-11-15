@@ -54,11 +54,38 @@ P:NPC {
       lines = {
         { id = "vj_default", text = "The best I ever have. Zalazane listen too, but to the wrong voices. Now Vol'jin stand by the Warchief, and I watch the isles for him." },
       },
-      choices = { { text = "He chose well.", next = "END", fx = { affinity = 2 } } },
+      choices = {
+        { text = "He chose well.", next = "END", fx = { affinity = 2 } },
+        { text = "And the student you aren't proud of?", tag = "Persuade", next = "zalazane_blame",
+          check = { pass = { any = { { disposition = { min = 65 } }, { race = "Troll" }, { trait = "kind" } } } },
+          fail = { next = "zalazane_shame", fx = { affinity = -1 } } },
+      },
+    },
+    zalazane_blame = {
+      lines = {
+        { id = "zb_default", text = "Zalazane be the quicker of the two boys, quicker than Vol'jin even. I see the hunger in him early, and I teach him anyway, because I be proud to have such a clever student. So when you hear the isles be cursed, you remember an old fool help it happen." },
+        { id = "zb_troll", when = { race = "Troll" },
+          text = "You be Darkspear, so I tell you what I don't tell the chief. I see Zalazane reach too far and I say nothing, because he make me proud. Every puppet on those isles, I count as partly mine." },
+      },
+      choices = {
+        { text = "You couldn't have known, Master.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Then help us undo it.", next = "BACK", fx = { affinity = 1, learn = { "echo_isles" } } },
+      },
+    },
+    zalazane_shame = {
+      lines = {
+        { id = "zs_default", text = "That be an old man's business, and an old man's shame, and not for a stranger to pick at." },
+        { id = "zs_easy", text = "Ha, you ask the hard question first, eh? Gadrin answer only the easy ones today." },
+      },
+      choices = { { text = "Another time, then.", next = "BACK" } },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Old Gadrin hear everything eventually, because everybody come to the witch doctor sooner or later. Ask me about these, child." },
+      { id = "tp_knows_warm", when = { disposition = { min = 65 } }, text = "You be good to this old man, so sit, and I tell you all of it, the long way round." },
+    },
     echo_isles = { { id = "tp_isles", text = "Every morning I look at them, and every morning they still there, waiting for us." } },
     burning_blade = { { id = "tp_blade", text = "Orcs playing with demons, eh? Bad magic be bad magic, whoever play with it, and Orgnil know that." } },
     _none = { { id = "tp_none", text = "Even an old witch doctor don't know everything, though he know most things, yes." } },

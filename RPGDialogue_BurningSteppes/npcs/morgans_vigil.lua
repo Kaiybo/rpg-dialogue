@@ -46,6 +46,8 @@ P:NPC {
           text = "Drakkisath sits in the high halls of the Spire giving orders to orcs and dragons alike. I want him gone before he finishes whatever he's planning." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "I don't sleep much since Windsor went missing, so I sit by this fire and count the lights on the mountain. There are more of them every week." },
+        { id = "h_warm", when = { disposition = { min = 70 } },
+          text = "There's a face I'm glad to see, which isn't something I say about most people who walk up this ridge. Sit by the fire, deputy, and we'll pretend for a minute that the mountain isn't there." },
       },
       again = {
         { id = "h_again", text = "What else, deputy? I've got a report to write, but it'll keep; they always do." },
@@ -94,6 +96,9 @@ P:NPC {
       choices = {
         { text = "One of them had to carry the news.", next = "BACK", fx = { affinity = -1, trait = { skeptical = 1 } } },
         { text = "I'd have stayed and fought.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+        { text = "Is it John you can't forgive, Marshal, or yourself?", tag = "Persuade", next = "windsor_self",
+          check = { pass = { any = { { disposition = { min = 65 } }, { class = "PRIEST" }, { trait = "kind" } } } },
+          fail = { next = "windsor_report", fx = { affinity = -1 } } },
         { text = "Fair enough. Something else.", next = "BACK" },
       },
     },
@@ -244,9 +249,30 @@ P:NPC {
         { text = "The court's not perfect, but I'll trust it until it fails me.", next = "BACK", fx = { align = { honor = 1 } } },
       },
     },
+    windsor_self = {
+      big = true,
+      lines = {
+        { id = "ws_default", text = "That's a priest's question, deputy, and it gets a straight answer. Windsor left me on this ridge to hold it while he rode in, and I've spent every night since wondering whether one more sword would have changed anything, so when I call John a coward, I'm mostly talking to the fire." },
+      },
+      choices = {
+        { text = "You followed your orders, Marshal.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Then go easier on John.", next = "BACK", fx = { affinity = 1, opinion = { ragged_john = "sensible" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    windsor_report = {
+      lines = {
+        { id = "wr_default", text = "I'll thank you to leave my conscience out of the report, deputy. John ran, and that's all that goes on the page." },
+      },
+      choices = { { text = "As you say, Marshal.", next = "BACK" } },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Every report from this ridge passes across my crate, deputy, and I read them even if Stormwind doesn't. Ask me about any of these." },
+      { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "You've done more for this camp than the Keep has, so you get the long answers. Pick any of these and pull up a crate." },
+    },
     background = {
       { id = "tp_bg", text = "A soldier of Stormwind who was second to a better one, and who now does the job alone until somebody brings him back.", next = "windsor" },
       { id = "tp_bg2", text = "Stormwind trained me, the Steppes kept me, and I'll see the end of the Blackrock or they'll see the end of me." },
@@ -366,6 +392,9 @@ P:NPC {
       choices = {
         { text = "Then let's find the proof.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
         { text = "Marshal Maxwell thinks the same.", next = "dragons_maxwell", when = { heardLine = "maxwell.ed_default" } },
+        { text = "Not a name, then. Tell me what you suspect.", tag = "Persuade", next = "dragons_guess",
+          check = { pass = { any = { { disposition = { min = 65 } }, { questDone = TODO_QUEST("Dragonkin Menace") }, { race = "NightElf" } } } },
+          fail = { next = "dragons_wait", fx = { affinity = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -441,9 +470,29 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    dragons_guess = {
+      lines = {
+        { id = "dg_default", text = "Very well, but only between us, and only as a guess. Whatever commands the Spire's upper halls is no mere drake but a dragon of great age and greater patience, and I believe the Blackrock are only the first people it means to use." },
+      },
+      choices = {
+        { text = "Then we'd better find out who else.", next = "BACK", fx = { affinity = 2, trait = { cautious = 1 } } },
+        { text = "I'll keep it to myself.", next = "BACK", fx = { affinity = 1, trait = { discreet = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dragons_wait = {
+      lines = {
+        { id = "dw2_default", text = "A suspicion shared too soon becomes a rumour, and rumours run faster than proof. Thin the dragonkin below the ridge with me first, and then we'll talk." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I have read these mountains for a long while, and they have told me a good deal. Ask me about any of these, and I'll tell you what I can prove." },
+      { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "For you I'll share what I suspect as well as what I can prove. Here is what I can speak to." },
+    },
     background = { { id = "tp_bg", text = "A scout of Darnassus, by training a reader of old places. The Steppes are the oldest wound I've ever been asked to read.", next = "ruins" } },
     advice = { { id = "tp_ad", text = "Watch where the whelps fly when the drakes call them, and you'll learn where the drakes nest. Animals always tell you the truth before people do." } },
     black_dragonflight = { { id = "tp_dragons", text = "The true masters of the Blackrock, as I wrote to Lakeshire. I'd be glad to be wrong, but I am not.", next = "dragons" } },
@@ -605,6 +654,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Intelligence, soldier, I've got it coming out of my ears, and Winky's got the rest. Ask me about any of this and keep your voice down." },
+    },
     background = { { id = "tp_bg", text = "A soldier, soldier, which is all you need to know and all the Marshal knows too. Winky says otherwise, but Winky would.", next = "served" } },
     advice = { { id = "tp_ad", text = "Always keep a horn handy and a head on a pike, soldier. You'd be amazed how many problems one or the other solves." } },
     firegut = { { id = "tp_firegut", text = "Big, blue, stupid and frightened of their own shadows, once you know which shadow to show them.", next = "orders" } },
@@ -733,6 +785,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Oh, I've taken measurements of nearly everything around here, though not all of it was wise. Ask me about any of these, if you like." },
+    },
     background = { { id = "tp_bg", text = "A gnome of Gnomeregan who now measures volcanoes for a living. I don't recommend the career, if I'm honest.", next = "why" } },
     advice = { { id = "tp_ad", text = "Carry water, carry more water, and if anything made of fire starts talking to you, don't answer it." } },
     blackrock_depths = { { id = "tp_depths", text = "The Dark Iron city, built into the mountain's heart. My expedition was meant to go in, but the fire elementals had other ideas.", next = "mountain" } },
@@ -860,6 +915,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "In my line of work you learn what's worth knowing and forget the rest. These are worth knowing." },
+    },
     background = { { id = "tp_bg", text = "I find things for people who'd rather not get their own boots dirty. The Count is the best of them, because he pays on time.", next = "errand" } },
     advice = { { id = "tp_ad", text = "Never pick up anything that hums, and never sell anything the day you find it. Both lessons cost me dearly." } },
     thaurissan = { { id = "tp_thaurissan", text = "A dead city full of beautiful things and unhappy voices. I took the first and left the second.", next = "ruins" } },

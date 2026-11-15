@@ -256,6 +256,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "These are in my reports, so I can speak to them. The rest stays between me and Orgrimmar." },
+    },
     cenarion_circle = { { id = "tp_circle", text = "The druids south of here are honest, as far as I can tell. That's rare enough to report." } },
     background = { { id = "tp_ba", text = "I gather what Orgrimmar needs to know and send it home. My own story isn't something anyone's asked for." } },
     advice = { { id = "tp_ad", text = "Take the tunnels through Timbermaw country politely, if the furbolgs let you. The other way round is longer and colder." } },

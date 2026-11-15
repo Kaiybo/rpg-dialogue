@@ -45,6 +45,8 @@ P:NPC {
         { id = "h_hero", when = { townStanding = { town = "farholde", min = 55 } },
           text = "The sentries talk about you at the gate, and I let them. It's good for morale, and morale's the one thing Stormwind can't refuse to send." },
         { id = "h_book", when = { bookRead = "A Wartorn Land and The Brotherhood" },
+        { id = "h_warm", when = { disposition = { min = 75 } },
+          text = "There you are. The riders ask after you when you're gone a while, and I've stopped pretending I don't." },
           text = "You've read Farholde's book. Then you know what this keep cost, and I won't have to tell you." },
         { id = "h_fern_resolved", tags = { "news" }, key = true, when = { thread = { id = "farholde_lost", state = "resolved" } },
           text = "Gray came up to the keep, his first time in a year, and we didn't argue about Fern; we drank to her. I'm told that was your doing, so thank you, and don't make me say it twice." },
@@ -248,6 +250,9 @@ P:NPC {
       lines = { { id = "is_default", text = "I did, upright and with her banner high, because I wanted the words to be as true as she was. Ask me something else." } },
       choices = {
         { text = "She sounds remarkable.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Tell me about Isolde herself, Commander, not the banner.", tag = "Persuade", next = "isolde_true",
+          check = { pass = { any = { { disposition = { min = 65 } }, { trait = "brave" }, { questDone = TODO_QUEST("Eye of Mugg") } } } },
+          fail = { next = "isolde_no", fx = { affinity = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -312,9 +317,35 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    isolde_true = {
+      lines = {
+        { id = "it_default", text = "She rode at Howard's left and argued with me in every council we ever held, and she was right more often than I ever told her. I wrote the tribute myself because nobody else would have got her right, and I haven't read it since the day they set the stone." },
+        { id = "it_paladin", when = { class = "PALADIN" },
+          text = "She'd have liked you, paladin; she always said the Light rode better with a lance behind it. She argued with me in every council and was right more often than I told her, and I wrote her tribute myself because no one else would have got her right." },
+      },
+      choices = {
+        { text = "Thank you for telling me.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    isolde_no = {
+      lines = {
+        { id = "in_default", text = "I said ask me something else, and I meant it. The stone says everything that needs saying." },
+        { id = "in_rogue", when = { class = "ROGUE" },
+          text = "Isolde's not a story for a stranger who walks that quietly. Ask me something else, and mind the gate on your way past it." },
+      },
+      choices = {
+        { text = "As you wish, Commander.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Every report from the glades crosses my table before it reaches anyone else. Ask, and I'll tell you what's worth knowing." },
+      { id = "tp_knows_cold", when = { disposition = { max = 34 } },
+        text = "Ask, then, and make it quick; I've riders to see to, and I haven't decided about you yet." },
+    },
     background = { { id = "tp_bg", text = "The Brotherhood is my story, twenty years of it in these glades, and the rest isn't worth the telling." } },
     advice = { { id = "tp_ad", text = "Ride in pairs, sleep in the keep, and never follow a light across the river at night. The Hammer uses lights." } },
     brotherhood_horse = { { id = "tp_brotherhood", text = "Older than the First War, older than Stormwind's patience. We ride, we hold, and we don't wait to be asked." } },
@@ -429,7 +460,12 @@ P:NPC {
     },
     father_sorry = {
       lines = { { id = "fso_default", text = "Thank you. People say that and then look at the memorial instead of at me, but you didn't, and I noticed." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "Why do you think you came back, and he didn't?", tag = "Persuade", next = "father_why_me",
+          check = { pass = { any = { { disposition = { min = 65 } }, { class = "MAGE" }, { trait = "kind" } } } },
+          fail = { next = "father_not_now", fx = { affinity = -1 } } },
+      },
     },
     father_west = {
       lines = { { id = "fwe_default", text = "Something he'd read about. He was always reading about something. I have his notes, and I still can't tell which of the forty things in them he meant." } },
@@ -519,9 +555,35 @@ P:NPC {
       lines = { { id = "rh_default", key = true, text = "He's tired. He's been out there so long that I worry it's gotten into his head... ah, I'm babbling again, aren't I? He's fine, probably." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    father_why_me = {
+      lines = {
+        { id = "fwm_default", text = "I don't know, and that's the honest answer, which is the worst kind. The dragon took everyone in that camp but me, and I've read every page of my father's notes since, looking for the reason it passed me by, and now I'm babbling, so I'll stop." },
+        { id = "fwm_mage", when = { class = "MAGE" },
+          text = "You'd think a student of a student of Antonidas could work it out, wouldn't you? The dragon took everyone but me, and I've read every line of my father's notes looking for a reason it passed me by, and I haven't found one, and I'm not sure I want to." },
+      },
+      choices = {
+        { text = "Maybe there isn't a reason. You're here anyway.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    father_not_now = {
+      lines = {
+        { id = "fnn_default", text = "That's not a question I answer before supper, or after it, really. Ask me about the Hammer's curios instead; I'm much better company on that subject." },
+        { id = "fnn_warlock", when = { class = "WARLOCK" },
+          text = "Not to someone who smells faintly of sulfur, I'm afraid, however politely you ask. Ask me about the Hammer's curios instead." },
+      },
+      choices = {
+        { text = "Of course.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Oh, I know a great deal, and I'm out of practice at keeping any of it to myself. Ask, and stop me if I go on." },
+      { id = "tp_knows_warm", when = { disposition = { min = 70 } },
+        text = "Ask anything you like! You've been good to Farholde, and I've been saving up things to tell someone." },
+    },
     background = { { id = "tp_bg", text = "I was my father's student before I was anything else, then Farholde's advisor, then the expedition west. I came back from that one alone.", next = "father" } },
     advice = { { id = "tp_ad", text = "If something the Hammer carried hums, don't put it in your pack; put it in mine. I mean it." } },
     siege_of_farholde = { { id = "tp_siege", text = "My father rode in that charge and came back, and he never talked about it, though he talked about everything else." } },
@@ -620,6 +682,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've fought in these glades longer than I care to remember, and I've learned a thing or two the hard way. Ask." },
+    },
     background = { { id = "tp_bg", text = "Brotherhood a long time, out here longer. That's all of it." } },
     advice = { { id = "tp_ad", text = "When they start chanting, back up. Whatever they're calling, you don't want to be the first thing it sees." } },
     twilights_hammer = { { id = "tp_hammer", text = "They pray louder than they fight. I'd rather they just fought." } },
@@ -708,6 +773,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The sick talk when they can't sleep, and I listen. Ask what you need, and the Light willing, I'll have an answer." },
+    },
     background = { { id = "tp_bg", text = "I go where the sick are. Farholde has more than its share, so here I am." } },
     advice = { { id = "tp_ad", text = "Boil your water and wash your wounds. The Light helps those who've already done the dull part." } },
     twilights_hammer = { { id = "tp_hammer", text = "I pray for them too. Someone should, and nobody else will." } },
@@ -814,6 +882,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I watch the walls and I watch the people inside them, so I know a fair bit. Ask, and I'll decide what to tell you." },
+    },
     background = { { id = "tp_bg", text = "No. That one stays with me." } },
     advice = { { id = "tp_ad", text = "Watch the birds over the river. When they go quiet, something's moving in the fog." } },
     brotherhood_horse = { { id = "tp_brotherhood", text = "Good riders and bad singers, and they keep their word, which is rarer than either." } },

@@ -45,3 +45,7 @@ Abeqwa's brave asleep on the rope bridge and the needles' moon shadows; Thalia k
 ## Depth pass (0.31.x, authored, not canon)
 Longhorn calls himself a poor letter writer; Rau's discomfort at the dryads' phials and his "centaur hate a slope"; Hagar's own egg flying off; Thalia's knot for Lakota (reworked from a cord for many missing), her view that the Grimtotem chose by staying silent; Abeqwa's harpies stealing the washing and the bitten hands of Highperch students. Longhorn is still written straight (no hint of his Cataclysm betrayal).
 Freewind's NPCs are Horde: an Alliance character can't speak to them, so no Alliance-only replies were written here.
+
+## 0.34.0
+Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon, unless marked).
+- Longhorn (Persuade, `nataka_why`): every letter to Nataka turns into a list of the Galak's dead, so he puts the quill down (authored reason for the canon year of silence).

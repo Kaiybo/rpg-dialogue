@@ -27,3 +27,7 @@
 
 ## Depth pass, second round (0.25.0, authored, not canon)
 One or two repeat-visit or night lines each for the thinnest NPCs here: small habits and running jokes (a salvaged kettle, a beetle truce, a parrot paying rent, glowing ink). Places they mention are already sourced in this bible or LORE_NOTES.
+
+## 0.34.0
+Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon, unless marked).
+- Williden (Persuade, `purpose_truth`): the expedition went down too fast and too sure; he signed off on every lost camp and keeps a cheerful face for the others (authored).

@@ -33,3 +33,7 @@ Sources read for this pass (warcraft.wiki.gg, Classic sections): Drum_Fel, Zengu
 - Hammerfall (wiki history): after the Third War the ruins were reoccupied as an unofficial refuge for discontents who felt they had no place in the new world.
 - Zengu: Trol'kalar, "troll slayer" in the ancient tongue, wielded by Lord Ignaeus of Strom, called Trollbane, against the forest trolls in the days of Arathor. Sigils shared among Stromgarde's survivors: one taken by the Syndicate, the Sigil of Thoradin split into eleven pieces by Prince Galen and rebound by Tor'gan, Hammerfall's troll shaman; one carried by Lieutenant Valorcall of the cavalry; the last held by Galen in the chapel. The sword goes to Nimboya at Grom'gol, for the war against Zul'Gurub's trolls.
 - Authored, not canon: the grunts' songs about Doomhammer, Adegwa humming, Zengu's patience lesson, Hammerfall's hoped-for fields and herds.
+
+## 0.34.0
+Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
+- Nials (Persuade, tents): she can't hold as long as she tells the soldiers; she counts the tents every morning, loses more each season than Stromgarde sends, and writes every letter to the families herself.

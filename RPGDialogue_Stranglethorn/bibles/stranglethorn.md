@@ -86,3 +86,11 @@ Sources read for this pass (warcraft.wiki.gg, Classic sections): Commander_Aggro
 - Mok'thardin: rituals to harness the jungle's magic for the Horde; a ceremonial choker from Shadowmaw claws and a pristine tigress fang, an aged gorilla sinew from east of Booty Bay as the tether, jungle stalker feathers, and Holy Spring water, a spring every race claims was blessed for them, now with naga explorers. "I will thank the spirits for sacrificing such fine beasts."
 - Fixed in this pass: Kin'weelay's Bloody Bone Necklaces line (Bloodscalp, not Skullsplitter) and Vile Reef line (murlocs, not sharks); Nimboya's Hunt for Yenniku and Headhunting lines (hunt and bring tusks; inspect heads), and his Yenniku line (the custom, not "the trees swallow him").
 - Authored, not canon: Aggro'gosh's caravan counting, his view of an orc mage and of Skyborne; Kin'weelay's view of troll warlocks; Mok'thardin's view of an orc mage; Thulbek's toll of stories. Skyborne lines use only BRIEF §10 (Windshapers, debt to the wind spirits, the Earthen Ring, Thunder Bluff).
+
+## 0.34.0
+Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
+- Revilgaz (Persuade, knives): the Bloodsail want him and Seahorn dead (Seahorn's men read the letters); he sleeps in a different room each night, never takes the same stair twice, and the Bruiser at his door thinks he guards the ledger.
+- Krazek (Deceive, crank): believing the Baron sent you, he gives up that Crank sells the Venture Company's singing crystals out the back of the tavern and has a deal with a goblin at the Mirage Raceway he hasn't priced yet.
+- Shaky (Intimidate, confess): what scares him most isn't the debt but that he'd sit down and play if MacKinley dealt him in tomorrow, and MacKinley knows it.
+- Crank Fizzlebub (Deceive, kravel_spill): told Pozzik knows, he blurts the plan: Zanzil's troll mixture in a cask of Fool's Stout for the racers, Kravel's idea.
+- Doren (Persuade, herod): before The Spy Revealed!, he already suspects Bookie Herod (his men bet with him; a man who keeps everyone's debts knows who can be bought) but has no proof.

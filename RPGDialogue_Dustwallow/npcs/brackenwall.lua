@@ -161,6 +161,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The scouts bring me word from every corner of this marsh. Ask, and I'll tell you straight." },
+    },
     grimtotem = { { id = "tp_grimtotem", text = "Cairne's problem, and now mine too. They'd burn the whole peace to warm their hands." } },
     background = { { id = "tp_ba", text = "The Warchief put me in charge of finding out who burned that inn. That's all you need to know about me, and it's all I need to know about myself until it's done.", next = "inn" } },
     advice = { { id = "tp_ad", text = "In this marsh, trust tracks before you trust words. Mud doesn't lie about who walked through it." } },
@@ -290,6 +293,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I watch Theramore, and I know more about it than the humans would like. Ask, and keep your voice low." },
+    },
     background = { { id = "tp_ba", text = "I'm the Horde's spymaster in this marsh, and a spymaster's story is the one thing he never tells." } },
     advice = { { id = "tp_ad", text = "Keep a copy of every report in your head as well as in your pack. Marg's report came home in his hand, and his head came home separately." } },
     _none = { { id = "tp_none", text = "If I knew, I'd have reported it, and I haven't, so I don't." } },

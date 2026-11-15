@@ -56,3 +56,6 @@
 - Stormpike's lesson that every cipher is written by somebody lazy.
 - Stonehallow's opinion that dwarven digging wakes the troggs (he says it as an opinion); soot on beards in the Senate.
 - Firebrew's gryphon-wrestling greybeard; John Turner's coin-from-shame trick.
+
+## 0.34.0
+- Mekkatorque (Persuade, `whose_list`): he made a list of every survivor on the tram platform with a borrowed pencil, and reads it every night looking for a name he missed.

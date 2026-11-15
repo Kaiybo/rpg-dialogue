@@ -50,6 +50,10 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Every deathstalker report in Silverpine ends on my desk. Ask what you need to know, and I'll tell you what they found." },
+      { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "You'll get the short version, since I've no time for the long one with you." },
+    },
     worgen = { { id = "tp_worgen", text = "Arugal's creatures, a Dalaran mage's mistake loose in my forest. I'd like the mage, too." } },
     _none = { { id = "tp_none", text = "Ask Allister; information is his business, not mine." } },
   },
@@ -178,6 +182,10 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "My watchers bring me a great deal, and some of it I'm even permitted to share. These, for instance, if you ask nicely." },
+      { id = "tp_knows_warm", when = { disposition = { min = 65 } }, text = "You've been discreet, and I reward discretion, so I'll tell you rather more than I tell most." },
+    },
     _none = { { id = "tp_none", text = "If I knew, I wouldn't tell you for free, and I don't know." } },
   },
 }

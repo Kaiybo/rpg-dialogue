@@ -135,6 +135,9 @@ P:NPC {
         { text = "Someone has to make peace.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
         { text = "Then let them settle it.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
         { text = "Who leads each order?", next = "leaders" },
+        { text = "What do you truly fear, Elder?", tag = "Persuade", next = "orders_fear",
+          check = { pass = { any = { { disposition = { min = 65 } }, { race = "Skyborne" }, { trait = "kind" } } } },
+          fail = { next = "orders_council", fx = { affinity = -1 } } },
       },
     },
     leaders = {
@@ -201,9 +204,29 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    orders_fear = {
+      lines = {
+        { id = "of_default", text = "Not the Windlord, though I'd never say so to the Council. He may take years to act, or decades, but the orders have already shed blood over sacred places, and the next death between them could come any morning." },
+      },
+      choices = {
+        { text = "Then I'll help keep them talking.", next = "BACK", fx = { affinity = 2, learn = { "two_orders" } } },
+        { text = "That's a heavy thing to carry alone.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    orders_council = {
+      lines = {
+        { id = "oc_default", text = "What the High Elder fears is the Council's business, child, and the Council is a patient listener. Ask me something I can answer." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The Council brings me every worry on this isle, so I know a little about a great many things. Ask me about any of these, and I'll tell you only what's true." },
+      { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "You've been honest with me, so I'll be as honest as I'm able, which is honest about what nobody knows. Here is what I can speak to." },
+    },
     background = { { id = "tp_bg", text = "I'm High Elder because the Council chose me, and I stayed High Elder because nobody else would take it.", next = "council" } },
     advice = { { id = "tp_ad", text = "Never believe anyone who says they know what Al'Akir will do. I don't, and I've thought about it more than anyone." } },
     al_aketh = { { id = "tp_aketh", text = "Grey robes, shaved heads, and worship for a Windlord our own patrons would hardly speak of. Ansirem Runeweaver and Muln Earthfury helped us break them once. Once may not be enough." } },

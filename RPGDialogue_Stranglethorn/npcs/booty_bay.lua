@@ -42,6 +42,8 @@ P:NPC {
           text = "Now, this business with the tides. I don't pretend to understand the magic, but I understand exactly what it's costing me." },
         { id = "h_ledger", when = { metBefore = true }, text = "Eleven ships in, nine out, and two the Bloodsail will want to know about. The ledger never sleeps, and neither do I, much." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Lanterns on every deck, music on every pier, and somebody about to fall in. It's the same every night, and I'd miss it if it stopped." },
+        { id = "h_cold", when = { disposition = { max = 34 } },
+          text = "Back again, and still not spending much. My balcony is for paying customers, friend, so make your question worth the climb." },
       },
       again = {
         { id = "h_again", text = "Go on. Every minute on this balcony is a minute I'm not counting something." },
@@ -125,7 +127,12 @@ P:NPC {
       lines = {
         { id = "pw_default", text = "Then I'll sell both sides the boats to leave in. Neutral doesn't mean blind; it means I keep the receipts for everyone." },
       },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "The Bloodsail want more than your town, Baron. They want you.", tag = "Persuade", next = "knives",
+          check = { pass = { any = { { disposition = { min = 65 } }, { reputation = { faction = "Steamwheedle Cartel", min = "honored" } }, { questDone = TODO_QUEST("The Bloodsail Buccaneers") } } } },
+          fail = { next = "knives_no", fx = { affinity = -1 } } },
+      },
     },
 
     ledger = {
@@ -165,9 +172,37 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    knives = {
+      lines = {
+        { id = "kn_default", text = "They do, and Seahorn's men have read the letters to prove it. So I sleep in a different room every night and never take the same stair twice, and the Bruiser outside my door thinks he's guarding the ledger, because that's what I told him." },
+        { id = "kn_letters", when = { questDone = TODO_QUEST("The Bloodsail Buccaneers") },
+          text = "You read the letters yourself, so I won't insult you by pretending otherwise. They want me and Seahorn floating in the cove, so I sleep in a different room every night now, and the Bruiser outside my door thinks he's guarding the ledger." },
+      },
+      choices = {
+        { text = "Your secret's safe with me, Baron.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    knives_no = {
+      lines = {
+        { id = "kno_default", text = "Everybody wants something from me, friend, and the Bloodsail are only louder about it. Pay your tab and leave the worrying to the man with the balcony." },
+        { id = "kno_rogue", when = { class = "ROGUE" },
+          text = "Is that a warning or a sales pitch? Either way, I don't buy information from people who look like they sell it twice." },
+      },
+      choices = {
+        { text = "Suit yourself, Baron.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Everything that happens in this cove ends up in my ledger sooner or later. Ask, and I'll tell you what it says, within reason." },
+      { id = "tp_knows_warm", when = { disposition = { min = 70 } },
+        text = "You've been good for business, so ask me anything you like; I'll even answer the ones I'd normally bill for." },
+      { id = "tp_knows_cold", when = { disposition = { max = 34 } },
+        text = "I answer questions for paying customers, and you're barely one. Make it quick." },
+    },
     background = { { id = "tp_bg", text = "Steamwheedle born and Steamwheedle made. I came to this cove with a ledger and a plan, and the ledger's thicker now." } },
     advice = { { id = "tp_ad", text = "Pay your tab, stay off the Bloodsail's boats, and don't feed the parrot; it bites." } },
     bloodsail = { { id = "tp_bloodsail", text = "They want my town, and they've wanted it since before you were born. They can keep on wanting." } },
@@ -307,6 +342,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Every ship that sails these waters sends word back to me, one way or another! Ask, and I'll tell you what the sea's been saying." },
+    },
     background = { { id = "tp_bg", text = "I was a plains calf who grew into a sea-going bull. The grass raised me, and the waves finished the job.", next = "why" } },
     advice = { { id = "tp_ad", text = "Respect the sea, laugh at the storm, and never, ever trust a red sail." } },
     bloodsail = { { id = "tp_bloodsail", text = "Their fleet master would dearly love my horns on his wall. He'll have to get in line." } },
@@ -423,7 +461,12 @@ P:NPC {
         { id = "am_king", when = { questDone = TODO_QUEST("Big Game Hunter") },
           text = "That Nesingwary has a new head on his wall and it's partly your fault. Nobody's talking about anything else at the bar." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+      choices = {
+        { text = "Something else.", next = "BACK", fx = { affinity = 1 } },
+        { text = "The Baron sent me. He wants to hear about Crank Fizzlebub.", tag = "Deceive", next = "crank",
+          check = { pass = { any = { { class = "ROGUE" }, { trait = "witty" }, { disposition = { min = 60 } } } } },
+          fail = { next = "crank_no", fx = { affinity = -1 } } },
+      },
     },
 
     rebels = {
@@ -440,9 +483,33 @@ P:NPC {
       lines = { { id = "rp_default", text = "A better price, from a goblin, in the Baron's town? You're either very kind or very new. I'll knock a copper off the next crate, but don't tell anyone, or it'll ruin me." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    crank = {
+      lines = {
+        { id = "cr_default", text = "The Baron? Already? Fine, fine: Crank's been selling the Venture Company's singing crystals out the back of this very tavern, and he's got some arrangement with a goblin at the Mirage Raceway that I haven't priced yet, so tell the Baron I was going to mention it today, at the latest." },
+        { id = "cr_shards", when = { questDone = TODO_QUEST("Singing Blue Shards") },
+          text = "He knows already? Then he knows you carried crystals for Crank yourself, so I'll skip that part. The new part is a deal with some goblin at the Mirage Raceway, and you can tell the Baron I was going to mention it today, at the latest." },
+      },
+      choices = {
+        { text = "I'll pass it on.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    crank_no = {
+      lines = {
+        { id = "cno_default", text = "The Baron rings a bell when he wants me, friend; he doesn't send strangers up the stairs. Nice try, though, and I'll be selling that story by supper." },
+        { id = "cno_paladin", when = { class = "PALADIN" },
+          text = "A paladin, lying for the Baron? Now that's a rumor I can sell twice, so thank you kindly for it." },
+      },
+      choices = {
+        { text = "It was worth a try.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Pick a subject, any subject; I've got a rumor for every one of them and a price for most." },
+    },
     background = { { id = "tp_bg", text = "I started out running messages, and now I am the messages. That's not bad for a goblin with no inheritance." } },
     advice = { { id = "tp_ad", text = "Information's worth more than gold, and it spoils faster, so use it quick." } },
     kurzen = { { id = "tp_kurzen", text = "The rebels up north buy from me, but Kurzen's lot stopped buying anything a while back, and that's never a good sign." } },
@@ -561,6 +628,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I make it my business to know things about people, mostly what they owe. Ask, and we'll see what it costs you." },
+    },
     background = { { id = "tp_bg", text = "Sailor, gambler, collector. I was very bad at the first two before I got very good at the third." } },
     advice = { { id = "tp_ad", text = "Don't borrow what you can't pay back, and if you do, don't borrow it from me." } },
     _none = { { id = "tp_none", text = "Does it owe me money? Then I don't care about it." } },
@@ -664,6 +734,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Information is just another commodity, and I deal in commodities. Ask, and I'll tell you what I'm willing to part with." },
+    },
     background = { { id = "tp_bg", text = "Bought my first crate at nine and sold it at ten for twice the price. I never looked back, mostly because I never had the time." } },
     advice = { { id = "tp_ad", text = "Never let the client see the warehouse." } },
     bloodsail = { { id = "tp_bloodsail", text = "Every crate they take is a crate I paid for twice: once to buy it, and once to cry about it." } },
@@ -737,6 +810,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Rum loosens tongues, and I pour a great deal of rum. Ask me what you like, and keep your voice down near the stairs." },
+    },
     background = { { id = "tp_bg", text = "I've poured drinks in worse places than this. Booty Bay pays better, and the fights are funnier." } },
     advice = { { id = "tp_ad", text = "Sit facing the door. Everyone in here does, which is why the chairs are all on one side." } },
     _none = { { id = "tp_none", text = "Couldn't tell you. Ask whoever's drinking the most; they always have a theory." } },
@@ -869,6 +945,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've sailed every inch of this coast hunting those giants, and I've learned a thing or two along the way. Ask, and I'll tell you." },
+    },
     background = { { id = "tp_bg", text = "I've been captain of two ships and two crews, and both are at the bottom of that bay. That's my story, and I tell it every night.", next = "giveup" } },
     advice = { { id = "tp_ad", text = "Never sail where the water stands up. You'll know it when you see it, and you'll wish you hadn't." } },
     _none = { { id = "tp_none", text = "Is it a sea giant? No? Then it isn't my problem." } },
@@ -924,6 +1003,9 @@ P:NPC {
       },
       choices = {
         { text = "I could talk to MacKinley for you.", next = "debt_talk", fx = { trait = { generous = 1 } } },
+        { text = "Tell me the truth, Phillipe, or MacKinley hears where you hide.", tag = "Intimidate", next = "confess", when = { ["not"] = { questDone = TODO_QUEST("Scaring Shaky") } },
+          check = { pass = { any = { { power = { "above", "far_above" } }, { class = { "WARRIOR", "ROGUE" } }, { trait = "stern" } } } },
+          fail = { next = "confess_no", fx = { affinity = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -971,9 +1053,33 @@ P:NPC {
         { text = "Pay your debts. Then there's nothing to hide from.", next = "BACK", fx = { align = { honor = 1 } } },
       },
     },
+    confess = {
+      lines = {
+        { id = "cf_default", text = "All right, all right, don't tell him! The truth is, it isn't the debt that scares me most; it's that if MacKinley dealt me a hand tomorrow I'd sit down and play it, and I know I would, and so does he." },
+        { id = "cf_rogue", when = { class = "ROGUE" },
+          text = "Don't, please, I know your sort, you'd really do it! The truth is I'd play him again tomorrow if he dealt me in, and he knows it, and that's why he's never in any hurry to collect." },
+      },
+      choices = {
+        { text = "Then stay away from the tables.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    confess_no = {
+      lines = {
+        { id = "cn_default", text = "You wouldn't! You... you wouldn't, would you? No, you're bluffing, because I've watched MacKinley bluff and you're not nearly frightening enough." },
+        { id = "cn_gnome", when = { race = "Gnome" },
+          text = "You're going to tell on me? You're barely taller than the barrel I hide in, and I'm frightened of a great many things, but not that." },
+      },
+      choices = {
+        { text = "Fine, Phillipe.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I don't know anything, honestly! Well, maybe a few things, if you promise nobody's listening." },
+    },
     background = { { id = "tp_bg", text = "Nobody! I'm nobody at all, so please ask someone more interesting, please?" } },
     advice = { { id = "tp_ad", text = "Never play knucklebones with a man called Wolf. Any kind of wolf." } },
     _none = { { id = "tp_none", text = "I don't know anything about anything, I swear! Is this about money?" } },
@@ -1176,6 +1282,9 @@ P:NPC {
       choices = {
         { text = "Maybe I'll tell them.", next = "BACK", fx = { align = { honor = 2 }, affinity = -2 } },
         { text = "Your secret's safe.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "Pozzik already knows, Crank. He told me himself.", tag = "Deceive", next = "kravel_spill",
+          check = { pass = { any = { { class = "ROGUE" }, { trait = "witty" }, { race = "Gnome" } } } },
+          fail = { next = "kravel_calm", fx = { affinity = -1 } } },
       },
     },
     gnome = {
@@ -1184,9 +1293,33 @@ P:NPC {
       },
       choices = { { text = "It's a bit crude.", next = "BACK", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
     },
+    kravel_spill = {
+      lines = {
+        { id = "ks_default", text = "He knows? Then it's Kravel's fault, all of it! It's Zanzil's troll mixture stirred into a cask of Fool's Stout for the racers, and Kravel swore nobody would taste it under the stout, and if Pozzik's coming I'm leaving on the next boat." },
+        { id = "ks_gnome", when = { race = "Gnome" },
+          text = "That gnome told you? Of course he did, you people stick together! Fine: it's Zanzil's troll mixture in a cask of Fool's Stout for the racers, it was Kravel's idea, and I'm leaving on the next boat." },
+      },
+      choices = {
+        { text = "Relax, Crank, I made that up.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kravel_calm = {
+      lines = {
+        { id = "kc_default", text = "Pozzik doesn't talk to anybody who isn't holding a wrench, friend, and you're not holding a wrench. Nice try; I'd have tried it too." },
+        { id = "kc_paladin", when = { class = "PALADIN" },
+          text = "A paladin, lying to me? Now I've seen everything, and I still don't believe a word of it." },
+      },
+      choices = {
+        { text = "Worth a try.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Lean in and ask, friend; I know a little about a lot, and most of it's worth something to somebody." },
+    },
     background = { { id = "tp_bg", text = "I'd tell you, but then you'd know where the bodies are buried, figuratively speaking. Mostly figuratively." } },
     advice = { { id = "tp_ad", text = "Buy from people who are in a hurry and sell to people who are scared, never the other way round." } },
     venture_company = { { id = "tp_venture", text = "Rivals, and rich, careless rivals at that, which are my favourite kind." } },
@@ -1640,6 +1773,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Everything that comes off a boat passes me first, and so does every scrap of news. Ask, and I'll tell you what I've seen." },
+    },
     background = { { id = "tp_bg", text = "I've been on these docks longer than most of the docks have, and I've replaced every board twice." } },
     advice = { { id = "tp_ad", text = "Watch the people who aren't watching the ships. They're the ones to worry about." } },
     bloodsail = { { id = "tp_bloodsail", text = "Some of the faces on my docks wear red when nobody's looking. I can't prove it, not yet." } },

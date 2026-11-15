@@ -62,3 +62,7 @@ Classic versions read for every quest (Shadowglen was rebuilt in Cataclysm): The
 
 ### Authored, not canon (this pass)
 Ilthalaine asking a returning character whether the world is in balance; Melithar hearing the tree creak when thirsty; Tenaron saying the names of those who never came back; Corithras watching the tree "like a feverish child"; Athridas's "they are both" lesson; Tallonkai preferring to be a careful fool; Syral's Council kept out of his story; Keldamyr's bear at the hearth; Lyreena's list of what each trade brings (sourced in outline from the Forever quest: tents from leatherworkers, fixtures from fishermen).
+
+## 0.34.0
+Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
+- Tenaron (Persuade, view_names): since Hyjal a fall in the forest can be the last one; he wonders, blessing each young elf on the way down, whether he said enough.

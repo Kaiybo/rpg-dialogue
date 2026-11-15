@@ -40,3 +40,7 @@
 
 ## Depth pass (0.24.0)
 Authored, not canon: Boorand's holey roof and the Ratchet goblin who tried to sell him a better one ([Ratchet](https://warcraft.wiki.gg/wiki/Ratchet) is the goblin port); Zargh reading Gryshka's returned bones as a good sign; Thork's "holding a sieve".
+
+## 0.34.0
+Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon, unless marked).
+- Mankrik (Persuade, `wall_truth`): he stays on the wall because while he doesn't look, Olgra might still be alive; it's the one thing he's a coward about (authored feeling, nothing on where she lies).

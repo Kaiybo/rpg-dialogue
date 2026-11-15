@@ -90,6 +90,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "This forest teaches anyone who is quiet enough to learn, and I have been very quiet here. Ask what you wish." },
+    },
     background = { { id = "tp_bg", text = "I'm a hunter who came for the Hunt and never quite left." } },
     advice = { { id = "tp_ad", text = "When you hunt, learn your quarry first; the kill is the smallest part of it." } },
     warsong = { { id = "tp_warsong", text = "They cut what they need, and a little more. I tell them so, and they don't listen." } },
@@ -165,6 +168,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Caravans carry gossip as well as wood, and I count both. Ask, and don't waste my time." },
+    },
     background = { { id = "tp_bg", text = "I count wagons. That's my whole story, and it's a good one." } },
     advice = { { id = "tp_ad", text = "Never ride on top of the lumber wagons, because the elves shoot at those first." } },
     warsong = { { id = "tp_warsong", text = "Grom's clan. They cut what the Warchief needs, and I count it." } },

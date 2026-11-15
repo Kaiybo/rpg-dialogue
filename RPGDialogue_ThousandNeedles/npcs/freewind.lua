@@ -38,6 +38,8 @@ P:NPC {
           text = "You've seen Nataka, in Desolace? Is he well? I let a whole year go by without writing to him, so tell me he's well, and that he isn't angry with me." },
         { id = "h_family", when = { questActive = TODO_QUEST("Family Tree") },
           text = "My brother Nataka is stationed at Ghost Walker Post, and a year has passed since I last wrote to him. The centaur have been stirring since then, and he should hear of it from me." },
+        { id = "h_warm", when = { disposition = { min = 70 } },
+          text = "You climb this mesa more often than the wind does, and I've come to listen for your step on the lift. Stand with me a while and watch the canyon." },
       },
       again = {
         { id = "h_again", text = "What else? Speak, but keep one eye on the canyon while you do." },
@@ -116,6 +118,9 @@ P:NPC {
       },
       choices = {
         { text = "Write to him. I'll carry it.", next = "BACK", fx = { affinity = 3, trait = { kind = 1 } } },
+        { text = "Why haven't you written, truly?", tag = "Persuade", next = "nataka_why",
+          check = { pass = { any = { { disposition = { min = 65 } }, { race = "Tauren" }, { trait = "kind" } } } },
+          fail = { next = "nataka_duty", fx = { affinity = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -148,9 +153,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    nataka_why = {
+      lines = {
+        { id = "nw_default", text = "Because every letter I begin turns into a report of who the Galak killed on the road this month, and I will not send my brother a list of the dead. So I put the quill down, and a year goes by, and the silence says worse things than the list would have." },
+      },
+      choices = {
+        { text = "Then write about something else.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "He'd rather have the list than nothing.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    nataka_duty = {
+      lines = {
+        { id = "nd_default", text = "Because the cliffs need watching, and letters do not. That is reason enough for a Cliffwatcher." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "From this mesa I see much of the Needles, and what I can't see, my scouts tell me. Ask about any of these." },
+    },
     background = { { id = "tp_bg", text = "I watch the cliffs for Freewind, and I have a brother in Desolace who thinks I've forgotten him. Both duties weigh on me.", next = "nataka" } },
     advice = { { id = "tp_ad", text = "If you go up Darkcloud Pinnacle, smile at the Grimtotem and keep your back to the wall." } },
     grimtotem = { { id = "tp_grimtotem", text = "Watch them. Smile if you must, but watch them." } },

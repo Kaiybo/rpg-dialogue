@@ -72,7 +72,12 @@ P:NPC {
     },
     left_right = {
       lines = { { id = "lr_default", text = "Leaving was right, but staying quiet afterward wasn't, and that's why I tell everyone Anton sends me. Most of them go home, and some go north with a different reason." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "You still haven't forgiven yourself, have you?", tag = "Persuade", next = "stayed",
+          check = { pass = { any = { { disposition = { min = 65 } }, { class = { "PRIEST", "PALADIN" } }, { questDone = TODO_QUEST("In the Name of the Light") } } } },
+          fail = { next = "stayed_no", fx = { affinity = -1 } } },
+      },
     },
     monastery = {
       big = true,
@@ -142,9 +147,33 @@ P:NPC {
         { text = "I'd do it again.", next = "BACK", fx = { align = { order = 1 }, trait = { stern = 1 } } },
       },
     },
+    stayed = {
+      lines = {
+        { id = "sy_default", text = "No. I said I don't know when I started believing them, but I know when I should have stopped: the first time they asked a man if he was plagued and didn't wait to hear his answer, and I stayed a long while after that, which is the part I can't put down." },
+        { id = "sy_light", when = { class = { "PRIEST", "PALADIN" } },
+          text = "You serve the Light, so you'll understand why I can't. I knew the Crusade was wrong the first time they asked a man if he was plagued and didn't wait for his answer, and I stayed a long while after that, praying it would pass." },
+      },
+      choices = {
+        { text = "You're doing something about it now.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stayed_no = {
+      lines = {
+        { id = "sn_default", text = "That's between me and the Light, and the Light hasn't said. Ask me about the Monastery instead; that I can help you with." },
+        { id = "sn_new", when = { metBefore = false },
+          text = "We've only just met, and that's a long way down to go with a stranger. Ask me about the Monastery instead." },
+      },
+      choices = {
+        { text = "All right.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I don't know much, but what I know I learned the hard way. Ask, and I'll tell you true." },
+    },
     background = { { id = "tp_bg", text = "I was a paladin who believed the wrong men. I know exactly when I stopped, but I don't know when I started.", next = "left" } },
     advice = { { id = "tp_ad", text = "If a man in red asks whether you're plagued, the right answer is to be somewhere else." } },
     scarlet_crusade = { { id = "tp_scarlet", text = "They started out against the plague and ended up against everyone. I was there for both halves.", next = "left" } },

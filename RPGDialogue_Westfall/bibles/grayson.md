@@ -45,3 +45,6 @@ A repeat-visit line (and a night line for some), in the voice above: small daily
 Hub branches: why he stays (the keeper's family), the pirate question (the ship's names, the wrecks), Old Murk-Eye (why he hates the light), being dead.
 Replies only some characters get: priest (offers him rest; he'll take it when the coast is safe; a prayer for his crew), Forsaken (why he isn't bitter).
 Authored, not canon: the ship wore several names (he still won't give one); his guess at Murk-Eye's motive; he sees no other ghosts.
+
+## 0.34.0
+- Grayson (Persuade, `pirate_honest`): a pirate, taking cargo off three kingdoms' merchantmen under whatever flag suited; never fired on a ship that struck her colours and never left a crew to drown.

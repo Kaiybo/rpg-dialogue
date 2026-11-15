@@ -48,3 +48,7 @@ Silva says her oldest hippogryph's name before each flight; Bunthen's riders mis
 
 ## Depth pass (0.31.x, authored, not canon)
 Remulos on a priest's Light ("the beast never asks whose prayer saved it"); the Great Bear keeping still beside a praying priest; Silva's "kind no" to non-druids; Bunthen and Silva never quarrelling; Rabine letting Umber call him the den mother; Remulos's father "fell in the war" (Cenarius died in the Third War) told without blame.
+
+## 0.34.0
+Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
+- Remulos (Persuade, zaetar_regret): he warned Zaetar that Theradras would ruin him and was right, but spoke as the son Cenarius favored, and thinks that is all Zaetar heard.

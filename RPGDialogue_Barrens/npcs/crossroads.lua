@@ -67,6 +67,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I hear every report that reaches these walls, and these are the ones I'll speak to." },
+    },
     wailing_caverns = { { id = "tp_caverns", text = "That's the druids' business, and Tonga worries about it enough for all of us." } },
     _none = { { id = "tp_none", text = "That's not my concern. My concern is the walls, and keeping them standing." } },
   },
@@ -169,6 +172,8 @@ P:NPC {
           text = "Kill them, as many as you can, and bring me proof. Thork won't send anyone, so I'm sending you, and for every one you kill I'll sleep a little." },
         { id = "h_lost", tags = { "news" }, when = { questActive = TODO_QUEST("Lost in Battle") },
           text = "She's out there somewhere, so find her for me, alive or not. I need to know, because I can't stand on this wall not knowing much longer." },
+        { id = "h_warm", when = { disposition = { min = 70 } },
+          text = "You came back, and you didn't have to. Olgra would have liked you, I think, and she didn't like many people." },
       },
       choices = {
         { text = "Tell me about Olgra.", next = "olgra" },
@@ -188,11 +193,35 @@ P:NPC {
     },
     revenge = {
       lines = { { id = "r_default", text = "Thork said the same, so I'll tell you what I told him: I know, and I don't care. Now leave me to the horizon." } },
-      choices = { { text = "...", next = "END", fx = { affinity = -1 } } },
+      choices = {
+        { text = "Why stand on this wall instead of searching yourself?", tag = "Persuade", next = "wall_truth",
+          check = { pass = { any = { { disposition = { min = 65 } }, { trait = "kind" }, { questActive = TODO_QUEST("Lost in Battle") } } } },
+          fail = { next = "wall_away", fx = { affinity = -1 } } },
+        { text = "...", next = "END", fx = { affinity = -1 } },
+      },
+    },
+    wall_truth = {
+      big = true,
+      lines = {
+        { id = "wt_default", text = "Because as long as I stand here, she might still be out there alive. If I go and look, and I find her, then she isn't, and I'm a coward about that one thing, the only thing Olgra ever saw me run from." },
+      },
+      choices = {
+        { text = "Then let me look for you.", next = "END", fx = { affinity = 3, trait = { kind = 1 } } },
+        { text = "That isn't cowardice. It's love.", next = "END", fx = { affinity = 2 } },
+      },
+    },
+    wall_away = {
+      lines = {
+        { id = "wa_default", text = "Because someone has to watch for the pigs, and I'm the one with the reason to. Go on, leave me to it." },
+      },
+      choices = { { text = "...", next = "END" } },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I don't know much beyond the quilboar and this wall. Ask about these, if you must." },
+    },
     _none = { { id = "tp_none", text = "I don't know and I don't care. Ask me about quilboar." } },
   },
 }
@@ -258,6 +287,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've listened to the Barrens a long while, and it tells me more than people do. Ask me about any of these, friend." },
+    },
     wailing_caverns = { { id = "tp_caverns", text = "It's a cave with a poisoned dream at the bottom of it. That's the plain version, and the plain version is bad enough." } },
     cenarion_circle = { { id = "tp_circle", text = "Hamuul brought us into it. The Barrens needs every druid it can get, and the Circle needs to hear about this place." } },
     _none = { { id = "tp_none", text = "I don't know, friend, but the land might. Listen to it a while." } },

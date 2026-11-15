@@ -183,6 +183,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "My scouts report everything that moves on the Stonard road. Ask what you need, and don't waste my time." },
+    },
     yenniku = { { id = "tp_yenniku", text = "That's Nimboya's business, and he's welcome to it, as long as he pulls his weight while he's in my camp." } },
     background = {
       { id = "tp_ba", text = "I'm the Commander of Grom'gol, sent by the Warchief to keep the road to Stonard open. Everything that happened to me before this camp happened to someone with far less to do.", next = "road" },

@@ -118,7 +118,12 @@ P:NPC {
       lines = {
         { id = "gf_default", text = "Maybe not, but it's my desk the papers crossed. A dispatch commander who stops feeling that should hand over his seal." },
       },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "What keeps you at that desk at night, Commander?", tag = "Persuade", next = "grasp_night",
+          check = { pass = { any = { { disposition = { min = 65 } }, { questDone = TODO_QUEST("The Swamp Talker") }, { trait = "kind" } } } },
+          fail = { next = "grasp_dispatch", fx = { affinity = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
 
     people = {
@@ -159,9 +164,30 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    grasp_night = {
+      big = true,
+      lines = {
+        { id = "gn_default", text = "Not the gossip on the road, if that's what you're thinking. I've read those orders over a hundred times in my head, and I still can't tell you whether they'd have saved the regiment if they'd arrived, and that's the question no clean seal answers." },
+      },
+      choices = {
+        { text = "Nobody could answer that, Commander.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Then make sure the next orders arrive.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    grasp_dispatch = {
+      lines = {
+        { id = "gd_default", text = "Dispatches keep me at my desk, and that's all that goes in the log. Next item." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Every report in Stonard crosses my desk, so I know a little about most things in this swamp. Ask me about any of these, and keep it short." },
+      { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "You'll get what's in the public log and nothing more, so choose one and be brief." },
+    },
     background = { { id = "tp_ba", text = "I command dispatches, which means I read every report and sign every order in Stonard. My story is in those papers, and it's dull until something goes wrong.", next = "grasp" } },
     advice = { { id = "tp_ad", text = "Carry your orders against your skin, never in a pack. Packs get lost in the swamp, and so do the people carrying them." } },
     _none = { { id = "tp_none", text = "That's not charted yet, so do you want the job?" } },
@@ -301,6 +327,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've watched that temple longer than I care to count, and I've learned more than I wanted. Ask me about any of these." },
+    },
     burning_blade = { { id = "tp_blade", text = "Fools! I walk the same road they did, and I stopped where the Warchief told us to, but they didn't." } },
     background = { { id = "tp_ba", text = "A warlock in the Warchief's service, sent to watch a temple. What I was before I served him isn't worth the telling.", next = "warlock" } },
     advice = { { id = "tp_ad", text = "If you go into the temple, count your companions on the way down and on the way back up. The Atal'ai have a way of keeping a few." } },

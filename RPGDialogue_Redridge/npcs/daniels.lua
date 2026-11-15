@@ -109,6 +109,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "A barkeep hears everything said over a mug, and Lakeshire says plenty. Ask me about any of this." },
+    },
     background = { { id = "tp_bg", text = "I pour, and before the orcs, I poured more." } },
     advice = { { id = "tp_ad", text = "Never drink the last bottle in the house. It's bad luck, and it's mine." } },
     blackrock = { { id = "tp_blackrock", text = "They stopped my wagons, and that's personal." } },

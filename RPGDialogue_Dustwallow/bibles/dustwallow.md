@@ -44,3 +44,7 @@ Sources read for this pass (warcraft.wiki.gg): Krog, Nazeer_Bloodpike, Brackenwa
 - Brackenwall: the Stonemaul ogres' village; black dragons destroyed their old village in the south.
 - Nazeer: spymaster. Marg Nighteye spied on Theramore for weeks; his report came back in a severed hand; the ragged cut on his neck (weapon or beast?); Kin'weelay at Grom'gol spoke to his spirit; a muckshell crab-man killed him on his way back with a jeweled pendant stolen from a Stormwind soldier camped on the beach; a noble's pendant, so its owner was disguised or the soldiers stole it; Zor Lonetree in Orgrimmar knows Alliance politics. Theramore Spies (2.3): infiltrators on the islands east of Brackenwall.
 - Authored, not canon: Nazeer's view of Krog's hunt, Krog's "someone set fire to the line", Ogron being quiet for an ogre.
+
+## 0.34.0
+Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
+- Jaina (Persuade, father_true): when Daelin's fleet came she told her soldiers to stand aside and sent word to Thrall; she chose the peace over her father, would again, and doesn't know what kind of daughter that makes her.

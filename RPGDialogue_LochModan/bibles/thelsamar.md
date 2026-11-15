@@ -43,3 +43,6 @@
 
 ## Authored, not canon
 - Kadrell's dry socks for the Wetlands and the soot under a spy's nails; Rugelfuss's trenches and "more chieftains than sense"; Hinderweir checking at noon; the miners' song about the dam; Vidra's straining of the ichor; Hearthstove's broken stool.
+
+## 0.34.0
+- Rugelfuss (Persuade, `reserve_off`): off duty, he thinks Ironforge has sent its best to guard other kingdoms; he asked to march with the Reserve, was refused, and has never forgiven himself for being relieved.

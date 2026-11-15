@@ -59,11 +59,39 @@ P:NPC {
     },
     arthas = {
       lines = { { id = "ar_default", text = "He burned my people's forests and murdered them in their homes, and then he made me watch, as this. I'll say no more of it, not to you and not to anyone." } },
-      choices = { { text = "...", next = "END" } },
+      choices = {
+        { text = "...", next = "END" },
+        { text = "What do you remember of Quel'Thalas?", tag = "Persuade", next = "quelthalas",
+          check = { pass = { any = { { disposition = { min = 70 } }, { race = "Scourge", disposition = { min = 55 } }, { class = "HUNTER" } } } },
+          fail = { next = "quelthalas_no", fx = { affinity = -1 } } },
+      },
+    },
+    quelthalas = {
+      lines = {
+        { id = "q_default", text = "You are persistent, and today I find I don't mind it. I remember the forests of Eversong, gold even in winter, and my rangers in the trees at the Elfgates, holding them for as long as we could. I remember every one of their names. The dead sleep poorly, and so we do not get to forget." },
+        { id = "q_hunter", when = { class = "HUNTER" },
+          text = "You carry a bow, so perhaps you'll understand. I was Ranger-General, and my rangers fought him from every tree between the Elfgates and Silvermoon. Some mornings I still reach for a quiver that isn't there." },
+      },
+      choices = {
+        { text = "Thank you for telling me.", next = "BACK", fx = { affinity = 1 } },
+        { text = "He'll answer for all of it.", next = "BACK", fx = { affinity = 2 } },
+      },
+    },
+    quelthalas_no = {
+      lines = {
+        { id = "qn_default", text = "That is not yours to ask. I told you I would say no more, and I meant it." },
+        { id = "qn_presume", text = "You presume. Many have, and none of them presumed twice." },
+      },
+      choices = { { text = "Forgive me, my lady.", next = "BACK" } },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Little happens in my kingdom that does not reach me, one way or another. Ask, and I will decide how much of it you need." },
+      { id = "tp_knows_warm", when = { disposition = { min = 65 } }, text = "You have been useful, and I reward usefulness, so ask what you will, and I'll answer more plainly than is my habit." },
+      { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "I will answer you, briefly, and then you will go." },
+    },
     _none = { { id = "tp_none", text = "That isn't my concern. Varimathras will tell you if it should be." } },
   },
 }
@@ -121,6 +149,11 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Everything in this city passes through my hands on its way to the Dark Lady, faithfully, as always. Ask, and I will share what she would wish you to know." },
+      { id = "tp_knows_warm", when = { disposition = { min = 65 } }, text = "The Dark Lady values you, and therefore so do I, naturally. Ask me anything you like." },
+      { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "I will answer, though purely out of loyalty to my queen, which, I assure you, is boundless." },
+    },
     _none = { { id = "tp_none", text = "That is beneath my notice, and possibly beneath yours. Ask an apothecary." } },
   },
 }
@@ -178,6 +211,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Oh, I collect information the way I collect reagents: eagerly, and without asking too closely where it came from! Pick something, anything." },
+    },
     wailing_caverns = { { id = "tp_caverns", text = "A poisoned dream leaking into water? Oh, I'd give a great deal for a sample. Helbrim is being very slow about it." } },
     _none = { { id = "tp_none", text = "Not my department, I'm afraid! My department is bubbling, so do excuse me." } },
   },

@@ -29,3 +29,7 @@
 - Hansel: folksy grumbler, huge, always just sat down.
 - Lolo: jolly blind lookout, proud of senses he may not have.
 - Kalaran: brooding, vengeful, vague when pressed.
+
+## 0.34.0
+Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon, unless marked).
+- Kalaran (Persuade, `father_slip`): pressed, he admits he wasn't there and can't say whose hand held the blade, nearly calling the player 'so young' in a way no grieving man would. The claim `kalaran_father` stays false and unexposed here; his nature is never stated.

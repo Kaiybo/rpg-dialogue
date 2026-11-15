@@ -35,3 +35,6 @@ Honest; repeats what adults say.
 
 ## Topics
 westfall, defias, tome_of_divinity
+
+## 0.34.0
+- Anduin (Persuade, `prestor_true`): he dislikes how Lady Prestor looks at him 'as if I were a sum', and she goes very still when his father's return is mentioned. Bolvar says he's only tired (dramatic irony).

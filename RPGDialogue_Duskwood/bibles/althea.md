@@ -48,3 +48,6 @@ A repeat-visit line (night line for some) in the voice above.
 ## Depth pass (Duskwood 1.3.0)
 Branches: the woods (where the dead come from, Morbent Fel, Sven), helping the Watch (this week's work), her watchers and their pay, Mor'Ladim (who he was, why knowing makes it harder), her kinsman Ello, Stalvan (if the player knows the name), Stitches (after Translation to Ello). Priest reply: sit with the wounded watchers back from Raven Hill.
 Authored, not canon: the watchers' trades (farmers, bakers, a tanner, two brothers); paid "in lamp oil and gratitude"; what she and Ello think of each other; doubling the lamps on the Raven Hill side after Stitches.
+
+## 0.34.0
+- Althea (Persuade, `watchers_names`): nine watchers lost since the thaw; she knocks on the families' doors herself, and keeps the dead on the roster crossed through, never scratched out.

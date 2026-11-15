@@ -48,3 +48,6 @@
 Sourced: the wandering years, Thrall's orcs, the centaur driven out, first homeland in centuries, Stonebull Lake, tallstriders ([Mulgore](https://warcraft.wiki.gg/wiki/Mulgore)); mining rights refused, wells tainted ([Venture Company](https://warcraft.wiki.gg/wiki/Venture_Company)).
 Authored, not canon: Baine's evening rounds; Harken's grandfather read birds; Maur's name from the rain on the walk to Mulgore; Kyle found as a pup barking at a frog, chewing fences, sleeping across the door; Kauth's stew; Zarlman on the young ones from Narache; Kaga's pointers to the Narache young.
 No personal memories put in Baine's mouth about the walk itself (his age then isn't sourced).
+
+## 0.34.0 (Persuade check, authored, not canon)
+- Baine (Persuade, `baine_father`): Cairne would rather walk the plains with the herds and stays on the High Rise because the tribes need one place to look to (the wiki notes Cairne would rather live on the plains); Baine has never told him he noticed.

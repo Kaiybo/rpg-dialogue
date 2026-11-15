@@ -143,6 +143,9 @@ P:NPC {
       choices = {
         { text = "You've earned the quiet.", next = "BACK", fx = { affinity = 3, trait = { kind = 1 } } },
         { text = "There'll always be another fight.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
+        { text = "What frightens you about the quiet?", tag = "Persuade", next = "after_fear",
+          check = { pass = { any = { { disposition = { min = 65 } }, { race = "Tauren" }, { trait = "kind" } } } },
+          fail = { next = "after_wall", fx = { affinity = -1 } } },
       },
     },
     cairne = {
@@ -154,9 +157,29 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    after_fear = {
+      lines = {
+        { id = "af_default", text = "That I've forgotten how to be gentle, and that the braves only follow me because I'm hard. A hard chieftain is easy to obey, and I don't know yet whether a gentle one is someone they'd follow at all." },
+      },
+      choices = {
+        { text = "They'll follow you either way.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Then learn it slowly.", next = "BACK", fx = { affinity = 1, trait = { patient = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    after_wall = {
+      lines = {
+        { id = "aw_default", text = "Nothing frightens me on this rock but a harpy I didn't see coming. Ask your questions of Tammra; she likes them better." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I hold this rock, so I hear about everything that threatens it. Ask about any of these, and plainly." },
+      { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "You'll get what every brave on this rock already knows, and nothing more, so pick one." },
+    },
     background = { { id = "tp_bg", text = "Cairne sent me to Sun Rock to hold it and to mend. The holding I can do.", next = "hard" } },
     advice = { { id = "tp_ad", text = "Don't walk the Webwinder Path at night, and if you must, don't walk it alone." } },
     venture_company = { { id = "tp_venture", text = "Goblins with saws who think a mountain's worth what they can cut off it. We spend our days mending after them." } },
@@ -297,6 +320,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I mostly know seeds, but people tell a gardener things while she works. Ask me about any of these." },
+    },
     background = { { id = "tp_bg", text = "I tend the ground on Sun Rock and pray over seeds. My niece Kaya and her father lived at Camp Aparaje, and that's family enough to worry over." } },
     advice = { { id = "tp_ad", text = "Never step on a green shoot up here. It might be the only one for a mile." } },
     venture_company = { { id = "tp_venture", text = "They cut until there's nothing left to cut, and then they move on and leave the burning for us." } },
@@ -811,6 +837,10 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The grove remembers a great deal, little one, and I remember some of what it tells me. Ask about any of these." },
+      { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "You've been a friend to this peak, so the grove has no secrets from you that it's mine to share. Ask, little one." },
+    },
     background = { { id = "tp_bg", text = "I am a keeper of the grove, as my brothers are, and this peak is the place I keep." } },
     advice = { { id = "tp_ad", text = "Go around the Charred Vale if you can, little one, and if you can't, go quickly and look up. The harpies come from above." } },
     venture_company = { { id = "tp_venture", text = "They brought fire and machines to a sacred mountain and called it business. The mountain will outlast them, but not without help." } },

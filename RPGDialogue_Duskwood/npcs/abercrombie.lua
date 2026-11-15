@@ -210,6 +210,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Oh, an old hermit hears a great deal out here, you know, more than you'd think. Ask me about any of this, and I'll put the kettle on." },
+    },
     background = { { id = "tp_bg", text = "I'm just an old alchemist who outlived his wife, though 'outlived' is rather a strong word." } },
     advice = { { id = "tp_ad", text = "Keep your strength up and your stitches tight, dear, because things come apart otherwise." } },
     night_watch = { { id = "tp_watch", text = "Brave souls, the Watch, but so very fragile." } },

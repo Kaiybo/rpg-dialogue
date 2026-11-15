@@ -227,6 +227,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The cards show me a great many things, child, and the people of Darkshire show me the rest. Ask me about any of this." },
+    },
     background = { { id = "tp_bg", text = "I follow the old arts, the cards and the stars and the spirits who will not keep quiet. The rest of my story costs extra." } },
     advice = { { id = "tp_ad", text = "When the cards and the Night Watch disagree, believe the Watch, because they're wrong less often. I'll deny I ever said so." } },
     stalvan = { { id = "tp_stalvan", text = "His card is the Tutor, patient and gentle, holding an axe where you cannot see it." } },

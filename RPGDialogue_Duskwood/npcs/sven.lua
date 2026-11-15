@@ -206,6 +206,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've watched these woods a long time from this camp, and very little walks through them I don't see. Ask me about any of this." },
+    },
     background = { { id = "tp_bg", text = "I farmed southeast of here, with a wife, two children and a barn. Now I've a camp, a friend who hunts, and a list." } },
     advice = { { id = "tp_ad", text = "Don't chase two things at once. I did, the night I came home, and I caught neither." } },
     worgen = { { id = "tp_worgen", text = "They came after the riders, or with them, the same night near enough, and I stopped telling them apart." } },

@@ -37,3 +37,7 @@ al_aketh, two_orders, shal_nan, windstones
 
 ## Depth pass (0.31.x)
 All from brief §10: the patrons' silence about Al'Akir and their vanishing; Ansirem Runeweaver and Muln Earthfury against Lorthuna; the flight from Eldre'narr and Skywall's changes (slimmer, Sky-Touched newborns); the order leaders and their seats; the elected Council; the Peacekeepers and Empyrean Blades; druids' Cenarion Circle tie; Windshaper trials and sapta; weakening skysight (never linked to the arcane decline or the physical changes). Authored, not canon: her wish to see both order leaders alive in ten years, "ask them how, and watch their face", and that she knows most Skyborne druids by name.
+
+## 0.34.0
+Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon, unless marked).
+- Talaanis (Persuade, `orders_fear`): she fears the next death between the orders more than the Windlord, who may take years or decades (opinion only, built from brief facts: Al'Akir's uncertain timing and the orders' violent quarrels over sacred sites).

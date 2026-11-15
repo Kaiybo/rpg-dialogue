@@ -172,6 +172,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Every guard on the lake reports to me, so I hear the bad news before the town does. Ask me about any of this." },
+    },
     background = { { id = "tp_bg", text = "I'm a Marshal of the Stormwind Army, and they posted me to Lakeshire. I've stopped expecting to be posted anywhere else." } },
     advice = { { id = "tp_ad", text = "Count your arrows before you leave, and your friends when you come back." } },
     stonewatch_keep = { { id = "tp_stonewatch", text = "Our keep, flying their flag. Every morning I look at it from the bridge, and every morning it's still theirs.", next = "stonewatch" } },

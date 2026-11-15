@@ -43,3 +43,7 @@ Keeper Albagorm and Innkeeper Faralia are **Alliance** (Darnassus) NPCs in Class
 
 ## Depth pass (0.31.x, authored, not canon)
 Maggran's guarded word on Braelyn and the wind carrying his thoughts off; Jayka on Braelyn refusing her stew and a tall-tale game; Braelyn asking a warlock to keep Jaedenar out of Maggran's hearing; Jin'Zil's spirits who talk more when hungry; Albagorm on the Light keeping planters alive, and the trees glad when Jaina's and Thrall's people had gone; Faralia on Elune and the Light; Tammra asking a druid to talk to the shoots.
+
+## 0.34.0
+Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon, unless marked).
+- Maggran (Persuade, `after_fear`): he fears he's forgotten how to be gentle and that the braves follow him only because he's hard (authored, from canon 'turn to the good').

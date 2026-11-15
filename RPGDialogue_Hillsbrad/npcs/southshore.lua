@@ -192,6 +192,9 @@ P:NPC {
         { text = "Then I'll say the words with them.", next = "BACK", fx = { affinity = 2, align = { light = 2 }, standing = { southshore = 1 } } },
         { text = "Skip the words. A torch by the grave serves the dead better.", next = "BACK", fx = { align = { light = -2 } } },
         { text = "No one should have to grieve like that.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "What do you fear most, Marshal?", tag = "Persuade", next = "lantern",
+          check = { pass = { any = { { disposition = { min = 65 } }, { class = "PRIEST" }, { origin = "human_lordaeron_refugee" } } } },
+          fail = { next = "lantern_no", fx = { affinity = -1 } } },
       },
     },
     alterac_seen = {
@@ -210,9 +213,35 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, standing = { southshore = 1 } } } },
     },
+    lantern = {
+      lines = {
+        { id = "la_default", text = "That Southshore goes the way of Tarren Mill. I knew folk there, we fished the same river, and one season they were neighbours and the next they were the reason I keep a lantern lit by the stables all night, and most nights I'm the one holding it while the town thinks I'm seeing to the horses." },
+        { id = "la_priest", when = { class = "PRIEST" },
+          text = "You've the look of someone people confess to, so here it is. I'm afraid Southshore will go the way of Tarren Mill, and most nights I'm the one by the stables with the lantern, watching the hill road, while the town thinks I'm seeing to the horses." },
+      },
+      choices = {
+        { text = "I'll keep it to myself, Marshal.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lantern_no = {
+      lines = {
+        { id = "ln_default", text = "Fear's not something a marshal leaves on the counter for anyone to pick up. Ask me about the ogres instead; I'm very free with my opinions of them." },
+        { id = "ln_soldier", when = { class = "WARRIOR" },
+          text = "A soldier asking a soldier what he's afraid of? You know better than that, so ask me about the ogres instead." },
+      },
+      choices = {
+        { text = "Fair enough.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've stood on this wall long enough to hear about most things in the valley. Ask me, and I'll give it to you straight." },
+      { id = "tp_knows_warm", when = { disposition = { min = 70 } },
+        text = "Ask me anything you like. You've done right by this town, and I don't hold much back from people who have." },
+    },
     alterac = { { id = "tp_alterac", text = "There are ogres in the old capital now, and their next step is my front door.", next = "crushridge" } },
     silver_hand = { { id = "tp_hand", text = "Some of the old knights live here still, quieter than they were." } },
     new_plague = { { id = "tp_plague", text = "Across the valley they're brewing something, and I don't need a scholar to tell me what." } },
@@ -374,6 +403,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The magistrate's office hears about everything eventually, usually in the form of a complaint. Ask, and I'll tell you what's crossed my desk." },
+    },
     background = { { id = "tp_bg", text = "A commission young, a predecessor dead, and a desk full of Syndicate. That's my career so far.", next = "predecessor" } },
     advice = { { id = "tp_ad", text = "Read everything twice, especially whatever's been slipped under your door." } },
     defias = { { id = "tp_defias", text = "That's a Stormwind problem, and I've a Syndicate problem; some days I'd gladly trade." } },
@@ -470,6 +502,9 @@ P:NPC {
       choices = {
         { text = "Fair enough.", next = "BACK", fx = { affinity = 1 } },
         { text = "That's an excuse, Lieutenant.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
+        { text = "Get down to the strand, or Samuelson hears where you sit.", tag = "Intimidate", next = "strand_truth",
+          check = { pass = { any = { { power = { "above", "far_above" } }, { class = { "WARRIOR", "PALADIN" } }, { trait = "stern" } } } },
+          fail = { next = "strand_bluff", fx = { affinity = -1 } } },
       },
     },
     guard = {
@@ -530,9 +565,33 @@ P:NPC {
       },
       choices = { { text = "Next month, then.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } } },
     },
+    strand_truth = {
+      lines = {
+        { id = "st_default", text = "All right, all right, keep your voice down! The first week here I went down to the Western Strand with my sword drawn, and a Torn Fin nearly had my leg off before I'd taken three steps, and I haven't been back since, because I'm not sure I could do it again." },
+        { id = "st_paladin", when = { class = "PALADIN" },
+          text = "Please don't write to anyone, paladin; I can see you're the type who would. The first time I went down to the strand a Torn Fin nearly took my leg, and I've been sitting in this chair ever since, telling myself it's strategy." },
+      },
+      choices = {
+        { text = "Then come down with me next time.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    strand_bluff = {
+      lines = {
+        { id = "sb_default", text = "Samuelson already knows where I sit, since I write to him about it every week. Nice try, though, and very Stormwind of you." },
+        { id = "sb_rogue", when = { class = "ROGUE" },
+          text = "Threats, from you? I was City Guard, friend, and I know a cutpurse's bluff when I hear one." },
+      },
+      choices = {
+        { text = "Have it your way, Lieutenant.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've picked up a few things, mostly by accident, from sitting in this chair. Ask, if you must." },
+    },
     background = { { id = "tp_bg", text = "Stormwind City Guard, temporarily posted elsewhere. Very temporarily, I'm told.", next = "guard" } },
     advice = { { id = "tp_ad", text = "Never volunteer, because that's how I ended up here." } },
     _none = { { id = "tp_none", text = "Couldn't tell you. I've stopped learning things about Southshore, since it only encourages the place." } },
@@ -683,6 +742,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Ask away, friend, hic, an' I'll tell ye what I remember, which is more'n ye'd think an' less'n I'd like." },
+    },
     silver_hand = { { id = "tp_hand", text = "Ask me sober, hic... no, ask me now, for I only lie when I'm sober.", next = "hand" } },
     background = { { id = "tp_bg", text = "First a paladin, then no' a paladin, an' now a brewmeister, hic. It's a short story wi' a long middle.", next = "hand" } },
     advice = { { id = "tp_ad", text = "Drink slow, pray quick, an' never trust a dwarf who says he's had enough, hic, because he's lyin'." } },
@@ -810,6 +872,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've catalogued a great deal of what this valley used to know. Ask about any of it, and I'll tell you what survived the ogres." },
+    },
     alterac = { { id = "tp_alterac", text = "A whole library, lost under ogres. I could weep, and I have.", next = "why_books" } },
     background = { { id = "tp_bg", text = "I gather what Alterac left behind, for Milton and the Royal Library. Before that I read, and I still do.", next = "grilek" } },
     advice = { { id = "tp_ad", text = "Wash your hands before you touch a book, and after you touch an ogre. Ideally twice." } },
@@ -890,6 +955,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Everyone in Southshore drinks here eventually, and they talk while they do it. Ask, and I'll pass along what I've heard." },
+    },
     syndicate = { { id = "tp_syndicate", text = "They never drink here, and that's how you know them, because everyone drinks here." } },
     background = { { id = "tp_bg", text = "I keep the inn. Somebody has to, and the fish stew won't make itself." } },
     advice = { { id = "tp_ad", text = "Sleep with your boots by the bed. In Southshore you never know which night you'll need them in a hurry." } },

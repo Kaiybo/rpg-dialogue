@@ -196,7 +196,12 @@ P:NPC {
     },
     who = {
       lines = { { id = "w_default", text = "Folk who'd rather I didnae say. That's what the extra coin's for." } },
-      choices = { { text = "I'll find out.", next = "BACK", fx = { trait = { brave = 1 } } }, { text = "Keep your secrets.", next = "BACK", fx = { affinity = 1 } } },
+      choices = {
+        { text = "I'll find out.", next = "BACK", fx = { trait = { brave = 1 } } }, { text = "Keep your secrets.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I asked who pays you, Fist. I won't ask nicely twice.", tag = "Intimidate", next = "who_coin",
+          check = { pass = { any = { { minLevel = 30 }, { class = { "WARRIOR", "PALADIN" } }, { townStanding = { town = "stormwind", min = 55 } } } } },
+          fail = { next = "who_laugh", fx = { affinity = -1 } } },
+      },
     },
     friends = {
       lines = { { id = "fr_default", text = "The lads. Old Town's finest, by their own count. They come runnin' when I whistle an' they go home when I say. Mostly." } },
@@ -228,9 +233,32 @@ P:NPC {
       lines = { { id = "sp_default", text = "Ha! No' here, the guards get sniffy. But I like ye. That's rarer than ye'd think, an' it's free." } },
       choices = { { text = "Another time, then.", next = "BACK", fx = { affinity = 2 } } },
     },
+    who_coin = {
+      lines = {
+        { id = "wc_default", text = "All right, all right, put that away. I never see 'em; the coin comes through a lad who's never the same lad twice, wrapped in good paper wi' clean boots on the feet that bring it, an' nobody in Old Town owns clean boots." },
+        { id = "wc_after", text = "That's all I know, an' I made very sure it's all I know, because the last fella who asked the lad a question got found in the canal. So go easy, eh?" },
+      },
+      choices = {
+        { text = "That'll do, Fist.", next = "BACK" },
+        { text = "Clean boots. Somebody in the upper city, then.", next = "BACK", fx = { trait = { curious = 1 } } },
+      },
+    },
+    who_laugh = {
+      lines = {
+        { id = "wl_default", text = "Ha! Ye want tae try that wi' my lads watchin'? Go on, then, an' I'll buy the first round for whoever's still standin'." },
+        { id = "wl_default2", text = "That's a good scowl ye've got, I'll grant ye, but I've been scowled at by better. The answer's still no." },
+      },
+      choices = {
+        { text = "Another time, then.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I hear plenty in Old Town, mostly between the second ale an' the first punch. Ask me about any o' this." },
+    },
     background = { { id = "tp_bg", text = "Came tae Stormwind, found the ale an' the arguments, stayed for both. That's the whole tale." } },
     advice = { { id = "tp_ad", text = "Hit first. If ye cannae hit first, hit last. Never hit in the middle." } },
     defias = { { id = "tp_defias", text = "Westfall lot, an' not my crowd. I work in the city, where the ale's better." } },

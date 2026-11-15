@@ -48,3 +48,7 @@ Sources read for this pass (warcraft.wiki.gg, Classic sections): Maybess_Riverbr
 - Bloodvenom Post: seems tauren-founded (architecture, tauren braves); on cliffs over the Bloodvenom River above Darkshore.
 - Fixed in this pass: Maybess's Cleansing Felwood line (blood amber, not the salve), Winna's Well of Corruption and Corrupted Sabers lines (she corrupts the kitten on purpose; she isn't saving sick cubs), Trull's Guarding Secrets line (Winterspring, not Felwood).
 - Authored, not canon: Trull's reports that nobody reads, Maybess's unease about Winna, Winna's claim that nobody sent her.
+
+## 0.34.0
+Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon, unless marked).
+- Eridan (Persuade, `seeds_doubt`): most mornings Eridan doubts any seed will take and has never said so in the sanctuary; the planting is hope kept by habit (authored).

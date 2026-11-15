@@ -48,3 +48,8 @@ Sources read for this pass (warcraft.wiki.gg, Classic sections): Warlord_Goretoo
 - Lexlort: tracked Grark Lorkrub across the Gorge, through the mountain into the Burning Steppes; Grark was caught red-handed giving the Blackrock the K.E.F.'s daily operations and talks of the power of joining the Blackrock legion. Operative Bijou: a goblin, one of the slipperiest operatives, two-timing with the pet dealer Kibler and spending Horde funds; "Never trust a goblin"; her reports turn out invaluable.
 - Fixed in this pass: Vivian's Darkstone Tablet line (alchemical recipes, no curse); Goretooth's Warlord's Command line (the Spire's lieutenants and their papers, then Orgrimmar).
 - Authored, not canon: Goretooth's reply about the Forsaken ladies, Theodora on a Forsaken paladin, Vivian on an orc mage, Lexlort's runners, Shul'kar's story toll.
+
+## 0.34.0
+Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon, unless marked).
+- Ryedol (Persuade, `chased_blame`): he never looked back once while running from the digsite and blames himself for it (authored feeling, from 'Hammertoe didn't run fast enough').
+- Lotwil (Deceive, `assembly_members`): the Assembly has two members at present, Lotwil and Lucien (fits 'once it exists'; authored).

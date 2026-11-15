@@ -67,6 +67,9 @@ P:NPC {
     },
   },
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Behind this bar I hear every rumour in Goldshire, usually three times, and louder each time. Ask me about any of this." },
+    },
     background = { { id = "tp_bg", text = "I pour at the Lion's Pride. Have done for years. Farley does the talking; I do the lifting." } },
     advice = { { id = "tp_ad", text = "Drink one water for every ale; that's Farley's rule, and he doesn't follow it either." } },
     lions_pride = { { id = "tp_inn", text = "Best inn in Elwynn, and near enough the only inn in Elwynn, but still the best." } },
@@ -188,10 +191,36 @@ P:NPC {
       choices = {
         { text = "Go on. Tell me.", next = "BACK", fx = { trait = { curious = 1 } } },
         { text = "Let me try one.", next = "BUSINESS" },
+        { text = "Farley says he finally worked out your secret.", tag = "Deceive", next = "sausage_spilled",
+          check = { pass = { any = { { disposition = { min = 55 } }, { trait = "witty" }, { class = "ROGUE" } } } },
+          fail = { next = "sausage_safe", fx = { affinity = -1 } } },
+      },
+    },
+    sausage_spilled = {
+      lines = {
+        { id = "ss_default", text = "He never! Who told him about the ale? It's a splash of Dobbins's dark in every batch, that's all, poured from Farley's own barrel when he isn't looking, and if he knows, he's been drinking his own secret ingredient for years." },
+        { id = "ss_after", text = "Hang on, you're grinning. He doesn't know a thing, does he? Well, now you do, so you'll keep it behind your teeth, or I'll tell everyone you buy wolf." },
+      },
+      choices = {
+        { text = "My lips are sealed, Toddrick.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sausage_safe = {
+      lines = {
+        { id = "sf_default", text = "Farley? Farley's been guessing nutmeg for six years, and it's never been nutmeg. Nice try, though, and you can tell him I said so." },
+        { id = "sf_default2", text = "If Farley had worked it out, he'd have told the whole common room by now, and twice over. You'll have to do better than that." },
+      },
+      choices = {
+        { text = "Worth a try.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },
   topics = {
+    knows = {
+      { id = "tp_knows", text = "A butcher's block hears more gossip than a confessional, friend, because folk talk while they wait. Ask me about any of this." },
+    },
     background = { { id = "tp_bg", text = "I'm the butcher: I cut, I sell and I argue with Farley. It's a good life." } },
     advice = { { id = "tp_ad", text = "Never buy meat from a man who won't tell you what it was." } },
     _none = { { id = "tp_none", text = "If it's not meat, I'm no use to you." } },

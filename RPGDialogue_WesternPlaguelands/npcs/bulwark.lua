@@ -142,6 +142,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Everything that comes over this wall crosses my desk first, and I remember all of it. Ask about these, and keep it useful." },
+    },
     background = { { id = "tp_ba", text = "I died, I rose, and the Dark Lady gave me back my mind and a wall to hold. The rest isn't your concern." } },
     advice = { { id = "tp_ad", text = "Burn whatever you kill out there, if you've the time. The Scourge wastes nothing, and neither should you." } },
     andorhal = { { id = "tp_andorhal", text = "That's where the Scourge gathers in the west, under a lich, and if we break it, the west is ours to reclaim for the Dark Lady.", next = "andorhal" }, { id = "tp_andorhal2", text = "It's east of the wall, and it's the one place I'd send my best and expect to lose some." } },
@@ -243,6 +246,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I listen more than I pray these days, and I hear plenty. These I'll speak to, if you're asking." },
+    },
     background = { { id = "tp_ba", text = "I prayed to the Light when I was alive, and then I was dead, and now I'm a priestess of something that actually answers. That's all the story there is.", next = "shadow" } },
     advice = { { id = "tp_ad", text = "Don't pray aloud where the dead can hear you out there, for they've learned what the sound means." } },
     plague_cauldrons = { { id = "tp_cauldrons", text = "Kill the cauldron lord, take his key and fill a bottle, which is simple enough, if you don't count the dying." } },
@@ -345,6 +351,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Oh, I know all sorts of things, most of them rather alarming, and my knee knows the rest. Ask me about any of these!" },
+    },
     background = { { id = "tp_ba", text = "I'm an apothecary of the Royal Society, and I was something else before I died, but I find this suits me far better." } },
     advice = { { id = "tp_ad", text = "Label everything you carry out there, or you'll forget which bottle was which, and the ghouls certainly won't remind you." } },
     scholomance = { { id = "tp_scholomance", text = "It's a school of necromancy, and just imagine the library! Actually, don't, since I've imagined it, and I didn't sleep, though of course I don't sleep anyway.", fx = { learn = { "scholomance" } } } },
@@ -415,7 +424,12 @@ P:NPC {
       lines = {
         { id = "ha_default", text = "Hate is for people with time on their hands, and I have eternity, which is quite different. I simply want what's mine, and he happens to be standing on it." },
       },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "You don't sound nearly as bored as you pretend.", tag = "Persuade", next = "hate_truth",
+          check = { pass = { any = { { disposition = { min = 65 } }, { race = "Scourge" }, { trait = "witty" } } } },
+          fail = { next = "hate_bored", fx = { affinity = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     pay = {
       lines = {
@@ -444,9 +458,30 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    hate_truth = {
+      big = true,
+      lines = {
+        { id = "ht_default", text = "Clever thing. Since you insist: what I can't forgive is that he looked at me and saw a monster, and spared me the way one spares a dog, while I was still in here, darling, every bit of me. As for the deeds, he'll swear Father meant them for him, and I'll swear the opposite, and Father isn't taking questions." },
+      },
+      choices = {
+        { text = "So it isn't about the money.", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "Then let the deeds decide it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hate_bored = {
+      lines = {
+        { id = "hb_default", text = "How touching, a peasant who thinks they can read a Barov's face. Mine stopped moving some time ago, so you're reading tea leaves, and badly." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I know a great many things, darling, most of them about my family and none of them flattering. Ask about these, if you must." },
+      { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "You'll get the short list, since you've hardly earned the long one. Choose quickly; I'm already bored." },
+    },
     background = { { id = "tp_ba", text = "I'm a Barov of Caer Darrow, dead and free and owed a fortune. What more could you possibly need to know?", next = "family" } },
     advice = { { id = "tp_ad", text = "Never trust family, darling, and never, ever trust a brother with a conscience." } },
     scholomance = { { id = "tp_scholomance", text = "It was our home, until Father turned it into a school for necromancers, and the tuition was everyone we knew." } },
@@ -558,6 +593,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've walked these fields long enough to learn a few things worth telling. Ask about any of these, friend." },
+    },
     background = { { id = "tp_ba", text = "I'm an orc who fought the Horde's wars, sat in the camps, and came out wanting a better fight. I found one here.", next = "why" } },
     advice = { { id = "tp_ad", text = "Keep moving out there. The dead are slow, but they never stop, and they never tire of following." } },
     argent_dawn = { { id = "tp_dawn", text = "There are no kings and no warchiefs in the Dawn, only the dead and the people who won't let them win." } },

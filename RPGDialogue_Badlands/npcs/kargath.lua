@@ -172,6 +172,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "A warlord hears every boast and every report that comes down that road. Ask me about any of these, and I'll tell you how it really went." },
+    },
     blackrock = { { id = "tp_blackrock", text = "Rend Blackhand sits up there in the Spire calling himself Warchief. There's one Warchief. I'd like to remind Rend of that with an axe." } },
     dark_iron = { { id = "tp_dark_iron", text = "They swarm out of the mountain like ants out of a kicked nest. We kick back." } },
     background = { { id = "tp_ba", text = "I was a young warrior once, and I lived every dream I had. Now I command, and I live them again through the soldiers I send up that road.", next = "dream" } },
@@ -305,6 +308,10 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Darling, I listen at every fire in Kargath, so of course I know things. Pick one of these and I'll tell you everything, including the parts I shouldn't." },
+      { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "For you, darling, the good gossip and the true gossip, which aren't always the same thing. Here's what I can tell you." },
+    },
     dark_iron = { { id = "tp_dark_iron", text = "Grim little people, though their ale is wonderful, or so I'm told." } },
     background = { { id = "tp_ba", text = "The Undercity sent me, the Expeditionary Force keeps me, and the Warlord amuses me. Before that is none of your business, darling, and most of it is buried." } },
     advice = { { id = "tp_ad", text = "Never let a Dark Iron see you're impressed by his golem, darling. They're vain about them, and vanity makes them careless." } },
@@ -453,6 +460,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I study what the Dark Irons leave lying about, and a few other things besides. Ask me about any of these, my dear." },
+    },
     dark_iron = { { id = "tp_dark_iron", text = "Their fire magic is crude but powerful, like a hammer made of lava, and I'd love to study it from a safe distance." } },
     background = { { id = "tp_ba", text = "The Apothecarium trained me, the Expeditionary Force sent me, and the Badlands bore me to tears until the Dark Irons gave me something to study." } },
     advice = { { id = "tp_ad", text = "Never touch a golem's heart with bare hands, my dear, even a broken one. I learned that one the hard way, and I don't have many fingers to spare." } },
@@ -587,6 +597,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I watch, I remember, and I'll talk about these if you ask me plainly." },
+    },
     blackrock = { { id = "tp_blackrock", text = "I know their shift changes, their drinking songs and their names, because that's my job." } },
     background = { { id = "tp_ba", text = "I watch, I report, and I keep the rest to myself. That's the whole story." } },
     advice = { { id = "tp_ad", text = "Count the guards on your way in, and count them again on your way out. If the numbers don't match, run." } },

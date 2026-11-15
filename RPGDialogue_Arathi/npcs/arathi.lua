@@ -72,7 +72,12 @@ P:NPC {
     },
     keep_army = {
       lines = { { id = "ka_default", text = "This one, small, stubborn and still here, and whoever walks in off the road willing to help. Today, that's you." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "How long can you really hold, Captain?", tag = "Persuade", next = "tents",
+          check = { pass = { any = { { disposition = { min = 65 } }, { class = "PRIEST" }, { questDone = TODO_QUEST("Stromgarde Badges") } } } },
+          fail = { next = "tents_no", fx = { affinity = -1 } } },
+      },
     },
     syndicate = {
       lines = { { id = "s_default", text = "Alterac's leftovers, nobles who lost their kingdom and found a trade in knives. They rob the dead and call it business." } },
@@ -109,9 +114,33 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    tents = {
+      lines = {
+        { id = "te_default", text = "Honestly? Not as long as I tell the soldiers. I count the tents every morning, and there are fewer each season, because I lose more to the Syndicate's knives and the ogres' clubs than Stromgarde can send me, and I write every one of those letters home myself." },
+        { id = "te_priest", when = { class = "PRIEST" },
+          text = "You've blessed enough of our dead to know the answer, priest. I count the tents every morning and there are fewer each season, and I write every letter to the families myself, because I won't let a clerk do it." },
+      },
+      choices = {
+        { text = "Then I'll stay and help you hold.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tents_no = {
+      lines = {
+        { id = "tn_default", text = "As long as it takes, and that's all a soldier of Stromgarde needs to hear. Ask me something else." },
+        { id = "tn_rogue", when = { class = "ROGUE" },
+          text = "That's a spy's question, and the Syndicate pays well for answers to it. As long as it takes is all anyone outside my command will hear." },
+      },
+      choices = {
+        { text = "Understood, Captain.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "My scouts report everything they see in the highlands, and I listen to all of it. Ask, and keep it short." },
+    },
     background = { { id = "tp_ba", text = "I'm a soldier of Stromgarde and captain of what's left of it, and that's the whole of my story until the keep is ours again.", next = "keep" } },
     advice = { { id = "tp_ad", text = "Never sleep in the open in the highlands. Ogres, trolls or Syndicate: one of them is always awake." } },
     _none = { { id = "tp_none", text = "That's not Stromgarde's concern, so ask someone with more soldiers than we have." } },
@@ -258,6 +287,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Hammerfall's scouts range far, and they tell me what they find. Ask, and I'll tell you what serves the Horde." },
+    },
     burning_blade = { { id = "tp_blade", text = "Not here, they're not; Doomhammer would have broken their necks himself." } },
     background = { { id = "tp_ba", text = "I beat an ogre called Or'Kalar once, years ago, and I've been fighting his kind ever since. That's the only story an orc in Hammerfall needs." } },
     advice = { { id = "tp_ad", text = "The Witherbark fight from the trees, so look up before you look ahead. The Boulderfist fight from the front, so look up anyway." } },
@@ -400,6 +432,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Zengu hear plenty, mon, sittin' quiet while the orcs shout. Ask, and I tell you what I know." },
+    },
     yenniku = { { id = "tp_yenniku", text = "The chief's boy, and bad business in the jungle. Nimboya see to that, and I see to this." } },
     echo_isles = { { id = "tp_isles", text = "One day, mon, but first the sword, then the rest." } },
     background = { { id = "tp_ba", text = "A Darkspear hunter, sent by the chief because I be patient, and stealing a sword out of a tomb take patience.", next = "why" } },
@@ -471,6 +506,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Every traveller who warms himself at my fire leaves a story behind. Ask me, and I will share what the fire has heard." },
+    },
     background = { { id = "tp_ba", text = "I came where the Horde needed a fire, and Hammerfall needed one more than most. That's all there is to tell." } },
     advice = { { id = "tp_ad", text = "Eat before you climb to Stromgarde. Nobody fights well hungry, not even an orc, though they'll swear otherwise." } },
     _none = { { id = "tp_none", text = "Ask Drum Fel, for he knows the fort, and I know the fire." } },

@@ -127,6 +127,9 @@ P:NPC {
           journal = { first = "Ragged John finally told me what became of Marshal Windsor: taken alive by the Dark Irons, into Blackrock Depths.",
                       third = "{name} sat through Ragged John's whole tale: Windsor was taken alive into Blackrock Depths." } },
         { text = "Why didn't you go after him?", next = "coward" },
+        { text = "Enough stories, John. What did you actually see?", tag = "Intimidate", next = "st_truth",
+          check = { pass = { any = { { power = { "above", "far_above" } }, { trait = "stern" }, { deed = "dungeon:Blackrock Depths" } } } },
+          fail = { next = "st_huff", fx = { affinity = -1 } } },
       },
     },
 
@@ -188,9 +191,30 @@ P:NPC {
         { text = "I remember whose side I'm on.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
       },
     },
+    st_truth = {
+      big = true,
+      lines = {
+        { id = "stt_default", text = "Alright, alright, put that face away! I saw it from behind a rock a good long way off, and I never heard Thaurissan say a word, I put that bit together after. But I saw the hammer go one way and Windsor go the other, alive and kickin', and I'll swear to that on my beard." },
+      },
+      choices = {
+        { text = "That's all I needed, John.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Why not tell it that way?", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    st_huff = {
+      lines = {
+        { id = "sh_default", text = "Actually see? I saw what I said I saw, and I'll not be bullied in my own cave by somebody who wasn't there! Buy a drink or go and bother the Marshal." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Ye'd be amazed what a dwarf picks up at the bottom of a mug in a goblin camp. Ask old John about any o' this." },
+      { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "For a friend o' the cask, I'll even tell it straight, mostly. Here's what I know, *hic*." },
+    },
     background = { { id = "tp_bg", text = "I rode with Windsor, once, and now I ride a cask. It's a quieter horse.", next = "st1" } },
     advice = { { id = "tp_ad", text = "When fifty orcs come over a hill, find a shadow; when three hundred Dark Irons come after, find a deeper one." } },
     windsor = { { id = "tp_windsor", text = "Not dead, whatever they tell ye in Morgan's Vigil. Ask me properly and I'll tell ye the whole of it.", next = "st1" } },
@@ -308,6 +332,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I know what's worth money around here, and that's most things, if you look properly. Ask me about any of these." },
+    },
     background = { { id = "tp_bg", text = "Booty Bay born, by way of every ruin that ever had a rumour attached to it. The Seven are just the latest rumour.", next = "seven" } },
     advice = { { id = "tp_ad", text = "Never pay for anything you can find, and never find anything you can't sell." } },
     thaurissan = { { id = "tp_thaurissan", text = "A dwarven city that went up in one great flash, leaving nothing but ash and treasure for patient goblins.", next = "seven" } },
@@ -443,6 +470,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've written notes on nearly everything in the Steppes, and drawn little pictures in the margins too! Ask me about any of these." },
+    },
     background = { { id = "tp_bg", text = "A goblin who'd rather study than sell, which most goblins find very strange indeed. The Steppes have the best dragonkin anywhere, so here I am.", next = "study" } },
     advice = { { id = "tp_ad", text = "Freeze it first, then pick it up. That rule has saved my life more than once." } },
     black_dragonflight = { { id = "tp_dragons", text = "Fascinating creatures, terribly clever and terribly rude, and they grow so fast you can almost watch it happen.", next = "study" } },
@@ -657,6 +687,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "A good dealer knows his territory, friend, and I know mine. Ask about any of these, no charge for the talk." },
+    },
     background = { { id = "tp_bg", text = "Booty Bay's finest dealer in beasts, now operating from a cave for reasons that have nothing to do with G.E.T.A.", next = "pets" } },
     advice = { { id = "tp_ad", text = "Get 'em young, feed 'em well, and never let 'em see you scared. Works on worgs, works on customers." } },
     blackrock_spire = { { id = "tp_spire", text = "The best hunting ground in the world, if you don't mind most of the stock trying to eat you." } },

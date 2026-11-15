@@ -30,6 +30,8 @@ P:NPC {
           text = "The young ones were playin' too near the lava spiders again, so I've told Hansel tae deal with it. He was restin', he says, but he's always restin'." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "The forges never go cold, even now, out o' habit. Down in the mountain, cold forges meant punishment, an' we keep 'em lit for different reasons now." },
+        { id = "h_cold", when = { disposition = { max = 34 } },
+          text = "You again. The Brotherhood trades with anyone who pays, but trust's another matter, an' ye've no' bought any yet." },
       },
       again = { { id = "h_again", text = "Aye? Speak up over the forge." } },
       choices = {
@@ -90,6 +92,10 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Everything that happens on the Point is my responsibility, an' so I make it my business tae know about it. Ask me about any o' these." },
+      { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "Ye've earned yer place at the forge, so I'll answer ye like one o' the Brotherhood. Here's what I can tell ye about." },
+    },
     background = { { id = "tp_ba", text = "Born in the mountain, worked in the mountain, walked out o' the mountain. The last bit's the only part worth tellin'.", next = "escape" } },
     advice = { { id = "tp_ad", text = "Never trust a forge ye didnae light yerself." } },
     dark_iron = { { id = "tp_dark_iron", text = "They're my kin, my shame an' my sorrow, an' most of them still bend the knee down there. I pray they'll stop, though I've no' much hope." } },
@@ -306,7 +312,12 @@ P:NPC {
     },
     father_push = {
       lines = { { id = "fp_default", text = "It's the only story that matters; where, when and how change nothing about what's owed. Help me or don't, but I've no time for questions." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { trait = { skeptical = 1 } } } },
+      choices = {
+        { text = "Then tell me one true thing about him. Just one.", tag = "Persuade", next = "father_slip",
+          check = { pass = { any = { { disposition = { min = 65 } }, { trait = "skeptical" }, { heardLine = "lolo.h_kalaran" } } } },
+          fail = { next = "father_wall", fx = { affinity = -1 } } },
+        { text = "Something else.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+      },
     },
     which = {
       lines = { { id = "w_default", text = "Does it matter? Dark Iron is Dark Iron, and those at the Point trade with anyone, so they'd have traded with his killers, too." } },
@@ -324,9 +335,29 @@ P:NPC {
       lines = { { id = "l_default", text = "A blind drunk sniffs at me and you listen? Grief has no smell; it has a cost, and I'm paying mine, so bring me what I asked for." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { skeptical = 1 } } } },
     },
+    father_slip = {
+      big = true,
+      lines = {
+        { id = "fs_default", text = "You're persistent, for... for one so young. Very well: I wasn't there when he fell, and I couldn't tell you which hand held the blade. What I know is that the Dark Iron owe a debt, and I mean to collect it, with or without the details you seem to want so badly." },
+      },
+      choices = {
+        { text = "That sounds more like a grudge than grief.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "I'm sorry. I'll stop asking.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    father_wall = {
+      lines = {
+        { id = "fw_default", text = "One true thing: he's dead, and they killed him. Bring me the pieces of the torch, and spare me the questions." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've made it my business to learn what I need for my vengeance, and little else. Ask about these, if they serve it." },
+    },
     background = { { id = "tp_ba", text = "I am my father's son, and that is all I am until his killers are ash.", next = "father" } },
     advice = { { id = "tp_ad", text = "Never forgive what was taken from you, because forgiveness is how they win." } },
     dark_iron = { { id = "tp_dark_iron", text = "Murderers, every one of them. Don't let the ones at Thorium Point fool you; it's in the blood." } },

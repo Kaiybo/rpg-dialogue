@@ -52,6 +52,10 @@ P:NPC {
           text = "You've the manners of the capital, so you'll know the House of Nobles. Perhaps you even know who reads my petitions, if anyone does." },
         { id = "h_letter", when = { metBefore = true }, text = "I have written to Stormwind again, eloquently and at great length. I expect the King's court is using my letters to start its fires; it's cold in the capital, I hear." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "This is night in Darkshire. Listen to that howling, and then tell me again that Stormwind has no cause to send soldiers." },
+        { id = "h_warm", when = { disposition = { min = 70 } },
+          text = "Ah, my friend, come in, come in! The council is delighted to see you, and so, unofficially and without minutes, am I." },
+        { id = "h_cold", when = { disposition = { max = 34 } },
+          text = "The council has no appointments today, and I have even fewer for you. What is it?" },
       },
       again = {
         { id = "h_again", text = "Go on. The council can wait, as the council always waits." },
@@ -164,7 +168,12 @@ P:NPC {
       lines = {
         { id = "sp_default", text = "And we fight the dead alone. Tell Solomon I'm sorry, and then tell him to write to Stormwind, since they adore letters there." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { affinity = -1 } } },
+      choices = {
+        { text = "Something else.", next = "BACK", fx = { affinity = -1 } },
+        { text = "That isn't the whole reason, is it, my lord?", tag = "Persuade", next = "solomon_whole",
+          check = { pass = { any = { { disposition = { min = 65 } }, { class = "PRIEST" }, { townStanding = { town = "darkshire", min = 30 } } } } },
+          fail = { next = "solomon_stiff", fx = { affinity = -1 } } },
+      },
     },
 
     council = {
@@ -261,9 +270,34 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    solomon_whole = {
+      big = true,
+      lines = {
+        { id = "sw_default", text = "No, it isn't. I counted the Watch the night his letter came, every farmer and baker of them, and there was no number I could send to Lakeshire that didn't leave one side of Darkshire dark." },
+        { id = "sw_twelfth", text = "So I did the only thing a mayor without soldiers can do: my eleventh letter to the Crown wasn't about Darkshire at all, it was about Lakeshire. It came back with the same two lines as all the others, and I've not had the heart to tell Solomon I tried." },
+      },
+      choices = {
+        { text = "He'd want to know, my lord.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "That was a decent thing to do.", next = "BACK", fx = { affinity = 2 } },
+      },
+    },
+    solomon_stiff = {
+      lines = {
+        { id = "ss_default", text = "The council's decision is a matter of record, and the record is quite complete without any further commentary from its mayor. Good day to that subject." },
+        { id = "ss_default2", text = "I have explained myself once, which is once more than the Crown ever explains itself to me. I'll not do it again for every traveller who passes through." },
+      },
+      choices = {
+        { text = "As you say, my lord.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The council hears everything that goes bump in Duskwood, usually at great length and in the middle of the night. Ask me about any of this." },
+      { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "For a friend of Darkshire, the council's knowledge is entirely at your disposal, minutes and all. Ask away." },
+    },
     background = { { id = "tp_bg", text = "I'm the mayor of Darkshire, head of its council, and the author of more letters to the Crown than any man living. The town is my story, and it's a long one." } },
     advice = { { id = "tp_ad", text = "Keep to the road and inside the lamplight. If you must die in Duskwood, do it in Darkshire, where we still bury people properly." } },
     night_watch = { { id = "tp_watch", text = "They're brave, underpaid and outnumbered. My kinswoman runs it, and I'll admit she runs it better than I would." } },

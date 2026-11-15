@@ -30,3 +30,6 @@
 
 ## Depth pass, second round (0.25.0, authored, not canon)
 One or two repeat-visit or night lines each for the thinnest NPCs here: small habits and running jokes (a salvaged kettle, a beetle truce, a parrot paying rent, glowing ink). Places they mention are already sourced in this bible or LORE_NOTES.
+
+## 0.34.0 (Persuade check, authored, not canon)
+- Sylvanas (Persuade, `quelthalas`): she remembers Eversong gold in winter and her rangers holding the Elfgates; she remembers every ranger's name ("the dead sleep poorly"); some mornings she still reaches for a quiver that isn't there. (Ranger-General and the defence of Quel'Thalas are canon; the details are authored.)

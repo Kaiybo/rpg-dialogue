@@ -93,6 +93,9 @@ P:NPC {
       choices = {
         { text = "A dead wizard's rod?", next = "rod" },
         { text = "I'm sorry for your loss.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "You blame yourself for letting him go alone.", tag = "Persuade", next = "teronis_guilt",
+          check = { pass = { any = { { disposition = { min = 65 } }, { trait = "kind" }, { class = "HUNTER" } } } },
+          fail = { next = "teronis_no", fx = { affinity = -1 } } },
       },
     },
     rod = {
@@ -129,9 +132,36 @@ P:NPC {
         { text = "The ones who went into the Thistlefur hills chose their wounds.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
+    teronis_guilt = {
+      lines = {
+        { id = "tg_default", text = "Every day. He asked whether I could spare a scout to walk with him, and with the Warsong at the river I said no, so he went to the Zoram Strand alone and the naga found him before anyone else did." },
+        { id = "tg_hunter", when = { class = "HUNTER" },
+          text = "You know what it is to answer for another life, hunter. I let Teronis go to the Zoram Strand alone because I wouldn't spare a scout from the Warsong line, and I have answered for it every night since." },
+      },
+      choices = {
+        { text = "You couldn't have known.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Then let me finish what he started.", next = "rod" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    teronis_no = {
+      lines = {
+        { id = "tn_default", text = "Blame is for later, when the forest is safe again. Ask me something I can use." },
+        { id = "tn_kin", when = { race = "NightElf" },
+          text = "You know better than to pick at a Sentinel's wounds, {g:brother|sister}. Ask me something I can use." },
+      },
+      choices = {
+        { text = "Fair enough.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "My scouts bring me word of everything that moves in this forest, and Korra brings me the rest. Ask what you need." },
+      { id = "tp_knows_cold", when = { disposition = { max = 34 } },
+        text = "I'll answer, because the forest needs every pair of hands, even yours. Be quick about it." },
+    },
     background = { { id = "tp_bg", text = "I'm a hunter of the Sentinels, and Ashenvale is the only home I care about. Korra and Dagri are all the family I need." } },
     advice = { { id = "tp_ad", text = "Learn the forest as if it were part of you, and remember there is always more danger hidden in it than you can see." } },
     furbolgs = { { id = "tp_furbolgs", text = "They were peaceful once, even wise. Something poisoned them, and I mean to find out what.", next = "furbolgs" } },
@@ -223,6 +253,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've asked everyone in Astranaar about everything, looking for something that might help Relara. Ask me; perhaps some of it will help you." },
+    },
     background = { { id = "tp_bg", text = "I'm Relara's father. That's all I am at the moment, and it's enough." } },
     advice = { { id = "tp_ad", text = "Hold on to the people you love while you can. I'm learning that the hard way." } },
     _none = { { id = "tp_none", text = "I'm sorry, I can't think about anything else right now." } },
@@ -366,6 +399,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Keeping track of the roads means hearing about everything on them. Ask, and I'll tell you what my lists say." },
+    },
     background = { { id = "tp_bg", text = "I keep the list of who's out on the roads. It's a small job, until someone doesn't come back." } },
     advice = { { id = "tp_ad", text = "Tell someone where you're going before you go, and tell me, if there's no one else." } },
     _none = { { id = "tp_none", text = "Raene would know; she knows everything that moves in this forest." } },
@@ -426,6 +462,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Scouts talk while I bandage them, and I remember more than they think. Ask me what you like." },
+    },
     background = { { id = "tp_bg", text = "I keep the inn on the island. There's not much more to me than a warm bed and a full pot." } },
     advice = { { id = "tp_ad", text = "Sleep when you can and eat when you can, because Ashenvale gives you fewer chances than you'd think." } },
     _none = { { id = "tp_none", text = "Ask Raene, outside. She'll know, or she'll find out." } },
@@ -529,6 +568,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "A paladin in a strange land learns to listen, friend, and I've learned a fair bit here. Ask, and I'll share it." },
+    },
     background = { { id = "tp_bg", text = "I'm a paladin a long way from home, with a company that came to help our allies. That's all there is that matters." } },
     advice = { { id = "tp_ad", text = "If you meet a warlock in these woods, assume he isn't alone." } },
     dark_strand = {

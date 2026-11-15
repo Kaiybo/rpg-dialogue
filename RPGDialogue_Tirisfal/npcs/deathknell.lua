@@ -100,6 +100,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "People tell a shadow priest all sorts of things, usually right before or right after they die. Ask about these; I've heard plenty." },
+    },
     scarlet_crusade = { { id = "tp_crusade", text = "They burn what they don't understand, and they don't understand very much." } },
     _none = { { id = "tp_none", text = "A good question for someone with more patience than I have." } },
   },

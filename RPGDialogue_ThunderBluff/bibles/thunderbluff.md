@@ -34,3 +34,7 @@ Authored, not canon: Turak was a hunter who put the bow down after a stag found 
 
 ## Western Plaguelands echo (Thunder Bluff 1.3.0, authored, not canon)
 - Hamuul knew Mulgris Deepriver went east to mend the Plaguelands (Mulgris is of the Cenarion Circle; their acquaintance is authored).
+
+## 0.34.0 (Persuade checks, authored, not canon)
+- Cairne (Persuade, `magatha_close`): he keeps Magatha on Elder Rise because if she left, the Grimtotem would follow her into the hills and answer to no one; he would rather hear her ambition across the bridge than not at all. Rivalry only, nothing more.
+- Hamuul (Persuade, `fandral_sting`): Fandral told Malfurion a tauren would hear the wild "the way a herd hears thunder, and run from it"; Hamuul admits the refusal stung, and that he is not sure whether he proves Fandral wrong for the Earth Mother or for his own pride.

@@ -90,6 +90,9 @@ P:NPC {
       lines = { { id = "f2_default", text = "Long ago, yes, though I will not trouble you with an old elf's memories. It is enough that I know the smell of it, and that I smell it in the Cliffspring now." } },
       choices = {
         { text = "Then we'd better act quickly.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+        { text = "I'd gladly hear an old elf's memories, Elder.", tag = "Persuade", next = "felwood_memory",
+          check = { pass = { any = { { disposition = { min = 65 } }, { trait = "curious" }, { questDone = TODO_QUEST("The Cliffspring River") } } } },
+          fail = { next = "felwood_later", fx = { affinity = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -156,9 +159,35 @@ P:NPC {
         { text = "I didn't notice. I was seasick.", next = "BACK", fx = { affinity = 2 } },
       },
     },
+    felwood_memory = {
+      lines = {
+        { id = "fm_default", text = "Then you shall have one. I was young when the Legion first came through the Well, and afterwards I walked the burned groves along the old shore, and they smelled just as the Cliffspring does now, sweet and rotten at once. I have never told the village, because frightened people do not sleep, and Auberdine needs its sleep." },
+        { id = "fm_priest", when = { class = "PRIEST" },
+          text = "You have a priest's patience, so I will tell you. I walked the groves the Legion burned when I was young, ten thousand years ago, and they smelled as the Cliffspring smells now; I have not told the village, because frightened people pray badly and sleep worse." },
+      },
+      choices = {
+        { text = "It stays with me, Elder.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    felwood_later = {
+      lines = {
+        { id = "fl_default", text = "Another evening, perhaps, when there is less to do and more wine to do it with. For now the river matters more than my memories." },
+        { id = "fl_kin", when = { race = "NightElf" },
+          text = "You of all people should know that some of what the old ones remember is better left with them. Another evening, perhaps." },
+      },
+      choices = {
+        { text = "Another evening, then.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "An elder hears a little of everything, and Auberdine has plenty to say these days. Ask me of any of these, and I will tell you what I can." },
+      { id = "tp_knows_warm", when = { disposition = { min = 70 } },
+        text = "Sit, friend, and ask what you like. You have done enough for this village that I would keep very little from you." },
+    },
     background = { { id = "tp_bg", text = "I am an elder of this village, and a druid in my small way. Auberdine asked me to look after its days, and I have not yet found a way to stop." } },
     advice = { { id = "tp_ad", text = "Keep to the road between Auberdine and Ashenvale, and do not drink from any river that runs down from the east." } },
     twilights_hammer = { { id = "tp_hammer", text = "They dig at the Master's Glaive for something better left buried, and I would very much like to know what." } },
@@ -261,6 +290,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I have been studying this shore for weeks, so ask quickly, before I start on the Fel Moss without being asked." },
+    },
     background = { { id = "tp_bg", text = "The Circle sent me, more or less, and I would have come anyway. That is all you need to know about me." } },
     advice = { { id = "tp_ad", text = "Don't sleep on the moss, however soft it looks." } },
     fel_moss = {
@@ -345,6 +377,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The Sisterhood teaches us to listen before we speak, and I have listened to a great deal on this shore. Ask what you need to." },
+    },
     background = { { id = "tp_bg", text = "The Temple of the Moon sent me to see to Auberdine's troubles. I expected sick villagers, not dead threshers." } },
     advice = { { id = "tp_ad", text = "Stay out of the water near the carcasses, because whatever the murlocs leave behind, something larger may come for." } },
     sisterhood_of_elune = { { id = "tp_sister", text = "We go where we are needed, and the Temple decided I was needed here, among the bones." } },
@@ -429,6 +464,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I'll answer while I sharpen these blades, since there is never time to do only one thing in Auberdine." },
+    },
     background = { { id = "tp_bg", text = "I am a Sentinel, and I report to Auberdine's council. That's all the story a Sentinel needs." } },
     advice = { { id = "tp_ad", text = "Never turn your back on the water along this coast, because the murlocs are counting on you doing it." } },
     _none = { { id = "tp_none", text = "Ask the elder, for I only watch the roads." } },
@@ -513,6 +551,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I have had a long time to think and little to do but remember. Ask me what you will, and I will try to answer as I once might have." },
+    },
     background = { { id = "tp_bg", text = "I loved someone in Ameth'Aran ten thousand years ago. The rest of my story is the waiting." } },
     advice = { { id = "tp_ad", text = "Tell the people you love that you love them today, because tomorrow has a way of taking ten thousand years." } },
     _none = { { id = "tp_none", text = "I'm sorry; my mind is on the water, and on older things." } },
@@ -573,6 +614,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Sailors talk once their stomachs settle, and I've heard a fair bit across this bar. Ask, and I'll tell you what I know." },
+    },
     background = { { id = "tp_bg", text = "I keep the inn by the docks, and I've heard every traveller's story twice. Mine isn't nearly as interesting." } },
     advice = { { id = "tp_ad", text = "Sleep on the landward side of the inn if you want quiet, and on the water side if you want to dream." } },
     _none = { { id = "tp_none", text = "Ask the elder, love; he knows everything worth knowing in Auberdine." } },

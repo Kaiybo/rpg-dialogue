@@ -147,6 +147,9 @@ P:NPC {
       choices = {
         { text = "Could it be one of your own?", next = "informant_own", when = { ["not"] = { questDone = TODO_QUEST("The Spy Revealed!") } } },
         { text = "What'll you do when you find him?", next = "informant_after" },
+        { text = "You already have a name in mind, Lieutenant.", tag = "Persuade", next = "herod", when = { ["not"] = { questDone = TODO_QUEST("The Spy Revealed!") } },
+          check = { pass = { any = { { disposition = { min = 65 } }, { questDone = TODO_QUEST("Jungle Secrets") }, { class = { "WARRIOR", "PALADIN" } } } } },
+          fail = { next = "herod_no", fx = { affinity = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -251,9 +254,33 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    herod = {
+      lines = {
+        { id = "hr_default", text = "I do, and I can't prove it. Bookie Herod takes wagers in Booty Bay, and half my men have placed a bet with him at one time or another, and a man who keeps a ledger of everyone's debts knows exactly who can be bought." },
+        { id = "hr_secrets", when = { questDone = TODO_QUEST("Jungle Secrets") },
+          text = "You've earned it, so here it is: Bookie Herod, in Booty Bay. My men bet with him, and a man who keeps a ledger of everyone's debts knows exactly who can be bought, but I've no proof yet, so it stays between us." },
+      },
+      choices = {
+        { text = "Then let's find the proof.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    herod_no = {
+      lines = {
+        { id = "hn_default", text = "If I had a name, I'd not hand it to someone I've only just met. That's how Thorsen nearly died." },
+        { id = "hn_rogue", when = { class = "ROGUE" },
+          text = "You'll forgive me if I don't hand names to someone who walks as quietly as you do, because that's how Thorsen nearly died." },
+      },
+      choices = {
+        { text = "Fair enough.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I keep my ears open and my mouth shut, mostly, but I'll answer what I can for someone on our side. Ask." },
+    },
     background = { { id = "tp_bg", text = "Stormwind officer, Kurzen's expedition, and now this clearing. Every step of it was an order but the last.", next = "left" } },
     advice = { { id = "tp_ad", text = "If a soldier in Kurzen's colours offers you a drink, decline it, then walk away, and then run." } },
     kurzen = { { id = "tp_kurzen", text = "He was a good officer once, and don't let anyone tell you different. That's what makes this hard." } },
@@ -425,6 +452,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I study, I pray, and I listen to the men when they can't sleep, so I've learned a fair amount. Ask, and I'll share what I can." },
+    },
     background = { { id = "tp_bg", text = "A priest with an alchemist's habits, sent with an expedition that needed a healer. It needed more than one." } },
     advice = { { id = "tp_ad", text = "Don't drink anything in this jungle you didn't see poured, not water, not wine, not medicine." } },
     kurzen = { { id = "tp_kurzen", text = "I prayed for him every night. Now I pray for whoever finally stops him." } },

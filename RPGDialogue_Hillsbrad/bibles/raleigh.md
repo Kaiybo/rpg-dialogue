@@ -28,3 +28,7 @@ He watches the north road from the window; he keeps Anton's letters and doesn't 
 ## What he notices
 1. Light: paladins and priests (he was one of the faithful the Crusade used).
 2. Scarlet: anyone sent by Anton.
+
+## 0.34.0
+Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
+- Raleigh (Persuade, stayed): he knew the Crusade was wrong the first time they asked a man if he was plagued and didn't wait for the answer, and he stayed a long while after; that is what he can't forgive himself. (No new detail of what he saw.)

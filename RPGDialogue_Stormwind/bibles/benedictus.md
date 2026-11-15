@@ -35,3 +35,7 @@ Honest in everything he says.
 
 ## Topics
 tome_of_divinity, northshire_abbey, defias
+
+## 0.34.0
+- Benedictus (Persuade, `masons_ledger`): he asked the crown once to pay the masons, was told 'in the spring', and let it drop; the masons' foreman left him a tally of unpaid days, still in his desk, read every riot anniversary.
+- Laurena (Persuade, `lessons_own`): the Light showed her pride in her own sermons, so she stopped preaching and started teaching; when she catches herself enjoying it, she sits with the sick at the doors.

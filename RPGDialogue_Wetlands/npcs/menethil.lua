@@ -48,6 +48,10 @@ P:NPC {
           text = "A proper beard, thank the Light! Half my garrison's sailors who think a hammer's for nails." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "I'm on the night watch. The orcs like the dark, an' so do I, for it means I can see their fires." },
+        { id = "h_warm", when = { disposition = { min = 70 } },
+          text = "There ye are! The lads on the wall have been askin' when ye'd be back, an' so have I, if I'm honest about it." },
+        { id = "h_cold", when = { disposition = { max = 34 } },
+          text = "I've a wall tae hold an' no time for them that cannae be trusted on it. Speak quick." },
       },
       again = {
         { id = "h_again", text = "What else? Be quick about it, mind, for the wall doesnae keep itself." },
@@ -251,6 +255,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Every scout an' sentry on this coast reports tae me, an' most o' what they report is bad. Ask me about any o' this." },
+    },
     thandol_span = { { id = "tp_span", text = "One bridge down, one standin', an' Longbraid's lads between the Dark Irons an' the rest of us." } },
     background = { { id = "tp_bg", text = "Ironforge gave me a wall an' a harbour behind it, an' that's the whole o' my story. I like it short." } },
     advice = { { id = "tp_ad", text = "Dinnae walk Dun Algaz alone, an' dinnae walk it at night. Ye'll meet orcs either way, but it's better to see them first." } },
@@ -425,6 +432,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've been sitting outside this tavern so long I've heard every tale in the harbour, twice. Ask me about any of this, friend, and maybe stand upwind." },
+    },
     third_fleet = { { id = "tp_fleet", text = "That was my fleet, and don't make me talk about it sober.", next = "fleet" } },
     grim_batol = { { id = "tp_grim_batol", text = "That's where the dragons came from, and I don't look east anymore." } },
     background = { { id = "tp_bg", text = "First mate of the Wave Mistress, Third Fleet of Kul Tiras. If you say it fast enough, it doesn't hurt.", next = "fleet" } },
@@ -469,6 +479,8 @@ P:NPC {
           text = "Murlocs, it would be murlocs! They've no use for holy iron, an' they took every bar anyway." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Evenin' prayers, an' then the sailors come in wantin' blessings for the mornin' tide. I bless them, but I don't promise anything." },
+        { id = "h_warm", when = { disposition = { min = 70 } },
+          text = "Ah, it's you, thank the Light. Come in out o' the wet, an' if ye've a spare prayer in ye, I've a spare sailor." },
       },
       again = {
         { id = "h_again", text = "What else? Quick, before the next soul comes in drippin'." },
@@ -521,7 +533,12 @@ P:NPC {
       lines = {
         { id = "gs_default", text = "Nobody, an' I prefer it that way. The Light an' I have an understandin': it sends me work, I do it, an' neither of us complains... well, one of us complains." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+      choices = {
+        { text = "Something else.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Everyone needs someone, Brother. Even you.", tag = "Persuade", next = "grumpy_letter",
+          check = { pass = { any = { { disposition = { min = 65 } }, { class = "PRIEST" }, { trait = "kind" } } } },
+          fail = { next = "grumpy_socks", fx = { affinity = -1 } } },
+      },
     },
     wrecks = {
       lines = {
@@ -598,9 +615,34 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    grumpy_letter = {
+      big = true,
+      lines = {
+        { id = "gl_default", text = "Hmph. Two winters back I wrote to Ironforge askin' to be posted home, to a proper chapel wi' a dry floor an' a choir that can hold a note. They said aye, an' I tore the letter up the same night." },
+        { id = "gl_after", text = "Because who'd bury the Third Fleet when the tide brings it in, an' who'd sit wi' Fitzsimmons when the drink turns on him? Naebody, that's who. So I stayed, an' I grumble, an' the grumblin's the price o' stayin'." },
+        { id = "gl_priest", when = { class = "PRIEST" }, text = "An' now there's you, askin' after me like a proper colleague. I'll no' say it twice, so listen: it's good to have ye here." },
+      },
+      choices = {
+        { text = "Menethil's lucky you stayed, Brother.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "I'll take a share of the burying.", next = "BACK", fx = { affinity = 2, standing = { menethil = 1 } } },
+      },
+    },
+    grumpy_socks = {
+      lines = {
+        { id = "gk_default", text = "I've the Light an' a dry pair o' socks for Sundays, an' that's all the company a priest in a marsh needs. Now, did ye want somethin' or no'?" },
+        { id = "gk_default2", text = "Kind o' ye, I'm sure, but I'm no' one o' yer drowned sailors to be fussed over. Save it for them that need it." },
+      },
+      choices = {
+        { text = "Fair enough, Brother.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I hear a great deal from the dyin' an' the drownin', more than I'd like. Ask me about any o' this, an' be quick, for the tide's comin' in." },
+    },
     third_fleet = { { id = "tp_fleet", text = "Out o' Lordaeron, an' burned off this coast. I've buried more of it than I'd like.", next = "wrecks" } },
     grim_batol = { { id = "tp_grim_batol", text = "A dark place, by all accounts, an' I've never been nor wanted to." } },
     background = { { id = "tp_bg", text = "An Ironforge priest o' the Church, posted to a marsh. Somebody up the chain has a sense o' humour." } },
@@ -740,6 +782,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I cannae stand, but I can still listen, an' folk talk freely around a man in a bed. Ask me about any o' this." },
+    },
     thandol_span = { { id = "tp_span", text = "That's where it all started, an' I'll tell ye about it, if ye've the stomach for it.", next = "span" } },
     background = { { id = "tp_bg", text = "I served in Longbraid's regiment at Dun Modr. I'm a soldier an' I'll be one again, an' that's the whole of it.", next = "longbraid" } },
     advice = { { id = "tp_ad", text = "Watch the bridges up north. They're no' as solid as they look anymore." } },
@@ -868,6 +913,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Every crate through this harbour comes with a bit of news packed in the straw. Ask me about any of this." },
+    },
     third_fleet = { { id = "tp_fleet", text = "Every captain steers wide of those wrecks, and nobody needs telling twice." } },
     background = { { id = "tp_bg", text = "Merchant marine. I go where the cargo goes, and lately the cargo comes here." } },
     advice = { { id = "tp_ad", text = "Count your crates twice and your fingers three times. This coast takes both." } },
@@ -949,6 +997,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Sailors, soldiers an' diggers all drink at the Deepwater, an' every one o' them talks. Ask me about any o' this!" },
+    },
     background = { { id = "tp_bg", text = "I keep a dry room in a wet town. That's the whole o' my story, an' it's a good one." } },
     advice = { { id = "tp_ad", text = "Hang yer cloak by the fire an' yer boots by the door. Never the other way round." } },
     dragonmaw = { { id = "tp_dragonmaw", text = "The lads come back from the hills tired an' thirsty. That's how I know there's a war on." } },
@@ -1067,6 +1118,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The League sends me reports even here, an' I've had plenty o' time tae read them. Ask me about any o' this." },
+    },
     background = { { id = "tp_bg", text = "Explorers' League, field archaeologist, presently stranded. Put that on my stone when I go." } },
     advice = { { id = "tp_ad", text = "Never carry yer best find in an open pack on a raptor road. Ask me how I know.", next = "stone" } },
     explorers_league = { { id = "tp_league", text = "Best job in the world, when ye're no' stuck in a tavern. Which I am." } },
@@ -1196,6 +1250,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Behind a bar, a man hears everything and repeats very little. These, I don't mind talking about." },
+    },
     background = { { id = "tp_bg", text = "I retired from Stormwind and took up a bar. I'd tell you more, but then we'd both be uncomfortable.", next = "past" } },
     advice = { { id = "tp_ad", text = "Sit where you can see the door. Hold a full mug, even if you never drink it. Nobody watches a man with a full mug." } },
     defias = { { id = "tp_defias", text = "That's Stormwind's trouble, and I left it there, though it keeps sending letters." } },

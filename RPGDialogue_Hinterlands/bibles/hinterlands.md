@@ -27,3 +27,7 @@
 
 ## Depth pass, second round (0.25.0, authored, not canon)
 One or two repeat-visit or night lines each for the thinnest NPCs here: small habits and running jokes (a salvaged kettle, a beetle truce, a parrot paying rent, glowing ink). Places they mention are already sourced in this bible or LORE_NOTES.
+
+## 0.34.0
+Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
+- Falstad (Persuade, kurdran): every night at the bar he drinks one to Kurdran and the riders who went through the Dark Portal with the Alliance and never came back, and tells nobody why.

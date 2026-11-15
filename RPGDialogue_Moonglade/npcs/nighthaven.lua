@@ -42,6 +42,8 @@ P:NPC {
         { id = "h_seed", tags = { "news" }, when = { questActive = TODO_QUEST("Seed of Life") },
           text = "You smell of Maraudon's rot, little one, and yet there is something about you I almost know. Tell me why you have come to the shrine." },
         { id = "h_seed_done", when = { questDone = TODO_QUEST("Seed of Life") },
+        { id = "h_warm", when = { disposition = { min = 75 } },
+          text = "You walk gently in my glade, little one, and the trees have noticed it as well as I. Come, sit, and ask what you will." },
           text = "My brother's seed sleeps in good soil now. I thought Zaetar lost to us for good, and you brought me word that he was only waiting to be reborn." },
         { id = "h_visitor", when = { ["not"] = { class = "DRUID" } },
           text = "Few who are not druids find the road to Moonglade, for it runs through the furbolgs' tunnels and over the cold of Winterspring. You are welcome all the same." },
@@ -131,6 +133,9 @@ P:NPC {
       choices = {
         { text = "I'm sorry for your loss.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "The centaur killed their own father?", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "You blame yourself for Zaetar, Keeper.", tag = "Persuade", next = "zaetar_regret",
+          check = { pass = { any = { { disposition = { min = 65 } }, { class = "DRUID" }, { questDone = TODO_QUEST("Seed of Life") } } } },
+          fail = { next = "zaetar_no", fx = { affinity = -1 } } },
       },
     },
     celebras = {
@@ -219,9 +224,35 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    zaetar_regret = {
+      lines = {
+        { id = "zr_default", text = "I warned him that Theradras would be his ruin, and I was right, and being right has never once comforted me. I spoke to him as the son our father favored, little one, and I think that is all he heard." },
+        { id = "zr_seed", when = { questDone = TODO_QUEST("Seed of Life") },
+          text = "You carried his seed to me, so you have earned this. I warned Zaetar that Theradras would ruin him, and I was right, but I spoke as the son our father favored, and I think he heard only that before he went to her anyway." },
+      },
+      choices = {
+        { text = "He found his place in the end, Keeper.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    zaetar_no = {
+      lines = {
+        { id = "zn_default", text = "Blame is a heavy word to carry into a glade this quiet, little one. Let it rest, and ask me something else." },
+        { id = "zn_tauren", when = { race = "Tauren" },
+          text = "Your people taught me that grief is shared, not handed over, and still this one I keep. Ask me something else, child of the plains." },
+      },
+      choices = {
+        { text = "Of course, Keeper.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The glade hears much, and the trees tell me what they hear. Ask, little one, and I will answer as I can." },
+      { id = "tp_knows_warm", when = { disposition = { min = 75 } },
+        text = "You have always walked gently here, so ask what you will. I will keep little from you." },
+    },
     background = { { id = "tp_bg", text = "I am a son of Cenarius, and Moonglade has been mine to keep since before your kingdoms had names.", next = "family" } },
     advice = { { id = "tp_ad", text = "Sleep lightly, little one, and do not go looking for the Dream. If it wants you, it will find you soon enough." } },
     cenarion_circle = { { id = "tp_circle", text = "My father's children, in a way, and not all of them agree with one another. That is how I know it lives." } },
@@ -378,6 +409,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I keep track of everything that passes through Nighthaven, so the Keeper needn't. Ask, and I'll tell you what I've noted." },
+    },
     background = { { id = "tp_bg", text = "I've served the Keeper as majordomo for longer than I'll admit, and I keep his house and the Circle's ledgers." } },
     advice = { { id = "tp_ad", text = "Don't go listening to the hearts of the world for answers. The answer is usually in you, and you already know it." } },
     cenarion_circle = { { id = "tp_circle", text = "The Keeper's charge, the Archdruid's pride, and my paperwork, though not in that order, some days." } },
@@ -531,6 +565,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've guided many young druids through their trials, and they ask me a great many things. Ask what you need." },
+    },
     background = { { id = "tp_bg", text = "I'm the Circle's guide for young druids in Nighthaven, and I've watched more bears take their first clumsy steps than I can count." } },
     advice = { { id = "tp_ad", text = "Learn the lesson before you learn the spell. The spell is the easy part." } },
     cenarion_circle = { { id = "tp_circle", text = "Our order and our duty, and Nighthaven is its hearth." } },
@@ -583,6 +620,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Balance comes from knowing a little of everything. Ask, and I'll share what I've learned." },
+    },
     cenarion_circle = { { id = "tp_circle", text = "Home, for those of us who've no other, and for some who have." } },
     _none = { { id = "tp_none", text = "Ask the quiet first, and then ask Rabine." } },
   },
@@ -703,6 +743,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I have watched these hills a very long time, and I remember what I have seen. Ask, and I will answer slowly." },
+    },
     background = { { id = "tp_bg", text = "The bear only looks at you. It has been here as long as the world has, and it does not seem to think that needs saying." } },
     advice = { { id = "tp_ad", text = "Keep yourself fit in body and in mind, little one, for the one without the other is only half a bear." } },
     _none = { { id = "tp_none", text = "The bear says nothing. It does not seem to think the question needs an answer." } },
@@ -772,6 +815,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The hippogryphs carry riders, and riders carry news. Ask me what you like." },
+    },
     background = { { id = "tp_bg", text = "I keep the Circle's hippogryphs and fly druids home to Teldrassil. That's the whole of it, and it's enough." } },
     advice = { { id = "tp_ad", text = "Never walk behind a hippogryph you haven't been introduced to. I mean that more than I'd like to." } },
     _none = { { id = "tp_none", text = "I fly birds; Rabine knows everything else." } },
@@ -841,6 +887,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The wind riders bring travellers, and travellers bring stories. Ask, and I'll tell you what I've heard." },
+    },
     background = { { id = "tp_bg", text = "I keep the wind riders for the Circle and fly druids home to the Bluff, and that is work enough for one tauren." } },
     advice = { { id = "tp_ad", text = "Hold on with your knees, not your hands, and don't look down until you're over water." } },
     cenarion_circle = { { id = "tp_circle", text = "The Circle took my people in when others would not, and we remember that. The tauren remember everything kind." } },

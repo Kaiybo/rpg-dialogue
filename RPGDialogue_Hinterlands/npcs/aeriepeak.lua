@@ -81,6 +81,9 @@ P:NPC {
       choices = {
         { text = "That's fair.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
         { text = "The Alliance needs every hammer it can get.", next = "BACK", fx = { affinity = -1, align = { order = 2 } } },
+        { text = "You miss the riders who flew off with the Alliance.", tag = "Persuade", next = "kurdran",
+          check = { pass = { any = { { disposition = { min = 65 } }, { race = "Dwarf" }, { trait = "brave" } } } },
+          fail = { next = "kurdran_no", fx = { affinity = -1 } } },
       },
     },
     allies = {
@@ -102,9 +105,35 @@ P:NPC {
       lines = { { id = "f_default", text = "Count ye? The riders toast ye by name at the bar. That's more than they do for me, an' I'm their Thane." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    kurdran = {
+      lines = {
+        { id = "ku_default", text = "Aye, ye've a sharp eye for a flatlander. Kurdran flew through the Dark Portal wi' the Alliance an' a fine flight o' riders behind him, an' none o' them came back when it closed, so every night at the bar I drink one tae them an' tell nobody why." },
+        { id = "ku_dwarf", when = { race = "Dwarf" },
+          text = "Ye're a dwarf, so ye'll have heard the tale. Kurdran took our best riders through the Dark Portal wi' the Alliance, an' it closed behind 'em, an' I've raised a mug tae them every night since without once sayin' so out loud." },
+      },
+      choices = {
+        { text = "Here's to Kurdran, then.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kurdran_no = {
+      lines = {
+        { id = "kn_default", text = "Miss someone? Ha! I miss the days when trolls ran at the sight o' me, an' that's all the missin' I've time for." },
+        { id = "kn_elf", when = { race = "NightElf" },
+          text = "Ye elves an' yer long faces! I miss nothin' but a quiet sky, an' I'll have that when the trolls are gone." },
+      },
+      choices = {
+        { text = "Fair enough, Thane.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Every rider in Aerie Peak reports tae me, an' half o' them exaggerate, so I've learned a great deal! Ask away." },
+      { id = "tp_knows_warm", when = { disposition = { min = 70 } },
+        text = "Ask me anythin' ye like! Ye've earned the riders' respect, an' that means ye've earned mine." },
+    },
     background = { { id = "tp_ba", text = "Wildhammer born, gryphon raised, an' Thane by right o' bein' the loudest! The Second War made a rider o' me, an' the Hinterlands made a Thane.", next = "gryphons" } },
     advice = { { id = "tp_ad", text = "Never fight a troll on its own ground; fight it from above, for everythin' is easier from above." } },
     dark_iron = { { id = "tp_dark_iron", text = "Dark Irons! Don't get me started, or we'll be here till the sun's down an' up again." } },
@@ -190,6 +219,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The gryphons see the whole Hinterlands, an' their riders tell me what they saw. Ask, an' be quick about it." },
+    },
     background = { { id = "tp_ba", text = "Rider, then trainer, then the one who never gets tae ride, an' funny how that happens.", next = "flying" } },
     advice = { { id = "tp_ad", text = "Bring a gryphon a fish an' it'll remember ye. Bring it two, an' it'll follow ye home." } },
     _none = { { id = "tp_none", text = "Does it fly? If no', then I've no idea." } },
@@ -276,6 +308,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The spirits speak, an' I listen, an' now an' then they tell me somethin' worth passin' on. Ask, an' I'll tell ye what I can." },
+    },
     background = { { id = "tp_ba", text = "Wildhammer, shaman an' listener; the spirits found me young, an' they've no' let go since." } },
     advice = { { id = "tp_ad", text = "When the wind goes quiet in the Hinterlands, listen harder, for somethin's holdin' its breath." } },
     _none = { { id = "tp_none", text = "The spirits haven't spoken o' that, an' so neither will I." } },
@@ -328,6 +363,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Everythin' worth knowin' in Aerie Peak gets said at my bar sooner or later! Ask, an' I'll tell ye what I've heard." },
+    },
     background = { { id = "tp_ba", text = "I've poured for this keep longer than some o' the gryphons have been alive. They don't drink, but they listen." } },
     advice = { { id = "tp_ad", text = "Eat before ye drink, an' drink before ye fly, an' never the other way round." } },
     _none = { { id = "tp_none", text = "No idea! Ask the Thane, an' he'll tell ye, loud." } },
