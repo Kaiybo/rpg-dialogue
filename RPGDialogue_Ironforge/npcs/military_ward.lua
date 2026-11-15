@@ -25,7 +25,7 @@ P:NPC {
   notice = {
     { id = "n_priest", cat = "soldier", when = { class = "PRIEST", questDone = TODO_QUEST("Sully Balloo's Letter") },
       text = "A priest. I've had the High Priest's people by, an' they're very kind, but I don't want tae be prayed at today; I only want tae sit." },
-    { id = "n_soldier", cat = "soldier", when = { class = { "WARRIOR", "PALADIN" }, minLevel = 25 },
+    { id = "n_soldier", cat = "soldier", when = { class = { "WARRIOR", "PALADIN" }, ["not"] = { questDone = TODO_QUEST("Sully Balloo's Letter") } },
       text = "Ye carry yerself like a soldier. Have ye been up through the Wetlands, past Dun Modr? My Sully's posted there." },
   },
 
@@ -106,6 +106,8 @@ P:NPC {
     days = {
       lines = {
         { id = "da_default", text = "I keep the house, an' I walk the Ward, an' I go up tae the gates when a courier's due. Some evenin's Brother Toldren lets me sit in the back o' the Hall, an' doesnae ask me anythin', which is a mercy." },
+        { id = "da_after", when = { questDone = TODO_QUEST("Sully Balloo's Letter") },
+          text = "I keep the house, though there's less o' it tae keep. I still go up tae the gates when a courier's due, out o' habit, an' then I remember halfway up the road." },
       },
       choices = {
         { text = "Waiting must be the hardest part.", next = "days_wait" },

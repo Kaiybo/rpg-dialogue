@@ -14,3 +14,4 @@ pack.lua
 npcs\southshore.lua
 npcs\tarrenmill.lua
 npcs\raleigh.lua
+npcs\southshore_more.lua
