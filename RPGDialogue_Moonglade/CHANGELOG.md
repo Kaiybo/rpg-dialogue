@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.1.1 (unreleased)
+- Voice pass: Nighthaven now talks in whole sentences instead of clipped fragments, old and calm the way Moonglade should be (Remulos gentle and firm, Rabine orderly, Dendrite's dry humour about bears, Loganaar's quiet, the Great Bear Spirit's slow few words, Silva's and Bunthen's courtesy). Same lines, same facts, same conditions.
+
 ## 1.1.0 (unreleased)
 - Depth pass: repeat visits now bring personal lines (habits, worries, opinions of the neighbours), night-time lines, and a question or two about the person themselves, not only their quests.
 - Silva, Bunthen, the Great Bear Spirit, Loganaar.

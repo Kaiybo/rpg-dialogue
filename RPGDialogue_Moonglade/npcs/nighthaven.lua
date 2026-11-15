@@ -12,19 +12,19 @@ P:NPC {
 
   greetings = {
     { id = "g_glade", text = "Be welcome in Moonglade, little one. Every creature that comes in peace may rest here." },
-    { id = "g_druid", when = { class = "DRUID" }, text = "A child of the Circle. Come, walk with me a little. The glade is glad of you." },
+    { id = "g_druid", when = { class = "DRUID" }, text = "A child of the Circle. Come, walk with me a little, for the glade is glad of you." },
     { id = "g_back", when = { metBefore = true }, text = "You return. The trees remember your step, and so do I." },
   },
 
   notice = {
     { id = "n_bear", cat = "form", when = { form = "bear" },
-      text = "You wear the bear well. Heavy, patient, slow to anger. Let the shape teach you while you wear it." },
+      text = "You wear the bear well: heavy, patient, slow to anger. Let the shape teach you while you wear it." },
     { id = "n_cat", cat = "form", when = { form = "cat" },
-      text = "Swift and quiet. The cat's is a sharp lesson. Mind it doesn't teach you only how to hunt." },
+      text = "Swift and quiet, I see. The cat's is a sharp lesson, so mind it doesn't teach you only how to hunt." },
     { id = "n_warlock", cat = "fel", place = "before", when = { class = "WARLOCK" },
-      text = "The fel clings to you like smoke to a cloak. You may stand here. You may not call upon it here. Do we understand each other?" },
+      text = "The fel clings to you like smoke to a cloak. You may stand here, but you may not call upon it here. Do we understand each other?" },
     { id = "n_skyborne_druid", cat = "race", when = { race = "Skyborne", class = "DRUID" },
-      text = "You honour the winds first, and the moon after, if at all. I know. The Circle has never asked every druid to kneel to the same sky." },
+      text = "You honour the winds first, and the moon after, if at all; I know it. The Circle has never asked every druid to kneel to the same sky." },
   },
 
   start = "hello",
@@ -34,11 +34,11 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Remulos, son of Cenarius, keeper of this glade. Moonglade is the heart of the druids' craft. I guard it for all of them, whatever banners they fly beyond its hills." },
         { id = "h_tauren", when = { race = "Tauren" },
-          text = "The tauren came to the Circle late and were made welcome. Not everyone in Darnassus wished it. I did. I do still." },
+          text = "The tauren came to the Circle late and were made welcome. Not everyone in Darnassus wished it, but I did, and I do still." },
         { id = "h_nightelf", when = { race = "NightElf" },
-          text = "Child of the forest. Tell me, does the new tree on Teldrassil sing to you? I listen for it. I do not hear what I hoped to." },
+          text = "Child of the forest, tell me, does the new tree on Teldrassil sing to you? I listen for it, and I do not hear what I hoped to." },
         { id = "h_skyborne", when = { race = "Skyborne" },
-          text = "Shen'dorei. The hidden people, come out of hiding. The winds kept you a long while. I hope they taught you gently." },
+          text = "Shen'dorei, the hidden people, come out of hiding. The winds kept you a long while, and I hope they taught you gently." },
       },
       choices = {
         { text = "What is the Cenarion Circle?", next = "circle" },
@@ -56,7 +56,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "t_default", key = true,
-          text = "The Emerald Dream. It was the purest of places, and something has crept into it. Druids who walk there come back changed, or not at all. I watch, and I do not like what I see." },
+          text = "The Emerald Dream was the purest of places, and something has crept into it. Druids who walk there come back changed, or not at all, and I watch, and I do not like what I see." },
       },
       choices = {
         { text = "Can it be stopped?", next = "stopped", fx = { learn = { "cenarion_circle" } } },
@@ -70,8 +70,8 @@ P:NPC {
   },
 
   topics = {
-    cenarion_circle = { { id = "tp_circle", text = "My father's children, in a way. Not all of them agree with one another. That is how I know it lives." } },
-    worgen = { { id = "tp_worgen", text = "Wolves that are not wolves, in the human forests. I have heard, and I am troubled. Such things do not happen without a cause." } },
+    cenarion_circle = { { id = "tp_circle", text = "My father's children, in a way, and not all of them agree with one another. That is how I know it lives." } },
+    worgen = { { id = "tp_worgen", text = "Wolves that are not wolves, in the human forests. I have heard of them, and I am troubled, for such things do not happen without a cause." } },
     _none = { { id = "tp_none", text = "That is beyond the glade. Rabine keeps better track of the world than I do." } },
   },
 }
@@ -84,12 +84,12 @@ P:NPC {
 
   greetings = {
     { id = "g_house", text = "Be at ease here. I keep the Keeper's house in order, and the Keeper's visitors. Speak, please." },
-    { id = "g_back", when = { metBefore = true }, text = "Again you come to Nighthaven. I don't think that's chance. I don't believe in chance." },
+    { id = "g_back", when = { metBefore = true }, text = "Again you come to Nighthaven, and I don't think that's chance. I don't believe in chance." },
   },
 
   notice = {
     { id = "n_book", cat = "lore", when = { bookRead = "The Seven Kingdoms" },
-      text = "A reader. Good. The world remembers less than it thinks it does. Readers keep the rest." },
+      text = "A reader, good. The world remembers less than it thinks it does, and readers keep the rest." },
     { id = "n_form", cat = "form", when = { form = "travel" },
       text = "You came in at a run on four legs. Rest them. Nighthaven isn't going anywhere, and neither are its troubles." },
   },
@@ -100,11 +100,11 @@ P:NPC {
       lines = {
         { id = "h_default", text = "Rabine Saturna, majordomo to Keeper Remulos. He watches the glade; I watch everything else, so he needn't. It's a quieter job than it sounds, most days." },
         { id = "h_locket", tags = { "news" }, when = { questActive = TODO_QUEST("Unlocking the Secrets Within") },
-          text = "A locket, smoke-stained, carrying memories that aren't yours. Let me look. Gently. Some things remember too much to be opened quickly." },
+          text = "A locket, smoke-stained, carrying memories that aren't yours. Let me look, gently; some things remember too much to be opened quickly." },
         { id = "h_locket_done", when = { questDone = TODO_QUEST("Unlocking the Secrets Within") },
-          text = "A son, a war, an old grief that never closed. I'll not say more. Some memories belong to their owners, even when they're dead." },
+          text = "A son, a war, an old grief that never closed. I'll not say more, for some memories belong to their owners, even when they're dead." },
         { id = "h_remulos", when = { heardLine = "remulos.t_default" },
-          text = "The Keeper spoke to you of the Dream? He doesn't tell many. Take it as a sign of trust, and a warning, both." },
+          text = "The Keeper spoke to you of the Dream? He doesn't tell many, so take it as a sign of trust, and a warning, both." },
       },
       choices = {
         { text = "What happens in Nighthaven?", next = "village" },
@@ -133,8 +133,8 @@ P:NPC {
   },
 
   topics = {
-    cenarion_circle = { { id = "tp_circle", text = "The Keeper's charge, the Archdruid's pride, and my paperwork. Not in that order, some days." } },
-    _none = { { id = "tp_none", text = "I'd have to look into it. I do look into things. Give me time." } },
+    cenarion_circle = { { id = "tp_circle", text = "The Keeper's charge, the Archdruid's pride, and my paperwork, though not in that order, some days." } },
+    _none = { { id = "tp_none", text = "I'd have to look into it, and I do look into things. Give me time." } },
   },
 }
 
@@ -146,14 +146,14 @@ P:NPC {
 
   greetings = {
     { id = "g_trial", text = "Balance be with you. If you've come for the trials, you've come to the right elf. If not, the village is lovely this time of year." },
-    { id = "g_druid", when = { class = "DRUID", maxLevel = 12 }, text = "A young druid, fresh from the trainer. Good. The Circle has been expecting you, even if you didn't know it." },
+    { id = "g_druid", when = { class = "DRUID", maxLevel = 12 }, text = "A young druid, fresh from the trainer? Good. The Circle has been expecting you, even if you didn't know it." },
   },
 
   notice = {
     { id = "n_bear", cat = "form", when = { form = "bear" },
-      text = "Ah. The Great Bear Spirit's gift sits well on you. Remember where you learned it." },
+      text = "Ah, the Great Bear Spirit's gift sits well on you. Remember where you learned it." },
     { id = "n_not", cat = "class", when = { ["not"] = { class = "DRUID" } },
-      text = "Not a druid, are you? You're welcome all the same. The trials are another matter." },
+      text = "Not a druid, are you? You're welcome all the same, though the trials are another matter." },
   },
 
   start = "hello",
@@ -161,21 +161,21 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Dendrite Starblaze. I guide young druids through the Circle's first trials: the bear, the cleansing, the water. Each one teaches you something your trainer couldn't." },
+          text = "I'm Dendrite Starblaze, and I guide young druids through the Circle's first trials: the bear, the cleansing, the water. Each one teaches you something your trainer couldn't." },
         { id = "h_bear", tags = { "news" }, when = { questActive = TODO_QUEST("Great Bear Spirit") },
-          text = "West along the mountains, you'll find the Great Bear Spirit. Listen to it. It doesn't say much, so what it says is worth hearing." },
+          text = "West along the mountains, you'll find the Great Bear Spirit, so listen to it. It doesn't say much, which makes what it says worth hearing." },
         { id = "h_bear_done", when = { questDone = TODO_QUEST("Great Bear Spirit"), maxLevel = 15 },
-          text = "The Bear has seen you. I can tell by how you stand. Rooted. Go back to your trainer now and claim what you've earned." },
+          text = "The Bear has seen you; I can tell by how you stand, rooted. Go back to your trainer now and claim what you've earned." },
         { id = "h_poison", when = { questActive = TODO_QUEST("Power over Poison") },
-          text = "Poison is only nature turned the wrong way. Learn to turn it back. That's a druid's whole art, in small." },
+          text = "Poison is only nature turned the wrong way, so learn to turn it back. That's a druid's whole art, in small." },
         { id = "h_lake", tags = { "news" }, when = { questActive = TODO_QUEST("Trial of the Lake") },
           text = "The lake holds what you need. Dive, and keep diving until the water feels like a friend rather than a threat." },
         { id = "h_sealion", when = { questActive = TODO_QUEST("Trial of the Sea Lion") },
           text = "The sea lion's trial is out where the land ends. Our flight masters will carry you; tell them the Circle sent you." },
         { id = "h_aquatic", when = { questDone = TODO_QUEST("Aquatic Form") },
-          text = "The sea's yours now, as much as the forest. Few druids feel at home in both. Try to be one of the few." },
+          text = "The sea's yours now, as much as the forest. Few druids feel at home in both, so try to be one of the few." },
         { id = "h_skyborne", when = { race = "Skyborne", class = "DRUID" },
-          text = "A druid of the shen'dorei. There are few of you, I'm told, and you look to the winds before the moon. The trials don't mind which. Balance is balance." },
+          text = "A druid of the shen'dorei! There are few of you, I'm told, and you look to the winds before the moon, but the trials don't mind which. Balance is balance." },
       },
       choices = {
         { text = "What are the trials for?", next = "trials" },
@@ -193,14 +193,14 @@ P:NPC {
       },
     },
     fun = {
-      lines = { { id = "f_default", text = "They are. I'd never say otherwise. But a bear that doesn't know why it's a bear makes a very poor bear." } },
+      lines = { { id = "f_default", text = "They are, and I'd never say otherwise. But a bear that doesn't know why it's a bear makes a very poor bear." } },
       choices = { { text = "...", next = "END" } },
     },
   },
 
   topics = {
-    cenarion_circle = { { id = "tp_circle", text = "Our order, our duty. And Nighthaven is its hearth." } },
-    _none = { { id = "tp_none", text = "Not my trial to teach. Loganaar might know, or Rabine." } },
+    cenarion_circle = { { id = "tp_circle", text = "Our order and our duty, and Nighthaven is its hearth." } },
+    _none = { { id = "tp_none", text = "That's not my trial to teach, but Loganaar might know, or Rabine." } },
   },
 }
 
@@ -212,7 +212,7 @@ P:NPC {
 
   greetings = {
     { id = "g_calm", text = "Peace, friend. Even inside these stone walls it's there, if you stop long enough to find it." },
-    { id = "g_druid", when = { class = "DRUID" }, text = "Brother, sister, come in. Ready to learn? Then I'm ready to teach." },
+    { id = "g_druid", when = { class = "DRUID" }, text = "{g:Brother|Sister}, come in. If you're ready to learn, then I'm ready to teach." },
   },
 
   notice = {
@@ -224,10 +224,10 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "Loganaar. I train the druids who find their way to Nighthaven. Balance isn't somewhere you go. It's something you carry, and I help you pack." },
+        { id = "h_default", text = "I'm Loganaar, and I train the druids who find their way to Nighthaven. Balance isn't somewhere you go; it's something you carry, and I help you pack." },
         { id = "h_dream", when = { minLevel = 20, class = "DRUID" },
           text = "One day the Dream will call you, and you'll sleep a long while among the purest of things. Learn all you can awake, first." },
-        { id = "h_tea", when = { metBefore = true }, text = "Sit, if you have a moment. Not for training. Only to sit. Most druids forget to, and it shows in their bears." },
+        { id = "h_tea", when = { metBefore = true }, text = "Sit, if you have a moment, not for training but only to sit. Most druids forget to, and it shows in their bears." },
       },
       choices = {
         { text = "What brought you to Nighthaven?", next = "why" },
@@ -242,15 +242,15 @@ P:NPC {
     },
     why = {
       lines = {
-        { id = "w_quiet", text = "The quiet. Everywhere else the world was asking something of me. Here it only asks that I listen. I've found that's plenty." },
+        { id = "w_quiet", text = "The quiet. Everywhere else the world was asking something of me, but here it only asks that I listen, and I've found that's plenty." },
       },
       choices = { { text = "I'll try to listen.", next = "END", fx = { affinity = 2, trait = { patient = 1 } } } },
     },
   },
 
   topics = {
-    cenarion_circle = { { id = "tp_circle", text = "Home, for those of us who've no other. And for some who have." } },
-    _none = { { id = "tp_none", text = "Ask the quiet. Then ask Rabine." } },
+    cenarion_circle = { { id = "tp_circle", text = "Home, for those of us who've no other, and for some who have." } },
+    _none = { { id = "tp_none", text = "Ask the quiet first, and then ask Rabine." } },
   },
 }
 
@@ -274,12 +274,12 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "Old as the hills you walked to reach me, I am. I do not hurry. Sit. When you are still, I will speak." },
+        { id = "h_default", text = "Old as the hills you walked to reach me, I am, and I do not hurry. Sit, and when you are still, I will speak." },
         { id = "h_quest", tags = { "news" }, when = { questActive = TODO_QUEST("Great Bear Spirit") },
-          text = "You come to learn the bear. Then learn this first: strength that cannot wait is not strength. It is only noise." },
+          text = "You come to learn the bear, so learn this first: strength that cannot wait is not strength. It is only noise." },
         { id = "h_not", when = { ["not"] = { class = "DRUID" } },
           text = "Not of the Circle, this one. Still, you came all this way to sit with an old bear. That is a kind of wisdom too." },
-        { id = "h_return", when = { metBefore = true }, text = "You came back. Most do not. They think one visit is a lesson learned. It is only a lesson begun." },
+        { id = "h_return", when = { metBefore = true }, text = "You came back, and most do not. They think one visit is a lesson learned, when it is only a lesson begun." },
       },
       choices = {
         { text = "What does the bear teach?", next = "teach" },
@@ -289,12 +289,12 @@ P:NPC {
     teach = {
       big = true,
       lines = {
-        { id = "t_default", text = "To endure. To protect what stands behind you. To sleep when the world is cold, and wake when it is ready. Most of what is worth doing is waiting well." },
+        { id = "t_default", text = "To endure, and to protect what stands behind you, and to sleep when the world is cold and wake when it is ready. Most of what is worth doing is waiting well." },
       },
       choices = { { text = "I'll remember.", next = "END", fx = { affinity = 2, trait = { patient = 1 } } } },
     },
     sit = {
-      lines = { { id = "s_default", text = "Good. Few sit. Most come wanting, and leave still wanting. You may come back whenever the world is too loud." } },
+      lines = { { id = "s_default", text = "Good; few sit. Most come wanting, and leave still wanting, but you may come back whenever the world is too loud." } },
       choices = { { text = "...", next = "END" } },
     },
   },
@@ -311,7 +311,7 @@ P:NPC {
   notices = { "class" },
 
   greetings = {
-    { id = "g_flight", when = { class = "DRUID", faction = "Alliance" }, text = "Going home? The Circle's hippogryphs will carry you to Rut'theran. Climb on." },
+    { id = "g_flight", when = { class = "DRUID", faction = "Alliance" }, text = "Going home? The Circle's hippogryphs will carry you to Rut'theran, so climb on." },
     { id = "g_horde", when = { class = "DRUID", faction = "Horde" }, text = "Your flight's with Bunthen, friend, over by the wind riders. He'll see you to Thunder Bluff." },
     { id = "g_not", when = { ["not"] = { class = "DRUID" } }, text = "I'm sorry, but these birds fly for druids only. The Circle's rule, not mine." },
   },
@@ -320,10 +320,10 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "Silva. I keep the Circle's hippogryphs. They fly one road only, to Rut'theran by Teldrassil, and only for druids. They're very particular." },
+        { id = "h_default", text = "I'm Silva, and I keep the Circle's hippogryphs. They fly one road only, to Rut'theran by Teldrassil, and only for druids; they're very particular." },
         { id = "h_skyborne", when = { race = "Skyborne" },
-          text = "You'd rather have your own wings, I imagine. These ones bite less than you'd think. Slightly less." },
-        { id = "h_names", when = { metBefore = true }, text = "The oldest of my hippogryphs won't fly unless I say her name first. Politely. I've stopped finding it strange." },
+          text = "You'd rather have your own wings, I imagine. These ones bite less than you'd think, if only slightly less." },
+        { id = "h_names", when = { metBefore = true }, text = "The oldest of my hippogryphs won't fly unless I say her name first, and politely. I've stopped finding it strange." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Night flights are the best. Teldrassil's lights come up out of the sea like someone's left a lantern for you." },
       },
       choices = {
@@ -334,7 +334,7 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "I fly birds. Rabine knows everything else." } },
+    _none = { { id = "tp_none", text = "I fly birds; Rabine knows everything else." } },
   },
 }
 
@@ -346,19 +346,19 @@ P:NPC {
 
   greetings = {
     { id = "g_flight", when = { class = "DRUID", faction = "Horde" }, text = "Earth Mother keep you. The wind rider's saddled; Thunder Bluff is a long way and a short flight." },
-    { id = "g_alliance", when = { class = "DRUID", faction = "Alliance" }, text = "Your flight's with Silva, little friend. Her hippogryphs go to Rut'theran." },
-    { id = "g_not", when = { ["not"] = { class = "DRUID" } }, text = "You're no druid. These riders fly for the Circle alone. I'm sorry." },
+    { id = "g_alliance", when = { class = "DRUID", faction = "Alliance" }, text = "Your flight's with Silva, little friend; her hippogryphs go to Rut'theran." },
+    { id = "g_not", when = { ["not"] = { class = "DRUID" } }, text = "You're no druid, and these riders fly for the Circle alone. I'm sorry." },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "Bunthen Plainswind. I keep the Circle's wind riders, and they fly for druids to Thunder Bluff. A short road through the sky, from one home to another." },
+        { id = "h_default", text = "Bunthen Plainswind is my name, and I keep the Circle's wind riders, who fly for druids to Thunder Bluff. It's a short road through the sky, from one home to another." },
         { id = "h_skyborne", when = { race = "Skyborne", faction = "Horde" },
           text = "From the sky to the Bluff, your folk came, I hear, and the Earthen Ring vouched for you. The winds are kind to you. Let my riders be kind too." },
-        { id = "h_rider", when = { metBefore = true }, text = "My riders grumble at Nighthaven's quiet. They like the wind on the Bluff. So do I, if I'm honest. Don't tell the Keeper." },
-        { id = "h_night", when = { timeOfDay = "night" }, text = "Mu'sha's eye is open over the lake. Good night for flying. The riders know it too; listen to them fidget." },
+        { id = "h_rider", when = { metBefore = true }, text = "My riders grumble at Nighthaven's quiet, because they like the wind on the Bluff. So do I, if I'm honest, but don't tell the Keeper." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "Mu'sha's eye is open over the lake, and it's a good night for flying. The riders know it too; listen to them fidget." },
       },
       choices = {
         { text = "Show me the flight.", next = "BUSINESS", when = { class = "DRUID" } },
@@ -368,7 +368,7 @@ P:NPC {
   },
 
   topics = {
-    cenarion_circle = { { id = "tp_circle", text = "The Circle took my people in when others would not. We remember that. The tauren remember everything kind." } },
+    cenarion_circle = { { id = "tp_circle", text = "The Circle took my people in when others would not, and we remember that. The tauren remember everything kind." } },
     _none = { { id = "tp_none", text = "I fly the riders, friend. Ask the elves in the village." } },
   },
 }
