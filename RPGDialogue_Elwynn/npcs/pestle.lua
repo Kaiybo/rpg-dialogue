@@ -10,16 +10,16 @@ P:NPC {
   notices = { "craft" },
 
   greetings = {
-    { id = "g_mind", text = "Don't touch the green one. Or the blue one, actually." },
-    { id = "g_candles", when = { questActive = TODO_QUEST("Kobold Candles") }, text = "Any candles? The kobold kind, mind." },
-    { id = "g_sit", when = { metBefore = true }, text = "Good day, good day! Sit, have a drink. Not that one." },
+    { id = "g_mind", text = "Don't touch the green one, or the blue one either, now I think of it." },
+    { id = "g_candles", when = { questActive = TODO_QUEST("Kobold Candles") }, text = "Have you any candles for me? The kobold kind, mind." },
+    { id = "g_sit", when = { metBefore = true }, text = "Good day, good day! Sit and have a drink, only not that one." },
   },
 
   notice = {
     { id = "n_alchemist", cat = "craft", when = { profession = "Alchemy" },
-      text = "A fellow alchemist! Smell this. No, closer. Isn't that marvelous?" },
+      text = "A fellow alchemist! Here, smell this, and closer than that, mind; isn't that marvelous?" },
     { id = "n_herbalist", cat = "craft", when = { profession = "Herbalism" },
-      text = "You've peacebloom on your gloves. You pick it too early, by the way. Everyone does." },
+      text = "You've peacebloom on your gloves, and you pick it too early, by the way, as everyone does." },
   },
 
   start = "hello",
@@ -28,21 +28,21 @@ P:NPC {
       lines = {
         { id = "h_default", text = "Candles, tinctures, a few small mercies in bottles. What can I do for you?" },
         { id = "q_candles", when = { questActive = TODO_QUEST("Kobold Candles") },
-          text = "Kobold candles burn longer than any wax in Stormwind. Don't ask me why. I've stopped asking." },
+          text = "Kobold candles burn longer than any wax in Stormwind. Don't ask me why; I stopped asking long ago." },
         { id = "q_note", tags = { "news" }, when = { questActive = TODO_QUEST("Note to William") },
-          text = "A note from Gramma Stonefield? Let me see. Ha! Still the worst handwriting in Elwynn, and still right." },
+          text = "A note from Gramma Stonefield? Let me see it, then. Ha, still the worst handwriting in Elwynn, and still right about everything!" },
         { id = "e_gramma", when = { heardLine = "gramma.h_speak" },
-          text = "Gramma told you about the boy, did she? Then you're in on it. Welcome. There aren't many of us." },
+          text = "Gramma told you about the boy, did she? Then you're in on it, and welcome, because there aren't many of us." },
         { id = "q_kelp", when = { questActive = TODO_QUEST("Collecting Kelp") },
-          text = "The kelp is for a potion. A private potion, for a private matter. You understand." },
+          text = "The kelp is for a potion, a private potion for a private matter. You understand, I'm sure." },
         { id = "q_escape", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Escape"), days = 3 } },
-          text = "She drank it? And reached the river? Oh, good. Don't tell the Stonefields I had a hand in it." },
+          text = "She drank it, and reached the river? Oh, good! Only don't tell the Stonefields I had a hand in it." },
         { id = "q_shipment", when = { questActive = TODO_QUEST("Shipment to Stormwind") },
-          text = "Straight to Morgan at the shop, please, and don't sit on the crate. Candles bruise. Well. They dent." },
+          text = "Straight to Morgan at the shop, please, and don't sit on the crate; candles bruise. Well, they dent, which is much the same to a candle." },
       },
       again = {
-        { id = "h_again", text = "Hmm? Sorry, counting drops. Go on." },
-        { id = "h_again2", text = "Something else? Ask away. Mind the blue one." },
+        { id = "h_again", text = "Hmm? Sorry, I was counting drops; do go on." },
+        { id = "h_again2", text = "Something else? Ask away, and mind the blue one while you do." },
       },
       choices = {
         { text = "Why kobold candles?", next = "candles" },
@@ -69,7 +69,7 @@ P:NPC {
     },
     candles_brother = {
       lines = {
-        { id = "cb_default", text = "Morgan. Pestle's Apothecary, Trade District. He minds the shop; I mind the wax. He thinks he has the better half of the bargain. He's right." },
+        { id = "cb_default", text = "Morgan runs Pestle's Apothecary in the Trade District. He minds the shop and I mind the wax, and he thinks he has the better half of the bargain, which he does." },
       },
       choices = {
         { text = "Why are you out here, then?", next = "candles_why" },
@@ -116,7 +116,7 @@ P:NPC {
       lines = {
         { id = "lp_default", text = "Crystal kelp, a steady hand and a pinch of my own. It won't last long. Long enough for a walk to a river and back." },
         { id = "lp_kelp", when = { questActive = TODO_QUEST("Collecting Kelp") },
-          text = "Crystal kelp's a sea plant. How the Crystal Lake murlocs come by it, I can't imagine. Ask them. Firmly." },
+          text = "Crystal kelp's a sea plant, and how the Crystal Lake murlocs come by it I can't imagine. Ask them for it, firmly." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "maybell_tommy" } } } },
     },
@@ -139,7 +139,7 @@ P:NPC {
 
     alchemist = {
       lines = {
-        { id = "al_default", text = "Wonderful! Then a word of advice: never brew with peacebloom picked before noon. The dew dulls it. I've no proof. I'm quite sure." },
+        { id = "al_default", text = "Wonderful! Then a word of advice: never brew with peacebloom picked before noon, because the dew dulls it. I've no proof of that, but I'm quite sure." },
       },
       choices = {
         { text = "I'll try it.", next = "BACK", fx = { affinity = 2 } },
@@ -148,7 +148,7 @@ P:NPC {
     },
     priest = {
       lines = {
-        { id = "pr_default", text = "Sometimes. Prayer's quicker; potions keep. The Light's never been sold in a bottle, more's the pity. I'd stock it." },
+        { id = "pr_default", text = "Sometimes. Prayer's quicker, but potions keep, and the Light's never been sold in a bottle, more's the pity, or I'd stock it." },
       },
       choices = {
         { text = "Some things shouldn't be sold.", next = "BACK", fx = { align = { light = 1 } } },
@@ -157,20 +157,20 @@ P:NPC {
     },
     mage = {
       lines = {
-        { id = "mg_default", text = "Is it? Then don't tell Maybell. She thinks I'm terribly clever. I'd like to keep it that way." },
+        { id = "mg_default", text = "Is it? Then please don't tell Maybell; she thinks I'm terribly clever, and I'd like to keep it that way." },
       },
       choices = { { text = "Your secret's safe.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "An apothecary from Stormwind who likes the country better. My brother keeps the shop. I keep the candles." } },
+    background = { { id = "tp_bg", text = "I'm an apothecary from Stormwind who likes the country better. My brother keeps the shop, and I keep the candles." } },
     advice = { { id = "tp_ad", text = "Label everything. The green one and the blue one look very alike by candlelight." } },
     maybell_tommy = {
       { id = "t_lovers", text = "If anyone asks, I only sell candles." },
-      { id = "t_lovers2", text = "Sit down. Quietly. You'll want the whole story, I suppose.", next = "lovers" },
+      { id = "t_lovers2", text = "Sit down, then, and quietly. You'll want the whole story, I suppose.", next = "lovers" },
     },
     kobolds = { { id = "t_kobolds", text = "They make the candles. I don't ask how, and they don't ask why I want them." } },
-    _none = { { id = "t_none", text = "Hmm? Sorry. I was counting drops. Ask me again later." } },
+    _none = { { id = "t_none", text = "Hmm? Sorry, I was counting drops. Ask me again later, would you?" } },
   },
 }

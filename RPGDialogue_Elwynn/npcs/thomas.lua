@@ -11,8 +11,8 @@ P:NPC {
 
   greetings = {
     { id = "g_business", text = "State your business with the Stormwind Army." },
-    { id = "g_search", when = { questActive = TODO_QUEST("Find the Lost Guards") }, text = "Anything? North, along the river. Anything at all." },
-    { id = "g_after", when = { questDone = TODO_QUEST("Report to Thomas") }, text = "Citizen. You have my thanks still." },
+    { id = "g_search", when = { questActive = TODO_QUEST("Find the Lost Guards") }, text = "Have you found anything? Look north along the river, citizen; anything at all will help." },
+    { id = "g_after", when = { questDone = TODO_QUEST("Report to Thomas") }, text = "Citizen, you have my thanks still, and you always will." },
     { id = "g_frontier", when = { questActive = TODO_QUEST("Protect the Frontier") }, text = "Wolves and bears. The logging camp's counting on you." },
   },
 
@@ -27,30 +27,30 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "Guard Thomas, Stormwind Army. I hold this bridge. East of here, the forest stops being friendly." },
+        { id = "h_default", text = "Guard Thomas, of the Stormwind Army. I hold this bridge, and east of here the forest stops being friendly." },
         { id = "h_concerns", tags = { "news" }, when = { questActive = TODO_QUEST("Further Concerns") },
-          text = "Dughan sent you. Good. I asked for soldiers and got one adventurer. I'll take it." },
+          text = "So Dughan sent you. I asked him for soldiers and got one adventurer, but I'll take what I'm given." },
         { id = "h_lost", tags = { "news" }, when = { questActive = TODO_QUEST("Find the Lost Guards") },
-          text = "Rolf Hartford and Malakai Stone. I sent them north along the river to look into the murloc talk. They never came back." },
+          text = "Rolf Hartford and Malakai Stone. I sent them north along the river to look into the murloc talk, and they never came back." },
         { id = "h_malakai", key = true, tags = { "news" }, when = { questRecent = { TODO_QUEST("Find the Lost Guards"), days = 2 } },
           text = "Malakai's medallion. I'll see it reaches his family. That's the job no one tells you about when you sign." },
         { id = "h_rolf", tags = { "news" }, when = { questActive = TODO_QUEST("Discover Rolf's Fate") },
-          text = "Rolf's still out there. Webbed tracks, you said, toward the lake. Find him. Whatever's left, I want to know." },
+          text = "Rolf's still out there somewhere. You said the webbed tracks led toward the lake, so follow them and find him; whatever's left, I want to know." },
         { id = "h_report", key = true, tags = { "news" }, when = { questRecent = { TODO_QUEST("Report to Thomas"), days = 3 } },
-          text = "Murlocs. Remy at the inn said it first, and half of Goldshire called him a liar. I'll be buying Remy a drink. Light help me.",
+          text = "Murlocs, then. Remy at the inn said it first and half of Goldshire called him a liar, so I'll be buying Remy a drink, Light help me.",
           fx = { expose = "murlocs_in_elwynn" } },
         { id = "h_later", when = { questLater = { TODO_QUEST("Report to Thomas"), days = 7 } },
           text = "Two names on a page to the Marshal. It's never enough page." },
         { id = "h_westfall", when = { questActive = TODO_QUEST("Report to Gryan Stoutmantle") },
           text = "Westfall needs hands more than I do. Gryan Stoutmantle, Sentinel Hill. Tell him the Elwynn bridge sends regards." },
         { id = "h_hero", when = { townStanding = { town = "eastvale", min = 30 } },
-          text = "The loggers talk about you. So do my men, the ones I have left. All good." },
+          text = "The loggers talk about you, and so do my men, the ones I have left. It's all good talk." },
         { id = "h_seasoned", when = { minLevel = 25, questDone = TODO_QUEST("Report to Thomas") },
-          text = "You found my men, once. Now look at you. I still stand on this bridge. Somebody has to." },
+          text = "You found my men, once, and now look at you. I still stand on this bridge, because somebody has to." },
       },
       again = {
         { id = "h_again", text = "Anything further, citizen?" },
-        { id = "h_again2", text = "Go on. I'm listening. I'm also watching the treeline." },
+        { id = "h_again2", text = "Go on, I'm listening, though I'll be watching the treeline while you talk." },
       },
       choices = {
         { text = "What happened to your men?", next = "men", when = { questDone = TODO_QUEST("Find the Lost Guards") } },
@@ -85,7 +85,7 @@ P:NPC {
     },
     men_priest = {
       lines = {
-        { id = "mp_default", text = "There's no grave. The lake has them, or what's left. Say them here, at the bridge, then. I'll stand for it." },
+        { id = "mp_default", text = "There's no grave; the lake has them, or what's left of them. Say the words here at the bridge, then, and I'll stand for it." },
       },
       choices = {
         { text = "Rolf Hartford. Malakai Stone. Light keep them.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, standing = { eastvale = 2 }, learn = { "lost_footmen" } },
@@ -145,7 +145,7 @@ P:NPC {
     },
     army_anger = {
       lines = {
-        { id = "aa_default", text = "Anger isn't in my orders. Worry is. I write it down and send it to the Marshal, and he sends it up, and it stops somewhere." },
+        { id = "aa_default", text = "Anger isn't in my orders, but worry is. I write it down and send it to the Marshal, he sends it up, and somewhere along the way it stops." },
       },
       choices = {
         { text = "That's no way to run a kingdom.", next = "BACK", fx = { align = { order = -1 }, opinion = { westfall = "abandoned" } } },
@@ -171,15 +171,15 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Stormwind Army. I go where I'm posted. I've been posted to this bridge, so this bridge is where I am." } },
+    background = { { id = "tp_bg", text = "I'm Stormwind Army, and I go where I'm posted. I've been posted to this bridge, so this bridge is where you'll find me." } },
     advice = { { id = "tp_ad", text = "Don't follow the river north alone. Two good men did, on my orders." } },
     murlocs_east = {
-      { id = "tp_murlocs", text = "Up the river and around Stone Cairn Lake. Don't go alone. My men did." },
+      { id = "tp_murlocs", text = "They're up the river and around Stone Cairn Lake. Don't go alone; my men did." },
       { id = "tp_murlocs2", text = "Ask me properly, citizen. It's a report, not a rumor.", next = "murlocs" },
     },
-    lost_footmen = { { id = "tp_footmen", text = "Rolf Hartford. Malakai Stone. Remember the names, if you remember nothing else." } },
+    lost_footmen = { { id = "tp_footmen", text = "Rolf Hartford and Malakai Stone. Remember those names, if you remember nothing else I tell you." } },
     eastvale = { { id = "tp_eastvale", text = "Loggers and their quotas. They'd cut through a bear if it stood still long enough." } },
     defias = { { id = "tp_defias", text = "Westfall's problem, mostly. Gryan Stoutmantle's handling it, without much help from the city." } },
-    _none = { { id = "tp_none", text = "That's above my post. Ask the Marshal in Goldshire." } },
+    _none = { { id = "tp_none", text = "That's above my post, citizen; you'd do better to ask the Marshal in Goldshire." } },
   },
 }

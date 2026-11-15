@@ -10,45 +10,45 @@ P:NPC {
   notices = { "arcane", "fel" },
 
   greetings = {
-    { id = "g_stairs", text = "You climbed all those stairs. Admirable. Pointless, probably, but admirable." },
-    { id = "g_morganth", when = { questActive = TODO_QUEST("Morganth") }, text = "Is he dead? No? Then why are you here?" },
-    { id = "g_after", when = { questDone = TODO_QUEST("Morganth") }, text = "Ah. The one who dealt with Morganth. You may sit. Not on that." },
+    { id = "g_stairs", text = "You climbed all those stairs, which is admirable, if probably pointless." },
+    { id = "g_morganth", when = { questActive = TODO_QUEST("Morganth") }, text = "Is he dead yet? If not, why are you standing in my tower?" },
+    { id = "g_after", when = { questDone = TODO_QUEST("Morganth") }, text = "Ah, the one who dealt with Morganth. You may sit, though not on that." },
   },
 
   notice = {
     { id = "n_mage", cat = "arcane", when = { class = "MAGE" },
-      text = "A mage. Your robes are dreadful. Never mind; Morley could do something with you. He does something with everyone." },
+      text = "A mage, and your robes are dreadful. Never mind; Morley could do something with you, as he does with everyone." },
     { id = "n_warlock", cat = "fel", place = "before", when = { class = "WARLOCK" },
       text = "You reek of the Nether. So did Morganth, before he went wrong. I will be watching you closely, and you will not enjoy it." },
     { id = "n_taint", cat = "fel", when = { taint = { min = 25 } },
-      text = "Something has had its fingers in you. Something fel. Stand by the window; I'd like it to be the first thing I see if you change shape." },
+      text = "Something fel has had its fingers in you. Stand by the window, please; I'd like it to be the first thing I see if you change shape." },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "Theocritus. This is my tower. The gnomes are my servants; do not tip them, it confuses them. What do you want?" },
+        { id = "h_default", text = "I am Theocritus, and this is my tower. The gnomes are my servants, and you're not to tip them because it confuses them. Now, what do you want?" },
         { id = "h_low", when = { maxLevel = 17 },
           text = "You are very young and I am very busy. Come back when you've survived something interesting." },
         { id = "h_before", when = { minLevel = 18, questBefore = TODO_QUEST("Morganth") },
-          text = "A man in Redridge, in the Tower of Ilgalar, once studied with Stormwind's mages. He went wrong. He is my problem." },
+          text = "A man in Redridge, in the Tower of Ilgalar, once studied with Stormwind's mages until he went wrong. He is my problem." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Morganth") },
           text = "Morganth commands the Shadowhide gnolls and thinks himself a lord. Remind him otherwise. Permanently, if you'd be so kind." },
         { id = "h_eye", when = { questActive = TODO_QUEST("A Watchful Eye") },
           text = "The Eye of Azora sees far, but not far enough. That is where you come in, regrettably." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Morganth"), days = 3 } },
-          text = "Gone? Truly? Then Stormwind is a little safer, and I am a great deal less bored than I expected to be. That is not a complaint." },
+          text = "Gone, truly? Then Stormwind is a little safer, and I am a great deal less bored than I expected to be, which is not a complaint." },
         { id = "h_mage", when = { class = "MAGE", minLevel = 20 },
-          text = "The Mage Quarter sends me its brighter students now and then. You'd do. Possibly." },
+          text = "The Mage Quarter sends me its brighter students now and then. You might do, possibly." },
         { id = "h_skyborne", when = { race = "Skyborne" },
-          text = "The Kirin Tor have been insufferable about your people lately, I'm told. Highborne magisters' children, back from wherever. I'd like to see what the fuss is about. Later." },
+          text = "The Kirin Tor have been insufferable about your people lately, I'm told: Highborne magisters' children, back from wherever they were. I'd like to see what the fuss is about, but later." },
         { id = "h_pendant", tags = { "news" }, when = { questActive = TODO_QUEST("Theocritus' Retrieval") },
-          text = "You heard me through a gnoll's pendant? Weeks late? Give it here. A slow spell is still a spell that worked." },
+          text = "You heard me through a gnoll's pendant, weeks late? Give it here; a slow spell is still a spell that worked." },
       },
       again = {
-        { id = "h_again", text = "Something else? Be brief. Redridge doesn't watch itself." },
-        { id = "h_again2", text = "You're still here. Very well. Ask." },
+        { id = "h_again", text = "Something else? Be brief, please; Redridge doesn't watch itself." },
+        { id = "h_again2", text = "You're still here, I see. Very well, ask what you came to ask." },
       },
       choices = {
         { text = "Who is Morganth?", next = "morganth" },
@@ -68,7 +68,7 @@ P:NPC {
     morganth = {
       lines = {
         { id = "mo_default", key = true,
-          text = "A Stormwind student who turned to shadow, was thrown out, and took Ur's treatise on shadow magic with him. They want the book. I want him stopped." },
+          text = "A Stormwind student who turned to shadow, was thrown out, and took Ur's treatise on shadow magic with him. The city's mages want the book back; I want him stopped." },
       },
       choices = {
         { text = "Why is that your duty?", next = "duty" },
@@ -100,7 +100,7 @@ P:NPC {
 
     study = {
       lines = {
-        { id = "s_default", text = "Gnolls, currently. Morganth's gnolls wear pendants. If I understand the pendant, I understand the leash, and then the hand holding it." },
+        { id = "s_default", text = "Gnolls, at present. Morganth's gnolls wear pendants, and if I understand the pendant I understand the leash, and then the hand that holds it." },
       },
       choices = {
         { text = "Can the pendants be turned on him?", next = "study_turn" },
@@ -130,7 +130,7 @@ P:NPC {
     },
     tower_gnomes = {
       lines = {
-        { id = "tg_default", text = "The Servants of Azora. Loyal, tireless and armed. They are also the only people in Elwynn who never ask me to fix their ploughs." },
+        { id = "tg_default", text = "The Servants of Azora: loyal, tireless and armed. They are also the only people in Elwynn who never ask me to fix their ploughs." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -146,7 +146,7 @@ P:NPC {
 
     elwynn = {
       lines = {
-        { id = "el_default", text = "The loggers are loud, the Defias are tedious, and the pumpkin farm south-east of here has thieves in it. None of that will burn the kingdom down. Morganth might." },
+        { id = "el_default", text = "The loggers are loud, the Defias are tedious, and the pumpkin farm south-east of here has thieves in it. None of that will burn the kingdom down, but Morganth might." },
       },
       choices = {
         { text = "People are suffering out there.", next = "elwynn_people", fx = { align = { light = 1 } } },
@@ -155,7 +155,7 @@ P:NPC {
     },
     elwynn_people = {
       lines = {
-        { id = "ep_default", text = "Then help them. I'll be up here making sure there's a kingdom left for them to suffer in. We both have work." },
+        { id = "ep_default", text = "Then help them, and I'll be up here making sure there's a kingdom left for them to suffer in. We both have our work." },
       },
       choices = {
         { text = "That's fair.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -199,7 +199,7 @@ P:NPC {
     },
     priest = {
       lines = {
-        { id = "pr_default", text = "A priest who knows shadow. Then you know it's a road that narrows the further you walk. Morganth walked it to the end. Don't." },
+        { id = "pr_default", text = "A priest who knows shadow? Then you know it's a road that narrows the further you walk it. Morganth walked it to the end, so don't." },
       },
       choices = {
         { text = "I walk it carefully.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
@@ -208,7 +208,7 @@ P:NPC {
     },
     gnome = {
       lines = {
-        { id = "gn_default", text = "Ask them yourself. They don't tell me, and I've never thought to ask. That may say something about me. I shan't dwell on it." },
+        { id = "gn_default", text = "Ask them yourself. They've never told me, and I've never thought to ask, which may say something about me that I shan't dwell on." },
       },
       choices = {
         { text = "It does.", next = "BACK", fx = { trait = { witty = 1 } } },
@@ -227,12 +227,12 @@ P:NPC {
     background = { { id = "tp_bg", text = "I have a tower and a rival. That is all the biography anyone needs." } },
     advice = { { id = "tp_ad", text = "If a book is sealed, the seal is the most important thing in it." } },
     morganth = {
-      { id = "tp_morganth", text = "Redridge. The Tower of Ilgalar. Bring a friend. Bring several." },
-      { id = "tp_morganth2", text = "Must we? Very well. Sit, briefly.", next = "morganth" },
+      { id = "tp_morganth", text = "He's in Redridge, in the Tower of Ilgalar. Bring a friend, or better, several." },
+      { id = "tp_morganth2", text = "Must we? Very well, sit down, but briefly.", next = "morganth" },
     },
-    defias = { { id = "tp_defias", text = "Thieves. Tiresome. Somebody else's problem, I'm delighted to say." } },
-    eastvale = { { id = "tp_eastvale", text = "There are loggers below, I'm told. I hear them occasionally. I try not to." } },
-    blackrock = { { id = "tp_blackrock", text = "Orcs in Stonewatch Keep. Morganth used them and threw them away. I almost feel sorry for them. Almost." } },
+    defias = { { id = "tp_defias", text = "Thieves, and tiresome ones, but somebody else's problem, I'm delighted to say." } },
+    eastvale = { { id = "tp_eastvale", text = "There are loggers below, I'm told. I hear them occasionally, and I try not to." } },
+    blackrock = { { id = "tp_blackrock", text = "The orcs in Stonewatch Keep. Morganth used them and threw them away, and I very nearly feel sorry for them." } },
     _none = { { id = "tp_none", text = "If it were worth knowing, I would know it. Draw your own conclusions." } },
   },
 }

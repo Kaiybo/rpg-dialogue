@@ -10,16 +10,16 @@ P:NPC {
   notices = { "kit" },
 
   greetings = {
-    { id = "g_squint", text = "Who's that? Come closer. No, closer. Ah. Don't know you." },
-    { id = "g_back", when = { metBefore = true }, text = "That voice I know. Come up, come up." },
+    { id = "g_squint", text = "Who's that there? Come a little closer, no, closer still... ah, I don't know you at all." },
+    { id = "g_back", when = { metBefore = true }, text = "That voice I know! Come up, come up and sit." },
     { id = "g_badge", when = { questDone = TODO_QUEST("Dead-Tooth Jack") }, text = "There's the one who brought my badge home. Stand straight; I'm told I'm wearing it." },
   },
 
   notice = {
     { id = "n_shine", cat = "kit", when = { durability = { min = 0.9 } },
-      text = "Something on you's catching the light. Good. Kept clean. A soldier who keeps his kit keeps his life." },
+      text = "Something on you's catching the light, which means it's been kept clean. Good; a soldier who keeps his kit keeps his life." },
     { id = "n_rags", cat = "kit", when = { durability = { max = 0.25 } },
-      text = "I can't see much, but I can hear that armor rattle. Loose rivets. Get them seen to before they get you killed." },
+      text = "I can't see much, but I can hear that armor rattle from here. Those are loose rivets, so get them seen to before they get you killed." },
   },
 
   start = "hello",
@@ -30,20 +30,20 @@ P:NPC {
         { id = "h_jack_before", when = { questBefore = TODO_QUEST("Dead-Tooth Jack") },
           text = "A fellow came up the path in the dark wearing a Stormwind tabard. I took him for Dughan and handed him my old badge. A lifetime in uniform, and I fell for that." },
         { id = "h_jack_active", tags = { "news" }, when = { questActive = TODO_QUEST("Dead-Tooth Jack") },
-          text = "Dead-tooth Jack, the loggers call him. Defias. Camps out south like a badger. Get my badge back and I'll not ask how." },
+          text = "Dead-tooth Jack, the loggers call him, a Defias who camps out south like a badger in a hole. Get my badge back and I'll not ask how you did it." },
         { id = "h_jack_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Dead-Tooth Jack"), days = 3 } },
           text = "That's mine. I can feel the dent in the corner where a gnoll bit it, year of the bad winter. Don't tell anyone at the Keep how I lost it." },
         { id = "h_raven", key = true, when = { visited = "Darkshire" },
-          text = "Darkshire, eh? Then you've seen the Scarlet Raven. My lads and I drank there for years. Smitts still pours?" },
+          text = "Darkshire, eh? Then you've seen the Scarlet Raven, where my lads and I drank for years. Does Smitts still pour?" },
         { id = "h_smitts", when = { heardLine = "smitts.m_default" },
           text = "Smitts told you about that business? Then you know more than my eyes ever will again. It never sat right with any of us." },
         { id = "h_soldier", when = { class = { "WARRIOR", "PALADIN" } },
-          text = "Soldier's stance, you've got. Heavy on the back foot. Shift forward a touch. There. Now you're harder to knock down." },
+          text = "You've a soldier's stance, but you're heavy on the back foot. Shift forward a touch... there, now you're harder to knock down." },
         { id = "h_burlguard", tags = { "news" }, when = { questActive = TODO_QUEST("Marshal Haggard") },
-          text = "Burlguard? Is that you? No. Walking up like that, I took you for a gnoll. Burlguard sent you, then. Come closer." },
+          text = "Burlguard, is that you? No, it isn't; walking up like that, I took you for a gnoll. So Burlguard sent you, did he? Come closer." },
       },
       again = {
-        { id = "h_again", text = "Still there? Good. Speak up." },
+        { id = "h_again", text = "If you're still there, speak up, will you?" },
         { id = "h_again2", text = "Go on. My ears work, even if nothing else does." },
       },
       choices = {
@@ -62,7 +62,7 @@ P:NPC {
       lines = {
         { id = "j_default", text = "Dead-tooth Jack. Came up in the dark in a Stormwind tabard. I took him for Dughan, gave him the badge, and he laughed all the way down the path." },
         { id = "j_done", when = { questDone = TODO_QUEST("Dead-Tooth Jack") },
-          text = "It's back where it belongs, and the Defias are short one disguise. You did that. I'll not forget it." },
+          text = "It's back where it belongs, and the Defias are short one disguise because of you. I'll not forget it." },
       },
       choices = {
         { text = "Why does a retired badge matter so much?", next = "jack_matter" },
@@ -73,7 +73,7 @@ P:NPC {
     jack_matter = {
       big = true,
       lines = {
-        { id = "jm_default", text = "Pride, some. Mostly what a Defias can do with a marshal's badge. Walk into places. Give orders. People believe a badge before they believe their eyes." },
+        { id = "jm_default", text = "Pride, some of it. Mostly it's what a Defias can do with a marshal's badge: walk into places and give orders, because people believe a badge before they believe their own eyes." },
       },
       choices = {
         { text = "I'll get it back.", next = "BUSINESS", when = { class = "WARRIOR" }, fx = { affinity = 2, align = { order = 1 } } },
@@ -93,7 +93,7 @@ P:NPC {
 
     manor = {
       lines = {
-        { id = "mn_default", text = "The Flintridges' old summer cottage. Came with papers in a dead man's hand. Mistmantle, I think. My eyes won't give me the rest." },
+        { id = "mn_default", text = "It was the Flintridges' old summer cottage, and it came with papers in a dead man's hand. Mistmantle, I think the name was, but my eyes won't give me the rest." },
       },
       choices = {
         { text = "I could read them for you.", next = "manor_papers", fx = { trait = { curious = 1 } } },
@@ -114,7 +114,7 @@ P:NPC {
 
     guard = {
       lines = {
-        { id = "gd_default", text = "Good men, mostly. Some fools. I kept every piece of kit I was ever issued, oiled and hung on the wall. Can't see it now. I know where it is." },
+        { id = "gd_default", text = "Good men, mostly, and some fools. I kept every piece of kit I was ever issued, oiled and hung on the wall, and though I can't see it now, I know where every piece is." },
       },
       choices = {
         { text = "Where did you serve?", next = "guard_where" },
@@ -124,13 +124,13 @@ P:NPC {
     },
     guard_where = {
       lines = {
-        { id = "gw_default", text = "Wherever the Guard was sent. Darkshire, a good deal. We drank at the Scarlet Raven after long nights. Smitts poured; I paid. Mostly." },
+        { id = "gw_default", text = "Wherever the Guard was sent, and Darkshire a good deal of the time. We drank at the Scarlet Raven after the long nights; Smitts poured and I paid, mostly." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "night_watch" } } } },
     },
     advice = {
       lines = {
-        { id = "a_default", text = "Never hand your badge to a man you can't see. There. Free of charge, and I paid dear for it." },
+        { id = "a_default", text = "Never hand your badge to a man you can't see. There's my advice, free of charge, and I paid dear for it." },
       },
       choices = {
         { text = "I'll remember.", next = "BACK", fx = { trait = { witty = 1 } } },
@@ -139,14 +139,14 @@ P:NPC {
     },
     advice_more = {
       lines = {
-        { id = "am_default", text = "Oil your blade every night, even when you're tired. Especially then. The night you skip it is the night you need it." },
+        { id = "am_default", text = "Oil your blade every night, even when you're tired, and especially then, because the night you skip it is the night you'll need it." },
       },
       choices = { { text = "Yes, Marshal.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } } },
     },
 
     eyes = {
       lines = {
-        { id = "ey_default", text = "Bad enough I took a Defias for a marshal. Good enough I can tell you're not a gnoll. Probably." },
+        { id = "ey_default", text = "Bad enough that I took a Defias for a marshal, but good enough that I can tell you're probably not a gnoll." },
       },
       choices = {
         { text = "Let me lay hands on them.", next = "eyes_priest", when = { class = "PRIEST" } },
@@ -156,7 +156,7 @@ P:NPC {
     },
     eyes_priest = {
       lines = {
-        { id = "ep_default", text = "Priests have tried. The Light eased the ache but not the fog. Age isn't a wound, one told me. Try, if it pleases you." },
+        { id = "ep_default", text = "Priests have tried before, and the Light eased the ache but never the fog. Age isn't a wound, one of them told me, but you're welcome to try if it pleases you." },
       },
       choices = {
         { text = "It pleases me. Hold still.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
@@ -165,7 +165,7 @@ P:NPC {
     },
     eyes_describe = {
       lines = {
-        { id = "ed_default", text = "Ha! Go on, then. Is there still a woodpile by the gate? The loggers swear a bear sleeps behind it." },
+        { id = "ed_default", text = "Ha! Go on, then: is there still a woodpile by the gate? The loggers swear there's a bear asleep behind it." },
       },
       choices = {
         { text = "No bear. Just a very fat dog.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
@@ -175,13 +175,13 @@ P:NPC {
 
     darkshire = {
       lines = {
-        { id = "dk_default", text = "The Raven still standing? Good. Tell Smitts old Haggard owes him nothing, and he'll know it's a lie." },
+        { id = "dk_default", text = "So the Raven's still standing; that's good. Tell Smitts old Haggard owes him nothing, and he'll know it for a lie." },
       },
       choices = { { text = "I'll tell him.", next = "BACK", fx = { affinity = 1 } } },
     },
     stalvan = {
       lines = {
-        { id = "st_default", text = "A name on a page in my chest. I can't read it now. Smitts in Darkshire knows that story better than any man living. Ask him, not me." },
+        { id = "st_default", text = "It's a name on a page in my chest, and I can't read it now. Smitts in Darkshire knows that story better than any man living, so ask him, not me." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "stalvan" } } } },
     },
@@ -203,11 +203,11 @@ P:NPC {
       { id = "tp_ad2", text = "Stand with your weight forward. A man on his back foot is a man halfway to the ground." },
     },
     defias = { { id = "tp_defias", text = "Thieves dressed as officials, now. In my day they had the courtesy to look like thieves." } },
-    eastvale = { { id = "tp_eastvale", text = "Quiet, mostly. Wolves at night. Raelen shouting by day. I prefer the wolves." } },
+    eastvale = { { id = "tp_eastvale", text = "Quiet, mostly, with wolves at night and Raelen shouting by day. I prefer the wolves." } },
     stalvan = {
       { id = "tp_stalvan", text = "Ask Smitts at the Raven. I've only a page, and I can't read it.", next = "stalvan" },
       { id = "tp_stalvan2", text = "That name again. I'd sooner the chest stayed shut." },
     },
-    _none = { { id = "tp_none", text = "Eh? Speak up. No, I don't know. I didn't know before you spoke up, either." } },
+    _none = { { id = "tp_none", text = "Eh? Speak up! No, I don't know, and I didn't know before you spoke up, either." } },
   },
 }

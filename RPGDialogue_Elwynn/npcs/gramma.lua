@@ -10,9 +10,9 @@ P:NPC {
   notices = { "kit", "drink" },
 
   greetings = {
-    { id = "g_door", text = "Wipe your feet. I just did that floor. Well, somebody did." },
+    { id = "g_door", text = "Wipe your feet; I've just done that floor. Well, somebody has." },
     { id = "g_tommy", when = { questActive = TODO_QUEST("Speak with Gramma") }, text = "The boy sent you. I know that face; it's the face of someone sent." },
-    { id = "g_after", when = { questDone = TODO_QUEST("The Escape") }, text = "There's my accomplice. Come in, come in." },
+    { id = "g_after", when = { questDone = TODO_QUEST("The Escape") }, text = "There's my accomplice! Come in, come in and sit down." },
   },
 
   notice = {
@@ -30,7 +30,7 @@ P:NPC {
         { id = "h_speak", key = true, tags = { "news" }, when = { questActive = TODO_QUEST("Speak with Gramma") },
           text = "The boy's in love with a Maclure. Of course he is. I've known since spring; he started washing behind his ears." },
         { id = "h_note", when = { questActive = TODO_QUEST("Note to William") },
-          text = "William Pestle, at the Lion's Pride. Give him that. Don't read it. Oh, read it, but don't tell him you did." },
+          text = "Take that to William Pestle at the Lion's Pride, and don't read it. Oh, read it if you must, but don't tell him you did." },
         { id = "h_waiting", when = { questDone = TODO_QUEST("Note to William"), questBefore = TODO_QUEST("The Escape") },
           text = "William's a good friend and a slow one. Whatever he brews, it'll be right. It just won't be quick." },
         { id = "h_after", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Escape"), days = 3 } },
@@ -38,11 +38,11 @@ P:NPC {
         { id = "h_later", when = { questLater = { TODO_QUEST("The Escape"), days = 14 } },
           text = "They'll be found out one day. I'll be here when they are, with a stick, for anybody who raises their voice." },
         { id = "h_grown", when = { minLevel = 25, metBefore = true },
-          text = "Look at you. Went out that door an errand-runner and came back with a face that's seen things. Sit. Tell me none of them." },
+          text = "Look at you! You went out that door an errand-runner and came back with a face that's seen things. Sit down, and tell me none of them." },
       },
       again = {
-        { id = "h_again", text = "What else? I'm old, not deaf. Well. Old." },
-        { id = "h_again2", text = "Go on. The kettle's not boiled yet." },
+        { id = "h_again", text = "What else? I'm old, child, not deaf. Well, mostly not deaf." },
+        { id = "h_again2", text = "Go on, then; the kettle's not boiled yet." },
         { id = "h_again3", when = { questDone = TODO_QUEST("The Escape") }, text = "Ask away, accomplice." },
       },
       choices = {
@@ -70,7 +70,7 @@ P:NPC {
     },
     why_who = {
       lines = {
-        { id = "ww_default", text = "That's mine to carry, child. You carry your own. Everybody's got a sack of them; mine's just older." },
+        { id = "ww_default", text = "That's mine to carry, child, and you carry your own. Everybody's got a sack of them; mine's just older than most." },
       },
       choices = {
         { text = "Fair. Something else.", next = "BACK", fx = { affinity = 1 } },
@@ -114,7 +114,7 @@ P:NPC {
     },
     william_potion = {
       lines = {
-        { id = "wp_default", text = "William's never brewed a thing that didn't work. Slowly, mind. He'll fuss over it like it's his own grandchild." },
+        { id = "wp_default", text = "William's never brewed a thing that didn't work, though he takes his time about it. He'll fuss over that potion like it's his own grandchild." },
       },
       choices = {
         { text = "Slow and right. I'll take it.", next = "BACK", fx = { affinity = 1 } },
@@ -142,7 +142,7 @@ P:NPC {
     },
     family_pig = {
       lines = {
-        { id = "fp_default", text = "The Brackwells' sow, Princess. Ma takes it personally. Ma takes most things personally; that's how you know she's a Stonefield." },
+        { id = "fp_default", text = "That's the Brackwells' sow, Princess, and Ma takes her personally. Ma takes most things personally; that's how you know she's a Stonefield." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -168,13 +168,13 @@ P:NPC {
     },
     priest_forgive = {
       lines = {
-        { id = "pf_default", text = "Cheeky. Right, though. Get out of my kitchen before you're right twice in one day." },
+        { id = "pf_default", text = "Cheeky, but right. Now get out of my kitchen before you're right twice in one day." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } } },
     },
     noble = {
       lines = {
-        { id = "nb_default", text = "Lords and ladies feud over seats; we feud over fences. Same foolishness, finer cloth. Did yours ever end one?" },
+        { id = "nb_default", text = "Lords and ladies feud over seats in the city, and we feud over fences; it's the same foolishness in finer cloth. Did your lot ever end one?" },
       },
       choices = {
         { text = "Not that I know of.", next = "BACK", fx = { affinity = 1 } },
@@ -185,9 +185,9 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "Mildred Stonefield, since you ask, and nobody does. Everyone's called me Gramma so long I answer to nothing else." } },
-    advice = { { id = "tp_ad", text = "Forgive early. It's cheaper." } },
+    advice = { { id = "tp_ad", text = "Forgive people early, child; it costs you less than doing it late." } },
     maybell_tommy = {
-      { id = "tp_us", text = "Shh. The walls have Stonefields in them. Yes. It's going well." },
+      { id = "tp_us", text = "Shh, the walls have Stonefields in them. Yes, it's going well, now hush." },
       { id = "tp_us2", text = "Sit down and ask me properly. Why I help them, you mean?", next = "why" },
     },
     lions_pride = { { id = "tp_inn", text = "William Pestle keeps a room there. We go back further than either of us likes to say." } },

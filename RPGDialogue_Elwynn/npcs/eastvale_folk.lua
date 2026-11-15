@@ -12,15 +12,15 @@ P:NPC {
 
   greetings = {
     { id = "g_loom", text = "Careful, that's a warp thread you're standing on." },
-    { id = "g_bandanas", when = { questActive = TODO_QUEST("Red Linen Goods") }, text = "Bandanas? Any red ones? Only the red ones." },
-    { id = "g_after", when = { questDone = TODO_QUEST("Red Linen Goods") }, text = "My best customer of thieves' laundry. Hello again." },
+    { id = "g_bandanas", when = { questActive = TODO_QUEST("Red Linen Goods") }, text = "Have you brought me bandanas? Only the red ones are any use to me, mind." },
+    { id = "g_after", when = { questDone = TODO_QUEST("Red Linen Goods") }, text = "Hello again, my best supplier of thieves' laundry!" },
   },
 
   notice = {
     { id = "n_tailor", cat = "craft", when = { profession = "Tailoring" },
-      text = "A tailor! Feel this. That's Defias linen, washed twice. Nobody would believe where it came from. That's the beauty of it." },
+      text = "A tailor! Feel this; that's Defias linen, washed twice, and nobody would believe where it came from. That's the beauty of it." },
     { id = "n_red", cat = "red", when = { questObjective = { TODO_QUEST("Red Linen Goods"), left = { max = 2 } } },
-      text = "Nearly six. I can see the red poking out of your pack from here. Lovely colour, isn't it? Shame about the people inside it." },
+      text = "Nearly six, then; I can see the red poking out of your pack from here. Lovely colour, isn't it, though it's a shame about the people inside it." },
   },
 
   start = "hello",
@@ -34,13 +34,13 @@ P:NPC {
           text = "Six. Red, not burlap; the Northshire lot wear sacks on their heads, and I can't do anything with sacks." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Red Linen Goods"), days = 3 } },
           text = "A sash and a shirt out of six thieves' bandanas. If any of them come asking for their linen back, send them to me." },
-        { id = "h_thread", when = { metBefore = true }, text = "Ran out of blue thread halfway through a hem. Finished it in brown. Nobody's noticed. You didn't either, until I told you." },
+        { id = "h_thread", when = { metBefore = true }, text = "I ran out of blue thread halfway through a hem and finished it in brown. Nobody's noticed, and you didn't either until I told you." },
         { id = "h_sit", when = { timesTalked = { max = 1 } },
           text = "Sit, if you like. Don't mind the needle; I can sew and listen at once. Most of this camp's news comes past my front step." },
       },
       again = {
-        { id = "h_again", text = "Go on. I'm listening. The needle's listening too." },
-        { id = "h_again2", text = "What else? Mind the thread." },
+        { id = "h_again", text = "Go on, I'm listening, and so is the needle." },
+        { id = "h_again2", text = "What else? Only mind the thread while you think." },
       },
       choices = {
         { text = "Isn't that a little grim?", next = "grim" },
@@ -54,7 +54,7 @@ P:NPC {
     },
 
     grim = {
-      lines = { { id = "g_default", text = "Grim is leaving good cloth on a dead thief. I'm practical. Raelen says so, and she says almost nothing nice." } },
+      lines = { { id = "g_default", text = "Grim is leaving good cloth on a dead thief. I'm practical, Raelen says, and she says almost nothing nice about anyone." } },
       choices = {
         { text = "Where do the bandanas come from?", next = "grim_where" },
         { text = "Ha. Fair.", next = "BACK", fx = { affinity = 1 } },
@@ -78,7 +78,7 @@ P:NPC {
     },
     cloth_defias = {
       lines = {
-        { id = "cd_default", text = "Masons, the talk goes. Men who built half of Stormwind and weren't paid for it. Builders know good materials. Funny where life takes people." },
+        { id = "cd_default", text = "Masons, the talk goes: men who built half of Stormwind and were never paid for it. Builders know good materials, so it's funny where life takes people." },
       },
       choices = {
         { text = "That's not funny.", next = "BACK", fx = { learn = { "defias" }, opinion = { defias = "masons_wronged" } } },
@@ -122,7 +122,7 @@ P:NPC {
     },
     rogue = {
       lines = {
-        { id = "ro_default", text = "Isn't it? I've always said so. That's how you can tell the Defias want to be seen." },
+        { id = "ro_default", text = "Isn't it? I've always said so, and that's how you can tell the Defias want to be seen." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
@@ -131,9 +131,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I sew. I sit out front so I can see the road. That's all a person needs to know about me." } },
     advice = { { id = "tp_ad", text = "Mend a tear the day you get it. A small hole is a stitch; a week-old hole is a new coat." } },
-    defias = { { id = "tp_defias", text = "Dreadful people. Excellent taste in fabric. Life's complicated." } },
+    defias = { { id = "tp_defias", text = "Dreadful people with excellent taste in fabric. Life's complicated like that." } },
     eastvale = { { id = "tp_eastvale", text = "Sawdust in everything. My thread, my bread, my hair." } },
-    _none = { { id = "tp_none", text = "Can I sew it? No? Then I've no opinion." } },
+    _none = { { id = "tp_none", text = "Can I sew it? If not, I've no opinion on it." } },
   },
 }
 
@@ -145,29 +145,29 @@ P:NPC {
   notices = { "drink" },
 
   greetings = {
-    { id = "g_thirst", text = "Got any water? Farming's thirsty work." },
-    { id = "g_again", when = { questDone = TODO_QUEST("Give Gerard a Drink") }, text = "My water-bringer! Got any more? I've got apples." },
+    { id = "g_thirst", text = "Got any water on you, friend? Farming's thirsty work out here." },
+    { id = "g_again", when = { questDone = TODO_QUEST("Give Gerard a Drink") }, text = "My water-bringer! Have you got any more? I've got apples." },
   },
 
   notice = {
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
-      text = "Somebody's had something stronger than water. Lucky you. I'm out here with a hoe and a dry throat." },
+      text = "Somebody's had something stronger than water, lucky you, and here's me out here with a hoe and a dry throat." },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "Gerard. I work the vines. Sun's hot, rows are long, and the well's a long walk. A man could die of thirst out here. Slowly." },
+        { id = "h_default", text = "Gerard, and I work the vines. The sun's hot, the rows are long and the well's a long walk, so a man could die of thirst out here, slowly." },
         { id = "h_trade", tags = { "news" }, when = { questActive = TODO_QUEST("Give Gerard a Drink") },
-          text = "Spring water. The good stuff. Bring me a flask and I'll give you an apple. Fair trade. Best trade in Elwynn." },
+          text = "Spring water's the good stuff. Bring me a flask and I'll give you an apple for it, and that's the best trade in Elwynn." },
         { id = "h_lovers", when = { topicKnown = "maybell_tommy" },
-          text = "Miss Maybell goes down to the river most evenings. Says she's counting grapes. There are no grapes by the river. I don't say anything. Not my business." },
+          text = "Miss Maybell goes down to the river most evenings, says she's counting grapes, though there are no grapes by the river. I don't say anything, since it's not my business." },
         { id = "h_vines", when = { metBefore = true }, text = "The vines are coming on. Another month and we'll have grapes, if the crows don't find them first. The crows always find them first." },
       },
       again = {
-        { id = "h_again", text = "What else? Talk slow. Saves water." },
-        { id = "h_again2", text = "Go on. The vines aren't going anywhere." },
+        { id = "h_again", text = "What else? Talk slow, it saves water." },
+        { id = "h_again2", text = "Go on; the vines aren't going anywhere." },
       },
       choices = {
         { text = "Tell me about the vineyard.", next = "vines" },
@@ -182,7 +182,7 @@ P:NPC {
 
     vines = {
       lines = {
-        { id = "v_default", text = "Maclure grapes. Long rows, hot sun, crows. The family works hard and pays fair, and they never mention the Stonefields if they can shout instead." },
+        { id = "v_default", text = "Maclure grapes, in long rows under a hot sun, with crows. The family works hard and pays fair, and they never mention the Stonefields if they can shout instead." },
       },
       choices = {
         { text = "Do you mind the feud?", next = "vines_feud" },
@@ -191,7 +191,7 @@ P:NPC {
     },
     vines_feud = {
       lines = {
-        { id = "vf_default", text = "I'm a vine-hand. I don't have feuds. I have blisters." },
+        { id = "vf_default", text = "I'm a vine-hand, so I don't have feuds; I have blisters." },
       },
       choices = {
         { text = "Wise.", next = "BACK", fx = { affinity = 1 } },
@@ -207,7 +207,7 @@ P:NPC {
 
     water = {
       lines = {
-        { id = "w_default", text = "Spring water's clean and the well's a walk. Apples I've got more of than I can eat. That's trade." },
+        { id = "w_default", text = "Spring water's clean and the well's a walk, and I've got more apples than I can eat. That's trade." },
       },
       choices = {
         { text = "Isn't that a poor deal for you?", next = "water_deal" },
@@ -216,7 +216,7 @@ P:NPC {
     },
     water_deal = {
       lines = {
-        { id = "wd_default", text = "Best deal in Elwynn. You get an apple, I get to not die. Everybody goes home happy." },
+        { id = "wd_default", text = "It's the best deal in Elwynn: you get an apple, and I get to not die. Everybody goes home happy." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
@@ -229,9 +229,9 @@ P:NPC {
 
     billy = {
       lines = {
-        { id = "b_default", text = "The young Maclure? Mostly harmless. Mostly hungry. If something goes missing round here, ask where Billy was playing." },
+        { id = "b_default", text = "The young Maclure? He's mostly harmless and mostly hungry. If something goes missing round here, ask where Billy was playing." },
         { id = "b_necklace", when = { questActive = TODO_QUEST("Lost Necklace") },
-          text = "Auntie Bernice thinks he took her necklace? I couldn't say. I could, but I won't." },
+          text = "Auntie Bernice thinks he took her necklace? I couldn't say, or I could, but I won't." },
       },
       choices = {
         { text = "You know something.", next = "billy_know" },
@@ -240,14 +240,14 @@ P:NPC {
     },
     billy_know = {
       lines = {
-        { id = "bk_default", text = "I know the boy goes up toward the mine when he thinks nobody's watching. I'm a vine-hand. I'm always watching. I'm just not telling." },
+        { id = "bk_default", text = "I know the boy goes up toward the mine when he thinks nobody's watching. I'm a vine-hand, so I'm always watching; I'm just not telling." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "kobolds" } } } },
     },
 
     priest = {
       lines = {
-        { id = "p_default", text = "I'll take any blessing going. Bless the crows away, if you can. That's the prayer I'd want." },
+        { id = "p_default", text = "I'll take any blessing going, and bless the crows away if you can. That's the prayer I'd want." },
       },
       choices = {
         { text = "Light keep the vines, and the man who tends them.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
@@ -256,7 +256,7 @@ P:NPC {
     },
     farmhand = {
       lines = {
-        { id = "fh_default", text = "Then you know thirsty. Westfall dirt's drier than ours. Folk come past on the road looking like they haven't had water in a week." },
+        { id = "fh_default", text = "Then you know what thirsty is, because Westfall dirt's drier than ours. Folk come past on the road looking like they haven't had water in a week." },
       },
       choices = {
         { text = "Most haven't.", next = "BACK", fx = { affinity = 1, learn = { "westfall" } } },
@@ -266,9 +266,9 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Vine-hand. Maclure vines, Maclure wages. That's me, top to bottom." } },
-    advice = { { id = "tp_ad", text = "Carry water. More than you think. Then a bit more." } },
+    background = { { id = "tp_bg", text = "I'm a vine-hand on Maclure vines for Maclure wages, and that's me, top to bottom." } },
+    advice = { { id = "tp_ad", text = "Carry water, more than you think you'll need, and then a bit more." } },
     maybell_tommy = { { id = "tp_lovers", text = "I see things from the vines. I don't say things. That's how a vine-hand keeps his job." } },
-    _none = { { id = "tp_none", text = "Couldn't say. Got any water?" } },
+    _none = { { id = "tp_none", text = "Couldn't say, friend. Have you got any water?" } },
   },
 }

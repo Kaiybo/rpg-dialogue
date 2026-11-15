@@ -3,6 +3,7 @@
 ## Sources
 - https://warcraft.wiki.gg/wiki/Tommy_Joe_Stonefield (riverbank by Stonefield Farm; loves Maybell; quests Young Lovers, Speak with Gramma)
 - https://warcraft.wiki.gg/wiki/Gramma_Stonefield (his grandmother helps him)
+- https://warcraft.wiki.gg/wiki/Maybell_Maclure (he is the heir of the Stonefield farmstead)
 
 ## Their quests
 - Young Lovers (turned in to him): Maybell's message. He's desperate for news of her.
@@ -36,3 +37,8 @@ Honest. His account of his father's reasons is his own impression.
 
 ## Topics
 maybell_tommy, murlocs_east
+
+## Depth and voice rewrite (Elwynn, second half; authored, not canon unless sourced)
+- Heir to the farm, so one day he'll be the Stonefield who decides about the feud. Watches the vineyard roofs from the river bend.
+- Gated: priest offers to bless a wedding (he grins; nothing about a later marriage is said), human_westfall_farmhand (Westfall folk with nothing, us fighting over a fence), Young Lovers active.
+- Voice pass (2026-11-15): every line rewritten as whole spoken sentences (no stacked fragments); meaning, ids and conditions unchanged.

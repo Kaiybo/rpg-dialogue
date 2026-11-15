@@ -10,14 +10,14 @@ P:NPC {
   notices = { "trophy", "kit" },
 
   greetings = {
-    { id = "g_gate", text = "Westbrook Garrison. What there is of it." },
-    { id = "g_help", when = { questActive = TODO_QUEST("Westbrook Garrison Needs Help!") }, text = "Dughan sent you? Good. I asked for a squad. You'll do." },
-    { id = "g_bounty", when = { questActive = TODO_QUEST("Riverpaw Gnoll Bounty") }, text = "Proof off the gnolls. Bring me a fistful." },
+    { id = "g_gate", text = "Welcome to Westbrook Garrison, what there is of it." },
+    { id = "g_help", when = { questActive = TODO_QUEST("Westbrook Garrison Needs Help!") }, text = "So Dughan sent you, did he? Good; I asked for a squad, but you'll do." },
+    { id = "g_bounty", when = { questActive = TODO_QUEST("Riverpaw Gnoll Bounty") }, text = "Bring me proof off those gnolls, and a good fistful of it." },
   },
 
   notice = {
     { id = "n_hogger", cat = "trophy", place = "before", when = { questReady = TODO_QUEST("WANTED: \"Hogger\"") },
-      text = "Is that- that's Hogger's claw. Hogger's! Dughan's going to have to sit down when he sees that." },
+      text = "Is that- that's Hogger's claw, Hogger's! Dughan's going to have to sit down when he sees that." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.3 } },
       text = "Gnolls got their teeth into you, I see. They go for the gaps in the armor. Close the gaps." },
   },
@@ -27,15 +27,15 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Deputy Rainer. Westbrook's the last post before Westfall, and the kingdom's sent most of its soldiers abroad. I've got what's left." },
+          text = "Deputy Rainer. Westbrook's the last post before Westfall, and the kingdom's sent most of its soldiers abroad, so I've got what's left." },
         { id = "h_bounty", tags = { "news" }, when = { questRecent = { TODO_QUEST("Riverpaw Gnoll Bounty"), days = 3 } },
-          text = "Fewer gnolls on the west road this week. My lads are even walking patrols in pairs instead of fives. Progress." },
+          text = "There are fewer gnolls on the west road this week, and my lads are walking patrols in pairs instead of fives. That's progress." },
         { id = "h_hogger", when = { questBefore = TODO_QUEST("WANTED: \"Hogger\"") },
-          text = "See the notice? Hogger. Big gnoll, bigger appetite. The Army wants him dead. So does everybody he's ever looked at." },
+          text = "Have you seen the notice? That's Hogger, a big gnoll with a bigger appetite. The Army wants him dead, and so does everybody he's ever looked at." },
         { id = "h_gryan", when = { questActive = TODO_QUEST("Report to Gryan Stoutmantle") },
-          text = "Westfall's worse than here, believe it or not. Gryan Stoutmantle's holding Sentinel Hill with farmers. Go. Tell him Westbrook sends what it can, which is you." },
+          text = "Westfall's worse off than here, believe it or not, and Gryan Stoutmantle's holding Sentinel Hill with farmers. Go and tell him Westbrook sends what it can, which is you." },
         { id = "h_raelen", key = true, when = { heardLine = "raelen.h_rainer" },
-          text = "Raelen said that? She sent word about bears near Eastvale. Eastvale! I'm at the other end of the forest. Somebody tell her where Westbrook is." },
+          text = "Raelen said that? She sent word about bears near Eastvale, Eastvale, when I'm at the other end of the forest! Somebody tell her where Westbrook is." },
         { id = "h_seasoned", when = { minLevel = 25 },
           text = "Look at you. You came through that gate with a stick and a hopeful face. Now my lads stand up straighter when you pass." },
       },
@@ -70,7 +70,7 @@ P:NPC {
     },
     soldiers_abroad = {
       lines = {
-        { id = "sa_default", text = "Abroad. Nobody tells a deputy where. They tell him to hold, so I hold, and I write letters." },
+        { id = "sa_default", text = "Abroad, and nobody tells a deputy where. They tell him to hold, so I hold, and I write letters." },
       },
       choices = {
         { text = "Then hold.", next = "BACK", fx = { align = { order = 1 } } },
@@ -78,7 +78,7 @@ P:NPC {
       },
     },
     fine = {
-      lines = { { id = "f_default", text = "You are. That's what worries me. If you're good enough, they'll never send soldiers." } },
+      lines = { { id = "f_default", text = "You are, and that's what worries me. If you're good enough, they'll never send soldiers." } },
       choices = { { text = "Ha.", next = "BACK" } },
     },
 
@@ -93,9 +93,9 @@ P:NPC {
     },
     gnolls_hogger = {
       lines = {
-        { id = "gh_default", text = "Hogger. Read the notice. Big, cleverer than a gnoll ought to be, and he's beaten every patrol we've sent at him." },
+        { id = "gh_default", text = "That's Hogger; read the notice. He's big, cleverer than a gnoll ought to be, and he's beaten every patrol we've sent at him." },
         { id = "gh_dead", when = { questDone = TODO_QUEST("WANTED: \"Hogger\"") },
-          text = "Led. You saw to that. The pack's still out there, but it's stupider now. I'll take stupid." },
+          text = "Led, I should say, since you saw to that. The pack's still out there, but it's stupider now, and I'll take stupid." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "hogger", "riverpaw" } } } },
     },
@@ -118,7 +118,7 @@ P:NPC {
 
     raelen = {
       lines = {
-        { id = "r_default", text = "Eastvale. I'm at Westbrook. There's a whole forest between us. I'd help her if I had boots to spare, and I haven't." },
+        { id = "r_default", text = "She's in Eastvale and I'm at Westbrook, with a whole forest between us. I'd help her if I had boots to spare, and I haven't." },
       },
       choices = {
         { text = "I'll carry word back.", next = "BACK", fx = { affinity = 1 } },
@@ -127,7 +127,7 @@ P:NPC {
     },
     farmhand = {
       lines = {
-        { id = "fh_default", text = "Then you know. Did anyone stop you at this gate? No. Nobody's here to. That's my whole complaint, in one breath." },
+        { id = "fh_default", text = "Then you know how it is. Did anyone stop you at this gate on your way through? No, because there's nobody here to, and that's my whole complaint in one breath." },
       },
       choices = {
         { text = "I'm here now.", next = "BACK", fx = { affinity = 2, standing = { goldshire = 1 } } },
@@ -152,15 +152,15 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Deputy, Stormwind Army, Westbrook. I hold a road with a handful of lads. That's me." } },
+    background = { { id = "tp_bg", text = "Deputy of the Stormwind Army, at Westbrook. I hold a road with a handful of lads, and that's me." } },
     advice = { { id = "tp_ad", text = "Gnolls go for the gaps in your armor. Close the gaps." } },
     hogger = {
-      { id = "tp_hogger", text = "South-west, in the hills. You'll know him. He'll know you first." },
+      { id = "tp_hogger", text = "South-west, up in the hills. You'll know him when you see him, though he'll know you first." },
       { id = "tp_hogger2", text = "Him again. Sit down; I'll tell you about the pack.", next = "gnolls" },
     },
     riverpaw = { { id = "tp_riverpaw", text = "Painted armbands, bad teeth, worse manners. Bring me the armbands." } },
-    defias = { { id = "tp_defias", text = "Coming up from Westfall like rats from a flood. We hold the road. Mostly." } },
+    defias = { { id = "tp_defias", text = "They're coming up from Westfall like rats from a flood, and we hold the road, mostly." } },
     westfall = { { id = "tp_westfall", text = "Next door, and worse off. Stoutmantle's doing the Army's job with pitchforks." } },
-    _none = { { id = "tp_none", text = "Not on the west road, not my problem. Try Dughan." } },
+    _none = { { id = "tp_none", text = "If it's not on the west road, it's not my problem, so try Dughan in Goldshire." } },
   },
 }

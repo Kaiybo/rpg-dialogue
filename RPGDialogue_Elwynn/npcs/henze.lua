@@ -11,8 +11,8 @@ P:NPC {
   notices = { "paladin" },
 
   greetings = {
-    { id = "g_low", text = "Still breathin'. Just about. Don't make me laugh, it hurts." },
-    { id = "g_after", when = { questDone = TODO_QUEST("The Symbol of Life") }, text = "Ah! My favourite paladin. Ye're the only one I've got, mind." },
+    { id = "g_low", text = "Still breathin', just about. Don't make me laugh, it hurts." },
+    { id = "g_after", when = { questDone = TODO_QUEST("The Symbol of Life") }, text = "Ah, my favourite paladin! Ye're the only one I've got, mind." },
   },
 
   notice = {
@@ -24,22 +24,22 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "Henze Faulk. Gazin an' me were watchin' the Defias for the king's advisors. They caught Gazin, near enough. I went in after him. They caught me properly." },
+        { id = "h_default", text = "Henze Faulk. Gazin an' me were watchin' the Defias for the king's advisors, an' when they near enough caught Gazin, I went in after him. They caught me properly." },
         { id = "h_after", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Symbol of Life"), days = 3 } },
-          text = "I was dead. I know I was. Cold, quiet, nothin'. Then there was you, an' a light, an' a terrible taste in my mouth. Thank ye. I mean it." },
+          text = "I was dead, I know I was: cold an' quiet an' nothin'. Then there was you, an' a light, an' a terrible taste in my mouth, so thank ye, an' I mean it." },
         { id = "h_later", when = { questLater = { TODO_QUEST("The Symbol of Life"), days = 7 } },
-          text = "Gazin's still feelin' guilty. Tell him to stop. I'd go in after him again. I'd just bring a paladin next time." },
+          text = "Gazin's still feelin' guilty, so tell him to stop. I'd go in after him again; I'd just bring a paladin next time." },
         { id = "h_dwarf", when = { race = "Dwarf" },
-          text = "A dwarf! Ye wouldnae have a drop of somethin' warmin' on ye? For medicinal purposes. Medicinal." },
+          text = "A dwarf! Ye wouldnae have a drop of somethin' warmin' on ye, for medicinal purposes? Strictly medicinal." },
         { id = "h_dwarf_shaman", when = { race = "Dwarf", class = "SHAMAN" },
           text = "A dwarf talkin' to the elements! My granddad would've fallen off his stool. I'm just glad somebody's listenin' to the ground. It's got plenty to say." },
-        { id = "h_dead", when = { metBefore = true }, text = "Still dead-ish? No, still alive. I check every morning. It's a good habit once ye've been the other thing." },
+        { id = "h_dead", when = { metBefore = true }, text = "Still dead-ish? No, still alive; I check every mornin'. It's a good habit once ye've been the other thing." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "A priest. If ye've come to read me the last rites, ye're late. Somebody already read me the first ones again." },
       },
       again = {
         { id = "h_again", text = "What else? I'm no' goin' anywhere, mind, since my legs are still on strike." },
-        { id = "h_again2", text = "Go on, then. Talkin' keeps me warm." },
+        { id = "h_again2", text = "Go on, then, since talkin' keeps me warm." },
       },
       choices = {
         { text = "What was it like?", next = "dead" },
@@ -55,7 +55,7 @@ P:NPC {
     dead = {
       big = true,
       lines = {
-        { id = "d_default", text = "Quiet. Not bad, not good. Just quiet, like the forge on a holiday. I didnae mind it. I mind bein' back less, though." },
+        { id = "d_default", text = "Quiet, not bad nor good, just quiet, like the forge on a holiday. I didnae mind it, though I mind bein' back less." },
       },
       choices = {
         { text = "The priests say the Light waits there.", next = "dead_priest", when = { class = "PRIEST" } },
@@ -65,7 +65,7 @@ P:NPC {
     },
     dead_priest = {
       lines = {
-        { id = "dp_default", text = "Maybe it does. I didnae see it. Maybe I wasnae far enough in. Don't go tellin' the Cathedral I said so." },
+        { id = "dp_default", text = "Maybe it does, but I didnae see it, an' maybe I wasnae far enough in. Don't go tellin' the Cathedral I said so." },
       },
       choices = {
         { text = "Your secret's safe. The Light knows anyway.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
@@ -112,7 +112,7 @@ P:NPC {
     },
     place_wizards = {
       lines = {
-        { id = "pw_default", text = "Rogue wizards. Mutterin', glowin', unpleasant. They let a dyin' dwarf lie. I'll no' thank them for it." },
+        { id = "pw_default", text = "Rogue wizards, mutterin' an' glowin' an' generally unpleasant. They let a dyin' dwarf lie, an' I'll no' thank them for it." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -126,7 +126,7 @@ P:NPC {
 
     heal = {
       lines = {
-        { id = "he_default", text = "Kind of ye. The paladin's Light did the big work; yours can do the small. My ribs'll thank ye. Loudly." },
+        { id = "he_default", text = "Kind of ye. The paladin's Light did the big work, so yours can do the small, an' my ribs'll thank ye loudly." },
       },
       choices = {
         { text = "Hold still.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
@@ -135,7 +135,7 @@ P:NPC {
     },
     drink = {
       lines = {
-        { id = "dr_default", text = "Medicinal. Strictly. Ah, ye've nothin'. Then tell me a joke from home; that's near as good." },
+        { id = "dr_default", text = "Strictly medicinal, ye understand, an' ah, I see ye've nothin'. Then tell me a joke from home, which is near as good." },
       },
       choices = {
         { text = "What's a dwarf's favourite stone? The one with ale under it.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } },
@@ -145,10 +145,10 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "A dwarf far from the mountain, watchin' thieves for the humans. Got killed for it. Got better." } },
+    background = { { id = "tp_bg", text = "A dwarf far from the mountain, watchin' thieves for the humans. I got killed for it, an' then I got better." } },
     advice = { { id = "tp_ad", text = "If yer friend's caught, go in after him. But bring a paladin." } },
-    defias = { { id = "tp_defias", text = "They don't fight fair an' they don't leave witnesses. I'm the exception. I'm very proud." } },
-    tome_of_divinity = { { id = "tp_tome", text = "Whatever's in that book, it brought me back. I'll read it myself one day. Maybe." } },
+    defias = { { id = "tp_defias", text = "They don't fight fair an' they don't leave witnesses, an' I'm the exception, which I'm very proud of." } },
+    tome_of_divinity = { { id = "tp_tome", text = "Whatever's in that book, it brought me back. I'll read it myself one day, maybe." } },
     _none = { { id = "tp_none", text = "I was dead for a bit. I've missed some news." } },
   },
 }

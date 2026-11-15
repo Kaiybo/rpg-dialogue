@@ -13,16 +13,16 @@ P:NPC {
     { id = "g_light", text = "The Light keeps you." },
     { id = "g_lesson", when = { class = "PALADIN" }, text = "Ready for your next lesson?" },
     { id = "g_other", when = { ["not"] = { class = "PALADIN" } }, text = "Not one of mine, but welcome all the same." },
-    { id = "g_priest", when = { class = "PRIEST" }, text = "Anetta's, are you? Welcome to the hall of arms. Mind the practice swords." },
+    { id = "g_priest", when = { class = "PRIEST" }, text = "One of Anetta's, are you? Welcome to the hall of arms, and mind the practice swords." },
   },
 
   notice = {
     { id = "n_disease", cat = "affliction", place = "before", when = { debuffType = "Disease" },
       text = "You're sick. Hold still and let me look at you." },
     { id = "n_curse", cat = "affliction", place = "before", when = { debuffType = "Curse" },
-      text = "A curse. I can feel it from here. A mage or a druid can lift it. I can only pray." },
+      text = "There's a curse on you; I can feel it from here. A mage or a druid can lift it, but all I can do is pray." },
     { id = "n_taint", cat = "light", when = { taint = { min = 20 } },
-      text = "Something clings to you that the Light doesn't like. I won't ask. Not today." },
+      text = "Something clings to you that the Light doesn't like. I won't ask about it, not today." },
   },
 
   start = "hello",
@@ -31,26 +31,26 @@ P:NPC {
       lines = {
         { id = "h_default", text = "I teach those the Light has chosen. The rest I simply pray for." },
         { id = "h_ghost", priority = 100, when = { ghost = true },
-          text = "I can feel you there, though I can't see you. Go to the healer, child. Then come back to me." },
+          text = "I can feel you there, though I can't see you. Go to the healer, child, and then come back to me." },
         { id = "h_paladin", when = { class = "PALADIN" },
           text = "Every paladin's first lesson is the same. The Light isn't a weapon you own. It's a trust you keep." },
         { id = "h_letter", tags = { "news" }, when = { questRecent = { TODO_QUEST("Consecrated Letter"), days = 1 } },
-          text = "The Marshal sent you with a letter. Good. Then we begin today." },
+          text = "The Marshal sent you with a letter? Good, then we begin today." },
         { id = "h_dwarf_paladin", when = { race = "Dwarf", class = "PALADIN" },
-          text = "Ironforge sends us more of you each year. Good. Stubbornness is half of faith." },
+          text = "Ironforge sends us more of you each year, and I'm glad of it; stubbornness is half of faith." },
         { id = "h_squire", when = { origin = "human_paladin_squire" },
           text = "You were a squire of the Silver Hand. Then you know what was lost when it broke. Let's not lose the rest." },
         { id = "h_light", when = { alignment = { axis = "light", min = 50 } },
-          text = "You carry yourself like someone who's been forgiven. Or who forgives. Either will serve you." },
-        { id = "h_afraid", when = { metBefore = true, class = "PALADIN" }, text = "How was your first real fight? Don't tell me you won. Tell me whether you were afraid. The afraid ones listen better." },
+          text = "You carry yourself like someone who's been forgiven, or who forgives. Either will serve you well." },
+        { id = "h_afraid", when = { metBefore = true, class = "PALADIN" }, text = "How was your first real fight? Don't tell me you won; tell me whether you were afraid, because the afraid ones listen better." },
         { id = "h_floor", when = { metBefore = true }, text = "I've knelt on this floor every morning for longer than you've been alive. The stone is worn where I kneel. I find that a comfort." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "The Abbey is quiet at this hour. The Light doesn't sleep, but it does seem to rest." },
         { id = "h_returned", when = { minLevel = 25, metBefore = true },
-          text = "You've come back to the Abbey. People do, after they've seen what's out there. The floor's the same. You aren't." },
+          text = "You've come back to the Abbey, as people do after they've seen what's out there. The floor's the same as it was, but you aren't." },
       },
       again = {
         { id = "h_again", text = "What else is on your mind?" },
-        { id = "h_again2", text = "Go on. The practice swords can wait." },
+        { id = "h_again2", text = "Go on; the practice swords can wait a while." },
       },
       choices = {
         { text = "What does the Light ask of me?", next = "light" },
@@ -67,7 +67,7 @@ P:NPC {
     light = {
       big = true,
       lines = {
-        { id = "l_default", text = "Mercy when it costs you. Courage when it doesn't pay. The rest is detail." },
+        { id = "l_default", text = "Mercy when it costs you, and courage when it doesn't pay. The rest is detail." },
         { id = "l_shadow", when = { alignment = { axis = "light", max = -30 } },
           text = "You've walked some way from it already. The road back is shorter than you think." },
       },
@@ -87,7 +87,7 @@ P:NPC {
     },
     light_mine = {
       lines = {
-        { id = "lm_default", text = "Whoever's next to you. That's the trick of it. Nobody carries their own for long, if they let anyone near." },
+        { id = "lm_default", text = "Whoever's next to you; that's the trick of it. Nobody carries their own for long, if they let anyone near." },
       },
       choices = { { text = "Something else, Brother.", next = "BACK" } },
     },
@@ -128,14 +128,14 @@ P:NPC {
     },
     abbey_hand = {
       lines = {
-        { id = "ah_default", text = "Broken, in the north, with Lordaeron. Not here. Oaths outlast orders, if you keep them. I keep mine every morning on this floor." },
+        { id = "ah_default", text = "It broke in the north, with Lordaeron, but not here. Oaths outlast orders if you keep them, and I keep mine every morning on this floor." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "northshire_abbey" }, align = { order = 1 } } } },
     },
 
     priest = {
       lines = {
-        { id = "pr_default", text = "Anetta teaches you to mend. I teach my lot to stand in front of the ones you're mending. Same Light. Different end of the sword." },
+        { id = "pr_default", text = "Anetta teaches you to mend, and I teach my lot to stand in front of the ones you're mending. It's the same Light, held at a different end of the sword." },
       },
       choices = {
         { text = "Then we'd better work together.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
@@ -164,7 +164,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "A brother of Northshire and a paladin of the Light. Where I came from matters less than where I kneel." } },
-    advice = { { id = "tp_ad", text = "Kneel every morning, even when you don't feel like it. Especially then." } },
+    advice = { { id = "tp_ad", text = "Kneel every morning, even when you don't feel like it, and especially then." } },
     defias = { { id = "t_defias", text = "They're somebody's sons. That doesn't make them less dangerous." } },
     northshire_abbey = {
       { id = "t_abbey", text = "Where the first paladins learned their oaths. I try to deserve the floor I stand on." },

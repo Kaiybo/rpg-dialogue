@@ -9,13 +9,13 @@ P:NPC {
   notices = { "craft" },
 
   greetings = {
-    { id = "g_fire", text = "Well, hello there! Pull up a log. The fire's going and the kettle's nearly there." },
-    { id = "g_back", when = { metBefore = true }, text = "There's my favorite passer-by! Fire's still warm. Sit." },
+    { id = "g_fire", text = "Well, hello there! Pull up a log; the fire's going and the kettle's nearly there." },
+    { id = "g_back", when = { metBefore = true }, text = "There's my favorite passer-by! The fire's still warm, so sit." },
   },
 
   notice = {
     { id = "n_cook", cat = "craft", when = { profession = "Cooking" },
-      text = "You cook? Then you're halfway to a camp already. Everything starts with a fire." },
+      text = "You cook? Then you're halfway to a camp already, because everything starts with a fire." },
     { id = "n_leather", cat = "craft", when = { profession = "Leatherworking" },
       text = "A leatherworker! You'll want to learn to pitch a tent. Rest by a fire with a tent beside it and you'll feel like a new person." },
   },
@@ -25,16 +25,16 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Sam Sarsaparilla. I'm an adventurer, or trying to be. Mostly I walk a long way and then sit by a fire. It's the best part." },
+          text = "Sam Sarsaparilla, adventurer, or trying to be. Mostly I walk a long way and then sit by a fire, which is the best part." },
         { id = "h_adventurer", tags = { "news" }, when = { questActive = TODO_QUEST("The Adventurer") },
-          text = "The Marshal sent you to check on me? Ha! Fair enough. Strangers on the road, and all. Sit down and I'll show you how harmless I am." },
+          text = "The Marshal sent you to check on me? Ha! Fair enough, with strangers on the road and all, so sit down and I'll show you how harmless I am." },
         { id = "h_outdoors", when = { questActive = TODO_QUEST("The Great Outdoors") },
           text = "Sit by the fire a while. No, longer than that. You'll feel it when you've properly rested." },
         { id = "h_far", when = { minLevel = 25 },
           text = "Look at the boots on you. Those have been somewhere. Sit down and tell me where; I've only got as far as this log." },
       },
       again = {
-        { id = "h_again", text = "What else? There's tea, if you're staying." },
+        { id = "h_again", text = "What else? There's tea, if you're staying a while." },
         { id = "h_again2", text = "Go on, the kettle won't boil any faster for you leaving." },
       },
       choices = {
@@ -80,7 +80,7 @@ P:NPC {
         { id = "ct_lw", when = { profession = "Leatherworking" },
           text = "A tent, you lucky thing. Adele Fielder by the lake will show you. Rest beside a tent and you wake up feeling twice as clever." },
         { id = "ct_fish", when = { profession = "Fishing" },
-          text = "A fish bowl. Don't laugh. A happy camp's a strong camp. Lee Brown on the lake pier will teach you." },
+          text = "A fish bowl, and don't laugh, because a happy camp's a strong camp. Lee Brown on the lake pier will teach you." },
         { id = "ct_aid", when = { profession = "First Aid" },
           text = "A first aid kit. Michelle Belle upstairs at the inn will show you. Somebody always needs one by the second night." },
       },
@@ -88,7 +88,7 @@ P:NPC {
     },
     camp_rest = {
       lines = {
-        { id = "cr_default", text = "Then you sit. Properly sit. A few minutes by the fire and you'll feel it settle in you: rested, sharper, ready for the road." },
+        { id = "cr_default", text = "Then you sit, properly sit. A few minutes by the fire and you'll feel it settle in you: rested, sharper and ready for the road." },
       },
       choices = {
         { text = "Why not in town?", next = "camp_town" },
@@ -104,7 +104,7 @@ P:NPC {
 
     road = {
       lines = {
-        { id = "r_default", text = "Wherever the road goes. Westfall next, maybe. Or Redridge. I hear the lake there's lovely, if you don't mind gnolls." },
+        { id = "r_default", text = "Wherever the road goes, Westfall next maybe, or Redridge. I hear the lake there's lovely, if you don't mind gnolls." },
       },
       choices = {
         { text = "Alone?", next = "road_alone" },
@@ -113,7 +113,7 @@ P:NPC {
     },
     road_alone = {
       lines = {
-        { id = "ra_default", text = "Never alone at a campfire. That's the whole trick. You light it, and people come." },
+        { id = "ra_default", text = "Never alone at a campfire; that's the whole trick of it. You light it, and people come." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
@@ -135,7 +135,7 @@ P:NPC {
     },
     far = {
       lines = {
-        { id = "f_default", text = "Then you should be teaching me! Sit. What's the strangest thing you ever cooked over a fire? I'll tell you mine after." },
+        { id = "f_default", text = "Then you should be teaching me! Sit down and tell me the strangest thing you ever cooked over a fire, and I'll tell you mine after." },
       },
       choices = {
         { text = "Raptor, once. Don't.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } },
@@ -151,6 +151,6 @@ P:NPC {
       { id = "tp_camping", text = "A campfire first; any cook can learn it. Then a tent if you work leather, a fish bowl if you fish. The more trades at a fire, the better the rest." },
       { id = "tp_camping2", text = "Sit down and I'll walk you through it.", next = "camp" },
     },
-    _none = { { id = "tp_none", text = "No idea! I've only just got here. Ask in Goldshire." } },
+    _none = { { id = "tp_none", text = "No idea! I've only just got here, so ask in Goldshire." } },
   },
 }

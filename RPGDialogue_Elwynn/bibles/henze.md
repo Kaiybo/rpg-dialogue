@@ -37,3 +37,9 @@ defias, tome_of_divinity
 
 ## Depth pass (0.25.0, authored, not canon)
 A repeat-visit line in the voice above.
+
+## Depth and voice rewrite (Elwynn, second half; authored, not canon unless sourced)
+- Sources added: https://warcraft.wiki.gg/wiki/Heroes%27_Vigil (the stone ring and the Stone of Remembrance for the dead of the orcs' sack of Goldshire in the First War; rogue wizards hold the island); https://warcraft.wiki.gg/wiki/Stone_Cairn_Lake
+- Authored: "a fittin' place to die"; the advisors read the notes, and what happens after is above a dwarf on a rock.
+- Gated: priest (tend wounds; the Light waits there), dwarf (a joke from home).
+- Voice pass (2026-11-15): every line rewritten as whole spoken sentences (no stacked fragments); meaning, ids and conditions unchanged.

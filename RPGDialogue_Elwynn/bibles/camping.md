@@ -15,3 +15,10 @@
 
 ## Voices
 - Sam: cheerful, a little self-deprecating, loves the fire more than the road (authored).
+
+## Depth and voice rewrite (Elwynn, second half; authored, not canon unless sourced)
+- Sources added: https://warcraft.wiki.gg/wiki/Camping ; https://warcraft.wiki.gg/wiki/Camping_101:_First_Aid (Michelle Belle teaches the First Aid Kit) ; https://warcraft.wiki.gg/wiki/Camping_101:_Fishing (Lee Brown, Fish Bowl) ; https://warcraft.wiki.gg/wiki/Camping_101:_Skinning (Helene Peltskinner, Camp Chair) ; https://warcraft.wiki.gg/wiki/Camping_101:_Cooking ; "most folk don't care for camps in the centre of town".
+- tp_camping now says a fish bowl for fishers (tier one), not a rack.
+- Authored: a dwarf with a fishing rod and a gnome at his fire; Westfall or Redridge next.
+- Gated: The Adventurer active, priest blessing the fire, level 25+ (cooking raptor).
+- Voice pass (2026-11-15): every line rewritten as whole spoken sentences (no stacked fragments); meaning, ids and conditions unchanged.
