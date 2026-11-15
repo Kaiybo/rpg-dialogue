@@ -114,7 +114,10 @@ local function people(add, c)
   for _, p in ipairs(list) do
     local name = p.m.name or p.key
     heading(add, name)
-    add(L.J_PERSON:format(affinityWord(p.m.affinity), L.J_TALKED:format(p.m.times or 0), when(p.m.last)))
+    local word = affinityWord(p.m.affinity)
+    local d = ns.Disposition and ns.Disposition.ForMemory(p.key)
+    if d then word = ns.Disposition.TierName(d):lower() end
+    add(L.J_PERSON:format(word, L.J_TALKED:format(p.m.times or 0), when(p.m.last)))
     local line = p.m.lastLine and ns.Data.Line(p.m.lastLine)
     if line and line.text then add(L.J_LAST_SAID:format(ns.Tokens.Render(line.text, ns.Context.New({ spoof = {} }), { info = { name = name } }))) end
     add(" ")

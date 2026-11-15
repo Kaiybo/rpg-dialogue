@@ -31,10 +31,10 @@ local function isTopic(i) return filtered[i] ~= nil and filtered[i].topic ~= nil
 
 local function refresh()
   local text = panel.search:GetText()
-  local list = ns.Topics.Filter(ns.Topics.Known(showArchive), text)
-  filtered = ns.Topics.Rows(list, text ~= nil and text ~= "")
   local s = ns.Conversation.session
   local npcKey = s and s.memKey
+  local list = ns.Topics.Filter(ns.Topics.Known(showArchive, npcKey), text)
+  filtered = ns.Topics.Rows(list, text ~= nil and text ~= "")
   for i = 1, MAX_ROWS do
     local row = panel.rows[i]
     local e = i <= rows and filtered[i + offset]
@@ -51,9 +51,11 @@ local function refresh()
       local t = e.topic
       row.topic = t.id
       local asked = npcKey and ns.Topics.AskedOf(t.id, npcKey)
+      local nothing = asked and ns.Topics.NothingFrom(t.id, npcKey)
       local suffix = ""
       if t.archived then suffix = " |cff888888(" .. L.ASK_ARCHIVED .. ")|r" end
-      if asked then suffix = suffix .. " " .. Theme.Hex("dim") .. "(" .. L.ASK_ASKED .. ")|r" end
+      if nothing then suffix = suffix .. " " .. Theme.Hex("dim") .. "(" .. L.ASK_NOTHING .. ")|r"
+      elseif asked then suffix = suffix .. " " .. Theme.Hex("dim") .. "(" .. L.ASK_ASKED .. ")|r" end
       row.label:SetText("  " .. t.name .. suffix)
       Theme.TextColor(row.label, "choice")
       row.cat:SetText("")
@@ -112,6 +114,28 @@ local function create()
     row:SetScript("OnClick", function(self)
       if self.topic then ns.Conversation.Ask(self.topic) end
     end)
+    -- Where the topic came from, and what this person made of it.
+    row:SetScript("OnEnter", function(self)
+      if not self.topic then return end
+      local def = ns.Data.topics[self.topic]
+      GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+      GameTooltip:SetText(def and def.name or self.topic)
+      if def and def.standard then
+        GameTooltip:AddLine(self.topic == "knows" and L.ASK_KNOWS_TIP or L.ASK_ANYONE_TIP, 1, 1, 1, true)
+      else
+        local from = ns.Topics.Source(self.topic)
+        if from then GameTooltip:AddLine(L.ASK_HEARD_FROM:format(from), 1, 1, 1, true) end
+      end
+      local s = ns.Conversation.session
+      local key = s and s.memKey
+      if key and ns.Topics.NothingFrom(self.topic, key) then
+        GameTooltip:AddLine(L.ASK_NOTHING_TIP, 0.7, 0.7, 0.7, true)
+      elseif key and ns.char.npc[key] and ns.char.npc[key].knows and ns.char.npc[key].knows[self.topic] then
+        GameTooltip:AddLine(L.ASK_KNOWS_ROW_TIP, 0.7, 0.7, 0.7, true)
+      end
+      GameTooltip:Show()
+    end)
+    row:SetScript("OnLeave", function() GameTooltip:Hide() end)
     panel.rows[i] = row
   end
   panel.empty = panel:CreateFontString(nil, "OVERLAY", "GameFontHighlight")

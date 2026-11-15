@@ -69,6 +69,7 @@ P:Topic { id = "powderfuse_port", keywords = { "Powderfuse" }, name = "Powderfus
 
 -- "Ask anyone": always known, answered by everyone (their own take, then their role's,
 -- then anyone's). Never linked in text, never archived.
+P:Topic { id = "knows", name = "What do you know?", category = "anyone", standard = true, order = 0, learned = "anyone" }
 P:Topic { id = "background", name = "Their story", category = "anyone", standard = true, order = 1, learned = "anyone" }
 P:Topic { id = "trade", name = "Their work", category = "anyone", standard = true, order = 2, learned = "anyone" }
 P:Topic { id = "advice", name = "A little advice", category = "anyone", standard = true, order = 3, learned = "anyone" }

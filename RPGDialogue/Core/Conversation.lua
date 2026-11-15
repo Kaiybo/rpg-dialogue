@@ -559,12 +559,64 @@ function Conv.Slur(text, level, seed)
   return text
 end
 
+-- Identity tags (0.34.0), Baldur's Gate style: a reply that's there because of who the
+-- player is says so: [Priest], [Human Priest], [Dwarf], [Alchemy], [Kind], or the origin.
+-- Read from the reply's own conditions (top level or inside `all`), never from `any` or
+-- `not`, and only what the player actually is (so a list of classes shows the player's).
+local function traitName(t)
+  return L["TRAIT_" .. tostring(t):upper()] or (tostring(t):gsub("^%l", string.upper))
+end
+
+function Conv.IdentityTag(when, ctx)
+  if type(when) ~= "table" then return nil end
+  local found = {}
+  local function scan(w)
+    for k, v in pairs(w) do
+      if k == "all" and type(v) == "table" then
+        for _, sub in ipairs(v) do if type(sub) == "table" then scan(sub) end end
+      elseif k == "class" or k == "race" or k == "origin" or k == "profession" or k == "trait" then
+        found[k] = found[k] or v
+      end
+    end
+  end
+  scan(when)
+  local race = found.race and ctx.raceName
+  local class = found.class and ctx.className
+  if race and class then return race .. " " .. class end
+  if class then return class end
+  if race then return race end
+  if found.origin then
+    local o = ns.Origins and ns.char.origin and ns.Origins.Find(ns.char.origin.id)
+    if o then return o.tag or o.name end
+  end
+  if found.profession then
+    local v = found.profession
+    return type(v) == "string" and v or (v.name or v[1])
+  end
+  if found.trait then
+    local v = found.trait
+    if type(v) == "table" then
+      for _, t in ipairs(ns.Effects.DominantTraits()) do
+        for _, want in ipairs(v) do if want == t then return traitName(t) end end
+      end
+      return nil
+    end
+    return traitName(v)
+  end
+  return nil
+end
+
 local function choiceLabel(entry)
   local choice = entry.choice
   local text = choice.text or "..."
   local tags = ns.db.settings.tags
   if choice.tag and tags ~= "never" and (tags == "always" or not entry.locked) and not text:find("^%[") then
     text = "[" .. choice.tag .. "] " .. text
+  elseif not choice.tag and tags ~= "never" and ns.db.settings.identityTags ~= false and not entry.locked
+    and not text:find("^%[") then
+    local s = Conv.session
+    local tag = s and Conv.IdentityTag(choice.when, s.ctx)
+    if tag then text = "[" .. tag .. "] " .. text end
   end
   if ns.db.settings.alignHints then
     local hint = alignHint(choice)
@@ -651,6 +703,7 @@ function Conv.ShowNode(nodeId)
     name = Ins and Ins.Name(info.name, env.seed) or info.name, subtitle = info.subtitle, unit = s.unit,
     text = body, linkedText = linked, choices = Conv.BuildChoices(node, isStart),
     lineGid = winner and winner.gid, canAsk = ns.Topics and ns.Topics.Any(),
+    askCount = ns.Topics and ns.Topics.Count(), disposition = Conv.DispositionView(s),
   })
   if ns.db.settings.tts then C.StopSpeaking(); C.Speak(body) end
 end
@@ -756,8 +809,10 @@ function Conv.Choose(index)
   local env, ctx = s.env, s.ctx
   local fx, nextId, journal = choice.fx, choice.next, choice.journal
 
+  local checkResult
   if Engine.IsSpecial(choice) then
     local success = Engine.CheckChoice(choice, ctx, env)
+    checkResult = success
     local checks = s.mem.checks or {}
     s.mem.checks = checks
     checks[s.node .. ":" .. index] = { t = env.now, ok = success, tag = choice.tag }
@@ -778,18 +833,68 @@ function Conv.Choose(index)
     end
     if Engine.IsStance(choice) then stances[s.node] = stances[s.node] or choice.text end
   end
+  local dispBefore = ns.Disposition and ns.Disposition.For(env, ctx)
   Effects.Apply(fx, env)
   Effects.Journal(journal, ctx, env)
+  s.pendingNote = Conv.ChoiceNote(choice, checkResult, fx, dispBefore)
 
   if nextId == "BUSINESS" then
+    s.pendingNote = nil
     Conv.Business(choice.text)
   elseif nextId == "BACK" then
     Conv.ShowNode(s.hub or (s.info.def and s.info.def.start) or "hello")
+    Conv.ShowPendingNote()
   elseif nextId == nil or nextId == "END" then
+    s.pendingNote = nil
     Conv.End()
   else
     Conv.ShowNode(nextId)
+    Conv.ShowPendingNote()
   end
+end
+
+-- What a reply did, said quietly under the answer (0.34.0): a check's result, and how the
+-- NPC took it (approval, Dragon Age style), with their new disposition when it changes tier.
+function Conv.ChoiceNote(choice, checkResult, fx, dispBefore)
+  local s = Conv.session
+  local settings = ns.db.settings
+  local notes = {}
+  if checkResult ~= nil and settings.checkResults ~= false then
+    notes[#notes + 1] = (checkResult and L.CHECK_PASSED or L.CHECK_FAILED):format(L["TAG_" .. choice.tag:upper()] or choice.tag)
+  end
+  local d = type(fx) == "table" and fx.affinity
+  if d and d ~= 0 and settings.approval ~= false and s then
+    local name = s.info.name or ""
+    local key = d >= 2 and "APPROVE_MUCH" or (d > 0 and "APPROVE" or (d <= -2 and "DISAPPROVE_MUCH" or "DISAPPROVE"))
+    notes[#notes + 1] = L[key]:format(name)
+    if dispBefore and ns.Disposition then
+      local after = ns.Disposition.For(s.env, s.ctx)
+      if ns.Disposition.Tier(after) ~= ns.Disposition.Tier(dispBefore) then
+        notes[#notes + 1] = L.DISP_NOW:format(ns.Disposition.TierName(after))
+      end
+    end
+  end
+  if #notes == 0 then return nil end
+  return table.concat(notes, "  ")
+end
+
+-- The note from the last reply, under the new page's text.
+function Conv.ShowPendingNote()
+  local s = Conv.session
+  if not s or not s.pendingNote then return end
+  local note = s.pendingNote
+  s.pendingNote = nil
+  if s.mode ~= "full" then return end
+  local hex = ns.UI and ns.UI.Theme and ns.UI.Theme.Hex("dim") or "|cff888888"
+  View(s).ShowReaction(hex .. note .. "|r")
+  if View(s).SetDisposition then View(s).SetDisposition(Conv.DispositionView(s)) end
+end
+
+-- Disposition for the box: { value, name, why } (nil when the setting is off).
+function Conv.DispositionView(s)
+  if not s or not ns.Disposition or ns.db.settings.showDisposition == false then return nil end
+  local value, why = ns.Disposition.Compute(s.info, s.mem, s.ctx)
+  return { value = value, name = ns.Disposition.TierName(value), why = why }
 end
 
 -- "Ask about...": the NPC's own take, then their community's, their role's, then a brush-off.
@@ -806,11 +911,53 @@ end
 -- "Ask about...": the NPC's own take, then their community's, their role's, then a brush-off.
 -- An answer can open a branch of the conversation (its line says next = "<node>"): the
 -- answer is shown, and that node's replies follow it.
+Conv.KNOWS_MAX = 10
+
+-- "What do you know?": a lead-in in their voice, then the topics they can speak to as a
+-- list of links. The player learns every one of them; the Ask list keeps them under "What
+-- they can tell you about". Nothing to say: their usual brush-off.
+function Conv.AskKnows()
+  local s = Conv.session
+  local known = Engine.TopicsKnownBy(s.info, s.ctx, s.env)
+  -- Not asked yet first, so asking again brings up what's left.
+  local fresh, asked = {}, {}
+  for _, e in ipairs(known) do
+    if ns.Topics.AskedOf(e.id, s.memKey) then asked[#asked + 1] = e.id else fresh[#fresh + 1] = e.id end
+  end
+  local ids = {}
+  for _, id in ipairs(fresh) do if #ids < Conv.KNOWS_MAX then ids[#ids + 1] = id end end
+  for _, id in ipairs(asked) do if #ids < Conv.KNOWS_MAX then ids[#ids + 1] = id end end
+  ns.Topics.Asked("knows", s.memKey)
+  local w = Engine.PickTopic(s.info, #ids > 0 and "knows" or "_nothing", s.ctx, s.env)
+  local text = L.KNOWS_FALLBACK
+  if w then
+    Conv.Shown(w)
+    s.lastLine = w.gid
+    text = Tokens.Render(w.line.text, s.ctx, s.env)
+  elseif #ids == 0 then
+    text = L.FALLBACK_LINE
+  end
+  local linked
+  if #ids > 0 then
+    ns.Effects.Apply({ learn = ids }, s.env)
+    ns.Topics.MarkKnows(ids, s.memKey)
+    local hex = ns.UI and ns.UI.Theme and ns.UI.Theme.Hex("topic") or nil
+    local on = not ns.db or ns.db.settings.topicLinks ~= false
+    local plain = text .. "\n\n" .. ns.Topics.LinkList(ids, false)
+    linked = on and (text .. "\n\n" .. ns.Topics.LinkList(ids, hex)) or nil
+    text = plain
+  end
+  View(s).ShowAnswer(text, L.KNOWS_TITLE, linked)
+  if ns.UI.AskAbout and ns.UI.AskAbout.Refresh then ns.UI.AskAbout.Refresh() end
+end
+
 function Conv.Ask(topic)
   local s = Conv.session
   if not s or s.mode ~= "full" then return end
+  if topic == "knows" then Conv.AskKnows(); return end
   local w = Engine.PickTopic(s.info, topic, s.ctx, s.env)
-  ns.Topics.Asked(topic, s.memKey)
+  local brushoff = w == nil or (type(w.src) == "string" and w.src:find("brushoff") ~= nil)
+  ns.Topics.Asked(topic, s.memKey, not brushoff)
   local text = L.FALLBACK_LINE
   if w then
     Conv.Shown(w)
