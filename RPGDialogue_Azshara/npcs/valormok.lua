@@ -275,7 +275,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Need a wind rider? They're fed and ready." },
+    { id = "g_default", text = "Need a wind rider? They're fed, rested and ready to go." },
     { id = "g_back", when = { metBefore = true }, text = "You again. The beasts know your smell now." },
   },
 

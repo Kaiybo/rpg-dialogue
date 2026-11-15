@@ -841,7 +841,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else, friend? My mug's half full, so I've got time." },
-        { id = "h_again2", text = "Out wi' it, then. I'm listenin', mostly, between sips." },
+        { id = "h_again2", text = "Out wi' it, then, an' I'll listen, mostly, between sips." },
       },
       choices = {
         { text = "What's this about stolen ale?", next = "ale" },

@@ -430,7 +430,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "A small thing climbs into the temple of the one. Speak, small thing, before the one grows bored." },
-    { id = "g_back", when = { metBefore = true }, text = "The small thing returns. The one remembers you." },
+    { id = "g_back", when = { metBefore = true }, text = "The small thing returns to the temple, and the one remembers it." },
     { id = "g_done", when = { questDone = TODO_QUEST("The Name of the Beast") }, text = "The hydra-slayer returns to the one. Come, come; my sons will not touch you now." },
   },
 

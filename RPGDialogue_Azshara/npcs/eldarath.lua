@@ -339,7 +339,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Kim'jael, they call me. Kim'jael indeed! It's elvish for little rat, near enough, and those bullies called me that the whole time they were paying me." },
+          text = "They call me Kim'jael, and oh, Kim'jael indeed! It's elvish for little rat, near enough, and those bullies called me that the whole time they were paying me." },
         { id = "h_gear", when = { questActive = TODO_QUEST("Kim'jael Indeed!") },
           text = "My compass, my scope, my stuffed chicken and my wizzlegoober, all sitting in that elf camp. Get them back, and you'll be paid, just like we said." },
         { id = "h_rune", when = { questActive = TODO_QUEST("Kim'jael's \"Missing\" Equipment") },
