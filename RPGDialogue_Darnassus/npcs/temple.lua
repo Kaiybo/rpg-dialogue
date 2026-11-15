@@ -448,7 +448,7 @@ P:NPC {
       lines = {
         { id = "h_default", text = "I'm Lariia. I teach here, and when I'm not teaching I watch the pool, because the moonlight on it tells you a great deal about the night if you look long enough." },
       },
-      again = { { id = "h_again", text = "Something more? Speak softly, the pool listens." } },
+      again = { { id = "h_again", text = "Is there more on your heart? Speak it softly; the moonwell carries every word." } },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "What does the pool tell you?", next = "pool" },
@@ -528,7 +528,7 @@ P:NPC {
           text = "You're going after Lady Sathrah, aren't you? Be gentle with her, if you can, because she was beautiful once." },
       },
       again = {
-        { id = "h_again", text = "What else? I've nowhere to be until the bell." },
+        { id = "h_again", text = "The garden can spare me until the evening bell, so ask what you like." },
         { id = "h_again2", text = "Ask me anything; I'll tell you if I know, and if I don't I'll find out." },
       },
       choices = {
@@ -643,7 +643,7 @@ P:NPC {
         { id = "h_voucher", tags = { "news" }, when = { questActive = TODO_QUEST("Calm Before the Storm") },
           text = "Gracina Spiritmight has told me to expect you. When you bring her voucher, I'm to withdraw something from her account and present it to you, so congratulations would seem to be in order." },
       },
-      again = { { id = "h_again", text = "Is there anything else I can do for you?" } },
+      again = { { id = "h_again", text = "Your coin is safe with me. Was there something more?" } },
       choices = {
         { text = "I'd like to see my box.", next = "BUSINESS" },
         { text = "Who keeps accounts here?", next = "accounts" },

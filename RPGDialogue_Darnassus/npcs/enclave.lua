@@ -394,7 +394,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else would you know? The Enclave is slow, and so are its answers, but they come." },
-        { id = "h_again2", text = "Ask on, {class}. Questions are how roots find water." },
+        { id = "h_again2", text = "Ask on, young one. Questions are how roots find water." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "DRUID" } },
