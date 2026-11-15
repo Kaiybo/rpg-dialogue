@@ -39,9 +39,17 @@ P:NPC {
           text = "Salma's been feeding you, then. She feeds everyone. I married the softest heart in Westfall and I'll not hear a word against it." },
         { id = "h_soil", when = { metBefore = true }, text = "Soil's tired. So am I. We'll both get up tomorrow anyway. That's farming." },
       },
+      again = {
+        { id = "h_again", text = "Something else? Make it quick. Daylight's for working." },
+        { id = "h_again2", text = "Go on. My hands are busy. My ears aren't." },
+      },
       choices = {
         { text = "Why did you stay?", next = "stay" },
         { text = "Where did the watchers come from?", next = "watchers" },
+        { text = "Where did your neighbours go?", next = "neighbours" },
+        { text = "Your wife sets a fine table.", next = "salma" },
+        { text = "I worked fields like these, growing up.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
+        { text = "Shall I bless your fields?", next = "bless", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Good luck with the harvest.", next = "END" },
       },
     },
@@ -51,29 +59,120 @@ P:NPC {
         { id = "s_default", text = "My grandfather cleared this land. I'm not handing it to a man in a red mask because he asked with a knife." },
       },
       choices = {
-        { text = "Good for you.", next = "END", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Good for you.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "Pride won't stop a knife.", next = "pride", fx = { trait = { skeptical = 1 } } },
+        { text = "Everyone else left. Doesn't that worry you?", next = "fool" },
       },
     },
     pride = {
       lines = { { id = "p_default", text = "No. But it gets me up in the morning, and that's something a knife can't take." } },
-      choices = { { text = "Fair enough.", next = "END" } },
+      choices = { { text = "Fair enough. Something else.", next = "BACK" } },
+    },
+    fool = {
+      lines = { { id = "fo_default", text = "Theodore Furlbrow told me to get out while I could. Called me a fool. I call him a fool for going. One of us is right, and his wagon's broken." } },
+      choices = {
+        { text = "Maybe you're both right.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Be kinder to him. He's frightened.", next = "BACK", fx = { affinity = -1, trait = { kind = 1 } } },
+      },
     },
     watchers = {
       lines = {
         { id = "w_default", text = "Don't know, and I've stopped guessing. One day the fields were empty, next day they were full of things that wouldn't stay put." },
       },
-      choices = { { text = "I'll deal with them.", next = "END", fx = { learn = { "harvest_watchers" }, affinity = 1 } } },
+      choices = {
+        { text = "How many are out there?", next = "count" },
+        { text = "Galiaan thinks someone set them on you.", next = "set_on", when = { heardLine = "galiaan.wa_default" } },
+        { text = "I'm a tinker. I could take one apart.", next = "tinker", when = { race = "Gnome" } },
+        { text = "I'll deal with them.", next = "BACK", fx = { learn = { "harvest_watchers" }, affinity = 1 } },
+      },
+    },
+    count = {
+      lines = {
+        { id = "co_default", text = "Twenty, near enough, in mine and the neighbours' fields. Chop them down and there's coin in it, and a supper if Salma likes the look of you.",
+          fx = { learn = { "harvest_watchers" } } },
+      },
+      choices = {
+        { text = "Twenty, then.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    set_on = {
+      big = true,
+      lines = { { id = "so_default", text = "Did he. Then whoever did it knew a farmer's fears. Scarecrows that walk. That's not robbery. That's cruelty with a plan." } },
+      choices = {
+        { text = "Then let's end the plan.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
+        { text = "It's only a guess.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    tinker = {
+      lines = { { id = "tk_default", text = "Could you? Then take them apart, the lot, in bits small enough to burn. And if you find out who wound them up, tell me first." } },
+      choices = {
+        { text = "Gladly. Machines shouldn't be cruel.", next = "BACK", fx = { affinity = 2, learn = { "harvest_watchers" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    neighbours = {
+      lines = {
+        { id = "ne_default", text = "The Furlbrows ran. The Molsens ran. Thieves sleep in their beds now. If you're looking for honest work, Gryan's on the hill, and he'll find you plenty." },
+        { id = "ne_report", when = { questActive = TODO_QUEST("Report to Gryan Stoutmantle") },
+          text = "Gryan's up in the stone tower on Sentinel Hill. Tell him Saldean sent you. He'll not mind; he's short of everything." },
+      },
+      choices = {
+        { text = "Will they ever come back?", next = "ne_back" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "people_militia" } } },
+      },
+    },
+    ne_back = {
+      lines = { { id = "nb_default", text = "If the fields are cleared. If the thieves go. If. Farmers live on ifs, and most years they feed us." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    salma = {
+      lines = { { id = "sa_default", text = "Best cook in Westfall, and the kindest. She'd feed a man in a red mask if he knocked politely. Don't tell her I know about that." } },
+      choices = {
+        { text = "She's fed Defias?", next = "salma_defias" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    salma_defias = {
+      lines = { { id = "sd_default", text = "More than once. I keep my pitchfork by the door and my mouth shut. Marriage is mostly that." } },
+      choices = {
+        { text = "Wise man.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "That's a risk.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    farmhand = {
+      lines = { { id = "fa_default", text = "Then you know the soil out here's gone thin. Whose fields were you on, before?" } },
+      choices = {
+        { text = "A farm the Defias hold now.", next = "farmhand_theirs" },
+        { text = "I'd rather not say.", next = "BACK" },
+      },
+    },
+    farmhand_theirs = {
+      lines = { { id = "ft_default", text = "Then help clear it and work it again. I've seed put by. What I haven't got is hands." } },
+      choices = {
+        { text = "You'll have mine, when it's clear.", next = "BACK", fx = { affinity = 2, standing = { westfall_farms = 2 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bless = {
+      lines = { { id = "bl_default", text = "Bless them after they're cleared. The Light's welcome here, but it won't pull a scarecrow out of my corn." } },
+      choices = {
+        { text = "Then I'll clear them first.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "The Light pulls more than you'd think.", next = "BACK", fx = { align = { light = 1 }, trait = { pious = 1 } } },
+      },
     },
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "A farmer on the land my grandfather cleared. That's the whole of it, and it isn't finished yet.", next = "stay" } },
+    advice = { { id = "tp_ad", text = "Don't stand still in a field after dark. The watchers don't see well, but they don't need to." } },
     harvest_watchers = {
       { id = "tp_watchers", text = "Twenty in my field alone, last I counted. I stopped counting." },
     },
     defias = { { id = "tp_defias", text = "Thieves. They took the Furlbrows' farm and the Molsens'. They'll not take mine." } },
     westfall = { { id = "tp_westfall", text = "Best soil in the kingdom, under all that dust. People forget." } },
     old_blanchy = { { id = "tp_blanchy", text = "The Furlbrows' horse. Older than sin and twice as stubborn. Good animal." } },
+    people_militia = { { id = "tp_militia", text = "Good lads and lasses. They walk past my fence twice a day. I sleep better for it." } },
     _none = { { id = "tp_none", text = "Can't help you there. Ask me about soil." } },
   },
 }

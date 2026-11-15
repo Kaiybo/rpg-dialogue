@@ -44,9 +44,17 @@ P:NPC {
         { id = "h_thin", when = { metBefore = true }, text = "Sit down, sit. You're thinner than last time. Everyone's thinner in Westfall. I won't have it at my table." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Himself's asleep in the chair again. Snores like a harvest golem. Don't you dare tell him I said so." },
       },
+      again = {
+        { id = "h_again", text = "What else? Sit, sit. Ask while I stir." },
+        { id = "h_again2", text = "Anything more? The pot won't mind waiting. Much." },
+      },
       choices = {
         { text = "What's cooking?", next = "pot" },
         { text = "How do you keep going out here?", next = "going" },
+        { text = "Do you need help around the farm?", next = "help" },
+        { text = "Tell me about the Furlbrows.", next = "furlbrows" },
+        { text = "You do a priest's work with that ladle.", next = "priest", when = { class = "PRIEST" } },
+        { text = "Any tricks for a fellow cook?", next = "cook", when = { profession = "Cooking" } },
         { text = "I'd best be off.", next = "END" },
       },
     },
@@ -55,13 +63,32 @@ P:NPC {
         { id = "p_default", text = "Whatever Westfall gives me. Today it gave me a buzzard and some regret. It'll be lovely." },
       },
       choices = {
-        { text = "Smells wonderful.", next = "END", fx = { affinity = 1 } },
+        { text = "Smells wonderful.", next = "BACK", fx = { affinity = 1 } },
         { text = "Buzzard?", next = "vulture", fx = { trait = { witty = 1 } } },
+        { text = "What goes in Westfall stew?", next = "recipe" },
       },
     },
     vulture = {
       lines = { { id = "v_default", text = "Buzzard. They eat well out here, which is more than I can say for the people." } },
-      choices = { { text = "Fair point.", next = "END" } },
+      choices = { { text = "Fair point. Something else.", next = "BACK" } },
+    },
+    recipe = {
+      lines = { { id = "re_default", text = "Vulture, goretusk snout, murloc eyes, and okra to thicken the broth. It's Verna's recipe. She wrote it out for me. Don't tell her I add salt." } },
+      choices = {
+        { text = "Verna's? I thought it was yours.", next = "recipe_verna" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    recipe_verna = {
+      lines = { { id = "rv_default", text = "Hers, start to finish. She wanted it to stay in Westfall when they go. Born for the city, that one, whatever she tells you. It'll be the making of her." } },
+      choices = {
+        { text = "Verna says she never wanted to leave.", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "You'll miss her.", next = "furlbrows_miss" },
+      },
+    },
+    cook = {
+      lines = { { id = "ck_default", text = "Never stir murloc eyes; they look back at you. Salt early. And feed it to people hungry enough not to complain. That's the real secret." } },
+      choices = { { text = "I'll remember that.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } } },
     },
     going = {
       big = true,
@@ -69,17 +96,71 @@ P:NPC {
         { id = "g_default", text = "You feed people. They come back. You listen to them. They stay. Do that long enough and you've got a village again." },
       },
       choices = {
-        { text = "That's a fine way to live.", next = "END", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "That's a fine way to live.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
         { text = "It won't stop the Defias.", next = "defias", fx = { trait = { stern = 1 } } },
       },
     },
     defias = {
       lines = { { id = "d_default", text = "No. That's Gryan's work. Mine's making sure there's someone left to thank him." } },
-      choices = { { text = "Fair enough.", next = "END" } },
+      choices = {
+        { text = "They say you've fed Defias at this door.", next = "fed" },
+        { text = "Fair enough. Something else.", next = "BACK" },
+      },
+    },
+    fed = {
+      big = true,
+      lines = { { id = "fe_default", text = "I have. A hungry boy in a red mask is still a hungry boy. He said thank you. Then he left my hens alone. That's a kind of peace." } },
+      choices = {
+        { text = "That's real kindness.", next = "BACK", fx = { affinity = 2, align = { light = 2 }, trait = { kind = 1 } } },
+        { text = "He'll rob someone else tomorrow.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 }, opinion = { defias = "hardline" } } },
+      },
+    },
+    help = {
+      lines = {
+        { id = "he_default", text = "Always. The able folk mostly left, and my husband's back isn't what it was. Bring me what the pot needs and you'll eat first." },
+        { id = "he_pie", when = { questBefore = TODO_QUEST("Goretusk Liver Pie") },
+          text = "Always. My meat pie's ready but for the filling. Bring me goretusk livers, fresh, and there's pie for supper. A slice for you, too." },
+      },
+      choices = {
+        { text = "What does the pie need?", next = "pie" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    pie = {
+      lines = { { id = "pi_default", text = "The crust's baked and the gravy's on. All it wants is eight goretusk livers, fresh. The boars out past the Molsen farm will do." } },
+      choices = {
+        { text = "I'll go boar hunting.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    furlbrows = {
+      lines = { { id = "fu_default", text = "Verna's my dearest friend out here. Theodore's a good man who lost his nerve with his farm. They'll be off to Elwynn the minute that wagon rolls." } },
+      choices = {
+        { text = "Will you miss them?", next = "furlbrows_miss" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "old_blanchy" } } },
+      },
+    },
+    furlbrows_miss = {
+      lines = { { id = "fm_default", text = "Like my right arm. Don't tell Verna. She'll cry, then I'll cry, then the pot burns." } },
+      choices = { { text = "Your secret's safe.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    priest = {
+      lines = { { id = "pr_default", text = "Oh, go on. Then say a word over the pot. The militia lads eat better when it's blessed. Or they think they do, which is the same thing." } },
+      choices = {
+        { text = "Gladly. Light bless this house and all it feeds.", next = "BACK", fx = { affinity = 3, align = { light = 1 }, standing = { westfall_farms = 1 } } },
+        { text = "Do you ever get to a church?", next = "priest_church" },
+      },
+    },
+    priest_church = {
+      lines = { { id = "pc_default", text = "Not since the roads went bad. I pray at the stove. The Light knows where to find me; it's always warm here." } },
+      choices = { { text = "It does. Something else.", next = "BACK", fx = { align = { light = 1 } } } },
     },
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "A farmer's wife with a big pot and a long table. That's all anyone needs to know about me." } },
+    advice = { { id = "tp_ad", text = "Eat before you fight, not after. And never trust a cook who won't taste her own stew." } },
+    trade = { { id = "tp_tr", text = "Cooking for whoever comes. Pay me in boar livers and stories.", next = "help" } },
     defias = { { id = "tp_defias", text = "Some of them have been to my door, you know. Hungry. I fed them. I'd do it again." } },
     people_militia = { { id = "tp_militia", text = "Good boys and girls, every one, and every one of them hungry. I see to that." } },
     westfall = { { id = "tp_westfall", text = "It'll come back. Land always comes back if there's people who love it." } },
