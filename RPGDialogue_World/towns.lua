@@ -565,3 +565,22 @@ P:Town {
 }
 
 -- 0.35.0: Silithus (towns for that pack go below this line)
+P:Town {
+  id = "cenarion_hold", name = "Cenarion Hold",
+  subzones = { "Cenarion Hold" },
+  related = { nighthaven = 0.1, valors_rest = 0.2, marshals_refuge = 0.03 },
+  tiers = { Hero = "Defender of the Hold" },
+  quests = {
+    { TODO_QUEST("Securing the Supply Lines"), 3 }, { TODO_QUEST("Stepping Up Security"), 3 },
+    { TODO_QUEST("Noggle's Last Hope"), 3 }, { TODO_QUEST("Wanted - Deathclasp, Terror of the Sands"), 4 },
+    { TODO_QUEST("A Terrible Purpose"), 4 }, { TODO_QUEST("Vyral the Vile"), 4 }, { TODO_QUEST("Into The Maw of Madness"), 6 },
+  },
+}
+
+P:Town {
+  id = "valors_rest", name = "Valor's Rest",
+  subzones = { "Valor's Rest" },
+  related = { cenarion_hold = 0.2, nighthaven = 0.05 },
+  tiers = { Hero = "Keeper of the Fallen" },
+  quests = { { TODO_QUEST("The Spirits of Southwind"), 4 }, { TODO_QUEST("Hive in the Tower"), 3 } },
+}

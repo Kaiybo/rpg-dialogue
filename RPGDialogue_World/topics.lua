@@ -149,3 +149,11 @@ P:Topic { id = "arkkoroc", keywords = { "Arkkoroc" }, name = "Lord Arkkoroc", ca
 P:Topic { id = "horizon_scout", keywords = { "Horizon Scout" }, name = "The wreck of the Horizon Scout", category = "rumors", learned = "Captain Vanessa Beltis in the Ruined Reaches" }
 
 -- 0.35.0: Silithus (topics for that pack go below this line)
+P:Topic { id = "ahn_qiraj", keywords = { "Ahn'Qiraj", "Scarab Wall" }, name = "Ahn'Qiraj", category = "places", learned = "Commander Mar'alith at Cenarion Hold, or Layo Starstrike at Valor's Rest" }
+P:Topic { id = "silithid_hives", keywords = { "Hive'Regal", "Hive'Ashi", "Hive'Zora" }, name = "The hives of Silithus", category = "places", learned = "Geologist Larksbane or Commander Mar'alith at Cenarion Hold" }
+P:Topic { id = "abyssal_council", keywords = { "Abyssal Council" }, name = "The Abyssal Council", category = "threats", learned = "Aurel Goldleaf or the Wildmane brothers at Cenarion Hold" }
+P:Topic { id = "natalia", keywords = { "Natalia" }, name = "Mistress Natalia Mar'alith", category = "people", learned = "Commander Mar'alith or Captain Vish Kozus at Cenarion Hold" }
+P:Topic { id = "southwind", keywords = { "Southwind" }, name = "Southwind Village", category = "places", learned = "Layo Starstrike at Valor's Rest, or Calandrath at the Oasis Inn" }
+P:Topic { id = "ortell", keywords = { "Ortell" }, name = "Hermit Ortell", category = "people", learned = "Geologist Larksbane at Cenarion Hold" }
+P:Topic { id = "bronze_dragonflight", keywords = { "bronze dragonflight", "Brood of Nozdormu" }, name = "The bronze dragonflight", category = "lore", learned = "Baristolth of the Shifting Sands at Cenarion Hold, or Frankal Stonebridge at Bronzebeard's camp" }
+P:Topic { id = "cthun", keywords = { "C'Thun" }, name = "C'Thun", category = "threats", learned = "Commander Mar'alith, after Hive'Regal" }
