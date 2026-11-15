@@ -26,6 +26,8 @@ P:NPC {
       text = "The third step from the door creaks, and you stepped on it. Everyone does, the first time, which is why it's there." },
     { id = "n_watch", cat = "watch", when = { deed = "dungeon:The Deadmines" },
       text = "You've been under Moonbrook, and I read the reports before you'd washed the mud off. That's my job." },
+    { id = "n_beast", cat = "watch", when = { class = "HUNTER", pet = { type = "Beast" } },
+      text = "Your animal went straight for the corner where my man's standing, which is more than most of my recruits manage. Call it off, please, before he takes it personally." },
   },
 
   start = "hello",

@@ -24,6 +24,8 @@ P:NPC {
       text = "You've walked into the king's hall dressed like a field hand after a hailstorm. Bolvar is far too polite to mention it, but I am not." },
     { id = "n_ambition", cat = "ambition", when = { minLevel = 55 },
       text = "You've grown very strong, haven't you? How interesting. I do so enjoy watching the strong, because one learns where they'll go next." },
+    { id = "n_warlock", cat = "ambition", when = { class = "WARLOCK" },
+      text = "There's a smell of brimstone about you, little one, very faint. The priests would wrinkle their noses, but I've always found ambition rather fragrant." },
   },
 
   start = "hello",
