@@ -13,15 +13,25 @@
 
 ## Their quests
 - Remulos: none in Year 1's range (the Nightmare quests are level 60 and later events; not referenced).
-- Rabine: Unlocking the Secrets Within (lines don't name Valstann or the war).
-- Dendrite: Great Bear Spirit, Power over Poison, Trial of the Lake, Trial of the Sea Lion, Aquatic Form (the other druid steps not referenced).
+- Rabine (he): Classic quests only. Wasteland (letter to Layo Starstrike at Valor's Rest, Silithus: an ancient war against an alien power, sealed, now being stirred), Uncovering Past Secrets (turn-in; Umber's "den mother of this little bear camp"), A Reliquary of Purity (Southwind ruins in Silithus; he kept it secret so as not to rouse enemies), Shards of the Felvine (Dire Maul/Eldre'Thalas, Alzzin the Wildshaper, the Fruit of Fertility made by Millicent Serene "Milli", now the Felvine). Gossip: doesn't believe in coincidence; "the answer lies within". **A Smoke-Stained Locket / Unlocking the Secrets Within are Cataclysm (4.2) quests**: the old h_locket/h_locket_done lines now point at A Reliquary of Purity / Shards of the Felvine (ids kept).
+- Dendrite (he): Moonglade (arrival; "And so it begins, Father Cenarius"), Great Bear Spirit, Back to Darnassus/Thunder Bluff, Lessons Anew (poisoned deer at Auberdine for the Alliance, gazelles at the Crossroads for the Horde, cured "as a layman would"), The Principal Source (Cliffspring Falls / Dreadmist Peak water, the Burning Blade suspected), Curing the Sick ("a greater taint"; some in Darnassus ignore the signs), Power over Poison, A Lesson to Learn, Trial of the Lake (shrine bauble from Lake Elune'ara to the Shrine of Remulos, Tajarri), Trial of the Sea Lion (two pendant halves, agility and endurance; ask the locals), Aquatic Form. Gossip: Moonglade welcomes all who respect nature; wardens stop all hostilities.
 - Loganaar: none referenced (trainer).
-- Great Bear Spirit: Great Bear Spirit.
-- Silva, Bunthen: Trial of the Sea Lion (only as the flight).
+- Great Bear Spirit: Great Bear Spirit (gossip during the quest: it represents the strength that bolsters a young druid; strength of body, power and swiftness, the bear's girth belies agility and a sharp mind; strength of heart, resolve rooted in pure intent, the mother bear and the elder bear at his den; "even the wisest and oldest druids are never truly ready"). As old as Azeroth (Back to Darnassus).
+- Silva, Bunthen: Trial of the Sea Lion: each gives a clue to one pendant half. To Alliance druids, Silva: Darkshore, the Cliffspring River's mouth at Mist's Edge, north to the Stone Claw (threshers); Bunthen: Westfall, WNW of the Gold Coast Quarry shore, an anchor and a sunken boat, a bubbling fissure for breath. To Horde druids, Silva: the Sludge Fen in the northeast Barrens (Venture Company); Bunthen: Silverpine, a derelict boat on the North Tide's Run, a lockbox on the sea floor to the west.
+- Remulos: Seed of Life (from Zaetar's spirit in Maraudon: the first seed from the life his remains nourished; Remulos had thought his brother lost in arrogance and anger, and says he has been reborn and takes his place in nature). The AQ scepter quests (The Nightmare's Corruption, Tyrande and Remulos, The Nightmare Manifests) are not used.
+
+## Sources added in the depth pass (0.31.x)
+- https://warcraft.wiki.gg/wiki/Seed_of_Life_(quest), https://warcraft.wiki.gg/wiki/Zaetar, https://warcraft.wiki.gg/wiki/Celebras (Zaetar, Remulos's brother, loved Theradras despite Remulos's warning; the centaur killed him; Celebras, Remulos's son, and his dryad sisters went into Maraudon to free Zaetar's spirit and were corrupted)
+- https://warcraft.wiki.gg/wiki/Keeper_Ordanus (one of the eldest sons of Cenarius; Raynewood, Ashenvale), https://warcraft.wiki.gg/wiki/Moonglade_(Alliance) (tensions between Staghelm and Remulos)
+- https://warcraft.wiki.gg/wiki/Umber (human archivist of the Cenarion Circle in Nighthaven, thought brilliant by the night elves, always losing books)
+- https://warcraft.wiki.gg/wiki/Tajarri (warden of the Shrine of Remulos; Trial of the Lake)
+- Quest pages: Wasteland, Uncovering Past Secrets, A Reliquary of Purity, Shards of the Felvine (Classic), Trial of the Lake, Trial of the Sea Lion, Lessons Anew, The Principal Source, Curing the Sick (Alliance/Horde), Great Bear Spirit (quest), Back to Darnassus
+- Route for non-druids: Felwood's furbolg tunnel to Winterspring, then Moonglade (Seed of Life notes)
 
 ## Never
 - Anything from Ahn'Qiraj's opening onwards (Eranikus, the portal over the lake), Wrath and later (Keeper's Favor, the Stormrage novel), Cataclysm, Legion.
-- Fandral Staghelm's secret, or Valstann by name.
+- Fandral Staghelm's secret, or Valstann by name; Leyara and the smoke-stained locket (Cataclysm).
+- The AQ opening (Eranikus, the scepter), the Lunar Festival.
 - Skyborne facts beyond brief §10; Bunthen and the Plainswinds' relation (speculation).
 - A faction assumed: Moonglade is neutral, and Silva and Bunthen branch on faction.
 
@@ -35,3 +45,6 @@
 
 ## Depth pass (0.24.0, authored, not canon)
 Silva says her oldest hippogryph's name before each flight; Bunthen's riders miss the Bluff's wind (Mu'sha is the Earth Mother's moon eye: [Earth Mother](https://warcraft.wiki.gg/wiki/Earth_Mother)); the Great Bear on returning visitors; Loganaar came to Nighthaven for the quiet.
+
+## Depth pass (0.31.x, authored, not canon)
+Remulos on a priest's Light ("the beast never asks whose prayer saved it"); the Great Bear keeping still beside a praying priest; Silva's "kind no" to non-druids; Bunthen and Silva never quarrelling; Rabine letting Umber call him the den mother; Remulos's father "fell in the war" (Cenarius died in the Third War) told without blame.
