@@ -237,3 +237,21 @@ describe("Journal pages (0.35.0)", function()
     for _, tab in ipairs({ "chronicle", "stories", "people", "heard", "sheet", "notes" }) do ns.Journal.Show(tab) end
   end)
 end)
+
+describe("Citizens (0.35.0)", function()
+  it("a friendly person with no title or file is a citizen, and the box opens for them", function()
+    local ns = bootReal()
+    Mock.state.units.npc = { guid = "Creature-0-1-0-1-9200-AB", name = "Some Passerby", level = 10, reaction = 5, ctype = "Humanoid" }
+    local ctx = ns.Context.New({ unit = "npc" })
+    eq(ns.Conversation.DetectRole(ctx), "citizen")
+    Mock.state.units.npc = { guid = "Creature-0-1-0-1-9201-AB", name = "Squirrel", level = 1, reaction = 4, ctype = "Critter" }
+    eq(ns.Conversation.DetectRole(ns.Context.New({ unit = "npc" })), nil, "critters aren't people")
+    Mock.state.units.npc = { guid = "Creature-0-1-0-1-9202-AB", name = "Angry Bandit", level = 10, reaction = 2, ctype = "Humanoid" }
+    eq(ns.Conversation.DetectRole(ns.Context.New({ unit = "npc" })), nil, "hostiles aren't citizens")
+    Mock.state.units.npc = { guid = "Creature-0-1-0-1-9200-AB", name = "Some Passerby", level = 10, reaction = 5, ctype = "Humanoid" }
+    Mock.state.units.target = Mock.state.units.npc
+    ns.Conversation.Start("talk", "npc")
+    ok(ns.Conversation.session and ns.Conversation.session.info.role == "citizen", "talked as a citizen")
+    ns.Conversation.Finish()
+  end)
+end)

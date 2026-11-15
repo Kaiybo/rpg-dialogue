@@ -48,7 +48,21 @@ function Conv.DetectRole(ctx, interactionName)
   role = role or roleFromPatterns(ctx.npcSubtitle or nil, W.SUBTITLE_ROLES)
   role = role or (interactionName and W.INTERACTION_ROLES[interactionName])
   role = role or roleFromPatterns(ctx.npcName or nil, W.NAME_ROLES)
+  -- Anyone else friendly who walks and talks is a citizen: townsfolk pools answer them, so
+  -- the people in the streets can be spoken to too (0.35.0). Beasts and critters aren't.
+  if not role and Conv.IsCitizen(ctx) then role = "citizen" end
   return role
+end
+
+local NOT_PEOPLE = { Beast = true, Critter = true, Mechanical = true, Elemental = true, ["Non-combat Pet"] = true, Totem = true, ["Not specified"] = true }
+function Conv.IsCitizen(ctx)
+  local unit = ctx and ctx.unit
+  if not unit then return false end
+  local reaction = ctx.npcReaction
+  if type(reaction) == "number" and reaction < 4 then return false end
+  local ctype = C.CreatureType(unit)
+  if ctype and NOT_PEOPLE[ctype] then return false end
+  return true
 end
 
 function Conv.Identify(unit, ctx, interactionName)

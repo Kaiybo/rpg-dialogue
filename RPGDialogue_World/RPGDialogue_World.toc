@@ -32,5 +32,6 @@ generic.lua
 pools.lua
 spirithealer.lua
 pools_roles.lua
+pools_citizens.lua
 asks.lua
 arrivals.lua
