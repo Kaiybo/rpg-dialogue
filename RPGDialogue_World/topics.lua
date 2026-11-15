@@ -106,3 +106,14 @@ P:Topic { id = "new_plague", keywords = { "new plague" }, name = "The new plague
 P:Topic { id = "troggs", keywords = { "trogg" }, name = "The troggs", category = "threats", learned = "Senator Stonehallow at Gol'Bolar, or anyone in Loch Modan" }
 P:Topic { id = "frostmane", keywords = { "Frostmane" }, name = "The Frostmane trolls", category = "threats", learned = "Grelin Whitebeard in Coldridge Valley, or Senir Whitebeard in Kharanos" }
 P:Topic { id = "stonewrought_dam", keywords = { "Stonewrought" }, name = "The Stonewrought Dam", category = "places", learned = "Chief Engineer Hinderweir VII, or Royal Historian Archesonus" }
+
+-- The night elf lands (Darnassus 1.2.0, Teldrassil 1.3.0, Darkshore 1.2.0, Ashenvale 1.2.0)
+P:Topic { id = "teldrassil", keywords = { "Teldrassil" }, name = "Teldrassil", category = "places", learned = "Tenaron, Corithras or Fandral" }
+P:Topic { id = "malfurion", keywords = { "Malfurion" }, name = "Malfurion Stormrage", category = "people", learned = "Tyrande or Fandral in Darnassus" }
+P:Topic { id = "sisterhood_of_elune", keywords = { "Sisterhood" }, name = "The Sisterhood of Elune", category = "people", learned = "Tyrande, A'moora or Gwennyth" }
+P:Topic { id = "sentinels", keywords = { "Sentinels" }, name = "The Sentinels", category = "people", learned = "Tyrande, or any Sentinel" }
+P:Topic { id = "warsong", keywords = { "Warsong" }, name = "The Warsong in Ashenvale", category = "threats", learned = "Tyrande, Raene or Splintertree Post" }
+P:Topic { id = "silithid", keywords = { "silithid" }, name = "The silithid", category = "threats", learned = "Gracina Spiritmight in Darnassus" }
+P:Topic { id = "fel_moss", keywords = { "Fel Moss" }, name = "Fel Moss", category = "threats", learned = "Melithar, Athridas, Terenthis or Thundris" }
+P:Topic { id = "furbolgs", keywords = { "furbolg" }, name = "The furbolgs", category = "threats", learned = "Athridas, Thundris or Raene" }
+P:Topic { id = "dark_strand", keywords = { "Dark Strand" }, name = "The Dark Strand", category = "threats", learned = "Delgren the Purifier at Maestra's Post" }
