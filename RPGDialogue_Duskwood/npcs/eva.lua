@@ -69,6 +69,10 @@ P:NPC {
         { id = "c_default", text = "The Traveller, the Tower reversed, and the Raven, which in Darkshire means only that you'll be here a while." },
         { id = "c_light", when = { alignment = { axis = "light", min = 40 } },
           text = "The Sun, burning in a dark room. It's a good card, but a lonely one." },
+        { id = "c_hand", once = true, when = { heardLine = "pool:spirithealer.pr_default" }, fx = { hear = "spirithealer_other_hand" },
+          text = "Death, upright, and across it someone has written 'not here, not yet' in a neat hand that isn't mine. I did not write that, so tell me who you have been talking to." },
+        { id = "c_lantern", when = { heardLine = "pool:spirithealer.ln6" },
+          text = "The Lantern. I have dealt that card for forty years and never once seen it lit, and tonight it burns, so someone, somewhere, has stopped waiting." },
         { id = "c_dark", when = { alignment = { axis = "light", max = -40 } },
           text = "The Knife, again, every time I deal for you. I've stopped shuffling, since it makes no difference." },
       },
@@ -113,6 +117,8 @@ P:NPC {
     night = {
       big = true,
       lines = {
+        { id = "n_door", when = { heardLine = "pool:spirithealer.dr_default" },
+          text = "The dead and the wolves, and the men who choose to be monsters, and past them all a door. You've heard of it, I see; the cards call it the Threshold, and I beg you not to knock." },
         { id = "n_default", text = "The dead walking and the worgen howling, and men who choose to be monsters, who are worse than either, because they could have chosen otherwise." },
       },
       choices = {

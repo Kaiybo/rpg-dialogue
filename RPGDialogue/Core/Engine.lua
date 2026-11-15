@@ -327,7 +327,9 @@ function Engine.IsExit(nextId) return nextId == nil or EXITS[nextId] == true end
 -- The replies to show for a node, at most Engine.MAX_CHOICES, in the writer's order.
 --   opts.visited:  nodes already shown in this conversation. A reply leading to one is
 --                  hidden (asked and answered), unless it leads to a hub (opts.hubs: the
---                  start node and nodes marked hub = true) or says repeatable = true.
+--                  start node and nodes marked hub = true), to a rotating node (opts.rotating:
+--                  nodes marked rotating = true, which draw a fresh line each visit), or
+--                  says repeatable = true.
 --   opts.explored: nodes this NPC showed in earlier conversations. Those replies still
 --                  appear, marked explored.
 -- When there are too many, explored branches drop first, then branches without
@@ -336,12 +338,13 @@ function Engine.IsExit(nextId) return nextId == nil or EXITS[nextId] == true end
 function Engine.Choices(node, ctx, env, opts)
   opts = opts or {}
   local visited, explored, hubs = opts.visited or {}, opts.explored or {}, opts.hubs or {}
+  local rotating = opts.rotating or {}
   local showLocked = ns.db and ns.db.settings.showLocked
   local out = {}
   for _, choice in ipairs(node and node.choices or {}) do
     local target = choice.next
     local exit = Engine.IsExit(target) or hubs[target]
-    if exit or choice.repeatable or not visited[target] then
+    if exit or choice.repeatable or rotating[target] or not visited[target] then
       local entry
       if Cond.Eval(choice.when, ctx, env) then
         entry = { choice = choice }

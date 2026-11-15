@@ -228,7 +228,7 @@ Working examples of every kind are in the two shipped packs; `PACK_AUTHORING.md`
 
 ### 2.6 Node and choice
 
-A **node** is `{ lines = {…}, again = {…}, choices = {…}, big = true|nil, hub = true|nil, journal = … }`. `big` marks a conversation that matters: alignment-reactive lines are allowed there, and alignment shifts count more. `hub` marks a node that `BACK` returns to (the start node always is one). `again` holds short lines shown when the player comes back to a node already shown in this conversation (0.26.0; CONTENT_GUIDE §7a).
+A **node** is `{ lines = {…}, again = {…}, choices = {…}, big = true|nil, hub = true|nil, rotating = true|nil, journal = … }`. `big` marks a conversation that matters: alignment-reactive lines are allowed there, and alignment shifts count more. `hub` marks a node that `BACK` returns to (the start node always is one). `again` holds short lines shown when the player comes back to a node already shown in this conversation (0.26.0; CONTENT_GUIDE §7a). `rotating` marks a node that is meant to be visited again and again in one conversation (a story told, a question asked; 0.31.0): replies leading to it are never hidden as answered, and coming back to it draws a fresh line instead of an `again` line. Its lines usually set an `npcFlag` so that only the replies for the line just said pass.
 
 **Exploring (0.26.0).** The session keeps the nodes shown (`s.visited`); NPC memory keeps every node shown in any conversation (`mem.nodes`). `Engine.Choices` hides a reply whose target was already shown in this conversation, unless the target is a hub or the reply is `repeatable`; replies to nodes explored in earlier conversations are marked `explored` (dimmed in the box). At most `Engine.MAX_CHOICES` (6) show, in the writer's order; when there are more, explored replies drop first, then unconditional branches, then any branch; exits stay.
 
@@ -269,7 +269,7 @@ Each key has a **weight** (its contribution to the score) and a **kind**. *Hinge
 | Level | `band` · `minLevel`/`maxLevel` · `capital` · `resting` · `atInn` | 10 | hinge |
 | Small touches | `gender` · `timeOfDay` · `faction` · `party` {race,class} | 5 | hinge |
 | Story (M4) | `gossip` {topic, stance, delay, chance} (30) · `contradiction` topic (40) · `lieCaught` claim (60) · `money` {min,max} (10) | 10–60 | hinge |
-| Gates | `chance` 0–1 · `flag` · `npcFlag` | 0 | gate |
+| Gates | `chance` 0–1 · `flag` · `npcFlag` · `npcFlagBefore` (set in an earlier conversation) | 0 | gate |
 | Combinators | `all` (sum of children) · `any` (best passing branch) · `not` (0: an absence isn't specific) | — | — |
 
 The validator rejects unknown keys. Some keys come from fields the brief lists in `ctx` (`durability`, `nearlyNaked`, `profession` and so on). That's allowed, since the brief's list is open ("such as").

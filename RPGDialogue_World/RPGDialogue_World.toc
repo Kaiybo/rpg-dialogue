@@ -30,5 +30,6 @@ rumors\riverglades.lua
 books.lua
 generic.lua
 pools.lua
+spirithealer.lua
 pools_roles.lua
 asks.lua
