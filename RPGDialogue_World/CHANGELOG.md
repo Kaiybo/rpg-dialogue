@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.17.0 (unreleased)
+- Throughline **The Scarlet Path** (`scarlet_path`): Brother Crowley's warning, Brother Anton's pride in Raleigh, Raleigh's truth, Tyrosus's welcome. Topics: The Scarlet Monastery, Raleigh the Devout.
+
 ## 1.16.0 (unreleased)
 - A priest in Shadowform is noticed: priest trainers ask them to step out of it for the lesson (and, asked, say what the shadow costs), children think it's a ghost, guards on the road and in Stormwind get a fright.
 - The shared priest trainer conversation: a branch for priests, Light or shadow, practise, and "Does the shadow frighten you?" in Shadowform.

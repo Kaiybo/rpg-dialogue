@@ -60,6 +60,7 @@ P:NPC {
         { text = "Does the Light ever abandon anyone?", next = "abandon" },
         { text = "Tell me about the Cathedral.", next = "cathedral" },
         { text = "Why let the Scarlet Crusade recruit downstairs?", next = "crusade" },
+        { text = "I followed Crowley's road to its end, Your Grace.", next = "crusade_road", when = { thread = { id = "scarlet_path", beat = "b3_raleigh" } } },
         { text = "Your Grace, how do I become a better priest?", next = "priest", when = { class = "PRIEST" } },
         { text = "What does the Church make of shadow, in a priest?", next = "shadow", when = { class = "PRIEST", minLevel = 20 } },
         { text = "I came out of Lordaeron, Your Grace.", next = "lordaeron", when = { origin = "human_lordaeron_refugee" } },
@@ -110,10 +111,25 @@ P:NPC {
       },
     },
     crusade = {
-      lines = { { id = "cr_default", text = "Because the doors stay open, even to people I worry about. Brother Crowley believes he fights the plague. Perhaps he does. I pray for the ones he sends east, and for him." } },
+      lines = { { id = "cr_default", text = "Because the doors stay open, even to people I worry about. Brother Crowley believes he fights the plague. Perhaps he does. I pray for the ones he sends west, and for him." } },
       choices = {
         { text = "And if they're doing harm?", next = "crusade_harm" },
         { text = "Something else.", next = "BACK", fx = { learn = { "scarlet_crusade" } } },
+      },
+    },
+    crusade_road = {
+      big = true,
+      lines = { { id = "cro_default", text = "To Southshore, I think, and a man who left them. I know what's said about the Monastery. I let Crowley keep his corner because some of the Crusade's people are good, and they come through these doors too. What did you find?" } },
+      choices = {
+        { text = "Innocents tortured as plagued. Raleigh saw it.", next = "crusade_road2", fx = { align = { honor = 1 } } },
+        { text = "Nothing I can prove.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    crusade_road2 = {
+      lines = { { id = "cr2_default", text = "Then I'll stop pretending not to know. I won't close the doors; that isn't who we are. But no one goes down those stairs again without praying with me first." } },
+      choices = {
+        { text = "That's something.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "It isn't enough.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
       },
     },
     crusade_harm = {
@@ -667,6 +683,8 @@ P:NPC {
           text = "Brother Anton is waiting at Nijel's Point. Tell him I sent you, and tell him the Cathedral still lets me in. He worries." },
         { id = "h_back", when = { questDone = TODO_QUEST("Brother Anton") },
           text = "Anton writes that you went into the Valley of Bones. Good. Come back to me when you're ready for Lordaeron itself." },
+        { id = "h_monastery", tags = { "news" }, when = { questDone = TODO_QUEST("In the Name of the Light") },
+          text = "You went to the Monastery and came back with the Crusade's blood on you. I know who sent you. Raleigh always did love a confession." },
       },
       again = { { id = "h_again", text = "What else? The dead don't wait for questions." } },
       choices = {
@@ -674,6 +692,7 @@ P:NPC {
         { text = "I've heard they burn villages.", next = "burn" },
         { text = "Why recruit in the Cathedral?", next = "why" },
         { text = "Tyrosus of the Argent Dawn told me why he left.", next = "tyrosus", when = { heardLine = "tyrosus.l_default" } },
+        { text = "Raleigh told me what the Monastery does.", next = "raleigh", when = { thread = { id = "scarlet_path", beat = "b3_raleigh" } } },
         { text = "I'll go to Brother Anton.", next = "END", fx = { affinity = 1, align = { light = 1 } } },
       },
     },
@@ -698,6 +717,21 @@ P:NPC {
       lines = { { id = "bp_default", text = "I'm talking about stopping it before it reaches Stormwind. If you'd rather pray over a village and leave it to rise, the Cathedral's upstairs. It's very beautiful. It's never seen a ghoul." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = -1 } } },
     },
+    raleigh = {
+      big = true,
+      lines = { { id = "ra_default", text = "Raleigh couldn't stomach the work, so now he calls it a crime. Every army has its deserters with stories. Ours just pray louder." } },
+      choices = {
+        { text = "He said innocents were tortured.", next = "raleigh_innocent" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    raleigh_innocent = {
+      lines = { { id = "ri_default", text = "Innocent. Nobody in Lordaeron is innocent of the plague until they're proven clean. If that offends you, the stairs are behind you." } },
+      choices = {
+        { text = "The Light doesn't work that way.", next = "BACK", fx = { affinity = -2, align = { light = 2 } } },
+        { text = "Something else.", next = "BACK", fx = { affinity = -1 } },
+      },
+    },
     why = {
       lines = { { id = "w_default", text = "Because this is where the faithful come. And because the Archbishop is a good man who lets the doors stay open. I'm grateful. I'm also using it." } },
       choices = { { text = "Something else.", next = "BACK" } },
@@ -715,6 +749,8 @@ P:NPC {
     background = { { id = "tp_bg", text = "A priest who saw what the plague does and stopped pretending prayer alone would hold it back." } },
     advice = { { id = "tp_ad", text = "If someone you love is bitten, don't wait to be sure. Waiting is how Lordaeron fell." } },
     scarlet_crusade = { { id = "tp_scarlet", text = "The last true servants of the Light in the north. Whatever you've heard, that's the heart of it." } },
+    raleigh = { { id = "tp_raleigh", text = "A deserter in a Southshore inn, telling tales to anyone who'll buy him a drink.", next = "raleigh" } },
+    scarlet_monastery = { { id = "tp_monastery", text = "Our stronghold in Tirisfal. If you're worthy, you'll see it. If you're not, you'll hear lies about it." } },
     argent_dawn = { { id = "tp_dawn", text = "Well-meaning. Soft. They'll make peace with the Forsaken and be eaten for it." } },
     _none = { { id = "tp_none", text = "Does it touch the plague? No? Then ask upstairs." } },
   },
