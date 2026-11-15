@@ -188,6 +188,7 @@ local function build()
   y = y - 8
   header(L.OPT_HEADER_STORY)
   cycle(L.OPT_JOURNAL_VOICE, "journalVoice", { "first", "third" }, { L.VOICE_FIRST, L.VOICE_THIRD })
+  checkbox(L.OPT_JOURNAL_BUTTON, "journalButton", function() ns.UI.Launcher.Refresh() end)
   cycle(L.OPT_TAGS, "tags", { "available", "always", "never" }, { L.TAGS_AVAILABLE, L.TAGS_ALWAYS, L.TAGS_NEVER })
   checkbox(L.OPT_LOCKED, "showLocked")
   checkbox(L.OPT_TOPIC_LINKS, "topicLinks")

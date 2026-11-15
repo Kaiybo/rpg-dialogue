@@ -335,8 +335,22 @@ function Engine.IsExit(nextId) return nextId == nil or EXITS[nextId] == true end
 -- When there are too many, explored branches drop first, then branches without
 -- conditions (the ones everybody gets); exits and replies that exist because of who
 -- the player is are kept.
+-- Stances (0.33.0): a reply that shifts alignment is a statement the character makes, and
+-- the stances in one node are mutually exclusive. A question never shifts alignment.
+-- Once one stance in a node is taken (opts.stance: its text), the node's other stances are
+-- gone for good with this NPC, and the one taken no longer shifts alignment again.
+function Engine.IsQuestion(text)
+  return type(text) == "string" and text:find("%?[\"'%)%s]*$") ~= nil
+end
+
+function Engine.IsStance(choice)
+  return type(choice) == "table" and type(choice.fx) == "table" and choice.fx.align ~= nil
+    and not Engine.IsQuestion(choice.text)
+end
+
 function Engine.Choices(node, ctx, env, opts)
   opts = opts or {}
+  local stance = opts.stance
   local visited, explored, hubs = opts.visited or {}, opts.explored or {}, opts.hubs or {}
   local rotating = opts.rotating or {}
   local showLocked = ns.db and ns.db.settings.showLocked
@@ -344,7 +358,8 @@ function Engine.Choices(node, ctx, env, opts)
   for _, choice in ipairs(node and node.choices or {}) do
     local target = choice.next
     local exit = Engine.IsExit(target) or hubs[target]
-    if exit or choice.repeatable or rotating[target] or not visited[target] then
+    local otherStance = stance and Engine.IsStance(choice) and choice.text ~= stance
+    if not otherStance and (exit or choice.repeatable or rotating[target] or not visited[target]) then
       local entry
       if Cond.Eval(choice.when, ctx, env) then
         entry = { choice = choice }

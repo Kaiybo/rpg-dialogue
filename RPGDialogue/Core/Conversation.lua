@@ -674,7 +674,9 @@ function Conv.BuildChoices(node, isStart)
     if n.hub then hubs[id] = true end
     if n.rotating then rotating[id] = true end
   end
-  for _, e in ipairs(Engine.Choices(node, ctx, env, { visited = s.visited, explored = explored, hubs = hubs, rotating = rotating })) do
+  local stances = s.mem and s.mem.stances
+  local opts = { visited = s.visited, explored = explored, hubs = hubs, rotating = rotating, stance = stances and stances[s.node] }
+  for _, e in ipairs(Engine.Choices(node, ctx, env, opts)) do
     if #entries < Engine.MAX_CHOICES then entries[#entries + 1] = e end
   end
   local intrusive = ns.Insanity and ns.Insanity.IntrusiveChoice(env.seed + #entries)
@@ -765,6 +767,17 @@ function Conv.Choose(index)
     end
   end
 
+  -- Alignment comes only from a stance (a statement, not a question), once per node.
+  if type(fx) == "table" and fx.align then
+    local stances = s.mem.stances or {}
+    s.mem.stances = stances
+    if not Engine.IsStance(choice) or stances[s.node] then
+      local copy = {}
+      for k, v in pairs(fx) do if k ~= "align" then copy[k] = v end end
+      fx = copy
+    end
+    if Engine.IsStance(choice) then stances[s.node] = stances[s.node] or choice.text end
+  end
   Effects.Apply(fx, env)
   Effects.Journal(journal, ctx, env)
 
@@ -1046,15 +1059,22 @@ end
 local function itemIconSize() return math.floor(ns.UI.Theme.BodySize() * 2 + 2) end
 Conv.ItemIconSize = itemIconSize
 
+-- An item's icon and name as a link: hovering it in the text shows the game's tooltip.
+-- The plain text (typed out) has the links stripped; they come back when typing ends.
+local function itemLink(it, label)
+  return ("|Hrpgdq:%s:%d:%s|h%s|h"):format(it.kind or "reward", it.index or 0, it.itemID or "", label)
+end
+local function stripLinks(text) return (text:gsub("|H.-|h(.-)|h", "%1")) end
+
 local function itemLine(it)
-  local line = C.IconMarkup(it.texture, itemIconSize()) .. itemName(it)
+  local line = itemLink(it, C.IconMarkup(it.texture, itemIconSize()) .. itemName(it))
   if it.usable == false then line = line .. " " .. ns.UI.Theme.StatusHex(false) .. L.QUEST_UNUSABLE .. "|r" end
   return line
 end
 
 -- A required item: how many the player carries against how many the quest wants.
 local function requiredLine(it)
-  local line = C.IconMarkup(it.texture, itemIconSize()) .. it.name
+  local line = itemLink(it, C.IconMarkup(it.texture, itemIconSize()) .. it.name)
   if not it.have then return line .. ((it.count or 1) > 1 and (" x" .. it.count) or "") end
   local enough = it.have >= (it.count or 1)
   return line .. "  " .. ns.UI.Theme.StatusHex(enough) .. L.QUEST_HAVE:format(math.min(it.have, it.count or 1), it.count or 1) .. "|r"
@@ -1106,7 +1126,7 @@ local function rewardEntries(s, info)
       if it.usable == false then label = label .. " " .. L.QUEST_UNUSABLE end
       if picked then label = label .. " " .. CHECK .. " " .. L.QUEST_CHOSEN end
       add(label, { action = "pick", arg = it.index, icon = { file = it.texture, desaturate = it.usable == false, size = itemIconSize() },
-                   tooltip = { kind = "choice", index = it.index } })
+                   tooltip = { kind = "choice", index = it.index, itemID = it.itemID } })
     end
     if chosen then
       add(L.QUEST_COMPLETE_WITH:format(itemName(chosen)), { action = "reward", arg = chosen.index, gap = true })
@@ -1222,7 +1242,8 @@ function Conv.ShowGamePage(kind)
   -- Item names the game hasn't sent yet show as "..." and are filled in when they come.
   s.itemsPending = s.page ~= "gossip" and itemsLoading()
   ns.UI.Dialogue.Show({
-    name = s.info.name, subtitle = subtitle, unit = s.unit, text = text, choices = toChoices(entries), canAsk = false,
+    name = s.info.name, subtitle = subtitle, unit = s.unit, text = stripLinks(text), linkedText = text,
+    choices = toChoices(entries), canAsk = false,
     lastLabel = L.GOODBYE,
   })
 end
@@ -1236,7 +1257,7 @@ function Conv.RefreshItems()
   local text, entries = buildPage(s, kind)
   s.choiceEntries = entries
   s.itemsPending = itemsLoading()
-  ns.UI.Dialogue.UpdateText(text)
+  ns.UI.Dialogue.UpdateText(stripLinks(text), text)
   ns.UI.Dialogue.SetChoices(toChoices(entries))
 end
 

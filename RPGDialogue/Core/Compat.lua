@@ -1033,11 +1033,16 @@ function C.MoneyText(copper)
 end
 
 -- The game's tooltip for an item on the quest page.
-function C.ShowQuestItemTooltip(owner, kind, index)
+-- Falls back to the item's own link when the quest window can't fill it in.
+function C.ShowQuestItemTooltip(owner, kind, index, itemID)
   local tip = G.GameTooltip
   if type(tip) ~= "table" then return end
-  pcall(tip.SetOwner, tip, owner, "ANCHOR_RIGHT")
-  if type(tip.SetQuestItem) == "function" then pcall(tip.SetQuestItem, tip, kind, index) end
+  pcall(tip.SetOwner, tip, owner, "ANCHOR_CURSOR")
+  local ok = type(tip.SetQuestItem) == "function" and pcall(tip.SetQuestItem, tip, kind, index)
+  local filled = ok and type(tip.NumLines) == "function" and (tip:NumLines() or 0) > 0
+  if not filled and itemID and type(tip.SetHyperlink) == "function" then
+    pcall(tip.SetHyperlink, tip, "item:" .. itemID)
+  end
   pcall(tip.Show, tip)
 end
 

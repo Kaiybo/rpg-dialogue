@@ -53,6 +53,38 @@ end
 
 local function text(ns) return plain(ns.UI.Dialogue.Frame().text:GetText()) end
 
+local function mcbride()
+  Mock.state.units.npc = { guid = "Creature-0-1-0-1-197-AB", name = "Marshal McBride", level = 20, reaction = 5 }
+  local f = _G.GossipFrame or Mock.NewFrame("Frame", "GossipFrame")
+  f:Show()
+  Mock.Fire("GOSSIP_SHOW")
+  Mock.RunTimers()
+end
+
+describe("Stances", function()
+  it("alignment comes from statements only, and a stance taken shuts out the others for good", function()
+    local ns = boot()
+    ok(ns.Engine.IsQuestion("Are they all guilty?") and ns.Engine.IsQuestion("Why?\"") and not ns.Engine.IsQuestion("Hang them."))
+    mcbride()
+    pick(ns, "Defias")
+    ok(has(replies(ns), "Hang the lot of them."))
+    pick(ns, "all guilty")
+    eq(ns.char.align.light, 0, "a question shifts nothing")
+    leave(ns)
+    mcbride()
+    pick(ns, "Defias")
+    pick(ns, "Give them")
+    local light = ns.char.align.light
+    ok(light > 0)
+    leave(ns)
+    mcbride()
+    pick(ns, "Defias")
+    ok(not has(replies(ns), "Hang the lot"), "the opposing stance is gone")
+    pick(ns, "Give them")
+    eq(ns.char.align.light, light, "the same stance doesn't count twice")
+  end)
+end)
+
 describe("Deeper conversations", function()
   it("comes BACK to the hub with a short again line, and hides what was asked", function()
     local ns = boot()

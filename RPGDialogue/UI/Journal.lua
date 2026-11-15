@@ -1,5 +1,6 @@
--- The journal: the character's point of view, not the truth. Tabs: Chronicle, People I've
--- Met, Character Sheet (with the Origin page), Topics, Deeds, Notes.
+-- The journal: the character's own book, in their point of view (not the truth). Four
+-- pages: Diary (what happened, day by day, place by place), People (who they've met and how
+-- it stands), Myself (where they stand, what they've learned, what they've done), Notes.
 local _, ns = ...
 
 local C = ns.Compat
@@ -14,7 +15,9 @@ UI.Journal = J
 local W, H = 560, 480
 local frame
 local current = "chronicle"
-local TABS = { "chronicle", "people", "sheet", "topics", "deeds", "notes" }
+local TABS = { "chronicle", "people", "sheet", "notes" }
+-- Old page names (saved bindings, macros) land on the page that holds them now.
+local ALIASES = { topics = "sheet", deeds = "sheet" }
 
 ---------------------------------------------------------------------------
 -- Text builders (pure: also used by tests)
@@ -58,96 +61,136 @@ local function deedName(id)
   return id
 end
 
+local HEAD, DIM = "|cff6b2f0f", "|cff8a6d3b"
+local MONTHS = { "January", "February", "March", "April", "May", "June", "July", "August",
+                 "September", "October", "November", "December" }
+local DAYS = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" }
+
+-- "Tuesday, 15 November" for a timestamp (or "" when the client has no calendar).
+local function dayName(t)
+  local okDate, d = pcall(_G.date, "*t", t)
+  if not okDate or type(d) ~= "table" then return "" end
+  return ("%s, %d %s"):format(DAYS[d.wday] or "", d.day, MONTHS[d.month] or "")
+end
+
+local function heading(add, text)
+  add(HEAD .. text .. "|r")
+end
+
+-- The diary: entries grouped under the day they were written, oldest first within a day
+-- (newest day at the top), with the place written once each time it changes.
+local function diary(add, c, search)
+  local needle = search and search ~= "" and search:lower()
+  local days, order = {}, {}
+  for _, e in ipairs(c.journal) do
+    local text = e.kind == "summary" and L.J_FOLDED:format(e.folded or 0) or (e.text or "")
+    local place = (e.subzone and e.subzone ~= "") and e.subzone or e.zone or ""
+    if text ~= "" and (not needle or text:lower():find(needle, 1, true) or place:lower():find(needle, 1, true)) then
+      local key = dayName(e.t or 0)
+      if not days[key] then days[key] = {}; order[#order + 1] = key end
+      local list = days[key]
+      list[#list + 1] = { text = e.otherHand and ("|cff7a5a8a" .. text .. "  " .. L.J_OTHER_HAND .. "|r") or text, place = place }
+    end
+  end
+  for i = #order, 1, -1 do
+    local key = order[i]
+    heading(add, key ~= "" and key or L.J_UNDATED)
+    local lastPlace
+    for _, e in ipairs(days[key]) do
+      if e.place ~= "" and e.place ~= lastPlace then add(DIM .. e.place .. "|r") end
+      lastPlace = e.place
+      add(e.text)
+    end
+    add(" ")
+  end
+end
+
+local function people(add, c)
+  local list = {}
+  for key, m in pairs(c.npc) do
+    if (m.times or 0) > 0 then list[#list + 1] = { key = key, m = m } end
+  end
+  table.sort(list, function(a, b) return (a.m.last or 0) > (b.m.last or 0) end)
+  for _, p in ipairs(list) do
+    local name = p.m.name or p.key
+    heading(add, name)
+    add(L.J_PERSON:format(affinityWord(p.m.affinity), L.J_TALKED:format(p.m.times or 0), when(p.m.last)))
+    local line = p.m.lastLine and ns.Data.Line(p.m.lastLine)
+    if line and line.text then add(L.J_LAST_SAID:format(ns.Tokens.Render(line.text, ns.Context.New({ spoof = {} }), { info = { name = name } }))) end
+    add(" ")
+  end
+end
+
+local function myself(add, c)
+  local a = c.align
+  local alignTitle = ns.Effects.TitleName()
+  heading(add, L.J_ALIGNMENT .. (alignTitle and ("  (" .. alignTitle .. ")") or ""))
+  add(axisWords(a.light or 0, L.AX_LIGHT, L.AX_SHADOW))
+  add(axisWords(a.order or 0, L.AX_ORDER, L.AX_WILD))
+  add(axisWords(a.honor or 0, L.AX_HONOR, L.AX_CUNNING))
+  if (a.taint or 0) > 0 then add(a.taint >= 40 and L.TAINT_STRONG or L.TAINT_FAINT) end
+  local dom = ns.Effects.DominantTraits()
+  if #dom > 0 then add(L.J_TRAITS .. " " .. table.concat(dom, ", ")) end
+  add(" ")
+  local function section(title, lines)
+    if #lines == 0 then return end
+    heading(add, title)
+    for _, l in ipairs(lines) do add(l) end
+    add(" ")
+  end
+  local lines = {}
+  for topic, o in pairs(c.opinions) do
+    local def = ns.Data.topics[topic]
+    lines[#lines + 1] = (def and def.name or topic) .. ": " .. tostring(o.stance):gsub("_", " ") .. (o.contradicts and (" " .. L.J_CONTRADICTED) or "")
+  end
+  table.sort(lines)
+  section(L.J_OPINIONS, lines)
+  lines = {}
+  for id in pairs(c.towns) do
+    local town = ns.Data.towns[id]
+    lines[#lines + 1] = (town and town.name or id) .. ": " .. ns.Towns.TierName(id)
+  end
+  table.sort(lines)
+  section(L.J_TOWNS, lines)
+  lines = {}
+  for id, rec in pairs(c.claims.heard) do
+    local def = ns.Data.claims[id]
+    local who = def and def.by and ns.Data.npcs[def.by] and ns.Data.npcs[def.by].name or tostring(rec.npc or "?")
+    lines[#lines + 1] = L.J_INSISTS:format(who, def and def.text or id) .. (c.claims.exposed[id] and (" " .. L.J_SETTLED) or "")
+  end
+  table.sort(lines)
+  section(L.J_CLAIMS, lines)
+  lines = {}
+  for _, t in ipairs(ns.Topics.Known(true)) do lines[#lines + 1] = t.name end
+  if #lines > 0 then section(L.J_TOPICS, { table.concat(lines, ", ") }) end
+  lines = {}
+  for title in pairs(c.books) do lines[#lines + 1] = title end
+  table.sort(lines)
+  section(L.J_BOOKS, lines)
+  local deeds = {}
+  for id, d in pairs(c.deeds) do deeds[#deeds + 1] = { id = id, t = d.t or 0, n = d.n or 1 } end
+  table.sort(deeds, function(x, y) return x.t > y.t end)
+  lines = {}
+  for _, d in ipairs(deeds) do lines[#lines + 1] = deedName(d.id) .. (d.n > 1 and (" ×" .. d.n) or "") .. "  " .. DIM .. when(d.t) .. "|r" end
+  if (c.deathCount or 0) > 0 then lines[#lines + 1] = L.J_DEATHS:format(c.deathCount) end
+  section(L.J_DEEDS, lines)
+  heading(add, L.J_ORIGIN .. "  " .. (c.origin and c.origin.name or L.J_NO_ORIGIN))
+  if c.origin and c.origin.blurb then add(c.origin.blurb) end
+end
+
 function J.Text(tab, search)
+  tab = ALIASES[tab] or tab
   local c = ns.char
   local out = {}
   local function add(s) out[#out + 1] = s end
   if tab == "chronicle" then
-    local needle = search and search ~= "" and search:lower()
-    for i = #c.journal, 1, -1 do
-      local e = c.journal[i]
-      local text = e.kind == "summary" and L.J_FOLDED:format(e.folded or 0) or (e.text or "")
-      if not needle or text:lower():find(needle, 1, true) or (e.zone or ""):lower():find(needle, 1, true) then
-        add("|cff8a6d3b" .. when(e.t) .. (e.subzone and e.subzone ~= "" and (" · " .. e.subzone) or (e.zone and (" · " .. e.zone) or "")) .. "|r")
-        add(e.otherHand and ("|cff7a5a8a" .. text .. "  " .. L.J_OTHER_HAND .. "|r") or text)
-        add(" ")
-      end
-    end
+    diary(add, c, search)
     if #out == 0 then add(L.J_EMPTY) end
   elseif tab == "people" then
-    local list = {}
-    for key, m in pairs(c.npc) do
-      if (m.times or 0) > 0 then list[#list + 1] = { key = key, m = m } end
-    end
-    table.sort(list, function(a, b) return (a.m.last or 0) > (b.m.last or 0) end)
-    for _, p in ipairs(list) do
-      local name = p.m.name or p.key
-      add("|cff6b2f0f" .. name .. "|r  " .. affinityWord(p.m.affinity) .. " · " .. L.J_TALKED:format(p.m.times or 0) .. " · " .. when(p.m.last))
-      local line = p.m.lastLine and ns.Data.Line(p.m.lastLine)
-      if line and line.text then add("  \"" .. ns.Tokens.Render(line.text, ns.Context.New({ spoof = {} }), { info = { name = name } }) .. "\"") end
-      add(" ")
-    end
-    if #list == 0 then add(L.J_NOBODY) end
+    people(add, c)
+    if #out == 0 then add(L.J_NOBODY) end
   elseif tab == "sheet" then
-    local a = c.align
-    local title = ns.Effects.TitleName()
-    add("|cff6b2f0f" .. L.J_ALIGNMENT .. "|r" .. (title and ("  (" .. title .. ")") or ""))
-    add("  " .. axisWords(a.light or 0, L.AX_LIGHT, L.AX_SHADOW))
-    add("  " .. axisWords(a.order or 0, L.AX_ORDER, L.AX_WILD))
-    add("  " .. axisWords(a.honor or 0, L.AX_HONOR, L.AX_CUNNING))
-    if (a.taint or 0) > 0 then add("  " .. (a.taint >= 40 and L.TAINT_STRONG or L.TAINT_FAINT)) end
-    add(" ")
-    local dom = ns.Effects.DominantTraits()
-    add("|cff6b2f0f" .. L.J_TRAITS .. "|r  " .. (#dom > 0 and table.concat(dom, ", ") or L.J_NONE_YET))
-    add(" ")
-    add("|cff6b2f0f" .. L.J_OPINIONS .. "|r")
-    local any = false
-    for topic, o in pairs(c.opinions) do
-      any = true
-      local def = ns.Data.topics[topic]
-      add("  " .. (def and def.name or topic) .. ": " .. tostring(o.stance):gsub("_", " ") .. (o.contradicts and (" " .. L.J_CONTRADICTED) or ""))
-    end
-    if not any then add("  " .. L.J_NONE_YET) end
-    add(" ")
-    add("|cff6b2f0f" .. L.J_TOWNS .. "|r")
-    any = false
-    for id in pairs(c.towns) do
-      any = true
-      local town = ns.Data.towns[id]
-      add("  " .. (town and town.name or id) .. ": " .. ns.Towns.TierName(id))
-    end
-    if not any then add("  " .. L.J_NONE_YET) end
-    add(" ")
-    add("|cff6b2f0f" .. L.J_ORIGIN .. "|r  " .. (c.origin and c.origin.name or L.J_NO_ORIGIN))
-    if c.origin and c.origin.blurb then add("  " .. c.origin.blurb) end
-  elseif tab == "topics" then
-    for _, t in ipairs(ns.Topics.Known(true)) do
-      add("|cff6b2f0f" .. t.name .. "|r  (" .. t.category .. ")")
-    end
-    if #out == 0 then add(L.J_NO_TOPICS) end
-    add(" ")
-    add("|cff6b2f0f" .. L.J_CLAIMS .. "|r")
-    local any = false
-    for id, rec in pairs(c.claims.heard) do
-      any = true
-      local def = ns.Data.claims[id]
-      local who = def and def.by and ns.Data.npcs[def.by] and ns.Data.npcs[def.by].name or tostring(rec.npc or "?")
-      local settled = c.claims.exposed[id] and (" " .. L.J_SETTLED) or ""
-      add("  " .. L.J_INSISTS:format(who, def and def.text or id) .. settled)
-    end
-    if not any then add("  " .. L.J_NONE_YET) end
-    add(" ")
-    add("|cff6b2f0f" .. L.J_BOOKS .. "|r")
-    any = false
-    for title in pairs(c.books) do any = true; add("  " .. title) end
-    if not any then add("  " .. L.J_NONE_YET) end
-  elseif tab == "deeds" then
-    local list = {}
-    for id, d in pairs(c.deeds) do list[#list + 1] = { id = id, t = d.t or 0, n = d.n or 1 } end
-    table.sort(list, function(x, y) return x.t > y.t end)
-    for _, d in ipairs(list) do add(deedName(d.id) .. (d.n > 1 and (" ×" .. d.n) or "") .. "  |cff8a6d3b" .. when(d.t) .. "|r") end
-    if (c.deathCount or 0) > 0 then add(L.J_DEATHS:format(c.deathCount)) end
-    if #out == 0 then add(L.J_NO_DEEDS) end
+    myself(add, c)
   end
   return table.concat(out, "\n")
 end
@@ -188,7 +231,7 @@ local function create()
 
   frame.tabs = {}
   for _, id in ipairs(TABS) do
-    local b = Theme.Button(frame, "", 84, 22)
+    local b = Theme.Button(frame, "", 120, 22)
     b:SetText(L["J_TAB_" .. id:upper()])
     b:SetScript("OnClick", function() J.Show(id) end)
     frame.tabs[id] = b
@@ -292,7 +335,7 @@ local function placeParts(game)
   for i, id in ipairs(TABS) do
     local b = frame.tabs[id]
     b:ClearAllPoints()
-    b:SetPoint("TOPLEFT", 14 + (i - 1) * 88, game and -32 or -40)
+    b:SetPoint("TOPLEFT", 14 + (i - 1) * 124, game and -32 or -40)
   end
 end
 
@@ -320,7 +363,7 @@ end
 
 function J.Show(tab)
   if not frame then create() end
-  current = tab or current
+  current = ALIASES[tab] or tab or current
   frame.title:SetText(L.J_TITLE)
   J.Style()
   local isNotes = current == "notes"

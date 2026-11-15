@@ -61,7 +61,49 @@ local function minimapButton()
   place()
 end
 
+-- The journal on screen: a book you click to open it (drag to move, right-click for settings).
+-- Shown unless turned off in settings ("Show the journal button").
+local book
+function Launcher.Book()
+  if book then return book end
+  book = CreateFrame("Button", "RPGDialogueJournalButton", UIParent)
+  book:SetSize(40, 40)
+  book:SetFrameStrata("MEDIUM")
+  book:SetMovable(true)
+  book:SetClampedToScreen(true)
+  book:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+  book:RegisterForDrag("LeftButton")
+  local icon = book:CreateTexture(nil, "ARTWORK")
+  icon:SetAllPoints()
+  icon:SetTexture(ICON)
+  local hl = book:CreateTexture(nil, "HIGHLIGHT")
+  hl:SetAllPoints()
+  hl:SetColorTexture(1, 1, 1, 0.2)
+  local pos = ns.db.settings.pos.journalButton
+  if pos then book:SetPoint(pos[1], UIParent, pos[1], pos[2], pos[3]) else book:SetPoint("RIGHT", UIParent, "RIGHT", -60, 120) end
+  book:SetScript("OnDragStart", book.StartMoving)
+  book:SetScript("OnDragStop", function(self)
+    self:StopMovingOrSizing()
+    local point, _, _, x, y = self:GetPoint()
+    ns.db.settings.pos.journalButton = { point, x, y }
+  end)
+  book:SetScript("OnClick", function(_, button) onClick(button) end)
+  book:SetScript("OnEnter", function(self)
+    GameTooltip:SetOwner(self, "ANCHOR_LEFT")
+    GameTooltip:SetText(L.J_TITLE)
+    GameTooltip:AddLine(L.JOURNAL_BUTTON_TIP, 1, 1, 1, true)
+    GameTooltip:Show()
+  end)
+  book:SetScript("OnLeave", function() GameTooltip:Hide() end)
+  return book
+end
+
+function Launcher.Refresh()
+  if ns.db.settings.journalButton ~= false then Launcher.Book():Show() elseif book then book:Hide() end
+end
+
 ns.OnLogin(function()
+  Launcher.Refresh()
   local ok = C.RegisterCompartment({
     text = L.ADDON_NAME, icon = ICON, notCheckable = true,
     func = function(_, _, _, _, button) onClick(button) end,

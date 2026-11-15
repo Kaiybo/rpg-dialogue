@@ -41,24 +41,48 @@ local selected, navMode = nil, false
 ---------------------------------------------------------------------------
 -- Typewriter (substring reveal, UTF-8 safe)
 ---------------------------------------------------------------------------
--- Byte index of the end of the n-th UTF-8 character.
-local function utf8Cut(s, n)
-  local i, count = 1, 0
-  local len = #s
-  while i <= len and count < n do
+-- Where the typewriter may cut: the byte end of each visible character. Escape codes
+-- (|T icons|t, |A atlases|a, |c colours, |r, |H links|h) are never cut in half, so the raw
+-- code never flashes on screen; an icon counts as one character, colour codes as none.
+local function cutPoints(s)
+  local cuts, i, len = {}, 1, #s
+  while i <= len do
     local b = s:byte(i)
-    local size = (b >= 240 and 4) or (b >= 224 and 3) or (b >= 192 and 2) or 1
-    i = i + size
-    count = count + 1
+    if b == 124 then -- "|"
+      local c = s:sub(i + 1, i + 1)
+      local stop
+      if c == "T" then stop = s:find("|t", i + 2, true); stop = stop and stop + 1
+      elseif c == "A" then stop = s:find("|a", i + 2, true); stop = stop and stop + 1
+      elseif c == "c" then stop = i + 9
+      elseif c == "H" then stop = s:find("|h", i + 2, true); stop = stop and stop + 1
+      elseif c == "r" or c == "h" or c == "n" or c == "|" then stop = i + 1 end
+      if stop then
+        local visible = c == "T" or c == "A" or c == "n" or c == "|"
+        if visible or #cuts == 0 then cuts[#cuts + 1] = math.min(stop, len)
+        else cuts[#cuts] = math.min(stop, len) end
+        i = stop + 1
+      else
+        cuts[#cuts + 1] = i; i = i + 1
+      end
+    else
+      local size = (b >= 240 and 4) or (b >= 224 and 3) or (b >= 192 and 2) or 1
+      i = i + size
+      cuts[#cuts + 1] = i - 1
+    end
   end
-  return i - 1
+  return cuts
+end
+D.CutPoints = cutPoints
+
+-- Byte index of the end of the n-th visible character.
+local function utf8Cut(s, n)
+  if n <= 0 then return 0 end
+  local cuts = cutPoints(s)
+  return cuts[math.min(n, #cuts)] or 0
 end
 D.utf8Cut = utf8Cut
 
-local function utf8Len(s)
-  local _, n = s:gsub("[^\128-\191]", "")
-  return n
-end
+local function utf8Len(s) return #cutPoints(s) end
 
 local function settings() return ns.db.settings end
 local function isGame() return Theme.IsGame() end
@@ -91,6 +115,10 @@ local function onLink(_, link)
   if id and ns.Conversation then ns.Conversation.Ask(id) end
 end
 local function onLinkEnter(_, link)
+  -- An item on a quest page: the game's item tooltip.
+  local kind, index, itemID
+  if type(link) == "string" then kind, index, itemID = link:match("^rpgdq:(%a+):(%d+):?(%d*)") end
+  if kind then C.ShowQuestItemTooltip(frame, kind, tonumber(index), tonumber(itemID)); return end
   local id = ns.Topics and ns.Topics.FromLink(link)
   local def = id and ns.Data.topics[id]
   if not def then return end
@@ -103,7 +131,8 @@ function D.OnUpdate(_, elapsed)
   reveal.shown = reveal.shown + elapsed * (settings().textSpeed or 70)
   local n = math.floor(reveal.shown)
   if n >= reveal.total then finishReveal(); return end
-  frame.text:SetText(reveal.full:sub(1, utf8Cut(reveal.full, n)))
+  reveal.cuts = reveal.cuts or cutPoints(reveal.full)
+  frame.text:SetText(reveal.full:sub(1, reveal.cuts[n] or 0))
 end
 
 function D.IsRevealing() return reveal.active end
@@ -138,7 +167,7 @@ local function makeButton(i)
   b:SetScript("OnEnter", function(self)
     Theme.TextColor(self.label, self.locked and "locked" or "hover")
     -- A reward on a quest page: the game's item tooltip.
-    if self.tooltip then C.ShowQuestItemTooltip(self, self.tooltip.kind, self.tooltip.index) end
+    if self.tooltip then C.ShowQuestItemTooltip(self, self.tooltip.kind, self.tooltip.index, self.tooltip.itemID) end
   end)
   b:SetScript("OnLeave", function(self)
     Theme.TextColor(self.label, D.ColorKey(self))
@@ -551,6 +580,7 @@ function D.Show(v)
   reveal.full = v.text or ""
   reveal.linked = v.linkedText
   reveal.total = utf8Len(reveal.full)
+  reveal.cuts = nil
   reveal.shown = 0
   D.Layout()
   local opening = not frame:IsShown()
@@ -685,6 +715,7 @@ function D.ShowAnswer(text, topicName, linked)
   reveal.full = text or ""
   reveal.linked = linked
   reveal.total = utf8Len(reveal.full)
+  reveal.cuts = nil
   reveal.shown = 0
   if topicName then frame.subtitle:SetText("<" .. topicName .. ">") end
   D.Layout()
@@ -697,15 +728,17 @@ end
 
 -- New text for the same page (an item's name arrived): typing carries on where it was, and
 -- finished text is simply replaced.
-function D.UpdateText(text)
+function D.UpdateText(text, linked)
   if not frame or not frame:IsShown() then return end
   reveal.full = text or ""
+  reveal.linked = linked
   reveal.total = utf8Len(reveal.full)
+  reveal.cuts = nil
   D.Layout()
   if reveal.active then
     reveal.shown = math.min(reveal.shown, reveal.total)
   else
-    frame.text:SetText(reveal.full)
+    frame.text:SetText(reveal.linked or reveal.full)
   end
 end
 

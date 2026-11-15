@@ -280,7 +280,7 @@ Pacing systems are **inferred** from condition keys: `alignment`/`title` → ali
 
 | Key | Example | Notes |
 |---|---|---|
-| `align` | `{ light = 2, order = -1, honor = 0 }` | axes: +Light/−Shadow, +Order/−Wild, +Honor/−Cunning; diminishing returns applied by the engine |
+| `align` | `{ light = 2, order = -1, honor = 0 }` | axes: +Light/−Shadow, +Order/−Wild, +Honor/−Cunning; diminishing returns applied by the engine ; choices only, and only on **stances** (statements, two or more per node, mutually exclusive: `Engine.IsStance`, remembered per NPC in `mem.stances[node]`; 0.33.0) |
 | `taint` | `5` | Fel Taint, 0–100 |
 | `trait` | `{ witty = 1 }` | |
 | `opinion` | `{ defias = "hardline" }` | records the NPC who heard it, when, and their communities |

@@ -371,6 +371,14 @@ def main():
             always = [c for c in choices if c.get("when") is None]
             if len(always) > 6:
                 rep.warn(pack, f, node.line, f"{where}.{nid}: {len(always)} choices without conditions; at most 6 are shown at once")
+            # Stances (0.33.0): alignment comes only from statements, at least two per node,
+            # mutually exclusive (the engine hides the rest once one is taken).
+            aligned = [c for c in choices if isinstance(c.get("fx"), LTable) and c.get("fx").get("align")]
+            for c in aligned:
+                if re.search(r"\?[\"')\s]*$", c.get("text") or ""):
+                    rep.error(pack, f, c.line, f"{where}.{nid}: a question can't shift alignment; make it a statement or drop the align")
+            if len(aligned) == 1:
+                rep.error(pack, f, aligned[0].line, f"{where}.{nid}: the only stance here; alignment needs two or more opposing statements to choose between")
             edges[nid] = []
             for i, ch in enumerate(choices, 1):
                 edges[nid] += check_choice(pack, f, ch, f"{where}.{nid}.choice{i}", nodes)
