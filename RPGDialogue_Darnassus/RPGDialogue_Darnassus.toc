@@ -12,3 +12,6 @@
 
 pack.lua
 npcs\darnassus.lua
+npcs\temple.lua
+npcs\enclave.lua
+npcs\terraces.lua

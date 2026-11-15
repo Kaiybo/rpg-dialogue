@@ -3,7 +3,7 @@
 The pack's own version is `version` in `pack.lua`; bump both together.
 
 ## 1.5.0 (2026-11-15)
-- New people in Darnassus (see the main changelog).
+- 18 new people: the Temple of the Moon's priestesses (Priestess Alathea, Astarii Starseeker, Jandria, Lariia, Sister Aquinne), Idriana; the Cenarion Enclave (Jenal, Syurna, Jocaste, Denatharion); the Warrior's Terrace (Thyn'tel Bladeweaver, Elanaria, Mathiel, Arias'ta Bladesinger, Mydrannul); Herald Moonstalker, Treshala Fallowbrook, Darianna.
 - First impressions in your diary. New files: restart the game.
 
 ## 1.4.0 (2026-11-15)
