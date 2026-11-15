@@ -13,10 +13,10 @@
 - https://warcraft.wiki.gg/wiki/Kravel_Koalbeard (dwarf schemer and con man at the raceway: errands for the crews, blackmail, rigging races; conspiratorial; Classic quests include Rocket Car Parts, Parts for Kravel, The Rumormonger, Rumors for Kravel, Get the Goblins Drunk, Get the Gnomes Drunk)
 
 ## Their quests
-- Longhorn: Message to Freewind Post, Pacify the Centaur, Grimtotem Spying, Wanted - Arnak Grimtotem, Family Tree.
-- Rau: The Sacred Flame.
-- Hagar: Alien Egg, Serpent Wild.
-- Thalia: Free At Last.
+- Longhorn: Message to Freewind Post (the centaur raided one of his supply caravans and slaughtered the party: "it will not go unpunished"), Pacify the Centaur (the Galak camp at Splithoof Crag to the north; "let wrath guide your hand"), Grimtotem Spying (three agents of unknown origin visited the Grimtotem in recent weeks; three notes in chests on Darkcloud Pinnacle; "Great Spirit Totem! ... I must begin to plan for whatever may come"; the notes' contents are not used), Wanted - Arnak Grimtotem (murder and kidnapping; he had begun to think Arnak would never face justice; "boiled my blood"), Family Tree (Thousand Needles) (a report for Nataka at Ghost Walker Post: **a year since Longhorn last wrote**, and unusual centaur activity since; the old line said Nataka hadn't answered, and was fixed). Freewind: young tauren study the wyverns at Highperch and take eggs to raise as mounts.
+- Rau: The Sacred Flame (3 parts, one title: Zangen Stonehoof in Thunder Bluff has a phial filled at an Ashenvale moonwell, taken from the dryads near Raynewood; Rau: because dryads and centaur share an ancestry, moonwell water breaches the eternal flame, only for a while; the Cloven Hoof is an artifact from the time of the centaurs' creation, in Splithoof Hold; he senses strange energy and means to decipher it).
+- Hagar: Alien Egg (a rumor; the egg guarded by serpents as their own, in dens at the foot of the cliffs south and northeast of Freewind; "who knows what will hatch"), Serpent Wild (he wipes his brow; Arikara, the Vengeance, has come; Motega Firemane at Whitereach Post northwest along the road). Arikara: a figure of legend, a spirit of vengeance against those who did heinous acts ([Arikara](https://warcraft.wiki.gg/wiki/Arikara)).
+- Thalia: Free at Last (turn-in only; Lakota Windsong, her close friend, refused Arnak's proposal, was kidnapped that night, and her brother was killed trying to stop him; Thalia "knew in her bones" Lakota would come back, and gives the brother's items). The old lines had Thalia giving the quest and talking of many missing people: fixed to Lakota ([Lakota Windsong](https://warcraft.wiki.gg/wiki/Lakota_Windsong), [Arnak Grimtotem](https://warcraft.wiki.gg/wiki/Arnak_Grimtotem)). Arnak's summoned Grimtotem are Cataclysm abilities: not used.
 - Pozzik: Load Lightening, The Eighteenth Pilot, Rizzle's Schematics, Indurium Ore.
 - Fizzle: Salt Flat Venom, Martek the Exiled, News for Fizzle, Delivery to the Gnomes.
 - Kravel: Rocket Car Parts, Parts for Kravel, The Rumormonger, Rumors for Kravel, Get the Goblins Drunk, Get the Gnomes Drunk.
@@ -41,3 +41,7 @@
 
 ## Depth pass (0.25.0, authored, not canon)
 Abeqwa's brave asleep on the rope bridge and the needles' moon shadows; Thalia knots a cord for the missing; Rau learned to listen on Elder Rise (consistent with Hamuul's echo).
+
+## Depth pass (0.31.x, authored, not canon)
+Longhorn calls himself a poor letter writer; Rau's discomfort at the dryads' phials and his "centaur hate a slope"; Hagar's own egg flying off; Thalia's knot for Lakota (reworked from a cord for many missing), her view that the Grimtotem chose by staying silent; Abeqwa's harpies stealing the washing and the bitten hands of Highperch students. Longhorn is still written straight (no hint of his Cataclysm betrayal).
+Freewind's NPCs are Horde: an Alliance character can't speak to them, so no Alliance-only replies were written here.

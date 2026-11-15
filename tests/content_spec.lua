@@ -158,7 +158,7 @@ describe("Content packs", function()
     eq(info.key, "solomon")
     eq(info.communities[1], "lakeshire")
     local t = ns.Data.threads.solomons_letters
-    ok(t and #t.beats == 7)
+    ok(t and #t.beats == 8)
     -- The Keep's beats wait for the Stormwind pack, which loads in Stormwind.
     eq(ns.Data.npcs.bolvar, nil)
     Mock.state.zone, Mock.state.subzone = "Stormwind City", "Stormwind Keep"
@@ -746,6 +746,33 @@ describe("Content packs", function()
     info = ns.Conversation.Identify("npc", ctx)
     eq(info.role, "soldier")
     eq(ns.Data.PoolsFor(info, ctx)[1].pool.id, "sick_farholde")
+  end)
+
+  it("Burning Steppes loads at Morgan's Vigil; Maxwell, Ragged John and Cyrus are known, and a priest gets Maxwell's healer reply", function()
+    local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_BurningSteppes" } })
+    Mock.state.zone, Mock.state.subzone = "Burning Steppes", "Morgan's Vigil"
+    Mock.Fire("ZONE_CHANGED_NEW_AREA")
+    Mock.RunTimers()
+    local found
+    for _, p in ipairs(ns.Packs.List()) do
+      if p.id == "rpgd.burningsteppes" then found = true; ok(p.loaded); eq(p.warnings, 0) end
+    end
+    ok(found, "the pack is listed")
+    eq(ns.Data.FindNPC(nil, "Marshal Maxwell").key, "maxwell")
+    eq(ns.Data.FindNPC(nil, "Ragged John").key, "ragged_john")
+    eq(ns.Data.FindNPC(nil, "Cyrus Therepentous").key, "cyrus")
+    eq(ns.Data.CommunityForPlace("Burning Steppes", "Morgan's Vigil"), "morgans_vigil")
+    eq(ns.Data.CommunityForPlace("Burning Steppes", "Flame Crest"), "flame_crest")
+    local maxwell = ns.Data.FindNPC(nil, "Marshal Maxwell")
+    local function replies(class)
+      local ctx = ns.Context.New({ unit = "player", spoof = { race = "Human", class = class, level = 55 } })
+      local env = ns.Engine.NewEnv(maxwell, ctx, {})
+      local texts = {}
+      for _, e in ipairs(ns.Engine.Choices(maxwell.nodes.hello, ctx, env)) do texts[#texts + 1] = e.choice.text end
+      return table.concat(texts, "|")
+    end
+    ok(replies("PRIEST"):find("need a healer", 1, true), "a priest is offered the healer reply")
+    ok(not replies("MAGE"):find("need a healer", 1, true), "a mage is not")
   end)
 
   it("Western Plaguelands loads at Chillwind Camp and in Tirisfal for the Bulwark; both camps' defenders are their guards", function()

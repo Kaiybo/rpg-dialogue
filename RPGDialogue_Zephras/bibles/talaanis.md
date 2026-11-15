@@ -34,3 +34,6 @@ Honest, and honest about what nobody knows.
 
 ## Topics
 al_aketh, two_orders, shal_nan, windstones
+
+## Depth pass (0.31.x)
+All from brief §10: the patrons' silence about Al'Akir and their vanishing; Ansirem Runeweaver and Muln Earthfury against Lorthuna; the flight from Eldre'narr and Skywall's changes (slimmer, Sky-Touched newborns); the order leaders and their seats; the elected Council; the Peacekeepers and Empyrean Blades; druids' Cenarion Circle tie; Windshaper trials and sapta; weakening skysight (never linked to the arcane decline or the physical changes). Authored, not canon: her wish to see both order leaders alive in ten years, "ask them how, and watch their face", and that she knows most Skyborne druids by name.

@@ -141,3 +141,11 @@ P:Claim {
   truthNote = "Weldon (living, at Chillwind Camp) and Alexi (Forsaken, at the Bulwark) each claim the four deeds and send adventurers for the other's head (Barov Family Fortune, The Last Barov; warcraft.wiki.gg). Neither has a better right in canon; left open.",
   open = true,
 }
+
+-- Burning Steppes
+P:Claim {
+  id = "windsor_alive", by = "ragged_john", truth = "true",
+  text = "Marshal Windsor isn't dead: the Dark Irons took him alive into Blackrock Depths.",
+  truthNote = "Ragged John's tale in The True Masters (6) (warcraft.wiki.gg); Maxwell calls John a coward and expects proof of death. The player finds Windsor alive in a Blackrock Depths cell in Marshal Windsor.",
+  exposedBy = { "quest:Marshal Windsor" },
+}

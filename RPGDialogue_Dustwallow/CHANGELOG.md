@@ -2,6 +2,11 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.5.0 (2026-11-15)
+- Depth for Brackenwall Village: Krog and Nazeer Bloodpike, built from the Shady Rest investigation (hoofprints, Paval Reethe's badge, the black shield and Mosarn, Ogron and Reethe's death) and Nazeer's Marg Nighteye chain (the lost report, the severed head, the muckshell and the noble's pendant, Zor Lonetree).
+- Replies for who you are: tauren (Krog), rogues (Nazeer); replies after Reethe is silenced and after Marg speaks, and for players who've heard Nazeer or met Kin'weelay.
+- New quest lines for Suspicious Hoofprints, Lieutenant Paval Reethe, The Black Shield, Return to Krog, Marg Speaks and Theramore Spies.
+
 ## 1.4.0 (unreleased)
 - Voice pass: Jaina, Tervosh, Vimes, Tesoran, Janene, Krog, Nazeer and Theramore's guards now talk in whole sentences instead of clipped fragments, each in their own voice; what they say is unchanged.
 

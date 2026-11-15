@@ -2,6 +2,23 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.32.0 (2026-11-15)
+Packs: World 1.20.0, Redridge 1.4.0, Stranglethorn 1.7.0, Badlands 1.3.0, SwampOfSorrows 1.2.0, Dustwallow 1.5.0, Feralas 1.5.0, Arathi 1.4.0, Felwood 1.2.0, Desolace 1.6.0, Moonglade 1.2.0, Stonetalon 1.2.0, ThousandNeedles 1.4.0, Zephras 1.1.0, and a new one: **Burning Steppes 1.0.0** (the rest as in 0.31.0). **New folder: exit the game fully, copy RPGDialogue_BurningSteppes in, tick it, and start the game again.**
+
+### The Burning Steppes
+- **Morgan's Vigil (Alliance):** Marshal Maxwell (Marshal Windsor's lost proof, the Blackrock and the Spire, why Stormwind waits; the whole True Masters chain through Jail Break!), Helendis Riverhorn (this was once the Redridge range; the black dragonflight behind the Blackrock), Oralius and Captain Winky, Jalinda Sprig and her burned mages, Mayara Brightwing and Thaurissan's whispering stones, and Borgus the gryphon master. A priest can walk the camp and bless the soldiers, or pray with Oralius.
+- **Flame Crest (neutral, with the Horde's wind riders):** Ragged John tells Windsor's whole story in his own words (and pours Mother's Milk); Maxwort Uberglint and the Seven, Tinkee Steamboil's gadgets, Yuka Screwspigot and her brother's bounty, Kibler's exotic pets, Mathredis Firestar and the librams, Vahgruk. At Slither Rock, Cyrus Therepentous wants the mountain's fire.
+- Magistrate Solomon in Lakeshire knows when you've met Maxwell. Six new Ask about topics (the black dragonflight, Blackrock Spire, Blackrock Depths, Marshal Windsor, Thaurissan, the Firegut ogres).
+- Checked against Classic: Flame Crest was a neutral camp, Ragged John stands there, neither camp had generic guards, and nothing from Cataclysm is used. Nefarian is named only once Maxwell has read his message, and Lady Prestor's secret stays secret.
+
+### Deeper Horde towns, levels 30-60
+Grom'gol, Kargath, Stonard, Brackenwall, Camp Mojache, Hammerfall, Bloodvenom Post and Ghost Walker Post: 28 people are now conversations to explore, with replies for Darkspear trolls, Forsaken, tauren, orc mages, troll warlocks, Undead paladins, Skyborne and more. Lines that contradicted their quests were fixed: Bengor barely speaks after the ambush, as his quest says; Neeka is Kargath's head scout, not missing; Winna corrupts her kitten on purpose; the Darkstone Tablet holds an alchemist's recipes, not a curse; and others.
+
+### Moonglade, Stonetalon, Thousand Needles, Zephras Isle
+Keeper Remulos (Staghelm, the Dream, his family), Rabine, Dendrite and the Great Bear Spirit (a priest may pray beside it), Silva and Bunthen; Sun Rock, Malaka'jin and Stonetalon Peak (Keeper Albagorm remembers Jaina's people and Thrall's at the peak; Faralia talks to a priest about Elune); Freewind Post (Thalia rebuilt around her friend Lakota Windsong, as her quest has it); and High Elder Talaanis of the Skyborne, from what is known of them and no more. 19 people in all.
+
+With 0.31.0 and this release, every NPC in the 30-60 zones meets the depth standard; what's left is the Horde's starting zones and capitals.
+
 ## 0.31.0 (2026-11-15)
 Packs: World 1.19.0, Elwynn 1.11.0, Duskwood 1.4.0, EasternPlaguelands 1.5.0, Tanaris 1.3.0, ThunderBluff 1.3.0, and a new one: **Western Plaguelands 1.0.0** (the rest as in 0.30.0). **New folder and a new file: exit the game fully, copy RPGDialogue_WesternPlaguelands in, tick it, and start the game again.**
 

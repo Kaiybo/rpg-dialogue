@@ -113,7 +113,7 @@ P:Thread {
 P:Thread {
   id = "solomons_letters",
   theme = "Lakeshire asks the whole kingdom for help, and every answer has a reason in it.",
-  npcs = { "solomon", "gryan", "bolvar", "katrana", "daniels", "ello" },
+  npcs = { "solomon", "gryan", "bolvar", "katrana", "daniels", "ello", "maxwell" },
   states = { "dormant", "stirring", "unfolding", "resolved" },
   endings = {
     resolved = "Stormwind's answer to Lakeshire was one deputy. It turned out to be enough, or close.",
@@ -165,6 +165,12 @@ P:Thread {
       when = { questDone = TODO_QUEST("The True Masters") },
       text = "I asked the kingdom for an army and it sent me one deputy. I've decided that's a compliment to the deputy, not an insult to Lakeshire.",
       fx = { thread = { id = "solomons_letters", beat = "b6_solomon", state = "resolved" }, standing = { lakeshire = 5 } },
+    },
+    {
+      id = "b8_maxwell", npc = "maxwell",
+      when = { questDone = TODO_QUEST("The True Masters"), thread = { id = "solomons_letters", notBeat = "b8_maxwell" } },
+      text = "You thought Lakeshire's letters were the first? I've been writing the same letters from this ridge, and every one of them asks the same thing: how many more soldiers before Stormwind acts?",
+      fx = { thread = { id = "solomons_letters", beat = "b8_maxwell" }, standing = { morgans_vigil = 2 } },
     },
   },
 }

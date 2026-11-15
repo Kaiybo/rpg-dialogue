@@ -2,6 +2,12 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.6.0 (2026-11-15)
+- Depth for Ghost Walker Post: Takata Steelblade and Nataka Longhorn, built from their Classic quests (Alliance Relations, Befouled by Satyr, The Corrupter, Family Tree, Catch of the Day).
+- Takata on the Burning Blade, Maurin Bonesplitter, how demons get a foothold, why the Alliance's opinion matters, and the post he won't leave; Nataka on the Kodo Graveyard, his brother at Freewind, Bloodbelly fish and the centaur.
+- Replies for who you are: warlocks, Forsaken, orc mages (Takata), tauren, fishers, players who've met Cliffwatcher Longhorn (Nataka).
+- Fix: Takata's Alliance Relations line (Keldran's worry that the Alliance will think the Horde made pacts with the Legion, not bargaining with a centaur clan).
+
 ## 1.5.0 (unreleased)
 - Voice pass: Pentigast, Marandis, Kreldig, Brother Anton, Lyshaerya, Takata, Nataka and the Nijel's Point guards now talk in whole sentences instead of clipped fragments, each in their own voice; what they say is unchanged.
 
