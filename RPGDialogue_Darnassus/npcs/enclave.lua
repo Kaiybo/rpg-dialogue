@@ -327,7 +327,7 @@ P:NPC {
     },
     human_h2 = {
       lines = {
-        { id = "hh2_default", text = "Wolves pushed off their ground by your farms, and kobolds pushed out of their mines by your miners, and both turning on the roads. Nothing in a forest goes hungry without a reason, and the reason is usually one of us." },
+        { id = "hh2_default", text = "Wolves pushed off their ground by your farms, and bears driven down by your logging camps, and both of them turning on the roads. Nothing in a forest goes hungry without a reason, and the reason is usually one of us." },
       },
       choices = {
         { text = "People have to eat too.", next = "BACK", fx = { align = { order = 1 } } },

@@ -59,7 +59,7 @@ P:NPC {
     human_r = {
       big = true,
       lines = {
-        { id = "hmr_default", text = "I know, and I've heard Stormwind's soldiers talk about it around our fires. Yet your king keeps the orcs in camps, and their Warchief has built a nation across the sea, and here are his axes in my trees anyway." },
+        { id = "hmr_default", text = "I know, and I've heard Stormwind's soldiers talk about it around our fires. Your people kept the orcs in camps after that war, and their young Warchief broke them out and brought them across the sea, and here are his axes in my trees." },
       },
       choices = {
         { text = "Orcs can change. Some of them have.", next = "human_r2", fx = { align = { light = 1 } } },

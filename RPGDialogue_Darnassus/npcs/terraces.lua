@@ -212,7 +212,7 @@ P:NPC {
     },
     gnome_e = {
       lines = {
-        { id = "ge_default", text = "I know they do; I watched them hold the rear while their whole people fled their city. What you lack in reach you'll have to make up in nerve, and from what I saw, your people have plenty of nerve." },
+        { id = "ge_default", text = "I know they do; the Sentinels told me how your fighters held the rear while their whole people fled their city. What you lack in reach you'll have to make up in nerve, and from what I saw, your people have plenty of nerve." },
         { id = "ge_rear", when = { origin = "gnome_rearguard" },
           text = "You were in the rearguard out of Gnomeregan, weren't you? Then I've nothing to teach you about resolve, only about trees, and trees are easier." },
       },
@@ -350,7 +350,7 @@ P:NPC {
   nodes = {
     gnome_m = {
       lines = {
-        { id = "gm_default", text = "Know him? I write to him every month, and he writes back in a hand so small I need a lens to read it! He's in Ironforge now, since your city fell, and my heart aches every time he mentions he can't go home." },
+        { id = "gm_default", text = "Know him? I write to him every month, and he writes back in a hand so small I need a lens to read it! He's in Ironforge, and every letter describes his workshop in such detail that my heart aches that I can't go and see it myself." },
       },
       choices = {
         { text = "None of us can. Not yet.", next = "BACK", fx = { affinity = 2, learn = { "gnomeregan" } } },
