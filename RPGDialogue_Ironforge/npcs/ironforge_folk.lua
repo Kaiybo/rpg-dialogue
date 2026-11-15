@@ -11,6 +11,11 @@ P:NPC {
   spiritSensitive = true,
   notices = { "kit" },
 
+  impression = {
+    first = "Brandur Ironhammer trains the Light's young ones and sends them on with a joke about beards. He has the easy warmth of a teacher who has never doubted his calling.",
+    third = "{name} met Brandur Ironhammer, who trains young paladins in Ironforge's Hall of Mysteries.",
+  },
+
   greetings = {
     { id = "g_hall", text = "The Light keep ye! Are ye here for trainin', or for the warm floor?" },
     { id = "g_human", when = { race = "Human", class = "PALADIN" }, text = "A human paladin up the mountain! Rall'll want ye back by supper." },
@@ -79,6 +84,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The Light's servants hear a great deal in this hall, an' I've kept my ears open. Ask me about any o' this." },
+    },
     background = { { id = "tp_bg", text = "I'm a paladin o' the Silver Hand an' a trainer in the Hall. I've sent more young ones up tae Tiza than I can count, an' I can count." } },
     advice = { { id = "tp_ad", text = "Mend yer armor before ye pray. The Light hears ye either way, but the troll's quicker." } },
     tome_of_divinity = { { id = "tp_tome", text = "Tiza teaches it here an' Rall teaches it in Stormwind. It's the same book, just in different accents." } },
@@ -94,6 +102,11 @@ P:NPC {
   notices = { "wealth" },
 
   barks = { { id = "b_orphans", text = "Spare a thought for the orphans of Stormwind! A thought, a copper, anything at all!" } },
+  impression = {
+    first = "John Turner asked me to spare a moment for Stormwind's orphans before he asked my name. He comes all the way to Ironforge for supplies, and he never stops asking.",
+    third = "{name} met John Turner, who runs the Stormwind orphanage with his wife and gathers supplies for it in Ironforge.",
+  },
+
   greetings = {
     { id = "g_orphans", text = "Friend! Have you a moment for the orphans of Stormwind?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again! The orphans thank you for your attention, though they'd thank you more for linen." },
@@ -137,6 +150,7 @@ P:NPC {
       choices = {
         { text = "What do they need most?", next = "need" },
         { text = "Ha. I'll keep them in mind.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Best not to take in more children than you can feed.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
     need = {
@@ -185,13 +199,19 @@ P:NPC {
       lines = {
         { id = "rf_default", text = "Then you know where most of mine come from. Lordaeron's children came south with nothing, and some of them still have nothing but us." },
       },
-      choices = { { text = "Thank you for them.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } } },
+      choices = {
+        { text = "Thank you for them.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Ironforge has enough mouths to feed without Lordaeron's.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+      },
     },
     pray = {
       lines = {
         { id = "pr_default", text = "Would you? They'd like that very much. Bring something sweet with you, because prayers go down easier with something sweet." },
       },
-      choices = { { text = "I will.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } } },
+      choices = {
+        { text = "I will.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "I'll bring the sweets, but you can keep the prayers.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
   },
 
@@ -209,6 +229,11 @@ P:NPC {
   bible = "bibles/jordan.md", role = "blacksmith", tier = "quest",
   communities = { "ironforge" }, temper = { "steady" }, values = { "pious", "honest" },
   notices = { "paladin", "craft" },
+
+  impression = {
+    first = "Jordan Stilwell serves the Church at an anvil by the gates, in the cold. He spoke of his faith the way most smiths speak of good iron.",
+    third = "{name} met Jordan Stilwell, a smith who serves the Church of the Holy Light at his anvil outside Ironforge's gates.",
+  },
 
   greetings = {
     { id = "g_gate", text = "It's cold out here by the gates, but it's warmer by the anvil, so come closer." },
@@ -253,6 +278,7 @@ P:NPC {
       choices = {
         { text = "Who was he?", next = "verigan_who" },
         { text = "Then I'll remember him.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Names fade, however many things you put them on.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
     verigan_who = {
@@ -317,6 +343,7 @@ P:NPC {
       choices = {
         { text = "The Order's loss.", next = "BACK", fx = { affinity = 2 } },
         { text = "You serve it anyway.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Your father's forge mattered more than any vow would have.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
   },

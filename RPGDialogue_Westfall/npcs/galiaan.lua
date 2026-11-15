@@ -8,6 +8,10 @@ P:NPC {
   bible = "bibles/galiaan.md", role = "questgiver", tier = "quest",
   communities = { "sentinel_hill" }, temper = { "sharp" }, values = { "curious", "lawful" },
   notices = { "stealth", "red" },
+  impression = {
+    first = "Scout Galiaan thinks in maps and pins, and he asked me not to stand on his before he asked anything else. His praise is rare and precise, much like his notes.",
+    third = "{name} met Scout Galiaan of the People's Militia, who tracks the shifting Defias front on his map.",
+  },
 
   greetings = {
     { id = "g_map", text = "Don't stand on the map." },
@@ -135,7 +139,7 @@ P:NPC {
       lines = { { id = "rs_default", text = "On your side today, yes. Plenty of these thieves were Stormwind men once, and some laid its stones, I hear, so sides do change." } },
       choices = {
         { text = "Mine won't.", next = "BACK", fx = { affinity = 1, align = { honor = 1 }, learn = { "defias" } } },
-        { text = "Fair. Watch me, then.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 }, learn = { "defias" } } },
+        { text = "Fair. Watch me, then.", next = "BACK", fx = { align = { honor = -1 }, affinity = 2, trait = { witty = 1 }, learn = { "defias" } } },
       },
     },
     hunter = {

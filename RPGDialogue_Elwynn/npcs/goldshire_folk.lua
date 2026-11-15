@@ -10,6 +10,10 @@ P:NPC {
   key = "dobbins", id = TODO_NPC("Barkeep Dobbins"), name = "Barkeep Dobbins",
   bible = "bibles/goldshire_folk.md", role = "innkeeper", tier = "service", communities = { "goldshire" },
   temper = { "steady" }, values = { "witty" }, notices = { "drink" },
+  impression = {
+    first = "The real work of a barkeep is forgetting, Dobbins told me, which is a fine thing for a barkeep to say. He pours like a man who has poured ten thousand mugs and enjoyed nearly all of them.",
+    third = "{name} was served at the Lion's Pride by Barkeep Dobbins, who hears everything and claims to forget it all.",
+  },
   greetings = {
     { id = "g_pour", text = "What'll it be? The ale's good, and the ale's always good, but don't ask about the wine." },
     { id = "g_regular", when = { timesTalked = { min = 5 } }, text = "The usual? I'll pretend I remember what that is." },
@@ -67,6 +71,9 @@ P:NPC {
     },
   },
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Behind this bar I hear every rumour in Goldshire, usually three times, and louder each time. Ask me about any of this." },
+    },
     background = { { id = "tp_bg", text = "I pour at the Lion's Pride. Have done for years. Farley does the talking; I do the lifting." } },
     advice = { { id = "tp_ad", text = "Drink one water for every ale; that's Farley's rule, and he doesn't follow it either." } },
     lions_pride = { { id = "tp_inn", text = "Best inn in Elwynn, and near enough the only inn in Elwynn, but still the best." } },
@@ -80,6 +87,10 @@ P:NPC {
   key = "brog", id = TODO_NPC("Brog Hamfist"), name = "Brog Hamfist", title = "General Supplies",
   bible = "bibles/goldshire_folk.md", role = "vendor", tier = "service", communities = { "goldshire" },
   temper = { "steady" }, values = { "honest" }, notices = {},
+  impression = {
+    first = "Brog Hamfist sells everything an adventurer forgets to pack, and he seemed quite certain I'd forgotten something. He's probably right, and I'll probably find out at midnight.",
+    third = "{name} met Brog Hamfist, Goldshire's seller of rope, flint and the bags adventurers always need more of.",
+  },
   greetings = {
     { id = "g_stock", text = "Rope, flint, flasks and thread, everything you forgot to pack." },
     { id = "g_new", when = { maxLevel = 6 }, text = "Fresh out of Northshire, are you? You'll want more bags than you think; everyone does." },
@@ -141,6 +152,10 @@ P:NPC {
   key = "toddrick", id = TODO_NPC("Toddrick"), name = "Toddrick", title = "Butcher",
   bible = "bibles/goldshire_folk.md", role = "vendor", tier = "service", communities = { "goldshire" },
   temper = { "steady" }, values = { "honest" }, notices = {},
+  impression = {
+    first = "If the butcher Toddrick is to be believed, his job is harder than Farley's, and since he says it with a cleaver in hand, nobody argues. He warned me off the wolf meat, even his own.",
+    third = "{name} met Toddrick, the butcher at the Lion's Pride, who takes great pride in his sausages and none in wolf.",
+  },
   greetings = {
     { id = "g_cut", text = "The best cuts in Goldshire; ask anyone, though don't ask the boars." },
   },
@@ -188,10 +203,36 @@ P:NPC {
       choices = {
         { text = "Go on. Tell me.", next = "BACK", fx = { trait = { curious = 1 } } },
         { text = "Let me try one.", next = "BUSINESS" },
+        { text = "Farley says he finally worked out your secret.", tag = "Deceive", next = "sausage_spilled",
+          check = { pass = { any = { { disposition = { min = 55 } }, { trait = "witty" }, { class = "ROGUE" } } } },
+          fail = { next = "sausage_safe", fx = { affinity = -1 } } },
+      },
+    },
+    sausage_spilled = {
+      lines = {
+        { id = "ss_default", text = "He never! Who told him about the ale? It's a splash of Dobbins's dark in every batch, that's all, poured from Farley's own barrel when he isn't looking, and if he knows, he's been drinking his own secret ingredient for years." },
+        { id = "ss_after", text = "Hang on, you're grinning. He doesn't know a thing, does he? Well, now you do, so you'll keep it behind your teeth, or I'll tell everyone you buy wolf." },
+      },
+      choices = {
+        { text = "My lips are sealed, Toddrick.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sausage_safe = {
+      lines = {
+        { id = "sf_default", text = "Farley? Farley's been guessing nutmeg for six years, and it's never been nutmeg. Nice try, though, and you can tell him I said so." },
+        { id = "sf_default2", text = "If Farley had worked it out, he'd have told the whole common room by now, and twice over. You'll have to do better than that." },
+      },
+      choices = {
+        { text = "Worth a try.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },
   topics = {
+    knows = {
+      { id = "tp_knows", text = "A butcher's block hears more gossip than a confessional, friend, because folk talk while they wait. Ask me about any of this." },
+    },
     background = { { id = "tp_bg", text = "I'm the butcher: I cut, I sell and I argue with Farley. It's a good life." } },
     advice = { { id = "tp_ad", text = "Never buy meat from a man who won't tell you what it was." } },
     _none = { { id = "tp_none", text = "If it's not meat, I'm no use to you." } },
@@ -204,6 +245,10 @@ P:NPC {
   key = "tharynn", id = TODO_NPC("Tharynn Bouden"), name = "Tharynn Bouden", title = "Trade Supplies",
   bible = "bibles/goldshire_folk.md", role = "vendor", tier = "service", communities = { "goldshire" },
   temper = { "steady" }, values = { "ambitious" }, notices = {},
+  impression = {
+    first = "Tharynn Bouden sells to crafters from a wagon at the edge of the road and talks openly of a gold-lettered sign in the Trade District someday. It's hard not to wish the wagon well.",
+    third = "{name} met Tharynn Bouden, a trade supplier who works from a roadside wagon and dreams of a shop in Stormwind.",
+  },
   greetings = {
     { id = "g_craft", text = "Thread, dye, flux and vials, for people who make things." },
     { id = "g_crafter", when = { profession = { "Tailoring", "Leatherworking", "Blacksmithing", "Alchemy" } }, text = "Ah, a crafter, my favourite kind of customer, because you come back." },
@@ -264,6 +309,10 @@ P:NPC {
   key = "krighton", id = TODO_NPC("Andrew Krighton"), name = "Andrew Krighton", title = "Armorer & Shieldcrafter",
   bible = "bibles/goldshire_folk.md", role = "blacksmith", tier = "service", communities = { "goldshire" },
   temper = { "proud" }, values = { "honest" }, notices = { "kit" },
+  impression = {
+    first = "Andrew Krighton makes the things that stop sharp things, and he speaks about shields the way some men speak about their family. He has firm opinions on who belongs behind one.",
+    third = "{name} met Andrew Krighton, Goldshire's armorer, who believes a shield is for others to hide behind.",
+  },
   greetings = {
     { id = "g_armor", text = "Mail, plate and shields: something to stand behind." },
   },
@@ -327,6 +376,10 @@ P:NPC {
   key = "corina", id = TODO_NPC("Corina Steele"), name = "Corina Steele", title = "Weaponsmith",
   bible = "bibles/goldshire_folk.md", role = "blacksmith", tier = "service", communities = { "goldshire" },
   temper = { "sharp" }, values = { "proud" }, notices = { "kit" },
+  impression = {
+    first = "Corina Steele made a joke about her own name before I could, which I suspect she's been doing for years. She judged the balance of my weapon in a single glance.",
+    third = "{name} met Corina Steele, Goldshire's weaponsmith, who has a quick tongue and an eye for a blade's balance.",
+  },
   greetings = {
     { id = "g_blade", text = "Swords, axes and maces; pick one up and feel the balance." },
   },
@@ -393,6 +446,10 @@ P:NPC {
   key = "kurran", id = TODO_NPC("Kurran Steele"), name = "Kurran Steele", title = "Cloth & Leather Armor Merchant",
   bible = "bibles/goldshire_folk.md", role = "vendor", tier = "service", communities = { "goldshire" },
   temper = { "steady" }, values = { "witty" }, notices = {},
+  impression = {
+    first = "Kurran Steele calls himself the other Steele and seems to enjoy it, since it leaves him more time to sit. He and Corina share a forge and an old argument that neither of them is keen to finish.",
+    third = "{name} met Kurran Steele, who sells cloth and leather beside Corina's forge and quarrels with her quite contentedly.",
+  },
   greetings = {
     { id = "g_leather", text = "Not everyone wants to clank. Come and see what I've got." },
   },
@@ -453,6 +510,10 @@ P:NPC {
   key = "erma", id = TODO_NPC("Erma"), name = "Erma", title = "Stable Master",
   bible = "bibles/goldshire_folk.md", role = "stablemaster", tier = "service", communities = { "goldshire" },
   temper = { "steady" }, values = { "kind" }, notices = { "pet" },
+  impression = {
+    first = "Erma asked who I'd brought with me before she asked who I was, and that tells you most of what you need to know. Her four-legged guests clearly rank above the two-legged ones.",
+    third = "{name} met Erma, Goldshire's stable master, who treats every beast in her care like visiting royalty.",
+  },
   greetings = {
     { id = "g_stable", text = "Watch your boots in here, and tell me who you've brought me." },
   },
@@ -518,6 +579,10 @@ P:NPC {
   key = "michelle", id = TODO_NPC("Michelle Belle"), name = "Michelle Belle", title = "Physician",
   bible = "bibles/goldshire_folk.md", role = "trainer", tier = "service", communities = { "goldshire" },
   temper = { "steady" }, values = { "kind" }, notices = { "wounds" },
+  impression = {
+    first = "Michelle Belle teaches bandaging as though lives depend on it, because they do. She was kind about it, but I had the feeling she keeps count of everyone who skips the lesson.",
+    third = "{name} met Michelle Belle, the Goldshire physician who teaches first aid beside Priestess Josetta.",
+  },
   greetings = { { id = "g_bandage", text = "If you're bleeding, sit, and if you're not, sit anyway and learn how to stop it." } },
   notice = {
     { id = "n_wounds", cat = "wounds", place = "before", when = { durability = { max = 0.25 } },
@@ -591,6 +656,10 @@ P:NPC {
   key = "crowe", id = TODO_NPC("Maximillian Crowe"), name = "Maximillian Crowe", title = "Warlock Trainer",
   bible = "bibles/goldshire_folk.md", role = "trainer", tier = "service", communities = { "goldshire" },
   temper = { "proud" }, values = { "ambitious" }, notices = {},
+  impression = {
+    first = "Down in the cellar of the Lion's Pride, Maximillian Crowe speaks softly enough that the drinkers upstairs never hear him. He talks of power as a debt, like a man who has paid some.",
+    third = "{name} met Maximillian Crowe, who teaches the warlock's craft quietly beneath Goldshire's inn.",
+  },
   greetings = {
     { id = "g_warlock", when = { class = "WARLOCK" }, text = "Down here we speak quietly and learn quickly. Which are you here to do?" },
     { id = "g_other", when = { ["not"] = { class = "WARLOCK" } }, text = "The ale's upstairs; you've taken a wrong turn." },
@@ -647,7 +716,7 @@ P:NPC {
       },
       choices = {
         { text = "The door's open, if you ever want it.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "I'll be watching this cellar.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "I'll be watching this cellar.", next = "BACK", fx = { align = { order = 1 }, trait = { stern = 1 } } },
       },
     },
   },
@@ -662,6 +731,10 @@ P:NPC {
   key = "cylina", id = TODO_NPC("Cylina Darkheart"), name = "Cylina Darkheart", title = "Demon Trainer",
   bible = "bibles/goldshire_folk.md", role = "trainer", tier = "service", communities = { "goldshire" },
   temper = { "sharp" }, values = { "cunning" }, notices = { "pet" },
+  impression = {
+    first = "Cylina Darkheart keeps an imp that bites and seems rather fond of it for that very reason. She teaches demons new tricks, and her smile suggested they aren't the kind you show a crowd.",
+    third = "{name} met Cylina Darkheart, the demon trainer in the Lion's Pride cellar, and her imp, which bites.",
+  },
   greetings = { { id = "g_demon", text = "Mind my imp; he bites. I've told him not to, and he bites anyway." } },
   notice = {
     { id = "n_imp", cat = "pet", when = { pet = { family = "Imp" } },
@@ -722,6 +795,10 @@ P:NPC {
   key = "leebrown", id = TODO_NPC("Lee Brown"), name = "Lee Brown", title = "Fishing Trainer",
   bible = "bibles/goldshire_folk.md", role = "trainer", tier = "service", communities = { "goldshire" },
   temper = { "steady" }, values = { "kind" }, notices = { "craft" },
+  impression = {
+    first = "Lee Brown asked me to be quiet before he asked my name, and the fish seemed to approve. He told me about a catch that grew longer while he was still describing it.",
+    third = "{name} met Lee Brown, the fishing trainer at Crystal Lake, who loves the dawn mist and a well-stretched story.",
+  },
   greetings = { { id = "g_lake", text = "Quiet now, or you'll scare the fish." } },
   notice = {
     { id = "n_fish", cat = "craft", when = { profession = "Fishing" },
@@ -789,6 +866,10 @@ P:NPC {
   key = "helene", id = TODO_NPC("Helene Peltskinner"), name = "Helene Peltskinner", title = "Skinning Trainer",
   bible = "bibles/goldshire_folk.md", role = "trainer", tier = "service", communities = { "goldshire" },
   temper = { "steady" }, values = { "honest" }, notices = { "craft" },
+  impression = {
+    first = "Helene Peltskinner looked at my knife before she looked at me, and she didn't think much of the knife. She is Eagan's wife and every bit as practical about a hide.",
+    third = "{name} met Helene Peltskinner, the skinning trainer by Crystal Lake, who insists every hide be taken with a sharp knife.",
+  },
   greetings = { { id = "g_hides", text = "Careful, those hides are drying. Is there something you need?" } },
   notice = {
     { id = "n_skin", cat = "craft", when = { profession = "Skinning" },
@@ -857,6 +938,10 @@ P:NPC {
   key = "adele", id = TODO_NPC("Adele Fielder"), name = "Adele Fielder", title = "Leatherworking Trainer",
   bible = "bibles/goldshire_folk.md", role = "trainer", tier = "service", communities = { "goldshire" },
   temper = { "steady" }, values = { "ambitious" }, notices = { "craft" },
+  impression = {
+    first = "Adele Fielder spends half her days mending what adventurers stitched for themselves, and she told me so cheerfully without looking up from her awl. Her patience seems endless, though her opinions are not.",
+    third = "{name} met Adele Fielder, the leatherworking trainer by Crystal Lake, who stitches and listens at the same time.",
+  },
   greetings = { { id = "g_leather", text = "Helene skins it, I stitch it. Want to learn the stitching half?" } },
   notice = {
     { id = "n_lw", cat = "craft", when = { profession = "Leatherworking" },
@@ -910,7 +995,11 @@ P:NPC {
       lines = {
         { id = "hp_default", text = "Thank you; I'll take every prayer going. Helene says hers with a whetstone." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } } },
+      choices = {
+        { text = "Then she'll have my prayers too, whetstone and all.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "A whetstone will do her more good than prayers.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     camp = {
       lines = {

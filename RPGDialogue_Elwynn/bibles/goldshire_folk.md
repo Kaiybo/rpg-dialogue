@@ -43,3 +43,6 @@ Small personal beats for repeat visits, built from each trade. None of it touche
 - Removed invented family stories, keeping ids: Michelle's father in the Second War (w_father), Helene's mother and grandmother (l_mother), Krighton's apprenticeship (t_rebuild). Helene no longer teases that Eagan's name is a coincidence: he's her husband.
 - Every service NPC now has two or three branches, again lines, background and advice. Authored bits: Toddrick's sausage secret and wolf meat; Tharynn's green door; Krighton's lion and oak; Corina and Kurran's argument about whether leather counts as armor; Erma's grey waits at the road each evening; Crowe's "strength first, then pacts" (Morganth as the warning); Lee's pier at dawn.
 - Voice pass (2026-11-15): every line rewritten as whole spoken sentences (no stacked fragments); meaning, ids and conditions unchanged.
+
+## 0.34.0
+- Toddrick (Deceive, `sausage_spilled`): the sausage secret is a splash of Dobbins's dark ale from Farley's own barrel; Farley has guessed nutmeg for six years.

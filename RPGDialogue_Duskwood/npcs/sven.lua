@@ -9,6 +9,11 @@ P:NPC {
   communities = {}, temper = { "sharp" }, values = { "stern", "honest" },
   notices = { "kit", "grief" },
 
+  impression = {
+    first = "Sven Yorgen keeps a lonely fire in the woods and remembers when this forest was green. He talked as though nothing much mattered to him anymore, and I didn't believe it.",
+    third = "{name} met Sven Yorgen at his lonely camp in Duskwood, a man who remembers when the forest was still green.",
+  },
+
   greetings = {
     { id = "g_camp", text = "Sit by the fire or move along; I don't much care which." },
     { id = "g_figure", when = { questActive = TODO_QUEST("The Shadowy Figure") }, text = "Well? Have you found out who was at my farm that night?" },
@@ -73,6 +78,7 @@ P:NPC {
       choices = {
         { text = "I'm sorry, Sven.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Then we find the riders.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 }, align = { honor = 1 }, learn = { "dark_riders" } } },
+        { text = "Give them the scythe, and maybe they'll leave you be.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Where were you?", next = "family_away" },
       },
     },
@@ -178,7 +184,10 @@ P:NPC {
       lines = {
         { id = "jp_default", text = "...He wrote that too, and I read it twice. I don't know what to do with it yet, so leave it with me a while." },
       },
-      choices = { { text = "I will.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } } },
+      choices = {
+        { text = "I will.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Prayers didn't save her, Sven, so don't let it trouble you.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
 
     priest = {
@@ -202,6 +211,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've watched these woods a long time from this camp, and very little walks through them I don't see. Ask me about any of this." },
+    },
     background = { { id = "tp_bg", text = "I farmed southeast of here, with a wife, two children and a barn. Now I've a camp, a friend who hunts, and a list." } },
     advice = { { id = "tp_ad", text = "Don't chase two things at once. I did, the night I came home, and I caught neither." } },
     worgen = { { id = "tp_worgen", text = "They came after the riders, or with them, the same night near enough, and I stopped telling them apart." } },

@@ -8,6 +8,10 @@ P:NPC {
   bible = "bibles/maybell.md", role = "questgiver", tier = "quest",
   communities = { "goldshire" }, temper = { "cowardly" }, values = { "kind", "romantic" },
   notices = { "stealth", "craft" },
+  impression = {
+    first = "Maybell Maclure blushes easily and lies badly, and both have to do with a boy across the river. By her own account she has never been very good at rules.",
+    third = "{name} met Maybell Maclure, who counts grapes by the river while thinking of a Stonefield she isn't allowed to see.",
+  },
 
   greetings = {
     { id = "g_hush", text = "Shh, not so loud, please! They'll hear you up at the house." },
@@ -91,6 +95,7 @@ P:NPC {
       choices = {
         { text = "How did you two meet?", next = "tommy_meet" },
         { text = "He's a Stonefield, though.", next = "tommy_stonefield", fx = { align = { order = 1 } } },
+        { text = "His family name shouldn't matter to anyone.", next = "tommy_stonefield", fx = { align = { order = -1 } } },
         { text = "He sounds lovely.", next = "BACK", fx = { affinity = 1, learn = { "maybell_tommy" } } },
       },
     },
@@ -98,7 +103,12 @@ P:NPC {
       lines = {
         { id = "tm_default", text = "Across a fence. That's all I'll say, or I'll go red, and Billy will see, and ask why, and then the whole vineyard knows." },
       },
-      choices = { { text = "I won't press.", next = "BACK", fx = { affinity = 1 } } },
+      choices = {
+        { text = "I won't press.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Go on, I won't tell a soul. How did it start?", tag = "Persuade", next = "tommy_fence",
+          check = { pass = { any = { { disposition = { min = 62 } }, { class = "PRIEST" }, { opinion = { topic = "maybell_tommy", stance = "romantic" } } } } },
+          fail = { next = "tommy_red", fx = { affinity = -1 } } },
+      },
     },
     tommy_stonefield = {
       lines = {
@@ -106,6 +116,7 @@ P:NPC {
       },
       choices = {
         { text = "Good for you.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
+        { text = "Feud or no feud, your families deserve the truth.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -160,6 +171,7 @@ P:NPC {
       choices = {
         { text = "That's honest.", next = "BACK", fx = { affinity = 1 } },
         { text = "Guilt means you should tell them.", next = "truth", fx = { align = { order = 1 } } },
+        { text = "Some secrets are worth keeping, if they keep you happy.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
 
@@ -180,7 +192,7 @@ P:NPC {
         { id = "ro_default", text = "Could you? No, I'd better not. If I learned to vanish I'd never come home, and then they'd blame the Stonefields for stealing me, so it has to be something smaller." },
       },
       choices = {
-        { text = "Smart girl.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Smart girl.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Offer stands.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
@@ -203,9 +215,32 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    tommy_fence = {
+      lines = {
+        { id = "tf_default", text = "There was a storm, and half our fence went into the river, and he was on the other bank mending theirs. He waded over and fixed ours too, without a word, and then he stood there dripping and asked if I liked peacebloom." },
+        { id = "tf_after", text = "I said I'd never thought about it, which was a lie, and he's brought me some every week since. If Pa ever asks who mended that fence so well, I'll just have to blush and say the Light did it." },
+      },
+      choices = {
+        { text = "That's the sweetest thing I've heard all week.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Your secret's safe.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    tommy_red = {
+      lines = {
+        { id = "tr_default", text = "No, no, I'm already going red, look. If I start telling it I'll never stop, and Billy's somewhere behind those vines." },
+        { id = "tr_default2", text = "I don't know you well enough for that one, I'm sorry. It's the only thing in the whole vineyard that's just mine." },
+      },
+      choices = {
+        { text = "Fair enough.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I don't get much past the vineyard, but you'd be surprised what people say over the grapes. Ask me about any of this, only quietly, please." },
+    },
     background = { { id = "tp_bg", text = "I'm a Maclure. I grew up in the vines. That's all there is, apart from one boy across the river, and I'm not telling you about him." } },
     advice = { { id = "tp_ad", text = "If you love someone, find a friend who can keep a secret. Then find a second one, in case the first is Billy." } },
     maybell_tommy = {

@@ -169,7 +169,7 @@ function Engine.Pick(slot, cands, ctx, env, opts)
         for _, p in ipairs(parts) do desc[#desc + 1] = p end
         if line.priority then desc[#desc + 1] = "priority " .. line.priority end
         eligible[#eligible + 1] = {
-          line = line, gid = gid, score = total, parts = table.concat(desc, " + "),
+          line = line, gid = gid, score = total, parts = table.concat(desc, " + "), src = cand.src,
           stale = stale, factor = factor, systems = systems, seenAt = seen and seen.t or 0,
         }
       end
@@ -335,8 +335,22 @@ function Engine.IsExit(nextId) return nextId == nil or EXITS[nextId] == true end
 -- When there are too many, explored branches drop first, then branches without
 -- conditions (the ones everybody gets); exits and replies that exist because of who
 -- the player is are kept.
+-- Stances (0.33.0): a reply that shifts alignment is a statement the character makes, and
+-- the stances in one node are mutually exclusive. A question never shifts alignment.
+-- Once one stance in a node is taken (opts.stance: its text), the node's other stances are
+-- gone for good with this NPC, and the one taken no longer shifts alignment again.
+function Engine.IsQuestion(text)
+  return type(text) == "string" and text:find("%?[\"'%)%s]*$") ~= nil
+end
+
+function Engine.IsStance(choice)
+  return type(choice) == "table" and type(choice.fx) == "table" and choice.fx.align ~= nil
+    and not Engine.IsQuestion(choice.text)
+end
+
 function Engine.Choices(node, ctx, env, opts)
   opts = opts or {}
+  local stance = opts.stance
   local visited, explored, hubs = opts.visited or {}, opts.explored or {}, opts.hubs or {}
   local rotating = opts.rotating or {}
   local showLocked = ns.db and ns.db.settings.showLocked
@@ -344,7 +358,8 @@ function Engine.Choices(node, ctx, env, opts)
   for _, choice in ipairs(node and node.choices or {}) do
     local target = choice.next
     local exit = Engine.IsExit(target) or hubs[target]
-    if exit or choice.repeatable or rotating[target] or not visited[target] then
+    local otherStance = stance and Engine.IsStance(choice) and choice.text ~= stance
+    if not otherStance and (exit or choice.repeatable or rotating[target] or not visited[target]) then
       local entry
       if Cond.Eval(choice.when, ctx, env) then
         entry = { choice = choice }
@@ -400,6 +415,7 @@ function Engine.CheckChoice(choice, ctx, env)
     return temper.cowardly == true or ctx.power == "above" or ctx.power == "far_above"
   elseif choice.tag == "Persuade" then
     if (env.mem and env.mem.affinity or 0) >= 3 then return true end
+    if ns.Disposition and ns.Disposition.For(env, ctx) >= ns.Disposition.PERSUADE then return true end
     local town = env.info.communities and env.info.communities[1]
     local standing = town and ns.char.towns[town] and ns.char.towns[town].value or 0
     if standing >= 30 then return true end
@@ -467,4 +483,50 @@ function Engine.PickTopic(info, topic, ctx, env)
     end
   end
   return Engine.Pick("topic", cands, ctx, env, { node = "topic:" .. topic })
+end
+
+---------------------------------------------------------------------------
+-- "What do you know?" (0.34.0): the topics this NPC has something to say about
+---------------------------------------------------------------------------
+-- A topic counts when the NPC's own answers, or their role's or community's pools, hold a
+-- line whose conditions pass now (never a brush-off, never the generic fallback, never an
+-- "ask anyone" topic). Their own topics come first, then the pools'; each group in the
+-- order of the topic list. Returns { { id, own = bool } }.
+local function anyEligible(list, ctx, env)
+  for _, line in ipairs(list or {}) do
+    if Cond.Eval(line.when, ctx, env) then return true end
+  end
+  return false
+end
+
+function Engine.TopicsKnownBy(info, ctx, env)
+  local topics = ns.Data and ns.Data.topics or {}
+  local own, pooled, seen = {}, {}, {}
+  local def = info.def
+  local ids = {}
+  for id, tdef in pairs(topics) do
+    if not tdef.standard then ids[#ids + 1] = id end
+  end
+  table.sort(ids)
+  for _, id in ipairs(ids) do
+    if def and def.topics and anyEligible(def.topics[id], ctx, env) then
+      own[#own + 1] = { id = id, own = true }
+      seen[id] = true
+    end
+  end
+  if ns.Data and ns.Data.PoolsFor then
+    for _, p in ipairs(ns.Data.PoolsFor(info, ctx, true)) do
+      local pt = p.pool.topics
+      if pt and p.pool ~= def then
+        for _, id in ipairs(ids) do
+          if not seen[id] and anyEligible(pt[id], ctx, env) then
+            pooled[#pooled + 1] = { id = id }
+            seen[id] = true
+          end
+        end
+      end
+    end
+  end
+  for _, e in ipairs(pooled) do own[#own + 1] = e end
+  return own
 end

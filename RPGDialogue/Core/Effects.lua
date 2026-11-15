@@ -217,4 +217,5 @@ function Effects.Journal(template, ctx, env)
     npc = env.info and env.info.name, key = env.info and env.info.key,
     text = rendered, voice = voice, otherHand = otherHand or nil,
   }
+  if ns.UI and ns.UI.Launcher and ns.UI.Launcher.UpdateBadge then ns.UI.Launcher.UpdateBadge() end
 end

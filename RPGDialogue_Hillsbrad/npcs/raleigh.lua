@@ -13,6 +13,11 @@ P:NPC {
   communities = { "southshore" }, temper = { "grave", "guarded" }, values = { "honest", "devout" },
   notices = { "light", "scarlet" },
 
+  impression = {
+    first = "Raleigh the Devout asked me to close the door before anything else and wanted to know who'd sent me. He wore the Crusade's red once, and he still watches the north road.",
+    third = "{name} called on Raleigh the Devout, a former Scarlet Crusader who keeps a room above the Southshore inn.",
+  },
+
   greetings = {
     { id = "g_door", text = "Close the door behind you, and then tell me who sent you." },
     { id = "g_back", when = { metBefore = true }, text = "You again? Sit down, then; I've had worse company than people who listen." },
@@ -59,6 +64,7 @@ P:NPC {
       choices = {
         { text = "Why didn't you stop them?", next = "left_stop", fx = { trait = { stern = 1 } } },
         { text = "You did the right thing.", next = "left_right", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "You ran when it got hard, and that's all it was.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -71,7 +77,12 @@ P:NPC {
     },
     left_right = {
       lines = { { id = "lr_default", text = "Leaving was right, but staying quiet afterward wasn't, and that's why I tell everyone Anton sends me. Most of them go home, and some go north with a different reason." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "You still haven't forgiven yourself, have you?", tag = "Persuade", next = "stayed",
+          check = { pass = { any = { { disposition = { min = 65 } }, { class = { "PRIEST", "PALADIN" } }, { questDone = TODO_QUEST("In the Name of the Light") } } } },
+          fail = { next = "stayed_no", fx = { affinity = -1 } } },
+      },
     },
     monastery = {
       big = true,
@@ -89,6 +100,7 @@ P:NPC {
       lines = { { id = "mw_default", text = "The High Inquisitor. People were taken to her suspected of the plague, and what was done to them is why I left. The rest you can see for yourself." } },
       choices = {
         { text = "I'll go.", next = "BACK", fx = { align = { light = 1 }, trait = { brave = 1 } } },
+        { text = "Whitemane's business is her own, and I'll stay clear of it.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -101,7 +113,7 @@ P:NPC {
         { id = "a_default", text = "Anton is a good man in the wrong colours. He's been in Desolace so long he thinks the Crusade is still what it was when he left. I can't bring myself to write and tell him." },
       },
       choices = {
-        { text = "Someone should tell him.", next = "anton_tell", fx = { align = { honor = 1 } } },
+        { text = "Someone should tell him.", next = "anton_tell" },
         { text = "Let him keep his cause.", next = "BACK", fx = { trait = { kind = 1 } } },
       },
     },
@@ -121,11 +133,17 @@ P:NPC {
     },
     paladin_pray = {
       lines = { { id = "pp_default", text = "Quietly, and with my eyes open. The Crusade prayed loud and closed its eyes to everything else, and I'd rather see what I'm asking the Light to bless." } },
-      choices = { { text = "That's a good way.", next = "BACK", fx = { affinity = 2, align = { light = 2 }, trait = { pious = 1 } } } },
+      choices = {
+        { text = "That's a good way.", next = "BACK", fx = { affinity = 2, align = { light = 2 }, trait = { pious = 1 } } },
+        { text = "Prayer won't keep my eyes open. A sharp blade will.", next = "BACK", fx = { align = { light = -2 } } },
+      },
     },
     refugee = {
       lines = { { id = "r_default", text = "Then you know how it was at the start, with everyone afraid of everyone. The Crusade made a faith of that fear, so don't let anyone make one of yours." } },
-      choices = { { text = "I won't.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } } },
+      choices = {
+        { text = "I won't.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Fear kept me alive back then, and I'll keep it.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
     after = {
       lines = { { id = "af_default", text = "No servant of the Light should be glad of a death, though some are still needed. Carry it, don't wear it; that's the difference between you and them." } },
@@ -134,9 +152,33 @@ P:NPC {
         { text = "I'd do it again.", next = "BACK", fx = { align = { order = 1 }, trait = { stern = 1 } } },
       },
     },
+    stayed = {
+      lines = {
+        { id = "sy_default", text = "No. I said I don't know when I started believing them, but I know when I should have stopped: the first time they asked a man if he was plagued and didn't wait to hear his answer, and I stayed a long while after that, which is the part I can't put down." },
+        { id = "sy_light", when = { class = { "PRIEST", "PALADIN" } },
+          text = "You serve the Light, so you'll understand why I can't. I knew the Crusade was wrong the first time they asked a man if he was plagued and didn't wait for his answer, and I stayed a long while after that, praying it would pass." },
+      },
+      choices = {
+        { text = "You're doing something about it now.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stayed_no = {
+      lines = {
+        { id = "sn_default", text = "That's between me and the Light, and the Light hasn't said. Ask me about the Monastery instead; that I can help you with." },
+        { id = "sn_new", when = { metBefore = false },
+          text = "We've only just met, and that's a long way down to go with a stranger. Ask me about the Monastery instead." },
+      },
+      choices = {
+        { text = "All right.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I don't know much, but what I know I learned the hard way. Ask, and I'll tell you true." },
+    },
     background = { { id = "tp_bg", text = "I was a paladin who believed the wrong men. I know exactly when I stopped, but I don't know when I started.", next = "left" } },
     advice = { { id = "tp_ad", text = "If a man in red asks whether you're plagued, the right answer is to be somewhere else." } },
     scarlet_crusade = { { id = "tp_scarlet", text = "They started out against the plague and ended up against everyone. I was there for both halves.", next = "left" } },

@@ -263,7 +263,7 @@ Each key has a **weight** (its contribution to the score) and a **kind**. *Hinge
 | Character | `alignment` {axis, min, max} · `title` · `trait` · `opinion` {topic, stance} | 30 | hinge |
 | Dark | `taint` {min} · `insanity` {min} | 40 | hinge |
 | Knowledge | `topicKnown` · `bookRead` · `homeInn` | 30 | hinge |
-| Relationship | `metBefore` bool · `timesTalked` {min,max} · `daysSince` {min,max} · `affinity` {min,max} · `townStanding` {town, tier/min} | 20 | hinge |
+| Relationship | `metBefore` bool · `timesTalked` {min,max} · `daysSince` {min,max} · `affinity` {min,max} · `disposition` {min,max} (0-100, §3.12) · `townStanding` {town, tier/min} | 20 | hinge |
 | State | `form` · `mounted` · `stealthed` · `ghost` · `pet` {family,type,named} · `debuffType` · `aura` spellID · `resSick` · `drunk` · `camping` · `durability` {max} · `nearlyNaked` · `tabard` · `equipped` · `outOfPlace` · `reputation` {faction,min,max} (faction names in `World.FACTION_IDS`, standings hated..exalted) · `profession` {name,min} | 15 | hinge |
 | World | `zone` · `subzone` · `holiday` · `power` (relative bucket) | 15 | hinge |
 | Level | `band` · `minLevel`/`maxLevel` · `capital` · `resting` · `atInn` | 10 | hinge |
@@ -280,7 +280,7 @@ Pacing systems are **inferred** from condition keys: `alignment`/`title` → ali
 
 | Key | Example | Notes |
 |---|---|---|
-| `align` | `{ light = 2, order = -1, honor = 0 }` | axes: +Light/−Shadow, +Order/−Wild, +Honor/−Cunning; diminishing returns applied by the engine |
+| `align` | `{ light = 2, order = -1, honor = 0 }` | axes: +Light/−Shadow, +Order/−Wild, +Honor/−Cunning; diminishing returns applied by the engine ; choices only, and only on **stances** (statements, two or more per node, mutually exclusive: `Engine.IsStance`, remembered per NPC in `mem.stances[node]`; 0.33.0) |
 | `taint` | `5` | Fel Taint, 0–100 |
 | `trait` | `{ witty = 1 }` | |
 | `opinion` | `{ defias = "hardline" }` | records the NPC who heard it, when, and their communities |
@@ -297,7 +297,7 @@ Pacing systems are **inferred** from condition keys: `alignment`/`title` → ali
 `check = { pass = { …conditions… } }` succeeds if the conditions pass against `ctx`. No dice. When `pass` is omitted, defaults apply:
 
 - **Intimidate** passes if the NPC's `temper` includes `cowardly`, or `power` is `above`/`far_above`.
-- **Persuade** passes with affinity ≥ 3, or town standing Liked or better, or a dominant trait the NPC values.
+- **Persuade** passes with affinity ≥ 3, or disposition ≥ 65 (§3.12), or town standing Liked or better, or a dominant trait the NPC values.
 - **Deceive** passes unless the NPC's `temper` includes `sharp` or the NPC can know the truth. A successful deception records a player claim.
 
 ### 2.10 Tokens
@@ -823,6 +823,24 @@ If a line throws an error, paste the error instead. That tells us something too.
 - **Question-only pools.** `askOnly = true` pools (`RPGDialogue_World/asks.lua`) answer topics and nothing else: `Data.PoolsFor(info, ctx)` leaves them out, `Data.PoolsFor(info, ctx, true)` (topics only) includes them, so they never make an unnamed NPC talk.
 - **Answers that lead somewhere.** A topic line with `next = "<node>"` shows the answer, then that node's replies (the node counts as visited; BACK returns to the hub). The validator checks the node exists.
 - **The list.** Grouped by category under headers ("Ask anyone" first, then categories in order of their newest topic), flat while searching; a topic already asked of this NPC (`mem.topics`) says "(asked)"; keys and the gamepad skip headers.
+
+- **What do you know? (0.34.0).** Standard topic `knows` (order 0, first in the list). `Conv.AskKnows`: the NPC's lead-in (`topics.knows` lines: own, then pools, then generic; written to come before a list, naming no topic), then up to `Conv.KNOWS_MAX` (10) topic names as links, one per line, not yet asked first. `Engine.TopicsKnownBy(info, ctx, env)`: topics whose own answers, or role/community pool answers, have a line whose conditions pass now (never `_none`, never generic, never standard). Every listed topic is learned and remembered in `mem.knows`; the Ask list puts them under "What they can tell you about", right after "Ask anyone". Nothing known: the NPC's brush-off.
+- **Nothing to say.** An answer that came from a brush-off records `mem.nothing[id]`; the list says "(nothing to say)" instead of "(asked)". Row tooltips: who you first heard it from (`Topics.Source`), and what this person made of it.
+- **The button** reads "Ask about... (N)" (topics learned, not archived).
+- **Inside DialogueUI** the Ask list is paged (7 topics a page, More / Previous / Back), ordered ask-anyone, what they know, the rest; an answer keeps the list open.
+
+### 3.12 Disposition, identity tags, approval and checks (0.34.0)
+- **Disposition** (`Systems/Disposition.lua`, Morrowind-style): 0-100, from 50: affinity x4, town standing / 5 (+-15), the NPC's `values` against the player's dominant traits (+8 each; -8 for the opposite trait, `Disposition.OPPOSITE`), temper (warm/jovial/gentle +5, gruff/cold -5), alignment the NPC values (lawful/dutiful-Order, devout/pious-Light, honest-Honor; +-5 beyond +-20), unfriendly unit reaction -10. Tiers: Hostile <20, Cold <35, Wary <45, Neutral <60, Warm <75, Friendly <90, Devoted. Shown on the box's bottom bar ("Disposition: Warm"), reasons and numbers on hover; the journal's People page uses its word. Condition `disposition {min,max}` (20, hinge). Persuade with no `pass` of its own also passes at disposition >= 65 (`Disposition.PERSUADE`). Spoofable (`ctx.spoofed.disposition`). Addon-only: it changes no game behaviour.
+- **Identity tags.** A reply with no `tag` whose `when` names who the player is (top level or inside `all`; never `any`/`not`) shows it: `[Priest]`, `[Human Priest]`, `[Dwarf]`, the origin's `tag`/name, `[Alchemy]`, `[Kind]` (`Conv.IdentityTag`). Setting `identityTags`; the `tags = "never"` setting turns them off too.
+- **Approval and check results.** After a reply, a dim note under the next page: "<NPC> approves." / "approves greatly." (affinity +1 / +2 or more), "disapproves", the new disposition tier when it changed, and "Persuade: success." / "failed." for checks (`Conv.ChoiceNote`, shown by `Conv.ShowPendingNote` via `ShowReaction`). Settings `approval`, `checkResults`, `showDisposition`.
+
+### 3.13 The journal and the self-writing diary (0.35.0)
+- **Pages** (`UI/Journal.lua`, `J.Text(tab, search)` is pure and tested): Diary (`chronicle`), Stories (`stories`), People (`people`), Heard of (`heard`), Myself (`sheet`), Notes. Search on Diary, People and Heard of. Old names alias: `topics` -> Heard of, `deeds` -> Myself, `threads` -> Stories.
+- **Stories:** every thread with a beat heard, live ones first. Thread fields `title` and `story = { stirring|unfolding|resolved|soured = { first, third } }`; a faded thread shows its last live text, marked "(left unfinished)". Under it, each beat heard: who said it, when, the line.
+- **People:** grouped by the zone where you last spoke with them (`mem.zone`, set on `CONVERSATION_ENDED`), with title, disposition word, the impression (once written), topics asked of them, the last thing they said.
+- **Heard of:** topics by category; who first spoke of it (`Topics.Source`) and what each person answered when asked (`Topics.RecordAnswer`: `rec.said`, one per person, up to 8, stored as line ids).
+- **The diary writes itself** (`Systems/Diary.lua`): an NPC's `impression = { first, third }` after the first conversation with them (`mem.impressed`; people met before 0.35.0 get it at the next talk); a zone's `P:Arrival { zone, first, third, when? }` (World `arrivals.lua`, first match wins, `char.arrived`) on the first `zone:` deed; built-in lines for the first death (names the killer), each tenth level, a first dungeon.
+- **Journal button count:** unread diary entries (`char.journalRead`, `J.Unread`, `Launcher.UpdateBadge`); opening the journal marks them read. Characters from before 0.35.0 start with everything read.
 
 ### 3.10 Window style (look)
 

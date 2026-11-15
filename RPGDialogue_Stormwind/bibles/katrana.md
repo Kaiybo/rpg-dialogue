@@ -35,3 +35,6 @@ Lies with every kind word. Her claim `prestor_patience` is false, exposed only b
 
 ## Topics
 defias, westfall
+
+## 0.34.0
+- Prestor (Persuade, `advise_true`): she calls the court a kennel where every lord has a bone he fears to lose, and says she has never had to lie to Bolvar, only choose which truths to tell first. Her nature stays hidden.

@@ -8,6 +8,10 @@ P:NPC {
   bible = "bibles/saldean.md", role = "farmer", tier = "quest",
   communities = { "westfall_farms" }, temper = { "proud" }, values = { "stern", "honest" },
   notices = { "work", "kit" },
+  impression = {
+    first = "When all his neighbours fled, Farmer Saldean stayed, and he says so with a certain grim pride. His furrows are the only straight thing he has left, by his own reckoning.",
+    third = "{name} met Farmer Saldean, who holds his ground while harvest watchers stalk his fields.",
+  },
 
   greetings = {
     { id = "g_fields", text = "Step careful. The furrows are all I've got left that's straight." },
@@ -60,6 +64,7 @@ P:NPC {
       },
       choices = {
         { text = "Good for you.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Pay them off and live. Land can be bought back.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Pride won't stop a knife.", next = "pride", fx = { trait = { skeptical = 1 } } },
         { text = "Everyone else left. Doesn't that worry you?", next = "fool" },
       },
@@ -164,6 +169,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've farmed this land all my life, and there's not much happens on it I don't hear about. Ask me about any of this." },
+    },
     background = { { id = "tp_bg", text = "A farmer on the land my grandfather cleared. That's the whole of it, and it isn't finished yet.", next = "stay" } },
     advice = { { id = "tp_ad", text = "Don't stand still in a field after dark. The watchers don't see well, but they don't need to." } },
     harvest_watchers = {

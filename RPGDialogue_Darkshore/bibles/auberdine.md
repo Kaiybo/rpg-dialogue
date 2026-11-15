@@ -39,3 +39,7 @@ Sources read (Classic versions): Auberdine, Darkshore (Classic), Master's Glaive
 
 ### Authored, not canon (this pass)
 Thundris's welcome to people off the Bravery, his question about Menethil's damp, his late lamps, "I know the smell of it"; Terenthis's account of Grimclaw standing in the road; Gwennyth's offer to walk the shore with a priest; Glynda's "people who write poems about them"; Cerellean's advice to tell people you love them today; Shaussiy's guests and the dwarves who complain about the damp.
+
+## 0.34.0
+Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
+- Thundris (Persuade, felwood_memory): as a young elf he walked the groves the Legion burned after the War of the Ancients; they smelled as the Cliffspring does now; he hasn't told the village, so it can sleep.

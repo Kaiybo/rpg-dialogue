@@ -8,6 +8,11 @@ P:NPC {
   communities = { "everlook" }, temper = { "jumpy" }, values = { "friendly", "practical" },
   notices = { "weary", "drink" },
 
+  impression = {
+    first = "Innkeeper Vizzie checked me for bugs before she let me near the fire. She moved to the top of the world to get away from insects, and she's still losing to one beetle.",
+    third = "{name} met Innkeeper Vizzie, the jumpy goblin who keeps the only inn in Everlook.",
+  },
+
   greetings = {
     { id = "g_inn", text = "Come in and shut the door, shut it, before the cold gets in, and the bugs! You didn't bring any bugs, did you?" },
     { id = "g_home", when = { homeInn = { "Everlook" } }, text = "Welcome back! There's a warm bed, a hot drink and no bugs, because I checked, twice." },
@@ -61,6 +66,11 @@ P:NPC {
   bible = "bibles/winterspring.md", role = "trainer", tier = "service",
   communities = { "everlook" }, temper = { "playful" }, values = { "inventive", "mischievous" },
   notices = { "race", "class" },
+
+  impression = {
+    first = "Umi Rumplesnicker told me not to touch anything, then changed her mind three times about which things. Whatever she's building, it's furry, and someone is going to scream.",
+    third = "{name} met Umi Rumplesnicker, the playful goblin engineer of Everlook with a prank in progress.",
+  },
 
   greetings = {
     { id = "g_shop", text = "Oh, a customer! Don't touch that, or that, though that one's fine... no, wait, don't touch that one either!" },
@@ -123,6 +133,11 @@ P:NPC {
   communities = { "everlook", "argent_dawn" }, temper = { "steady" }, values = { "devout", "dutiful" },
   notices = { "race", "class" },
 
+  impression = {
+    first = "Gregor Greystone keeps the Argent Dawn's ear among Everlook's traders and greets everyone the same, whatever banner they fly. He is steady and kind, and he forgets to eat.",
+    third = "{name} met Gregor Greystone, who speaks for the Argent Dawn in Everlook.",
+  },
+
   greetings = {
     { id = "g_hello", text = "Good day to you, and may the Light keep you warm. Winterspring could use the help." },
   },
@@ -152,6 +167,7 @@ P:NPC {
         { text = "What's the difference between you and the Scarlet Crusade?", next = "scarlet" },
         { text = "The Dawn would take one of the Forsaken?", next = "forsaken", when = { race = "Scourge" } },
         { text = "I'll carry word.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "The Dawn can carry its own reports; I've business of my own.", next = "END", fx = { align = { light = -1 } } },
       },
     },
     dawn = {
@@ -174,15 +190,40 @@ P:NPC {
     },
     scarlet = {
       lines = { { id = "s_default", text = "They began where we began, with the dead walking in Lordaeron. Then they decided everyone not wearing red was the enemy. We decided the enemy was the enemy." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "scarlet_crusade" } } } },
+      choices = {
+        { text = "Is the Dawn really so different, inside?", tag = "Persuade", next = "scarlet_inside",
+          check = { pass = { any = { { disposition = { min = 65 } }, { class = { "PRIEST", "PALADIN" } }, { questDone = TODO_QUEST("The Everlook Report") } } } },
+          fail = { next = "scarlet_record", fx = { affinity = -1 } } },
+        { text = "Something else.", next = "BACK", fx = { learn = { "scarlet_crusade" } } },
+      },
     },
     forsaken = {
       lines = { { id = "f_default", text = "If you fight the Scourge, yes. You know them better than any of us, since they made you and you walked away, and that's worth something; not everyone here agrees, but I do." } },
       choices = { { text = "Thank you.", next = "BACK", fx = { affinity = 2 } } },
     },
+    scarlet_inside = {
+      lines = {
+        { id = "si_default", text = "I'll answer that honestly, since you asked it honestly. There are Dawn soldiers who'd rather the Forsaken weren't welcome at our fires, and a few who flinch at an orc, and I've had to write that down in my reports too, because the Dawn keeps careful records of its own failings or it's no better than the Crusade." },
+      },
+      choices = {
+        { text = "Writing it down is a start.", next = "BACK", fx = { affinity = 2, learn = { "argent_dawn" } } },
+        { text = "Every banner has its zealots.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    scarlet_record = {
+      lines = {
+        { id = "sr_default", text = "We're very different, friend, and that's what goes in the record. Ask me again when you've stood with us a while." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Everlook sees everyone who crosses the north, and I write down what they tell me. These are the matters I can speak to." },
+      { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "You've stood with the Dawn, so you'll have my whole notebook, so to speak. Ask me about any of these." },
+    },
     background = { { id = "tp_ba", text = "I'd seen enough of the plague to want to do something about it. The Dawn gave me somewhere to stand." } },
     advice = { { id = "tp_ad", text = "Carry holy water if you're going east, and a friend, though the holy water's easier to find." } },
     argent_dawn = { { id = "tp_argent_dawn", text = "Prove yourself against the Scourge, and the Dawn will remember you. We keep good records." } },

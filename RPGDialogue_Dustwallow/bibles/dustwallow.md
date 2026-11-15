@@ -19,7 +19,7 @@
 ## Never
 - Theramore's fall, the mana bomb, anyone's death in it, and any hint of it (Janene is simply devoted; Tervosh simply busy).
 - The Missing Diplomat's end (Hendel, the Defias, who's behind them): Jaina says only that someone works from the shadows. Lady Prestor stays secret (Stormwind's rule).
-- Who burned the Shady Rest: only Krog's "The Grimtotem Plot" line names the Grimtotem, as the quest title does; Vimes has hoofprints and a hunch.
+- Who burned the Shady Rest: Krog names the Grimtotem only as suspects after Return to Krog (Mosarn says they are his best customers), and in "The Grimtotem Plot" line, as the quest titles do; Vimes has hoofprints and a hunch. Nobody says it as settled fact.
 - The Varian–Thrall summit, Hyjal raid, Kirin Tor leadership, the comics.
 - Gossip verbatim (Nazeer's "blood is still shed", Tervosh's "must be brief", Krog's "violated his wishes").
 
@@ -37,3 +37,14 @@ Repeat-visit and night lines for the innkeepers and thin quest givers (habits, s
 
 ## Depth pass, second round (0.25.0, authored, not canon)
 One or two repeat-visit or night lines each for the thinnest NPCs here: small habits and running jokes (a salvaged kettle, a beetle truce, a parrot paying rent, glowing ink). Places they mention are already sourced in this bible or LORE_NOTES.
+
+## Depth rewrite (Horde towns, authored on sourced quests)
+Sources read for this pass (warcraft.wiki.gg): Krog, Nazeer_Bloodpike, Brackenwall_Village, Inspecting_the_Ruins_(Horde), Suspicious_Hoofprints_(Horde), Lieutenant_Paval_Reethe_(Horde), The_Black_Shield_(Horde) 1, 2 and 5, Return_to_Krog, Talk_to_Ogron, Questioning_Reethe, The_Lost_Report, The_Severed_Head, Marg_Speaks, Report_to_Zor, Theramore_Spies, The_Shady_Rest_Inn_quest_chain.
+- Krog (Classic gossip): the Warchief told the Horde to leave the humans alone as long as they kept to their borders; he was put in charge of finding out who burned the inn. Later gossip: the humans claimed much of the marsh, and the Stonemaul with Horde help pushed them back. Suspicious Hoofprints: quilboar or centaur from the Barrens; the owner's wife and child died; he sends Kagoro after the tracks. The Black Shield: a plain iron shield on the chimney, a warning or a threat; Do'gol the blacksmith; Mosarn of Thunder Bluff made it (the Earthen Ring once gave Krog Mosarn armor). Paval Reethe: a Theramore deserter, "pathetic, even for his kind", suspected of stealing supplies; Ogron tracks him; Theramore soldiers kill Reethe before he can talk. The Horde clue chain predates patch 2.3; Inspecting the Ruins, Return to Krog and The Grimtotem Plot onward came in 2.3 and only fire if Forever has them.
+- Brackenwall: the Stonemaul ogres' village; black dragons destroyed their old village in the south.
+- Nazeer: spymaster. Marg Nighteye spied on Theramore for weeks; his report came back in a severed hand; the ragged cut on his neck (weapon or beast?); Kin'weelay at Grom'gol spoke to his spirit; a muckshell crab-man killed him on his way back with a jeweled pendant stolen from a Stormwind soldier camped on the beach; a noble's pendant, so its owner was disguised or the soldiers stole it; Zor Lonetree in Orgrimmar knows Alliance politics. Theramore Spies (2.3): infiltrators on the islands east of Brackenwall.
+- Authored, not canon: Nazeer's view of Krog's hunt, Krog's "someone set fire to the line", Ogron being quiet for an ogre.
+
+## 0.34.0
+Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
+- Jaina (Persuade, father_true): when Daelin's fleet came she told her soldiers to stand aside and sent word to Thrall; she chose the peace over her father, would again, and doesn't know what kind of daughter that makes her.

@@ -15,7 +15,7 @@
 ## Never
 - Arathi Basin, the League of Arathor and the Defilers (patch 1.7, after Year 1's start; and battlegrounds aren't dialogue).
 - Zengu's death after he gets the sword (it happens; he never foresees it). Hakkar, Zul'Gurub's return.
-- Nials's later Red Dawn and the War Within, Drum Fel's later fates, Korin Fel and Or'Kalar (not sourced for Classic).
+- Nials's later Red Dawn and the War Within, Drum Fel's later fates (Cataclysm onward). Korin Fel and Or'Kalar ARE Classic (The Real Threat (Classic)), but Drum never learns of Or'Kalar's trap, and nobody tells him.
 - Gossip verbatim (Nials's three lines, Adegwa's "wind on the plains").
 
 ## Voices
@@ -26,3 +26,14 @@
 
 ## Depth pass (0.25.0, authored, not canon)
 Repeat-visit and night lines for the innkeepers and thin quest givers (habits, small worries, the place at night). Nothing here adds a lore fact.
+
+## Depth rewrite (Horde towns, authored on sourced quests)
+Sources read for this pass (warcraft.wiki.gg, Classic sections): Drum_Fel, Zengu, Innkeeper_Adegwa, Hammerfall, The_Hammer_May_Fall, Call_to_Arms_(1)/(2)/(3), The_Real_Threat_(Classic), Trollbane_(quest), Sigil_of_Strom_(Classic), The_Broken_Sigil, Sigil_of_Arathor_(Classic), Sigil_of_Trollbane_(quest), Trol'kalar_(Classic), Trol'kalar_(2).
+- Drum Fel: Tallow in Tarren Mill sends players up (either hoping they die at the ogre mound or thinking them strong). Witherbark trolls and Boulderfist ogres work together to rid Hammerfall of the Horde; the trolls turned their backs on the Horde, the ogres would use orcs for food and bedding. Boulderfist lords hold the ruins of Stromgarde, "a glaring symbol of human frailty". Hammerfall will thrive once they're dealt with. Married to Korin Fel, who reads auguries and hid Or'Kalar's presence from him (The Real Threat); Or'Kalar hates Drum for defeating him years ago.
+- Hammerfall (wiki history): after the Third War the ruins were reoccupied as an unofficial refuge for discontents who felt they had no place in the new world.
+- Zengu: Trol'kalar, "troll slayer" in the ancient tongue, wielded by Lord Ignaeus of Strom, called Trollbane, against the forest trolls in the days of Arathor. Sigils shared among Stromgarde's survivors: one taken by the Syndicate, the Sigil of Thoradin split into eleven pieces by Prince Galen and rebound by Tor'gan, Hammerfall's troll shaman; one carried by Lieutenant Valorcall of the cavalry; the last held by Galen in the chapel. The sword goes to Nimboya at Grom'gol, for the war against Zul'Gurub's trolls.
+- Authored, not canon: the grunts' songs about Doomhammer, Adegwa humming, Zengu's patience lesson, Hammerfall's hoped-for fields and herds.
+
+## 0.34.0
+Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
+- Nials (Persuade, tents): she can't hold as long as she tells the soldiers; she counts the tents every morning, loses more each season than Stromgarde sends, and writes every letter to the families herself.

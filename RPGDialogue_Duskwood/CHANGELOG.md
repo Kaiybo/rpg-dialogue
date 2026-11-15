@@ -2,6 +2,16 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.7.0 (2026-11-15)
+- 7 new people in Darkshire: Elaine Carevin, Watchmaster Sorigal, Barkeep Hann, Alyssa Eva, Herble Baubbletump, Farrin Daris, Steven Black.
+- First impressions in your diary. New file: restart the game.
+
+## 1.6.0 (2026-11-15)
+- Persuade, Intimidate and Deceive checks on the major people here, each with its own success and failure; lines and replies that depend on how warmly they regard you (disposition); a lead-in for "What do you know?".
+
+## 1.5.0 (2026-11-15)
+- Alignment now comes only from statements, never questions, and every reply that shifts alignment has an opposing one beside it. Taking one stance with someone closes the others for good.
+
 ## 1.4.0 (2026-11-15)
 - Madame Eva's cards react to what the spirit healer told you: another hand in your file, the lantern lit, the door past the mist.
 

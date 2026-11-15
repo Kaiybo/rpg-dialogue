@@ -9,6 +9,11 @@ P:NPC {
   communities = { "lakeshire" }, temper = { "sharp" }, values = { "lawful", "stern" },
   notices = { "reputation", "deputy" },
 
+  impression = {
+    first = "Magistrate Solomon asked me to be brief and then wrote another letter nobody will answer. He carries Lakeshire's danger the way a clerk carries a stack of papers, carefully and too long.",
+    third = "{name} was received by Magistrate Solomon, Lakeshire's elected leader, whose letters asking for help mostly go unanswered.",
+  },
+
   greetings = {
     { id = "g_brief", text = "Be brief, if you please; the orcs never are." },
     { id = "g_letters", when = { questActive = TODO_QUEST("Messenger to Westfall") }, text = "Why are you still standing in my hall? Take the letter to Westfall, and go quickly." },
@@ -43,12 +48,18 @@ P:NPC {
           text = "Orcs don't plan like this. Somebody is directing them, and the letter you carried names who. Take it to the Keep before the next raid." },
         { id = "h_masters_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The True Masters"), days = 5 } },
           text = "The Highlord read it all and still won't send soldiers without more proof, so he sent a deputy instead, which is to say you. I suppose that's an answer." },
+        { id = "h_maxwell", when = { heardLine = "maxwell.h_default" },
+          text = "You've been up to Morgan's Vigil and met Marshal Maxwell, then. He and I write to the same deaf ears in Stormwind, and his letters are angrier than mine, which I hadn't thought possible." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "An elf from the sky, is it? If your people could fly I'd want a dozen on the walls, but I'm told you glide, and I'll gladly take gliders." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "A priest, in my hall. I asked the kingdom for soldiers and bandages. It seems to have sent the next best thing." },
         { id = "h_letters", when = { metBefore = true }, text = "Another letter to Stormwind this morning. The court notes that it is the fortieth. The court also notes that it expects no reply." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "The court is closed, but the magistrate is not. Say what you came to say, and say it briefly." },
+        { id = "h_warm", when = { disposition = { min = 70 } },
+          text = "Ah, you. The court is glad of a friendly face, and so, for that matter, is the magistrate. Sit, if you can find a chair under the letters." },
+        { id = "h_cold", when = { disposition = { max = 34 } },
+          text = "The court recognises you, which is not the same as welcoming you. State your business." },
       },
       again = {
         { id = "h_again", text = "What else? Quickly, if you would; the docket is long and the day is not." },
@@ -77,7 +88,7 @@ P:NPC {
       choices = {
         { text = "What's the worst of it?", next = "need_worst" },
         { text = "I'll help where I can.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, standing = { lakeshire = 1 } } },
-        { text = "That's a lot to ask.", next = "BACK", fx = { affinity = -1 } },
+        { text = "That's a lot to ask.", next = "BACK", fx = { align = { order = -1 }, affinity = -1 } },
       },
     },
     need_worst = {
@@ -90,6 +101,7 @@ P:NPC {
       choices = {
         { text = "Who did you send that report to?", next = "letters" },
         { text = "Stormwind can't ignore that.", next = "BACK", fx = { align = { order = 1 }, affinity = -1 } },
+        { text = "Stormwind won't help, so Lakeshire must look after itself.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -133,6 +145,7 @@ P:NPC {
       choices = {
         { text = "What about the throne?", next = "amiss" },
         { text = "Then soldiers are coming.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Soldiers won't come, and Lakeshire should stop waiting for them.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
     letters_gryan = {
@@ -166,6 +179,9 @@ P:NPC {
       choices = {
         { text = "Careful, Magistrate. Stormwind's walls have ears.", next = "BACK", fx = { trait = { cautious = 1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "Off the record, Magistrate. What do you really suspect?", tag = "Persuade", next = "amiss_record",
+          check = { pass = { any = { { disposition = { min = 65 } }, { class = { "PRIEST", "PALADIN" } }, { questDone = TODO_QUEST("Messenger to Westfall") } } } },
+          fail = { next = "amiss_seal", fx = { affinity = -1 } } },
       },
     },
     prestor = {
@@ -234,6 +250,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll look for him.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll look for him if the reward's worth it.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -253,6 +270,7 @@ P:NPC {
       choices = {
         { text = "Hanging gnolls seems excessive.", next = "court_mercy" },
         { text = "Good. The law should have teeth.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Fighting gnolls is a soldier's job, not a hangman's.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
     court_mercy = {
@@ -281,6 +299,7 @@ P:NPC {
         { text = "Take me to them.", next = "BACK", fx = { affinity = 3, standing = { lakeshire = 2 }, align = { light = 1 } },
           journal = { first = "Magistrate Solomon told me Lakeshire has no priest of its own. I said I'd see to the wounded.",
                       third = "{name} offered to tend Lakeshire's wounded." } },
+        { text = "I'm not here to nurse anyone, Magistrate.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Has the Church sent no one?", next = "priest_church" },
       },
     },
@@ -295,6 +314,7 @@ P:NPC {
       lines = { { id = "pl_default", text = "I asked for a regiment and the Light sends one paladin. I've learned not to argue with the Light; it doesn't answer letters either. Stand where the guards can see you." } },
       choices = {
         { text = "I'll stand on the walls.", next = "BACK", fx = { affinity = 2, align = { light = 1, order = 1 } } },
+        { text = "I'll go where I'm needed, not where I'm posted.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -304,7 +324,7 @@ P:NPC {
         { text = "I'll raise it with them.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } },
           journal = { first = "Promised Magistrate Solomon I'd raise Lakeshire's letters with my family in the House of Nobles.",
                       third = "{name} promised Magistrate Solomon to raise Lakeshire's plight in the House of Nobles." } },
-        { text = "They have bigger concerns than Redridge.", next = "BACK", fx = { affinity = -2 } },
+        { text = "They have bigger concerns than Redridge.", next = "BACK", fx = { align = { honor = -1 }, affinity = -2 } },
       },
     },
     lordaeron = {
@@ -325,6 +345,7 @@ P:NPC {
       lines = { { id = "dw_default", text = "That's what I reasoned too, so we sent envoys to King Magni months ago, asking for help against the Blackrock. No dwarves have come over the mountains yet." } },
       choices = {
         { text = "Ironforge keeps its word. Give it time.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I wouldn't count on Ironforge keeping that promise.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "They came. Princess Moira was taken on the road.", next = "dwarf_moira", when = { questDone = TODO_QUEST("Kharan's Tale") } },
         { text = "Something else.", next = "BACK" },
       },
@@ -344,9 +365,36 @@ P:NPC {
         { text = "One deputy beats no army.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
       },
     },
+    amiss_record = {
+      big = true,
+      lines = {
+        { id = "ar_default", text = "Nothing is off the record in a court, but very well. I have kept every reply from the Keep, and laid them side by side on this table, and they are written in four different hands and they all use the same word: patience." },
+        { id = "ar_after", text = "Four clerks don't choose the same word by accident; somebody chooses it for them. I've sealed copies in a box with instructions for the court, should anything befall its magistrate, and I'll thank you to forget I said so." },
+        { id = "ar_priest", when = { class = { "PRIEST", "PALADIN" } }, text = "You wear the Light's colours, so I'll say it plainly: I don't believe the Regent means us harm, and I don't believe the Regent is the one writing." },
+      },
+      choices = {
+        { text = "I've heard that word in the Keep myself.", next = "BACK", when = { heardClaim = "prestor_patience" }, fx = { affinity = 2 } },
+        { text = "Your secret's safe, Magistrate.", next = "BACK", fx = { affinity = 1 } },
+        { text = "That's a dangerous thing to suspect.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    amiss_seal = {
+      lines = {
+        { id = "as_default", text = "The court has said what it's prepared to say, and it has said it to you once already. I'm a magistrate, not a gossip at the Lakeshire Inn." },
+        { id = "as_default2", text = "Suspicions are for people who have time to entertain them. I have orcs on the ridge and a stack of letters to answer, so ask me something useful." },
+      },
+      choices = {
+        { text = "Fair enough, Magistrate.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Every report from the ridge and every letter from the Keep crosses this table, so the court is well informed, if poorly defended. Ask me about any of this." },
+      { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "The court will answer on these matters, and only these." },
+    },
     background = { { id = "tp_bg", text = "The township elected me to judge its quarrels and keep its peace. Lately the quarrels carry axes.", next = "court" },
                    { id = "tp_bg2", text = "I'm the Magistrate of Lakeshire, and the rest of my story is in the letters, which nobody reads." } },
     advice = { { id = "tp_ad", text = "Keep to the roads, and never trust a quiet night in Redridge. The orcs count on both." } },

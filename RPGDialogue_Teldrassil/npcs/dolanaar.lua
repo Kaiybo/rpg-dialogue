@@ -8,6 +8,10 @@ P:NPC {
   bible = "bibles/teldrassil.md", role = "questgiver", tier = "quest",
   communities = { "dolanaar" }, temper = { "grave" }, values = { "devout", "dutiful" },
   notices = { "class" },
+  impression = {
+    first = "Corithras Moonrage tastes the moonwells himself and swears the third one is wrong. The Sentinels think he fusses, but I have rarely seen anyone so certain and so quietly afraid.",
+    third = "{name} met Corithras Moonrage, the grave keeper of Teldrassil's moonwells, who watches the young tree like a feverish child.",
+  },
 
   greetings = {
     { id = "g_well", text = "The moonwells of Teldrassil each have a voice. Listen, and you'll hear that they don't all sing the same note." },
@@ -41,6 +45,7 @@ P:NPC {
         { text = "Which wells do you watch?", next = "which" },
         { text = "I can feel something in the water too.", next = "feel", when = { class = { "PRIEST", "DRUID" } } },
         { text = "I'll carry the vial.", next = "END", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Wells go stale, and I doubt the tree's in any danger.", next = "END", fx = { affinity = -1, align = { light = -1 } } },
       },
     },
     wells = {
@@ -85,6 +90,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The moonwells tell me things if I listen long enough, and so do the druids who pass through Dolanaar. Ask, and I'll share what I've learned." },
+    },
     background = { { id = "tp_bg", text = "I listen to the moonwells, because someone ought to, and they never shout." } },
     advice = { { id = "tp_ad", text = "Drink from a moonwell only if a priestess says it is well, and even then, only sip." } },
     teldrassil = { { id = "tp_teldrassil", text = "Young, and not as well as it looks. The wells say so before anyone else does." } },
@@ -98,6 +106,10 @@ P:NPC {
   bible = "bibles/teldrassil.md", role = "questgiver", tier = "quest",
   communities = { "dolanaar" }, temper = { "stern" }, values = { "protective", "dutiful" },
   notices = { "class", "form" },
+  impression = {
+    first = "There is no patience for riddles in Athridas Bearmantle, only plain words and a heavy heart. The Gnarlpine were never his enemies, and it grieves him more than he lets on that they are now.",
+    third = "{name} met Athridas Bearmantle, the stern druid of Dolanaar who would rather cure the maddened Gnarlpine than kill them.",
+  },
 
   greetings = {
     { id = "g_druid", text = "Speak plainly, friend. The forest has troubles enough, and I've no patience for riddles today." },
@@ -173,6 +185,7 @@ P:NPC {
       lines = { { id = "t2_default", text = "Their spirits walk the Dream while they sleep. Without the right relics, the waking can't be done, and they'd sleep forever without knowing it." } },
       choices = {
         { text = "Then the relics matter.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If they chose to sleep, then let them sleep.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -183,6 +196,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I keep watch on Teldrassil's troubles from this village, and there are more of them than I would like. Ask me of any of these." },
+    },
     background = { { id = "tp_bg", text = "I'm a druid of Dolanaar, and the Gnarlpine are my charge now, whether I wanted it or not." } },
     advice = { { id = "tp_ad", text = "Don't fight a furbolg in its own hills. Draw it out where you can see the trees around you." } },
     fel_moss = { { id = "tp_moss", text = "It is the Gnarlpine's ruin, for wherever it grows, they turn." } },
@@ -197,6 +213,10 @@ P:NPC {
   bible = "bibles/teldrassil.md", role = "questgiver", tier = "quest",
   communities = { "dolanaar" }, temper = { "approving" }, values = { "protective", "kind" },
   notices = { "greenness" },
+  impression = {
+    first = "Something fatherly shows in the way Tallonkai Swiftroot looks over the young ones guarding the groves. He wants his dreamcatcher back, and I suspect he would like a few other things handled quietly as well.",
+    third = "{name} met Tallonkai Swiftroot of Dolanaar, who approves of the young taking up the groves' defence and has errands of his own for them.",
+  },
 
   greetings = {
     { id = "g_groves", text = "Good to see the young taking a hand in guarding the groves. Come, I've work for willing hands." },
@@ -276,6 +296,10 @@ P:NPC {
   bible = "bibles/teldrassil.md", role = "questgiver", tier = "quest",
   communities = { "dolanaar" }, temper = { "composed" }, values = { "dutiful", "loyal" },
   notices = { "craft" },
+  impression = {
+    first = "Syral Bladeleaf sorts the Council's orders by which ones get someone hurt if they wait. He is calm about it, which may be the only way to bear having more orders than hands.",
+    third = "{name} met Syral Bladeleaf, who carries the Council of the Forest's orders to anyone in Dolanaar willing to follow them.",
+  },
 
   greetings = {
     { id = "g_council", text = "Dolanaar welcomes those who welcome the land. Tell me, do you?" },
@@ -308,6 +332,7 @@ P:NPC {
         { text = "Who is Zenn Foulhoof?", next = "zenn" },
         { text = "I'm an herbalist. What grows here?", next = "herbs", when = { profession = "Herbalism" } },
         { text = "I'll take on the Council's orders.", next = "END", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll help where I see a need, not where the Council points.", next = "END", fx = { align = { order = -1 } } },
       },
     },
     council = {
@@ -330,12 +355,14 @@ P:NPC {
       choices = {
         { text = "I helped him. I didn't know.", next = "zenn2", when = { questDone = TODO_QUEST("Zenn's Bidding") } },
         { text = "I'll stay away from him.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Whose favours I do is my own business.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
       },
     },
     zenn2 = {
       lines = { { id = "z2_default", text = "Then set it right. Fel cones fall under the trees, smoking green; feed him a few, and he'll think you've brought him a snack." } },
       choices = {
         { text = "I'll set it right.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "The Council can keep its tally, because I owe it nothing.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "That's a dirty trick.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
@@ -357,6 +384,10 @@ P:NPC {
   bible = "bibles/teldrassil.md", role = "innkeeper", tier = "service",
   communities = { "dolanaar" }, temper = { "gentle" }, values = { "generous" },
   notices = { "weary" },
+  impression = {
+    first = "At Keldamyr's inn the tea is always ready and nobody is asked why they look tired. Travellers leave lighter, and I think that is the whole point of the place.",
+    third = "{name} stopped at Innkeeper Keldamyr's hearth in Dolanaar, where every traveller between Shadowglen and Darnassus rests sooner or later.",
+  },
 
   greetings = {
     { id = "g_inn", text = "Rest a while; the inn is yours for as long as you need it." },
@@ -410,6 +441,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Everyone passing between Shadowglen and Darnassus stops here, and they leave a little news behind with the crumbs. Ask me what you like." },
+    },
     background = { { id = "tp_bg", text = "I keep a fire lit between Shadowglen and Darnassus. It's a good place for a fire." } },
     advice = { { id = "tp_ad", text = "Rest when you can. A body and mind left without peace give out at the worst moment." } },
     _none = { { id = "tp_none", text = "I hear only the gentle gossip. Ask a Sentinel for the other kind." } },
@@ -422,6 +456,10 @@ P:NPC {
   bible = "bibles/teldrassil.md", role = "questgiver", tier = "quest",
   communities = { "dolanaar" }, temper = { "easy" }, values = { "curious", "generous" },
   notices = { "craft" },
+  impression = {
+    first = "Lyreena Duskblade would rather sleep under the canopy than a roof, and she counts stars through the leaves until she drifts off. Sitting at her small fire, I found it hard to argue with her.",
+    third = "{name} shared a small fire with Lyreena Duskblade, who teaches anyone willing how to make a camp feel like home.",
+  },
 
   greetings = {
     { id = "g_fire", text = "Come and sit down. The fire's small, but it's honest, and there's room for one more." },

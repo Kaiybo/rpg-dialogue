@@ -8,6 +8,10 @@ P:NPC {
   bible = "bibles/haggard.md", role = "questgiver", tier = "quest",
   communities = { "eastvale" }, temper = { "proud" }, values = { "lawful", "brave" },
   notices = { "kit" },
+  impression = {
+    first = "Nearly blind and still every inch a soldier, Marshal Haggard listens to the path below his door more closely than most men watch one. He ran the Stormwind Guard once, and he hasn't forgotten it.",
+    third = "{name} met old Marshal Haggard, once of the Stormwind Guard, who sits at home listening to the loggers swear.",
+  },
 
   greetings = {
     { id = "g_squint", text = "Who's that there? Come a little closer, no, closer still... ah, I don't know you at all." },
@@ -86,7 +90,7 @@ P:NPC {
         { id = "jk_default", text = "And have Dughan hear I took a thief for him? I'd sooner eat the badge when it's back." },
       },
       choices = {
-        { text = "Your secret's safe.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Your secret's safe.", next = "BACK", fx = { align = { order = -1 }, affinity = 2 } },
         { text = "Pride's a poor reason to keep quiet.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
       },
     },
@@ -141,7 +145,10 @@ P:NPC {
       lines = {
         { id = "am_default", text = "Oil your blade every night, even when you're tired, and especially then, because the night you skip it is the night you'll need it." },
       },
-      choices = { { text = "Yes, Marshal.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } } },
+      choices = {
+        { text = "Yes, Marshal.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll care for my blade my own way, Marshal.", next = "BACK", fx = { align = { order = -1 } } },
+      },
     },
 
     eyes = {
@@ -160,6 +167,7 @@ P:NPC {
       },
       choices = {
         { text = "It pleases me. Hold still.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "If the Light can't clear the fog, I won't waste it.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Then I'll pray for patience instead.", next = "BACK", fx = { trait = { pious = 1 } } },
       },
     },
@@ -197,6 +205,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I may not see much these days, but there's nothing wrong with my ears. Ask me about any of this, and speak up." },
+    },
     background = { { id = "tp_bg", text = "Stormwind Guard, all my working life. Then my eyes went, so I came out here to let the loggers do the shouting." } },
     advice = {
       { id = "tp_ad", text = "Never hand your badge to a man you can't see. And keep your kit oiled.", next = "advice" },

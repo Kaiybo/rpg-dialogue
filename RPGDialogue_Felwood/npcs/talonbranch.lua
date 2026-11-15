@@ -8,6 +8,11 @@ P:NPC {
   communities = { "talonbranch" }, temper = { "quiet" }, values = { "wise", "patient" },
   notices = { "class", "form" },
 
+  impression = {
+    first = "Golhine the Hooded teaches druids beside the one clean moonwell in a sick forest, and doesn't say much more than he must. The hood, he says, only keeps the ash off.",
+    third = "{name} met Golhine the Hooded, the quiet druid trainer at Talonbranch Glade.",
+  },
+
   greetings = {
     { id = "g_druid", when = { class = "DRUID" }, text = "You've come far to train in a sick forest, which is good. Sit by the well." },
     { id = "g_other", when = { ["not"] = { class = "DRUID" } }, text = "The moonwell is clean, though little else here is. Rest a moment, if you need to." },

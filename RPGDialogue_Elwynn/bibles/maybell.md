@@ -45,3 +45,6 @@ maybell_tommy, lions_pride
 - How she met Tommy Joe: "across a fence", no more. The river visit (quiet, peacebloom from the same patch).
 - Gated: priest blessing ("you were blessing the grapes"), rogue offering to teach stealth (she refuses: they'd blame the Stonefields), heardLine billy.m_river, The Escape done.
 - Voice pass (2026-11-15): every line rewritten as whole spoken sentences (no stacked fragments); meaning, ids and conditions unchanged.
+
+## 0.34.0
+- Maybell (Persuade, `tommy_fence`): after a storm washed the Maclure fence into the river, Tommy Joe waded over, mended it, and asked if she liked peacebloom; he's brought her some every week since.

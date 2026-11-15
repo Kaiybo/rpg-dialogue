@@ -52,3 +52,6 @@
 
 ## Depth pass (0.25.0, authored, not canon)
 Kaltunk greets new blood because someone once greeted him (out of the camps, across the sea); Galgar learned to cook in the camps and swears by fried scorpid; Thazz'ril's peons asleep in a moving cart; Kzan on edges; Grosk shakes scorpids out of the blankets and loves the grunts' bad singing.
+
+## 0.34.0 (Persuade check, authored, not canon)
+- Gadrin (Persuade, `zalazane_blame`): Zalazane was the quicker of his two students; Gadrin saw the hunger early and taught him anyway out of pride, and counts every puppet on the isles as partly his.

@@ -21,6 +21,10 @@ P:Pool {
   },
   choices = { { text = "For the Dark Lady.", next = "END", fx = { standing = { sepulcher = 1 } } } },
   topics = {
+    knows = {
+      { id = "t_kn1", text = "The Sepulcher gets reports from every corner of Silverpine, and most of them are bad. Here's what I can share." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "Ask your questions and go, because the forest is dangerous enough without distractions at the gate." },
+    },
     _none = { { id = "t_none", text = "Ask the High Executor; he reads every report." } },
   },
 }

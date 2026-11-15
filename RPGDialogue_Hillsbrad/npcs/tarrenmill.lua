@@ -8,6 +8,11 @@ P:NPC {
   communities = { "tarren_mill" }, temper = { "cold" }, values = { "loyal", "relentless" },
   notices = { "race", "class" },
 
+  impression = {
+    first = "High Executor Darthalia measures everyone by their use to the Dark Lady's front. She pushes the line toward Southshore one field at a time, and she doesn't intend to stop.",
+    third = "{name} met High Executor Darthalia, who holds Tarren Mill for the Dark Lady and presses the line against Southshore.",
+  },
+
   greetings = {
     { id = "g_front", text = "You stand at the Dark Lady's front. Be useful to it, or stand somewhere else." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned, good. The front moves forward only when people like you push it." },
@@ -83,6 +88,7 @@ P:NPC {
       choices = {
         { text = "Something else.", next = "BACK" },
         { text = "That's no kind of war.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
+        { text = "Patience wins wars. Let the apothecaries do their work.", next = "BACK", fx = { align = { honor = -1 } } },
       },
     },
     orders = {
@@ -101,6 +107,7 @@ P:NPC {
       },
       choices = {
         { text = "Cold, but sound.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Starving farmers out isn't a war I'd want to win.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -134,7 +141,7 @@ P:NPC {
       },
       choices = {
         { text = "Understood, High Executor.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Someone should be asking.", next = "BACK", fx = { affinity = -1, trait = { skeptical = 1 } } },
+        { text = "Someone should be asking.", next = "BACK", fx = { align = { order = -1 }, affinity = -1, trait = { skeptical = 1 } } },
       },
     },
     forsaken = {
@@ -150,7 +157,10 @@ P:NPC {
       lines = {
         { id = "oc_default", text = "Durnholde, yes. Then we both have scores to settle here, yours older and mine fresher, and the Syndicate keep its ruins now, so start there." },
       },
-      choices = { { text = "Gladly.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } } },
+      choices = {
+        { text = "Gladly.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Your scores are your own. I'll settle mine my own way.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
     },
     troll = {
       lines = {
@@ -177,6 +187,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I will answer what it serves the Dark Lady for you to know. Choose your questions carefully." },
+    },
     new_plague = { { id = "tp_plague", text = "The Society's work. Until it is ready, we hold the fields.", next = "plague" } },
     background = { { id = "tp_bg", text = "I died for Lordaeron, and now I take it back for the Dark Lady. The account is simple.", next = "why" } },
     advice = { { id = "tp_ad", text = "Do not linger near Southshore's walls. Their guards are bored, and bored men shoot first." } },
@@ -189,6 +202,11 @@ P:NPC {
   bible = "bibles/hillsbrad.md", role = "scholar", tier = "quest",
   communities = { "tarren_mill" }, temper = { "glum" }, values = { "devoted" },
   notices = { "craft", "race" },
+
+  impression = {
+    first = "Apothecary Lydon told me not to touch anything, since most of it would kill me. He says he feels very little now, except about his work and something called Umpi.",
+    third = "{name} met Apothecary Lydon of the Royal Apothecary Society, who brews deadly things at Tarren Mill.",
+  },
 
   greetings = {
     { id = "g_bored", text = "Oh, a visitor, how thrilling. Please don't touch anything; most of it will kill you, and the rest will make you wish it had." },
@@ -302,6 +320,7 @@ P:NPC {
       },
       choices = {
         { text = "You're beyond help.", next = "BACK", fx = { affinity = -1, align = { light = 1 } } },
+        { text = "Fair enough. Clean air never did me much good either.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -320,6 +339,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I know a few things, mostly about what hurts and how much. Ask, if you've the stomach for it." },
+    },
     new_plague = { { id = "tp_plague", text = "We're close, so very close, and I'd be excited if I still did that.", next = "plague" } },
     syndicate = { { id = "tp_syndicate", text = "Their shadow mages collect innocent blood, and I collect it from them; it's a sort of partnership." } },
     background = { { id = "tp_bg", text = "Royal Apothecary Society, and before that, alive. I think I preferred it, though I can't recall why.", next = "misery" } },
@@ -334,6 +356,11 @@ P:NPC {
   bible = "bibles/hillsbrad.md", role = "innkeeper", tier = "service",
   communities = { "tarren_mill" }, temper = { "dry" }, values = { "practical" },
   notices = { "race", "weary" },
+
+  impression = {
+    first = "Innkeeper Shay keeps chairs for guests who no longer need to rest. The humour at Tarren Mill's inn is as dry as old bone, and I suspect that's deliberate.",
+    third = "{name} visited the inn at Tarren Mill, kept by Innkeeper Shay, whose guests rarely need to sleep.",
+  },
 
   greetings = {
     { id = "g_inn", text = "Rest here, if you rest. Some of my guests don't need to, but they like the chairs." },
@@ -386,6 +413,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The dead don't gossip much, but the living who pass through here do. Ask, and I'll tell you what I've overheard." },
+    },
     background = { { id = "tp_bg", text = "I keep the inn. What came before that I don't talk about, and nobody here does." } },
     advice = { { id = "tp_ad", text = "Don't sit by the window after dark. Southshore's scouts like windows." } },
     _none = { { id = "tp_none", text = "Ask the High Executor, or better, don't; she doesn't like questions." } },

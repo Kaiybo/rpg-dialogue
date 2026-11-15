@@ -2,6 +2,17 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.7.0 (2026-11-15)
+- 23 new people: the Mystic Ward's priests (High Priest Rohan, Theodrus Frostbeard, Toldren Deepiron, Braenna Flintcrag), Tiza and Muiredon Battleforge, Bink, Milstaff Stormeye; Sara Balloo and the Military Ward's trainers; Tinker Town (Overspark, Castpipe, Klockmort, Gnoarn); the Hall of Explorers and the Commons (Thorius, Mae Paledust, Karnik, Belgrum, Marblesten, Gryth Thurden, Hulfdan Blackbeard).
+- Every person writes a first impression in your diary.
+- New files: exit the game fully and restart.
+
+## 1.6.0 (2026-11-15)
+- Persuade, Intimidate and Deceive checks on the major people here, each with its own success and failure; lines and replies that depend on how warmly they regard you (disposition); a lead-in for "What do you know?".
+
+## 1.5.0 (2026-11-15)
+- Alignment now comes only from statements, never questions, and every reply that shifts alignment has an opposing one beside it. Taking one stance with someone closes the others for good.
+
 ## 1.4.0 (unreleased)
 - Depth rewrite for all sixteen NPCs: every conversation is now a hub of subjects to explore, two or three steps deep, with "what else?" lines when you come back to it, and each NPC answers Ask about their story and their advice.
 - King Magni: the Dark Iron and Madoran's statue, the Reserve away at the front, his brothers (Muradin and the sword he forged for the Silver Hand in his grief, Brann missing for months), why Ironforge digs for its past, the gnomes and the tram. Priests and paladins can ask how the Light came to Ironforge; he reacts if you've met the Whitebeards or carried Senir's report, if you went under his hall for Farsen (Old Ironforge Incursion), or if you came out of Lordaeron.

@@ -9,6 +9,10 @@ P:NPC {
   bible = "bibles/city.md", role = "noble", tier = "major",
   communities = { "stormwind" }, temper = { "sharp" }, values = { "cunning", "lawful" },
   notices = { "stealth", "watch" },
+  impression = {
+    first = "Master Mathias Shaw talks like a man who has already read my file, and he probably has. I couldn't tell whether he approved of me or merely made a note.",
+    third = "{name} met Master Mathias Shaw, head of SI:7, who knows a great deal more than he says.",
+  },
 
   greetings = {
     { id = "g_rogue", when = { class = "ROGUE" }, text = "Sit. I knew you were coming before you did." },
@@ -53,6 +57,10 @@ P:NPC {
           text = "Dughan tells Goldshire they're common thieves, but common thieves don't keep shipping schedules. Let him keep the town calm, and I'll keep the ledger." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "Robes, in SI:7's barracks? Either you're lost, or someone has confessed something interesting, and I'll hope for the second." },
+        { id = "h_warm", when = { disposition = { min = 70 } },
+          text = "You again. My people say you keep your word and your mouth shut, which is the highest praise this building gives, so sit down." },
+        { id = "h_cold", when = { disposition = { max = 34 } },
+          text = "I've read your file, and I didn't care for it. Say what you came to say, and use the same door on your way out." },
       },
       again = {
         { id = "h_again", text = "Go on. I've ten minutes, and I've already spent two of them on you." },
@@ -83,6 +91,7 @@ P:NPC {
       lines = { { id = "hp_default", text = "Probably. Keep your eyes open and your mouth shut, and we'll find you when we need you. Don't come looking." } },
       choices = {
         { text = "Understood.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll come looking whenever I please, Shaw.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "How will you find me?", next = "help_find" },
       },
     },
@@ -98,12 +107,46 @@ P:NPC {
       lines = { { id = "sk_default", text = "Missing, on the road to Theramore. The whole city knows that much. What my people know beyond it stays in this building." } },
       choices = {
         { text = "Then I won't ask.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "The city has a right to know where its king is.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Do you know more?", next = "si7_know", fx = { trait = { curious = 1 } } },
       },
     },
     si7_know = {
       lines = { { id = "sn_default", text = "Yes, or no; pick whichever answer lets you sleep, because I'll be awake either way." } },
-      choices = { { text = "Fair. Something else.", next = "BACK" } },
+      choices = {
+        { text = "Fair. Something else.", next = "BACK" },
+        { text = "You can trust me with the rest of it, Shaw.", tag = "Persuade", next = "si7_truth",
+          check = { pass = { any = { { disposition = { min = 70 } }, { deed = "dungeon:The Deadmines" }, { questDone = TODO_QUEST("Brotherhood's End") } } } },
+          fail = { next = "si7_shut", fx = { affinity = -1 } } },
+      },
+    },
+    si7_truth = {
+      big = true,
+      lines = {
+        { id = "st_default", text = "Then here's the rest: we don't know. His escort never reached Theramore, no ship put in with his banner, and every agent I've sent down that coast has come back with the same nothing." },
+        { id = "st_default2", text = "I tell the Regent every week that we're close, because a man who's carrying a kingdom needs to hear it. We're not close. I'd ask you to keep that in this building, where it belongs." },
+      },
+      choices = {
+        { text = "It stays here.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Shouldn't Bolvar know the truth?", next = "si7_bolvar" },
+      },
+    },
+    si7_bolvar = {
+      lines = {
+        { id = "sb_default", text = "Bolvar knows what he needs to keep going, which isn't the same as the truth, though it's close. When I've something better than nothing, he'll have it before the ink's dry." },
+        { id = "sb_priest", when = { class = "PRIEST" }, text = "You'd tell a dying man the truth, I suppose, and you'd be right to. The Regent isn't dying, and I need him on his feet." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    si7_shut = {
+      lines = {
+        { id = "ss_default", text = "Trust isn't something you ask for in this building; it's something I find in a file after a few years of watching you. Yours isn't thick enough yet." },
+        { id = "ss_default2", text = "That's a very good try, and I've heard it from better liars than you. The answer is still the one I gave you." },
+      },
+      choices = {
+        { text = "Then I'll give you a few years.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
 
     answer = {
@@ -112,6 +155,7 @@ P:NPC {
       choices = {
         { text = "And the court?", next = "court" },
         { text = "Good answer.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The crown and the court are the same snake, to my eye.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
     court = {
@@ -174,7 +218,7 @@ P:NPC {
       lines = { { id = "p_default", text = "People tell priests what they'd never tell me: grief, guilt, a brother home with too much coin. I'd never ask you to repeat a confession, only to listen well." } },
       choices = {
         { text = "I won't spy for you.", next = "priest_refuse", fx = { align = { light = 1, honor = 1 } } },
-        { text = "Listening is half my work anyway.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Listening is half my work anyway.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
       },
     },
     priest_refuse = {
@@ -193,6 +237,7 @@ P:NPC {
       lines = { { id = "nf_default", text = "Debts, mostly. Every noble house in Stormwind owes someone. The interesting question is never how much. It's to whom." } },
       choices = {
         { text = "I'll keep my family's debts in order.", next = "BACK", fx = { align = { order = 1 }, trait = { cautious = 1 } } },
+        { text = "I'd sooner collect debts than pay them, Shaw.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Whose debts interest you most?", next = "BACK", fx = { trait = { curious = 1 }, affinity = -1 } },
       },
     },
@@ -207,11 +252,19 @@ P:NPC {
     },
     lescovar_house = {
       lines = { { id = "lh_default", text = "The House will find a lord dead in his own garden and decide he had enemies, and they'll be right, but they won't ask which." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { align = { order = -1 } } } },
+      choices = {
+        { text = "A lord who betrays the crown earns his garden grave.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Even a traitor deserves a trial before the House.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Knowing things is the whole trade here, though telling them is another matter. I'll give you what I can on any of these, and not a word more." },
+      { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "You'll get very little from me, but I'll hear the question, on these and nothing else." },
+    },
     background = { { id = "tp_bg", text = "I run SI:7. Before that I was learning to. That's all the story there is, and more than I tell most people." } },
     advice = { { id = "tp_ad", text = "Count the doors in every room you walk into. Then count the people who know about them." } },
     rumors = { { id = "tp_ru", text = "Rumours are my trade, and I don't hand out samples." } },
@@ -230,6 +283,10 @@ P:NPC {
   bible = "bibles/city.md", role = "trainer", tier = "service",
   communities = { "stormwind" }, temper = { "steady" }, values = { "curious", "lawful" },
   notices = { "arcane" },
+  impression = {
+    first = "Jennea Cannon teaches in the Wizard's Sanctum, where even the floor is warded, and she doesn't hand out compliments lightly. Her praise comes in very small measures, and it seems to be worth earning.",
+    third = "{name} met Jennea Cannon of the Wizard's Sanctum, a mage trainer who believes everyone's fundamentals have gaps.",
+  },
 
   greetings = {
     { id = "g_mage", when = { class = "MAGE" }, text = "The Sanctum. Wipe your boots; the floor wards are sensitive." },
@@ -307,6 +364,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The Sanctum keeps careful records, and I keep careful notes on the records. Ask me about any of these, and listen closely." },
+    },
     background = { { id = "tp_bg", text = "My history is dull, and I'd rather not waste your lesson on it. The magic is the interesting part. Ask about that." } },
     advice = { { id = "tp_ad", text = "Never cast a spell you couldn't explain to a child. If you can't explain it, you don't understand it, and it will notice." } },
     morganth = { { id = "tp_morganth", text = "His name is not spoken lightly in this building, because he stole from us, and he will be stopped." } },
@@ -320,6 +380,10 @@ P:NPC {
   bible = "bibles/city.md", role = "trainer", tier = "service",
   communities = { "stormwind" }, temper = { "sharp" }, values = { "cunning", "ambitious" },
   notices = { "pet", "watch" },
+  impression = {
+    first = "Gakin the Darkbinder teaches beneath the Slaughtered Lamb and values discretion above everything. He spoke as though every word cost him something he meant to be repaid.",
+    third = "{name} met Gakin the Darkbinder, the warlock trainer beneath the Slaughtered Lamb, who pays well for silence.",
+  },
 
   greetings = {
     { id = "g_warlock", when = { class = "WARLOCK" }, text = "Close the door behind you, quietly. The people upstairs drink to forget us." },
@@ -372,7 +436,7 @@ P:NPC {
     lamb_noble = {
       lines = { { id = "ln_default", text = "Then a lord with an unpaid bar tab finds out where we are and calls for an inquiry, as Lord Wishock has lately. Zardeth is keeping him busy, and don't ask how." } },
       choices = {
-        { text = "I won't ask.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I won't ask.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
         { text = "Blackmail, then.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
       },
     },
@@ -414,6 +478,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I know more than I say, which is the only sensible way to know anything in this cellar. Ask about these, and keep your voice down." },
+    },
     background = { { id = "tp_bg", text = "My past is my business. Discretion is the first lesson, remember, and you've just failed it by asking." } },
     advice = { { id = "tp_ad", text = "Whatever a demon offers you, it's lying. Even the things that turn out true. Especially those." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "It sent us its warlocks once. Now it sends us its refugees. I take both." } },
@@ -427,6 +494,10 @@ P:NPC {
   bible = "bibles/city.md", role = "innkeeper", tier = "service",
   communities = { "stormwind" }, temper = { "steady" }, values = { "kind", "generous" },
   notices = { "guest", "drink" },
+  impression = {
+    first = "Innkeeper Allison runs the Gilded Rose between the bank and the auction house, so she feeds the newly rich and the newly poor alike. She called me love before she even knew my name.",
+    third = "{name} took a room at the Gilded Rose, where Innkeeper Allison keeps the fire lit for every tired traveler.",
+  },
 
   greetings = {
     { id = "g_rose", text = "In you come. The Gilded Rose has a bed for every tired pair of boots." },
@@ -487,6 +558,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Half the kingdom eats breakfast at my tables, and the other half talks about it. Ask me about any of this, love, while the kettle's on." },
+    },
     background = { { id = "tp_bg", text = "If I've a story, it happened while I was making breakfast, and I wasn't paying attention. Ask me about the guests instead." } },
     advice = { { id = "tp_ad", text = "Eat before you go out that gate. The road doesn't serve breakfast." } },
     westfall = { { id = "tp_westfall", text = "The farmers who come through from there look ten years older than they are. I feed them first." } },

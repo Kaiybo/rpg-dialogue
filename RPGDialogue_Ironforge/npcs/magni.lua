@@ -10,6 +10,11 @@ P:NPC {
   communities = { "ironforge" }, temper = { "proud" }, values = { "brave", "honest", "lawful" },
   notices = { "fel", "kin" },
 
+  impression = {
+    first = "King Magni Bronzebeard has a voice made for being heard over forges and a laugh made for being heard over that. He is every inch a king, and he hasn't forgotten how to be a dwarf.",
+    third = "{name} stood before King Magni Bronzebeard in the High Seat of Ironforge.",
+  },
+
   greetings = {
     { id = "g_king", text = "Ye stand before the King of Ironforge. Speak up; the forges are loud." },
     { id = "g_dwarf", when = { race = "Dwarf" }, text = "One o' mine, by the look o' ye. Welcome home, whatever road ye've been walkin'." },
@@ -44,6 +49,10 @@ P:NPC {
           text = "A priest o' the Cathedral, under my mountain. Our own keep the Hall o' Mysteries, wi' Rohan. They'll make ye welcome, an' they'll make ye tea." },
         { id = "h_hunter", when = { race = "Dwarf", class = "HUNTER" },
           text = "A dwarf wi' a rifle an' a beast at heel. The Mountaineers will try tae recruit ye. Make 'em buy the first round." },
+        { id = "h_warm", when = { disposition = { min = 70 } },
+          text = "Ah, there's a face I'm glad o'! Come up, come up, an' never mind the guards; they know a friend o' the throne when they see one." },
+        { id = "h_cold", when = { disposition = { max = 34 } },
+          text = "I'll hear ye, because a king hears everyone, but I'll no' pretend I'm pleased tae. Out wi' it." },
       },
       again = {
         { id = "h_again", text = "What else, then? The court can wait; it's well used tae it." },
@@ -72,6 +81,7 @@ P:NPC {
         { text = "Tell me about the Dark Iron.", next = "dark" },
         { text = "Where have your axes gone?", next = "reserve" },
         { text = "I'll lend mine.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Keep your axes at home, Your Majesty, because Ironforge comes first.", next = "BACK", fx = { align = { honor = -1 } } },
       },
     },
     dark = {
@@ -109,7 +119,7 @@ P:NPC {
       },
       choices = {
         { text = "Spoken like a king.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Your own valleys bleed for it.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
+        { text = "Your own valleys bleed for it.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 }, align = { honor = -1 } } },
       },
     },
 
@@ -123,6 +133,9 @@ P:NPC {
         { text = "And your other brother, Brann?", next = "brann" },
         { text = "Then someone should bring her home.", next = "home", fx = { trait = { brave = 1 } } },
         { text = "I'm sorry, my king.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "There's no court here now, Your Majesty. Tell me of her.", tag = "Persuade", next = "family_moira",
+          check = { pass = { any = { { disposition = { min = 68 } }, { race = "Dwarf" }, { class = { "PRIEST", "PALADIN" } } } } },
+          fail = { next = "family_court", fx = { affinity = -1 } } },
       },
     },
     muradin = {
@@ -144,6 +157,7 @@ P:NPC {
         { text = "Where is the sword now?", next = "blade_where" },
         { text = "The Light answers grief, Your Majesty. It answered yours.", next = "BACK",
           when = { class = { "PRIEST", "PALADIN" } }, fx = { affinity = 2, align = { light = 1 }, trait = { pious = 1 } } },
+        { text = "Grief made that sword, Your Majesty, not the Light.", next = "BACK", when = { class = { "PRIEST", "PALADIN" } }, fx = { align = { light = -1 } } },
         { text = "Grief makes hard steel.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -169,7 +183,10 @@ P:NPC {
         { id = "h2_ready", when = { minLevel = 50 },
           text = "Ye might be strong enough now. Others have gone intae that mountain for her. Mind that, an' come tae me when ye mean it." },
       },
-      choices = { { text = "I will.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } } },
+      choices = {
+        { text = "I will.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Perhaps she doesn't want bringing home, Your Majesty.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+      },
     },
 
     league = {
@@ -240,6 +257,7 @@ P:NPC {
       choices = {
         { text = "What did it do in steel?", next = "blade" },
         { text = "That's a kind of faith.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Steel and sense have served you better than prayer.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
 
@@ -287,9 +305,35 @@ P:NPC {
         { text = "At the anvil?", next = "blade" },
       },
     },
+    family_moira = {
+      big = true,
+      lines = {
+        { id = "fm_default", text = "When Lakeshire's envoys came beggin' for help against the Blackrock, it was Moira who stood up in the hall an' said she'd go. I signed the order that let her ride south wi' twenty guardsmen, because I was proud o' her for askin'." },
+        { id = "fm_after", text = "The Dark Iron took her on the road through the Steppes, an' not one o' the twenty came home. I've had that order read back tae me in my own head every night since, an' my hand's never once refused tae sign it." },
+        { id = "fm_priest", when = { class = { "PRIEST", "PALADIN" } }, text = "Ye'll want tae tell me it's no' my fault, an' ye'd be kind tae. Pray for her instead, would ye, because I've run out o' words for it an' the Light might still have some." },
+      },
+      choices = {
+        { text = "She went because she's your daughter, Majesty.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Then we bring her home.", next = "home", fx = { trait = { brave = 1 } } },
+      },
+    },
+    family_court = {
+      lines = {
+        { id = "fc_default", text = "There's always a court, {g:lad|lass}, even when there's naebody in it but the two of us an' the walls. I've said what I'll say about my daughter." },
+        { id = "fc_default2", text = "Kindly meant, I'm sure, but a king's grief is no' a thing for passin' about the Great Forge. Leave it be." },
+      },
+      choices = {
+        { text = "Forgive me, Your Majesty.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Every report from Dun Morogh tae the Badlands comes up these steps sooner or later, an' I read the lot. Ask me about any o' this." },
+      { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "For you, I'll set the Senate's papers aside a while. Ask me about any o' this, an' I'll gie ye a straight answer." },
+    },
     background = { { id = "tp_bg", text = "I'm the eldest o' three brothers, born tae the throne, an' I wasnae sure I'd make a decent king. Some mornings I'm still no' sure.", next = "family" } },
     advice = { { id = "tp_ad", text = "Keep yer word, keep yer axe sharp, an' keep the Senate waitin' just long enough tae be polite." } },
     dark_iron = { { id = "tp_dark_iron", text = "Thaurissan's get. I'll no' waste my breath cursin' them when I've a mountain tae hold against them.", next = "dark" } },

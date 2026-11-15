@@ -8,6 +8,10 @@ P:NPC {
   communities = { "goldshire" }, temper = { "sharp" }, values = { "pious", "kind", "honest" },
   spiritSensitive = true,
   notices = { "kit", "affliction" },
+  impression = {
+    first = "Brother Wilhelm works in the forge smoke and seems to measure people by how straight they stand when they leave. He mends souls, he says, and slowly.",
+    third = "{name} met Brother Wilhelm, Goldshire's paladin trainer, who teaches what a paladin's oath truly weighs.",
+  },
 
   greetings = {
     { id = "g_default", text = "Brother Wilhelm. Mind the forge smoke, it gets everywhere." },
@@ -94,6 +98,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll practise mercy.", next = "BACK", fx = { align = { light = 2 }, trait = { kind = 1 }, affinity = 1 } },
+        { text = "Mercy gets good knights killed.", next = "BACK", fx = { align = { light = -2 } } },
         { text = "Some people don't deserve it.", next = "deserve", fx = { trait = { stern = 1 } } },
       },
     },
@@ -136,6 +141,7 @@ P:NPC {
       },
       choices = {
         { text = "I'm still learning that myself.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { pious = 1 } } },
+        { text = "Sitting still while someone dies isn't for me.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -146,6 +152,7 @@ P:NPC {
       },
       choices = {
         { text = "That's what I'm trying to do.", next = "BACK", fx = { affinity = 3, align = { light = 2 } } },
+        { text = "The oath died with the Order, and I've let it go.", next = "BACK", fx = { align = { light = -2 } } },
         { text = "Some days it feels pointless.", next = "squire_point" },
       },
     },

@@ -7,6 +7,10 @@ P:NPC {
   bible = "bibles/willem.md", role = "questgiver", tier = "quest",
   communities = { "northshire" }, temper = { "steady" },
   notices = { "newcomer", "thief", "stranger" },
+  impression = {
+    first = "Deputy Willem watches the Abbey road with friendly eyes and keeps a careful count of everything on it. If there's trouble in the valley, he assures me, he has already heard of it.",
+    third = "{name} met Deputy Willem on the Northshire road, who keeps the Marshal's tallies and an eye on every stranger.",
+  },
 
   greetings = {
     { id = "g_morning", when = { timeOfDay = { "dawn", "day" } }, text = "Morning! Keep to the road and you'll keep your purse." },
@@ -84,6 +88,7 @@ P:NPC {
         { text = "Who leads them up here?", next = "garrick" },
         { text = "Why would anyone join them?", next = "why", fx = { trait = { curious = 1 } } },
         { text = "Then I'll clear them out.", next = "BACK", fx = { align = { order = 1 }, trait = { brave = 1 }, affinity = 1 } },
+        { text = "The vineyard's not my problem, Deputy.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
     why = {
@@ -113,6 +118,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'm your patrol.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, standing = { northshire = 1 } } },
+        { text = "I'm nobody's patrol, and I'm in it for the bounties.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -153,7 +159,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll help where I can.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "Somebody should ask.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "Somebody should ask.", next = "BACK", fx = { align = { order = -1 }, trait = { skeptical = 1 } } },
       },
     },
     westfall = {
@@ -181,6 +187,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I keep the Abbey gate, so I see everyone who comes and goes, and I count them too. Ask me about any of this." },
+    },
     background = { { id = "tp_bg", text = "A Stormwind guard, deputized and stuck at a door when I'd rather be out on patrol. Don't tell the Marshal I said so.", next = "beat" } },
     advice = { { id = "tp_ad", text = "Stay on the road after dark. The wolves don't, and neither do the Defias, so be where they aren't." } },
     northshire_abbey = { { id = "tp_abbey", text = "The Marshal's inside, the brothers are inside, and I'm outside. That's the order of things." } },

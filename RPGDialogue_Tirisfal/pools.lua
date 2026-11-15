@@ -23,6 +23,11 @@ P:Pool {
   },
   choices = { { text = "For the Dark Lady.", next = "END", fx = { standing = { brill = 1 } } } },
   topics = {
+    knows = {
+      { id = "t_kn1", text = "Brill hears from the fields, the graveyard and the Undercity road, and very little of it is cheerful. Here's what I know." },
+      { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You've done well by Brill, so I'll tell you what the Deathguard say when the Executor isn't listening." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll answer, though I've known corpses with better manners than yours." },
+    },
     scarlet_crusade = { { id = "t_crusade", text = "Living fanatics who think we're the plague, when we were its victims. They never listen long enough to hear it." } },
     _none = { { id = "t_none", text = "Ask the Executor, at the inn. He likes questions about as much as I do." } },
   },
@@ -46,6 +51,9 @@ P:Pool {
   },
   choices = { { text = "Understood.", next = "END", fx = { standing = { deathknell = 1 } } } },
   topics = {
+    knows = {
+      { id = "t_kn1", text = "We see everyone who wakes here, and they all come with questions. These are the ones I can answer." },
+    },
     _none = { { id = "t_none", text = "Ask Sarvis. He has answers for everything, and opinions for the rest." } },
   },
 }

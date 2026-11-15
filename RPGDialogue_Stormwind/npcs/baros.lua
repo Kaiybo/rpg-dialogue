@@ -8,6 +8,10 @@ P:NPC {
   bible = "bibles/baros.md", role = "questgiver", tier = "quest",
   communities = { "stormwind" }, temper = { "proud" }, values = { "ambitious", "honest" },
   notices = { "westfall", "stone" },
+  impression = {
+    first = "Baros Alexston has drawn half the streets of Stormwind and grew up on a Westfall farm, and both facts seem to weigh on him. He keeps his plans close and his past closer.",
+    third = "{name} met Baros Alexston, Stormwind's City Architect, a careful man of Westfall birth.",
+  },
 
   greetings = {
     { id = "g_plans", text = "Careful of the plans. Those are the Mage Quarter's new drains." },
@@ -133,11 +137,17 @@ P:NPC {
 
     noble = {
       lines = { { id = "n_default", text = "Then your family's House voted not to pay mine. Don't apologise; you weren't there. Just remember it, next time they vote." } },
-      choices = { { text = "I'll remember.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } } },
+      choices = {
+        { text = "I'll remember.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "My family's votes are their business, not my debt.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "An architect learns a city from its drains up, and its people along with it. Ask me about any of this, and I'll tell you what the stone has told me." },
+    },
     background = { { id = "tp_bg", text = "A Westfall boy who learned stone, rebuilt a city, and took the office his old partner refused. I don't care for the ending.", next = "farm" } },
     advice = { { id = "tp_ad", text = "Look at the foundations before the facade. In buildings and in people. The pretty part is always the last thing built." } },
     defias = {

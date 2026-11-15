@@ -9,6 +9,11 @@ P:NPC {
   communities = { "lakeshire" }, temper = { "steady" }, values = { "honest", "witty" },
   notices = { "craft", "swim" },
 
+  impression = {
+    first = "Dockmaster Baren counts the boats out and back, and now he counts murlocs as well. He warned me about the loose planks like a man who's fallen through every one.",
+    third = "{name} met Dockmaster Baren on the Lakeshire docks, where murlocs have been fouling the nets and outnumbering the boats.",
+  },
+
   greetings = {
     { id = "g_dock", text = "Mind the planks; the third one's loose, and the fourth too, now I think of it." },
     { id = "g_fins", when = { questActive = TODO_QUEST("Murloc Poachers") }, text = "Fins? Bring me fins, because every fin's a fish saved." },

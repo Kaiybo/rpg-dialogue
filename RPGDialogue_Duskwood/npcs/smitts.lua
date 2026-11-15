@@ -9,6 +9,11 @@ P:NPC {
   communities = { "darkshire" }, temper = { "steady" }, values = { "curious", "generous" },
   notices = { "drink", "lore" },
 
+  impression = {
+    first = "Tavernkeep Smitts pours, listens and remembers what Darkshire would rather forget. He keeps the warmest room in Duskwood, and he admits it isn't saying much.",
+    third = "{name} drank at the Scarlet Raven, where Tavernkeep Smitts pours and listens and remembers what the town would rather forget.",
+  },
+
   greetings = {
     { id = "g_raven", text = "Welcome to the Scarlet Raven, friend, the warmest room in Duskwood, which isn't saying much." },
     { id = "g_back", when = { metBefore = true }, text = "Back in out of the fog, are you? Your stool's free." },
@@ -183,6 +188,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll say a prayer for Raven Hill's dead.", next = "BACK", fx = { affinity = 2, standing = { darkshire = 1 }, align = { light = 1 } } },
+        { text = "They don't need prayers; they need Raven Hill burned clean.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Who did they lose?", next = "priest_lost" },
       },
     },
@@ -193,6 +199,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll say the names for them.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Let them forget the names, because remembering won't help them fight.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -221,6 +228,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Everyone who comes through Darkshire ends up at my bar sooner or later, and they all have a story. Ask me about any of this." },
+    },
     background = { { id = "tp_bg", text = "I keep the Scarlet Raven, and a book of everything Darkshire would rather forget. The beer's the easy part." } },
     advice = { { id = "tp_ad", text = "Stay indoors after dark. It's the oldest rule in Darkshire, and the only one everybody keeps." } },
     rumors = {

@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: Redridge Mountains |cff8a8a8a1.3.0|r
+## Title: RPG Dialogue: Redridge Mountains |cff8a8a8a1.7.0|r
 ## Notes: Lakeshire: the magistrate, the marshal, the broken bridge and everyone waiting on it.
 ## Author: RPG Dialogue
-## Version: 1.3.0
+## Version: 1.7.0
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.redridge
@@ -21,3 +21,4 @@ npcs\wiley.lua
 npcs\baren.lua
 npcs\daniels.lua
 npcs\lakeshire_folk.lua
+npcs\lakeshire_more.lua

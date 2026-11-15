@@ -69,6 +69,7 @@ P:Topic { id = "powderfuse_port", keywords = { "Powderfuse" }, name = "Powderfus
 
 -- "Ask anyone": always known, answered by everyone (their own take, then their role's,
 -- then anyone's). Never linked in text, never archived.
+P:Topic { id = "knows", name = "What do you know?", category = "anyone", standard = true, order = 0, learned = "anyone" }
 P:Topic { id = "background", name = "Their story", category = "anyone", standard = true, order = 1, learned = "anyone" }
 P:Topic { id = "trade", name = "Their work", category = "anyone", standard = true, order = 2, learned = "anyone" }
 P:Topic { id = "advice", name = "A little advice", category = "anyone", standard = true, order = 3, learned = "anyone" }
@@ -122,3 +123,44 @@ P:Topic { id = "dark_strand", keywords = { "Dark Strand" }, name = "The Dark Str
 P:Topic { id = "plague_cauldrons", name = "The plague cauldrons", category = "threats", learned = "High Priestess MacDonnell at Chillwind Camp, or Shadow Priestess Vandis at the Bulwark" }
 P:Topic { id = "andorhal", name = "Andorhal", category = "places", learned = "Commander Valorfist or High Executor Derrington" }
 P:Topic { id = "scholomance", name = "The Scholomance", category = "places", learned = "Alchemist Arbington or Apothecary Dithers" }
+
+-- Burning Steppes (Burning Steppes pack)
+P:Topic { id = "black_dragonflight", keywords = { "black dragonflight", "black dragons" }, name = "The black dragonflight", category = "threats", learned = "Helendis Riverhorn or Marshal Maxwell at Morgan's Vigil" }
+P:Topic { id = "blackrock_spire", keywords = { "Blackrock Spire" }, name = "Blackrock Spire", category = "places", learned = "Marshal Maxwell at Morgan's Vigil, or anyone at Flame Crest" }
+P:Topic { id = "blackrock_depths", keywords = { "Blackrock Depths" }, name = "Blackrock Depths", category = "places", learned = "Jalinda Sprig at Morgan's Vigil, or Ragged John at Flame Crest" }
+P:Topic { id = "windsor", keywords = { "Windsor" }, name = "Marshal Windsor", category = "people", learned = "Marshal Maxwell at Morgan's Vigil, or Ragged John at Flame Crest" }
+P:Topic { id = "thaurissan", keywords = { "Thaurissan" }, name = "The ruins of Thaurissan", category = "lore", learned = "Helendis Riverhorn, Mayara Brightwing or Maxwort Uberglint in the Burning Steppes" }
+P:Topic { id = "firegut", keywords = { "Firegut" }, name = "The Firegut ogres", category = "threats", learned = "Oralius or Marshal Maxwell at Morgan's Vigil" }
+
+-- 0.35.0: Blasted Lands (topics for that pack go below this line)
+P:Topic { id = "dark_portal", keywords = { "Dark Portal" }, name = "The Dark Portal", category = "places", learned = "anyone at Nethergarde Keep in the Blasted Lands" }
+P:Topic { id = "burning_legion", keywords = { "Burning Legion" }, name = "The Burning Legion", category = "threats", learned = "Watcher Mahar Ba or Ambassador Ardalan at Nethergarde Keep" }
+P:Topic { id = "nethergarde", keywords = { "Nethergarde" }, name = "Nethergarde Keep", category = "places", learned = "Quartermaster Lungertz, or the keep's soldiers" }
+P:Topic { id = "dreadmaul", keywords = { "Dreadmaul" }, name = "The Dreadmaul ogres", category = "threats", learned = "Quartermaster Lungertz at Nethergarde Keep" }
+P:Topic { id = "tainted_scar", keywords = { "Tainted Scar", "Kazzak" }, name = "The Tainted Scar", category = "threats", learned = "Quartermaster Lungertz, Ambassador Ardalan or Daio the Decrepit in the Blasted Lands" }
+P:Topic { id = "draenethyst", keywords = { "draenethyst" }, name = "Draenethyst", category = "trade", learned = "Kum'isha the Collector in the Blasted Lands" }
+P:Topic { id = "khadgar", keywords = { "Khadgar" }, name = "Archmage Khadgar", category = "people", learned = "Watcher Mahar Ba or Quartermaster Lungertz at Nethergarde Keep" }
+
+-- 0.35.0: Azshara (topics for that pack go below this line)
+P:Topic { id = "highborne", keywords = { "Highborne" }, name = "The Highborne", category = "lore", learned = "Loh'atu at Talrendis Point, or Archmage Xylem" }
+P:Topic { id = "queen_azshara", keywords = { "Queen Azshara" }, name = "Queen Azshara", category = "lore", learned = "Loh'atu at Talrendis Point" }
+P:Topic { id = "eldarath", keywords = { "Eldarath" }, name = "The Ruins of Eldarath", category = "places", learned = "Loh'atu at Talrendis Point, or Ogtinc above the ruins" }
+P:Topic { id = "spitelash", keywords = { "Spitelash" }, name = "The Spitelash naga", category = "threats", learned = "Jarrodenus at Talrendis Point, or Archmage Xylem" }
+P:Topic { id = "satyrs", keywords = { "satyr" }, name = "The satyr of Azshara", category = "threats", learned = "Loh'atu at Talrendis Point" }
+P:Topic { id = "xylem", keywords = { "Xylem" }, name = "Archmage Xylem", category = "people", learned = "Loh'atu, Jediga, or Sanath Lim-yo below the tower" }
+P:Topic { id = "morphaz", keywords = { "Morphaz" }, name = "Morphaz the green drake", category = "threats", learned = "Archmage Xylem, or Ogtinc above Eldarath" }
+P:Topic { id = "rimtori", keywords = { "Rimtori" }, name = "Magus Rimtori's expedition", category = "threats", learned = "Ag'tor Bloodfist at Valormok, or Kim'jael" }
+P:Topic { id = "waterlords", keywords = { "Waterlords", "Hydraxis" }, name = "The Hydraxian Waterlords", category = "people", learned = "Duke Hydraxis in the Bay of Storms" }
+P:Topic { id = "loramus", keywords = { "Loramus" }, name = "Loramus the demon hunter", category = "people", learned = "Loramus Thalipedes on his island in the Bay of Storms" }
+P:Topic { id = "arkkoroc", keywords = { "Arkkoroc" }, name = "Lord Arkkoroc", category = "people", learned = "Loramus Thalipedes, or the Temple of Arkkoran" }
+P:Topic { id = "horizon_scout", keywords = { "Horizon Scout" }, name = "The wreck of the Horizon Scout", category = "rumors", learned = "Captain Vanessa Beltis in the Ruined Reaches" }
+
+-- 0.35.0: Silithus (topics for that pack go below this line)
+P:Topic { id = "ahn_qiraj", keywords = { "Ahn'Qiraj", "Scarab Wall" }, name = "Ahn'Qiraj", category = "places", learned = "Commander Mar'alith at Cenarion Hold, or Layo Starstrike at Valor's Rest" }
+P:Topic { id = "silithid_hives", keywords = { "Hive'Regal", "Hive'Ashi", "Hive'Zora" }, name = "The hives of Silithus", category = "places", learned = "Geologist Larksbane or Commander Mar'alith at Cenarion Hold" }
+P:Topic { id = "abyssal_council", keywords = { "Abyssal Council" }, name = "The Abyssal Council", category = "threats", learned = "Aurel Goldleaf or the Wildmane brothers at Cenarion Hold" }
+P:Topic { id = "natalia", keywords = { "Natalia" }, name = "Mistress Natalia Mar'alith", category = "people", learned = "Commander Mar'alith or Captain Vish Kozus at Cenarion Hold" }
+P:Topic { id = "southwind", keywords = { "Southwind" }, name = "Southwind Village", category = "places", learned = "Layo Starstrike at Valor's Rest, or Calandrath at the Oasis Inn" }
+P:Topic { id = "ortell", keywords = { "Ortell" }, name = "Hermit Ortell", category = "people", learned = "Geologist Larksbane at Cenarion Hold" }
+P:Topic { id = "bronze_dragonflight", keywords = { "bronze dragonflight", "Brood of Nozdormu" }, name = "The bronze dragonflight", category = "lore", learned = "Baristolth of the Shifting Sands at Cenarion Hold, or Frankal Stonebridge at Bronzebeard's camp" }
+P:Topic { id = "cthun", keywords = { "C'Thun" }, name = "C'Thun", category = "threats", learned = "Commander Mar'alith, after Hive'Regal" }

@@ -2,6 +2,23 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.7.0 (2026-11-15)
+- Every person here writes a first impression in your diary after you first talk (the journal's People page shows it too).
+
+## 1.6.0 (2026-11-15)
+- Persuade, Intimidate and Deceive checks on the major people here, each with its own success and failure; lines and replies that depend on how warmly they regard you (disposition); a lead-in for "What do you know?".
+
+## 1.5.0 (2026-11-15)
+- Alignment now comes only from statements, never questions, and every reply that shifts alignment has an opposing one beside it. Taking one stance with someone closes the others for good.
+
+## 1.4.0 (2026-11-15)
+- Cliffwatcher Longhorn: high → lifts; Grimtotem → the three agents; the Galak → Splithoof Crag; Nataka; Highperch; Arnak dead and the secret notes (questDone). **Fixes:** `h_family` and `h_nataka` (a year since *Longhorn* last wrote, per Family Tree). Still no hint of his later betrayal.
+- Rau Cliffrunner: hoof → its age and Splithoof Hold; moonwell → Zangen and the dryads' phials; listening; study (after the chain); druid reply. **Fix:** `h_flame` (the three-part chain shares one title: the line now fits all of it, moonwell water breaching the flame through the dryads' and centaurs' shared ancestry). New `h_hoof_done`.
+- Hagar Lightninghoof: egg → serpent dens; why come; Arikara → Motega (after Alien Egg); a reply for players with a beast pet.
+- Thalia Amberhide: bitter → the Grimtotem; Lakota → where she is; her brother, Arnak dead, tauren reply. **Fixes:** `h_default` (Lakota Windsong, not unnamed missing people), `h_free` (Thalia doesn't give Free at Last; she receives it), `h_names` (one knot for Lakota). New `h_home`. Quest title respelled "Free at Last".
+- Innkeeper Abeqwa: news → Thalia; the mesa → harpies; guests (Highperch).
+- Bible: detailed quest notes and the fixes.
+
 ## 1.3.0 (unreleased)
 - Voice pass: Freewind (Longhorn, Rau, Hagar, Thalia, Abeqwa and the guards) and the Mirage Raceway (Pozzik, Fizzle, Kravel) now talk in whole sentences instead of clipped fragments, each in their own voice; what they say is unchanged.
 

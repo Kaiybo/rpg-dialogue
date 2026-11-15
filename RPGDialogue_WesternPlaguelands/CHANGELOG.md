@@ -2,6 +2,15 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.3.0 (2026-11-15)
+- Every person here writes a first impression in your diary after you first talk (the journal's People page shows it too).
+
+## 1.2.0 (2026-11-15)
+- Persuade, Intimidate and Deceive checks on the major people here, each with its own success and failure; lines and replies that depend on how warmly they regard you (disposition); a lead-in for "What do you know?".
+
+## 1.1.0 (2026-11-15)
+- Alignment now comes only from statements, never questions, and every reply that shifts alignment has an opposing one beside it. Taking one stance with someone closes the others for good.
+
 ## 1.0.0 (2026-11-15)
 - Written in whole sentences and to the depth standard: every NPC has a hub, branches two or three deep, `again` lines, their own story and advice, and replies only some characters get (priests and paladins, Lordaeron refugees, the Forsaken, alchemists, healers for Kirsta's wound). New quest reference: Good Natured Emma.
 - Chillwind Camp (Alliance): Commander Ashlam Valorfist, High Priestess MacDonnell, Alchemist Arbington, Weldon Barov, Argent Officer Pureheart, Nathaniel Dumah, Bibilfaz Featherwhistle; the camp's Argent Defenders.

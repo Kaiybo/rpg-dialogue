@@ -7,6 +7,10 @@ P:NPC {
   bible = "bibles/durotar.md", role = "soldier", tier = "major",
   communities = { "razor_hill" }, temper = { "terse" }, values = { "dutiful", "loyal" },
   notices = { "kit", "greenness" },
+  impression = {
+    first = "Gar'Thok speaks in orders and expects reports in return, and he holds Razor Hill as if all of Durotar depended on it. Having seen the roads that meet there, I think perhaps it does.",
+    third = "{name} met Gar'Thok, the terse commander of Razor Hill, who holds Durotar's crossroads for the Horde.",
+  },
 
   greetings = {
     { id = "g_barracks", text = "Speak quickly. Razor Hill has work, and work doesn't wait for conversation." },
@@ -42,11 +46,19 @@ P:NPC {
     },
     why = {
       lines = { { id = "w_default", text = "Roads to Orgrimmar, to Sen'jin and to the Barrens all run through here. Hold Razor Hill and you hold Durotar. Lose it and you lose the rest." } },
-      choices = { { text = "Then we won't lose it.", next = "END", fx = { affinity = 2, align = { honor = 1 } } } },
+      choices = {
+        { text = "Then we won't lose it.", next = "END", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "A good ambush on those roads would do more than any wall.", next = "END", fx = { align = { honor = -1 } } },
+      },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Every report from Durotar crosses my table, so I know what's happening and where. Ask, and be quick about it." },
+      { id = "tp_knows_warm", when = { disposition = { min = 65 } }, text = "You've done good work for Razor Hill, so you'll get more than a short answer from me, this once." },
+      { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "Ask your question, and then get out of my barracks." },
+    },
     burning_blade = { { id = "tp_blade", text = "That's Orgnil's business, and he's good at it. I give him whatever he asks for." } },
     _none = { { id = "tp_none", text = "Not now; ask Orgnil, or the innkeeper." } },
   },
@@ -57,6 +69,10 @@ P:NPC {
   bible = "bibles/durotar.md", role = "soldier", tier = "quest",
   communities = { "razor_hill" }, temper = { "grim" }, values = { "lawful", "protective" },
   notices = { "class", "stealth" },
+  impression = {
+    first = "There is a patience in how Orgnil Soulscar hunts the Burning Blade that frightens me a little. The cultists he most wants to meet, he says, are the ones smiling inside the city walls.",
+    third = "{name} met Orgnil Soulscar of Razor Hill, a grim orc who hunts the Burning Blade wherever it hides.",
+  },
 
   greetings = {
     { id = "g_watch", text = "Young orcs and trolls train here, and traders rest here, and nothing gets into Razor Hill that I don't allow." },
@@ -96,6 +112,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I hear what the Blade whisper, and what the grunts whisper about the Blade. Ask about these, and I'll tell you what I've found." },
+    },
     burning_blade = { { id = "tp_blade", text = "They're orcs who chose the demons twice. Once might be forgiven, but twice, never." } },
     _none = { { id = "tp_none", text = "I hunt the Blade, and nothing else is my concern." } },
   },
@@ -106,6 +125,10 @@ P:NPC {
   bible = "bibles/durotar.md", role = "innkeeper", tier = "service",
   communities = { "razor_hill" }, temper = { "dry" }, values = { "practical" },
   notices = { "weary", "drink" },
+  impression = {
+    first = "Innkeeper Grosk offers a bed, ale and a roof against the sun, and treats everything beyond the door as rocks and scorpids. He is as dry as Durotar, but he does check the blankets.",
+    third = "{name} rested at Innkeeper Grosk's inn in Razor Hill, the safest bed in a land of rocks and scorpids.",
+  },
 
   greetings = {
     { id = "g_inn", text = "Sit and eat. Razor Hill is safe enough to sleep in, which is more than you can say for most of Durotar." },
@@ -145,6 +168,10 @@ P:NPC {
   bible = "bibles/durotar.md", role = "questgiver", tier = "quest",
   communities = { "razor_hill" }, temper = { "easygoing" }, values = { "generous", "curious" },
   notices = { "craft" },
+  impression = {
+    first = "Walls, says Brakk, are for people who have stopped walking, and he camps wherever he stops across Durotar. His fire felt like the most welcoming place in that whole red land.",
+    third = "{name} met Brakk, a wandering orc who camps across Durotar and keeps a journal of every fire he has ever built.",
+  },
 
   greetings = {
     { id = "g_fire", text = "Throm-ka. Sit, if you're not in a hurry. If you are, sit anyway; the road will keep." },

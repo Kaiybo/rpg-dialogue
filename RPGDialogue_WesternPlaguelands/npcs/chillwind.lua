@@ -8,6 +8,11 @@ P:NPC {
   communities = { "chillwind_camp" }, temper = { "steady", "proud" }, values = { "dutiful", "brave" },
   notices = { "class", "kit" },
 
+  impression = {
+    first = "Commander Valorfist counts his soldiers out of the gate and counts them back in, and he writes the letters himself on days the numbers don't match. He has very little, and spends it carefully.",
+    third = "{name} met Commander Ashlam Valorfist, who holds Chillwind Camp for Stormwind against the dead of Andorhal.",
+  },
+
   greetings = {
     { id = "g_camp", text = "On your feet or on your way, soldier, for Chillwind hasn't room for anyone sitting down." },
     { id = "g_back", when = { metBefore = true }, text = "Back in one piece, good. I counted you out of that gate, and I'm glad to count you in again." },
@@ -43,6 +48,10 @@ P:NPC {
           text = "At night you can hear Andorhal from here, and it isn't the dead you hear but the bells. Nobody living has rung them in years." },
         { id = "h_back", when = { metBefore = true },
           text = "I count the camp every morning and every night, and most days it's the same number. On the days it isn't, I write the letters myself." },
+        { id = "h_warm", when = { disposition = { min = 70 } },
+          text = "There's the soldier I'd pick first, if Stormwind ever let me pick anyone. Come in by the fire and tell me what the farms looked like today." },
+        { id = "h_cold", when = { disposition = { max = 34 } },
+          text = "You again. Say your business and get on the road, because I've no time for anyone I can't count on." },
       },
       again = {
         { id = "h_again", text = "What else? Be quick about it, the dead don't wait on our conversations." },
@@ -72,7 +81,12 @@ P:NPC {
       lines = {
         { id = "nm_default", text = "Because Stormwind has a great many walls to man and this is the farthest of them. So I hire who I can, I strike where it hurts, and I make every sword count twice." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { trait = { practical = 1 } } } },
+      choices = {
+        { text = "Do you honestly expect to take Andorhal with this?", tag = "Persuade", next = "need_truth",
+          check = { pass = { any = { { disposition = { min = 65 } }, { questDone = TODO_QUEST("Clear the Way") }, { trait = "brave" } } } },
+          fail = { next = "need_shut", fx = { affinity = -1 } } },
+        { text = "Something else.", next = "BACK", fx = { trait = { practical = 1 } } },
+      },
     },
     why = {
       big = true,
@@ -81,6 +95,7 @@ P:NPC {
       },
       choices = {
         { text = "Then we stop it here.", next = "BACK", fx = { affinity = 2, align = { honor = 1, order = 1 } } },
+        { text = "Lordaeron's lost, so better to hold the line at Southshore.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Stormwind's generous with other people's lands.", next = "why_push", fx = { affinity = -1, trait = { skeptical = 1 } } },
       },
     },
@@ -133,6 +148,7 @@ P:NPC {
       },
       choices = {
         { text = "It's what I'm for.", next = "BACK", fx = { affinity = 2, align = { light = 1, order = 1 }, standing = { chillwind_camp = 1 } } },
+        { text = "The Light's no weapon, Commander, whatever your orders say.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
         { text = "And the Silver Hand's teaching?", next = "BACK", fx = { trait = { devout = 1 } } },
       },
     },
@@ -142,7 +158,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll stay a while and help.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, standing = { chillwind_camp = 1 } } },
-        { text = "I'm more use out in the field.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "I'm more use out in the field.", next = "BACK", fx = { trait = { brave = 1 }, align = { light = -1 } } },
       },
     },
     refugee = {
@@ -154,9 +170,32 @@ P:NPC {
         { text = "I'd rather not speak of it.", next = "BACK", fx = { affinity = 1 } },
       },
     },
+    need_truth = {
+      big = true,
+      lines = {
+        { id = "nt_default", text = "Between us, and not a word of it past that palisade: Stormwind sent me here to keep the plague off Southshore, not to win. If Andorhal falls, it'll be because people like you walked through my gate, not because the kingdom ever sent me the regiment I asked for." },
+        { id = "nt_priest", when = { class = "PRIEST" },
+          text = "You'll keep this the way you keep a confession, so I'll say it straight. I don't expect to take Andorhal with what I've got, and I count the camp twice a day because I'm afraid of the morning the number stops making sense." },
+      },
+      choices = {
+        { text = "Then we'll make every sword count twice.", next = "BACK", fx = { affinity = 2, standing = { chillwind_camp = 1 } } },
+        { text = "Does MacDonnell know you think that?", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    need_shut = {
+      lines = {
+        { id = "ns_default", text = "I expect to do my duty, soldier, and so should you. Whatever else I think stays in my tent, where it can't frighten anyone." },
+      },
+      choices = { { text = "Understood, Commander.", next = "BACK" } },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "A commander hears everything that comes through his gate, whether he wants to or not. Ask me about any of this and you'll get it straight." },
+      { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "I'll give you what any soldier at this camp would know, and no more. Pick one and be quick." },
+    },
     background = { { id = "tp_ba", text = "I'm a soldier of Stormwind, and Stormwind sent me north to fight the Scourge. That's all the story you need, and all I've time to tell." } },
     advice = { { id = "tp_ad", text = "Never go out past the farms alone, and always come back before your water runs out. The wells up here will kill you slower than a ghoul, but they'll kill you." } },
     plague_cauldrons = { { id = "tp_cauldrons", text = "There are eight of them across Lordaeron and four in the west, breathing the plague over the farms. MacDonnell means to make them breathe something worse, and I've stopped asking her what." } },
@@ -173,6 +212,11 @@ P:NPC {
   bible = "bibles/westernplaguelands.md", role = "questgiver", tier = "quest",
   communities = { "chillwind_camp" }, temper = { "sharp" }, values = { "devout", "fierce" },
   notices = { "class", "race" },
+
+  impression = {
+    first = "High Priestess MacDonnell speaks of the plague cauldrons with real appetite, as if each one were a personal insult. Her Light is the kind that burns, and she said so cheerfully.",
+    third = "{name} met High Priestess MacDonnell at Chillwind Camp, who means to give the Scourge a dose of its own plague.",
+  },
 
   greetings = {
     { id = "g_light", text = "The Light keep you, friend, and keep you upwind of the farms while it's at it." },
@@ -225,6 +269,7 @@ P:NPC {
       },
       choices = {
         { text = "Poison against poison.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "It's a tidy answer, and it keeps the farmers alive.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Is that the Light's way?", next = "light" },
       },
     },
@@ -268,12 +313,35 @@ P:NPC {
       },
       choices = {
         { text = "I'll try it at Felstone Field.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "That sounds like anger, not faith.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "That sounds like anger, not faith.", next = "BACK", fx = { trait = { skeptical = 1 }, align = { light = -1 } } },
+        { text = "Does the burning ever frighten you, Priestess?", tag = "Persuade", next = "priest_fear",
+          check = { pass = { any = { { disposition = { min = 60 } }, { trait = "pious" }, { questDone = TODO_QUEST("Target: Felstone Field") } } } },
+          fail = { next = "priest_brush", fx = { affinity = -1 } } },
       },
+    },
+    priest_fear = {
+      lines = {
+        { id = "pf_default", text = "Since you ask me as one of the Light's own, I'll tell you what I don't tell the soldiers. When I curse the dead, the Light answers me hot and quick, and when I pray for the living it comes soft as a whisper, and some nights I'm not sure I like what that says about me." },
+      },
+      choices = {
+        { text = "It says the dead need burning more than the living need you.", next = "BACK", fx = { affinity = 2 } },
+        { text = "I'll pray for you, Priestess.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    priest_brush = {
+      lines = {
+        { id = "pb_default", text = "Frighten me? Bless you, I've no time to be frightened, not with four cauldrons to spoil. Ask me again when the pots are cold." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Between the commander's reports and Arbington's grumbling, I hear most of what goes on in this camp. Ask me about any of these, friend." },
+      { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "For you I'll put the jars down a moment, and that's a rare honour. Here's what I can tell you about, and gladly." },
+    },
     background = { { id = "tp_ba", text = "I'm a priestess of the Light and the commander's second, and that's enough of a life for anybody up here." } },
     advice = { { id = "tp_ad", text = "Keep a clean cloth over your mouth near the cauldrons, and say a prayer before you open any jar I give you." } },
     plague_cauldrons = { { id = "tp_cauldrons", text = "They're Kel'Thuzad's work, or his servants', eight pots across Lordaeron keeping the land sick. We can't break them, but we can spoil the recipe." } },
@@ -287,6 +355,11 @@ P:NPC {
   bible = "bibles/westernplaguelands.md", role = "questgiver", tier = "quest",
   communities = { "chillwind_camp" }, temper = { "cowardly" }, values = { "curious", "honest" },
   notices = { "craft", "greenness" },
+
+  impression = {
+    first = "Alchemist Arbington asked me to stand still, keep my elbows in and touch nothing, all in one anxious breath. Frightened as he is, he keeps working, and I respect that more than I expected.",
+    third = "{name} met Alchemist Arbington, Chillwind Camp's nervous alchemist and reluctant student of the Scholomance.",
+  },
 
   greetings = {
     { id = "g_busy", text = "Mind the cauldron, and mind the bottles, and actually, if you'd just stand right there and not move, I'd be ever so grateful." },
@@ -376,7 +449,10 @@ P:NPC {
       lines = {
         { id = "pr_default", text = "Oh, I'd love it to, but the Light and alchemy don't mix in a bottle, I've tried. Bless the people carrying my potions instead, and that'll do more good than blessing the potions." },
       },
-      choices = { { text = "Then I'll bless the carriers.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } } },
+      choices = {
+        { text = "Then I'll bless the carriers.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "A good potion does more than any blessing.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
     alch = {
       lines = {
@@ -387,6 +463,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I know a great deal more than anyone ought to about some very unpleasant subjects. These, specifically, if you can bear to hear about them." },
+    },
     background = { { id = "tp_ba", text = "I'm an alchemist who studied the wrong school for too many years, and now Stormwind finds that useful, which I suppose is a sort of compliment." } },
     advice = { { id = "tp_ad", text = "Use the quickener the moment you get it, since it spoils in half an hour, and don't carry it in a pocket you're fond of." } },
     scholomance = { { id = "tp_scholomance", text = "Don't go in without a key and don't go in without friends, and if you can possibly manage it, don't go in at all." } },
@@ -400,6 +479,11 @@ P:NPC {
   bible = "bibles/westernplaguelands.md", role = "noble", tier = "quest",
   communities = { "chillwind_camp" }, temper = { "cowardly", "proud" }, values = { "greedy", "vengeful" },
   notices = { "race", "kit" },
+
+  impression = {
+    first = "Weldon Barov sleeps with a sword under his blanket and talks about his brother's death as an inheritance matter. Fear and greed have been sharing his face for a long time.",
+    third = "{name} met Weldon Barov, the last living Barov, hiding from his brother's assassins at Chillwind Camp.",
+  },
 
   greetings = {
     { id = "g_who", text = "Who sent you, and what's your business? Say it slowly, and keep your hands where I can see them." },
@@ -440,6 +524,7 @@ P:NPC {
         { text = "My family lost everything in Lordaeron too.", next = "refugee", when = { origin = "human_lordaeron_refugee" } },
         { text = "Was it worth it, now he's gone?", next = "worth", when = { questDone = TODO_QUEST("The Last Barov") } },
         { text = "I'll see what I can find.", next = "END", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I won't help a man who'd murder his own brother.", next = "END", fx = { affinity = -1, align = { honor = 1 } } },
       },
     },
     darrow = {
@@ -449,7 +534,8 @@ P:NPC {
       },
       choices = {
         { text = "I'm sorry.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
-        { text = "You ran and left them?", next = "darrow_ran", fx = { affinity = -2, align = { honor = 1 } } },
+        { text = "You ran and left your family to it.", next = "darrow_ran", fx = { affinity = -2, align = { honor = 1 } } },
+        { text = "Running was the sensible thing to do.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
       },
     },
     darrow_ran = {
@@ -467,6 +553,9 @@ P:NPC {
       },
       choices = {
         { text = "You spared him once, though.", next = "claim_spared" },
+        { text = "Whose name is on those deeds, Weldon? Don't lie to me.", tag = "Intimidate", next = "claim_truth",
+          check = { pass = { any = { { power = { "above", "far_above" } }, { trait = "stern" }, { class = { "WARRIOR", "PALADIN" } } } } },
+          fail = { next = "claim_guards", fx = { affinity = -1 } } },
         { text = "Noted.", next = "BACK" },
       },
     },
@@ -500,13 +589,37 @@ P:NPC {
         { id = "wo_default", text = "Worth it? I have my deeds and my brother is ash, so by any honest accounting, yes. Ask me again in a year, when I've had time to miss him, and I'll tell you the same thing." },
       },
       choices = {
-        { text = "I hope you find some peace.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "I hope you find some peace.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 }, align = { honor = 1 } } },
         { text = "Enjoy the money.", next = "END", fx = { align = { honor = -1 } } },
+      },
+    },
+    claim_truth = {
+      big = true,
+      lines = {
+        { id = "ct_default", text = "Keep your voice down! Nobody's read those deeds since the Scourge came to the keep, so I don't know whose name is on them, and that's exactly why I need them before he does. He'll swear Father meant it all for him, I'll swear the opposite, and Father is in no state to settle it." },
+      },
+      choices = {
+        { text = "So your claim is only as good as his.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "Then whoever holds the paper wins.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    claim_guards = {
+      lines = {
+        { id = "cg_default", text = "Don't you dare raise your voice to me, I am a Barov and there are soldiers within shouting distance! The deeds are mine, and that's all you need to know, hireling." },
+      },
+      choices = {
+        { text = "Calm down, Weldon.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I know my family's business better than anyone living, which isn't a large field these days. Ask me about any of this, quietly." },
+      { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "I'll tell you only what anyone in this mud camp could, and keep your hands where I can see them while I do." },
+    },
     background = { { id = "tp_ba", text = "I'm a Barov of Caer Darrow, and the only one of us still breathing. Whatever else you've heard was put about by my brother.", next = "darrow" } },
     advice = { { id = "tp_ad", text = "Never sign anything a necromancer hands you, however good the terms look. It's the only family wisdom I have left." } },
     scholomance = { { id = "tp_scholomance", text = "It was my home, and a beautiful one once. Now they teach the dead to walk in my mother's ballroom." } },
@@ -519,6 +632,11 @@ P:NPC {
   bible = "bibles/westernplaguelands.md", role = "questgiver", tier = "quest",
   communities = { "chillwind_camp", "argent_dawn" }, temper = { "steady" }, values = { "devout", "fair" },
   notices = { "race", "class" },
+
+  impression = {
+    first = "Argent Officer Pureheart keeps a table where nobody draws steel, whatever colors they wear. There's an easy warmth to her that seems to have been earned the hard way.",
+    third = "{name} met Argent Officer Pureheart, who speaks for the Argent Dawn at Chillwind Camp.",
+  },
 
   greetings = {
     { id = "g_dawn", text = "For the Dawn, friend, and whatever else you fight for, add that to it." },
@@ -568,6 +686,7 @@ P:NPC {
       },
       choices = {
         { text = "You chose rightly.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Hate or not, the Crusade gets results against the dead.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
         { text = "The Crusade still fights the Scourge.", next = "crusade" },
       },
     },
@@ -604,6 +723,7 @@ P:NPC {
       },
       choices = {
         { text = "Then put me to work.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, standing = { chillwind_camp = 1 } } },
+        { text = "I'll keep my Light for my own fights, thank you.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -611,7 +731,10 @@ P:NPC {
       lines = {
         { id = "pa_default", text = "Then hold on to the teaching and let go of the banner, which hangs in Hearthglen now, and it's gone red. The Light was never in the cloth, and the Dawn can show you that." },
       },
-      choices = { { text = "I'll think on it.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } } },
+      choices = {
+        { text = "I'll think on it.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "The banner meant something, and I won't let go of it.", next = "BACK", fx = { align = { order = 1 } } },
+      },
     },
     horde = {
       lines = {
@@ -622,6 +745,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The Dawn keeps careful records, and a good few of them cross my table. Ask me about any of these, friend." },
+    },
     background = { { id = "tp_ba", text = "I was a paladin of the Silver Hand, and now I'm an officer of the Argent Dawn. The second was the harder choice, and the better one.", next = "left" } },
     advice = { { id = "tp_ad", text = "Fight beside whoever's fighting the dead, and argue about the rest when the dead are gone." } },
     argent_dawn = { { id = "tp_dawn", text = "Lord Tyrosus leads us from Light's Hope, but out here it's me, a few defenders and whoever answers the call, and more answer every month." } },
@@ -635,6 +761,11 @@ P:NPC {
   bible = "bibles/westernplaguelands.md", role = "questgiver", tier = "quest",
   communities = { "chillwind_camp" }, temper = { "steady" }, values = { "loyal", "stubborn" },
   notices = { "race", "craft" },
+
+  impression = {
+    first = "Nathaniel Dumah came back to the Plaguelands for his father's mill, which says a good deal about him. He talks easily, and asks after Northridge like a man asking after family.",
+    third = "{name} met Nathaniel Dumah at Chillwind Camp, who wants his family's Northridge mill back from the Scarlet Crusade.",
+  },
 
   greetings = {
     { id = "g_mill", text = "Good afternoon, or whatever this is, since the sky never seems to decide up here." },
@@ -678,7 +809,7 @@ P:NPC {
         { id = "f_default", text = "We lost friends and cousins, some we buried and some we never got the chance to. Father made it to Stormwind and never stopped talking about the mill, so you see, I'm not really here for the wood." },
       },
       choices = {
-        { text = "You're here for him.", next = "BACK", fx = { affinity = 3, trait = { kind = 1 } } },
+        { text = "You're here for him.", next = "BACK", fx = { affinity = 3, trait = { kind = 1 }, align = { light = 1 } } },
         { text = "Revenge, then.", next = "revenge", fx = { affinity = 1, align = { light = -1 } } },
       },
     },
@@ -704,6 +835,7 @@ P:NPC {
       choices = {
         { text = "That's a hard choice.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Clever. Cruel, but clever.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "I'd rather we took the mill back whole, and properly.", next = "BACK", fx = { align = { order = 1 } } },
       },
     },
     mill = {
@@ -724,6 +856,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've not been back long, but I've asked about everything that touches my father's mill. Ask me about any of these and I'll tell you what I've learned." },
+    },
     background = { { id = "tp_ba", text = "I'm a miller's son from Northridge who grew up in Stormwind, and now I've come home to a place that doesn't want me back.", next = "family" } },
     advice = { { id = "tp_ad", text = "Don't drink from the rivers up here, however clear they look. The plague's in the water as much as the soil." } },
     scarlet_crusade = { { id = "tp_scarlet", text = "They fight the Scourge, and I'll grant them that, but they also took a family's home and called it holy work." } },
@@ -736,6 +871,11 @@ P:NPC {
   bible = "bibles/westernplaguelands.md", role = "flightmaster", tier = "service",
   communities = { "chillwind_camp" }, temper = { "jovial" }, values = { "cheerful" },
   notices = { "race" },
+
+  impression = {
+    first = "Bibilfaz Featherwhistle chatters to his gryphons at night about Ironforge pastries. He is the cheeriest thing in the Plaguelands, and I suspect he's working very hard at it.",
+    third = "{name} met Bibilfaz Featherwhistle, the gnomish gryphon master at Chillwind Camp.",
+  },
 
   greetings = {
     { id = "g_fly", text = "Wings ready! Well, their wings are ready, anyway, since mine are purely theoretical." },

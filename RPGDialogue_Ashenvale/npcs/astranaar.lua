@@ -9,6 +9,10 @@ P:NPC {
   bible = "bibles/ashenvale.md", role = "questgiver", tier = "major",
   communities = { "astranaar" }, temper = { "fierce" }, values = { "protective", "loyal" },
   notices = { "pet", "form", "class" },
+  impression = {
+    first = "Raene Wolfrunner would sooner face every furbolg and orc in Ashenvale alone than watch another tree fall. When she speaks of her friend Teronis, the grief sits close under all that fierceness.",
+    third = "{name} met Raene Wolfrunner, who commands the scouts of Astranaar and fights for every tree in Ashenvale.",
+  },
 
   greetings = {
     { id = "g_forest", text = "Ashenvale needs you, truly. The forest needs every blade it can get, and every pair of eyes." },
@@ -93,12 +97,16 @@ P:NPC {
       choices = {
         { text = "A dead wizard's rod?", next = "rod" },
         { text = "I'm sorry for your loss.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "You blame yourself for letting him go alone.", tag = "Persuade", next = "teronis_guilt",
+          check = { pass = { any = { { disposition = { min = 65 } }, { trait = "kind" }, { class = "HUNTER" } } } },
+          fail = { next = "teronis_no", fx = { affinity = -1 } } },
       },
     },
     rod = {
       lines = { { id = "ro_default", text = "I know how it sounds. But Teronis believed the rod could let someone walk among the furbolgs as one of them and learn what poisoned them, and I trust what Teronis believed." } },
       choices = {
         { text = "Then I'll finish what he started.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Walking among them in their own skins is a fine trick, and I like tricks.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "A wizard's tool sounds risky.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },
@@ -123,11 +131,41 @@ P:NPC {
     },
     priest_r = {
       lines = { { id = "pr_default", text = "They always do. The ones who come back from the Thistlefur hills come back torn, and some nights Kimlya's inn is more hospice than inn, so sit with them if you have the time." } },
-      choices = { { text = "I'll go there now.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, standing = { astranaar = 1 } } } },
+      choices = {
+        { text = "I'll go there now.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, standing = { astranaar = 1 } } },
+        { text = "The ones who went into the Thistlefur hills chose their wounds.", next = "BACK", fx = { align = { light = -1 } } },
+      },
+    },
+    teronis_guilt = {
+      lines = {
+        { id = "tg_default", text = "Every day. He asked whether I could spare a scout to walk with him, and with the Warsong at the river I said no, so he went to the Zoram Strand alone and the naga found him before anyone else did." },
+        { id = "tg_hunter", when = { class = "HUNTER" },
+          text = "You know what it is to answer for another life, hunter. I let Teronis go to the Zoram Strand alone because I wouldn't spare a scout from the Warsong line, and I have answered for it every night since." },
+      },
+      choices = {
+        { text = "You couldn't have known.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Then let me finish what he started.", next = "rod" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    teronis_no = {
+      lines = {
+        { id = "tn_default", text = "Blame is for later, when the forest is safe again. Ask me something I can use." },
+        { id = "tn_kin", when = { race = "NightElf" },
+          text = "You know better than to pick at a Sentinel's wounds, {g:brother|sister}. Ask me something I can use." },
+      },
+      choices = {
+        { text = "Fair enough.", next = "BACK" },
+      },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "My scouts bring me word of everything that moves in this forest, and Korra brings me the rest. Ask what you need." },
+      { id = "tp_knows_cold", when = { disposition = { max = 34 } },
+        text = "I'll answer, because the forest needs every pair of hands, even yours. Be quick about it." },
+    },
     background = { { id = "tp_bg", text = "I'm a hunter of the Sentinels, and Ashenvale is the only home I care about. Korra and Dagri are all the family I need." } },
     advice = { { id = "tp_ad", text = "Learn the forest as if it were part of you, and remember there is always more danger hidden in it than you can see." } },
     furbolgs = { { id = "tp_furbolgs", text = "They were peaceful once, even wise. Something poisoned them, and I mean to find out what.", next = "furbolgs" } },
@@ -142,6 +180,10 @@ P:NPC {
   bible = "bibles/ashenvale.md", role = "questgiver", tier = "quest",
   communities = { "astranaar" }, temper = { "anxious" }, values = { "loving", "determined" },
   notices = { "class" },
+  impression = {
+    first = "Pelturas Whitemoon asked me to speak softly for his daughter's sake, then listened for her the whole time we talked. He has tried nearly every cure there is, and he has not once stopped hoping.",
+    third = "{name} met Pelturas Whitemoon of Astranaar, a father searching for any cure for his daughter Relara's fever and nightmares.",
+  },
 
   greetings = {
     { id = "g_worried", text = "Please, speak softly; my daughter is sleeping. At least, I hope she's sleeping." },
@@ -189,6 +231,7 @@ P:NPC {
       },
       choices = {
         { text = "We'll get it out.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "If it takes dark magic to drive it out, I'll use it.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something in the forest?", next = "forest" },
       },
     },
@@ -211,12 +254,16 @@ P:NPC {
       lines = { { id = "lo_default", text = "Would you really? Please be gentle with her. Whatever you can do, even if it only eases her for one night, I'll be grateful." } },
       choices = {
         { text = "I'll pray over her.", next = "BACK", fx = { affinity = 3, align = { light = 2 } } },
+        { text = "Prayer won't reach a magic fever, but I know darker remedies that might.", next = "BACK", fx = { align = { light = -2 } } },
         { text = "I'll do what I can.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've asked everyone in Astranaar about everything, looking for something that might help Relara. Ask me; perhaps some of it will help you." },
+    },
     background = { { id = "tp_bg", text = "I'm Relara's father. That's all I am at the moment, and it's enough." } },
     advice = { { id = "tp_ad", text = "Hold on to the people you love while you can. I'm learning that the hard way." } },
     _none = { { id = "tp_none", text = "I'm sorry, I can't think about anything else right now." } },
@@ -228,6 +275,10 @@ P:NPC {
   bible = "bibles/ashenvale.md", role = "child", tier = "quest",
   communities = { "astranaar" }, temper = { "frightened" }, values = { "gentle" },
   notices = { "pet" },
+  impression = {
+    first = "Small and sick as she is, Relara Whitemoon still means to become a Sentinel or a hippogryph, whichever gets to fly. Her papa, she assured me, is fixing everything.",
+    third = "{name} met Relara Whitemoon, Pelturas's young daughter, who faces her fevered nightmares with a child's stubborn hope.",
+  },
 
   greetings = {
     { id = "g_sleep", text = "Is it morning yet? It's always dark when I wake up... is Papa here?" },
@@ -300,6 +351,10 @@ P:NPC {
   bible = "bibles/ashenvale.md", role = "questgiver", tier = "quest",
   communities = { "astranaar" }, temper = { "steady" }, values = { "dutiful" },
   notices = { "kit" },
+  impression = {
+    first = "Faldreas keeps a list of everyone who goes out on Astranaar's roads and everyone who ought to have come back. Crossing names off the right way, he says, is the best part of his day.",
+    third = "{name} met Faldreas Goeth'Shael, who keeps track of every traveller leaving Astranaar and listens to the forest spirits.",
+  },
 
   greetings = {
     { id = "g_road", text = "Ishnu-alah, traveller. The roads out of Astranaar are long and not as safe as they look, so mind them." },
@@ -360,6 +415,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Keeping track of the roads means hearing about everything on them. Ask, and I'll tell you what my lists say." },
+    },
     background = { { id = "tp_bg", text = "I keep the list of who's out on the roads. It's a small job, until someone doesn't come back." } },
     advice = { { id = "tp_ad", text = "Tell someone where you're going before you go, and tell me, if there's no one else." } },
     _none = { { id = "tp_none", text = "Raene would know; she knows everything that moves in this forest." } },
@@ -371,6 +429,10 @@ P:NPC {
   bible = "bibles/ashenvale.md", role = "innkeeper", tier = "service",
   communities = { "astranaar" }, temper = { "warm" }, values = { "kind" },
   notices = { "weary" },
+  impression = {
+    first = "Every night Innkeeper Kimlya sends broth up to a sick child, knowing the father will eat it if the girl won't. Astranaar's inn seems to run on that sort of quiet kindness.",
+    third = "{name} rested at Innkeeper Kimlya's inn on Astranaar's island, a refuge for scouts, healers and weary travellers.",
+  },
 
   greetings = {
     { id = "g_rest", text = "You look worn through, body and spirit both. Rest here a while, and may Elune keep your dreams gentle." },
@@ -420,6 +482,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Scouts talk while I bandage them, and I remember more than they think. Ask me what you like." },
+    },
     background = { { id = "tp_bg", text = "I keep the inn on the island. There's not much more to me than a warm bed and a full pot." } },
     advice = { { id = "tp_ad", text = "Sleep when you can and eat when you can, because Ashenvale gives you fewer chances than you'd think." } },
     _none = { { id = "tp_none", text = "Ask Raene, outside. She'll know, or she'll find out." } },
@@ -432,6 +497,10 @@ P:NPC {
   communities = { "maestras_post" }, temper = { "earnest" }, values = { "devout", "brave" },
   spiritSensitive = true,
   notices = { "class" },
+  impression = {
+    first = "Delgren the Purifier greets everyone with the Light's blessing and a cheerful word, a long way from home and glad of company. He is earnest and warm, though I would not want to be a warlock standing near his hammer.",
+    third = "{name} met Delgren the Purifier at Maestra's Post, a servant of the Light hunting the Dark Strand cult in Ashenvale.",
+  },
 
   greetings = {
     { id = "g_light", text = "Light keep you, friend! Maestra's Post bids you welcome; it's a long way from home, but there's work for the righteous everywhere." },
@@ -480,6 +549,7 @@ P:NPC {
       },
       choices = {
         { text = "Then we stop them.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Power is power, and I can't blame them for wanting it.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Why do people join them?", next = "elves" },
       },
     },
@@ -496,7 +566,10 @@ P:NPC {
     },
     orcish2 = {
       lines = { { id = "o2_default", text = "For now, yes. If there's ever a day when it's good for more than that, I'll be glad I already know the words." } },
-      choices = { { text = "I hope that day comes.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } } },
+      choices = {
+        { text = "I hope that day comes.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "I'd rather learn it to hear what they're plotting before they strike.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
     },
     elves_d = {
       lines = { { id = "ed_default", text = "I was unused to their manners at first, I'll admit, but I've grown to respect them greatly as allies. They fight this forest's battles with more patience than we would ever have." } },
@@ -504,15 +577,24 @@ P:NPC {
     },
     pal_d = {
       lines = { { id = "pd_default", text = "Then pray with me before you go into the satyrs' country, because their blood-soaked temples unsettle even seasoned fighters. After that, swing hard." } },
-      choices = { { text = "Let's pray, then.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } } },
+      choices = {
+        { text = "Let's pray, then.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Save the prayers. I'll trust my hammer in satyr country.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
     priest_d = {
       lines = { { id = "pq_default", text = "We'd be grateful for it. It's been months since anyone but me prayed over these lads, and I'm a better hammer than a priest." } },
-      choices = { { text = "Then gather them round.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, standing = { maestras_post = 1 } } } },
+      choices = {
+        { text = "Then gather them round.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, standing = { maestras_post = 1 } } },
+        { text = "These lads need sleep more than sermons, so I'll let them rest.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "A paladin in a strange land learns to listen, friend, and I've learned a fair bit here. Ask, and I'll share it." },
+    },
     background = { { id = "tp_bg", text = "I'm a paladin a long way from home, with a company that came to help our allies. That's all there is that matters." } },
     advice = { { id = "tp_ad", text = "If you meet a warlock in these woods, assume he isn't alone." } },
     dark_strand = {

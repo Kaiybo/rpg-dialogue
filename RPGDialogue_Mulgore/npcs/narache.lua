@@ -7,6 +7,10 @@ P:NPC {
   bible = "bibles/mulgore.md", role = "noble", tier = "major",
   communities = { "narache" }, temper = { "resolute" }, values = { "dutiful", "protective" },
   notices = { "greenness", "race" },
+  impression = {
+    first = "Since the Bristleback killed his mother, the Greatmother, Chief Hawkwind has mourned her by standing straighter. Every task he gives seems meant to teach the young of his camp to do the same.",
+    third = "{name} met Chief Hawkwind at Camp Narache, who leads the young of his tribe through their first rites.",
+  },
 
   greetings = {
     { id = "g_camp", text = "Welcome to the Hawkwind's fire. Sit if you're tired, or stand if you're ready to work." },
@@ -55,6 +59,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The hunters bring word back to this fire, and some of it is worth hearing. Ask about these, and I'll tell you what the tribe knows." },
+    },
     _none = { { id = "tp_none", text = "Ask in Bloodhoof Village. Baine knows the wider world better than an old chief." } },
   },
 }
@@ -64,6 +71,10 @@ P:NPC {
   bible = "bibles/mulgore.md", role = "questgiver", tier = "quest",
   communities = { "narache" }, temper = { "fierce" }, values = { "loyal", "brave" },
   notices = { "class" },
+  impression = {
+    first = "Grull Hawkwind is the Chief's son, and he leads Narache's hunts until the day he leads the camp. He has a fierce kind of eagerness, as though the hunt itself were waiting on him.",
+    third = "{name} met Grull Hawkwind, the Chief's son, who leads the hunts of Camp Narache.",
+  },
 
   greetings = {
     { id = "g_hunt", text = "You've come to hunt? Good, because Mulgore is full of things that need hunting." },
@@ -99,7 +110,10 @@ P:NPC {
     },
     lead = {
       lines = { { id = "l_default", text = "I'll lead the way my grandmother did, from the front. If that's not well, the tribe can tell me so." } },
-      choices = { { text = "I believe you.", next = "END", fx = { affinity = 2, align = { honor = 1 } } } },
+      choices = {
+        { text = "I believe you.", next = "END", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "A wise chief leads from where the spears can't reach.", next = "END", fx = { align = { honor = -1 } } },
+      },
     },
   },
 

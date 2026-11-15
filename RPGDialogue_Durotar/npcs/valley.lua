@@ -7,6 +7,10 @@ P:NPC {
   bible = "bibles/durotar.md", role = "questgiver", tier = "quest",
   communities = { "valley_of_trials" }, temper = { "gruff" }, values = { "dutiful" },
   notices = { "greenness" },
+  impression = {
+    first = "Kaltunk greets every recruit who walks into the Valley of Trials, because someone once greeted him and he remembers who. He is gruff about it, but he has not forgotten what it was to arrive with nothing.",
+    third = "{name} met Kaltunk, the gruff orc who greets new blood at the mouth of the Valley of Trials.",
+  },
 
   greetings = {
     { id = "g_road", text = "Fresh off the road, are you? Good. The Horde has room for you, if you earn it." },
@@ -56,6 +60,10 @@ P:NPC {
   bible = "bibles/durotar.md", role = "soldier", tier = "major",
   communities = { "valley_of_trials" }, temper = { "hard" }, values = { "stern", "dutiful" },
   notices = { "greenness", "class" },
+  impression = {
+    first = "Gornek runs the Den and claims he is never asleep when the recruits whisper. The first lesson, to him, is getting back up, and he looks at newcomers as though deciding whether they will learn it.",
+    third = "{name} met Gornek, the hard orc who runs the Den in the Valley of Trials and makes Horde out of whoever walks in.",
+  },
 
   greetings = {
     { id = "g_den", text = "Stand up straight, recruit. The valley is watching you, and so am I." },
@@ -92,11 +100,17 @@ P:NPC {
       lines = {
         { id = "p_default", text = "That you'll get back up. Strength comes later. Anyone can swing an axe; not everyone stands again after the first one hits them." },
       },
-      choices = { { text = "I'll stand.", next = "END", fx = { affinity = 2, align = { honor = 1 } } } },
+      choices = {
+        { text = "I'll stand.", next = "END", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "I'd rather not get hit in the first place.", next = "END", fx = { align = { honor = -1 } } },
+      },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Recruits talk in the Den when they think I'm asleep, and I never am. Ask about these, and then listen." },
+    },
     burning_blade = { { id = "tp_blade", text = "There are cultists in the coven to the north, calling up imps. Zureetha deals with them, and you'll help her." } },
     _none = { { id = "tp_none", text = "That's not your concern yet, recruit, so finish the valley first." } },
   },
@@ -107,6 +121,10 @@ P:NPC {
   bible = "bibles/durotar.md", role = "questgiver", tier = "quest",
   communities = { "valley_of_trials" }, temper = { "watchful" }, values = { "sharp", "dutiful" },
   notices = { "class" },
+  impression = {
+    first = "Zureetha Fargaze watches the Burning Blade's caves to the north and wants every detail of what anyone saw there. Her contempt for the cultists who want the old fire back is fierce and wholly sincere.",
+    third = "{name} met Zureetha Fargaze, who watches the Burning Blade's caves in the Valley of Trials and sends recruits to thin their ranks.",
+  },
 
   greetings = {
     { id = "g_blade", text = "The Burning Blade crawl out of their caves after dark, and I'd rather they didn't. Help me with that." },
@@ -141,7 +159,10 @@ P:NPC {
       lines = {
         { id = "b_default", text = "Orcs who never let go of the old fire. The Warchief broke the demons' hold on us, and these fools want it back. I won't let them have it." },
       },
-      choices = { { text = "Neither will I.", next = "END", fx = { affinity = 2, align = { light = 1 }, learn = { "burning_blade" } } } },
+      choices = {
+        { text = "Neither will I.", next = "END", fx = { affinity = 2, align = { light = 1 }, learn = { "burning_blade" } } },
+        { text = "The old fire made the Horde strong, whatever it cost.", next = "END", fx = { align = { light = -1 }, learn = { "burning_blade" } } },
+      },
     },
   },
 
@@ -156,6 +177,10 @@ P:NPC {
   bible = "bibles/durotar.md", role = "worker", tier = "quest",
   communities = { "valley_of_trials" }, temper = { "exasperated" }, values = { "practical" },
   notices = { "idle" },
+  impression = {
+    first = "Most of Foreman Thazz'ril's days go to keeping his peons awake, and mostly he fails. He is exasperated by their talent for napping and almost impressed by it, which makes him better company than he would guess.",
+    third = "{name} met Foreman Thazz'ril, who struggles to keep the sleepy peons of the Valley of Trials gathering lumber.",
+  },
 
   greetings = {
     { id = "g_peon", text = "You! You're not a peon, are you? Good, because I have plenty of those, and they're all asleep." },
@@ -200,6 +225,10 @@ P:NPC {
   bible = "bibles/durotar.md", role = "worker", tier = "quest",
   communities = { "valley_of_trials" }, temper = { "longsuffering" }, values = { "practical", "generous" },
   notices = { "hunger" },
+  impression = {
+    first = "Nobody thanks the cook, Galgar told me, but everybody notices when the pot is empty. He insists fried scorpid tail grows on you, and I am not yet convinced.",
+    third = "{name} met Galgar, the long-suffering cook who feeds the recruits, grunts and peons of the Valley of Trials.",
+  },
 
   greetings = {
     { id = "g_cook", text = "Hungry? Of course you are; everyone in this valley is hungry." },
@@ -249,6 +278,10 @@ P:NPC {
   bible = "bibles/durotar.md", role = "vendor", tier = "service",
   communities = { "valley_of_trials" }, temper = { "curt" }, values = { "practical" },
   notices = { "kit" },
+  impression = {
+    first = "Kzan Thornslash keeps the recruits armed while they keep dropping their weapons in the scrub. He is curt and charges for everything, but he knows his trade.",
+    third = "{name} met Kzan Thornslash, the curt weaponsmith who keeps the recruits of the Valley of Trials armed.",
+  },
 
   greetings = {
     { id = "g_shop", text = "Weapons or repairs, so pick one, pay, and move along." },

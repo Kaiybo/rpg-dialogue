@@ -8,6 +8,10 @@ P:NPC {
   bible = "bibles/raelen.md", role = "questgiver", tier = "quest",
   communities = { "eastvale" }, temper = { "sharp" }, values = { "lawful", "ambitious" },
   notices = { "idle", "build" },
+  impression = {
+    first = "Supervisor Raelen measures the world in bundles and deadlines, and I fell short on both before I'd said a word. She will never say thank you, but I think she keeps count.",
+    third = "{name} met Supervisor Raelen of the Eastvale Logging Camp, for whom the lumber order comes before everything.",
+  },
 
   greetings = {
     { id = "g_busy", text = "Make it quick, will you, because that order won't fill itself." },

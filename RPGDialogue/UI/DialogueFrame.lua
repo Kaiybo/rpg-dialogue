@@ -41,24 +41,48 @@ local selected, navMode = nil, false
 ---------------------------------------------------------------------------
 -- Typewriter (substring reveal, UTF-8 safe)
 ---------------------------------------------------------------------------
--- Byte index of the end of the n-th UTF-8 character.
-local function utf8Cut(s, n)
-  local i, count = 1, 0
-  local len = #s
-  while i <= len and count < n do
+-- Where the typewriter may cut: the byte end of each visible character. Escape codes
+-- (|T icons|t, |A atlases|a, |c colours, |r, |H links|h) are never cut in half, so the raw
+-- code never flashes on screen; an icon counts as one character, colour codes as none.
+local function cutPoints(s)
+  local cuts, i, len = {}, 1, #s
+  while i <= len do
     local b = s:byte(i)
-    local size = (b >= 240 and 4) or (b >= 224 and 3) or (b >= 192 and 2) or 1
-    i = i + size
-    count = count + 1
+    if b == 124 then -- "|"
+      local c = s:sub(i + 1, i + 1)
+      local stop
+      if c == "T" then stop = s:find("|t", i + 2, true); stop = stop and stop + 1
+      elseif c == "A" then stop = s:find("|a", i + 2, true); stop = stop and stop + 1
+      elseif c == "c" then stop = i + 9
+      elseif c == "H" then stop = s:find("|h", i + 2, true); stop = stop and stop + 1
+      elseif c == "r" or c == "h" or c == "n" or c == "|" then stop = i + 1 end
+      if stop then
+        local visible = c == "T" or c == "A" or c == "n" or c == "|"
+        if visible or #cuts == 0 then cuts[#cuts + 1] = math.min(stop, len)
+        else cuts[#cuts] = math.min(stop, len) end
+        i = stop + 1
+      else
+        cuts[#cuts + 1] = i; i = i + 1
+      end
+    else
+      local size = (b >= 240 and 4) or (b >= 224 and 3) or (b >= 192 and 2) or 1
+      i = i + size
+      cuts[#cuts + 1] = i - 1
+    end
   end
-  return i - 1
+  return cuts
+end
+D.CutPoints = cutPoints
+
+-- Byte index of the end of the n-th visible character.
+local function utf8Cut(s, n)
+  if n <= 0 then return 0 end
+  local cuts = cutPoints(s)
+  return cuts[math.min(n, #cuts)] or 0
 end
 D.utf8Cut = utf8Cut
 
-local function utf8Len(s)
-  local _, n = s:gsub("[^\128-\191]", "")
-  return n
-end
+local function utf8Len(s) return #cutPoints(s) end
 
 local function settings() return ns.db.settings end
 local function isGame() return Theme.IsGame() end
@@ -91,6 +115,10 @@ local function onLink(_, link)
   if id and ns.Conversation then ns.Conversation.Ask(id) end
 end
 local function onLinkEnter(_, link)
+  -- An item on a quest page: the game's item tooltip.
+  local kind, index, itemID
+  if type(link) == "string" then kind, index, itemID = link:match("^rpgdq:(%a+):(%d+):?(%d*)") end
+  if kind then C.ShowQuestItemTooltip(frame, kind, tonumber(index), tonumber(itemID)); return end
   local id = ns.Topics and ns.Topics.FromLink(link)
   local def = id and ns.Data.topics[id]
   if not def then return end
@@ -103,7 +131,8 @@ function D.OnUpdate(_, elapsed)
   reveal.shown = reveal.shown + elapsed * (settings().textSpeed or 70)
   local n = math.floor(reveal.shown)
   if n >= reveal.total then finishReveal(); return end
-  frame.text:SetText(reveal.full:sub(1, utf8Cut(reveal.full, n)))
+  reveal.cuts = reveal.cuts or cutPoints(reveal.full)
+  frame.text:SetText(reveal.full:sub(1, reveal.cuts[n] or 0))
 end
 
 function D.IsRevealing() return reveal.active end
@@ -138,7 +167,7 @@ local function makeButton(i)
   b:SetScript("OnEnter", function(self)
     Theme.TextColor(self.label, self.locked and "locked" or "hover")
     -- A reward on a quest page: the game's item tooltip.
-    if self.tooltip then C.ShowQuestItemTooltip(self, self.tooltip.kind, self.tooltip.index) end
+    if self.tooltip then C.ShowQuestItemTooltip(self, self.tooltip.kind, self.tooltip.index, self.tooltip.itemID) end
   end)
   b:SetScript("OnLeave", function(self)
     Theme.TextColor(self.label, D.ColorKey(self))
@@ -268,9 +297,26 @@ local function create()
   frame.textBtn:SetScript("OnLeave", function() GameTooltip:Hide() end)
 
   -- "Ask about..."
-  frame.ask = Theme.Button(frame, L.ASK_BUTTON, 116, 22)
+  frame.ask = Theme.Button(frame, L.ASK_BUTTON, 140, 22)
   frame.ask:SetScript("OnClick", function() UI.AskAbout.Toggle(frame) end)
+  frame.ask:SetScript("OnEnter", function(self)
+    GameTooltip:SetOwner(self, "ANCHOR_TOP")
+    GameTooltip:SetText(L.ASK_TITLE)
+    GameTooltip:AddLine(L.ASK_BUTTON_TIP, 1, 1, 1, true)
+    GameTooltip:Show()
+  end)
+  frame.ask:SetScript("OnLeave", function() GameTooltip:Hide() end)
   frame.ask:Hide()
+
+  -- Disposition (0.34.0): how this person regards you, with the reasons on hover.
+  frame.disp = CreateFrame("Button", nil, frame)
+  frame.disp:SetSize(150, 18)
+  frame.disp.label = frame.disp:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+  frame.disp.label:SetPoint("LEFT")
+  frame.disp.label:SetJustifyH("LEFT")
+  frame.disp:SetScript("OnEnter", function(self) D.DispositionTooltip(self) end)
+  frame.disp:SetScript("OnLeave", function() GameTooltip:Hide() end)
+  frame.disp:Hide()
 
   frame.flagBox = CreateFrame("EditBox", nil, frame, C.Template("editbox"))
   frame.flagBox:SetSize(WOOD_WIDTH - 2 * PAD - 120, 20)
@@ -321,6 +367,7 @@ local function placeParts(game)
   frame.flag:ClearAllPoints()
   frame.textBtn:ClearAllPoints()
   frame.ask:ClearAllPoints()
+  frame.disp:ClearAllPoints()
   frame.flagBox:ClearAllPoints()
   frame.flagHint:ClearAllPoints()
   frame.rule:ClearAllPoints()
@@ -340,6 +387,7 @@ local function placeParts(game)
     frame.flag:SetPoint("TOPRIGHT", -26, -4)
     frame.textBtn:SetPoint("TOPRIGHT", -44, -3)
     frame.ask:SetPoint("BOTTOMRIGHT", -6, 4)
+    frame.disp:SetPoint("BOTTOMLEFT", 12, 6)
     frame.flagBox:SetPoint("BOTTOMLEFT", 12, 5)
     -- The metal border reaches past the frame (most at the portrait corner and the top).
     frame:SetClampRectInsets(-13, 4, 16, -3)
@@ -358,6 +406,7 @@ local function placeParts(game)
     frame.flag:SetPoint("TOPRIGHT", -38, -14)
     frame.textBtn:SetPoint("TOPRIGHT", -60, -14)
     frame.ask:SetPoint("BOTTOMRIGHT", -16, 14)
+    frame.disp:SetPoint("BOTTOMLEFT", PAD + 6, 16)
     frame.flagBox:SetPoint("BOTTOMLEFT", PAD + 6, 10)
     frame.flagHint:SetPoint("LEFT", frame.flagBox, "RIGHT", 8, 0)
     frame:SetClampRectInsets(0, 0, 0, 0)
@@ -404,6 +453,9 @@ function D.Style()
   Theme.SetFont(frame.text, "body", size)
   Theme.SetFont(frame.reaction, "body", size - 1)
   Theme.SetFont(frame.flagHint, "body", size - 3)
+  Theme.SetFont(frame.disp.label, "body", size - 2)
+  Theme.Shadow(frame.disp.label, false)
+  Theme.TextColor(frame.disp.label, "header")
   frame.text:SetSpacing(settings().lineSpacing or 3)
   frame.reaction:SetSpacing(settings().lineSpacing or 3)
   Theme.TextColor(frame.name, "title")
@@ -474,7 +526,8 @@ function D.Layout()
       y = y - bh - rowGap
     end
   end
-  local barShown = frame.flagBox:IsShown() or frame.ask:IsShown()
+  frame.disp:SetShown(frame.disp.value ~= nil and not frame.flagBox:IsShown())
+  local barShown = frame.flagBox:IsShown() or frame.ask:IsShown() or frame.disp:IsShown()
   if game then
     local bottom = barShown and GAME_BAR or 4
     -- The flag hint ("say what's wrong", "saved") gets its own line above the bar.
@@ -489,7 +542,7 @@ function D.Layout()
       inset:SetPoint("TOPLEFT", 4, -GAME_HEADER)
       inset:SetPoint("BOTTOMRIGHT", -6, bottom)
     end
-    frame.flagBox:SetWidth(W - 12 - 16 - (frame.ask:IsShown() and 124 or 0))
+    frame.flagBox:SetWidth(W - 12 - 16 - (frame.ask:IsShown() and 148 or 0))
     local H = math.max(-y + 12 + bottom, GAME_HEIGHT)
     frame:SetHeight(H)
     Theme.FitPaper(frame, W - 10, H - GAME_HEADER - bottom)
@@ -545,12 +598,15 @@ function D.Show(v)
 
   frame.flagHint:SetText("")
   frame.ask:SetShown(v.canAsk == true)
+  frame.ask:SetText((v.askCount and v.askCount > 0) and L.ASK_BUTTON_N:format(v.askCount) or L.ASK_BUTTON)
+  D.SetDisposition(v.disposition, true)
   D.Style()   -- also builds the current look's parts, the round portrait among them
   local portrait = Theme.GamePart(frame, "portrait")
   if portrait and not C.SetPortrait(portrait, v.unit) then portrait:SetTexture(PORTRAIT_FALLBACK) end
   reveal.full = v.text or ""
   reveal.linked = v.linkedText
   reveal.total = utf8Len(reveal.full)
+  reveal.cuts = nil
   reveal.shown = 0
   D.Layout()
   local opening = not frame:IsShown()
@@ -685,6 +741,7 @@ function D.ShowAnswer(text, topicName, linked)
   reveal.full = text or ""
   reveal.linked = linked
   reveal.total = utf8Len(reveal.full)
+  reveal.cuts = nil
   reveal.shown = 0
   if topicName then frame.subtitle:SetText("<" .. topicName .. ">") end
   D.Layout()
@@ -697,16 +754,62 @@ end
 
 -- New text for the same page (an item's name arrived): typing carries on where it was, and
 -- finished text is simply replaced.
-function D.UpdateText(text)
+function D.UpdateText(text, linked)
   if not frame or not frame:IsShown() then return end
   reveal.full = text or ""
+  reveal.linked = linked
   reveal.total = utf8Len(reveal.full)
+  reveal.cuts = nil
   D.Layout()
   if reveal.active then
     reveal.shown = math.min(reveal.shown, reveal.total)
   else
-    frame.text:SetText(reveal.full)
+    frame.text:SetText(reveal.linked or reveal.full)
   end
+end
+
+-- d: { value, name, why } or nil (setting off, or a game page).
+function D.SetDisposition(d, noLayout)
+  if not frame then return end
+  frame.disp.value = d
+  if d then
+    frame.disp.label:SetText(L.DISP_LABEL:format(Theme.Hex("title") .. d.name .. "|r"))
+    frame.disp:SetWidth(math.max(60, (frame.disp.label:GetStringWidth() or 120) + 4))
+  else
+    frame.disp.label:SetText("")
+  end
+  if not noLayout then D.Layout() end
+end
+
+local WHY_KEYS = { affinity = "DISP_WHY_AFFINITY", unfriendly = "DISP_WHY_UNFRIENDLY" }
+
+function D.DispositionTooltip(owner)
+  local d = frame.disp.value
+  if not d then return end
+  GameTooltip:SetOwner(owner, "ANCHOR_TOP")
+  GameTooltip:SetText(L.DISP_TITLE:format(d.name, d.value))
+  GameTooltip:AddLine(L.DISP_TIP, 1, 1, 1, true)
+  for _, r in ipairs(d.why or {}) do
+    local key, delta = r[1], r[2]
+    local text
+    if WHY_KEYS[key] then
+      text = L[WHY_KEYS[key]]
+    elseif key:find("^town:") then
+      local town = ns.Data.towns and ns.Data.towns[key:sub(6)]
+      text = L.DISP_WHY_TOWN:format(town and town.name or key:sub(6))
+    elseif key:find("^values ") then
+      text = L.DISP_WHY_VALUES:format(key:sub(8))
+    elseif key:find("^dislikes ") then
+      text = L.DISP_WHY_DISLIKES:format(key:sub(10))
+    elseif key:find("^temper ") then
+      text = L.DISP_WHY_TEMPER
+    else
+      text = L.DISP_WHY_ALIGN
+    end
+    local r1, g1 = delta > 0 and 0.3 or 1, delta > 0 and 1 or 0.35
+    GameTooltip:AddDoubleLine(text, (delta > 0 and "+" or "") .. delta, 0.9, 0.9, 0.9, r1, g1, 0.3)
+  end
+  GameTooltip:Show()
 end
 
 function D.ShowReaction(text)

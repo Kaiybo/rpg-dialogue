@@ -9,6 +9,10 @@ P:NPC {
   communities = { "stormwind" }, temper = { "steady" }, values = { "brave", "honest" },
   spiritSensitive = true,
   notices = { "paladin" },
+  impression = {
+    first = "Henze Faulk jokes about having been dead the way other folk joke about the weather, and I think it helps him. He went in after his friend Gazin once, and he'd plainly do it again.",
+    third = "{name} met Henze Faulk, the dwarf who went after his friend Gazin and was caught by the Defias for it.",
+  },
 
   greetings = {
     { id = "g_low", text = "Still breathin', just about. Don't make me laugh, it hurts." },
@@ -60,7 +64,7 @@ P:NPC {
       choices = {
         { text = "The priests say the Light waits there.", next = "dead_priest", when = { class = "PRIEST" } },
         { text = "I'm glad you're back.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "That's oddly comforting.", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "That's oddly comforting.", next = "BACK", fx = { align = { light = -1 }, trait = { curious = 1 } } },
       },
     },
     dead_priest = {
@@ -69,6 +73,7 @@ P:NPC {
       },
       choices = {
         { text = "Your secret's safe. The Light knows anyway.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Maybe there's nothing waiting there at all.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -130,6 +135,7 @@ P:NPC {
       },
       choices = {
         { text = "Hold still.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Rest will mend your ribs better than my prayers.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

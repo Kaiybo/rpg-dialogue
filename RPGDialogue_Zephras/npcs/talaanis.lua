@@ -10,6 +10,11 @@ P:NPC {
   communities = { "zephras_isle" }, temper = { "steady" }, values = { "honest", "lawful" },
   notices = { "kin", "stranger" },
 
+  impression = {
+    first = "High Elder Talaanis Shadowsong holds the office by the Council's choice and much against her own. She answers questions plainly and admits what nobody knows, which I found more reassuring than any promise.",
+    third = "{name} met Talaanis Shadowsong, High Elder of Zephras Isle, chosen by the Council of Elders and much against her own wishes.",
+  },
+
   greetings = {
     { id = "g_winds", text = "Winds be with you." },
     { id = "g_stranger", when = { ["not"] = { race = "Skyborne" } }, text = "A guest, and we have few. Winds be with you all the same." },
@@ -41,11 +46,19 @@ P:NPC {
         { id = "h_died", when = { race = "Skyborne", deaths = { min = 3 } },
           text = "You've fallen more than once already. We scatter our dead to the wind, child. Don't make me stand on a cliff for you." },
       },
+      again = {
+        { id = "h_again", text = "Go on. The Council can wait a little longer; it usually does." },
+        { id = "h_again2", text = "What else? Ask it now, while I've the patience for it." },
+      },
       choices = {
         { text = "Why did we leave Skywall?", next = "skywall", when = { race = "Skyborne" } },
         { text = "Who are the Skyborne?", next = "who", when = { ["not"] = { race = "Skyborne" } } },
         { text = "Why do the two orders quarrel?", next = "orders" },
         { text = "What became of the Shal'nan?", next = "shalnan" },
+        { text = "How does the Council of Elders work?", next = "council" },
+        { text = "I'm one of the few druids among us.", next = "druid", when = { race = "Skyborne", class = "DRUID" } },
+        { text = "The High Order sent me to the Kirin Tor's mages.", next = "mage", when = { race = "Skyborne", class = "MAGE" } },
+        { text = "I've passed the Windshaper trials.", next = "shaman", when = { race = "Skyborne", class = "SHAMAN" } },
         { text = "Winds be with you, Elder.", next = "END" },
       },
     },
@@ -58,6 +71,7 @@ P:NPC {
       choices = {
         { text = "And so we left.", next = "windlord" },
         { text = "Will Al'Akir come for us?", next = "windlord" },
+        { text = "Tell me about the patrons.", next = "patrons" },
       },
     },
     windlord = {
@@ -66,8 +80,36 @@ P:NPC {
           text = "I told the Council the Windlord might take years to act, decades even, but I did not say never. Everyone heard the first part." },
       },
       choices = {
-        { text = "Then we have time.", next = "END", fx = { trait = { brave = 1 } } },
-        { text = "Then we should be ready.", next = "END", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Then we have time.", next = "BACK", fx = { align = { order = -1 }, trait = { brave = 1 } } },
+        { text = "Then we should be ready.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Who stood with us against the Al'Aketh?", next = "allies" },
+      },
+    },
+    patrons = {
+      lines = {
+        { id = "p_default", text = "The wind spirits sheltered our ancestors and lifted this isle into Skywall, and we owed them everything. They rarely spoke of Al'Akir, and they turned every question about him aside, and then one day they were simply gone." },
+      },
+      choices = {
+        { text = "Gone where?", next = "patrons2" },
+        { text = "Something else, Elder.", next = "BACK" },
+      },
+    },
+    patrons2 = {
+      lines = {
+        { id = "p2_default", text = "Nobody knows, child, and you'll hear a good many people claim otherwise. When someone tells you they know where the patrons went, ask them how, and watch their face." },
+      },
+      choices = {
+        { text = "I'll be careful what I believe.", next = "BACK", fx = { affinity = 1, trait = { skeptical = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    allies = {
+      lines = {
+        { id = "al_default", text = "Ansirem Runeweaver of the Kirin Tor, and Muln Earthfury of the Earthen Ring, helped us break Lorthuna's forces when it mattered. Remember their names, child, for we owe them both, and we haven't finished paying." },
+      },
+      choices = {
+        { text = "Debts can hold people together.", next = "BACK", fx = { affinity = 1, learn = { "al_aketh" } } },
+        { text = "Something else.", next = "BACK", fx = { learn = { "al_aketh" } } },
       },
     },
     who = {
@@ -75,8 +117,18 @@ P:NPC {
         { id = "wh_default", text = "Shen'dorei, the hidden people. Our ancestors left Eldre'Thalas ten thousand years ago rather than kneel to a prince who drank from the Nether, and we hid, and now we've stopped hiding." },
       },
       choices = {
-        { text = "Welcome back to Azeroth.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Welcome back to Azeroth.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Why stop now?", next = "skywall" },
+        { text = "Where did you hide?", next = "hid" },
+      },
+    },
+    hid = {
+      lines = {
+        { id = "hi_default", text = "The rebels sailed west from Eldre'narr on the Feralas coast, and the wind spirits sheltered them and lifted this isle into Skywall, the Plane of Air. Millennia there made us slimmer and more like the high elves, so I'm told, and some of our newborns now come blue-skinned, Sky-Touched." },
+      },
+      choices = {
+        { text = "That's quite a story.", next = "BACK", fx = { affinity = 1, trait = { curious = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     orders = {
@@ -85,19 +137,103 @@ P:NPC {
         { id = "o_default", text = "The High Order wants back what the magisters knew, and the Windshapers feel they owe the spirits everything, and both are right. There have been deaths over sacred places, and both remember them." },
       },
       choices = {
-        { text = "Someone has to make peace.", next = "END", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
-        { text = "Then let them settle it.", next = "END", fx = { trait = { stern = 1 } } },
+        { text = "Someone has to make peace.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Then let them settle it.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "Who leads each order?", next = "leaders" },
+        { text = "What do you truly fear, Elder?", tag = "Persuade", next = "orders_fear",
+          check = { pass = { any = { { disposition = { min = 65 } }, { race = "Skyborne" }, { trait = "kind" } } } },
+          fail = { next = "orders_council", fx = { affinity = -1 } } },
+      },
+    },
+    leaders = {
+      lines = {
+        { id = "le_default", text = "Elaadrin Evengale leads the High Order from the Sky Enclave in Dalaran, under the Kirin Tor, and Ayessa Dawnsinger leads the Windshapers from Camp Gev'rek in Mulgore. I've told them both the same thing, which is that I'd like them both alive in ten years." },
+      },
+      choices = {
+        { text = "That seems a modest hope.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 }, learn = { "two_orders" } } },
+        { text = "Something else.", next = "BACK", fx = { learn = { "two_orders" } } },
       },
     },
     shalnan = {
       lines = {
         { id = "sh_default", text = "The Shal'nan was our first leader, until the seat was given up and the Shal'nan vanished along with the spirits. Where they went, nobody knows, which is why we have a Council." },
       },
-      choices = { { text = "I hope they're found.", next = "END", fx = { affinity = 1 } } },
+      choices = {
+        { text = "I hope they're found.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK", fx = { learn = { "shal_nan" } } },
+      },
+    },
+    council = {
+      lines = {
+        { id = "c_default", text = "We elect it, and have since the Shal'nan gave up the seat, and the Council chose me to speak for it, which I did not ask for. Most of the work is listening to people who are frightened, and telling them the truth without making it worse." },
+      },
+      choices = {
+        { text = "That sounds exhausting.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Who keeps order on the isle?", next = "peacekeepers" },
+      },
+    },
+    peacekeepers = {
+      lines = {
+        { id = "pk_default", text = "The Peacekeepers, our militia, and their best, the Empyrean Blades, who once guarded the Shal'nan. Lately they spend more of their time keeping the two orders apart than keeping anyone out." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid = {
+      lines = {
+        { id = "d_default", text = "So few that I know most of you by name. Your faith leans to the elements before Elune, and you have kin in the Cenarion Circle now, so go and learn from them, but don't let them talk you out of the wind." },
+      },
+      choices = {
+        { text = "I won't, Elder.", next = "BACK", fx = { affinity = 2, learn = { "cenarion_circle" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mage = {
+      lines = {
+        { id = "m_default", text = "Good; learn everything they'll teach you, and remember what Prince Tortheldrin did with power like that. He drew it from the Twisting Nether, child, and our people are what came of refusing him." },
+      },
+      choices = {
+        { text = "I'll remember where we came from.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Power is power, and I'll take whatever the magisters can teach.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    shaman = {
+      lines = {
+        { id = "sm_default", text = "Then you've drunk the sapta and faced the elements, and they let you go, which is more than they promise. Skysight is weakening in our people, so if yours is strong, guard it and use it well." },
+      },
+      choices = {
+        { text = "I'll guard it.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Skysight should be shared freely, not guarded.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    orders_fear = {
+      lines = {
+        { id = "of_default", text = "Not the Windlord, though I'd never say so to the Council. He may take years to act, or decades, but the orders have already shed blood over sacred places, and the next death between them could come any morning." },
+      },
+      choices = {
+        { text = "Then I'll help keep them talking.", next = "BACK", fx = { affinity = 2, learn = { "two_orders" } } },
+        { text = "That's a heavy thing to carry alone.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    orders_council = {
+      lines = {
+        { id = "oc_default", text = "What the High Elder fears is the Council's business, child, and the Council is a patient listener. Ask me something I can answer." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The Council brings me every worry on this isle, so I know a little about a great many things. Ask me about any of these, and I'll tell you only what's true." },
+      { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "You've been honest with me, so I'll be as honest as I'm able, which is honest about what nobody knows. Here is what I can speak to." },
+    },
+    background = { { id = "tp_bg", text = "I'm High Elder because the Council chose me, and I stayed High Elder because nobody else would take it.", next = "council" } },
+    advice = { { id = "tp_ad", text = "Never believe anyone who says they know what Al'Akir will do. I don't, and I've thought about it more than anyone." } },
     al_aketh = { { id = "tp_aketh", text = "Grey robes, shaved heads, and worship for a Windlord our own patrons would hardly speak of. Ansirem Runeweaver and Muln Earthfury helped us break them once. Once may not be enough." } },
     two_orders = { { id = "tp_orders", text = "Two roads out of the same house. I'd like them both to come home for dinner, someday." } },
     shal_nan = { { id = "tp_shalnan", text = "Gone with the spirits, and if you hear anything, anything at all, you bring it to me first." } },

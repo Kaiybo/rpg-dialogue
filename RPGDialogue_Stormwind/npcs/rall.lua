@@ -9,6 +9,10 @@ P:NPC {
   communities = { "stormwind" }, temper = { "sharp" }, values = { "pious", "stern", "honest" },
   spiritSensitive = true,
   notices = { "readiness", "humility" },
+  impression = {
+    first = "Duthorian Rall tests paladins and seems more interested in how they pass than whether they do. He speaks of the Light as a debt owed to people who can never repay it.",
+    third = "{name} met Duthorian Rall in the Cathedral of Light, who tests the paladins sent to him from across the kingdom.",
+  },
 
   greetings = {
     { id = "g_test", text = "Ready? No one ever is, so come anyway." },
@@ -72,6 +76,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I choose them.", next = "BACK", fx = { affinity = 2, align = { light = 2 }, trait = { pious = 1 } } },
+        { text = "Patience is for priests. I'll take bravery and leave the rest.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Bravery should come first.", next = "brave", fx = { trait = { brave = 1 } } },
       },
     },
@@ -80,12 +85,16 @@ P:NPC {
       choices = {
         { text = "Worse than dead?", next = "brave_worse" },
         { text = "I will.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Bravery's served me well enough so far.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
     brave_worse = {
       lines = { { id = "bw_default", text = "Brave men without compassion are how good orders become cruel ones. You've heard what the Scarlet Crusade does in the north, I take it.",
         fx = { learn = { "scarlet_crusade" } } } },
-      choices = { { text = "I've heard.", next = "BACK", fx = { align = { light = 1 }, trait = { cautious = 1 } } } },
+      choices = {
+        { text = "I've heard.", next = "BACK", fx = { align = { light = 1 }, trait = { cautious = 1 } } },
+        { text = "Someone has to burn out the plague, compassion or not.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
 
     why = {
@@ -99,7 +108,10 @@ P:NPC {
     },
     why_self = {
       lines = { { id = "ws_default", text = "Every paladin I send out who comes back worse than they left. I keep count, and it's a short list, but I'd like it shorter." } },
-      choices = { { text = "I won't be on it.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } } },
+      choices = {
+        { text = "I won't be on it.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "The field changes everyone, so I won't promise anything.", next = "BACK", fx = { align = { order = -1 } } },
+      },
     },
 
     tome = {
@@ -134,7 +146,10 @@ P:NPC {
 
     squire = {
       lines = { { id = "sq_default", text = "Your training stopped, but your oaths didn't, so finish it here. The Order broke; the Light didn't." } },
-      choices = { { text = "I'm ready.", next = "BACK", fx = { affinity = 3, align = { light = 1, order = 1 } } } },
+      choices = {
+        { text = "I'm ready.", next = "BACK", fx = { affinity = 3, align = { light = 1, order = 1 } } },
+        { text = "My oaths broke with the Order, and I'll go my own way.", next = "BACK", fx = { align = { order = -1 } } },
+      },
     },
 
     priest = {
@@ -147,6 +162,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've trained paladins for this Cathedral long enough to know a good deal, and to keep most of it to myself. These, I'll speak to." },
+    },
     background = { { id = "tp_bg", text = "A Knight of the Silver Hand whose work is making more of them. The rest of my story belongs to them.", next = "why" } },
     advice = { { id = "tp_ad", text = "Help someone today who can't help you back. Then do it tomorrow. That's the whole of the lesson; the rest is practice." } },
     tome_of_divinity = {

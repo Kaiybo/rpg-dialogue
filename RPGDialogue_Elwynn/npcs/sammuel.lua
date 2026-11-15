@@ -8,6 +8,10 @@ P:NPC {
   communities = { "northshire" }, temper = { "sharp" }, values = { "pious", "kind", "brave" },
   spiritSensitive = true,
   notices = { "affliction", "light" },
+  impression = {
+    first = "Brother Sammuel speaks softly and senses curses and sickness the way a healer feels for a pulse. He teaches those the Light has chosen and prays for the rest without complaint.",
+    third = "{name} met Brother Sammuel of Northshire Abbey, who hears the oaths of new paladins and prays for everyone else.",
+  },
 
   greetings = {
     { id = "g_light", text = "The Light keeps you." },
@@ -76,6 +80,7 @@ P:NPC {
       choices = {
         { text = "That's a great deal to ask of anyone.", next = "light_ask", fx = { trait = { skeptical = 1 } } },
         { text = "I can do that.", next = "BACK", fx = { align = { light = 2 }, trait = { pious = 1 }, affinity = 1 } },
+        { text = "Mercy that costs me is a price I won't pay.", next = "BACK", fx = { align = { light = -2 } } },
       },
     },
     light_ask = {
@@ -84,6 +89,7 @@ P:NPC {
       },
       choices = {
         { text = "A little, I can manage.", next = "BACK", fx = { affinity = 1, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "I've enough of my own to carry.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "And who carries mine?", next = "light_mine" },
       },
     },
@@ -107,7 +113,10 @@ P:NPC {
       lines = {
         { id = "a_never", text = "Every winter. Then a recruit comes in frightened and asks something I can answer. Doubt goes quiet when there's work to do." },
       },
-      choices = { { text = "I'll try to be that for someone.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } } },
+      choices = {
+        { text = "I'll try to be that for someone.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Some doubts don't go quiet, however busy I keep.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
 
     abbey = {
@@ -117,6 +126,7 @@ P:NPC {
       choices = {
         { text = "And after the war?", next = "abbey_after" },
         { text = "They died healing. That's hard to hear.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Healers who walk into a war should expect to die.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
     abbey_after = {
@@ -132,7 +142,11 @@ P:NPC {
       lines = {
         { id = "ah_default", text = "It broke in the north, with Lordaeron, but not here. Oaths outlast orders if you keep them, and I keep mine every morning on this floor." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "northshire_abbey" }, align = { order = 1 } } } },
+      choices = {
+        { text = "Then I'll keep my oath the same way.", next = "BACK", fx = { learn = { "northshire_abbey" }, align = { order = 1 } } },
+        { text = "An oath to a broken order seems a waste to me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
 
     priest = {
@@ -141,6 +155,7 @@ P:NPC {
       },
       choices = {
         { text = "Then we'd better work together.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I'd rather keep to my own work than yours.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Some of us prefer not to need the sword.", next = "BACK", fx = { trait = { kind = 1 } } },
       },
     },
@@ -151,6 +166,7 @@ P:NPC {
       choices = {
         { text = "The floors were very clean.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
         { text = "I've tried to deserve those years.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I left the Abbey behind me, and I don't miss it.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
     lordaeron = {
@@ -159,12 +175,16 @@ P:NPC {
       },
       choices = {
         { text = "Please do.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Keep your prayers, because the north is past saving.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Pray for the ones who stayed.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
       },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The Abbey hears a good deal through its doors, and some of it reaches me between lessons. Ask me about any of this." },
+    },
     background = { { id = "tp_bg", text = "A brother of Northshire and a paladin of the Light. Where I came from matters less than where I kneel." } },
     advice = { { id = "tp_ad", text = "Kneel every morning, even when you don't feel like it, and especially then." } },
     defias = { { id = "t_defias", text = "They're somebody's sons. That doesn't make them less dangerous." } },

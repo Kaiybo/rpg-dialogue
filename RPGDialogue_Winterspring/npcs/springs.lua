@@ -8,6 +8,11 @@ P:NPC {
   communities = { "winterspring_wilds" }, temper = { "warm" }, values = { "curious", "protective" },
   notices = { "race", "class" },
 
+  impression = {
+    first = "Donova Snowden studies the hot springs and the creatures around them, and she is worried sick about the Winterfall furbolgs. Something is poisoning them, and she means to find out what.",
+    third = "{name} met Donova Snowden, a warm-hearted dwarf naturalist studying the hot springs of Winterspring.",
+  },
+
   greetings = {
     { id = "g_springs", text = "Welcome, welcome! Come stand by the spring. It's the only warm water for miles, an' Winterspring has more secrets than snowflakes." },
   },
@@ -52,7 +57,10 @@ P:NPC {
     },
     before_back = {
       lines = { { id = "bb_default", text = "If the drink stops, maybe, an' I'd like tae think so. A creature's no' its worst week." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { align = { light = 1 }, trait = { kind = 1 } } } },
+      choices = {
+        { text = "No creature should be judged by its worst week.", next = "BACK", fx = { align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "A creature's worst week tells you what it's capable of.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
     springs = {
       lines = { { id = "s_default", text = "Because they're warm in a place that isnae, an' life gathers round warm things. Ye learn a land by where it chooses tae live." } },
@@ -60,15 +68,39 @@ P:NPC {
     },
     who = {
       lines = { { id = "w_default", text = "Somebody who wants the Winterfall angry an' doesnae care what it costs them. I've a list o' guesses. None of 'em are good, an' none of 'em are proof." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Tell me your best guess. I won't hold you to it.", tag = "Persuade", next = "who_guess",
+          check = { pass = { any = { { disposition = { min = 65 } }, { trait = "curious" }, { class = "DRUID" } } } },
+          fail = { next = "who_proof", fx = { affinity = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     druid = {
       lines = { { id = "d_default", text = "Then ye'll feel it worse than me. It's like the woods are holdin' their breath. Go gentle near the dens; whatever's in them isnae all furbolg any more." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
     },
+    who_guess = {
+      lines = {
+        { id = "wg_default", text = "Between us, then, an' only as a guess: that goo smells like the water out o' Felwood, sick an' sweet at once, so I'd look south before I'd look anywhere else. Whoever's brewin' it wants the furbolgs mad an' doesnae care who they bite." },
+      },
+      choices = {
+        { text = "Then I'll keep an eye to the south.", next = "BACK", fx = { affinity = 2, learn = { "cenarion_circle" } } },
+        { text = "A guess is a start.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    who_proof = {
+      lines = {
+        { id = "wp_default", text = "Guesses get folk killed up here, so I keep mine in my notebook till I've proof. Bring me somethin' I can test, an' then we'll talk." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've studied these springs an' everythin' that drinks from 'em for a good long while. Ask me about any o' these." },
+    },
     background = { { id = "tp_ba", text = "A dwarf who likes the cold an' loves a puzzle. Winterspring has plenty o' both." } },
     advice = { { id = "tp_ad", text = "Never drink anythin' a furbolg offers ye, no' this year." } },
     _none = { { id = "tp_none", text = "Couldnae tell ye, but ask me about the springs instead, for I know the springs." } },
@@ -80,6 +112,11 @@ P:NPC {
   bible = "bibles/winterspring.md", role = "questgiver", tier = "quest",
   communities = { "winterspring_wilds" }, temper = { "playful" }, values = { "mystical", "proud" },
   notices = { "race", "class" },
+
+  impression = {
+    first = "Witch Doctor Mau'ari speaks of herself by name and bargains in spirits and juju. She has been up in the ice long enough to stop complaining about the cold, though not to stop feeling it.",
+    third = "{name} met Witch Doctor Mau'ari, the playful troll witch doctor of Winterspring who trades in E'ko and juju.",
+  },
 
   greetings = {
     { id = "g_hello", text = "Ah, a visitor come all dis way to see Mau'ari! Smart, you are, or maybe lost, but either way, sit." },
@@ -116,7 +153,8 @@ P:NPC {
     eko = {
       lines = { { id = "e_default", text = "It be de little bit of spirit every beast carry, and when dey fall, it linger. Mau'ari's charm catch it before it blow away on de wind." } },
       choices = {
-        { text = "Is that right, to take it?", next = "eko_right", fx = { align = { light = 1 } } },
+        { text = "Taking a beast's spirit doesn't sit right with me.", next = "eko_right", fx = { align = { light = 1 } } },
+        { text = "A spirit's no use to anyone, blowing on the wind.", next = "eko_right", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -139,6 +177,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Mau'ari know many t'ings, mon, and some of dem she even tell. Ask about any of dese." },
+    },
     background = { { id = "tp_ba", text = "Mau'ari be a witch doctor, and dat's de story; de rest she keep, like a good charm." } },
     advice = { { id = "tp_ad", text = "Wear two pairs of socks, mon. De spirits don't care, but your toes will." } },
     echo_isles = { { id = "tp_echo_isles", text = "De islands, warm and green, Mau'ari remember dem well. She come up here anyway, because de magic in de snow be stranger." } },

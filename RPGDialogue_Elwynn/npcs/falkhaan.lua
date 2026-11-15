@@ -8,6 +8,10 @@ P:NPC {
   bible = "bibles/falkhaan.md", role = "questgiver", tier = "quest",
   communities = { "northshire", "goldshire" }, temper = { "steady" }, values = { "kind", "generous" },
   notices = { "weary", "drink" },
+  impression = {
+    first = "Falkhaan Isenstrider stands by the road telling tired people where to sleep, and he does it with all the pride of a herald. He seemed genuinely pleased to send me on to the Lion's Pride.",
+    third = "{name} was pointed toward Goldshire's inn by Falkhaan Isenstrider, who keeps watch over the road and cares that travelers rest.",
+  },
 
   greetings = {
     { id = "g_road", text = "The road south's the best road in Elwynn, friend, because it ends at a warm fire and a soft bed." },
@@ -175,6 +179,7 @@ P:NPC {
       },
       choices = {
         { text = "Your secret's safe with the Light.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "A prayer by the roadside isn't much of a prayer.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Vespers would do you good.", next = "BACK", fx = { trait = { pious = 1 } } },
       },
     },

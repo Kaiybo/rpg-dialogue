@@ -9,6 +9,11 @@ P:NPC {
   communities = { "darkshire" }, temper = { "cowardly" }, values = { "lawful", "curious" },
   notices = { "lore" },
 
+  impression = {
+    first = "Clerk Daltry keeps Darkshire's records with a dry wit and too many entries marked missing, presumed wolf. He made the joke because the alternative is weeping into the ledgers.",
+    third = "{name} met Clerk Daltry, who keeps the records of Darkshire, including far too many names marked missing.",
+  },
+
   greetings = {
     { id = "g_records", text = "Records, permits and deeds, all in order. Which form are you here to fill in wrong?" },
     { id = "g_stalvan", when = { questActive = TODO_QUEST("The Legend of Stalvan") }, text = "The Mistmantle file again, is it? Mind the dust, because I'm fairly sure it's load-bearing." },
@@ -108,6 +113,9 @@ P:NPC {
       choices = {
         { text = "Where did the rest go?", next = "census_gone" },
         { text = "Something else.", next = "BACK" },
+        { text = "Stormwind sent me to check your register against the Crown's.", tag = "Deceive", next = "census_padded",
+          check = { pass = { any = { { disposition = { min = 55 } }, { class = "PRIEST" }, { origin = "human_minor_noble" } } } },
+          fail = { next = "census_papers", fx = { affinity = -1 } } },
       },
     },
     census_gone = {
@@ -148,9 +156,32 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    census_padded = {
+      lines = {
+        { id = "cp_default", text = "Against the Crown's? Oh, oh dear, I did wonder when someone would come. Yes, all right, there are names on the register that ought to be in the other column, and I've, ah, not quite got round to moving them." },
+        { id = "cp_after", text = "On purpose, I'm afraid, because the Crown counts heads before it counts letters, and a town of four hundred gets an answer where a town of two hundred gets two lines and a seal. Please don't strike them off; it's the only thing I can do for Darkshire with a pen." },
+      },
+      choices = {
+        { text = "Your secret's safe. I'm not from Stormwind.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'll leave the register as it is.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+      },
+    },
+    census_papers = {
+      lines = {
+        { id = "cpp_default", text = "From Stormwind? Then you'll have papers, with a seal, and a clerk's countersignature, because they always send those. No? Then I'm afraid the register stays in its drawer." },
+        { id = "cpp_default2", text = "The Crown hasn't sent anyone to look at Darkshire in four years, and it certainly wouldn't send someone who didn't know the form number. Nice try, though." },
+      },
+      choices = {
+        { text = "Worth a try.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Everything in Darkshire is written down somewhere, and most of it's written down by me. Ask me about any of this, and mind the ink." },
+    },
     background = { { id = "tp_bg", text = "I'm the clerk, and I write things down. I'm in the register under 'clerk', and that's all it says about me, which I find restful." } },
     advice = { { id = "tp_ad", text = "Sign your name clearly when you come through Darkshire, because if the worst happens, it helps enormously." } },
     stalvan = { { id = "tp_stalvan", text = "There's a file on him, but it's thin, and that's the strangest thing about it." } },

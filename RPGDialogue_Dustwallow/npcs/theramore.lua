@@ -8,6 +8,11 @@ P:NPC {
   communities = { "theramore" }, temper = { "earnest", "sharp" }, values = { "wise", "kind", "dutiful" },
   notices = { "class", "race", "form" },
 
+  impression = {
+    first = "Lady Jaina Proudmoore would rather hear bad news early, and she meant it. She carries Theramore and its peace on her shoulders, and seems to have forgotten what sitting down feels like.",
+    third = "{name} met Lady Jaina Proudmoore, who founded Theramore and works to keep the peace between Alliance and Horde.",
+  },
+
   greetings = {
     { id = "g_tower", text = "Welcome to Theramore, and speak freely; I'd rather hear bad news early than good news late." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back, good. I have few enough people I can rely on outside these walls." },
@@ -33,6 +38,8 @@ P:NPC {
         { id = "h_diplomat", tags = { "news" }, when = { questActive = TODO_QUEST("The Missing Diplomat") },
           text = "Whatever Tervosh has you chasing, see it through. Someone has been working against us from the shadows, and I mean to learn who." },
         { id = "h_night", when = { timeOfDay = "night" },
+        { id = "h_warm", when = { disposition = { min = 75 } },
+          text = "I'm glad you came back. Sit, if you like; Tervosh says I don't sit nearly enough, and he's usually right." },
           text = "Still awake? So am I. The tower's quiet at night, and it's the only time I can hear myself think about anything but the next letter." },
       },
       again = {
@@ -60,6 +67,7 @@ P:NPC {
       },
       choices = {
         { text = "I agree.", next = "BACK", fx = { affinity = 2, align = { honor = 1 }, standing = { theramore = 1 }, opinion = { peace = "for" } } },
+        { text = "I'd break that treaty the day it stopped serving us.", next = "BACK", fx = { affinity = -2, align = { honor = -1 } } },
         { text = "I'm not sure they'd do the same.", next = "doubt" },
       },
     },
@@ -124,6 +132,10 @@ P:NPC {
       choices = {
         { text = "Of course.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "You did what you had to.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Your father should have come first, my lady.", next = "BACK", fx = { affinity = -2, align = { order = -1 } } },
+        { text = "You can tell me, my lady. It won't leave this room.", tag = "Persuade", next = "father_true",
+          check = { pass = { any = { { disposition = { min = 70 } }, { origin = "human_lordaeron_refugee" }, { all = { { class = "PRIEST" }, { trait = "kind" } } } } } },
+          fail = { next = "father_no", fx = { affinity = -1 } } },
       },
     },
 
@@ -170,12 +182,39 @@ P:NPC {
       lines = { { id = "pl_default", text = "I was never a priest. But I prayed on the docks, with the dead behind us and the sea ahead, and something answered. I've decided not to ask what; I just keep listening." } },
       choices = {
         { text = "It was the Light.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Desperate people hear answers in the wind, my lady.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    father_true = {
+      lines = {
+        { id = "ft_default", text = "When my father's fleet came, I told my own soldiers to stand aside, and I sent word to Thrall instead of standing with my family. I chose the peace over my father, and I would choose it again, and I still don't know what kind of daughter that makes me." },
+        { id = "ft_refugee", when = { origin = "human_lordaeron_refugee" },
+          text = "You were on the ships, so you know what this peace cost us to build. When my father came to tear it down I told my soldiers to stand aside and chose it over him, and I'd choose it again, though I've stopped pretending it doesn't hurt." },
+      },
+      choices = {
+        { text = "It makes you the one who kept the peace.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    father_no = {
+      lines = {
+        { id = "fn_default", text = "I appreciate it, truly, but no. Some things I'll only say once, and I've already said them to myself." },
+        { id = "fn_mage", when = { class = "MAGE" },
+          text = "Dalaran taught us both to keep our own counsel, I think. Ask me something else, please, and I'll answer it gladly." },
+      },
+      choices = {
+        { text = "Of course, my lady.", next = "BACK" },
       },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Theramore hears from both sides of every border, and most of it reaches my desk eventually. Ask, and I'll tell you what I can." },
+      { id = "tp_knows_warm", when = { disposition = { min = 70 } },
+        text = "Ask me anything; you've earned plain answers in this tower. I'll tell you as much as I'd tell Tervosh." },
+    },
     background = { { id = "tp_bg", text = "Kul Tiras, Dalaran, Lordaeron, and now a tower in a swamp. Every step was further from home and closer to where I'm needed.", next = "lordaeron" } },
     advice = { { id = "tp_ad", text = "Learn the other side's words before you need them. Captain Vimes speaks orcish, and it's saved more lives than his sword." } },
     grimtotem = { { id = "tp_grimtotem", text = "There are tauren who'd like a war with us. Thrall isn't one of them, and neither am I. That's where we start." } },
@@ -189,6 +228,11 @@ P:NPC {
   bible = "bibles/dustwallow.md", role = "scholar", tier = "quest",
   communities = { "theramore" }, temper = { "brisk" }, values = { "loyal", "curious" },
   notices = { "class", "craft" },
+
+  impression = {
+    first = "Archmage Tervosh spoke quickly, as though the day were already running out on him. Between the Lady's errands and his books, I gather his garden gets very little of him.",
+    third = "{name} met Archmage Tervosh, Lady Jaina's brisk and loyal advisor in Theramore.",
+  },
 
   greetings = {
     { id = "g_tower", text = "Quickly, please. There's a great deal to do and not much day to do it in." },
@@ -268,6 +312,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I read more than is good for me, so I know a little about a great many things. Ask, and I'll try to be brief." },
+    },
     background = { { id = "tp_bg", text = "A great many books, and then the Lady's tower, because she asked and I'd run out of better reasons to say no." } },
     advice = { { id = "tp_ad", text = "Never eat anything from the marsh you can't name. I can name most of them, and I still don't eat them." } },
     _none = { { id = "tp_none", text = "Not in any book I own, which means it's either very new or very dangerous." } },
@@ -279,6 +326,11 @@ P:NPC {
   bible = "bibles/dustwallow.md", role = "soldier", tier = "quest",
   communities = { "theramore" }, temper = { "direct", "sharp" }, values = { "dutiful", "lawful" },
   notices = { "race", "kit" },
+
+  impression = {
+    first = "Captain Garran Vimes refuses to decide what the evidence means before he's seen all of it, which makes him rare in Theramore. Everyone else blames the Horde for the inn, and he isn't everyone.",
+    third = "{name} met Captain Garran Vimes of the Theramore Guard, who is looking into the burning of the Shady Rest Inn.",
+  },
 
   greetings = {
     { id = "g_citadel", text = "Captain Vimes, Theramore Guard. If you've come about the inn, sit down; if not, be quick." },
@@ -316,6 +368,7 @@ P:NPC {
         { text = "Let me read the tracks myself.", next = "tracks", when = { class = { "HUNTER", "ROGUE", "DRUID" } } },
         { text = "I could sit with James Hyal.", next = "priest_hyal", when = { class = "PRIEST" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2, align = { order = 1 }, standing = { theramore = 1 } } },
+        { text = "It was the Horde, and everyone knows it.", next = "END", fx = { affinity = -1, align = { order = -1 } } },
       },
     },
     why = {
@@ -335,12 +388,16 @@ P:NPC {
     },
     why_horde = {
       lines = { { id = "wh_default", text = "Maybe, and then I'll say so, and I'll hang whoever did it whatever colour he wears. But I'll have proof first; that's the difference between a guard and a mob." } },
-      choices = { { text = "Fair.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } } },
+      choices = {
+        { text = "Fair.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Proof takes too long, so hang the likely ones.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+      },
     },
     hyal = {
       lines = { { id = "hy_default", text = "James kept the Shady Rest: good ale, honest prices. He came home to ash and two graves, and he hasn't said a word to me since. I don't blame him." } },
       choices = {
         { text = "Then let's give him an answer.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "An answer won't bring his family back.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -370,12 +427,16 @@ P:NPC {
       lines = { { id = "ph_default", text = "He hasn't spoken to anyone since. Your kind knows how to sit with grief better than mine does. Just sit with him, and leave the hoofprints to me." } },
       choices = {
         { text = "Just sitting. I promise.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, trait = { kind = 1 } } },
+        { text = "His grief is his own business, and I'll keep my distance.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Asking questions is my job, but I'll answer a few of yours for a change. Pick one." },
+    },
     background = { { id = "tp_bg", text = "Soldier, then sergeant, then the man the Lady asks when something smells wrong. The last one's the job I'm good at." } },
     advice = { { id = "tp_ad", text = "Never believe the first story, especially when everyone agrees on it." } },
     grimtotem = { { id = "tp_grimtotem", text = "Tauren who want the Horde to break its peace. I've no proof of it, yet." } },
@@ -388,6 +449,11 @@ P:NPC {
   bible = "bibles/dustwallow.md", role = "soldier", tier = "quest",
   communities = { "theramore" }, temper = { "orderly" }, values = { "dutiful", "practical" },
   notices = { "kit" },
+
+  impression = {
+    first = "Adjutant Tesoran asked for my name, unit and business before he caught himself. He keeps every soldier's record in Theramore, and I'd guess he could find anything in them blindfolded.",
+    third = "{name} met Adjutant Tesoran, who keeps the records of the Theramore Guard.",
+  },
 
   greetings = {
     { id = "g_records", text = "Name, unit, business? Sorry, that's habit; I keep the Guard's records, and everyone's a form to me." },
@@ -445,6 +511,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Every soldier's record passes through this office, and a fair bit of news comes with it. Ask, and I'll check my files." },
+    },
     background = { { id = "tp_bg", text = "Joined the Guard, discovered I could spell, and was never allowed near a sword again. I've made my peace with it." } },
     advice = { { id = "tp_ad", text = "Write things down. Memory flatters you, but paper doesn't." } },
     _none = { { id = "tp_none", text = "There's no file on that, which is itself worth noting." } },
@@ -456,6 +525,11 @@ P:NPC {
   bible = "bibles/dustwallow.md", role = "innkeeper", tier = "service",
   communities = { "theramore" }, temper = { "steady" }, values = { "loyal", "generous" },
   notices = { "weary", "drink" },
+
+  impression = {
+    first = "Innkeeper Janene runs her inn like the kitchen of all Theramore and plainly loves the place. She fed me before she asked a single thing about me.",
+    third = "{name} met Innkeeper Janene, the warm and steady keeper of Theramore's inn.",
+  },
 
   greetings = {
     { id = "g_inn", text = "Come in out of the damp. Dustwallow gets into your bones; a hot meal gets it out again." },
@@ -497,6 +571,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Everyone in Theramore eats at my tables, and they talk while they eat. Ask me what you like." },
+    },
     background = { { id = "tp_bg", text = "I cook. I've cooked here since the walls were half built, and I'll cook here when they're finished, though they're never finished." } },
     advice = { { id = "tp_ad", text = "Dry your boots by the fire every night you're in the marsh. Rot starts in the toes." } },
     _none = { { id = "tp_none", text = "Plenty gets said over my bar, but not that. Ask at the citadel." } },

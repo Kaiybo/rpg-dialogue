@@ -9,6 +9,11 @@ P:NPC {
   communities = { "booty_bay" }, temper = { "shrewd" }, values = { "ambitious", "proud" },
   notices = { "purse", "kit" },
 
+  impression = {
+    first = "Baron Revilgaz watches the cove from his balcony the way a miser watches a purse. He was perfectly civil to me, and I had the distinct sense of being priced.",
+    third = "{name} was received by Baron Revilgaz, who keeps Booty Bay for the Steamwheedle Cartel and counts its ships and coins from his balcony.",
+  },
+
   greetings = {
     { id = "g_balcony", text = "From this balcony I can count every ship in the cove and most of the coins coming off them. State your business." },
     { id = "g_back", when = { metBefore = true }, text = "You again? Good; repeat business is the only kind I trust." },
@@ -42,6 +47,8 @@ P:NPC {
           text = "Now, this business with the tides. I don't pretend to understand the magic, but I understand exactly what it's costing me." },
         { id = "h_ledger", when = { metBefore = true }, text = "Eleven ships in, nine out, and two the Bloodsail will want to know about. The ledger never sleeps, and neither do I, much." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Lanterns on every deck, music on every pier, and somebody about to fall in. It's the same every night, and I'd miss it if it stopped." },
+        { id = "h_cold", when = { disposition = { max = 34 } },
+          text = "Back again, and still not spending much. My balcony is for paying customers, friend, so make your question worth the climb." },
       },
       again = {
         { id = "h_again", text = "Go on. Every minute on this balcony is a minute I'm not counting something." },
@@ -101,6 +108,7 @@ P:NPC {
       },
       choices = {
         { text = "That's cold.", next = "BACK", fx = { align = { light = 1 }, affinity = -1 } },
+        { text = "Trolls who raid ships get what they deserve.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "steamwheedle" } } },
       },
     },
@@ -124,7 +132,12 @@ P:NPC {
       lines = {
         { id = "pw_default", text = "Then I'll sell both sides the boats to leave in. Neutral doesn't mean blind; it means I keep the receipts for everyone." },
       },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "The Bloodsail want more than your town, Baron. They want you.", tag = "Persuade", next = "knives",
+          check = { pass = { any = { { disposition = { min = 65 } }, { reputation = { faction = "Steamwheedle Cartel", min = "honored" } }, { questDone = TODO_QUEST("The Bloodsail Buccaneers") } } } },
+          fail = { next = "knives_no", fx = { affinity = -1 } } },
+      },
     },
 
     ledger = {
@@ -147,6 +160,7 @@ P:NPC {
       },
       choices = {
         { text = "Stormwind pays its debts.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
+        { text = "Stormwind deserves no better than what it pays for.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Fair enough. Something else.", next = "BACK" },
       },
     },
@@ -163,9 +177,37 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    knives = {
+      lines = {
+        { id = "kn_default", text = "They do, and Seahorn's men have read the letters to prove it. So I sleep in a different room every night and never take the same stair twice, and the Bruiser outside my door thinks he's guarding the ledger, because that's what I told him." },
+        { id = "kn_letters", when = { questDone = TODO_QUEST("The Bloodsail Buccaneers") },
+          text = "You read the letters yourself, so I won't insult you by pretending otherwise. They want me and Seahorn floating in the cove, so I sleep in a different room every night now, and the Bruiser outside my door thinks he's guarding the ledger." },
+      },
+      choices = {
+        { text = "Your secret's safe with me, Baron.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    knives_no = {
+      lines = {
+        { id = "kno_default", text = "Everybody wants something from me, friend, and the Bloodsail are only louder about it. Pay your tab and leave the worrying to the man with the balcony." },
+        { id = "kno_rogue", when = { class = "ROGUE" },
+          text = "Is that a warning or a sales pitch? Either way, I don't buy information from people who look like they sell it twice." },
+      },
+      choices = {
+        { text = "Suit yourself, Baron.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Everything that happens in this cove ends up in my ledger sooner or later. Ask, and I'll tell you what it says, within reason." },
+      { id = "tp_knows_warm", when = { disposition = { min = 70 } },
+        text = "You've been good for business, so ask me anything you like; I'll even answer the ones I'd normally bill for." },
+      { id = "tp_knows_cold", when = { disposition = { max = 34 } },
+        text = "I answer questions for paying customers, and you're barely one. Make it quick." },
+    },
     background = { { id = "tp_bg", text = "Steamwheedle born and Steamwheedle made. I came to this cove with a ledger and a plan, and the ledger's thicker now." } },
     advice = { { id = "tp_ad", text = "Pay your tab, stay off the Bloodsail's boats, and don't feed the parrot; it bites." } },
     bloodsail = { { id = "tp_bloodsail", text = "They want my town, and they've wanted it since before you were born. They can keep on wanting." } },
@@ -179,6 +221,11 @@ P:NPC {
   bible = "bibles/stranglethorn.md", role = "soldier", tier = "major",
   communities = { "booty_bay" }, temper = { "boisterous" }, values = { "brave", "loyal" },
   notices = { "race", "kit" },
+
+  impression = {
+    first = "Fleet Master Seahorn laughs like someone who has survived a great many bad ideas, most of them his own. I liked him at once, which may be exactly what he intended.",
+    third = "{name} met Fleet Master Seahorn of the Blackwater Raiders, a loud, cheerful pirate who answers to the Baron and to no one else.",
+  },
 
   greetings = {
     { id = "g_deck", text = "Up the stairs and still breathing! That's a good start, for I've watched orcs come down those stairs headfirst." },
@@ -292,6 +339,7 @@ P:NPC {
       },
       choices = {
         { text = "The Earth Mother walks with me here too.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
+        { text = "I'm glad to trade the plains for a ship and a captain.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I miss it every day.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -304,6 +352,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Every ship that sails these waters sends word back to me, one way or another! Ask, and I'll tell you what the sea's been saying." },
+    },
     background = { { id = "tp_bg", text = "I was a plains calf who grew into a sea-going bull. The grass raised me, and the waves finished the job.", next = "why" } },
     advice = { { id = "tp_ad", text = "Respect the sea, laugh at the storm, and never, ever trust a red sail." } },
     bloodsail = { { id = "tp_bloodsail", text = "Their fleet master would dearly love my horns on his wall. He'll have to get in line." } },
@@ -316,6 +367,11 @@ P:NPC {
   bible = "bibles/stranglethorn.md", role = "questgiver", tier = "quest",
   communities = { "booty_bay" }, temper = { "chatty" }, values = { "cunning", "ambitious" },
   notices = { "craft", "purse" },
+
+  impression = {
+    first = "Krazek talks faster than I can follow and seems to know the price of everything in the jungle. I suspect he already knew mine before I opened my mouth.",
+    third = "{name} met Krazek, Baron Revilgaz's secretary, who claims to know every price, pirate and debt in Stranglethorn.",
+  },
 
   greetings = {
     { id = "g_desk", text = "Busy, busy, busy, but never too busy for a customer. You are a customer, aren't you?" },
@@ -404,7 +460,7 @@ P:NPC {
       },
       choices = {
         { text = "Your secret's safe.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "What's it worth to you if I don't repeat it?", next = "baron_deal", fx = { align = { honor = -2 }, trait = { greedy = 1 } } },
+        { text = "Keeping quiet will cost you, Krazek.", next = "baron_deal", fx = { align = { honor = -2 }, trait = { greedy = 1 } } },
       },
     },
     baron_deal = {
@@ -420,7 +476,12 @@ P:NPC {
         { id = "am_king", when = { questDone = TODO_QUEST("Big Game Hunter") },
           text = "That Nesingwary has a new head on his wall and it's partly your fault. Nobody's talking about anything else at the bar." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+      choices = {
+        { text = "Something else.", next = "BACK", fx = { affinity = 1 } },
+        { text = "The Baron sent me. He wants to hear about Crank Fizzlebub.", tag = "Deceive", next = "crank",
+          check = { pass = { any = { { class = "ROGUE" }, { trait = "witty" }, { disposition = { min = 60 } } } } },
+          fail = { next = "crank_no", fx = { affinity = -1 } } },
+      },
     },
 
     rebels = {
@@ -429,6 +490,7 @@ P:NPC {
       },
       choices = {
         { text = "Give them a better price.", next = "rebels_price", fx = { align = { light = 1 }, trait = { generous = 1 } } },
+        { text = "A fairish price is fair enough for deserters.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "kurzen" } } },
       },
     },
@@ -436,9 +498,33 @@ P:NPC {
       lines = { { id = "rp_default", text = "A better price, from a goblin, in the Baron's town? You're either very kind or very new. I'll knock a copper off the next crate, but don't tell anyone, or it'll ruin me." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    crank = {
+      lines = {
+        { id = "cr_default", text = "The Baron? Already? Fine, fine: Crank's been selling the Venture Company's singing crystals out the back of this very tavern, and he's got some arrangement with a goblin at the Mirage Raceway that I haven't priced yet, so tell the Baron I was going to mention it today, at the latest." },
+        { id = "cr_shards", when = { questDone = TODO_QUEST("Singing Blue Shards") },
+          text = "He knows already? Then he knows you carried crystals for Crank yourself, so I'll skip that part. The new part is a deal with some goblin at the Mirage Raceway, and you can tell the Baron I was going to mention it today, at the latest." },
+      },
+      choices = {
+        { text = "I'll pass it on.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    crank_no = {
+      lines = {
+        { id = "cno_default", text = "The Baron rings a bell when he wants me, friend; he doesn't send strangers up the stairs. Nice try, though, and I'll be selling that story by supper." },
+        { id = "cno_paladin", when = { class = "PALADIN" },
+          text = "A paladin, lying for the Baron? Now that's a rumor I can sell twice, so thank you kindly for it." },
+      },
+      choices = {
+        { text = "It was worth a try.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Pick a subject, any subject; I've got a rumor for every one of them and a price for most." },
+    },
     background = { { id = "tp_bg", text = "I started out running messages, and now I am the messages. That's not bad for a goblin with no inheritance." } },
     advice = { { id = "tp_ad", text = "Information's worth more than gold, and it spoils faster, so use it quick." } },
     kurzen = { { id = "tp_kurzen", text = "The rebels up north buy from me, but Kurzen's lot stopped buying anything a while back, and that's never a good sign." } },
@@ -452,6 +538,11 @@ P:NPC {
   bible = "bibles/stranglethorn.md", role = "citizen", tier = "quest",
   communities = { "booty_bay" }, temper = { "menacing" }, values = { "cunning", "practical" },
   notices = { "purse", "drink" },
+
+  impression = {
+    first = "Sea Wolf MacKinley was friendly enough over the knucklebones, and I still came away feeling like a column in his ledger. I mean to stay out of his debt.",
+    third = "{name} shared a crate with Sea Wolf MacKinley, a Booty Bay moneylender who swears that not even death cancels a debt owed to him.",
+  },
 
   greetings = {
     { id = "g_crate", text = "Pull up a crate, then. Are you any good at knucklebones? It doesn't matter much, since I'm better." },
@@ -486,7 +577,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, then; I'm only shuffling." },
       },
       choices = {
-        { text = "[Persuade] Deal me in. One game.", tag = "Persuade", next = "game",
+        { text = "Deal me in. One game.", tag = "Persuade", next = "game",
           check = { pass = { money = { min = 100000 } } },
           fail = { next = "broke" } },
         { text = "What do people owe you for?", next = "owe" },
@@ -530,6 +621,7 @@ P:NPC {
       choices = {
         { text = "A foot?", next = "dead_foot" },
         { text = "That's ghoulish.", next = "BACK", fx = { affinity = -1, align = { light = 1 } } },
+        { text = "A debt should outlive the debtor, and fair's fair.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
       },
     },
     dead_foot = {
@@ -556,6 +648,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I make it my business to know things about people, mostly what they owe. Ask, and we'll see what it costs you." },
+    },
     background = { { id = "tp_bg", text = "Sailor, gambler, collector. I was very bad at the first two before I got very good at the third." } },
     advice = { { id = "tp_ad", text = "Don't borrow what you can't pay back, and if you do, don't borrow it from me." } },
     _none = { { id = "tp_none", text = "Does it owe me money? Then I don't care about it." } },
@@ -567,6 +662,11 @@ P:NPC {
   bible = "bibles/stranglethorn.md", role = "questgiver", tier = "quest",
   communities = { "booty_bay" }, temper = { "slick" }, values = { "ambitious", "cunning" },
   notices = { "purse" },
+
+  impression = {
+    first = "Kebok smiled through his whole pitch, and I noticed the smile never reached the part about his agents getting killed. I am apparently meant to be harder to kill.",
+    third = "{name} heard a business proposition from Kebok, a goblin trader whose agents keep dying in the jungle.",
+  },
 
   greetings = {
     { id = "g_pitch", text = "You've the look of somebody who'd like to be rich, and I can help with that for a fee, a small one, or medium at most." },
@@ -623,7 +723,7 @@ P:NPC {
         { id = "f_default", text = "Fraud is a strong word; I prefer 'creative sourcing'. Nobody's hurt, except the trolls, and they started it." },
       },
       choices = {
-        { text = "Fine by me. What pays best?", next = "BACK", fx = { align = { honor = -2 }, trait = { greedy = 1 }, affinity = 2 } },
+        { text = "Fine by me, so long as it pays.", next = "BACK", fx = { align = { honor = -2 }, trait = { greedy = 1 }, affinity = 2 } },
         { text = "I'll do the work. Not the lying.", next = "BACK", fx = { align = { honor = 2 }, affinity = 1 } },
         { text = "I'll be telling the Baron.", next = "fraud_baron", fx = { align = { order = 1 }, affinity = -2 } },
       },
@@ -659,6 +759,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Information is just another commodity, and I deal in commodities. Ask, and I'll tell you what I'm willing to part with." },
+    },
     background = { { id = "tp_bg", text = "Bought my first crate at nine and sold it at ten for twice the price. I never looked back, mostly because I never had the time." } },
     advice = { { id = "tp_ad", text = "Never let the client see the warehouse." } },
     bloodsail = { { id = "tp_bloodsail", text = "Every crate they take is a crate I paid for twice: once to buy it, and once to cry about it." } },
@@ -671,6 +774,11 @@ P:NPC {
   bible = "bibles/stranglethorn.md", role = "innkeeper", tier = "service",
   communities = { "booty_bay" }, temper = { "wry" }, values = { "practical" },
   notices = { "drink", "guest" },
+
+  impression = {
+    first = "Innkeeper Skindle keeps the Salty Sailor running under the Baron's nose and lowers his voice near the stairs. Sensible man, and the rum was better than I expected.",
+    third = "{name} took a stool at the Salty Sailor, where Innkeeper Skindle keeps the rooms, the rum and a careful eye on the Baron's stairs.",
+  },
 
   greetings = {
     { id = "g_inn", text = "In you come, out of the sun. Stools by the windows get the breeze, and the sea air covers the smell of the fish." },
@@ -732,6 +840,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Rum loosens tongues, and I pour a great deal of rum. Ask me what you like, and keep your voice down near the stairs." },
+    },
     background = { { id = "tp_bg", text = "I've poured drinks in worse places than this. Booty Bay pays better, and the fights are funnier." } },
     advice = { { id = "tp_ad", text = "Sit facing the door. Everyone in here does, which is why the chairs are all on one side." } },
     _none = { { id = "tp_none", text = "Couldn't tell you. Ask whoever's drinking the most; they always have a theory." } },
@@ -744,6 +855,11 @@ P:NPC {
   bible = "bibles/stranglethorn.md", role = "questgiver", tier = "quest",
   communities = { "booty_bay" }, temper = { "vengeful" }, values = { "proud", "stubborn" },
   notices = { "kit" },
+
+  impression = {
+    first = "Captain Smotts lost two ships and a fortune to three sea giants, and he tells the story as though it happened to someone he'd like to punch. He has not given up.",
+    third = "{name} heard Captain Hecklebury Smotts tell of the three sea giants who sank two of his ships and took everything he owned.",
+  },
 
   greetings = {
     { id = "g_giants", text = "Sea giants, three of 'em! You can ask me about them or not, for I'll tell you anyway." },
@@ -857,12 +973,16 @@ P:NPC {
       lines = { { id = "pw_default", text = "Sprogger asked me that once, and I said no, because I wasn't ready. Say them now, but not too long, and I'll stand at the back where nobody can see my face." } },
       choices = {
         { text = "I'll keep it short.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, trait = { kind = 1 } } },
+        { text = "Words won't help them now, Smotts.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've sailed every inch of this coast hunting those giants, and I've learned a thing or two along the way. Ask, and I'll tell you." },
+    },
     background = { { id = "tp_bg", text = "I've been captain of two ships and two crews, and both are at the bottom of that bay. That's my story, and I tell it every night.", next = "giveup" } },
     advice = { { id = "tp_ad", text = "Never sail where the water stands up. You'll know it when you see it, and you'll wish you hadn't." } },
     _none = { { id = "tp_none", text = "Is it a sea giant? No? Then it isn't my problem." } },
@@ -874,6 +994,11 @@ P:NPC {
   bible = "bibles/stranglethorn.md", role = "citizen", tier = "quest",
   communities = { "booty_bay" }, temper = { "nervous" }, values = { "cautious" },
   notices = { "kit" },
+
+  impression = {
+    first = "Shaky Phillipe jumped when I came near and asked, a little too casually, whether a large man with a gambling habit had been looking for him. Somebody clearly has.",
+    third = "{name} met Shaky Phillipe, a nervous Booty Bay sailor who seems very worried about a certain large gambler.",
+  },
 
   greetings = {
     { id = "g_jump", text = "Ah! Oh, it's only you; I thought you were... well, nobody, nobody in particular, so hello there." },
@@ -906,6 +1031,7 @@ P:NPC {
         { text = "MacKinley asked me to check on you.", next = "panic", when = { heardLine = "mackinley.h_default" } },
         { text = "Want me to teach you to hide properly?", next = "hide", when = { class = "ROGUE" } },
         { text = "Your secret's safe. For now.", next = "END", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Pay MacKinley what you owe, and you'll stop shaking.", next = "END", fx = { align = { honor = 1 } } },
         { text = "Calm down. Nobody's after you.", next = "END", fx = { affinity = 1, trait = { kind = 1 } } },
       },
     },
@@ -917,6 +1043,9 @@ P:NPC {
       },
       choices = {
         { text = "I could talk to MacKinley for you.", next = "debt_talk", fx = { trait = { generous = 1 } } },
+        { text = "Tell me the truth, Phillipe, or MacKinley hears where you hide.", tag = "Intimidate", next = "confess", when = { ["not"] = { questDone = TODO_QUEST("Scaring Shaky") } },
+          check = { pass = { any = { { power = { "above", "far_above" } }, { class = { "WARRIOR", "ROGUE" } }, { trait = "stern" } } } },
+          fail = { next = "confess_no", fx = { affinity = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -960,13 +1089,37 @@ P:NPC {
         { id = "hi_default", text = "Hide? I've been hiding for weeks, behind barrels and in barrels, and he always finds me. There's a trick to it, isn't there?" },
       },
       choices = {
-        { text = "Stop shaking. That's the whole trick.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Stop shaking. That's the whole trick.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1, trait = { witty = 1 } } },
         { text = "Pay your debts. Then there's nothing to hide from.", next = "BACK", fx = { align = { honor = 1 } } },
+      },
+    },
+    confess = {
+      lines = {
+        { id = "cf_default", text = "All right, all right, don't tell him! The truth is, it isn't the debt that scares me most; it's that if MacKinley dealt me a hand tomorrow I'd sit down and play it, and I know I would, and so does he." },
+        { id = "cf_rogue", when = { class = "ROGUE" },
+          text = "Don't, please, I know your sort, you'd really do it! The truth is I'd play him again tomorrow if he dealt me in, and he knows it, and that's why he's never in any hurry to collect." },
+      },
+      choices = {
+        { text = "Then stay away from the tables.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    confess_no = {
+      lines = {
+        { id = "cn_default", text = "You wouldn't dare, would you, not really? No, you're bluffing, because I've watched MacKinley bluff and you're not nearly frightening enough." },
+        { id = "cn_gnome", when = { race = "Gnome" },
+          text = "You're going to tell on me? You're barely taller than the barrel I hide in, and I'm frightened of a great many things, but not that." },
+      },
+      choices = {
+        { text = "Fine, Phillipe.", next = "BACK" },
       },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I don't know anything, honestly! Well, maybe a few things, if you promise nobody's listening." },
+    },
     background = { { id = "tp_bg", text = "Nobody! I'm nobody at all, so please ask someone more interesting, please?" } },
     advice = { { id = "tp_ad", text = "Never play knucklebones with a man called Wolf. Any kind of wolf." } },
     _none = { { id = "tp_none", text = "I don't know anything about anything, I swear! Is this about money?" } },
@@ -978,6 +1131,11 @@ P:NPC {
   bible = "bibles/stranglethorn.md", role = "questgiver", tier = "quest",
   communities = { "booty_bay", "blackwater" }, temper = { "eager" }, values = { "loyal", "fierce" },
   notices = { "race" },
+
+  impression = {
+    first = "First Mate Crazz hates the Bloodsail Buccaneers with a steady, practical sort of hatred. Anyone with news of a red bandana will have a friend in him, for an afternoon.",
+    third = "{name} met First Mate Crazz of the Blackwater Raiders, who wants to know what the Bloodsail Buccaneers are planning and then to sink it.",
+  },
 
   greetings = {
     { id = "g_bloodsail", text = "If you've seen a red bandana on the coast, tell me where. I've been wanting a reason all week." },
@@ -1021,6 +1179,7 @@ P:NPC {
       },
       choices = {
         { text = "Pirates with rules. I can respect that.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Rules are for merchants, and I'd rather sail free.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "A pirate's a pirate.", next = "hate_pirate", fx = { affinity = -1 } },
       },
     },
@@ -1054,6 +1213,7 @@ P:NPC {
       choices = {
         { text = "Fair. Something else.", next = "BACK" },
         { text = "Don't underestimate Stormwind.", next = "BACK", fx = { align = { order = 1 }, affinity = -1 } },
+        { text = "Booty Bay's better off without Stormwind's navy.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
     horde = {
@@ -1083,6 +1243,11 @@ P:NPC {
   bible = "bibles/stranglethorn.md", role = "questgiver", tier = "quest",
   communities = { "booty_bay" }, temper = { "shifty" }, values = { "greedy", "clever" },
   notices = { "purse" },
+
+  impression = {
+    first = "Crank Fizzlebub called me over from across the dock with a promise of easy money. Nothing he offers will be easy, and I'm fairly sure that's the point.",
+    third = "{name} was hailed by Crank Fizzlebub, a Booty Bay goblin with schemes for anyone who has a strong arm and a short memory.",
+  },
 
   greetings = {
     { id = "g_profit", text = "Psst, you there, yes, you! Want to make some money? Course you do, everybody does, so lean in." },
@@ -1115,7 +1280,8 @@ P:NPC {
         { text = "What do singing crystals actually do?", next = "crystals" },
         { text = "What's your arrangement with Kravel?", next = "kravel", when = { any = { { heardLine = "kravel.h_default" }, { topicKnown = "mirage_raceway" } } } },
         { text = "I'm a gnome. I know a scheme when I see one.", next = "gnome", when = { race = "Gnome" } },
-        { text = "What's the job?", next = "END", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'm listening, so tell me the job.", next = "END", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I don't work for swindlers, Crank.", next = "END", fx = { align = { honor = 1 } } },
         { text = "Not today, Crank.", next = "END" },
       },
     },
@@ -1124,7 +1290,8 @@ P:NPC {
         { id = "l_default", text = "Legal? This is Booty Bay! The Baron takes his cut, the Bruisers keep the peace, and everything else is negotiation, which you're doing right now, and badly." },
       },
       choices = {
-        { text = "Fine. What's the job?", next = "END", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Fine, then, tell me the job.", next = "END", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Then I'll have no part of it, Crank.", next = "END", fx = { align = { honor = 1 } } },
         { text = "Then I'll negotiate better. What's my cut?", next = "legal_cut", fx = { trait = { greedy = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1157,6 +1324,7 @@ P:NPC {
       choices = {
         { text = "You're rigging the races.", next = "kravel_rig", fx = { learn = { "mirage_raceway" } } },
         { text = "Count me in.", next = "BACK", fx = { align = { honor = -2 }, affinity = 2 } },
+        { text = "I won't help you poison racers, Crank.", next = "BACK", fx = { align = { honor = 2 } } },
       },
     },
     kravel_rig = {
@@ -1164,6 +1332,9 @@ P:NPC {
       choices = {
         { text = "Maybe I'll tell them.", next = "BACK", fx = { align = { honor = 2 }, affinity = -2 } },
         { text = "Your secret's safe.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "Pozzik already knows, Crank. He told me himself.", tag = "Deceive", next = "kravel_spill",
+          check = { pass = { any = { { class = "ROGUE" }, { trait = "witty" }, { race = "Gnome" } } } },
+          fail = { next = "kravel_calm", fx = { affinity = -1 } } },
       },
     },
     gnome = {
@@ -1172,9 +1343,33 @@ P:NPC {
       },
       choices = { { text = "It's a bit crude.", next = "BACK", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
     },
+    kravel_spill = {
+      lines = {
+        { id = "ks_default", text = "He knows? Then it's Kravel's fault, all of it! It's Zanzil's troll mixture stirred into a cask of Fool's Stout for the racers, and Kravel swore nobody would taste it under the stout, and if Pozzik's coming I'm leaving on the next boat." },
+        { id = "ks_gnome", when = { race = "Gnome" },
+          text = "That gnome told you? Of course he did, you people stick together! Fine: it's Zanzil's troll mixture in a cask of Fool's Stout for the racers, it was Kravel's idea, and I'm leaving on the next boat." },
+      },
+      choices = {
+        { text = "Relax, Crank, I made that up.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kravel_calm = {
+      lines = {
+        { id = "kc_default", text = "Pozzik doesn't talk to anybody who isn't holding a wrench, friend, and you're not holding a wrench. Nice try; I'd have tried it too." },
+        { id = "kc_paladin", when = { class = "PALADIN" },
+          text = "A paladin, lying to me? Now I've seen everything, and I still don't believe a word of it." },
+      },
+      choices = {
+        { text = "Worth a try.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Lean in and ask, friend; I know a little about a lot, and most of it's worth something to somebody." },
+    },
     background = { { id = "tp_bg", text = "I'd tell you, but then you'd know where the bodies are buried, figuratively speaking. Mostly figuratively." } },
     advice = { { id = "tp_ad", text = "Buy from people who are in a hurry and sell to people who are scared, never the other way round." } },
     venture_company = { { id = "tp_venture", text = "Rivals, and rich, careless rivals at that, which are my favourite kind." } },
@@ -1187,6 +1382,11 @@ P:NPC {
   bible = "bibles/stranglethorn.md", role = "citizen", tier = "quest",
   communities = { "booty_bay" }, temper = { "jovial" }, values = { "generous", "touchy" },
   notices = { "drink" },
+
+  impression = {
+    first = "Whiskey Slim raised a toast to me before he knew my name, and two more after. Somewhere under the drink is a real grief over a lost cask of port.",
+    third = "{name} was toasted by Whiskey Slim, a cheerful drinker in Booty Bay who still mourns a lost cask of the finest port.",
+  },
 
   greetings = {
     { id = "g_toast", text = "A toast! To you, stranger, and to whatever brought you here, unless it was trouble, in which case, to you anyway!" },
@@ -1284,6 +1484,11 @@ P:NPC {
   communities = { "booty_bay" }, temper = { "boastful" }, values = { "proud", "greedy" },
   notices = { "craft" },
 
+  impression = {
+    first = "Drizzlik praised his own leatherwork for longer than most people pray. The trouble is that the work deserves most of it.",
+    third = "{name} browsed Drizzlik's Emporium in Booty Bay, where the goblin leathercrafter praises his own crocolisk and panther hides at great length.",
+  },
+
   greetings = {
     { id = "g_emporium", text = "Welcome to Drizzlik's Emporium, the finest leather in the South Seas! The finest leather anywhere, if you ask me, and you are asking me." },
   },
@@ -1354,6 +1559,11 @@ P:NPC {
   bible = "bibles/stranglethorn.md", role = "citizen", tier = "quest",
   communities = { "booty_bay" }, temper = { "haunted" }, values = { "loyal" },
   notices = { "drink" },
+
+  impression = {
+    first = "Sprogger cooked for Captain Smotts and came up out of the sea with him when the giants struck. He speaks of it plainly, which made it worse to hear.",
+    third = "{name} met Sprogger, Captain Smotts' cook, who survived the sinking of the Smotts' Revenge alongside his captain.",
+  },
 
   greetings = {
     { id = "g_cook", text = "You hungry? I can cook, I'm a cook. Well, I was a cook, on a ship, two ships actually." },
@@ -1430,7 +1640,11 @@ P:NPC {
       lines = {
         { id = "a_default", text = "He'll ask. He'll find a ship and stand on that dock and ask, and I'll say yes, and I'll hate every minute of it." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { align = { honor = 1 } } } },
+      choices = {
+        { text = "Standing by him like that is real loyalty.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then tell him no, because you've earned some peace.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     pray = {
       lines = {
@@ -1440,6 +1654,7 @@ P:NPC {
       },
       choices = {
         { text = "Then the water will do.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, trait = { pious = 1 } } },
+        { text = "I've no words for the sea, Sprogger, and I'm sorry.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
   },
@@ -1456,6 +1671,11 @@ P:NPC {
   bible = "bibles/stranglethorn.md", role = "citizen", tier = "quest",
   communities = { "booty_bay", "blackwater" }, temper = { "miserable" }, values = { "hopeful" },
   notices = { "kit" },
+
+  impression = {
+    first = "Fin Fizracket is sweating out the Stranglethorn Fever and warned me off in the same breath as he asked for help. I kept a polite distance anyway.",
+    third = "{name} met Fin Fizracket, a Blackwater Raider laid low by the Stranglethorn Fever.",
+  },
 
   greetings = {
     { id = "g_sick", text = "Don't come too close, or do, I don't know if it's catching, and nobody else knows anything either. Ugh." },
@@ -1514,7 +1734,7 @@ P:NPC {
       },
       choices = {
         { text = "This is beyond what I can mend. Hold on.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "It'll pass. Rest and water.", next = "BACK", fx = { affinity = 1 } },
+        { text = "It'll pass. Rest and water.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
       },
     },
     after = {
@@ -1537,6 +1757,11 @@ P:NPC {
   bible = "bibles/stranglethorn.md", role = "worker", tier = "quest",
   communities = { "booty_bay" }, temper = { "watchful" }, values = { "careful", "practical" },
   notices = { "race" },
+
+  impression = {
+    first = "Wharfmaster Lozgil sees every crate and every face that comes off a boat in Booty Bay. He looked at mine long enough that I wondered which list I'd gone on.",
+    third = "{name} passed Wharfmaster Lozgil on the docks of Booty Bay, where everything and everyone coming off a boat goes past him first.",
+  },
 
   greetings = {
     { id = "g_docks", text = "Watch your step on the boards, and your purse on the docks. Not necessarily in that order." },
@@ -1623,6 +1848,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Everything that comes off a boat passes me first, and so does every scrap of news. Ask, and I'll tell you what I've seen." },
+    },
     background = { { id = "tp_bg", text = "I've been on these docks longer than most of the docks have, and I've replaced every board twice." } },
     advice = { { id = "tp_ad", text = "Watch the people who aren't watching the ships. They're the ones to worry about." } },
     bloodsail = { { id = "tp_bloodsail", text = "Some of the faces on my docks wear red when nobody's looking. I can't prove it, not yet." } },

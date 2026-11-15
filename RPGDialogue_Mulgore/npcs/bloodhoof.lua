@@ -7,6 +7,10 @@ P:NPC {
   bible = "bibles/mulgore.md", role = "noble", tier = "major",
   communities = { "bloodhoof" }, temper = { "calm" }, values = { "wise", "loyal", "kind" },
   notices = { "race", "form" },
+  impression = {
+    first = "Baine Bloodhoof would rather talk the goblins, gnolls and dwarves down than fight them, and he means it. He walks the village every evening and admits he is still learning a few of its faces.",
+    third = "{name} met Baine Bloodhoof, Cairne's son, who keeps Bloodhoof Village and the plains below the bluffs.",
+  },
 
   greetings = {
     { id = "g_tent", text = "Be welcome in Bloodhoof Village. My father keeps the bluffs; I keep the plains below them." },
@@ -39,8 +43,29 @@ P:NPC {
         { text = "How did the tauren come to Mulgore?", next = "coming" },
         { text = "What troubles the plains?", next = "troubles" },
         { text = "Why talk, if they won't listen?", next = "talk" },
+        { text = "Does your father miss living on the plains?", tag = "Persuade", next = "baine_father",
+          check = { pass = { any = { { disposition = { min = 65 } }, { heardLine = "cairne.h_default" }, { race = "Tauren" } } } },
+          fail = { next = "baine_father_no", fx = { affinity = -1 } } },
         { text = "Earth Mother guide you.", next = "END", fx = { affinity = 1 } },
       },
+    },
+    baine_father = {
+      lines = {
+        { id = "bf_default", text = "Every season. He tells me the High Rise is a fine place to see the land from and a poor place to stand on it. He'd rather walk with the herds, I think, and he stays up there because the tribes need one place to look to. I've never told him I noticed." },
+        { id = "bf_heard", when = { heardLine = "cairne.h_default" },
+          text = "You've heard him speak of the land, so you know already. He talks about the plains the way old warriors talk about a battle they miss. I keep the village well so that he can at least look down and see it kept." },
+      },
+      choices = {
+        { text = "He's lucky in his son.", next = "BACK", fx = { affinity = 2 } },
+        { text = "I won't mention it to him.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    baine_father_no = {
+      lines = {
+        { id = "bn_default", text = "My father's heart is his own to speak of, friend." },
+        { id = "bn_ask", text = "Ask him yourself, on the High Rise. He'll tell you more than I should." },
+      },
+      choices = { { text = "Of course.", next = "BACK" } },
     },
     troubles = {
       big = true,
@@ -49,6 +74,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll help.", next = "END", fx = { affinity = 2, standing = { bloodhoof = 1 }, align = { honor = 1 } } },
+        { text = "The Venture Company pays well, and I won't cross them for a few hills.", next = "END", fx = { align = { honor = -1 } } },
       },
     },
     talk = {
@@ -66,6 +92,11 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The plains bring news to Bloodhoof from every road, and I try to hear all of it. Ask me about these, and I'll tell you what I know." },
+      { id = "tp_knows_warm", when = { disposition = { min = 65 } }, text = "Sit with me, friend; you've earned the long answers, and the village can spare me a while." },
+      { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "I'll answer, as I'd answer anyone who asks honestly, and I hope you are asking honestly." },
+    },
     cenarion_circle = { { id = "tp_circle", text = "Hamuul studies with them. My father trusts them, and so do I. The land needs friends who listen to it." } },
     grimtotem = { { id = "tp_grimtotem", text = "They're tauren, whatever else they are. I'd rather reason with them than fight them, for as long as reason works." } },
     _none = { { id = "tp_none", text = "I don't know, but I'll ask, and I'll remember you asked first." } },
@@ -78,6 +109,10 @@ P:NPC {
   bible = "bibles/mulgore.md", role = "priest", tier = "quest",
   communities = { "bloodhoof" }, temper = { "serene" }, values = { "wise", "patient" },
   notices = { "class", "affliction" },
+  impression = {
+    first = "As Baine tends the people of Bloodhoof, Zarlman Two-Moons tends its spirits. He speaks of them as if they were restless children, which may be exactly what they are.",
+    third = "{name} met Zarlman Two-Moons, spiritual leader of Bloodhoof Village and keeper of the rite of vision.",
+  },
 
   greetings = {
     { id = "g_spirit", text = "Peace, young one. Baine tends the village in this world. I tend it in the other." },
@@ -110,7 +145,10 @@ P:NPC {
     },
     vision = {
       lines = { { id = "v_default", text = "Something different for everyone: a path, usually, and sometimes the end of one. The spirits choose; I only open the door." } },
-      choices = { { text = "I'm ready.", next = "END", fx = { affinity = 2, align = { light = 1 } } } },
+      choices = {
+        { text = "I'm ready.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I'd rather walk my own path than one the spirits pick for me.", next = "END", fx = { align = { light = -1 } } },
+      },
     },
     spirits = {
       lines = {
@@ -131,6 +169,10 @@ P:NPC {
   bible = "bibles/mulgore.md", role = "questgiver", tier = "quest",
   communities = { "bloodhoof" }, temper = { "steady" }, values = { "practical" },
   notices = { "class" },
+  impression = {
+    first = "Harken Windtotem watches the sky over Mulgore out of a habit left from the wandering years. He reads the weather from his aching knees and calls it progress with a perfectly straight face.",
+    third = "{name} met Harken Windtotem, who keeps watch over what flies above Mulgore, which lately means far too many swoops.",
+  },
 
   greetings = {
     { id = "g_plains", text = "Watch the sky over Mulgore for a while. You'll see what I mean about the swoops." },
@@ -173,6 +215,10 @@ P:NPC {
   bible = "bibles/mulgore.md", role = "questgiver", tier = "quest",
   communities = { "bloodhoof" }, temper = { "solemn" }, values = { "brave" },
   notices = { "kit" },
+  impression = {
+    first = "Rain followed every camp Maur Raincaller made on the long walk to Mulgore, and the name stuck. He tracks a beast the young hunters only whisper about, and he means to see its hide.",
+    third = "{name} met Maur Raincaller, a solemn tauren hunter on the trail of the great beast Mazzranache.",
+  },
 
   greetings = {
     { id = "g_rain", text = "Rain's coming; I can smell it on the wind. It's good for the grass, and bad for tracking." },
@@ -214,6 +260,10 @@ P:NPC {
   bible = "bibles/mulgore.md", role = "priest", tier = "quest",
   communities = { "bloodhoof" }, temper = { "worried" }, values = { "devout", "protective" },
   notices = { "race" },
+  impression = {
+    first = "Mull Thunderhorn walks to every sacred well each morning and finds the water no better each time. His worry is plain, but so is his stubbornness, and he will walk again tomorrow.",
+    third = "{name} met Mull Thunderhorn, who grieves for the sacred wells of Mulgore poisoned by the Venture Company's machines.",
+  },
 
   greetings = {
     { id = "g_wells", text = "Forgive me, my mind is on the wells. It's always on the wells, lately." },
@@ -242,6 +292,7 @@ P:NPC {
       choices = {
         { text = "Who poisoned them?", next = "who" },
         { text = "I'll help cleanse them.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Goblin oil means goblin coin, and I won't stand in its way.", next = "END", fx = { align = { light = -1 } } },
       },
     },
     who = {
@@ -261,6 +312,10 @@ P:NPC {
   bible = "bibles/mulgore.md", role = "farmer", tier = "quest",
   communities = { "bloodhoof" }, temper = { "anxious" }, values = { "kind" },
   notices = { "pet" },
+  impression = {
+    first = "Ahab Wheathoof cannot go two sentences without asking after his dog Kyle. It is plain the scruffy creature is his best friend in all the world.",
+    third = "{name} met Ahab Wheathoof, a kindly rancher by the lake near Bloodhoof whose dog Kyle has a habit of running off.",
+  },
 
   greetings = {
     { id = "g_kyle", text = "Oh! Hello, traveler, you haven't seen a dog, have you? He's brown and scruffy, and he never sits still." },
@@ -309,6 +364,10 @@ P:NPC {
   bible = "bibles/mulgore.md", role = "innkeeper", tier = "service",
   communities = { "bloodhoof" }, temper = { "warm" }, values = { "generous" },
   notices = { "weary", "drink" },
+  impression = {
+    first = "No traveller leaves Innkeeper Kauth's inn unfed, and he keeps bringing Mull stew that goes uneaten. He swears the bluff folk come down for his stew, not the view.",
+    third = "{name} rested at Innkeeper Kauth's inn in Bloodhoof Village, where nobody leaves without a bowl of stew.",
+  },
 
   greetings = {
     { id = "g_inn", text = "Come in from the grass and the wind. There's stew, and a hide to sleep on." },
@@ -355,6 +414,10 @@ P:NPC {
   bible = "bibles/mulgore.md", role = "questgiver", tier = "quest",
   communities = { "bloodhoof" }, temper = { "warm" }, values = { "generous", "brave" },
   notices = { "craft" },
+  impression = {
+    first = "Kaga Wildhoof wanders and camps and comes home to Mulgore when the wind turns. She has met more friends at campfires than in any town, she says, and after sitting at hers I can see why.",
+    third = "{name} shared a fire with Kaga Wildhoof, a wandering tauren camped outside Bloodhoof who teaches the art of a good camp.",
+  },
 
   greetings = {
     { id = "g_fire", text = "Earth Mother's blessing, traveler. Come and sit; the fire is big enough for two." },

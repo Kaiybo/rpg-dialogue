@@ -106,6 +106,7 @@ def main():
     # ---- pass 1: collect everything --------------------------------------------------
     npcs, pools, generic = {}, [], []
     defs = {k: {} for k in ("Thread", "Claim", "Topic", "Town", "Origin", "Rumors", "Book", "Errand")}
+    arrivals = []
     key_lines, all_lines = {}, {}
     for pack in packs:
         for f, line, msg in pack.errors:
@@ -154,6 +155,8 @@ def main():
                         key_lines[gid] = True
             elif kind == "Generic":
                 generic.append((pack, tbl, f, line))
+            elif kind == "Arrival":
+                arrivals.append((pack, tbl, f, line))
             elif kind in defs:
                 did = tbl.get("id")
                 if not did:
@@ -371,6 +374,14 @@ def main():
             always = [c for c in choices if c.get("when") is None]
             if len(always) > 6:
                 rep.warn(pack, f, node.line, f"{where}.{nid}: {len(always)} choices without conditions; at most 6 are shown at once")
+            # Stances (0.33.0): alignment comes only from statements, at least two per node,
+            # mutually exclusive (the engine hides the rest once one is taken).
+            aligned = [c for c in choices if isinstance(c.get("fx"), LTable) and c.get("fx").get("align")]
+            for c in aligned:
+                if re.search(r"\?[\"')\s]*$", c.get("text") or ""):
+                    rep.error(pack, f, c.line, f"{where}.{nid}: a question can't shift alignment; make it a statement or drop the align")
+            if len(aligned) == 1:
+                rep.error(pack, f, aligned[0].line, f"{where}.{nid}: the only stance here; alignment needs two or more opposing statements to choose between")
             edges[nid] = []
             for i, ch in enumerate(choices, 1):
                 edges[nid] += check_choice(pack, f, ch, f"{where}.{nid}.choice{i}", nodes)
@@ -409,6 +420,18 @@ def main():
                 rep.error(pack, f, nodes[nid].line, f"{where}.{nid}: no path from here to END or BUSINESS")
 
     scaffolds = 0
+    for pack, tbl, f, line in arrivals:
+        if not isinstance(tbl.get("zone"), str):
+            rep.error(pack, f, line, "Arrival needs zone = \"<zone name>\"")
+        check_journal(pack, f, line, tbl, f"arrival {tbl.get('zone')}")
+        if tbl.get("when") is not None:
+            check_when(pack, f, line, tbl.get("when"), f"arrival {tbl.get('zone')}")
+        for voice in ("first", "third"):
+            t = tbl.get(voice)
+            if isinstance(t, str):
+                for tok in re.findall(r"\{([^}]*)\}", t):
+                    if tok.split(":")[0] not in tokens:
+                        rep.error(pack, f, line, f"arrival {tbl.get('zone')}: unknown token {{{tok}}}")
     for key, (pack, tbl, f, line) in sorted(npcs.items()):
         where = key
         if tbl.get("scaffold"):
@@ -433,6 +456,18 @@ def main():
         if isinstance(tbl.get("bible"), str):
             for prob in bible_problems(pack, tbl.get("bible")):
                 rep.error(pack, f, line, f"{where}: {prob}")
+        imp = tbl.get("impression")
+        if imp is not None:
+            check_journal(pack, f, line, imp, where + " impression")
+            if isinstance(imp, LTable):
+                for voice in ("first", "third"):
+                    t = imp.get(voice)
+                    if isinstance(t, str):
+                        for tok in re.findall(r"\{([^}]*)\}", t):
+                            if tok.split(":")[0] not in tokens:
+                                rep.error(pack, f, line, f"{where} impression: unknown token {{{tok}}}")
+                        if len(t.split()) > 50:
+                            rep.warn(pack, f, line, f"{where} impression: {len(t.split())} words (aim for 40 or fewer)")
         notices = set(P.arr(tbl.get("notices")))
         ids = set()
         for slot, node, ln, gid in P.iter_lines(tbl, key):

@@ -32,3 +32,6 @@ Sources added:
 - Gakin: https://warcraft.wiki.gg/wiki/The_Slaughtered_Lamb_(quest) (Khaz Modan's warlocks once trained under Gnomeregan; sent to Stormwind; crowding draws attention), https://warcraft.wiki.gg/wiki/A_Noble_Brew (Lord Wishock lobbies for an inquiry; Zardeth's plan), https://warcraft.wiki.gg/wiki/Slaughtered_Lamb (Wishock's unpaid tabs), https://warcraft.wiki.gg/wiki/Surena_Caledon_(quest) (Erlan Drudgemoor), https://warcraft.wiki.gg/wiki/The_Binding_(Incubus,_Stormwind) (Forever: a prepared circle in the crypts, sayaad), https://warcraft.wiki.gg/wiki/Seeking_Strahad_(Stormwind) (Strahad Farsan in Ratchet at 30).
 - Allison: https://warcraft.wiki.gg/wiki/Gilded_Rose (near the bank, auction house and mailbox), https://warcraft.wiki.gg/wiki/Assisting_Arch_Druid_Staghelm (level 50; she passes on the Cenarion Circle's request).
 Authored, not canon: Shaw's file on every noble house and his dislike of selling confessions; Jennea's colour-dreaming children and her taste for arguments with priests; Gakin's "ten in the dark, forty in the light"; Allison's rule that Westfall folk eat first, the blessed bread, thinner butter.
+
+## 0.34.0
+- Shaw (Persuade, `si7_truth`): SI:7 has no lead on the king; the escort never reached Theramore, and Shaw tells the Regent 'we're close' to keep him going.

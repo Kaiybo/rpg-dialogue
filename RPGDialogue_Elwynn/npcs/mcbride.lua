@@ -7,6 +7,10 @@ P:NPC {
   bible = "bibles/mcbride.md", role = "questgiver", tier = "major",
   communities = { "northshire" }, temper = { "steady", "sharp" },
   notices = { "greenness", "kit", "follow_through" },
+  impression = {
+    first = "Marshal McBride calls everyone recruit, and he means it as a duty more than an insult. He has a whole valley to hold and nowhere near enough people to hold it.",
+    third = "{name} reported to Marshal McBride, who holds Northshire Valley and likes his recruits to stay alive.",
+  },
 
   greetings = {
     { id = "g_brief", text = "Speak up, recruit, and make it quick. I've a valley to hold." },
@@ -77,6 +81,10 @@ P:NPC {
           text = "Look at you. Most of the ones I send down that road never come back up it, and the ones who do don't look like this." },
         { id = "h_novice", when = { origin = "human_abbey_novice", maxLevel = 10 },
           text = "I know you; you were carrying the brothers' candles through these halls last spring. Now you'll be taking the kobolds' candles off them instead, which is the same job with more teeth." },
+        { id = "h_warm", when = { disposition = { min = 72 } },
+          text = "There's a face I'm glad to see. You're the sort of recruit I'd hand the valley to for an afternoon, and I don't say that lightly." },
+        { id = "h_cold", when = { disposition = { max = 34 } },
+          text = "You. State your business and keep it short, recruit, because I've not forgotten the last time." },
       },
       again = {
         { id = "h_again", text = "What else do you need, recruit? Be quick about it." },
@@ -88,6 +96,7 @@ P:NPC {
           fx = { align = { order = 2 }, trait = { stern = 1 }, affinity = 1 },
           journal = { first = "Reported to Marshal McBride. He looked at me like a man counting how many of us come back.",
                       third = "{name} reported to Marshal McBride at Northshire Abbey." } },
+        { text = "I'm here for the pay, Marshal, not the banner.", next = "orders", fx = { align = { order = -2 } } },
         { text = "Kobolds? You need soldiers for kobolds?", next = "kobolds", fx = { trait = { witty = 1 }, affinity = -1 } },
         { text = "I've run vermin off a farm before. These can't be worse.", next = "farmhand",
           when = { origin = "human_westfall_farmhand" }, fx = { affinity = 1 } },
@@ -129,7 +138,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll keep coming back.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
-        { text = "That sounds exhausting.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "That sounds exhausting.", next = "BACK", fx = { align = { order = -1 }, trait = { witty = 1 } } },
       },
     },
 
@@ -166,6 +175,9 @@ P:NPC {
       choices = {
         { text = "Understood, Marshal.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Someone in the city should hear about this.", next = "BACK", fx = { trait = { stern = 1 }, align = { order = -1 } } },
+        { text = "You've already asked the Keep, haven't you, Marshal?", tag = "Persuade", next = "garrison_letters",
+          check = { pass = { any = { { disposition = { min = 65 } }, { origin = "human_abbey_novice" }, { questDone = TODO_QUEST("Skirmish at Echo Ridge") } } } },
+          fail = { next = "garrison_drop", fx = { affinity = -1 } } },
       },
     },
 
@@ -203,6 +215,7 @@ P:NPC {
       choices = {
         { text = "Drilled. Someone trained him.", next = "BACK", fx = { hear = "defias_trained", affinity = 1 } },
         { text = "Like a desperate man.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Like a cutthroat, and he'll die like one.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
 
@@ -276,6 +289,7 @@ P:NPC {
       },
       choices = {
         { text = "That's why I'm here.", next = "BACK", fx = { affinity = 3, align = { order = 1 } } },
+        { text = "I came south to look after myself, not to stand watch.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Nobody watched for us.", next = "lordaeron_watch" },
       },
     },
@@ -299,11 +313,40 @@ P:NPC {
     },
     veteran_need = {
       lines = { { id = "vn_default", text = "Always, though not for kobolds. Go and do what we trained you for, somewhere it matters more than my woods." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { align = { order = 1 } } } },
+      choices = {
+        { text = "Then I'll go where the fight matters most.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll go where I please, Marshal.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    garrison_letters = {
+      big = true,
+      lines = {
+        { id = "gl_default", text = "Twice, in my own hand, with the kobold counts attached. The first came back from the Highlord's clerk saying he'd consider it, and the second came back from Lady Prestor's office saying the valley must make do with what it has." },
+        { id = "gl_after", text = "So we make do. The brothers bind my recruits for nothing, Willem counts bandanas, and I write a third letter in my head every night and never send it. That stays on this hill, recruit." },
+      },
+      choices = {
+        { text = "It stays here, Marshal.", next = "BACK", fx = { affinity = 2 } },
+        { text = "The valley deserves better than making do.", next = "BACK", fx = { trait = { stern = 1 } } },
+      },
+    },
+    garrison_drop = {
+      lines = {
+        { id = "gd_default", text = "What I've asked and of whom is between me and the Keep, recruit. Your business is the kobolds, so let's keep it there." },
+        { id = "gd_default2", text = "Recruits who ask about the garrison's letters end up writing them, and you don't want that job. Drop it." },
+      },
+      choices = {
+        { text = "Yes, Marshal.", next = "BACK" },
+        { text = "Something else, then.", next = "BACK" },
+      },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I keep a map of this valley in my head and a pile of reports on my desk. Ask me about any of this, recruit, and I'll give it to you straight." },
+      { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "I'll answer on these, and quickly, because I've a valley to hold." },
+    },
     background = { { id = "tp_bg", text = "A marshal of the Stormwind Army with a valley to hold and not enough soldiers to hold it. That's the whole story, recruit.", next = "garrison" } },
     advice = { { id = "tp_ad", text = "Count before you charge: scouts first, steel second. Most of the recruits I've had to bury got that the wrong way round." } },
     kobolds = { { id = "t_kobolds", text = "Vermin with candles and shovels. Don't underestimate the shovels." } },

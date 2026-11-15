@@ -16,6 +16,10 @@ Copy these folders into `World of Warcraft/<your Forever folder>/Interface/AddOn
 - `RPGDialogue_Zephras`: Zephras Isle, home of the Skyborne
 - `RPGDialogue_Redridge`: Lakeshire and the Redridge Mountains
 - `RPGDialogue_Duskwood`: Darkshire, Raven Hill and the woods
+- `RPGDialogue_BurningSteppes`: Morgan's Vigil (Alliance), Flame Crest (neutral, with the Horde's wind riders) and a dragonspawn at Slither Rock
+- `RPGDialogue_BlastedLands`: Nethergarde Keep and the watch on the Dark Portal
+- `RPGDialogue_Azshara`: the ruins of the Highborne, Archmage Xylem's tower and the Bay of Storms
+- `RPGDialogue_Silithus`: Cenarion Hold and Valor's Rest, the silithid and the Twilight's Hammer
 - `RPGDialogue_WesternPlaguelands`: Chillwind Camp (Alliance), the Bulwark (Horde, on the Tirisfal border) and the ghosts of the farms
 - `RPGDialogue_EasternPlaguelands`: Light's Hope Chapel (both factions), Tirion Fordring, the Marris Stead (Horde)
 - `RPGDialogue_SearingGorge`: Thorium Point (both factions)
@@ -63,6 +67,7 @@ Content packs load by zone, so only the dialogue for where you are is in memory.
 - Prefer less? Settings > "When you talk to someone": a short line with the box only when there's news, or straight to business.
 - **Ask about...** lets you ask people about topics you've picked up. You pick topics up by hearing them: names of people, places and troubles are highlighted in what people say, and clicking one asks about it. Anyone can be asked about their story, their work, for a little advice, or for the latest rumors. **The journal** (`/rpgd journal`, or its keybinding) keeps your chronicle, the people you've met, your character sheet and origin, topics, deeds and your own notes.
 - Keybindings (Key Bindings > AddOns): **Talk to Target** talks to an NPC who has no gossip; **Open Journal**; **Ask About...** during a conversation.
+- **The journal**: click the book on your screen (drag it anywhere; it can be hidden in settings), or `/rpgd journal`. Four pages: your diary by day and place, the people you've met, where you stand (alignment, beliefs, what you've heard and done), and your own notes.
 - `/rpgd` lists every command. `/rpgd settings` opens the settings.
 
 ### Keyboard and gamepad

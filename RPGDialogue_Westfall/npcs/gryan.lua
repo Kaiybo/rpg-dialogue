@@ -9,6 +9,10 @@ P:NPC {
   communities = { "sentinel_hill" }, temper = { "steady" }, values = { "brave", "lawful", "kind" },
   spiritSensitive = true,
   notices = { "reputation", "paladin" },
+  impression = {
+    first = "Gryan Stoutmantle came home from the war to find Westfall in thieves' hands, and he means to take it back one farm at a time. He carries the whole hill on his shoulders without a word about the weight.",
+    third = "{name} met Gryan Stoutmantle at Sentinel Hill, who raised the People's Militia to reclaim his homeland.",
+  },
 
   greetings = {
     { id = "g_hill", text = "Sentinel Hill, such as it is. Find a spot out of the wind." },
@@ -52,6 +56,10 @@ P:NPC {
           text = "Your people lost a home and kept going. So did mine, out here. That's a better start than most of my volunteers had." },
         { id = "h_count", when = { metBefore = true }, text = "I walked the wall at dawn and counted the militia, then counted them again. It's still not enough, but every one of them is still here, and that makes it a good morning in these parts." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Look out there, at farms that had a lamp in every window once. I count the dark ones every night, and I'd like very much to stop counting." },
+        { id = "h_warm", when = { disposition = { min = 70 } },
+          text = "There you are. The lads were asking after you, and so was I, if I'm honest; Sentinel Hill feels a little steadier with you on it." },
+        { id = "h_cold", when = { disposition = { max = 34 } },
+          text = "I'll take any help Westfall can get, but I'll not pretend I'm glad to see you. Speak your piece." },
       },
       again = {
         { id = "h_again", text = "What else is on your mind? Ask it now, while it's quiet; quiet hours never last long out here." },
@@ -70,6 +78,7 @@ P:NPC {
         { text = "About Magistrate Solomon's letter.", next = "solomon", when = { questActive = TODO_QUEST("Messenger to Westfall") } },
         { text = "VanCleef is dead. What happens now?", next = "after", when = { deed = "dungeon:The Deadmines" } },
         { text = "I'm at your service.", next = "END", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll help, but I answer to no militia.", next = "END", fx = { align = { order = -1 } } },
       },
     },
 
@@ -82,6 +91,7 @@ P:NPC {
         { text = "And you came back for it.", next = "back" },
         { text = "Who still holds out?", next = "holdouts" },
         { text = "I'll help you take it back.", next = "BACK", fx = { affinity = 2, learn = { "westfall" }, align = { order = 1 } } },
+        { text = "Maybe the Defias have earned a share of it.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
     holdouts = {
@@ -98,6 +108,7 @@ P:NPC {
       lines = { { id = "ti_default", text = "Habit and pride, mostly, and some hope that somebody in the Keep reads the ledger and remembers us. I'd have stopped paying years ago, but I'm glad they haven't." } },
       choices = {
         { text = "That's a stubborn kind of loyalty.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'd have stopped paying years ago.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
@@ -110,6 +121,7 @@ P:NPC {
       },
       choices = {
         { text = "Then let's save it.", next = "BACK", fx = { affinity = 2, align = { light = 1, order = 1 }, trait = { brave = 1 } } },
+        { text = "Save what you like. I'll look after myself.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "You can't save everything.", next = "everything", fx = { trait = { skeptical = 1 } } },
         { text = "What did you see in Lordaeron?", next = "lordaeron" },
       },
@@ -125,6 +137,7 @@ P:NPC {
         { text = "Then I won't ask again.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "If you ever want to set it down, I'm a priest.", next = "BACK", when = { class = "PRIEST" },
           fx = { affinity = 2, align = { light = 2 }, trait = { pious = 1 } } },
+        { text = "Some things are better buried than confessed, Commander.", next = "BACK", when = { class = "PRIEST" }, fx = { align = { light = -2 } } },
         { text = "Silence won't heal it.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
       },
     },
@@ -152,6 +165,7 @@ P:NPC {
       lines = { { id = "no_default", text = "Someone in the House of Nobles keeps telling the Regent that Westfall can wait. I don't know who, but I know they've never stood on this hill." } },
       choices = {
         { text = "Then somebody should find out who.", next = "BACK", fx = { trait = { curious = 1 }, align = { order = -1 } } },
+        { text = "It isn't our place to question the House of Nobles.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
@@ -208,6 +222,7 @@ P:NPC {
       choices = {
         { text = "Both matter.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
         { text = "Then the farms come first.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Whatever's under Moonbrook matters more than any field.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
     masons = {
@@ -221,6 +236,7 @@ P:NPC {
       choices = {
         { text = "They were cheated. Can you blame them?", next = "masons_blame" },
         { text = "No grievance excuses murder.", next = "BACK", fx = { affinity = 1, align = { order = 1 }, opinion = { defias = "hardline" } } },
+        { text = "The nobles cheated them first, and I'd have fought too.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Masons built the Cathedral I pray in.", next = "masons_cathedral", when = { class = "PRIEST" } },
       },
     },
@@ -232,6 +248,7 @@ P:NPC {
       lines = { { id = "mc_default", text = "Then pray for them there, and for the farmers they've robbed as well. If the Light can hold both at once, it's bigger than I am." } },
       choices = {
         { text = "It is. I'll pray for both.", next = "BACK", fx = { affinity = 2, align = { light = 2 } } },
+        { text = "I'll pray for the farmers. The thieves chose their road.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -253,6 +270,9 @@ P:NPC {
       choices = {
         { text = "Then they're braver than soldiers.", next = "BACK", fx = { affinity = 1, learn = { "people_militia" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "people_militia" } } },
+        { text = "How long can they really hold, Commander?", tag = "Persuade", next = "militia_truth",
+          check = { pass = { any = { { disposition = { min = 65 } }, { class = "PRIEST" }, { questDone = TODO_QUEST("The People's Militia") } } } },
+          fail = { next = "militia_hold", fx = { affinity = -1 } } },
       },
     },
     oath = {
@@ -260,7 +280,7 @@ P:NPC {
       lines = { { id = "oa_default", text = "To the people of these farms, and to the Light. The Light because it's what I was taught. The people because they're who we're fighting for." } },
       choices = {
         { text = "Then I'll swear it.", next = "BACK", fx = { affinity = 2, align = { light = 1, order = 1 }, standing = { sentinel_hill = 2 } } },
-        { text = "I'll fight. I won't swear.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "I'll fight. I won't swear.", next = "BACK", fx = { align = { order = -1 }, trait = { skeptical = 1 } } },
       },
     },
 
@@ -273,7 +293,10 @@ P:NPC {
     },
     paladin_light = {
       lines = { { id = "pl_default", text = "Every morning I ask it to help me keep these people alive, and most mornings it does. The other mornings, I do it myself." } },
-      choices = { { text = "That's a prayer too.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } } },
+      choices = {
+        { text = "That's a prayer too.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Then it's you keeping them alive, not the Light.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
 
     priest = {
@@ -286,14 +309,17 @@ P:NPC {
     },
     priest_words = {
       lines = { { id = "pw_default", text = "I'll hold you to that, priest, because there'll be a next time. There always is, out here." } },
-      choices = { { text = "I'll be here.", next = "BACK", fx = { affinity = 2, align = { light = 2 }, standing = { sentinel_hill = 2 } } } },
+      choices = {
+        { text = "I'll be here.", next = "BACK", fx = { affinity = 2, align = { light = 2 }, standing = { sentinel_hill = 2 } } },
+        { text = "Don't count on me. I go wherever the work is.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
     priest_defias = {
       big = true,
       lines = { { id = "pd_default", text = "We bury them too. A lot of them were Stormwind men with Stormwind mothers, and someone ought to pray for them, but I find I can't." } },
       choices = {
         { text = "I can.", next = "BACK", fx = { affinity = 1, align = { light = 2 }, trait = { kind = 1 } } },
-        { text = "They chose their road.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "They chose their road.", next = "BACK", fx = { align = { light = -2 }, trait = { stern = 1 } } },
       },
     },
 
@@ -305,7 +331,7 @@ P:NPC {
       lines = { { id = "fh2_default", text = "Thieves, or watchers, or nobody. Help me clear it, and you can tell me its name when it's yours again." } },
       choices = {
         { text = "I will.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, standing = { sentinel_hill = 2 } } },
-        { text = "I left for a reason.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "I left for a reason.", next = "BACK", fx = { align = { order = -1 }, trait = { cautious = 1 } } },
       },
     },
 
@@ -314,6 +340,7 @@ P:NPC {
       choices = {
         { text = "Not all of us forgot you.", next = "noble_defend" },
         { text = "I'm ashamed of them.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "My family has its reasons, and I'll keep them.", next = "BACK", fx = { align = { honor = -1 } } },
       },
     },
     noble_defend = {
@@ -334,6 +361,7 @@ P:NPC {
       choices = {
         { text = "He'll understand.", next = "BACK", fx = { affinity = 1 } },
         { text = "Then the two of you should stand together.", next = "BACK", fx = { align = { order = 1 }, trait = { stern = 1 } } },
+        { text = "Then stop waiting on Stormwind and go your own way.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
 
@@ -352,9 +380,35 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    militia_truth = {
+      big = true,
+      lines = {
+        { id = "mt_default", text = "One more winter, if the watchers don't take the last good fields and the gnolls stay this side of the river. I tell the farmers we'll hold as long as it takes, and they believe me because they've nothing else to believe." },
+        { id = "mt_after", text = "After that it's Danuvin and Galiaan and a handful of the stubborn ones on this hill, and the rest of Westfall walking the road to Goldshire like the Furlbrows tried to. Keep that to yourself; it's not a thing they need to hear from anyone but me." },
+        { id = "mt_priest", when = { class = "PRIEST" }, text = "You've a priest's way of asking, so you'll get the truth a priest would: I pray every night that I'm wrong about the winter, and I plan every morning as though I'm right." },
+      },
+      choices = {
+        { text = "Then we make sure it doesn't come to that.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
+        { text = "Your secret's safe with me, Commander.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    militia_hold = {
+      lines = {
+        { id = "mh_default", text = "As long as it takes. That's the answer I give the farmers, and it's the one you'll get too, because a commander who doubts aloud soon has nobody left to command." },
+        { id = "mh_default2", text = "They'll hold, because they've nowhere else to go and nobody else coming. Ask me something I can answer without frightening the lads at the gate." },
+      },
+      choices = {
+        { text = "Understood, Commander.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Every scout and farmer in Westfall reports to this hill sooner or later, so I've heard most of what goes on out there. Ask me about any of this." },
+      { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "For you I'll make the time, and I'll not soften any of it. Ask away." },
+    },
     background = {
       { id = "tp_bg", text = "I was born here, trained in Lordaeron and came home again. The middle part I don't discuss.", next = "back" },
       { id = "tp_bg2", text = "A farm boy from these parts who went north to learn the Light and came back to find his home stolen. That's all of it that matters." },

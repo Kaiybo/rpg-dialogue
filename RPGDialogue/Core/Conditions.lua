@@ -389,6 +389,13 @@ def("affinity", 20, "hinge", nil, function(ctx, v, env)
   return inRange(a, v), "affinity " .. a
 end)
 
+-- How this person regards you, 0-100 (Systems/Disposition.lua): { min = , max = }.
+-- 20-34 cold, 45-59 neutral, 60-74 warm, 75-89 friendly, 90+ devoted.
+def("disposition", 20, "hinge", nil, function(ctx, v, env)
+  local d = ns.Disposition and ns.Disposition.For(env, ctx) or 50
+  return inRange(d, v), "disposition " .. d
+end)
+
 -- { town = , min = , max = } or { town = , tier = "Liked" }
 def("townStanding", 20, "hinge", nil, function(ctx, v, env)
   local town = v.town or v[1] or (env.info and env.info.communities and env.info.communities[1])

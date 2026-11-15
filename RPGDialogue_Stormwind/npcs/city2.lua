@@ -11,6 +11,10 @@ P:NPC {
   communities = { "stormwind" }, temper = { "proud" }, values = { "pious", "lawful", "stern" },
   spiritSensitive = true,
   notices = { "kit", "readiness" },
+  impression = {
+    first = "Lord Grayson Shadowbreaker of the Silver Hand is not easily satisfied, and he told me so himself. He seems to judge a person first by how they keep their gear.",
+    third = "{name} met Lord Grayson Shadowbreaker of the Silver Hand, the Cathedral's exacting paladin trainer.",
+  },
 
   greetings = {
     { id = "g_paladin", when = { class = "PALADIN" }, text = "The Light's protection on you today. Now, what have you learned since I saw you last?" },
@@ -66,6 +70,7 @@ P:NPC {
       lines = { { id = "hd_default", key = true, text = "What it always did, with fewer of us to stand for it. Lordaeron took our best. The rest of us hold the line they left." } },
       choices = {
         { text = "Then I'll help hold it.", next = "BACK", fx = { affinity = 2, align = { light = 1, order = 1 } } },
+        { text = "The line's not my burden, and I'll find my own fight.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Some say the Hand died with Uther.", next = "uther", fx = { trait = { skeptical = 1 } } },
         { text = "What does the Hand swear?", next = "hand_oath" },
       },
@@ -79,7 +84,11 @@ P:NPC {
     },
     uther_count = {
       lines = { { id = "uc_default", text = "Fewer than the oaths need, but enough that the oaths aren't empty. I count them every morning, and it doesn't take long." } },
-      choices = { { text = "Count me, someday.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } }, { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Count me, someday.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I'll keep my own oaths, not the Hand's.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     hand_oath = {
       lines = { { id = "ho_default", text = "By blood and honour we serve. It's cut into the stone under Turalyon's statue in the valley. The rest of the oath is longer, and harder to keep." } },
@@ -93,6 +102,7 @@ P:NPC {
       choices = {
         { text = "That's a hard word for them.", next = "BACK", fx = { learn = { "scarlet_crusade" } } },
         { text = "Mercy can get people killed.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "Mercy is worth the risk, even for them.", next = "BACK", fx = { align = { light = 1 } } },
       },
     },
 
@@ -113,6 +123,7 @@ P:NPC {
       lines = { { id = "tr_default", text = "Then begin with sacrifice. High Priest Rohan in Ironforge keeps an exorcism censer you'll need. Pay him well for it; his coin feeds Ironforge's poorest." } },
       choices = {
         { text = "The cost doesn't matter.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { generous = 1 } } },
+        { text = "I'll pay what it's worth and not a copper more.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -126,7 +137,10 @@ P:NPC {
     },
     needed_now = {
       lines = { { id = "nn_default", text = "Then wherever you stand. Duskwood has its dead, Westfall its thieves, Redridge its orcs. The Light was never kept for the Plaguelands alone." } },
-      choices = { { text = "Then I'll start where I stand.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } } },
+      choices = {
+        { text = "Then I'll start where I stand.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll go where I'm needed, not where I'm told.", next = "BACK", fx = { align = { order = -1 } } },
+      },
     },
 
     terenas = {
@@ -138,7 +152,10 @@ P:NPC {
     },
     terenas_north = {
       lines = { { id = "tn_default", text = "Then light a candle by it when you pass. He was your king before he was a statuette. The Light remembers that, even if the court forgets." } },
-      choices = { { text = "I will.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } } },
+      choices = {
+        { text = "I will.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Terenas raised the son who killed him, so I'll save my candles.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
 
     priest = {
@@ -155,6 +172,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I have served the Silver Hand long enough to have opinions on most things, and patience for very few. Ask about these, and be brief." },
+    },
     background = { { id = "tp_bg", text = "A lord of the Silver Hand. People remember the title. The part that matters is the teaching.", next = "hand" } },
     advice = { { id = "tp_ad", text = "Care for your gear as if a life depends on it, because one will, and usually not yours." } },
     tome_of_divinity = { { id = "tp_tome", text = "The Tome is only the first trial, and there are many more. The last ones are not written in any book." } },
@@ -170,6 +190,10 @@ P:NPC {
   communities = { "stormwind" }, temper = { "steady" }, values = { "pious", "kind" },
   spiritSensitive = true,
   notices = {},
+  impression = {
+    first = "Arthur the Faithful isn't sure he has earned his name, which is probably why he has. He invites everyone to kneel a moment before they begin, and he means it kindly.",
+    third = "{name} met Arthur the Faithful, a devout paladin trainer in the Cathedral's east wing.",
+  },
 
   greetings = {
     { id = "g_paladin", when = { class = "PALADIN" }, text = "{g:Brother|Sister}. Come and kneel a moment before we begin." },
@@ -205,6 +229,7 @@ P:NPC {
       },
       choices = {
         { text = "Maybe they're just as good.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Marble or rubble, prayers are only words.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Who did the rebuilding?", next = "served_masons" },
       },
     },
@@ -219,7 +244,10 @@ P:NPC {
     },
     pray = {
       lines = { { id = "pr_default", text = "Kneel, then, and no words are needed. The Light hears silence as well as it hears speeches, and better, some days." } },
-      choices = { { text = "Amen. Something else.", next = "BACK", fx = { align = { light = 1 }, trait = { pious = 1 } } } },
+      choices = {
+        { text = "Amen. Something else.", next = "BACK", fx = { align = { light = 1 }, trait = { pious = 1 } } },
+        { text = "I'll kneel, but I won't pretend anyone is listening.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
   },
 
@@ -236,6 +264,10 @@ P:NPC {
   bible = "bibles/city2.md", role = "blacksmith", tier = "quest",
   communities = { "stormwind" }, temper = { "proud" }, values = { "honest", "ambitious" },
   notices = { "craft", "kit" },
+  impression = {
+    first = "Grimand Elmore boasts about his work as if he were stating plain fact, and from what I saw, he may be. His praise is so rare that it nearly sounds like an insult.",
+    third = "{name} met Grimand Elmore, master weaponsmith of the Dwarven District, who makes barding for paladins' chargers.",
+  },
 
   greetings = {
     { id = "g_anvil", text = "Finest craftsmanship on the continent, right here. It isnae cheap, but it's worth every coin." },
@@ -349,6 +381,10 @@ P:NPC {
   bible = "bibles/city2.md", role = "scholar", tier = "quest",
   communities = { "stormwind" }, temper = { "cowardly" }, values = { "curious" },
   notices = { "lore" },
+  impression = {
+    first = "In the Royal Library one whispers, because Milton Sheaf believes the books are sleeping. He forgave a book seventy years overdue for the sake of a pressed flower, which tells you everything.",
+    third = "{name} met Milton Sheaf, keeper of Stormwind's Royal Library, who collects books and the people who fetch them.",
+  },
 
   greetings = {
     { id = "g_hush", text = "Shh, whisper, please, because the books are sleeping." },
@@ -452,6 +488,10 @@ P:NPC {
   bible = "bibles/city2.md", role = "vendor", tier = "quest",
   communities = { "stormwind" }, temper = { "sharp" }, values = { "cunning", "witty" },
   notices = { "watch" },
+  impression = {
+    first = "Nobody has ever insisted on selling only cheese as firmly as Elling Trias does. He stands behind his counter looking honest with real dedication.",
+    third = "{name} met Elling Trias at his Trade District cheese shop, a man very insistent that he is only a cheesemaker.",
+  },
 
   greetings = {
     { id = "g_cheese", text = "Cheese. We sell cheese, and that's all we do here: cheese." },
@@ -540,6 +580,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "A cheese merchant hears a remarkable amount, you know, people will say anything over a good wheel of cheddar. Ask me about any of this." },
+    },
     background = { { id = "tp_bg", text = "I'm a cheesemaker's husband who tastes everything first. That's my story, and I'm sticking to it." } },
     advice = { { id = "tp_ad", text = "Never trust a man who doesn't like cheese. He's hiding something worse." } },
     trade = { { id = "tp_tr", text = "Cheese: cheddar, bleu and gouda. That is the whole of my trade, as anyone will tell you.", next = "cheese" } },

@@ -23,6 +23,10 @@ P:Pool {
   },
   choices = { { text = "Thank you, Brave.", next = "END", fx = { standing = { bloodhoof = 1 } } } },
   topics = {
+    knows = {
+      { id = "t_kn1", text = "News crosses the plains slowly, but it does arrive, usually with a trader and a tired kodo. Here is what has reached us." },
+      { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You've walked the plains as a friend, so sit by the fire, and I'll tell you all of it." },
+    },
     _none = { { id = "t_none", text = "Ask Baine, in the big tent. He listens to everyone." } },
   },
 }
@@ -45,6 +49,9 @@ P:Pool {
   },
   choices = { { text = "Earth Mother keep you.", next = "END", fx = { standing = { narache = 1 } } } },
   topics = {
+    knows = {
+      { id = "t_kn1", text = "The camp is small, but the hunters come back with stories, and I hear every one. I can tell you about these." },
+    },
     _none = { { id = "t_none", text = "Ask the Chief. He knows this land better than any of us." } },
   },
 }

@@ -8,6 +8,10 @@ P:NPC {
   bible = "bibles/verna.md", role = "farmer", tier = "quest",
   communities = { "westfall_farms" }, temper = { "steady" }, values = { "kind", "honest" },
   notices = { "animal", "craft" },
+  impression = {
+    first = "Verna Furlbrow holds her family together with kind words and a wagon held up by string and prayer. She worries more for their tired horse Blanchy than for herself.",
+    third = "{name} met Verna Furlbrow, who cares for her husband and their weary horse Blanchy beside a broken wagon.",
+  },
 
   greetings = {
     { id = "g_wagon", text = "Careful round the wagon, dear. It's held up with string and prayer." },
@@ -74,6 +78,7 @@ P:NPC {
       choices = {
         { text = "What will you do in Elwynn?", next = "elwynn" },
         { text = "Maybe your luck's turning.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Luck like that doesn't turn. Get to Elwynn quickly.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
     elwynn = {
@@ -121,12 +126,15 @@ P:NPC {
       lines = { { id = "pr_default", text = "For a horse? Oh, dear, yes, please do. She's carried us this far, and she's earned a prayer more than most people I know." } },
       choices = {
         { text = "Light keep you, Blanchy.", next = "BACK", fx = { affinity = 3, align = { light = 1 }, learn = { "old_blanchy" } } },
-        { text = "Perhaps oats would serve her better.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Perhaps oats would serve her better.", next = "BACK", fx = { align = { light = -1 }, trait = { witty = 1 } } },
       },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "You hear all sorts when you're stuck by the road waiting on a wagon wheel, dear. Ask me about any of this." },
+    },
     background = { { id = "tp_bg", text = "A pumpkin farmer's wife, a horse's nursemaid, and the one in this family who remembers where things are." } },
     advice = { { id = "tp_ad", text = "Feed the animal first, dear, because it can't ask and you can." } },
     old_blanchy = {

@@ -1,0 +1,10 @@
+# RPG Dialogue: Silithus (pack changelog)
+
+The pack's own version is `version` in `pack.lua`; bump both together.
+
+## 1.0.0 (2026-11-15)
+- New pack (new files: exit the game fully and restart, a /reload won't find them).
+- Cenarion Hold (neutral): Commander Mar'alith (his missing wife Natalia, the Bronzebeard dwarves' story, Hive'Regal and the name he learns there, the Twilight's Hammer plans; a priest can tell him what Natalia's magic really was), Windcaller Proudhorn (supply lines, worms and morrowgrain), Geologist Larksbane (the humming crystals, the cult's tablets, the deserter, the prism), Captain Vish Kozus (the watchtower, Deathclasp, a commander who isn't himself), Calandrath at the Oasis Inn (Auberdine, desert cooking, the cult's dumplings), Beetix Ficklespragg (poisoned Noggle and his satchel), Bor and Huum Wildmane (the cult's coded papers, the geolords and Vyral, the land's grief), Aurel Goldleaf (disguises for the Abyssal Council), Baristolth of the Shifting Sands (a Watcher's thousand-year promise).
+- Valor's Rest: Layo Starstrike (Rabine's letter, the spirits of Southwind, the thing in the tower, Umber). Ortell's Hideout: Hermit Ortell, the deserter (the Twilight Lexicon, the True Believer, why he ran). Bronzebeard's Encampment: Rutgar Glyphshaper and Frankal Stonebridge, each with their half of what happened to Natalia.
+- The Hold's infantry have their own lines. Replies for priests, druids, night elves, tauren, dwarves, humans and more; Persuade and Intimidate checks on the major people; a lead-in for "What do you know?"; a diary note for everyone you meet.
+- Written for the gates of Ahn'Qiraj still sealed: nobody talks about a war effort or what lies behind the Scarab Wall.

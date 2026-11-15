@@ -10,6 +10,11 @@ P:NPC {
   spiritSensitive = true,
   notices = { "fate", "fel" },
 
+  impression = {
+    first = "Madame Eva behaved as though she had been expecting me for some time. I've no idea how she could have known, and I've decided not to ask.",
+    third = "{name} called on Madame Eva, the Darkshire fortune teller who reads the cards and seems to know her visitors before they arrive.",
+  },
+
   greetings = {
     { id = "g_expected", text = "Ah, there you are, {name}. The stars said you would come; they did not say you would be so late." },
     { id = "g_back", when = { metBefore = true }, text = "Sit, please. The cards have been restless since you left." },
@@ -171,6 +176,7 @@ P:NPC {
       choices = {
         { text = "Does she know?", next = "granddaughter_know" },
         { text = "I'll find him.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "I won't hunt a man down on the word of a card.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
       },
     },
     granddaughter_know = {
@@ -219,12 +225,16 @@ P:NPC {
       },
       choices = {
         { text = "It does know my name.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "Whatever's beyond that door, I keep it shut.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The cards show me a great many things, child, and the people of Darkshire show me the rest. Ask me about any of this." },
+    },
     background = { { id = "tp_bg", text = "I follow the old arts, the cards and the stars and the spirits who will not keep quiet. The rest of my story costs extra." } },
     advice = { { id = "tp_ad", text = "When the cards and the Night Watch disagree, believe the Watch, because they're wrong less often. I'll deny I ever said so." } },
     stalvan = { { id = "tp_stalvan", text = "His card is the Tutor, patient and gentle, holding an axe where you cannot see it." } },

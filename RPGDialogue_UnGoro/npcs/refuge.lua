@@ -8,6 +8,11 @@ P:NPC {
   communities = { "marshals_refuge" }, temper = { "warm" }, values = { "curious", "responsible" },
   notices = { "level", "kit" },
 
+  impression = {
+    first = "Williden Marshal lost his base camps to the crater and still talks about Un'Goro like a man in love with it. He welcomed me warmly, and then he warned me twice about the dinosaurs.",
+    third = "{name} met Williden Marshal, leader of the Marshal Expedition, at Marshal's Refuge in Un'Goro Crater.",
+  },
+
   greetings = {
     { id = "g_refuge", text = "Welcome, welcome! You made it up the rim in one piece, which puts you ahead of most of my expedition." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still in one piece! The crater must like you, and it doesn't like many." },
@@ -32,6 +37,8 @@ P:NPC {
           text = "Our supplies are scattered across the crater, and every crate you bring back is another week we can stay, another week of discovery." },
         { id = "h_journal_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Williden's Journal"), days = 3 } },
           text = "My journal, back on my desk! Half the pages are muddy and one's been chewed, and it's still the best thing anyone's given me in a year." },
+        { id = "h_warm", when = { disposition = { min = 70 } },
+          text = "There you are! Half the Refuge asks after you when you're down in the crater, and I tell them you're too stubborn to be eaten, which I hope is true." },
       },
       again = { { id = "h_again", text = "What else? Ask away, I've nothing but time and dinosaurs." } },
       choices = {
@@ -66,7 +73,12 @@ P:NPC {
     },
     purpose_worth = {
       lines = { { id = "pw_default", text = "Ask me when everyone's home. Right now I'd say yes, and then I'd look at the empty tents and not be so sure." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
+      choices = {
+        { text = "You can tell me how it really went down there.", tag = "Persuade", next = "purpose_truth",
+          check = { pass = { any = { { disposition = { min = 65 } }, { questDone = TODO_QUEST("Williden's Journal") }, { class = "PRIEST" } } } },
+          fail = { next = "purpose_cheer", fx = { affinity = -1 } } },
+        { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } },
+      },
     },
     sister = {
       lines = { { id = "s_default", text = "Hol'anyee, my co-leader, braver than me and a better shot than me, as she'll tell you herself. She's out past the rim most days, and I worry, though she'd laugh at that." } },
@@ -80,9 +92,28 @@ P:NPC {
       lines = { { id = "b_default", text = "Each other, mostly, and anything that falls in from the rim. Keep your companion close, because the raptors have learned to go for the small ones first." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    purpose_truth = {
+      lines = {
+        { id = "pt_default", text = "Honestly? We came down too fast and too sure of ourselves, and I signed off on every camp we lost. I put a cheerful face on it for the others, because a frightened expedition leader is the last thing anyone in this Refuge needs, but I lie awake counting tents too." },
+      },
+      choices = {
+        { text = "You brought most of them back. That counts.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Then slow down this time.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    purpose_cheer = {
+      lines = {
+        { id = "pc_default", text = "It went the way expeditions go, friend, which is sideways with dinosaurs! We're all still here, mostly, and that's the important part." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Running an expedition means everybody's news ends up on my desk, muddy or not. Ask me about any of these, friend." },
+    },
     background = { { id = "tp_ba", text = "I'm expedition leader by the accident of being the one who signed the papers. My sister did the hard part and I did the paperwork, and I still do." } },
     advice = { { id = "tp_ad", text = "If the ground shakes, run first and wonder later, because wondering is how we lost the tents." } },
     _none = { { id = "tp_none", text = "Not sure! But if it lives in the crater, it probably bites." } },
@@ -94,6 +125,11 @@ P:NPC {
   bible = "bibles/ungoro.md", role = "questgiver", tier = "quest",
   communities = { "marshals_refuge" }, temper = { "earnest" }, values = { "brave", "honorable" },
   notices = { "race", "class" },
+
+  impression = {
+    first = "Linken can't remember where he came from or why, and he is cheerful about it in a way that hurts to watch. He is quite sure he's a warrior, because it feels right.",
+    third = "{name} met Linken, a gnome at Marshal's Refuge who lost his memory somewhere in Un'Goro Crater.",
+  },
 
   greetings = {
     { id = "g_hello", text = "Hello, traveler! I'm sure I know something important, only I can't remember what. Have we met?" },
@@ -175,6 +211,11 @@ P:NPC {
   communities = { "marshals_refuge" }, temper = { "eager" }, values = { "curious", "persistent" },
   notices = { "class" },
 
+  impression = {
+    first = "J.D. Collie lost an eyebrow to his crystals this morning and seemed to think it a fair trade. His cave hums, and so does he, with theories.",
+    third = "{name} met J.D. Collie, the Marshal Expedition's eager student of Un'Goro's crystals.",
+  },
+
   greetings = {
     { id = "g_cave", text = "Welcome to my cave! Mind the crystals, because some of them hum. The humming is fine; it's when they stop humming that you should worry." },
   },
@@ -245,6 +286,11 @@ P:NPC {
   communities = { "marshals_refuge" }, temper = { "anxious" }, values = { "loyal", "kind" },
   notices = { "weary" },
 
+  impression = {
+    first = "Spraggle Frock asked after her friend Ringo before she'd even said her own name. She worries for a living and seems to be very good at it.",
+    third = "{name} met Spraggle Frock, the anxious supply runner of the Marshal Expedition who frets over her missing friend Ringo.",
+  },
+
   greetings = {
     { id = "g_hello", text = "Oh, hi, hello, welcome to the Refuge! Did you come up from the south, and did you see a goblin on the way, skinny and loud, name of Ringo?" },
   },
@@ -301,6 +347,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I hear things on the supply runs, when I'm not worrying, which isn't often! Ask me about any of these." },
+    },
     background = { { id = "tp_ba", text = "I'm a Gadgetzan girl, a supply runner and a worrier, in that order, and sometimes all at once." } },
     advice = { { id = "tp_ad", text = "Pack twice the water you think you'll need. Ringo didn't, and look how that went." } },
     steamwheedle = { { id = "tp_steamwheedle", text = "I came out from Gadgetzan because they said it was steady work, and now I sleep on a ledge above dinosaurs." } },

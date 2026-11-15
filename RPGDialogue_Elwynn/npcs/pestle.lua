@@ -8,6 +8,10 @@ P:NPC {
   bible = "bibles/pestle.md", role = "questgiver", tier = "quest",
   communities = { "goldshire" }, temper = { "steady" }, values = { "kind", "curious" },
   notices = { "craft" },
+  impression = {
+    first = "William Pestle warns people away from his own bottles, which seems a sensible habit for an alchemist. Gramma Stonefield calls him a good friend and a slow one, and both look true.",
+    third = "{name} met William Pestle, Goldshire's alchemist, who sells candles and tinctures and keeps Gramma Stonefield's confidences.",
+  },
 
   greetings = {
     { id = "g_mind", text = "Don't touch the green one, or the blue one either, now I think of it." },
@@ -152,7 +156,7 @@ P:NPC {
       },
       choices = {
         { text = "Some things shouldn't be sold.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "You'd make a fortune.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "You'd make a fortune.", next = "BACK", fx = { align = { light = -1 }, trait = { witty = 1 } } },
       },
     },
     mage = {
@@ -164,6 +168,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "An apothecary hears a good deal while folk wait for their remedies. Ask me about any of this, and I'll tell you what I can." },
+    },
     background = { { id = "tp_bg", text = "I'm an apothecary from Stormwind who likes the country better. My brother keeps the shop, and I keep the candles." } },
     advice = { { id = "tp_ad", text = "Label everything. The green one and the blue one look very alike by candlelight." } },
     maybell_tommy = {

@@ -2,6 +2,18 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.9.0 (2026-11-15)
+- 43 new people: the Trade District (Renato Gallina, Elaine Trias, Thurman Mullby, Gunther Weller, Crier Goodman, Dungar Longdrink, Morgan Pestle, Harlan Bagley), Old Town (Harry Burlguard, Bartleby, Elly Langston, Stephen Ryback, Simon Tanner, Osborne the Night Man, Jasper Fel), the canals and the harbor (Suzetta Gallina, Ol' Emma, Rema Schneider, Arnold Leland, Morris Lawry, Billy, Manifest Clerk Philmor), Cathedral Square (Bishop Farthing, Brother Kristoff, Brother Sarno, Thomas the altar boy, Matron Nightingale, Shellene), the Keep (Bishop DeLavey, Count Ridgewell, Lord Wishock), the Mage Quarter (Maginor Dumas, Elsharin, Larimaine Purdue, Zardeth, Ursula Deline, Spackle Thornberry), the Dwarven District (the Deepforges, Lilliam Sparkspindle, Gelman Stonehand) and the Park (Sheldras Moontree, Shylamiir).
+- Archbishop Benedictus: a priest or paladin back from Lordaeron can tell him what the Light said up there.
+- Every person writes a first impression in your diary.
+- New files: exit the game fully and restart.
+
+## 1.8.0 (2026-11-15)
+- Persuade, Intimidate and Deceive checks on the major people here, each with its own success and failure; lines and replies that depend on how warmly they regard you (disposition); a lead-in for "What do you know?".
+
+## 1.7.0 (2026-11-15)
+- Alignment now comes only from statements, never questions, and every reply that shifts alignment has an opposing one beside it. Taking one stance with someone closes the others for good.
+
 ## 1.6.0 (unreleased)
 - Depth rewrite for the rest of the city: every conversation is now a hub with branches to explore, "Something else" brings you back, and each person has their own story and advice under Ask about.
 - Mathias Shaw (SI:7): the Defias and the Stonemasons, the boy he trained, the missing King, Lady Prestor, the Lescovar affair from start to finish, rogue work, and a priest's confessions. Lord Grayson Shadowbreaker: the Silver Hand's oath, the charger and its barding, Chillwind Point, King Terenas's statuette (Forever's A Friend of the Family). General Marcus Jonathan: the statues in the Valley of Heroes and Turalyon, Solomon's letter, Westfall, and the Lordaeron insignia (Forever's Bloodied Insignia).

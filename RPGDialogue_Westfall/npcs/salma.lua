@@ -8,6 +8,10 @@ P:NPC {
   bible = "bibles/salma.md", role = "farmer", tier = "quest",
   communities = { "westfall_farms" }, temper = { "steady" }, values = { "kind", "generous" },
   notices = { "hunger", "craft" },
+  impression = {
+    first = "Salma Saldean keeps a pot on the stove for anyone who comes to the door hungry, and that is the rule of her house. She'll put murloc eyes in it if she must, and she won't apologise.",
+    third = "{name} met Salma Saldean, a Westfall cook who believes no visitor should leave her kitchen hungry.",
+  },
 
   greetings = {
     { id = "g_welcome", text = "Come in, come in! There's always a pot on." },
@@ -43,6 +47,8 @@ P:NPC {
           text = "You're thin as a rake, even for an elf, so sit down. Sky or no sky, everyone eats at my table." },
         { id = "h_thin", when = { metBefore = true }, text = "Sit down, sit, you're thinner than last time. Everyone's thinner in Westfall these days, and I won't have it at my table." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Himself's asleep in the chair again, snoring like a harvest golem. Don't you dare tell him I said so." },
+        { id = "h_warm", when = { disposition = { min = 70 } },
+          text = "Oh, it's you! I've been keeping a bowl warm in case you came by, and don't you dare say you've already eaten." },
       },
       again = {
         { id = "h_again", text = "What else, then? Sit yourself down and ask while I stir." },
@@ -97,6 +103,7 @@ P:NPC {
       },
       choices = {
         { text = "That's a fine way to live.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Feeding thieves only teaches them where the food is.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "It won't stop the Defias.", next = "defias", fx = { trait = { stern = 1 } } },
       },
     },
@@ -112,7 +119,10 @@ P:NPC {
       lines = { { id = "fe_default", text = "I have. A hungry boy in a red mask is still a hungry boy, and he said thank you, and he's left my hens alone ever since. That's a kind of peace." } },
       choices = {
         { text = "That's real kindness.", next = "BACK", fx = { affinity = 2, align = { light = 2 }, trait = { kind = 1 } } },
-        { text = "He'll rob someone else tomorrow.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 }, opinion = { defias = "hardline" } } },
+        { text = "He'll rob someone else tomorrow.", next = "BACK", fx = { align = { light = -1 }, affinity = -1, trait = { stern = 1 }, opinion = { defias = "hardline" } } },
+        { text = "Did that boy ever tell you anything, Salma?", tag = "Persuade", next = "fed_boy",
+          check = { pass = { any = { { disposition = { min = 62 } }, { class = "PRIEST" }, { questDone = TODO_QUEST("Westfall Stew") } } } },
+          fail = { next = "fed_pot", fx = { affinity = -1 } } },
       },
     },
     help = {
@@ -148,16 +158,44 @@ P:NPC {
       lines = { { id = "pr_default", text = "Oh, go on with you! Say a word over the pot, then. The militia lads eat better when it's blessed, or they think they do, which comes to the same thing." } },
       choices = {
         { text = "Gladly. Light bless this house and all it feeds.", next = "BACK", fx = { affinity = 3, align = { light = 1 }, standing = { westfall_farms = 1 } } },
+        { text = "I'd rather not bless a soup pot, Salma.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Do you ever get to a church?", next = "priest_church" },
       },
     },
     priest_church = {
       lines = { { id = "pc_default", text = "Not since the roads went bad, so I pray at the stove. The Light knows where to find me; it's always warm here." } },
-      choices = { { text = "It does. Something else.", next = "BACK", fx = { align = { light = 1 } } } },
+      choices = {
+        { text = "It does, and the Light always finds the warm places first.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Warm or not, I doubt the Light looks in kitchens.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fed_boy = {
+      lines = {
+        { id = "fb_default", text = "Only once, and quietly, with his mouth full. He said to keep the lamp dark and the door barred on the nights the gnolls come up from the river, because the masks ride behind them and they don't ask whose house it is." },
+        { id = "fb_after", text = "So I do, and I've told Himself it's to save oil, and I've told nobody else at all until now. He wasn't a bad boy, you know; he just ate like one who'd forgotten what a table was for." },
+      },
+      choices = {
+        { text = "That warning might save lives. Tell Gryan.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "Your kindness bought you that.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+      },
+    },
+    fed_pot = {
+      lines = {
+        { id = "fp_default", text = "Tell me? He told me the stew was good, which it was, and then he went. Now, have you eaten, because you're changing the subject on an empty stomach." },
+        { id = "fp_default2", text = "What's said at my table stays at my table, dear, whoever says it. That's the other rule of this house, and it's older than the first." },
+      },
+      choices = {
+        { text = "Fair enough, Salma.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Half of Westfall eats at my table sooner or later, and they all talk with their mouths full. Ask me about any of this while I stir." },
+    },
     background = { { id = "tp_bg", text = "A farmer's wife with a big pot and a long table. That's all anyone needs to know about me." } },
     advice = { { id = "tp_ad", text = "Eat before you fight, not after. And never trust a cook who won't taste her own stew." } },
     trade = { { id = "tp_tr", text = "Cooking for whoever comes. Pay me in boar livers and stories.", next = "help" } },

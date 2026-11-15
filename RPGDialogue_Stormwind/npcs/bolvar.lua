@@ -9,6 +9,10 @@ P:NPC {
   communities = { "stormwind" }, temper = { "steady" }, values = { "lawful", "brave", "honest" },
   spiritSensitive = true,
   notices = { "reputation", "paladin" },
+  impression = {
+    first = "Highlord Bolvar Fordragon holds the kingdom for a boy and an absent king, and he looks tired in the way only honest men get tired. He asked me to speak plainly, and he meant it.",
+    third = "{name} stood before Highlord Bolvar Fordragon, Regent of Stormwind, who keeps the throne for a king who never came home.",
+  },
 
   greetings = {
     { id = "g_court", text = "Speak plainly. The court has enough of the other kind." },
@@ -42,6 +46,10 @@ P:NPC {
           text = "There's something steady in you. The Light, or plain decency; on a good day they look the same." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "Your High Order sought out the Kirin Tor, and through them, us. Stormwind keeps its friends. I hope your people find us worth the journey." },
+        { id = "h_warm", when = { disposition = { min = 70 } },
+          text = "Ah, it's you. Sit, if the guards will let you, because I'd rather hear how the roads really are from someone I trust than read it in a report." },
+        { id = "h_cold", when = { disposition = { max = 34 } },
+          text = "State your business. I've heard enough about you from the Watch to want this conversation short." },
       },
       again = {
         { id = "h_again", text = "What else? Briefly; the council sits at noon." },
@@ -90,7 +98,35 @@ P:NPC {
       },
       choices = {
         { text = "It's more than most have.", next = "BACK", fx = { affinity = 2, align = { order = 1, light = 1 } } },
+        { text = "Faith alone won't stop a knife in the dark, my lord.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Sometimes suspicion is enough.", next = "suspicion", fx = { trait = { skeptical = 1 } } },
+        { text = "You can tell me what it really costs you, Highlord.", tag = "Persuade", next = "bear_true",
+          check = { pass = { any = { { disposition = { min = 65 } }, { class = "PRIEST" }, { townStanding = { town = "stormwind", min = 55 } } } } },
+          fail = { next = "bear_closed", fx = { affinity = -1 } } },
+      },
+    },
+    bear_true = {
+      big = true,
+      lines = {
+        { id = "bt_default", text = "Sleep, mostly. I sit up with the boy until he drops off, and then I sit up with the reports, and some nights I put my sword on the table just to remember I used to know what to do with my hands." },
+        { id = "bt_patience", text = "And patience. My council tells me patience is strength, and I've said it to the court so often it sounds like my own voice, though some nights I wonder whether it's only patience after all." },
+        { id = "bt_priest", when = { class = "PRIEST" },
+          text = "You asked as a priest would, so I'll answer as a man would at confession: I pray every night that I'm keeping the kingdom and not just keeping the chair warm, and I don't always hear an answer." },
+      },
+      choices = {
+        { text = "You're keeping more than a chair, my lord.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Then trust your own voice more than your council's.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "Thank you for telling me.", next = "BACK" },
+      },
+    },
+    bear_closed = {
+      lines = {
+        { id = "bc_default", text = "What it costs me is my own affair, and I'll thank you not to make a confessor of yourself in the king's hall. The kingdom is what matters here, not the man holding it." },
+        { id = "bc_default2", text = "I appreciate the concern, I'm sure, but a regent who shares his doubts with every visitor soon has a court full of them. Ask me about the kingdom instead." },
+      },
+      choices = {
+        { text = "Of course, Highlord.", next = "BACK" },
+        { text = "Then I'll ask about the kingdom.", next = "BACK" },
       },
     },
     prestor = {
@@ -105,7 +141,8 @@ P:NPC {
       lines = { { id = "ch_default", text = "His Grace has my ear whenever he wants it, and the Cathedral's doors are the one thing in this city nobody argues about. Pray for the king, both of them, if you would." } },
       choices = {
         { text = "I pray for them every day.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "And for the people outside the walls?", next = "church_outside", fx = { align = { light = 1 } } },
+        { text = "Prayers won't bring a king home, my lord.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "And for the people outside the walls?", next = "church_outside" },
       },
     },
     church_outside = {
@@ -123,6 +160,11 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Every report in the kingdom crosses this desk sooner or later, so I know a little of most things. Ask, and I'll tell you what a regent may." },
+      { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "For you I'll spare the council a few more minutes. Ask me about any of this, and I'll answer as plainly as I'm able." },
+      { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "My officers can answer most questions better than I can. If it must be me, keep to these." },
+    },
     defias = { { id = "tp_defias", text = "Thieves with a grievance and better organization than I'd like. Westfall bleeds for it." } },
     westfall = { { id = "tp_westfall", text = "Gryan Stoutmantle holds Westfall with farmers and pitchforks, and he does it without a single soldier from this city. I'm not proud of that." } },
     tome_of_divinity = { { id = "tp_tome", text = "Duthorian Rall's test. Pass it, and you'll have earned the right to call yourself one of us." } },

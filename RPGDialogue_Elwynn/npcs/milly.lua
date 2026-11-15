@@ -7,6 +7,10 @@ P:NPC {
   bible = "bibles/milly.md", role = "questgiver", tier = "quest",
   communities = { "northshire" }, temper = { "steady" },
   notices = { "drink", "farmhand" },
+  impression = {
+    first = "Milly Osworth works the Abbey's vineyard with sticky hands and a short temper for the Defias who took it over. She counts her lost harvest in weeks of bread.",
+    third = "{name} met Milly Osworth, whose harvest for Northshire Abbey was carried off by the Defias.",
+  },
 
   greetings = {
     { id = "g_vines", text = "Mind the vines!" },
@@ -122,6 +126,7 @@ P:NPC {
       lines = { { id = "b_default", text = "Ask it to watch the pickers, not the vines. Vines are tougher than we are." } },
       choices = {
         { text = "The pickers, then.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I'll leave the praying to the Abbey, Milly.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Tougher how?", next = "bless_root" },
       },
     },

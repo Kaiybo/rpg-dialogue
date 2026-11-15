@@ -11,6 +11,10 @@ P:NPC {
   communities = { "auberdine" }, temper = { "steady" }, values = { "fair", "wise" },
   spiritSensitive = true,
   notices = { "class", "race" },
+  impression = {
+    first = "Thundris Windweaver sees to Auberdine's daily needs, which lately means seeing to its fears. He listens far more than he speaks, and his lamps burn late because he sleeps so little.",
+    third = "{name} met Thundris Windweaver, the steady elder of Auberdine, who means to learn why Darkshore is sickening.",
+  },
 
   greetings = {
     { id = "g_elder", text = "Auberdine is glad of you, traveller. Rest and eat first, and when you are ready I may ask something of you, for the village has troubles enough to share." },
@@ -75,6 +79,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll find the source.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Felwood's rot is the kaldorei's trouble, not mine.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Felwood?", next = "felwood" },
       },
     },
@@ -89,6 +94,9 @@ P:NPC {
       lines = { { id = "f2_default", text = "Long ago, yes, though I will not trouble you with an old elf's memories. It is enough that I know the smell of it, and that I smell it in the Cliffspring now." } },
       choices = {
         { text = "Then we'd better act quickly.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+        { text = "I'd gladly hear an old elf's memories, Elder.", tag = "Persuade", next = "felwood_memory",
+          check = { pass = { any = { { disposition = { min = 65 } }, { trait = "curious" }, { questDone = TODO_QUEST("The Cliffspring River") } } } },
+          fail = { next = "felwood_later", fx = { affinity = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -96,6 +104,7 @@ P:NPC {
       lines = { { id = "sh_default", text = "Because they came when they were needed and asked for nothing in return, which is rarer than it should be among elves or anyone. I will not judge a whole order by one fallen prince." } },
       choices = {
         { text = "That's generous of you.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'd judge an order by the men it lets fall.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -134,11 +143,17 @@ P:NPC {
     },
     paladin = {
       lines = { { id = "pa_default", text = "Then hear this: if Stilwell the blacksmith ever sends a paladin to me for a Kor gem, I will help them. The naga of Blackfathom Deeps carry such gems, though never clean ones." } },
-      choices = { { text = "I'll remember.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } } },
+      choices = {
+        { text = "I'll remember.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "I'll find my own way to a gem, thank you.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
     },
     priest_t = {
       lines = { { id = "pr_default", text = "Prayer will not cleanse a river by itself, but healers are needed whenever the furbolgs come out of the trees. And Gwennyth by the inn would welcome a priest's eye on her poor sea creatures." } },
-      choices = { { text = "I'll go and see her.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } } },
+      choices = {
+        { text = "I'll go and see her.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Her sea creatures are past saving, and I won't waste prayers on them.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
     boat = {
       lines = { { id = "bo_default", text = "Then you have seen Menethil Harbor. Tell me, is it as damp as our Sentinels complain, when they come back from guarding the Bravery's crossings?" } },
@@ -148,9 +163,35 @@ P:NPC {
         { text = "I didn't notice. I was seasick.", next = "BACK", fx = { affinity = 2 } },
       },
     },
+    felwood_memory = {
+      lines = {
+        { id = "fm_default", text = "Then you shall have one. I was young when the Legion first came through the Well, and afterwards I walked the burned groves along the old shore, and they smelled just as the Cliffspring does now, sweet and rotten at once. I have never told the village, because frightened people do not sleep, and Auberdine needs its sleep." },
+        { id = "fm_priest", when = { class = "PRIEST" },
+          text = "You have a priest's patience, so I will tell you. I walked the groves the Legion burned when I was young, ten thousand years ago, and they smelled as the Cliffspring smells now; I have not told the village, because frightened people pray badly and sleep worse." },
+      },
+      choices = {
+        { text = "It stays with me, Elder.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    felwood_later = {
+      lines = {
+        { id = "fl_default", text = "Another evening, perhaps, when there is less to do and more wine to do it with. For now the river matters more than my memories." },
+        { id = "fl_kin", when = { race = "NightElf" },
+          text = "You of all people should know that some of what the old ones remember is better left with them. Another evening, perhaps." },
+      },
+      choices = {
+        { text = "Another evening, then.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "An elder hears a little of everything, and Auberdine has plenty to say these days. Ask me of any of these, and I will tell you what I can." },
+      { id = "tp_knows_warm", when = { disposition = { min = 70 } },
+        text = "Sit, friend, and ask what you like. You have done enough for this village that I would keep very little from you." },
+    },
     background = { { id = "tp_bg", text = "I am an elder of this village, and a druid in my small way. Auberdine asked me to look after its days, and I have not yet found a way to stop." } },
     advice = { { id = "tp_ad", text = "Keep to the road between Auberdine and Ashenvale, and do not drink from any river that runs down from the east." } },
     twilights_hammer = { { id = "tp_hammer", text = "They dig at the Master's Glaive for something better left buried, and I would very much like to know what." } },
@@ -166,6 +207,10 @@ P:NPC {
   bible = "bibles/auberdine.md", role = "questgiver", tier = "quest",
   communities = { "auberdine" }, temper = { "intent" }, values = { "determined", "curious" },
   notices = { "form", "class" },
+  impression = {
+    first = "Whatever Fel Moss Terenthis burns grows back, and he means to keep burning it all the same. He insists the furbolgs are sick rather than evil, and he seems to need someone to believe it with him.",
+    third = "{name} met Terenthis, a druid come to Darkshore to learn how far the Fel Moss has spread and how to end it.",
+  },
 
   greetings = {
     { id = "g_moss", text = "Careful where you step, friend; that moss on your boots is exactly what I came here to stop." },
@@ -213,6 +258,7 @@ P:NPC {
       },
       choices = {
         { text = "Then we cut it out.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Then the furbolgs who've turned savage have to be put down.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Can it be cured?", next = "moss2" },
       },
     },
@@ -252,6 +298,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I have been studying this shore for weeks, so ask quickly, before I start on the Fel Moss without being asked." },
+    },
     background = { { id = "tp_bg", text = "The Circle sent me, more or less, and I would have come anyway. That is all you need to know about me." } },
     advice = { { id = "tp_ad", text = "Don't sleep on the moss, however soft it looks." } },
     fel_moss = {
@@ -269,6 +318,10 @@ P:NPC {
   bible = "bibles/auberdine.md", role = "priest", tier = "quest",
   communities = { "auberdine" }, temper = { "gentle" }, values = { "devout", "curious" },
   notices = { "class" },
+  impression = {
+    first = "The Temple of the Moon sent Gwennyth to tend Auberdine's people, and she found the beach strewn with dead sea creatures instead. She keeps one eye on the tide, as if expecting another.",
+    third = "{name} met Gwennyth Bly'Leggonde of the Sisterhood, who wants to know why the sea keeps giving up its dead on Darkshore's shore.",
+  },
 
   greetings = {
     { id = "g_temple", text = "The Temple of the Moon sent me to help Auberdine, though the sea, it turns out, has its own ideas about what help means." },
@@ -328,11 +381,17 @@ P:NPC {
     },
     priest_g = {
       lines = { { id = "pg_default", text = "You could. Walk the shore with me some evening and tell me what you sense in those remains; your Light and our Mother Moon may notice different things." } },
-      choices = { { text = "I'd be glad to.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } } },
+      choices = {
+        { text = "I'd be glad to.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I'll leave the dead creatures to your Mother Moon.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The Sisterhood teaches us to listen before we speak, and I have listened to a great deal on this shore. Ask what you need to." },
+    },
     background = { { id = "tp_bg", text = "The Temple of the Moon sent me to see to Auberdine's troubles. I expected sick villagers, not dead threshers." } },
     advice = { { id = "tp_ad", text = "Stay out of the water near the carcasses, because whatever the murlocs leave behind, something larger may come for." } },
     sisterhood_of_elune = { { id = "tp_sister", text = "We go where we are needed, and the Temple decided I was needed here, among the bones." } },
@@ -345,6 +404,10 @@ P:NPC {
   bible = "bibles/auberdine.md", role = "soldier", tier = "quest",
   communities = { "auberdine" }, temper = { "urgent" }, values = { "protective", "dutiful" },
   notices = { "kit" },
+  impression = {
+    first = "Sentinel Glynda Nal'Shea walks the beach every morning counting murloc sign. She told me plainly that the Sentinels watch everyone, and I decided not to take it personally.",
+    third = "{name} met Sentinel Glynda Nal'Shea, who holds back murlocs on Auberdine's beaches and corruption in its groves.",
+  },
 
   greetings = {
     { id = "g_watch", text = "If you're staying in Auberdine, then you're under the Sentinels' eye; don't take it personally, for we watch everyone." },
@@ -396,7 +459,7 @@ P:NPC {
       lines = { { id = "m2_default", text = "Pity them if you like, but keep your distance while you do. Auberdine's safety means I have to take a more realistic view than the people who write poems about them." } },
       choices = {
         { text = "Fair enough.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'll pity them anyway.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "I'll pity them anyway.", next = "BACK", fx = { align = { order = -1 }, trait = { kind = 1 } } },
       },
     },
     crystal = {
@@ -417,6 +480,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I'll answer while I sharpen these blades, since there is never time to do only one thing in Auberdine." },
+    },
     background = { { id = "tp_bg", text = "I am a Sentinel, and I report to Auberdine's council. That's all the story a Sentinel needs." } },
     advice = { { id = "tp_ad", text = "Never turn your back on the water along this coast, because the murlocs are counting on you doing it." } },
     _none = { { id = "tp_none", text = "Ask the elder, for I only watch the roads." } },
@@ -428,6 +494,10 @@ P:NPC {
   bible = "bibles/auberdine.md", role = "questgiver", tier = "quest",
   communities = { "auberdine" }, temper = { "melancholy" }, values = { "devoted", "loyal" },
   notices = { "class" },
+  impression = {
+    first = "On the Auberdine dock, Cerellean Whiteclaw watches the water as though someone might walk out of it. He slept for thousands of years dreaming of Anaya, and he has never stopped grieving her.",
+    third = "{name} met Cerellean Whiteclaw, who has mourned his beloved Anaya of Ameth'Aran since the Sundering.",
+  },
 
   greetings = {
     { id = "g_dock", text = "Hm? Forgive me; I was watching the water. I do a great deal of that." },
@@ -501,6 +571,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I have had a long time to think and little to do but remember. Ask me what you will, and I will try to answer as I once might have." },
+    },
     background = { { id = "tp_bg", text = "I loved someone in Ameth'Aran ten thousand years ago. The rest of my story is the waiting." } },
     advice = { { id = "tp_ad", text = "Tell the people you love that you love them today, because tomorrow has a way of taking ten thousand years." } },
     _none = { { id = "tp_none", text = "I'm sorry; my mind is on the water, and on older things." } },
@@ -512,6 +585,10 @@ P:NPC {
   bible = "bibles/auberdine.md", role = "innkeeper", tier = "service",
   communities = { "auberdine" }, temper = { "warm" }, values = { "kind", "devout" },
   notices = { "weary" },
+  impression = {
+    first = "Innkeeper Shaussiy brings tea to everyone, even to those who forget to drink it. She claims the waves will sing me to sleep after a night or two, and she listens for storms in the floorboards.",
+    third = "{name} found a bed at Innkeeper Shaussiy's inn by the Auberdine docks, where nearly every guest arrives seasick.",
+  },
 
   greetings = {
     { id = "g_rest", text = "Your spirit is tired, I can tell. Rest here; the waves are loud, but they'll sing you to sleep after a night or two." },
@@ -561,6 +638,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Sailors talk once their stomachs settle, and I've heard a fair bit across this bar. Ask, and I'll tell you what I know." },
+    },
     background = { { id = "tp_bg", text = "I keep the inn by the docks, and I've heard every traveller's story twice. Mine isn't nearly as interesting." } },
     advice = { { id = "tp_ad", text = "Sleep on the landward side of the inn if you want quiet, and on the water side if you want to dream." } },
     _none = { { id = "tp_none", text = "Ask the elder, love; he knows everything worth knowing in Auberdine." } },

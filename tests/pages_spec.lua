@@ -105,6 +105,7 @@ describe("The game's pages in the box", function()
     local f = ns.UI.Dialogue.Frame()
     contains(f.text:GetText(), "Kobold Ear")
     contains(f.text:GetText(), "3/5", "what the player carries against what's needed")
+    contains(f.text:GetText(), "|Hrpgdq:required:1:", "the item is a link: hovering shows its tooltip")
     local continue = rows(ns)[1]
     eq(continue.locked, true, "not ready yet")
     contains(continue.label:GetText(), "not finished yet", "says why in words")

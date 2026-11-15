@@ -9,6 +9,10 @@ P:NPC {
   communities = {}, temper = { "steady" }, values = { "honest", "kind" },
   spiritSensitive = true,
   notices = { "death", "sea" },
+  impression = {
+    first = "The keeper of the Westfall lighthouse is a ghost, Captain Grayson, who tends its flame so no other ship meets the rocks his did. He seemed more lonely than frightening.",
+    third = "{name} met the ghost of Captain Grayson at the Westfall lighthouse, who keeps its flame lit for the ships that still sail.",
+  },
 
   greetings = {
     { id = "g_flame", text = "Keep clear of the lamp. It's the only thing here still alive, in its way." },
@@ -65,6 +69,7 @@ P:NPC {
       },
       choices = {
         { text = "That's a noble penance.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "A dead man keeping a lamp lit is just stubbornness.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "You don't owe anyone anything now.", next = "owe", fx = { trait = { kind = 1 } } },
         { text = "Who was the keeper's family?", next = "family" },
       },
@@ -85,6 +90,9 @@ P:NPC {
       choices = {
         { text = "Ha. Fair.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "What was your ship called?", next = "ship" },
+        { text = "You're dead, Captain. Who's left to hide it from?", tag = "Persuade", next = "pirate_honest",
+          check = { pass = { any = { { disposition = { min = 62 } }, { class = { "ROGUE", "PRIEST" } }, { trait = "witty" } } } },
+          fail = { next = "pirate_tide", fx = { affinity = -1 } } },
       },
     },
     ship = {
@@ -129,23 +137,50 @@ P:NPC {
       lines = { { id = "pr_default", text = "Rest? Kind of you. But I've a lamp to keep, and I'd not trust the next fellow to keep it. When this coast is safe, ask me again." } },
       choices = {
         { text = "Then I'll make it safe.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { brave = 1 } } },
+        { text = "Suit yourself. The lamp can keep you company forever.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Let me at least pray for your crew.", next = "priest_crew" },
       },
     },
     priest_crew = {
       lines = { { id = "pc_default", text = "Do, by all means. They were rough men and they'd laugh at you for it, but pray anyway; somebody should, and it can't be me." } },
-      choices = { { text = "Light keep them, wherever the sea put them.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, trait = { kind = 1 } } } },
+      choices = {
+        { text = "Light keep them, wherever the sea put them.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, trait = { kind = 1 } } },
+        { text = "If they'd laugh at prayer, I'll spare them one.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
     scourge = {
       lines = { { id = "sc_default", text = "Bitter? A dark lamp killed me, not a plague. No one did this to me but the rocks, and it's hard to hate rocks. You've better reason than I have." } },
       choices = {
-        { text = "I do.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "I do.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
         { text = "Maybe I'll try your way.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+      },
+    },
+    pirate_honest = {
+      lines = {
+        { id = "ph_default", text = "Ha! Nobody, and that's a fair point to put to a ghost. A pirate, then, since you ask it straight: I took cargo off three kingdoms' merchantmen under whatever flag the morning called for." },
+        { id = "ph_after", text = "But I never fired on a ship that struck her colours, and I never left a crew to drown, and you can ask the sea about that too. It's the one thing I'd want carved on the lighthouse, if anybody ever bothered to carve anything." },
+      },
+      choices = {
+        { text = "An honest pirate. That's rare.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    pirate_tide = {
+      lines = {
+        { id = "pt_default", text = "Hide? I'm not hiding a thing, friend; I'm only letting the tide keep what it's already taken. Ask me about something the sea hasn't got." },
+        { id = "pt_default2", text = "A dead man keeps his own counsel, the same as a living one, only longer. I've told you what I'll tell anybody." },
+      },
+      choices = {
+        { text = "Fair enough, Captain.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "A dead man sees a good deal from the top of a lighthouse, and hears even more in the wind off the water. Ask me about any of this." },
+    },
     background = { { id = "tp_bg", text = "I was a captain once, of a ship that ran this coast, and then came the rocks, and then this. The middle was more fun than the end.", next = "pirate" } },
     advice = { { id = "tp_ad", text = "Never sail a strange coast at night without a light to steer by. I'd know." } },
     defias = { { id = "tp_defias", text = "I've seen their ships slip along this coast at night, running dark. I know the trick; I used it myself." } },

@@ -8,6 +8,11 @@ P:NPC {
   communities = { "nijels_point" }, temper = { "calculating" }, values = { "dutiful", "cunning" },
   notices = { "kit", "status" },
 
+  impression = {
+    first = "Captain Pentigast plays the centaur clans against each other the way other men play cards, and he doesn't pretend it's pretty. He has more ground than soldiers and knows exactly how thin he's stretched.",
+    third = "{name} met Captain Pentigast, who commands the Stormwind Army's thin garrison at Nijel's Point.",
+  },
+
   greetings = {
     { id = "g_post", text = "Another sword for Nijel's Point, good. I've more ground to hold than men to hold it." },
     { id = "g_back", when = { metBefore = true }, text = "Back from the valley? Which clan did you run into this time?" },
@@ -50,13 +55,18 @@ P:NPC {
       },
       choices = {
         { text = "Clever.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
-        { text = "And when they find out?", next = "clans_after", fx = { align = { honor = 1 } } },
+        { text = "Turning them on each other is a coward's way to win.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "And when they find out?", next = "clans_after" },
       },
     },
     clans_after = {
       lines = { { id = "ca_default", text = "Then I'll be the most hated man in Desolace, and still alive. I've been both of those before, separately." } },
       choices = {
         { text = "There has to be an honest way.", next = "BACK", fx = { affinity = -1, align = { honor = 2 } } },
+        { text = "Honesty won't keep your men alive out here.", next = "BACK", fx = { align = { honor = -2 } } },
+        { text = "You don't like it any more than I do, Captain.", tag = "Persuade", next = "arithmetic",
+          check = { pass = { any = { { disposition = { min = 65 } }, { class = "PRIEST" }, { trait = "cautious" } } } },
+          fail = { next = "arithmetic_no", fx = { affinity = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -88,7 +98,10 @@ P:NPC {
     },
     rogue = {
       lines = { { id = "r_default", text = "I don't doubt it, and that's exactly why I'll be watching you while you do it. No offence; it's the job." } },
-      choices = { { text = "None taken.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } } },
+      choices = {
+        { text = "None taken.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Watch all you like, because I've nothing to hide.", next = "BACK", fx = { align = { honor = 1 } } },
+      },
     },
     anton = {
       lines = { { id = "a_default", text = "Earnest, brave, and very sure of things a long way from here. I don't argue with him; I'd rather he kept his faith than lost it in my camp." } },
@@ -98,12 +111,37 @@ P:NPC {
       lines = { { id = "pch_default", text = "They need a chaplain, a cook and forty more swords, and I'll take the chaplain. Brother Anton prays, but only for the Crusade. My men would like someone to pray for them." } },
       choices = {
         { text = "I'll pray for them.", next = "BACK", fx = { affinity = 3, standing = { nijels_point = 2 }, align = { light = 1 } } },
+        { text = "Your men need swords more than they need prayers.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    arithmetic = {
+      lines = {
+        { id = "ar_default", text = "No, I don't, and I'll thank you not to tell the men. I call it arithmetic, forty soldiers against three clans, and the arithmetic is right, but I don't sleep the night after I break faith with a clan, and I've stopped expecting to." },
+        { id = "ar_priest", when = { class = "PRIEST" },
+          text = "You'd make a decent chaplain, getting that out of me. I call it arithmetic, forty soldiers against three clans, and the sums are right, but the night after I break faith with a clan I don't sleep, and I've stopped expecting to." },
+      },
+      choices = {
+        { text = "That's what keeps you honest.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    arithmetic_no = {
+      lines = {
+        { id = "ano_default", text = "What I like doesn't come into it; the orders and the odds do. Ask me something useful." },
+        { id = "ano_rogue", when = { class = "ROGUE" },
+          text = "Looking for a soft spot, are you? I did say I'd be watching you, so ask me something useful." },
+      },
+      choices = {
+        { text = "Fair enough, Captain.", next = "BACK" },
       },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Keeping three clans at each other's throats means knowing what each one is up to. Ask, and I'll tell you what's safe to tell." },
+    },
     background = { { id = "tp_ba", text = "Stormwind Army, and a long string of postings nobody else wanted. This is the dustiest, though it isn't the worst." } },
     advice = { { id = "tp_ad", text = "Never let a centaur clan see you leaving another clan's camp. Leave by the back; there's always a back." } },
     cenarion_circle = { { id = "tp_circle", text = "The keeper's on his own errand. I don't ask and he doesn't explain, and we get along." } },
@@ -116,6 +154,11 @@ P:NPC {
   bible = "bibles/desolace.md", role = "noble", tier = "quest",
   communities = { "nijels_point" }, temper = { "formal" }, values = { "proud", "devout" },
   notices = { "class", "form" },
+
+  impression = {
+    first = "Keeper Marandis speaks as though every word were borrowed from the Cenarion Circle and must be returned in good condition. Whatever errand brought him down from Stonetalon, he considers it far from small.",
+    third = "{name} met Keeper Marandis of the Cenarion Circle, who keeps the grove at Nijel's Point.",
+  },
 
   greetings = {
     { id = "g_keeper", text = "You stand before a keeper of the grove. Speak carefully; my time is the Circle's, not mine." },
@@ -167,7 +210,11 @@ P:NPC {
     },
     earth_heal = {
       lines = { { id = "eh_default", text = "Everything can be healed, given time, and the Circle has time. It is the people of Desolace who do not." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { align = { order = -1 } } } },
+      choices = {
+        { text = "Then the land comes first, and the people must wait.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The people can't wait, so heal them first and the land after.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     sisters = {
       lines = { { id = "s_default", text = "The dryads of my grove. They walk where I cannot and see what I would rather not. Do not stare at them; they find it tiresome." } },
@@ -185,6 +232,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The Circle's business is mine to know, and some of it I may share. Ask, and I will answer as I am able." },
+    },
     background = { { id = "tp_ba", text = "A keeper of the grove, sworn to the Circle. What I was before that does not matter to the work." } },
     advice = { { id = "tp_ad", text = "Watch where the grass will not grow. The land is telling you where not to sleep." } },
     cenarion_circle = { { id = "tp_circle", text = "The Circle sees further than any one keeper. I see as far as Desolace, and it is far enough to worry." } },
@@ -197,6 +247,11 @@ P:NPC {
   bible = "bibles/desolace.md", role = "questgiver", tier = "quest",
   communities = { "nijels_point" }, temper = { "busy" }, values = { "practical", "friendly" },
   notices = { "craft" },
+
+  impression = {
+    first = "Kreldig Ungor is up to his beard in salvage and reagents and still found time to be friendly. He patched a kettle with an arrow hole in it and seemed prouder of that than of anything else.",
+    third = "{name} met Kreldig Ungor, the busy dwarf who runs Reclaimers Inc.'s business out of Nijel's Point.",
+  },
 
   greetings = {
     { id = "g_busy", text = "Got a lot on out here, friend. Wrecks to pick, reagents to fetch, an' only the one of me." },
@@ -256,6 +311,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "We Reclaimers poke our noses intae everythin', so I know a bit o' all of it. Ask away." },
+    },
     background = { { id = "tp_ba", text = "Ironforge lad, Reclaimer by trade, salvager by nature. Never met a broken thing I didnae want tae look inside." } },
     advice = { { id = "tp_ad", text = "Never throw anythin' away in Desolace. Ye'll need it a week later, an' there's no shop for a hundred miles." } },
     explorers_league = { { id = "tp_league", text = "The League digs fer history, an' we dig fer things that still work. Friendly rivals, ye might say." } },
@@ -268,6 +326,11 @@ P:NPC {
   bible = "bibles/desolace.md", role = "priest", tier = "quest",
   communities = { "nijels_point" }, temper = { "zealous" }, values = { "devout", "brave" },
   notices = { "class", "race" },
+
+  impression = {
+    first = "Brother Anton is earnest, brave and wholly certain of the Scarlet Crusade. He looked at me as a recruit he hadn't signed up yet.",
+    third = "{name} met Brother Anton, an emissary of the Scarlet Crusade who seeks the faithful at Nijel's Point.",
+  },
 
   greetings = {
     { id = "g_light", text = "The Light be with you, friend. Have you come to take up the Crusade's cause? There's work for the faithful here." },
@@ -304,6 +367,7 @@ P:NPC {
         { text = "Raleigh read your letter, Brother.", next = "raleigh",
           when = { thread = { id = "scarlet_path", beat = "b3_raleigh", state = { "stirring", "unfolding" } } } },
         { text = "I'll go to the valley.", next = "END", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I won't fight for the Crusade, Brother.", next = "END", fx = { align = { order = -1 } } },
       },
     },
     troubling = {
@@ -371,6 +435,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The Light has shown me a good deal out here, friend, and I'm glad to share it. Ask." },
+    },
     background = { { id = "tp_ba", text = "A brother of the Light who took up the Crusade's cause. I came west to hold back the dead where I'm sent.", next = "troubling" } },
     advice = { { id = "tp_ad", text = "Bless your blade before the Valley of Bones. The dead there don't stay down for steel alone." } },
     scarlet_crusade = { { id = "tp_crusade", text = "Brave men and women, fighting the plague where no one else will. Whatever you've heard, that's the heart of it." } },
@@ -383,6 +450,11 @@ P:NPC {
   bible = "bibles/desolace.md", role = "innkeeper", tier = "service",
   communities = { "nijels_point" }, temper = { "calm" }, values = { "kind" },
   notices = { "weary" },
+
+  impression = {
+    first = "Innkeeper Lyshaerya sweeps the Desolace dust while she talks and has given up winning against it. Her calm is the kind people come a long way to sit beside.",
+    third = "{name} met Innkeeper Lyshaerya, who keeps the only warm hearth at Nijel's Point.",
+  },
 
   greetings = {
     { id = "g_inn", text = "Rest here. There's little enough comfort in Desolace; take what this roof can give." },
@@ -422,6 +494,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Travelers bring news from both ends of the valley to this hearth. Ask, and I'll tell you what I've heard." },
+    },
     background = { { id = "tp_ba", text = "A hearth, a broom, and travellers who need both. I don't need more of a story than that." } },
     advice = { { id = "tp_ad", text = "Shake out your boots every morning. Desolace has scorpions, and scorpions like boots." } },
     _none = { { id = "tp_none", text = "I keep the hearth; ask the Captain for news." } },
@@ -434,6 +509,11 @@ P:NPC {
   bible = "bibles/desolace.md", role = "soldier", tier = "major",
   communities = { "ghost_walker" }, temper = { "hard" }, values = { "loyal", "stern" },
   notices = { "class", "kit" },
+
+  impression = {
+    first = "Takata Steelblade hunts the Burning Blade and every satyr who shelters them, and nothing about him invites small talk. He measures people by whether they will fight.",
+    third = "{name} met Takata Steelblade, the hard-bitten orc who hunts the Burning Blade from Ghost Walker Post.",
+  },
 
   greetings = {
     { id = "g_post", text = "You're in Desolace now, and the demons' servants are thick here. Are you here to fight them?" },
@@ -455,16 +535,141 @@ P:NPC {
         { id = "h_satyr", tags = { "news" }, when = { questActive = TODO_QUEST("Befouled by Satyr") },
           text = "The satyrs foul everything they touch, so thin them. The Blade loses its friends one horn at a time." },
         { id = "h_corrupter", when = { questActive = TODO_QUEST("The Corrupter") },
-          text = "There's something behind the satyrs, something worse. Find it, and end it." },
+          text = "I saw what that demon lord's shadow did to Maurin, and it was only a shadow. Find Lord Azrethoc and his warlock servant at the Mannoroc Coven, and end them both." },
         { id = "h_relations", when = { questActive = TODO_QUEST("Alliance Relations") },
-          text = "The centaur clans can be bargained with, or one of them can, anyway. Go and see which." },
+          text = "So Keldran sent you with news from Orgrimmar, good. Maurin Bonesplitter handles the Blade's warlocks for us, so speak to him, and he'll tell you his designs." },
+        { id = "h_corrupter_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Corrupter"), days = 3 } },
+          text = "Azrethoc is dead, and the Blade has lost its newest master. For the first time since I came here, I think we may one day call some place safe again." },
       },
-      choices = { { text = "I'll hunt with you.", next = "END", fx = { affinity = 2, learn = { "burning_blade" } } } },
+      again = {
+        { id = "h_again", text = "Something else? Say it and be done." },
+        { id = "h_again2", text = "Speak. The satyrs won't wait while we talk, so neither will I for long." },
+      },
+      choices = {
+        { text = "Who are the Burning Blade?", next = "blade" },
+        { text = "Why kill every satyr?", next = "satyrs" },
+        { text = "Why does Orgrimmar worry about the Alliance?", next = "relations" },
+        { text = "Do you miss home?", next = "home" },
+        { text = "What did the demon lord do to Maurin?", next = "corrupter", when = { any = { { questActive = TODO_QUEST("The Corrupter") }, { questDone = TODO_QUEST("The Corrupter") } } } },
+        { text = "Not every warlock is the Blade.", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "Maurin is Forsaken, like me. Do you trust him?", next = "forsaken", when = { race = "Scourge" } },
+        { text = "I'm an orc mage, not a warlock.", next = "orc_mage", when = { race = "Orc", class = "MAGE" } },
+        { text = "I'll hunt with you.", next = "END", fx = { affinity = 2, learn = { "burning_blade" } } },
+      },
+    },
+
+    blade = {
+      big = true,
+      lines = {
+        { id = "b_default", text = "Members of the Horde who gave their loyalty to the demons and kept practicing their dark magic. They care nothing for the Warchief's vision of our future in Kalimdor, and that is the threat Thrall most wants dealt with." },
+      },
+      choices = {
+        { text = "Who hunts them with you?", next = "blade_maurin" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "burning_blade" } } },
+      },
+    },
+    blade_maurin = {
+      lines = {
+        { id = "bm_default", text = "Maurin Bonesplitter, a Forsaken whom Keldran sent because he knows the Blade and their warlock ways. He plots against them, and I deal with every other demonic thing in Desolace, and it does not please me to need a warlock's help, but I do my duty." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "burning_blade" } } } },
+    },
+
+    satyrs = {
+      lines = {
+        { id = "s_default", text = "The Hatefury satyrs to the northeast have ties to the Blade, and the Warchief would have them slain. A satyr is what a night elf becomes when the demons are finished with him, and I don't leave those standing." },
+      },
+      choices = {
+        { text = "How does a demon get a foothold?", next = "satyrs_pain" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    satyrs_pain = {
+      lines = {
+        { id = "sp_default", text = "Never without help. A weak spirit, a hunger for power, a thirst for revenge or even for justice, and when we're in pain, evil comes and offers to ease it." },
+      },
+      choices = {
+        { text = "You sound like you've seen it happen.", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "Then I'll guard my spirit.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Power is power, whoever offers it.", next = "BACK", fx = { align = { light = -1 } } },
+      },
+    },
+
+    relations = {
+      lines = {
+        { id = "r_default", text = "As the Alliance pushes deeper into Kalimdor, they see the Blade and the satyrs and conclude the Horde has made pacts with the Legion. Keldran won't allow that, and with the Warchief's blessing, neither will I." },
+      },
+      choices = {
+        { text = "Why care what the Alliance thinks?", next = "relations_why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    relations_why = {
+      lines = {
+        { id = "rw_default", text = "Because Thrall wants peace with them, and a war started over a lie is still a war. Even helping the centaur, which this does in its way, is better than that, though I'll not pretend I like it." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { opinion = { peace = "for" } } } },
+    },
+
+    home = {
+      lines = {
+        { id = "h2_default", text = "I hoped the Warchief would let us go home before the seasons turned. Every new demon that crawls up out of this land pushes that hope a little further off, and some days I wish it were only the centaur we had to fight." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
+    },
+
+    corrupter = {
+      lines = {
+        { id = "c_default", text = "An apparition of a demon lord called Azrethoc came against him, and even as a shadow it had more power than my warlock companion. I wonder if Maurin is equal to the task, though I'd never say so to his face." },
+      },
+      choices = {
+        { text = "Why not fight it yourself?", next = "corrupter_honor" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    corrupter_honor = {
+      lines = {
+        { id = "ch_default", text = "It would serve the Warchief better if I went, and my blade itches for it. But I hold this post, and I would disgrace my clan if I left it to chase glory for my own honor, so I'll trust you to gather a party in my place." },
+      },
+      choices = {
+        { text = "I'll do it.", next = "BACK", fx = { affinity = 3, align = { honor = 1 } } },
+        { text = "Glory's worth more than a post, and I'd have gone myself.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
+    },
+
+    warlock = {
+      lines = {
+        { id = "w_default", text = "Maybe not, and Maurin is proof of it, but every one of the Blade said the same thing once. Show me with deeds, and I'll stop counting you." },
+      },
+      choices = {
+        { text = "Then watch me.", next = "BACK", fx = { affinity = 1, trait = { proud = 1 } } },
+        { text = "Fair enough.", next = "BACK", fx = { affinity = 2 } },
+      },
+    },
+    forsaken = {
+      lines = {
+        { id = "fo_default", text = "I trust that he hates the Blade as much as I do, and I trust his knowledge of them. What he does with the rest of his studies is his business, as long as it isn't done near my post." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    orc_mage = {
+      lines = {
+        { id = "om_default", text = "From across a battlefield, I can't tell your fire from theirs, and neither can the Alliance. Keep your magic clean and your loyalty plain, and we'll have no quarrel." },
+      },
+      choices = {
+        { text = "Understood.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My magic's my own business, and I'll use it how I like.", next = "BACK", fx = { align = { order = -1 } } },
+      },
     },
   },
 
   topics = {
-    burning_blade = { { id = "tp_blade", text = "Orcs who still kneel to the old fire. In Durotar they hide in caves and here they hide behind satyrs, but I find them either way." } },
+    knows = {
+      { id = "tp_knows", text = "I know what my hunt has taught me. Ask, and I'll answer if it serves the Horde." },
+    },
+    burning_blade = { { id = "tp_blade", text = "Orcs who still kneel to the old fire. In Durotar they hide in caves and here they hide behind satyrs, but I find them either way.", next = "blade" } },
+    background = { { id = "tp_ba", text = "A soldier sent by Keldran to clear demons out of Desolace. I'll tell you more about myself when the job is done, which means not soon." } },
+    advice = { { id = "tp_ad", text = "Hit a satyr before it speaks. Whatever it says, you'll wish you hadn't heard it." } },
     _none = { { id = "tp_none", text = "Not my hunt." } },
   },
 }
@@ -474,6 +679,11 @@ P:NPC {
   bible = "bibles/desolace.md", role = "questgiver", tier = "quest",
   communities = { "ghost_walker" }, temper = { "easygoing" }, values = { "patient", "practical" },
   notices = { "craft", "race" },
+
+  impression = {
+    first = "Nataka Longhorn has grown fond of Desolace and asked me not to tell anyone. He's the most unhurried soul I've met out here, and a fisherman at heart.",
+    third = "{name} met Nataka Longhorn of Thunder Bluff, an easygoing tauren posted at Ghost Walker Post.",
+  },
 
   greetings = {
     { id = "g_post", text = "Desolace isn't such a bad place, once you stop expecting it to grow anything. Sit down." },
@@ -499,13 +709,106 @@ P:NPC {
           text = "You've been to Freewind Post? Then you've met my brother. Does he still stand on the edge of the mesa like he's holding it up?" },
         { id = "h_catch", when = { questActive = TODO_QUEST("Catch of the Day") },
           text = "There's a fish off this coast worth the trouble. Bring me one, and we'll both eat better than Desolace deserves." },
+        { id = "h_catch_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Catch of the Day"), days = 2 } },
+          text = "My hoof still tingles from that Bloodbelly fish, and the whole post smelled of frying for an evening. That's the best thing to happen here all season." },
       },
-      choices = { { text = "I'll help.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } } },
+      again = {
+        { id = "h_again", text = "Something else? Sit; nothing out here is in a hurry except the centaur." },
+      },
+      choices = {
+        { text = "What's to like about Desolace?", next = "fond" },
+        { text = "Tell me about your brother.", next = "brother" },
+        { text = "What's this about a fish?", next = "fish" },
+        { text = "Which centaur are giving you trouble?", next = "centaur" },
+        { text = "It's good to see another tauren out here.", next = "tauren", when = { race = "Tauren" } },
+        { text = "I fish. What should I know about these waters?", next = "fisher", when = { profession = "Fishing" } },
+        { text = "I met your brother. He seemed well.", next = "brother_met", when = { heardLine = "longhorn.h_default" } },
+        { text = "I'll help.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
+      },
+    },
+
+    fond = {
+      lines = {
+        { id = "f_default", text = "The quiet, mostly, when the centaur let us have it, and the sky, which is as wide as Mulgore's. And the graveyard next to the post, where the kodo come to rest, which is a sad place and a holy one." },
+      },
+      choices = {
+        { text = "Tell me about the Kodo Graveyard.", next = "fond_kodo" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fond_kodo = {
+      lines = {
+        { id = "fk_default", text = "Bones as big as huts, as far as you can see, and at night something of the old beasts walks among them. We leave them be, and they leave us be, and that's the best arrangement in Desolace." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    brother = {
+      lines = {
+        { id = "b_default", text = "Cliffwatcher Longhorn, at Freewind Post in Thousand Needles. He writes when there's something to worry about, which is why a whole year can go by between letters." },
+      },
+      choices = {
+        { text = "What did he write about this time?", next = "brother_worry" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    brother_worry = {
+      lines = {
+        { id = "bw_default", text = "Centaur, stirring around the Needles more than usual, as if I didn't have enough centaur of my own. He always worried more than me, and I always told him he'd go grey early." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    fish = {
+      lines = {
+        { id = "fi_default", text = "Bloodbelly fish, my favourite, and the trolls at Shadowprey Village are the only ones who know how to catch them. The post hasn't smelled of cooked fish in far too long, and the centaur keep me too busy to go and ask." },
+      },
+      choices = {
+        { text = "Who should I ask at Shadowprey?", next = "fish_jinar" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fish_jinar = {
+      lines = {
+        { id = "fj_default", text = "Jinar'Zillen, their fisherman; follow the road south and then west to the coast. Tell him a hungry tauren sent you, and he'll know exactly which one." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    centaur = {
+      lines = {
+        { id = "c_default", text = "All of them, one way or another, since the tribes here fight each other as hard as they fight us. The Magram and the Gelkis are the nearest, and they don't much care which of us they're shooting at." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    tauren = {
+      lines = {
+        { id = "t_default", text = "And for me, to see you. Mulgore feels a long way off from this grey place, but horns and a good laugh bring it a little closer." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    fisher = {
+      lines = {
+        { id = "fs_default", text = "That the best catch here is the one somebody else already caught. Talk to the trolls at Shadowprey; they've been fishing this coast longer than any of us has been in Desolace." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    brother_met = {
+      lines = {
+        { id = "bm_default", text = "Good, good; that's all I needed to hear. If you pass through Freewind again, tell him his brother is eating well, even if it isn't quite true yet." },
+      },
+      choices = { { text = "I will.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } } },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've spent a long time in this dusty land, and I've learned more than I expected to. Ask, and I'll tell you." },
+    },
     grimtotem = { { id = "tp_grimtotem", text = "My brother writes about them, when he writes. He worries; he always worried more than me." } },
+    background = { { id = "tp_ba", text = "A tauren of Thunder Bluff, posted to Desolace, and the brother of a tauren who worries too much. That's about all of it.", next = "brother" } },
+    advice = { { id = "tp_ad", text = "Travel the roads in the daytime here. The centaur ride at night, and a lone traveler on a dark road is the easiest prey there is." } },
     _none = { { id = "tp_none", text = "Couldn't say; Desolace doesn't bring much news." } },
   },
 }

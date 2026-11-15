@@ -9,6 +9,11 @@ P:NPC {
   communities = { "lakeshire" }, temper = { "steady" }, values = { "brave", "stern" },
   notices = { "soldier", "kit" },
 
+  impression = {
+    first = "Corporal Keeshan survived the fall of Stonewatch and a long while in Blackrock hands. He is thin and tired, and there is still a soldier standing straight underneath.",
+    third = "{name} found Corporal Keeshan of the Stormwind Army, taken prisoner by the Blackrock orcs after the fall of Stonewatch.",
+  },
+
   greetings = {
     { id = "g_cell", text = "You took your time, but it doesn't matter now. You're here." },
     { id = "g_after", when = { questDone = TODO_QUEST("Missing In Action") }, text = "There's my escort, still standing, I see. Good, so am I." },
@@ -103,6 +108,7 @@ P:NPC {
       lines = { { id = "pr_default", text = "Careful, that's... oh, that's better. Light, that's so much better; I'd forgotten what not hurting felt like." } },
       choices = {
         { text = "The Light hadn't forgotten you.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "That was my own skill, Corporal, not the Light's mercy.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Good. Now you can walk.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -123,6 +129,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've seen more of the Blackrock than any man in Lakeshire would want to, from both sides of the bars. Ask me about any of this." },
+    },
     background = { { id = "tp_bg", text = "Corporal, 12th Sabre Regiment, Stormwind Army. That's all a prisoner gives, and I'm still in the habit.", next = "fall" },
                    { id = "tp_bg2", text = "I'm a soldier. I was one before the cave, and I mean to be one after." } },
     advice = { { id = "tp_ad", text = "Keep your head down and your shield up; I only managed one of those." } },

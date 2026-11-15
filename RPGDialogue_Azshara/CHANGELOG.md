@@ -1,0 +1,12 @@
+# RPG Dialogue: Azshara (pack changelog)
+
+The pack's own version is `version` in `pack.lua`; bump both together.
+
+## 1.0.0 (2026-11-15)
+- New pack (new files: exit the game fully and restart). Azshara as it stood before the goblins came.
+- Talrendis Point (Alliance): Loh'atu, a tauren guest of the Sentinels (the satyr of Haldarr, the Highborne ghosts at the Shadowsong Shrine, the queen the elves named this coast for; a priest can help him lay the dead to rest), Jarrodenus and his hippogryphs, and the Sentinels at the bridge.
+- Valormok (Horde): Ag'tor Bloodfist and the betrayal by Magus Rimtori, Jediga and her four stolen tablets, Kroum the wind rider master.
+- Xylem's tower: Archmage Xylem (Morphaz and his swallowed apprentice, the sirens' coral, Krellian's shell, the Tablet of Sael'hai; replies for mages, rogues, priests, night elves and the High Order's Skyborne), and Sanath Lim-yo, who used to charge for the trip up.
+- The Ruins of Eldarath: Ogtinc of the Cenarion Circle (the coursers, the salve for Felwood; the priest and hunter chains), Peter Galen the dragonscale leatherworker, Kim'jael the double-crossed goblin, Captain Vanessa Beltis of the sunken Horizon Scout, and Pilot Xiggs Fuselighter, when you flare him down.
+- The Bay of Storms: Duke Hydraxis of the Waterlords (the war of the elements, the plagued water, Silithus, the Emberseer; shamans and Skyborne get his attention), Loramus Thalipedes the demon hunter (Razelikh and his name, the azsharite; priests, warlocks and night elves each get his scorn in a different flavour) and Lord Arkkoroc in his drowned temple.
+- Persuade and Intimidate checks on the major people here, lines that depend on how warmly they regard you, "What do you know?" lead-ins, and a diary note after you first meet each of them.

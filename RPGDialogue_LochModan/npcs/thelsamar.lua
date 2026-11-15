@@ -8,6 +8,11 @@ P:NPC {
   communities = { "thelsamar" }, temper = { "hearty" }, values = { "dutiful", "friendly" },
   notices = { "kit", "race" },
 
+  impression = {
+    first = "Mountaineer Kadrell pointed me straight to the bounty poster by the League's door. He watches Thelsamar's road with a cheerful readiness for whatever crawls out of the hills next.",
+    third = "{name} met Mountaineer Kadrell, who keeps watch over the road through Thelsamar for the King of Ironforge.",
+  },
+
   greetings = {
     { id = "g_town", text = "Welcome tae Thelsamar, friend, an' make yerself comfortable! While ye're at it, have a look at that poster by the League's door." },
     { id = "g_back", when = { metBefore = true }, text = "Back on the loch, an' good tae see ye! The tunnel rats have been askin' after ye, though no' fondly." },
@@ -36,6 +41,10 @@ P:NPC {
           text = "Stonegear's on a search o' his own. Help him find what he's after, an' mind the hills while ye do." },
         { id = "h_rockgar", when = { questActive = TODO_QUEST("Report to Mountaineer Rockgar") },
           text = "Rockgar's at Dun Algaz, up the north road past the tower. Take dry socks, for the Wetlands will have the rest o' ye." },
+        { id = "h_warm", when = { disposition = { min = 70 } },
+          text = "Well, look who it is! Thelsamar's favourite visitor, an' I'll hear no argument about it. Come here, come here!" },
+        { id = "h_cold", when = { disposition = { max = 34 } },
+          text = "Aye, I see ye. I'll be civil, because it's my post, but don't be expectin' the warm welcome." },
       },
       again = {
         { id = "h_again", text = "What else, friend? The road's quiet, for now." },
@@ -109,6 +118,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I stand on this road all day, an' every traveller tells me somethin' on their way past. Ask me about any o' this!" },
+    },
     background = { { id = "tp_bg", text = "I'm a Mountaineer o' Ironforge, posted tae Thelsamar. It's the best post in Khaz Modan, an' I'll argue wi' anyone who says otherwise." } },
     advice = { { id = "tp_ad", text = "Read the poster, then read faces. A Dark Iron can wash his beard, but no' the soot under his nails.", next = "spy" } },
     dark_iron = { { id = "tp_dark_iron", text = "Sneakin' about where they've no business. I'd like tae know what they want wi' a dam." } },
@@ -123,6 +135,11 @@ P:NPC {
   bible = "bibles/thelsamar.md", role = "scholar", tier = "quest",
   communities = { "thelsamar" }, temper = { "steady" }, values = { "honest", "practical" },
   notices = { "craft" },
+
+  impression = {
+    first = "Prospector Ironband admits his dig is slow and insists it will pick up any day now. He has the stubborn patience of someone who has been saying that for a while.",
+    third = "{name} visited Prospector Ironband's excavation in Loch Modan, where the Explorers' League dig goes slowly but steadily.",
+  },
 
   greetings = {
     { id = "g_dig", text = "Watch the trench, an' the ropes, an' the lads, for they're workin', slowly but workin'." },
@@ -190,7 +207,7 @@ P:NPC {
       },
       choices = {
         { text = "Spoken like an honest dwarf.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "Or leave them be and fill the hole.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Or leave them be and fill the hole.", next = "BACK", fx = { align = { honor = -1 }, trait = { cautious = 1 } } },
       },
     },
     slow = {
@@ -228,6 +245,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "A digger hears a lot down a trench, an' most o' it's troggs, but no' all. Ask me about any o' this." },
+    },
     background = { { id = "tp_bg", text = "Darteus Ironband, prospector. I value results, an' I've had few lately, so I'm valuin' them very hard." } },
     advice = { { id = "tp_ad", text = "When the ground goes quiet, listen harder, for that's when the troggs are diggin'." } },
     explorers_league = { { id = "tp_league", text = "The finest lot o' diggers, scholars an' madmen in the world. I'm in the middle category." } },
@@ -243,6 +263,11 @@ P:NPC {
   bible = "bibles/thelsamar.md", role = "innkeeper", tier = "service",
   communities = { "thelsamar" }, temper = { "jolly" }, values = { "generous" },
   notices = { "weary", "drink" },
+
+  impression = {
+    first = "Innkeeper Hearthstove claims the Stoutlager pours the best ale between Ironforge and the Wetlands, and he'll fight anyone who disagrees once they've paid. I didn't disagree.",
+    third = "{name} drank at the Stoutlager Inn in Thelsamar, where Innkeeper Hearthstove pours what he calls the best ale in Loch Modan.",
+  },
 
   greetings = {
     { id = "g_inn", text = "The Stoutlager welcomes ye! Sit down, have a pint an' tell us a tale, in that order." },
@@ -299,6 +324,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Everyone in Thelsamar drinks at the Stoutlager, an' every one o' them talks after the second mug. Ask me about any o' this." },
+    },
     background = { { id = "tp_bg", text = "I keep the Stoutlager, an' before that I drank in it. It was a short step." } },
     advice = { { id = "tp_ad", text = "Sit wi' yer back tae the wall an' yer face tae the fire, an' ye'll see everyone an' stay warm besides." } },
     stonewrought_dam = { { id = "tp_dam", text = "Ask the miners, for they've a song about it. Just don't ask them tae sing it.", next = "song" } },
@@ -311,6 +339,11 @@ P:NPC {
   bible = "bibles/thelsamar.md", role = "questgiver", tier = "quest",
   communities = { "thelsamar" }, temper = { "brisk" }, values = { "proud" },
   notices = { "craft" },
+
+  impression = {
+    first = "Vidra Hearthstove ran me out of her kitchen unless I'd brought something to cook. Her blood sausages are famous, she says, at least in Thelsamar.",
+    third = "{name} met Vidra Hearthstove, who cooks Thelsamar's famous blood sausages in the Stoutlager's kitchen.",
+  },
 
   greetings = {
     { id = "g_kitchen", text = "Out o' my kitchen, unless ye've brought me somethin' tae cook." },
@@ -387,6 +420,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Folk talk while they wait for their sausages, an' I've ears as well as a ladle. Ask me about any o' this, quick, before the pot burns." },
+    },
     background = { { id = "tp_bg", text = "I cook, an' that's my story, an' it's got sausages in it." } },
     advice = { { id = "tp_ad", text = "Eat it fresh. That goes for everythin', but sausages most of all." } },
     _none = { { id = "tp_none", text = "I cook; ask someone who talks." } },
@@ -398,6 +434,11 @@ P:NPC {
   bible = "bibles/thelsamar.md", role = "soldier", tier = "quest",
   communities = { "thelsamar" }, temper = { "formal" }, values = { "dutiful" },
   notices = { "soldier" },
+
+  impression = {
+    first = "Captain Rugelfuss told me ceremony could wait until the troggs did. He has the worn calm of an officer who's been fighting the same fight from the same hill for too long.",
+    third = "{name} met Captain Rugelfuss, who holds the Valley of Kings against troggs rising from under the hills.",
+  },
 
   greetings = {
     { id = "g_ease", text = "At ease. Ceremony can wait until the troggs do." },
@@ -420,6 +461,8 @@ P:NPC {
         { id = "h_count", when = { metBefore = true }, text = "We put down eleven troggs yesterday, and twelve more came up where they fell. I've stopped counting and started digging trenches." },
         { id = "h_mountaineer", when = { origin = "dwarf_mountaineer" },
           text = "A Mountaineer of Dun Morogh, good. You'll know what a short-handed post looks like, and this is one." },
+        { id = "h_warm", when = { disposition = { min = 70 } },
+          text = "Ah, good, it's you. The regiment's glad of you on these hills, and the captain is too, though he'll only say so the once." },
       },
       again = {
         { id = "h_again", text = "Is there anything further?" },
@@ -432,6 +475,7 @@ P:NPC {
         { text = "Why trogg teeth?", next = "teeth" },
         { text = "I stood the high passes too, Captain.", next = "mountaineer", when = { origin = "dwarf_mountaineer" } },
         { text = "I'll help defend them.", next = "END", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "The King's statues can guard themselves, Captain.", next = "END", fx = { align = { order = -1 } } },
       },
     },
     reserve = {
@@ -440,6 +484,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll watch them.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Ironforge ought to bring its soldiers home.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Is the front worth it?", next = "reserve_worth" },
       },
     },
@@ -447,7 +492,12 @@ P:NPC {
       lines = {
         { id = "rw_default", text = "The King says it is, and I'm a captain. I say 'Yes, my king,' and I count troggs." },
       },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "And what does the captain think off duty?", tag = "Persuade", next = "reserve_off",
+          check = { pass = { any = { { disposition = { min = 65 } }, { race = "Dwarf" }, { origin = "dwarf_mountaineer" } } } },
+          fail = { next = "reserve_on", fx = { affinity = -1 } } },
+      },
     },
     leader = {
       lines = {
@@ -489,11 +539,37 @@ P:NPC {
       lines = {
         { id = "mo_default", text = "Then stand a watch with my regiment some night. You'll find the troggs keep worse hours than the Frostmane." },
       },
-      choices = { { text = "Gladly, Captain.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, standing = { thelsamar = 1 } } } },
+      choices = {
+        { text = "Gladly, Captain.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, standing = { thelsamar = 1 } } },
+        { text = "I'm done standing watches, so I'll hunt troggs my own way.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
+    reserve_off = {
+      lines = {
+        { id = "ro_default", text = "Off duty, the captain thinks Ironforge has sent its best to guard other people's kingdoms while its own valleys fill with troggs. He also thinks the King knows it, which is why the King looks so tired at council." },
+        { id = "ro_after", text = "And off duty, the captain asked to march with the Reserve and was told his post was here. He was angry about it for a month, and then he was relieved, and he has never once forgiven himself for the relief." },
+      },
+      choices = {
+        { text = "Someone has to hold the gate, Captain.", next = "BACK", fx = { affinity = 2 } },
+        { text = "That stays between us.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    reserve_on = {
+      lines = {
+        { id = "rn_default", text = "The captain is never off duty in the Valley of Kings, which is the short answer. The long answer is the same, only with more troggs in it." },
+        { id = "rn_default2", text = "My opinions belong to the regiment's book, and the book belongs to the King. Ask me about the troggs instead; I've plenty to say on them." },
+      },
+      choices = {
+        { text = "Fair enough, Captain.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The regiment's book records most of what happens in these hills, and I've read every page. Ask me about any of this." },
+    },
     background = { { id = "tp_bg", text = "I'm the King's captain in the Valley of Kings. My history is the regiment's history, and the regiment keeps a book." } },
     advice = { { id = "tp_ad", text = "Bring proof, always. Nobody argues with a sack of teeth." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "The same troggs, or their cousins. They came up under the gnomes, and now they're coming up under us." } },
@@ -507,6 +583,11 @@ P:NPC {
   bible = "bibles/thelsamar.md", role = "worker", tier = "quest",
   communities = { "thelsamar" }, temper = { "anxious" }, values = { "proud", "careful" },
   notices = { "craft" },
+
+  impression = {
+    first = "Chief Engineer Hinderweir VII begged me to hold the rail on a walkway he swore was perfectly safe. The weight of six forebears and one great dam sits squarely on his shoulders.",
+    third = "{name} met Chief Engineer Hinderweir VII, seventh of his name to tend the Stonewrought Dam in Loch Modan.",
+  },
 
   greetings = {
     { id = "g_dam", text = "Careful on the walkway! It's perfectly safe, mostly safe, engineered to be safe, but please hold the rail." },
@@ -600,6 +681,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I know, well, I know a great deal, mostly about the dam, but also other things, which I'll gladly tell you about if you ask about any of these, quickly, before I have to go and check the dam again." },
+    },
     background = { { id = "tp_bg", text = "I'm the seventh of the name and Chief Engineer of the dam, and that's all of me; the rest is readings." } },
     advice = { { id = "tp_ad", text = "Check it twice, then check it again, and then hold the rail." } },
     dark_iron = { { id = "tp_dark_iron", text = "Don't say that name near my dam, please, just don't. I've enough to worry about as it is.", next = "threat" } },

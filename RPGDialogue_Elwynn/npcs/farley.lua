@@ -8,6 +8,10 @@ P:NPC {
   bible = "bibles/farley.md", role = "innkeeper", tier = "major",
   communities = { "goldshire" }, temper = { "steady" }, values = { "kind", "generous", "witty" },
   notices = { "guest", "pet", "drink" },
+  impression = {
+    first = "Innkeeper Farley runs the Lion's Pride with a loud voice and a family pride older than its walls. He'll tell anyone who asks, and most who don't, that he has never watered a drink.",
+    third = "{name} was welcomed to the Lion's Pride by Innkeeper Farley, whose family has kept it since the first King Llane's day.",
+  },
 
   greetings = {
     { id = "g_welcome", text = "Welcome to the Lion's Pride! Sit anywhere the dog isn't." },
@@ -91,12 +95,13 @@ P:NPC {
         { text = "Who'd know more than you?", next = "rumors_who" },
         { text = "Thanks, Farley.", next = "BACK" },
         { text = "Hogger can't be that bad.", next = "BACK", when = { heardClaim = "hogger_unbeatable" }, fx = { trait = { brave = 1 } } },
-        { text = "[Deceive] That was me, actually. Hogger's dead.", tag = "Deceive", next = "END",
+        { text = "That was me, actually. Hogger's dead.", tag = "Deceive", next = "END",
           when = { questBefore = TODO_QUEST("WANTED: \"Hogger\""), heardClaim = "hogger_unbeatable" },
           fx = { claim = "player_killed_hogger", align = { honor = -2 }, affinity = 1 },
           journal = { first = "Told Farley I'd killed Hogger. He believed me. Half of Goldshire will by morning.",
                       third = "{name} told Innkeeper Farley they had killed Hogger." },
           fail = { next = "END", fx = { affinity = -2 } } },
+        { text = "I didn't kill Hogger, and I won't say I did.", next = "BACK", when = { questBefore = TODO_QUEST("WANTED: \"Hogger\""), heardClaim = "hogger_unbeatable" }, fx = { align = { honor = 2 } } },
       },
     },
     rumors_who = {
@@ -143,6 +148,7 @@ P:NPC {
         { text = "Light keep Frandis, wherever he walks.", next = "brother_after", fx = { affinity = 3, align = { light = 2 }, trait = { pious = 1 }, standing = { goldshire = 2 } },
           journal = { first = "Said a prayer for Farley's brother Frandis, lost on a caravan to Lordaeron in the plague year.",
                       third = "{name} prayed for Innkeeper Farley's brother, lost in Lordaeron." } },
+        { text = "Prayers never brought anyone home, Farley, and I'm sorry for it.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -233,6 +239,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "An innkeeper hears everything sooner or later, friend, usually after the second ale. Ask me about any of this and I'll tell you what's going round the common room." },
+    },
     background = { { id = "tp_bg", text = "Fredrik Farley, of the Lion's Pride, like my father and his before him. The inn's the real story; I just pour.", next = "inn" } },
     advice = { { id = "tp_ad", text = "Eat something hot, sleep somewhere dry, and never pick a fight in another man's inn, especially mine." } },
     lions_pride = { { id = "t_inn", text = "Best inn between Stormwind and Lakeshire, and I'll argue with anyone who says otherwise, politely." } },

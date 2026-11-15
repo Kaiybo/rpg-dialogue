@@ -8,6 +8,10 @@ P:NPC {
   bible = "bibles/thomas.md", role = "questgiver", tier = "quest",
   communities = { "eastvale" }, temper = { "steady" }, values = { "lawful", "brave" },
   notices = { "kit", "death" },
+  impression = {
+    first = "Guard Thomas holds the bridge with what little he has, and he asked Dughan for soldiers before he got me instead. He hasn't forgotten the two men he sent north along the river.",
+    third = "{name} met Guard Thomas, who keeps the eastern bridge and still waits for word of his missing men.",
+  },
 
   greetings = {
     { id = "g_business", text = "State your business with the Stormwind Army." },
@@ -91,6 +95,7 @@ P:NPC {
         { text = "Rolf Hartford. Malakai Stone. Light keep them.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, standing = { eastvale = 2 }, learn = { "lost_footmen" } },
           journal = { first = "Said the names of Rolf Hartford and Malakai Stone at the Eastvale bridge. Guard Thomas stood at attention the whole time.",
                       third = "{name} prayed over Guard Thomas' lost footmen at the Eastvale bridge." } },
+        { text = "Words won't bring them back from the lake, Thomas.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
 
@@ -164,13 +169,16 @@ P:NPC {
         { id = "fh_default", text = "I know it. I'd have held one if I'd been sent. That's no comfort to you, and I won't pretend it is." },
       },
       choices = {
-        { text = "It's something, coming from a soldier.", next = "BACK", fx = { affinity = 2 } },
+        { text = "It's something, coming from a soldier.", next = "BACK", fx = { align = { order = 1 }, affinity = 2 } },
         { text = "Someone should answer for it.", next = "BACK", fx = { align = { order = -1 }, opinion = { westfall = "abandoned" } } },
       },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Standing at this bridge all day, you hear a fair bit from the folk passing over. Ask me about any of this, and I'll tell you what I know." },
+    },
     background = { { id = "tp_bg", text = "I'm Stormwind Army, and I go where I'm posted. I've been posted to this bridge, so this bridge is where you'll find me." } },
     advice = { { id = "tp_ad", text = "Don't follow the river north alone. Two good men did, on my orders." } },
     murlocs_east = {

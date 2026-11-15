@@ -11,6 +11,11 @@ P:NPC {
   communities = { "menethil" }, temper = { "fierce" }, values = { "dutiful", "brave" },
   notices = { "soldier", "kit" },
 
+  impression = {
+    first = "Captain Stoutfist holds Menethil's wall against the Dragonmaw and has more work than hands. He asked nothing about me except whether I'd go where I was told.",
+    third = "{name} reported to Captain Stoutfist, who holds Menethil Harbor against the Dragonmaw for Ironforge and the Alliance.",
+  },
+
   greetings = {
     { id = "g_wall", text = "Quickly now. I've a wall to keep an' a hill full o' orcs to keep it from." },
     { id = "g_back", when = { metBefore = true }, text = "Ye're back, an' good timin' too. I've more work than hands, an' ye've brought a pair." },
@@ -48,6 +53,10 @@ P:NPC {
           text = "A proper beard, thank the Light! Half my garrison's sailors who think a hammer's for nails." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "I'm on the night watch. The orcs like the dark, an' so do I, for it means I can see their fires." },
+        { id = "h_warm", when = { disposition = { min = 70 } },
+          text = "There ye are! The lads on the wall have been askin' when ye'd be back, an' so have I, if I'm honest about it." },
+        { id = "h_cold", when = { disposition = { max = 34 } },
+          text = "I've a wall tae hold an' no time for them that cannae be trusted on it. Speak quick." },
       },
       again = {
         { id = "h_again", text = "What else? Be quick about it, mind, for the wall doesnae keep itself." },
@@ -76,6 +85,7 @@ P:NPC {
       },
       choices = {
         { text = "Then let's finish them.", next = "BACK", fx = { affinity = 2, learn = { "dragonmaw" }, align = { honor = 1 } } },
+        { text = "Let them rot in the hills, and spare our own dwarves.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "No dragons at all?", next = "none", fx = { learn = { "dragonmaw" } } },
       },
     },
@@ -93,6 +103,7 @@ P:NPC {
       choices = {
         { text = "Grim Batol was a dwarven hold, wasn't it?", next = "grim_batol_old" },
         { text = "Good riddance to the Dragonmaw.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Pity the dragons. They never chose their riders.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
     grim_batol_old = {
@@ -181,6 +192,7 @@ P:NPC {
       },
       choices = {
         { text = "Ironforge will win the rest again.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, standing = { menethil = 1 } } },
+        { text = "The Wetlands belong to the marsh now. Let them go.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Why not pull back to Loch Modan?", next = "dwarf_retreat" },
       },
     },
@@ -205,6 +217,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll pray with them before they go.", next = "BACK", fx = { affinity = 2, align = { light = 2 }, standing = { menethil = 1 } } },
+        { text = "Prayers won't stop a Dragonmaw axe. Better armour will.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "And the ones who don't return?", next = "priest_dead" },
       },
     },
@@ -213,7 +226,11 @@ P:NPC {
       lines = {
         { id = "pd_default", text = "We bury them on the high ground, where the sea cannae take them twice. Glorin says the words an' I stand there, an' I've never got used to it, nor want to." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } } },
+      choices = {
+        { text = "Then I'll stand with you at the next one.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Dead is dead, Captain. The high ground won't matter to them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
 
     lordaeron = {
@@ -243,6 +260,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Every scout an' sentry on this coast reports tae me, an' most o' what they report is bad. Ask me about any o' this." },
+    },
     thandol_span = { { id = "tp_span", text = "One bridge down, one standin', an' Longbraid's lads between the Dark Irons an' the rest of us." } },
     background = { { id = "tp_bg", text = "Ironforge gave me a wall an' a harbour behind it, an' that's the whole o' my story. I like it short." } },
     advice = { { id = "tp_ad", text = "Dinnae walk Dun Algaz alone, an' dinnae walk it at night. Ye'll meet orcs either way, but it's better to see them first." } },
@@ -261,6 +281,11 @@ P:NPC {
   bible = "bibles/menethil.md", role = "questgiver", tier = "quest",
   communities = { "menethil" }, temper = { "maudlin" }, values = { "loyal" },
   notices = { "drink", "fright" },
+
+  impression = {
+    first = "First Mate Fitzsimmons asked for a drink in exchange for a tale and seemed delighted that anyone listened. He has no ship left to be first mate of, and I don't think he's sober about that, or anything.",
+    third = "{name} heard a tale from First Mate Fitzsimmons, a Kul Tiran sailor without a ship who sits by the door of the Deepwater Tavern.",
+  },
 
   greetings = {
     { id = "g_tale", text = "Sit down, sit down! A drink and a tale, that's my price. You bring the drink, I'll bring the tale." },
@@ -394,6 +419,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll take the prayer out to them.", next = "BACK", fx = { affinity = 2, align = { light = 2 } } },
+        { text = "If the bay didn't answer Glorin, it won't answer me.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "The Light hears, even underwater.", next = "BACK", fx = { affinity = 1, trait = { pious = 1 } } },
       },
     },
@@ -410,11 +436,15 @@ P:NPC {
       choices = {
         { text = "Give it time, Fitz.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "They're at rest. You can be too.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Drink, then, if it keeps them quiet.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've been sitting outside this tavern so long I've heard every tale in the harbour, twice. Ask me about any of this, friend, and maybe stand upwind." },
+    },
     third_fleet = { { id = "tp_fleet", text = "That was my fleet, and don't make me talk about it sober.", next = "fleet" } },
     grim_batol = { { id = "tp_grim_batol", text = "That's where the dragons came from, and I don't look east anymore." } },
     background = { { id = "tp_bg", text = "First mate of the Wave Mistress, Third Fleet of Kul Tiras. If you say it fast enough, it doesn't hurt.", next = "fleet" } },
@@ -429,6 +459,11 @@ P:NPC {
   bible = "bibles/menethil.md", role = "priest", tier = "quest",
   communities = { "menethil" }, temper = { "grumpy" }, values = { "devout", "dutiful" },
   notices = { "fel", "class" },
+
+  impression = {
+    first = "Glorin Steelbrow tends Menethil's souls and grumbles that nobody warned him they'd come with mud and murlocs. He blesses people in the same breath as he complains about them.",
+    third = "{name} met Glorin Steelbrow, the overworked dwarf priest who tends to the souls of Menethil Harbor.",
+  },
 
   greetings = {
     { id = "g_busy", text = "Hmph, another one. Aye, aye, the Light bless ye, now what is it? I've three things on the fire an' two o' them are smokin'." },
@@ -459,6 +494,8 @@ P:NPC {
           text = "Murlocs, it would be murlocs! They've no use for holy iron, an' they took every bar anyway." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Evenin' prayers, an' then the sailors come in wantin' blessings for the mornin' tide. I bless them, but I don't promise anything." },
+        { id = "h_warm", when = { disposition = { min = 70 } },
+          text = "Ah, it's you, thank the Light. Come in out o' the wet, an' if ye've a spare prayer in ye, I've a spare sailor." },
       },
       again = {
         { id = "h_again", text = "What else? Quick, before the next soul comes in drippin'." },
@@ -488,6 +525,7 @@ P:NPC {
       choices = {
         { text = "Tell me about Fitzsimmons.", next = "fitz" },
         { text = "I'll see to the wounded.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, standing = { menethil = 1 } } },
+        { text = "Fitzsimmons can save himself. I'm no nursemaid.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
     fitz = {
@@ -510,7 +548,12 @@ P:NPC {
       lines = {
         { id = "gs_default", text = "Nobody, an' I prefer it that way. The Light an' I have an understandin': it sends me work, I do it, an' neither of us complains... well, one of us complains." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+      choices = {
+        { text = "Something else.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Everyone needs someone, Brother. Even you.", tag = "Persuade", next = "grumpy_letter",
+          check = { pass = { any = { { disposition = { min = 65 } }, { class = "PRIEST" }, { trait = "kind" } } } },
+          fail = { next = "grumpy_socks", fx = { affinity = -1 } } },
+      },
     },
     wrecks = {
       lines = {
@@ -529,6 +572,7 @@ P:NPC {
       choices = {
         { text = "Who could work such metal?", next = "lightforge_smith" },
         { text = "Iron like that belongs in a paladin's hands.", next = "BACK", when = { class = "PALADIN" }, fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Iron like that would fetch a fine price in Ironforge.", next = "BACK", when = { class = "PALADIN" }, fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -580,11 +624,40 @@ P:NPC {
       lines = {
         { id = "pw_default", text = "The best school there is, an' the worst. Ye'll do, so take the next three blessings, would ye? They're for sailors, an' sailors always want three." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } } },
+      choices = {
+        { text = "Three blessings for the sailors, then, and gladly.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Sailors can make do with one blessing like everyone else.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    grumpy_letter = {
+      big = true,
+      lines = {
+        { id = "gl_default", text = "Hmph. Two winters back I wrote to Ironforge askin' to be posted home, to a proper chapel wi' a dry floor an' a choir that can hold a note. They said aye, an' I tore the letter up the same night." },
+        { id = "gl_after", text = "Because who'd bury the Third Fleet when the tide brings it in, an' who'd sit wi' Fitzsimmons when the drink turns on him? Naebody, that's who. So I stayed, an' I grumble, an' the grumblin's the price o' stayin'." },
+        { id = "gl_priest", when = { class = "PRIEST" }, text = "An' now there's you, askin' after me like a proper colleague. I'll no' say it twice, so listen: it's good to have ye here." },
+      },
+      choices = {
+        { text = "Menethil's lucky you stayed, Brother.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "I'll take a share of the burying.", next = "BACK", fx = { affinity = 2, standing = { menethil = 1 } } },
+      },
+    },
+    grumpy_socks = {
+      lines = {
+        { id = "gk_default", text = "I've the Light an' a dry pair o' socks for Sundays, an' that's all the company a priest in a marsh needs. Now, did ye want somethin' or no'?" },
+        { id = "gk_default2", text = "Kind o' ye, I'm sure, but I'm no' one o' yer drowned sailors to be fussed over. Save it for them that need it." },
+      },
+      choices = {
+        { text = "Fair enough, Brother.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I hear a great deal from the dyin' an' the drownin', more than I'd like. Ask me about any o' this, an' be quick, for the tide's comin' in." },
+    },
     third_fleet = { { id = "tp_fleet", text = "Out o' Lordaeron, an' burned off this coast. I've buried more of it than I'd like.", next = "wrecks" } },
     grim_batol = { { id = "tp_grim_batol", text = "A dark place, by all accounts, an' I've never been nor wanted to." } },
     background = { { id = "tp_bg", text = "An Ironforge priest o' the Church, posted to a marsh. Somebody up the chain has a sense o' humour." } },
@@ -600,6 +673,11 @@ P:NPC {
   bible = "bibles/menethil.md", role = "soldier", tier = "quest",
   communities = { "menethil" }, temper = { "bitter" }, values = { "brave", "proud" },
   notices = { "body", "kin" },
+
+  impression = {
+    first = "Harlo Barnaby took an axe in the back at Dun Modr and wakes every day hungry for news from the north. He's laid up by the healer's orders and resents every hour of it.",
+    third = "{name} met Harlo Barnaby, a wounded dwarf recovering in Menethil after the Dark Iron attack on Dun Modr.",
+  },
 
   greetings = {
     { id = "g_bed", text = "Don't mind me, I'm no' gettin' up; healer's orders. My own orders are different, but she's got the bigger stick." },
@@ -666,6 +744,7 @@ P:NPC {
       choices = {
         { text = "I'm sorry.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Then they'll pay for the bridge too.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Bringing down that bridge was clever, I'll grant them.", next = "BACK", fx = { align = { honor = -1 } } },
       },
     },
     longbraid = {
@@ -699,13 +778,19 @@ P:NPC {
       lines = {
         { id = "dw_default", text = "Aye, when the lads come home from the Alliance's wars an' see what happened while they were gone. Tell them so in Ironforge, an' tell them loud." },
       },
-      choices = { { text = "I'll tell them.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, standing = { menethil = 1 } } } },
+      choices = {
+        { text = "I'll tell them.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, standing = { menethil = 1 } } },
+        { text = "Ironforge has enough to hear about. Hold the line yourselves.", next = "BACK", fx = { align = { order = -1 } } },
+      },
     },
     priest = {
       lines = {
         { id = "pr_default", text = "Glorin's prayed over it twice an' grumbled over it ten times, so go on, then... oh, that's warm, that's very warm. Thank ye." },
       },
-      choices = { { text = "Rest. It'll mend.", next = "BACK", fx = { affinity = 3, align = { light = 2 } } } },
+      choices = {
+        { text = "Rest. It'll mend.", next = "BACK", fx = { affinity = 3, align = { light = 2 } } },
+        { text = "Keep your thanks. I did it to pass the time.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
     alive = {
       big = true,
@@ -717,6 +802,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I cannae stand, but I can still listen, an' folk talk freely around a man in a bed. Ask me about any o' this." },
+    },
     thandol_span = { { id = "tp_span", text = "That's where it all started, an' I'll tell ye about it, if ye've the stomach for it.", next = "span" } },
     background = { { id = "tp_bg", text = "I served in Longbraid's regiment at Dun Modr. I'm a soldier an' I'll be one again, an' that's the whole of it.", next = "longbraid" } },
     advice = { { id = "tp_ad", text = "Watch the bridges up north. They're no' as solid as they look anymore." } },
@@ -731,6 +819,11 @@ P:NPC {
   bible = "bibles/menethil.md", role = "worker", tier = "quest",
   communities = { "menethil" }, temper = { "steady" }, values = { "hardworking", "practical" },
   notices = { "kit" },
+
+  impression = {
+    first = "Karl Boran keeps cargo moving through a harbour the marsh is trying to swallow. He asked me to stand still before I tripped on something, and I liked him for it.",
+    third = "{name} met Karl Boran, a merchant sailor who keeps cargo moving through the docks of Menethil Harbor.",
+  },
 
   greetings = {
     { id = "g_dock", text = "Careful of the ropes, and the nets, and the crates... actually, just stand still a moment, would you?" },
@@ -845,6 +938,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Every crate through this harbour comes with a bit of news packed in the straw. Ask me about any of this." },
+    },
     third_fleet = { { id = "tp_fleet", text = "Every captain steers wide of those wrecks, and nobody needs telling twice." } },
     background = { { id = "tp_bg", text = "Merchant marine. I go where the cargo goes, and lately the cargo comes here." } },
     advice = { { id = "tp_ad", text = "Count your crates twice and your fingers three times. This coast takes both." } },
@@ -858,6 +954,11 @@ P:NPC {
   bible = "bibles/menethil.md", role = "innkeeper", tier = "service",
   communities = { "menethil" }, temper = { "jolly" }, values = { "generous" },
   notices = { "weary", "drink" },
+
+  impression = {
+    first = "Innkeeper Helbrek's Deepwater only leaks over the bar, which he counts as good planning. He has a gift for making soaked strangers feel like regulars.",
+    third = "{name} came in out of the rain at the Deepwater Tavern, kept by Innkeeper Helbrek of Menethil Harbor.",
+  },
 
   greetings = {
     { id = "g_tavern", text = "In ye come, out o' the wet! The Deepwater's dry, warm, an' only leaks over the bar, which is where ye want it." },
@@ -926,6 +1027,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Sailors, soldiers an' diggers all drink at the Deepwater, an' every one o' them talks. Ask me about any o' this!" },
+    },
     background = { { id = "tp_bg", text = "I keep a dry room in a wet town. That's the whole o' my story, an' it's a good one." } },
     advice = { { id = "tp_ad", text = "Hang yer cloak by the fire an' yer boots by the door. Never the other way round." } },
     dragonmaw = { { id = "tp_dragonmaw", text = "The lads come back from the hills tired an' thirsty. That's how I know there's a war on." } },
@@ -938,6 +1042,11 @@ P:NPC {
   bible = "bibles/menethil.md", role = "scholar", tier = "quest",
   communities = { "menethil" }, temper = { "eager" }, values = { "curious" },
   notices = { "lore", "travel" },
+
+  impression = {
+    first = "Archaeologist Flagongut has turned a tavern table into a dig site while the raptors hold the road. Mind the maps, he said, and the maps were everywhere.",
+    third = "{name} met Archaeologist Flagongut of the Explorers' League, stuck in Menethil while raptors block the road to the dig at Whelgar's.",
+  },
 
   greetings = {
     { id = "g_maps", text = "Careful, careful, that's a map! They're all maps. Mind where ye put yer elbows." },
@@ -1044,6 +1153,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The League sends me reports even here, an' I've had plenty o' time tae read them. Ask me about any o' this." },
+    },
     background = { { id = "tp_bg", text = "Explorers' League, field archaeologist, presently stranded. Put that on my stone when I go." } },
     advice = { { id = "tp_ad", text = "Never carry yer best find in an open pack on a raptor road. Ask me how I know.", next = "stone" } },
     explorers_league = { { id = "tp_league", text = "Best job in the world, when ye're no' stuck in a tavern. Which I am." } },
@@ -1057,6 +1169,11 @@ P:NPC {
   bible = "bibles/menethil.md", role = "citizen", tier = "quest",
   communities = { "menethil" }, temper = { "watchful" }, values = { "loyal", "discreet" },
   notices = { "stealth", "drink" },
+
+  impression = {
+    first = "Mikhail tends a bar he doesn't sell from and told me to sit where I could see the door. He says nothing happens in Menethil, and he says it like a man who is counting on that.",
+    third = "{name} met Mikhail, a quiet man from Stormwind who keeps a bar in Menethil and sells nothing from it.",
+  },
 
   greetings = {
     { id = "g_bar", text = "Evening. Before you ask, no, I don't sell drinks; Helbrek does that, and I just stand here." },
@@ -1162,6 +1279,7 @@ P:NPC {
       },
       choices = {
         { text = "Old habits.", next = "BACK", fx = { affinity = 2, align = { honor = -1 } } },
+        { text = "I came up the stairs openly. I've nothing to hide.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Who trained you?", next = "rogue_trained" },
       },
     },
@@ -1172,6 +1290,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Behind a bar, a man hears everything and repeats very little. These, I don't mind talking about." },
+    },
     background = { { id = "tp_bg", text = "I retired from Stormwind and took up a bar. I'd tell you more, but then we'd both be uncomfortable.", next = "past" } },
     advice = { { id = "tp_ad", text = "Sit where you can see the door. Hold a full mug, even if you never drink it. Nobody watches a man with a full mug." } },
     defias = { { id = "tp_defias", text = "That's Stormwind's trouble, and I left it there, though it keeps sending letters." } },

@@ -2,6 +2,81 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.35.0 (2026-11-15)
+Packs: every content pack has a new version (`python3 tools/version.py` lists them), and three are new: **Blasted Lands 1.0.0, Azshara 1.0.0, Silithus 1.0.0**. **New folders and many new files: exit the game fully, copy the three new folders in, tick them, and start the game again**; /reload won't load them.
+
+### You can talk to (almost) everyone
+- **The people in the streets answer now.** Before, anyone without a title and without lines of their own did nothing when right-clicked. Now every friendly person counts as a citizen, with lines of their own town: Stormwind's by district (the canals, Old Town, Cathedral Square...), every capital's, and 42 towns' from Goldshire to Everlook, on both sides. Priests, paladins, Shadowform, night elves, gnomes and others get noticed.
+- **More named people, important and obscure.** Stormwind gains 43 (Bishop Farthing, Brother Sarno at the Cathedral door, Matron Nightingale and the orphanage, Count Ridgewell and Lord Wishock at court, Crier Goodman, Morgan Pestle, Bartleby the drunk, Osborne outside SI:7, Ol' Emma, Maginor Dumas, the Deepforges, the Park's druids, the harbor's clerk and more). Ironforge gains 23 (High Priest Rohan and the Mystic Ward's priests, Sara Balloo, Tinker Town, the Hall of Explorers). Darkshire, Lakeshire, Southshore and Menethil Harbor gain 30 between them. Darnassus gains 18 (Priestess Alathea and the Temple of the Moon's priestesses, the Cenarion Enclave's trainers and Jenal the ditch digger, Thyn'tel Bladeweaver, Herald Moonstalker, Treshala Fallowbrook).
+
+### Three new zones for levels 45-60
+- **The Blasted Lands:** Nethergarde Keep (Quartermaster Lungertz, Watcher Mahar Ba, Thadius Grimshade, Ambassador Ardalan) and Kum'isha the Collector at the Dark Portal; the bloodmages and Daio the Decrepit.
+- **Azshara:** Talrendis Point and Valormok, Loh'atu, Archmage Xylem, Ogtinc and the Cenarion Aid chain for priests, Duke Hydraxis, Loramus Thalipedes, Captain Beltis and her stranded crew.
+- **Silithus:** Cenarion Hold (Commander Mar'alith, Geologist Larksbane, the Wildmanes) and Valor's Rest (Layo Starstrike, Hermit Ortell). The gates of Ahn'Qiraj stay sealed, as they are in Forever.
+
+### The journal
+- **Six pages:** Diary, **Stories**, People, **Heard of**, Myself, Notes.
+- **Stories:** every larger story you've stumbled into, with where it stands (just begun, unfolding, ended, ended badly, left unfinished) and who told you what. Three new ones on the 45-60 road: the plague cauldrons, the Argent Dawn's letters, and, for priests and paladins, the Light in the Plaguelands, which ends with what you tell Archbishop Benedictus.
+- **People:** grouped by the zone where you met them, with their title, how they stand toward you, your first impression of them, what you've asked them about and the last thing they said. Searchable.
+- **Heard of:** every subject you've picked up, by category, who first mentioned it, and what each person said when you asked. Searchable.
+- **The diary writes itself:** a first impression after you first talk with any named person (every one has one), a line the first time you reach each zone, and lines for your first death (naming what killed you), every tenth level and your first dungeon.
+- **The journal button counts new diary entries** until you open it.
+
+## 0.34.0 (2026-11-15)
+Packs: every content pack has a new version (`python3 tools/version.py` lists them). **One new file in the core (Systems\Disposition.lua): exit the game fully and start it again**; /reload won't load it.
+
+### Ask about
+- **"What do you know?"** is the first thing you can ask anyone. They answer in their own voice and list the subjects they could tell you about, each one clickable. You learn every subject they name, so asking around is now how you find new things to ask about.
+- **The list remembers what each person knows.** Subjects they named sit in a group of their own, "What they can tell you about", right under "Ask anyone". Subjects they had nothing to say about are marked "(nothing to say)" instead of just "(asked)".
+- **Hover a subject** to see who you first heard it from.
+- **The button shows how many subjects you know:** "Ask about... (23)".
+- **Inside DialogueUI** the Ask list now holds every subject you know, a page at a time (More topics, Previous topics, Back), where before it showed only the newest few. After an answer you stay on the list, so the next question is one click away.
+
+### RPG elements
+- **Disposition (Morrowind-style).** Everyone you talk to has a disposition toward you, from Hostile through Cold, Wary, Neutral, Warm and Friendly to Devoted. It's shown at the bottom of the box; hover it to see why, with numbers. It depends on what has passed between you, what their town thinks of you, whether they value the kind of person you've shown yourself to be (kind, brave, pious...), their temperament, and where you stand on what they care about. The journal's People page uses it too.
+- **People confide in those they like.** Many characters say things only at Warm or above, and some are curt when they think little of you.
+- **Persuade, Intimidate and Deceive, for real.** About 80 new checks on the major people across both continents: Bolvar, Prestor, Shaw, Benedictus, Laurena, Anduin, McBride, Gryan, Solomon, Ello, Magni, Mekkatorque, Tyrande, Jaina, Revilgaz, Demar Brant, Shandris, Remulos, Tirion, Valorfist, Maxwell, Thrall, Sylvanas, Cairne and many more. They succeed from who you are, never dice: a warm enough disposition, or your class (priests have a way in with many of them), race, character, or what you've done for them. Success gets you a real confidence, an admission or their honest opinion; failure has its own answer.
+- **You're told how it went.** After a check, a quiet note under the answer says "Persuade: success." or "Persuade: failed."
+- **People react to what you say (Dragon Age-style).** "Marshal Dughan approves." or "...disapproves greatly." appears under the answer, along with their new disposition when it changes.
+- **Replies say where they come from (Baldur's Gate-style).** A reply that's there because of who you are is tagged: [Priest], [Human Priest], [Dwarf], [Alchemy], [Kind], or your origin.
+- All of these can be turned off in Settings (Story section).
+
+## 0.33.0 (2026-11-15)
+Packs: every content pack with dialogue has a new version (`python3 tools/version.py` lists them). No new files: /reload is enough.
+
+### Turning in quests
+- **No more flashing codes.** While the text types out, item icons, coins and coloured names used to show as raw codes (like `|T1508495:2`) for a moment before turning into the item. The typewriter now treats each icon or colour code as one piece, so only the finished icon ever shows.
+- **Tooltips on rewards.** Hover any item on a quest page, in the text (rewards, required items) or on a reward row, and the game's item tooltip appears.
+
+### The journal
+- **A book on your screen.** Click it to open the journal; drag it anywhere; right-click for settings. It can be hidden in settings ("Show the journal button on screen").
+- **Reads like a journal.** Four pages instead of six: **Diary** (entries under the day they happened, with the place written each time it changes), **People I've met** (how each stands toward you, and the last thing they said), **Myself** (where you stand, what you've said you believe, what the towns think of you, what people have told you, what you've heard of, books, deeds, origin) and **Notes**.
+
+### Alignment comes from what you say, not what you ask
+- A reply only shifts alignment if it is a **statement**. Questions never do.
+- Every reply that shifts alignment has at least one **opposing statement** beside it, and they are **mutually exclusive**: take one stance with someone and the others are gone for good, and the same stance never counts twice. 573 places across the packs were rewritten or given an opposing stance.
+- The validator fails content that breaks either rule.
+
+### For future work
+- A short `CLAUDE.md` and a much shorter `HANDOFF.md` replace the long read-first chain, so sessions start faster.
+
+## 0.32.0 (2026-11-15)
+Packs: World 1.20.0, Redridge 1.4.0, Stranglethorn 1.7.0, Badlands 1.3.0, SwampOfSorrows 1.2.0, Dustwallow 1.5.0, Feralas 1.5.0, Arathi 1.4.0, Felwood 1.2.0, Desolace 1.6.0, Moonglade 1.2.0, Stonetalon 1.2.0, ThousandNeedles 1.4.0, Zephras 1.1.0, and a new one: **Burning Steppes 1.0.0** (the rest as in 0.31.0). **New folder: exit the game fully, copy RPGDialogue_BurningSteppes in, tick it, and start the game again.**
+
+### The Burning Steppes
+- **Morgan's Vigil (Alliance):** Marshal Maxwell (Marshal Windsor's lost proof, the Blackrock and the Spire, why Stormwind waits; the whole True Masters chain through Jail Break!), Helendis Riverhorn (this was once the Redridge range; the black dragonflight behind the Blackrock), Oralius and Captain Winky, Jalinda Sprig and her burned mages, Mayara Brightwing and Thaurissan's whispering stones, and Borgus the gryphon master. A priest can walk the camp and bless the soldiers, or pray with Oralius.
+- **Flame Crest (neutral, with the Horde's wind riders):** Ragged John tells Windsor's whole story in his own words (and pours Mother's Milk); Maxwort Uberglint and the Seven, Tinkee Steamboil's gadgets, Yuka Screwspigot and her brother's bounty, Kibler's exotic pets, Mathredis Firestar and the librams, Vahgruk. At Slither Rock, Cyrus Therepentous wants the mountain's fire.
+- Magistrate Solomon in Lakeshire knows when you've met Maxwell. Six new Ask about topics (the black dragonflight, Blackrock Spire, Blackrock Depths, Marshal Windsor, Thaurissan, the Firegut ogres).
+- Checked against Classic: Flame Crest was a neutral camp, Ragged John stands there, neither camp had generic guards, and nothing from Cataclysm is used. Nefarian is named only once Maxwell has read his message, and Lady Prestor's secret stays secret.
+
+### Deeper Horde towns, levels 30-60
+Grom'gol, Kargath, Stonard, Brackenwall, Camp Mojache, Hammerfall, Bloodvenom Post and Ghost Walker Post: 28 people are now conversations to explore, with replies for Darkspear trolls, Forsaken, tauren, orc mages, troll warlocks, Undead paladins, Skyborne and more. Lines that contradicted their quests were fixed: Bengor barely speaks after the ambush, as his quest says; Neeka is Kargath's head scout, not missing; Winna corrupts her kitten on purpose; the Darkstone Tablet holds an alchemist's recipes, not a curse; and others.
+
+### Moonglade, Stonetalon, Thousand Needles, Zephras Isle
+Keeper Remulos (Staghelm, the Dream, his family), Rabine, Dendrite and the Great Bear Spirit (a priest may pray beside it), Silva and Bunthen; Sun Rock, Malaka'jin and Stonetalon Peak (Keeper Albagorm remembers Jaina's people and Thrall's at the peak; Faralia talks to a priest about Elune); Freewind Post (Thalia rebuilt around her friend Lakota Windsong, as her quest has it); and High Elder Talaanis of the Skyborne, from what is known of them and no more. 19 people in all.
+
+With 0.31.0 and this release, every NPC in the 30-60 zones meets the depth standard; what's left is the Horde's starting zones and capitals.
+
 ## 0.31.0 (2026-11-15)
 Packs: World 1.19.0, Elwynn 1.11.0, Duskwood 1.4.0, EasternPlaguelands 1.5.0, Tanaris 1.3.0, ThunderBluff 1.3.0, and a new one: **Western Plaguelands 1.0.0** (the rest as in 0.30.0). **New folder and a new file: exit the game fully, copy RPGDialogue_WesternPlaguelands in, tick it, and start the game again.**
 

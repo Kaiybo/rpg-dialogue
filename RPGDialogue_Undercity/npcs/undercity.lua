@@ -10,6 +10,10 @@ P:NPC {
   communities = { "undercity" }, temper = { "cold" }, values = { "proud", "vengeful" },
   spiritSensitive = true,
   notices = { "race", "class" },
+  impression = {
+    first = "The Dark Lady speaks with the patience of someone who has all the time in the world and none of the forgiveness. When she names Arthas, the cold in her voice goes deeper still.",
+    third = "{name} stood before Lady Sylvanas Windrunner, the Dark Lady and queen of the Forsaken, in the Royal Quarter of the Undercity.",
+  },
 
   greetings = {
     { id = "g_queen", text = "Before you stands the Dark Lady. Kneel if you like; I won't insist, not today." },
@@ -59,11 +63,39 @@ P:NPC {
     },
     arthas = {
       lines = { { id = "ar_default", text = "He burned my people's forests and murdered them in their homes, and then he made me watch, as this. I'll say no more of it, not to you and not to anyone." } },
-      choices = { { text = "...", next = "END" } },
+      choices = {
+        { text = "...", next = "END" },
+        { text = "What do you remember of Quel'Thalas?", tag = "Persuade", next = "quelthalas",
+          check = { pass = { any = { { disposition = { min = 70 } }, { race = "Scourge", disposition = { min = 55 } }, { class = "HUNTER" } } } },
+          fail = { next = "quelthalas_no", fx = { affinity = -1 } } },
+      },
+    },
+    quelthalas = {
+      lines = {
+        { id = "q_default", text = "You are persistent, and today I find I don't mind it. I remember the forests of Eversong, gold even in winter, and my rangers in the trees at the Elfgates, holding them for as long as we could. I remember every one of their names. The dead sleep poorly, and so we do not get to forget." },
+        { id = "q_hunter", when = { class = "HUNTER" },
+          text = "You carry a bow, so perhaps you'll understand. I was Ranger-General, and my rangers fought him from every tree between the Elfgates and Silvermoon. Some mornings I still reach for a quiver that isn't there." },
+      },
+      choices = {
+        { text = "Thank you for telling me.", next = "BACK", fx = { affinity = 1 } },
+        { text = "He'll answer for all of it.", next = "BACK", fx = { affinity = 2 } },
+      },
+    },
+    quelthalas_no = {
+      lines = {
+        { id = "qn_default", text = "That is not yours to ask. I told you I would say no more, and I meant it." },
+        { id = "qn_presume", text = "You presume. Many have, and none of them presumed twice." },
+      },
+      choices = { { text = "Forgive me, my lady.", next = "BACK" } },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Little happens in my kingdom that does not reach me, one way or another. Ask, and I will decide how much of it you need." },
+      { id = "tp_knows_warm", when = { disposition = { min = 65 } }, text = "You have been useful, and I reward usefulness, so ask what you will, and I'll answer more plainly than is my habit." },
+      { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "I will answer you, briefly, and then you will go." },
+    },
     _none = { { id = "tp_none", text = "That isn't my concern. Varimathras will tell you if it should be." } },
   },
 }
@@ -73,6 +105,10 @@ P:NPC {
   bible = "bibles/undercity.md", role = "noble", tier = "major",
   communities = { "undercity" }, temper = { "arrogant" }, values = { "proud" },
   notices = { "class", "fel" },
+  impression = {
+    first = "Varimathras calls himself the Dark Lady's most loyal servant and says he always chooses wisely. He is courteous in the way a cat is courteous to a mouse.",
+    third = "{name} met Varimathras, the dreadlord who serves as majordomo to the Dark Lady in the Undercity.",
+  },
 
   greetings = {
     { id = "g_dread", text = "You may approach, slowly. I serve the Dark Lady, and in her name I suffer visitors." },
@@ -121,6 +157,11 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Everything in this city passes through my hands on its way to the Dark Lady, faithfully, as always. Ask, and I will share what she would wish you to know." },
+      { id = "tp_knows_warm", when = { disposition = { min = 65 } }, text = "The Dark Lady values you, and therefore so do I, naturally. Ask me anything you like." },
+      { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "I will answer, though purely out of loyalty to my queen, which, I assure you, is boundless." },
+    },
     _none = { { id = "tp_none", text = "That is beneath my notice, and possibly beneath yours. Ask an apothecary." } },
   },
 }
@@ -130,6 +171,10 @@ P:NPC {
   bible = "bibles/undercity.md", role = "scholar", tier = "major",
   communities = { "undercity" }, temper = { "theatrical" }, values = { "curious", "proud" },
   notices = { "craft", "race" },
+  impression = {
+    first = "Everything in the Apothecarium delights Master Apothecary Faranell, including the living, purely academically. His cheer is so bright that it takes a moment to notice what he is actually brewing.",
+    third = "{name} met Master Apothecary Faranell, the gleeful head of the Royal Apothecary Society in the Undercity.",
+  },
 
   greetings = {
     { id = "g_lab", text = "Welcome, welcome, to the Apothecarium! Mind the green, and mind the purple, too; actually, mind all the colours." },
@@ -178,6 +223,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Oh, I collect information the way I collect reagents: eagerly, and without asking too closely where it came from! Pick something, anything." },
+    },
     wailing_caverns = { { id = "tp_caverns", text = "A poisoned dream leaking into water? Oh, I'd give a great deal for a sample. Helbrim is being very slow about it." } },
     _none = { { id = "tp_none", text = "Not my department, I'm afraid! My department is bubbling, so do excuse me." } },
   },
@@ -188,6 +236,10 @@ P:NPC {
   bible = "bibles/undercity.md", role = "questgiver", tier = "quest",
   communities = { "undercity" }, temper = { "cold" }, values = { "pragmatic", "loyal" },
   notices = { "class" },
+  impression = {
+    first = "Bethor Iceshard still carries the wand from an apprentice's oath, though one of the friends who swore it sold himself to the Lich King. He says he has grown cold, and I believe him, though not entirely.",
+    third = "{name} met Bethor Iceshard in the Magic Quarter, a Forsaken mage haunted by an old friend who became a lich.",
+  },
 
   greetings = {
     { id = "g_magic", text = "The Magic Quarter. Knowledge is the only weapon the Forsaken never had to dig out of a grave. What do you need?" },
@@ -237,6 +289,10 @@ P:NPC {
   bible = "bibles/undercity.md", role = "innkeeper", tier = "service",
   communities = { "undercity" }, temper = { "dry" }, values = { "hospitable" },
   notices = { "race", "weary" },
+  impression = {
+    first = "What Innkeeper Norman really sells is a chair and a place of one's own to people who no longer sleep. Nobody takes anyone's chair down there, he says, and he guards that last courtesy kindly.",
+    third = "{name} found a chair at Innkeeper Norman's inn by the Trade Quarter, one of the few homely corners of the Undercity.",
+  },
 
   greetings = {
     { id = "g_rest", text = "Sit yourself down and put your feet up, whatever state they're in. Mine have seen better centuries." },

@@ -2,6 +2,12 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.4.0 (2026-11-15)
+- Every person here writes a first impression in your diary after you first talk (the journal's People page shows it too).
+
+## 1.3.0 (2026-11-15)
+- Persuade, Intimidate and Deceive checks on the major people here, each with its own success and failure; lines and replies that depend on how warmly they regard you (disposition); a lead-in for "What do you know?".
+
 ## 1.2.2 (unreleased)
 - Voice pass: Marshal's Refuge now talks in whole sentences instead of clipped fragments. Linken still loses his thread and Spraggle still worries, but as people talking, not telegrams.
 

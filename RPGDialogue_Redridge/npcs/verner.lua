@@ -9,6 +9,11 @@ P:NPC {
   communities = { "lakeshire" }, temper = { "steady" }, values = { "honest", "stern" },
   notices = { "kit", "mount" },
 
+  impression = {
+    first = "Verner Osgood has a hot forge and no iron, because the Guard takes every scrap. He seemed glad to have someone to grumble at besides his horses.",
+    third = "{name} met Verner Osgood, the Lakeshire smith whose iron all goes to the Guard.",
+  },
+
   greetings = {
     { id = "g_forge", text = "The forge is hot, so make it quick or make it useful." },
     { id = "g_shoes", when = { questActive = TODO_QUEST("The Price of Shoes") }, text = "Did Argus get my note? He'll grumble; he always grumbles." },
@@ -123,6 +128,7 @@ P:NPC {
       choices = {
         { text = "Doesn't that leave the town short?", next = "iron_short" },
         { text = "The Guard needs it more.", next = "BACK", fx = { align = { order = 1 }, affinity = -1 } },
+        { text = "The town's horses matter as much as the Guard's boots.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
     iron_short = {
@@ -144,11 +150,15 @@ P:NPC {
       choices = {
         { text = "Fair enough.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "It's a gift of the Light, smith.", next = "BACK", fx = { align = { light = 1 }, affinity = -1 } },
+        { text = "Then it can go unshod, for all I care.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Half the town comes past this forge for something, and they all talk while they wait. Ask me about any of this." },
+    },
     background = { { id = "tp_bg", text = "Smith, and the stable with it. If I had to keep one, I'd keep the horses." } },
     advice = { { id = "tp_ad", text = "Stable your horse at night, because gnolls don't knock." } },
     redridge_gnolls = { { id = "tp_gnolls", text = "Horse thieves with fur, and Yowler leads them right into my paddock." } },

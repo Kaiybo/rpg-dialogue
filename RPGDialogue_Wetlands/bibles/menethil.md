@@ -58,3 +58,6 @@ Repeat-visit and night lines in the voices above.
 - Flagongut: half the conference hall laughed (he'd had two ales); "find it, note it, don't lick it".
 - Mikhail: respects Samor Festivus for not pretending; "nobody watches a man with a full mug".
 - Corrected: the Dragonmaw camp is in the hills northeast of the harbour (Angerfang), not on Whelgar's dig; raptors overran the dig (Stoutfist's h_banners and Flagongut's lines reworded, ids kept).
+
+## 0.34.0
+- Glorin (Persuade, `grumpy_letter`): two winters back he asked to be posted home to Ironforge, was granted it, and tore up the letter the same night, because nobody else would bury the Third Fleet or sit with Fitzsimmons.

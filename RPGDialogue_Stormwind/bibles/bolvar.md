@@ -36,3 +36,6 @@ Honest; but his counsel comes from Prestor, so "patience" is her word in his mou
 
 ## Topics
 defias, westfall, tome_of_divinity
+
+## 0.34.0
+- Bolvar (Persuade, `bear_true`): he sleeps badly, sits up with the boy and then the reports, and has begun to wonder whether the council's 'patience' is only patience (dramatic irony; nothing revealed).

@@ -8,6 +8,11 @@ P:NPC {
   communities = { "thorium_point" }, temper = { "stern" }, values = { "proud", "practical" },
   notices = { "race", "profession" },
 
+  impression = {
+    first = "Overseer Oilfist takes responsibility for everything at Thorium Point, and he made it clear that now includes me. He is a Dark Iron who stopped serving the mountain and carries that choice like a weight.",
+    third = "{name} met Overseer Oilfist, who leads the Thorium Brotherhood's outpost at Thorium Point.",
+  },
+
   greetings = {
     { id = "g_point", text = "Welcome tae Thorium Point, where everything that happens is my responsibility, an' that includes you, now." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, good. Ye're either useful or lost, an' I'm hopin' useful." },
@@ -30,6 +35,8 @@ P:NPC {
           text = "The young ones were playin' too near the lava spiders again, so I've told Hansel tae deal with it. He was restin', he says, but he's always restin'." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "The forges never go cold, even now, out o' habit. Down in the mountain, cold forges meant punishment, an' we keep 'em lit for different reasons now." },
+        { id = "h_cold", when = { disposition = { max = 34 } },
+          text = "You again. The Brotherhood trades with anyone who pays, but trust's another matter, an' ye've no' bought any yet." },
       },
       again = { { id = "h_again", text = "Aye? Speak up over the forge." } },
       choices = {
@@ -55,7 +62,10 @@ P:NPC {
       lines = {
         { id = "a_default", text = "Anyone who pays, Alliance or Horde, it makes no odds. We've had one master, an' we'll no' have another." },
       },
-      choices = { { text = "I understand.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } } },
+      choices = {
+        { text = "Free trade suits me better than any master.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
+        { text = "Picking no side is still picking a side, Oilfist.", next = "BACK", fx = { align = { order = 1 } } },
+      },
     },
     trade = {
       lines = { { id = "t_default", text = "The best steel this side o' the mountain, an' the plans for it, tae those who've earned our trust. Trust's dear here, an' ye pay for it in deeds." } },
@@ -77,7 +87,7 @@ P:NPC {
       lines = { { id = "d_default", text = "Aye, an' I was raised tae hate yours. We've both had a long while tae think about who taught us. Stand here an' talk, an' we'll see who's the better student." } },
       choices = {
         { text = "Fair. Let's talk.", next = "BACK", fx = { affinity = 3, align = { light = 1 } } },
-        { text = "Old hates die hard.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
+        { text = "Old hates die hard.", next = "BACK", fx = { align = { light = -1 }, affinity = -1, trait = { stern = 1 } } },
       },
     },
     craft = {
@@ -87,6 +97,10 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Everything that happens on the Point is my responsibility, an' so I make it my business tae know about it. Ask me about any o' these." },
+      { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "Ye've earned yer place at the forge, so I'll answer ye like one o' the Brotherhood. Here's what I can tell ye about." },
+    },
     background = { { id = "tp_ba", text = "Born in the mountain, worked in the mountain, walked out o' the mountain. The last bit's the only part worth tellin'.", next = "escape" } },
     advice = { { id = "tp_ad", text = "Never trust a forge ye didnae light yerself." } },
     dark_iron = { { id = "tp_dark_iron", text = "They're my kin, my shame an' my sorrow, an' most of them still bend the knee down there. I pray they'll stop, though I've no' much hope." } },
@@ -99,6 +113,11 @@ P:NPC {
   bible = "bibles/searinggorge.md", role = "questgiver", tier = "quest",
   communities = { "thorium_point" }, temper = { "grumbling" }, values = { "loyal", "lazy" },
   notices = { "race", "kit" },
+
+  impression = {
+    first = "Hansel Heavyhands complained about being made to stand up before he complained about anything else. Freedom, for him, mostly seems to mean a chair, and I can't say I blame him.",
+    third = "{name} met Hansel Heavyhands, the weary enforcer of the Thorium Brotherhood at Thorium Point.",
+  },
 
   greetings = {
     { id = "g_rest", text = "Och, what is it now, when I'd just sat down? Fine, fine, out with it." },
@@ -174,6 +193,11 @@ P:NPC {
   communities = { "thorium_point" }, temper = { "jovial" }, values = { "loyal", "proud" },
   notices = { "drink", "stealth" },
 
+  impression = {
+    first = "Lookout Captain Lolo Longstriker is nearly blind and smells out trouble instead, with a little help from the bottle. Nobody has snuck up on Thorium Point yet, so perhaps he's onto something.",
+    third = "{name} met Lookout Captain Lolo Longstriker, the near-blind lookout of Thorium Point.",
+  },
+
   greetings = {
     { id = "g_who", text = "Who goes there? No, don't tell me, I'll know ye by yer step... hmm, no idea at all. Who goes there?" },
     { id = "g_back", when = { metBefore = true }, text = "Ah! I know that step now, so welcome back, friend, for I never forget a footfall, mostly." },
@@ -226,7 +250,11 @@ P:NPC {
     },
     maltorius = {
       lines = { { id = "m_default", text = "He's overseer o' the slaves still workin' the Gorge for the Firelord's people, an' it's whips, mostly. Ye can hear 'em from the cliff on a still night, an' I'd like tae stop hearin' 'em." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { align = { light = 1 } } } },
+      choices = {
+        { text = "Then someone should stop those whips.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Slaves in the Gorge are the Firelord's business, not mine.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     kalaran = {
       big = true,
@@ -254,6 +282,11 @@ P:NPC {
   bible = "bibles/searinggorge.md", role = "questgiver", tier = "quest",
   communities = { "searing_gorge_wilds" }, temper = { "brooding" }, values = { "vengeful", "cunning" },
   notices = { "class" },
+
+  impression = {
+    first = "Kalaran Windblade speaks of his murdered father and of vengeance on the Dark Iron in the same brooding breath. He tells it like a story he has told many times before.",
+    third = "{name} met Kalaran Windblade in the Searing Gorge, who seeks vengeance on the Dark Iron for his father's death.",
+  },
 
   greetings = {
     { id = "g_vengeance", text = "Another traveler, good. I have need of someone with a strong arm and no love for the Dark Iron." },
@@ -285,6 +318,7 @@ P:NPC {
         { text = "What will the torch do?", next = "torch" },
         { text = "Lolo says you don't smell of grief.", next = "lolo", when = { heardLine = "lolo.h_kalaran" } },
         { text = "I'll help you.", next = "END", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Vengeance won't bring your father back, Kalaran.", next = "END", fx = { align = { light = 1 } } },
       },
     },
     father = {
@@ -298,12 +332,18 @@ P:NPC {
     },
     father_push = {
       lines = { { id = "fp_default", text = "It's the only story that matters; where, when and how change nothing about what's owed. Help me or don't, but I've no time for questions." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { trait = { skeptical = 1 } } } },
+      choices = {
+        { text = "Then tell me one true thing about him. Just one.", tag = "Persuade", next = "father_slip",
+          check = { pass = { any = { { disposition = { min = 65 } }, { trait = "skeptical" }, { heardLine = "lolo.h_kalaran" } } } },
+          fail = { next = "father_wall", fx = { affinity = -1 } } },
+        { text = "Something else.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+      },
     },
     which = {
       lines = { { id = "w_default", text = "Does it matter? Dark Iron is Dark Iron, and those at the Point trade with anyone, so they'd have traded with his killers, too." } },
       choices = {
         { text = "The Brotherhood escaped the same masters.", next = "BACK", fx = { affinity = -1, align = { light = 1 } } },
+        { text = "You're right. Dark Iron is Dark Iron.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -315,9 +355,29 @@ P:NPC {
       lines = { { id = "l_default", text = "A blind drunk sniffs at me and you listen? Grief has no smell; it has a cost, and I'm paying mine, so bring me what I asked for." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { skeptical = 1 } } } },
     },
+    father_slip = {
+      big = true,
+      lines = {
+        { id = "fs_default", text = "You're persistent, for one so... for one so young, and very well, then: I wasn't there when he fell, and I couldn't tell you which hand held the blade. What I know is that the Dark Iron owe a debt, and I mean to collect it, with or without the details you seem to want so badly." },
+      },
+      choices = {
+        { text = "That sounds more like a grudge than grief.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "I'm sorry. I'll stop asking.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    father_wall = {
+      lines = {
+        { id = "fw_default", text = "One true thing: he's dead, and they killed him. Bring me the pieces of the torch, and spare me the questions." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've made it my business to learn what I need for my vengeance, and little else. Ask about these, if they serve it." },
+    },
     background = { { id = "tp_ba", text = "I am my father's son, and that is all I am until his killers are ash.", next = "father" } },
     advice = { { id = "tp_ad", text = "Never forgive what was taken from you, because forgiveness is how they win." } },
     dark_iron = { { id = "tp_dark_iron", text = "Murderers, every one of them. Don't let the ones at Thorium Point fool you; it's in the blood." } },

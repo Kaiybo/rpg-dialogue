@@ -10,6 +10,11 @@ P:NPC {
   communities = { "raven_hill" }, temper = { "steady" }, values = { "kind", "curious" },
   notices = { "body", "craft" },
 
+  impression = {
+    first = "Abercrombie is a kind, rambling old man who lives alone near Raven Hill and speaks of his late wife as if she were in the next room. Something about the hut made my skin crawl.",
+    third = "{name} visited Abercrombie, an old hermit near Raven Hill who lives alone and talks fondly of his late wife.",
+  },
+
   greetings = {
     { id = "g_hermit", text = "A visitor, how lovely! I don't get many, dear, not living ones." },
     { id = "g_supplies", when = { questActive = TODO_QUEST("Supplies from Darkshire") }, text = "Back from Darkshire already, dear? No, of course not; everyone's so slow these days, though I'm not, not anymore." },
@@ -175,6 +180,7 @@ P:NPC {
       choices = {
         { text = "Why can't I see her grave?", next = "priest_grave" },
         { text = "Then I'll pray for you both.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Then I'll save my prayers for someone who wants them.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
     priest_grave = {
@@ -183,6 +189,7 @@ P:NPC {
       },
       choices = {
         { text = "The dead should be left to rest.", next = "BACK", fx = { affinity = -1, align = { light = 1 }, trait = { pious = 1 } } },
+        { text = "The dead don't much care how they're kept.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },
@@ -208,6 +215,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Oh, an old hermit hears a great deal out here, you know, more than you'd think. Ask me about any of this, and I'll put the kettle on." },
+    },
     background = { { id = "tp_bg", text = "I'm just an old alchemist who outlived his wife, though 'outlived' is rather a strong word." } },
     advice = { { id = "tp_ad", text = "Keep your strength up and your stitches tight, dear, because things come apart otherwise." } },
     night_watch = { { id = "tp_watch", text = "Brave souls, the Watch, but so very fragile." } },

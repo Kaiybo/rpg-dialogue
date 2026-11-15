@@ -27,3 +27,8 @@
 - Leonid: gentle, devout, unsettlingly calm about his undeath.
 - Tirion: weary, warm, unbending on mercy.
 - Nathanos: cold, proud, contemptuous, devoted to his Queen.
+
+## 0.34.0
+Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon, unless marked).
+- Tirion (Persuade, `son_fear`): he fears Taelan's face more than his sword; a dead father is a story Taelan can live with, a living traitor one he'd have to answer for (authored confidence; says nothing of how the chain ends).
+- Tyrosus (Persuade, `stratholme_truth`): he and the Duke agree the Dawn can't take Stratholme with an army; they send small companies to strike at the Baron first. With the Stratholme deed he adds he doesn't trust whatever holds the Crusade's bastion (an unease, never Balnazzar's name).

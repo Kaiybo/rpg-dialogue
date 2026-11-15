@@ -2,6 +2,12 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.3.0 (2026-11-15)
+- Every person here writes a first impression in your diary after you first talk (the journal's People page shows it too).
+
+## 1.2.0 (2026-11-15)
+- Persuade, Intimidate and Deceive checks on the major people here, each with its own success and failure; lines and replies that depend on how warmly they regard you (disposition); a lead-in for "What do you know?".
+
 ## 1.1.1 (unreleased)
 - Voice pass: the Royal Quarter, the Apothecarium, the Magic Quarter and Norman's inn now talk in whole sentences instead of clipped fragments, each in their own voice (Sylvanas cold and controlled, Varimathras silky, Faranell gleeful, Bethor grieving, Norman dry). Same lines, same facts, same conditions.
 

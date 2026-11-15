@@ -8,6 +8,10 @@ P:NPC {
   bible = "bibles/city4.md", role = "soldier", tier = "major",
   communities = { "stormwind" }, temper = { "steady" }, values = { "dutiful", "courteous" },
   notices = { "soldier", "kit" },
+  impression = {
+    first = "General Marcus Jonathan keeps Stormwind's walls with whatever the Keep will spare him, and it plainly isn't enough. He reads every letter from the provinces twice and answers fewer than he'd like.",
+    third = "{name} met General Marcus Jonathan, High Commander of Stormwind's defence, who watches over the Valley of Heroes.",
+  },
 
   greetings = {
     { id = "g_gate", text = "Well met. The Valley of Heroes is open to all who come in peace. Keep your blade sheathed and you'll find us friendly." },
@@ -65,16 +69,21 @@ P:NPC {
         { text = "Whose voices?", next = "voices", fx = { trait = { curious = 1 } } },
         { text = "What did you write to Solomon?", next = "army_letter" },
         { text = "Keep asking.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Stop asking and march without orders, General.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
     voices = {
       lines = { { id = "v_default", text = "That's above a general's rank to say. I'll only say I salute the Regent, and I watch the court." } },
-      choices = { { text = "Understood. Something else.", next = "BACK", fx = { align = { order = 1 } } } },
+      choices = {
+        { text = "Understood. Something else.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A general who only watches the court won't save Lakeshire.", next = "BACK", fx = { align = { order = -1 } } },
+      },
     },
     army_letter = {
       lines = { { id = "al_default", text = "That the army stands with Lakeshire and I'd carry his words to the throne. The rest I wrote in confidence. Don't break the seal on the road." } },
       choices = {
         { text = "I wouldn't.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I make no promises about seals, General.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -129,21 +138,32 @@ P:NPC {
       lines = { { id = "in_default", text = "When Lordaeron fell, its people ran here and its dead stayed. I give each insignia to whoever can name the soldier who wore it. Some days nobody can." } },
       choices = {
         { text = "My family's name might be on one.", next = "insignia_name", when = { origin = "human_lordaeron_refugee" } },
-        { text = "Something else.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Someone should remember every one of those names.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Those names are better left in the ground.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     insignia_name = {
       lines = { { id = "inn_default", text = "Then come back when you're ready, and we'll look together. I keep the list in my own hand. Nobody else reads it." } },
-      choices = { { text = "Thank you, General.", next = "BACK", fx = { affinity = 3, align = { light = 1 } } } },
+      choices = {
+        { text = "Thank you, General.", next = "BACK", fx = { affinity = 3, align = { light = 1 } } },
+        { text = "I'm not sure I want to know, General.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
 
     priest = {
       lines = { { id = "pr_default", text = "Walk the wall at dusk, when the watch changes, and say whatever priests say. They'll pretend not to listen, but they'll listen." } },
-      choices = { { text = "I'll be there at dusk.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, standing = { stormwind = 1 } } } },
+      choices = {
+        { text = "I'll be there at dusk.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, standing = { stormwind = 1 } } },
+        { text = "The watch has heard enough sermons, so I'll let them be.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The Watch reports to me on most things that happen inside these walls and a few that happen outside them. Ask me about any of this, and I'll answer as a soldier should." },
+    },
     background = { { id = "tp_bg", text = "Second War, under Turalyon. Now the walls of this city. A soldier's life is short to tell, if it's a lucky one.", next = "turalyon" } },
     advice = { { id = "tp_ad", text = "Know where your exits are before you need them. Every general who forgot that has a statue. Or a grave." } },
     defias = { { id = "tp_defias", text = "A Westfall matter, the court says, and a soldier's matter, I say. We'll see who's right." } },
@@ -158,6 +178,10 @@ P:NPC {
   bible = "bibles/city4.md", role = "trainer", tier = "quest",
   communities = { "stormwind" }, temper = { "prickly" }, values = { "proud", "practical" },
   notices = { "class", "stealth" },
+  impression = {
+    first = "Renzik speaks of himself by name, like a goblin selling his own legend, and he is second at SI:7 all the same. He decided I might be worth something and told me so bluntly.",
+    third = "{name} met Renzik the Shiv, the goblin who serves as second at SI:7 and decides what good means there.",
+  },
 
   greetings = {
     { id = "g_rogue", when = { class = "ROGUE" }, text = "You got potential, and Renzik can see it. Renzik can also see you're about to get yourself killed, so let's fix that." },
@@ -256,6 +280,10 @@ P:NPC {
   bible = "bibles/city4.md", role = "guard", tier = "quest",
   communities = { "stormwind" }, temper = { "curt" }, values = { "dutiful" },
   notices = { "soldier" },
+  impression = {
+    first = "Major Samuelson keeps the throne room orderly and expects visitors to behave as though they know where they are standing. He said that was all I needed to know about him, and he meant it.",
+    third = "{name} met Major Samuelson, captain of the guard in Stormwind Keep, a man of few words and fewer exceptions.",
+  },
 
   greetings = {
     { id = "g_throne", text = "This is the King's throne room. Conduct yourself accordingly." },
@@ -307,13 +335,18 @@ P:NPC {
     },
     leave_varian = {
       lines = { { id = "lv_default", text = "A guard who answers that in this room is a fool. I keep the room ready, and that's my answer." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { align = { order = 1 } } } },
+      choices = {
+        { text = "A ready room is answer enough for me.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A guard who won't answer is hiding something.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     conduct = {
       lines = { { id = "co_default", text = "Speak when spoken to. Keep your hands where the guard can see them. Bow to the King, then the Regent, in that order." } },
       choices = {
         { text = "Does everyone follow that order?", next = "conduct_court" },
         { text = "Understood.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll bow to whoever I please.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
     conduct_court = {
@@ -349,6 +382,10 @@ P:NPC {
   barks = {
     { id = "b_bread", text = "Bread! Hot from the oven, or near enough!" },
     { id = "b_loaf", text = "A loaf for the road, a loaf for the pocket, a loaf for later!" },
+  },
+  impression = {
+    first = "Thomas Miller walks the Trade District from dawn to dusk with a basket of bread and a left foot that complains the whole way. He had a roll halfway into my hand before I'd decided I was hungry.",
+    third = "{name} met Thomas Miller, the Trade District's walking baker, whose basket always wins the argument with his feet.",
   },
   greetings = {
     { id = "g_bread", text = "Bread, friend? Best price in the Trade District, and I'll stand behind every crust." },

@@ -222,6 +222,19 @@ describe("Engine", function()
   end)
 end)
 
+describe("Stances", function()
+  it("the typewriter never cuts an icon or colour code in half", function()
+    local ns = boot()
+    local D = ns.UI.Dialogue
+    local s = "Ab |T1508495:26:26|t |cff00ff00Pincer|r x"
+    for n = 1, #D.CutPoints(s) do
+      local part = s:sub(1, D.utf8Cut(s, n))
+      ok(not part:find("|T[^|]*$") and not part:find("|c%x?%x?%x?%x?%x?%x?%x?$"), "clean cut at " .. n .. ": " .. part)
+    end
+    eq(#D.CutPoints(s), 13, "the icon counts as one letter, colour codes as none")
+  end)
+end)
+
 describe("Conversation", function()
   it("runs a full conversation: choice effects, journal, business, memory", function()
     local ns = boot()

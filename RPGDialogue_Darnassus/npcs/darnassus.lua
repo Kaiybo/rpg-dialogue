@@ -11,6 +11,10 @@ P:NPC {
   communities = { "darnassus" }, temper = { "fierce" }, values = { "protective", "devout" },
   spiritSensitive = true,
   notices = { "fel", "race", "class", "form" },
+  impression = {
+    first = "High Priestess Tyrande Whisperwind speaks as though Elune is listening, and perhaps she is. Leading her people alone shows only in how little time she spares for idle words.",
+    third = "{name} stood before Tyrande Whisperwind, High Priestess of Elune, in the Temple of the Moon.",
+  },
 
   greetings = {
     { id = "g_temple", text = "You stand in the Temple of the Moon, so speak plainly. Elune hears everything said here, and I have little time for what she would not care to hear." },
@@ -54,6 +58,8 @@ P:NPC {
         { id = "h_alathea", when = { class = "PRIEST", race = { "Human", "Dwarf", "Gnome" } },
           text = "Alathea has trained a few of your Church's young priests in this temple. She tells me you pray loudly and heal well, and I approve of at least one of those." },
         { id = "h_night", when = { timeOfDay = "night" },
+        { id = "h_warm", when = { disposition = { min = 75 } },
+          text = "You return, and I find I am glad of it, which is rarer in this temple than you might think. Speak freely, friend of the kaldorei." },
           text = "The moon is up, and this is Elune's hour rather than the petitioners'. You are fortunate that I am still listening." },
       },
       again = {
@@ -96,6 +102,9 @@ P:NPC {
       lines = { { id = "bs_default", text = "They called him for years, and call still. Fandral says the Circle must be led in the meantime. He isn't wrong; I only wish he said it less often." } },
       choices = {
         { text = "I'm sorry, High Priestess.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "You keep watch at his barrow yourself, don't you?", tag = "Persuade", next = "barrow_vigil",
+          check = { pass = { any = { { disposition = { min = 65 } }, { class = "PRIEST" }, { trait = "pious" } } } },
+          fail = { next = "barrow_closed", fx = { affinity = -1 } } },
         { text = "Let's speak of something else.", next = "BACK" },
       },
     },
@@ -103,6 +112,7 @@ P:NPC {
       lines = { { id = "d_default", text = "If you find a way, bring it to me before you bring it to anyone else, whoever they may be. I trust very few with Malfurion's life." } },
       choices = {
         { text = "I'll keep my eyes open.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I'll bring it to whoever can use it best, High Priestess.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
         { text = "Why trust a stranger with that?", next = "done_trust" },
       },
     },
@@ -118,6 +128,7 @@ P:NPC {
         { text = "The Archdruid?", next = "fandral" },
         { text = "Immortality, at any price?", next = "immortal" },
         { text = "I'll help where I can.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Kaldorei troubles are for the kaldorei to settle.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
     fandral = {
@@ -138,7 +149,7 @@ P:NPC {
       big = true,
       lines = { { id = "mi_default", text = "Pride, and magic hoarded by the few, and leaders so certain they knew best that no one could tell them otherwise. We drowned half a continent learning that lesson once." } },
       choices = {
-        { text = "Fandral would call you too cautious.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "Fandral would call you too cautious.", next = "BACK", fx = { align = { light = -1 }, trait = { skeptical = 1 } } },
         { text = "Then I'll watch for pride. Mine too.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { cautious = 1 } } },
       },
     },
@@ -153,7 +164,7 @@ P:NPC {
       lines = { { id = "i2_default", text = "No, I blame no one for being afraid. I will blame them for what they choose to do about it." } },
       choices = {
         { text = "That's fair.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Fear makes fools of everyone.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Fear makes fools of everyone.", next = "BACK", fx = { align = { order = -1 }, trait = { kind = 1 } } },
       },
     },
     ashenvale = {
@@ -179,7 +190,9 @@ P:NPC {
       lines = { { id = "e_default", text = "She asks us to protect. Every prayer, every arrow and every healing comes back to that, and it has been enough to fill ten thousand years." } },
       choices = {
         { text = "Her priestesses lead the Sentinels too?", next = "sentinels" },
-        { text = "Something else.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then I'll protect whoever needs it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Protecting alone won't win a war, High Priestess.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     sentinels = {
@@ -201,6 +214,7 @@ P:NPC {
       lines = { { id = "hy2_default", text = "Now Lady Proudmoore keeps Theramore, and your people walk my city. I watch them as I watch everyone. A few have earned more than watching." } },
       choices = {
         { text = "I mean to be one of them.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "I'm not here to earn anyone's trust, High Priestess.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -217,6 +231,7 @@ P:NPC {
       lines = { { id = "ls_default", text = "Perhaps. I've heard humans say so, and I've heard my sisters say otherwise. Neither had seen what they were so sure of. I will wait to be shown." } },
       choices = {
         { text = "Fair. I'll keep my faith and my eyes open.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Faith with no proof behind it is only stubbornness.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "I've felt it. That's enough for me.", next = "BACK", fx = { trait = { pious = 1 } } },
       },
     },
@@ -226,7 +241,10 @@ P:NPC {
     },
     sister = {
       lines = { { id = "si_default", text = "Protect first and heal second, and pray when both are done. The Sentinels in Ashenvale are stretched thin, so go where they bleed." } },
-      choices = { { text = "I will, High Priestess.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, standing = { darnassus = 1 } } } },
+      choices = {
+        { text = "I will, High Priestess.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, standing = { darnassus = 1 } } },
+        { text = "Ashenvale can find other healers, because I'm needed here.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
     druid = {
       lines = { { id = "dr_default", text = "Heed him on druids' matters. That is his charge, and he knows it well. When he speaks of the future of all our people, listen politely, then come and tell me." } },
@@ -246,9 +264,37 @@ P:NPC {
         { text = "It's more complicated than that.", next = "BACK", fx = { trait = { curious = 1 } } },
       },
     },
+    barrow_vigil = {
+      lines = {
+        { id = "bv_default", text = "I do, when the Sentinels' reports are done and no one waits on my word. I sit beside him and tell him what his people did that day, and I never tell him that I am tired, because I will not have him wake to hear that I wavered." },
+        { id = "bv_priest", when = { class = "PRIEST" },
+          text = "You have sat beside the sleeping and the dying, priest, so you know the vigil I mean. I keep it at his barrow and tell him what our people did that day, but never that I am tired, because I will not have him wake to hear that I wavered." },
+      },
+      choices = {
+        { text = "Then neither of you is alone in it.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else, High Priestess.", next = "BACK" },
+      },
+    },
+    barrow_closed = {
+      lines = {
+        { id = "bc_default", text = "Where I go at night is between Elune and me. Ask me about the Sentinels or the Horde, and I will answer you freely." },
+        { id = "bc_druid", when = { class = "DRUID" },
+          text = "Did the Enclave send you to ask me that? You may tell Fandral that where I go at night is between Elune and me." },
+      },
+      choices = {
+        { text = "Forgive me, High Priestess.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Ask, and I will answer what is mine to answer. The rest belongs to Elune, and she is far less talkative than I am." },
+      { id = "tp_knows_warm", when = { disposition = { min = 70 } },
+        text = "You have earned plain answers from me, so ask what you like. I will tell you what I tell my Sentinels, and very little less." },
+      { id = "tp_knows_cold", when = { disposition = { max = 34 } },
+        text = "I will answer you because the Temple answers everyone who climbs its steps. Do not mistake that for warmth." },
+    },
     background = { { id = "tp_bg", text = "I have been a priestess of Elune since before your kingdoms had names, and I fought at the Well of Eternity and again at Hyjal. The Sentinels tell it better than I do; they enjoy it more." } },
     advice = { { id = "tp_ad", text = "Never mistake a quiet forest for a safe one. And when you've something to report, come back and report it." } },
     malfurion = {
@@ -270,6 +316,10 @@ P:NPC {
   bible = "bibles/darnassus.md", role = "noble", tier = "major",
   communities = { "darnassus" }, temper = { "abrasive" }, values = { "proud", "ambitious" },
   notices = { "race", "class" },
+  impression = {
+    first = "Pride sits on Arch Druid Fandral Staghelm like a mantle, pride in Teldrassil and in having led his people out of the darkness, as he tells it. He wanted me brief, and I was glad to oblige.",
+    third = "{name} met Arch Druid Fandral Staghelm, who leads the Cenarion Circle from the Enclave and suffers no doubts about it.",
+  },
 
   greetings = {
     { id = "g_enclave", text = "Yes? The Enclave is busy, and I am busier still, so be brief." },
@@ -305,6 +355,8 @@ P:NPC {
         { id = "h_priest", when = { class = "PRIEST" },
           text = "A priest? The Temple is across the gardens. If the High Priestess sent you to watch me, it is still across the gardens." },
         { id = "h_human", when = { race = "Human" },
+        { id = "h_cold", when = { disposition = { max = 34 } },
+          text = "You again, and no more welcome than the last time. Say what you came to say and let me return to work that matters." },
           text = "A human in the Enclave; Malfurion always held the doors too wide. Well, you are in now, so be useful." },
       },
       again = {
@@ -353,6 +405,9 @@ P:NPC {
       choices = {
         { text = "Then let others carry some of it.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "You chose to carry it.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "You doubt it more than you let the Temple see.", tag = "Persuade", next = "burden",
+          check = { pass = { any = { { disposition = { min = 70 } }, { class = "DRUID" }, { questDone = TODO_QUEST("Teldrassil") } } } },
+          fail = { next = "burden_no", fx = { affinity = -1 } } },
       },
     },
     moonglade = {
@@ -380,7 +435,7 @@ P:NPC {
       big = true,
       lines = { { id = "v_default", text = "A people who can die must grow strong while they live. More druids, more groves, more of Kalimdor under kaldorei care instead of orc axes." } },
       choices = {
-        { text = "That sounds like a war.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "That sounds like a war.", next = "BACK", fx = { align = { order = -1 }, trait = { cautious = 1 } } },
         { text = "Kalimdor could use it.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
       },
     },
@@ -424,9 +479,35 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    burden = {
+      lines = {
+        { id = "bu_default", text = "Every report from the moonwells and every maddened furbolg on these branches comes to me, and I read them at night while the Temple thinks I sleep. I will finish this tree and give back what Hyjal took, whatever it costs me, and no dragon or priestess will name the price." },
+        { id = "bu_druid", when = { class = "DRUID" },
+          text = "You are a druid, so you will feel it yourself before long: the tree has not grown as cleanly as I promised it would. I mean to mend it, whatever it costs me, and I will not wait for dragons or priestesses to name the price." },
+      },
+      choices = {
+        { text = "Ask for help, Archdruid. There's no weakness in it.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    burden_no = {
+      lines = {
+        { id = "bn_default", text = "I doubt nothing, and I will thank you not to repeat that sort of talk in the Enclave. Doubt is a luxury the Temple can afford and I cannot." },
+        { id = "bn_priest", when = { class = "PRIEST" },
+          text = "Save the confessional for your Cathedral, priest. I doubt nothing, and I have no need of a stranger to tell me otherwise." },
+      },
+      choices = {
+        { text = "As you say, Archdruid.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "There is little on this tree I do not know, and less that I have not had to mend myself. Ask, but be quick about it." },
+      { id = "tp_knows_cold", when = { disposition = { max = 34 } },
+        text = "I will answer, though I doubt you will listen. Most don't, until it is far too late." },
+    },
     background = { { id = "tp_bg", text = "I led our people to this tree when they had nothing left to lead them. That is the part of my story worth telling." } },
     advice = { { id = "tp_ad", text = "Don't waste time. We learned at Hyjal how little of it any of us has." } },
     teldrassil = {
@@ -444,6 +525,10 @@ P:NPC {
   bible = "bibles/darnassus.md", role = "trainer", tier = "quest",
   communities = { "darnassus" }, temper = { "calm" }, values = { "wise", "loyal" },
   notices = { "form", "class" },
+  impression = {
+    first = "Mathrengyl Bearwalker has the calm of someone who once stood beside power and found he preferred teaching. Every question gets a patient answer from him, even the foolish ones.",
+    third = "{name} met Mathrengyl Bearwalker, the dignified trainer of druids in the Cenarion Enclave.",
+  },
 
   greetings = {
     { id = "g_druid", when = { class = "DRUID" }, text = "Welcome, young one. The Enclave's doors are open to you, and so is my time." },
@@ -539,6 +624,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "A teacher learns to keep a great many things in his head at once. Ask me of any of these, and I will answer as well as I am able." },
+    },
     background = { { id = "tp_bg", text = "I am one of the Archdruid's druids, and a teacher. The young ones keep me honest, and the bear keeps me humble." } },
     advice = { { id = "tp_ad", text = "Learn the bear before the cat, and the cat before you think you know either of them." } },
     cenarion_circle = { { id = "tp_circle", text = "The Circle is united, whatever you have heard, for disagreement is not division. The Archdruid has broad shoulders." } },
@@ -551,6 +639,10 @@ P:NPC {
   bible = "bibles/darnassus.md", role = "priest", tier = "quest",
   communities = { "darnassus" }, temper = { "gentle" }, values = { "devout", "kind" },
   notices = { "class", "death" },
+  impression = {
+    first = "Priestess A'moora called me 'little star' as if she had known me for years. Most come to her tired, she says, and I did leave the Temple pool lighter than I arrived.",
+    third = "{name} met Priestess A'moora, who tends the Temple of the Moon's pool and the weary souls who come to it.",
+  },
 
   greetings = {
     { id = "g_moon", text = "Even here under the branches, Elune's light finds you. Come in and sit by the pool." },
@@ -599,6 +691,7 @@ P:NPC {
       },
       choices = {
         { text = "That's beautiful.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Gentle light won't stop an orc's axe, Priestess.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Is she only gentle, then?", next = "elune_war" },
       },
     },
@@ -615,6 +708,7 @@ P:NPC {
       },
       choices = {
         { text = "Name one for me tonight.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Names won't bring anyone home, so pray for the living.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Who do you name?", next = "pray_who" },
       },
     },
@@ -649,11 +743,17 @@ P:NPC {
     },
     light_pray = {
       lines = { { id = "lp_default", text = "Quietly, by water, at night. We don't ask her for things so much as tell her where it's dark. Try it by the pool. She won't mind the accent." } },
-      choices = { { text = "I will. Thank you.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } } },
+      choices = {
+        { text = "I will. Thank you.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll keep to my own prayers, thank you.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+      },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Sit by the pool a moment, little star, and ask whatever you need. I will tell you what the Sisterhood has taught me." },
+    },
     background = { { id = "tp_bg", text = "I am a priestess of the Sisterhood, and I tend the pool and whoever comes to it. That is all the story there is, little star." } },
     advice = { { id = "tp_ad", text = "Rest when the road lets you. The moon will still be there; you might not be, if you never stop." } },
     sisterhood_of_elune = { { id = "tp_sister", text = "We heal, we pray, and we train with the bow. Visitors are always surprised by the third." } },
@@ -667,6 +767,10 @@ P:NPC {
   bible = "bibles/darnassus.md", role = "scholar", tier = "quest",
   communities = { "darnassus" }, temper = { "intent" }, values = { "curious", "devout" },
   notices = { "lore", "trophy" },
+  impression = {
+    first = "Some of Gracina Spiritmight's specimens are only mostly dead, and she wants to hear about every creature I have ever seen. Something in the southern deserts frightens her badly, and she does not strike me as easily frightened.",
+    third = "{name} met Gracina Spiritmight, the priestess and scholar of the Temple of the Moon whose study of insects has led her somewhere troubling.",
+  },
 
   greetings = {
     { id = "g_study", text = "Careful with the specimens. Some of them are only mostly dead." },
@@ -762,12 +866,16 @@ P:NPC {
       lines = { { id = "pg_default", text = "Prayer and study aren't rivals. I pray for the patience to look closely, and then I look." } },
       choices = {
         { text = "That's a good prayer.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'd rather trust what I can see than pray for it.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "My notes cover far more than I can say in one sitting, so choose where you would like me to begin." },
+    },
     background = { { id = "tp_bg", text = "A priestess who reads more than she prays, the Temple would tell you. Some weeks they'd be right." } },
     advice = { { id = "tp_ad", text = "If it has more than four legs, assume it's cleverer than it looks." } },
     silithid = {
@@ -783,6 +891,10 @@ P:NPC {
   bible = "bibles/darnassus.md", role = "innkeeper", tier = "service",
   communities = { "darnassus" }, temper = { "warm" }, values = { "kind" },
   notices = { "weary", "race" },
+  impression = {
+    first = "Innkeeper Saelienne warned me not to look down from the terrace, which of course made me do it. Her inn rocks gently with the branches at night, and she swears most guests find it soothing.",
+    third = "{name} found rest at Innkeeper Saelienne's inn on the Craftsmen's Terrace, high in the branches of Darnassus.",
+  },
 
   greetings = {
     { id = "g_rest", text = "Rest a while, traveller. The branches rock a little at night. Most find it soothing." },
@@ -837,6 +949,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Travellers tell me all sorts of things over supper, and some of it stays with me. Ask, and I'll pass on what I can." },
+    },
     background = { { id = "tp_bg", text = "I keep the beds on the Craftsmen's Terrace. Everyone who stays a night tells me their story, and mine is the shortest of them." } },
     advice = { { id = "tp_ad", text = "Take the portal from Rut'theran. There's no other sensible way up, and several foolish ones." } },
     _none = { { id = "tp_none", text = "I only keep the beds. The Temple knows more." } },

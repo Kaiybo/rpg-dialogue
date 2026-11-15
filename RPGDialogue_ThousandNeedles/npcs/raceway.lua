@@ -9,6 +9,11 @@ P:NPC {
   communities = { "mirage_raceway" }, temper = { "eager" }, values = { "ambitious", "proud" },
   notices = { "craft", "status" },
 
+  impression = {
+    first = "Pozzik built a raceway to prove goblins are better engineers than gnomes, and he means to keep proving it every single day. He talks like a man always ten minutes from the next heat.",
+    third = "{name} met Pozzik, the goblin half of the rivalry that runs the Mirage Raceway.",
+  },
+
   greetings = {
     { id = "g_race", text = "Hey hey! Here for the race? There's always a race, every day, rain or shine, and mostly shine, since it's a salt flat." },
     { id = "g_back", when = { metBefore = true }, text = "My favorite spectator returns! You bet on us last time? Smart, so bet again." },
@@ -61,6 +66,7 @@ P:NPC {
       lines = { { id = "wl_default", text = "Lately the gnomes are faster, with the same designs, and nobody can say why. Rizzle Brassbolts has been scribbling something day and night. I'd love a look at it." } },
       choices = {
         { text = "I could get you a look.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
+        { text = "Stealing their plans would be cheating, Pozzik.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Maybe they're just better.", next = "BACK", fx = { affinity = -2, trait = { witty = 1 } } },
       },
     },
@@ -106,6 +112,9 @@ P:NPC {
 
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I know everything worth knowing about these flats, and most of it's about engines! Ask me about any of these." },
+    },
     background = { { id = "tp_ba", text = "I grew up with grease under my nails and a stopwatch in my hand, and now I own half a racetrack, the better half." } },
     advice = { { id = "tp_ad", text = "Never bet against a goblin on a straight line. Corners, maybe, but straight lines, never." } },
     mirage_raceway = { { id = "tp_raceway", text = "Best thing ever built on a salt flat! Also the only thing, but that counts." } },
@@ -119,6 +128,11 @@ P:NPC {
   bible = "bibles/thousandneedles.md", role = "questgiver", tier = "quest",
   communities = { "mirage_raceway" }, temper = { "excitable" }, values = { "proud", "curious" },
   notices = { "craft", "race" },
+
+  impression = {
+    first = "Fizzle Brassbolts told me to stand very still before he said hello. He is the gnomish half of a rivalry at the Mirage Raceway, and he treats a cracked piston as a personal tragedy.",
+    third = "{name} met Fizzle Brassbolts, the excitable gnome who runs the Mirage Raceway alongside his goblin rival.",
+  },
 
   greetings = {
     { id = "g_track", text = "Mind the track, and the fuel lines, and the nitro... actually, just stand very still!" },
@@ -199,6 +213,7 @@ P:NPC {
       lines = { { id = "b_default", text = "The Brassbolts brothers, yes! Wizzle handles the shells and fins, Rizzle handles the plans, and I handle the genius. It's a very efficient arrangement." } },
       choices = {
         { text = "Pozzik wants Rizzle's plans.", next = "brothers_plans", fx = { align = { honor = 1 } } },
+        { text = "I'll keep what I know about Pozzik to myself.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -235,6 +250,11 @@ P:NPC {
   communities = { "mirage_raceway" }, temper = { "sly" }, values = { "cunning", "ambitious" },
   notices = { "purse", "drink" },
 
+  impression = {
+    first = "Kravel Koalbeard speaks in a low voice and treats every conversation like a bet he's already won. Neither racing crew should trust him, and I'd wager both of them do.",
+    third = "{name} met Kravel Koalbeard, a sly dwarf who fetches parts and whispers tips at the Mirage Raceway.",
+  },
+
   greetings = {
     { id = "g_flap", text = "Close the flap behind ye. Walls have ears, an' at a racetrack the ears are usually bettin'." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, my discreet friend. Ye've kept quiet, I trust?" },
@@ -267,7 +287,7 @@ P:NPC {
         { id = "h_again2", text = "Aye? Lean in, the tent's thin." },
       },
       choices = {
-        { text = "[Intimidate] You're rigging races. I could tell the crews.", tag = "Intimidate", next = "hush",
+        { text = "You're rigging races. I could tell the crews.", tag = "Intimidate", next = "hush",
           check = { pass = { any = { { trait = "stern" }, { minLevel = 40 } } } },
           fail = { next = "laugh" } },
         { text = "What's the sure thing?", next = "sure" },
@@ -280,7 +300,10 @@ P:NPC {
     },
     hush = {
       lines = { { id = "hu_default", text = "Now, now, nobody's rigged a thing. Here, for yer trouble an' yer short memory; we understand each other." } },
-      choices = { { text = "We do.", next = "END", fx = { affinity = -1, align = { order = -1 } } } },
+      choices = {
+        { text = "We do.", next = "END", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "Keep your coin, Kravel. I saw what I saw.", next = "END", fx = { align = { order = 1 } } },
+      },
     },
     laugh = {
       lines = { { id = "la_default", text = "Tell 'em! Pozzik'll think I'm helpin' Fizzle, Fizzle'll think I'm helpin' Pozzik, an' both'll pay me to stop." } },
@@ -315,6 +338,7 @@ P:NPC {
       lines = { { id = "st_default", text = "A Fool's Stout, an' a wee bit of somethin' extra from a friend in Booty Bay. Nothin' harmful, mostly; they'll wake up a touch slow an' very thirsty." } },
       choices = {
         { text = "That's poisoning, Kravel.", next = "BACK", fx = { align = { honor = 1 }, affinity = -2 } },
+        { text = "Slow and thirsty sounds like fair racing to me.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -322,6 +346,7 @@ P:NPC {
       lines = { { id = "li_default", text = "Does it? Well, the Light's no' placin' bets, so it's no' my concern. Pray for the losers if ye like; they'll need it more than me." } },
       choices = {
         { text = "I'll pray for you too.", next = "BACK", fx = { affinity = -1, align = { light = 1 }, trait = { pious = 1 } } },
+        { text = "Fair enough. The losers can pray for themselves.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

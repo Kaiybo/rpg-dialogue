@@ -48,6 +48,10 @@ move-folders:
   RPGDialogue/RPGDialogue_SearingGorge: RPGDialogue_SearingGorge
   RPGDialogue/RPGDialogue_Riverglades: RPGDialogue_Riverglades
   RPGDialogue/RPGDialogue_WesternPlaguelands: RPGDialogue_WesternPlaguelands
+  RPGDialogue/RPGDialogue_BurningSteppes: RPGDialogue_BurningSteppes
+  RPGDialogue/RPGDialogue_BlastedLands: RPGDialogue_BlastedLands
+  RPGDialogue/RPGDialogue_Azshara: RPGDialogue_Azshara
+  RPGDialogue/RPGDialogue_Silithus: RPGDialogue_Silithus
   RPGDialogue/RPGDialogue_EasternPlaguelands: RPGDialogue_EasternPlaguelands
 
 # Paths are from the repo root; "*.md" matches at any depth (bash case patterns), which

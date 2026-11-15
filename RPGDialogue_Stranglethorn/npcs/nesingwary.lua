@@ -9,6 +9,11 @@ P:NPC {
   communities = { "nesingwary_camp" }, temper = { "gruff" }, values = { "brave", "proud" },
   notices = { "class", "pet", "kit" },
 
+  impression = {
+    first = "Hemet Nesingwary hushed me so I wouldn't scare the game, then talked about the great cat for a quarter of an hour. Hunting is the whole of the man.",
+    third = "{name} found Hemet Nesingwary at his camp in Stranglethorn, where the famous hunter is after raptors, panthers, tigers and the great cat himself.",
+  },
+
   greetings = {
     { id = "g_camp", text = "Quiet, now, ye'll scare the game. Sit, if ye must, an' then make yerself useful." },
     { id = "g_back", when = { metBefore = true }, text = "Ye came back with all yer limbs, good. The jungle doesnae give many second chances." },
@@ -68,7 +73,7 @@ P:NPC {
       choices = {
         { text = "And what are you?", next = "what" },
         { text = "Seems a lot of killing just to find that out.", next = "why_killing", fx = { align = { light = 1 } } },
-        { text = "I'll find out, then.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
+        { text = "I'll find out, then.", next = "BACK", fx = { align = { light = -1 }, affinity = 2, trait = { brave = 1 } } },
       },
     },
     what = {
@@ -83,6 +88,7 @@ P:NPC {
       },
       choices = {
         { text = "Fair chance. I can respect that.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Fair or not, a kill's a kill.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "A fair chance against a rifle?", next = "BACK", fx = { affinity = -1, trait = { skeptical = 1 } } },
       },
     },
@@ -182,6 +188,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've hunted every corner o' this jungle, an' I know it better than any map. Ask, an' I'll tell ye what I've learned." },
+    },
     background = { { id = "tp_bg", text = "Soldier, then hunter, then writer, Light help us all. Barnil does the spellin'.", next = "hero" } },
     advice = { { id = "tp_ad", text = "Shoot what's chargin' ye first, then shoot what's watchin' ye, an' then have a drink." } },
     _none = { { id = "tp_none", text = "Does it have fur, claws or teeth? No? Then I couldnae care less." } },
@@ -193,6 +202,11 @@ P:NPC {
   bible = "bibles/stranglethorn.md", role = "questgiver", tier = "quest",
   communities = { "nesingwary_camp" }, temper = { "patient" }, values = { "loyal", "orderly" },
   notices = { "race" },
+
+  impression = {
+    first = "Barnil Stonepot keeps Nesingwary's camp, kit and book, and he is fiercely proud of all three. He asked me to pick up any loose pages I found.",
+    third = "{name} met Barnil Stonepot, who keeps Hemet Nesingwary's camp and minds the great hunter's book with fierce pride.",
+  },
 
   greetings = {
     { id = "g_pages", text = "Mind where ye step, friend. If ye see a loose page anywhere, it's ours, so don't step on it; pick it up." },
@@ -282,6 +296,7 @@ P:NPC {
       choices = {
         { text = "Come with me next time.", next = "fight_offer", fx = { affinity = 1, trait = { generous = 1 } } },
         { text = "The camp needs you here.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "You should fight where you choose, not where you're posted.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
     fight_offer = {
@@ -316,6 +331,11 @@ P:NPC {
   bible = "bibles/stranglethorn.md", role = "questgiver", tier = "quest",
   communities = { "nesingwary_camp" }, temper = { "focused" }, values = { "proud", "brave" },
   notices = { "class" },
+
+  impression = {
+    first = "Ajeck Rouack restrung her bow while we talked and never once looked up. She means to take Sin'Dall someday, and he says it like a plain fact.",
+    third = "{name} met Ajeck Rouack at Nesingwary's camp, a tiger hunter who means one day to bring down Sin'Dall.",
+  },
 
   greetings = {
     { id = "g_bow", text = "Careful, I'm restringing. Talk if you like; I'll listen." },
@@ -371,6 +391,7 @@ P:NPC {
       lines = { { id = "sc_default", text = "No. Help me with the young ones, if you want to help, but Sin'Dall's mine. He was my father's, and now he's mine." } },
       choices = {
         { text = "Understood.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "I'll take Sin'Dall myself if I find him first.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "Pride gets hunters killed.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
       },
     },
@@ -443,6 +464,11 @@ P:NPC {
   communities = { "nesingwary_camp" }, temper = { "bitter" }, values = { "honorable", "proud" },
   notices = { "class", "race" },
 
+  impression = {
+    first = "Sir Erlgadin was a count in Stormwind once and would rather nobody mentioned it. He hunts panthers now, and he seems to find them better company than nobles.",
+    third = "{name} met Sir S. J. Erlgadin, a former count of Stormwind who gave up the House of Nobles to hunt panthers in Stranglethorn.",
+  },
+
   greetings = {
     { id = "g_sir", text = "Sir Erlgadin. Just 'Sir', thank you; I've given up the rest." },
   },
@@ -502,6 +528,7 @@ P:NPC {
       },
       choices = {
         { text = "One honest vote is still a vote.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
+        { text = "You're right, and the House of Nobles isn't worth saving.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Fair enough. Something else.", next = "BACK" },
       },
     },
@@ -548,7 +575,7 @@ P:NPC {
       choices = {
         { text = "They say worse.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
         { text = "I left too. In my way.", next = "BACK", fx = { affinity = 3, align = { honor = 1 } } },
-        { text = "They had their reasons for the masons.", next = "BACK", fx = { affinity = -3, opinion = { defias = "nobles_justified" } } },
+        { text = "They had their reasons for the masons.", next = "BACK", fx = { align = { honor = -1 }, affinity = -3, opinion = { defias = "nobles_justified" } } },
       },
     },
 
@@ -559,13 +586,14 @@ P:NPC {
       },
       choices = {
         { text = "You're not the one who burned the fields.", next = "BACK", fx = { affinity = 2, align = { light = 2 }, trait = { kind = 1 } } },
-        { text = "I won't.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
+        { text = "I won't.", next = "BACK", fx = { align = { light = -1 }, affinity = 1, trait = { stern = 1 } } },
       },
     },
     priest_forgive = {
       lines = { { id = "pf_default", text = "Does it? Then the Light is kinder than the masons, and I'd sooner have theirs. Forgiveness from the people I failed would mean something. From above, it only feels convenient." } },
       choices = {
         { text = "Then seek theirs.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Then take the Light's forgiveness and be done with it.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Both can be true.", next = "BACK", fx = { affinity = 1, trait = { pious = 1 } } },
       },
     },

@@ -117,6 +117,11 @@ def main():
                     entries.append((owner, pack.addon, gid, ln["text"], slot, False))
                 if kind == "Pool" and slot == "notice" and tbl.get("role") not in NARROW_ROLES and not tbl.get("community") and not tbl.get("subtitle"):
                     broad_notices.append(gid)
+            imp = tbl.get("impression") if kind == "NPC" else None
+            if isinstance(imp, LTable):
+                for voice in ("first", "third"):
+                    if isinstance(imp.get(voice), str):
+                        entries.append((owner, pack.addon, f"{owner}.impression.{voice}", imp[voice], "diary", False))
             for nid, i, ch in P.iter_choices(tbl):
                 if isinstance(ch.get("text"), str):
                     entries.append((owner, pack.addon, f"{owner}.{nid}.choice{i}", ch["text"], "choice", True))
@@ -129,7 +134,19 @@ def main():
                 for k in ("offer", "thanks", "remind"):
                     if isinstance(tbl.get(k), str):
                         entries.append((tbl.get("npc"), pack.addon, f"errand:{tbl.get('id')}.{k}", tbl[k], "errand", False))
+            if kind == "Arrival":
+                for voice in ("first", "third"):
+                    if isinstance(tbl.get(voice), str):
+                        entries.append((None, pack.addon, f"arrival:{tbl.get('zone')}.{voice}", tbl[voice], "diary", False))
             if kind == "Thread":
+                story = tbl.get("story")
+                if isinstance(story, LTable):
+                    for st in ("stirring", "unfolding", "resolved", "soured"):
+                        e = story.get(st)
+                        if isinstance(e, LTable):
+                            for voice in ("first", "third"):
+                                if isinstance(e.get(voice), str):
+                                    entries.append((None, pack.addon, f"thread:{tbl.get('id')}.story.{st}.{voice}", e[voice], "diary", False))
                 for b in P.arr(tbl.get("beats")):
                     if isinstance(b, LTable) and isinstance(b.get("text"), str):
                         entries.append((b.get("npc"), pack.addon, f"thread:{tbl.get('id')}.{b.get('id')}", b["text"], "beat", False))

@@ -12,6 +12,7 @@ local Data = {
   pools = {},     -- list
   generic = {},   -- list
   threads = {}, claims = {}, topics = {}, towns = {}, origins = {}, rumors = {}, books = {}, errands = {},
+  arrivals = {},  -- zone name -> list of diary entries for a first arrival (first match wins)
   lines = {},     -- global line id -> { line = , owner = , slot = }
 }
 ns.Data = Data
@@ -183,6 +184,13 @@ kinds.Book = simpleKind("books")
 kinds.Errand = simpleKind("errands")
 kinds.Town = simpleKind("towns")
 kinds.Origin = simpleKind("origins")
+-- Arrivals: what the character writes in the diary the first time they reach a zone.
+function kinds.Arrival(pack, def)
+  if type(def.zone) ~= "string" then return warn(pack, "Arrival needs a zone name") end
+  def._pack = pack.id
+  Data.arrivals[def.zone] = Data.arrivals[def.zone] or {}
+  table.insert(Data.arrivals[def.zone], def)
+end
 -- Rumors: lines innkeepers (or any role listed) may pass on.
 function kinds.Rumors(pack, def)
   if not def.id then return warn(pack, "rumors without id") end

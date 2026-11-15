@@ -7,6 +7,10 @@ P:NPC {
   bible = "bibles/eagan.md", role = "questgiver", tier = "quest",
   communities = { "northshire" }, temper = { "steady" },
   notices = { "beast", "form", "skinner" },
+  impression = {
+    first = "Eagan Peltskinner walks his trap lines like a man who knows where every snare is buried, and he'd much rather I stepped where he stepped. He looks at every creature as a coat first.",
+    third = "{name} met Eagan Peltskinner, the Northshire trapper who judges every creature by the quality of its pelt.",
+  },
 
   greetings = {
     { id = "g_traps", text = "Step where I step, friend. There are traps all through here." },
@@ -105,7 +109,7 @@ P:NPC {
     pity = {
       lines = { { id = "p_default", text = "Sorry for them? They'd eat me if I let them, and I don't let them." } },
       choices = {
-        { text = "Fair enough.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "Fair enough.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
         { text = "Seems a hard way to see it.", next = "pity_hard", fx = { align = { light = 1 }, trait = { kind = 1 }, affinity = -1 } },
       },
     },

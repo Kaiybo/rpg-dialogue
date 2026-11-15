@@ -46,3 +46,8 @@ One or two repeat-visit or night lines each for the thinnest NPCs here: small ha
 
 ## Western Plaguelands echoes (Tanaris 1.2.0, authored, not canon)
 - Krinkle filed six complaints to the Repairers' Union; he never asks what the keys are for.
+
+## 0.34.0
+Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
+- Marin (Deceive, secret): without Sprinkle's childhood secret ingredient the elixir tastes like a boot; he privately admits the fortune is half hers.
+- Tran'rek (Intimidate, buyers_true): the scarab shells go out on the Booty Bay boat crated as curios; Krazek finds him the buyers and is paid to keep that one secret.

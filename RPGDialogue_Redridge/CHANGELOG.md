@@ -2,6 +2,19 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.7.0 (2026-11-15)
+- 7 new people in Lakeshire: Yorus Barleybrew, Lucius, Shawn, Matthew Hooper, Bartender Wental, Alma Jainrose, Bridge Worker Trent.
+- First impressions in your diary. New file: restart the game.
+
+## 1.6.0 (2026-11-15)
+- Persuade, Intimidate and Deceive checks on the major people here, each with its own success and failure; lines and replies that depend on how warmly they regard you (disposition); a lead-in for "What do you know?".
+
+## 1.5.0 (2026-11-15)
+- Alignment now comes only from statements, never questions, and every reply that shifts alignment has an opposing one beside it. Taking one stance with someone closes the others for good.
+
+## 1.4.0 (2026-11-15)
+- Magistrate Solomon knows when you've met Marshal Maxwell at Morgan's Vigil (the True Masters chain runs between them; Burning Steppes pack).
+
 ## 1.3.0 (unreleased)
 - Depth rewrite: every Lakeshire NPC is now a place to explore (hub, branches two to four deep, "again" lines, their own Ask about takes for Their story and A little advice). All 15 meet the depth standard.
 - Magistrate Solomon: the letters (General Jonathan's reply, Stoutmantle's, Ebonlocke's), "something in Stormwind is amiss", Stonewatch Keep, Gath'Ilzogg, Morganth's betrayal, Keeshan's notice, the Court of Lakeshire and the town's history (taken in the First War, rebuilt after the Second). Replies for priests (no chapel, no bandages), paladins, minor nobles, Lordaeron refugees, dwarves (his envoys to Ironforge; after Kharan's Tale, what became of them), Bolvar's deputy, and players who've heard Lady Prestor or met General Jonathan.

@@ -8,6 +8,11 @@ P:NPC {
   communities = { "aerie_peak" }, temper = { "boisterous" }, values = { "proud", "brave", "loyal" },
   notices = { "race", "class" },
 
+  impression = {
+    first = "Falstad Wildhammer greets visitors like long-lost kin and talks of trolls the way other people talk of weather to be got through. A Wildhammer and his gryphon, he says, are one creature.",
+    third = "{name} met Falstad Wildhammer, High Thane of the Wildhammer clan, at Aerie Peak.",
+  },
+
   greetings = {
     { id = "g_keep", text = "Ha! A visitor tae Wildhammer Keep! Come in, come in, an' tell me ye're here tae fight trolls!" },
     { id = "g_back", when = { metBefore = true }, text = "Back again, good! I like a face that keeps comin' back, for it means the trolls didnae get it." },
@@ -81,6 +86,9 @@ P:NPC {
       choices = {
         { text = "That's fair.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
         { text = "The Alliance needs every hammer it can get.", next = "BACK", fx = { affinity = -1, align = { order = 2 } } },
+        { text = "You miss the riders who flew off with the Alliance.", tag = "Persuade", next = "kurdran",
+          check = { pass = { any = { { disposition = { min = 65 } }, { race = "Dwarf" }, { trait = "brave" } } } },
+          fail = { next = "kurdran_no", fx = { affinity = -1 } } },
       },
     },
     allies = {
@@ -102,9 +110,35 @@ P:NPC {
       lines = { { id = "f_default", text = "Count ye? The riders toast ye by name at the bar. That's more than they do for me, an' I'm their Thane." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    kurdran = {
+      lines = {
+        { id = "ku_default", text = "Aye, ye've a sharp eye for a flatlander. Kurdran flew through the Dark Portal wi' the Alliance an' a fine flight o' riders behind him, an' none o' them came back when it closed, so every night at the bar I drink one tae them an' tell nobody why." },
+        { id = "ku_dwarf", when = { race = "Dwarf" },
+          text = "Ye're a dwarf, so ye'll have heard the tale. Kurdran took our best riders through the Dark Portal wi' the Alliance, an' it closed behind 'em, an' I've raised a mug tae them every night since without once sayin' so out loud." },
+      },
+      choices = {
+        { text = "Here's to Kurdran, then.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kurdran_no = {
+      lines = {
+        { id = "kn_default", text = "Miss someone? Ha! I miss the days when trolls ran at the sight o' me, an' that's all the missin' I've time for." },
+        { id = "kn_elf", when = { race = "NightElf" },
+          text = "Ye elves an' yer long faces! I miss nothin' but a quiet sky, an' I'll have that when the trolls are gone." },
+      },
+      choices = {
+        { text = "Fair enough, Thane.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Every rider in Aerie Peak reports tae me, an' half o' them exaggerate, so I've learned a great deal! Ask away." },
+      { id = "tp_knows_warm", when = { disposition = { min = 70 } },
+        text = "Ask me anythin' ye like! Ye've earned the riders' respect, an' that means ye've earned mine." },
+    },
     background = { { id = "tp_ba", text = "Wildhammer born, gryphon raised, an' Thane by right o' bein' the loudest! The Second War made a rider o' me, an' the Hinterlands made a Thane.", next = "gryphons" } },
     advice = { { id = "tp_ad", text = "Never fight a troll on its own ground; fight it from above, for everythin' is easier from above." } },
     dark_iron = { { id = "tp_dark_iron", text = "Dark Irons! Don't get me started, or we'll be here till the sun's down an' up again." } },
@@ -117,6 +151,11 @@ P:NPC {
   bible = "bibles/hinterlands.md", role = "questgiver", tier = "quest",
   communities = { "aerie_peak" }, temper = { "gruff" }, values = { "loyal", "practical" },
   notices = { "class" },
+
+  impression = {
+    first = "Gryphon Master Talonaxe would plainly rather be in the air than talking to me. He keeps the aeries safe from the trolls, and I don't think he's ever lost an argument with one.",
+    third = "{name} met Gryphon Master Talonaxe, who keeps the aviary at Aerie Peak safe from the forest trolls.",
+  },
 
   greetings = {
     { id = "g_aviary", text = "Aye, what is it? I'd rather be up in the air than down here talkin', but the gryphons won't take orders from the ground, so somebody has tae." },
@@ -190,6 +229,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The gryphons see the whole Hinterlands, an' their riders tell me what they saw. Ask, an' be quick about it." },
+    },
     background = { { id = "tp_ba", text = "Rider, then trainer, then the one who never gets tae ride, an' funny how that happens.", next = "flying" } },
     advice = { { id = "tp_ad", text = "Bring a gryphon a fish an' it'll remember ye. Bring it two, an' it'll follow ye home." } },
     _none = { { id = "tp_none", text = "Does it fly? If no', then I've no idea." } },
@@ -201,6 +243,11 @@ P:NPC {
   bible = "bibles/hinterlands.md", role = "questgiver", tier = "quest",
   communities = { "aerie_peak" }, temper = { "solemn" }, values = { "devout", "protective" },
   notices = { "class" },
+
+  impression = {
+    first = "Fraggar Thundermantle's eyes are failing, but he listens to the land and says it is not happy. The Vilebranch rites trouble him deeply.",
+    third = "{name} sat with Fraggar Thundermantle, who speaks for the spirits of the Hinterlands at Aerie Peak.",
+  },
 
   greetings = {
     { id = "g_spirits", text = "Sit, friend. My eyes are no' what they were, but I hear the land well enough, an' it's no' happy." },
@@ -232,6 +279,7 @@ P:NPC {
         { text = "An Ironforge dwarf who hears the elements. What do you make of me?", next = "dwarfshaman", when = { race = "Dwarf", class = "SHAMAN" } },
         { text = "I hear them too.", next = "hear", when = { class = { "SHAMAN", "DRUID" } } },
         { text = "I'll help the spirits.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "The spirits can fend for themselves, old man.", next = "END", fx = { align = { light = -1 } } },
       },
     },
     spirits = {
@@ -257,6 +305,7 @@ P:NPC {
       lines = { { id = "a_default", text = "Blood, an' bindin', an' callin' on things that should stay asleep. The Vilebranch think the spirits answer them, an' somethin' answers, but it isnae the spirits." } },
       choices = {
         { text = "Then the altars must fall.", next = "BACK", fx = { affinity = 2, align = { light = 2 } } },
+        { text = "If something answers them, maybe it's worth hearing out.", next = "BACK", fx = { align = { light = -2 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -274,6 +323,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The spirits speak, an' I listen, an' now an' then they tell me somethin' worth passin' on. Ask, an' I'll tell ye what I can." },
+    },
     background = { { id = "tp_ba", text = "Wildhammer, shaman an' listener; the spirits found me young, an' they've no' let go since." } },
     advice = { { id = "tp_ad", text = "When the wind goes quiet in the Hinterlands, listen harder, for somethin's holdin' its breath." } },
     _none = { { id = "tp_none", text = "The spirits haven't spoken o' that, an' so neither will I." } },
@@ -285,6 +337,11 @@ P:NPC {
   bible = "bibles/hinterlands.md", role = "innkeeper", tier = "service",
   communities = { "aerie_peak" }, temper = { "jovial" }, values = { "generous", "friendly" },
   notices = { "drink", "weary" },
+
+  impression = {
+    first = "Innkeeper Thulfram promised a fire hot enough to thaw a gryphon and very nearly delivered. Everyone ends up at his bar sooner or later, he says, and I believe it.",
+    third = "{name} rested at Innkeeper Thulfram's inn at Aerie Peak, where gryphon riders and wanderers all end up at his bar.",
+  },
 
   greetings = {
     { id = "g_inn", text = "Come in, come in, an' pull up a bench! There's ale, there's stew, an' there's a fire hot enough tae thaw a gryphon." },
@@ -326,6 +383,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Everythin' worth knowin' in Aerie Peak gets said at my bar sooner or later! Ask, an' I'll tell ye what I've heard." },
+    },
     background = { { id = "tp_ba", text = "I've poured for this keep longer than some o' the gryphons have been alive. They don't drink, but they listen." } },
     advice = { { id = "tp_ad", text = "Eat before ye drink, an' drink before ye fly, an' never the other way round." } },
     _none = { { id = "tp_none", text = "No idea! Ask the Thane, an' he'll tell ye, loud." } },

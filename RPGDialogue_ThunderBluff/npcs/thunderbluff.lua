@@ -9,6 +9,10 @@ P:NPC {
   bible = "bibles/thunderbluff.md", role = "noble", tier = "major",
   communities = { "thunder_bluff" }, temper = { "steady" }, values = { "honorable", "gentle", "wise" },
   notices = { "race", "class" },
+  impression = {
+    first = "Cairne Bloodhoof has the weight of a mountain and the warmth of a hearth, and he speaks of Mulgore as a home long waited for. He means to keep it, and I would not care to test him.",
+    third = "{name} met Cairne Bloodhoof, who leads the tauren tribes of Mulgore from the High Rise of Thunder Bluff.",
+  },
 
   greetings = {
     { id = "g_chief", text = "The High Rise greets you, young one. The Earth Mother's wind blows strong up here, so stand firm." },
@@ -41,8 +45,29 @@ P:NPC {
       choices = {
         { text = "How did the tauren come to Mulgore?", next = "mulgore" },
         { text = "Why do you follow Thrall?", next = "thrall" },
+        { text = "Why do you let Magatha live on Elder Rise?", tag = "Persuade", next = "magatha_close",
+          check = { pass = { any = { { disposition = { min = 65 } }, { heardLine = "magatha.h_default" }, { race = "Tauren", trait = "kind" } } } },
+          fail = { next = "magatha_closed", fx = { affinity = -1 } } },
         { text = "Earth Mother keep you, chieftain.", next = "END", fx = { affinity = 1 } },
       },
+    },
+    magatha_close = {
+      lines = {
+        { id = "mc_default", text = "Because she is tauren, and the Grimtotem are tauren, and I will not see my people split. If she leaves the Bluff, her tribe follows her into the hills and answers to no one. She wants my place, and she says so; I would rather hear it across the bridge than not hear it at all." },
+        { id = "mc_heard", when = { heardLine = "magatha.h_default" },
+          text = "She told you she lets me think it works, did she? Ha! She is right that it only half works. Still, a rival who speaks her mind at the council fire is better than one who says nothing and leads her people away." },
+      },
+      choices = {
+        { text = "That's wise, chieftain.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'll keep an eye on her too.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    magatha_closed = {
+      lines = {
+        { id = "mx_default", text = "Magatha is an elder of our people, and what lies between us is a matter for the tauren." },
+        { id = "mx_fire", text = "That is a question for the council fire, young one, and you have not yet sat at it." },
+      },
+      choices = { { text = "I understand.", next = "BACK" } },
     },
     mulgore = {
       big = true,
@@ -56,11 +81,19 @@ P:NPC {
     },
     thrall = {
       lines = { { id = "t_default", text = "He came to us as a stranger and fought for us as kin. A debt like that isn't paid in one lifetime. The Horde has my word, and my word holds." } },
-      choices = { { text = "For honor.", next = "END", fx = { affinity = 2, align = { honor = 1 } } } },
+      choices = {
+        { text = "For honor.", next = "END", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Debts are for paying, not for a lifetime of service.", next = "END", fx = { align = { honor = -1 } } },
+      },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Many voices come up the lifts to the High Rise, and an old bull listens to all of them. Ask me about these, and I'll tell you what I've heard." },
+      { id = "tp_knows_warm", when = { disposition = { min = 65 } }, text = "You have walked with honor among my people, so ask freely, and I'll answer as I would my own son." },
+      { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "I will answer you, because the tauren do not turn away a question, but I will not pretend to trust you yet." },
+    },
     cenarion_circle = { { id = "tp_circle", text = "That is Hamuul's road, and the night elves let him walk it, some more gladly than others. I'm proud of him." } },
     _none = { { id = "tp_none", text = "Ask the elders on their rise. They've more patience for questions than an old warrior." } },
   },
@@ -71,6 +104,10 @@ P:NPC {
   bible = "bibles/thunderbluff.md", role = "noble", tier = "major",
   communities = { "thunder_bluff" }, temper = { "calm" }, values = { "wise", "balanced" },
   notices = { "form", "race" },
+  impression = {
+    first = "Arch Druid Hamuul Runetotem counts every young druid who rides up the lift and is not ashamed of it. He has spent years trying to be worth the yes Malfurion gave him, and it shows in his kindness.",
+    third = "{name} met Arch Druid Hamuul Runetotem on Elder Rise, the first tauren to learn the druid's path from Malfurion Stormrage.",
+  },
 
   greetings = {
     { id = "g_rise", text = "Peace, traveller. You're on Elder Rise, so speak softly; the old ones are thinking." },
@@ -101,8 +138,29 @@ P:NPC {
       choices = {
         { text = "What did Malfurion teach you?", next = "taught" },
         { text = "What's the most important lesson?", next = "lesson" },
+        { text = "Did Fandral's refusal hurt more than you admit?", tag = "Persuade", next = "fandral_sting",
+          check = { pass = { any = { { disposition = { min = 65 } }, { class = "DRUID" }, { heardLine = "fandral.h_default" } } } },
+          fail = { next = "fandral_polite", fx = { affinity = -1 } } },
         { text = "Farewell, Arch Druid.", next = "END" },
       },
+    },
+    fandral_sting = {
+      lines = {
+        { id = "fs_default", text = "It did. He told Malfurion that a tauren would hear the wild the way a herd hears thunder, and run from it. I've spent years proving him wrong, and some mornings I can't tell whether I do it for the Earth Mother or for my own pride. Both, probably; she is patient with pride." },
+        { id = "fs_druid", when = { class = "DRUID" },
+          text = "Between druids, then: yes. Every time I walk into Darnassus I feel him counting the ways I'm wrong. And every time one of you comes up the lift, I count you, and I think, there's another one he said would never be." },
+      },
+      choices = {
+        { text = "You proved him wrong.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Pride isn't the worst reason.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    fandral_polite = {
+      lines = {
+        { id = "fp_default", text = "Ha! You'd like me to say something unkind about the Arch Druid of Darnassus, wouldn't you? Not today, young one." },
+        { id = "fp_polite", text = "Fandral and I disagree politely, and I intend to keep it polite, whatever you've heard." },
+      },
+      choices = { { text = "Fair enough.", next = "BACK" } },
     },
     taught = {
       big = true,
@@ -118,6 +176,10 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The Circle sends word from Moonglade, and the young druids carry the rest up the lift with them. Ask me of these, and I'll tell you what the wind has told me." },
+      { id = "tp_knows_warm", when = { disposition = { min = 65 } }, text = "Sit, sit; you have the patience of someone worth talking to, and I have a great deal to say." },
+    },
     cenarion_circle = { { id = "tp_circle", text = "I'm the highest of the tauren in it, which mostly means I'm the one who gets glared at in Darnassus. Remulos is kinder." } },
     _none = { { id = "tp_none", text = "Ask Turak, or the Chieftain, or the wind; it knows more than both of us." } },
   },
@@ -128,6 +190,10 @@ P:NPC {
   bible = "bibles/thunderbluff.md", role = "trainer", tier = "quest",
   communities = { "thunder_bluff" }, temper = { "patient" }, values = { "balanced", "wise" },
   notices = { "form", "class" },
+  impression = {
+    first = "Turak Runetotem teaches the steps while the Arch Druid teaches why they matter, and he seems content with that share. He speaks of balance as a thing practised daily, like any honest craft.",
+    third = "{name} met Turak Runetotem, who helps the Arch Druid train young druids on Elder Rise.",
+  },
 
   greetings = {
     { id = "g_druid", when = { class = "DRUID" }, text = "Welcome, young druid. Keep your mind clear and your heart strong, and the Great Balance will keep a place for you." },
@@ -193,6 +259,10 @@ P:NPC {
   bible = "bibles/thunderbluff.md", role = "noble", tier = "major",
   communities = { "thunder_bluff" }, temper = { "cunning" }, values = { "proud", "ambitious" },
   notices = { "race", "class" },
+  impression = {
+    first = "Cairne lets her live on Elder Rise to keep an eye on her, Magatha Grimtotem says, and she lets him think it works. Every courtesy she offered seemed to come with a reason she was keeping to herself.",
+    third = "{name} met Magatha Grimtotem, the sharp-tongued Elder Crone of the Grimtotem who dwells on Elder Rise.",
+  },
 
   greetings = {
     { id = "g_crone", text = "Hm. Another one come to stare at the old crone. Well, stare, and then be useful or be gone." },
@@ -250,6 +320,10 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I hear what the elders say on their rise, and what they say when they think the old crone isn't listening. Ask, if you've the stomach for an honest answer." },
+      { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "You'll get answers from me, child, but you won't enjoy a single one of them." },
+    },
     cenarion_circle = { { id = "tp_circle", text = "Night elves teaching tauren to be tauren! Hamuul is proud of it, and I find it embarrassing." } },
     grimtotem = { { id = "tp_grimtotem", text = "You've heard about Arnak, I suppose. Every clan has its hotheads. Mine simply has more of them, and better reasons." } },
     _none = { { id = "tp_none", text = "Not my concern, and not yours either, I expect." } },
@@ -261,6 +335,10 @@ P:NPC {
   bible = "bibles/thunderbluff.md", role = "innkeeper", tier = "service",
   communities = { "thunder_bluff" }, temper = { "warm" }, values = { "generous", "kind" },
   notices = { "weary", "race" },
+  impression = {
+    first = "Innkeeper Pala gives everyone the same welcome and the same stew at the Cat and the Shaman. She fusses over her guests like a mother, and she clearly enjoys every minute of it.",
+    third = "{name} rested at Innkeeper Pala's inn, the Cat and the Shaman, high on the bluffs of Thunder Bluff.",
+  },
 
   greetings = {
     { id = "g_inn", text = "In out of the wind with you. There's always room by my fire." },

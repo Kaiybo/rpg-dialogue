@@ -8,6 +8,10 @@ P:NPC {
   bible = "bibles/sentinel_folk.md", role = "innkeeper", tier = "service",
   communities = { "sentinel_hill" }, temper = { "steady" }, values = { "kind", "practical" },
   notices = { "weary", "drink" },
+  impression = {
+    first = "Innkeeper Heather fights the Westfall dust with a broom and a sense of humour, and the dust is winning. Most of her guests sleep in their boots, she says, and she has stopped minding.",
+    third = "{name} met Innkeeper Heather, who keeps the inn on Sentinel Hill and feeds the hungry militia.",
+  },
 
   greetings = {
     { id = "g_inn", text = "In off the road with you. Dust on the mat, please, not on my floor. It's the one clean thing in Westfall." },
@@ -65,12 +69,16 @@ P:NPC {
       lines = { { id = "te_default", text = "Always: burns, cuts, and the ones who've stopped sleeping. Sit with that last lot, if you can; they'll talk to a priest who won't be here next week." } },
       choices = {
         { text = "I'll sit with them tonight.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, standing = { sentinel_hill = 1 } } },
+        { text = "I'll leave the sleepless ones to someone who's staying.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Everyone on the hill comes through my door for a bed or a bowl, and they all talk. Ask me about any of this." },
+    },
     background = { { id = "tp_bg", text = "I'm an innkeeper. The inn came with the hill and I came with the inn, and that's as far back as anyone here cares." } },
     advice = { { id = "tp_ad", text = "Bind your hearthstone here. You'll want somewhere to come back to that isn't a field." } },
     defias = { { id = "tp_defias", text = "Some of them drank here, before all this, a few masons among them, and nice enough men they were. I try not to think about that." } },
@@ -84,6 +92,10 @@ P:NPC {
   bible = "bibles/sentinel_folk.md", role = "vendor", tier = "quest",
   communities = { "sentinel_hill" }, temper = { "harried" }, values = { "dutiful", "practical" },
   notices = { "kit" },
+  impression = {
+    first = "One ledger and a much-robbed wagon keep Sentinel Hill supplied, and Quartermaster Lewis manages both with weary good grace. He'd rather not know how gear gets damaged, because then he'd have to write it down.",
+    third = "{name} met Quartermaster Lewis, who keeps Sentinel Hill fed and armed with far too little.",
+  },
 
   greetings = {
     { id = "g_stores", text = "The stores are open, as they always are, and half empty, as they always are. What do you need?" },
@@ -185,6 +197,10 @@ P:NPC {
   bible = "bibles/sentinel_folk.md", role = "flightmaster", tier = "quest",
   communities = { "sentinel_hill" }, temper = { "brisk" }, values = { "proud" },
   notices = { "travel", "animal" },
+  impression = {
+    first = "Thor speaks of his gryphons as if they were moody old friends, and he seems to like them better than most people. The birds, I think, know it.",
+    third = "{name} met Thor, the gryphon master of Sentinel Hill, whose birds are the one way out of Westfall the Defias haven't robbed.",
+  },
 
   greetings = {
     { id = "g_fly", text = "Need a ride? The birds are fed and cross, which is the best time to fly, since they'll get you there quicker just to be rid of you." },
@@ -275,6 +291,10 @@ P:NPC {
   bible = "bibles/sentinel_folk.md", role = "militia", tier = "quest",
   communities = { "sentinel_hill" }, temper = { "watchful" }, values = { "dutiful", "loyal" },
   notices = { "stealth", "kit" },
+  impression = {
+    first = "Scout Riell sees every road into Sentinel Hill from her tower, and she saw me long before I saw her. She likes the Defias nervous, and she's working hard at it.",
+    third = "{name} met Scout Riell, who watches the roads from Sentinel Hill's tower and reports to Gryan Stoutmantle.",
+  },
 
   greetings = {
     { id = "g_tower", text = "Up here you can see every road into the hill. Which means I see you coming long before you say hello." },
@@ -360,7 +380,7 @@ P:NPC {
     rogue = {
       lines = { { id = "ro_default", text = "Try it, then; every thief in red has tried. A shadow moving against dry grass is the easiest thing in Westfall to see." } },
       choices = {
-        { text = "Challenge accepted.", next = "BACK", fx = { trait = { witty = 1 }, affinity = 1 } },
+        { text = "Challenge accepted.", next = "BACK", fx = { align = { order = -1 }, trait = { witty = 1 }, affinity = 1 } },
         { text = "Good. Keep it that way.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
       },
     },
@@ -385,6 +405,10 @@ P:NPC {
   bible = "bibles/sentinel_folk.md", role = "vendor", tier = "service",
   communities = { "sentinel_hill" }, temper = { "dry" }, values = { "craft" },
   notices = { "class" },
+  impression = {
+    first = "Westfall wood is poor, according to William MacGregor, so he makes up the difference with patience. Strings, he reminded me more than once, are always extra.",
+    third = "{name} met William MacGregor, the Sentinel Hill bowyer, who coaxes good bows from Westfall's poor wood.",
+  },
 
   greetings = {
     { id = "g_bows", text = "Bows, arrows, and a quiver if you've the coin. Strings are extra, mind; strings are always extra." },

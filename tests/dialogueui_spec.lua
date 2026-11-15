@@ -268,6 +268,31 @@ describe("Inside DialogueUI's window (default)", function()
     ok(dui, "its window stayed hidden")
   end)
 
+  it("lists every topic a page at a time, and stays on the list after an answer", function()
+    local ns, dui = bootInside()
+    ns.Data.topics.knows = { id = "knows", name = "What do you know?", category = "anyone", standard = true, order = 0 }
+    for i = 1, 12 do
+      local id = "t" .. i
+      ns.Data.topics[id] = { id = id, name = "Topic " .. i, category = "people" }
+      ns.char.topics[id] = { t = ns.Compat.Now() - 100 + i }
+    end
+    visit(dui, "Marshal McBride")
+    local ask
+    for i, b in ipairs(dui.buttons) do if b.name:find("Ask about... (12)", 1, true) then ask = i end end
+    ok(ask, "Ask about with the count: " .. names(dui))
+    dui.buttons[ask].onClickFunc(dui.buttons[ask])
+    contains(names(dui), "What do you know?")
+    contains(names(dui), "More topics (page 2 of 2)")
+    contains(names(dui), "Back")
+    local more
+    for i, b in ipairs(dui.buttons) do if b.name:find("More topics", 1, true) then more = i end end
+    dui.buttons[more].onClickFunc(dui.buttons[more])
+    contains(names(dui), "Previous topics")
+    contains(names(dui), "Topic 1")
+    dui.buttons[1].onClickFunc(dui.buttons[1])
+    contains(names(dui), "Previous topics", "still on the list after the answer")
+  end)
+
   it("keeps RPG Dialogue's box first when that's chosen", function()
     local ns, dui = bootInside()
     ns.db.settings.otherAddons = "takeover"

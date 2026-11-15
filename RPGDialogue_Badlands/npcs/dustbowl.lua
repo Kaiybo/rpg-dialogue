@@ -8,6 +8,11 @@ P:NPC {
   communities = { "explorers_league" }, temper = { "weary" }, values = { "loyal", "curious" },
   notices = { "race" },
 
+  impression = {
+    first = "Prospector Ryedol checked that I wasn't a troll, an ogre or a Dark Iron before anything else. He is worn through with worry for his partner Hammertoe and tries hard not to show it.",
+    third = "{name} met Prospector Ryedol of the Explorers' League, whose partner Hammertoe went into the Badlands digsite and never came out.",
+  },
+
   greetings = {
     { id = "g_hill", text = "Easy, easy! Ye're no' a troll or an ogre or a Dark Iron? Good, that's three things off my list." },
   },
@@ -56,15 +61,42 @@ P:NPC {
     },
     chased = {
       lines = { { id = "c_default", text = "Troggs, out o' the deep places, more than we'd ever seen, an' things made o' stone that shouldnae move. We ran, but Hammertoe didnae run fast enough." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "You blame yourself for it, don't you?", tag = "Persuade", next = "chased_blame",
+          check = { pass = { any = { { disposition = { min = 65 } }, { class = "PRIEST" }, { origin = "dwarf_explorers_league" } } } },
+          fail = { next = "chased_dig", fx = { affinity = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     league = {
       lines = { { id = "l_default", text = "Are ye now! Then ye know we don't leave our own in the dirt. When ye go in, bring back somethin' o' his, anythin' at all, a pick or a page." } },
-      choices = { { text = "I will.", next = "BACK", fx = { affinity = 3, align = { honor = 1 } } } },
+      choices = {
+        { text = "I will.", next = "BACK", fx = { affinity = 3, align = { honor = 1 } } },
+        { text = "If it's that dangerous, I'll leave the dead where they lie.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
+    },
+    chased_blame = {
+      lines = {
+        { id = "cb_default", text = "Aye, I do, an' I've no' said it aloud till now. I never looked back, no' once, all the way out o' that digsite, an' I've told maself a hundred times there was nothin' tae see, but a dwarf who doesnae look back can tell himself anythin'." },
+      },
+      choices = {
+        { text = "Looking back would have killed you too.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Then bring something of his home.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    chased_dig = {
+      lines = {
+        { id = "cd_default", text = "What I do or don't blame maself for is between me an' Hammertoe. Now, are ye here tae dig or tae preach?" },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've spent a good while diggin' out here, an' a dwarf learns a thing or two between shovelfuls. Ask me about any o' these." },
+    },
     background = { { id = "tp_ba", text = "Ironforge born, Explorers' League sworn, an' now a dwarf in the Badlands without his partner.", next = "hammertoe" } },
     advice = { { id = "tp_ad", text = "Mark yer way in, so ye can find yer way out. Hammertoe never did." } },
     uldaman = { { id = "tp_uldaman", text = "If the League's right, the answer tae where we dwarves came from is under these hills, an' that's worth a few bruises. Maybe it's no' worth Hammertoe." } },
@@ -77,6 +109,11 @@ P:NPC {
   bible = "bibles/badlands.md", role = "scholar", tier = "quest",
   communities = { "badlands_camp" }, temper = { "distracted" }, values = { "curious", "inventive" },
   notices = { "race", "class" },
+
+  impression = {
+    first = "Lotwil Veriatus warned me off anything glowing, humming or warm, which ruled out most of his camp. He is delighted by rock elementals in a way I'll never fully understand.",
+    third = "{name} met Lotwil Veriatus, an absent-minded gnomish scholar who studies the elements in the Dustbowl.",
+  },
 
   greetings = {
     { id = "g_camp", text = "Hm? Oh, a visitor! Mind Servo, he's harmless, mostly, and don't touch anything glowing, or humming, or warm." },
@@ -121,6 +158,9 @@ P:NPC {
       choices = {
         { text = "That's a big dream.", next = "BACK", fx = { affinity = 3 } },
         { text = "Orcs and gnomes, side by side? Never.", next = "assembly_never", fx = { trait = { skeptical = 1 } } },
+        { text = "I've heard great things about the Assembly's members.", tag = "Deceive", next = "assembly_members",
+          check = { pass = { any = { { disposition = { min = 55 } }, { trait = "witty" }, { race = "Gnome" } } } },
+          fail = { next = "assembly_caught", fx = { affinity = -1 } } },
       },
     },
     assembly_never = {
@@ -139,9 +179,28 @@ P:NPC {
       lines = { { id = "e_default", text = "A device to read what an elemental was thinking when it fell apart. It doesn't work yet. When it does, it'll be the most interesting failure I've ever had." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
     },
+    assembly_members = {
+      lines = {
+        { id = "am_default", text = "Have you really? How wonderful, and how strange, because between you and me, the Assembly has two members at present, and one of them is Lucien. He says that makes me a founding member of a very small club, and he's not wrong, but every great school started with someone talking to rocks." },
+      },
+      choices = {
+        { text = "Then put my name down as a friend.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Two members is still a school.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    assembly_caught = {
+      lines = {
+        { id = "ac_default", text = "Great things? From whom, I wonder, since the only people who've heard of us are Lucien and Servo. That's very kind of you, but you needn't flatter a gnome to get a straight answer." },
+      },
+      choices = { { text = "Fair. Something else.", next = "BACK" } },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Oh, I know a great many things, and some of them are even about rocks! Ask me about any of these, and mind the sample tray." },
+    },
     background = { { id = "tp_ba", text = "A scholar with too many subjects and one very patient assistant. The Assembly is the rest of my life's work, once it exists.", next = "assembly" } },
     advice = { { id = "tp_ad", text = "Never assume a rock is just a rock. Out here, about one in fifty is an elemental having a nap." } },
     _none = { { id = "tp_none", text = "Fascinating! I know nothing about it, so tell me everything." } },

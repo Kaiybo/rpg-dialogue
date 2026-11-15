@@ -9,6 +9,11 @@ P:NPC {
   communities = { "lakeshire" }, temper = { "proud" }, values = { "ambitious", "honest" },
   notices = { "craft", "swim" },
 
+  impression = {
+    first = "Foreman Oslow told me to keep walking unless I carried a hammer. His bridge was meant to be finished before the rains, and the orcs have taken that personally.",
+    third = "{name} met Foreman Oslow, who is rebuilding the Everstill Bridge at Lakeshire despite the orcs' interference.",
+  },
+
   greetings = {
     { id = "g_busy", text = "Unless you're carrying a hammer, keep walking." },
     { id = "g_tools", when = { questActive = TODO_QUEST("The Lost Tools") }, text = "My toolbox? Have you got my toolbox? Then why on earth are you dry?" },
@@ -87,6 +92,9 @@ P:NPC {
       choices = {
         { text = "I believe it.", next = "BACK", fx = { affinity = 2 } },
         { text = "Ten years? Lakeshire doesn't have ten weeks.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
+        { text = "Honestly, Oslow. Will it be done before the rains?", tag = "Persuade", next = "collapse_honest",
+          check = { pass = { any = { { disposition = { min = 62 } }, { profession = "Blacksmithing" }, { questDone = TODO_QUEST("The Everstill Bridge") } } } },
+          fail = { next = "collapse_schedule", fx = { affinity = -1 } } },
       },
     },
 
@@ -160,9 +168,32 @@ P:NPC {
         { text = "Build it faster.", next = "BACK", fx = { affinity = -1, trait = { witty = 1 } } },
       },
     },
+    collapse_honest = {
+      lines = {
+        { id = "co_default", text = "Honestly? No, it won't, not with the iron I've got and the crew I've got, and I've known it since the caravan went into the hills. I'll have the main span up, and the rest will be planks and prayer until spring." },
+        { id = "co_after", text = "But I'll keep saying before the rains, because the crew works faster for a schedule than for the truth, and so does the town. Don't you go telling Solomon, or he'll write it down." },
+      },
+      choices = {
+        { text = "Your secret's safe, Oslow.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Then let's get you more iron.", next = "BACK", fx = { trait = { brave = 1 } } },
+      },
+    },
+    collapse_schedule = {
+      lines = {
+        { id = "cs_default", text = "Before the rains, I said, and I meant it. A foreman who says otherwise had better start looking for another trade." },
+        { id = "cs_default2", text = "You sound like the Magistrate. The bridge will be done when I say it'll be done, which is before the rains, which is soon." },
+      },
+      choices = {
+        { text = "If you say so.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "A foreman hears plenty from a crew on a long shift, and most of it's about the lake. Ask me about any of this, and mind the measuring line." },
+    },
     background = { { id = "tp_bg", text = "Every job on time and under budget. That's my whole story, and I mean to keep it true.", next = "why" },
                    { id = "tp_bg2", text = "I'm a foreman: bridges, mostly, and lately this one, again." } },
     advice = { { id = "tp_ad", text = "Measure twice, then look up for catapults." } },

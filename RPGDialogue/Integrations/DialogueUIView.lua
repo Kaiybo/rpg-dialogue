@@ -26,7 +26,7 @@ local NEEDED = { "HandleGossip", "ReleaseAllObjects", "UseQuestLayout", "FormatP
   "AcquireExitButton", "SetScrollRange" }
 local SPACING = 16          -- DialogueUI's space between a paragraph and the options
 local TALK_ICON = 132053    -- the gossip speech bubble
-local MAX_TOPICS = 8
+local MAX_TOPICS = 7       -- topics per page of the Ask list (plus More, Back)
 
 local installed, broken = false, false
 local page                  -- { text, choices, canAsk, asking }
@@ -88,12 +88,40 @@ local function buildRows(p)
   local out = {}
   local Conv = ns.Conversation
   if p.asking then
-    local topics = ns.Topics.Known(false)
-    for i = 1, math.min(MAX_TOPICS, #topics) do
-      local id = topics[i].id
-      out[#out + 1] = { text = topics[i].name, onClick = function() Conv.Ask(id) end }
+    -- Every topic, a page at a time: "ask anyone" first, then what this person said they
+    -- know about, then the rest, newest first.
+    local s = Conv.session
+    local key = s and s.memKey
+    local all = ns.Topics.Known(false, key)
+    local std, knows, rest = {}, {}, {}
+    for _, t in ipairs(all) do
+      if t.standard then std[#std + 1] = t elseif t.knows then knows[#knows + 1] = t else rest[#rest + 1] = t end
     end
-    out[#out + 1] = { text = L.DUI_BACK, gap = true, onClick = function() page.asking = nil; V.Refresh() end }
+    local topics = {}
+    for _, group in ipairs({ std, knows, rest }) do
+      for _, t in ipairs(group) do topics[#topics + 1] = t end
+    end
+    local pages = math.max(1, math.ceil(#topics / MAX_TOPICS))
+    local pg = math.min(p.askPage or 0, pages - 1)
+    p.askPage = pg
+    for i = pg * MAX_TOPICS + 1, math.min(#topics, (pg + 1) * MAX_TOPICS) do
+      local t = topics[i]
+      local id = t.id
+      local suffix = ""
+      if key and ns.Topics.NothingFrom(id, key) then suffix = " (" .. L.ASK_NOTHING .. ")"
+      elseif key and ns.Topics.AskedOf(id, key) and not t.standard then suffix = " (" .. L.ASK_ASKED .. ")"
+      elseif t.knows then suffix = " *" end
+      out[#out + 1] = { text = t.name .. suffix, onClick = function() Conv.Ask(id) end }
+    end
+    if pg + 1 < pages then
+      out[#out + 1] = { text = L.DUI_MORE:format(pg + 2, pages), gap = true,
+        onClick = function() page.askPage = pg + 1; V.Refresh() end }
+    end
+    if pg > 0 then
+      out[#out + 1] = { text = L.DUI_PREV, gap = pg + 1 >= pages,
+        onClick = function() page.askPage = pg - 1; V.Refresh() end }
+    end
+    out[#out + 1] = { text = L.DUI_BACK, gap = true, onClick = function() page.asking = nil; page.askPage = nil; V.Refresh() end }
     return out
   end
   for i, c in ipairs(p.choices or {}) do
@@ -102,7 +130,11 @@ local function buildRows(p)
       onClick = function() Conv.Choose(i) end,
     }
   end
-  if p.canAsk then out[#out + 1] = { text = L.DUI_ASK, gap = true, onClick = function() page.asking = true; V.Refresh() end } end
+  if p.canAsk then
+    local n = ns.Topics.Count()
+    out[#out + 1] = { text = n > 0 and L.DUI_ASK_N:format(n) or L.DUI_ASK, gap = true,
+      onClick = function() page.asking = true; page.askPage = 0; V.Refresh() end }
+  end
   out[#out + 1] = { text = L.GET_ON_WITH_IT, gap = not p.canAsk, onClick = function() Conv.Business() end }
   return out
 end
@@ -187,9 +219,10 @@ function V.SetChoices(choices)
   V.Refresh()
 end
 
+-- An answer keeps the topic list open (and its page), so the next question is one click.
 function V.ShowAnswer(text)
   if not page then return end
-  page.text, page.asking = text or "", nil
+  page.text = text or ""
   if lastView then lastView.text = page.text end
   V.Refresh()
 end

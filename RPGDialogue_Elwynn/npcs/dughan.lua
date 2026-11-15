@@ -8,6 +8,10 @@ P:NPC {
   bible = "bibles/dughan.md", role = "questgiver", tier = "major",
   communities = { "goldshire" }, temper = { "proud" }, values = { "stern", "brave" },
   notices = { "reputation", "bounty" },
+  impression = {
+    first = "Marshal Dughan keeps Goldshire standing on stubbornness and very little sleep. He looked at me the way a man looks at one more pair of hands.",
+    third = "{name} met Marshal Dughan, who keeps Goldshire standing on stubbornness and very little sleep.",
+  },
 
   greetings = {
     { id = "g_desk", text = "Make it quick, friend; I've half of Elwynn on this desk." },
@@ -60,6 +64,10 @@ P:NPC {
           fx = { learn = { "the_collector", "defias" } } },
         { id = "h_veteran", when = { minLevel = 20, metBefore = true },
           text = "Look who's back. You carried McBride's papers to this desk once. Now half my reports have your name in them." },
+        { id = "h_warm", when = { disposition = { min = 70 } },
+          text = "Ah, you. Pull up that crate, because you're one of the few people who walks into this office and makes my day shorter instead of longer." },
+        { id = "h_cold", when = { disposition = { max = 34 } },
+          text = "I've a desk full of trouble already, and I'm told some of it has your name on it. What do you want?" },
       },
       again = {
         { id = "h_again", text = "What else? The desk isn't getting any emptier." },
@@ -105,7 +113,8 @@ P:NPC {
           fx = { expose = "defias_common_thieves" } },
       },
       choices = {
-        { text = "[Persuade] The town deserves to know what it's facing.", tag = "Persuade", next = "admit",
+        { text = "The town deserves to know what it's facing.", tag = "Persuade", next = "admit",
+          check = { pass = { any = { { disposition = { min = 65 } }, { townStanding = { town = "goldshire", min = 30 } }, { questDone = TODO_QUEST("The Collector") } } } },
           fail = { next = "rebuff", fx = { affinity = -1 } } },
         { text = "Calm streets matter. I understand.", next = "BACK",
           fx = { align = { order = 2 }, trait = { cautious = 1 }, affinity = 1 } },
@@ -240,6 +249,7 @@ P:NPC {
       choices = {
         { text = "That sounds like a complaint, Marshal.", next = "army_politics" },
         { text = "Then I'll walk through it more often.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "The nobles' wars aren't my concern, Marshal.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
     army_politics = {
@@ -257,6 +267,7 @@ P:NPC {
       },
       choices = {
         { text = "Then send me.", next = "BACK", fx = { affinity = 3, align = { order = 1 }, trait = { brave = 1 } } },
+        { text = "I won't fight for a city that left us to starve.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Stormwind should be ashamed.", next = "farmhand_shame" },
       },
     },
@@ -264,7 +275,11 @@ P:NPC {
       lines = {
         { id = "fs_default", text = "Some of it is. Not the part that's sitting at this desk. Say it in the city if you like. Say it louder than I'm allowed to." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { align = { order = -1 }, opinion = { defias = "sympathetic" } } } },
+      choices = {
+        { text = "Then I'll say it, loud enough for the nobles to hear.", next = "BACK", fx = { align = { order = -1 }, opinion = { defias = "sympathetic" } } },
+        { text = "Shouting won't feed Westfall, so I'll leave it to the city.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
 
     noble = {
@@ -273,6 +288,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll tell them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'm not carrying messages for the garrison, Marshal.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "My family doesn't listen to me.", next = "noble_listen" },
       },
     },
@@ -289,12 +305,17 @@ P:NPC {
       },
       choices = {
         { text = "I will. And one for you, Marshal.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, trait = { pious = 1 }, standing = { goldshire = 2 } } },
+        { text = "I'm no priest, Marshal, and prayers won't bring them back.", next = "BACK", fx = { align = { light = -2 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Every complaint in Goldshire ends up on this desk sooner or later, so I know a little of everything. Ask me about any of this." },
+      { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "For you, I'll even tell you what I don't put in the reports. Ask away." },
+    },
     background = { { id = "tp_bg", text = "Marshal of Goldshire. Too much forest, too few guards, and a desk I see more of than my bed.", next = "army" } },
     advice = { { id = "tp_ad", text = "Scout before you fight and report before you rest, and never believe a rumor until a soldier's seen it, even one of Remy's." } },
     defias = { { id = "t_defias", text = "They're thieves, Westfall's thieves, and I'd thank you not to say otherwise in the inn.", fx = { hear = "defias_common_thieves" } } },

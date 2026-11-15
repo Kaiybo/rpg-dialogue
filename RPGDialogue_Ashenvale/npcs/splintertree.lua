@@ -9,6 +9,10 @@ P:NPC {
   bible = "bibles/ashenvale.md", role = "questgiver", tier = "quest",
   communities = { "splintertree" }, temper = { "reflective" }, values = { "reverent", "kind" },
   notices = { "pet", "class" },
+  impression = {
+    first = "Senani Thunderheart came to Ashenvale to hunt and stayed because the forest was the most beautiful thing she had ever seen. That there is a war in it is a sorrow she carries openly.",
+    third = "{name} met Senani Thunderheart at Splintertree Post, a tauren hunter who honours the great beasts of Ashenvale even as she hunts them.",
+  },
 
   greetings = {
     { id = "g_forest", text = "Look at this forest, truly look at it. Whatever happens tomorrow, it was beautiful today." },
@@ -68,7 +72,7 @@ P:NPC {
       lines = { { id = "es_default", text = "They tame these beasts; Ursangous's paw bears a crescent that I believe is their mark. To them we are poachers in their home, and I understand why they hate us, even when I cannot agree." } },
       choices = {
         { text = "That's generous.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "They'd do the same to us.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "They'd do the same to us.", next = "BACK", fx = { align = { honor = -1 }, trait = { stern = 1 } } },
       },
     },
     beasts = {
@@ -90,6 +94,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "This forest teaches anyone who is quiet enough to learn, and I have been very quiet here. Ask what you wish." },
+    },
     background = { { id = "tp_bg", text = "I'm a hunter who came for the Hunt and never quite left." } },
     advice = { { id = "tp_ad", text = "When you hunt, learn your quarry first; the kill is the smallest part of it." } },
     warsong = { { id = "tp_warsong", text = "They cut what they need, and a little more. I tell them so, and they don't listen." } },
@@ -103,6 +110,10 @@ P:NPC {
   bible = "bibles/ashenvale.md", role = "questgiver", tier = "quest",
   communities = { "splintertree" }, temper = { "gruff" }, values = { "practical" },
   notices = { "kit" },
+  impression = {
+    first = "Given the choice, Mastok Wrilehiss prefers wagons to people, because wagons never ask anything. He counts the burned ones too, so he will remember who to be angry at.",
+    third = "{name} met Mastok Wrilehiss, the gruff orc who tracks every caravan in and out of Splintertree Post.",
+  },
 
   greetings = {
     { id = "g_gruff", text = "What is it? I'm counting wagons, so speak fast or speak elsewhere." },
@@ -165,6 +176,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Caravans carry gossip as well as wood, and I count both. Ask, and don't waste my time." },
+    },
     background = { { id = "tp_bg", text = "I count wagons. That's my whole story, and it's a good one." } },
     advice = { { id = "tp_ad", text = "Never ride on top of the lumber wagons, because the elves shoot at those first." } },
     warsong = { { id = "tp_warsong", text = "Grom's clan. They cut what the Warchief needs, and I count it." } },
@@ -177,6 +191,10 @@ P:NPC {
   bible = "bibles/ashenvale.md", role = "soldier", tier = "quest",
   communities = { "splintertree" }, temper = { "wary" }, values = { "loyal", "cunning" },
   notices = { "stealth", "race" },
+  impression = {
+    first = "Kuray'bin keeps his eyes open and his back to the wall. He thinks the elves and the Horde are each a little right about the forest, which is more than most soldiers will admit.",
+    third = "{name} met Kuray'bin, a wary troll who watches the paths into Splintertree for night elf runners.",
+  },
 
   greetings = {
     { id = "g_wary", text = "Easy, mon. Eyes open and back to the wall, that be how we live in these woods." },
@@ -238,7 +256,11 @@ P:NPC {
     },
     debt = {
       lines = { { id = "de_default", text = "Thrall saved our people when the sea witch and the humans had us cornered, and he gave us a place in the Horde. Darkspear don't forget a debt like that, mon." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } } },
+      choices = {
+        { text = "A debt like that is worth honoring.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Thrall bought loyal soldiers cheaply. That was smart of him.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     outrun = {
       lines = { { id = "ou_default", text = "Numbers, mon: how many grunts, how many wagons, where the walls be weak. When they be blind, the Alliance thinks twice before it comes." } },

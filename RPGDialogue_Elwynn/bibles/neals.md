@@ -46,3 +46,6 @@ Sources read: the wiki pages Brother Neals, Grape Manifest (quest and item), Nor
 - Branches: the Abbey's wars, his wine (and Milly), the library (Medivh; the locked wing), and faith for priests and paladins. An abbey-novice line.
 - **Correction:** the topic line "Founded by Archbishop Faol" was wrong (Faol rebuilt it). Same id, new text.
 - Authored, not canon: thanking Faol nightly; locking the cellar twice; the novice who read the tallies.
+
+## 0.34.0
+- Neals (Deceive, `wine_caught`): he admits 'tasting' a cask of last autumn's pressing several times, keeps the cups in the bell tower, and would make up the difference from his stipend.

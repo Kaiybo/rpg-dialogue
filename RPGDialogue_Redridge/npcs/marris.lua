@@ -9,6 +9,11 @@ P:NPC {
   communities = { "lakeshire" }, temper = { "steady" }, values = { "brave", "lawful" },
   notices = { "soldier", "trophy" },
 
+  impression = {
+    first = "Marshal Marris keeps his eyes east, where the Blackrock are, and his guard stretched thin across a whole lake. He wanted numbers from me, not stories.",
+    third = "{name} met Marshal Marris of Lakeshire, who holds the town against the Blackrock orcs with too few guards.",
+  },
+
   greetings = {
     { id = "g_watch", text = "Keep your eyes east, friend; with the Blackrock it's always the east." },
     { id = "g_menace", when = { questActive = TODO_QUEST("Blackrock Menace") }, text = "Back from the valley already? Good, now tell me how many." },
@@ -65,6 +70,7 @@ P:NPC {
       },
       choices = {
         { text = "Then we take it back.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 }, align = { honor = 1 } } },
+        { text = "Stonewatch is lost, so hold the lake and let it go.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "You did what you could.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Who did you lose?", next = "stonewatch_lost" },
       },
@@ -77,6 +83,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll bring him home.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "I won't risk my neck for one missing corporal.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -114,6 +121,7 @@ P:NPC {
       lines = { { id = "op_default", text = "You'd know better than a soldier. Fine: the Light first, then the hammer. My men won't touch them either way." } },
       choices = {
         { text = "The Light first. Always.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Smash them first, and the prayers can come after.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -169,6 +177,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Every guard on the lake reports to me, so I hear the bad news before the town does. Ask me about any of this." },
+    },
     background = { { id = "tp_bg", text = "I'm a Marshal of the Stormwind Army, and they posted me to Lakeshire. I've stopped expecting to be posted anywhere else." } },
     advice = { { id = "tp_ad", text = "Count your arrows before you leave, and your friends when you come back." } },
     stonewatch_keep = { { id = "tp_stonewatch", text = "Our keep, flying their flag. Every morning I look at it from the bridge, and every morning it's still theirs.", next = "stonewatch" } },

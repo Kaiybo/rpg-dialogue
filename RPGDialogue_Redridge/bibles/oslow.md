@@ -44,3 +44,6 @@ Sources read: Foreman_Oslow (Classic gossip: no time for idle talk, every projec
 - Fixed: h_supplies (iron, not timber and stone); the craft notice used a list for `profession`, which only checked the first entry; it's now `any`.
 - Gated: questActive Ink Supplies (Paxton), Northshire novice origin, Blacksmithing (he asks what you'd change on the plans).
 - Authored, not canon: the plans (new piers on old footings); "ten years" to a catapult-proof bridge; a gnoll using a pike as a back-scratcher.
+
+## 0.34.0
+- Oslow (Persuade, `collapse_honest`): the bridge won't be done before the rains; the main span will be up and the rest 'planks and prayer until spring'. He keeps the schedule because the crew works faster for it.

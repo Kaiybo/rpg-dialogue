@@ -14,6 +14,10 @@ P:NPC {
     { id = "b_buying", text = "Buying gold dust, buying gold dust, best price in town!" },
     { id = "b_murlocs", when = { questBefore = TODO_QUEST("A Fishy Peril") }, text = "There are murlocs in the east, I tell you, murlocs in the east!" },
   },
+  impression = {
+    first = "Everything Remy says, he says twice, as if the first time might not take. He would sell me anything at all, and I'd want to count my coins afterward.",
+    third = "{name} met Remy, a Goldshire trader who repeats himself and always knows a fellow who knows a fellow.",
+  },
 
   greetings = {
     { id = "g_dust", text = "Gold dust? Got any gold dust, friend, any at all, any at all?" },
@@ -63,7 +67,7 @@ P:NPC {
         { text = "Where are you from, Remy?", next = "home" },
         { text = "Who are these associates of yours?", next = "associates", when = { questDone = TODO_QUEST("Gold Dust Exchange") } },
         { text = "I know a fence when I see one.", next = "fence", when = { class = "ROGUE" } },
-        { text = "[Intimidate] Who else buys dust around here? Talk.", tag = "Intimidate", next = "talks",
+        { text = "Who else buys dust around here? Talk.", tag = "Intimidate", next = "talks",
           when = { thread = { id = "elwynn_gold", beat = "b1_dust" } },
           check = { pass = { any = { { power = { "above", "far_above" } }, { trait = "stern" }, { band = { "Seasoned", "Veteran", "Champion" } } } } },
           fail = { next = "clams", fx = { affinity = -1 } } },
@@ -142,6 +146,7 @@ P:NPC {
       },
       choices = {
         { text = "Nothing. Yet.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "I'm no thief, Remy, and I won't be selling.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Relax, Remy.", next = "BACK" },
       },
     },
@@ -160,6 +165,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Oh, I hear everything first, friend, always have, always have! Ask me about any of this and you'll hear it before anyone else does." },
+    },
     background = { { id = "tp_bg", text = "From Redridge, looking for business, looking for business! And I found plenty, plenty.", next = "home" } },
     advice = { { id = "tp_ad", text = "Never sell to a gnoll, because gnolls don't pay. And always count your change twice, twice!" } },
     gold_dust = { { id = "t_dust", text = "It's mine, my trade! Nobody in Elwynn buys dust but Remy, nobody but Remy!",

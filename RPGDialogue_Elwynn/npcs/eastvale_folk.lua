@@ -9,6 +9,10 @@ P:NPC {
   bible = "bibles/sara.md", role = "questgiver", tier = "quest",
   communities = { "eastvale" }, temper = { "steady" }, values = { "ambitious", "witty" },
   notices = { "craft", "red" },
+  impression = {
+    first = "Sara Timberlain is the only person in the logging camp making anything worth wearing, and she takes thieves' bandanas as cloth without a flicker of shame. I rather admire that.",
+    third = "{name} met Sara Timberlain, an Eastvale tailor who turns Defias bandanas into honest clothing.",
+  },
 
   greetings = {
     { id = "g_loom", text = "Careful, that's a warp thread you're standing on." },
@@ -117,6 +121,7 @@ P:NPC {
       },
       choices = {
         { text = "Fair. Cloth can be redeemed.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "It's only linen, and blessing it won't change a thing.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -143,6 +148,10 @@ P:NPC {
   bible = "bibles/gerard.md", role = "farmer", tier = "quest",
   communities = { "goldshire" }, temper = { "steady" }, values = { "honest" },
   notices = { "drink" },
+  impression = {
+    first = "Gerard Tiller talks mostly about water, and the length of the rows, and how far it is to the well. I suspect he notices a great deal more than he ever says.",
+    third = "{name} met Gerard Tiller, a thirsty hand on the Maclure vines who sees more than he lets on.",
+  },
 
   greetings = {
     { id = "g_thirst", text = "Got any water on you, friend? Farming's thirsty work out here." },
@@ -251,6 +260,7 @@ P:NPC {
       },
       choices = {
         { text = "Light keep the vines, and the man who tends them.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I'll leave the blessings to the Abbey.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "The crows have to eat too.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },

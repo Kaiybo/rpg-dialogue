@@ -2,6 +2,16 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.5.0 (2026-11-15)
+- 8 new people in Menethil Harbor: Valstag Ironjaw, Tarrel Rockweaver, Vincent Hyal, Red Jack Flint, Sida, Harold Riggs, Camerick Jongleur, Unger Statforth.
+- First impressions in your diary. New file: restart the game.
+
+## 1.4.0 (2026-11-15)
+- Persuade, Intimidate and Deceive checks on the major people here, each with its own success and failure; lines and replies that depend on how warmly they regard you (disposition); a lead-in for "What do you know?".
+
+## 1.3.0 (2026-11-15)
+- Alignment now comes only from statements, never questions, and every reply that shifts alignment has an opposing one beside it. Taking one stance with someone closes the others for good.
+
 ## 1.2.0 (unreleased)
 - Depth rewrite: every Menethil NPC now has a conversation to explore (a hub with branches two or three deep, "what else?" lines, Ask-about takes on their own story and advice). All eight meet the depth standard.
 - Captain Stoutfist: the Dragonmaw and Nek'rosh's grudge against the red dragons, Grim Batol behind its dragonkin, the harbour as the Alliance's back door and the king's name on the gate, the Dark Irons in the north, the night watch. Replies for dwarves (Ironforge's frontier), gnomes (the catapults), priests (the wounded and the dead), Lordaeron refugees (Terenas's name), and after Nek'rosh falls; the statuette goes straight to Fordragon (Forever's A Friend of the Family).

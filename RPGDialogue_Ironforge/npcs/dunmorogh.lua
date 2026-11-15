@@ -8,6 +8,11 @@ P:NPC {
   communities = { "kharanos" }, temper = { "hearty" }, values = { "friendly", "practical" },
   notices = { "craft", "weary" },
 
+  impression = {
+    first = "Eric Brighthammer has slept under more stars than roofs and plainly prefers it that way. He waved me to his fire like we'd known each other for years.",
+    third = "{name} warmed up at Eric Brighthammer's fire in Dun Morogh, where he teaches anyone who asks how to sleep out in the cold.",
+  },
+
   greetings = {
     { id = "g_fire", text = "Ho there! Come and warm your hands; it's cold enough up here to freeze a greeting halfway out." },
     { id = "g_back", when = { metBefore = true }, text = "Back at the fire! Sit yourself down, because snow's coming, and good company's better than a second blanket." },
@@ -116,6 +121,11 @@ P:NPC {
   communities = { "coldridge" }, temper = { "gruff" }, values = { "practical", "friendly" },
   notices = { "greenness", "race" },
 
+  impression = {
+    first = "Sten Stoutarm runs Anvilmar's post and complains that all he ever gets is green recruits. He gave me work anyway, and I think that was a compliment.",
+    third = "{name} met Sten Stoutarm, who runs the post at Anvilmar and is always short of sturdy help.",
+  },
+
   greetings = {
     { id = "g_post", text = "Ye look sturdy enough, which is good, for I need sturdy, an' all I ever get is green." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, an' I don't suppose ye've any mail fer me? No? Then I've some fer ye." },
@@ -216,6 +226,11 @@ P:NPC {
   communities = { "coldridge" }, temper = { "determined" }, values = { "loyal", "dutiful" },
   notices = { "kit" },
 
+  impression = {
+    first = "Grelin Whitebeard feels trouble in his beard and blames most of it on his apprentice. Under the grumbling he's a careful envoy, and loyal to the King down to the bone.",
+    third = "{name} met Grelin Whitebeard, the Senate's envoy sent to learn what the Frostmane trolls are planning.",
+  },
+
   greetings = {
     { id = "g_camp", text = "The trolls are up to something, friend. I can feel it in my beard." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, it's you. Better you than my apprentice, though anyone's better than my apprentice." },
@@ -309,6 +324,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've been watchin' the Frostmane from this camp long enough tae know most o' what goes on in these valleys. Ask me about any o' this." },
+    },
     background = { { id = "tp_bg", text = "I'm the Senate's special envoy, an' brother to Senir, who'll tell ye he's the clever one." } },
     advice = { { id = "tp_ad", text = "Never leave yer camp unattended. Learn from me, for I learned the hard way." } },
     frostmane = { { id = "tp_frostmane", text = "They're up to somethin'. I can feel it in my beard, an' my beard's rarely wrong.", next = "trolls" } },
@@ -322,6 +340,11 @@ P:NPC {
   bible = "bibles/dunmorogh.md", role = "noble", tier = "quest",
   communities = { "kharanos" }, temper = { "measured" }, values = { "dutiful", "wise" },
   notices = { "race" },
+
+  impression = {
+    first = "Senir Whitebeard offered me his sympathy for having met his brother, and he was only half joking. He's the steadier of the two, I think.",
+    third = "{name} met Senir Whitebeard in Kharanos, an envoy of the Senate who watches the Frostmane trolls in their hold.",
+  },
 
   greetings = {
     { id = "g_kharanos", text = "Welcome to Kharanos. If ye've come up from Coldridge, ye've likely met my brother, an' ye have my sympathy." },
@@ -390,7 +413,7 @@ P:NPC {
         { id = "re_default", text = "Senator Barin Redstone, in the High Seat, an' a sour sort. If he asks, ye didn't help me, for I've been workin' very hard out here." },
       },
       choices = {
-        { text = "Your secret's safe.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Your secret's safe.", next = "BACK", fx = { affinity = 2, align = { honor = -1 } } },
         { text = "I won't lie for you.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
       },
     },
@@ -424,6 +447,11 @@ P:NPC {
   bible = "bibles/dunmorogh.md", role = "citizen", tier = "quest",
   communities = { "kharanos" }, temper = { "jovial" }, values = { "proud", "generous" },
   notices = { "drink", "craft" },
+
+  impression = {
+    first = "Ragnar Thunderbrew is prepared to fight anyone who doubts his ale, though politely. He's short a meat supplier and very long on opinions about ribs.",
+    third = "{name} met Ragnar Thunderbrew, part owner of the Thunderbrew Distillery, who now buys his meat from hunters.",
+  },
 
   greetings = {
     { id = "g_distillery", text = "Welcome to the Thunderbrew! It's the best ale in Dun Morogh, an' I'll fight anyone who says otherwise, politely." },
@@ -529,6 +557,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "A brewer hears a great deal over a good stout, an' I've poured a great many. Ask me about any o' this." },
+    },
     background = { { id = "tp_bg", text = "I'm part owner o' the finest distillery in Dun Morogh. The other part's family, an' family's complicated.", next = "family" } },
     advice = { { id = "tp_ad", text = "Never trust a boar that's too easy to catch. It's either sick or it's a trap, an' both ruin ribs." } },
     dark_iron = { { id = "tp_dark_iron", text = "Don't get me started on the Dark Irons. They'd steal the froth off yer ale if ye looked away." } },
@@ -541,6 +572,11 @@ P:NPC {
   bible = "bibles/dunmorogh.md", role = "innkeeper", tier = "service",
   communities = { "kharanos" }, temper = { "sociable" }, values = { "generous", "friendly" },
   notices = { "weary", "race" },
+
+  impression = {
+    first = "Innkeeper Belm put a mug in my hand before I'd asked for one and told me I'd earned it, whatever it was. I'd like more people to work that way.",
+    third = "{name} rested at Innkeeper Belm's in Kharanos, where there are beds upstairs and Thunderbrew ale downstairs.",
+  },
 
   greetings = {
     { id = "g_inn", text = "Grab a mug, find a stool, an' put yer feet near the fire. Ye've earned it, whatever it was." },
@@ -605,6 +641,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Every traveller through Kharanos stops at my inn, an' every one o' them brings a tale. Ask me about any o' this." },
+    },
     background = { { id = "tp_bg", text = "I've poured ale in Kharanos longer than I'd admit. I've seen the Frostmane come down an' go back up again, an' the ale stayed." } },
     advice = { { id = "tp_ad", text = "Sleep here before ye go up the mountain. Ironforge never stops hammerin', not even at night." } },
     frostmane = { { id = "tp_frostmane", text = "They came at us once, an' we've a gnome to thank it didnae go worse.", next = "lazlo" } },

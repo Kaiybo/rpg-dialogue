@@ -9,6 +9,11 @@ P:NPC {
   communities = { "raven_hill" }, temper = { "cowardly" }, values = { "honest" },
   notices = { "fright", "hunger" },
 
+  impression = {
+    first = "Jitters jumps at every sound and begged me for food before he told me anything else. Whatever he saw in these woods, he hasn't stopped seeing it.",
+    third = "{name} met Jitters, a frightened man hiding near Raven Hill who jumps at every sound in the woods.",
+  },
+
   greetings = {
     { id = "g_flinch", text = "Wh-who's there... oh, it's only a person, thank the Light, because you are a person, aren't you?" },
     { id = "g_food", when = { questActive = TODO_QUEST("Jitters' Growling Gut") }, text = "Is that food? Please tell me that's food you've got there." },
@@ -73,7 +78,7 @@ P:NPC {
       },
       choices = {
         { text = "You couldn't have stopped them.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 }, align = { light = 1 } } },
-        { text = "You should have tried.", next = "BACK", fx = { affinity = -2, trait = { stern = 1 } } },
+        { text = "You should have tried.", next = "BACK", fx = { affinity = -2, trait = { stern = 1 }, align = { light = -1 } } },
         { text = "Tell me about Sven's wife.", next = "saw_wife" },
       },
     },
@@ -173,6 +178,7 @@ P:NPC {
       choices = {
         { text = "It isn't a trade. Pray anyway.", next = "pray_together" },
         { text = "The Light heard you, Jitters.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Prayers don't stop riders, Jitters, so learn to fight instead.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
     pray_together = {
@@ -184,6 +190,7 @@ P:NPC {
         { text = "Then keep watch. I'll pray.", next = "BACK", fx = { affinity = 3, align = { light = 1 }, trait = { pious = 1 } },
           journal = { first = "Prayed with Jitters at Raven Hill, for Sven Yorgen's wife. He kept his eyes open the whole time.",
                       third = "{name} prayed with Jitters at Raven Hill, for a woman whose name neither of them knew." } },
+        { text = "The Light wasn't there for her, so I'll keep watch instead.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
 
@@ -199,6 +206,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I know things, I do, I hear them from out here, and some of them I wish I didn't. Ask me about any of this, but quietly, please, quietly." },
+    },
     background = { { id = "tp_bg", text = "I'm Jitters, and that's all there is of me now, because the rest I wrote down and gave away." } },
     advice = { { id = "tp_ad", text = "Never pick anything up in a mine, never, I don't care how old it looks; just leave it in the rocks where it is." } },
     worgen = { { id = "tp_worgen", text = "They got my friends, the ones I came here with, and I ran, because I'm good at running." } },

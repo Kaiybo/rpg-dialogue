@@ -10,6 +10,10 @@ P:NPC {
   bible = "bibles/bernice.md", role = "questgiver", tier = "quest",
   communities = { "goldshire" }, temper = { "proud" }, values = { "honest", "stern" },
   notices = { "craft" },
+  impression = {
+    first = "Auntie Bernice Stonefield guards her kitchen like a fortress and her grudges like heirlooms. She had decided who stole her necklace long before anybody asked her.",
+    third = "{name} met Auntie Bernice Stonefield, a baker with strong opinions about pie crusts and the Maclure family.",
+  },
 
   greetings = {
     { id = "g_pie", text = "Mind the sill, there's pies cooling, so keep your hands off." },
@@ -91,7 +95,7 @@ P:NPC {
       },
       choices = {
         { text = "Looking guilty isn't proof.", next = "BACK", fx = { align = { order = 1 }, affinity = -1 } },
-        { text = "He does look guilty.", next = "BACK", fx = { affinity = 1 } },
+        { text = "He does look guilty.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
       },
     },
 
@@ -147,6 +151,7 @@ P:NPC {
         { text = "Light keep him, wherever the campaign ended.", next = "BACK", fx = { affinity = 3, align = { light = 2 } },
           journal = { first = "Said a prayer for Bernice Stonefield's husband, who never came home from his last campaign. She kept kneading.",
                       third = "{name} prayed for Auntie Bernice's husband in the Stonefield kitchen." } },
+        { text = "I didn't know him, Bernice, so the prayer's better from you.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
   },
@@ -167,6 +172,10 @@ P:NPC {
   bible = "bibles/ma_stonefield.md", role = "farmer", tier = "quest",
   communities = { "goldshire" }, temper = { "sharp" }, values = { "stern", "honest" },
   notices = { "trophy" },
+  impression = {
+    first = "Ma Stonefield is losing her whole crop to one enormous pig, and she takes it as a personal insult. She is not a crier, she says, and I believe her.",
+    third = "{name} met Ma Stonefield, whose cabbages are being devoured by the Brackwells' prize sow, Princess.",
+  },
 
   greetings = {
     { id = "g_field", text = "If you're here for the vegetables, there aren't many left. Ask the pig." },
@@ -302,6 +311,10 @@ P:NPC {
   bible = "bibles/billy.md", role = "child", tier = "quest",
   communities = { "goldshire" }, temper = { "cowardly" }, values = { "witty" },
   notices = { "food", "wonder" },
+  impression = {
+    first = "Before I'd accused him of anything, Billy Maclure had already sworn he didn't do it, which is either very honest or very suspicious. Mostly he seems hungry.",
+    third = "{name} met young Billy Maclure, accused of a theft he swears he didn't commit and hungry enough to bargain over it.",
+  },
 
   greetings = {
     { id = "g_kid", text = "I didn't do it, whatever it is, I was here the whole time!" },
@@ -407,7 +420,7 @@ P:NPC {
         { id = "ro_default", text = "Really? No, Ma would skin me, and so would Maybell, and so would Auntie Bernice, and she's not even my auntie." },
       },
       choices = {
-        { text = "Smart lad.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Smart lad.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
         { text = "Your loss.", next = "BACK", fx = { align = { honor = -1 } } },
       },
     },

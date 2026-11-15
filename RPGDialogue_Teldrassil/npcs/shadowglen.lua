@@ -8,6 +8,10 @@ P:NPC {
   bible = "bibles/teldrassil.md", role = "questgiver", tier = "quest",
   communities = { "shadowglen" }, temper = { "delighted" }, values = { "kind", "devout" },
   notices = { "greenness", "class" },
+  impression = {
+    first = "Every morning's light through the leaves seems to delight Conservator Ilthalaine as if it were the first. He counts the nightsaber cubs like a fond uncle, and even his worries about the glade sound gentle.",
+    third = "{name} met Conservator Ilthalaine, who keeps the balance in Shadowglen and delights in the glade he tends.",
+  },
 
   greetings = {
     { id = "g_glade", text = "Look at the light through the leaves. Every morning it's new, and every morning I'm glad of it." },
@@ -59,6 +63,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll remember that.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, learn = { "cenarion_circle" } } },
+        { text = "The strong take what they can, and that's the forest's way too.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Even if it means killing?", next = "balance_kill" },
       },
     },
@@ -66,6 +71,7 @@ P:NPC {
       lines = { { id = "bk_default", text = "Even then. Killing for balance is a sorrow, but killing for pleasure is where corruption begins, so learn the difference here while it's easy to see." } },
       choices = {
         { text = "A necessary sorrow, then.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Hunting needs no excuse, since it's the oldest thing in the forest.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "I'll try to tell them apart.", next = "BACK", fx = { trait = { kind = 1 } } },
       },
     },
@@ -92,6 +98,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Oh, I do love a question! Pick any of these and I'll tell you everything I know, and probably a little more besides." },
+    },
     background = { { id = "tp_bg", text = "I keep Shadowglen. That's the whole of my story, and it's plenty." } },
     advice = { { id = "tp_ad", text = "Walk softly in a young forest, because it remembers everything." } },
     cenarion_circle = { { id = "tp_circle", text = "The Circle teaches what I try to practice. They're better at it than I am, but I'm more cheerful about it." } },
@@ -104,6 +113,10 @@ P:NPC {
   bible = "bibles/teldrassil.md", role = "questgiver", tier = "quest",
   communities = { "shadowglen" }, temper = { "earnest" }, values = { "dutiful", "patient" },
   notices = { "class", "form" },
+  impression = {
+    first = "Melithar Staghelm talks about Aldrassil as though the old tree could hear every word. He is earnest enough that I found myself lowering my voice near the roots.",
+    third = "{name} met Melithar Staghelm, the earnest young druid who tends Aldrassil's roots and the newcomers who gather beneath them.",
+  },
 
   greetings = {
     { id = "g_tree", text = "Peace, young one. Aldrassil is listening, as it always is. Speak kindly near it." },
@@ -184,6 +197,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Aldrassil's roots run deep, and so does what I've learned tending them. Ask, and be patient with my answers." },
+    },
     background = { { id = "tp_bg", text = "I tend Aldrassil's roots. I'm better at roots than at stories." } },
     advice = { { id = "tp_ad", text = "Stay on the paths until you know which roots trip." } },
     fel_moss = { { id = "tp_moss", text = "It's in the grells. Tarindrella thinks the furbolgs too. I hope she's wrong." } },
@@ -197,6 +213,10 @@ P:NPC {
   bible = "bibles/teldrassil.md", role = "noble", tier = "major",
   communities = { "shadowglen" }, temper = { "warm" }, values = { "wise", "kind" },
   notices = { "greenness", "race" },
+  impression = {
+    first = "From the crown of Aldrassil, Tenaron Stormgrip watches every young elf walk the path down to Dolanaar. He has the warmth of someone who hopes each of them will one day climb back up.",
+    third = "{name} climbed to the crown of Aldrassil and met Tenaron Stormgrip, who watches over Shadowglen and blesses all who leave it.",
+  },
 
   greetings = {
     { id = "g_aldrassil", text = "Welcome to the top of Aldrassil. From here you can see most of Shadowglen, and it looks small from up here, though it isn't." },
@@ -248,6 +268,7 @@ P:NPC {
       },
       choices = {
         { text = "Thank you.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, standing = { shadowglen = 1 } } },
+        { text = "I'll go, but I'll make my own way, blessing or not.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Which parts are sick?", next = "sick" },
       },
     },
@@ -292,7 +313,12 @@ P:NPC {
     },
     view2 = {
       lines = { { id = "v2_default", text = "Most of them do, one day, and taller than they left. A few never return, and I remember those names and say them up here, where the wind carries them." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+      choices = {
+        { text = "Something else.", next = "BACK", fx = { affinity = 1 } },
+        { text = "You blame yourself for the ones who don't come back.", tag = "Persuade", next = "view_names",
+          check = { pass = { any = { { disposition = { min = 65 } }, { trait = "kind" }, { questDone = TODO_QUEST("Crown of the Earth") } } } },
+          fail = { next = "view_wind", fx = { affinity = -1 } } },
+      },
     },
     world_t = {
       lines = { { id = "wt_default", text = "It is. Sit with me a moment, and tell me what the worst of it is, down there." } },
@@ -310,9 +336,35 @@ P:NPC {
       lines = { { id = "so_default", text = "Then you know about the dragons' refusal, and the furbolgs. It is better that you hear it from us than learn it from the sickness itself." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    view_names = {
+      lines = {
+        { id = "vn_default", text = "Not blame, exactly, but I send each of them down with a blessing, and since Hyjal we are not what we were. A young elf who falls in the forest now does not get up again, and I am still learning to say goodbye as if it might be the last time." },
+        { id = "vn_kin", when = { race = "NightElf" },
+          text = "You were one of them not long ago, so I'll tell you plainly. Since Hyjal a fall in the forest can be the last one, and every time I bless one of you on your way down, I wonder whether I said enough." },
+      },
+      choices = {
+        { text = "You say enough, Tenaron. They remember it.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    view_wind = {
+      lines = {
+        { id = "vw_default", text = "The wind carries their names, and I let it. That is all there is to say about it on a morning as fine as this one." },
+        { id = "vw_world", when = { minLevel = 20 },
+          text = "You've been down in the world long enough to know there are things a person keeps to himself. Let an old watchman keep this one." },
+      },
+      choices = {
+        { text = "Of course.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "From the top of Aldrassil I see a great deal, and the wind brings me the rest. Ask what you like, young one." },
+      { id = "tp_knows_warm", when = { disposition = { min = 70 } },
+        text = "You always climb back up to me, and I'm glad of it. Ask me anything; there's little I would keep from you." },
+    },
     background = { { id = "tp_bg", text = "I watch over Shadowglen from up here. Someone should see the whole glade at once." } },
     advice = { { id = "tp_ad", text = "Stay on the road to Dolanaar. The forest has grown dangerous beasts of late." } },
     teldrassil = { { id = "tp_teldrassil", text = "Young, tall, and still growing. Too quickly, some say. I only see it from the top." } },
@@ -325,6 +377,10 @@ P:NPC {
   bible = "bibles/teldrassil.md", role = "questgiver", tier = "quest",
   communities = { "shadowglen" }, temper = { "wistful" }, values = { "kind", "loyal" },
   notices = { "pet" },
+  impression = {
+    first = "Dirania Silvershine kept glancing toward the spider cave the whole time we spoke. She calls Shadowglen home, but her mind was plainly on a friend who keeps getting himself into trouble.",
+    third = "{name} met Dirania Silvershine, a wistful soul of Shadowglen forever worrying over her friend Iverron.",
+  },
 
   greetings = {
     { id = "g_home", text = "All isn't well in the glade, I know. But coming back here always feels like coming home." },
@@ -402,6 +458,10 @@ P:NPC {
   bible = "bibles/teldrassil.md", role = "questgiver", tier = "quest",
   communities = { "shadowglen" }, temper = { "solitary" }, values = { "curious" },
   notices = { "craft" },
+  impression = {
+    first = "Alone on Aldrassil's steps sits Gilshalan Windwalker, who studies the Webwood spiders from a distance, mostly. I liked his dry way of talking, and I suspect the distance is not only for science.",
+    third = "{name} met Gilshalan Windwalker, a solitary scholar on Aldrassil's steps who studies the Webwood spiders of Shadowthread Cave.",
+  },
 
   greetings = {
     { id = "g_steps", text = "Oh, hello. I was only sitting; the steps are good for sitting." },

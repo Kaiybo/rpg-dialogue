@@ -2,6 +2,22 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.10.0 (2026-11-15)
+- Every person here writes a first impression in your diary after you first talk (the journal's People page shows it too).
+
+## 1.9.0 (2026-11-15)
+- Persuade, Intimidate and Deceive checks on the major people here, each with its own success and failure; lines and replies that depend on how warmly they regard you (disposition); a lead-in for "What do you know?".
+
+## 1.8.0 (2026-11-15)
+- Alignment now comes only from statements, never questions, and every reply that shifts alignment has an opposing one beside it. Taking one stance with someone closes the others for good.
+
+## 1.7.0 (2026-11-15)
+- Depth for Grom'gol: Commander Aggro'gosh, Nimboya, Kin'weelay, Far Seer Mok'thardin and Innkeeper Thulbek now each open on a hub with several branches two or three deep, "again" lines and replies that return to the hub, built from their Classic quests (the Defense of Grom'gol, the Yenniku chain from the tusks to the soul gem, the Vile Reef and Gri'lek's tablet, the Bloodscalp and Skullsplitter necklaces, Mai'Zoth and the Mind's Eye, Mok'thardin's choker and the Holy Spring, the Witherbark pike).
+- Replies for who you are: Darkspear trolls (Nimboya, Aggro'gosh), troll warlocks (Kin'weelay), orc mages (Aggro'gosh, Mok'thardin), shamans, Skyborne Windshapers, Forsaken off the zeppelin; replies after Saving Yenniku, while carrying Marg Nighteye's head from Dustwallow, and for players who've met Ruag in Stonard or Brother Nimetz at the rebel camp.
+- New lines: Kin'weelay on the Split Bone Necklace, the Mind's Eye and Marg's angry spirit; Nimboya on the clan heads, the freed soul and Trol'kalar's arrival; Aggro'gosh and Mok'thardin after their quests.
+- Fixes: Kin'weelay's Bloody Bone Necklaces line named the Skullsplitter (it's the Bloodscalp) and the Vile Reef's guards as sharks (murlocs); Nimboya's first two quest lines now match the quests (hunt for tusks, inspect the heads), and Yenniku was given to Zul'Gurub by custom rather than "swallowed by the trees".
+- "Their story" and "A little advice" answers for all five.
+
 ## 1.6.0 (unreleased)
 - Voice pass: everyone in Booty Bay, Grom'gol, the Rebel Camp and Nesingwary's Expedition now talks in whole sentences instead of clipped fragments, each in their own voice (the Baron's dry ledger talk, Seahorn's bluster, Smotts' stubborn pride, Krazek's sales patter, Hemet's burr, Erlgadin's regret, Doren's weariness). Same lines, same facts, same conditions.
 

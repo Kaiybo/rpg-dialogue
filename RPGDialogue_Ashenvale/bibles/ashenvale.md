@@ -52,3 +52,7 @@ Sources read (Classic versions): Trek to Ashenvale, An Aggressive Defense, Culli
 
 ### Authored, not canon (this pass)
 Raene: how Korra and Dagri tolerate each other; her answer to hunters about two companions; asking druids to look at the Thistlefur trees; Kimlya's inn as a hospice for wounded scouts. Pelturas: Orendil's remedies as prayers; Relara: the bog monsters, Raene's cat liking her, honey cakes for your pet. Faldreas: the forest spirits on Mystral Lake (the lake's elementals are canon from Mastok's quest); asking where home is. Delgren: hoping one day Orcish serves for more; praying before the satyrs' temples; "a better hammer than a priest". Senani: the war seen from both sides; the Earth Mother made hunter and hunted. Mastok: where the lumber goes; "for the Horde" grumble. Kuray'bin: the forest winning; Thrall's debt (the Darkspear's debt to Thrall is canon from Warcraft III); outrunners never look up.
+
+## 0.34.0
+Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
+- Raene (Persuade, teronis_guilt): Teronis asked her for a scout to walk with him; with the Warsong at the river she refused, and he went to the Zoram Strand alone. She blames herself.

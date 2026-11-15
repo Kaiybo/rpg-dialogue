@@ -8,6 +8,11 @@ P:NPC {
   communities = { "rebel_camp" }, temper = { "wary" }, values = { "dutiful", "loyal" },
   notices = { "kit", "soldier" },
 
+  impression = {
+    first = "Lieutenant Doren met me with a drawn sword and a hard question about Colonel Kurzen. Whatever took the Colonel's mind, this man has not forgiven it.",
+    third = "{name} was challenged at the rebel camp by Lieutenant Doren, who led the men who broke from Colonel Kurzen's expedition.",
+  },
+
   greetings = {
     { id = "g_halt", text = "Stop there and state your business. If you're one of the Colonel's, you won't be walking out of this camp." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. We've few enough friends this far from Stormwind." },
@@ -130,7 +135,10 @@ P:NPC {
       lines = {
         { id = "lw_default", text = "That's kind of you, but wait until it's over. I'd rather they read one report than two." },
       },
-      choices = { { text = "Understood.", next = "BACK", fx = { align = { order = 1 } } } },
+      choices = {
+        { text = "Understood.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Their families shouldn't have to wait for word.", next = "BACK", fx = { align = { order = -1 } } },
+      },
     },
 
     informant = {
@@ -144,6 +152,9 @@ P:NPC {
       choices = {
         { text = "Could it be one of your own?", next = "informant_own", when = { ["not"] = { questDone = TODO_QUEST("The Spy Revealed!") } } },
         { text = "What'll you do when you find him?", next = "informant_after" },
+        { text = "You already have a name in mind, Lieutenant.", tag = "Persuade", next = "herod", when = { ["not"] = { questDone = TODO_QUEST("The Spy Revealed!") } },
+          check = { pass = { any = { { disposition = { min = 65 } }, { questDone = TODO_QUEST("Jungle Secrets") }, { class = { "WARRIOR", "PALADIN" } } } } },
+          fail = { next = "herod_no", fx = { affinity = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -197,6 +208,7 @@ P:NPC {
         { text = "I'd rather not talk about it.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
         { text = "I obeyed it. I still think about that.", next = "soldier_obeyed", fx = { trait = { pious = 1 } } },
         { text = "I refused it, and paid for it.", next = "soldier_refused", fx = { align = { honor = 2 } } },
+        { text = "I never had that moment, because orders were orders.", next = "BACK", fx = { align = { order = 2 } } },
       },
     },
     soldier_obeyed = {
@@ -214,7 +226,7 @@ P:NPC {
       },
       choices = {
         { text = "Habit and the Light. It's enough.", next = "BACK", fx = { align = { light = 2 }, affinity = 1 } },
-        { text = "It isn't. That's why I'm out here.", next = "BACK", fx = { trait = { brave = 1 }, affinity = 1 } },
+        { text = "It isn't. That's why I'm out here.", next = "BACK", fx = { align = { light = -1 }, trait = { brave = 1 }, affinity = 1 } },
       },
     },
 
@@ -224,7 +236,7 @@ P:NPC {
         { id = "d_default", text = "Heard it from three men before you reached the clearing. I don't know if I'm meant to thank you or salute him." },
       },
       choices = {
-        { text = "Both, maybe.", next = "done_now", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Both, maybe.", next = "done_now", fx = { align = { order = -1 }, affinity = 2, trait = { kind = 1 } } },
         { text = "He stopped being your colonel a long time ago.", next = "done_now", fx = { align = { order = 1 }, trait = { stern = 1 } } },
       },
     },
@@ -243,12 +255,37 @@ P:NPC {
       lines = { { id = "pd_default", text = "We buried them without a priest; Nimetz was busy with the living, and I said what words I could remember. Would you? The graves are past the tents, and the men would like to see it done properly." } },
       choices = {
         { text = "I'll go tonight.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, standing = { rebel_camp = 2 }, trait = { pious = 1 } } },
+        { text = "Words over graves won't help anyone now.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    herod = {
+      lines = {
+        { id = "hr_default", text = "I do, and I can't prove it. Bookie Herod takes wagers in Booty Bay, and half my men have placed a bet with him at one time or another, and a man who keeps a ledger of everyone's debts knows exactly who can be bought." },
+        { id = "hr_secrets", when = { questDone = TODO_QUEST("Jungle Secrets") },
+          text = "You've earned it, so here it is: Bookie Herod, in Booty Bay. My men bet with him, and a man who keeps a ledger of everyone's debts knows exactly who can be bought, but I've no proof yet, so it stays between us." },
+      },
+      choices = {
+        { text = "Then let's find the proof.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    herod_no = {
+      lines = {
+        { id = "hn_default", text = "If I had a name, I'd not hand it to someone I've only just met. That's how Thorsen nearly died." },
+        { id = "hn_rogue", when = { class = "ROGUE" },
+          text = "You'll forgive me if I don't hand names to someone who walks as quietly as you do, because that's how Thorsen nearly died." },
+      },
+      choices = {
+        { text = "Fair enough.", next = "BACK" },
       },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I keep my ears open and my mouth shut, mostly, but I'll answer what I can for someone on our side. Ask." },
+    },
     background = { { id = "tp_bg", text = "Stormwind officer, Kurzen's expedition, and now this clearing. Every step of it was an order but the last.", next = "left" } },
     advice = { { id = "tp_ad", text = "If a soldier in Kurzen's colours offers you a drink, decline it, then walk away, and then run." } },
     kurzen = { { id = "tp_kurzen", text = "He was a good officer once, and don't let anyone tell you different. That's what makes this hard." } },
@@ -261,6 +298,11 @@ P:NPC {
   bible = "bibles/stranglethorn.md", role = "priest", tier = "quest",
   communities = { "rebel_camp" }, temper = { "earnest" }, values = { "devout", "curious" },
   notices = { "class", "craft", "form" },
+
+  impression = {
+    first = "Brother Nimetz has glassware drying on every flat surface of a jungle camp, which says a great deal about him. He tended the sick, and now he studies what drove them mad.",
+    third = "{name} met Brother Nimetz at the rebel camp, a priest studying the sickness of mind that took Colonel Kurzen and his men.",
+  },
 
   greetings = {
     { id = "g_glass", text = "The Light keep you. Mind your step; I've glassware drying on every flat surface in this camp." },
@@ -303,6 +345,7 @@ P:NPC {
         { text = "Pray with me, Brother.", next = "pray", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Let me look at the residue.", next = "residue", when = { profession = "Alchemy" } },
         { text = "The Light keep you, Brother.", next = "END", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Keep your prayers, Brother, because they won't help out here.", next = "END", fx = { align = { light = -1 } } },
       },
     },
 
@@ -379,7 +422,10 @@ P:NPC {
     },
     men_doren = {
       lines = { { id = "md_default", text = "He carries every one of them, and won't let me carry any of him. Don't tell him I said so." } },
-      choices = { { text = "I won't.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } } },
+      choices = {
+        { text = "I won't.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "He ought to hear it, and I'll tell him myself.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
     },
 
     pray = {
@@ -416,6 +462,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I study, I pray, and I listen to the men when they can't sleep, so I've learned a fair amount. Ask, and I'll share what I can." },
+    },
     background = { { id = "tp_bg", text = "A priest with an alchemist's habits, sent with an expedition that needed a healer. It needed more than one." } },
     advice = { { id = "tp_ad", text = "Don't drink anything in this jungle you didn't see poured, not water, not wine, not medicine." } },
     kurzen = { { id = "tp_kurzen", text = "I prayed for him every night. Now I pray for whoever finally stops him." } },
@@ -428,6 +477,11 @@ P:NPC {
   bible = "bibles/stranglethorn.md", role = "soldier", tier = "quest",
   communities = { "rebel_camp" }, temper = { "wary" }, values = { "loyal", "brave" },
   notices = { "stealth", "kit" },
+
+  impression = {
+    first = "Private Thorsen spent time inside Kurzen's force pretending to be one of them, and he still keeps his voice down out of habit. He knows more than he's said.",
+    third = "{name} met Private Thorsen, who went among Colonel Kurzen's men in disguise and nearly did not come back.",
+  },
 
   greetings = {
     { id = "g_careful", text = "Keep your voice down. This part of the jungle has ears, and some of them belong to Kurzen." },
@@ -463,6 +517,7 @@ P:NPC {
         { text = "Do you know who gave you away?", next = "betrayed" },
         { text = "You can talk to me. I'm good at going unseen too.", next = "rogue", when = { class = { "ROGUE", "HUNTER" } } },
         { text = "I'll help you.", next = "END", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Kurzen's war isn't mine, Private, and I'll stay out of it.", next = "END", fx = { align = { order = -1 } } },
         { text = "Rest. I'll leave you be.", next = "END", fx = { trait = { kind = 1 } } },
       },
     },

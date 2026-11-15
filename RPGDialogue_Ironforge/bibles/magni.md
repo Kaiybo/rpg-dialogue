@@ -41,3 +41,6 @@ Honest.
 
 ## Topics
 background, advice, dark_iron, gnomeregan, explorers_league, frostmane, troggs, defias, westfall
+
+## 0.34.0
+- Magni (Persuade, `family_moira`): he signed the order letting Moira ride south with twenty guardsmen after she volunteered in the hall (Kharan's Tale), and replays signing it every night. Her capture's later canon is not touched.

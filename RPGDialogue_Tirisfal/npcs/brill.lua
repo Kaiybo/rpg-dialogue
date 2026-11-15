@@ -7,6 +7,10 @@ P:NPC {
   bible = "bibles/tirisfal.md", role = "soldier", tier = "major",
   communities = { "brill" }, temper = { "cold" }, values = { "loyal", "dutiful" },
   notices = { "kit", "race" },
+  impression = {
+    first = "Executor Zygand speaks of the Scarlet Crusade the way a soldier speaks of bad weather he means to outlast. He is cold and spare with words, and I would not want to be on the wrong end of his blade.",
+    third = "{name} met Executor Zygand, commander of the Deathguard in Tirisfal, who means to see the Scarlet Crusade driven from the glades.",
+  },
 
   greetings = {
     { id = "g_brill", text = "State your business. The Crusade keeps me busy, and I prefer to stay that way." },
@@ -43,11 +47,39 @@ P:NPC {
       lines = {
         { id = "c_default", text = "The living who survived the plague and learned only hatred from it. They call us abominations and burn whatever they can't understand. They mistake cruelty for purity." },
       },
-      choices = { { text = "Then we'll end them.", next = "END", fx = { affinity = 2, trait = { stern = 1 }, learn = { "scarlet_crusade" } } } },
+      choices = {
+        { text = "Then we'll end them.", next = "END", fx = { affinity = 2, trait = { stern = 1 }, learn = { "scarlet_crusade" } } },
+        { text = "Do you ever recognize faces among the Crusaders?", tag = "Persuade", next = "faces",
+          check = { pass = { any = { { disposition = { min = 65 } }, { race = "Scourge" }, { questDone = TODO_QUEST("At War With The Scarlet Crusade") } } } },
+          fail = { next = "faces_no", fx = { affinity = -1 } } },
+      },
+    },
+    faces = {
+      lines = {
+        { id = "fc_default", text = "Once. A young Crusader on the mill road, with the look of a family that farmed near Brill before the plague; I may have known his father. I cut him down without slowing, and I still can't tell whether that was the Dark Lady's freedom in me or something the Scourge left behind." },
+        { id = "fc_forsaken", when = { race = "Scourge" },
+          text = "You're one of us, so you know the question already. Yes. Some of them were born in these villages, and some of us buried their parents. I don't hesitate, and I keep count, and some nights the counting is the only thing that keeps the faces away." },
+      },
+      choices = {
+        { text = "You did your duty.", next = "BACK", fx = { affinity = 1 } },
+        { text = "That wasn't the Scourge in you.", next = "BACK", fx = { affinity = 2 } },
+      },
+    },
+    faces_no = {
+      lines = {
+        { id = "fn_default", text = "I recognize the enemy, and that is all I need to recognize." },
+        { id = "fn_living", text = "Sentiment belongs to the living. Ask me something useful, or let me work." },
+      },
+      choices = { { text = "As you say, Executor.", next = "BACK" } },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Reports reach me from every field and road in Tirisfal. Ask what you need, and keep it brief." },
+      { id = "tp_knows_warm", when = { disposition = { min = 65 } }, text = "You've served Brill well, so I'll tell you what the reports actually say, rather than what we announce." },
+      { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "I'll answer, because the Dark Lady expects it of me. Do not mistake that for a welcome." },
+    },
     scarlet_crusade = { { id = "tp_crusade", text = "Every Crusader we kill is one fewer torch at our door. I keep count." } },
     _none = { { id = "tp_none", text = "Ask the magistrate; administration is his burden, not mine." } },
   },
@@ -58,6 +90,10 @@ P:NPC {
   bible = "bibles/tirisfal.md", role = "noble", tier = "quest",
   communities = { "brill" }, temper = { "brisk" }, values = { "orderly", "proud" },
   notices = { "status" },
+  impression = {
+    first = "When Magistrate Sevren took Brill back it was a plague town full of the mindless, and he is quietly proud of what it is now. He would much rather I did his errands than discussed them.",
+    third = "{name} met Magistrate Sevren of Brill, who rebuilt the town one street at a time and keeps it running by the book.",
+  },
 
   greetings = {
     { id = "g_hall", text = "Ah, you. There's work, and it's important, and I'd rather you did it than discussed it." },
@@ -104,6 +140,10 @@ P:NPC {
   bible = "bibles/tirisfal.md", role = "scholar", tier = "quest",
   communities = { "brill" }, temper = { "intent" }, values = { "ambitious", "curious" },
   notices = { "craft" },
+  impression = {
+    first = "Apothecary Johaan works among bottles that are only mostly safe and speaks of a new plague with real enthusiasm. It is meant for the Scourge, he says, and he says it quickly.",
+    third = "{name} met Apothecary Johaan of the Royal Apothecary Society, who labours over a new plague in Brill.",
+  },
 
   greetings = {
     { id = "g_lab", text = "Careful where you put your hands. Some of these bottles are only mostly safe." },
@@ -157,6 +197,10 @@ P:NPC {
   bible = "bibles/tirisfal.md", role = "questgiver", tier = "quest",
   communities = { "brill" }, temper = { "bitter" }, values = { "proud" },
   notices = { "drink" },
+  impression = {
+    first = "Coleman Farthing died defending the Agamands' mills because they asked him to, and he has not forgiven them. He is courteous and wry about it, which somehow makes the grudge feel deeper.",
+    third = "{name} met Coleman Farthing in the Gallows' End, a former mill hand who wants the risen Agamands put to rest for good.",
+  },
 
   greetings = {
     { id = "g_tavern", text = "Good evening, friend, do sit. I'm just here thinking unkind thoughts about my former employers." },
@@ -200,6 +244,10 @@ P:NPC {
   bible = "bibles/tirisfal.md", role = "questgiver", tier = "quest",
   communities = { "brill" }, temper = { "chilly" }, values = { "practical" },
   notices = { "weary" },
+  impression = {
+    first = "By the tavern fire sits Gretchen Dedmar, out of habit, since she can no longer feel its warmth. What she misses most is being cold, which is one of the saddest things anyone has told me.",
+    third = "{name} met Gretchen Dedmar, a chilly regular of the Gallows' End who has found a way to keep death's cold at bay for a time.",
+  },
 
   greetings = {
     { id = "g_tavern", text = "Cold tonight, though it's always cold, now. You stop noticing, and then one day you notice again." },
@@ -240,6 +288,10 @@ P:NPC {
   bible = "bibles/tirisfal.md", role = "innkeeper", tier = "service",
   communities = { "brill" }, temper = { "gentle" }, values = { "kind", "generous" },
   notices = { "weary", "race" },
+  impression = {
+    first = "Innkeeper Renee looks after everyone in the Gallows' End, and especially the dead ones. She once hurt people for a cause, she says, and now she pours drinks and listens, which seems to suit her far better.",
+    third = "{name} met Innkeeper Renee of the Gallows' End, who left a harder life behind to look after Brill's guests, living and dead alike.",
+  },
 
   greetings = {
     { id = "g_inn", text = "Welcome to the Gallows' End! Sit anywhere you like; nobody here bites. Well, nobody here bites guests." },
@@ -284,6 +336,10 @@ P:NPC {
   bible = "bibles/tirisfal.md", role = "questgiver", tier = "quest",
   communities = { "brill" }, temper = { "composed" }, values = { "curious", "practical" },
   notices = { "craft" },
+  impression = {
+    first = "Before I could ask, Eleanor Shackleton told me she was not with the Crusade, which only made me wonder why she felt the need. She is a composed traveller and a patient teacher of campfires.",
+    third = "{name} met Eleanor Shackleton, a traveller camped on the road near Brill who teaches anyone willing how to make a proper camp.",
+  },
 
   greetings = {
     { id = "g_camp", text = "Good day. Before you ask: no, I'm not with the Crusade. I'm only passing through, on my way to the next stretch of wilderness." },

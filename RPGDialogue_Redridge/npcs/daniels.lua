@@ -9,6 +9,11 @@ P:NPC {
   communities = { "lakeshire" }, temper = { "steady" }, values = { "generous", "witty" },
   notices = { "drink", "travel" },
 
+  impression = {
+    first = "Barkeep Daniels has a bar and very little to put behind it since the orcs cut the road. He's cheerful about it in the way of a man trying hard not to be miserable.",
+    third = "{name} met Barkeep Daniels of Lakeshire, whose shipment of drink never came after the orcs struck the road.",
+  },
+
   greetings = {
     { id = "g_bar", text = "What'll it be? Don't say ale, because I'm nearly out of ale." },
     { id = "g_dry", when = { questActive = TODO_QUEST("Dry Times") }, text = "Any luck? Tell me there's a keg in that pack." },
@@ -109,6 +114,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "A barkeep hears everything said over a mug, and Lakeshire says plenty. Ask me about any of this." },
+    },
     background = { { id = "tp_bg", text = "I pour, and before the orcs, I poured more." } },
     advice = { { id = "tp_ad", text = "Never drink the last bottle in the house. It's bad luck, and it's mine." } },
     blackrock = { { id = "tp_blackrock", text = "They stopped my wagons, and that's personal." } },
@@ -124,6 +132,11 @@ P:NPC {
   bible = "bibles/daniels.md", role = "innkeeper", tier = "service",
   communities = { "lakeshire" }, temper = { "steady" }, values = { "kind", "generous" },
   notices = { "guest", "pet" },
+
+  impression = {
+    first = "Innkeeper Brianna keeps Lakeshire's rooms and, between her and Daniels, its nerves. She made me feel at home before I'd decided whether I wanted to be.",
+    third = "{name} found a room with Innkeeper Brianna, who keeps the beds in Lakeshire and does her best to keep the town calm.",
+  },
 
   greetings = {
     { id = "g_home", text = "Out of the wind, now. Make yourself at home; that's what an inn's for." },
@@ -176,6 +189,7 @@ P:NPC {
       lines = { { id = "w_default", text = "Two upstairs from the last raid, and a guard who won't admit his arm's broken. I've done what soup can do. They'd be glad of you." } },
       choices = {
         { text = "Show me to them.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, standing = { lakeshire = 1 } } },
+        { text = "They'll mend on their own, and I've other work.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

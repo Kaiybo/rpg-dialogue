@@ -10,6 +10,11 @@ P:NPC {
   communities = { "ironforge" }, temper = { "quick" }, values = { "inventive", "compassionate" },
   notices = { "craft", "kin" },
 
+  impression = {
+    first = "High Tinker Mekkatorque speaks fast, worries about whether people are eating, and has more ideas than he can test. Leading his people from someone else's city weighs on him more than he lets on.",
+    third = "{name} met High Tinker Gelbin Mekkatorque, the elected leader of the gnomes, who works from Ironforge while Gnomeregan cannot be lived in.",
+  },
+
   greetings = {
     { id = "g_tinker", text = "Hello, hello! Mind the floor, there's a gear loose somewhere; there's always a gear loose somewhere." },
     { id = "g_gnome", when = { race = "Gnome" }, text = "A gnome! Good, good. Are you eating properly, and sleeping? Someone has to ask, and it may as well be me." },
@@ -39,6 +44,8 @@ P:NPC {
           text = "You got out. I say it to everyone who did: you got out, and I'm glad. The rest we'll sort out together." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "A priest, splendid! Gnomes never kept priests of our own, we kept wrenches, so the dwarves in the Hall of Mysteries have had to be very patient with us." },
+        { id = "h_warm", when = { disposition = { min = 70 } },
+          text = "Oh, splendid, it's you! Mind the coil there, it bites, and do sit down, because I've a hundred things to show you and time for about four." },
       },
       again = {
         { id = "h_again", text = "Where were we? I've lost the thread again; I lose a lot of threads, so I keep them in a drawer." },
@@ -77,6 +84,9 @@ P:NPC {
         { text = "That's a heavy thing to carry.", next = "BACK", fx = { affinity = 2 } },
         { text = "Then you share the blame.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
         { text = "Did he know it would fail?", next = "thermaplugg" },
+        { text = "What keeps you up at night, High Tinker?", tag = "Persuade", next = "whose_list",
+          check = { pass = { any = { { disposition = { min = 65 } }, { race = "Gnome" }, { class = "PRIEST" } } } },
+          fail = { next = "whose_busy", fx = { affinity = -1 } } },
       },
     },
     secret = {
@@ -182,13 +192,17 @@ P:NPC {
       choices = {
         { text = "Then let me try.", next = "light_try" },
         { text = "Faith and readings can work together.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Your readings will cure the plague long before prayers do.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
     light_try = {
       lines = {
         { id = "lr_default", text = "Then try, and tell me what you find, good or bad, and especially bad, because bad results are the ones that teach you something." },
       },
-      choices = { { text = "I will.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { pious = 1 } } } },
+      choices = {
+        { text = "I will.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { pious = 1 } } },
+        { text = "If it fails, I'll trust your readings instead.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
 
     home_q = {
@@ -218,9 +232,34 @@ P:NPC {
         { text = "Nothing that works yet.", next = "BACK", fx = { affinity = 1 } },
       },
     },
+    whose_list = {
+      big = true,
+      lines = {
+        { id = "wl_default", text = "A list. I made it on the tram platform with a borrowed pencil, every gnome who came out of Gnomeregan alive, and it's ever so much shorter than any list I've written before or since." },
+        { id = "wl_after", text = "I read it every night, front to back and then back to front, looking for a name I missed, because some nights I'm quite certain someone came out after I stopped writing. I haven't found one yet, but I'm very thorough, and I'll keep looking." },
+        { id = "wl_gnome", when = { race = "Gnome" }, text = "Your name's on it, I expect, or your family's, so you know exactly which list I mean. Don't tell the apprentices; they think I'm up late inventing things." },
+      },
+      choices = {
+        { text = "That list is why we'll go home.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
+        { text = "You can't carry all of them, High Tinker.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+      },
+    },
+    whose_busy = {
+      lines = {
+        { id = "wb_default", text = "Oh, gears, mostly, and the occasional sprocket! Nothing that would interest you, I promise, and I really must get back to this housing before it cools." },
+        { id = "wb_default2", text = "Up at night? I sleep like a well-oiled flywheel, thank you, which is to say not at all and very efficiently. Shall we talk about the tram?" },
+      },
+      choices = {
+        { text = "Of course, High Tinker.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've a head full of schematics and only a little room left over for everything else, but I'll share what's in there. Ask me about any of this." },
+    },
     background = { { id = "tp_bg", text = "Gearshaft University, then the mechanostrider, then a great many awards, until my apprentices made me build a trophy case. I keep spare parts in it." } },
     advice = { { id = "tp_ad", text = "Test it before you trust it. I learned that one the most expensive way there is.", next = "fall" } },
     gnomeregan = { { id = "tp_gnomeregan", text = "Our home, and radiant now, though not in a good way, with troggs in the halls and worse in the deep workshops. We'll go back; I've already drawn the plans." } },
@@ -237,6 +276,11 @@ P:NPC {
   bible = "bibles/ironforge_court.md", role = "scholar", tier = "quest",
   communities = { "ironforge" }, temper = { "steady" }, values = { "curious", "honest" },
   notices = { "lore" },
+
+  impression = {
+    first = "Royal Historian Archesonus learned my voice before she learned my name, since her eyes went long ago. Her memory has more than made up for it.",
+    third = "{name} spoke with Royal Historian Archesonus, the blind keeper of Ironforge's history who knows her visitors by their voices.",
+  },
 
   greetings = {
     { id = "g_voice", text = "That's a step I don't know. Come closer and speak, so I can learn yer voice, for that's how I keep my visitors." },
@@ -384,12 +428,16 @@ P:NPC {
       },
       choices = {
         { text = "Then we must be quicker next time.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then the Light's no cure, and we'd best look elsewhere.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "That's grim, Historian.", next = "BACK" },
       },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've spent my life on the histories o' this mountain, an' now I have them read tae me, which is slower but no less thorough. Ask me about any o' these." },
+    },
     background = { { id = "tp_bg", text = "I'm historian to the King. My eyes went but my memory didn't, and a patient scribe writes down what I say, so between us we've filled a shelf." } },
     advice = { { id = "tp_ad", text = "Write down what ye saw on the day ye saw it. By the next day ye'll have improved it." } },
     dark_iron = { { id = "tp_dark_iron", text = "They were our kin once, and our enemies for far longer. History doesn't forgive, but it remembers both.", next = "thaurissan" } },
@@ -405,6 +453,11 @@ P:NPC {
   bible = "bibles/ironforge_court.md", role = "scholar", tier = "quest",
   communities = { "ironforge" }, temper = { "eager" }, values = { "curious", "serious" },
   notices = { "lore", "travel" },
+
+  impression = {
+    first = "High Explorer Magellas warned me not to touch anything with a label, or without one. His Prospectors do the digging, he says, and he does the worrying, and he's good at it.",
+    third = "{name} met High Explorer Muninn Magellas in the Hall of Explorers, who leads the Explorers' League from Ironforge.",
+  },
 
   greetings = {
     { id = "g_league", text = "This is the Hall of Explorers, so touch nothing with a label on it, and nothing without one, either, until you've asked." },
@@ -564,6 +617,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The League's charted more o' this world than any king's cartographer, an' I've read every report. Ask me about any o' this, an' pull up a chair." },
+    },
     background = { { id = "tp_bg", text = "Curious since I could crawl, and paying for it since I could read. Now I steer the League and answer all its letters." } },
     advice = { { id = "tp_ad", text = "Write it down: dates, places, who was with you. Memory is a liar with very good manners." } },
     explorers_league = { { id = "tp_league", text = "Mine to steer, for my sins, with hundreds of Prospectors across the world, and every one of them writes to me at once.", next = "league" } },
@@ -579,6 +635,11 @@ P:NPC {
   bible = "bibles/ironforge_court.md", role = "scholar", tier = "quest",
   communities = { "ironforge" }, temper = { "hot" }, values = { "proud" },
   notices = { "craft" },
+
+  impression = {
+    first = "Prospector Stormpike looked up from his reading just long enough to make clear I'd interrupted. He isn't unkind, only spare with his words and his time.",
+    third = "{name} interrupted Prospector Stormpike's reading in the Hall of Explorers, and the dwarf made plain he had little time for chat.",
+  },
 
   greetings = {
     { id = "g_busy", text = "What is it? I'm reading, I'm always reading, so make it quick." },
@@ -712,6 +773,11 @@ P:NPC {
   communities = { "ironforge" }, temper = { "brisk" }, values = { "dutiful", "practical" },
   notices = { "kit", "greenness" },
 
+  impression = {
+    first = "Senator Mehr Stonehallow could be debating somewhere warm and is counting troggs in a quarry instead. He seems proud of that, and rightly.",
+    third = "{name} met Senator Mehr Stonehallow, who left the warmth of the Senate to hold the Gol'Bolar Quarry against the troggs.",
+  },
+
   greetings = {
     { id = "g_quarry", text = "Watch yer footing, for the troggs come up out o' the quarry like water from a cracked pipe." },
     { id = "g_back", when = { metBefore = true }, text = "There are fewer o' the beasts since ye were last here, I'll grant ye, though no' none, mind." },
@@ -753,7 +819,7 @@ P:NPC {
       lines = { { id = "w_default", text = "The guards are on the walls, an' the walls are where they belong. A senator who won't get his boots dirty for his own district isn't worth the chair." } },
       choices = {
         { text = "Respect.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
-        { text = "And it wins votes.", next = "BACK", fx = { affinity = -1, trait = { witty = 1 } } },
+        { text = "And it wins votes.", next = "BACK", fx = { affinity = -1, trait = { witty = 1 }, align = { honor = -1 } } },
       },
     },
     troggs = {
@@ -771,7 +837,7 @@ P:NPC {
       },
       choices = {
         { text = "Honest of you.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Maybe you should stop.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Maybe you should stop.", next = "BACK", fx = { trait = { cautious = 1 }, align = { order = -1 } } },
       },
     },
     senate = {
@@ -813,6 +879,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The Senate concerns itself wi' every matter that touches Khaz Modan, an' I make it my business tae know them all. Ask me about any o' these." },
+    },
     background = { { id = "tp_bg", text = "I'm a senator an' a League member, an' the only one o' either with boots this muddy." } },
     advice = { { id = "tp_ad", text = "If a job's worth a speech, do the job first, for the speech goes better after." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "The troggs came up through the gnomes first, an' now they're comin' up through us. Draw yer own conclusions." } },
@@ -827,6 +896,11 @@ P:NPC {
   bible = "bibles/ironforge_court.md", role = "innkeeper", tier = "service",
   communities = { "ironforge" }, temper = { "jolly" }, values = { "generous" },
   notices = { "drink", "weary" },
+
+  impression = {
+    first = "Innkeeper Firebrew keeps the Stonefire loud, warm and full of stories that grow as the kegs empty. He likes anyone who'll add to the noise.",
+    third = "{name} took a stool at the Stonefire Tavern, where Innkeeper Firebrew keeps the beer strong and the stories tall.",
+  },
 
   greetings = {
     { id = "g_tavern", text = "Welcome tae the Stonefire! Grab a stool, grab a mug, an' if ye've a story, grab the room's attention." },
@@ -887,6 +961,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Every dwarf in Ironforge drinks at the Stonefire sooner or later, an' every one o' them talks. Ask me about any o' this." },
+    },
     background = { { id = "tp_bg", text = "I've kept the Stonefire's kegs longer than some o' my regulars have had beards, an' longer than some o' the beards have had regulars." } },
     advice = { { id = "tp_ad", text = "Never drink wi' a gnome engineer who's brought his work along, for somethin' always goes off." } },
     dark_iron = { { id = "tp_dark_iron", text = "Don't say that name loud in here. The lads get worked up, an' worked-up dwarves break furniture." } },

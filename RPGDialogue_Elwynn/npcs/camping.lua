@@ -7,6 +7,10 @@ P:NPC {
   bible = "bibles/camping.md", role = "questgiver", tier = "quest",
   communities = { "goldshire" }, temper = { "cheerful" }, values = { "friendly", "curious" },
   notices = { "craft" },
+  impression = {
+    first = "Sam Sarsaparilla calls himself an adventurer, though his adventuring seems to be mostly walking a long way and then sitting by a fire. I've heard worse philosophies.",
+    third = "{name} shared a fire with Sam Sarsaparilla, a cheerful wanderer who swears the sitting is the best part of any journey.",
+  },
 
   greetings = {
     { id = "g_fire", text = "Well, hello there! Pull up a log; the fire's going and the kettle's nearly there." },
@@ -130,6 +134,7 @@ P:NPC {
       },
       choices = {
         { text = "Light keep this fire, and all who sit by it.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Fire keeps us warm, and prayers have nothing to do with it.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

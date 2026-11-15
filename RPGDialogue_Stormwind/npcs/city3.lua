@@ -10,6 +10,10 @@ P:NPC {
   bible = "bibles/city3.md", role = "noble", tier = "quest",
   communities = { "stormwind" }, temper = { "smooth" }, values = { "proud", "ambitious" },
   notices = { "deed", "status" },
+  impression = {
+    first = "Courtesy from Lord Gregor Lescovar feels rather like being weighed on a merchant's scale. He comes to the library to escape the noise of the House of Nobles, or so he says.",
+    third = "{name} met Lord Gregor Lescovar of the House of Nobles, an elegant man who prefers the quiet of the library.",
+  },
 
   greetings = {
     { id = "g_library", text = "Quietly, please. This is a library, not a market, whatever the Trade District has taught you." },
@@ -82,7 +86,7 @@ P:NPC {
     rebuilt = {
       lines = { { id = "r_default", text = "And were thanked. Thanks is a currency too, you know. Not everyone has the sense to accept it." } },
       choices = {
-        { text = "Thanks doesn't feed a family.", next = "rebuilt_queen", fx = { align = { honor = 1 } } },
+        { text = "Thanks doesn't feed a family.", next = "rebuilt_queen" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -92,6 +96,7 @@ P:NPC {
       choices = {
         { text = "That was one hand, not a whole guild.", next = "BACK", fx = { affinity = -1, align = { honor = 1 }, opinion = { defias = "masons_wronged" } } },
         { text = "I didn't know.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Then the masons got what they had coming.", next = "BACK", fx = { align = { honor = -1 } } },
       },
     },
     library = {
@@ -107,7 +112,11 @@ P:NPC {
     },
     church = {
       lines = { { id = "ch_default", text = "Does it? The masons built its Cathedral too. Has His Grace paid them a copper of his own? Do ask him, before he lectures the House again." } },
-      choices = { { text = "He's said so in the Keep, at least.", next = "BACK", fx = { align = { light = 1 }, affinity = -1 } }, { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "He's said so in the Keep, at least.", next = "BACK", fx = { align = { light = 1 }, affinity = -1 } },
+        { text = "Then His Grace is no better than the rest of you.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     farmhand = {
       lines = { { id = "fa_default", text = "How dreadful. The House sympathises enormously. Sympathy is, unfortunately, the only thing the treasury has in abundance." } },
@@ -127,6 +136,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "A lord of the House hears a great deal, and repeats very little to strangers. Still, I might indulge you on one or two of these." },
+    },
     background = { { id = "tp_bg", text = "A senior member of the House of Nobles, with a library to think in. The rest is not the business of adventurers." } },
     advice = { { id = "tp_ad", text = "Never say yes on the first asking. People value what they have to wait for. Even refusals." } },
     defias = { { id = "tp_defias", text = "Bandits. A Westfall matter. I can't imagine why anyone in this city would trouble themselves over it." } },
@@ -142,6 +154,10 @@ P:NPC {
   bible = "bibles/city3.md", role = "citizen", tier = "quest",
   communities = { "stormwind" }, temper = { "brawler" }, values = { "proud" },
   notices = { "body", "drink" },
+  impression = {
+    first = "Dashel Stonefist asked what I was looking at in a tone that suggested any answer would end in a fight. I gather most of his evenings end that way, and he enjoys them.",
+    third = "{name} met Dashel Stonefist, an Old Town brawler who settles his arguments with his fists.",
+  },
 
   greetings = {
     { id = "g_fist", text = "What're you lookin' at? No, go on, I'm askin'. I like to know what folk are lookin' at before I hit 'em." },
@@ -188,7 +204,12 @@ P:NPC {
     },
     who = {
       lines = { { id = "w_default", text = "Folk who'd rather I didnae say. That's what the extra coin's for." } },
-      choices = { { text = "I'll find out.", next = "BACK", fx = { trait = { brave = 1 } } }, { text = "Keep your secrets.", next = "BACK", fx = { affinity = 1 } } },
+      choices = {
+        { text = "I'll find out.", next = "BACK", fx = { trait = { brave = 1 } } }, { text = "Keep your secrets.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I asked who pays you, Fist. I won't ask nicely twice.", tag = "Intimidate", next = "who_coin",
+          check = { pass = { any = { { minLevel = 30 }, { class = { "WARRIOR", "PALADIN" } }, { townStanding = { town = "stormwind", min = 55 } } } } },
+          fail = { next = "who_laugh", fx = { affinity = -1 } } },
+      },
     },
     friends = {
       lines = { { id = "fr_default", text = "The lads. Old Town's finest, by their own count. They come runnin' when I whistle an' they go home when I say. Mostly." } },
@@ -220,9 +241,32 @@ P:NPC {
       lines = { { id = "sp_default", text = "Ha! No' here, the guards get sniffy. But I like ye. That's rarer than ye'd think, an' it's free." } },
       choices = { { text = "Another time, then.", next = "BACK", fx = { affinity = 2 } } },
     },
+    who_coin = {
+      lines = {
+        { id = "wc_default", text = "All right, all right, put that away. I never see 'em; the coin comes through a lad who's never the same lad twice, wrapped in good paper wi' clean boots on the feet that bring it, an' nobody in Old Town owns clean boots." },
+        { id = "wc_after", text = "That's all I know, an' I made very sure it's all I know, because the last fella who asked the lad a question got found in the canal. So go easy, eh?" },
+      },
+      choices = {
+        { text = "That'll do, Fist.", next = "BACK" },
+        { text = "Clean boots. Somebody in the upper city, then.", next = "BACK", fx = { trait = { curious = 1 } } },
+      },
+    },
+    who_laugh = {
+      lines = {
+        { id = "wl_default", text = "Ha! Ye want tae try that wi' my lads watchin'? Go on, then, an' I'll buy the first round for whoever's still standin'." },
+        { id = "wl_default2", text = "That's a good scowl ye've got, I'll grant ye, but I've been scowled at by better. The answer's still no." },
+      },
+      choices = {
+        { text = "Another time, then.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I hear plenty in Old Town, mostly between the second ale an' the first punch. Ask me about any o' this." },
+    },
     background = { { id = "tp_bg", text = "Came tae Stormwind, found the ale an' the arguments, stayed for both. That's the whole tale." } },
     advice = { { id = "tp_ad", text = "Hit first. If ye cannae hit first, hit last. Never hit in the middle." } },
     defias = { { id = "tp_defias", text = "Westfall lot, an' not my crowd. I work in the city, where the ale's better." } },
@@ -236,6 +280,10 @@ P:NPC {
   bible = "bibles/city3.md", role = "blacksmith", tier = "quest",
   communities = { "stormwind" }, temper = { "earnest" }, values = { "craft", "loyal" },
   notices = { "kit", "craft" },
+  impression = {
+    first = "Furen Longbeard learned his trade from Grimand Elmore and is still learning it, as Elmore reminds him daily. He looks at a dent and sees the whole fight that made it.",
+    third = "{name} met Furen Longbeard, Grimand Elmore's student, who forges shields meant to be trusted rather than admired.",
+  },
 
   greetings = {
     { id = "g_shop", text = "Shields an' mail, made right. If it's got a dent, I'll take it out. If it's got a hole, I'll tell ye how ye got it." },
@@ -336,6 +384,10 @@ P:NPC {
     { id = "b_spare", text = "A copper for an honest man! Or a dishonest one, I'm not proud!" },
     { id = "b_shine", text = "Armour shined, two coppers! One copper if you don't look too closely!" },
   },
+  impression = {
+    first = "Topper McNabb was a farmer once and begs behind the Auction House now, and he has a generous word for every passer-by. He told me I have a generous face, and I suspect he tells everyone.",
+    third = "{name} met Topper McNabb, a cheerful beggar behind the Auction House who used to work a farm.",
+  },
   greetings = {
     { id = "g_coin", text = "Friend! That's a kind face, a generous face. Has anyone ever told you you've a generous face?" },
     { id = "g_back", when = { metBefore = true }, text = "My favourite benefactor returns! I've told everyone about you, though nobody believed me." },
@@ -405,6 +457,10 @@ P:NPC {
   bible = "bibles/city3.md", role = "guard", tier = "quest",
   communities = { "stormwind" }, temper = { "anxious" }, values = { "self-preserving" },
   notices = { "soldier", "stealth" },
+  impression = {
+    first = "Warden Thelwater keeps Stormwind's worst beneath its canals and would very much like the recent trouble never mentioned again. He has the look of a man who has stopped opening his letters.",
+    third = "{name} met Warden Thelwater of the Stockade, an anxious man who would rather nobody heard about his lower tiers.",
+  },
 
   greetings = {
     { id = "g_quiet", text = "Yes? Quickly, and quietly, please, because everything about this place should be quiet, especially lately." },
@@ -435,6 +491,8 @@ P:NPC {
           text = "Thredd's dead and the cells are filling back up, quietly. I'm sleeping again, badly, but again." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "Half my guards could use a priest, and the other half need a better excuse than the one they gave the Captain." },
+        { id = "h_warm", when = { disposition = { min = 70 } },
+          text = "Oh, thank the Light, it's you. You're the one person in this city I'm actually glad to see coming down those stairs." },
       },
       again = {
         { id = "h_again", text = "Yes, what else? Be quick about it, please." },
@@ -455,6 +513,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll handle it.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Your prisoners can sort themselves out, Warden.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "You should tell someone.", next = "tell" },
       },
     },
@@ -481,7 +540,11 @@ P:NPC {
       lines = { { id = "ch_default", text = "Ask the nobles, because every time the rope's ready, a letter arrives. It's the same with Dextren Ward, who sold Raven Hill's dead to a necromancer, and Darkshire wants his hand." } },
       choices = {
         { text = "Robbing graves. The dead deserve better.", next = "BACK", when = { class = "PRIEST" }, fx = { align = { light = 1 } } },
+        { text = "The dead don't need their bodies, so let the man go.", next = "BACK", when = { class = "PRIEST" }, fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "night_watch" } } },
+        { text = "Whose seal is on those letters, Warden? Or shall I ask the Captain?", tag = "Intimidate", next = "cells_seal",
+          check = { pass = { any = { { minLevel = 35 }, { class = { "WARRIOR", "ROGUE" } }, { townStanding = { town = "stormwind", min = 55 } } } } },
+          fail = { next = "cells_nerve", fx = { affinity = -1 } } },
       },
     },
     visitor = {
@@ -498,11 +561,38 @@ P:NPC {
     priest_mac = {
       big = true,
       lines = { { id = "pm_default", text = "One. Mac, a guard of fourteen, stopped them tearing blankets into red scarves, and one of them stabbed him for it. Say one for him, if you're saying them." } },
-      choices = { { text = "I will.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, trait = { pious = 1 } } } },
+      choices = {
+        { text = "I will.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, trait = { pious = 1 } } },
+        { text = "Prayers won't help Mac now, but justice for his killer might.", next = "BACK", fx = { align = { light = -1 } } },
+      },
+    },
+    cells_seal = {
+      big = true,
+      lines = {
+        { id = "cs_default", text = "No, no, don't go to the Captain, please. They come under the House of Nobles' seal, unsigned, always on good paper, and always the day before the rope's ready, as though somebody upstairs keeps my calendar." },
+        { id = "cs_after", text = "The warden before me asked who wrote them, and he's counting sheep on a Westfall watchtower now. So I don't ask, and I'd be very grateful if you didn't say I told you." },
+      },
+      choices = {
+        { text = "Your name stays out of it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Somebody should be asking.", next = "BACK", fx = { trait = { stern = 1 } } },
+      },
+    },
+    cells_nerve = {
+      lines = {
+        { id = "cn_default", text = "Ask the Captain whatever you like, and he'll tell you the Warden of the Stockade follows his orders and the House's, which I do. I'm nervous, not a fool." },
+        { id = "cn_default2", text = "You'll forgive me, but I've been threatened by better men than you this month, and most of them are in a cell. The letters are the House's business, not yours." },
+      },
+      choices = {
+        { text = "Fine. Something else.", next = "BACK" },
+        { text = "I'll leave it for now.", next = "BACK" },
+      },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "A warden hears everything the cells whisper, though he'd rather not. Ask me about any of this, quietly, and I'll tell you what won't get me reassigned." },
+    },
     background = { { id = "tp_bg", text = "Warden of the Stockade. Before that, a man who thought being warden would be quiet. Never take a job for its quiet." } },
     advice = { { id = "tp_ad", text = "Check the papers, then check the person, and then check the papers again. I didn't, once." } },
     defias = { { id = "tp_defias", text = "Half my cells are full of them, and the other half of their friends. They organise better in prison than the guards do outside it." } },

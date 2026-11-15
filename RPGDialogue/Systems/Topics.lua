@@ -38,9 +38,12 @@ function Topics.IsStandard(id)
 end
 
 -- Known topics, most recently learned first. Each: { id, name, category, learned, asked, archived, standard }
-function Topics.Known(includeArchived)
+-- With npcKey, topics that NPC said they could speak to ("What do you know?") carry knows = true.
+function Topics.Known(includeArchived, npcKey)
   local out = {}
   local now = C.Now()
+  local mem = npcKey and ns.char.npc[npcKey]
+  local knows = mem and mem.knows or {}
   for id, rec in pairs(ns.char.topics) do
     local def = ns.Data.topics[id]
     if not (def and def.standard) then
@@ -49,7 +52,7 @@ function Topics.Known(includeArchived)
       if includeArchived or not archived then
         out[#out + 1] = {
           id = id, name = def and def.name or id, category = def and def.category or "other",
-          learned = rec.t or 0, asked = rec.asked, archived = archived,
+          learned = rec.t or 0, asked = rec.asked, archived = archived, knows = knows[id] ~= nil or nil,
         }
       end
     end
@@ -90,8 +93,12 @@ function Topics.Rows(list, searching)
     return rows
   end
   local order, groups = {}, {}
+  -- "What they can tell you about": what this NPC said they know, right after "Ask anyone".
+  local hasKnows = false
+  for _, t in ipairs(list) do if t.knows and not t.standard then hasKnows = true; break end end
   for _, t in ipairs(list) do
-    local cat = t.standard and "anyone" or t.category
+    local cat = t.standard and "anyone" or (t.knows and "knows") or t.category
+    if hasKnows and cat ~= "anyone" and not groups.knows then groups.knows = {}; order[#order + 1] = "knows" end
     if not groups[cat] then groups[cat] = {}; order[#order + 1] = cat end
     table.insert(groups[cat], t)
   end
@@ -103,11 +110,67 @@ function Topics.Rows(list, searching)
   return rows
 end
 
-function Topics.Asked(id, npcKey)
+-- answered = false: they had nothing to say about it (a brush-off), shown as such in the list.
+function Topics.Asked(id, npcKey, answered)
   local rec = ns.char.topics[id]
   if rec then rec.asked = C.Now(); rec.archived = nil end
   local mem = npcKey and ns.char.npc[npcKey]
-  if mem then mem.topics = mem.topics or {}; mem.topics[id] = C.Now() end
+  if mem then
+    mem.topics = mem.topics or {}
+    mem.topics[id] = C.Now()
+    if answered == false then
+      mem.nothing = mem.nothing or {}
+      mem.nothing[id] = true
+    elseif mem.nothing then
+      mem.nothing[id] = nil
+    end
+  end
+end
+
+-- What people said when asked about it, for the journal's "Heard of" page: one answer per
+-- person (the latest), at most MAX_ANSWERS people per topic. Stored as line ids.
+Topics.MAX_ANSWERS = 8
+function Topics.RecordAnswer(id, npcKey, name, gid)
+  local rec = ns.char.topics[id]
+  if not rec or not gid then return end
+  rec.said = rec.said or {}
+  local who = npcKey or name or "?"
+  for i, a in ipairs(rec.said) do
+    if a.who == who then table.remove(rec.said, i); break end
+  end
+  table.insert(rec.said, { who = who, name = name, gid = gid, t = C.Now() })
+  while #rec.said > Topics.MAX_ANSWERS do table.remove(rec.said, 1) end
+end
+
+-- They were asked and had nothing to say about it.
+function Topics.NothingFrom(id, npcKey)
+  local mem = npcKey and ns.char.npc[npcKey]
+  return mem ~= nil and mem.nothing ~= nil and mem.nothing[id] == true
+end
+
+-- "What do you know?": remember what they said they could speak to.
+function Topics.MarkKnows(ids, npcKey)
+  local mem = npcKey and ns.char.npc[npcKey]
+  if not mem then return end
+  mem.knows = mem.knows or {}
+  for _, id in ipairs(ids) do mem.knows[id] = mem.knows[id] or C.Now() end
+end
+
+-- How many topics the player has picked up (not counting "ask anyone" or archived ones).
+function Topics.Count()
+  local n = 0
+  for _, t in ipairs(Topics.Known(false)) do if not t.standard then n = n + 1 end end
+  return n
+end
+
+-- Who the player first heard it from, as a name (nil when unknown).
+function Topics.Source(id)
+  local rec = ns.char.topics[id]
+  local from = rec and rec.from
+  if type(from) ~= "string" or from == "dev" then return nil end
+  local mem = ns.char.npc[from]
+  local def = ns.Data and ns.Data.npcs and ns.Data.npcs[from]
+  return (mem and mem.name) or (def and def.name) or (not from:find("^id:") and (from:gsub("^name:", ""))) or nil
 end
 
 -- Has this NPC already been asked about this topic (in any conversation)?
@@ -246,4 +309,19 @@ function Topics.Hear(text, env, exclude, hex)
   if #learn > 0 then ns.Effects.Apply({ learn = learn }, env or { now = C.Now() }) end
   local on = not ns.db or ns.db.settings.topicLinks ~= false
   return on and Topics.Link(text, found, hex) or text, found
+end
+
+-- Topic names as a list, each a clickable link (or plain, with hex == false).
+function Topics.LinkList(ids, hex)
+  local parts = {}
+  for _, id in ipairs(ids) do
+    local def = ns.Data.topics[id]
+    local name = def and def.name or id
+    if hex == false then
+      parts[#parts + 1] = name
+    else
+      parts[#parts + 1] = ("|H%s%s|h%s%s|r|h"):format(Topics.LINK_PREFIX, id, hex or "", name)
+    end
+  end
+  return table.concat(parts, "\n")
 end

@@ -9,6 +9,11 @@ P:NPC {
   communities = { "gadgetzan" }, temper = { "eager" }, values = { "ambitious", "practical" },
   notices = { "purse", "drink" },
 
+  impression = {
+    first = "Marin Noggenfogger talks about his elixir the way some people talk about their children, side effects and all. He was sweating, cheerful and already pricing me as a customer.",
+    third = "{name} met Marin Noggenfogger, the goblin alchemist who runs Gadgetzan and dreams of a fortune in elixirs.",
+  },
+
   greetings = {
     { id = "g_heat", text = "Hot, hot, hot, every single day it's hot! Come in out of the sun, come in, because I've got something to tell you about." },
     { id = "g_back", when = { metBefore = true }, text = "My favorite partner in progress! Well, partner's a strong word, so let's say associate, or customer at the very least!" },
@@ -89,7 +94,12 @@ P:NPC {
     },
     recipe = {
       lines = { { id = "r_default", text = "Dew from a desert plant that refuses to die, and a little something to stop it tasting of feet. The rest is a trade secret, and also I lost the notes." } },
-      choices = { { text = "You lost the notes?", next = "BACK", fx = { affinity = 1, trait = { curious = 1 } } } },
+      choices = {
+        { text = "You lost the notes?", next = "BACK", fx = { affinity = 1, trait = { curious = 1 } } },
+        { text = "Sprinkle already told me the secret ingredient, Marin.", tag = "Deceive", next = "secret",
+          check = { pass = { any = { { trait = "witty" }, { class = "ROGUE" }, { disposition = { min = 60 } } } } },
+          fail = { next = "secret_no", fx = { affinity = -1 } } },
+      },
     },
     slowfall = {
       lines = { { id = "sl_default", text = "Yes, and you have to learn it! Mine comes in a bottle, and anybody can drink a bottle, so that's the whole business right there." } },
@@ -99,9 +109,35 @@ P:NPC {
       lines = { { id = "ng_default", text = "She does, and only she does, not you and not anybody else. That's... well, that's an arrangement we have." } },
       choices = { { text = "Your secret's safe.", next = "BACK", fx = { affinity = 2 } } },
     },
+    secret = {
+      lines = {
+        { id = "se_default", text = "She did? She never tells anyone! Well, then you know the truth: without Sprinkle's little something from when she was a girl, the elixir tastes like a boot, and I'd be selling boot water to thirsty people and going broke doing it, so don't tell her I said so." },
+        { id = "se_taste", when = { questDone = TODO_QUEST("In Good Taste") },
+          text = "Oh, of course she did, you helped her with it! Then you know that without her secret the elixir tastes like a boot, and the whole fortune's really half hers, which I'll deny if you repeat it." },
+      },
+      choices = {
+        { text = "Your secret's safe with me.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    secret_no = {
+      lines = {
+        { id = "sn_default", text = "Ha! Sprinkle wouldn't tell her own mother that recipe, and she likes her mother. Nice try, friend, and a very goblin one." },
+        { id = "sn_gnome", when = { race = "Gnome" },
+          text = "Sprinkle, telling a gnome her secret? She'd sooner print it in the newspaper, so nice try, but no." },
+      },
+      choices = {
+        { text = "It was worth a try.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Ask me anything, anything at all, as long as we stay in the shade while I answer it!" },
+      { id = "tp_knows_warm", when = { disposition = { min = 70 } },
+        text = "For you, friend, I'll answer anything, and I'll even stop sweating long enough to do it properly." },
+    },
     background = { { id = "tp_ba", text = "I was born poor, then I got thirsty, then I got ideas. The ideas are going to make me rich; the thirst is still working on it." } },
     advice = { { id = "tp_ad", text = "Carry twice the water you think you need, and buy it from me... well, from the Water Company for now, but I'm working on that." } },
     steamwheedle = { { id = "tp_cartel", text = "The Cartel takes its cut, the Bruisers keep the peace and I keep inventing, so everybody wins, and me most of all." } },
@@ -114,6 +150,11 @@ P:NPC {
   bible = "bibles/tanaris.md", role = "citizen", tier = "quest",
   communities = { "gadgetzan" }, temper = { "warm" }, values = { "loyal", "generous" },
   notices = { "craft" },
+
+  impression = {
+    first = "Sprinkle calls everyone sweetie and believes that anything can taste good with the right ingredient. She lets Marin think he runs their partnership, and seems to enjoy it.",
+    third = "{name} met Sprinkle, the warm-hearted goblin of Gadgetzan who fixes food that tastes wrong.",
+  },
 
   greetings = {
     { id = "g_kitchen", text = "Hello, sweetie! You look like someone who hasn't eaten anything that tasted good in a week." },
@@ -182,6 +223,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I hear all sorts of things, mostly from Noggy when he's excited. Ask me, and I'll sort out the useful bits for you." },
+    },
     background = { { id = "tp_ba", text = "I grew up with a sister who couldn't cook and a stubborn tongue, and one of those made me a cook." } },
     advice = { { id = "tp_ad", text = "If something tastes wrong, it's missing one thing, sweetie, so find that one thing and don't go adding six." } },
     _none = { { id = "tp_none", text = "Couldn't say, sweetie. Can I get you something to eat instead?" } },
@@ -193,6 +237,11 @@ P:NPC {
   bible = "bibles/tanaris.md", role = "questgiver", tier = "quest",
   communities = { "gadgetzan" }, temper = { "harried" }, values = { "practical", "proud" },
   notices = { "craft", "kit" },
+
+  impression = {
+    first = "Chief Engineer Bilgewhizzle watches his pressure gauge the way other men watch the sky for storms. In a desert town he keeps the water flowing, and it shows on his face.",
+    third = "{name} met Chief Engineer Bilgewhizzle, the harried head of the Gadgetzan Water Company.",
+  },
 
   greetings = {
     { id = "g_water", text = "Water Company business only, please. If you're here about the pressure, take a number." },
@@ -251,6 +300,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've a desk full of reports and no time to read them, so I've memorized the important parts. Ask, quickly." },
+    },
     background = { { id = "tp_ba", text = "I'm an engineer, a water engineer specifically, which in Tanaris makes me the most important goblin nobody ever thanks." } },
     advice = { { id = "tp_ad", text = "Never camp by a water source out there. Somebody already has, and they've got a gun." } },
     _none = { { id = "tp_none", text = "Unless it's wet, it's not my department." } },
@@ -262,6 +314,11 @@ P:NPC {
   bible = "bibles/tanaris.md", role = "scholar", tier = "quest",
   communities = { "gadgetzan" }, temper = { "cautious" }, values = { "practical", "dutiful" },
   notices = { "craft" },
+
+  impression = {
+    first = "Senior Surveyor Fizzledowser keeps a map full of circles where water used to be, and he expects every simple job to go wrong. In fairness, out here, he may have learned that the hard way.",
+    third = "{name} met Senior Surveyor Fizzledowser, who searches the desert for new water on behalf of the Gadgetzan Water Company.",
+  },
 
   greetings = {
     { id = "g_maps", text = "Careful with the maps. Every one of those circles is a place we used to have water." },
@@ -323,6 +380,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Surveyors see a lot of desert, and a lot of what's hiding in it. Ask, and I'll tell you what I've found." },
+    },
     background = { { id = "tp_ba", text = "I'm a surveyor: I go out with a widget, I come back with a map, and in between I try very hard not to be eaten." } },
     advice = { { id = "tp_ad", text = "If the sand moves and there's no wind, walk the other way, and walk quickly." } },
     _none = { { id = "tp_none", text = "I haven't surveyed that, I'm afraid, or not yet." } },
@@ -334,6 +394,11 @@ P:NPC {
   bible = "bibles/tanaris.md", role = "vendor", tier = "quest",
   communities = { "gadgetzan" }, temper = { "brisk" }, values = { "curious", "practical" },
   notices = { "craft", "pet" },
+
+  impression = {
+    first = "Alchemist Pestlezugg keeps a rat named Rose for an assistant and seems to trust her more than most people. He is brisk, curious and a little too pleased by horrible discoveries.",
+    third = "{name} met Alchemist Pestlezugg, the Gadgetzan alchemist who studies the desert's stranger creatures for the Water Company.",
+  },
 
   greetings = {
     { id = "g_shop", text = "Vials, phials, the good flasks, whatever you're after. Don't mind the rat; that's Rose, and she's my assistant." },
@@ -398,6 +463,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I take things apart for a living, rumors included. Ask, and I'll tell you what's inside them." },
+    },
     background = { { id = "tp_ba", text = "I've been an alchemist as long as I can remember. Rose came later, and she's never told me where from." } },
     advice = { { id = "tp_ad", text = "Label your vials, then hide the labels from your rat." } },
     _none = { { id = "tp_none", text = "If you can't distill it, dissect it or sell it, I'm not your goblin." } },
@@ -409,6 +477,11 @@ P:NPC {
   bible = "bibles/tanaris.md", role = "questgiver", tier = "quest",
   communities = { "gadgetzan" }, temper = { "evasive" }, values = { "cunning", "ambitious" },
   notices = { "purse" },
+
+  impression = {
+    first = "Tran'rek answered every question about his business without actually answering any of them. He buys what the desert offers, sells it elsewhere and keeps his margins very close.",
+    third = "{name} met Tran'rek, an evasive goblin trader of Gadgetzan who deals in whatever the desert yields.",
+  },
 
   greetings = {
     { id = "g_shifty", text = "What do I do? A bit of this and a bit of that, all of it profitable, and you can't have any." },
@@ -458,15 +531,44 @@ P:NPC {
     },
     buyers = {
       lines = { { id = "b_default", text = "Rich people, far away from here, and that's all you're getting, which is more than Krazek would get." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "Who's buying, Tran'rek? Or should Krazek hear what you charge?", tag = "Intimidate", next = "buyers_true",
+          check = { pass = { any = { { power = { "above", "far_above" } }, { class = { "WARRIOR", "ROGUE" } }, { trait = "stern" } } } },
+          fail = { next = "buyers_no", fx = { affinity = -1 } } },
+      },
     },
     invest = {
       lines = { { id = "i_default", text = "Invest, with me? Put that purse away before somebody sees it, including me, and especially me." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    buyers_true = {
+      lines = {
+        { id = "bt_default", text = "All right, all right, leave my cousin out of this! The shells go out on the Booty Bay boat crated as curios, and Krazek sends me the buyers' names, which is the only secret he's ever kept, because I pay him to keep it." },
+        { id = "bt_rogue", when = { class = "ROGUE" },
+          text = "You'd really tell him, wouldn't you? Fine: the shells go out on the Booty Bay boat as curios, Krazek finds me the buyers, and I pay him to keep that one secret, which is a first for him." },
+      },
+      choices = {
+        { text = "That wasn't so hard.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    buyers_no = {
+      lines = {
+        { id = "bn_default", text = "Tell Krazek whatever you like, because he won't believe it unless he's the one selling it. Now, about those shells." },
+        { id = "bn_mage", when = { class = "MAGE" },
+          text = "Threats from a mage, how frightening; I'll be sure to keep away from your sheep. The buyers stay my business." },
+      },
+      choices = {
+        { text = "Fine, keep your secrets.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I know plenty and tell very little, but you're welcome to ask. Asking's free." },
+    },
     background = { { id = "tp_ba", text = "I'm a goblin, a businessman and cousin to a talker, and that last one I didn't choose." } },
     steamwheedle = { { id = "tp_cartel", text = "The Cartel? Lovely people, very fair, every one of them. Is this conversation being written down?" } },
     _none = { { id = "tp_none", text = "Wouldn't know, and wouldn't tell you if I did, no offense." } },
@@ -478,6 +580,11 @@ P:NPC {
   bible = "bibles/tanaris.md", role = "innkeeper", tier = "service",
   communities = { "gadgetzan" }, temper = { "chatty" }, values = { "generous" },
   notices = { "drink", "weary" },
+
+  impression = {
+    first = "Innkeeper Fizzgrimble runs the only inn in Gadgetzan and makes a joke of it before anyone else can. He calls the sand in the stew seasoning, and somehow I believed him.",
+    third = "{name} met Innkeeper Fizzgrimble, the chatty keeper of the Road Warrior inn in Gadgetzan.",
+  },
 
   greetings = {
     { id = "g_inn", text = "Welcome to the Road Warrior! Grab a stool, grab a drink, shake the sand out of your boots." },
@@ -519,6 +626,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Everyone in Gadgetzan drinks at the Road Warrior, since there's nowhere else, so I hear everything! Ask away." },
+    },
     background = { { id = "tp_ba", text = "I opened the Road Warrior with one stool and a barrel, and now I've got four stools. That's growth!" } },
     advice = { { id = "tp_ad", text = "Drink water first, ale second. The other way round, the desert wins." } },
     _none = { { id = "tp_none", text = "Never heard of it, but do you want to hear about the weather? It's hot, and that's the weather." } },
@@ -531,6 +641,11 @@ P:NPC {
   bible = "bibles/tanaris.md", role = "citizen", tier = "quest",
   communities = { "steamwheedle_port" }, temper = { "nervous" }, values = { "practical" },
   notices = { "purse" },
+
+  impression = {
+    first = "Stoley asked who sent me and then guessed before I could answer. He owes money in Booty Bay and seems to spend most of his days hoping nobody notices him.",
+    third = "{name} met Stoley, a nervous trader at Steamwheedle Port with debts in Booty Bay.",
+  },
 
   greetings = {
     { id = "g_dock", text = "Who sent you? No, don't tell me, I know who sent you, because it's always the same fellow." },
@@ -562,6 +677,7 @@ P:NPC {
         { text = "Why not just sail away?", next = "leave" },
         { text = "What's MacKinley like, to owe?", next = "mackinley", when = { heardLine = "mackinley.h_default" } },
         { text = "You should pay your debts.", next = "END", fx = { affinity = -1, align = { order = 1 } } },
+        { text = "Debts in Booty Bay are for fools who get caught.", next = "END", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Good luck.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -591,6 +707,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I keep my head down but my ears up. Ask, quietly, and I'll tell you what I can." },
+    },
     background = { { id = "tp_ba", text = "Sailor, merchant and debtor, and mostly the last one, lately." } },
     advice = { { id = "tp_ad", text = "Never borrow from anyone with a nickname." } },
     _none = { { id = "tp_none", text = "I don't know anything. Knowing things gets a man in trouble." } },
@@ -602,6 +721,11 @@ P:NPC {
   bible = "bibles/tanaris.md", role = "vendor", tier = "quest",
   communities = { "gadgetzan" }, temper = { "sharp" }, values = { "greedy", "proud" },
   notices = { "craft", "purse" },
+
+  impression = {
+    first = "Krinkle Goodsteel will pour a mold for anything if the coin is right, and he says so proudly. He fought the Repairers' Union and won, which tells me a lot about him.",
+    third = "{name} met Krinkle Goodsteel, a sharp-tongued goblin smith in Gadgetzan who makes molds nobody else will.",
+  },
 
   greetings = {
     { id = "g_forge", text = "Welcome to the hottest forge in the hottest town in Kalimdor, friend, and don't touch the anvil, or anything else for that matter." },
@@ -642,6 +766,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I know metal, and I know who's buying it. Ask, but don't waste my time." },
+    },
     scholomance = { { id = "tp_scholomance", text = "Never been. Never going. I make the key; somebody else gets to use it. Best arrangement there is." } },
     steamwheedle = { { id = "tp_cartel", text = "The Cartel keeps the bruisers paid and the trade roads open. I pay my share. I complain about it, but I pay." } },
     _none = { { id = "tp_none", text = "That's not my trade, friend, my trade is metal, so how about buying some?" } },

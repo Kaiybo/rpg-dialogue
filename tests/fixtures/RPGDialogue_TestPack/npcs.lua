@@ -46,6 +46,8 @@ P:NPC {
       },
       choices = {
         { text = "Give them a chance to surrender.", next = "END", fx = { align = { light = 3 }, opinion = { defias = "mercy" } } },
+        { text = "Hang the lot of them.", next = "END", fx = { align = { light = -3 } } },
+        { text = "Are they all guilty?", next = "END", fx = { align = { light = -9 } } },
       },
     },
     cowed = { lines = { { id = "c", text = "Fine. Fine." } }, choices = { { text = "Good.", next = "END" } } },

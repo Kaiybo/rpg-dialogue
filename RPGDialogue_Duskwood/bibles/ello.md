@@ -51,3 +51,6 @@ A repeat-visit line (night line for some) in the voice above.
 Branches: what Darkshire needs (walls, why anyone stays), the Army and his letters, the Night Watch and Solomon's request, the council and Dextren Ward, the Embalmer (after Translation to Ello). Replies for priests (Raven Hill's untended graves, which leads to Sirra and Morgan Ladimore), minor nobles (the House of Nobles), warriors and paladins (the Army isn't coming).
 Lore fixes: h_embalmer now matches Classic (he doesn't know Abercrombie and can't read the note); h_revenge and h_revenge_done are gated on Translation to Ello and Bride of the Embalmer instead of the Cataclysm quest The Embalmer's Revenge.
 Authored, not canon: the count of letters ("eleven this year", the framed two-line reply); "mayors who leave are called something else"; the council not discussing worgen after dark; his question to a noble about luncheon.
+
+## 0.34.0
+- Ello (Persuade, `solomon_whole`): he counted the Watch the night Solomon's letter came and found no number he could spare; his eleventh letter to the Crown was written for Lakeshire, came back with the same two lines, and he never told Solomon.

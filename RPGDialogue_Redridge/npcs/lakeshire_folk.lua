@@ -10,6 +10,11 @@ P:NPC {
   communities = { "lakeshire" }, temper = { "formal" }, values = { "lawful", "dutiful" },
   notices = { "soldier", "stealth" },
 
+  impression = {
+    first = "Bailiff Conacher carries out the Magistrate's rulings and says the work is less glamorous than it sounds. He addressed me as citizen, and somehow it felt like a summons.",
+    third = "{name} was received by Bailiff Conacher of the Court of Lakeshire, who sees the Magistrate's rulings carried out.",
+  },
+
   greetings = {
     { id = "g_court", text = "The Court of Lakeshire is in session whenever the Magistrate is at his desk, which is always, so state your matter." },
     { id = "g_back", when = { metBefore = true }, text = "Citizen, the court recognises you. You may approach." },
@@ -56,6 +61,7 @@ P:NPC {
       },
       choices = {
         { text = "Someone has to keep the law.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Death warrants for orcs who'll never read them are a waste of ink.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Sounds like a lot of paper.", next = "paper" },
         { text = "Who's on your docket?", next = "docket" },
       },
@@ -79,7 +85,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll carry out the sentence.", next = "BUSINESS", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "Death for gnolls who follow orders?", next = "BACK", fx = { align = { light = 1 }, affinity = -1 } },
+        { text = "Gnolls who only follow orders don't deserve death.", next = "BACK", fx = { align = { light = 1 }, affinity = -1 } },
       },
     },
     town = {
@@ -103,7 +109,10 @@ P:NPC {
     },
     oath = {
       lines = { { id = "oa_default", text = "Then you'll appreciate that the law is an oath too, only with more paperwork. Keep yours; I'll keep mine." } },
-      choices = { { text = "Agreed.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } } },
+      choices = {
+        { text = "Agreed.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "I keep my oaths, but I've no patience for your paperwork.", next = "BACK", fx = { align = { order = -1 } } },
+      },
     },
     justice = {
       lines = { { id = "ju_default", text = "Justice was carried out on the Shadowhides, by the record. Whether it was done is for the Light to say, not a bailiff." } },
@@ -129,6 +138,11 @@ P:NPC {
   bible = "bibles/lakeshire_folk.md", role = "soldier", tier = "quest",
   communities = { "lakeshire" }, temper = { "anxious" }, values = { "dutiful" },
   notices = { "kit" },
+
+  impression = {
+    first = "Deputy Feldon counts gnolls at the south end of the bridge, and the count keeps going up. He has a dry sense of humour about it that I suspect keeps him upright.",
+    third = "{name} met Deputy Feldon, who watches the south end of Lakeshire's bridge and keeps a rising count of gnolls.",
+  },
 
   greetings = {
     { id = "g_bridge", text = "Keep to the bridge and keep to the road, because what's south of here bites." },
@@ -240,6 +254,11 @@ P:NPC {
   communities = { "lakeshire" }, temper = { "steady" }, values = { "dutiful", "shy" },
   notices = { "kit", "travel" },
 
+  impression = {
+    first = "Guard Parker walks the road between Lakeshire and the Duskwood line and watches the hills like they owe him money. He wanted to know exactly where I was going.",
+    third = "{name} was stopped on the road by Guard Parker, who patrols between Lakeshire and the Duskwood line.",
+  },
+
   greetings = {
     { id = "g_road", text = "Hold up, where are you headed? The road's watched, but not as well as I'd like." },
     { id = "g_back", when = { metBefore = true }, text = "The road's been quiet. Too quiet, or just quiet; you can never tell out here." },
@@ -347,6 +366,11 @@ P:NPC {
   communities = { "lakeshire" }, temper = { "bright" }, values = { "kind", "romantic" },
   notices = { "hunger", "drink" },
 
+  impression = {
+    first = "Darcy called me love and seated me away from the wobbly table. She hears all the gossip in Lakeshire and swears she passes on only the nice parts.",
+    third = "{name} was served at the Lakeshire inn by Darcy, who hears all the town's gossip and claims to repeat only the kind parts.",
+  },
+
   greetings = {
     { id = "g_inn", text = "Sit anywhere, love, I'll be right round. Anywhere but that table, mind, because it wobbles." },
     { id = "g_back", when = { metBefore = true }, text = "There you are, and I bet it's the same as last time. I remember, love; I always remember." },
@@ -445,6 +469,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I hear everything at the tables, though I only pass on the nice parts, mostly. Ask me about any of this!" },
+    },
     background = { { id = "tp_bg", text = "I carry plates at the inn. Everyone talks to the one carrying the plates." } },
     advice = { { id = "tp_ad", text = "Eat something before you go out there, because nobody fights well hungry, and Parker certainly doesn't." } },
     blackrock = { { id = "tp_blackrock", text = "Every soldier who comes through here talks about them and then orders a second drink. That tells you enough." } },
@@ -457,6 +484,11 @@ P:NPC {
   bible = "bibles/lakeshire_folk.md", role = "farmer", tier = "quest",
   communities = { "lakeshire" }, temper = { "warm" }, values = { "patient", "proud" },
   notices = { "craft", "animal" },
+
+  impression = {
+    first = "Martie Jainrose grows herbs for the healer and flowers for nobody in particular. Her garden by the lake is the gentlest thing I've seen in Redridge.",
+    third = "{name} met Martie Jainrose, who keeps a garden by the lake in Lakeshire and grows herbs for the town's healer.",
+  },
 
   greetings = {
     { id = "g_garden", text = "Step round the beds, dear, they're only just coming up. Lovely weather for it, if it holds." },
@@ -496,6 +528,7 @@ P:NPC {
         { text = "Your garden's struggling. Let me listen to it.", next = "druid", when = { class = "DRUID" } },
         { text = "The daffodils were from Parker. For Darcy.", next = "told", when = { questDone = TODO_QUEST("Delivering Daffodils") },
           fx = { align = { honor = -1 } } },
+        { text = "Somebody asked me to deliver daffodils, and I won't say who.", next = "END", when = { questDone = TODO_QUEST("Delivering Daffodils") }, fx = { align = { honor = 1 } } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -569,6 +602,11 @@ P:NPC {
   bible = "bibles/lakeshire_folk.md", role = "questgiver", tier = "quest",
   communities = { "lakeshire" }, temper = { "harried" }, values = { "generous", "practical" },
   notices = { "craft", "soldier" },
+
+  impression = {
+    first = "Chef Breanna feeds every soldier Stormwind has sent to Lakeshire and makes it plain there aren't nearly enough of them. Her kitchen runs like a barracks, only louder.",
+    third = "{name} met Chef Breanna, who cooks for every soldier stationed in Lakeshire and wishes there were more of them.",
+  },
 
   greetings = {
     { id = "g_pots", text = "If you're here to eat, sit; if you're here to help, wash your hands. If you're here to complain, Gretchen will see you out." },
@@ -655,6 +693,7 @@ P:NPC {
       lines = { { id = "pr_default", text = "Bless it if you like. Then bless the ones eating from it; they need it more than the pot does." } },
       choices = {
         { text = "I'll bless them both.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "A blessing won't fill anyone's stomach.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

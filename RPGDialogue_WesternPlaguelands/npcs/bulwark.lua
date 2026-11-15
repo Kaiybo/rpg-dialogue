@@ -8,6 +8,11 @@ P:NPC {
   communities = { "bulwark" }, temper = { "sharp", "steady" }, values = { "practical", "cunning" },
   notices = { "race", "class" },
 
+  impression = {
+    first = "High Executor Derrington runs the Bulwark like a man who has buried his patience along with everything else. He has no use for Undercity's court games, only for whoever is still standing at dawn.",
+    third = "{name} met High Executor Derrington, the Forsaken commander holding the Bulwark against the Scourge of the Plaguelands.",
+  },
+
   greetings = {
     { id = "g_wall", text = "This is the Bulwark, built of junk and timber and the stubbornness of the dead, so speak quickly." },
     { id = "g_back", when = { metBefore = true }, text = "You came back through the gate, which not everyone manages. Report, then." },
@@ -63,6 +68,7 @@ P:NPC {
       },
       choices = {
         { text = "Clever.", next = "BACK", fx = { affinity = 2, align = { honor = -1 } } },
+        { text = "Waiting for your enemies to kill each other is a coward's game.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
         { text = "There's no honor in it.", next = "honor" },
       },
     },
@@ -141,6 +147,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Everything that comes over this wall crosses my desk first, and I remember all of it. Ask about these, and keep it useful." },
+    },
     background = { { id = "tp_ba", text = "I died, I rose, and the Dark Lady gave me back my mind and a wall to hold. The rest isn't your concern." } },
     advice = { { id = "tp_ad", text = "Burn whatever you kill out there, if you've the time. The Scourge wastes nothing, and neither should you." } },
     andorhal = { { id = "tp_andorhal", text = "That's where the Scourge gathers in the west, under a lich, and if we break it, the west is ours to reclaim for the Dark Lady.", next = "andorhal" }, { id = "tp_andorhal2", text = "It's east of the wall, and it's the one place I'd send my best and expect to lose some." } },
@@ -155,6 +164,11 @@ P:NPC {
   bible = "bibles/westernplaguelands.md", role = "questgiver", tier = "quest",
   communities = { "bulwark" }, temper = { "sharp" }, values = { "practical", "faithless" },
   notices = { "class", "race" },
+
+  impression = {
+    first = "Shadow Priestess Vandis watched my hands while we talked, and I'm fairly sure she was counting my fingers. Whatever faith she had in life, she traded it for something sharper.",
+    third = "{name} met Shadow Priestess Vandis at the Bulwark, who means to turn the plague cauldrons against their makers.",
+  },
 
   greetings = {
     { id = "g_dry", text = "Speak, I'm listening, though I'm also counting your fingers, out of habit." },
@@ -242,6 +256,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I listen more than I pray these days, and I hear plenty. These I'll speak to, if you're asking." },
+    },
     background = { { id = "tp_ba", text = "I prayed to the Light when I was alive, and then I was dead, and now I'm a priestess of something that actually answers. That's all the story there is.", next = "shadow" } },
     advice = { { id = "tp_ad", text = "Don't pray aloud where the dead can hear you out there, for they've learned what the sound means." } },
     plague_cauldrons = { { id = "tp_cauldrons", text = "Kill the cauldron lord, take his key and fill a bottle, which is simple enough, if you don't count the dying." } },
@@ -254,6 +271,11 @@ P:NPC {
   bible = "bibles/westernplaguelands.md", role = "questgiver", tier = "quest",
   communities = { "bulwark", "apothecarium" }, temper = { "jovial" }, values = { "curious", "morbid" },
   notices = { "craft", "race" },
+
+  impression = {
+    first = "Apothecary Dithers is cheerful in a way that only a dead man elbow-deep in plague samples could be. He forecasts the weather with an exposed knee and seems proud of it.",
+    third = "{name} met Apothecary Dithers, the Royal Apothecary Society's cheerful chemist on loan to the Bulwark.",
+  },
 
   greetings = {
     { id = "g_knee", text = "Weather's turning, my knee says so, or at least the bit of it that's still showing does." },
@@ -344,6 +366,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Oh, I know all sorts of things, most of them rather alarming, and my knee knows the rest. Ask me about any of these!" },
+    },
     background = { { id = "tp_ba", text = "I'm an apothecary of the Royal Society, and I was something else before I died, but I find this suits me far better." } },
     advice = { { id = "tp_ad", text = "Label everything you carry out there, or you'll forget which bottle was which, and the ghouls certainly won't remind you." } },
     scholomance = { { id = "tp_scholomance", text = "It's a school of necromancy, and just imagine the library! Actually, don't, since I've imagined it, and I didn't sleep, though of course I don't sleep anyway.", fx = { learn = { "scholomance" } } } },
@@ -357,6 +382,11 @@ P:NPC {
   bible = "bibles/westernplaguelands.md", role = "noble", tier = "quest",
   communities = { "bulwark" }, temper = { "proud", "sharp" }, values = { "greedy", "vengeful" },
   notices = { "race", "kit" },
+
+  impression = {
+    first = "Alexi Barov still wears the family signet and the family manners, which are worse. He spoke of his own brother's death the way other people discuss a late payment.",
+    third = "{name} met Alexi Barov, the Forsaken heir of House Barov, who waits at the Bulwark for his brother's fortune.",
+  },
 
   greetings = {
     { id = "g_bored", text = "Mm? Oh, another one of you, how tiresome. Do try to be interesting." },
@@ -396,6 +426,7 @@ P:NPC {
         { text = "What was your family like?", next = "family" },
         { text = "We were both freed by the Dark Lady.", next = "forsaken", when = { race = "Scourge" } },
         { text = "I'll look for the deeds.", next = "END", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I won't do a Barov's dirty work, living or dead.", next = "END", fx = { affinity = -1, align = { honor = 1 } } },
       },
     },
     spared = {
@@ -413,7 +444,12 @@ P:NPC {
       lines = {
         { id = "ha_default", text = "Hate is for people with time on their hands, and I have eternity, which is quite different. I simply want what's mine, and he happens to be standing on it." },
       },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "You don't sound nearly as bored as you pretend.", tag = "Persuade", next = "hate_truth",
+          check = { pass = { any = { { disposition = { min = 65 } }, { race = "Scourge" }, { trait = "witty" } } } },
+          fail = { next = "hate_bored", fx = { affinity = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     pay = {
       lines = {
@@ -442,9 +478,30 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    hate_truth = {
+      big = true,
+      lines = {
+        { id = "ht_default", text = "Clever thing. Since you insist: what I can't forgive is that he looked at me and saw a monster, and spared me the way one spares a dog, while I was still in here, darling, every bit of me. As for the deeds, he'll swear Father meant them for him, and I'll swear the opposite, and Father isn't taking questions." },
+      },
+      choices = {
+        { text = "So it isn't about the money.", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "Then let the deeds decide it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hate_bored = {
+      lines = {
+        { id = "hb_default", text = "How touching, a peasant who thinks they can read a Barov's face. Mine stopped moving some time ago, so you're reading tea leaves, and badly." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I know a great many things, darling, most of them about my family and none of them flattering. Ask about these, if you must." },
+      { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "You'll get the short list, since you've hardly earned the long one. Choose quickly; I'm already bored." },
+    },
     background = { { id = "tp_ba", text = "I'm a Barov of Caer Darrow, dead and free and owed a fortune. What more could you possibly need to know?", next = "family" } },
     advice = { { id = "tp_ad", text = "Never trust family, darling, and never, ever trust a brother with a conscience." } },
     scholomance = { { id = "tp_scholomance", text = "It was our home, until Father turned it into a school for necromancers, and the tuition was everyone we knew." } },
@@ -457,6 +514,11 @@ P:NPC {
   bible = "bibles/westernplaguelands.md", role = "questgiver", tier = "quest",
   communities = { "bulwark", "argent_dawn" }, temper = { "steady" }, values = { "honorable", "fair" },
   notices = { "race", "class" },
+
+  impression = {
+    first = "Argent Officer Garush spent his life as a weapon aimed by others, and he seems at peace now with the one enemy the Dawn gave him. He speaks plainly and means every word.",
+    third = "{name} met Argent Officer Garush, the orc who serves the Argent Dawn at the Bulwark.",
+  },
 
   greetings = {
     { id = "g_dawn", text = "For the Dawn, friend, so say it with me, and it gets easier each time." },
@@ -526,7 +588,10 @@ P:NPC {
       lines = {
         { id = "st_default", text = "The Dawn's respect, which is worth more than it sounds, for the Dawn keeps count and its quartermasters remember. Mostly you get fewer dead, though, and I'd hope that's enough." },
       },
-      choices = { { text = "It's enough.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } } },
+      choices = {
+        { text = "It's enough.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Respect won't feed me, so I'll want something more solid.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
     },
     pureheart = {
       lines = {
@@ -546,12 +611,16 @@ P:NPC {
       },
       choices = {
         { text = "Lok'tar, then.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Orgrimmar's right, and the Forsaken can bury their own dead.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've walked these fields long enough to learn a few things worth telling. Ask about any of these, friend." },
+    },
     background = { { id = "tp_ba", text = "I'm an orc who fought the Horde's wars, sat in the camps, and came out wanting a better fight. I found one here.", next = "why" } },
     advice = { { id = "tp_ad", text = "Keep moving out there. The dead are slow, but they never stop, and they never tire of following." } },
     argent_dawn = { { id = "tp_dawn", text = "There are no kings and no warchiefs in the Dawn, only the dead and the people who won't let them win." } },

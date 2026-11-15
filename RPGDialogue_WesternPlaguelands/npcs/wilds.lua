@@ -8,6 +8,11 @@ P:NPC {
   communities = { "felstone_field" }, temper = { "cowardly" }, values = { "loving" },
   notices = { "stealth" },
 
+  impression = {
+    first = "Janice Felstone keeps asking after John and packing for a journey she will never take. She doesn't seem to know what she is, and I hadn't the heart to tell her.",
+    third = "{name} met Janice Felstone, a lost and fretful spirit still waiting for her husband at Felstone Field.",
+  },
+
   greetings = {
     { id = "g_john", text = "John, is that you? Oh, no, you're someone else, aren't you, but have you seen him anywhere?" },
     { id = "g_cold", text = "It's so cold in the house, and I'm sure I lit the fire, didn't I, so why is it still so cold?" },
@@ -42,6 +47,7 @@ P:NPC {
         { text = "Why is it so cold here?", next = "cold" },
         { text = "I met your sister Emma, in Stormwind.", next = "emma", when = { questDone = TODO_QUEST("Good Natured Emma") } },
         { text = "Rest now.", next = "END", when = { questDone = TODO_QUEST("Two Halves Become One") }, fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Spare me the thanks, because I've ghouls enough to deal with.", next = "END", when = { questDone = TODO_QUEST("Two Halves Become One") }, fx = { align = { light = -1 } } },
       },
     },
     john = {
@@ -61,6 +67,7 @@ P:NPC {
       choices = {
         { text = "I'll tell him.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "(Let her hope a little longer.)", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "John's gone, Janice, and that thing in the fields isn't him.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
       },
     },
     package = {
@@ -94,7 +101,10 @@ P:NPC {
       lines = {
         { id = "em_default", text = "You saw Emma, my Emma, and she had my parcel in her hands? Then she knows I didn't forget her, and that's one thing done right, at least." },
       },
-      choices = { { text = "She knows.", next = "BACK", fx = { affinity = 3, align = { light = 1 } } } },
+      choices = {
+        { text = "She knows.", next = "BACK", fx = { affinity = 3, align = { light = 1 } } },
+        { text = "She knows you're gone, Janice, and it's time to let go.", next = "BACK", fx = { align = { honor = 1 } } },
+      },
     },
   },
 
@@ -110,6 +120,11 @@ P:NPC {
   bible = "bibles/westernplaguelands.md", role = "questgiver", tier = "quest",
   communities = { "writhing_haunt", "cenarion_circle" }, temper = { "steady" }, values = { "compassionate", "proud" },
   notices = { "race", "class" },
+
+  impression = {
+    first = "Mulgris Deepriver is dying in that house at the Writhing Haunt, and he knows it. Even so, he spent his breath asking mercy for the sick beasts outside rather than for himself.",
+    third = "{name} met Mulgris Deepriver, a dying tauren druid of the Cenarion Circle at the Writhing Haunt.",
+  },
 
   greetings = {
     { id = "g_dying", text = "Come closer, little one, for my voice doesn't carry the way it did, and neither do my legs." },
@@ -146,6 +161,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll ease their suffering.", next = "END", fx = { affinity = 2, trait = { kind = 1 }, align = { light = 1 } } },
+        { text = "Sick wolves are no concern of mine.", next = "END", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Can nothing be done for you?", next = "cure", when = { ["not"] = { questActive = TODO_QUEST("Glyphed Oaken Branch") } } },
         { text = "Why did you come so far from home?", next = "came", when = { ["not"] = { any = { { questActive = TODO_QUEST("Glyphed Oaken Branch") }, { questDone = TODO_QUEST("Glyphed Oaken Branch") } } } } },
         { text = "Tell me about the wolves.", next = "wolves", when = { ["not"] = { any = { { questActive = TODO_QUEST("Glyphed Oaken Branch") }, { questDone = TODO_QUEST("Glyphed Oaken Branch") } } } } },
@@ -195,6 +211,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll give it for you.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "They're dangerous, and that's reason enough to kill them.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -213,6 +230,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I haven't the breath for much, little one, so I'll keep to what I know. Ask about these." },
+    },
     background = { { id = "tp_ba", text = "I'm a druid of the Cenarion Circle, from Mulgore, and soon I'll be part of the land I came to heal.", next = "came" } },
     advice = { { id = "tp_ad", text = "Don't let the plague touch your skin, little one. I let it, and you can see where that has brought me." } },
     cenarion_circle = { { id = "tp_circle", text = "Arch Druid Hamuul will hear that I fell here, so tell him I wasn't alone at the end, and you'll be telling him the truth." } },
@@ -226,6 +246,11 @@ P:NPC {
   bible = "bibles/westernplaguelands.md", role = "questgiver", tier = "quest",
   communities = { "sorrow_hill" }, temper = { "gentle" }, values = { "loving" },
   notices = { "class" },
+
+  impression = {
+    first = "Marlene Redpath waits on Sorrow Hill for word of her niece, Pamela, and hope is about all she has left. She asked so gently that it would be hard to refuse her anything.",
+    third = "{name} met Marlene Redpath on Sorrow Hill, who longs to learn what became of her niece Pamela after Darrowshire fell.",
+  },
 
   greetings = {
     { id = "g_pamela", text = "Have you come from the east, from Darrowshire? Please, have you seen a little girl on the road?" },
@@ -303,6 +328,7 @@ P:NPC {
       },
       choices = {
         { text = "(Pray with her.)", next = "BACK", fx = { affinity = 3, align = { light = 1 } } },
+        { text = "I'll look for Pamela, but I'm done with prayers.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -320,6 +346,11 @@ P:NPC {
   bible = "bibles/westernplaguelands.md", role = "questgiver", tier = "quest",
   communities = { "northridge_hills" }, temper = { "sharp" }, values = { "loyal", "secretive" },
   notices = { "class", "race" },
+
+  impression = {
+    first = "Kirsta Deepshadow was bleeding quietly when I found her and still managed to be funny about it. She is a scout who has seen the Crusade up close and liked none of it.",
+    third = "{name} met Kirsta Deepshadow, a wounded Stormwind scout watching Hearthglen from the Northridge hills.",
+  },
 
   greetings = {
     { id = "g_hurt", text = "Ow, sorry, hello there. Don't mind me, I'm just bleeding quietly over here." },
@@ -397,13 +428,19 @@ P:NPC {
       choices = {
         { text = "Fair enough.", next = "BACK", fx = { affinity = 1 } },
         { text = "You don't trust me yet.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "Tell me the rest now. You know I'll keep it quiet.", tag = "Persuade", next = "job_rest",
+          check = { pass = { any = { { disposition = { min = 65 } }, { class = "ROGUE" }, { trait = "discreet" } } } },
+          fail = { next = "job_later", fx = { affinity = -1 } } },
       },
     },
     heal = {
       lines = {
         { id = "he_default", text = "Would you? Oh, that's better already, thank you, and I won't forget it. You'd make a terrible scout, mind, being far too kind to people who sneak about in bushes." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 3, trait = { kind = 1 }, align = { light = 1 } } } },
+      choices = {
+        { text = "It was nothing, Kirsta, and anyone would have done it.", next = "BACK", fx = { affinity = 3, trait = { kind = 1 }, align = { light = 1 } } },
+        { text = "Remember it the next time I need a favour.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
     elling = {
       lines = {
@@ -417,9 +454,29 @@ P:NPC {
       },
       choices = { { text = "Fair.", next = "BACK", fx = { affinity = 1, trait = { discreet = 1 } } } },
     },
+    job_rest = {
+      lines = {
+        { id = "jr_default", text = "Oh, fine, since you've got an honest face and I've got a hole in my leg. The town's run from Mardenholde Keep, and what somebody in Stormwind really wants to know is what the Crusade is keeping behind those walls, because nobody guards a farming town that hard for the sake of the turnips." },
+      },
+      choices = {
+        { text = "Your secret's safe with me.", next = "BACK", fx = { affinity = 2, trait = { discreet = 1 } } },
+        { text = "Somebody in Stormwind, or somebody who sells cheese?", next = "cheese" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    job_later = {
+      lines = {
+        { id = "jl_default", text = "Nice try, but I've lost blood, not my wits. Clear that camp first, and then I'll know you're the sort who finishes what they start." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I'm not supposed to know anything at all, officially, so keep that in mind. Unofficially, ask me about any of these." },
+      { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "You patched me up and kept your mouth shut, so you get the good list. Ask away, quietly." },
+    },
     background = { { id = "tp_ba", text = "I'm a scout for Stormwind, and that's all I'm allowed to say, so that's all I'm saying." } },
     advice = { { id = "tp_ad", text = "Never count guards from the same bush twice. Somebody always notices the second time, and usually with a crossbow." } },
     scarlet_crusade = { { id = "tp_scarlet", text = "They're tougher than I gave them credit for, and crueler, too, and Hearthglen is full of them." } },
@@ -432,6 +489,11 @@ P:NPC {
   bible = "bibles/westernplaguelands.md", role = "questgiver", tier = "quest",
   communities = { "caer_darrow" }, temper = { "gentle" }, values = { "dutiful", "loving" },
   notices = { "race", "class" },
+
+  impression = {
+    first = "Eva Sarkhoff apologized for the state of the grounds as though she still kept house at Caer Darrow. She and Lucien want only to stop being there, and she asked it with perfect courtesy.",
+    third = "{name} met Eva Sarkhoff, the ghostly former head maid of House Barov, lingering at Caer Darrow with her husband Lucien.",
+  },
 
   greetings = {
     { id = "g_formal", text = "Good day to you, and do forgive the state of the grounds, for we are no longer able to keep them." },
@@ -473,6 +535,7 @@ P:NPC {
         { text = "Let me pray for you both.", next = "pray", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "I'm not one of them, Eva.", next = "forsaken", when = { race = "Scourge" } },
         { text = "I'll help you rest.", next = "END", fx = { affinity = 2, trait = { kind = 1 }, align = { light = 1 } } },
+        { text = "I'm here for the Scholomance, not for ghosts.", next = "END", fx = { affinity = -1, align = { light = -1 } } },
       },
     },
     story = {
@@ -482,6 +545,7 @@ P:NPC {
       },
       choices = {
         { text = "He'll answer for it.", next = "BACK", fx = { affinity = 3, align = { light = 1 } } },
+        { text = "Then he'll die badly, and I'll make sure of it.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "(Take her hand, if you can.)", next = "BACK", fx = { affinity = 3, trait = { kind = 1 } } },
         { text = "And Lucien?", next = "lucien" },
       },
@@ -505,7 +569,12 @@ P:NPC {
       lines = {
         { id = "ja_default", text = "Jandice is still in the keep, among them, and Alexi and Weldon went their separate ways, one dead and one fled. I served that family all my life, and I'd rather not say what I think of how its children turned out." },
       },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "You can tell me, Eva. They can't punish you now.", tag = "Persuade", next = "jandice_truth",
+          check = { pass = { any = { { disposition = { min = 65 } }, { class = { "PRIEST", "PALADIN" } }, { trait = "kind" } } } },
+          fail = { next = "jandice_proper", fx = { affinity = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     task = {
       lines = {
@@ -513,6 +582,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll see it done.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I'll kill the Butcher, but your bones can stay where they are.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -520,7 +590,10 @@ P:NPC {
       lines = {
         { id = "pr_default", text = "You're very kind, and I'd be grateful, though I don't know if the Light still hears people like us. Pray for Lucien first, if you would; he was always the better of the two of us." },
       },
-      choices = { { text = "(Pray for them both.)", next = "BACK", fx = { affinity = 3, align = { light = 1 } } } },
+      choices = {
+        { text = "(Pray for them both.)", next = "BACK", fx = { affinity = 3, align = { light = 1 } } },
+        { text = "I'm not sure the Light hears either of you anymore.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+      },
     },
     forsaken = {
       lines = {
@@ -528,9 +601,28 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
     },
+    jandice_truth = {
+      lines = {
+        { id = "jt_default", text = "No, I suppose they can't, {g:sir|madam}, and still I lower my voice. Each of the boys would tell you the fortune was promised to him, and I heard Lord Barov promise a great many things to each of them in turn, so I couldn't tell you which, and I don't believe either of them deserves a penny of it." },
+      },
+      choices = {
+        { text = "Thank you for telling me.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Then perhaps neither should have it.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jandice_proper = {
+      lines = {
+        { id = "jp_default", text = "Forgive me, {g:sir|madam}, but a good servant doesn't speak ill of the family, not even now. Lucien would never let me hear the end of it." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "We heard more inside those walls than the family ever imagined, {g:sir|madam}. I can speak to these, as well as I'm able." },
+    },
     background = { { id = "tp_ba", text = "I was head maid of House Barov for many years, {g:sir|madam}, and I'm afraid I still am, in a manner of speaking.", next = "story" } },
     advice = { { id = "tp_ad", text = "If you go into the keep, keep to the walls and mind the stairs. The servants' ways are the quietest, as Lucien and I learned." } },
     scholomance = { { id = "tp_scholomance", text = "It was a house, and a fine one, until the Barovs gave it away for a promise, and everyone in it paid." } },

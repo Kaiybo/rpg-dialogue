@@ -46,3 +46,6 @@ A repeat-visit line (and a night line for some), in the voice above: small daily
 Hub branches: the pot (buzzard, the stew's ingredients, Verna's recipe), how she keeps going (feeding a Defias boy), help on the farm (the pie), the Furlbrows (she'll miss Verna).
 Replies only some characters get: priest (a grace over the pot; she prays at the stove), cooks (her tricks).
 Authored, not canon: she adds salt to Verna's recipe; she fed a hungry Defias boy who then left her hens alone; her husband's back; the boars past the Molsen farm.
+
+## 0.34.0
+- Salma (Persuade, `fed_boy`): the Defias boy she fed warned her to keep the lamp dark and the door barred on nights the gnolls come up from the river, because the masks ride behind them; she tells her husband it's to save oil.

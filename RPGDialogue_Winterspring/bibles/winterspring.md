@@ -32,3 +32,8 @@
 
 ## Depth pass, second round (0.25.0, authored, not canon)
 One or two repeat-visit or night lines each for the thinnest NPCs here: small habits and running jokes (a salvaged kettle, a beetle truce, a parrot paying rent, glowing ink). Places they mention are already sourced in this bible or LORE_NOTES.
+
+## 0.34.0
+Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon, unless marked).
+- Donova (Persuade, `who_guess`): her guess, only a guess, is that the goo smells like Felwood's water, so she'd look south first (no culprit named).
+- Gregor (Persuade, `scarlet_inside`): some Dawn soldiers would rather not welcome the Forsaken and a few flinch at orcs, and he writes that into his reports too (authored, matching his Forsaken line).
