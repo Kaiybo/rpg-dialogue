@@ -44,7 +44,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Another question? I've a hall full o' answers." },
-        { id = "h_again2", text = "Where were we? Ah, aye, the exhibits." },
+        { id = "h_again2", text = "Where were we? Ah, aye, we were on the exhibits." },
       },
       choices = {
         { text = "I'd love a tour.", next = "tour" },
@@ -167,7 +167,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "Mae Paledust, Librarian. If it's in a book, I can likely find it, an' if it's no' in a book yet, I'd like ye tae tell me about it so it can be." },
+        { id = "h_default", text = "Mae Paledust, Librarian. If it's written down anywhere, I can likely find it, an' if it's no' in a book yet, I'd like ye tae tell me about it so it can be." },
         { id = "h_myth", tags = { "news" }, when = { questActive = TODO_QUEST("Mythology of the Titans") },
           text = "The book's in the library o' the old Monastery in Tirisfal, if it survived the Scarlet Crusade's housekeepin'. Bring it home tae Ironforge, where it'll be read instead o' burned." },
         { id = "h_myth_done", when = { questDone = TODO_QUEST("Mythology of the Titans") },
@@ -376,7 +376,7 @@ P:NPC {
   topics = {
     knows = { { id = "tp_knows", text = "I've books on most things an' opinions on the rest. Be quick; here's what I know." } },
     background = { { id = "tp_bg", text = "I'm a historian o' the Explorers' League. My work's Uldaman, an' my partner in it was Hammertoe Grez, an' that's all I'll say about myself." } },
-    advice = { { id = "tp_ad", text = "If it's in a book, read it before ye ask me. If it isnae, then ask me." } },
+    advice = { { id = "tp_ad", text = "If it's written in a book, read the book before ye ask me, an' if it isnae, then ask me." } },
     uldaman = { { id = "tp_uldaman", text = "The old titan vaults in the Badlands, where Hammertoe an' I spent our best years.", next = "work" } },
     dark_iron = { { id = "tp_dark_iron", text = "The Shadowforge clan is diggin' in Uldaman, an' they answer tae somethin' worse than themselves.", next = "shadowforge" } },
     _none = { { id = "tp_none", text = "I've nae book on that, an' nae time tae write one." } },
@@ -524,7 +524,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_stone", text = "Good day! Mind the chisels; they're sharper than they look, an' they look very sharp." },
+    { id = "g_stone", text = "Good day tae ye! Mind the chisels, for they're sharper than they seem, an' they seem very sharp." },
     { id = "g_back", when = { metBefore = true }, text = "{name}, {name}, {name}! Have ye brought me stone?" },
   },
 
@@ -806,7 +806,7 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "The Hidden Circle hears everythin', an' I hear wut the Circle hears. Here's the part I'll sell ye for free." } },
-    background = { { id = "tp_bg", text = "Background? Ha! Nice try, scallywag. A rogue's past is his own business, an' mine's very well hidden." } },
+    background = { { id = "tp_bg", text = "Background? Ha, that's a nice try, scallywag! A rogue's past is his own business, an' mine's very well hidden." } },
     advice = { { id = "tp_ad", text = "Never tell the whole story. Tell the funny part, an' keep the rest." } },
     _none = { { id = "tp_none", text = "Never heard of it, an' if I had, I'd say I hadnae." } },
   },

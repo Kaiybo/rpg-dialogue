@@ -157,7 +157,7 @@ P:NPC {
 
   greetings = {
     { id = "g_data", text = "Are you here for the data mission? Please be here for the data mission." },
-    { id = "g_back", when = { metBefore = true }, text = "Any punch cards? Any at all? Even a white one would cheer me up." },
+    { id = "g_back", when = { metBefore = true }, text = "Have you any punch cards at all? Even a white one would cheer me up." },
   },
 
   notice = {
@@ -265,7 +265,7 @@ P:NPC {
   topics = {
     knows = { { id = "tp_knows", text = "I've catalogued what's lost, which means I know a great deal about what we haven't got. Here's what I can tell you." } },
     background = { { id = "tp_bg", text = "Master Mechanic, formerly of a very large workshop in Gnomeregan and now of this very small one. I keep lists, mostly." } },
-    advice = { { id = "tp_ad", text = "Keep a copy. Of everything. Somewhere else.", next = "data" } },
+    advice = { { id = "tp_ad", text = "Keep a copy of everything, and keep it somewhere else.", next = "data" } },
     gnomeregan = { { id = "tp_gnomeregan", text = "Our city, and our archives, and I want them both back, in that order or the other.", next = "down" } },
     _none = { { id = "tp_none", text = "No data on that, I'm afraid. Possibly it's on a punch card somewhere in Gnomeregan." } },
   },
@@ -290,7 +290,7 @@ P:NPC {
 
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
-      text = "Oh, your armor! Oh, the poor thing! Who did that to it, and was it a new technique? Tell me it was a new technique." },
+      text = "Oh, your poor armor, the poor thing! Who did that to it, and was it a new technique? Tell me it was a new technique." },
     { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
       text = "A smith! What are you working on, what temperature, what quench? Sorry, sorry, I get excited about quenching." },
   },
@@ -397,7 +397,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "Smith, gnome, seeker of harder metals. That's the whole of me, and I like it that way." } },
     advice = { { id = "tp_ad", text = "Never trust a metal you haven't broken at least once. It hasn't told you its secrets yet." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "We left everything behind, including every essential artificial in the city.", next = "artificial" } },
-    _none = { { id = "tp_none", text = "Is it a metal? No? Then I'm afraid I've no idea." } },
+    _none = { { id = "tp_none", text = "Is it a metal? If it isn't, then I'm afraid I've no idea." } },
   },
 }
 
@@ -415,7 +415,7 @@ P:NPC {
 
   greetings = {
     { id = "g_home", text = "Where troggs and leper gnomes roam stands our home, Gnomeregan! We must make our stand, friend!" },
-    { id = "g_back", when = { metBefore = true }, text = "Back for orders? Good! The movement needs everyone!" },
+    { id = "g_back", when = { metBefore = true }, text = "Back for orders? Good, because the movement needs everyone!" },
   },
 
   notice = {
@@ -438,11 +438,11 @@ P:NPC {
         { id = "h_shoni", tags = { "news" }, when = { questActive = TODO_QUEST("Speak with Shoni") },
           text = "Shoni the Shilent commands our underground assault crew, down in Stormwind among the dwarves. She needs help with her gyrodrillmatic excavationators, and nobody can say that word but her." },
         { id = "h_bingles_done", when = { questDone = TODO_QUEST("Find Bingles") },
-          text = "Bingles is alive! Unexploded, even. He says I don't trust his reconnaissance abilities, and he's right, but I'm glad all the same." },
+          text = "Bingles is alive, and unexploded, even! He says I don't trust his reconnaissance abilities, and he's right, but I'm glad all the same." },
       },
       again = {
         { id = "h_again", text = "What else, recruit? The troggs aren't resting, and neither am I." },
-        { id = "h_again2", text = "Ask! Ask! Then go!" },
+        { id = "h_again2", text = "Ask your questions, recruit, and then go!" },
       },
       choices = {
         { text = "What happened to your hair?", next = "hair" },
@@ -512,7 +512,7 @@ P:NPC {
     save = {
       big = true,
       lines = {
-        { id = "sa_default", text = "Do I think? I know! I don't know when, or how, or which of us will be left to do it, but we'll walk back through those gates, and I'll stand in my old workshop and shake my fist at the ceiling." },
+        { id = "sa_default", text = "Do I think so? I know it! I don't know when, or how, or which of us will be left to do it, but we'll walk back through those gates, and I'll stand in my old workshop and shake my fist at the ceiling." },
       },
       choices = {
         { text = "I'll walk in beside you.", next = "BACK", fx = { align = { order = 1 }, affinity = 2, trait = { brave = 1 } } },

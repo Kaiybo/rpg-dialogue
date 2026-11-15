@@ -47,7 +47,7 @@ P:NPC {
           text = "Sully's gone. He died at the Thandol Span when the Dark Irons came, an' ye were the one who found him, so ye've as much right tae his name as anyone." },
       },
       again = {
-        { id = "h_again", text = "Is there somethin' else? I've nowhere tae be." },
+        { id = "h_again", text = "Is there somethin' else? I've nowhere I need tae be today." },
         { id = "h_again2", text = "Go on. It's good tae talk." },
       },
       choices = {
@@ -204,7 +204,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Quick, now; my students are standin' about." },
-        { id = "h_again2", text = "Spit it out. Warriors don't dither." },
+        { id = "h_again2", text = "Spit it out, for warriors don't dither." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
@@ -363,7 +363,7 @@ P:NPC {
 
   notice = {
     { id = "n_pet", cat = "pet", when = { class = "HUNTER", pet = { named = true } },
-      text = "{pet}, is it? A good name. The beast'll answer tae it as long as ye feed it, an' longer, if ye're kind." },
+      text = "{pet}, is it? That's a good name, an' the beast'll answer tae it as long as ye feed it, an' longer, if ye're kind." },
     { id = "n_priest", cat = "pet", when = { class = "PRIEST" },
       text = "A priest in the Hall o' Arms. Ye'd make a fair hunter, I think; ye already know how tae keep somethin' alive that'd rather bite ye." },
   },

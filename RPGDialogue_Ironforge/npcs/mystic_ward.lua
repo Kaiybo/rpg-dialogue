@@ -64,7 +64,7 @@ P:NPC {
       choices = {
         { text = "Why do you never stand still?", next = "pacing" },
         { text = "How did the Light come to Ironforge?", next = "came" },
-        { text = "I hear you keep an exorcism censer.", next = "censer" },
+        { text = "They say you keep an exorcism censer.", next = "censer" },
         { text = "What work is there for a priest?", next = "work" },
         { text = "Teach me something, High Priest.", next = "lesson", when = { class = "PRIEST" } },
         { text = "Does the Light listen to gnomes?", next = "gnome", when = { race = "Gnome" } },
@@ -444,7 +444,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Is there anythin' else I can do for ye?" },
-        { id = "h_again2", text = "Take yer time. Nobody's hurryin' ye here." },
+        { id = "h_again2", text = "Take yer time, for nobody's hurryin' ye here." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "PRIEST" } },
@@ -988,7 +988,7 @@ P:NPC {
 
   greetings = {
     { id = "g_doubt", text = "Hm. I doubt you possess the mental acuity to grasp portal magic, but go on, say what you came to say." },
-    { id = "g_mage", when = { class = "MAGE", minLevel = 40 }, text = "Ah, a mage of some standing. Portals, I presume? Try to keep up." },
+    { id = "g_mage", when = { class = "MAGE", minLevel = 40 }, text = "Ah, a mage of some standing, here for portals, I presume. Do try to keep up." },
   },
 
   notice = {
