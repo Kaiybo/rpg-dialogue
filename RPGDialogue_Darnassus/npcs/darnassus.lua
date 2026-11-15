@@ -103,6 +103,7 @@ P:NPC {
       lines = { { id = "d_default", text = "If you find a way, bring it to me before you bring it to anyone else, whoever they may be. I trust very few with Malfurion's life." } },
       choices = {
         { text = "I'll keep my eyes open.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I'll bring it to whoever can use it best, High Priestess.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
         { text = "Why trust a stranger with that?", next = "done_trust" },
       },
     },
@@ -118,6 +119,7 @@ P:NPC {
         { text = "The Archdruid?", next = "fandral" },
         { text = "Immortality, at any price?", next = "immortal" },
         { text = "I'll help where I can.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Kaldorei troubles are for the kaldorei to settle.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
     fandral = {
@@ -138,7 +140,7 @@ P:NPC {
       big = true,
       lines = { { id = "mi_default", text = "Pride, and magic hoarded by the few, and leaders so certain they knew best that no one could tell them otherwise. We drowned half a continent learning that lesson once." } },
       choices = {
-        { text = "Fandral would call you too cautious.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "Fandral would call you too cautious.", next = "BACK", fx = { align = { light = -1 }, trait = { skeptical = 1 } } },
         { text = "Then I'll watch for pride. Mine too.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { cautious = 1 } } },
       },
     },
@@ -153,7 +155,7 @@ P:NPC {
       lines = { { id = "i2_default", text = "No, I blame no one for being afraid. I will blame them for what they choose to do about it." } },
       choices = {
         { text = "That's fair.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Fear makes fools of everyone.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Fear makes fools of everyone.", next = "BACK", fx = { align = { order = -1 }, trait = { kind = 1 } } },
       },
     },
     ashenvale = {
@@ -179,7 +181,9 @@ P:NPC {
       lines = { { id = "e_default", text = "She asks us to protect. Every prayer, every arrow and every healing comes back to that, and it has been enough to fill ten thousand years." } },
       choices = {
         { text = "Her priestesses lead the Sentinels too?", next = "sentinels" },
-        { text = "Something else.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then I'll protect whoever needs it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Protecting alone won't win a war, High Priestess.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     sentinels = {
@@ -201,6 +205,7 @@ P:NPC {
       lines = { { id = "hy2_default", text = "Now Lady Proudmoore keeps Theramore, and your people walk my city. I watch them as I watch everyone. A few have earned more than watching." } },
       choices = {
         { text = "I mean to be one of them.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "I'm not here to earn anyone's trust, High Priestess.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -217,6 +222,7 @@ P:NPC {
       lines = { { id = "ls_default", text = "Perhaps. I've heard humans say so, and I've heard my sisters say otherwise. Neither had seen what they were so sure of. I will wait to be shown." } },
       choices = {
         { text = "Fair. I'll keep my faith and my eyes open.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Faith with no proof behind it is only stubbornness.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "I've felt it. That's enough for me.", next = "BACK", fx = { trait = { pious = 1 } } },
       },
     },
@@ -226,7 +232,10 @@ P:NPC {
     },
     sister = {
       lines = { { id = "si_default", text = "Protect first and heal second, and pray when both are done. The Sentinels in Ashenvale are stretched thin, so go where they bleed." } },
-      choices = { { text = "I will, High Priestess.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, standing = { darnassus = 1 } } } },
+      choices = {
+        { text = "I will, High Priestess.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, standing = { darnassus = 1 } } },
+        { text = "Ashenvale can find other healers, because I'm needed here.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
     druid = {
       lines = { { id = "dr_default", text = "Heed him on druids' matters. That is his charge, and he knows it well. When he speaks of the future of all our people, listen politely, then come and tell me." } },
@@ -380,7 +389,7 @@ P:NPC {
       big = true,
       lines = { { id = "v_default", text = "A people who can die must grow strong while they live. More druids, more groves, more of Kalimdor under kaldorei care instead of orc axes." } },
       choices = {
-        { text = "That sounds like a war.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "That sounds like a war.", next = "BACK", fx = { align = { order = -1 }, trait = { cautious = 1 } } },
         { text = "Kalimdor could use it.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
       },
     },
@@ -599,6 +608,7 @@ P:NPC {
       },
       choices = {
         { text = "That's beautiful.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Gentle light won't stop an orc's axe, Priestess.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Is she only gentle, then?", next = "elune_war" },
       },
     },
@@ -615,6 +625,7 @@ P:NPC {
       },
       choices = {
         { text = "Name one for me tonight.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Names won't bring anyone home, so pray for the living.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Who do you name?", next = "pray_who" },
       },
     },
@@ -649,7 +660,10 @@ P:NPC {
     },
     light_pray = {
       lines = { { id = "lp_default", text = "Quietly, by water, at night. We don't ask her for things so much as tell her where it's dark. Try it by the pool. She won't mind the accent." } },
-      choices = { { text = "I will. Thank you.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } } },
+      choices = {
+        { text = "I will. Thank you.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll keep to my own prayers, thank you.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+      },
     },
   },
 
@@ -762,6 +776,7 @@ P:NPC {
       lines = { { id = "pg_default", text = "Prayer and study aren't rivals. I pray for the patience to look closely, and then I look." } },
       choices = {
         { text = "That's a good prayer.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'd rather trust what I can see than pray for it.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

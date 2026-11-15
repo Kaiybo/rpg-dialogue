@@ -60,6 +60,7 @@ P:NPC {
       lines = { { id = "l_default", text = "Not a weapon, whatever the paladins say over supper. More like a lamp you keep lit for whoever comes after you." } },
       choices = {
         { text = "I'll keep it lit.", next = "BACK", fx = { affinity = 1, align = { light = 2 } } },
+        { text = "A lamp won't save anyone, so I'll need more than that.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Some days it's a weapon.", next = "light_weapon", fx = { trait = { stern = 1 } } },
       },
     },
@@ -83,6 +84,7 @@ P:NPC {
       lines = { { id = "lo_default", text = "I sit with them. That's all there is to do, at the end. You'll do it too, one day. Don't let anyone tell you it isn't healing." } },
       choices = {
         { text = "I'll remember.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Sitting with the dying isn't healing, it's giving up.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "That sounds unbearable.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -150,7 +152,7 @@ P:NPC {
       big = true,
       lines = { { id = "p_default", text = "Because it's there, because someone else will take it if we don't, and because it's beautiful. Pick whichever reason lets you sleep." } },
       choices = {
-        { text = "Because it's beautiful.", next = "power_rules", fx = { affinity = 1, trait = { curious = 1 } } },
+        { text = "Because it's beautiful.", next = "power_rules", fx = { align = { order = -1 }, affinity = 1, trait = { curious = 1 } } },
         { text = "Because someone has to keep it from the wrong hands.", next = "power_rules", fx = { affinity = 1, align = { order = 1 } } },
       },
     },
@@ -168,7 +170,7 @@ P:NPC {
         { id = "pw_default", text = "The third. The others warn you, but that one flatters you; you'll never once feel addicted, only talented." },
       },
       choices = {
-        { text = "I'll watch for it.", next = "BACK", fx = { trait = { cautious = 1 }, affinity = 1 } },
+        { text = "I'll watch for it.", next = "BACK", fx = { align = { order = 1 }, trait = { cautious = 1 }, affinity = 1 } },
         { text = "I'll take the risk.", next = "BACK", fx = { trait = { brave = 1 }, align = { order = -1 } } },
       },
     },
@@ -200,7 +202,7 @@ P:NPC {
       },
       choices = {
         { text = "The Light isn't a set of rules.", next = "BACK", fx = { align = { light = 1 }, trait = { pious = 1 } } },
-        { text = "I'd like to read those rules.", next = "BACK", fx = { trait = { curious = 1 }, affinity = 1 } },
+        { text = "I'd like to read those rules.", next = "BACK", fx = { align = { order = 1 }, trait = { curious = 1 }, affinity = 1 } },
       },
     },
     after = {
@@ -269,6 +271,7 @@ P:NPC {
       lines = { { id = "a_default", text = "Ourselves, mostly, and the crown, through people in Old Town you'll meet when you're ready, and not before." } },
       choices = {
         { text = "I'll be ready.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I answer to myself, not to the crown.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "And if I'd rather answer to nobody?", next = "answer_nobody" },
       },
     },
@@ -283,6 +286,7 @@ P:NPC {
       choices = {
         { text = "Who's hiring?", next = "trade_who" },
         { text = "That's a grim way to make a living.", next = "BACK", fx = { align = { light = 1 }, affinity = -1 } },
+        { text = "Sounds like good work, if you can get it.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
     trade_who = {
@@ -387,7 +391,7 @@ P:NPC {
       },
       choices = {
         { text = "So you want me to steal it back.", next = "tome_steal" },
-        { text = "Shouldn't it go back to the Brothers?", next = "tome_brothers", fx = { align = { order = 1 } } },
+        { text = "Shouldn't it go back to the Brothers?", next = "tome_brothers" },
       },
     },
     tome_steal = {
@@ -417,7 +421,10 @@ P:NPC {
     },
     priest_turn = {
       lines = { { id = "pt_default", text = "Turn back to what, kneeling in a hall that won't let me near its shelves? Go and pray for me if it helps you, but it won't help me." } },
-      choices = { { text = "I'll pray anyway.", next = "BACK", fx = { align = { light = 1 }, affinity = -1, trait = { pious = 1 } } } },
+      choices = {
+        { text = "I'll pray anyway.", next = "BACK", fx = { align = { light = 1 }, affinity = -1, trait = { pious = 1 } } },
+        { text = "Then I won't waste my prayers on you.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
     dane = {
       lines = {
@@ -496,7 +503,11 @@ P:NPC {
     },
     good_great = {
       lines = { { id = "gg_default", text = "Someone who gets up, then hauls the one beside them up too. One warrior's a fighter, but two who pick each other up are a line." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } } },
+      choices = {
+        { text = "Then I'll be the one who hauls them up.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "I'll look after myself first, because that's how you survive.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     pillar = {
       big = true,
@@ -505,6 +516,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll be one of the blades.", next = "BACK", fx = { align = { order = 2 }, affinity = 2 } },
+        { text = "I'll fight for myself, not for a kingdom.", next = "BACK", fx = { align = { order = -2 } } },
         { text = "Lordaeron had will and blades too.", next = "pillar_lordaeron" },
       },
     },
@@ -812,6 +824,7 @@ P:NPC {
       },
       choices = {
         { text = "A man by the vineyards. I said no.", next = "BACK", fx = { align = { order = 2 }, affinity = 2 } },
+        { text = "A man by the vineyards, and I'm still thinking about his offer.", next = "BACK", fx = { align = { order = -2 } } },
         { text = "What if I said yes, and told you everything?", next = "defias_double" },
       },
     },
@@ -897,6 +910,7 @@ P:NPC {
       },
       choices = {
         { text = "My lips are sealed.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll tell whoever I like.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "And if they're not?", next = "BACK", fx = { affinity = -2, trait = { stern = 1 } } },
       },
     },
@@ -915,7 +929,7 @@ P:NPC {
       lines = { { id = "t_default", text = "You could. They'd pray, Farley would sell them a drink, and we'd still be here on Tuesday, so have one yourself, upstairs." } },
       choices = {
         { text = "I'll be watching.", next = "BACK", fx = { align = { light = 1, order = 1 }, affinity = -1 } },
-        { text = "Fair enough.", next = "BACK" },
+        { text = "Fair enough.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
   },

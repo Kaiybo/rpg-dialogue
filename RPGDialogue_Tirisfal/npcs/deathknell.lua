@@ -89,6 +89,7 @@ P:NPC {
       },
       choices = {
         { text = "For the Dark Lady.", next = "END", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "I serve myself now, not the Dark Lady.", next = "END", fx = { align = { order = -1 } } },
         { text = "And what do we want?", next = "want" },
       },
     },
@@ -180,6 +181,7 @@ P:NPC {
       choices = {
         { text = "Why does the Light still answer us?", next = "why" },
         { text = "I'll keep training.", next = "END", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Light left me when I died, and I'm done with it.", next = "END", fx = { align = { light = -1 } } },
       },
     },
     why = {
@@ -187,7 +189,10 @@ P:NPC {
       lines = {
         { id = "y_default", text = "I don't know, and I've stopped needing to know. It answers, and it hurts, and it answers again, and that's enough faith for one dead man." },
       },
-      choices = { { text = "It's enough for me too.", next = "END", fx = { affinity = 2, align = { light = 2 } } } },
+      choices = {
+        { text = "It's enough for me too.", next = "END", fx = { affinity = 2, align = { light = 2 } } },
+        { text = "It isn't enough for me, and I need more than pain.", next = "END", fx = { align = { light = -2 } } },
+      },
     },
   },
 

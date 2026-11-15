@@ -103,6 +103,7 @@ P:NPC {
       lines = { { id = "pr_default", text = "Careful, that's... oh, that's better. Light, that's so much better; I'd forgotten what not hurting felt like." } },
       choices = {
         { text = "The Light hadn't forgotten you.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "That was my own skill, Corporal, not the Light's mercy.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Good. Now you can walk.", next = "BACK", fx = { affinity = 1 } },
       },
     },

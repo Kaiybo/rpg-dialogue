@@ -86,7 +86,7 @@ P:NPC {
         { id = "jk_default", text = "And have Dughan hear I took a thief for him? I'd sooner eat the badge when it's back." },
       },
       choices = {
-        { text = "Your secret's safe.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Your secret's safe.", next = "BACK", fx = { align = { order = -1 }, affinity = 2 } },
         { text = "Pride's a poor reason to keep quiet.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
       },
     },
@@ -141,7 +141,10 @@ P:NPC {
       lines = {
         { id = "am_default", text = "Oil your blade every night, even when you're tired, and especially then, because the night you skip it is the night you'll need it." },
       },
-      choices = { { text = "Yes, Marshal.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } } },
+      choices = {
+        { text = "Yes, Marshal.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll care for my blade my own way, Marshal.", next = "BACK", fx = { align = { order = -1 } } },
+      },
     },
 
     eyes = {
@@ -160,6 +163,7 @@ P:NPC {
       },
       choices = {
         { text = "It pleases me. Hold still.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "If the Light can't clear the fog, I won't waste it.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Then I'll pray for patience instead.", next = "BACK", fx = { trait = { pious = 1 } } },
       },
     },

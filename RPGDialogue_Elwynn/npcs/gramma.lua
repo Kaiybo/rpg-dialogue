@@ -66,6 +66,7 @@ P:NPC {
         { text = "Who didn't you forgive?", next = "why_who" },
         { text = "And the Maclures?", next = "maclures" },
         { text = "That's a good reason.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Some things shouldn't be forgiven, Gramma.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
     why_who = {
@@ -75,6 +76,7 @@ P:NPC {
       choices = {
         { text = "Fair. Something else.", next = "BACK", fx = { affinity = 1 } },
         { text = "Sacks get lighter if you set them down.", next = "BACK", fx = { trait = { kind = 1 }, align = { light = 1 } } },
+        { text = "Some grudges are worth the weight of carrying.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
     maclures = {
@@ -163,6 +165,7 @@ P:NPC {
       },
       choices = {
         { text = "It's listening. Keep at it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Forty years of silence sounds like an answer to me.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Maybe it's waiting for you to forgive someone.", next = "priest_forgive" },
       },
     },

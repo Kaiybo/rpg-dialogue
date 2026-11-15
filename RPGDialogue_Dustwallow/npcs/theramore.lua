@@ -60,6 +60,7 @@ P:NPC {
       },
       choices = {
         { text = "I agree.", next = "BACK", fx = { affinity = 2, align = { honor = 1 }, standing = { theramore = 1 }, opinion = { peace = "for" } } },
+        { text = "I'd break that treaty the day it stopped serving us.", next = "BACK", fx = { affinity = -2, align = { honor = -1 } } },
         { text = "I'm not sure they'd do the same.", next = "doubt" },
       },
     },
@@ -124,6 +125,7 @@ P:NPC {
       choices = {
         { text = "Of course.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "You did what you had to.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Your father should have come first, my lady.", next = "BACK", fx = { affinity = -2, align = { order = -1 } } },
       },
     },
 
@@ -170,6 +172,7 @@ P:NPC {
       lines = { { id = "pl_default", text = "I was never a priest. But I prayed on the docks, with the dead behind us and the sea ahead, and something answered. I've decided not to ask what; I just keep listening." } },
       choices = {
         { text = "It was the Light.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Desperate people hear answers in the wind, my lady.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -316,6 +319,7 @@ P:NPC {
         { text = "Let me read the tracks myself.", next = "tracks", when = { class = { "HUNTER", "ROGUE", "DRUID" } } },
         { text = "I could sit with James Hyal.", next = "priest_hyal", when = { class = "PRIEST" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2, align = { order = 1 }, standing = { theramore = 1 } } },
+        { text = "It was the Horde, and everyone knows it.", next = "END", fx = { affinity = -1, align = { order = -1 } } },
       },
     },
     why = {
@@ -335,12 +339,16 @@ P:NPC {
     },
     why_horde = {
       lines = { { id = "wh_default", text = "Maybe, and then I'll say so, and I'll hang whoever did it whatever colour he wears. But I'll have proof first; that's the difference between a guard and a mob." } },
-      choices = { { text = "Fair.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } } },
+      choices = {
+        { text = "Fair.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Proof takes too long, so hang the likely ones.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+      },
     },
     hyal = {
       lines = { { id = "hy_default", text = "James kept the Shady Rest: good ale, honest prices. He came home to ash and two graves, and he hasn't said a word to me since. I don't blame him." } },
       choices = {
         { text = "Then let's give him an answer.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "An answer won't bring his family back.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -370,6 +378,7 @@ P:NPC {
       lines = { { id = "ph_default", text = "He hasn't spoken to anyone since. Your kind knows how to sit with grief better than mine does. Just sit with him, and leave the hoofprints to me." } },
       choices = {
         { text = "Just sitting. I promise.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, trait = { kind = 1 } } },
+        { text = "His grief is his own business, and I'll keep my distance.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

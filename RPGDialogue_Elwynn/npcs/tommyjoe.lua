@@ -70,7 +70,7 @@ P:NPC {
         { id = "md_default", text = "Anything that doesn't start a war between the farms. And maybe one or two things that do." },
       },
       choices = {
-        { text = "Careful, Tommy Joe.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Careful, Tommy Joe.", next = "BACK", fx = { align = { order = 1 }, trait = { cautious = 1 } } },
         { text = "That's the spirit.", next = "BACK", fx = { affinity = 1, align = { order = -1 }, learn = { "maybell_tommy" } } },
       },
     },

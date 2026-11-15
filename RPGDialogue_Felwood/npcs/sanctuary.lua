@@ -46,6 +46,7 @@ P:NPC {
         { text = "Why plant seeds that won't grow?", next = "seeds" },
         { text = "I can feel the sickness in the ground.", next = "druid", when = { class = { "DRUID", "SHAMAN" } } },
         { text = "I'll help heal it.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I'm here for the satyrs, not for the trees.", next = "END", fx = { align = { light = -1 } } },
       },
     },
     what = {
@@ -56,6 +57,7 @@ P:NPC {
       choices = {
         { text = "Can it be undone?", next = "what_undone" },
         { text = "I'll help heal it.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Some places are past saving, and this is one of them.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
     what_undone = {
@@ -126,6 +128,7 @@ P:NPC {
         { text = "Tell me about the stone.", next = "stone", when = { metBefore = true } },
         { text = "The power here doesn't frighten me.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Power's power, and I'll take what this forest offers.", next = "END", fx = { align = { light = -1 } } },
       },
     },
     council = {
@@ -133,6 +136,7 @@ P:NPC {
       choices = {
         { text = "Why Jaedenar?", next = "council_why" },
         { text = "Then we change it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The forest suits them, so leave them to it.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
     council_why = {
@@ -153,7 +157,11 @@ P:NPC {
     },
     warlock = {
       lines = { { id = "w_default", text = "It should, since you know better than any of us what it costs. Mind your hands while you're here, warlock, because the forest is watching what you reach for." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { align = { light = -1 } } } },
+      choices = {
+        { text = "I'll reach for whatever serves me, druid.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll keep my hands to myself while I'm here.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -206,6 +214,7 @@ P:NPC {
         { text = "I'm Alliance. Can I still help?", next = "alliance", when = { faction = "Alliance" } },
         { text = "The alchemist at Bloodvenom wants the corruption.", next = "winna", when = { heardLine = "winna.h_default" } },
         { text = "I'll help mend it.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I'm here for what I can take, not to mend.", next = "END", fx = { align = { light = -1 } } },
       },
     },
 
@@ -241,7 +250,7 @@ P:NPC {
       },
       choices = {
         { text = "I think you are.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
-        { text = "I'm not so sure.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "I'm not so sure.", next = "BACK", fx = { align = { order = -1 }, trait = { skeptical = 1 } } },
       },
     },
 
@@ -276,7 +285,7 @@ P:NPC {
         { id = "w_default", text = "I've heard of her, and of the moonwell she wants water from. It grieves me that anyone of the Horde would look at this poison and see a tool, but I can't mend her, only the forest." },
       },
       choices = {
-        { text = "She's helping the Horde, in her way.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "She's helping the Horde, in her way.", next = "BACK", fx = { align = { light = -1 }, trait = { skeptical = 1 } } },
         { text = "I'll keep my distance from her.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
       },
     },
@@ -324,6 +333,7 @@ P:NPC {
         { text = "Do you work with Maybess?", next = "maybess" },
         { text = "I've some herb lore.", next = "herbs", when = { profession = "Herbalism" } },
         { text = "I'll help cleanse it.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I'll leave the salving to you, because it isn't my fight.", next = "END", fx = { align = { light = -1 } } },
       },
     },
     harder = {

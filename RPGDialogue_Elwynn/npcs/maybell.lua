@@ -91,6 +91,7 @@ P:NPC {
       choices = {
         { text = "How did you two meet?", next = "tommy_meet" },
         { text = "He's a Stonefield, though.", next = "tommy_stonefield", fx = { align = { order = 1 } } },
+        { text = "His family name shouldn't matter to anyone.", next = "tommy_stonefield", fx = { align = { order = -1 } } },
         { text = "He sounds lovely.", next = "BACK", fx = { affinity = 1, learn = { "maybell_tommy" } } },
       },
     },
@@ -106,6 +107,7 @@ P:NPC {
       },
       choices = {
         { text = "Good for you.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
+        { text = "Feud or no feud, your families deserve the truth.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -160,6 +162,7 @@ P:NPC {
       choices = {
         { text = "That's honest.", next = "BACK", fx = { affinity = 1 } },
         { text = "Guilt means you should tell them.", next = "truth", fx = { align = { order = 1 } } },
+        { text = "Some secrets are worth keeping, if they keep you happy.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
 
@@ -180,7 +183,7 @@ P:NPC {
         { id = "ro_default", text = "Could you? No, I'd better not. If I learned to vanish I'd never come home, and then they'd blame the Stonefields for stealing me, so it has to be something smaller." },
       },
       choices = {
-        { text = "Smart girl.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Smart girl.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Offer stands.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },

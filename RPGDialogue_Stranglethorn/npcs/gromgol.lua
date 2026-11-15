@@ -61,6 +61,7 @@ P:NPC {
         { text = "Who's hitting the caravans?", next = "road_raiders" },
         { text = "Why does Stonard matter so much?", next = "road_stonard" },
         { text = "Then I'll help you count.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Stonard's caravans are someone else's problem.", next = "BACK", fx = { align = { honor = -1 } } },
       },
     },
     road_raiders = {
@@ -103,7 +104,10 @@ P:NPC {
       lines = {
         { id = "np_default", text = "In my camp everyone is a grunt, and I'm the grunt who gives the orders. Wear the word with pride or wear it with a scowl, but carry the crate either way." },
       },
-      choices = { { text = "Understood, Commander.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } } },
+      choices = {
+        { text = "Understood, Commander.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'm nobody's grunt, Commander.", next = "BACK", fx = { align = { order = -1 } } },
+      },
     },
 
     threats = {
@@ -158,7 +162,7 @@ P:NPC {
       },
       choices = {
         { text = "They're not my people anymore.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
-        { text = "Some of them still are.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Some of them still are.", next = "BACK", fx = { align = { order = -1 }, affinity = 1, trait = { kind = 1 } } },
       },
     },
     orc_mage = {
@@ -166,7 +170,7 @@ P:NPC {
         { id = "om_default", text = "The last orcs who played with that kind of power turned our skin green and our homeland to dust, so yes, it troubles me. But if your fire lands on ogres and not on my caravans, I'll keep my troubles to myself." },
       },
       choices = {
-        { text = "My fire knows where to land.", next = "BACK", fx = { affinity = 1, trait = { proud = 1 } } },
+        { text = "My fire knows where to land.", next = "BACK", fx = { align = { light = -1 }, affinity = 1, trait = { proud = 1 } } },
         { text = "It troubles me too, sometimes.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
       },
     },
@@ -239,7 +243,7 @@ P:NPC {
         { text = "I'm Darkspear. Tell me what the chief needs.", next = "kin", when = { race = "Troll" } },
         { text = "His soul is free. Is it over?", next = "after", when = { questDone = TODO_QUEST("Saving Yenniku") } },
         { text = "I'll help you find him.", next = "END", fx = { affinity = 2, align = { honor = 1 }, learn = { "yenniku" } } },
-        { text = "Good hunting.", next = "END" },
+        { text = "Good hunting, but the chief's son is no business of mine.", next = "END", fx = { align = { honor = -1 } } },
       },
     },
 
@@ -322,6 +326,7 @@ P:NPC {
       },
       choices = {
         { text = "For Vol'jin, then.", next = "BACK", fx = { affinity = 3, align = { order = 1 } } },
+        { text = "I help for the boy's sake, not for any chief.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Does Vol'jin speak of him?", next = "kin_chief" },
       },
     },
@@ -475,6 +480,7 @@ P:NPC {
       choices = {
         { text = "What would it take?", next = "hope_eye" },
         { text = "Then let's not waste it.", next = "BACK", fx = { affinity = 2, align = { honor = 1 }, learn = { "yenniku" } } },
+        { text = "Hope that faint isn't worth anyone's life.", next = "BACK", fx = { align = { honor = -1 } } },
       },
     },
     hope_eye = {
@@ -518,6 +524,7 @@ P:NPC {
       choices = {
         { text = "I chain demons, not spirits.", next = "troll_warlock_chain", fx = { trait = { proud = 1 } } },
         { text = "Then teach me to bargain.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Chains work well enough, and I'll keep using them.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
     troll_warlock_chain = {
@@ -595,7 +602,7 @@ P:NPC {
         { id = "p_default", text = "The kind that settles into anything that's lived long in a wild place. Orgrimmar teaches us to ask before we take, so I ask." },
       },
       choices = {
-        { text = "And if the answer's no?", next = "power_no", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "And if the answer's no?", next = "power_no", fx = { affinity = 2 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -663,7 +670,7 @@ P:NPC {
       },
       choices = {
         { text = "That's fair, far seer.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
-        { text = "The arcane isn't the fel.", next = "BACK", fx = { trait = { proud = 1 } } },
+        { text = "The arcane isn't the fel.", next = "BACK", fx = { align = { order = -1 }, trait = { proud = 1 } } },
       },
     },
     skyborne = {

@@ -71,6 +71,7 @@ P:NPC {
       choices = {
         { text = "I pray for such a death too.", next = "dream_young", fx = { trait = { brave = 1 } } },
         { text = "That's grim, Warlord.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "That's the only death worth dreaming of, Warlord.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
     dream_young = {
@@ -274,6 +275,7 @@ P:NPC {
       },
       choices = {
         { text = "Then they'll answer for it.", next = "the109_revenge", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "I'll make them pay, but I won't fight fair doing it.", next = "the109_revenge", fx = { align = { honor = -1 } } },
         { text = "I'm sorry for your friends.", next = "the109_revenge", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -296,6 +298,7 @@ P:NPC {
       },
       choices = {
         { text = "The Light didn't ask my permission.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I'd trade it for something less trouble, if I could.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "I'll be careful.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },
@@ -378,6 +381,7 @@ P:NPC {
       choices = {
         { text = "Abominations?", next = "study_abom" },
         { text = "That's grim work.", next = "study_grim", fx = { align = { light = 1 } } },
+        { text = "Power like that would serve the Apothecarium well.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
     study_abom = {
@@ -499,6 +503,7 @@ P:NPC {
         { text = "Teach me something about the trade.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Grark's in your custody now.", next = "grark_done", when = { questDone = TODO_QUEST("Precarious Predicament") } },
         { text = "I'll be your hands.", next = "END", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'm nobody's hands, Lexlort. I work for myself.", next = "END", fx = { align = { order = -1 } } },
       },
     },
 

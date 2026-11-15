@@ -107,6 +107,7 @@ P:NPC {
       },
       choices = {
         { text = "Behind you. And I keep you standing.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I'll stand where I'm needed, not where I'm told.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "And if I'd rather fight?", next = "priest_fight" },
       },
     },

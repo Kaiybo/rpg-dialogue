@@ -56,6 +56,7 @@ P:NPC {
         { text = "Nazeer says the peace is only on paper.", next = "nazeer", when = { heardLine = "nazeer.h_default" } },
         { text = "Reethe's dead. Theramore soldiers killed him.", next = "reethe_dead", when = { questDone = TODO_QUEST("Questioning Reethe") } },
         { text = "I'll find the truth.", next = "END", fx = { affinity = 2, align = { honor = 1 }, standing = { brackenwall = 1 } } },
+        { text = "Blame it on the humans and save us the trouble.", next = "END", fx = { affinity = -1, align = { honor = -1 } } },
       },
     },
 
@@ -141,6 +142,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll find them.", next = "BACK", fx = { affinity = 3, align = { honor = 1 }, learn = { "grimtotem" } } },
+        { text = "I'll not spill tauren blood for the Warchief's peace.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

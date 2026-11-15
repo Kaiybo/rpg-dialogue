@@ -60,7 +60,7 @@ P:NPC {
       choices = {
         { text = "The priests say the Light waits there.", next = "dead_priest", when = { class = "PRIEST" } },
         { text = "I'm glad you're back.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "That's oddly comforting.", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "That's oddly comforting.", next = "BACK", fx = { align = { light = -1 }, trait = { curious = 1 } } },
       },
     },
     dead_priest = {
@@ -69,6 +69,7 @@ P:NPC {
       },
       choices = {
         { text = "Your secret's safe. The Light knows anyway.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Maybe there's nothing waiting there at all.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -130,6 +131,7 @@ P:NPC {
       },
       choices = {
         { text = "Hold still.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Rest will mend your ribs better than my prayers.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

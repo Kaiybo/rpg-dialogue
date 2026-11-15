@@ -176,6 +176,7 @@ P:NPC {
       lines = { { id = "w_default", text = "Two upstairs from the last raid, and a guard who won't admit his arm's broken. I've done what soup can do. They'd be glad of you." } },
       choices = {
         { text = "Show me to them.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, standing = { lakeshire = 1 } } },
+        { text = "They'll mend on their own, and I've other work.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

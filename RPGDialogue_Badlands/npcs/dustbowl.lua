@@ -60,7 +60,10 @@ P:NPC {
     },
     league = {
       lines = { { id = "l_default", text = "Are ye now! Then ye know we don't leave our own in the dirt. When ye go in, bring back somethin' o' his, anythin' at all, a pick or a page." } },
-      choices = { { text = "I will.", next = "BACK", fx = { affinity = 3, align = { honor = 1 } } } },
+      choices = {
+        { text = "I will.", next = "BACK", fx = { affinity = 3, align = { honor = 1 } } },
+        { text = "If it's that dangerous, I'll leave the dead where they lie.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
     },
   },
 

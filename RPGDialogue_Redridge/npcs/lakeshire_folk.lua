@@ -56,6 +56,7 @@ P:NPC {
       },
       choices = {
         { text = "Someone has to keep the law.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Death warrants for orcs who'll never read them are a waste of ink.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Sounds like a lot of paper.", next = "paper" },
         { text = "Who's on your docket?", next = "docket" },
       },
@@ -79,7 +80,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll carry out the sentence.", next = "BUSINESS", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "Death for gnolls who follow orders?", next = "BACK", fx = { align = { light = 1 }, affinity = -1 } },
+        { text = "Gnolls who only follow orders don't deserve death.", next = "BACK", fx = { align = { light = 1 }, affinity = -1 } },
       },
     },
     town = {
@@ -103,7 +104,10 @@ P:NPC {
     },
     oath = {
       lines = { { id = "oa_default", text = "Then you'll appreciate that the law is an oath too, only with more paperwork. Keep yours; I'll keep mine." } },
-      choices = { { text = "Agreed.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } } },
+      choices = {
+        { text = "Agreed.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "I keep my oaths, but I've no patience for your paperwork.", next = "BACK", fx = { align = { order = -1 } } },
+      },
     },
     justice = {
       lines = { { id = "ju_default", text = "Justice was carried out on the Shadowhides, by the record. Whether it was done is for the Light to say, not a bailiff." } },
@@ -496,6 +500,7 @@ P:NPC {
         { text = "Your garden's struggling. Let me listen to it.", next = "druid", when = { class = "DRUID" } },
         { text = "The daffodils were from Parker. For Darcy.", next = "told", when = { questDone = TODO_QUEST("Delivering Daffodils") },
           fx = { align = { honor = -1 } } },
+        { text = "Somebody asked me to deliver daffodils, and I won't say who.", next = "END", when = { questDone = TODO_QUEST("Delivering Daffodils") }, fx = { align = { honor = 1 } } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -655,6 +660,7 @@ P:NPC {
       lines = { { id = "pr_default", text = "Bless it if you like. Then bless the ones eating from it; they need it more than the pot does." } },
       choices = {
         { text = "I'll bless them both.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "A blessing won't fill anyone's stomach.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

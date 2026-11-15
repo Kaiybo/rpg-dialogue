@@ -123,6 +123,7 @@ P:NPC {
       choices = {
         { text = "Doesn't that leave the town short?", next = "iron_short" },
         { text = "The Guard needs it more.", next = "BACK", fx = { align = { order = 1 }, affinity = -1 } },
+        { text = "The town's horses matter as much as the Guard's boots.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
     iron_short = {
@@ -144,6 +145,7 @@ P:NPC {
       choices = {
         { text = "Fair enough.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "It's a gift of the Light, smith.", next = "BACK", fx = { align = { light = 1 }, affinity = -1 } },
+        { text = "Then it can go unshod, for all I care.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
   },

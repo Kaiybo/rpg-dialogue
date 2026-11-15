@@ -79,7 +79,7 @@ P:NPC {
       choices = {
         { text = "What's the worst of it?", next = "need_worst" },
         { text = "I'll help where I can.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, standing = { lakeshire = 1 } } },
-        { text = "That's a lot to ask.", next = "BACK", fx = { affinity = -1 } },
+        { text = "That's a lot to ask.", next = "BACK", fx = { align = { order = -1 }, affinity = -1 } },
       },
     },
     need_worst = {
@@ -92,6 +92,7 @@ P:NPC {
       choices = {
         { text = "Who did you send that report to?", next = "letters" },
         { text = "Stormwind can't ignore that.", next = "BACK", fx = { align = { order = 1 }, affinity = -1 } },
+        { text = "Stormwind won't help, so Lakeshire must look after itself.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -135,6 +136,7 @@ P:NPC {
       choices = {
         { text = "What about the throne?", next = "amiss" },
         { text = "Then soldiers are coming.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Soldiers won't come, and Lakeshire should stop waiting for them.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
     letters_gryan = {
@@ -236,6 +238,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll look for him.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll look for him if the reward's worth it.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -255,6 +258,7 @@ P:NPC {
       choices = {
         { text = "Hanging gnolls seems excessive.", next = "court_mercy" },
         { text = "Good. The law should have teeth.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Fighting gnolls is a soldier's job, not a hangman's.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
     court_mercy = {
@@ -283,6 +287,7 @@ P:NPC {
         { text = "Take me to them.", next = "BACK", fx = { affinity = 3, standing = { lakeshire = 2 }, align = { light = 1 } },
           journal = { first = "Magistrate Solomon told me Lakeshire has no priest of its own. I said I'd see to the wounded.",
                       third = "{name} offered to tend Lakeshire's wounded." } },
+        { text = "I'm not here to nurse anyone, Magistrate.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Has the Church sent no one?", next = "priest_church" },
       },
     },
@@ -297,6 +302,7 @@ P:NPC {
       lines = { { id = "pl_default", text = "I asked for a regiment and the Light sends one paladin. I've learned not to argue with the Light; it doesn't answer letters either. Stand where the guards can see you." } },
       choices = {
         { text = "I'll stand on the walls.", next = "BACK", fx = { affinity = 2, align = { light = 1, order = 1 } } },
+        { text = "I'll go where I'm needed, not where I'm posted.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -306,7 +312,7 @@ P:NPC {
         { text = "I'll raise it with them.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } },
           journal = { first = "Promised Magistrate Solomon I'd raise Lakeshire's letters with my family in the House of Nobles.",
                       third = "{name} promised Magistrate Solomon to raise Lakeshire's plight in the House of Nobles." } },
-        { text = "They have bigger concerns than Redridge.", next = "BACK", fx = { affinity = -2 } },
+        { text = "They have bigger concerns than Redridge.", next = "BACK", fx = { align = { honor = -1 }, affinity = -2 } },
       },
     },
     lordaeron = {
@@ -327,6 +333,7 @@ P:NPC {
       lines = { { id = "dw_default", text = "That's what I reasoned too, so we sent envoys to King Magni months ago, asking for help against the Blackrock. No dwarves have come over the mountains yet." } },
       choices = {
         { text = "Ironforge keeps its word. Give it time.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I wouldn't count on Ironforge keeping that promise.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "They came. Princess Moira was taken on the road.", next = "dwarf_moira", when = { questDone = TODO_QUEST("Kharan's Tale") } },
         { text = "Something else.", next = "BACK" },
       },

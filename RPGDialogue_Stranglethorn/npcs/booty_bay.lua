@@ -101,6 +101,7 @@ P:NPC {
       },
       choices = {
         { text = "That's cold.", next = "BACK", fx = { align = { light = 1 }, affinity = -1 } },
+        { text = "Trolls who raid ships get what they deserve.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "steamwheedle" } } },
       },
     },
@@ -147,6 +148,7 @@ P:NPC {
       },
       choices = {
         { text = "Stormwind pays its debts.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
+        { text = "Stormwind deserves no better than what it pays for.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Fair enough. Something else.", next = "BACK" },
       },
     },
@@ -292,6 +294,7 @@ P:NPC {
       },
       choices = {
         { text = "The Earth Mother walks with me here too.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
+        { text = "I'm glad to trade the plains for a ship and a captain.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I miss it every day.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -404,7 +407,7 @@ P:NPC {
       },
       choices = {
         { text = "Your secret's safe.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "What's it worth to you if I don't repeat it?", next = "baron_deal", fx = { align = { honor = -2 }, trait = { greedy = 1 } } },
+        { text = "Keeping quiet will cost you, Krazek.", next = "baron_deal", fx = { align = { honor = -2 }, trait = { greedy = 1 } } },
       },
     },
     baron_deal = {
@@ -429,6 +432,7 @@ P:NPC {
       },
       choices = {
         { text = "Give them a better price.", next = "rebels_price", fx = { align = { light = 1 }, trait = { generous = 1 } } },
+        { text = "A fairish price is fair enough for deserters.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "kurzen" } } },
       },
     },
@@ -530,6 +534,7 @@ P:NPC {
       choices = {
         { text = "A foot?", next = "dead_foot" },
         { text = "That's ghoulish.", next = "BACK", fx = { affinity = -1, align = { light = 1 } } },
+        { text = "A debt should outlive the debtor, and fair's fair.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
       },
     },
     dead_foot = {
@@ -623,7 +628,7 @@ P:NPC {
         { id = "f_default", text = "Fraud is a strong word; I prefer 'creative sourcing'. Nobody's hurt, except the trolls, and they started it." },
       },
       choices = {
-        { text = "Fine by me. What pays best?", next = "BACK", fx = { align = { honor = -2 }, trait = { greedy = 1 }, affinity = 2 } },
+        { text = "Fine by me, so long as it pays.", next = "BACK", fx = { align = { honor = -2 }, trait = { greedy = 1 }, affinity = 2 } },
         { text = "I'll do the work. Not the lying.", next = "BACK", fx = { align = { honor = 2 }, affinity = 1 } },
         { text = "I'll be telling the Baron.", next = "fraud_baron", fx = { align = { order = 1 }, affinity = -2 } },
       },
@@ -857,6 +862,7 @@ P:NPC {
       lines = { { id = "pw_default", text = "Sprogger asked me that once, and I said no, because I wasn't ready. Say them now, but not too long, and I'll stand at the back where nobody can see my face." } },
       choices = {
         { text = "I'll keep it short.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, trait = { kind = 1 } } },
+        { text = "Words won't help them now, Smotts.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -906,6 +912,7 @@ P:NPC {
         { text = "MacKinley asked me to check on you.", next = "panic", when = { heardLine = "mackinley.h_default" } },
         { text = "Want me to teach you to hide properly?", next = "hide", when = { class = "ROGUE" } },
         { text = "Your secret's safe. For now.", next = "END", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Pay MacKinley what you owe, and you'll stop shaking.", next = "END", fx = { align = { honor = 1 } } },
         { text = "Calm down. Nobody's after you.", next = "END", fx = { affinity = 1, trait = { kind = 1 } } },
       },
     },
@@ -960,7 +967,7 @@ P:NPC {
         { id = "hi_default", text = "Hide? I've been hiding for weeks, behind barrels and in barrels, and he always finds me. There's a trick to it, isn't there?" },
       },
       choices = {
-        { text = "Stop shaking. That's the whole trick.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Stop shaking. That's the whole trick.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1, trait = { witty = 1 } } },
         { text = "Pay your debts. Then there's nothing to hide from.", next = "BACK", fx = { align = { honor = 1 } } },
       },
     },
@@ -1021,6 +1028,7 @@ P:NPC {
       },
       choices = {
         { text = "Pirates with rules. I can respect that.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Rules are for merchants, and I'd rather sail free.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "A pirate's a pirate.", next = "hate_pirate", fx = { affinity = -1 } },
       },
     },
@@ -1054,6 +1062,7 @@ P:NPC {
       choices = {
         { text = "Fair. Something else.", next = "BACK" },
         { text = "Don't underestimate Stormwind.", next = "BACK", fx = { align = { order = 1 }, affinity = -1 } },
+        { text = "Booty Bay's better off without Stormwind's navy.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
     horde = {
@@ -1115,7 +1124,8 @@ P:NPC {
         { text = "What do singing crystals actually do?", next = "crystals" },
         { text = "What's your arrangement with Kravel?", next = "kravel", when = { any = { { heardLine = "kravel.h_default" }, { topicKnown = "mirage_raceway" } } } },
         { text = "I'm a gnome. I know a scheme when I see one.", next = "gnome", when = { race = "Gnome" } },
-        { text = "What's the job?", next = "END", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'm listening, so tell me the job.", next = "END", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I don't work for swindlers, Crank.", next = "END", fx = { align = { honor = 1 } } },
         { text = "Not today, Crank.", next = "END" },
       },
     },
@@ -1124,7 +1134,8 @@ P:NPC {
         { id = "l_default", text = "Legal? This is Booty Bay! The Baron takes his cut, the Bruisers keep the peace, and everything else is negotiation, which you're doing right now, and badly." },
       },
       choices = {
-        { text = "Fine. What's the job?", next = "END", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Fine, then, tell me the job.", next = "END", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Then I'll have no part of it, Crank.", next = "END", fx = { align = { honor = 1 } } },
         { text = "Then I'll negotiate better. What's my cut?", next = "legal_cut", fx = { trait = { greedy = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1157,6 +1168,7 @@ P:NPC {
       choices = {
         { text = "You're rigging the races.", next = "kravel_rig", fx = { learn = { "mirage_raceway" } } },
         { text = "Count me in.", next = "BACK", fx = { align = { honor = -2 }, affinity = 2 } },
+        { text = "I won't help you poison racers, Crank.", next = "BACK", fx = { align = { honor = 2 } } },
       },
     },
     kravel_rig = {
@@ -1430,7 +1442,11 @@ P:NPC {
       lines = {
         { id = "a_default", text = "He'll ask. He'll find a ship and stand on that dock and ask, and I'll say yes, and I'll hate every minute of it." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { align = { honor = 1 } } } },
+      choices = {
+        { text = "Standing by him like that is real loyalty.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then tell him no, because you've earned some peace.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     pray = {
       lines = {
@@ -1440,6 +1456,7 @@ P:NPC {
       },
       choices = {
         { text = "Then the water will do.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, trait = { pious = 1 } } },
+        { text = "I've no words for the sea, Sprogger, and I'm sorry.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
   },
@@ -1514,7 +1531,7 @@ P:NPC {
       },
       choices = {
         { text = "This is beyond what I can mend. Hold on.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "It'll pass. Rest and water.", next = "BACK", fx = { affinity = 1 } },
+        { text = "It'll pass. Rest and water.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
       },
     },
     after = {

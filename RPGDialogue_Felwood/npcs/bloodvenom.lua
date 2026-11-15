@@ -94,6 +94,7 @@ P:NPC {
       choices = {
         { text = "It depends on the advantage.", next = "cruel_alliance" },
         { text = "Not if it wins the war.", next = "BACK", fx = { affinity = 2, align = { honor = -1 } } },
+        { text = "Some advantages cost more than any war is worth.", next = "BACK", fx = { align = { honor = 1 } } },
       },
     },
     cruel_alliance = {
@@ -128,6 +129,7 @@ P:NPC {
       },
       choices = {
         { text = "The Earth Mother wouldn't approve.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The land's already poisoned, so somebody may as well use it.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

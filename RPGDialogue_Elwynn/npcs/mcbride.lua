@@ -88,6 +88,7 @@ P:NPC {
           fx = { align = { order = 2 }, trait = { stern = 1 }, affinity = 1 },
           journal = { first = "Reported to Marshal McBride. He looked at me like a man counting how many of us come back.",
                       third = "{name} reported to Marshal McBride at Northshire Abbey." } },
+        { text = "I'm here for the pay, Marshal, not the banner.", next = "orders", fx = { align = { order = -2 } } },
         { text = "Kobolds? You need soldiers for kobolds?", next = "kobolds", fx = { trait = { witty = 1 }, affinity = -1 } },
         { text = "I've run vermin off a farm before. These can't be worse.", next = "farmhand",
           when = { origin = "human_westfall_farmhand" }, fx = { affinity = 1 } },
@@ -129,7 +130,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll keep coming back.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
-        { text = "That sounds exhausting.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "That sounds exhausting.", next = "BACK", fx = { align = { order = -1 }, trait = { witty = 1 } } },
       },
     },
 
@@ -203,6 +204,7 @@ P:NPC {
       choices = {
         { text = "Drilled. Someone trained him.", next = "BACK", fx = { hear = "defias_trained", affinity = 1 } },
         { text = "Like a desperate man.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Like a cutthroat, and he'll die like one.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
 
@@ -276,6 +278,7 @@ P:NPC {
       },
       choices = {
         { text = "That's why I'm here.", next = "BACK", fx = { affinity = 3, align = { order = 1 } } },
+        { text = "I came south to look after myself, not to stand watch.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Nobody watched for us.", next = "lordaeron_watch" },
       },
     },
@@ -299,7 +302,11 @@ P:NPC {
     },
     veteran_need = {
       lines = { { id = "vn_default", text = "Always, though not for kobolds. Go and do what we trained you for, somewhere it matters more than my woods." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { align = { order = 1 } } } },
+      choices = {
+        { text = "Then I'll go where the fight matters most.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll go where I please, Marshal.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 

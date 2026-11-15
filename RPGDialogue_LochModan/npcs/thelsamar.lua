@@ -190,7 +190,7 @@ P:NPC {
       },
       choices = {
         { text = "Spoken like an honest dwarf.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "Or leave them be and fill the hole.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Or leave them be and fill the hole.", next = "BACK", fx = { align = { honor = -1 }, trait = { cautious = 1 } } },
       },
     },
     slow = {
@@ -432,6 +432,7 @@ P:NPC {
         { text = "Why trogg teeth?", next = "teeth" },
         { text = "I stood the high passes too, Captain.", next = "mountaineer", when = { origin = "dwarf_mountaineer" } },
         { text = "I'll help defend them.", next = "END", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "The King's statues can guard themselves, Captain.", next = "END", fx = { align = { order = -1 } } },
       },
     },
     reserve = {
@@ -440,6 +441,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll watch them.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Ironforge ought to bring its soldiers home.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Is the front worth it?", next = "reserve_worth" },
       },
     },
@@ -489,7 +491,10 @@ P:NPC {
       lines = {
         { id = "mo_default", text = "Then stand a watch with my regiment some night. You'll find the troggs keep worse hours than the Frostmane." },
       },
-      choices = { { text = "Gladly, Captain.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, standing = { thelsamar = 1 } } } },
+      choices = {
+        { text = "Gladly, Captain.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, standing = { thelsamar = 1 } } },
+        { text = "I'm done standing watches, so I'll hunt troggs my own way.", next = "BACK", fx = { align = { order = -1 } } },
+      },
     },
   },
 

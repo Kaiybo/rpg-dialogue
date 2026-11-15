@@ -178,6 +178,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll see to him.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, standing = { goldshire = 1 } } },
+        { text = "Dobbins is a grown man, and he can come to me himself.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

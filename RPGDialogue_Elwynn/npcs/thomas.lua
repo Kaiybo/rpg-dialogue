@@ -91,6 +91,7 @@ P:NPC {
         { text = "Rolf Hartford. Malakai Stone. Light keep them.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, standing = { eastvale = 2 }, learn = { "lost_footmen" } },
           journal = { first = "Said the names of Rolf Hartford and Malakai Stone at the Eastvale bridge. Guard Thomas stood at attention the whole time.",
                       third = "{name} prayed over Guard Thomas' lost footmen at the Eastvale bridge." } },
+        { text = "Words won't bring them back from the lake, Thomas.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
 
@@ -164,7 +165,7 @@ P:NPC {
         { id = "fh_default", text = "I know it. I'd have held one if I'd been sent. That's no comfort to you, and I won't pretend it is." },
       },
       choices = {
-        { text = "It's something, coming from a soldier.", next = "BACK", fx = { affinity = 2 } },
+        { text = "It's something, coming from a soldier.", next = "BACK", fx = { align = { order = 1 }, affinity = 2 } },
         { text = "Someone should answer for it.", next = "BACK", fx = { align = { order = -1 }, opinion = { westfall = "abandoned" } } },
       },
     },

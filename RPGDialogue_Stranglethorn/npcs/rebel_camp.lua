@@ -130,7 +130,10 @@ P:NPC {
       lines = {
         { id = "lw_default", text = "That's kind of you, but wait until it's over. I'd rather they read one report than two." },
       },
-      choices = { { text = "Understood.", next = "BACK", fx = { align = { order = 1 } } } },
+      choices = {
+        { text = "Understood.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Their families shouldn't have to wait for word.", next = "BACK", fx = { align = { order = -1 } } },
+      },
     },
 
     informant = {
@@ -197,6 +200,7 @@ P:NPC {
         { text = "I'd rather not talk about it.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
         { text = "I obeyed it. I still think about that.", next = "soldier_obeyed", fx = { trait = { pious = 1 } } },
         { text = "I refused it, and paid for it.", next = "soldier_refused", fx = { align = { honor = 2 } } },
+        { text = "I never had that moment, because orders were orders.", next = "BACK", fx = { align = { order = 2 } } },
       },
     },
     soldier_obeyed = {
@@ -214,7 +218,7 @@ P:NPC {
       },
       choices = {
         { text = "Habit and the Light. It's enough.", next = "BACK", fx = { align = { light = 2 }, affinity = 1 } },
-        { text = "It isn't. That's why I'm out here.", next = "BACK", fx = { trait = { brave = 1 }, affinity = 1 } },
+        { text = "It isn't. That's why I'm out here.", next = "BACK", fx = { align = { light = -1 }, trait = { brave = 1 }, affinity = 1 } },
       },
     },
 
@@ -224,7 +228,7 @@ P:NPC {
         { id = "d_default", text = "Heard it from three men before you reached the clearing. I don't know if I'm meant to thank you or salute him." },
       },
       choices = {
-        { text = "Both, maybe.", next = "done_now", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Both, maybe.", next = "done_now", fx = { align = { order = -1 }, affinity = 2, trait = { kind = 1 } } },
         { text = "He stopped being your colonel a long time ago.", next = "done_now", fx = { align = { order = 1 }, trait = { stern = 1 } } },
       },
     },
@@ -243,6 +247,7 @@ P:NPC {
       lines = { { id = "pd_default", text = "We buried them without a priest; Nimetz was busy with the living, and I said what words I could remember. Would you? The graves are past the tents, and the men would like to see it done properly." } },
       choices = {
         { text = "I'll go tonight.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, standing = { rebel_camp = 2 }, trait = { pious = 1 } } },
+        { text = "Words over graves won't help anyone now.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -303,6 +308,7 @@ P:NPC {
         { text = "Pray with me, Brother.", next = "pray", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Let me look at the residue.", next = "residue", when = { profession = "Alchemy" } },
         { text = "The Light keep you, Brother.", next = "END", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Keep your prayers, Brother, because they won't help out here.", next = "END", fx = { align = { light = -1 } } },
       },
     },
 
@@ -379,7 +385,10 @@ P:NPC {
     },
     men_doren = {
       lines = { { id = "md_default", text = "He carries every one of them, and won't let me carry any of him. Don't tell him I said so." } },
-      choices = { { text = "I won't.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } } },
+      choices = {
+        { text = "I won't.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "He ought to hear it, and I'll tell him myself.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
     },
 
     pray = {
@@ -463,6 +472,7 @@ P:NPC {
         { text = "Do you know who gave you away?", next = "betrayed" },
         { text = "You can talk to me. I'm good at going unseen too.", next = "rogue", when = { class = { "ROGUE", "HUNTER" } } },
         { text = "I'll help you.", next = "END", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Kurzen's war isn't mine, Private, and I'll stay out of it.", next = "END", fx = { align = { order = -1 } } },
         { text = "Rest. I'll leave you be.", next = "END", fx = { trait = { kind = 1 } } },
       },
     },

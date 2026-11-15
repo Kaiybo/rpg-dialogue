@@ -152,7 +152,7 @@ P:NPC {
       },
       choices = {
         { text = "Some things shouldn't be sold.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "You'd make a fortune.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "You'd make a fortune.", next = "BACK", fx = { align = { light = -1 }, trait = { witty = 1 } } },
       },
     },
     mage = {

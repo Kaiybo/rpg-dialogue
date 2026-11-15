@@ -130,6 +130,7 @@ P:NPC {
       },
       choices = {
         { text = "Light keep this fire, and all who sit by it.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Fire keeps us warm, and prayers have nothing to do with it.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

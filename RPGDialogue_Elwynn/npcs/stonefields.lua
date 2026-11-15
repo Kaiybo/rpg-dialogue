@@ -91,7 +91,7 @@ P:NPC {
       },
       choices = {
         { text = "Looking guilty isn't proof.", next = "BACK", fx = { align = { order = 1 }, affinity = -1 } },
-        { text = "He does look guilty.", next = "BACK", fx = { affinity = 1 } },
+        { text = "He does look guilty.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
       },
     },
 
@@ -147,6 +147,7 @@ P:NPC {
         { text = "Light keep him, wherever the campaign ended.", next = "BACK", fx = { affinity = 3, align = { light = 2 } },
           journal = { first = "Said a prayer for Bernice Stonefield's husband, who never came home from his last campaign. She kept kneading.",
                       third = "{name} prayed for Auntie Bernice's husband in the Stonefield kitchen." } },
+        { text = "I didn't know him, Bernice, so the prayer's better from you.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
   },
@@ -407,7 +408,7 @@ P:NPC {
         { id = "ro_default", text = "Really? No, Ma would skin me, and so would Maybell, and so would Auntie Bernice, and she's not even my auntie." },
       },
       choices = {
-        { text = "Smart lad.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Smart lad.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
         { text = "Your loss.", next = "BACK", fx = { align = { honor = -1 } } },
       },
     },

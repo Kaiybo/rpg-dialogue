@@ -97,6 +97,7 @@ P:NPC {
           journal = { first = "Told Farley I'd killed Hogger. He believed me. Half of Goldshire will by morning.",
                       third = "{name} told Innkeeper Farley they had killed Hogger." },
           fail = { next = "END", fx = { affinity = -2 } } },
+        { text = "I didn't kill Hogger, and I won't say I did.", next = "BACK", when = { questBefore = TODO_QUEST("WANTED: \"Hogger\""), heardClaim = "hogger_unbeatable" }, fx = { align = { honor = 2 } } },
       },
     },
     rumors_who = {
@@ -143,6 +144,7 @@ P:NPC {
         { text = "Light keep Frandis, wherever he walks.", next = "brother_after", fx = { affinity = 3, align = { light = 2 }, trait = { pious = 1 }, standing = { goldshire = 2 } },
           journal = { first = "Said a prayer for Farley's brother Frandis, lost on a caravan to Lordaeron in the plague year.",
                       third = "{name} prayed for Innkeeper Farley's brother, lost in Lordaeron." } },
+        { text = "Prayers never brought anyone home, Farley, and I'm sorry for it.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

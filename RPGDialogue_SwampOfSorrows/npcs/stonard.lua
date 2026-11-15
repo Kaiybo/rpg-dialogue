@@ -155,6 +155,7 @@ P:NPC {
       },
       choices = {
         { text = "That's a good answer.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Stonard was built for war, and it should stay ready for one.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -293,7 +294,7 @@ P:NPC {
         { id = "tw_default", text = "No, unless you choose to be. The Atal'ai reached for a god and called it faith; you reach for demons and call it a tool, and you'd better be right about which of you is holding the leash." },
       },
       choices = {
-        { text = "I'm right.", next = "BACK", fx = { trait = { proud = 1 } } },
+        { text = "I'm right.", next = "BACK", fx = { align = { order = -1 }, trait = { proud = 1 } } },
         { text = "I'll watch myself.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
       },
     },
@@ -490,7 +491,10 @@ P:NPC {
       lines = {
         { id = "h2_default", text = "Others have tried, with their hands warm on my head, and I thank them every time. It eases the ache for an hour, and an hour is a gift, so go on and try." },
       },
-      choices = { { text = "[Lay hands on him a while]", next = "BACK", fx = { affinity = 3, align = { light = 1 } } } },
+      choices = {
+        { text = "[Lay hands on him a while]", next = "BACK", fx = { affinity = 3, align = { light = 1 } } },
+        { text = "An hour won't change anything, so I'll save my strength.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
     orders_back = {
       lines = {

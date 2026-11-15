@@ -47,6 +47,7 @@ P:NPC {
         { text = "What does the Horde stand for?", next = "horde" },
         { text = "What of the humans at Theramore?", next = "theramore" },
         { text = "For the Horde.", next = "END", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "I fight for myself first, Warchief.", next = "END", fx = { align = { honor = -1 } } },
       },
     },
     horde = {
@@ -56,6 +57,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll help you keep it.", next = "END", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Survival matters more than honour, Warchief.", next = "END", fx = { align = { honor = -1 } } },
         { text = "Not everyone agrees.", next = "agree" },
       },
     },
@@ -120,7 +122,10 @@ P:NPC {
       lines = {
         { id = "t_default", text = "When the murlocs come for us, Thrall fight beside us. My father die that day, and Thrall don't leave. A debt like that, you pay with your whole life." },
       },
-      choices = { { text = "That's a heavy debt.", next = "END", fx = { affinity = 2, align = { honor = 1 } } } },
+      choices = {
+        { text = "That's a heavy debt.", next = "END", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "A debt's only as heavy as you let it be.", next = "END", fx = { align = { honor = -1 } } },
+      },
     },
     isles = {
       lines = {
@@ -284,6 +289,7 @@ P:NPC {
       },
       choices = {
         { text = "Never stay down, Gamon.", next = "END", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Then stay down, and let them get bored.", next = "END", fx = { align = { honor = -1 } } },
         { text = "...", next = "END" },
       },
     },

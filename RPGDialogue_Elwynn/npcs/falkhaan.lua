@@ -175,6 +175,7 @@ P:NPC {
       },
       choices = {
         { text = "Your secret's safe with the Light.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "A prayer by the roadside isn't much of a prayer.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Vespers would do you good.", next = "BACK", fx = { trait = { pious = 1 } } },
       },
     },

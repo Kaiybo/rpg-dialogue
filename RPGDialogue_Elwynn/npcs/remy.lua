@@ -142,6 +142,7 @@ P:NPC {
       },
       choices = {
         { text = "Nothing. Yet.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "I'm no thief, Remy, and I won't be selling.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Relax, Remy.", next = "BACK" },
       },
     },

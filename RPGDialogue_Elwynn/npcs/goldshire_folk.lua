@@ -647,7 +647,7 @@ P:NPC {
       },
       choices = {
         { text = "The door's open, if you ever want it.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "I'll be watching this cellar.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "I'll be watching this cellar.", next = "BACK", fx = { align = { order = 1 }, trait = { stern = 1 } } },
       },
     },
   },
@@ -910,7 +910,11 @@ P:NPC {
       lines = {
         { id = "hp_default", text = "Thank you; I'll take every prayer going. Helene says hers with a whetstone." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } } },
+      choices = {
+        { text = "Then she'll have my prayers too, whetstone and all.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "A whetstone will do her more good than prayers.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     camp = {
       lines = {

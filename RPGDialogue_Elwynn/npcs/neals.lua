@@ -82,6 +82,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll remember him too.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Faol's long gone, so I'll save my thanks for the living.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -132,13 +133,18 @@ P:NPC {
       choices = {
         { text = "And when no one walks in?", next = "faith_none" },
         { text = "That's a comfort, Brother.", next = "BACK", fx = { affinity = 2, align = { light = 2 }, trait = { pious = 1 } } },
+        { text = "Staying put sounds like an excuse to do nothing.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
     faith_none = {
       lines = {
         { id = "fn_default", text = "Then you're the one who walks in, for somebody else. That's what the clerics did in the First War. Unarmed, and they never once hung back." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { align = { light = 1 }, trait = { brave = 1 } } } },
+      choices = {
+        { text = "Then I'll be the one who walks in.", next = "BACK", fx = { align = { light = 1 }, trait = { brave = 1 } } },
+        { text = "Walking unarmed into a war sounds like foolishness to me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 

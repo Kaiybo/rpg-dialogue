@@ -83,7 +83,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll help.", next = "BACK", fx = { affinity = 2, learn = { "morganth" }, align = { order = 1 } } },
-        { text = "Very noble of you.", next = "BACK", fx = { affinity = -1, trait = { witty = 1 } } },
+        { text = "Very noble of you.", next = "BACK", fx = { align = { order = -1 }, affinity = -1, trait = { witty = 1 } } },
       },
     },
     morganth_want = {
@@ -149,7 +149,7 @@ P:NPC {
         { id = "el_default", text = "The loggers are loud, the Defias are tedious, and the pumpkin farm south-east of here has thieves in it. None of that will burn the kingdom down, but Morganth might." },
       },
       choices = {
-        { text = "People are suffering out there.", next = "elwynn_people", fx = { align = { light = 1 } } },
+        { text = "People are suffering out there.", next = "elwynn_people" },
         { text = "Fair. One thing at a time.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -159,7 +159,7 @@ P:NPC {
       },
       choices = {
         { text = "That's fair.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "That's a convenient view from a tower.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
+        { text = "That's a convenient view from a tower.", next = "BACK", fx = { align = { order = -1 }, affinity = -1, trait = { stern = 1 } } },
       },
     },
 
@@ -179,6 +179,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll refuse.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "I'll decide for myself what I read.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Knowledge shouldn't be locked away.", next = "mage_knowledge", fx = { trait = { curious = 1 } } },
       },
     },
@@ -202,7 +203,7 @@ P:NPC {
         { id = "pr_default", text = "A priest who knows shadow? Then you know it's a road that narrows the further you walk it. Morganth walked it to the end, so don't." },
       },
       choices = {
-        { text = "I walk it carefully.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
+        { text = "I walk it carefully.", next = "BACK", fx = { align = { light = -1 }, affinity = 1, trait = { cautious = 1 } } },
         { text = "The Light walks with me.", next = "BACK", fx = { affinity = 1, align = { light = 2 } } },
       },
     },

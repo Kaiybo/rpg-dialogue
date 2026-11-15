@@ -50,13 +50,15 @@ P:NPC {
       },
       choices = {
         { text = "Clever.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
-        { text = "And when they find out?", next = "clans_after", fx = { align = { honor = 1 } } },
+        { text = "Turning them on each other is a coward's way to win.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "And when they find out?", next = "clans_after" },
       },
     },
     clans_after = {
       lines = { { id = "ca_default", text = "Then I'll be the most hated man in Desolace, and still alive. I've been both of those before, separately." } },
       choices = {
         { text = "There has to be an honest way.", next = "BACK", fx = { affinity = -1, align = { honor = 2 } } },
+        { text = "Honesty won't keep your men alive out here.", next = "BACK", fx = { align = { honor = -2 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -88,7 +90,10 @@ P:NPC {
     },
     rogue = {
       lines = { { id = "r_default", text = "I don't doubt it, and that's exactly why I'll be watching you while you do it. No offence; it's the job." } },
-      choices = { { text = "None taken.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } } },
+      choices = {
+        { text = "None taken.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Watch all you like, because I've nothing to hide.", next = "BACK", fx = { align = { honor = 1 } } },
+      },
     },
     anton = {
       lines = { { id = "a_default", text = "Earnest, brave, and very sure of things a long way from here. I don't argue with him; I'd rather he kept his faith than lost it in my camp." } },
@@ -98,6 +103,7 @@ P:NPC {
       lines = { { id = "pch_default", text = "They need a chaplain, a cook and forty more swords, and I'll take the chaplain. Brother Anton prays, but only for the Crusade. My men would like someone to pray for them." } },
       choices = {
         { text = "I'll pray for them.", next = "BACK", fx = { affinity = 3, standing = { nijels_point = 2 }, align = { light = 1 } } },
+        { text = "Your men need swords more than they need prayers.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -167,7 +173,11 @@ P:NPC {
     },
     earth_heal = {
       lines = { { id = "eh_default", text = "Everything can be healed, given time, and the Circle has time. It is the people of Desolace who do not." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { align = { order = -1 } } } },
+      choices = {
+        { text = "Then the land comes first, and the people must wait.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The people can't wait, so heal them first and the land after.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     sisters = {
       lines = { { id = "s_default", text = "The dryads of my grove. They walk where I cannot and see what I would rather not. Do not stare at them; they find it tiresome." } },
@@ -304,6 +314,7 @@ P:NPC {
         { text = "Raleigh read your letter, Brother.", next = "raleigh",
           when = { thread = { id = "scarlet_path", beat = "b3_raleigh", state = { "stirring", "unfolding" } } } },
         { text = "I'll go to the valley.", next = "END", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I won't fight for the Crusade, Brother.", next = "END", fx = { align = { order = -1 } } },
       },
     },
     troubling = {
@@ -511,6 +522,7 @@ P:NPC {
       choices = {
         { text = "You sound like you've seen it happen.", next = "BACK", fx = { trait = { curious = 1 } } },
         { text = "Then I'll guard my spirit.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Power is power, whoever offers it.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
 
@@ -550,7 +562,10 @@ P:NPC {
       lines = {
         { id = "ch_default", text = "It would serve the Warchief better if I went, and my blade itches for it. But I hold this post, and I would disgrace my clan if I left it to chase glory for my own honor, so I'll trust you to gather a party in my place." },
       },
-      choices = { { text = "I'll do it.", next = "BACK", fx = { affinity = 3, align = { honor = 1 } } } },
+      choices = {
+        { text = "I'll do it.", next = "BACK", fx = { affinity = 3, align = { honor = 1 } } },
+        { text = "Glory's worth more than a post, and I'd have gone myself.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
     },
 
     warlock = {
@@ -572,7 +587,10 @@ P:NPC {
       lines = {
         { id = "om_default", text = "From across a battlefield, I can't tell your fire from theirs, and neither can the Alliance. Keep your magic clean and your loyalty plain, and we'll have no quarrel." },
       },
-      choices = { { text = "Understood.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } } },
+      choices = {
+        { text = "Understood.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My magic's my own business, and I'll use it how I like.", next = "BACK", fx = { align = { order = -1 } } },
+      },
     },
   },
 

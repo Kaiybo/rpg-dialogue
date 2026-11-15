@@ -117,6 +117,7 @@ P:NPC {
       },
       choices = {
         { text = "Fair. Cloth can be redeemed.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "It's only linen, and blessing it won't change a thing.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -251,6 +252,7 @@ P:NPC {
       },
       choices = {
         { text = "Light keep the vines, and the man who tends them.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I'll leave the blessings to the Abbey.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "The crows have to eat too.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },

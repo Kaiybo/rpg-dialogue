@@ -65,6 +65,7 @@ P:NPC {
       },
       choices = {
         { text = "Then we take it back.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 }, align = { honor = 1 } } },
+        { text = "Stonewatch is lost, so hold the lake and let it go.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "You did what you could.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Who did you lose?", next = "stonewatch_lost" },
       },
@@ -77,6 +78,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll bring him home.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "I won't risk my neck for one missing corporal.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -114,6 +116,7 @@ P:NPC {
       lines = { { id = "op_default", text = "You'd know better than a soldier. Fine: the Light first, then the hammer. My men won't touch them either way." } },
       choices = {
         { text = "The Light first. Always.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Smash them first, and the prayers can come after.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

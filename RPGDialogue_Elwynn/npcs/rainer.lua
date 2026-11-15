@@ -74,7 +74,7 @@ P:NPC {
       },
       choices = {
         { text = "Then hold.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "That's not right.", next = "BACK", fx = { affinity = 1, opinion = { westfall = "abandoned" } } },
+        { text = "That's not right.", next = "BACK", fx = { align = { order = -1 }, affinity = 1, opinion = { westfall = "abandoned" } } },
       },
     },
     fine = {
@@ -140,6 +140,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll bring the Abbey to them.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, standing = { goldshire = 1 } } },
+        { text = "Then let them sleep, since prayers won't help them.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

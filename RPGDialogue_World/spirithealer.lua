@@ -208,7 +208,7 @@ P:Pool {
           text = "Because being forgotten is the only death I cannot undo. Everything else, I can work with." },
       },
       choices = {
-        { text = "Then don't forget me.", next = "parting", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Then don't forget me.", next = "parting", fx = { align = { light = 1 }, affinity = 1, trait = { kind = 1 } } },
         { text = "Some people deserve forgetting.", next = "deserve", fx = { align = { light = -1 }, trait = { stern = 1 } } },
         { text = "Back to the matter at hand.", next = "hello" },
       },
@@ -364,6 +364,7 @@ P:Pool {
       },
       choices = {
         { text = "Then I'll remember you.", next = "remember", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Then you're only a tool, and tools don't need faces.", next = "ask", fx = { align = { light = -1 } } },
         { text = "Back to my questions.", next = "ask" },
       },
     },
@@ -477,6 +478,7 @@ P:Pool {
         { text = "Who decides when I'm finished?", next = "finished" },
         { text = "Doesn't sending us back cheapen death?", next = "cheapen" },
         { text = "Thank you.", next = "BUSINESS", fx = { align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "I never asked you to send me back.", next = "BUSINESS", fx = { align = { light = -1 } } },
         { text = "Back to my questions.", next = "ask" },
       },
     },
@@ -515,6 +517,7 @@ P:Pool {
         { text = "A song isn't a life.", next = "song", fx = { trait = { skeptical = 1 } } },
         { text = "Then death means nothing.", next = "nothing", fx = { trait = { skeptical = 1 } } },
         { text = "Maybe it's a mercy.", next = "mercy", fx = { align = { light = 1 } } },
+        { text = "It's a curse, and you're the one who keeps casting it.", next = "parting", fx = { align = { light = -1 } } },
         { text = "Maybe it's a cage.", next = "cage", fx = { npcFlag = { set = "asked_cage" } } },
       },
     },
@@ -547,7 +550,7 @@ P:Pool {
       },
       choices = {
         { text = "Yes. Let me choose.", next = "stay", fx = { align = { order = -1 }, npcFlag = { set = "asked_stay" } } },
-        { text = "No. Not yet.", next = "parting" },
+        { text = "No. Not yet.", next = "parting", fx = { align = { order = 1 } } },
         { text = "[Persuade] You're caged too, aren't you?", tag = "Persuade", next = "healer_cage",
           check = { pass = { any = { { trait = "curious" }, { trait = "kind" }, { deaths = { min = 25 } } } } },
           fail = { next = "cage_fail" } },
@@ -603,7 +606,7 @@ P:Pool {
       choices = {
         { text = "I'll stay a little longer.", next = "linger", fx = { align = { order = -1 } } },
         { text = "That sounds peaceful.", next = "peaceful" },
-        { text = "Send me back.", next = "parting" },
+        { text = "Send me back.", next = "parting", fx = { align = { order = 1 } } },
       },
     },
     peaceful = {
@@ -710,6 +713,7 @@ P:Pool {
       },
       choices = {
         { text = "Then I'd better go write something.", next = "parting", fx = { align = { light = 1 } } },
+        { text = "There's nothing down there worth writing.", next = "parting", fx = { align = { light = -1 } } },
         { text = "Back to my questions.", next = "ask" },
       },
     },
@@ -1233,6 +1237,7 @@ P:Pool {
         { text = "It's a life. I still change and grow.", next = "dv_endless_grow" },
         { text = "No. Without an ending, nothing matters.", next = "dv_endless_nothing" },
         { text = "It's a gift. I'll use every day of it.", next = "dv_endless_gift", fx = { align = { light = 1 } } },
+        { text = "It's a curse, and I'd give it back if I could.", next = "dv_endless_nothing", fx = { align = { light = -1 } } },
       },
     },
     dv_endless_grow = {
@@ -1302,6 +1307,7 @@ P:Pool {
       choices = {
         { text = "Writing it down doesn't make it happen.", next = "dv_written_record" },
         { text = "Then I'll do something no one could write.", next = "dv_written_defy", fx = { align = { order = -1 } } },
+        { text = "Then I'll read my lines and trust whoever wrote them.", next = "dv_written_lose", fx = { align = { order = 1 } } },
         { text = "Maybe it is written. I'll still choose.", next = "dv_written_both" },
       },
     },
@@ -1400,6 +1406,7 @@ P:Pool {
       choices = {
         { text = "Because someone down there is hurting worse.", next = "dv_pain_win", fx = { align = { light = 1 } } },
         { text = "I don't have an answer.", next = "dv_pain_lose" },
+        { text = "Because I'm paid to, and that's reason enough.", next = "dv_pain_lose", fx = { align = { light = -1 } } },
       },
     },
     dv_pain_bind = {
@@ -1442,6 +1449,7 @@ P:Pool {
       },
       choices = {
         { text = "Vengeance. Their killers should pay.", next = "dv_debt_vengeance", fx = { align = { honor = -1 } } },
+        { text = "Mercy. Their killers should be forgiven, and the wheel stopped.", next = "dv_debt_win", fx = { align = { honor = 1 } } },
         { text = "Remembrance. We carry them.", next = "dv_debt_remember" },
         { text = "Nothing. We owe the living.", next = "dv_debt_living" },
       },
@@ -1456,7 +1464,7 @@ P:Pool {
       },
       choices = {
         { text = "Then someone has to stop turning it.", next = "dv_debt_win", fx = { align = { honor = 1 } } },
-        { text = "Then let it turn.", next = "dv_debt_lose", fx = { trait = { stern = 1 } } },
+        { text = "Then let it turn.", next = "dv_debt_lose", fx = { align = { honor = -1 }, trait = { stern = 1 } } },
       },
     },
     dv_debt_remember = {

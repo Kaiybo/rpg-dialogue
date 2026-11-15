@@ -105,7 +105,7 @@ P:NPC {
     pity = {
       lines = { { id = "p_default", text = "Sorry for them? They'd eat me if I let them, and I don't let them." } },
       choices = {
-        { text = "Fair enough.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "Fair enough.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
         { text = "Seems a hard way to see it.", next = "pity_hard", fx = { align = { light = 1 }, trait = { kind = 1 }, affinity = -1 } },
       },
     },

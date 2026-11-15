@@ -240,6 +240,7 @@ P:NPC {
       choices = {
         { text = "That sounds like a complaint, Marshal.", next = "army_politics" },
         { text = "Then I'll walk through it more often.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "The nobles' wars aren't my concern, Marshal.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
     army_politics = {
@@ -257,6 +258,7 @@ P:NPC {
       },
       choices = {
         { text = "Then send me.", next = "BACK", fx = { affinity = 3, align = { order = 1 }, trait = { brave = 1 } } },
+        { text = "I won't fight for a city that left us to starve.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Stormwind should be ashamed.", next = "farmhand_shame" },
       },
     },
@@ -264,7 +266,11 @@ P:NPC {
       lines = {
         { id = "fs_default", text = "Some of it is. Not the part that's sitting at this desk. Say it in the city if you like. Say it louder than I'm allowed to." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { align = { order = -1 }, opinion = { defias = "sympathetic" } } } },
+      choices = {
+        { text = "Then I'll say it, loud enough for the nobles to hear.", next = "BACK", fx = { align = { order = -1 }, opinion = { defias = "sympathetic" } } },
+        { text = "Shouting won't feed Westfall, so I'll leave it to the city.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
 
     noble = {
@@ -273,6 +279,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll tell them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'm not carrying messages for the garrison, Marshal.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "My family doesn't listen to me.", next = "noble_listen" },
       },
     },
@@ -289,6 +296,7 @@ P:NPC {
       },
       choices = {
         { text = "I will. And one for you, Marshal.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, trait = { pious = 1 }, standing = { goldshire = 2 } } },
+        { text = "I'm no priest, Marshal, and prayers won't bring them back.", next = "BACK", fx = { align = { light = -2 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

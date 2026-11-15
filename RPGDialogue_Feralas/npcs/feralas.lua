@@ -83,7 +83,11 @@ P:NPC {
     },
     tyrande_debt = {
       lines = { { id = "td_default", text = "It isn't a debt, because debts get paid off. This is a vow, and vows don't end." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { align = { honor = 1 } } } },
+      choices = {
+        { text = "A vow like that deserves respect.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Even vows can be broken when they stop making sense.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     watch = {
       lines = { { id = "w_default", text = "Latronicus Moonspear, my second. He sleeps less than I do and complains about it more. The island has never once been unwatched." } },
@@ -106,7 +110,10 @@ P:NPC {
     },
     sentinels = {
       lines = { { id = "s_default", text = "Then come back when you're ready to stand a watch and not just a fight. They're different things, and most learn that late." } },
-      choices = { { text = "I'll be ready.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } } },
+      choices = {
+        { text = "I'll be ready.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Standing watch isn't for me, so I'll stick to the fighting.", next = "BACK", fx = { align = { order = -1 } } },
+      },
     },
     pratt = {
       lines = { { id = "p_default", text = "He mends our leather better than any of us can, and he's never once asked to be thanked. On this island, that makes him kaldorei enough." } },
@@ -116,6 +123,7 @@ P:NPC {
       lines = { { id = "pe_default", text = "My priestesses would say yes, and argue for a week. I've seen both close the same wound on the same Sentinel. I don't argue with what works." } },
       choices = {
         { text = "Nor do I.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Prayer doesn't close wounds; skill does.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -186,7 +194,11 @@ P:NPC {
     },
     light = {
       lines = { { id = "li_default", text = "Every morning. It doesn't care what you're holding, hammer or needle; it cares what you do with it." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } } },
+      choices = {
+        { text = "Then I'll try to do right with mine.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "I've no use for the Light, morning or night.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -330,7 +342,11 @@ P:NPC {
       lines = {
         { id = "gh_default", text = "In time, if we push them back and keep them back. I'm a warrior, not a druid, but I know that a wound closes once you stop opening it." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } } },
+      choices = {
+        { text = "Then I'll help keep that wound closed.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Better to burn the Gordunni out than wait for anything to heal.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
 
     belgrom = {

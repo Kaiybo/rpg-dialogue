@@ -84,6 +84,7 @@ P:NPC {
         { text = "Who leads them up here?", next = "garrick" },
         { text = "Why would anyone join them?", next = "why", fx = { trait = { curious = 1 } } },
         { text = "Then I'll clear them out.", next = "BACK", fx = { align = { order = 1 }, trait = { brave = 1 }, affinity = 1 } },
+        { text = "The vineyard's not my problem, Deputy.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
     why = {
@@ -113,6 +114,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'm your patrol.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, standing = { northshire = 1 } } },
+        { text = "I'm nobody's patrol, and I'm in it for the bounties.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -153,7 +155,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll help where I can.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "Somebody should ask.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "Somebody should ask.", next = "BACK", fx = { align = { order = -1 }, trait = { skeptical = 1 } } },
       },
     },
     westfall = {

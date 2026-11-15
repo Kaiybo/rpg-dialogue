@@ -68,7 +68,7 @@ P:NPC {
       choices = {
         { text = "And what are you?", next = "what" },
         { text = "Seems a lot of killing just to find that out.", next = "why_killing", fx = { align = { light = 1 } } },
-        { text = "I'll find out, then.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
+        { text = "I'll find out, then.", next = "BACK", fx = { align = { light = -1 }, affinity = 2, trait = { brave = 1 } } },
       },
     },
     what = {
@@ -83,6 +83,7 @@ P:NPC {
       },
       choices = {
         { text = "Fair chance. I can respect that.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Fair or not, a kill's a kill.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "A fair chance against a rifle?", next = "BACK", fx = { affinity = -1, trait = { skeptical = 1 } } },
       },
     },
@@ -282,6 +283,7 @@ P:NPC {
       choices = {
         { text = "Come with me next time.", next = "fight_offer", fx = { affinity = 1, trait = { generous = 1 } } },
         { text = "The camp needs you here.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "You should fight where you choose, not where you're posted.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
     fight_offer = {
@@ -371,6 +373,7 @@ P:NPC {
       lines = { { id = "sc_default", text = "No. Help me with the young ones, if you want to help, but Sin'Dall's mine. He was my father's, and now he's mine." } },
       choices = {
         { text = "Understood.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "I'll take Sin'Dall myself if I find him first.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "Pride gets hunters killed.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
       },
     },
@@ -502,6 +505,7 @@ P:NPC {
       },
       choices = {
         { text = "One honest vote is still a vote.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
+        { text = "You're right, and the House of Nobles isn't worth saving.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Fair enough. Something else.", next = "BACK" },
       },
     },
@@ -548,7 +552,7 @@ P:NPC {
       choices = {
         { text = "They say worse.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
         { text = "I left too. In my way.", next = "BACK", fx = { affinity = 3, align = { honor = 1 } } },
-        { text = "They had their reasons for the masons.", next = "BACK", fx = { affinity = -3, opinion = { defias = "nobles_justified" } } },
+        { text = "They had their reasons for the masons.", next = "BACK", fx = { align = { honor = -1 }, affinity = -3, opinion = { defias = "nobles_justified" } } },
       },
     },
 
@@ -559,13 +563,14 @@ P:NPC {
       },
       choices = {
         { text = "You're not the one who burned the fields.", next = "BACK", fx = { affinity = 2, align = { light = 2 }, trait = { kind = 1 } } },
-        { text = "I won't.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
+        { text = "I won't.", next = "BACK", fx = { align = { light = -1 }, affinity = 1, trait = { stern = 1 } } },
       },
     },
     priest_forgive = {
       lines = { { id = "pf_default", text = "Does it? Then the Light is kinder than the masons, and I'd sooner have theirs. Forgiveness from the people I failed would mean something. From above, it only feels convenient." } },
       choices = {
         { text = "Then seek theirs.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Then take the Light's forgiveness and be done with it.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Both can be true.", next = "BACK", fx = { affinity = 1, trait = { pious = 1 } } },
       },
     },
