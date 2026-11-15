@@ -135,7 +135,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Have ye come from the east? Any word from the dig?" },
-    { id = "g_back", when = { metBefore = true }, text = "You're back! Is there news? Tell me there's news." },
+    { id = "g_back", when = { metBefore = true }, text = "You're back! Is there any news from the dig? Tell me there's news." },
     { id = "g_active", when = { questActive = TODO_QUEST("In Search of The Excavation Team") }, text = "East to the dig, an' find Merrin. Please, don't stop for anythin'." },
   },
 
@@ -321,7 +321,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know Menethil's tavern stools, and I know my brother. That's most of it." } },
     background = { { id = "tp_bg", text = "I worked a tavern with my brother, and now I mostly sit in one and miss him." } },
     advice = { { id = "tp_ad", text = "If you ever eat at an inn James Hyal runs, order whatever he says." } },
-    _none = { { id = "tp_none", text = "Can't say, friend. Ask me about James." } },
+    _none = { { id = "tp_none", text = "Can't say, friend, but ask me about James and I'll talk all night." } },
   },
 }
 
@@ -594,7 +594,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "Fish, bait and the bay's bad luck, that's my trade. What do you want to know?" } },
     background = { { id = "tp_bg", text = "I fish, I teach, and I talk too much; ask anyone." } },
     advice = { { id = "tp_ad", text = "Never fish over a wreck after dark. Just trust me on that." } },
-    _none = { { id = "tp_none", text = "Couldn't tell you. Ask me about fish." } },
+    _none = { { id = "tp_none", text = "Couldn't tell you, friend, but ask me about fish and I'll never stop." } },
   },
 }
 

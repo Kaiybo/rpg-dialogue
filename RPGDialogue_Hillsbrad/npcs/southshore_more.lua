@@ -767,7 +767,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "I breed horses, and I was right about the feed, and those are the important things." } },
     advice = { { id = "tp_ad", text = "Never buy a horse that won't look you in the eye." } },
     silver_hand = { { id = "tp_silverhand", text = "Laughed at me, all of them, and now they'll come to me for feed. I'll remember every name.", next = "silverhand" } },
-    _none = { { id = "tp_none", text = "Not about horses? Then not interested." } },
+    _none = { { id = "tp_none", text = "If it isn't about horses, then I'm not interested." } },
   },
 }
 

@@ -670,14 +670,14 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Has anyone come? Anyone at all? The dead walk the roads and nobody lifts a finger." },
-    { id = "g_back", when = { metBefore = true }, text = "Oh, it's you. Any news? No, there's never any news, is there." },
+    { id = "g_default", text = "Has anyone come yet, anyone at all? The dead walk the roads, and still nobody lifts a finger to stop them." },
+    { id = "g_back", when = { metBefore = true }, text = "Oh, it's you again. I don't suppose you've brought any news, because nobody ever does." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Don't stand near the window. Something bad is on its way here, I can feel it, and I'd rather it didn't see us." },
   },
 
   notice = {
     { id = "n_soldier", cat = "soldier", when = { tabard = true },
-      text = "You're wearing colours! Are you from Stormwind? Has the king finally sent soldiers, or is it only you?" },
+      text = "You're wearing colours! Are you from Stormwind, and has the king finally sent soldiers, or is it only you?" },
     { id = "n_weary", cat = "weary", when = { deathsHere = { min = 1 } },
       text = "You've been out there and come back looking worse. That's what happens, and that's why I stay in." },
   },
@@ -691,7 +691,7 @@ P:NPC {
           text = "They say someone cleared the cemetery for the Watch. I thought about going to see my father, and then I didn't, but I thought about it, which is more than last month." },
       },
       again = {
-        { id = "h_again", text = "Something else? I'm not going anywhere. I never am." },
+        { id = "h_again", text = "Something else? I'm not going anywhere, and I never am these days." },
         { id = "h_again2", text = "Go on, I'd welcome the distraction." },
       },
       choices = {

@@ -271,7 +271,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Excuse me, {g:mister|ma'am}! Are you busy? Could you help us, just a little bit?" },
+    { id = "g_default", text = "Excuse me, {g:mister|ma'am}, are you busy? Could you help us, just a little bit, please?" },
     { id = "g_back", when = { metBefore = true }, text = "You came back! Hilary, look, it's them again!" },
     { id = "g_done", when = { questDone = TODO_QUEST("Hilary's Necklace") }, text = "Hilary's still wearing it! I'm going to be a hero like you someday, I've decided." },
   },
