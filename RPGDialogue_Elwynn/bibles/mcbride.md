@@ -60,3 +60,9 @@ causes. Mistaken: nothing planned.
 
 ## Topics
 kobolds, echo_ridge, defias, northshire_abbey
+
+## Depth pass (Elwynn 1.10.0)
+Sources read: the wiki pages for McBride, A Threat Within, Kobold Camp Cleanup, Investigate Echo Ridge, Skirmish at Echo Ridge, Report to Goldshire, The Adventurer (Elwynn Forest) (Forever), Echo Ridge Mine, Garrick Padfoot.
+- Canon used: "we guards are spread a little thin" (gossip); so many forces marshaled abroad, enlisting anyone willing to defend their home and their alliance, "we're getting a lot of you; I hope it's enough" (A Threat Within); kobolds are thieves and cowards but a threat in numbers; the longer they sit in the mine the deeper the foothold; "there may still be kobolds; I'll marshal others" (Skirmish); Goldshire lies along the south road past the border gates (Report to Goldshire); Garrick Padfoot fights with a warrior's Defensive Stance (his abilities), which McBride reads as drilling.
+- Branches: orders and the garrison (the authored secret surfaces only at affinity 4+), kobolds and Echo Ridge, the Defias (who leads them; Garrick), Goldshire and Dughan, and replies for priests (level 1-15), Westfall farmhands, Lordaeron refugees, dwarves/gnomes/night elves/Skyborne, and returning veterans (level 20+).
+- Authored, not canon: his opinion of Dughan ("known each other too long to listen to each other"); the abbey novice "carrying the brothers' candles last spring"; asking Stormwind twice for soldiers (his bible secret, now said aloud to trusted players).

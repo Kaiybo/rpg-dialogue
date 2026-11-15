@@ -34,3 +34,7 @@ Biased about how good a kitten she is.
 
 ## Topics
 (none; brush-off only)
+
+## Depth pass (Stormwind 1.6.0)
+Sources added: the same page's quotes and route (allergic; "either of my kitties" and her sister; the canal from Cathedral Square through the Trade District, Old Town and the Dwarven District).
+Authored, not canon: the dwarves smell of smoke; "two noes"; holy kittens.

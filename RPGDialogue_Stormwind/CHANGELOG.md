@@ -2,6 +2,14 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.6.0 (unreleased)
+- Depth rewrite for the rest of the city: every conversation is now a hub with branches to explore, "Something else" brings you back, and each person has their own story and advice under Ask about.
+- Mathias Shaw (SI:7): the Defias and the Stonemasons, the boy he trained, the missing King, Lady Prestor, the Lescovar affair from start to finish, rogue work, and a priest's confessions. Lord Grayson Shadowbreaker: the Silver Hand's oath, the charger and its barding, Chillwind Point, King Terenas's statuette (Forever's A Friend of the Family). General Marcus Jonathan: the statues in the Valley of Heroes and Turalyon, Solomon's letter, Westfall, and the Lordaeron insignia (Forever's Bloodied Insignia).
+- Duthorian Rall (the test of valor, the Defias script, squires of the fallen Order), Baros Alexston (the riot that killed the queen, his farm and compass, the Lescovar chain), Gazin Tenorm (Heroes' Vigil, Henze), Stephanie Turner, Lil Timmy and his allergic dad.
+- The Missing Diplomat and Lescovar chains run through Elling Trias, Dashel Stonefist, Lord Lescovar (who never admits anything) and Warden Thelwater (the riots, Targorr and Dextren Ward, the boy guard Mac). Grimand Elmore and Furen Longbeard (lightforge iron, Furen's notes, the Stormpikes), Milton Sheaf (Alterac's lost books, Brother Kristoff's metallurgy), Jennea, Gakin, Allison, Arthur, Renzik, Samuelson, Topper and Thomas Miller.
+- Voice pass over every line in the pack (Bolvar, Prestor, Anduin and the Cathedral included): people talk in whole sentences now instead of clipped fragments, with the same facts and the same voices.
+- For a human priest: replies and lines with Shaw, Grayson, Rall, Marcus, Gazin, Stephanie, Milton, Thelwater, Gakin, Jennea, Lescovar, Renzik, Allison, Elling, Arthur and Timmy; origins (Westfall farmhand, minor noble, Lordaeron refugee, paladin squire) where people would care.
+
 ## 1.5.0 (unreleased)
 - The Cathedral of Light for a priest: Archbishop Benedictus deepened (and, on shadow, a bishop after the First War who went too far into it); High Priestess Laurena, Brother Joshua and Brother Benjamin, the priest trainers; Brother Crowley, the Scarlet Crusade's emissary downstairs.
 - Bolvar, Anduin and Katrana: new branches (the Church, Lady Prestor, the refugees, letters), and "Something else" goes back instead of ending the conversation.
