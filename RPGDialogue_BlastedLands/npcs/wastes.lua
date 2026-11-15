@@ -37,7 +37,7 @@ P:NPC {
         { id = "h_fragments", when = { questActive = TODO_QUEST("Everything Counts In Large Amounts") },
           text = "Fragments, flawed and cloudy, will not take Kum'isha home, but they may yet serve my people in other ways. Bring what you find, and spare me the drooling." },
         { id = "h_sphere_wait", when = { questActive = TODO_QUEST("To Serve Kum'isha") },
-          text = "A flawless sphere, {race}. Draenei have spent whole lives searching for just one, and you think you will stumble on it on an afternoon's walk. We shall see." },
+          text = "You want the flawless sphere, {race}? Draenei have spent whole lives searching for just one, and you think you will stumble on it on an afternoon's walk. We shall see." },
         { id = "h_sphere_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("To Serve Kum'isha"), days = 7 } },
           text = "I hold it still, the sphere you brought, and I have not slept. Perhaps a rift can be opened now; perhaps my people will go home after all this." },
         { id = "h_night", when = { timeOfDay = "night" },
@@ -87,7 +87,7 @@ P:NPC {
     greed_own = {
       big = true,
       lines = {
-        { id = "go_default", text = "Mine, {race}. Before I smelled greed on every race of this world, I smelled it on myself every morning, and I followed it further than I should have, and it left me here. Now you know why I hate the smell so." },
+        { id = "go_default", text = "It was mine, {race}, mine. Before I smelled greed on every race of this world, I smelled it on myself every morning, and I followed it further than I should have, and it left me here. Now you know why I hate the smell so." },
       },
       choices = {
         { text = "Then you know it can be overcome.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
@@ -294,8 +294,8 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Bloodmage Lynnore speaks of basilisks with more respect than she shows most people. She is cool, clever and fond of her brother in a way she would never admit to his face.",
-    third = "{name} met Bloodmage Lynnore, an elven bloodmage studying the minds and spirits of the Blasted Lands' beasts.",
+    first = "Bloodmage Lynnore speaks of basilisks with more respect than she shows most people. She is cold, clever and fond of her brother in a way she would never admit to his face.",
+    third = "{name} met Bloodmage Lynnore, Drazial's sister, who studies how the basilisks and vultures of the Blasted Lands think and heal.",
   },
 
   greetings = {

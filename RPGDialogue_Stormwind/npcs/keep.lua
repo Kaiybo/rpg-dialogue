@@ -78,7 +78,7 @@ P:NPC {
         { id = "dm_warm", when = { disposition = { min = 70 } }, text = "I am, and I'm sorry for it, because you've earned better. I'll tell you this much: if I'm right about who is missing, the whole kingdom will feel it when it's known, so I pray it never needs to be." },
       },
       choices = {
-        { text = "Secrets have their place. I'll keep yours.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Secrets have their place, and I'll keep yours.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
         { text = "People deserve the truth, Your Grace.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
       },
     },
@@ -199,7 +199,7 @@ P:NPC {
           text = "Every family in this city has a story, and ours happens to be told in gold and gemstones. You must come and see the museum; I'll give you the long tour." },
       },
       again = {
-        { id = "h_again", text = "What else, what else? I do love company." },
+        { id = "h_again", text = "What else, what else? I do so love a little company." },
         { id = "h_again2", text = "Go on, then. My next appointment is only the Duke, and he's always late." },
       },
       choices = {
@@ -212,7 +212,7 @@ P:NPC {
       },
     },
     museum = {
-      lines = { { id = "m_default", text = "Three floors, my friend, and every piece with a story. A dagger from the First War, a goblet from old Lordaeron, a brooch that may have belonged to a queen. People come from all over the city to look, and I come every morning just to admire it." } },
+      lines = { { id = "m_default", text = "Three floors, my friend, and every piece with a story. A dagger from the First War, a goblet from old Lordaeron, a brooch that may have belonged to a queen. People come from all over the city to see it, and I come every morning just to admire it." } },
       choices = {
         { text = "Where do you find it all?", next = "museum_find" },
         { text = "Something else.", next = "BACK" },
@@ -239,7 +239,7 @@ P:NPC {
         fx = { learn = { "alterac" } } } },
       choices = {
         { text = "It should stay buried with them.", next = "tiara_shame", fx = { align = { honor = 1 } } },
-        { text = "History is history. Put it on display.", next = "tiara_shame", fx = { align = { honor = -1 } } },
+        { text = "History is history, so put it on display.", next = "tiara_shame", fx = { align = { honor = -1 } } },
         { text = "What does it look like?", next = "tiara_shame" },
       },
     },
@@ -283,7 +283,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never wear your second-best coat to the Keep. Someone always notices, and it's always the Duchess." } },
     alterac = { { id = "tp_alterac", text = "Ruins, ogres and a traitor's treasure. I'd never go myself, but I'd love to own a piece of it.", next = "tiara" } },
     thaurissan = { { id = "tp_thaurissan", text = "The old Dark Iron capital, all ash now, and Mayara says there's beauty in the ash if you dig. I believe her." } },
-    _none = { { id = "tp_none", text = "Haven't the faintest, my dear. Is it valuable? No? Then I shan't worry about it." } },
+    _none = { { id = "tp_none", text = "Haven't the faintest, my dear, and if it isn't valuable, I shan't worry about it." } },
   },
 }
 
@@ -300,8 +300,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_house", text = "Mark my words, the House will hear of it! Oh, it's you. What is it?" },
-    { id = "g_thirst", text = "Thirsty work, lobbying. Dreadfully thirsty work." },
+    { id = "g_house", text = "Mark my words, the House will hear of it! Oh, it's you; what is it?" },
+    { id = "g_thirst", text = "Lobbying is thirsty work, dreadfully thirsty work." },
   },
 
   notice = {
@@ -341,7 +341,7 @@ P:NPC {
       lines = { { id = "c_default", text = "Warlocks, {g:sir|madam}, in the cellar of the Slaughtered Lamb, not a hundred paces from the Wizard's Sanctum! They summon things down there, and teach others to, and the magi upstairs pretend not to notice. It's a disgrace." } },
       choices = {
         { text = "Then they should be driven out.", next = "coven_more", fx = { align = { light = 1 } } },
-        { text = "They harm no one. Leave them be.", next = "coven_more", fx = { align = { light = -1 } } },
+        { text = "They harm no one, so leave them be.", next = "coven_more", fx = { align = { light = -1 } } },
         { text = "What do they summon?", next = "coven_more" },
       },
     },
@@ -383,7 +383,7 @@ P:NPC {
       lines = { { id = "w_default", text = "From the Mage Quarter? Why ever would anyone send me a drink from that end of town? Unless you mean the magi have finally come round to my side, which would be very handsome of them." } },
       choices = {
         { text = "I mean it. Refuse any gift you didn't order.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Never mind, my lord. Drink up.", next = "BACK", fx = { align = { honor = -1 }, trait = { cruel = 1 } } },
+        { text = "Never mind, my lord, and drink up.", next = "BACK", fx = { align = { honor = -1 }, trait = { cruel = 1 } } },
       },
     },
     priest = {

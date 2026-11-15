@@ -200,7 +200,7 @@ P:NPC {
         { text = "Let me hear the opening.", next = "opening" },
         { text = "Where is the book now?", next = "book" },
         { text = "What does Fortitude mean to you, Brother?", next = "fortitude", when = { class = "PRIEST" } },
-        { text = "I know iron. It's honest stuff.", next = "smith", when = { any = { { profession = "Blacksmithing" }, { profession = "Mining" } } } },
+        { text = "I know iron, Brother, and it's honest stuff.", next = "smith", when = { any = { { profession = "Blacksmithing" }, { profession = "Mining" } } } },
         { text = "Good luck with the sermon.", next = "END" },
       },
     },
@@ -252,13 +252,13 @@ P:NPC {
       lines = { { id = "f_default", text = "That when we lay that prayer on someone, we aren't making them stronger than they are; we're reminding their body of what it can already bear. I think the spirit works the same way, if someone's there to remind it." } },
       choices = {
         { text = "I'll remember that when I cast it.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { pious = 1 } } },
-        { text = "It's a spell, Brother. Don't dress it up.", next = "BACK", fx = { align = { light = -1 }, trait = { skeptical = 1 } } },
+        { text = "It's a spell, Brother, so don't dress it up.", next = "BACK", fx = { align = { light = -1 }, trait = { skeptical = 1 } } },
       },
     },
     smith = {
       lines = { { id = "s_default", text = "Then tell me, because I've only read about it: when you quench the hot iron, does it truly sing? The book says it does, and I've built half a paragraph on that." } },
       choices = {
-        { text = "It hisses, mostly. Call it singing anyway.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } },
+        { text = "It hisses, mostly, but call it singing anyway.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } },
         { text = "It sings, Brother.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -485,7 +485,7 @@ P:NPC {
     priest = {
       lines = { { id = "p_default", text = "More than anything! Only I'm worried I won't be good enough at the healing part, because I faint when I see blood, a bit. Did you ever faint?" } },
       choices = {
-        { text = "Once or twice. You get past it.", next = "BACK", fx = { affinity = 3, trait = { kind = 1 } } },
+        { text = "Once or twice, and you get past it.", next = "BACK", fx = { affinity = 3, trait = { kind = 1 } } },
         { text = "Never. You'll have to toughen up.", next = "BACK", fx = { trait = { stern = 1 } } },
       },
     },
@@ -533,7 +533,7 @@ P:NPC {
       lines = {
         { id = "h_default", text = "There are costs to war, {class}, and the ones people forget are the children. Those with no one else come here, to us, and stay until they can fend for themselves. I'm Matron Nightingale, and this is their home." },
         { id = "h_letter", key = true, tags = { "news" }, when = { questActive = TODO_QUEST("Remember That I Love You") },
-          text = "Heartweaver? Heartweaver... oh, little Jeremy Heartweaver. He came to us years ago, after Lordaeron fell, with both his parents lost, and he hardly said a word the whole time he was here." },
+          text = "Heartweaver... oh, little Jeremy Heartweaver! He came to us years ago, after Lordaeron fell, with both his parents lost, and he hardly said a word the whole time he was here." },
         { id = "h_letter2", tags = { "news" }, when = { questActive = TODO_QUEST("Remember That I Love You (2)") },
           text = "Avette Fellwood took Jeremy in, out in Duskwood. If you see him, tell him we're all thinking of him here, won't you? Even the ones who were too small to remember his name." },
         { id = "h_week", tags = { "news" }, when = { questActive = TODO_QUEST("Children's Week") },
@@ -633,7 +633,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_children", text = "Now, children, stop that! I mean it! Oh, hello there." },
+    { id = "g_children", text = "Now, children, stop that, I mean it! Oh, hello there, dear." },
     { id = "g_future", text = "Mind the little ones underfoot, they get everywhere." },
   },
 

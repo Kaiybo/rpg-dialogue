@@ -86,7 +86,7 @@ P:NPC {
       lines = { { id = "be_default", text = "Then it is no longer part of nature, and we fight it, the Burning Legion and its servants most of all. But a hungry wolf is not evil, and a forest fire is not evil, and a great deal of harm is done by people who cannot tell the difference." } },
       choices = {
         { text = "Some things are simply evil.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Nothing is evil. Only hungry.", next = "BACK", fx = { align = { light = -1 }, trait = { skeptical = 1 } } },
+        { text = "Nothing is evil, only hungry.", next = "BACK", fx = { align = { light = -1 }, trait = { skeptical = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

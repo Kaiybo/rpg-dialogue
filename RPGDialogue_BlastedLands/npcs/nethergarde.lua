@@ -841,7 +841,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else, friend? My mug's half full, so I've got time." },
-        { id = "h_again2", text = "Go on, then; I'm listenin', mostly." },
+        { id = "h_again2", text = "Out wi' it, then. I'm listenin', mostly, between sips." },
       },
       choices = {
         { text = "What's this about stolen ale?", next = "ale" },
@@ -951,7 +951,7 @@ P:NPC {
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Night flights are cold enough to frost a gryphon's beak out here. I'll find you a blanket for the saddle if you're going." },
       },
-      again = { { id = "h_again", text = "Anything else, or are you flying?" } },
+      again = { { id = "h_again", text = "Is there something else, or shall I saddle a bird for you?" } },
       choices = {
         { text = "Where can your gryphons take me?", next = "routes" },
         { text = "How do the birds manage this place?", next = "birds" },

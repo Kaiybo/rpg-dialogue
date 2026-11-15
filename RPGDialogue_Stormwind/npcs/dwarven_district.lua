@@ -65,7 +65,7 @@ P:NPC {
       big = true,
       lines = { { id = "k_default", text = "Quiet, these days. King Varian's armour sits on its stand where I left it, oiled every week in case he comes home, an' the young king's still too small for a breastplate. I make guards' mail now, an' pray." } },
       choices = {
-        { text = "He'll come home. Keep it oiled.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "He'll come home, so keep it oiled.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
         { text = "The kingdom needs a king who's here.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -215,8 +215,8 @@ P:NPC {
       big = true,
       lines = { { id = "c_default", text = "Gnomish, obviously, but I'm a gnome, so you shouldn't trust me. Goblin engineering is louder and gets results faster, and gnomish engineering is cleverer and occasionally turns you into a chicken. Membership is permanent either way, so think hard." } },
       choices = {
-        { text = "Cleverness over noise. Gnomish.", next = "choice_more", fx = { affinity = 2, align = { order = 1 } } },
-        { text = "Results are results. Goblin.", next = "choice_more", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "Cleverness over noise, so gnomish.", next = "choice_more", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Results are results, so goblin.", next = "choice_more", fx = { affinity = -1, align = { order = -1 } } },
         { text = "A chicken?", next = "choice_more", fx = { trait = { curious = 1 } } },
       },
     },
@@ -240,7 +240,7 @@ P:NPC {
 
   topics = {
     knows = {
-      { id = "tp_knows", text = "I hear a lot, because people think I'm busy counting and not listening. I'm always doing both. Ask!" },
+      { id = "tp_knows", text = "I hear a lot, because people think I'm busy counting and not listening. I'm always doing both, so ask!" },
     },
     background = { { id = "tp_bg", text = "An engineer from Gnomeregan teaching engineers in Stormwind. The sum of it is that simple." } },
     advice = { { id = "tp_ad", text = "Measure twice and blow it up once. Never the other way round." } },
@@ -262,7 +262,7 @@ P:NPC {
 
   greetings = {
     { id = "g_interrupt", text = "Ye interrupted me, so ye'd better have a blasted good reason." },
-    { id = "g_miner", when = { profession = "Mining" }, text = "Pick still sharp? Good. Ye've a better reason than most, then." },
+    { id = "g_miner", when = { profession = "Mining" }, text = "Pick still sharp? Then ye've a better reason than most." },
     { id = "g_camp", when = { questActive = TODO_QUEST("Camping 101: Mining") }, text = "Done yer campin' lesson, have ye? Let's hear how ye managed." },
   },
 
