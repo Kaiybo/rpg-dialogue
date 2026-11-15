@@ -13,26 +13,26 @@ P:NPC {
   notices = { "fel", "race", "class", "form" },
 
   greetings = {
-    { id = "g_temple", text = "You stand in the Temple of the Moon. Speak plainly. Elune hears everything, and I have little time for the rest." },
-    { id = "g_kin", when = { race = "NightElf" }, text = "Child of the kaldorei. Elune's light on you. What do you need of me?" },
-    { id = "g_back", when = { metBefore = true }, text = "You return. Good. Those who come back usually have something to say." },
+    { id = "g_temple", text = "You stand in the Temple of the Moon, so speak plainly. Elune hears everything said here, and I have little time for what she would not care to hear." },
+    { id = "g_kin", when = { race = "NightElf" }, text = "Child of the kaldorei, Elune's light be on you. Tell me what you need of me." },
+    { id = "g_back", when = { metBefore = true }, text = "So you have returned. Good; those who come back to me usually have something worth saying." },
     { id = "g_light", when = { class = "PRIEST", race = { "Human", "Dwarf", "Gnome" } },
-      text = "A priest of the Light. Elune's blessing on you, and your own faith's as well. Speak." },
+      text = "A priest of the Light, in the house of the Moon. Elune's blessing on you, and your own faith's as well; now tell me why you have come." },
   },
 
   notice = {
     { id = "n_warlock", cat = "fel", place = "before", when = { class = "WARLOCK" },
-      text = "I know that taint. My people burned for it once. Say your piece quickly and take it out of Elune's house." },
+      text = "I know that taint, for my people burned for it once. Say your piece quickly, and then take it out of Elune's house." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST", race = "NightElf" },
-      text = "A sister of the moon. Good. We are fewer than we were, and needed more than ever." },
+      text = "A sister of the moon, and welcome. We are fewer than we were, and needed more than ever." },
     { id = "n_skyborne", cat = "race", when = { race = "Skyborne" },
-      text = "Eldre'Thalas. I remember it as a city of light. Your people left it under a prince's purge, I'm told. That speaks well of them." },
+      text = "Eldre'Thalas... I remember it as a city of light. I am told your people left it rather than bow to a prince's purge, and that speaks well of them." },
     { id = "n_shadow", cat = "form", place = "before", when = { form = "shadow" },
-      text = "Shadow, worn in the Temple of the Moon. Elune lights the dark; she has never needed to wear it. Set it aside while we speak." },
+      text = "You wear shadow in the Temple of the Moon. Elune lights the dark, but she has never needed to wear it, so set it aside while we speak." },
   },
 
   react = {
-    { id = "r_shadow", on = "form", when = { form = "shadow" }, text = "Not here. Whatever that darkness teaches you, it can wait outside the Temple." },
+    { id = "r_shadow", on = "form", when = { form = "shadow" }, text = "Not here, priest. Whatever that darkness teaches you, it can wait outside the Temple." },
   },
 
   start = "hello",
@@ -40,21 +40,21 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Tyrande Whisperwind, High Priestess of Elune. While Malfurion sleeps, I lead our people. I did not ask to lead them alone, but I will not do it half-heartedly." },
+          text = "I am Tyrande Whisperwind, High Priestess of Elune, and while Malfurion sleeps I lead our people. I did not ask to lead them alone, but I will not do it half-heartedly." },
         { id = "h_tenaron", when = { heardLine = "tenaron.h_default" },
-          text = "You came down from Aldrassil past Tenaron's watch. He sends me the best of Shadowglen. Let's see if he was right about you." },
+          text = "You came down from Aldrassil past Tenaron's watch, and he sends me only the best of Shadowglen. Let us see whether he was right about you." },
         { id = "h_druid", when = { class = "DRUID" },
-          text = "Malfurion would have been glad of you, druid. Go to the Enclave, by all means. But come back here when the Archdruid's certainties start to sound like truths." },
+          text = "Malfurion would have been glad of you, druid. Go to the Enclave, by all means, but come back to me when the Archdruid's certainties begin to sound like truths." },
         { id = "h_human", when = { race = "Human" },
-          text = "Humans in Darnassus. A few years ago I would have thought it impossible. The Alliance has taught us both to be surprised." },
+          text = "A human in Darnassus. A few years ago I would have called that impossible, but the Alliance has taught both our peoples to be surprised." },
         { id = "h_fandral", when = { heardLine = "fandral.h_default" },
-          text = "You've been to the Enclave. Fandral will have told you that he leads. He leads the druids. The rest of us he only lectures." },
+          text = "You have been to the Enclave, then, and Fandral will have told you that he leads. He leads the druids; the rest of us he merely lectures." },
         { id = "h_reception", tags = { "news" }, when = { questDone = TODO_QUEST("Reception from Tyrande") },
-          text = "Thenysil still writes to me from Stonetalon, and your name is in her letters. I don't forget the names my Sentinels send me." },
+          text = "Thenysil still writes to me from Stonetalon, and your name is in her letters. I do not forget the names my Sentinels send me." },
         { id = "h_alathea", when = { class = "PRIEST", race = { "Human", "Dwarf", "Gnome" } },
-          text = "Alathea has trained a few of your Church's young priests here. She says you pray loudly and heal well. I approve of one of those." },
+          text = "Alathea has trained a few of your Church's young priests in this temple. She tells me you pray loudly and heal well, and I approve of at least one of those." },
         { id = "h_night", when = { timeOfDay = "night" },
-          text = "The moon is up. This is Elune's hour, not the petitioners'. You're fortunate I'm still listening." },
+          text = "The moon is up, and this is Elune's hour rather than the petitioners'. You are fortunate that I am still listening." },
       },
       again = {
         { id = "h_again", text = "What else? The Sentinels report at moonrise, and I mean to hear them." },
@@ -77,7 +77,7 @@ P:NPC {
     malfurion = {
       big = true,
       lines = {
-        { id = "m_default", text = "His body sleeps in his barrow; his spirit walks the Emerald Dream and does not come back. The druids found nothing. I wait, and I am very tired of waiting." },
+        { id = "m_default", text = "His body sleeps in his barrow while his spirit walks the Emerald Dream, and it does not come back. The druids searched and found nothing, so I wait, and I am very tired of waiting." },
       },
       choices = {
         { text = "He'll come back.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
@@ -100,7 +100,7 @@ P:NPC {
       },
     },
     done = {
-      lines = { { id = "d_default", text = "If you find a way, bring it to me before anyone else. Anyone. I trust very few with Malfurion's life." } },
+      lines = { { id = "d_default", text = "If you find a way, bring it to me before you bring it to anyone else, whoever they may be. I trust very few with Malfurion's life." } },
       choices = {
         { text = "I'll keep my eyes open.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Why trust a stranger with that?", next = "done_trust" },
@@ -112,7 +112,7 @@ P:NPC {
     },
     troubles = {
       lines = {
-        { id = "t_default", text = "Our immortality is gone, and some of us want it back at any price. The Horde cuts at Ashenvale. And the Archdruid has opinions about everything." },
+        { id = "t_default", text = "Our immortality is gone, and some of us want it back at any price. The Horde cuts at Ashenvale, and the Archdruid has opinions about everything else." },
       },
       choices = {
         { text = "The Archdruid?", next = "fandral" },
@@ -121,7 +121,7 @@ P:NPC {
       },
     },
     fandral = {
-      lines = { { id = "f_default", text = "Fandral Staghelm grew this tree without the Aspects' blessing and calls it a triumph. Perhaps it is. I would sleep better if Malfurion had been asked." } },
+      lines = { { id = "f_default", text = "Fandral Staghelm grew this tree without the Aspects' blessing and calls it a triumph, and perhaps it is. I would sleep better if Malfurion had been asked." } },
       choices = {
         { text = "You disagree with him.", next = "fandral2", fx = { learn = { "cenarion_circle" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "cenarion_circle" } } },
@@ -136,7 +136,7 @@ P:NPC {
     },
     mistakes = {
       big = true,
-      lines = { { id = "mi_default", text = "Pride. Magic hoarded by the few. Leaders certain they knew best. We drowned half a continent learning that once." } },
+      lines = { { id = "mi_default", text = "Pride, and magic hoarded by the few, and leaders so certain they knew best that no one could tell them otherwise. We drowned half a continent learning that lesson once." } },
       choices = {
         { text = "Fandral would call you too cautious.", next = "BACK", fx = { trait = { skeptical = 1 } } },
         { text = "Then I'll watch for pride. Mine too.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { cautious = 1 } } },
@@ -150,7 +150,7 @@ P:NPC {
       },
     },
     immortal2 = {
-      lines = { { id = "i2_default", text = "No. I blame no one for being afraid. I will blame them for what they do about it." } },
+      lines = { { id = "i2_default", text = "No, I blame no one for being afraid. I will blame them for what they choose to do about it." } },
       choices = {
         { text = "That's fair.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Fear makes fools of everyone.", next = "BACK", fx = { trait = { kind = 1 } } },
@@ -165,7 +165,7 @@ P:NPC {
       },
     },
     ashenvale_orcs = {
-      lines = { { id = "ao_default", text = "So did we, once, and we asked the forest first. Need doesn't make it theirs. Say that again in Astranaar and see who answers you." } },
+      lines = { { id = "ao_default", text = "So did we, once, and we asked the forest first. Need does not make the trees theirs; say that again in Astranaar and see who answers you." } },
       choices = {
         { text = "Fair enough.", next = "BACK" },
         { text = "I'll say what I think, wherever I am.", next = "BACK", fx = { affinity = -1, trait = { brave = 1 } } },
@@ -176,14 +176,14 @@ P:NPC {
       choices = { { text = "I'll find her.", next = "BACK", fx = { affinity = 1 } } },
     },
     elune = {
-      lines = { { id = "e_default", text = "To protect. Every prayer, every arrow, every healing comes back to that. It has been enough to fill ten thousand years." } },
+      lines = { { id = "e_default", text = "She asks us to protect. Every prayer, every arrow and every healing comes back to that, and it has been enough to fill ten thousand years." } },
       choices = {
         { text = "Her priestesses lead the Sentinels too?", next = "sentinels" },
         { text = "Something else.", next = "BACK", fx = { align = { light = 1 } } },
       },
     },
     sentinels = {
-      lines = { { id = "se_default", text = "Since before the Sundering. A priestess who cannot draw a bow is only half-trained. Elune does not ask us to be gentle with those who would burn her forests." } },
+      lines = { { id = "se_default", text = "They have since before the Sundering, and a priestess who cannot draw a bow is only half-trained. Elune does not ask us to be gentle with those who would burn her forests." } },
       choices = {
         { text = "Then I'm glad they're on our side.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
@@ -191,7 +191,7 @@ P:NPC {
     },
     hyjal = {
       big = true,
-      lines = { { id = "hy_default", text = "I called your kind mongrels once. Then a young human sorceress held the first line at Hyjal so we could finish the work. I misjudged her, and told her so." } },
+      lines = { { id = "hy_default", text = "It is true that I called your kind mongrels once. Then a young human sorceress held the first line at Hyjal so that we could finish our work, and I told her plainly that I had misjudged her." } },
       choices = {
         { text = "And now?", next = "hyjal2" },
         { text = "It takes something to admit that.", next = "BACK", fx = { affinity = 1 } },
@@ -225,7 +225,7 @@ P:NPC {
       choices = { { text = "Thank you, High Priestess.", next = "BACK", fx = { affinity = 1 } } },
     },
     sister = {
-      lines = { { id = "si_default", text = "Protect first. Heal second. Pray when both are done. The Sentinels in Ashenvale are stretched thin; go where they bleed." } },
+      lines = { { id = "si_default", text = "Protect first and heal second, and pray when both are done. The Sentinels in Ashenvale are stretched thin, so go where they bleed." } },
       choices = { { text = "I will, High Priestess.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, standing = { darnassus = 1 } } } },
     },
     druid = {
@@ -236,7 +236,7 @@ P:NPC {
       },
     },
     druid2 = {
-      lines = { { id = "dr2_default", text = "I trust him to be Fandral. Proud, quick, certain. Our people need some of that. They also need someone who will argue with it." } },
+      lines = { { id = "dr2_default", text = "I trust him to be Fandral: proud, quick and certain of himself. Our people need some of that, but they also need someone who will argue with it." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     eldre = {
@@ -249,19 +249,19 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "A priestess of Elune since before your kingdoms had names. I fought at the Well of Eternity and at Hyjal. The Sentinels tell it better; they enjoy it more." } },
+    background = { { id = "tp_bg", text = "I have been a priestess of Elune since before your kingdoms had names, and I fought at the Well of Eternity and again at Hyjal. The Sentinels tell it better than I do; they enjoy it more." } },
     advice = { { id = "tp_ad", text = "Never mistake a quiet forest for a safe one. And when you've something to report, come back and report it." } },
     malfurion = {
-      { id = "tp_malfnext", text = "Malfurion. Sit; this is not a short answer.", next = "malfurion" },
-      { id = "tp_malf", text = "He sleeps. His spirit wanders. That's all I'll say to someone I've only just met." },
+      { id = "tp_malfnext", text = "You ask about Malfurion. Sit, then, for this is not a short answer.", next = "malfurion" },
+      { id = "tp_malf", text = "He sleeps while his spirit wanders. That is all I will say of him to someone I have only just met." },
     },
     sisterhood_of_elune = { { id = "tp_sister", text = "Mine to lead. We heal, we fight, we pray, in whatever order the night needs." } },
-    sentinels = { { id = "tp_sentinels", text = "My daughters and sisters with bows. Darnassus has no walls because it has them." } },
+    sentinels = { { id = "tp_sentinels", text = "They are my sisters and daughters, with bows in their hands. Darnassus needs no walls because it has them." } },
     warsong = { { id = "tp_warsong", text = "Grom Hellscream's clan. Grom slew Cenarius, then died freeing his people from the demons. His clan cuts our trees as if neither had happened.", next = "ashenvale" } },
-    teldrassil = { { id = "tp_teldrassil", text = "Our home now. It grew quickly, without the dragons' blessing. Quick things worry me." } },
-    cenarion_circle = { { id = "tp_circle", text = "Malfurion's order. In his absence, Fandral's. I pray that's a short arrangement." } },
-    worgen = { { id = "tp_worgen", text = "In the human woods? I have heard. Ask the druids, and watch their faces when you do." } },
-    _none = { { id = "tp_none", text = "That is not a matter for the Temple. The Sentinels may know." } },
+    teldrassil = { { id = "tp_teldrassil", text = "It is our home now. It grew quickly and without the dragons' blessing, and quick things worry me." } },
+    cenarion_circle = { { id = "tp_circle", text = "It is Malfurion's order, and in his absence it is Fandral's. I pray that is a short arrangement." } },
+    worgen = { { id = "tp_worgen", text = "I have heard of the beasts in the human woods. Ask the druids about them, and watch their faces when you do." } },
+    _none = { { id = "tp_none", text = "That is not a matter for the Temple, though the Sentinels may know." } },
   },
 }
 
@@ -272,18 +272,18 @@ P:NPC {
   notices = { "race", "class" },
 
   greetings = {
-    { id = "g_enclave", text = "Yes? The Enclave is busy. I am busier. Be brief." },
-    { id = "g_druid", when = { class = "DRUID", race = "NightElf" }, text = "A kaldorei druid. Good. The Circle needs more of our own and fewer of the rest." },
-    { id = "g_back", when = { metBefore = true }, text = "Again. Very well. Speak." },
+    { id = "g_enclave", text = "Yes? The Enclave is busy, and I am busier still, so be brief." },
+    { id = "g_druid", when = { class = "DRUID", race = "NightElf" }, text = "A kaldorei druid, good. The Circle needs more of our own and fewer of the rest." },
+    { id = "g_back", when = { metBefore = true }, text = "You again. Very well, speak, but make it worth the climb." },
   },
 
   notice = {
     { id = "n_tauren", cat = "race", when = { race = "Tauren", class = "DRUID" },
-      text = "A tauren druid. Malfurion's generosity, still walking about. I'll not pretend I agreed with it." },
+      text = "A tauren druid; Malfurion's generosity, still walking about. I will not pretend I ever agreed with it." },
     { id = "n_skyborne", cat = "race", when = { race = "Skyborne", class = "DRUID" },
-      text = "A druid of the sky-folk. You honour the winds above the moon, I hear. The Circle's doors have been flung very wide indeed." },
+      text = "A druid of the sky-folk, who honour the winds above the moon, I hear. The Circle's doors have been flung very wide indeed." },
     { id = "n_not", cat = "class", when = { ["not"] = { class = "DRUID" } },
-      text = "You're no druid. Whatever you want from the Enclave, I doubt you'll understand it." },
+      text = "You are no druid, and whatever you want from the Enclave, I doubt you will understand it." },
   },
 
   start = "hello",
@@ -291,21 +291,21 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Fandral Staghelm, Archdruid of the Cenarion Circle. While Malfurion dreams, someone must lead. I do. Some would rather I didn't. They are wrong." },
+          text = "I am Fandral Staghelm, Archdruid of the Cenarion Circle. While Malfurion dreams someone must lead, and I do; there are some who would rather I didn't, and they are wrong." },
         { id = "h_corithras", when = { heardLine = "corithras.h_default" },
-          text = "Corithras worries about the moonwells. Corithras worries about everything. Teldrassil is young; it will grow strong. Patience." },
+          text = "Corithras worries about the moonwells, as Corithras worries about everything. Teldrassil is young, and it will grow strong, given patience." },
         { id = "h_crown", tags = { "news" }, when = { questActive = TODO_QUEST("Crown of the Earth") },
-          text = "The moonwells of Teldrassil. Their waters will tell me how the tree grows. Bring them to me untouched. And do not dawdle." },
+          text = "You carry the waters of Teldrassil's moonwells, and they will tell me how the tree grows. Bring them to me untouched, and do not dawdle." },
         { id = "h_crown_done", when = { questDone = TODO_QUEST("Crown of the Earth") },
-          text = "The tree is strong. Stronger than its critics. I'll be sure to tell them." },
+          text = "The tree is strong, stronger than its critics, and I will be sure to tell them so." },
         { id = "h_tyrande", when = { heardLine = "tyrande.h_default" },
-          text = "Fresh from the Temple, by the reproachful look of you. The High Priestess has many virtues. Leadership is not chief among them." },
+          text = "You are fresh from the Temple, by the reproachful look of you. The High Priestess has many virtues, but leadership is not chief among them." },
         { id = "h_oracle", tags = { "news" }, when = { questActive = TODO_QUEST("Teldrassil") },
-          text = "Bark from the Oracle Tree? It hasn't spoken to me in far too long. Give it here. Let's see which of the tree's troubles it thinks are mine now." },
+          text = "Bark from the Oracle Tree? It has not spoken to me in far too long, so give it here, and let us see which of the tree's troubles it thinks are mine now." },
         { id = "h_priest", when = { class = "PRIEST" },
-          text = "A priest. The Temple is across the gardens. If the High Priestess sent you to watch me, it is still across the gardens." },
+          text = "A priest? The Temple is across the gardens. If the High Priestess sent you to watch me, it is still across the gardens." },
         { id = "h_human", when = { race = "Human" },
-          text = "A human in the Enclave. Malfurion always held the doors too wide. Well, you're in. Be useful." },
+          text = "A human in the Enclave; Malfurion always held the doors too wide. Well, you are in now, so be useful." },
       },
       again = {
         { id = "h_again", text = "Well? Something else, or are we finished?" },
@@ -335,7 +335,7 @@ P:NPC {
       },
     },
     blessing = {
-      lines = { { id = "b_default", text = "Blessings are for those who can afford to wait for them. We could not. Spare me the Temple's sermon; I've heard it." } },
+      lines = { { id = "b_default", text = "Blessings are for those who can afford to wait for them, and we could not. Spare me the Temple's sermon; I have heard it." } },
       choices = {
         { text = "Whose blessing did you ask for?", next = "refused" },
         { text = "Something else.", next = "BACK" },
@@ -404,7 +404,7 @@ P:NPC {
       },
     },
     kin = {
-      lines = { { id = "k_default", text = "Then learn from Mathrengyl, and learn quickly. The Circle needs kaldorei druids. Too many of the new ones are not." } },
+      lines = { { id = "k_default", text = "Then learn from Mathrengyl, and learn quickly, for the Circle needs kaldorei druids and too many of the new ones are not." } },
       choices = {
         { text = "You mean the tauren?", next = "kin2" },
         { text = "I'll make the Circle proud.", next = "BACK", fx = { affinity = 2 } },
@@ -418,7 +418,7 @@ P:NPC {
       },
     },
     sky = {
-      lines = { { id = "sk_default", text = "Winds. The Circle serves Cenarius, not the sky. Learn what Mathrengyl teaches you, and leave the weather outside." } },
+      lines = { { id = "sk_default", text = "Winds, is it? The Circle serves Cenarius, not the sky, so learn what Mathrengyl teaches you and leave the weather outside." } },
       choices = {
         { text = "We'll see.", next = "BACK", fx = { trait = { stern = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -430,12 +430,12 @@ P:NPC {
     background = { { id = "tp_bg", text = "I led our people to this tree when they had nothing left to lead them. That is the part of my story worth telling." } },
     advice = { { id = "tp_ad", text = "Don't waste time. We learned at Hyjal how little of it any of us has." } },
     teldrassil = {
-      { id = "tp_teldnext", text = "My work. Our home. Ask, if you must.", next = "tree" },
+      { id = "tp_teldnext", text = "It is my work, and our home. Ask, if you must.", next = "tree" },
       { id = "tp_teld", text = "Ask Corithras about the moonwells, if you like. Then come back and tell me he worries too much." },
     },
     malfurion = { { id = "tp_malf", text = "My teacher. Ask the Temple about him; they have more patience for the subject." } },
     cenarion_circle = { { id = "tp_circle", text = "Mine to lead, for now. I mean to leave it stronger than I found it, whatever Moonglade thinks." } },
-    _none = { { id = "tp_none", text = "Not my concern. Ask a Sentinel. They enjoy being asked things." } },
+    _none = { { id = "tp_none", text = "That is not my concern, so ask a Sentinel. They enjoy being asked things." } },
   },
 }
 
@@ -454,7 +454,7 @@ P:NPC {
     { id = "n_bear", cat = "form", when = { form = "bear" },
       text = "Ah, the bear sits well on you. The Great Bear Spirit chose rightly." },
     { id = "n_cat", cat = "form", when = { form = "cat" },
-      text = "The cat, indoors. The Great Cat Spirit is as playful as it is deadly. Try to be the first one in here." },
+      text = "You wear the cat indoors, I see. The Great Cat Spirit is as playful as it is deadly, so please be the first of those in here." },
   },
 
   start = "hello",
@@ -463,23 +463,23 @@ P:NPC {
       lines = {
         { id = "h_default", text = "Mathrengyl Bearwalker. I train the druids of the Enclave. Once I stood at the Archdruid's side; now I stand with the young ones, which suits me better." },
         { id = "h_call", tags = { "news" }, when = { questActive = TODO_QUEST("Heeding the Call") },
-          text = "You heard the call. Good. Not everyone does. Sit, and we'll speak of what it means to walk as more than one creature." },
+          text = "You heard the call, and not everyone does. Sit, and we will speak of what it means to walk as more than one creature." },
         { id = "h_claw", when = { questActive = TODO_QUEST("Body and Heart") },
-          text = "The Great Bear Spirit has shown you the body. Now the heart. Lunaclaw waits by the Moonkin Stone near Auberdine to test it. Go humbly." },
+          text = "The Great Bear Spirit has shown you the body, and now Lunaclaw will test the heart. He waits by the Moonkin Stone near Auberdine, so go humbly." },
         { id = "h_poison", when = { questActive = TODO_QUEST("Lessons Anew") },
-          text = "Auberdine has had trouble with poisons. A druid who can draw poison out of the living is worth ten who can only watch. Learn it." },
+          text = "Auberdine has had trouble with poisons. A druid who can draw poison out of the living is worth ten who can only watch, so learn it well." },
         { id = "h_aquatic", when = { questDone = TODO_QUEST("Aquatic Form") },
-          text = "The sea's yours now, as well as the forest. Few of us are comfortable in both. Try to be." },
+          text = "The sea is yours now as well as the forest. Few of us are truly comfortable in both, but try to be." },
         { id = "h_strife", when = { metBefore = true },
-          text = "You'll hear talk that the Circle is divided. Don't believe it. Fandral leads us well, and his vision built the very tree you stand on." },
-        { id = "h_bear", when = { questDone = TODO_QUEST("Body and Heart") }, text = "You move differently since the Great Bear. Heavier on your feet, lighter in your head. That's how it should be." },
-        { id = "h_questions", when = { metBefore = true, class = "DRUID" }, text = "Every druid who passes through the Enclave leaves something behind. A question, usually. Yours are good ones. Keep asking them." },
+          text = "You will hear talk that the Circle is divided, but do not believe it. Fandral leads us well, and his vision built the very tree you stand on." },
+        { id = "h_bear", when = { questDone = TODO_QUEST("Body and Heart") }, text = "You move differently since you met the Great Bear, heavier on your feet and lighter in your head, which is exactly how it should be." },
+        { id = "h_questions", when = { metBefore = true, class = "DRUID" }, text = "Every druid who passes through the Enclave leaves something behind, usually a question. Yours are good ones, so keep asking them." },
         { id = "h_cat", tags = { "news" }, when = { questActive = TODO_QUEST("The Great Cat Spirit") },
           text = "The Great Cat Spirit sets each generation its own trial. I can't tell you what yours will be. I can tell you it plays before it bites." },
       },
       again = {
         { id = "h_again", text = "Ask on. The young ones' questions are the best part of my day." },
-        { id = "h_again2", text = "What else? Take your time. The Enclave does." },
+        { id = "h_again2", text = "What else? Take your time, as the Enclave does." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "DRUID" } },
@@ -529,19 +529,19 @@ P:NPC {
       },
     },
     auberdine2 = {
-      lines = { { id = "a2_default", text = "I don't know yet. Fel Moss in the furbolgs, a red crystal among the moonkin. Ask Thundris Windweaver in Auberdine; he hears everything first." } },
+      lines = { { id = "a2_default", text = "I do not know yet. There is Fel Moss in the furbolgs and a red crystal among the moonkin, so ask Thundris Windweaver in Auberdine, who hears everything first." } },
       choices = { { text = "I'll ask him.", next = "BACK", fx = { affinity = 1 } } },
     },
     healers = {
-      lines = { { id = "he_default", text = "We mend with what grows; you mend with what you pray to. The wounded rarely ask which. Sit in on a lesson if you like. Quietly." } },
+      lines = { { id = "he_default", text = "We mend with what grows, and you mend with what you pray to, and the wounded rarely ask which. Sit in on a lesson if you like, so long as you do it quietly." } },
       choices = { { text = "Thank you. I will.", next = "BACK", fx = { affinity = 1, trait = { curious = 1 } } } },
     },
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "One of the Archdruid's druids, and a teacher. The young ones keep me honest. The bear keeps me humble." } },
+    background = { { id = "tp_bg", text = "I am one of the Archdruid's druids, and a teacher. The young ones keep me honest, and the bear keeps me humble." } },
     advice = { { id = "tp_ad", text = "Learn the bear before the cat, and the cat before you think you know either of them." } },
-    cenarion_circle = { { id = "tp_circle", text = "United, whatever you've heard. Disagreement isn't division. The Archdruid has broad shoulders." } },
+    cenarion_circle = { { id = "tp_circle", text = "The Circle is united, whatever you have heard, for disagreement is not division. The Archdruid has broad shoulders." } },
     _none = { { id = "tp_none", text = "That's beyond my teaching. Ask in the Temple, perhaps." } },
   },
 }
@@ -553,22 +553,22 @@ P:NPC {
   notices = { "class", "death" },
 
   greetings = {
-    { id = "g_moon", text = "Elune's light finds you, even here under the branches. Come in, sit by the pool." },
+    { id = "g_moon", text = "Even here under the branches, Elune's light finds you. Come in and sit by the pool." },
     { id = "g_back", when = { metBefore = true }, text = "There you are, little star. The moon remembers those who return." },
   },
 
   notice = {
     { id = "n_ghost", cat = "death", when = { resSick = true },
-      text = "You've walked the other side not long ago. Rest here. The moon is kind to those who've seen its dark half." },
+      text = "You've walked the other side not long ago, so rest here a while. The moon is kind to those who've seen its dark half." },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "A'moora, a priestess of the Sisterhood. I tend the Temple's pool and those who come to it. Most come tired. I try to send them out less so." },
+        { id = "h_default", text = "I am A'moora, a priestess of the Sisterhood, and I tend the Temple's pool and those who come to it. Most come tired, and I try to send them out less so." },
         { id = "h_temple", tags = { "news" }, when = { questActive = TODO_QUEST("The Temple of the Moon") },
-          text = "Sister Aquinne sent you? Good. There is work for a willing heart, and a little sorrow in it. Listen." },
+          text = "So Sister Aquinne sent you. Good; there is work here for a willing heart, and a little sorrow in it, so listen." },
         { id = "h_tears", when = { questActive = TODO_QUEST("Tears of the Moon") },
           text = "That errand is a quiet one, and a sad one. Go carefully, and come back to me when it's done." },
         { id = "h_sathrah", when = { questActive = TODO_QUEST("Sathrah's Sacrifice") },
@@ -619,7 +619,7 @@ P:NPC {
       },
     },
     pray_who = {
-      lines = { { id = "pw_default", text = "Not mine, little star. Everyone's. Sentinels who don't come back from Ashenvale. Sailors the murlocs take off Darkshore. Whoever someone asked me to remember." } },
+      lines = { { id = "pw_default", text = "Not my own lost, little star, but everyone's: the Sentinels who don't come back from Ashenvale, the sailors the murlocs take off Darkshore, and whoever someone has asked me to remember." } },
       choices = {
         { text = "Add the ones I've lost.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -654,10 +654,10 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "A priestess of the Sisterhood. I tend the pool and whoever comes to it. That's all the story there is, little star." } },
+    background = { { id = "tp_bg", text = "I am a priestess of the Sisterhood, and I tend the pool and whoever comes to it. That is all the story there is, little star." } },
     advice = { { id = "tp_ad", text = "Rest when the road lets you. The moon will still be there; you might not be, if you never stop." } },
     sisterhood_of_elune = { { id = "tp_sister", text = "We heal, we pray, and we train with the bow. Visitors are always surprised by the third." } },
-    cenarion_circle = { { id = "tp_circle", text = "Our brothers and sisters of the wild. The Temple and the Enclave love each other, mostly. Loudly, at times." } },
+    cenarion_circle = { { id = "tp_circle", text = "They are our brothers and sisters of the wild. The Temple and the Enclave love each other, mostly, if loudly at times." } },
     _none = { { id = "tp_none", text = "I couldn't say, little star. The High Priestess might." } },
   },
 }
@@ -670,7 +670,7 @@ P:NPC {
 
   greetings = {
     { id = "g_study", text = "Careful with the specimens. Some of them are only mostly dead." },
-    { id = "g_back", when = { metBefore = true }, text = "You're back. Bring anything? Shells, stings, chitin? I'm not particular." },
+    { id = "g_back", when = { metBefore = true }, text = "You're back! Did you bring anything? Shells, stings or chitin, I'm not particular." },
   },
 
   notice = {
@@ -686,16 +686,16 @@ P:NPC {
         { id = "h_pestlezugg", when = { heardLine = "pestlezugg.h_default" },
           text = "A goblin alchemist in Gadgetzan has been asking about my insect studies. A goblin, asking a priestess. Whatever is under the sand must be worse than I feared." },
         { id = "h_silithid", tags = { "news" }, when = { questActive = TODO_QUEST("Rise of the Silithid") },
-          text = "A report, for me? Let me see. Yes. Silithid. Learn that name; you'll be hearing it more than you'd like." },
+          text = "So this report is for me? Let me see what it says... yes, silithid, just as I feared. Learn that name, because you will be hearing it more than you'd like." },
         { id = "h_low", when = { maxLevel = 40 },
-          text = "Things live in the southern deserts that frighten me more than any orc. You're young yet. Come back when you're not." },
+          text = "Things live in the southern deserts that frighten me more than any orc. You're young yet, so come back to me when you're not." },
         { id = "h_fandral", when = { heardLine = "fandral.h_default" },
-          text = "You've met the Archdruid. He thinks my insects are a scholar's hobby. He is very certain. So, once, was the hive." },
+          text = "You've met the Archdruid, then. He thinks my insects are a scholar's hobby, and he is very certain of it, but then, so was the hive." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "Another priest. People forget the Sisterhood studies as well as prays. Someone ought to write down everything that crawls under the moon." },
       },
       again = {
-        { id = "h_again", text = "Go on. Mind the jar on your left; it bites." },
+        { id = "h_again", text = "Go on, but mind the jar on your left; it bites." },
         { id = "h_again2", text = "Ask. I like questions better than specimens, most days." },
       },
       choices = {
@@ -710,7 +710,7 @@ P:NPC {
     fear = {
       big = true,
       lines = {
-        { id = "f_default", text = "Order without mercy. A hive moves as one mind, and that mind is patient. Patient enemies are the worst kind. They outlast you." },
+        { id = "f_default", text = "Order without mercy. A hive moves as one mind, and that mind is patient, and patient enemies are the worst kind because they outlast you." },
       },
       choices = {
         { text = "I'll keep my eyes open.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } },
@@ -719,7 +719,7 @@ P:NPC {
     },
     study = {
       lines = {
-        { id = "s_shells", text = "Everything Azeroth's creatures leave behind. Shells, stings, scales. My people spent ten thousand years not looking closely at most of it. I'm making up for that." },
+        { id = "s_shells", text = "Everything Azeroth's creatures leave behind: shells, stings and scales. My people spent ten thousand years not looking closely at most of it, and I'm making up for that." },
       },
       choices = {
         { text = "I'll bring you something.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } },
@@ -755,11 +755,11 @@ P:NPC {
       },
     },
     silithid_next = {
-      lines = { { id = "sn_default", text = "Watch Un'Goro. I think their strength comes from deeper in Kalimdor than the desert. Gadgetzan's alchemist may agree with me. Few others do." } },
+      lines = { { id = "sn_default", text = "Watch Un'Goro, because I think their strength comes from deeper in Kalimdor than the desert. Gadgetzan's alchemist may agree with me, though few others do." } },
       choices = { { text = "I'll keep watch.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } } },
     },
     priest_g = {
-      lines = { { id = "pg_default", text = "Prayer and study aren't rivals. I pray for the patience to look closely. Then I look." } },
+      lines = { { id = "pg_default", text = "Prayer and study aren't rivals. I pray for the patience to look closely, and then I look." } },
       choices = {
         { text = "That's a good prayer.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -771,10 +771,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "A priestess who reads more than she prays, the Temple would tell you. Some weeks they'd be right." } },
     advice = { { id = "tp_ad", text = "If it has more than four legs, assume it's cleverer than it looks." } },
     silithid = {
-      { id = "tp_silinext", text = "The hive. Sit down; I've notes.", next = "silithid" },
+      { id = "tp_silinext", text = "Ah, the hive. Sit down, because I have notes.", next = "silithid" },
       { id = "tp_sili", text = "The worst thing my people ever fought, and we've fought demons." },
     },
-    _none = { { id = "tp_none", text = "Not my field. Now, if it had six legs, I'd be all ears." } },
+    _none = { { id = "tp_none", text = "That's not my field, though if it had six legs, I'd be all ears." } },
   },
 }
 
@@ -791,9 +791,9 @@ P:NPC {
 
   notice = {
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.25 } },
-      text = "You've had a hard road. Sit. Moonberry juice first, then sleep, then whatever comes after." },
+      text = "You've had a hard road, so sit down. Moonberry juice first, then sleep, and then whatever comes after." },
     { id = "n_dwarf", cat = "race", when = { race = { "Dwarf", "Gnome" } },
-      text = "Don't look down from the terrace, friend. Everyone does it once. Once is enough." },
+      text = "Don't look down from the terrace, friend. Everyone does it once, and once is enough." },
   },
 
   start = "hello",
@@ -803,7 +803,7 @@ P:NPC {
         { id = "h_default", text = "Saelienne. I keep the inn on the Craftsmen's Terrace. Travellers come up from the boats looking lost. I make sure they leave looking rested." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "You'll sleep well up here, I think. Your people are used to the ground being a long way down." },
-        { id = "h_louder", when = { metBefore = true }, text = "A young Sentinel asked me what the world below the tree was like. I told her: louder. She looked disappointed." },
+        { id = "h_louder", when = { metBefore = true }, text = "A young Sentinel once asked me what the world below the tree was like, and I told her it was louder. She looked so disappointed." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "The city's quietest now. Listen and you'll hear the branches settle, like an old house." },
       },
       again = {
@@ -824,7 +824,7 @@ P:NPC {
       },
     },
     walls = {
-      lines = { { id = "w_default", text = "There aren't any. The Sentinels are the walls. Most visitors find that more comforting by the second night." } },
+      lines = { { id = "w_default", text = "There aren't any; the Sentinels are the walls. Most visitors find that more comforting by their second night." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     talk = {
@@ -837,7 +837,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I keep the beds on the Craftsmen's Terrace. Everyone who stays a night tells me their story. Mine's shorter." } },
+    background = { { id = "tp_bg", text = "I keep the beds on the Craftsmen's Terrace. Everyone who stays a night tells me their story, and mine is the shortest of them." } },
     advice = { { id = "tp_ad", text = "Take the portal from Rut'theran. There's no other sensible way up, and several foolish ones." } },
     _none = { { id = "tp_none", text = "I only keep the beds. The Temple knows more." } },
   },
