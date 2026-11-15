@@ -25,6 +25,7 @@ Brother Crowley recruits in the Cathedral's lower level, Brother Anton sends you
 - **Reputation condition:** `reputation = { faction = "Stormwind", min = "exalted" }`. An exalted non-human can buy Katie's horses, as in the game.
 - **34 new Ask about topics**, from SI:7 and the Stockade to Grim Batol, the Sentinels and the troggs.
 - Lines that called every player "lad" or "brother" now follow the player's gender.
+- Fixed: Galiaan and Gryan in Westfall now register what they tell you about the harvest watchers. A doubled field had been dropping it.
 
 ## 0.29.0 (2026-11-14)
 Packs: World 1.16.0, Stormwind 1.5.0, Elwynn 1.9.0, Stranglethorn 1.5.0, Riverglades 1.2.0, Dustwallow 1.3.0, Feralas 1.3.0, Desolace 1.3.0, Arathi 1.3.0, EasternPlaguelands 1.2.0, Badlands 1.2.1, Felwood 1.1.1, UnGoro 1.2.1, Winterspring 1.2.1 (the rest as in 0.28.0). No new folders: /reload is enough.

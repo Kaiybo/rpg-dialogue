@@ -111,8 +111,7 @@ P:NPC {
     },
     watchers = {
       lines = {
-        { id = "wa_default", key = true, text = "They're machines, and machines don't wake up angry by themselves. Someone wound them up and set them loose on the farms, and I've a guess who, because the guess wears red.", fx = { hear = "watchers_set_loose" },
-          fx = { learn = { "harvest_watchers" } } },
+        { id = "wa_default", key = true, text = "They're machines, and machines don't wake up angry by themselves. Someone wound them up and set them loose on the farms, and I've a guess who, because the guess wears red.", fx = { hear = "watchers_set_loose", learn = { "harvest_watchers" } } },
       },
       choices = {
         { text = "Can you prove it?", next = "watchers_proof" },

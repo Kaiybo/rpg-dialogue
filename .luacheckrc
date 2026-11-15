@@ -5,7 +5,7 @@ std = "lua51"
 max_line_length = false
 unused_args = false
 self = false
-exclude_files = { "tests/**", "tools/**", ".luarocks/**" }
+exclude_files = { "tests/**", "tools/**", ".luarocks/**", ".claude/**" }
 
 -- Widget-level names any core file may use.
 read_globals = {
