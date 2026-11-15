@@ -37,3 +37,8 @@ Trustworthy. The tome's history is canon.
 
 ## Topics
 tome_of_divinity, defias, hogger, lions_pride, northshire_abbey
+
+## Depth pass (Elwynn 1.10.0)
+Sources read: the wiki pages Brother Wilhelm, Lyria Du Lac (both behind the blacksmith), Tome of Divinity.
+- Branches: the Tome, the oath and mercy (unchanged), the yard behind the smithy he shares with Lyria Du Lac, what paladins learn that priests don't (and the reverse), a squire's branch for the Silver Hand origin.
+- Authored, not canon: the noon quarrel over the yard; Josetta sitting with the dying; tea.

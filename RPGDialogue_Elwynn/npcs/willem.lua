@@ -56,10 +56,22 @@ P:NPC {
           text = "You asked the Marshal who's behind the Defias? He's been pacing about it since. Thanks for that." },
         { id = "h_dwarf", when = { race = "Dwarf" },
           text = "Long way from the mountains, aren't you? You'll find our hills a bit gentle." },
+        { id = "h_novice", when = { origin = "human_abbey_novice" },
+          text = "One of the brothers' novices, out the front door with a weapon? The Abbey must be emptying its pews for the Marshal. I'm not complaining." },
+        { id = "h_veteran", when = { minLevel = 20, metBefore = true },
+          text = "Look at you. I sent you up those steps with nothing but a shirt and a stick. Now look. I'll tell the new ones about you." },
+      },
+      again = {
+        { id = "h_again", text = "Anything else? I've a road to watch." },
+        { id = "h_again2", text = "Go on, I'm listening. One eye on the road, mind." },
       },
       choices = {
         { text = "Any trouble I can help with?", next = "BUSINESS" },
         { text = "Tell me about these thieves.", next = "thieves" },
+        { text = "Who else in the valley needs a hand?", next = "valley" },
+        { text = "You don't sound like a deputy.", next = "beat" },
+        { text = "The Defias took my farm in Westfall.", next = "westfall", when = { origin = "human_westfall_farmhand" } },
+        { text = "Does Stormwind take volunteers from far away?", next = "far", when = { race = { "Dwarf", "Gnome", "NightElf", "Skyborne" } } },
         { text = "Just passing through.", next = "END" },
       },
     },
@@ -69,8 +81,9 @@ P:NPC {
           fx = { learn = { "defias" } } },
       },
       choices = {
-        { text = "Then I'll clear them out.", next = "END", fx = { align = { order = 1 }, trait = { brave = 1 }, affinity = 1 } },
+        { text = "Who leads them up here?", next = "garrick" },
         { text = "Why would anyone join them?", next = "why", fx = { trait = { curious = 1 } } },
+        { text = "Then I'll clear them out.", next = "BACK", fx = { align = { order = 1 }, trait = { brave = 1 }, affinity = 1 } },
       },
     },
     why = {
@@ -78,13 +91,99 @@ P:NPC {
         { id = "w_default", text = "Hungry, mostly. Or angry. Some say Stormwind owes them. I'm a deputy, not a judge, so I'll leave that to the judges." },
       },
       choices = {
-        { text = "Maybe Stormwind does owe them.", next = "END", fx = { align = { order = -2 }, opinion = { defias = "sympathetic" } } },
-        { text = "Owed or not, theft is theft.", next = "END", fx = { align = { order = 2 }, opinion = { defias = "hardline" } } },
+        { text = "Maybe Stormwind does owe them.", next = "BACK", fx = { align = { order = -2 }, opinion = { defias = "sympathetic" } } },
+        { text = "Owed or not, theft is theft.", next = "BACK", fx = { align = { order = 2 }, opinion = { defias = "hardline" } } },
       },
+    },
+    garrick = {
+      lines = {
+        { id = "ga_default", text = "Garrick Padfoot. A cutthroat with a gang of thugs and a shack east of the vineyards, over the bridge. He's been bleeding the farmers and merchants for weeks." },
+        { id = "ga_done", when = { questDone = TODO_QUEST("Bounty on Garrick Padfoot") },
+          text = "Was Garrick Padfoot. You saw to that. Someone else wears his bandana now, I'd bet, but they don't sit in his shack. Not yet." },
+      },
+      choices = {
+        { text = "Is there a bounty?", next = "BUSINESS", fx = { trait = { greedy = 1 } } },
+        { text = "Weeks? And nobody's gone after him?", next = "garrick_why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    garrick_why = {
+      lines = {
+        { id = "gw_default", text = "Who? I'm one deputy with a door to watch. That's why I put bounties up. People like you are the nearest thing to a patrol I've got." },
+      },
+      choices = {
+        { text = "Then I'm your patrol.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, standing = { northshire = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    valley = {
+      lines = {
+        { id = "v_default", text = "Eagan, round the side of the Abbey: more wolves this season than he can skin. Milly, with her wagon by the stable: Defias in her vines. Pick either. Pick both." },
+      },
+      choices = {
+        { text = "Tell me about Milly.", next = "valley_milly" },
+        { text = "And Eagan?", next = "valley_eagan" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    valley_milly = {
+      lines = {
+        { id = "vm_default", text = "A friend. Stubborn as her vines. She'll tell you I'm stuck at this door and can't help her. She's right, which is why I'm sending you." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    valley_eagan = {
+      lines = {
+        { id = "ve_default", text = "Says ten words a day and means all of them. He wants the wolves for the pot and the pelts for his wife's orders. Don't get between him and either." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    beat = {
+      lines = {
+        { id = "b_default", text = "Because I'm not, really. I'm a city guard. I'd be walking a beat in Stormwind if half the guard weren't off fighting in other lands. So here I am, deputized." },
+      },
+      choices = {
+        { text = "Fighting where?", next = "beat_where" },
+        { text = "You seem good at it.", next = "BACK", fx = { affinity = 2 } },
+      },
+    },
+    beat_where = {
+      lines = {
+        { id = "bw_default", text = "Wherever they're sent. I don't ask; I'd only get an answer I didn't like. Meanwhile we've kobolds, wolves and thieves, and a Marshal who won't sleep." },
+      },
+      choices = {
+        { text = "Then I'll help where I can.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Somebody should ask.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+      },
+    },
+    westfall = {
+      big = true,
+      lines = {
+        { id = "wf_default", text = "Then you know them better than I do. Tell the Marshal what you saw out there. He'll listen. He listens to anyone who's lost something to them." },
+      },
+      choices = {
+        { text = "I'd rather take it back from them.", next = "BACK", fx = { trait = { stern = 1 }, opinion = { defias = "hardline" } } },
+        { text = "Some of them were my neighbours.", next = "westfall_neighbours" },
+      },
+    },
+    westfall_neighbours = {
+      lines = {
+        { id = "wn_default", text = "That's the worst of it, isn't it? I don't know what I'd do if it were folk I knew under those bandanas. I hope I never find out." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2, opinion = { defias = "sympathetic" } } } },
+    },
+    far = {
+      lines = {
+        { id = "f_default", text = "Anyone willing to defend their home, and their alliance. That's what the Marshal said, and the alliance is yours as much as ours. Welcome to Northshire." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
     },
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "A Stormwind guard, deputized and stuck at a door. I'd rather be on patrol. Don't tell the Marshal.", next = "beat" } },
+    advice = { { id = "tp_ad", text = "Stay on the road after dark. The wolves don't, and the Defias don't either. Be where they aren't." } },
+    northshire_abbey = { { id = "tp_abbey", text = "The Marshal's inside, the brothers are inside, and I'm outside. That's the order of things." } },
     defias = { { id = "t_defias", text = "They wear red so we know who to chase. Very considerate of them." } },
     kobolds = { { id = "t_kobolds", text = "Kobolds are the Marshal's worry. I've got thieves." } },
     _none = { { id = "t_none", text = "Not something a deputy would know. Try the brothers in the Abbey." } },

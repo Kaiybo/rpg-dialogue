@@ -48,10 +48,21 @@ P:NPC {
           text = "Thomas said that? A drink, for Remy? For Remy! I'll hold him to it. I'll hold him to it twice." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "A sky elf! Never sold to a sky elf. Never! What do your people buy? Whatever it is, I've got some. Probably." },
+        { id = "q_peril_active", when = { questActive = TODO_QUEST("A Fishy Peril") },
+          text = "Did you tell him? Did you tell him? The Marshal, about the murlocs? Tell him twice. He only hears things the second time." },
+        { id = "h_dwarf", when = { race = "Dwarf" },
+          text = "A dwarf! Dwarves know gold. Know gold! You wouldn't have a little dust in that beard, would you? A little dust?" },
+      },
+      again = {
+        { id = "h_again", text = "What else, what else? Time's money. Money's money too." },
+        { id = "h_again2", text = "More? More! I like a customer who talks." },
       },
       choices = {
         { text = "What are you buying?", next = "BUSINESS" },
         { text = "Any news, Remy?", next = "news" },
+        { text = "Where are you from, Remy?", next = "home" },
+        { text = "Who are these associates of yours?", next = "associates", when = { questDone = TODO_QUEST("Gold Dust Exchange") } },
+        { text = "I know a fence when I see one.", next = "fence", when = { class = "ROGUE" } },
         { text = "[Intimidate] Who else buys dust around here? Talk.", tag = "Intimidate", next = "talks",
           when = { thread = { id = "elwynn_gold", beat = "b1_dust" } },
           check = { pass = { any = { { power = { "above", "far_above" } }, { trait = "stern" }, { band = { "Seasoned", "Veteran", "Champion" } } } } },
@@ -67,8 +78,71 @@ P:NPC {
           fx = { hear = "murlocs_in_elwynn", learn = { "murlocs_east" } } },
       },
       choices = {
-        { text = "I believe you.", next = "END", fx = { affinity = 1 } },
-        { text = "Murlocs, in Elwynn? Sure, Remy.", next = "END", fx = { trait = { skeptical = 1 }, affinity = -1 } },
+        { text = "Murlocs? Tell me more.", next = "murlocs" },
+        { text = "I believe you.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Murlocs, in Elwynn? Sure, Remy.", next = "BACK", fx = { trait = { skeptical = 1 }, affinity = -1 } },
+      },
+    },
+    murlocs = {
+      lines = {
+        { id = "mu_default", text = "Swimming up the eastern streams! Scaring off the fish, going for gentle folk! I told the Marshal. He's worried about gnolls and bandits. Gnolls and bandits!",
+          fx = { learn = { "murlocs_east" } } },
+      },
+      choices = {
+        { text = "I'll talk to Dughan for you.", next = "murlocs_dughan", fx = { affinity = 2 } },
+        { text = "Maybe Dughan's right to worry about gnolls.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+      },
+    },
+    murlocs_dughan = {
+      lines = {
+        { id = "md_default", text = "You will? You will! Persuade him. Troops to the east. He respects me as a merchant, he says. Respects me! Then he doesn't listen." },
+      },
+      choices = {
+        { text = "Then let's make it official.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    home = {
+      lines = {
+        { id = "ho_default", text = "Redridge. East, past the mountains. Came west looking for business. Looking for business! Found Goldshire. Goldshire found me." },
+      },
+      choices = {
+        { text = "Why leave Redridge?", next = "home_why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    home_why = {
+      lines = {
+        { id = "hw_default", text = "Why does anybody leave anywhere? Better prices. Better prices! Don't ask me about Redridge. Ask me about dust. I like dust." },
+      },
+      choices = {
+        { text = "All right. Tell me about the dust.", next = "dust" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dust = {
+      lines = {
+        { id = "du_default", text = "Kobolds pick it out of the mines. Fargodeep to the south, Jasperlode to the northeast. They carry it in pouches. I buy it. Simple! Simple.",
+          fx = { learn = { "gold_dust" } } },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    associates = {
+      lines = {
+        { id = "as_default", text = "Associates! Friends. Friends of friends. They send me little tokens for good customers. Good customers! Don't ask what the token's for. I don't." },
+      },
+      choices = {
+        { text = "That's not reassuring, Remy.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "Fair enough.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    fence = {
+      lines = {
+        { id = "fe_default", text = "Fence? Me? A merchant! A respectable merchant. Respectable! ...What are you selling? Just asking. Just asking." },
+      },
+      choices = {
+        { text = "Nothing. Yet.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "Relax, Remy.", next = "BACK" },
       },
     },
     talks = {
@@ -86,6 +160,8 @@ P:NPC {
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "From Redridge, looking for business. Looking for business! Found plenty. Found plenty.", next = "home" } },
+    advice = { { id = "tp_ad", text = "Never sell to a gnoll. Gnolls don't pay. And always count your change twice. Twice!" } },
     gold_dust = { { id = "t_dust", text = "Mine. My trade. Nobody in Elwynn buys dust but Remy. Nobody but Remy!",
       fx = { hear = "remy_only_buyer" } } },
     murlocs_east = { { id = "t_murlocs", text = "Real! Real as rain. Ask the fishermen. Ask the ones that are left." } },

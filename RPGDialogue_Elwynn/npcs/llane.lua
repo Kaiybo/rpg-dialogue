@@ -1,4 +1,4 @@
--- Llane Beshere, warrior trainer, Northshire Abbey. Voice: bibles/llane.md
+-- Llane Beshere, warrior trainer, Hall of Arms, Northshire Abbey. Voice: bibles/llane.md
 local P = RPGDialogueAPI:Pack("rpgd.elwynn")
 local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
@@ -35,10 +35,19 @@ P:NPC {
           text = "Not my student. The drills wouldn't kill you, though. Probably." },
         { id = "h_bruise", when = { metBefore = true, class = "WARRIOR" }, text = "You're standing straighter. Bruises in better places. That's progress, recruit." },
         { id = "h_dawn", when = { metBefore = true }, text = "Recruits ran the yard twice this morning. One cried. One laughed. The one who laughed is the one I'm worried about." },
+        { id = "h_veteran", when = { class = "WARRIOR", minLevel = 20 },
+          text = "Look at the scars on you. Somebody's been earning them properly. Stand there. Let me see if the left guard ever got fixed." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Talk while you stretch." },
+        { id = "h_again2", text = "Go on. Quickly. The yard doesn't run itself." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
         { text = "Any advice?", next = "advice" },
+        { text = "How do I stop getting knocked down?", next = "stance", when = { class = "WARRIOR", maxLevel = 12 } },
+        { text = "I've fought a long way from this hall since.", next = "veteran", when = { class = "WARRIOR", minLevel = 20 } },
+        { text = "Anything for a priest to learn in here?", next = "priest", when = { class = "PRIEST" } },
         { text = "Later.", next = "END" },
       },
     },
@@ -49,13 +58,68 @@ P:NPC {
           text = "Charge in, then keep them close. A warrior at range is a corpse with good intentions." },
       },
       choices = {
-        { text = "Understood.", next = "END", fx = { trait = { brave = 1 } } },
-        { text = "Sounds simple enough.", next = "END", fx = { trait = { witty = 1 } } },
+        { text = "And if it doesn't stop moving?", next = "advice_more" },
+        { text = "Understood.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "Sounds simple enough.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
+    },
+    advice_more = {
+      lines = {
+        { id = "am_default", text = "Then you were fighting the wrong thing, or fighting it wrong. Walk away, find out which, come back. Pride's a bad shield." },
+      },
+      choices = { { text = "Walk away. Noted.", next = "BACK", fx = { trait = { cautious = 1 }, affinity = 1 } } },
+    },
+    stance = {
+      lines = {
+        { id = "s_default", text = "Weight low. Feet wider than you like. Shield arm doesn't drop because you're tired. Everyone's tired. Kobolds especially." },
+      },
+      choices = {
+        { text = "Show me.", next = "BUSINESS", fx = { affinity = 1 } },
+        { text = "That's it? Stand wider?", next = "stance_more" },
+      },
+    },
+    stance_more = {
+      lines = {
+        { id = "sm_default", text = "That's it, a thousand times, until you do it asleep. Then I'll show you the second thing. Most never get to the second thing." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { stern = 1 } } } },
+    },
+    veteran = {
+      lines = {
+        { id = "v_default", text = "I can tell. You walked in here like the door owed you something. Tell me one thing the road taught you that I didn't." },
+      },
+      choices = {
+        { text = "That nobody fights fair.", next = "veteran_fair", fx = { affinity = 1 } },
+        { text = "When to run.", next = "veteran_run", fx = { trait = { cautious = 1 }, affinity = 2 } },
+      },
+    },
+    veteran_fair = {
+      lines = { { id = "vf_default", text = "I told you that. You didn't believe me. Nobody does until it costs them a tooth." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    veteran_run = {
+      lines = { { id = "vr_default", text = "Good answer. Better than mine. I'll be telling the new ones that, and taking the credit." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    priest = {
+      lines = {
+        { id = "p_default", text = "One thing. Stand behind me. Not beside me, not in front of me. Behind. If you're in front, I've failed, and so have you." },
+      },
+      choices = {
+        { text = "Behind you. And I keep you standing.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "And if I'd rather fight?", next = "priest_fight" },
+      },
+    },
+    priest_fight = {
+      lines = { { id = "pf_default", text = "Then you'll fight, and you'll heal yourself, and nobody will heal me. Pick a job. Do it well." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { stern = 1 } } } },
     },
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "I train recruits in the Hall of Arms. Before that I was one. That's all the story you need." } },
+    advice = { { id = "tp_ad", text = "Your shield arm will want to drop. Don't let it. That's the whole lesson, and nobody learns it the first time." } },
+    northshire_abbey = { { id = "tp_abbey", text = "The brothers have the halls with books. I have the one with the dents in the floor." } },
     kobolds = { { id = "t_kobolds", text = "Small, fast, cowardly. Perfect practice." } },
     _none = { { id = "t_none", text = "Do I look like a librarian?" } },
   },

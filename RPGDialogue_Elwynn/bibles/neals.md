@@ -39,3 +39,10 @@ northshire_abbey, defias
 
 ## Depth pass (0.25.0, authored, not canon)
 A repeat-visit line in the voice above.
+
+## Depth pass (Elwynn 1.10.0)
+Sources read: the wiki pages Brother Neals, Grape Manifest (quest and item), Northshire Abbey, Brotherhood of Northshire, The Stolen Tome.
+- Canon used: he manages the Abbey's store of food and drink and the wine, up in the bell tower where he likes to taste it; his faith "did not waver" when brigands overran Milly's vineyard; clerics came south from Lordaeron and founded the Abbey centuries ago; Medivh was tended by the clerics for a decade after a hundred clerics contained his power; in the First War the orcs hunted clerics first (healers send soldiers back to the line) and the clerics went unarmed; the Abbey was destroyed; in the Second War its site was the Twilight's Hammer's headquarters; Faol rebuilt it and founded the Brotherhood of Northshire; a protected wing of the library keeps dangerous books, one taken by a novice who joined the Defias.
+- Branches: the Abbey's wars, his wine (and Milly), the library (Medivh; the locked wing), and faith for priests and paladins. An abbey-novice line.
+- **Correction:** the topic line "Founded by Archbishop Faol" was wrong (Faol rebuilt it). Same id, new text.
+- Authored, not canon: thanking Faol nightly; locking the cellar twice; the novice who read the tallies.

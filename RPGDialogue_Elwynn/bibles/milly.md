@@ -12,7 +12,7 @@
 Vintner · Northshire Vineyards · Alliance · Human · quest giver
 Personality: worried, stubborn, warm to helpers, sharp-tongued about thieves
 Speech: plain, quick, homely images (sticky hands, bread, crates); says what she thinks
-Knows and cares about: her vineyard (her mother's before her), the harvest, the Defias in her rows
+Knows and cares about: her vineyard, the harvest, the Defias in her rows
 Relationships: Brother Neals (customer, fussy); Willem (protects the valley); the Defias (enemies)
 Default attitudes: farmhands are kin; everyone else is judged by whether they help
 Lore anchors: Defias occupying Northshire's vineyards in Year 1
@@ -36,3 +36,9 @@ Trustworthy on what the Defias did to her. Biased about why: she won't hear thei
 
 ## Topics
 defias, northshire_abbey
+
+## Depth pass (Elwynn 1.10.0)
+Sources read: the wiki pages Milly Osworth, Milly's Harvest (quest), Milly Osworth (quest), Grape Manifest (item), Northshire Vineyards.
+- Canon used: she owns the Northshire Vineyards and supplies Brother Neals' store; the Defias moved in while she was harvesting; she reported it to the guards, who promised to deal with it, and feared they'd trample the grapes chasing thugs; her crates were left in the vineyard to the southeast; her wagon is by the Abbey stable; Willem is brave but his duties keep him at the Abbey; "short on guards these days"; the Defias still roam across the river.
+- **Correction:** the old leave line said the vineyard was her mother's: an invented family history. Same id; it now says the vineyard is hers and the Abbey's cellar runs on it.
+- Branches: what happened (the guards), why not leave, who buys (Neals in the bell tower), Westfall for farmhands, a blessing for priests and paladins. Willem and Garrick lines.

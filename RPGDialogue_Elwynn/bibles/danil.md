@@ -36,3 +36,8 @@ none of his own
 
 ## Depth pass (0.25.0, authored, not canon)
 The Abbey roof leaks on the bread; he prayed, it rained.
+
+## Depth pass (Elwynn 1.10.0)
+Sources read: the wiki page Brother Danil (Brotherhood of Northshire; his wagon by the Abbey's entrance; Classic wares rough arrows, light shot and thrown weapons; Forever adds skinning knives, mining picks and apprentice profession bags).
+- Branches: why a wagon, who buys, the tools (Neals' view of trade), arrows for hunters, bread and water for the poor. Abbey-novice and veteran lines.
+- Authored, not canon: coin not changing hands under the Abbey roof; Neals calling trade a kind of prayer; stale loaves for novices.
