@@ -902,8 +902,8 @@ P:NPC {
           text = "The Repairers' Union pulled my right to mend armor once, saying I was undercutting them, so I filed a complaint, and then I filed five more. Now I mend armor again, and that's persistence for you, friend." },
       },
       again = {
-        { id = "h_again", text = "Anything else? Make it quick, the forge doesn't wait for conversation." },
-        { id = "h_again2", text = "Still here? Then you're either buying or haggling, and I don't haggle." },
+        { id = "h_again", text = "More questions? Ask them over the anvil, because the thorium cools while we chat." },
+        { id = "h_again2", text = "Still here? Then you're either buying or haggling, and I filed a complaint against haggling years ago." },
       },
       choices = {
         { text = "Who else buys these molds?", next = "who" },
