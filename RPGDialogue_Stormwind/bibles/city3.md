@@ -27,3 +27,11 @@
 - Furen: earnest student, proud of a hard master.
 - Topper: theatrical beggar, every story negotiable.
 - Thelwater: anxious, minimising ("a small disturbance"), wants no reports filed.
+
+## Depth pass (Stormwind 1.6.0)
+Sources added:
+- Lescovar: https://warcraft.wiki.gg/wiki/The_Attack! (he dismisses his guards to "meditate"; calls Shaw a meddler), https://warcraft.wiki.gg/wiki/Tiffin_Ellerian_Wrynn (the queen killed by a thrown stone in the masons' riot; he uses it against them, dramatic irony).
+- Dashel: https://warcraft.wiki.gg/wiki/The_Missing_Diplomat_(8) and https://warcraft.wiki.gg/wiki/The_Missing_Diplomat_(9) (his Old Town thugs call him boss; his part ended when plan A failed; plan B was Slim from Menethil), https://warcraft.wiki.gg/wiki/Old_Town (oldest district, not razed, dirtier; the Pig and Whistle; SI:7's barracks).
+- Furen: https://warcraft.wiki.gg/wiki/Stormpike%27s_Order (Mountaineer Stormpike admires his shields), https://warcraft.wiki.gg/wiki/The_Shieldsmith (Yorus Barleybrew, Barleybrew Scalder, Furen owes him), https://warcraft.wiki.gg/wiki/Fire_Hardened_Mail (Wetlands spider fangs, Stonetalon chimaera horn, phlogiston from Razorfen Kraul).
+- Thelwater: https://warcraft.wiki.gg/wiki/Stormwind_Stockade_(Classic) (Targorr the Dread and Dextren Ward sentenced but held by the nobles), https://warcraft.wiki.gg/wiki/Targorr_the_Dread (Blackrock executioner), https://warcraft.wiki.gg/wiki/Dextren_Ward (sold Raven Hill's dead to Morbent Fel; Millstipe wants his hand), https://warcraft.wiki.gg/wiki/The_Color_of_Blood (Mac, 14, a Stockade guard stabbed for stopping prisoners tearing blankets into scarves; his grandmother Nikova Raskol), https://warcraft.wiki.gg/wiki/The_Curious_Visitor (Maelik's visits, papers in order).
+Authored, not canon: Lescovar's taunt at the Church and his "history is so fragile"; Dashel drinks slower near SI:7; Furen's "we dinnae talk about once" and his plan to hide behind the bellows; Topper's "mine's got more orcs"; Thelwater's fishmonger's cart.

@@ -29,6 +29,8 @@ P:Topic { id = "windstones", keywords = { "windstone" }, name = "Windstones", ca
 P:Topic { id = "blackrock", keywords = { "Blackrock" }, name = "The Blackrock orcs", category = "threats", learned = "Lakeshire" }
 P:Topic { id = "everstill_bridge", name = "The Everstill Bridge", category = "places", learned = "Foreman Oslow" }
 P:Topic { id = "redridge_gnolls", name = "Redridge's gnolls", category = "threats", learned = "Verner Osgood" }
+P:Topic { id = "stonewatch_keep", keywords = { "Stonewatch" }, name = "Stonewatch Keep", category = "places", learned = "Magistrate Solomon or Marshal Marris in Lakeshire" }
+P:Topic { id = "keeshan", keywords = { "Keeshan" }, name = "Corporal Keeshan", category = "people", learned = "the notice outside the Lakeshire Inn, or Marshal Marris" }
 P:Topic { id = "night_watch", name = "The Night Watch", category = "people", learned = "Darkshire" }
 P:Topic { id = "worgen", keywords = { "worgen" }, name = "The worgen of Duskwood", category = "threats", learned = "Darkshire, or the woods" }
 P:Topic { id = "stalvan", keywords = { "Stalvan" }, name = "Stalvan Mistmantle", category = "rumors", learned = "Tavernkeep Smitts, or the Legend of Stalvan" }
@@ -48,6 +50,8 @@ P:Topic { id = "mirage_raceway", keywords = { "Raceway" }, name = "The Mirage Ra
 P:Topic { id = "burning_blade", name = "The Burning Blade", category = "threats", learned = "Zureetha Fargaze or Orgnil Soulscar in Durotar" }
 P:Topic { id = "echo_isles", name = "The Echo Isles", category = "places", learned = "Master Gadrin in Sen'jin Village" }
 P:Topic { id = "scarlet_crusade", name = "The Scarlet Crusade", category = "threats", learned = "Executor Arren or Executor Zygand in Tirisfal" }
+P:Topic { id = "scarlet_monastery", keywords = { "Scarlet Monastery", "Monastery" }, name = "The Scarlet Monastery", category = "places", learned = "Raleigh the Devout in Southshore" }
+P:Topic { id = "raleigh", keywords = { "Raleigh" }, name = "Raleigh the Devout", category = "people", learned = "Brother Anton at Nijel's Point" }
 P:Topic { id = "uldaman", name = "Uldaman", category = "places", learned = "Prospector Ryedol in the Badlands" }
 P:Topic { id = "argent_dawn", name = "The Argent Dawn", category = "people", learned = "Gregor Greystone in Everlook" }
 P:Topic { id = "venture_company", keywords = { "Venture Company" }, name = "The Venture Company", category = "threats", learned = "Mull Thunderhorn in Bloodhoof Village" }
@@ -69,3 +73,9 @@ P:Topic { id = "background", name = "Their story", category = "anyone", standard
 P:Topic { id = "trade", name = "Their work", category = "anyone", standard = true, order = 2, learned = "anyone" }
 P:Topic { id = "advice", name = "A little advice", category = "anyone", standard = true, order = 3, learned = "anyone" }
 P:Topic { id = "rumors", name = "Latest rumors", category = "anyone", standard = true, order = 4, learned = "anyone" }
+
+-- Stormwind (Stormwind pack 1.6.0)
+P:Topic { id = "si7", keywords = { "SI:7" }, name = "SI:7", category = "people", learned = "Mathias Shaw, Renzik or Elling Trias in Stormwind" }
+P:Topic { id = "stonemasons", keywords = { "Stonemasons" }, name = "The Stonemasons' Guild", category = "people", learned = "Baros Alexston, Mathias Shaw or Arthur the Faithful" }
+P:Topic { id = "the_stockade", keywords = { "Stockade" }, name = "The Stockade", category = "places", learned = "Warden Thelwater, or Baros Alexston's Bazil Thredd" }
+P:Topic { id = "valley_of_heroes", keywords = { "Valley of Heroes" }, name = "The Valley of Heroes", category = "places", learned = "General Marcus Jonathan" }

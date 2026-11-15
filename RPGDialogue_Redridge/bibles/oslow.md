@@ -38,3 +38,9 @@ everstill_bridge, blackrock
 
 ## Depth pass (0.25.0, authored, not canon)
 A repeat-visit line (night line for some) in the voice above.
+
+## Depth rewrite (Redridge 1.3.0)
+Sources read: Foreman_Oslow (Classic gossip: no time for idle talk, every project on time and under budget), The_Lost_Tools (tools by wagon from Goldshire, the bridge blown out, a boat, a catapult, the toolbox at the deepest point east of the bridge; Lake_Thresher in the deeps), The_Everstill_Bridge (iron smelted for bullets, swords and armor in the last invasion; the Stormwind shipment hijacked by Redridge gnolls into the hills behind town; iron pikes and rivets), Everstill_Bridge, Ink_Supplies and Rethban_Ore_(quest) (Brother Paxton of Northshire buys Rethban ore from Oslow; Oslow is too busy fortifying; Bart Rethban; Rethban Caverns north of town; Redridge drudgers dig it), Brother_Paxton.
+- Fixed: h_supplies (iron, not timber and stone); the craft notice used a list for `profession`, which only checked the first entry; it's now `any`.
+- Gated: questActive Ink Supplies (Paxton), Northshire novice origin, Blacksmithing (he asks what you'd change on the plans).
+- Authored, not canon: the plans (new piers on old footings); "ten years" to a catapult-proof bridge; a gnoll using a pike as a back-scratcher.
