@@ -1491,3 +1491,12 @@ Classic facts; levels 50–60. The Bulwark stands on the Tirisfal side of the bo
 | Kirsta Deepshadow: wounded scout above Northridge testing Hearthglen; Unfinished Business; slips "Elling... I mean to Stormwind" | [Kirsta Deepshadow](https://warcraft.wiki.gg/wiki/Kirsta_Deepshadow); [Unfinished Business (1)](https://warcraft.wiki.gg/wiki/Unfinished_Business_(1)) |
 | Eva Sarkhoff: the Barovs' head maid, wife of the butler Lucien; hid six months, then tortured by Krastinov and fed to ghouls; Krastinov, Krastinov's Bag of Horrors (Jandice Barov), Kirtonos the Herald | [Eva Sarkhoff](https://warcraft.wiki.gg/wiki/Eva_Sarkhoff); [Krastinov's Bag of Horrors](https://warcraft.wiki.gg/wiki/Krastinov%27s_Bag_of_Horrors_(quest)) |
 | "Argent Defender" names are guards (the existing `defender$` pattern) | [Chillwind Camp](https://warcraft.wiki.gg/wiki/Chillwind_Camp) |
+
+### Western Plaguelands depth pass (pack 1.0.0, released in 0.31.0)
+- Andorhal was the distribution center for agricultural supplies in Lordaeron's northern provinces; Kel'Thuzad's cult shipped plagued grain from it. https://warcraft.wiki.gg/wiki/Andorhal
+- Janice Felstone's parcel goes to her sister, Ol' Emma in Stormwind, who believed her family died in the plague. https://warcraft.wiki.gg/wiki/Better_Late_Than_Never_(Classic), https://warcraft.wiki.gg/wiki/Good_Natured_Emma
+- Marlene Redpath is Joseph Redpath's sister; Pamela is his daughter; Joseph died in the Battle of Darrowshire. https://warcraft.wiki.gg/wiki/Joseph_Redpath
+- Caer Darrow, an island keep on Darrowmere Lake; the Barovs dealt with Kel'Thuzad to keep fortune and lands, and the keep became the Scholomance. https://warcraft.wiki.gg/wiki/Caer_Darrow
+- Hearthglen lies north of Andorhal, held by the Scarlet Crusade from Mardenholde Keep. https://warcraft.wiki.gg/wiki/Hearthglen
+- Mulgris Deepriver's Classic gossip asks Alliance races to set differences aside; he dies after The Wildlife Suffers Too (2). https://warcraft.wiki.gg/wiki/Mulgris_Deepriver
+- Authored (not canon) details are listed in RPGDialogue_WesternPlaguelands/bibles/westernplaguelands.md, "Authored in the depth pass".

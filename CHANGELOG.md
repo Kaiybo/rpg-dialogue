@@ -2,6 +2,26 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.31.0 (2026-11-15)
+Packs: World 1.19.0, Elwynn 1.11.0, Duskwood 1.4.0, EasternPlaguelands 1.5.0, Tanaris 1.3.0, ThunderBluff 1.3.0, and a new one: **Western Plaguelands 1.0.0** (the rest as in 0.30.0). **New folder and a new file: exit the game fully, copy RPGDialogue_WesternPlaguelands in, tick it, and start the game again.**
+
+Two pieces of work written before 0.26.0 on branches that were never merged, now brought in and raised to the 0.30.0 standards (whole sentences, the depth standard).
+
+### Western Plaguelands
+- **Chillwind Camp (Alliance):** Commander Ashlam Valorfist, who counts his camp morning and night and means to take Andorhal; High Priestess MacDonnell and her plan to turn the plague cauldrons on the Scourge; Alchemist Arbington and the Scholomance key; Weldon Barov, the last living Barov, sleeping with his back to the cliff; Argent Officer Pureheart; Nathaniel Dumah and the termites meant for his father's mill; Bibilfaz Featherwhistle and his gryphons.
+- **The Bulwark (Horde):** High Executor Derrington, Shadow Priestess Vandis, Apothecary Dithers, Alexi Barov, Argent Officer Garush. The Bulwark stands on the Tirisfal side of the border, so the pack also loads in Tirisfal Glades.
+- **The farms and hills:** Janice Felstone, still waiting for John (and her sister Emma in Stormwind); Mulgris Deepriver, dying at the Writhing Haunt and asking mercy for the wolves; Marlene Redpath, who only wants to know what became of Pamela; Kirsta Deepshadow, wounded above Northridge; Eva Sarkhoff of Caer Darrow.
+- All 17 people are conversations to explore, with replies for priests and paladins, Lordaeron refugees, the Forsaken, alchemists and more. The Barov brothers each swear the fortune is theirs, and nobody settles it.
+- **Elsewhere:** Krinkle Goodsteel in Gadgetzan makes the key's mold and never asks what it opens; Hamuul Runetotem asks after Mulgris once you've met him.
+
+### The spirit healer
+By far the deepest character in the addon. Stay and talk: the healer asks you questions and remembers your answers, tells twelve tales of the dead, and argues four debates you can win: whether coming back cheapens death, mercy or cage, whether the one who wakes is the one who died, and what happens if you refuse to go back. Open mysteries (another hand writing in your file, a healer who half-remembers being alive, a door past the mist), a ghost with a lantern whose story unfolds one chapter per visit, lines for where you fell, and the healer picks up last visit's argument. Madame Eva, Brother Sammuel and Tirion Fordring react to what the healer told you.
+
+### Core
+- Condition `npcFlagBefore`: an NPC flag set in an earlier conversation, not this one.
+- Node field `rotating = true`: a node meant to be visited again in one conversation (a story, a question). Replies to it stay visible and it draws a fresh line each time (DESIGN §2.6).
+- The validator checks pool conversation trees like NPC trees and registers `key` lines in pools, so others can echo them.
+
 ## 0.30.0 (2026-11-15)
 Packs: every content pack has a new version (World 1.18.0, Stormwind 1.6.0, Elwynn 1.10.0, Stranglethorn 1.6.0, Westfall 1.4.0, Redridge 1.3.0, Duskwood 1.3.0, Riverglades 1.3.0 and the rest; `python3 tools/version.py` lists them). No new folders, but **three new files** (Elwynn's Eastvale stables, Hillsbrad's Raleigh, World's Hillsbrad rumors): **exit the game fully and start it again**; /reload won't load new files.
 
