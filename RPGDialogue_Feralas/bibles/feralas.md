@@ -30,3 +30,10 @@
 
 ## Depth pass (0.25.0, authored, not canon)
 Repeat-visit and night lines for the innkeepers and thin quest givers (habits, small worries, the place at night). Nothing here adds a lore fact.
+
+## Depth rewrite: Camp Mojache (Horde towns pass, authored on sourced quests)
+Sources read for this pass (warcraft.wiki.gg, Classic sections): Rok_Orhan, Orwin_Gizzmick, Innkeeper_Greul, Camp_Mojache, A_Threat_in_Feralas, The_Ogres_of_Feralas (1, 2), Dark_Ceremony, The_Gordunni_Scroll, The_Gordunni_Orb_(Classic), Gordunni_Cobalt_(quest).
+- Rok Orhan: Belgrom Rockmaul calls her "a warrior I know of"; the Gordunni are the dominant military force in Feralas and growing; their outpost lies up the river north; "their very presence scars this land"; "in time, the land will heal; we must not give up"; in the High Wilderness they camp in ruined night elf structures among withered trees and desecrated ground (shamans, warlocks, maulers); the Gordunni Scroll shows a ceremony run by mage-lords; "although I know my enemy well, I am a warrior", so the orb goes to Uthel'nay in Orgrimmar's Darkbriar Lodge.
+- Orwin: a goblin who just arrived; the ogres bury the cobalt to keep it from folks like him; his shovel; "look for the blue glow"; "time is money"; he'll take the samples on his travels and sell them.
+- Camp Mojache: over Wildwind Lake, a stream through the camp; known for thick hides and braves who protect travelers; gnolls sometimes attack from the west. Greul is a female tauren.
+- Authored, not canon: Rok eats standing up and sleeps with her axe; Greul's offer of a seat; Rok's advice on knees and slopes; Rok's reply to a Skyborne (BRIEF §10: the Skyborne descend from Eldre'Thalas, today's Dire Maul, in Feralas).
