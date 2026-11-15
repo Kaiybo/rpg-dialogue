@@ -30,15 +30,57 @@ P:NPC {
           text = "Ye've a dwarf's stubbornness an' a paladin's oath. That's a fine pair, as long as the oath wins the arguments." },
         { id = "h_other", when = { ["not"] = { class = "PALADIN" } },
           text = "Not one o' mine, but ye're welcome in the Hall. Mind the mages; they bite." },
+        { id = "h_noble", when = { class = "PALADIN", minLevel = 40 },
+          text = "Look at ye, all plate an' purpose. I'll own it: I get a wee bit jealous. Tiza says it's my weakness. I'm workin' on it." },
+        { id = "h_priest", when = { class = "PRIEST" },
+          text = "A priest! Ye're in the right hall. Rohan's along the way, pacin' as he does. Tell him Brandur sent ye. He'll pretend tae know who that is." },
+      },
+      again = {
+        { id = "h_again", text = "Anythin' else? The Light's patient. My students aren't." },
+        { id = "h_again2", text = "Go on, then. I've a minute an' a bench." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "PALADIN" } },
+        { text = "Who's Tiza Battleforge?", next = "tiza" },
+        { text = "How did dwarves come to the Light?", next = "light" },
         { text = "Farewell.", next = "END" },
       },
+    },
+    tiza = {
+      lines = {
+        { id = "tz_default", text = "One o' our most respected. She gives the young ones the Tome o' Divinity, then sends 'em tae help someone who cannae repay it. Her husband Muiredon tests the rest." },
+      },
+      choices = {
+        { text = "Tests them how?", next = "tiza_muiredon" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "tome_of_divinity" } } },
+      },
+    },
+    tiza_muiredon = {
+      lines = {
+        { id = "tm_default", text = "Dark Irons south o' Helm's Bed Lake. Muiredon an' Narm went spyin', an' only one came back walkin'. The Senate still wants proof they're there at all." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "dark_iron" } } } },
+    },
+    light = {
+      lines = {
+        { id = "li_default", text = "From the humans, {g:lad|lass}. The Silver Hand took a few o' us in after the Second War, an' more after the Third, when it needed hands. We brought hammers; they brought prayers." },
+      },
+      choices = {
+        { text = "And now?", next = "light_now" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    light_now = {
+      lines = {
+        { id = "ln_default", text = "Now Ironforge trains its own, here in the Hall. Same oaths. Better beer." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "Paladin o' the Silver Hand, trainer in the Hall. I've sent more young ones up tae Tiza than I can count, an' I can count." } },
+    advice = { { id = "tp_ad", text = "Mend yer armor before ye pray. The Light hears ye either way, but the troll's quicker." } },
     tome_of_divinity = { { id = "tp_tome", text = "Tiza teaches it here; Rall in Stormwind. Same book, different accents." } },
     _none = { { id = "tp_none", text = "That's no' for the Hall o' Mysteries. Ask up the Commons." } },
   },
@@ -71,19 +113,91 @@ P:NPC {
           text = "You've met Stephanie! How is she? Tired? She's always tired. Tell her I'm close to a donation. I'm always close." },
         { id = "h_dwarf", when = { race = "Dwarf" },
           text = "Your people are generous, once they've decided you're not a fool. It took them a year. I'm still not sure about some of them." },
+        { id = "h_linen", tags = { "news" }, when = { questActive = TODO_QUEST("The Tome of Divinity"), race = "Dwarf" },
+          text = "Is that linen? Bless you. Stephanie can make ten shirts out of that. Eleven, if the boys stand still." },
+        { id = "h_priest", when = { class = "PRIEST" },
+          text = "A priest! Would you say a word for the children, next time you're in the Cathedral? They notice who prays for them. Children always notice." },
+      },
+      again = {
+        { id = "h_again", text = "Anything else? I've time. Time, and a cart that won't fill." },
+        { id = "h_again2", text = "Go on, friend. I'm not going anywhere. That's rather the problem." },
       },
       choices = {
         { text = "How are the children?", next = "children" },
+        { text = "Aren't you always here?", next = "always" },
+        { text = "Where do the children come from?", next = "where" },
+        { text = "Why collect in Ironforge?", next = "why_if" },
+        { text = "I came out of Lordaeron myself.", next = "refugee", when = { origin = "human_lordaeron_refugee" } },
+        { text = "I could pray with them, back in Stormwind.", next = "pray", when = { class = "PRIEST" } },
         { text = "Good luck, John.", next = "END" },
       },
     },
     children = {
       lines = { { id = "c_default", text = "Growing out of everything we give them. That's good news, really. It's just expensive good news." } },
-      choices = { { text = "Ha. I'll keep them in mind.", next = "END", fx = { affinity = 1, align = { light = 1 } } } },
+      choices = {
+        { text = "What do they need most?", next = "need" },
+        { text = "Ha. I'll keep them in mind.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+      },
+    },
+    need = {
+      lines = {
+        { id = "nd_default", text = "Linen. Always linen. Stephanie sews their shirts, and there are more tradesmen about than ever, buying up every bolt before I can." },
+      },
+      choices = {
+        { text = "I'll keep an eye out for linen.", next = "BACK", fx = { affinity = 2, trait = { generous = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    always = {
+      lines = {
+        { id = "al_default", text = "Every month! I come up every month. It's only that the months have been very close together this year." },
+      },
+      choices = {
+        { text = "Very close.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "You miss her, don't you?", next = "miss" },
+      },
+    },
+    miss = {
+      lines = {
+        { id = "mi_default", text = "Terribly. Stephanie writes that she's fine. She always writes that. That's how I know to hurry home." },
+      },
+      choices = {
+        { text = "Then hurry, John.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    where = {
+      lines = {
+        { id = "wh_default", text = "Most lost their parents to the Scourge, these last years; some to the war before that. They don't talk about it much, and we don't make them." },
+      },
+      choices = {
+        { text = "That's a kindness.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    why_if = {
+      lines = {
+        { id = "wi_default", text = "Dwarves are generous once they've decided you're not a fool. And Ironforge has wool, linen and coin that nobody's asked for twice yet." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    refugee = {
+      lines = {
+        { id = "rf_default", text = "Then you know where most of mine come from. Lordaeron's children came south with nothing. Some of them still have nothing but us." },
+      },
+      choices = { { text = "Thank you for them.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } } },
+    },
+    pray = {
+      lines = {
+        { id = "pr_default", text = "Would you? They'd like that. Bring something sweet; prayers go down easier with something sweet." },
+      },
+      choices = { { text = "I will.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } } },
     },
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "John Turner, of the Stormwind orphanage. Stephanie's husband, collector of linen, and the most persistent man in Ironforge." } },
+    advice = { { id = "tp_ad", text = "Ask twice. Most people say no the first time out of habit." } },
     tome_of_divinity = { { id = "tp_tome", text = "The young paladins come to Stephanie with linen. Best thing the Church ever started." } },
     _none = { { id = "tp_none", text = "No idea! But the orphans of Stormwind could use your help." } },
   },
@@ -98,7 +212,7 @@ P:NPC {
 
   greetings = {
     { id = "g_gate", text = "Cold out here by the gates. Warmer by the anvil. Come closer." },
-    { id = "g_fist", when = { questActive = TODO_QUEST("Verigan's Fist") }, text = "For the Fist? Good. Bring what I asked and I'll do the rest." },
+    { id = "g_fist", when = { questActive = TODO_QUEST("The Test of Righteousness") }, text = "For the hammer? Good. Bring what I asked and I'll do the rest." },
   },
 
   notice = {
@@ -113,26 +227,106 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", text = "Jordan Stilwell. I serve the Church of the Holy Light the only way I know: at the anvil." },
-        { id = "h_fist", tags = { "news" }, when = { questActive = TODO_QUEST("Verigan's Fist") },
+        { id = "h_fist", tags = { "news" }, when = { questActive = TODO_QUEST("The Test of Righteousness") },
           text = "Bosch Verigan was my friend. This hammer will carry his name, and it'll go to a paladin worth the name. I hope that's you." },
         { id = "h_daphne", when = { questDone = TODO_QUEST("The Tome of Valor") },
           text = "You stood with Daphne at the farm? She wrote me. She said you were brave and she was braver. That sounds like her." },
+        { id = "h_priest", when = { class = "PRIEST" },
+          text = "A priest of the Church. It's been good to Daphne and me. If you're ever on the Westfall coast, look in on her. She'll put you to work." },
+      },
+      again = {
+        { id = "h_again", text = "What else? The fire's in no hurry." },
+        { id = "h_again2", text = "Go on. I can listen and hammer at once." },
       },
       choices = {
         { text = "Who was Verigan?", next = "verigan" },
+        { text = "Why work outside the gates?", next = "outside" },
+        { text = "Where did you learn your craft?", next = "learned" },
+        { text = "Tell me about Daphne.", next = "daphne" },
+        { text = "You trained as a paladin?", next = "paladin_path", when = { class = "PALADIN" } },
         { text = "Let me see your wares.", next = "BUSINESS" },
         { text = "Stay warm, Jordan.", next = "END" },
       },
     },
     verigan = {
       lines = { { id = "v_default", text = "An old friend. A good man. The kind you name things after, so people keep asking who he was. That's the point." } },
-      choices = { { text = "Then I'll remember him.", next = "END", fx = { affinity = 2, align = { light = 1 } } } },
+      choices = {
+        { text = "Who was he?", next = "verigan_who" },
+        { text = "Then I'll remember him.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+      },
+    },
+    verigan_who = {
+      lines = {
+        { id = "vw_default", text = "A dwarf of the Silver Hand, and the best friend a human smith ever had in Ironforge. He'd have laughed at a hammer with his name on it." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    outside = {
+      lines = {
+        { id = "ou_default", text = "The cool mountain air, Duthorian tells people. Truth is, I like to see the road. People come up it needing things, and I'd rather meet them halfway." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    learned = {
+      lines = {
+        { id = "le_default", text = "From my father first, at a keep in Silverpine. Then from Bailor Stonehand in Thelsamar, who taught me what a dwarf's forge can do that a man's can't." },
+      },
+      choices = {
+        { text = "A keep in Silverpine?", next = "keep" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    keep = {
+      big = true,
+      lines = {
+        { id = "kp_default", text = "Baron Silverlaine's. We lived in Pyrewood then. When the keep went foul, Daphne and I ran with nothing. My father's hammer is still in the stables there." },
+      },
+      choices = {
+        { text = "And your father?", next = "father" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    father = {
+      lines = {
+        { id = "fa_default", text = "The Scourge took him. He always said that hammer was enchanted. I laughed at him. I'd give a great deal to laugh at him again." },
+      },
+      choices = {
+        { text = "I'm sorry, Jordan.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Maybe someone will fetch it back.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+      },
+    },
+    daphne = {
+      lines = {
+        { id = "dp_default", text = "My wife. She keeps our farm on the Westfall coast while I'm up here, with the Defias at the Longshore. She writes that she's killed a few, and I believe her." },
+      },
+      choices = {
+        { text = "Why leave her alone?", next = "daphne_why" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "defias", "westfall" } } },
+      },
+    },
+    daphne_why = {
+      lines = {
+        { id = "dw_default", text = "I came north to work with the dwarves for a while, and she told me to go. You'd understand if you met her. Nobody wins an argument with Daphne." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    paladin_path = {
+      lines = {
+        { id = "pp_default", text = "I was going to be. Then my father's forge needed me more than the Order did. Seeing what you do now, I'm a little envious. Only a little." },
+      },
+      choices = {
+        { text = "The Order's loss.", next = "BACK", fx = { affinity = 2 } },
+        { text = "You serve it anyway.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+      },
     },
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "Smith, son of a smith, and a paladin who never was. I make hammers for the ones who are.", next = "learned" } },
+    advice = { { id = "tp_ad", text = "Look after your tools and they'll look after you. My father said it about hammers. It's truer of people." } },
     tome_of_divinity = { { id = "tp_tome", text = "Faith first, then the hammer. Rall's right about that. I'm a smith; I'd put it the other way round, if he'd let me." } },
     westfall = { { id = "tp_westfall", text = "My Daphne keeps the farm there. Stubborn woman. I married her for it." } },
+    defias = { { id = "tp_defias", text = "Daphne fights them at our own door. Stormwind's advisors took a good deal longer to notice them than she did." } },
     _none = { { id = "tp_none", text = "Couldn't say. I only know hammers and prayers." } },
   },
 }

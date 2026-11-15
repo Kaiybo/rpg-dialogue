@@ -1,7 +1,8 @@
 -- King Magni Bronzebeard. Voice: bibles/magni.md
--- Strong, stoic, carrying more grief than he lets the court see.
+-- Strong, stoic, carrying more grief than he lets the court see: a brother lost in Northrend,
+-- a brother lost somewhere past the maps, a daughter in the hands of the Dark Iron.
 local P = RPGDialogueAPI:Pack("rpgd.ironforge")
-local TODO_NPC = P.TODO_NPC
+local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
   key = "magni", id = TODO_NPC("King Magni Bronzebeard"), name = "King Magni Bronzebeard",
@@ -13,6 +14,8 @@ P:NPC {
     { id = "g_king", text = "Ye stand before the King of Ironforge. Speak up; the forges are loud." },
     { id = "g_dwarf", when = { race = "Dwarf" }, text = "One o' mine. Welcome home, whatever road ye've been on." },
     { id = "g_hero", when = { minLevel = 50 }, text = "I know that face. Half the Alliance does. Come, sit, an' tell me how the world's treatin' ye." },
+    { id = "g_incursion", when = { questDone = TODO_QUEST("Old Ironforge Incursion") },
+      text = "There's the one who went under my hall an' came back up. Come in." },
   },
 
   notice = {
@@ -35,36 +38,265 @@ P:NPC {
           text = "Stormwind's sent ye north? Give the Regent my regards. An' tell him the Dark Iron are no' gettin' any friendlier." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "Elves from the sky, they tell me. The Explorers will want tae measure ye. Let them; they measure everythin'." },
+        { id = "h_incursion", tags = { "news" }, when = { questRecent = { TODO_QUEST("Old Ironforge Incursion"), days = 7 } },
+          text = "Dark Irons diggin' under my own hall, an' ye brought me their commander's head. Farsen's eyes an' yer arm. Ironforge owes ye both." },
+        { id = "h_priest", when = { race = "Human", class = "PRIEST" },
+          text = "A priest o' the Cathedral, under my mountain. Our own keep the Hall o' Mysteries, wi' Rohan. They'll make ye welcome, an' they'll make ye tea." },
+        { id = "h_hunter", when = { race = "Dwarf", class = "HUNTER" },
+          text = "A dwarf wi' a rifle an' a beast at heel. The Mountaineers will try tae recruit ye. Make 'em buy the first round." },
+      },
+      again = {
+        { id = "h_again", text = "What else, then? The court can wait. It's used tae it." },
+        { id = "h_again2", text = "Go on. I've more ears than answers, but ye can have both." },
+        { id = "h_again3", when = { race = "Dwarf" }, text = "Speak freely. A king hears enough 'Yes, my king' tae last him." },
       },
       choices = {
         { text = "What troubles Ironforge?", next = "troubles" },
         { text = "Tell me about your family.", next = "family" },
+        { text = "Why did a king take up digging for the past?", next = "league" },
+        { text = "You gave the gnomes part of your city.", next = "gnomes" },
+        { text = "How did the Light come to Ironforge?", next = "light", when = { class = { "PRIEST", "PALADIN" } } },
+        { text = "The Senate's envoys use your name a great deal.", next = "senate",
+          when = { any = { { heardLine = "grelin.h_default" }, { questDone = TODO_QUEST("The Reports") } } } },
+        { text = "Farsen sends his regards, my king.", next = "incursion", when = { questDone = TODO_QUEST("Old Ironforge Incursion") } },
+        { text = "I came out of Lordaeron, Your Majesty.", next = "terenas", when = { origin = "human_lordaeron_refugee" } },
         { text = "Long live the king.", next = "END", fx = { affinity = 1 } },
       },
     },
+
     troubles = {
       lines = {
         { id = "t_default", text = "The Dark Iron, festerin' in the mountain. Troll raids in Dun Morogh. An' the Alliance askin' for more axes than I've got hands tae swing." },
       },
-      choices = { { text = "I'll lend mine.", next = "END", fx = { affinity = 2, align = { honor = 1 } } } },
+      choices = {
+        { text = "Tell me about the Dark Iron.", next = "dark" },
+        { text = "Where have your axes gone?", next = "reserve" },
+        { text = "I'll lend mine.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+      },
     },
+    dark = {
+      lines = {
+        { id = "dk_default", text = "Kin, once. Now they're at the dam on the loch, in Uldaman, in the Badlands. Diggin' an' burnin' where they've no right tae be." },
+      },
+      choices = {
+        { text = "Why do they hate you so?", next = "dark_why" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "dark_iron", "uldaman" } } },
+      },
+    },
+    dark_why = {
+      big = true,
+      lines = {
+        { id = "dw_default", text = "Madoran Bronzebeard broke their armies at our gates. His statue still watches the pass in Loch Modan. Some grudges outlive everyone who started them." },
+      },
+      choices = {
+        { text = "Then it's time someone ended it.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 }, align = { honor = 1 } } },
+        { text = "Grudges can be set down, too.", next = "BACK", fx = { align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Keep the gate shut, then.", next = "BACK", fx = { align = { order = 1 }, trait = { stern = 1 } } },
+      },
+    },
+    reserve = {
+      lines = {
+        { id = "rs_default", text = "At the Alliance's front, mostly. The Reserve's called up, an' Loch Modan holds wi' half a garrison an' Captain Rugelfuss countin' troggs in his sleep." },
+      },
+      choices = {
+        { text = "Should Ironforge send so many?", next = "reserve_why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    reserve_why = {
+      lines = {
+        { id = "rw_default", text = "I gave my word after the Second War. The Alliance helped us take this mountain back. A dwarf who forgets that isnae worth his beard." },
+      },
+      choices = {
+        { text = "Spoken like a king.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Your own valleys bleed for it.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
+      },
+    },
+
     family = {
       big = true,
       lines = {
         { id = "f_default", text = "My brother Muradin went tae Northrend an' didnae come back. My daughter's in the hands o' the Dark Iron. I'll say no more about it in front o' the court." },
       },
       choices = {
-        { text = "I'm sorry, my king.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "What happened to Muradin?", next = "muradin" },
+        { text = "And your other brother, Brann?", next = "brann" },
         { text = "Then someone should bring her home.", next = "home", fx = { trait = { brave = 1 } } },
+        { text = "I'm sorry, my king.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+      },
+    },
+    muradin = {
+      lines = {
+        { id = "mu_default", text = "He took the League's lads intae Northrend. Arthas Menethil found him there. Muradin taught that boy tae swing a hammer, an' the boy killed him for it." },
+      },
+      choices = {
+        { text = "What did you do, when you heard?", next = "blade" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    blade = {
+      big = true,
+      lines = {
+        { id = "bl_default", key = true,
+          text = "Went tae the Great Anvil wi' a crystal o' pure Light the Silver Hand had brought me. Three days I worked it intae a sword. Every blow was for Muradin." },
+      },
+      choices = {
+        { text = "Where is the sword now?", next = "blade_where" },
+        { text = "The Light answers grief, Your Majesty. It answered yours.", next = "BACK",
+          when = { class = { "PRIEST", "PALADIN" } }, fx = { affinity = 2, align = { light = 1 }, trait = { pious = 1 } } },
+        { text = "Grief makes hard steel.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    blade_where = {
+      lines = {
+        { id = "bw_default", text = "Wi' Mograine o' the Silver Hand, last I knew. I've no' asked since. I'd rather think it's still doin' the work I made it for." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    brann = {
+      lines = {
+        { id = "br_default", text = "Off past the edge o' the maps, as ever. No word in months. The League keeps sayin' he always turns up. I've stopped sayin' it back." },
+      },
+      choices = {
+        { text = "Magellas still keeps a chair for him.", next = "BACK", when = { heardLine = "magellas.h_brann" }, fx = { affinity = 2 } },
+        { text = "He'll turn up.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "I'll keep an ear out on the road.", next = "BACK", fx = { affinity = 1 } },
       },
     },
     home = {
-      lines = { { id = "h2_default", text = "Aye. Someone should. When ye're strong enough, come back an' say that again. I'll be listenin'." } },
-      choices = { { text = "I will.", next = "END", fx = { affinity = 1, align = { honor = 1 } } } },
+      lines = {
+        { id = "h2_default", text = "Aye. Someone should. When ye're strong enough, come back an' say that again. I'll be listenin'." },
+        { id = "h2_ready", when = { minLevel = 50 },
+          text = "Ye might be strong enough now. Others have gone intae that mountain for her. Mind that, an' come tae me when ye mean it." },
+      },
+      choices = { { text = "I will.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } } },
+    },
+
+    league = {
+      lines = {
+        { id = "lg_default", text = "Our miners broke intae halls older than Ironforge, carved in a hand nobody could read. A king who doesnae want tae know where his folk came from is just a man in a crown." },
+      },
+      choices = {
+        { text = "What did the halls tell you?", next = "league_halls" },
+        { text = "Mining must have paid better.", next = "league_cost" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "explorers_league" } } },
+      },
+    },
+    league_halls = {
+      lines = {
+        { id = "lh_default", text = "Nothin' yet that anyone'll swear to. Magellas has his theories an' Archesonus has her doubts. Ask either; ye'll lose an afternoon." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "explorers_league" } } } },
+    },
+    league_cost = {
+      lines = {
+        { id = "lc_default", text = "It did. The Senate reminds me every season. But ye cannae eat gold, an' ye cannae know yerself by it either." },
+      },
+      choices = {
+        { text = "Wise words.", next = "BACK", fx = { affinity = 1 } },
+        { text = "You can buy a lot of bread with it.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
+
+    gnomes = {
+      lines = {
+        { id = "gn_default", text = "Their city was poisoned an' overrun. Ours had room. That's the whole of it, an' anyone who tells ye otherwise wants somethin'." },
+      },
+      choices = {
+        { text = "Did your people mind?", next = "gnomes_mind" },
+        { text = "And the tram?", next = "tram" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "gnomeregan" } } },
+      },
+    },
+    gnomes_mind = {
+      lines = {
+        { id = "gm_default", text = "Some grumbled. Dwarves grumble about the weather under a mountain. But I've no' heard one complain about the tram, an' that's a gnome's work." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    tram = {
+      lines = {
+        { id = "tr_default", text = "I asked Mekkatorque for a quicker road tae Stormwind after the war, an' he went under the mountains for it. I've ridden it twice. Eyes shut, both times." },
+      },
+      choices = {
+        { text = "The King of Ironforge, afraid of a tram?", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    light = {
+      lines = {
+        { id = "li_default", text = "Up from the humans, after the Second War. The Silver Hand took some o' my folk intae its ranks, an' the Church's teachin' came wi' them. Now Rohan keeps a whole hall for it." },
+      },
+      choices = {
+        { text = "Do you follow the Light yourself?", next = "light_self" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    light_self = {
+      lines = {
+        { id = "ls_default", text = "I'm a smith an' a king; I follow the anvil. But I've seen what the Light does in steel, once. I'd no' say a word against it." },
+      },
+      choices = {
+        { text = "What did it do in steel?", next = "blade" },
+        { text = "That's a kind of faith.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+      },
+    },
+
+    senate = {
+      lines = {
+        { id = "se_default", text = "The Senate likes reports. I like trolls dead. So I signed Grelin's letter m'self, an' Senator Redstone's been shoutin' about it since." },
+      },
+      choices = {
+        { text = "Is the Senate wrong?", next = "senate_wrong" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    senate_wrong = {
+      lines = {
+        { id = "sw_default", text = "No. It's slow, an' it's right more often than I'd like. A king needs somebody tae tell him no. I just dinnae need it tae take a month." },
+      },
+      choices = {
+        { text = "That's fair.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A king shouldn't wait on anyone.", next = "BACK", fx = { trait = { stern = 1 }, align = { order = -1 } } },
+      },
+    },
+
+    incursion = {
+      lines = {
+        { id = "in_default", text = "Ha! Old Farsen. Saw Dark Iron tunnels from a hill in Dun Morogh before my own guards saw 'em under their boots. I'll be hearin' about that for years." },
+      },
+      choices = {
+        { text = "Are the breaches sealed?", next = "incursion_sealed" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    incursion_sealed = {
+      lines = {
+        { id = "is_default", text = "Sealed an' doubled, an' the lower halls are full o' guards who'd rather be at the Stonefire. They'll live. Thank ye, {name}." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, standing = { ironforge = 1 } } } },
+    },
+
+    terenas = {
+      lines = {
+        { id = "te_default", text = "Then ye've lost more than I have. Terenas was a good man, wise an' fair. Word o' his death reached me at the anvil, an' I've no' forgiven the hour." },
+      },
+      choices = {
+        { text = "Thank you, Your Majesty.", next = "BACK", fx = { affinity = 2 } },
+        { text = "At the anvil?", next = "blade" },
+      },
     },
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "Eldest o' three brothers, born tae the throne. I wasnae sure I'd make a decent king. Some mornings I'm still no' sure.", next = "family" } },
+    advice = { { id = "tp_ad", text = "Keep yer word, keep yer axe sharp, an' keep the Senate waitin' just long enough tae be polite." } },
+    dark_iron = { { id = "tp_dark_iron", text = "Thaurissan's get. I'll no' waste breath cursin' them; I've a mountain tae hold against them.", next = "dark" } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "A good city, poisoned from inside. Mekkatorque carries it. I'd carry it for him if he'd let me." } },
+    explorers_league = { { id = "tp_league", text = "My idea, an' my best one. Ask Magellas; he'll agree, at length." } },
+    frostmane = { { id = "tp_frostmane", text = "Grelin's business, an' the Senate's. I keep my own counsel on the Frostmane. They've cost my house more than a few sheep." } },
+    troggs = { { id = "tp_troggs", text = "Up from the deep places, into Gnomeregan first an' now our quarries. Somethin' woke them. I'd like tae know what before it wakes worse." } },
     defias = { { id = "tp_defias", text = "Stormwind's thieves? Humans' business. We've our own rot in the mountain." } },
     westfall = { { id = "tp_westfall", text = "Farmland, isn't it? Never trust ground ye cannae dig a decent tunnel through." } },
     _none = { { id = "tp_none", text = "Ask the Explorers' League. They know a wee bit about everythin', an' they'll tell ye all of it." } },
