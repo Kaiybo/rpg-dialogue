@@ -101,3 +101,8 @@ P:Topic { id = "syndicate", keywords = { "Syndicate" }, name = "The Syndicate", 
 P:Topic { id = "alterac", keywords = { "Alterac" }, name = "The ruins of Alterac", category = "places", learned = "Loremaster Dibbs or Marshal Redpath in Southshore" }
 P:Topic { id = "silver_hand", keywords = { "Silver Hand" }, name = "The Knights of the Silver Hand", category = "people", learned = "Brewmeister Bilger in Southshore" }
 P:Topic { id = "new_plague", keywords = { "new plague" }, name = "The new plague", category = "rumors", learned = "Apothecary Lydon or High Executor Darthalia in Tarren Mill" }
+
+-- Ironforge and Loch Modan (Ironforge 1.4.0, Loch Modan 1.2.0)
+P:Topic { id = "troggs", keywords = { "trogg" }, name = "The troggs", category = "threats", learned = "Senator Stonehallow at Gol'Bolar, or anyone in Loch Modan" }
+P:Topic { id = "frostmane", keywords = { "Frostmane" }, name = "The Frostmane trolls", category = "threats", learned = "Grelin Whitebeard in Coldridge Valley, or Senir Whitebeard in Kharanos" }
+P:Topic { id = "stonewrought_dam", keywords = { "Stonewrought" }, name = "The Stonewrought Dam", category = "places", learned = "Chief Engineer Hinderweir VII, or Royal Historian Archesonus" }
