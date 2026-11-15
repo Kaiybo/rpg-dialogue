@@ -215,7 +215,7 @@ P:NPC {
         { id = "h_crone", tags = { "news" }, when = { questActive = TODO_QUEST("The Elder Crone") },
           text = "Someone sent you to me? Good; I have uses for capable hands, and fewer for chatter. Listen carefully, because I won't say it twice." },
         { id = "h_forsaken", when = { questActive = TODO_QUEST("Forsaken Aid") },
-          text = "The Forsaken want to remember being alive. I can help with that. Whether I should, the Chieftain has opinions. I'll ask for his when I want them." },
+          text = "The Forsaken want to remember being alive, and I can help with that. Whether I should, the Chieftain has opinions, and I'll ask for his when I want them." },
         { id = "h_fire", when = { questActive = TODO_QUEST("Sacred Fire") },
           text = "Sacred fire, for sacred work. Fetch it, and don't let anyone ask you what it's for." },
         { id = "h_skyborne", when = { race = "Skyborne" },

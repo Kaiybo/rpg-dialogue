@@ -17,7 +17,7 @@ P:NPC {
     { id = "n_troll", cat = "race", when = { race = "Troll" },
       text = "A Darkspear child! Let me look at you, so strong. You going to do the tribe proud, I can tell." },
     { id = "n_shaman", cat = "class", when = { class = { "SHAMAN", "PRIEST", "MAGE" } },
-      text = "You got the spark, eh? Careful with it. I teach two boys with the spark once. Only one of them listen." },
+      text = "You got the spark, eh? Careful with it. I teach two boys with the spark once, and only one of them listen." },
   },
 
   start = "hello",

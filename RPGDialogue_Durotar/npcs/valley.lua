@@ -219,7 +219,7 @@ P:NPC {
           text = "I'm Galgar, and I feed the Den: recruits, grunts and peons alike. Nobody thanks the cook, but everybody notices when the pot's empty." },
         { id = "h_apples", tags = { "news" }, when = { questActive = TODO_QUEST("Galgar's Cactus Apple Surprise") },
           text = "Cactus apples, from the plants around the valley. It's an easy job. I make it easy on purpose; you'll get harder ones soon enough." },
-        { id = "h_recipe", when = { metBefore = true }, text = "Scorpid tail, fried, with a pinch of cactus. Don't make that face. You'll be asking for it by next week." },
+        { id = "h_recipe", when = { metBefore = true }, text = "Scorpid tail, fried, with a pinch of cactus. Don't make that face; you'll be asking for it by next week." },
       },
       choices = {
         { text = "Where did you learn to cook?", next = "cook" },

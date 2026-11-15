@@ -86,14 +86,14 @@ P:NPC {
   notices = { "race", "class" },
 
   greetings = {
-    { id = "g_hall", text = "Come, sit. The Warchief talk to everybody. Vol'jin only talk to the interesting ones. Let's see which you be." },
+    { id = "g_hall", text = "Come, sit. The Warchief talk to everybody, but Vol'jin only talk to the interesting ones, so let's see which you be." },
     { id = "g_troll", when = { race = "Troll" }, text = "Darkspear! Stand up straight, mon. You carry the tribe's name everywhere you walk now." },
     { id = "g_back", when = { metBefore = true }, text = "You come back, good. That mean you still alive, and still interesting." },
   },
 
   notice = {
     { id = "n_shaman", cat = "class", when = { class = { "SHAMAN", "PRIEST" } },
-      text = "You talk to the spirits too, eh? Careful which ones answer. Some of them be hungry." },
+      text = "You talk to the spirits too, eh? Careful which ones answer, because some of them be hungry." },
     { id = "n_elf", cat = "race", when = { race = { "NightElf", "Skyborne" } },
       text = "An elf, in the Warchief's hall. Elves don't trust trolls easy, and that be fair, since we got history. I don't take offense, not yet." },
   },

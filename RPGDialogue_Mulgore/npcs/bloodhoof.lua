@@ -263,7 +263,7 @@ P:NPC {
   notices = { "pet" },
 
   greetings = {
-    { id = "g_kyle", text = "Oh! Hello, traveler. You haven't seen a dog, have you? Brown, scruffy, never sits still?" },
+    { id = "g_kyle", text = "Oh! Hello, traveler, you haven't seen a dog, have you? He's brown and scruffy, and he never sits still." },
     { id = "g_back", when = { metBefore = true }, text = "You're back! Have you seen any sign of him, any at all?" },
   },
 

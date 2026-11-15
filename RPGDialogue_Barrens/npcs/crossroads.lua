@@ -177,7 +177,7 @@ P:NPC {
     olgra = {
       big = true,
       lines = {
-        { id = "o_default", text = "She fought better than me. Laughed louder. She'd have told me to stop standing on this wall moping. I would, if I knew where she was." },
+        { id = "o_default", text = "She fought better than me, and laughed louder. She'd have told me to stop standing on this wall moping, and I would, if I knew where she was." },
       },
       choices = {
         { text = "I'll find her.", next = "END", fx = { affinity = 3, trait = { kind = 1 } } },
@@ -333,7 +333,7 @@ P:NPC {
   },
 
   react = {
-    { id = "r_stealth", on = "stealth", text = "Ha! Nice try. I can smell a shadow from twenty paces. Come out, before I come in." },
+    { id = "r_stealth", on = "stealth", text = "Ha! Nice try, but I can smell a shadow from twenty paces. Come out, before I come in." },
   },
 
   start = "hello",

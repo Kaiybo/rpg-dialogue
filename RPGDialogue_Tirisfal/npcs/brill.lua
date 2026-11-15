@@ -248,7 +248,7 @@ P:NPC {
 
   notice = {
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
-      text = "You look like you've been through it. Sit down, love. Whatever you need, I'll bring it." },
+      text = "You look like you've been through it. Sit down, love, and whatever you need, I'll bring it." },
     { id = "n_living", cat = "race", when = { race = { "Orc", "Troll", "Tauren" } },
       text = "A living guest! We keep food for your sort, and it's fresh, even. Mostly fresh, anyway." },
   },

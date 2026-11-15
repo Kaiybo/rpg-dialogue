@@ -195,7 +195,7 @@ P:NPC {
           text = "Da forest got magic in it, if you know where to cut. Bring Jin'Zil what he asked, and don't let da tree-folk catch you." },
         { id = "h_darsok", when = { heardLine = "darsok.h_default" },
           text = "You met Darsok at da Crossroads? Ha! He tell you he the best? He always say dat, but he be second best, and Jin'Zil be first." },
-        { id = "h_quiet", when = { metBefore = true }, text = "De spirits been quiet today. Quiet spirits make Jin'Zil nervous, mon. Like a cage that stop rattlin'." },
+        { id = "h_quiet", when = { metBefore = true }, text = "De spirits been quiet today. Quiet spirits make Jin'Zil nervous, mon, like a cage that stop rattlin'." },
       },
       choices = {
         { text = "What's in the cages?", next = "cages" },
@@ -270,7 +270,7 @@ P:NPC {
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
       text = "A child of the Circle! Welcome, welcome. The mountain has missed druids, and so have I." },
     { id = "n_horde", cat = "class", when = { faction = "Horde" },
-      text = "You come from Sun Rock's side of the ridges. That's no crime here. Crimes are done with hands, not banners." },
+      text = "You come from Sun Rock's side of the ridges, but that's no crime here; crimes are done with hands, not banners." },
   },
 
   start = "hello",
@@ -327,7 +327,7 @@ P:NPC {
       lines = {
         { id = "h_default", text = "I'm Faralia, and I keep a small inn for those who climb up to the grove. Not many do, and the ones who do usually need the bed." },
         { id = "h_druid", when = { metBefore = true }, text = "A druid came up from the grove at dawn and sat on my step without a word, watching the mountain, and then she left. I've decided it was a compliment." },
-        { id = "h_night", when = { timeOfDay = "night" }, text = "Up here the stars are near enough to count. I've tried. I always lose my place somewhere past the ridge." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "Up here the stars are near enough to count, and I've tried, but I always lose my place somewhere past the ridge." },
       },
       choices = {
         { text = "Make this my home.", next = "BUSINESS" },

@@ -59,7 +59,7 @@ P:NPC {
   notices = { "class", "stealth" },
 
   greetings = {
-    { id = "g_watch", text = "Young orcs and trolls train here. Traders rest here. Nothing gets into Razor Hill that I don't allow." },
+    { id = "g_watch", text = "Young orcs and trolls train here, and traders rest here, and nothing gets into Razor Hill that I don't allow." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. Any word from the canyons?" },
   },
 

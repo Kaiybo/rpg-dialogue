@@ -91,7 +91,7 @@ P:NPC {
     { id = "n_book", cat = "lore", when = { bookRead = "The Seven Kingdoms" },
       text = "A reader, good. The world remembers less than it thinks it does, and readers keep the rest." },
     { id = "n_form", cat = "form", when = { form = "travel" },
-      text = "You came in at a run on four legs. Rest them. Nighthaven isn't going anywhere, and neither are its troubles." },
+      text = "You came in at a run on four legs, so rest them. Nighthaven isn't going anywhere, and neither are its troubles." },
   },
 
   start = "hello",

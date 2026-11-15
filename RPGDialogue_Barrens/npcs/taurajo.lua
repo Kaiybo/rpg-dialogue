@@ -76,7 +76,7 @@ P:NPC {
         { id = "h_tribes", tags = { "news" }, when = { questActive = TODO_QUEST("Tribes at War") },
           text = "*snort* Go and break the Bristlebacks, and the Razormane will thank you. Maybe they will even remember Mangletooth." },
         { id = "h_shards", when = { questActive = TODO_QUEST("Blood Shards of Agamaggan") },
-          text = "Blood shards. Bristlebacks carry them. Bring them to Mangletooth, and he will give you the boar god's gifts." },
+          text = "The Bristlebacks carry blood shards. Bring them to Mangletooth, and he will give you the boar god's gifts." },
         { id = "h_betrayal", when = { questActive = TODO_QUEST("Betrayal from Within") },
           text = "*snort* Nak, Kuz and Lok were Mangletooth's own, and they left him to the cow-folk's axes. Now they learn what Mangletooth thinks of that." },
         { id = "h_thorns", when = { metBefore = true }, text = "*snort* Mangletooth dreams of the thorns. Great thorns, taller than the cow-folk's poles. One day Mangletooth goes home to them." },
@@ -137,7 +137,7 @@ P:NPC {
     },
     learned = {
       lines = {
-        { id = "l_bone", text = "That the quilboar sharpen bone better than most smiths sharpen steel, and the centaur don't sharpen anything at all; they just hit harder. I'm writing it all down for the Warchief. He may never read it. I'm writing it anyway." },
+        { id = "l_bone", text = "That the quilboar sharpen bone better than most smiths sharpen steel, and the centaur don't sharpen anything at all; they just hit harder. I'm writing it all down for the Warchief, and he may never read it, but I'm writing it anyway." },
       },
       choices = { { text = "Somebody should.", next = "END", fx = { affinity = 2, trait = { curious = 1 } } } },
     },
@@ -171,7 +171,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "I'm Byula, and I keep the inn. Everyone who crosses the southern Barrens stops at Taurajo eventually, and I make sure they leave rested." },
         { id = "h_herders", when = { metBefore = true }, text = "The kodo herders come in at sundown smelling of dust and kodo, and I serve them first. They've earned it." },
-        { id = "h_night", when = { timeOfDay = "night" }, text = "Hear that, past the palisade? Hyenas. They laugh when the moon's up. I've never once found it funny." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "Hear that, past the palisade? Those are hyenas, and they laugh when the moon's up. I've never once found it funny." },
       },
       choices = { { text = "What's Taurajo like?", next = "camp" }, { text = "Just a rest, thanks.", next = "END" } },
     },
