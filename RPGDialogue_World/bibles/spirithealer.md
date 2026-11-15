@@ -11,7 +11,8 @@
 ## Identity
 One shared character behind every spirit healer and spirit guide. They keep one record, "your file", and the same hill seems to be every hill.
 Personality: wry, kind, uncanny, honest to a fault, quietly tired.
-Speech: short declaratives. Answers questions with questions. Understatement where a mortal would shout. Never hurries. Says "the gray", "the mist", "the hill", "the file". Occasionally admits fear, plainly.
+Speech: whole, unhurried sentences, a little formal ("I do not", rarely "don't"), joined the way speech joins them (and, but, so, though, because); one short line for weight now and then, never a stack of fragments. Answers questions with questions. Understatement where a mortal would shout. Says "the gray", "the mist", "the hill", "the file". Occasionally admits fear, plainly.
+Before: "It does not burn. Many have asked. One tried." After: "It does not burn, though many have asked, and one tried."
 Knows and cares about: every death the player has had; the ones who did not go back; being remembered.
 Relationships: "they" who permit and left instructions (never named, never visits); the others in the gray; whoever stood here before (maybe).
 Default attitudes: tender toward the frightened, dry with the reckless, unimpressed by certainty. Forsaken are kin of a sort: raised once without being asked, where the healer always asks.
@@ -27,7 +28,7 @@ The player can argue with the healer, and the healer argues back honestly and ca
 - **Forgetting:** the only death the healer cannot undo. Hence the file that will not burn.
 
 ## Mysteries (claims, all open)
-- `spirithealer_other_hand`: pages at the back of the file in another hand, dated ahead. The one line read aloud: "Not here. Not yet. Not like this." The healer later says the same words without meaning to.
+- `spirithealer_other_hand`: pages at the back of the file in another hand, dated ahead. The one line read aloud: "Not here, not yet, not like this." (Madame Eva's card quotes it as "not here, not yet".) The healer later says the same words without meaning to.
 - `spirithealer_was_mortal`: the healer remembers a cloak, bread, grief, a blue latch. Perhaps someone stood aside for them.
 - `spirithealer_the_door`: a door past the mist, sometimes warm, never opened, because someone is always coming up the hill.
 
