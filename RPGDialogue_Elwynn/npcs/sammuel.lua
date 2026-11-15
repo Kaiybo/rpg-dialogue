@@ -1,4 +1,4 @@
--- Brother Sammuel, paladin trainer, Northshire Abbey. Voice: bibles/sammuel.md
+-- Brother Sammuel, paladin trainer, Northshire Abbey (Brotherhood of Northshire). Voice: bibles/sammuel.md
 local P = RPGDialogueAPI:Pack("rpgd.elwynn")
 local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
@@ -13,6 +13,7 @@ P:NPC {
     { id = "g_light", text = "The Light keeps you." },
     { id = "g_lesson", when = { class = "PALADIN" }, text = "Ready for your next lesson?" },
     { id = "g_other", when = { ["not"] = { class = "PALADIN" } }, text = "Not one of mine, but welcome all the same." },
+    { id = "g_priest", when = { class = "PRIEST" }, text = "Anetta's, are you? Welcome to the hall of arms. Mind the practice swords." },
   },
 
   notice = {
@@ -44,14 +45,25 @@ P:NPC {
         { id = "h_afraid", when = { metBefore = true, class = "PALADIN" }, text = "How was your first real fight? Don't tell me you won. Tell me whether you were afraid. The afraid ones listen better." },
         { id = "h_floor", when = { metBefore = true }, text = "I've knelt on this floor every morning for longer than you've been alive. The stone is worn where I kneel. I find that a comfort." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "The Abbey is quiet at this hour. The Light doesn't sleep, but it does seem to rest." },
+        { id = "h_returned", when = { minLevel = 25, metBefore = true },
+          text = "You've come back to the Abbey. People do, after they've seen what's out there. The floor's the same. You aren't." },
+      },
+      again = {
+        { id = "h_again", text = "What else is on your mind?" },
+        { id = "h_again2", text = "Go on. The practice swords can wait." },
       },
       choices = {
-        { text = "How did you come to the Abbey?", next = "path" },
-        { text = "Train me.", next = "BUSINESS", when = { class = "PALADIN" } },
         { text = "What does the Light ask of me?", next = "light" },
+        { text = "How did you come to the Abbey?", next = "path" },
+        { text = "Tell me about the Abbey's history.", next = "abbey" },
+        { text = "What do you teach that Anetta doesn't?", next = "priest", when = { class = "PRIEST" } },
+        { text = "I was a novice here, Brother.", next = "novice", when = { origin = "human_abbey_novice" } },
+        { text = "I fled Lordaeron as a child.", next = "lordaeron", when = { origin = "human_lordaeron_refugee" } },
+        { text = "Train me.", next = "BUSINESS", when = { class = "PALADIN" } },
         { text = "Another time, Brother.", next = "END" },
       },
     },
+
     light = {
       big = true,
       lines = {
@@ -60,27 +72,104 @@ P:NPC {
           text = "You've walked some way from it already. The road back is shorter than you think." },
       },
       choices = {
-        { text = "I can do that.", next = "END", fx = { align = { light = 2 }, trait = { pious = 1 }, affinity = 1 } },
-        { text = "That's a great deal to ask of anyone.", next = "END", fx = { trait = { skeptical = 1 } } },
+        { text = "That's a great deal to ask of anyone.", next = "light_ask", fx = { trait = { skeptical = 1 } } },
+        { text = "I can do that.", next = "BACK", fx = { align = { light = 2 }, trait = { pious = 1 }, affinity = 1 } },
       },
     },
+    light_ask = {
+      lines = {
+        { id = "la_default", text = "It is. The old clerics of this house held that a pain shared among everyone weighs less on each. That's the ask: carry a little of somebody else's." },
+      },
+      choices = {
+        { text = "A little, I can manage.", next = "BACK", fx = { affinity = 1, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "And who carries mine?", next = "light_mine" },
+      },
+    },
+    light_mine = {
+      lines = {
+        { id = "lm_default", text = "Whoever's next to you. That's the trick of it. Nobody carries their own for long, if they let anyone near." },
+      },
+      choices = { { text = "Something else, Brother.", next = "BACK" } },
+    },
+
     path = {
       lines = {
-        { id = "p_cart", text = "I was a farm boy from Eastvale. A paladin rode by when I was small and stopped to help my father haul a cart out of the mud. He didn't have to. I decided that day." },
+        { id = "p_cart", text = "Slowly, on my knees, the way everyone does. My road's a small one. The Abbey's is the one worth telling." },
       },
-      choices = { { text = "Did you ever meet him again?", next = "again" }, { text = "A good reason.", next = "END", fx = { affinity = 2 } } },
+      choices = {
+        { text = "Tell me the Abbey's, then.", next = "abbey" },
+        { text = "Did you ever doubt?", next = "again" },
+      },
     },
     again = {
       lines = {
-        { id = "a_never", text = "No. I never learned his name. I've stopped minding. I think the point was that it didn't matter who he was." },
+        { id = "a_never", text = "Every winter. Then a recruit comes in frightened and asks something I can answer. Doubt goes quiet when there's work to do." },
       },
-      choices = { { text = "I'll try to be that for someone.", next = "END", fx = { affinity = 2, align = { light = 1 } } } },
+      choices = { { text = "I'll try to be that for someone.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } } },
+    },
+
+    abbey = {
+      lines = {
+        { id = "ab_default", text = "Northshire's clerics went into the First War to heal soldiers, and the orcs hunted them for it. Faol saw the cost, and founded the Silver Hand to fight back." },
+      },
+      choices = {
+        { text = "And after the war?", next = "abbey_after" },
+        { text = "They died healing. That's hard to hear.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+      },
+    },
+    abbey_after = {
+      lines = {
+        { id = "aa_default", text = "Faol rebuilt this house and gathered us again: the Brotherhood of Northshire. Priests, paladins, the brothers in the fields. We train whoever the kingdom sends." },
+      },
+      choices = {
+        { text = "And the Silver Hand now?", next = "abbey_hand" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "northshire_abbey" } } },
+      },
+    },
+    abbey_hand = {
+      lines = {
+        { id = "ah_default", text = "Broken, in the north, with Lordaeron. Not here. Oaths outlast orders, if you keep them. I keep mine every morning on this floor." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "northshire_abbey" }, align = { order = 1 } } } },
+    },
+
+    priest = {
+      lines = {
+        { id = "pr_default", text = "Anetta teaches you to mend. I teach my lot to stand in front of the ones you're mending. Same Light. Different end of the sword." },
+      },
+      choices = {
+        { text = "Then we'd better work together.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Some of us prefer not to need the sword.", next = "BACK", fx = { trait = { kind = 1 } } },
+      },
+    },
+    novice = {
+      lines = {
+        { id = "nv_default", text = "I thought I knew the face. The novices still scrub the same floors you did, and complain about them the same way." },
+      },
+      choices = {
+        { text = "The floors were very clean.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "I've tried to deserve those years.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+      },
+    },
+    lordaeron = {
+      lines = {
+        { id = "lo_default", text = "Then you've seen what the Silver Hand couldn't save. I pray for the north every morning. I'll add your name, if you'll let me." },
+      },
+      choices = {
+        { text = "Please do.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Pray for the ones who stayed.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+      },
     },
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "A brother of Northshire and a paladin of the Light. Where I came from matters less than where I kneel." } },
+    advice = { { id = "tp_ad", text = "Kneel every morning, even when you don't feel like it. Especially then." } },
     defias = { { id = "t_defias", text = "They're somebody's sons. That doesn't make them less dangerous." } },
-    northshire_abbey = { { id = "t_abbey", text = "Where the first paladins learned their oaths. I try to deserve the floor I stand on." } },
+    northshire_abbey = {
+      { id = "t_abbey", text = "Where the first paladins learned their oaths. I try to deserve the floor I stand on." },
+      { id = "t_abbey2", text = "Sit, and I'll tell you what this house cost.", next = "abbey" },
+    },
     _none = { { id = "t_none", text = "The Light doesn't tell me everything. Neither does Marshal McBride." } },
   },
 }

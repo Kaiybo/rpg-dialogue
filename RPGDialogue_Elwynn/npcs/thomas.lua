@@ -45,36 +45,137 @@ P:NPC {
           text = "Westfall needs hands more than I do. Gryan Stoutmantle, Sentinel Hill. Tell him the Elwynn bridge sends regards." },
         { id = "h_hero", when = { townStanding = { town = "eastvale", min = 30 } },
           text = "The loggers talk about you. So do my men, the ones I have left. All good." },
+        { id = "h_seasoned", when = { minLevel = 25, questDone = TODO_QUEST("Report to Thomas") },
+          text = "You found my men, once. Now look at you. I still stand on this bridge. Somebody has to." },
+      },
+      again = {
+        { id = "h_again", text = "Anything further, citizen?" },
+        { id = "h_again2", text = "Go on. I'm listening. I'm also watching the treeline." },
       },
       choices = {
         { text = "What happened to your men?", next = "men", when = { questDone = TODO_QUEST("Find the Lost Guards") } },
         { text = "What's out east?", next = "east" },
+        { text = "What do you know about the murlocs?", next = "murlocs" },
+        { text = "Why is the bridge so thinly held?", next = "army" },
+        { text = "I came from Westfall. Nobody held a bridge for us.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
         { text = "Carry on, guard.", next = "END" },
       },
     },
+
     men = {
       big = true,
       lines = {
         { id = "m_default", text = "They did their duty. They went where they were sent. That's all the comfort I've got, and some days it's thin." },
       },
       choices = {
-        { text = "They'd be proud you remember them.", next = "END", fx = { affinity = 2, trait = { kind = 1 }, align = { light = 1 } } },
-        { text = "Then make sure it wasn't for nothing.", next = "END", fx = { affinity = 1, trait = { stern = 1 }, align = { order = 1 } } },
+        { text = "What were they like?", next = "men_who" },
+        { text = "I could say words over their names.", next = "men_priest", when = { class = "PRIEST" } },
+        { text = "They'd be proud you remember them.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 }, align = { light = 1 } } },
+        { text = "Then make sure it wasn't for nothing.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 }, align = { order = 1 } } },
       },
     },
+    men_who = {
+      lines = {
+        { id = "mw_default", text = "I knew their names and their posts and their watch rota. I'm finding that's not much to know about a man. I should have asked more." },
+      },
+      choices = {
+        { text = "You can't know everyone.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Then ask the ones you still have.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 }, learn = { "lost_footmen" } } },
+      },
+    },
+    men_priest = {
+      lines = {
+        { id = "mp_default", text = "There's no grave. The lake has them, or what's left. Say them here, at the bridge, then. I'll stand for it." },
+      },
+      choices = {
+        { text = "Rolf Hartford. Malakai Stone. Light keep them.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, standing = { eastvale = 2 }, learn = { "lost_footmen" } },
+          journal = { first = "Said the names of Rolf Hartford and Malakai Stone at the Eastvale bridge. Guard Thomas stood at attention the whole time.",
+                      third = "{name} prayed over Guard Thomas' lost footmen at the Eastvale bridge." } },
+      },
+    },
+
     east = {
       lines = {
         { id = "e_default", text = "The logging camp, Marshal Haggard's place, the tower where the mage lives. Wolves and bears get bolder the further you are from Goldshire." },
       },
       choices = {
-        { text = "I'll keep that in mind.", next = "END", fx = { learn = { "eastvale" } } },
+        { text = "Why are the animals so bold?", next = "east_bold" },
+        { text = "I'll keep that in mind.", next = "BACK", fx = { learn = { "eastvale" } } },
+      },
+    },
+    east_bold = {
+      lines = {
+        { id = "eb_default", text = "Something deeper in the forest is pushing them out. I don't know what. Whatever it is, I'd like it to stay there." },
+      },
+      choices = {
+        { text = "I'll thin them out.", next = "BACK", fx = { affinity = 1, standing = { eastvale = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    murlocs = {
+      lines = {
+        { id = "mu_default", text = "They've settled the streams of eastern Elwynn. Nobody knows why they came. They're aggressive, and cleverer than fish have any right to be." },
+        { id = "mu_remy", when = { heardClaim = "murlocs_in_elwynn" },
+          text = "You've heard Remy's tale, then. Remy says a great many things. This once, I'm afraid he's right." },
+      },
+      choices = {
+        { text = "Can they be held back?", next = "murlocs_held" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "murlocs_east" } } },
+      },
+    },
+    murlocs_held = {
+      lines = {
+        { id = "mh_default", text = "Not with what I've got. I've told Dughan so in writing. A bridge and a handful of guards won't hold a lake." },
+      },
+      choices = {
+        { text = "Then I'll be your handful.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 }, standing = { eastvale = 1 } } },
+        { text = "Something else.", next = "BACK", fx = { learn = { "murlocs_east" } } },
+      },
+    },
+
+    army = {
+      lines = {
+        { id = "a_default", text = "Most of the kingdom's strength is abroad. What's left is spread from Northshire to Westbrook. I hold a bridge with what I'm given." },
+      },
+      choices = {
+        { text = "Doesn't that anger you?", next = "army_anger" },
+        { text = "And Westfall gets less.", next = "army_westfall" },
+      },
+    },
+    army_anger = {
+      lines = {
+        { id = "aa_default", text = "Anger isn't in my orders. Worry is. I write it down and send it to the Marshal, and he sends it up, and it stops somewhere." },
+      },
+      choices = {
+        { text = "That's no way to run a kingdom.", next = "BACK", fx = { align = { order = -1 }, opinion = { westfall = "abandoned" } } },
+        { text = "Orders are orders.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+      },
+    },
+    army_westfall = {
+      lines = {
+        { id = "aw_default", text = "Westfall gets nothing. Gryan Stoutmantle holds it with farmers. Anyone heading west has my respect, and my pity." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "westfall", "people_militia" } } } },
+    },
+
+    farmhand = {
+      lines = {
+        { id = "fh_default", text = "I know it. I'd have held one if I'd been sent. That's no comfort to you, and I won't pretend it is." },
+      },
+      choices = {
+        { text = "It's something, coming from a soldier.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Someone should answer for it.", next = "BACK", fx = { align = { order = -1 }, opinion = { westfall = "abandoned" } } },
       },
     },
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "Stormwind Army. I go where I'm posted. I've been posted to this bridge, so this bridge is where I am." } },
+    advice = { { id = "tp_ad", text = "Don't follow the river north alone. Two good men did, on my orders." } },
     murlocs_east = {
       { id = "tp_murlocs", text = "Up the river and around Stone Cairn Lake. Don't go alone. My men did." },
+      { id = "tp_murlocs2", text = "Ask me properly, citizen. It's a report, not a rumor.", next = "murlocs" },
     },
     lost_footmen = { { id = "tp_footmen", text = "Rolf Hartford. Malakai Stone. Remember the names, if you remember nothing else." } },
     eastvale = { { id = "tp_eastvale", text = "Loggers and their quotas. They'd cut through a bear if it stood still long enough." } },

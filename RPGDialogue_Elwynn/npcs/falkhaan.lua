@@ -13,6 +13,7 @@ P:NPC {
     { id = "g_road", text = "Road south, friend. Best road in Elwynn. Ends at a fire and a bed." },
     { id = "g_back", when = { questDone = TODO_QUEST("Rest and Relaxation") }, text = "Well? Is the Lion's Pride everything I said?" },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Late to be walking. The inn's lamps are lit; follow them." },
+    { id = "g_far", when = { minLevel = 25 }, text = "Look who's back on my road. You've worn out a few pairs of boots since." },
   },
 
   notice = {
@@ -39,38 +40,180 @@ P:NPC {
           text = "You've made the Lion's Pride your home. Good choice. Mine too, most nights." },
         { id = "h_recruit", when = { maxLevel = 5, timesTalked = { max = 1 } },
           text = "New recruit. I can always tell. You still look at every wolf like it's personal." },
+        { id = "h_far", when = { minLevel = 25 },
+          text = "I sent you south a recruit, and you've come back walking like someone who sleeps on rocks. The inn's still there, if you've forgotten what a bed is." },
+        { id = "h_priest", when = { class = "PRIEST", maxLevel = 9 },
+          text = "Another one out of the Abbey with sore knees. The brothers pray hard. Go and rest them somewhere soft." },
+      },
+      again = {
+        { id = "h_again", text = "What else? The road's quiet; I've time." },
+        { id = "h_again2", text = "Go on. Nobody's coming down from the Abbey for a while yet." },
+        { id = "h_again3", when = { timeOfDay = "night" }, text = "Ask, then. But the inn's warmer than this road at night." },
       },
       choices = {
         { text = "Tell me about the inn.", next = "inn" },
+        { text = "Why stand out here all day?", next = "road" },
+        { text = "Any advice for the road?", next = "advice" },
         { text = "Who's Melika?", next = "melika", when = { questDone = TODO_QUEST("Rest and Relaxation") } },
+        { text = "The brothers say rest is a kind of prayer.", next = "priest", when = { class = "PRIEST" } },
+        { text = "I walked this road as a novice once.", next = "novice", when = { origin = "human_abbey_novice" } },
+        { text = "I've been a long way since you sent me south.", next = "far", when = { minLevel = 20 } },
         { text = "I'll find my own bed, thanks.", next = "END" },
       },
     },
+
     inn = {
       lines = {
         { id = "i_default", text = "Warm, honest, and the stew's the same stew it's been for twenty years. That's a compliment, whatever Farley says." },
       },
       choices = {
-        { text = "I'll go and see.", next = "END", fx = { learn = { "lions_pride" }, affinity = 1 } },
+        { text = "What's Farley like?", next = "farley", fx = { learn = { "lions_pride" } } },
         { text = "You must get a cut.", next = "cut", fx = { trait = { skeptical = 1 } } },
+        { text = "I'll go and see.", next = "BACK", fx = { learn = { "lions_pride" }, affinity = 1 } },
       },
     },
     cut = {
       lines = { { id = "c_default", text = "A cut! Of stew? I get a chair by the fire and a friend who listens. Best pay there is." } },
-      choices = { { text = "Fair enough.", next = "END" } },
+      choices = {
+        { text = "Fair enough.", next = "BACK" },
+        { text = "Everyone gets paid somehow.", next = "BACK", fx = { trait = { skeptical = 1 }, affinity = -1 } },
+      },
     },
+    farley = {
+      lines = {
+        { id = "fa_default", text = "Loud, kind, and he's never let a guest leave hungry in his life. Don't tell him I said kind. He'll be unbearable for a week." },
+      },
+      choices = {
+        { text = "Why don't you work at the inn with him?", next = "farley_why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    farley_why = {
+      lines = {
+        { id = "fw_default", text = "Somebody has to stand at this end of the road. Farley keeps the fire; I point people at it. We argue about who has the harder job." },
+      },
+      choices = {
+        { text = "Sounds like you both win.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "He does. Fires don't walk.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
+
+    road = {
+      lines = {
+        { id = "r_default", text = "Recruits come down from the Abbey with kobold wax in their hair and no idea where to sleep. Somebody ought to tell them." },
+      },
+      choices = {
+        { text = "Who comes down this road?", next = "road_who" },
+        { text = "Kind of you.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    road_who = {
+      lines = {
+        { id = "rw_default", text = "Novices, recruits, farmers going to market. A dwarf last week who'd taken a very wrong turn. All of them tired, and all of them sure they aren't." },
+        { id = "rw_westfall", when = { minLevel = 8 },
+          text = "Lately, Westfall folk too, going the other way with their carts. They don't ask me where to sleep. They ask where there's work." },
+      },
+      choices = {
+        { text = "What do you tell the Westfall folk?", next = "road_westfall" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    road_westfall = {
+      lines = {
+        { id = "rx_default", text = "The Eastvale camp always wants hands, and Farley always wants a dishwasher. It's not much. It's what this end of the road has." },
+      },
+      choices = {
+        { text = "It's more than the city gives them.", next = "BACK", fx = { opinion = { westfall = "abandoned" }, learn = { "westfall" } } },
+        { text = "Something else.", next = "BACK", fx = { learn = { "eastvale" } } },
+      },
+    },
+
+    advice = {
+      lines = {
+        { id = "a_default", text = "Rest before you need to, not after. The wolves don't care how brave you were this morning." },
+      },
+      choices = {
+        { text = "And if I've no coin for a room?", next = "advice_coin" },
+        { text = "I'll rest when I'm dead.", next = "advice_dead", fx = { trait = { brave = 1 } } },
+      },
+    },
+    advice_coin = {
+      lines = {
+        { id = "ac_default", text = "Then sit by Farley's fire and keep your coin. Rest finds anyone under that roof, paying or not. Just don't tell him I told you." },
+      },
+      choices = { { text = "Your secret's safe.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    advice_dead = {
+      lines = {
+        { id = "ad_default", text = "Plenty of recruits have said that on this road. The spirit healer by the Abbey knows most of them by name." },
+      },
+      choices = {
+        { text = "Point taken.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     melika = {
       lines = {
         { id = "m_default", text = "Melika? Family. She works the main room. If she rolls her eyes at my name, that's how you know she's family." },
       },
-      choices = { { text = "I'll say hello.", next = "END" } },
+      choices = {
+        { text = "Family how?", next = "melika_family" },
+        { text = "I'll say hello.", next = "BACK" },
+      },
+    },
+    melika_family = {
+      lines = {
+        { id = "mf_default", text = "Close enough to argue, far enough to forgive it by supper. That's all the family tree you're getting out of me." },
+      },
+      choices = { { text = "Fair enough.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+
+    priest = {
+      lines = {
+        { id = "p_default", text = "Do they? Then I've been praying at the side of this road for years and never knew. Don't tell the Abbey. They'll want me at vespers." },
+      },
+      choices = {
+        { text = "Your secret's safe with the Light.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Vespers would do you good.", next = "BACK", fx = { trait = { pious = 1 } } },
+      },
+    },
+    novice = {
+      lines = {
+        { id = "nv_default", text = "Then you know the walk. The first night out of the Abbey is the loneliest. The second's at the Lion's Pride, and it's much better." },
+      },
+      choices = {
+        { text = "Did I pass you then?", next = "novice_pass" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    novice_pass = {
+      lines = {
+        { id = "np_default", text = "Probably. I don't remember faces, I remember shoulders. Novices walk with them up round their ears. Yours have come down a good way." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    far = {
+      lines = {
+        { id = "fr_default", text = "I can see it. One night in a real bed won't hurt your reputation. Farley will want every story, mind. Lie a little; he does." },
+      },
+      choices = {
+        { text = "I'll save the best ones for him.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Some stories aren't for an inn.", next = "BACK", fx = { trait = { stern = 1 } } },
+      },
     },
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "Not much to tell. I stand here, Farley stands there, and between us everybody gets to bed." } },
+    advice = {
+      { id = "tp_ad", text = "Rest before you need to. Every recruit learns it the hard way; you could be the first to learn it the easy way.", next = "advice" },
+      { id = "tp_ad2", text = "Follow the lamps after dark. Wolves don't like lamps, and Farley does." },
+    },
     lions_pride = { { id = "tp_inn", text = "Best inn this side of the city. I'd say that even if Farley weren't listening." } },
     northshire_abbey = { { id = "tp_abbey", text = "Good people up there. They work recruits hard, then send them past me looking half-dead." } },
     defias = { { id = "tp_defias", text = "Not on my road. They keep to the vineyards and the woods. So far." } },
+    westfall = { { id = "tp_westfall", text = "I see Westfall on the faces coming up this road. Tired, and too proud to say so." } },
     _none = { { id = "tp_none", text = "Couldn't tell you. Ask in the inn. Ask Farley. He knows everything, mostly wrong." } },
   },
 }

@@ -34,15 +34,28 @@ P:NPC {
           text = "See the notice? Hogger. Big gnoll, bigger appetite. The Army wants him dead. So does everybody he's ever looked at." },
         { id = "h_gryan", when = { questActive = TODO_QUEST("Report to Gryan Stoutmantle") },
           text = "Westfall's worse than here, believe it or not. Gryan Stoutmantle's holding Sentinel Hill with farmers. Go. Tell him Westbrook sends what it can, which is you." },
-        { id = "h_raelen", when = { heardLine = "raelen.h_rainer" },
+        { id = "h_raelen", key = true, when = { heardLine = "raelen.h_rainer" },
           text = "Raelen said that? She sent word about bears near Eastvale. Eastvale! I'm at the other end of the forest. Somebody tell her where Westbrook is." },
+        { id = "h_seasoned", when = { minLevel = 25 },
+          text = "Look at you. You came through that gate with a stick and a hopeful face. Now my lads stand up straighter when you pass." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Talk while I watch the road." },
+        { id = "h_again2", text = "Go on. The gnolls give us a breather around now." },
       },
       choices = {
         { text = "Why so few soldiers?", next = "soldiers" },
+        { text = "Tell me about the gnolls.", next = "gnolls" },
+        { text = "What's happening in Westfall?", next = "westfall" },
+        { text = "Supervisor Raelen's waiting on you in Eastvale.", next = "raelen", when = { heardLine = "raelen.h_rainer" } },
+        { text = "I came over that border myself, from Westfall.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
+        { text = "Your men look worn. Let me see to them.", next = "priest", when = { class = "PRIEST" } },
+        { text = "I'll stand a night on your walls.", next = "watch", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "I'll help hold the road.", next = "END", fx = { affinity = 1, standing = { goldshire = 1 } } },
         { text = "Good luck, deputy.", next = "END" },
       },
     },
+
     soldiers = {
       big = true,
       lines = {
@@ -50,18 +63,102 @@ P:NPC {
           fx = { hear = "stormwind_abandoned_westfall" } },
       },
       choices = {
-        { text = "The court should come and see.", next = "END", fx = { opinion = { westfall = "abandoned" }, affinity = 1 } },
+        { text = "Where is the army, then?", next = "soldiers_abroad" },
+        { text = "The court should come and see.", next = "BACK", fx = { opinion = { westfall = "abandoned" }, affinity = 1 } },
         { text = "Adventurers are doing fine.", next = "fine", fx = { trait = { brave = 1 } } },
+      },
+    },
+    soldiers_abroad = {
+      lines = {
+        { id = "sa_default", text = "Abroad. Nobody tells a deputy where. They tell him to hold, so I hold, and I write letters." },
+      },
+      choices = {
+        { text = "Then hold.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "That's not right.", next = "BACK", fx = { affinity = 1, opinion = { westfall = "abandoned" } } },
       },
     },
     fine = {
       lines = { { id = "f_default", text = "You are. That's what worries me. If you're good enough, they'll never send soldiers." } },
-      choices = { { text = "Ha.", next = "END" } },
+      choices = { { text = "Ha.", next = "BACK" } },
+    },
+
+    gnolls = {
+      lines = {
+        { id = "g_default", text = "Riverpaw. A big pack in the woods south of the tower, and another out by Stone Cairn Lake. They raid, they run, they come back." },
+      },
+      choices = {
+        { text = "Who leads them?", next = "gnolls_hogger" },
+        { text = "I'll bring you armbands.", next = "BACK", fx = { affinity = 1, learn = { "riverpaw" } } },
+      },
+    },
+    gnolls_hogger = {
+      lines = {
+        { id = "gh_default", text = "Hogger. Read the notice. Big, cleverer than a gnoll ought to be, and he's beaten every patrol we've sent at him." },
+        { id = "gh_dead", when = { questDone = TODO_QUEST("WANTED: \"Hogger\"") },
+          text = "Led. You saw to that. The pack's still out there, but it's stupider now. I'll take stupid." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "hogger", "riverpaw" } } } },
+    },
+
+    westfall = {
+      lines = {
+        { id = "w_default", text = "Thieves come over the border, and so do the farmers running from them. I can't always tell which is which until one of them pulls a knife." },
+      },
+      choices = {
+        { text = "And Gryan Stoutmantle?", next = "westfall_gryan" },
+        { text = "That's a hard way to live.", next = "BACK", fx = { affinity = 1, learn = { "westfall" } } },
+      },
+    },
+    westfall_gryan = {
+      lines = {
+        { id = "wg_default", text = "Holds Sentinel Hill with farmers and pitchforks. Doing the army's job, better than the army would. Don't tell Dughan I said so." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "westfall", "people_militia" } } } },
+    },
+
+    raelen = {
+      lines = {
+        { id = "r_default", text = "Eastvale. I'm at Westbrook. There's a whole forest between us. I'd help her if I had boots to spare, and I haven't." },
+      },
+      choices = {
+        { text = "I'll carry word back.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK", fx = { learn = { "eastvale" } } },
+      },
+    },
+    farmhand = {
+      lines = {
+        { id = "fh_default", text = "Then you know. Did anyone stop you at this gate? No. Nobody's here to. That's my whole complaint, in one breath." },
+      },
+      choices = {
+        { text = "I'm here now.", next = "BACK", fx = { affinity = 2, standing = { goldshire = 1 } } },
+        { text = "Something else.", next = "BACK", fx = { opinion = { westfall = "abandoned" } } },
+      },
+    },
+    priest = {
+      lines = {
+        { id = "p_default", text = "They need sleep more than prayers. But a priest at the gate does wonders. Half of them haven't seen the Abbey since they enlisted." },
+      },
+      choices = {
+        { text = "Then I'll bring the Abbey to them.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, standing = { goldshire = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    watch = {
+      lines = {
+        { id = "wa_default", text = "A night on the walls? The lads on the south side will want stories. Lie well; they've heard the true ones." },
+      },
+      choices = { { text = "I'll think of some.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } } },
     },
   },
 
   topics = {
-    hogger = { { id = "tp_hogger", text = "South-west, in the hills. You'll know him. He'll know you first." } },
+    background = { { id = "tp_bg", text = "Deputy, Stormwind Army, Westbrook. I hold a road with a handful of lads. That's me." } },
+    advice = { { id = "tp_ad", text = "Gnolls go for the gaps in your armor. Close the gaps." } },
+    hogger = {
+      { id = "tp_hogger", text = "South-west, in the hills. You'll know him. He'll know you first." },
+      { id = "tp_hogger2", text = "Him again. Sit down; I'll tell you about the pack.", next = "gnolls" },
+    },
+    riverpaw = { { id = "tp_riverpaw", text = "Painted armbands, bad teeth, worse manners. Bring me the armbands." } },
     defias = { { id = "tp_defias", text = "Coming up from Westfall like rats from a flood. We hold the road. Mostly." } },
     westfall = { { id = "tp_westfall", text = "Next door, and worse off. Stoutmantle's doing the Army's job with pitchforks." } },
     _none = { { id = "tp_none", text = "Not on the west road, not my problem. Try Dughan." } },
