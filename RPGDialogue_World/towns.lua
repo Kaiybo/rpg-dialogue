@@ -98,7 +98,7 @@ P:Town {
   related = { raven_hill = 0.2, lakeshire = 0.05 },
   tiers = { Hero = "Hero of Darkshire" },
   quests = {
-    { TODO_QUEST("The Night Watch"), 6 }, { TODO_QUEST("The Embalmer's Revenge"), 15 },
+    { TODO_QUEST("The Night Watch"), 6 }, { TODO_QUEST("Bride of the Embalmer"), 15 },
     { TODO_QUEST("The Legend of Stalvan"), 3 }, { TODO_QUEST("The Shadowy Figure"), 4 },
   },
 }

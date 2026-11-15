@@ -12,7 +12,7 @@
 ## Identity
 Raleigh the Devout · Southshore Inn, upstairs · Alliance · Human · paladin
 Personality: grave, guarded, ashamed and resolute; kind to anyone who was also lied to
-Speech: plain, quiet, short; a soldier's sentences; "the Light" said carefully
+Speech: plain and quiet, in whole sentences (voice pass, 2026-11-15); a soldier's directness; "the Light" said carefully
 Knows and cares about: the Crusade from the inside, the Monastery, the plague's road, the people the Crusade calls plagued
 Relationships: Brother Anton (still believes; Raleigh pities him), the Monastery's leaders (named only as his quest names them)
 Default attitudes: wary of strangers with a Scarlet seal; warm once they've heard him out

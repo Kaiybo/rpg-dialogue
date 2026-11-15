@@ -9,17 +9,17 @@ P:NPC {
   notices = { "class", "race", "form" },
 
   greetings = {
-    { id = "g_tower", text = "Welcome to Theramore. Speak freely. I'd rather hear bad news early than good news late." },
-    { id = "g_back", when = { metBefore = true }, text = "You've come back. Good. I have few enough people I can rely on outside these walls." },
+    { id = "g_tower", text = "Welcome to Theramore, and speak freely; I'd rather hear bad news early than good news late." },
+    { id = "g_back", when = { metBefore = true }, text = "You've come back, good. I have few enough people I can rely on outside these walls." },
   },
 
   notice = {
     { id = "n_shadow", cat = "form", when = { form = "shadow" },
-      text = "Shadowform. Dalaran kept books on that in rooms apprentices weren't allowed into, and I was an apprentice for a long time. I'm told it's safe; I'm told a lot of things are safe." },
+      text = "Shadowform... Dalaran kept books on that in rooms apprentices weren't allowed into, and I was an apprentice for a long time. I'm told it's safe, but I'm told a lot of things are safe." },
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
-      text = "A mage. Dalaran trained me, once. Whoever trained you, I hope they taught you that power is the easy part." },
+      text = "A mage! Dalaran trained me, once. Whoever trained you, I hope they taught you that power is the easy part." },
     { id = "n_highborne", cat = "race", when = { race = "NightElf" },
-      text = "Your people and mine stood together at Mount Hyjal. I haven't forgotten. I hope we never have to again." },
+      text = "Your people and mine stood together at Mount Hyjal, and I haven't forgotten. I hope we never have to again." },
   },
 
   start = "hello",
@@ -29,15 +29,15 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Jaina Proudmoore. I brought the survivors of Lordaeron across the sea and built Theramore with them. We keep the peace here, even when it costs us." },
         { id = "h_thrall", when = { heardLine = "thrall.h_default" },
-          text = "You've stood before Thrall. Then you know he's no monster. Not everyone in Stormwind wants to hear that from me." },
+          text = "You've stood before Thrall, so you know he's no monster. Not everyone in Stormwind wants to hear that from me." },
         { id = "h_diplomat", tags = { "news" }, when = { questActive = TODO_QUEST("The Missing Diplomat") },
           text = "Whatever Tervosh has you chasing, see it through. Someone has been working against us from the shadows, and I mean to learn who." },
         { id = "h_night", when = { timeOfDay = "night" },
-          text = "Still awake? So am I. The tower's quiet at night. It's the only time I can hear myself think about anything but the next letter." },
+          text = "Still awake? So am I. The tower's quiet at night, and it's the only time I can hear myself think about anything but the next letter." },
       },
       again = {
         { id = "h_again", text = "What else? I have a few minutes before the next dispatch." },
-        { id = "h_again2", text = "Go on. I'm listening." },
+        { id = "h_again2", text = "Go on, I'm listening." },
       },
       choices = {
         { text = "Why keep peace with the Horde?", next = "peace" },
@@ -56,7 +56,7 @@ P:NPC {
     peace = {
       big = true,
       lines = {
-        { id = "p_default", text = "Because I fought beside them at Hyjal, and I saw what they are when no one is using them. Peace is harder than war. It's also worth more." },
+        { id = "p_default", text = "Because I fought beside them at Hyjal, and I saw what they are when no one is using them. Peace is harder than war, but it's also worth more." },
       },
       choices = {
         { text = "I agree.", next = "BACK", fx = { affinity = 2, align = { honor = 1 }, standing = { theramore = 1 }, opinion = { peace = "for" } } },
@@ -64,7 +64,7 @@ P:NPC {
       },
     },
     doubt = {
-      lines = { { id = "d_default", text = "Some wouldn't. Some of ours wouldn't either. That's exactly why the rest of us have to try." } },
+      lines = { { id = "d_default", text = "Some wouldn't, and some of ours wouldn't either. That's exactly why the rest of us have to try." } },
       choices = {
         { text = "Who'd want it broken?", next = "peace_breakers", fx = { trait = { curious = 1 } } },
         { text = "Fair. Something else.", next = "BACK", fx = { affinity = 1, trait = { skeptical = 1 } } },
@@ -78,7 +78,7 @@ P:NPC {
     lordaeron = {
       big = true,
       lines = {
-        { id = "l_default", text = "We crossed the sea because we were told the east was lost. It was. Humans, dwarves, some of the quel'dorei: everyone who would listen. I still dream about the docks." },
+        { id = "l_default", text = "We crossed the sea because we were told the east was lost, and it was. Humans, dwarves, some of the quel'dorei: everyone who would listen. I still dream about the docks." },
       },
       choices = {
         { text = "Who told you?", next = "lordaeron_prophet" },
@@ -91,7 +91,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     lordaeron_lost = {
-      lines = { { id = "ll_default", text = "Teachers. Friends. Antonidas. A whole kingdom. I try to build something here he'd have been proud of. Some days I manage it." } },
+      lines = { { id = "ll_default", text = "My teachers, my friends, Antonidas, a whole kingdom. I try to build something here he'd have been proud of, and some days I manage it." } },
       choices = {
         { text = "You have.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -135,7 +135,7 @@ P:NPC {
       },
     },
     mage_teach = {
-      lines = { { id = "mt_default", text = "Restraint. Anyone can throw fire. Knowing when not to is the whole art, and almost nobody wants to learn it." } },
+      lines = { { id = "mt_default", text = "Restraint. Anyone can throw fire; knowing when not to is the whole art, and almost nobody wants to learn it." } },
       choices = {
         { text = "I'll remember.", next = "BACK", fx = { affinity = 2, trait = { cautious = 1 } } },
         { text = "Fire's been working for me.", next = "BACK", fx = { affinity = -1, trait = { brave = 1 } } },
@@ -152,7 +152,7 @@ P:NPC {
     },
 
     skyborne = {
-      lines = { { id = "sk_default", text = "Dalaran wrote to me about your people. Two letters, both very careful. I'd like to hear it in your own words, someday." } },
+      lines = { { id = "sk_default", text = "Dalaran wrote to me about your people, two letters, both very careful. I'd like to hear it in your own words, someday." } },
       choices = {
         { text = "Our patrons fell silent. We had to leave.", next = "BACK", fx = { affinity = 2 } },
         { text = "Someday.", next = "BACK" },
@@ -177,10 +177,10 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "Kul Tiras, Dalaran, Lordaeron, and now a tower in a swamp. Every step was further from home and closer to where I'm needed.", next = "lordaeron" } },
-    advice = { { id = "tp_ad", text = "Learn the other side's words before you need them. Captain Vimes speaks orcish. It's saved more lives than his sword." } },
+    advice = { { id = "tp_ad", text = "Learn the other side's words before you need them. Captain Vimes speaks orcish, and it's saved more lives than his sword." } },
     grimtotem = { { id = "tp_grimtotem", text = "There are tauren who'd like a war with us. Thrall isn't one of them, and neither am I. That's where we start." } },
-    burning_blade = { { id = "tp_blade", text = "Thrall's problem, and he knows it. I'll help if he asks. He won't ask." } },
-    _none = { { id = "tp_none", text = "I don't know. But Tervosh might, and if he doesn't, he'll find out." } },
+    burning_blade = { { id = "tp_blade", text = "Thrall's problem, and he knows it. I'll help if he asks, though he won't ask." } },
+    _none = { { id = "tp_none", text = "I don't know, but Tervosh might, and if he doesn't, he'll find out." } },
   },
 }
 
@@ -196,9 +196,9 @@ P:NPC {
 
   notice = {
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
-      text = "Another mage. Kirin Tor? I never cared for committees myself. I prefer to be useful on my own." },
+      text = "Another mage. Kirin Tor? I never cared for committees myself; I prefer to be useful on my own." },
     { id = "n_herb", cat = "craft", when = { profession = "Herbalism" },
-      text = "An herbalist! Have you seen my garden? Don't step on the briarthorn. It holds a grudge." },
+      text = "An herbalist! Have you seen my garden? Don't step on the briarthorn; it holds a grudge." },
   },
 
   start = "hello",
@@ -206,14 +206,14 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Archmage Tervosh. I advise the Lady, I read more than is good for me, and I tend a garden when the world allows it. It rarely allows it." },
+          text = "Archmage Tervosh. I advise the Lady, I read more than is good for me, and I tend a garden when the world allows it, which is rarely." },
         { id = "h_diplomat", tags = { "news" }, when = { questActive = TODO_QUEST("The Missing Diplomat") },
-          text = "The diplomat's trail ran cold, and then it ran somewhere I didn't like. Follow it. Carefully." },
+          text = "The diplomat's trail ran cold, and then it ran somewhere I didn't like. Follow it, but carefully." },
         { id = "h_shards", when = { questActive = TODO_QUEST("Shadowshard Fragments") },
-          text = "Shadowshard fragments. There's an unusual energy in them. Bring me enough and I can make something of it." },
-        { id = "h_garden", when = { metBefore = true }, text = "The marsh air is wonderful for herbs and terrible for parchment. I've chosen the herbs. My notes forgive me, mostly." },
+          text = "Shadowshard fragments. There's an unusual energy in them, and if you bring me enough I can make something of it." },
+        { id = "h_garden", when = { metBefore = true }, text = "The marsh air is wonderful for herbs and terrible for parchment, so I've chosen the herbs. My notes forgive me, mostly." },
       },
-      again = { { id = "h_again", text = "Yes, yes, what else? Briefly." }, { id = "h_again2", text = "Another question? Good. Ask it while I water these." } },
+      again = { { id = "h_again", text = "Yes, yes, what else? Keep it short, if you would." }, { id = "h_again2", text = "Another question? Good, ask it while I water these." } },
       choices = {
         { text = "What's this business with the diplomat?", next = "diplomat" },
         { text = "Tell me about your garden.", next = "garden" },
@@ -232,7 +232,7 @@ P:NPC {
       },
     },
     diplomat_who = {
-      lines = { { id = "dw_default", text = "Everyone, politely. That's what advisors are for. The Lady trusts people; I check them. Between us, we're very nearly sensible." } },
+      lines = { { id = "dw_default", text = "Everyone, politely; that's what advisors are for. The Lady trusts people and I check them, and between us, we're very nearly sensible." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
     garden = {
@@ -243,7 +243,7 @@ P:NPC {
       },
     },
     garden_name = {
-      lines = { { id = "gn_default", text = "Tervosh's Folly? Too accurate. I'll name it after a committee instead. Something that bites would suit one." } },
+      lines = { { id = "gn_default", text = "Tervosh's Folly? Too accurate. I'll name it after a committee instead, since something that bites would suit one." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     independent = {
@@ -251,7 +251,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     jaina = {
-      lines = { { id = "j_default", text = "Brilliant, stubborn, and far too willing to carry everything herself. Don't tell her I said stubborn. Do tell her to sleep." } },
+      lines = { { id = "j_default", text = "Brilliant, stubborn, and far too willing to carry everything herself. Don't tell her I said stubborn, but do tell her to sleep." } },
       choices = {
         { text = "I'll tell her.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -262,15 +262,15 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     mage = {
-      lines = { { id = "m_default", text = "Keep your own notes, in your own hand. Committees lose things. You won't, if it's your handwriting nobody else can read." } },
+      lines = { { id = "m_default", text = "Keep your own notes, in your own hand. Committees lose things, but you won't, if it's your handwriting nobody else can read." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 
   topics = {
     background = { { id = "tp_bg", text = "A great many books, and then the Lady's tower, because she asked and I'd run out of better reasons to say no." } },
-    advice = { { id = "tp_ad", text = "Never eat anything from the marsh you can't name. I can name most of them. I still don't eat them." } },
-    _none = { { id = "tp_none", text = "Not in any book I own. Which means it's either very new or very dangerous." } },
+    advice = { { id = "tp_ad", text = "Never eat anything from the marsh you can't name. I can name most of them, and I still don't eat them." } },
+    _none = { { id = "tp_none", text = "Not in any book I own, which means it's either very new or very dangerous." } },
   },
 }
 
@@ -281,15 +281,15 @@ P:NPC {
   notices = { "race", "kit" },
 
   greetings = {
-    { id = "g_citadel", text = "Captain Vimes, Theramore Guard. If you've come about the inn, sit down. If not, be quick." },
+    { id = "g_citadel", text = "Captain Vimes, Theramore Guard. If you've come about the inn, sit down; if not, be quick." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Tell me you found something." },
   },
 
   notice = {
     { id = "n_orc", cat = "race", when = { race = "Orc" },
-      text = "Lok'tar. Yes, I speak a bit of your tongue. More than most here. It's useful in a land full of misunderstandings." },
+      text = "Lok'tar. Yes, I speak a bit of your tongue, more than most here; it's useful in a land full of misunderstandings." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
-      text = "Something out there has been at you. Get mended. I need witnesses alive." },
+      text = "Something out there has been at you, so get mended. I need my witnesses alive." },
   },
 
   start = "hello",
@@ -297,17 +297,17 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Someone burned the Shady Rest Inn on the road north. James Hyal lost his wife and child in it. Everyone says the Horde did it. I'm not everyone." },
+          text = "Someone burned the Shady Rest Inn on the road north, and James Hyal lost his wife and child in it. Everyone says the Horde did it, but I'm not everyone." },
         { id = "h_ruins", tags = { "news" }, when = { questActive = TODO_QUEST("Inspecting the Ruins") },
-          text = "Go to what's left of the inn. Look at everything. Don't decide what it means until you've seen it all." },
+          text = "Go to what's left of the inn and look at everything. Don't decide what it means until you've seen it all." },
         { id = "h_hoofprints", when = { questActive = TODO_QUEST("Suspicious Hoofprints") },
-          text = "Hoofprints, around a building orcs supposedly burned. Interesting. Let's not tell the taverns yet." },
+          text = "Hoofprints, around a building orcs supposedly burned. Interesting, and let's not tell the taverns yet." },
         { id = "h_reethe", when = { questActive = TODO_QUEST("Lieutenant Paval Reethe") },
-          text = "Paval Reethe. One of ours, until he wasn't. If he's involved, I want to hear it from him." },
+          text = "Paval Reethe was one of ours, until he wasn't. If he's involved, I want to hear it from him." },
         { id = "h_shield", when = { questActive = TODO_QUEST("The Black Shield") },
           text = "A black shield, found where it shouldn't be. Somebody's trying very hard to make this look like something it isn't." },
       },
-      again = { { id = "h_again", text = "Next question. I've a case on." }, { id = "h_again2", text = "Go on." } },
+      again = { { id = "h_again", text = "Next question, then; I've a case on." }, { id = "h_again2", text = "Go on." } },
       choices = {
         { text = "Why don't you think it was the Horde?", next = "why" },
         { text = "Who were the Hyals?", next = "hyal" },
@@ -334,11 +334,11 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     why_horde = {
-      lines = { { id = "wh_default", text = "Maybe. Then I'll say so, and I'll hang whoever did it whatever colour he wears. But I'll have proof first. That's the difference between a guard and a mob." } },
+      lines = { { id = "wh_default", text = "Maybe, and then I'll say so, and I'll hang whoever did it whatever colour he wears. But I'll have proof first; that's the difference between a guard and a mob." } },
       choices = { { text = "Fair.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } } },
     },
     hyal = {
-      lines = { { id = "hy_default", text = "James kept the Shady Rest. Good ale, honest prices. He came home to ash and two graves. He hasn't said a word to me since. I don't blame him." } },
+      lines = { { id = "hy_default", text = "James kept the Shady Rest: good ale, honest prices. He came home to ash and two graves, and he hasn't said a word to me since. I don't blame him." } },
       choices = {
         { text = "Then let's give him an answer.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -360,7 +360,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     tracks = {
-      lines = { { id = "tr_default", text = "Then look properly. Not orc boots. Something heavier, with a split hoof. Tell me I'm wrong. I'd almost like to be." } },
+      lines = { { id = "tr_default", text = "Then look properly: those aren't orc boots, they're something heavier, with a split hoof. Tell me I'm wrong; I'd almost like to be." } },
       choices = {
         { text = "You're not wrong.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } },
         { text = "I'll need to see more.", next = "BACK", fx = { trait = { cautious = 1 } } },
@@ -377,8 +377,8 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "Soldier, then sergeant, then the man the Lady asks when something smells wrong. The last one's the job I'm good at." } },
-    advice = { { id = "tp_ad", text = "Never believe the first story. Especially when everyone agrees on it." } },
-    grimtotem = { { id = "tp_grimtotem", text = "Tauren who want the Horde to break its peace. I've no proof. Yet." } },
+    advice = { { id = "tp_ad", text = "Never believe the first story, especially when everyone agrees on it." } },
+    grimtotem = { { id = "tp_grimtotem", text = "Tauren who want the Horde to break its peace. I've no proof of it, yet." } },
     _none = { { id = "tp_none", text = "Not my investigation. I've got one already, and it's plenty." } },
   },
 }
@@ -390,12 +390,12 @@ P:NPC {
   notices = { "kit" },
 
   greetings = {
-    { id = "g_records", text = "Name, unit, business? Sorry. Habit. I keep the Guard's records; everyone's a form to me." },
+    { id = "g_records", text = "Name, unit, business? Sorry, that's habit; I keep the Guard's records, and everyone's a form to me." },
   },
 
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
-      text = "Equipment damaged in the field. I'd file a report, but you're not one of ours. Get it fixed anyway." },
+      text = "Equipment damaged in the field. I'd file a report, but you're not one of ours, so get it fixed anyway." },
   },
 
   start = "hello",
@@ -403,12 +403,12 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Adjutant Tesoran. Every soldier in the Theramore Guard has a record, and I keep it. Including the ones who walked away." },
+          text = "Adjutant Tesoran. Every soldier in the Theramore Guard has a record, and I keep it, including the ones who walked away." },
         { id = "h_reethe", when = { questActive = TODO_QUEST("Lieutenant Paval Reethe") },
-          text = "Reethe's file. Here. Read it, then tell the Captain I never said you could." },
+          text = "Reethe's file. Here, read it, and then tell the Captain I never said you could." },
         { id = "h_daelin", tags = { "news" }, when = { questActive = TODO_QUEST("Daelin's Men") },
-          text = "Some of the Admiral's men never accepted that his war was over. Our records say where they went. Our records are very thorough." },
-        { id = "h_ink", when = { metBefore = true }, text = "I ran out of ink yesterday and had to borrow from the Archmage. His ink glows. My records glow now. Nobody will take them seriously." },
+          text = "Some of the Admiral's men never accepted that his war was over, and our records say where they went. Our records are very thorough." },
+        { id = "h_ink", when = { metBefore = true }, text = "I ran out of ink yesterday and had to borrow from the Archmage, and his ink glows. My records glow now, and nobody will take them seriously." },
       },
       again = { { id = "h_again", text = "Anything else? I'll note it either way." } },
       choices = {
@@ -420,7 +420,7 @@ P:NPC {
       },
     },
     records = {
-      lines = { { id = "r_default", text = "That we're stretched, damp and loyal. Mostly loyal. The marsh takes more of us than the Horde does, and I have the columns to prove it." } },
+      lines = { { id = "r_default", text = "That we're stretched, damp and loyal, mostly loyal. The marsh takes more of us than the Horde does, and I have the columns to prove it." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     deserters = {
@@ -431,7 +431,7 @@ P:NPC {
       },
     },
     deserters_where = {
-      lines = { { id = "dw_default", text = "That's in the files the Captain reads, not the ones I hand out. Ask him. Tell him I sent you; he'll sigh, but he'll answer." } },
+      lines = { { id = "dw_default", text = "That's in the files the Captain reads, not the ones I hand out. Ask him, and tell him I sent you; he'll sigh, but he'll answer." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     system = {
@@ -439,15 +439,15 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
     file = {
-      lines = { { id = "f_default", text = "Of course. A short one, very complimentary. The Captain wrote 'useful' and underlined it. He doesn't underline things." } },
+      lines = { { id = "f_default", text = "Of course, a short one, very complimentary. The Captain wrote 'useful' and underlined it, and he doesn't underline things." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 
   topics = {
     background = { { id = "tp_bg", text = "Joined the Guard, discovered I could spell, and was never allowed near a sword again. I've made my peace with it." } },
-    advice = { { id = "tp_ad", text = "Write things down. Memory flatters you. Paper doesn't." } },
-    _none = { { id = "tp_none", text = "There's no file on that. Which is itself worth noting." } },
+    advice = { { id = "tp_ad", text = "Write things down. Memory flatters you, but paper doesn't." } },
+    _none = { { id = "tp_none", text = "There's no file on that, which is itself worth noting." } },
   },
 }
 
@@ -459,12 +459,12 @@ P:NPC {
 
   greetings = {
     { id = "g_inn", text = "Come in out of the damp. Dustwallow gets into your bones; a hot meal gets it out again." },
-    { id = "g_home", when = { homeInn = { "Theramore Isle", "Theramore" } }, text = "Back home on the isle. Your room's dry. In Dustwallow, that's a promise worth making." },
+    { id = "g_home", when = { homeInn = { "Theramore Isle", "Theramore" } }, text = "Back home on the isle! Your room's dry, and in Dustwallow, that's a promise worth making." },
   },
 
   notice = {
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
-      text = "You've come a long way back from somewhere cold. Sit. I'll bring soup." },
+      text = "You've come a long way back from somewhere cold. Sit down, and I'll bring soup." },
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
       text = "One more and you'll be swimming home. The crocolisks would enjoy that more than you would." },
   },
@@ -475,8 +475,8 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Innkeeper Janene. Soldiers, sailors, mages, merchants: they all end up at my tables sooner or later. Theramore is my home, and this inn is its kitchen." },
-        { id = "h_lady", when = { metBefore = true }, text = "Lady Jaina came down to the kitchen last week to thank the cooks. In person. Half of them still won't wash the hand she shook." },
-        { id = "h_night", when = { timeOfDay = "night" }, text = "The sea's loud tonight. Sailors say a loud sea is a lucky sea. Sailors say a lot of things." },
+        { id = "h_lady", when = { metBefore = true }, text = "Lady Jaina came down to the kitchen last week to thank the cooks, in person, and half of them still won't wash the hand she shook." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "The sea's loud tonight. Sailors say a loud sea is a lucky sea, but sailors say a lot of things." },
       },
       again = { { id = "h_again", text = "Anything else, love?" } },
       choices = {
@@ -491,14 +491,14 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     food = {
-      lines = { { id = "f_default", text = "Fish stew, because we're on an island. Bread, because the dwarves insisted. And something the quel'dorei like that nobody else will touch." } },
+      lines = { { id = "f_default", text = "Fish stew, because we're on an island, and bread, because the dwarves insisted. And something the quel'dorei like that nobody else will touch." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I cook. I've cooked here since the walls were half built, and I'll cook here when they're finished. They're never finished." } },
+    background = { { id = "tp_bg", text = "I cook. I've cooked here since the walls were half built, and I'll cook here when they're finished, though they're never finished." } },
     advice = { { id = "tp_ad", text = "Dry your boots by the fire every night you're in the marsh. Rot starts in the toes." } },
-    _none = { { id = "tp_none", text = "I hear a lot over the bar. Not that. Ask at the citadel." } },
+    _none = { { id = "tp_none", text = "Plenty gets said over my bar, but not that. Ask at the citadel." } },
   },
 }

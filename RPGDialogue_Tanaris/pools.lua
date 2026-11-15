@@ -5,21 +5,21 @@ P:Pool {
   id = "guard_gadgetzan", role = "guard", community = "gadgetzan",
   barks = {
     { id = "b_heat", text = "Hot enough to cook an egg on my helmet. Don't ask how I know." },
-    { id = "b_water", text = "Water tower's humming. Good. When it stops humming, everybody gets grumpy." },
+    { id = "b_water", text = "Water tower's humming, which is good, because when it stops humming everybody in town gets grumpy." },
   },
   greetings = {
-    { id = "g_town", text = "Gadgetzan. Neutral ground, Cartel rules. You start a fight, we finish it. Usually on you." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "Desert gets cold at night. The bandits don't. Stay inside the walls." },
+    { id = "g_town", text = "This is Gadgetzan, friend: neutral ground, Cartel rules. You start a fight here and we finish it, usually on top of you." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "The desert gets cold at night, but the bandits don't, so stay inside the walls till morning." },
   },
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
-      text = "Wastewander bandits, or bugs? Either way, there's a smith in town. Bring money." },
+      text = "Was it the Wastewander bandits or the bugs? Either way, there's a smith in town, so bring money." },
     { id = "n_horde", cat = "status", when = { faction = "Horde" },
-      text = "Horde, huh. In town you're a paying customer. Outside, you're bandit bait like everyone else." },
+      text = "Horde, huh? In town you're a paying customer, but outside the walls you're bandit bait like everyone else." },
     { id = "n_alliance", cat = "status", when = { faction = "Alliance" },
-      text = "Alliance, huh. The Cartel doesn't care, so I don't care. Keep it that way." },
+      text = "Alliance, huh? The Cartel doesn't care, so I don't care, and let's keep it that way." },
   },
-  react = { { id = "r_stealth", on = "stealth", text = "Hey! Sand doesn't lie. I can see your footprints, sneaky." } },
+  react = { { id = "r_stealth", on = "stealth", text = "Hey! Sand doesn't lie, sneaky, and I can see your footprints from here." } },
   lines = {
     { id = "l_default", text = "The Cartel built this town in the middle of nowhere because nowhere doesn't charge rent. We keep it peaceful so the money keeps coming." },
   },

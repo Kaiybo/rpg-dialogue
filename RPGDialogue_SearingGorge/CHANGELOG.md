@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.1.1 (unreleased)
+- Voice pass: Thorium Point and Kalaran now talk in whole sentences instead of clipped fragments. The Brotherhood keep their burr, Hansel still grumbles from his chair, and Kalaran still goes vague when pressed, in sentences rather than scraps.
+
 ## 1.1.0 (unreleased)
 - Depth: Oilfist (a reply for Bronzebeard dwarves), Hansel, Lolo (what he smelled on Kalaran) and Kalaran, who gets vaguer the harder he's pressed.
 

@@ -29,11 +29,13 @@ P:Topic { id = "windstones", keywords = { "windstone" }, name = "Windstones", ca
 P:Topic { id = "blackrock", keywords = { "Blackrock" }, name = "The Blackrock orcs", category = "threats", learned = "Lakeshire" }
 P:Topic { id = "everstill_bridge", name = "The Everstill Bridge", category = "places", learned = "Foreman Oslow" }
 P:Topic { id = "redridge_gnolls", name = "Redridge's gnolls", category = "threats", learned = "Verner Osgood" }
+P:Topic { id = "stonewatch_keep", keywords = { "Stonewatch" }, name = "Stonewatch Keep", category = "places", learned = "Magistrate Solomon or Marshal Marris in Lakeshire" }
+P:Topic { id = "keeshan", keywords = { "Keeshan" }, name = "Corporal Keeshan", category = "people", learned = "the notice outside the Lakeshire Inn, or Marshal Marris" }
 P:Topic { id = "night_watch", name = "The Night Watch", category = "people", learned = "Darkshire" }
 P:Topic { id = "worgen", keywords = { "worgen" }, name = "The worgen of Duskwood", category = "threats", learned = "Darkshire, or the woods" }
 P:Topic { id = "stalvan", keywords = { "Stalvan" }, name = "Stalvan Mistmantle", category = "rumors", learned = "Tavernkeep Smitts, or the Legend of Stalvan" }
 P:Topic { id = "carevins", name = "The Carevins", category = "people", learned = "Jonathan Carevin or Calor in Darkshire" }
-P:Topic { id = "ladimore", keywords = { "Ladimore" }, name = "Morgan Ladimore", category = "rumors", learned = "Sirra Von'Indi, the historian of Darkshire" }
+P:Topic { id = "ladimore", keywords = { "Ladimore", "Mor'Ladim" }, name = "Morgan Ladimore", category = "rumors", learned = "Sirra Von'Indi, the historian of Darkshire" }
 P:Topic { id = "gnomeregan", keywords = { "Gnomeregan" }, name = "The fall of Gnomeregan", category = "places", learned = "High Tinker Mekkatorque in Tinker Town" }
 P:Topic { id = "dark_iron", keywords = { "Dark Iron" }, name = "The Dark Iron dwarves", category = "threats", learned = "Royal Historian Archesonus in the High Seat" }
 P:Topic { id = "explorers_league", name = "The Explorers' League", category = "people", learned = "the Hall of Explorers in Ironforge" }
@@ -71,3 +73,47 @@ P:Topic { id = "background", name = "Their story", category = "anyone", standard
 P:Topic { id = "trade", name = "Their work", category = "anyone", standard = true, order = 2, learned = "anyone" }
 P:Topic { id = "advice", name = "A little advice", category = "anyone", standard = true, order = 3, learned = "anyone" }
 P:Topic { id = "rumors", name = "Latest rumors", category = "anyone", standard = true, order = 4, learned = "anyone" }
+
+-- Stormwind (Stormwind pack 1.6.0)
+P:Topic { id = "si7", keywords = { "SI:7" }, name = "SI:7", category = "people", learned = "Mathias Shaw, Renzik or Elling Trias in Stormwind" }
+P:Topic { id = "stonemasons", keywords = { "Stonemasons" }, name = "The Stonemasons' Guild", category = "people", learned = "Baros Alexston, Mathias Shaw or Arthur the Faithful" }
+P:Topic { id = "the_stockade", keywords = { "Stockade" }, name = "The Stockade", category = "places", learned = "Warden Thelwater, or Baros Alexston's Bazil Thredd" }
+P:Topic { id = "valley_of_heroes", keywords = { "Valley of Heroes" }, name = "The Valley of Heroes", category = "places", learned = "General Marcus Jonathan" }
+
+-- Elwynn (Elwynn pack 1.10.0)
+P:Topic { id = "heroes_vigil", keywords = { "Heroes' Vigil", "Stone of Remembrance" }, name = "Heroes' Vigil", category = "places", learned = "Henze Faulk, on Stone Cairn Lake" }
+P:Topic { id = "brotherhood_northshire", keywords = { "Brotherhood of Northshire" }, name = "The Brotherhood of Northshire", category = "people", learned = "Brother Sammuel at Northshire Abbey" }
+
+-- Duskwood (Duskwood pack 1.3.0)
+P:Topic { id = "morbent_fel", keywords = { "Morbent" }, name = "Morbent Fel", category = "threats", learned = "Sven Yorgen, or the council in Darkshire" }
+P:Topic { id = "embalmer", keywords = { "Embalmer" }, name = "The Embalmer", category = "rumors", learned = "Lord Ello Ebonlocke, after the hermit's note" }
+P:Topic { id = "dark_riders", keywords = { "Dark Riders" }, name = "The Dark Riders", category = "threats", learned = "Sven Yorgen or Jitters" }
+P:Topic { id = "raven_hill", keywords = { "Raven Hill" }, name = "Raven Hill", category = "places", learned = "Darkshire, or the road west" }
+
+-- Westfall (Westfall pack 1.4.0)
+P:Topic { id = "deadmines", keywords = { "Deadmines" }, name = "The Deadmines", category = "places", learned = "Sentinel Hill, once the hideout is found" }
+
+-- Wetlands and Hillsbrad (packs 1.2.0)
+P:Topic { id = "grim_batol", keywords = { "Grim Batol" }, name = "Grim Batol", category = "places", learned = "Captain Stoutfist in Menethil Harbor" }
+P:Topic { id = "third_fleet", keywords = { "Third Fleet", "Wave Mistress" }, name = "The Third Fleet", category = "lore", learned = "First Mate Fitzsimmons in Menethil Harbor" }
+P:Topic { id = "thandol_span", keywords = { "Thandol Span" }, name = "The Thandol Span", category = "places", learned = "Harlo Barnaby in Menethil Harbor" }
+P:Topic { id = "syndicate", keywords = { "Syndicate" }, name = "The Syndicate", category = "threats", learned = "Magistrate Maleb or Marshal Redpath in Southshore" }
+P:Topic { id = "alterac", keywords = { "Alterac" }, name = "The ruins of Alterac", category = "places", learned = "Loremaster Dibbs or Marshal Redpath in Southshore" }
+P:Topic { id = "silver_hand", keywords = { "Silver Hand" }, name = "The Knights of the Silver Hand", category = "people", learned = "Brewmeister Bilger in Southshore" }
+P:Topic { id = "new_plague", keywords = { "new plague" }, name = "The new plague", category = "rumors", learned = "Apothecary Lydon or High Executor Darthalia in Tarren Mill" }
+
+-- Ironforge and Loch Modan (Ironforge 1.4.0, Loch Modan 1.2.0)
+P:Topic { id = "troggs", keywords = { "trogg" }, name = "The troggs", category = "threats", learned = "Senator Stonehallow at Gol'Bolar, or anyone in Loch Modan" }
+P:Topic { id = "frostmane", keywords = { "Frostmane" }, name = "The Frostmane trolls", category = "threats", learned = "Grelin Whitebeard in Coldridge Valley, or Senir Whitebeard in Kharanos" }
+P:Topic { id = "stonewrought_dam", keywords = { "Stonewrought" }, name = "The Stonewrought Dam", category = "places", learned = "Chief Engineer Hinderweir VII, or Royal Historian Archesonus" }
+
+-- The night elf lands (Darnassus 1.2.0, Teldrassil 1.3.0, Darkshore 1.2.0, Ashenvale 1.2.0)
+P:Topic { id = "teldrassil", keywords = { "Teldrassil" }, name = "Teldrassil", category = "places", learned = "Tenaron, Corithras or Fandral" }
+P:Topic { id = "malfurion", keywords = { "Malfurion" }, name = "Malfurion Stormrage", category = "people", learned = "Tyrande or Fandral in Darnassus" }
+P:Topic { id = "sisterhood_of_elune", keywords = { "Sisterhood" }, name = "The Sisterhood of Elune", category = "people", learned = "Tyrande, A'moora or Gwennyth" }
+P:Topic { id = "sentinels", keywords = { "Sentinels" }, name = "The Sentinels", category = "people", learned = "Tyrande, or any Sentinel" }
+P:Topic { id = "warsong", keywords = { "Warsong" }, name = "The Warsong in Ashenvale", category = "threats", learned = "Tyrande, Raene or Splintertree Post" }
+P:Topic { id = "silithid", keywords = { "silithid" }, name = "The silithid", category = "threats", learned = "Gracina Spiritmight in Darnassus" }
+P:Topic { id = "fel_moss", keywords = { "Fel Moss" }, name = "Fel Moss", category = "threats", learned = "Melithar, Athridas, Terenthis or Thundris" }
+P:Topic { id = "furbolgs", keywords = { "furbolg" }, name = "The furbolgs", category = "threats", learned = "Athridas, Thundris or Raene" }
+P:Topic { id = "dark_strand", keywords = { "Dark Strand" }, name = "The Dark Strand", category = "threats", learned = "Delgren the Purifier at Maestra's Post" }

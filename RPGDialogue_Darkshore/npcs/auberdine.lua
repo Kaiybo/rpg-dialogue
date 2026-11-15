@@ -1,4 +1,7 @@
 -- Auberdine. Voice: bibles/auberdine.md
+-- Classic Auberdine only: the port still stands, the Bravery sails to Menethil and the Moonspray
+-- to Rut'theran. "Onward to Ashenvale" (added 2.0.3) is not used; Sentinel Selarin's Trek to
+-- Ashenvale is the Classic road to Raene.
 local P = RPGDialogueAPI:Pack("rpgd.darkshore")
 local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
@@ -10,17 +13,19 @@ P:NPC {
   notices = { "class", "race" },
 
   greetings = {
-    { id = "g_elder", text = "Auberdine is glad of you, traveller. Rest, eat, and when you're ready, I may ask something of you. The village has troubles enough to share." },
-    { id = "g_back", when = { metBefore = true }, text = "Returned! Sit with an old elf a moment. Tell me what the forest told you." },
+    { id = "g_elder", text = "Auberdine is glad of you, traveller. Rest and eat first, and when you are ready I may ask something of you, for the village has troubles enough to share." },
+    { id = "g_back", when = { metBefore = true }, text = "You have returned! Sit with an old elf a moment, and tell me what the forest told you." },
+    { id = "g_boat", when = { race = { "Human", "Dwarf", "Gnome" } },
+      text = "Fresh off the Bravery from Menethil, by the look of you. Find your land legs, then come and see me; Auberdine always has work for willing hands." },
   },
 
   notice = {
     { id = "n_paladin", cat = "class", when = { class = "PALADIN" },
-      text = "A paladin of the Silver Hand. I'll confess I trust your order more than some of my own kin. Don't tell them I said so." },
+      text = "A paladin of the Silver Hand! I confess I trust your order more than some of my own kin, though I would thank you not to tell them I said so." },
     { id = "n_human", cat = "race", when = { race = "Human" },
-      text = "Humans in Darkshore, coming off the boats every week now. Some of my people frown at it. I judge each of you by your own deeds, not your kings'." },
+      text = "Humans come off the boats every week now, and some of my people frown at it. I judge each of you by your own deeds, not by your kings'." },
     { id = "n_skyborne", cat = "race", when = { race = "Skyborne" },
-      text = "Kin from Eldre'Thalas, after so long. Welcome. Whatever your ancestors did or didn't do, it was before my time and yours." },
+      text = "Kin from Eldre'Thalas, after so long. You are welcome here; whatever your ancestors did or did not do, it was long ago, and you were not there to do it." },
   },
 
   start = "hello",
@@ -28,49 +33,131 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Thundris Windweaver, elder of Auberdine. I see to the village's daily needs, which lately means seeing to its fears. The land is sickening, and I want to know why." },
+          text = "I am Thundris Windweaver, elder of Auberdine. I see to the village's daily needs, which lately means seeing to its fears, for the land is sickening and I mean to learn why." },
         { id = "h_bashal", tags = { "news" }, when = { questActive = TODO_QUEST("Bashal'Aran") },
-          text = "A blue glow among the old ruins at Bashal'Aran. Old magic doesn't wake on its own. Find out what woke it." },
+          text = "The ruins of Bashal'Aran to the east are overrun with demonic creatures that feed on the old magic there, yet there is one shrine they will not approach. I would know why." },
         { id = "h_highborne", when = { questActive = TODO_QUEST("Tools of the Highborne") },
-          text = "Highborne relics, out at Ameth'Aran. Bring them to me and I'll see them destroyed. The magic in them has done enough harm for one world." },
+          text = "The Sentinels tell me the Highborne spirits of Ameth'Aran still wield their old implements. Bring me those relics, and I will see them destroyed before their magic does any more harm." },
         { id = "h_river", tags = { "news" }, when = { questActive = TODO_QUEST("The Cliffspring River") },
-          text = "The river's turning foul, and I suspect it starts in Felwood. Bring me water from the falls to the north, and we'll know." },
+          text = "The Cliffspring River is turning foul, and I suspect its sickness begins in Felwood. Bring me water from the first falls north of here, and we shall know." },
         { id = "h_blackwood", when = { questActive = TODO_QUEST("The Blackwood Corrupted") },
-          text = "Something is feeding corruption to the Blackwood furbolgs. If we can draw it out into the open, we can be rid of it." },
+          text = "A satyr is feeding corruption to the Blackwood furbolgs through a talisman. Cleanse their food with water from our moonwell, and the corruptor will have to show itself." },
         { id = "h_kor", tags = { "news" }, when = { questActive = TODO_QUEST("Seeking the Kor Gem") },
-          text = "A Kor gem, for your order? You'll find them in Blackfathom Deeps, though not clean. Bring the tainted ones to me and I'll purify them." },
-        { id = "h_ashenvale", when = { questActive = TODO_QUEST("Onward to Ashenvale") },
-          text = "Raene Wolfrunner in Astranaar is an old friend and short of help. Go to her. She'll make better use of you than I can." },
+          text = "Stilwell the blacksmith? I remember him, though I have not heard his name in years. The naga of Blackfathom Deeps carry Kor gems; bring me one, tainted as it will be, and I will purify it." },
+        { id = "h_ashenvale", key = true, when = { minLevel = 18 },
+          text = "Raene Wolfrunner commands the scouts at Astranaar, south along the road into Ashenvale, and she never has enough help. When you are ready for harder work, go to her." },
+        { id = "h_terenthis", tags = { "news" }, when = { questActive = TODO_QUEST("Thundris Windweaver") },
+          text = "Terenthis sent you with word of the furbolg camps? Your scouting comes at a fortunate time, for we have been fighting the forest's corruption as well as its creatures." },
+        { id = "h_priest", when = { class = "PRIEST" },
+          text = "A priest, and welcome. Gwennyth of the Temple of the Moon would be glad of another healer's eye on what the sea keeps leaving on our shore." },
+        { id = "h_night", when = { timeOfDay = "night" },
+          text = "Auberdine's lamps burn later than any in Darnassus, because the boats come in at all hours. I sleep little these days in any case." },
+      },
+      again = {
+        { id = "h_again", text = "What else would you ask? I have time, and Auberdine has troubles." },
+        { id = "h_again2", text = "Go on. An elder's work is mostly listening." },
       },
       choices = {
         { text = "What's sickening the land?", next = "sick" },
         { text = "Why trust the Silver Hand?", next = "silverhand" },
+        { text = "What lies in the old ruins nearby?", next = "ruins" },
+        { text = "What is at the Master's Glaive?", next = "glaive" },
+        { text = "I'm a paladin. What can I do?", next = "paladin", when = { class = "PALADIN" } },
+        { text = "Can a priest help against this corruption?", next = "priest_t", when = { class = "PRIEST" } },
+        { text = "I came over on the Bravery from Menethil.", next = "boat", when = { race = { "Human", "Dwarf", "Gnome" } } },
         { text = "I'll help Auberdine.", next = "END", fx = { affinity = 2, standing = { auberdine = 1 } } },
       },
     },
     sick = {
       big = true,
       lines = {
-        { id = "s_default", text = "Corruption from Felwood, seeping down the rivers. A red crystal maddening the moonkin. Moss that turns furbolgs savage. One cause or many, I can't say yet. But it's coming from the north." },
+        { id = "s_default", text = "There is corruption from Felwood seeping down the rivers, a red crystal maddening the moonkin, and moss that turns the furbolgs savage. Whether it is one cause or many I cannot yet say, but it all comes from the north and east." },
       },
       choices = {
-        { text = "I'll find the source.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I'll find the source.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Felwood?", next = "felwood" },
       },
     },
     felwood = {
-      lines = { { id = "f_default", text = "Where the demons trod during the Third War. The forest there never healed. Now it's spreading its sickness to its neighbours." } },
-      choices = { { text = "...", next = "END" } },
+      lines = { { id = "f_default", text = "Felwood is where the demons trod during the Third War, and the forest there never healed. Now its sickness runs down the rivers into its neighbours, and I have seen its like before, long ago." } },
+      choices = {
+        { text = "You've seen it before?", next = "felwood2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    felwood2 = {
+      lines = { { id = "f2_default", text = "Long ago, yes, though I will not trouble you with an old elf's memories. It is enough that I know the smell of it, and that I smell it in the Cliffspring now." } },
+      choices = {
+        { text = "Then we'd better act quickly.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     silverhand = {
-      lines = { { id = "sh_default", text = "Because they came when they were needed and asked for nothing. That's rarer than it should be, among elves or anyone." } },
-      choices = { { text = "...", next = "END", fx = { affinity = 1 } } },
+      lines = { { id = "sh_default", text = "Because they came when they were needed and asked for nothing in return, which is rarer than it should be among elves or anyone. I will not judge a whole order by one fallen prince." } },
+      choices = {
+        { text = "That's generous of you.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ruins = {
+      lines = { { id = "ru_default", text = "Bashal'Aran to the east and Ameth'Aran to the south were Highborne places before the Sundering. Now demons feed on what magic is left in them, and the Highborne dead still walk there." } },
+      choices = {
+        { text = "Why destroy the Highborne relics?", next = "relics" },
+        { text = "I met the spirit at Bashal'Aran.", next = "asterion", when = { questDone = TODO_QUEST("Bashal'Aran") } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    relics = {
+      lines = { { id = "re_default", text = "Because magic like theirs nearly ended the world once. When I held those relics I fancied I could feel the taint upon my hands, and though it may have been my imagination, I will not take the chance." } },
+      choices = {
+        { text = "Better safe than sorry.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
+        { text = "Couldn't they be studied instead?", next = "BACK", fx = { trait = { curious = 1 } } },
+      },
+    },
+    asterion = {
+      lines = { { id = "as_default", text = "Asterion, he calls himself, and he is very glad of civil company after so many years. Listen to him by all means, but remember what the Highborne were." } },
+      choices = { { text = "I'll keep that in mind.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } } },
+    },
+    glaive = {
+      lines = { { id = "gl_default", text = "South, past the Grove of the Ancients, a great glaive stands in the bones of something very old. Onu says an old lord of the earth fell there, and now Twilight's Hammer cultists dig around it." } },
+      choices = {
+        { text = "What are they digging for?", next = "glaive2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    glaive2 = {
+      lines = { { id = "gl2_default", text = "I do not know, and that troubles me more than any furbolg. Cultists who worship old things buried in the earth should not be allowed to finish their digging." } },
+      choices = {
+        { text = "Then they won't.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 }, learn = { "twilights_hammer" } } },
+        { text = "Something else.", next = "BACK", fx = { learn = { "twilights_hammer" } } },
+      },
+    },
+    paladin = {
+      lines = { { id = "pa_default", text = "Then hear this: if Stilwell the blacksmith ever sends a paladin to me for a Kor gem, I will help them. The naga of Blackfathom Deeps carry such gems, though never clean ones." } },
+      choices = { { text = "I'll remember.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } } },
+    },
+    priest_t = {
+      lines = { { id = "pr_default", text = "Prayer will not cleanse a river by itself, but healers are needed whenever the furbolgs come out of the trees. And Gwennyth by the inn would welcome a priest's eye on her poor sea creatures." } },
+      choices = { { text = "I'll go and see her.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } } },
+    },
+    boat = {
+      lines = { { id = "bo_default", text = "Then you have seen Menethil Harbor. Tell me, is it as damp as our Sentinels complain, when they come back from guarding the Bravery's crossings?" } },
+      choices = {
+        { text = "Damper, if anything.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "The Wetlands are dangerous. The orcs, the raptors...", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "I didn't notice. I was seasick.", next = "BACK", fx = { affinity = 2 } },
+      },
     },
   },
 
   topics = {
-    cenarion_circle = { { id = "tp_circle", text = "I'm of the Circle, in my small way. Darnassus argues; Moonglade dreams; Auberdine just tries to keep its rivers clean." } },
-    _none = { { id = "tp_none", text = "I don't know. But I'll find someone who does." } },
+    background = { { id = "tp_bg", text = "I am an elder of this village, and a druid in my small way. Auberdine asked me to look after its days, and I have not yet found a way to stop." } },
+    advice = { { id = "tp_ad", text = "Keep to the road between Auberdine and Ashenvale, and do not drink from any river that runs down from the east." } },
+    twilights_hammer = { { id = "tp_hammer", text = "They dig at the Master's Glaive for something better left buried, and I would very much like to know what." } },
+    fel_moss = { { id = "tp_moss", text = "Terenthis knows more of it than I do, so ask him. I know only that it turns gentle creatures savage." } },
+    furbolgs = { { id = "tp_furbolgs", text = "The Blackwood were our friends once. What we learned cleansing their food may yet free them from their torment for good." } },
+    cenarion_circle = { { id = "tp_circle", text = "I am of the Circle, in my small way. Darnassus argues and Moonglade dreams, while Auberdine simply tries to keep its rivers clean." } },
+    _none = { { id = "tp_none", text = "I don't know, but I will find someone who does." } },
   },
 }
 
@@ -81,12 +168,12 @@ P:NPC {
   notices = { "form", "class" },
 
   greetings = {
-    { id = "g_moss", text = "Careful where you step. That moss on your boots? Look closer. That's what I'm here to stop." },
+    { id = "g_moss", text = "Careful where you step, friend; that moss on your boots is exactly what I came here to stop." },
   },
 
   notice = {
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
-      text = "A druid. Thank Elune. I need someone who can feel what's wrong with this place, not just see it." },
+      text = "A druid, thank Elune! I need someone who can feel what is wrong with this place, not merely see it." },
   },
 
   start = "hello",
@@ -94,32 +181,86 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Terenthis. I came to Darkshore to learn how far the Fel Moss has spread. Farther than I feared. I mean to find out why, and to end it." },
+          text = "I am Terenthis. I came to Darkshore to learn how far the Fel Moss has spread, and it is farther than I feared, so I mean to find out why and put an end to it." },
         { id = "h_threat", tags = { "news" }, when = { questActive = TODO_QUEST("How Big a Threat?") },
-          text = "The furbolg camps to the south. Go and see how many have turned, and how badly. I need numbers before I can hope." },
+          text = "Find one of the furbolg camps and tell me what you see there. Some of my brethren had to be rescued from a corrupted furbolg on Teldrassil, and I will not wait for more of our kind to be hurt." },
         { id = "h_grimclaw", tags = { "news" }, when = { questActive = TODO_QUEST("A Lost Master") },
-          text = "This bear, Grimclaw, came to me himself. His master was taken by furbolgs. A bear asking for help. You don't refuse that." },
+          text = "Grimclaw the bear came to me himself, because his master Volcor fell foul of the furbolgs. Bring me fine moonstalker pelts, and I will make you a cloak to walk unseen past Darkshore's creatures while you search." },
         { id = "h_escape", when = { questActive = TODO_QUEST("Escape Through Stealth") },
-          text = "Get him out quietly if you can. The furbolgs are sick, not evil. I'd rather we didn't have to kill more of them than we must." },
-        { id = "h_moss", when = { metBefore = true }, text = "I burned another patch of the moss this morning. It'll be back. So will I." },
+          text = "You found Volcor! Bring him out quietly if you can, for the furbolgs are sick rather than evil, and I would not have more of them killed than we must." },
+        { id = "h_moss", when = { metBefore = true }, text = "I burned another patch of the moss this morning, and it will be back, but so will I." },
+        { id = "h_volcor", when = { questDone = TODO_QUEST("Escape Through Stealth") },
+          text = "Volcor is safe, and Grimclaw has hardly left his side. What you did for them has given me faith that we can mend what is wrong here, and beyond." },
+        { id = "h_athridas", when = { heardLine = "athridas.h_default" },
+          text = "You've spoken with Athridas in Dolanaar, then. If the Gnarlpine have turned on Teldrassil as well, the Fel Moss is on both sides of the water, and that frightens me more than anything here." },
+      },
+      again = {
+        { id = "h_again", text = "What else? The moss won't wait, but I can spare you a moment." },
+        { id = "h_again2", text = "Ask, and quickly, if you would; I'm due back in the hills." },
       },
       choices = {
         { text = "What is Fel Moss?", next = "moss" },
+        { text = "Who is Volcor?", next = "volcor" },
+        { text = "Why do the furbolgs turn?", next = "turn" },
+        { text = "I can feel the sickness in the land.", next = "druid_t", when = { class = "DRUID" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2 } },
       },
     },
     moss = {
       big = true,
       lines = {
-        { id = "m_default", text = "Moss that grew where demons walked, and kept something of them in it. The furbolgs eat it, or sleep on it, and it changes them. Slowly, then all at once." },
+        { id = "m_default", text = "It is moss that grew where demons walked, and it kept something of them in it. The furbolgs eat it or sleep on it, and it changes them, slowly at first and then all at once." },
       },
-      choices = { { text = "Then we cut it out.", next = "END", fx = { affinity = 2, align = { light = 1 } } } },
+      choices = {
+        { text = "Then we cut it out.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Can it be cured?", next = "moss2" },
+      },
+    },
+    moss2 = {
+      lines = { { id = "m2_default", text = "It can be burned, at least, though it grows back. What I want is its root, because something is feeding it, and until I find that I am only weeding." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
+    },
+    volcor = {
+      lines = { { id = "v_default", text = "He is Grimclaw's master, a night elf who walks the hills with that great bear. The Blackwood furbolgs wounded him, and he is hiding in their den to the south." } },
+      choices = {
+        { text = "And the bear came to you?", next = "volcor2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    volcor2 = {
+      lines = { { id = "v2_default", text = "He did, and stood in the road until I understood him. When a bear walks into Auberdine asking for help, you do not refuse it." } },
+      choices = { { text = "No, you don't.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } } },
+    },
+    turn = {
+      lines = { { id = "t_default", text = "The moss changes them, and they are sick rather than evil, though that does not make their claws any duller. Their camp south of Auberdine is the nearest danger to our people." } },
+      choices = {
+        { text = "Then why fight them at all?", next = "turn2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    turn2 = {
+      lines = { { id = "t2_default", text = "Because Auberdine is close, and the sick still bite. If you must fight them, wash the blood from your hands afterwards and do not mourn it; give thanks instead that fewer of our people were hurt." } },
+      choices = {
+        { text = "I'll try.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
+        { text = "I'd rather find another way.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+      },
+    },
+    druid_t = {
+      lines = { { id = "dt_default", text = "Then you understand why I cannot sleep. Walk the hills to the south and tell me where it feels worst, because my own senses have grown dull from standing in it too long." } },
+      choices = { { text = "I'll tell you what I find.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } } },
     },
   },
 
   topics = {
-    cenarion_circle = { { id = "tp_circle", text = "The Circle sent me, more or less. I came anyway. Someone had to look at this up close." } },
-    _none = { { id = "tp_none", text = "Not now. The moss, first. Everything else after." } },
+    background = { { id = "tp_bg", text = "The Circle sent me, more or less, and I would have come anyway. That is all you need to know about me." } },
+    advice = { { id = "tp_ad", text = "Don't sleep on the moss, however soft it looks." } },
+    fel_moss = {
+      { id = "tp_mossnext", text = "Ah, the moss. I'll tell you more than you want to know, if you'll listen.", next = "moss" },
+      { id = "tp_moss", text = "It grows where the demons walked, and it is my whole reason for being in Darkshore." },
+    },
+    furbolgs = { { id = "tp_furbolgs", text = "They are sick, not evil, and I'll keep saying so until someone believes me." } },
+    cenarion_circle = { { id = "tp_circle", text = "The Circle sent me, more or less, though I would have come regardless. Someone had to look at this up close." } },
+    _none = { { id = "tp_none", text = "Not now, I'm afraid. The moss comes first, and everything else after." } },
   },
 }
 
@@ -130,40 +271,71 @@ P:NPC {
   notices = { "class" },
 
   greetings = {
-    { id = "g_temple", text = "The Temple of the Moon sent me to help Auberdine. The sea, it turns out, has its own ideas about what help means." },
+    { id = "g_temple", text = "The Temple of the Moon sent me to help Auberdine, though the sea, it turns out, has its own ideas about what help means." },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "Gwennyth, of the Sisterhood. I came to tend Auberdine's troubled people, and found the shore covered in great dead creatures. The sea's giving up its dead, and I'd like to know why." },
+        { id = "h_default", text = "I am Gwennyth, of the Sisterhood. I came to tend Auberdine's troubled people and found the shore strewn with great dead creatures, as if the sea were giving up its dead, and I would like to know why." },
         { id = "h_washed", tags = { "news" }, when = { questActive = TODO_QUEST("Washed Ashore") },
-          text = "Something huge came ashore down the coast. Bring me what's left of it, so I can read what happened. Mind the murlocs; they've been at it too." },
+          text = "A great creature has come ashore just south of the village, and the Greymist murlocs have ringed it. Bring me its bones, so that I can send them to Darnassus for study." },
         { id = "h_creature", when = { questActive = TODO_QUEST("Beached Sea Creature") },
-          text = "Another one. That's too many to be chance. Bring me a piece; Darnassus will want to see." },
+          text = "Another one? That is too many to be chance. Bring me a piece of it, and it will go to Darnassus on the next hippogryph." },
         { id = "h_turtle", when = { questActive = TODO_QUEST("Beached Sea Turtle") },
-          text = "Even the old turtles. They've swum these waters since before Teldrassil was a seed. Something is very wrong out there." },
+          text = "Even the old sea turtles are washing up now, and they have swum these waters since before Teldrassil was a seed. Something is very wrong out there." },
+        { id = "h_fleeing", when = { questDone = TODO_QUEST("Washed Ashore") },
+          text = "Thanks to you, we have a real chance of learning why they beach themselves. Some think they are fleeing the waters around Teldrassil, and I find that idea very disturbing." },
+        { id = "h_priest", when = { class = "PRIEST", ["not"] = { race = "NightElf" } },
+          text = "A priest of the Light, here among the dead fish and the murlocs! You are welcome; the Temple gave me a little coin for helpers, but another healer's eye is worth more." },
+      },
+      again = {
+        { id = "h_again", text = "What else? I'm listening, though I keep one eye on the tide." },
+        { id = "h_again2", text = "Ask what you like; the poor creatures aren't going anywhere." },
       },
       choices = {
         { text = "Do you miss the Temple?", next = "temple" },
         { text = "What's killing them?", next = "killing" },
+        { text = "Why do the murlocs gather on them?", next = "murlocs" },
+        { text = "Could a priest of the Light help you?", next = "priest_g", when = { class = "PRIEST", ["not"] = { race = "NightElf" } } },
         { text = "Elune keep you.", next = "END" },
       },
     },
     killing = {
-      lines = { { id = "k_default", text = "Nobody knows yet. The sea doesn't speak plainly. But I listen, and I write everything down. One day the pattern will show itself." } },
-      choices = { { text = "...", next = "END", fx = { affinity = 1 } } },
+      lines = { { id = "k_default", text = "No one knows yet, for the sea does not speak plainly. But I listen, and I write everything down, and one day the pattern will show itself." } },
+      choices = {
+        { text = "Could it be something near Teldrassil?", next = "teldrassil_g" },
+        { text = "Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    teldrassil_g = {
+      lines = { { id = "tg_default", text = "Perhaps they are fleeing something in the waters around the tree. I don't want to believe it, so I write everything down instead, because belief is no use to anyone without evidence." } },
+      choices = {
+        { text = "I'll bring you evidence.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    murlocs = {
+      lines = { { id = "mu_default", text = "They feed on the carcasses, but a thresher that size could never have been brought down by murlocs, not even a great many of them. Something else killed it, or drove it ashore." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
     temple = {
       lines = {
-        { id = "t_quiet", text = "Its quiet, yes. But the Sisterhood didn't train me to stay where it's quiet. Here, people need me. That's better than quiet." },
+        { id = "t_quiet", text = "I miss its quiet, yes, but the Sisterhood did not train me to stay where it is quiet. Here, people need me, and that is better than quiet." },
       },
-      choices = { { text = "Elune keep you.", next = "END", fx = { affinity = 2 } } },
+      choices = { { text = "Elune keep you.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    priest_g = {
+      lines = { { id = "pg_default", text = "You could. Walk the shore with me some evening and tell me what you sense in those remains; your Light and our Mother Moon may notice different things." } },
+      choices = { { text = "I'd be glad to.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } } },
     },
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "The Temple of the Moon sent me to see to Auberdine's troubles. I expected sick villagers, not dead threshers." } },
+    advice = { { id = "tp_ad", text = "Stay out of the water near the carcasses, because whatever the murlocs leave behind, something larger may come for." } },
+    sisterhood_of_elune = { { id = "tp_sister", text = "We go where we are needed, and the Temple decided I was needed here, among the bones." } },
     _none = { { id = "tp_none", text = "I'm sorry. I only know the shore, and lately not even that." } },
   },
 }
@@ -175,43 +347,79 @@ P:NPC {
   notices = { "kit" },
 
   greetings = {
-    { id = "g_watch", text = "Staying in Auberdine? Then you're under the Sentinels' eye. Don't take it personally. We watch everyone." },
+    { id = "g_watch", text = "If you're staying in Auberdine, then you're under the Sentinels' eye; don't take it personally, for we watch everyone." },
   },
 
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
-      text = "The murlocs got their claws into you, by the look of it. Get mended, then go and pay them back." },
+      text = "The murlocs got their claws into you, by the look of it. Get yourself mended, then go and pay them back." },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "Sentinel Glynda Nal'Shea. Corruption creeps into the groves, murlocs creep up the beaches, and I'm one Sentinel. I could use another pair of hands." },
+        { id = "h_default", text = "I am Sentinel Glynda Nal'Shea. Corruption creeps into the groves and murlocs creep up the beaches, and I am only one Sentinel, so I could use another pair of hands." },
         { id = "h_crystal", tags = { "news" }, when = { questActive = TODO_QUEST("The Red Crystal") },
-          text = "Somewhere in the hills to the east sits a red crystal, and the moonkin around it have gone mad. Find it. Don't touch it." },
+          text = "The reports say hostile moonkin are gathering around a large red crystal along the eastern mountains. Find out whether it truly exists, and whatever you do, don't touch it." },
         { id = "h_cascade", when = { questActive = TODO_QUEST("As Water Cascades") },
-          text = "Bring water from the moonwell. Pure water, to test against what the crystal's done. Don't let it spill." },
+          text = "Fill this tube at our moonwell and pour it over the crystal, for water that potent should tell us what it's made of. Be careful; if it came from Felwood, as I suspect, it could be dangerous." },
         { id = "h_murkdeep", tags = { "news" }, when = { questActive = TODO_QUEST("WANTED: Murkdeep!") },
-          text = "Murkdeep. The murlocs' big brute. He's sunk boats leaving our harbour. The council's put a price on him. Collect it." },
-        { id = "h_beach", when = { metBefore = true }, text = "I walk the beach every morning. Every morning there's more murloc sign. Every evening there's a little less, thanks to people like you." },
+          text = "Murkdeep is the murlocs' great brute, and his kind have been sinking the boats that leave our harbour. The council has put a price on his head, so go and collect it." },
+        { id = "h_beach", when = { metBefore = true }, text = "I walk the beach every morning and find more murloc sign each time, and every evening there is a little less of it, thanks to people like you." },
+        { id = "h_fragments", tags = { "news" }, when = { questActive = TODO_QUEST("The Fragments Within") },
+          text = "Bone, inside the crystal, and half a jaw that may have belonged to someone who walked on two legs? That answers one question and raises a dozen more, so I'll take it to the council." },
+      },
+      again = {
+        { id = "h_again", text = "What else? I'm due on the beach soon." },
+        { id = "h_again2", text = "Speak, but keep it short; the tide is turning." },
       },
       choices = {
         { text = "What happened to the moonkin?", next = "moonkin" },
+        { text = "Who is Murkdeep?", next = "murkdeep" },
+        { text = "Where are the Sentinels stretched thinnest?", next = "thin" },
+        { text = "What did the crystal hide?", next = "crystal", when = { questDone = TODO_QUEST("The Fragments Within") } },
         { text = "I'll help.", next = "END", fx = { affinity = 2, standing = { auberdine = 1 } } },
       },
     },
     moonkin = {
       big = true,
       lines = {
-        { id = "m_default", text = "They were gentle. Strange, but gentle. Then that crystal came from Felwood and they turned on everyone who came near. It isn't their fault. That doesn't stop their claws." },
+        { id = "m_default", text = "They were thought to be gentle, almost mystical creatures, and some still revere them. Then that crystal drew them in, and now they turn on anyone who comes near; it isn't their fault, but that doesn't blunt their claws." },
       },
-      choices = { { text = "I'll be careful.", next = "END", fx = { affinity = 1 } } },
+      choices = {
+        { text = "I'll be careful.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Shouldn't we pity them?", next = "moonkin2" },
+      },
+    },
+    moonkin2 = {
+      lines = { { id = "m2_default", text = "Pity them if you like, but keep your distance while you do. Auberdine's safety means I have to take a more realistic view than the people who write poems about them." } },
+      choices = {
+        { text = "Fair enough.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll pity them anyway.", next = "BACK", fx = { trait = { kind = 1 } } },
+      },
+    },
+    crystal = {
+      lines = { { id = "c_default", text = "Fragments of bone, and half a jawbone that looks to have come from someone who walked upright. Even the strongest magic couldn't break the thing open, so the council can argue about it for now." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
+    },
+    murkdeep = {
+      lines = { { id = "mk_default", text = "He's the biggest and meanest of the Greymist murlocs along our coast. The fishing boats have stayed in harbour for weeks because of him." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    thin = {
+      lines = { { id = "th_default", text = "Everywhere outside the lamplight. We guard the village, the road south and even the Bravery on her crossings to Menethil, and there are never enough of us." } },
+      choices = {
+        { text = "I'll do what I can.", next = "BACK", fx = { affinity = 1, standing = { auberdine = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Ask the elder. I only watch the roads." } },
+    background = { { id = "tp_bg", text = "I am a Sentinel, and I report to Auberdine's council. That's all the story a Sentinel needs." } },
+    advice = { { id = "tp_ad", text = "Never turn your back on the water along this coast, because the murlocs are counting on you doing it." } },
+    _none = { { id = "tp_none", text = "Ask the elder, for I only watch the roads." } },
   },
 }
 
@@ -222,13 +430,13 @@ P:NPC {
   notices = { "class" },
 
   greetings = {
-    { id = "g_dock", text = "Hm? Forgive me. I was watching the water. I do a great deal of that." },
-    { id = "g_after", when = { questDone = TODO_QUEST("For Love Eternal") }, text = "You freed her. I'll never be able to thank you properly. I'll try anyway, every time I see you." },
+    { id = "g_dock", text = "Hm? Forgive me; I was watching the water. I do a great deal of that." },
+    { id = "g_after", when = { questDone = TODO_QUEST("For Love Eternal") }, text = "You freed her. I will never be able to thank you properly, but I will try, every time I see you." },
   },
 
   notice = {
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
-      text = "A druid. Have you slept the long sleep yet? Don't, if you can help it. The dreams find out what you love and keep it." },
+      text = "A druid. Have you slept the long sleep yet? Don't, if you can help it, for the dreams find out what you love and keep it." },
   },
 
   start = "hello",
@@ -236,35 +444,66 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Cerellean Whiteclaw. Before the Sundering I loved a woman named Anaya, in Ameth'Aran. The war took her and her city. I slept for thousands of years, and she was in every dream." },
+          text = "I am Cerellean Whiteclaw. Before the Sundering I loved a woman named Anaya, of Ameth'Aran, and the war took her and her city; then I slept for thousands of years, and she was in every dream." },
         { id = "h_love", tags = { "news" }, when = { questActive = TODO_QUEST("For Love Eternal") },
-          text = "Her spirit still walks the ruins. I should have set her free myself. I couldn't. Please. Do what I can't, and bring me her pendant." },
+          text = "Her spirit still walks the ruins of Ameth'Aran, and it must be freed, but I cannot raise my hand against her even now. Please do what I cannot, and bring me her pendant." },
         { id = "h_after", when = { questDone = TODO_QUEST("For Love Eternal") },
-          text = "She came to me, after. Just for a moment. She said we'll find each other again. I believe her. I've waited ten thousand years; I can wait a little more." },
+          text = "She came to me afterwards, just for a moment, and told me we will find each other again. I believe her; I have waited ten thousand years, and I can wait a little longer." },
+      },
+      again = {
+        { id = "h_again", text = "Ask what you will. I have nothing but time, and the water." },
+        { id = "h_again2", text = "Go on, please; I'm listening, truly." },
       },
       choices = {
         { text = "Tell me about Anaya.", next = "anaya" },
+        { text = "How did you find her spirit?", next = "found" },
+        { text = "What was Ameth'Aran?", next = "ameth" },
+        { text = "Should I fear the long sleep?", next = "sleep_d", when = { class = "DRUID" } },
         { text = "I'm sorry.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
     anaya = {
       big = true,
       lines = {
-        { id = "a_default", text = "She laughed at my bad poetry and kept every page. She was braver than me and kinder than me. Ten thousand years, and I still turn around expecting her to be there." },
+        { id = "a_default", text = "She laughed at my bad poetry and kept every page of it. She was braver than me and kinder than me, and after ten thousand years I still turn around expecting her to be there." },
       },
       choices = {
-        { text = "She sounds wonderful.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "She sounds wonderful.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "You have to let her go.", next = "go" },
       },
     },
     go = {
-      lines = { { id = "g_default", text = "Yes. Knowing has never once made it easier. Perhaps you'll find that out one day. I hope not." } },
-      choices = { { text = "...", next = "END" } },
+      lines = { { id = "g_default", text = "Yes, I know, and knowing has never once made it easier. Perhaps you'll find that out for yourself one day, though I hope you don't." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    found = {
+      lines = { { id = "fo_default", text = "I woke from the long sleep and wandered these woods in a daze, and my feet took me to the ruins of Ameth'Aran. She was there, haunting the place where she died." } },
+      choices = {
+        { text = "Why not free her yourself?", next = "found2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    found2 = {
+      lines = { { id = "fo2_default", text = "Because even after all these thousands of years, I could not bear to raise my hand against my beloved. Perhaps it would have been better if I had." } },
+      choices = {
+        { text = "No one could ask that of you.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ameth = {
+      lines = { { id = "am_default", text = "It was a city of the Highborne's age, beautiful in the way of those days. Now it is ruins and ghosts, and Thundris sends young people there to carry off what is left of the old magic." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    sleep_d = {
+      lines = { { id = "sd_default", text = "Fear it a little. The Dream keeps what you love close to you, which sounds like a mercy until you wake and find it was only a dream." } },
+      choices = { { text = "I'll remember that.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } } },
     },
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "I'm sorry. My mind is on the water, and on older things." } },
+    background = { { id = "tp_bg", text = "I loved someone in Ameth'Aran ten thousand years ago. The rest of my story is the waiting." } },
+    advice = { { id = "tp_ad", text = "Tell the people you love that you love them today, because tomorrow has a way of taking ten thousand years." } },
+    _none = { { id = "tp_none", text = "I'm sorry; my mind is on the water, and on older things." } },
   },
 }
 
@@ -275,33 +514,55 @@ P:NPC {
   notices = { "weary" },
 
   greetings = {
-    { id = "g_rest", text = "Your spirit's tired, I can tell. Rest here. The waves are loud, but they sing you to sleep after a night or two." },
-    { id = "g_home", when = { homeInn = { "Auberdine" } }, text = "Auberdine again. The sea air's good for you. Mostly." },
+    { id = "g_rest", text = "Your spirit is tired, I can tell. Rest here; the waves are loud, but they'll sing you to sleep after a night or two." },
+    { id = "g_home", when = { homeInn = { "Auberdine" } }, text = "Auberdine again! The sea air is good for you, mostly." },
   },
 
   notice = {
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.25 } },
-      text = "Furbolgs? Murlocs? Moonkin? It's always one of the three. Sit, and Elune guard your dreams tonight." },
+      text = "Furbolgs, murlocs or moonkin? It's always one of the three. Sit down, and Elune guard your dreams tonight." },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "Shaussiy. I keep the inn by the docks. Travellers off the boats from Teldrassil and Menethil, mostly, and they all arrive seasick." },
+        { id = "h_default", text = "I'm Shaussiy, and I keep the inn by the docks. My guests come off the boats from Teldrassil and Menethil, mostly, and they all arrive seasick." },
         { id = "h_cerellean", when = { heardLine = "cerellean.h_default" },
-          text = "You've spoken with Cerellean. He stands on that dock every day. I bring him tea. He forgets to drink it. I bring more." },
-        { id = "h_boards", when = { metBefore = true }, text = "Sailors swear the floorboards creak in a different key before a storm. I've started listening. They're right." },
-        { id = "h_night", when = { timeOfDay = "night" }, text = "The moon on the water out there. On nights like this I forgive the sea for everything." },
+          text = "So you've spoken with Cerellean. He stands on that dock every day, and I bring him tea, and he forgets to drink it, and I bring him more." },
+        { id = "h_boards", when = { metBefore = true }, text = "The sailors swear the floorboards creak in a different key before a storm. I've started listening, and they're right." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "Look at the moon on the water out there. On nights like this, I forgive the sea for everything." },
+      },
+      again = {
+        { id = "h_again", text = "Is there anything else, love? There's always tea on." },
       },
       choices = {
         { text = "Make this my home.", next = "BUSINESS" },
+        { text = "Who comes through the inn?", next = "guests" },
+        { text = "Any news from the boats?", next = "news" },
         { text = "Just resting.", next = "END" },
       },
+    },
+    guests = {
+      lines = { { id = "gu_default", text = "Sailors from the Bravery, dwarves from the smithy, Sentinels off watch and young elves bound for Ashenvale. They all want the same thing, which is a dry bed." } },
+      choices = {
+        { text = "Dwarves, here?", next = "dwarves" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dwarves = {
+      lines = { { id = "dw_default", text = "Oh yes, they keep a little forge in town, and the Explorers' League digs to the south at Remtravel's Excavation. They complain about the damp and never leave." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "explorers_league" } } } },
+    },
+    news = {
+      lines = { { id = "nw_default", text = "The murlocs have been at the fishing boats again, and the Moonspray ran late twice this week. When the boats are late, the whole village holds its breath." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Ask the elder, love. He knows everything worth knowing in Auberdine." } },
+    background = { { id = "tp_bg", text = "I keep the inn by the docks, and I've heard every traveller's story twice. Mine isn't nearly as interesting." } },
+    advice = { { id = "tp_ad", text = "Sleep on the landward side of the inn if you want quiet, and on the water side if you want to dream." } },
+    _none = { { id = "tp_none", text = "Ask the elder, love; he knows everything worth knowing in Auberdine." } },
   },
 }

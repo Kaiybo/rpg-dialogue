@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.3.1 (unreleased)
+- Voice pass: Refuge Pointe and Hammerfall now talk in whole sentences instead of clipped fragments. Nials is still brief and Drum Fel still driven, each in a sentence or two rather than a string of orders.
+
 ## 1.3.0 (unreleased)
 - For a priest, while Stromgarde Badges is open: bless the badges before they go home to the families.
 

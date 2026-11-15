@@ -11,13 +11,13 @@ P:NPC {
 
   greetings = {
     { id = "g_inn", text = "In off the road with you. Dust on the mat, please, not on my floor. It's the one clean thing in Westfall." },
-    { id = "g_home", when = { homeInn = { "Sentinel Hill" } }, text = "Your bed's made. I shook the grit out of the blankets. It'll be back by morning. It always is." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "Late for the road. Sit down before the militia mistakes you for a bandit. It happens more than they'd admit." },
+    { id = "g_home", when = { homeInn = { "Sentinel Hill" } }, text = "Your bed's made, and I've shaken the grit out of the blankets, though it'll be back by morning. It always is." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "It's late for the road. Sit down before the militia mistakes you for a bandit; it happens more than they'd admit." },
   },
 
   notice = {
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.25 } },
-      text = "You've been out to Moonbrook, or somewhere like it. Sit. Stew first, questions after." },
+      text = "You've been out to Moonbrook, or somewhere just as bad, by the look of you. Sit down; it's stew first and questions after." },
     { id = "n_drink", cat = "drink", when = { drunk = { min = 2 } },
       text = "That'll do for tonight. The militia's got a cell for brawlers, and it's mostly full of hay." },
   },
@@ -26,29 +26,55 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "Heather. I keep the inn on the hill. Most of my guests are militia between watches, and most of them sleep in their boots." },
+        { id = "h_default", text = "I'm Heather, and I keep the inn on the hill. Most of my guests are militia between watches, and most of them sleep in their boots." },
         { id = "h_salma", when = { heardLine = "salma.h_default" },
           text = "You've eaten at Salma's? Then you've had the best stew in Westfall and you'll be disappointed in mine. I've made my peace with it." },
         { id = "h_skyborne", when = { race = "Skyborne" },
-          text = "Elves, out here? We've only dust and gulls to offer. The gulls are rude. The dust gets everywhere." },
+          text = "Elves, out here? We've only dust and gulls to offer you, and the gulls are rude and the dust gets everywhere." },
         { id = "h_militia", when = { metBefore = true }, text = "The militia eats more than any army I've ever fed. I've never fed an army. I'm fairly sure this is worse." },
-        { id = "h_night", when = { timeOfDay = "night" }, text = "Night watch comes in for soup about now. Same faces, every night. I worry on the nights one's missing." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "The night watch comes in for soup about now, the same faces every night. I worry on the nights one's missing." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Mind the dust on the bench; I've only just swept it." },
+        { id = "h_again2", text = "Go on, I can pour and listen at the same time." },
       },
       choices = {
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "How's the hill holding up?", next = "hill" },
+        { text = "Who stays here, mostly?", next = "guests" },
+        { text = "Do any of the militia need tending?", next = "tending", when = { class = "PRIEST" } },
         { text = "Just resting.", next = "END" },
       },
     },
     hill = {
       lines = { { id = "hi_default", text = "Better than the farms. We've walls of a sort and Gryan's word. Out there they've only got locks, and the Defias have keys." } },
-      choices = { { text = "...", next = "END", fx = { learn = { "people_militia" } } } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "people_militia" } } } },
+    },
+    guests = {
+      lines = { { id = "gu_default", text = "Militia between watches, the odd carter brave enough for the road, and whoever Gryan's put to work. The carters pay and the militia sleep, and I call that even." } },
+      choices = {
+        { text = "Do the militia ever pay?", next = "guests_pay" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    guests_pay = {
+      lines = { { id = "gp_default", text = "When Gryan can, which isn't often. I keep a slate for them, and I've never once rubbed it clean or asked for a copper of it." } },
+      choices = { { text = "That's generous.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    tending = {
+      lines = { { id = "te_default", text = "Always: burns, cuts, and the ones who've stopped sleeping. Sit with that last lot, if you can; they'll talk to a priest who won't be here next week." } },
+      choices = {
+        { text = "I'll sit with them tonight.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, standing = { sentinel_hill = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
   topics = {
-    defias = { { id = "tp_defias", text = "Some of them drank here, before. Masons, a few. Nice enough. I try not to think about that." } },
-    people_militia = { { id = "tp_militia", text = "Farmers with spears and no pay. They eat for free here. Gryan pays when he can. He usually can't." } },
+    background = { { id = "tp_bg", text = "I'm an innkeeper. The inn came with the hill and I came with the inn, and that's as far back as anyone here cares." } },
+    advice = { { id = "tp_ad", text = "Bind your hearthstone here. You'll want somewhere to come back to that isn't a field." } },
+    defias = { { id = "tp_defias", text = "Some of them drank here, before all this, a few masons among them, and nice enough men they were. I try not to think about that." } },
+    people_militia = { { id = "tp_militia", text = "Farmers with spears and no pay, so they eat for free here. Gryan pays when he can, which is hardly ever." } },
     _none = { { id = "tp_none", text = "Ask Gryan. Or ask the gulls, they'll tell you just as much." } },
   },
 }
@@ -60,13 +86,13 @@ P:NPC {
   notices = { "kit" },
 
   greetings = {
-    { id = "g_stores", text = "Stores are open. Stores are always open. Stores are also always half empty. What do you need?" },
-    { id = "g_back", when = { metBefore = true }, text = "More business? Good. Buy something, it'll make my ledger feel useful." },
+    { id = "g_stores", text = "The stores are open, as they always are, and half empty, as they always are. What do you need?" },
+    { id = "g_back", when = { metBefore = true }, text = "More business? Good, buy something; it'll make my ledger feel useful." },
   },
 
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.3 } },
-      text = "I can mend that. Don't tell me how it happened. I'll only have to write it down." },
+      text = "I can mend that, but don't tell me how it happened, or I'll only have to write it down." },
   },
 
   start = "hello",
@@ -75,12 +101,19 @@ P:NPC {
       lines = {
         { id = "h_default", text = "Lewis, quartermaster. I keep Sentinel Hill fed, armed and patched, which is a lot to ask of one ledger and a wagon that keeps getting robbed." },
         { id = "h_message", tags = { "news" }, when = { questActive = TODO_QUEST("A Swift Message") },
-          text = "This needs to reach the city faster than a wagon can, and without a Defias reading it first. Take it to Thor. He'll have you in the air." },
+          text = "Our armor's running thin. That note goes to the one man in the city who can fix it, faster than a wagon and without a Defias reading it first. Thor will put you in the air." },
         { id = "h_return", when = { questActive = TODO_QUEST("Return to Lewis") },
-          text = "Stormwind and back by gryphon, and the message delivered. Splendid. Now you know the way. Use it often; the roads are worse." },
+          text = "Osric's crate? Armor at last, and it goes to whoever's in the worst shape first. Now you know the way by gryphon, so use it often; the roads are worse." },
+      },
+      again = {
+        { id = "h_again", text = "What's next? I've a ledger waiting on me." },
+        { id = "h_again2", text = "Go on, and quickly, before another wagon goes missing." },
       },
       choices = {
         { text = "Why so short on supplies?", next = "short" },
+        { text = "How do you get word to the city?", next = "message" },
+        { text = "What's in the ledger?", next = "ledger" },
+        { text = "Got arrows, shot, throwing knives?", next = "ammo", when = { class = { "HUNTER", "ROGUE", "WARRIOR" } } },
         { text = "Show me what you have.", next = "BUSINESS" },
         { text = "Later.", next = "END" },
       },
@@ -88,22 +121,62 @@ P:NPC {
     short = {
       big = true,
       lines = {
-        { id = "s_default", text = "Every wagon from the city comes past three farms the Defias hold. If one in two arrives, it's a good week. I've stopped counting the bad weeks. I keep the ledger for those." },
+        { id = "s_default", text = "Every wagon from the city passes three farms the Defias hold. One in two arrives, in a good week. The ledger counts the bad weeks so I don't have to." },
       },
       choices = {
-        { text = "I'll clear the road.", next = "END", fx = { affinity = 2, standing = { sentinel_hill = 1 } } },
+        { text = "I'll clear the road.", next = "BACK", fx = { affinity = 2, standing = { sentinel_hill = 1 } } },
         { text = "Can't the city send guards?", next = "guards" },
       },
     },
     guards = {
-      lines = { { id = "g2_default", text = "The city sends forms. I fill them in. That's the arrangement." } },
-      choices = { { text = "...", next = "END" } },
+      lines = { { id = "g2_default", text = "The city sends me forms, and I fill them in. That's the arrangement, and it's never once put a guard on the road." } },
+      choices = {
+        { text = "What happens to the forms?", next = "forms" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    forms = {
+      lines = { { id = "fo_default", text = "Three copies. One goes to the city, one comes back stamped, and one keeps the stove going. The third's the only one that's ever helped." } },
+      choices = { { text = "Ha. Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    message = {
+      lines = { { id = "me_default", text = "By gryphon. There's a man in Old Town, Osric Strang, who keeps an armor shop and sends us what he can spare, and while the wagons never reach him, the gryphons do." } },
+      choices = {
+        { text = "A friend in the city, then.", next = "message_friend" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    message_friend = {
+      lines = { { id = "mf_default", text = "The only one we've got. The Keep sends nothing and Osric sends steel, and I know which I'd rather have, and which I'd rather thank." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { opinion = { westfall = "abandoned" } } } },
+    },
+    ledger = {
+      lines = { { id = "le_default", text = "Bread, water, arrows, shot and mending, in and out and stolen. The stolen column's the longest, and I've had to rule extra pages for it." } },
+      choices = {
+        { text = "Who steals the most?", next = "ledger_who" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ledger_who = {
+      lines = { { id = "lw_default", text = "The Defias on the north road, the gnolls on the south, and the militia from the bread bin at night. Those last ones I forgive." } },
+      choices = { { text = "Generous of you.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    ammo = {
+      lines = { { id = "am_default", text = "Arrows, shot, throwing knives and axes. They're not the best in the kingdom, only the best that got through, and I'd not be picky out here." } },
+      choices = {
+        { text = "Let me see them.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
   topics = {
-    defias = { { id = "tp_defias", text = "They eat better than we do, I'm told. Off our wagons. I'd like that told to someone who can do something." } },
-    _none = { { id = "tp_none", text = "Not in my ledger. If it's not in my ledger it doesn't exist, or it's been stolen." } },
+    background = { { id = "tp_bg", text = "A quartermaster. The ledger's the only history I keep, and it's mostly losses." } },
+    advice = { { id = "tp_ad", text = "Buy food before you need it. Out here the bread runs out before the hunger does." } },
+    trade = { { id = "tp_tr", text = "General goods for a hill at war: what I have, I sell, and what I don't have was stolen.", next = "ledger" } },
+    defias = { { id = "tp_defias", text = "They eat better than we do, I'm told, off our wagons. I'd like that told to someone who can do something about it." } },
+    people_militia = { { id = "tp_militia", text = "My best customers and my worst payers. I wouldn't change either." } },
+    _none = { { id = "tp_none", text = "That's not in my ledger, and if it's not in my ledger, it either doesn't exist or it's been stolen." } },
   },
 }
 
@@ -114,42 +187,86 @@ P:NPC {
   notices = { "travel", "animal" },
 
   greetings = {
-    { id = "g_fly", text = "Need a ride? The birds are fed and cross. Best time to fly; they get you there quicker to be rid of you." },
-    { id = "g_back", when = { metBefore = true }, text = "Landed well, did you? Good. The birds talk about the bad ones." },
+    { id = "g_fly", text = "Need a ride? The birds are fed and cross, which is the best time to fly, since they'll get you there quicker just to be rid of you." },
+    { id = "g_back", when = { metBefore = true }, text = "Landed well, did you? Good, because the birds talk about the bad ones." },
   },
 
   notice = {
     { id = "n_hunter", cat = "animal", when = { pet = true },
       text = "Keep that beast back from my gryphons. They don't share, and they've had a hard week." },
     { id = "n_druid", cat = "animal", when = { class = "DRUID" },
-      text = "A druid. Don't go turning into anything with feathers near my birds. They get jealous, and then they get bitey." },
+      text = "A druid, eh? Don't go turning into anything with feathers near my birds, or they'll get jealous, and then they get bitey." },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "Thor. I keep the gryphons. Fastest way out of Westfall, and the only one the Defias can't rob, so far." },
+        { id = "h_default", text = "Name's Thor, and I keep the gryphons. They're the fastest way out of Westfall, and the only one the Defias haven't managed to rob, so far." },
         { id = "h_message", tags = { "news" }, when = { questActive = TODO_QUEST("A Swift Message") },
-          text = "From Lewis? Urgent? They're all urgent. Up you go, then. Hold on with your knees, not your hands; the bird hates being strangled." },
+          text = "From Lewis, and urgent? They're all urgent, with Lewis. Up you go, then, and hold on with your knees, not your hands; the bird hates being strangled." },
         { id = "h_skyborne", when = { race = "Skyborne" },
-          text = "You lot glide, I hear. Off cliffs and the like. Gryphons don't glide, they haul. Strap in. It's not the same." },
+          text = "You lot glide, I hear, off cliffs and the like. Gryphons don't glide, they haul, so strap in; it's not the same thing at all." },
+      },
+      again = {
+        { id = "h_again", text = "Anything else? Make it quick, the birds are restless." },
+        { id = "h_again2", text = "Go on, then. Quick, before one of them bites somebody." },
       },
       choices = {
         { text = "Show me where I can fly.", next = "BUSINESS" },
         { text = "What are the gryphons like?", next = "birds" },
+        { text = "Where do your routes go?", next = "routes" },
+        { text = "Ever lost a rider?", next = "lost" },
+        { text = "Lewis's note has to reach Stormwind.", next = "message", when = { questActive = TODO_QUEST("Continue to Stormwind") } },
+        { text = "Ironforge's gryphons look sturdier than these.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Not today.", next = "END" },
       },
     },
     birds = {
       lines = { { id = "b_default", text = "Proud, hungry and loyal, in that order. Treat them like soldiers and they'll treat you like cargo. That's a compliment, from a gryphon." } },
-      choices = { { text = "I'll be good cargo.", next = "END", fx = { affinity = 1 } } },
+      choices = {
+        { text = "I'll be good cargo.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Do they have names?", next = "names" },
+      },
+    },
+    names = {
+      lines = { { id = "na_default", text = "They do, but they've never told me what they are. I call them all 'you', and they answer when they feel like it." } },
+      choices = { { text = "Sounds like the militia.", next = "BACK", fx = { trait = { witty = 1 }, affinity = 1 } } },
+    },
+    routes = {
+      lines = { { id = "ro_default", text = "Stormwind, always. Lakeshire over the mountains, Darkshire when the wind's kind, Booty Bay if you've the stomach for it." } },
+      choices = {
+        { text = "Why only the places I've been?", next = "routes_been" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    routes_been = {
+      lines = { { id = "rb_default", text = "Every bird knows the way home to the capital, but a strange roost they won't trust until you've shown them it once. Once is enough, mind; they're smarter than they let on." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
+    },
+    lost = {
+      lines = { { id = "lo_default", text = "Never a rider, but I lost a crate of Lewis's arrows over the Dagger Hills once. Somewhere out there a Defias is very well stocked." } },
+      choices = { { text = "Ha. Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    message = {
+      lines = { { id = "ms_default", text = "Then you want Osric Strang, in Old Town. His shop's called Limited Immunity. Pay the bird's fare and I'll have you there before Lewis finishes fretting." } },
+      choices = {
+        { text = "Saddle up, then.", next = "BUSINESS" },
+        { text = "Something else first.", next = "BACK" },
+      },
+    },
+    dwarf = {
+      lines = { { id = "dw_default", text = "Sturdier, maybe, but mine fly through sea wind and dust every day and come home grumbling. That's all the sturdy I need." } },
+      choices = { { text = "Fair. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 
   topics = {
+    background = { { id = "tp_bg", text = "I'm the gryphon master, and that's the whole of it. The birds don't care where I came from, so neither do I." } },
+    advice = { { id = "tp_ad", text = "Fly over trouble, not through it, and never feed a gryphon from your hand. I did it once, and never again." } },
+    trade = { { id = "tp_tr", text = "Rides out of Westfall for a little coin. Cheaper than walking, safer than the road.", next = "routes" } },
     westfall = { { id = "tp_westfall", text = "From up there it's all gold and grey. Pretty, if you don't know what's in the grey." } },
-    _none = { { id = "tp_none", text = "I fly birds. Ask someone who walks." } },
+    _none = { { id = "tp_none", text = "I fly birds, friend, so you'd best ask someone who walks." } },
   },
 }
 
@@ -161,12 +278,12 @@ P:NPC {
 
   greetings = {
     { id = "g_tower", text = "Up here you can see every road into the hill. Which means I see you coming long before you say hello." },
-    { id = "g_back", when = { metBefore = true }, text = "Saw you on the north track an hour ago. You walk like you're looking for a fight. Good." },
+    { id = "g_back", when = { metBefore = true }, text = "I saw you on the north track an hour ago. You walk like you're looking for a fight, which suits me fine." },
   },
 
   notice = {
     { id = "n_rogue", cat = "stealth", when = { stealthed = true },
-      text = "Nice try. You can hide from the road. Not from the tower." },
+      text = "Nice try. You can hide from the road, but not from the tower." },
   },
 
   start = "hello",
@@ -175,27 +292,91 @@ P:NPC {
       lines = {
         { id = "h_default", text = "Riell, scout for the People's Militia. I watch from the tower and tell Gryan what's coming. Lately it's always the same answer: more." },
         { id = "h_silk", tags = { "news" }, when = { questActive = TODO_QUEST("Red Silk Bandanas") },
-          text = "Red silk off Defias necks. Bring me the bandanas. Every one on my table is one less on the road." },
+          text = "I want the red silk off Defias necks, so bring me the bandanas. Every one on my table is one less on the road." },
         { id = "h_silk_done", when = { questDone = TODO_QUEST("Red Silk Bandanas") },
-          text = "Fewer red silks on the roads this week. The ones that are left look nervous. I like them nervous." },
+          text = "There are fewer red silks on the roads this week, and the ones that are left look nervous. I like them nervous." },
         { id = "h_gryan", when = { heardLine = "gryan.w_default" },
-          text = "Gryan told you how it was. He tells it like he was there because he was. We all were. That's why we stayed." },
+          text = "Gryan told you how it was? He tells it like he was there because he was, and so were we all. That's why we stayed." },
+      },
+      again = {
+        { id = "h_again", text = "Anything else? I'm watching the road, not you, but talk anyway." },
+        { id = "h_again2", text = "Go on. Up here the wind carries every word, so I'll hear you fine while I watch Moonbrook." },
       },
       choices = {
         { text = "What can you see from the tower?", next = "see" },
+        { text = "Why red silk, not leather?", next = "silk" },
+        { text = "What's it like, living up here?", next = "tower" },
+        { text = "Bet I could slip past your watch.", next = "rogue", when = { class = "ROGUE" } },
+        { text = "Sentinels keep watches like this at home.", next = "nightelf", when = { race = "NightElf" } },
         { text = "Carry on, scout.", next = "END" },
       },
     },
     see = {
-      lines = { { id = "s_default", text = "Smoke from Moonbrook. Riders on the coast road at odd hours. Lights at the old farms that shouldn't have lights. I write it all down. Gryan reads it all." } },
-      choices = { { text = "I'll look into it.", next = "END", fx = { affinity = 1, learn = { "moonbrook" } } } },
+      lines = { { id = "s_default", text = "Smoke from Moonbrook, riders on the coast road at odd hours, and lights at the old farms that shouldn't have lights. I write it all down, and Gryan reads every word." } },
+      choices = {
+        { text = "Lights at the old farms?", next = "see_lights" },
+        { text = "Who rides the coast road?", next = "see_riders" },
+        { text = "I'll look into it.", next = "BACK", fx = { affinity = 1, learn = { "moonbrook" } } },
+      },
+    },
+    see_lights = {
+      lines = { { id = "sl_default", text = "Defias camped in houses that were farmers' homes not long ago: the Molsen place, Furlbrow's, and the farms near the Jangolode Mine. They don't even bother to close the shutters." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "defias" } } } },
+    },
+    see_riders = {
+      lines = { { id = "sr_default", text = "A messenger, riding from Moonbrook to the quarry, the quarry to the mine, and back again, the same route every time like a clock. I've told Gryan, and Gryan has plans for clocks." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
+    },
+    silk = {
+      lines = {
+        { id = "si_default", text = "The red marks the gang and the cloth marks the rank: leather on the road, silk on the ones who give the orders. You'll find the silk under Moonbrook." },
+        { id = "si_known", when = { deed = "dungeon:The Deadmines" },
+          text = "You've been under Moonbrook. Then you've seen what silk looks like up close, and what it costs to take it off them." },
+      },
+      choices = {
+        { text = "Under Moonbrook?", next = "silk_under" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    silk_under = {
+      big = true,
+      lines = { { id = "su_default", text = "There's a way down somewhere in the town. The high ranks hole up beneath it. When you go, go with friends, and bring me ten silks for my table." } },
+      choices = {
+        { text = "Ten silks. I'll remember.", next = "BACK", fx = { affinity = 1, learn = { "moonbrook" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tower = {
+      lines = { { id = "to_default", text = "Cold at night, hot by noon, and the wind never stops. On a clear day I can see Moonbrook's smoke from here. I'd trade the view for a quiet one." } },
+      choices = {
+        { text = "Do you ever sleep?", next = "tower_sleep" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tower_sleep = {
+      lines = { { id = "ts_default", text = "Between watches, when I can. Heather keeps a bed for me at the inn, and I've used it twice; it was very nice both times." } },
+      choices = { { text = "Use it a third time.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } } },
+    },
+    rogue = {
+      lines = { { id = "ro_default", text = "Try it, then; every thief in red has tried. A shadow moving against dry grass is the easiest thing in Westfall to see." } },
+      choices = {
+        { text = "Challenge accepted.", next = "BACK", fx = { trait = { witty = 1 }, affinity = 1 } },
+        { text = "Good. Keep it that way.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+      },
+    },
+    nightelf = {
+      lines = { { id = "ne_default", text = "In trees, I've heard. We've no trees to speak of out here, only plenty of sky and nothing to hide in, which suits a lookout fine." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 
   topics = {
-    defias = { { id = "tp_defias", text = "Organised. That's what scares me. Bandits don't post watches. These do." } },
-    people_militia = { { id = "tp_militia", text = "We're what's left when the lords leave. Not much. More than nothing." } },
-    _none = { { id = "tp_none", text = "Not from up here. Ask someone on the ground." } },
+    background = { { id = "tp_bg", text = "I scout for the militia, and before that there's nothing worth the telling. The tower's where I live now, near enough." } },
+    advice = { { id = "tp_ad", text = "Look up before you walk into a valley, because someone's always on the ridge. Make sure it's me." } },
+    defias = { { id = "tp_defias", text = "They're organised, and that's what scares me. Bandits don't post watches, but these do." } },
+    people_militia = { { id = "tp_militia", text = "We're what's left when the lords leave: not much, but more than nothing." } },
+    moonbrook = { { id = "tp_moonbrook", text = "I watch its smoke every morning. One day I'd like to watch it stop.", next = "silk" } },
+    _none = { { id = "tp_none", text = "I can't see that from up here. Ask someone on the ground." } },
   },
 }
 
@@ -206,43 +387,56 @@ P:NPC {
   notices = { "class" },
 
   greetings = {
-    { id = "g_bows", text = "Bows, arrows, a quiver if you've the coin. Strings are extra. Strings are always extra." },
+    { id = "g_bows", text = "Bows, arrows, and a quiver if you've the coin. Strings are extra, mind; strings are always extra." },
   },
 
   notice = {
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
-      text = "A hunter. Show me your bow. Hm. It'll do. It'll do better with a new string. They're extra." },
+      text = "A hunter, eh? Let me see that bow of yours. Hm, it'll do, though it'd do better with a new string, and those are extra." },
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
-      text = "A warrior buying arrows. For pulling things to you, I suppose. Fair. The things out here usually come anyway." },
+      text = "A warrior buying arrows, for pulling things to you, I suppose. Fair enough, though the things out here usually come anyway." },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "MacGregor. I make bows for the militia, and sell what's left to whoever walks up. Westfall wood's poor, so I make it up with patience." },
-        { id = "h_yew", when = { metBefore = true }, text = "Found a decent stave of yew out by the Dagger Hills. Decent. Not good. In Westfall, decent is a holiday." },
+        { id = "h_default", text = "MacGregor's the name. I make bows for the militia and sell what's left to whoever walks up; Westfall wood's poor, so I make it up with patience." },
+        { id = "h_yew", when = { metBefore = true }, text = "I found a decent stave of yew out by the Dagger Hills, decent but not good. In Westfall, decent is a holiday." },
+      },
+      again = {
+        { id = "h_again", text = "Something else? I'm listening, though I'm waxing a string while I do." },
       },
       choices = {
         { text = "Where did you learn bowmaking?", next = "learn" },
-        { text = "Show me your wares.", next = "BUSINESS" },
         { text = "Poor wood?", next = "wood" },
+        { text = "What bow would you give a hunter?", next = "hunter", when = { class = "HUNTER" } },
+        { text = "Show me your wares.", next = "BUSINESS" },
         { text = "Just looking.", next = "END" },
       },
     },
     wood = {
-      lines = { { id = "w_default", text = "Dry country, crooked trees. Elwynn wood's better, but the wagons don't get through often enough. So I bend what we've got, slowly." } },
-      choices = { { text = "...", next = "END" } },
+      lines = { { id = "w_default", text = "Dry country and crooked trees. Elwynn wood's better, but the wagons don't get through often enough, so I bend what we've got, slowly." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     learn = {
       lines = {
-        { id = "l_father", text = "My father made bows for farmers who hunted rabbits. Now I make them for farmers who hunt thieves. Same wood. Worse times." },
+        { id = "l_father", text = "I made bows for farmers who hunted rabbits, at first. Then the thieves came and the farmers wanted bigger bows, so it's the same wood in worse times." },
       },
-      choices = { { text = "Times will turn.", next = "END", fx = { affinity = 1 } } },
+      choices = { { text = "Times will turn.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    hunter = {
+      lines = { { id = "hu_default", text = "Something that pulls smooth and forgives a cold morning. Not the prettiest on the rack. The one you'll still trust in the Dagger Hills at dusk." } },
+      choices = {
+        { text = "Show me that one.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "I sell bows. Ask me about bows." } },
+    background = { { id = "tp_bg", text = "I'm a bowyer, working Westfall wood with Westfall patience, and there's nothing else worth telling." } },
+    advice = { { id = "tp_ad", text = "Keep your string dry and your quiver full. Out here you won't get a second chance to restock." } },
+    _none = { { id = "tp_none", text = "I sell bows, friend, so ask me about bows." } },
   },
 }

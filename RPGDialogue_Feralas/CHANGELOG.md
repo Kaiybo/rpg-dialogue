@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.4.0 (unreleased)
+- Voice pass: Shandris, Pratt, Shyria, Rok Orhan, Orwin and Greul now talk in whole sentences instead of clipped fragments, each in their own voice; what they say is unchanged.
+
 ## 1.3.0 (unreleased)
 - For a priest: ask Shandris about Elune and the Light.
 

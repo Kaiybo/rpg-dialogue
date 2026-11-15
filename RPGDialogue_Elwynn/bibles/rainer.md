@@ -5,7 +5,7 @@
 - https://warcraft.wiki.gg/wiki/A_Bundle_of_Trouble (Supervisor Raelen asked him about Eastvale's animals; he's at the far end of the forest)
 
 ## Their quests
-- Westbrook Garrison Needs Help! / Riverpaw Gnoll Bounty: hold the west road.
+- Westbrook Garrison Needs Help! / Riverpaw Gnoll Bounty: hold the west road. A big Riverpaw pack in the woods south of the guard tower, another near Stone Cairn Lake; painted gnoll armbands as proof.
 - Report to Gryan Stoutmantle: Westfall needs the help more.
 - The Hogger notice by his post.
 
@@ -37,3 +37,10 @@ Honest; bitter about the court.
 
 ## Topics
 hogger, defias, westfall
+
+## Depth and voice rewrite (Elwynn, second half; authored, not canon unless sourced)
+- Source added: https://warcraft.wiki.gg/wiki/Riverpaw_Gnoll_Bounty ; his Classic gossip (beasts and thieves spilling into Elwynn, barely enough men to keep the roads safe; officials sending the army abroad).
+- Where the army is: "abroad, and nobody tells a deputy where" (the source doesn't say).
+- h_raelen now has key = true so Raelen can answer it.
+- Gated: heardLine raelen.h_rainer, human_westfall_farmhand, priest, warrior or paladin on the walls.
+- Voice pass (2026-11-15): every line rewritten as whole spoken sentences (no stacked fragments); meaning, ids and conditions unchanged.

@@ -39,3 +39,8 @@ redridge_gnolls, blackrock, everstill_bridge
 
 ## Depth pass (0.25.0, authored, not canon)
 A repeat-visit line (night line for some) in the voice above.
+
+## Depth rewrite (Redridge 1.3.0)
+Sources read: Verner_Osgood (Classic gossip: dire straits), The_Price_of_Shoes, Return_to_Verner (Argus sends 50 horseshoes with a note asking to be paid; Verner is outraged), Underbelly_Scales (scales from black dragon whelps south of Lakeshire to pay Argus, enough left to make you something), A_Baying_of_Gnolls (brutes and mystics on the ridge north of his stable), Howling_in_the_Hills (Yowler's cry louder than the rest; the army too busy with orcs for gnolls), Redridge_pack.
+- Branches: Argus (which of them is better, the bill, the scales), the gnolls (Yowler), the iron. Gated: Blacksmithing (he asks where you get iron), paladin 40+ (a summoned warhorse needs no shoes).
+- Authored, not canon: the rivalry with Argus (earlier pass); the warhorse joke.

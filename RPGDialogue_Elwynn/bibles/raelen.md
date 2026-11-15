@@ -35,3 +35,9 @@ Trustworthy, impatient.
 
 ## Topics
 eastvale, kobolds
+
+## Depth and voice rewrite (Elwynn, second half; authored, not canon unless sourced)
+- Source: her in-game barks at the Eastvale peasants (daylight, the quota, the wagon by day's end), https://warcraft.wiki.gg/wiki/Supervisor_Raelen
+- Authored: buyers queue faster than the lads can swing; the army took the strong backs abroad; Westfall workers who never complain worry her; she'd buy the army a map.
+- Gated: heardLine rainer.h_raelen (both deputies now echo each other), warrior swinging an axe, priest tending the lads, human_westfall_farmhand.
+- Voice pass (2026-11-15): every line rewritten as whole spoken sentences (no stacked fragments); meaning, ids and conditions unchanged.

@@ -35,3 +35,8 @@ Honest; biased toward the masons' grievance.
 
 ## Topics
 defias, westfall
+
+## Depth pass (Stormwind 1.6.0)
+Sources added: https://warcraft.wiki.gg/wiki/Humble_Beginnings (the Alexston farm west of Sentinel Hill, burned and taken by thieves; his father hid things there; his first compass), https://warcraft.wiki.gg/wiki/Bazil_Thredd_(quest) (senior masons were offered government posts; VanCleef refused out of loyalty), https://warcraft.wiki.gg/wiki/Report_on_the_Defias_Brotherhood (Thredd captured in the riots; Baros offered the post if he didn't join), https://warcraft.wiki.gg/wiki/Shadow_of_the_Past_(quest) (Shaw owes him an unexplained favour), https://warcraft.wiki.gg/wiki/An_Audience_with_the_King (Classic: Lady Prestor receives the report in the King's absence), https://warcraft.wiki.gg/wiki/Tiffin_Ellerian_Wrynn (the queen backed paying the masons and was killed by a thrown stone while calming the riot; backstory, 15 ADP).
+Branches: Edwin (the riot, the queen), who was paid, the farm and the compass, a Westfall farmhand, a noble's child. Lescovar-chain lines: Thredd, Maelik, Shaw's favour, the report for Prestor (dramatic irony), Lescovar's death.
+Authored, not canon: he thinks about the compass more than the Cathedral; he sleeps better after Lescovar's death.

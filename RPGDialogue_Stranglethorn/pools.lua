@@ -13,20 +13,20 @@ P:Pool {
   },
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
-      text = "Rough day in the jungle? Smith's on the boardwalk. Bring coin; he doesn't do charity." },
+      text = "Rough day in the jungle? There's a smith on the boardwalk, but bring coin; he doesn't do charity." },
     { id = "n_horde", cat = "status", when = { faction = "Horde" },
-      text = "Horde, huh? In here you're a customer. Past the shark's teeth you're on your own." },
+      text = "Horde, huh? In here you're a customer like anybody else, but past the shark's teeth you're on your own." },
     { id = "n_alliance", cat = "status", when = { faction = "Alliance" },
-      text = "Alliance, huh? Inside these walls nobody cares. Keep it that way and so will we." },
+      text = "Alliance, huh? Inside these walls nobody cares, and if you keep it that way, neither will we." },
   },
-  react = { { id = "r_stealth", on = "stealth", text = "Hey! I saw that shimmer. Sneaking's fine. Sneaking with your hand in a pocket isn't." } },
+  react = { { id = "r_stealth", on = "stealth", text = "Hey, I saw that shimmer! Sneaking about is your own business, but sneaking with your hand in somebody's pocket is ours." } },
   lines = {
-    { id = "l_default", text = "The Cartel says this town's neutral. We're the ones who make it neutral. Draw a weapon in town and see how quick we get there." },
+    { id = "l_default", text = "The Cartel says this town's neutral, but we're the ones who make it neutral. Draw a weapon in town and see how quick we get there." },
   },
   choices = { { text = "I'll behave.", next = "END", fx = { standing = { booty_bay = 1 } } } },
   topics = {
     bloodsail = { { id = "t_bloodsail", text = "Let 'em come. We've got cannons and a grudge." } },
-    steamwheedle = { { id = "t_cartel", text = "The Cartel pays us. That's all I care about the Cartel." } },
-    _none = { { id = "t_none", text = "Ask Krazek, by the tavern. He'll tell you. Then he'll bill you." } },
+    steamwheedle = { { id = "t_cartel", text = "The Cartel pays us, and that's all I need to know about the Cartel." } },
+    _none = { { id = "t_none", text = "Ask Krazek up at the tavern. He'll tell you whatever you want to know, and then he'll bill you for it." } },
   },
 }

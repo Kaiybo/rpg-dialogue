@@ -5,7 +5,10 @@
 - https://warcraft.wiki.gg/wiki/Morganth (fallen mage in the Tower of Ilgalar, Redridge; former student of Stormwind's mages; banished for dark magic; took Ur's Treatise on Shadow Magic; commands Shadowhide gnolls; Theocritus studies the gnolls' pendants and the Eye of Azora)
 
 ## Their quests
-- Theocritus' Retrieval, A Watchful Eye, Morganth: he wants Morganth watched, understood and ended. He sends others because he won't leave the tower.
+- Theocritus' Retrieval (Classic): his message through the Shadowhide pendants arrived weeks late; he hopes to send an attack through them to hold every gnoll wearing one.
+- A Watchful Eye, Looking Further (Classic): the Glyph of Azora on the Old Lion Statue by the Tower of Ilgalar, then a jar atop the watch tower beside Stonewatch Keep; Morganth is in conflict with the orcs there.
+- Morganth (Classic): Morganth seeks the Scythe of Elune; bring his Pendant of Shadow. The completion calls him a warlock.
+- He wants Morganth watched, understood and ended. He sends others because he won't leave the tower.
 
 ## Identity
 Theocritus <Mage of Tower Azora> · Tower of Azora · Alliance · Human · questgiver
@@ -35,3 +38,10 @@ Trustworthy on magic. Dismissive, so he underrates ordinary dangers.
 
 ## Topics
 morganth, defias, eastvale
+
+## Depth and voice rewrite (Elwynn, second half; authored, not canon unless sourced)
+- Sources added: https://warcraft.wiki.gg/wiki/Theocritus%27_Retrieval ; https://warcraft.wiki.gg/wiki/A_Watchful_Eye ; https://warcraft.wiki.gg/wiki/Looking_Further ; https://warcraft.wiki.gg/wiki/Morganth_(quest) ; https://warcraft.wiki.gg/wiki/Tower_of_Azora (Servants of Azora are gnomes) ; https://warcraft.wiki.gg/wiki/Morganth (allied with the Blackrock to take Stonewatch Keep, then turned on them)
+- Not used: his Kirin Tor past and Karlain (the Dark Riders comic, Cataclysm era); the Gadgetzan Times interview; the RPG books.
+- Authored: the gnomes never ask him to fix ploughs; he has never asked where they come from; "if a book is sealed, the seal is the most important thing in it".
+- Gated: mage, warlock, priest 20+ (shadow narrows), gnome, human_minor_noble, Morganth done.
+- Voice pass (2026-11-15): every line rewritten as whole spoken sentences (no stacked fragments); meaning, ids and conditions unchanged.

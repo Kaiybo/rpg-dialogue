@@ -2,6 +2,12 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.2.0 (unreleased)
+- Depth: Raene, Pelturas, Relara, Faldreas, Kimlya and Delgren in Astranaar and Maestra's Post, and Senani, Mastok and Kuray'bin at Splintertree, are now conversations to explore. Raene on Teronis and Dartol's rod, the Warsong and her two companions; Pelturas on Orendil and Fallen Sky Lake; Relara on her papa and the bog monsters (and your pet, by name); Delgren on the Dark Strand, the night elves and why he learned Orcish.
+- Replies for hunters, druids and priests (Raene's wounded scouts), paladins and priests at Maestra's Post, travellers far from Stormwind or Ironforge (Faldreas), and on the Horde side hunters, tauren, orcs, Darkspear trolls and rogues.
+- Classic fixes: Trek to Ashenvale (Sentinel Selarin) replaces the later Onward to Ashenvale; Faldreas sends you to Stonetalon Peak (Journey to Stonetalon Peak) instead of the later Edunes; Mastok's errand is Stonetalon Standstill; Delgren learned Orcish to understand his enemies, as his quest says.
+- Voice pass: every line now speaks in whole sentences.
+
 ## 1.1.0 (unreleased)
 - Depth pass: repeat visits now bring personal lines (habits, worries, opinions of the neighbours), night-time lines, and a question or two about the person themselves, not only their quests.
 - Faldreas's list, Kimlya, Relara, Kuray'bin, Mastok.

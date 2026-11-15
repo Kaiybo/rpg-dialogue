@@ -15,7 +15,7 @@ P:NPC {
 
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
-      text = "Kurzen's men did that? Or the jungle? Either way, sit down before you fall down. We'll find you a patch." },
+      text = "Kurzen's men did that, or the jungle? Either way, sit down before you fall down, and we'll find you a patch." },
     { id = "n_soldier", cat = "soldier", when = { class = { "WARRIOR", "PALADIN" } },
       text = "You carry yourself like someone who's served. Then you'll understand that we didn't leave lightly." },
   },
@@ -25,20 +25,20 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Lieutenant Doren. We came into this jungle under Colonel Kurzen. Something took his mind, and his closest men with it. The rest of us left to find out what." },
+          text = "Lieutenant Doren. We came into this jungle under Colonel Kurzen, and something took his mind, and his closest men with it. The rest of us left to find out what." },
         { id = "h_secrets", tags = { "news" }, when = { questActive = TODO_QUEST("Jungle Secrets") },
-          text = "Private Thorsen was our man inside the Colonel's camp. Someone gave him away. I want the name." },
+          text = "Private Thorsen was our man inside the Colonel's camp, and someone gave him away. I want the name." },
         { id = "h_herod", when = { questActive = TODO_QUEST("Bookie Herod") },
           text = "Bookie Herod takes bets from anyone with coin, and I think he takes coin from Kurzen too. Find out." },
         { id = "h_spy", when = { questActive = TODO_QUEST("The Spy Revealed!") },
-          text = "So now we know who sold us. Good. Now we deal with it, and quietly." },
+          text = "So now we know who sold us. Good; now we deal with it, and quietly." },
         { id = "h_patrol", when = { questActive = TODO_QUEST("Patrol Schedules") },
           text = "If we know when Kurzen's men march, we know when to hit them. Bring me their schedules." },
         { id = "h_kurzen", when = { questActive = TODO_QUEST("Colonel Kurzen") },
-          text = "It's time. He won't come back to himself; we've waited long enough to be sure. End it." },
-        { id = "h_roll", when = { metBefore = true }, text = "Called the roll this morning. Two short. They'll walk in by dusk, or they won't. I've stopped guessing which." },
+          text = "It's time. He won't come back to himself, and we've waited long enough to be sure, so end it." },
+        { id = "h_roll", when = { metBefore = true }, text = "Called the roll this morning, and we're two short. They'll walk in by dusk or they won't, and I've stopped guessing which." },
         { id = "h_after", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Colonel Kurzen"), days = 3 } },
-          text = "The men keep asking me what he said at the end. I tell them it doesn't matter. I'd like to believe that myself." },
+          text = "The men keep asking me what he said at the end. I tell them it doesn't matter, and I'd like to believe that myself." },
       },
       again = {
         { id = "h_again", text = "Go on. I've a few minutes before the next patrol comes in." },
@@ -62,7 +62,7 @@ P:NPC {
     mind = {
       big = true,
       lines = {
-        { id = "m_default", text = "Brother Nimetz thinks it was troll magic. To me it hardly matters what it was. The man who led us here is gone." },
+        { id = "m_default", text = "Brother Nimetz thinks it was troll magic. To me it hardly matters what it was, because the man who led us here is gone." },
       },
       choices = {
         { text = "Troll magic? What does the Brother know?", next = "mind_nimetz", fx = { trait = { curious = 1 } } },
@@ -75,7 +75,7 @@ P:NPC {
       lines = {
         { id = "mn_default", text = "That his medicine men brew something, and the Colonel drank it first. Nimetz keeps samples in bottles by his cot. I don't sleep near them." },
         { id = "mn_priest", when = { class = "PRIEST" },
-          text = "Ask him yourself; he'll be glad of a priest who can follow him. I can't. I hear 'elixir' and 'curse' and stop listening at 'possibly'." },
+          text = "Ask him yourself; he'll be glad of a priest who can follow him, because I can't. I hear 'elixir' and 'curse' and stop listening at 'possibly'." },
       },
       choices = {
         { text = "I'll talk to him.", next = "BACK", fx = { learn = { "kurzen" } } },
@@ -84,7 +84,7 @@ P:NPC {
     },
     mind_cure = {
       lines = {
-        { id = "mc_default", text = "Then I'll be the first to cheer. And I'll still keep my sword on. A cure doesn't bring back the men he sent into the trees." },
+        { id = "mc_default", text = "Then I'll be the first to cheer, and I'll still keep my sword on. A cure doesn't bring back the men he sent into the trees." },
       },
       choices = {
         { text = "Fair. Something else.", next = "BACK" },
@@ -96,7 +96,7 @@ P:NPC {
     },
     mind_before = {
       lines = {
-        { id = "mb_default", text = "Careful. Fair. He'd walk the line at night and know every man's name. That's the part I can't square." },
+        { id = "mb_default", text = "Careful, and fair. He'd walk the line at night and know every man's name, and that's the part I can't square." },
       },
       choices = {
         { text = "People change out here.", next = "BACK", fx = { trait = { skeptical = 1 } } },
@@ -117,7 +117,7 @@ P:NPC {
     },
     left_stormwind = {
       lines = {
-        { id = "ls_default", text = "I sent word. Twice. If an answer came, it went to the Colonel's tent. So I've no idea what Stormwind thinks of us." },
+        { id = "ls_default", text = "I sent word, twice. If an answer came, it went to the Colonel's tent, so I've no idea what Stormwind thinks of us." },
         { id = "ls_noble", when = { origin = "human_minor_noble" },
           text = "Your sort might know better than I do. Somebody in the Keep signed for this expedition. I'd like to hear they still remember it." },
       },
@@ -128,7 +128,7 @@ P:NPC {
     },
     left_word = {
       lines = {
-        { id = "lw_default", text = "Kind of you. Wait until it's over. I'd rather they read one report than two." },
+        { id = "lw_default", text = "That's kind of you, but wait until it's over. I'd rather they read one report than two." },
       },
       choices = { { text = "Understood.", next = "BACK", fx = { align = { order = 1 } } } },
     },
@@ -139,7 +139,7 @@ P:NPC {
         { id = "i_herod", when = { questActive = TODO_QUEST("Bookie Herod") },
           text = "Herod takes bets on anything, including whether my patrols come back. A man like that doesn't care where his coin comes from." },
         { id = "i_known", when = { questDone = TODO_QUEST("The Spy Revealed!") },
-          text = "We know now. I won't say it twice. Some of the men drank with him." },
+          text = "We know now, and I won't say it twice. Some of the men drank with him." },
       },
       choices = {
         { text = "Could it be one of your own?", next = "informant_own", when = { ["not"] = { questDone = TODO_QUEST("The Spy Revealed!") } } },
@@ -149,7 +149,7 @@ P:NPC {
     },
     informant_own = {
       lines = {
-        { id = "io_default", text = "I've thought it. I look at every face at roll call and think it. That's what this has done to us." },
+        { id = "io_default", text = "I've thought it. I look at every face at roll call and think it, and that's what this has done to us." },
       },
       choices = {
         { text = "Trust your men until there's proof.", next = "BACK", fx = { align = { honor = 2 }, affinity = 1 } },
@@ -178,13 +178,13 @@ P:NPC {
     },
     men_thorsen = {
       lines = {
-        { id = "mt_default", text = "Volunteered to wear their colors and walk into their camp. Came back thinner and quieter. Go easy with him." },
+        { id = "mt_default", text = "He volunteered to wear their colors and walk into their camp, and he came back thinner and quieter. Go easy with him." },
       },
       choices = { { text = "I will.", next = "BACK", fx = { affinity = 1 } } },
     },
     men_need = {
       lines = {
-        { id = "mnn_default", text = "Food that isn't roots. Dry boots. A reason. Booty Bay sells the first two, if Krazek remembers we exist." },
+        { id = "mnn_default", text = "Food that isn't roots, dry boots, and a reason. Booty Bay sells the first two, if Krazek remembers we exist." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -204,7 +204,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     soldier_refused = {
-      lines = { { id = "sr_default", text = "Good. Somebody has to. Out here it was a whole camp of us, at least. I'd not have liked doing it alone." } },
+      lines = { { id = "sr_default", text = "Good; somebody has to. Out here it was a whole camp of us, at least, and I'd not have liked doing it alone." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
     },
 
@@ -230,7 +230,7 @@ P:NPC {
     },
     done_now = {
       lines = {
-        { id = "dn_default", text = "Now we bury who we can and take the rest home to Stormwind. Assuming anyone there remembers sending us." },
+        { id = "dn_default", text = "Now we bury who we can and take the rest home to Stormwind, assuming anyone there remembers sending us." },
       },
       choices = {
         { text = "They'll remember. I'll see to it.", next = "END", fx = { affinity = 2, standing = { rebel_camp = 2 } },
@@ -240,7 +240,7 @@ P:NPC {
       },
     },
     priest_dead = {
-      lines = { { id = "pd_default", text = "We buried them without a priest. Nimetz was busy with the living, and I said what words I could remember. Would you? The graves are past the tents. The men would like to see it done properly." } },
+      lines = { { id = "pd_default", text = "We buried them without a priest; Nimetz was busy with the living, and I said what words I could remember. Would you? The graves are past the tents, and the men would like to see it done properly." } },
       choices = {
         { text = "I'll go tonight.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, standing = { rebel_camp = 2 }, trait = { pious = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -250,8 +250,8 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "Stormwind officer, Kurzen's expedition, and now this clearing. Every step of it was an order but the last.", next = "left" } },
-    advice = { { id = "tp_ad", text = "If a soldier in Kurzen's colours offers you a drink, decline it. Then walk away. Then run." } },
-    kurzen = { { id = "tp_kurzen", text = "He was a good officer once. Don't let anyone tell you different. That's what makes this hard." } },
+    advice = { { id = "tp_ad", text = "If a soldier in Kurzen's colours offers you a drink, decline it, then walk away, and then run." } },
+    kurzen = { { id = "tp_kurzen", text = "He was a good officer once, and don't let anyone tell you different. That's what makes this hard." } },
     _none = { { id = "tp_none", text = "Ask the Brother. He does the thinking around here." } },
   },
 }
@@ -269,9 +269,9 @@ P:NPC {
 
   notice = {
     { id = "n_shadow", cat = "form", when = { form = "shadow" },
-      text = "Shadow. I study dark things for a living, and I'd still rather you stood downwind. I'm joking. Mostly. Sit, if you like." },
+      text = "Shadow, is it? I study dark things for a living, and I'd still rather you stood downwind, though I'm mostly joking. Sit, if you like." },
     { id = "n_light", cat = "class", when = { class = { "PRIEST", "PALADIN" } },
-      text = "A servant of the Light, out here. Then pray with me tonight. These men need it, and so do I." },
+      text = "A servant of the Light, out here! Then pray with me tonight, for these men need it, and so do I." },
     { id = "n_alch", cat = "craft", when = { profession = "Alchemy" },
       text = "An alchemist! Would you look at this residue for me? I've my suspicions, but a second eye never hurts." },
   },
@@ -281,20 +281,20 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Brother Nimetz. I came with the Colonel's expedition to tend the sick. Now I study what made them sick in the mind." },
+          text = "Brother Nimetz. I came with the Colonel's expedition to tend the sick, and now I study what made them sick in the mind." },
         { id = "h_mystery", when = { questActive = TODO_QUEST("Kurzen's Mystery") },
           text = "I have a theory about what took the Colonel. I need proof before I say it aloud." },
         { id = "h_witchery", when = { questActive = TODO_QUEST("Troll Witchery") },
           text = "Troll magic, I'm nearly sure of it now. Bring me what I asked for and we'll be certain." },
         { id = "h_maizoth", tags = { "news" }, when = { questActive = TODO_QUEST("Mai'Zoth") },
-          text = "Mai'Zoth. An ogre mage, and the root of it all. I swore he'd die before anyone else lost their mind the way the Colonel did." },
-        { id = "h_dreams", when = { metBefore = true }, text = "One of the men woke screaming again. The Colonel's name. Whatever touched Kurzen's mind touches their dreams too." },
+          text = "Mai'Zoth, an ogre mage, is the root of it all. I swore he'd die before anyone else lost their mind the way the Colonel did." },
+        { id = "h_dreams", when = { metBefore = true }, text = "One of the men woke screaming the Colonel's name again. Whatever touched Kurzen's mind touches their dreams too." },
         { id = "h_maizoth_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Mai'Zoth"), days = 3 } },
-          text = "I kept my vow, through your hands. I said a prayer for him anyway. I'm not sure the Light approves of that, but I am." },
+          text = "I kept my vow, through your hands, and I said a prayer for him anyway. I'm not sure the Light approves of that, but I am." },
       },
       again = {
         { id = "h_again", text = "Yes? Mind the flask by your elbow. That one I'm still not sure about." },
-        { id = "h_again2", text = "Another question? Good. Questions are the only medicine I trust out here." },
+        { id = "h_again2", text = "Another question? Good; questions are the only medicine I trust out here." },
       },
       choices = {
         { text = "What made them sick?", next = "elixir" },
@@ -318,9 +318,9 @@ P:NPC {
     },
     elixir_source = {
       lines = {
-        { id = "es_default", text = "Not Kurzen's men. They haven't the learning. Someone in this jungle who knows minds better than I'd like. I've a name, and a vow to go with it." },
+        { id = "es_default", text = "Not Kurzen's men; they haven't the learning. It's someone in this jungle who knows minds better than I'd like, and I've a name for him, and a vow to go with it." },
         { id = "es_known", when = { questDone = TODO_QUEST("Mai'Zoth") },
-          text = "An ogre mage who knew minds better than I'd like. Knew. I keep correcting myself." },
+          text = "An ogre mage who knew minds better than I'd like. Knew, I should say; I keep correcting myself." },
       },
       choices = {
         { text = "A vow? That's a heavy thing for a healer.", next = "elixir_vow" },
@@ -347,7 +347,7 @@ P:NPC {
 
     craft = {
       lines = {
-        { id = "c_default", text = "More often than you'd think. Both are patience, clean hands, and knowing exactly what you put in. My abbot called it a hobby. Out here it's the job." },
+        { id = "c_default", text = "More often than you'd think. Both are patience, clean hands, and knowing exactly what you put in. My abbot called it a hobby, but out here it's the job." },
       },
       choices = {
         { text = "Where did you learn?", next = "craft_learn" },
@@ -358,14 +358,14 @@ P:NPC {
       lines = {
         { id = "cl_default", text = "Bandaging soldiers who'd been at the wrong mushrooms. You learn quickly what the body forgives and what it doesn't." },
         { id = "cl_dwarf", when = { race = "Dwarf" },
-          text = "Ironforge, partly. A dwarf brewer taught me more about what makes a mind wander than any book. He meant it as a joke. It wasn't." },
+          text = "Ironforge, partly. A dwarf brewer taught me more about what makes a mind wander than any book, and he meant it as a joke, but it wasn't." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
 
     men = {
       lines = {
-        { id = "m_default", text = "Bodies, better than you'd think. Minds, worse. They argue about whether they're deserters. I tell them the Light doesn't keep that ledger." },
+        { id = "m_default", text = "Their bodies are better than you'd think, and their minds are worse. They argue about whether they're deserters, and I tell them the Light doesn't keep that ledger." },
       },
       choices = {
         { text = "Doesn't it?", next = "men_ledger", fx = { trait = { skeptical = 1 } } },
@@ -374,11 +374,11 @@ P:NPC {
       },
     },
     men_ledger = {
-      lines = { { id = "ml_default", text = "If it does, I hope it's kinder than Stormwind's. Ask me again when this is over. I may have a better answer." } },
+      lines = { { id = "ml_default", text = "If it does, I hope it's kinder than Stormwind's. Ask me again when this is over, and I may have a better answer." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     men_doren = {
-      lines = { { id = "md_default", text = "Carries every one of them. Won't let me carry any of him. Don't tell him I said so." } },
+      lines = { { id = "md_default", text = "He carries every one of them, and won't let me carry any of him. Don't tell him I said so." } },
       choices = { { text = "I won't.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } } },
     },
 
@@ -392,13 +392,13 @@ P:NPC {
       },
     },
     pray_kurzen = {
-      lines = { { id = "pk_default", text = "Yes. Yes, him too. Thank you. Doren would call that soft, and he'd be wrong." } },
+      lines = { { id = "pk_default", text = "Yes, yes, him too, and thank you. Doren would call that soft, and he'd be wrong." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
     },
 
     residue = {
       lines = {
-        { id = "r_default", text = "Here. Smell it, don't taste it. What do you make of that green rim?" },
+        { id = "r_default", text = "Here, smell it, but don't taste it. What do you make of that green rim?" },
       },
       choices = {
         { text = "Something's been added that shouldn't dissolve.", next = "residue_right", fx = { affinity = 2, trait = { curious = 1 } } },
@@ -406,7 +406,7 @@ P:NPC {
       },
     },
     residue_right = {
-      lines = { { id = "rr_default", text = "That's what I thought. Something carried, not brewed. Which means someone's bringing it to them." } },
+      lines = { { id = "rr_default", text = "That's what I thought: something carried, not brewed, which means someone's bringing it to them." } },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "kurzen" } } } },
     },
     residue_wrong = {
@@ -417,7 +417,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "A priest with an alchemist's habits, sent with an expedition that needed a healer. It needed more than one." } },
-    advice = { { id = "tp_ad", text = "Don't drink anything in this jungle you didn't see poured. Not water, not wine, not medicine." } },
+    advice = { { id = "tp_ad", text = "Don't drink anything in this jungle you didn't see poured, not water, not wine, not medicine." } },
     kurzen = { { id = "tp_kurzen", text = "I prayed for him every night. Now I pray for whoever finally stops him." } },
     _none = { { id = "tp_none", text = "I'm afraid I've no answer. I'll add it to my list of questions; it's a long list." } },
   },
@@ -435,27 +435,27 @@ P:NPC {
 
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
-      text = "You ran into Kurzen's men, didn't you? They fight like they've got nothing left to lose. They haven't." },
+      text = "You ran into Kurzen's men, didn't you? They fight like they've got nothing left to lose, and they haven't." },
   },
 
-  react = { { id = "r_stealth", on = "stealth", text = "Good. Stay low. That's how I lived through Kurzen's camp. Mostly." } },
+  react = { { id = "r_stealth", on = "stealth", text = "Good, stay low. That's how I lived through Kurzen's camp, mostly." } },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Private Thorsen. I spent time inside Kurzen's force, pretending to be one of them, and nearly didn't come out. I know what they're planning. Some of it." },
+          text = "Private Thorsen. I spent time inside Kurzen's force, pretending to be one of them, and nearly didn't come out, so I know what they're planning, or some of it." },
         { id = "h_supplies", tags = { "news" }, when = { questActive = TODO_QUEST("Supplies to Private Thorsen") },
-          text = "Supplies from Booty Bay? Bless Krazek, he remembered. I've been eating roots for a week." },
+          text = "Supplies from Booty Bay? Bless Krazek, he actually remembered us! I've been eating roots for a week." },
         { id = "h_secrets", when = { questActive = TODO_QUEST("Jungle Secrets") },
-          text = "Kurzen's men carry orders, and orders are paper, and paper talks. Bring me what they carry. Lieutenant Doren needs to know what I know." },
+          text = "Kurzen's men carry orders, and orders are paper, and paper talks. Bring me what they carry; Lieutenant Doren needs to know what I know." },
         { id = "h_sleep", when = { metBefore = true },
-          text = "I still wake up reaching for their uniform. Then I remember which side I'm on. It takes a moment longer than I'd like." },
+          text = "I still wake up reaching for their uniform, and then I remember which side I'm on. It takes a moment longer than I'd like." },
       },
       again = {
-        { id = "h_again", text = "Something else? Talk low." },
-        { id = "h_again2", text = "Go on. I'm listening. I'm always listening, these days." },
+        { id = "h_again", text = "Something else? Keep it low, then." },
+        { id = "h_again2", text = "Go on, I'm listening. I'm always listening, these days." },
       },
       choices = {
         { text = "What was it like in there?", next = "inside" },
@@ -469,7 +469,7 @@ P:NPC {
 
     inside = {
       lines = {
-        { id = "in_default", text = "Quiet. That's what scared me. Nobody joked. They drank the medicine men's cup at dusk and stared at the fire like it was telling them something." },
+        { id = "in_default", text = "Quiet, and that's what scared me. Nobody joked; they drank the medicine men's cup at dusk and stared at the fire like it was telling them something." },
       },
       choices = {
         { text = "Did you drink it?", next = "inside_drink" },
@@ -478,22 +478,22 @@ P:NPC {
       },
     },
     inside_drink = {
-      lines = { { id = "id_default", text = "Poured it down my shirt, mostly. Mostly. Brother Nimetz checks my eyes every morning. Says they're fine. I check them again after." } },
+      lines = { { id = "id_default", text = "I poured it down my shirt, mostly, and I do mean mostly. Brother Nimetz checks my eyes every morning and says they're fine, and I check them again after." } },
       choices = {
         { text = "You did well.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Tell Nimetz everything. Even the 'mostly'.", next = "BACK", fx = { trait = { cautious = 1 }, affinity = 1 } },
       },
     },
     inside_nerve = {
-      lines = { { id = "inn_default", text = "Counted things. Tents, boots, men on watch. You can't be afraid and count at the same time. Try it." } },
+      lines = { { id = "inn_default", text = "I counted things: tents, boots, men on watch. You can't be afraid and count at the same time, so try it." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
 
     plans = {
       lines = {
-        { id = "pl_default", text = "They march on a schedule, like soldiers still. That's the strange part. Whatever's in their heads, the drill is still there." },
+        { id = "pl_default", text = "They march on a schedule, like soldiers still, and that's the strange part. Whatever's in their heads, the drill is still there." },
         { id = "pl_done", when = { questDone = TODO_QUEST("Patrol Schedules") },
-          text = "Doren has their schedules now. Thanks to you. First time in weeks we've known where they'll be before they get there." },
+          text = "Doren has their schedules now, thanks to you, and it's the first time in weeks we've known where they'll be before they get there." },
       },
       choices = {
         { text = "Then Doren can use that drill against them.", next = "BACK", fx = { trait = { curious = 1 } } },
@@ -501,15 +501,15 @@ P:NPC {
       },
     },
     plans_stormwind = {
-      lines = { { id = "ps_default", text = "Never. Not once. Like it was somewhere they'd read about. That bothered me more than the trolls." } },
+      lines = { { id = "ps_default", text = "Never, not once, as if it was somewhere they'd read about. That bothered me more than the trolls." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
     betrayed = {
       lines = {
-        { id = "b_default", text = "If I knew, I'd have told the Lieutenant before I'd sat down. Someone knew my face. That's all I have." },
+        { id = "b_default", text = "If I knew, I'd have told the Lieutenant before I'd sat down. Someone knew my face, and that's all I have." },
         { id = "b_known", when = { questDone = TODO_QUEST("The Spy Revealed!") },
-          text = "The Lieutenant told me. I'd rather not say it out loud. I liked him." },
+          text = "The Lieutenant told me, but I'd rather not say it out loud. I liked him." },
       },
       choices = {
         { text = "Do you want revenge?", next = "betrayed_revenge" },
@@ -533,9 +533,9 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Private, Stormwind army. Spy, for a while. Private again, now. I liked being a private better." } },
-    advice = { { id = "tp_ad", text = "Count things when you're scared. Boots, tents, trees. It keeps your hands still." } },
-    kurzen = { { id = "tp_kurzen", text = "The Colonel's not himself. His officers aren't either. Whatever's in that compound is in their heads now." } },
-    _none = { { id = "tp_none", text = "I only know Kurzen. That's more than enough." } },
+    background = { { id = "tp_bg", text = "A private in the Stormwind army, then a spy for a while, and a private again now. I liked being a private better." } },
+    advice = { { id = "tp_ad", text = "Count things when you're scared: boots, tents, trees. It keeps your hands still." } },
+    kurzen = { { id = "tp_kurzen", text = "The Colonel's not himself, and his officers aren't either. Whatever's in that compound is in their heads now." } },
+    _none = { { id = "tp_none", text = "I only know Kurzen, and that's more than enough." } },
   },
 }

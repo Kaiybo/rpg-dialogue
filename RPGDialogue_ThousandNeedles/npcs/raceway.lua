@@ -10,15 +10,15 @@ P:NPC {
   notices = { "craft", "status" },
 
   greetings = {
-    { id = "g_race", text = "Hey hey! Here for the race? There's always a race. Every day, rain or shine. Mostly shine. It's a salt flat." },
-    { id = "g_back", when = { metBefore = true }, text = "My favorite spectator returns! You bet on us last time? Smart. Bet again." },
+    { id = "g_race", text = "Hey hey! Here for the race? There's always a race, every day, rain or shine, and mostly shine, since it's a salt flat." },
+    { id = "g_back", when = { metBefore = true }, text = "My favorite spectator returns! You bet on us last time? Smart, so bet again." },
   },
 
   notice = {
     { id = "n_eng", cat = "craft", when = { profession = "Engineering" },
-      text = "An engineer! Ever thought about rockets? Ever thought about bigger rockets? We should talk." },
+      text = "An engineer! Ever thought about rockets, or about bigger rockets? We should talk." },
     { id = "n_alliance", cat = "status", when = { faction = "Alliance" },
-      text = "Alliance, huh? Bet you're cheering for the gnomes. That's fine. Cheer loud; it makes winning sweeter." },
+      text = "Alliance, huh? Bet you're cheering for the gnomes, and that's fine; cheer loud, it makes winning sweeter." },
   },
 
   start = "hello",
@@ -26,19 +26,19 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Pozzik. I built this raceway with that gnome, Fizzle, to settle whose engineers are better. The answer's goblins. We just have to prove it every day." },
+          text = "Pozzik. I built this raceway with that gnome, Fizzle, to settle whose engineers are better, and the answer's goblins. We just have to prove it every day." },
         { id = "h_load", when = { questActive = TODO_QUEST("Load Lightening") },
-          text = "Vulture bones. Light, strong, and the flats are covered in vultures. Bring me a sack and I'll pay a fair price. Fair for me." },
+          text = "Vulture bones: light, strong, and the flats are covered in vultures. Bring me a sack and I'll pay a fair price, fair for me." },
         { id = "h_pilot", when = { questActive = TODO_QUEST("The Eighteenth Pilot") },
-          text = "Razzeric's our pilot. Eighteenth, if you're counting, and he does his own modifications. Try not to look surprised when you meet him." },
+          text = "Razzeric's our pilot, the eighteenth, if you're counting, and he does his own modifications. Try not to look surprised when you meet him." },
         { id = "h_rizzle", when = { questActive = TODO_QUEST("Rizzle's Schematics") },
-          text = "Rizzle's plans! Let me see. For safety reasons. Our safety, from losing." },
+          text = "Rizzle's plans! Let me see them, for safety reasons; our safety, from losing." },
         { id = "h_ore", when = { questActive = TODO_QUEST("Indurium Ore") },
-          text = "Indurium. The gnomes found it first, which is how they've been beating us. Not for much longer." },
+          text = "Indurium. The gnomes found it first, which is how they've been beating us, but not for much longer." },
       },
       again = {
         { id = "h_again", text = "What else? Talk fast, the next heat's in ten minutes." },
-        { id = "h_again2", text = "Still here? Good. Spectators who stay, bet." },
+        { id = "h_again2", text = "Still here? Good, because spectators who stay, bet." },
       },
       choices = {
         { text = "Who usually wins?", next = "wins" },
@@ -51,7 +51,7 @@ P:NPC {
       },
     },
     wins = {
-      lines = { { id = "w_default", text = "Depends who you ask. Ask me: goblins. Ask Fizzle: he'll lie to you with a straight face and a crooked wrench." } },
+      lines = { { id = "w_default", text = "Depends who you ask. Ask me, and it's goblins; ask Fizzle, and he'll lie to you with a straight face and a crooked wrench." } },
       choices = {
         { text = "And lately?", next = "wins_lately" },
         { text = "Something else.", next = "BACK", fx = { learn = { "mirage_raceway" } } },
@@ -66,11 +66,11 @@ P:NPC {
     },
     why = {
       big = true,
-      lines = { { id = "y_default", text = "Because some arguments you can't win talking. You need a mile of salt, two rockets and a crowd. Plus wagers. Mostly wagers." } },
+      lines = { { id = "y_default", text = "Because some arguments you can't win talking. You need a mile of salt, two rockets and a crowd, plus wagers, mostly wagers." } },
       choices = { { text = "Makes a strange kind of sense.", next = "BACK", fx = { affinity = 2, learn = { "mirage_raceway" } } } },
     },
     faster = {
-      lines = { { id = "f_default", text = "Every bit counts. Tension coils, power output, weight. We use vulture bones for the small frame work: light, strong, and the sky here rains vultures." } },
+      lines = { { id = "f_default", text = "Every bit counts: tension coils, power output, weight. We use vulture bones for the small frame work, because they're light and strong, and the sky here rains vultures." } },
       choices = {
         { text = "What about fuel?", next = "faster_fuel" },
         { text = "Something else.", next = "BACK" },
@@ -88,29 +88,29 @@ P:NPC {
       },
     },
     sponsors_part = {
-      lines = { { id = "spp_default", text = "A prototype fuel regulator, weeks ago. Gazlowe's never late. I wouldn't be pushy, except the gnomes are gaining. Ask him for me, if you're passing Ratchet?" } },
+      lines = { { id = "spp_default", text = "A prototype fuel regulator, weeks ago, and Gazlowe's never late. I wouldn't be pushy, except the gnomes are gaining, so ask him for me, if you're passing Ratchet?" } },
       choices = {
         { text = "I'll ask him.", next = "BACK", fx = { affinity = 2 } },
         { text = "Something else.", next = "BACK" },
       },
     },
     cheer = {
-      lines = { { id = "c_default", text = "Ha! Somebody with taste! Cheer loud. The gnomes' pit crew pretends not to hear it, but their ears go pink." } },
+      lines = { { id = "c_default", text = "Ha! Somebody with taste! Cheer loud; the gnomes' pit crew pretends not to hear it, but their ears go pink." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 3 } } },
     },
     spy = {
-      lines = { { id = "s_default", text = "A gnome spy would've stolen the plans already, not walked up and asked. Unless that's the trick. Is that the trick? Stand over there." } },
+      lines = { { id = "s_default", text = "A gnome spy would've stolen the plans already, not walked up and asked, unless that's the trick. Is that the trick? Stand over there, just in case." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } } },
     },
   },
 
 
   topics = {
-    background = { { id = "tp_ba", text = "Grew up with grease under my nails and a stopwatch in my hand. Now I own half a racetrack. The better half." } },
-    advice = { { id = "tp_ad", text = "Never bet against a goblin on a straight line. Corners, maybe. Straight lines, never." } },
-    mirage_raceway = { { id = "tp_raceway", text = "Best thing ever built on a salt flat. Also the only thing. That counts." } },
+    background = { { id = "tp_ba", text = "I grew up with grease under my nails and a stopwatch in my hand, and now I own half a racetrack, the better half." } },
+    advice = { { id = "tp_ad", text = "Never bet against a goblin on a straight line. Corners, maybe, but straight lines, never." } },
+    mirage_raceway = { { id = "tp_raceway", text = "Best thing ever built on a salt flat! Also the only thing, but that counts." } },
     steamwheedle = { { id = "tp_cartel", text = "The Cartel likes anything that sells tickets. We sell tickets." } },
-    _none = { { id = "tp_none", text = "Does it go fast? No? Then I don't follow it." } },
+    _none = { { id = "tp_none", text = "Does it go fast? If not, I don't follow it." } },
   },
 }
 
@@ -121,15 +121,15 @@ P:NPC {
   notices = { "craft", "race" },
 
   greetings = {
-    { id = "g_track", text = "Mind the track! And the fuel lines! And the nitro! Actually, just stand very still." },
-    { id = "g_back", when = { metBefore = true }, text = "You! Excellent! I've recalibrated everything since you were here. Twice." },
+    { id = "g_track", text = "Mind the track, and the fuel lines, and the nitro... actually, just stand very still!" },
+    { id = "g_back", when = { metBefore = true }, text = "You, excellent! I've recalibrated everything since you were here, twice." },
   },
 
   notice = {
     { id = "n_eng", cat = "craft", when = { profession = "Engineering" },
-      text = "A fellow engineer! Gnomish school, I hope? No? Well. There's time to improve." },
+      text = "A fellow engineer, and from the gnomish school, I hope! No? Well, there's always time to improve." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
-      text = "A gnome! Splendid! Gnomeregan may be lost, but gnomish engineering still wins races. Well, most of them." },
+      text = "A gnome, splendid! Gnomeregan may be lost, but gnomish engineering still wins races... well, most of them." },
   },
 
   start = "hello",
@@ -137,19 +137,19 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Fizzle Brassbolts, engineer and proud member of MEGA. Pozzik and I built this raceway to see whose engineering is superior. It's gnomish. Obviously." },
+          text = "Fizzle Brassbolts, engineer and proud member of MEGA! Pozzik and I built this raceway to see whose engineering is superior, and it's gnomish, obviously." },
         { id = "h_venom", when = { questActive = TODO_QUEST("Salt Flat Venom") },
-          text = "That venom is going into the fuel mix. The scorpids' venom is full of salt, and salt burns hot! Very hot! Don't ask about the math." },
+          text = "That venom is going into the fuel mix, because the scorpids' venom is full of salt, and salt burns hot, very hot! Don't ask about the math." },
         { id = "h_martek", when = { questActive = TODO_QUEST("Martek the Exiled") },
           text = "Martek! Out in the Badlands, in a camp, with a goblin! He knows more about metal than anyone alive, and I need pistons that won't crack." },
         { id = "h_news", tags = { "news" }, when = { questActive = TODO_QUEST("News for Fizzle") },
-          text = "News? For me? From Martek? Give it here!" },
+          text = "News, for me, from Martek? Give it here!" },
         { id = "h_delivery", when = { questActive = TODO_QUEST("Delivery to the Gnomes") },
-          text = "My hydro ratchets and repeater bolts! Let me check them for rattles. Rattles are bad. Ticking is worse." },
+          text = "My hydro ratchets and repeater bolts! Let me check them for rattles, because rattles are bad, and ticking is worse." },
       },
       again = {
         { id = "h_again", text = "Yes? Yes? Quickly, the pistons are cooling!" },
-        { id = "h_again2", text = "Another question! Splendid! I love questions. Nearly as much as rockets." },
+        { id = "h_again2", text = "Another question? Splendid, I love questions, nearly as much as rockets!" },
       },
       choices = {
         { text = "What's MEGA?", next = "mega" },
@@ -162,23 +162,23 @@ P:NPC {
       },
     },
     mega = {
-      lines = { { id = "m_default", text = "The Mechanical Engineers' Guild of Azeroth! We meet, we argue, we blow things up on purpose. It's very civilized." } },
+      lines = { { id = "m_default", text = "The Mechanical Engineers' Guild of Azeroth! We meet, we argue, and we blow things up on purpose; it's very civilized." } },
       choices = {
         { text = "On purpose?", next = "mega_purpose" },
         { text = "Something else.", next = "BACK", fx = { affinity = 1 } },
       },
     },
     mega_purpose = {
-      lines = { { id = "mp_default", text = "Mostly! An explosion you planned is an experiment. One you didn't is a lesson. Both are very educational for the eyebrows." } },
+      lines = { { id = "mp_default", text = "Mostly! An explosion you planned is an experiment, and one you didn't is a lesson. Both are very educational for the eyebrows." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     why = {
-      lines = { { id = "y_default", text = "Because they're there. And because they're wrong. Mostly the second." } },
+      lines = { { id = "y_default", text = "Because they're there, and because they're wrong. Mostly the second." } },
       choices = { { text = "Fair enough.", next = "BACK", fx = { affinity = 1, learn = { "mirage_raceway" } } } },
     },
     engine = {
       big = true,
-      lines = { { id = "e_default", text = "An engine so fast the car will fly! I know it! But every piston I make cracks under the stress. I need metal that doesn't care how hot it gets." } },
+      lines = { { id = "e_default", text = "An engine so fast the car will fly, I know it! But every piston I make cracks under the stress, so I need metal that doesn't care how hot it gets." } },
       choices = {
         { text = "Cars aren't meant to fly.", next = "engine_fly", fx = { trait = { skeptical = 1 } } },
         { text = "Who could make that metal?", next = "engine_who" },
@@ -189,43 +189,43 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     engine_who = {
-      lines = { { id = "ew_default", text = "Martek the Exiled! A smith, the best, far away in the Badlands. Nobody knows more about metal. Somebody should take him a letter. Hint, hint." } },
+      lines = { { id = "ew_default", text = "Martek the Exiled! He's a smith, the best, far away in the Badlands, and nobody knows more about metal. Somebody should take him a letter... hint, hint." } },
       choices = {
         { text = "I'll take it.", next = "BACK", fx = { affinity = 2 } },
         { text = "Something else.", next = "BACK" },
       },
     },
     brothers = {
-      lines = { { id = "b_default", text = "The Brassbolts brothers, yes! Wizzle handles the shells and fins. Rizzle handles the plans. I handle the genius. It's a very efficient arrangement." } },
+      lines = { { id = "b_default", text = "The Brassbolts brothers, yes! Wizzle handles the shells and fins, Rizzle handles the plans, and I handle the genius. It's a very efficient arrangement." } },
       choices = {
         { text = "Pozzik wants Rizzle's plans.", next = "brothers_plans", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     brothers_plans = {
-      lines = { { id = "bp_default", text = "Of course he does! Everyone does! That's why Rizzle sleeps on them. Well. Near them. Well. He means to." } },
+      lines = { { id = "bp_default", text = "Of course he does, everyone does! That's why Rizzle sleeps on them, well, near them, well, he means to." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
     },
     indurium = {
-      lines = { { id = "i_default", text = "Indurium! It laughs at heat! Martek's a genius. But flakes won't do; I need true ore, and that's deep in Uldaman. You've been to Uldaman? You'll love it. Probably." } },
+      lines = { { id = "i_default", text = "Indurium! It laughs at heat, and Martek's a genius, but flakes won't do; I need true ore, and that's deep in Uldaman. Have you been to Uldaman? You'll love it, probably." } },
       choices = {
         { text = "I'll bring you ore.", next = "BACK", fx = { affinity = 2, learn = { "uldaman" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "uldaman" } } },
       },
     },
     engineer = {
-      lines = { { id = "en_default", text = "Wonderful! Then you understand that 'it works' and 'it works twice' are entirely different claims. Keep your goggles on. Always. Even asleep." } },
+      lines = { { id = "en_default", text = "Wonderful! Then you understand that 'it works' and 'it works twice' are entirely different claims. Keep your goggles on, always, even asleep." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
     },
   },
 
 
   topics = {
-    background = { { id = "tp_ba", text = "Gnome, engineer, and the brains of the Brassbolts brothers. My brothers would say otherwise. They'd be wrong.", next = "brothers" } },
-    advice = { { id = "tp_ad", text = "Goggles! Always! I can't say it enough. Some of my colleagues can't see it at all, any more." } },
-    mirage_raceway = { { id = "tp_raceway", text = "My finest achievement. Shared, regrettably, with a goblin." } },
-    gnomeregan = { { id = "tp_gnomeregan", text = "I'd rather not. Let's talk about rockets instead. Rockets go up. Things should go up." } },
-    _none = { { id = "tp_none", text = "Not my department! Unless it has an engine." } },
+    background = { { id = "tp_ba", text = "Gnome, engineer, and the brains of the Brassbolts brothers. My brothers would say otherwise, but they'd be wrong.", next = "brothers" } },
+    advice = { { id = "tp_ad", text = "Goggles, always! I can't say it enough, and some of my colleagues can't see it at all, any more." } },
+    mirage_raceway = { { id = "tp_raceway", text = "My finest achievement, shared, regrettably, with a goblin." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "I'd rather not. Let's talk about rockets instead, because rockets go up, and things should go up." } },
+    _none = { { id = "tp_none", text = "Not my department, unless it has an engine!" } },
   },
 }
 
@@ -244,7 +244,7 @@ P:NPC {
     { id = "n_rich", cat = "purse", when = { money = { min = 500000 } },
       text = "That's a fine heavy purse. Ever had a sure thing on a race? I might know of one." },
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
-      text = "Had a few? Grand. Now, who bought 'em for ye? Not me, I hope. That'd be a waste." },
+      text = "Had a few, have ye? Grand, but who bought 'em for ye? Not me, I hope, for that'd be a waste." },
   },
 
   start = "hello",
@@ -254,17 +254,17 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Kravel Koalbeard. I fetch parts for the crews, pass along a word here an' there, an' now an' then the right car wins. Funny how that works." },
         { id = "h_parts", when = { any = { { questActive = TODO_QUEST("Rocket Car Parts") }, { questActive = TODO_QUEST("Parts for Kravel") } } },
-          text = "There's bits of rocket all over the flats from cars that didnae finish. Bring 'em to me. Both teams'll pay for 'em. Separately." },
+          text = "There's bits of rocket all over the flats from cars that didnae finish. Bring 'em to me, an' both teams'll pay for 'em, separately." },
         { id = "h_rumors", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("The Rumormonger") }, { questActive = TODO_QUEST("Rumors for Kravel") } } },
-          text = "Krazek, in Booty Bay. That goblin sells rumors by the pound. I buy 'em by the ounce an' sell 'em by the word." },
+          text = "Krazek, in Booty Bay. That goblin sells rumors by the pound, an' I buy 'em by the ounce an' sell 'em by the word." },
         { id = "h_goblins", when = { questActive = TODO_QUEST("Get the Goblins Drunk") },
-          text = "Here's the plan. The goblin pit boss gets a stout, on me. Very generous of me. Tomorrow, his crew's a wee bit slow." },
+          text = "Here's the plan: the goblin pit boss gets a stout, on me, which is very generous of me. Tomorrow, his crew's a wee bit slow." },
         { id = "h_gnomes", when = { questActive = TODO_QUEST("Get the Gnomes Drunk") },
-          text = "Now the gnomes. Fair's fair. If everybody's slow, nobody's slow, an' I collect on my wager." },
+          text = "Now the gnomes, for fair's fair. If everybody's slow, nobody's slow, an' I collect on my wager." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? Quietly, now." },
-        { id = "h_again2", text = "Aye? Lean in. The tent's thin." },
+        { id = "h_again2", text = "Aye? Lean in, the tent's thin." },
       },
       choices = {
         { text = "[Intimidate] You're rigging races. I could tell the crews.", tag = "Intimidate", next = "hush",
@@ -279,7 +279,7 @@ P:NPC {
       },
     },
     hush = {
-      lines = { { id = "hu_default", text = "Now, now. Nobody's rigged a thing. Here, for yer trouble, an' yer short memory. We understand each other." } },
+      lines = { { id = "hu_default", text = "Now, now, nobody's rigged a thing. Here, for yer trouble an' yer short memory; we understand each other." } },
       choices = { { text = "We do.", next = "END", fx = { affinity = -1, align = { order = -1 } } } },
     },
     laugh = {
@@ -294,32 +294,32 @@ P:NPC {
       },
     },
     sure_how = {
-      lines = { { id = "sh_default", text = "Little things. A delivery that arrives one wee piece short. Who'd miss one small worthless piece? Only a car doin' its top speed, that's who." } },
+      lines = { { id = "sh_default", text = "Little things, like a delivery that arrives one wee piece short. Who'd miss one small worthless piece? Only a car doin' its top speed, that's who." } },
       choices = {
         { text = "That's Fizzle's order you're talking about.", next = "BACK", fx = { align = { honor = 1 }, affinity = -1 } },
         { text = "Clever.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
       },
     },
     trade = {
-      lines = { { id = "t_default", text = "Parts, mostly: there's rocket scattered all over these flats. Errands. Words. A word from Booty Bay is worth more here than a gear, if it's the right word." } },
+      lines = { { id = "t_default", text = "Parts, mostly, since there's rocket scattered all over these flats, an' errands, an' words. A word from Booty Bay is worth more here than a gear, if it's the right word." } },
       choices = {
         { text = "Who do you buy words from?", next = "trade_words" },
         { text = "Something else.", next = "BACK" },
       },
     },
     trade_words = {
-      lines = { { id = "tw_default", text = "Krazek, in Booty Bay, an' a few others who'd rather I didnae say. Every rumor has a buyer. The trick's sellin' it twice." } },
+      lines = { { id = "tw_default", text = "Krazek, in Booty Bay, an' a few others who'd rather I didnae say. Every rumor has a buyer, an' the trick's sellin' it twice." } },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "steamwheedle" } } } },
     },
     stout = {
-      lines = { { id = "st_default", text = "A Fool's Stout, an' a wee bit of somethin' extra from a friend in Booty Bay. Nothin' harmful. Mostly. They'll wake up a touch slow an' very thirsty." } },
+      lines = { { id = "st_default", text = "A Fool's Stout, an' a wee bit of somethin' extra from a friend in Booty Bay. Nothin' harmful, mostly; they'll wake up a touch slow an' very thirsty." } },
       choices = {
         { text = "That's poisoning, Kravel.", next = "BACK", fx = { align = { honor = 1 }, affinity = -2 } },
         { text = "Something else.", next = "BACK" },
       },
     },
     light = {
-      lines = { { id = "li_default", text = "Does it? Well, the Light's no' placin' bets, so it's no' my concern. Pray for the losers if ye like. They'll need it more than me." } },
+      lines = { { id = "li_default", text = "Does it? Well, the Light's no' placin' bets, so it's no' my concern. Pray for the losers if ye like; they'll need it more than me." } },
       choices = {
         { text = "I'll pray for you too.", next = "BACK", fx = { affinity = -1, align = { light = 1 }, trait = { pious = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -336,6 +336,6 @@ P:NPC {
     background = { { id = "tp_ba", text = "A dwarf who found the flats more profitable than the mountain. That's all the story ye need." } },
     advice = { { id = "tp_ad", text = "Never drink anythin' at a racetrack ye didnae pour yerself. Trust me on that one." } },
     mirage_raceway = { { id = "tp_raceway", text = "Two crews, one track, an' a crowd that'll bet on anything. Paradise." } },
-    _none = { { id = "tp_none", text = "That one's not for sale. I don't have it, is the trouble." } },
+    _none = { { id = "tp_none", text = "That one's not for sale, an' the trouble is, I don't have it." } },
   },
 }

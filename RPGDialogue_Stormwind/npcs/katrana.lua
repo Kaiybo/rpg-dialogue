@@ -11,15 +11,15 @@ P:NPC {
 
   greetings = {
     { id = "g_cool", text = "Yes?" },
-    { id = "g_low", when = { maxLevel = 20 }, text = "Someone let you in. How generous of them." },
-    { id = "g_hero", when = { minLevel = 50 }, text = "Ah. One of our celebrated heroes. Do come closer. I so rarely get to see one up close." },
+    { id = "g_low", when = { maxLevel = 20 }, text = "Someone let you in, I see. How very generous of them." },
+    { id = "g_hero", when = { minLevel = 50 }, text = "Ah, one of our celebrated heroes. Do come closer; I so rarely get to see one up close." },
   },
 
   notice = {
     { id = "n_rags", cat = "status", when = { durability = { max = 0.3 } },
-      text = "You've walked into the king's hall dressed like a field hand after a hailstorm. Bolvar won't mention it. I will." },
+      text = "You've walked into the king's hall dressed like a field hand after a hailstorm. Bolvar is far too polite to mention it, but I am not." },
     { id = "n_ambition", cat = "ambition", when = { minLevel = 55 },
-      text = "You've grown very strong, haven't you. How interesting. I do so enjoy watching the strong. One learns where they'll go next." },
+      text = "You've grown very strong, haven't you? How interesting. I do so enjoy watching the strong, because one learns where they'll go next." },
   },
 
   start = "hello",
@@ -28,11 +28,11 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Lady Prestor. I advise the Regent on the use of the kingdom's resources. Someone must, and the Regent is so very busy being noble." },
         { id = "h_westfall", when = { topicKnown = "westfall" },
-          text = "Westfall. Yes. Farmers with pitchforks, writing letters. The crown cannot empty its purse every time a peasant is frightened." ,
+          text = "Westfall, yes: farmers with pitchforks, writing letters. The crown cannot empty its purse every time a peasant is frightened." ,
           fx = { hear = "prestor_patience" } },
         { id = "h_redridge", when = { visited = "Lakeshire" },
-          text = "Lakeshire's magistrate sends letters too. They all send letters. One begins to suspect the countryside has nothing better to do." },
-        { id = "h_anduin", text = "The young king is doing splendidly. He listens. That is the most important quality in a king, at his age. Listening." },
+          text = "Lakeshire's magistrate sends letters too; they all send letters. One begins to suspect the countryside has nothing better to do." },
+        { id = "h_anduin", text = "The young king is doing splendidly, because he listens, and that is the most important quality in a king at his age. Listening." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "Ah. One of the elves who came down out of the sky. The Kirin Tor do collect such curiosities." },
       },
@@ -50,7 +50,7 @@ P:NPC {
     },
     plead = {
       lines = {
-        { id = "p_default", text = "Everyone needs the crown's help. That's rather the problem with crowns. Patience. The Brotherhood will tire, or starve, or eat itself. They usually do." ,
+        { id = "p_default", text = "Everyone needs the crown's help, and that's rather the problem with crowns. Be patient, and the Brotherhood will tire, or starve, or eat itself, as they usually do." ,
           fx = { hear = "prestor_patience" } },
       },
       choices = {
@@ -66,7 +66,7 @@ P:NPC {
     },
     mercy = {
       big = true,
-      lines = { { id = "m_default", text = "The Church says a great many lovely things, little priest. The Church does not balance the treasury, raise the levies, or count the graves. I do all three. Go and pray. It suits you." } },
+      lines = { { id = "m_default", text = "The Church says a great many lovely things, little priest, but it does not balance the treasury, raise the levies, or count the graves, and I do all three. Go and pray; it suits you." } },
       choices = {
         { text = "Someone has to remind you of the people.", next = "BACK", fx = { affinity = -2, align = { light = 2, honor = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -80,11 +80,11 @@ P:NPC {
       },
     },
     court_alterac = {
-      lines = { { id = "ca_default", text = "Miss it? It was cold, and full of men who couldn't keep a kingdom. Stormwind is so much warmer. And so much better kept." } },
+      lines = { { id = "ca_default", text = "Miss it? It was cold, and full of men who couldn't keep a kingdom. Stormwind is so much warmer, and so much better kept." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     king = {
-      lines = { { id = "k_default", text = "A dear boy. He asks the most charming questions at council. We answer them, and then we decide things. It's an arrangement that suits everyone." } },
+      lines = { { id = "k_default", text = "A dear boy, who asks the most charming questions at council. We answer them, and then we decide things, and it's an arrangement that suits everyone." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     defias = {
@@ -100,7 +100,7 @@ P:NPC {
     },
     advise = {
       lines = {
-        { id = "a_default", text = "Strength. Order. Not wasting either on causes that cannot repay them. The Regent finds that cold. The Regent also sleeps very well." },
+        { id = "a_default", text = "Strength and order, and not wasting either on causes that cannot repay them. The Regent finds that cold, but the Regent also sleeps very well." },
       },
       choices = {
         { text = "Wise counsel.", next = "BACK", fx = { affinity = 1, align = { order = 1, light = -1 } } },

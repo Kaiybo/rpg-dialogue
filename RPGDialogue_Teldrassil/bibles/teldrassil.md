@@ -48,3 +48,17 @@ Ilthalaine counts nightsaber cubs; Melithar listens to Aldrassil hum and measure
 
 ## Depth pass, second round (0.25.0, authored, not canon)
 One or two repeat-visit or night lines each for the thinnest NPCs here: small habits and running jokes (a salvaged kettle, a beetle truce, a parrot paying rent, glowing ink). Places they mention are already sourced in this bible or LORE_NOTES.
+
+## Depth pass (Teldrassil 1.3.0)
+Classic versions read for every quest (Shadowglen was rebuilt in Cataclysm): The Balance of Nature (Classic) and (2), the class sigils (Classic), The Woodland Protector (Classic) and (2), A Good Friend, A Friend in Need (Classic), Iverron's Antidote (Classic) and (2), Webwood Venom, Webwood Egg (quest), Tenaron's Summons, Crown of the Earth (1)-(6), A Troubling Breeze, Gnarlpine Corruption (Classic), The Relics of Wakening, Ursal the Mauler, The Emerald Dreamcatcher (quest), Ferocitas the Dream Eater (quest), Twisted Hatred, Zenn's Bidding, Seek Redemption!, Denalan's Earth, Timberling Sprouts, Dolanaar Delivery (quest), The Great Outdoors (Forever). Full table: LORE_ADDITIONS.md.
+
+### Corrections made
+- Melithar's Woodland Protector is the dryad Tarindrella, returned after years unfelt in Kalimdor's forests; her second quest finds Fel Moss in the grells and sends you to Athridas.
+- A Troubling Breeze sends you east to Gaerolas Talvethren at Starbreeze Village, warden of the hibernating Druids of the Talon (a pact with Ysera). Gnarlpine Corruption: Ursal uses the Fel Moss to drive them mad.
+- Tallonkai's dreamcatcher was a gift from Gaerolas, left in his dresser in Starbreeze Village; it draws luck from the Emerald Dream. Ferocitas holds the jewel from it. Twisted Hatred is Lord Melenas, a satyr in Fel Rock, an embarrassment "too close to home".
+- Dirania: Iverron visits at the same hour every day and keeps getting into trouble; Githyiss the Vile bit him. The invented shared childhood is gone.
+- Gilshalan believes the world tree has made the Webwood spiders grow far beyond their small cousins; his specimens go to Darnassus.
+- Corithras tells the Crown of the Earth history: after Hyjal, Fandral convinced the Circle; Nozdormu refused his blessing as arrogance, Alexstrasza agreed; the tree's growth is flawed. Nobody blames Fandral beyond that.
+
+### Authored, not canon (this pass)
+Ilthalaine asking a returning character whether the world is in balance; Melithar hearing the tree creak when thirsty; Tenaron saying the names of those who never came back; Corithras watching the tree "like a feverish child"; Athridas's "they are both" lesson; Tallonkai preferring to be a careful fool; Syral's Council kept out of his story; Keldamyr's bear at the hearth; Lyreena's list of what each trade brings (sourced in outline from the Forever quest: tents from leatherworkers, fixtures from fishermen).

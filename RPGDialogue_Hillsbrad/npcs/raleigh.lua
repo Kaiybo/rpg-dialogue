@@ -14,16 +14,16 @@ P:NPC {
   notices = { "light", "scarlet" },
 
   greetings = {
-    { id = "g_door", text = "Close the door behind you. Then tell me who sent you." },
-    { id = "g_back", when = { metBefore = true }, text = "You again. Sit. I've had worse company than people who listen." },
-    { id = "g_after", when = { questDone = TODO_QUEST("In the Name of the Light") }, text = "Come in. You're one of the few I don't have to explain myself to." },
+    { id = "g_door", text = "Close the door behind you, and then tell me who sent you." },
+    { id = "g_back", when = { metBefore = true }, text = "You again? Sit down, then; I've had worse company than people who listen." },
+    { id = "g_after", when = { questDone = TODO_QUEST("In the Name of the Light") }, text = "Come in, come in. You're one of the few I don't have to explain myself to." },
   },
 
   notice = {
     { id = "n_light", cat = "light", when = { class = { "PALADIN", "PRIEST" } },
-      text = "One of the faithful. They'll want you most of all, up north. They wanted me." },
+      text = "One of the faithful, I see. They'll want you most of all up north, just as they wanted me." },
     { id = "n_scarlet", cat = "scarlet", when = { questActive = TODO_QUEST("Down the Scarlet Path") },
-      text = "That seal. Red wax, a burning sword. I used to press it myself." },
+      text = "That seal, red wax and a burning sword... I used to press it myself." },
   },
 
   start = "hello",
@@ -33,15 +33,15 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Raleigh. They call me the Devout, which is kind of them. I wore the Crusade's red once. Now I keep a room above an inn and watch the north road." },
         { id = "h_letter", tags = { "news" }, key = true, when = { questActive = TODO_QUEST("Down the Scarlet Path") },
-          text = "Anton's letter. Give it here. Light help us, he still thinks I'm one of them. There's something you need to hear before you go anywhere near Tirisfal." },
+          text = "Anton's letter? Give it here. Light help us, he still thinks I'm one of them, and there's something you need to hear before you go anywhere near Tirisfal." },
         { id = "h_monastery", tags = { "news" }, when = { questActive = TODO_QUEST("In the Name of the Light") },
-          text = "The Monastery's in Tirisfal. The Houndmaster, Herod, Mograine, Whitemane. Until they fall, anyone who crosses the Crusade's path is in danger." },
+          text = "The Monastery's in Tirisfal, and the Houndmaster, Herod, Mograine and Whitemane hold it. Until they fall, anyone who crosses the Crusade's path is in danger." },
         { id = "h_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("In the Name of the Light"), days = 3 } },
           text = "It's done, then. I won't celebrate, and neither should you. But there are people in Tirisfal tonight who'll live to see morning." },
       },
       again = {
-        { id = "h_again", text = "Something else? Ask. I've stopped keeping secrets for them." },
-        { id = "h_again2", text = "Go on. The road's quiet tonight." },
+        { id = "h_again", text = "Something else? Ask away; I've stopped keeping secrets for them." },
+        { id = "h_again2", text = "Go on, the road's quiet tonight." },
       },
       choices = {
         { text = "Why did you leave the Crusade?", next = "left" },
@@ -55,7 +55,7 @@ P:NPC {
     },
     left = {
       big = true,
-      lines = { { id = "l_default", key = true, text = "I joined to fight the plague, and left when I understood that to them, the plague is anyone without the tabard. They tortured innocent people for being 'plagued'. I don't sleep much." } },
+      lines = { { id = "l_default", key = true, text = "I joined to fight the plague, and left when I understood that to them, the plague is anyone without the tabard. They tortured innocent people for being 'plagued', and I haven't slept much since." } },
       choices = {
         { text = "Why didn't you stop them?", next = "left_stop", fx = { trait = { stern = 1 } } },
         { text = "You did the right thing.", next = "left_right", fx = { affinity = 2, align = { light = 1 } } },
@@ -70,13 +70,13 @@ P:NPC {
       },
     },
     left_right = {
-      lines = { { id = "lr_default", text = "Leaving was right. Staying quiet afterward wasn't. That's why I tell everyone Anton sends me. Most go home. Some go north with a different reason." } },
+      lines = { { id = "lr_default", text = "Leaving was right, but staying quiet afterward wasn't, and that's why I tell everyone Anton sends me. Most of them go home, and some go north with a different reason." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     monastery = {
       big = true,
       lines = {
-        { id = "m_default", text = "A fortress with prayers painted on it, in Tirisfal. The Houndmaster and his dogs keep the library, Herod the armoury. Mograine commands. Whitemane questions." },
+        { id = "m_default", text = "A fortress with prayers painted on it, in Tirisfal. The Houndmaster and his dogs keep the library and Herod the armoury, while Mograine commands and Whitemane does the questioning." },
         { id = "m_done", when = { questDone = TODO_QUEST("In the Name of the Light") }, text = "You've seen it now. You know what's painted on the walls, and what's under the paint." },
       },
       choices = {
@@ -120,15 +120,15 @@ P:NPC {
       },
     },
     paladin_pray = {
-      lines = { { id = "pp_default", text = "Quietly. With my eyes open. The Crusade prayed loud and closed its eyes to everything else. I'd rather see what I'm asking the Light to bless." } },
+      lines = { { id = "pp_default", text = "Quietly, and with my eyes open. The Crusade prayed loud and closed its eyes to everything else, and I'd rather see what I'm asking the Light to bless." } },
       choices = { { text = "That's a good way.", next = "BACK", fx = { affinity = 2, align = { light = 2 }, trait = { pious = 1 } } } },
     },
     refugee = {
-      lines = { { id = "r_default", text = "Then you know how it was, at the start. Everyone afraid of everyone. The Crusade made a faith of that fear. Don't let anyone make one of yours." } },
+      lines = { { id = "r_default", text = "Then you know how it was at the start, with everyone afraid of everyone. The Crusade made a faith of that fear, so don't let anyone make one of yours." } },
       choices = { { text = "I won't.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } } },
     },
     after = {
-      lines = { { id = "af_default", text = "No servant of the Light should be glad of a death. Some are still needed. Carry it, don't wear it. That's the difference between you and them." } },
+      lines = { { id = "af_default", text = "No servant of the Light should be glad of a death, though some are still needed. Carry it, don't wear it; that's the difference between you and them." } },
       choices = {
         { text = "I'll carry it.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, trait = { pious = 1 } } },
         { text = "I'd do it again.", next = "BACK", fx = { align = { order = 1 }, trait = { stern = 1 } } },
@@ -137,11 +137,11 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "A paladin who believed the wrong men. I know exactly when I stopped. I don't know when I started.", next = "left" } },
+    background = { { id = "tp_bg", text = "I was a paladin who believed the wrong men. I know exactly when I stopped, but I don't know when I started.", next = "left" } },
     advice = { { id = "tp_ad", text = "If a man in red asks whether you're plagued, the right answer is to be somewhere else." } },
     scarlet_crusade = { { id = "tp_scarlet", text = "They started out against the plague and ended up against everyone. I was there for both halves.", next = "left" } },
     scarlet_monastery = { { id = "tp_monastery", text = "The heart of the Crusade, in Tirisfal. I can tell you who sits in it, if you mean to go.", next = "monastery" } },
-    argent_dawn = { { id = "tp_dawn", text = "Men who left the Hand before the rot set in. Wiser than me, or quicker." } },
-    _none = { { id = "tp_none", text = "Not something I know. Ask downstairs; they hear more than I do." } },
+    argent_dawn = { { id = "tp_dawn", text = "Men who left the Hand before the rot set in, wiser than me, or quicker." } },
+    _none = { { id = "tp_none", text = "That's not something I know. Ask downstairs; they hear more than I do." } },
   },
 }

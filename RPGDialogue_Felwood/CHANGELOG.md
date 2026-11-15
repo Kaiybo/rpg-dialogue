@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.1.2 (unreleased)
+- Voice pass: the Emerald Sanctuary, Bloodvenom Post and Talonbranch Glade now talk in whole sentences instead of clipped fragments. Golhine is still a druid of few words and Winna still cackles, each in a sentence or two rather than a string of scraps.
+
 ## 1.1.1 (unreleased)
 - Felwood's guards react only to beast shapes, never to a priest's Shadowform.
 

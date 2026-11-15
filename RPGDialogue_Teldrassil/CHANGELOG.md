@@ -2,6 +2,12 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.3.0 (unreleased)
+- Depth: all eleven NPCs of Shadowglen and Dolanaar are now conversations to explore. Tenaron on Hyjal, the moonwell phial and the young ones he watches go down the path; Corithras tells the Crown of the Earth story; Athridas on the Druids of the Talon and Ursal; Tallonkai on Starbreeze Village; Syral on Zenn Foulhoof; Gilshalan on Githyiss and the oversized spiders; Lyreena on what each trade brings to a camp.
+- Replies only some characters get: visitors who aren't night elves, characters back from the wider world, druids, priests, alchemists, herbalists and cooks, and quest states (Crown of the Earth, Iverron's Antidote, Twisted Hatred, Zenn's Bidding).
+- Classic fixes: the Woodland Protector is the dryad Tarindrella, Twisted Hatred is about Lord Melenas in Fel Rock, A Troubling Breeze sends you to Gaerolas at Starbreeze, the dreamcatcher was Gaerolas's gift; Dirania no longer has an invented childhood with Iverron.
+- Voice pass: every line, the Dolanaar Sentinels' included, now speaks in whole sentences.
+
 ## 1.2.0 (unreleased)
 - Depth pass: repeat visits bring personal lines (habits, worries, running jokes), and some NPCs get night-time lines. Lyreena; Keldamyr on Corithras.
 

@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.6.0 (unreleased)
+- Voice pass: everyone in Booty Bay, Grom'gol, the Rebel Camp and Nesingwary's Expedition now talks in whole sentences instead of clipped fragments, each in their own voice (the Baron's dry ledger talk, Seahorn's bluster, Smotts' stubborn pride, Krazek's sales patter, Hemet's burr, Erlgadin's regret, Doren's weariness). Same lines, same facts, same conditions.
+
 ## 1.5.0 (unreleased)
 - For a priest: pray over Lieutenant Doren's dead, say words for Captain Smotts' crew, answer Sir Erlgadin about forgiveness, look for a chapel in Booty Bay. Brother Nimetz notices Shadowform.
 

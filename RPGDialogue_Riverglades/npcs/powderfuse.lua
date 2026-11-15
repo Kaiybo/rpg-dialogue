@@ -9,18 +9,18 @@ P:NPC {
   notices = { "craft", "purse", "race" },
 
   greetings = {
-    { id = "g_default", text = "Hands off the walls. I built those." },
+    { id = "g_default", text = "Hands off the walls, pal; I built those." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Spending today, or just admiring?" },
-    { id = "g_engineer", when = { profession = "Engineering" }, text = "A fellow engineer! Touch nothing anyway." },
+    { id = "g_engineer", when = { profession = "Engineering" }, text = "A fellow engineer! That's lovely, but touch nothing anyway." },
   },
 
   notice = {
     { id = "n_engineer", cat = "craft", when = { profession = "Engineering" },
-      text = "Engineer, are you? Gnomish or goblin? Don't answer. I can tell by the eyebrows. Some of yours are missing." },
+      text = "So you're an engineer, are you? Gnomish or goblin... no, don't answer, I can tell by the eyebrows, since some of yours are missing." },
     { id = "n_rich", cat = "purse", when = { money = { min = 500000 } },
-      text = "Rich. I like you. I like your purse more. Ever thought about property? I have some. All of it, actually." },
+      text = "Rich, eh? I like you, and I like your purse even more. Ever thought about property? I've got some; all of it, actually." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
-      text = "A gnome, in MY port. Measuring things with your eyes, I can see it. Stop it." },
+      text = "A gnome, in MY port, measuring things with your eyes; I can see you doing it, so stop it." },
   },
 
   start = "hello",
@@ -28,13 +28,13 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Melbin Powderfuse, Master Goblin Engineer. Docks, inn, every plank and every nail? Mine. Built it all. Before me there was nothing here but sand and murlocs.",
+          text = "Melbin Powderfuse, Master Goblin Engineer. The docks, the inn, every plank and every nail: mine, and I built it all. Before me there was nothing here but sand and murlocs.",
           fx = { hear = "melbin_built_port", learn = { "powderfuse_port" } } },
         { id = "h_partner", when = { townStanding = { town = "powderfuse_port", min = 30 } },
-          text = "My favourite customer! Everybody in the port says so. I told them to." },
+          text = "My favourite customer! Everybody in the port says so, because I told them to." },
       },
       again = {
-        { id = "h_again", text = "More questions? Questions are free. Answers are also free. The building you're standing in is not." },
+        { id = "h_again", text = "More questions? Questions are free, and answers are free too, but the building you're standing in is not." },
         { id = "h_again2", text = "Go on, go on. I'm listening and invoicing at the same time." },
       },
       choices = {
@@ -49,7 +49,7 @@ P:NPC {
       },
     },
     built = {
-      lines = { { id = "b_default", text = "Every board. Well, I designed every board. Some goblins I paid did the nailing. Paid well! Ask them. Actually, don't ask them." } },
+      lines = { { id = "b_default", text = "Every board! Well, I designed every board, and some goblins I paid did the nailing. Paid them well, too, so ask them... actually, don't ask them." } },
       choices = {
         { text = "So you didn't build it.", next = "built_push", fx = { affinity = -1, trait = { skeptical = 1 } } },
         { text = "Impressive.", next = "BACK", fx = { affinity = 1 } },
@@ -67,24 +67,24 @@ P:NPC {
       },
     },
     deal_pay = {
-      lines = { { id = "dp_default", text = "Fair. Goblin fair. That means you'll complain and come back anyway." } },
+      lines = { { id = "dp_default", text = "Fair. Goblin fair, which means you'll complain and come back anyway." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     why = {
-      lines = { { id = "w_default", text = "Rivers! Three of them, bending like a drunk's walk home, all coming down to this coast. Timber, ore, pelts: they float to me. I just had to be here first." } },
+      lines = { { id = "w_default", text = "Rivers! Three of them, bending like a drunk's walk home, all coming down to this coast. Timber, ore, pelts, they all float to me, and I just had to be here first." } },
       choices = {
         { text = "Smart.", next = "BACK", fx = { affinity = 1 } },
         { text = "And the Steamwheedle Cartel?", next = "why_cartel" },
       },
     },
     why_cartel = {
-      lines = { { id = "wc_default", text = "Says I owe them a cut. And I do. A small one. A very carefully calculated small one.",
+      lines = { { id = "wc_default", text = "The Cartel says I owe them a cut, and I do: a small one, a very carefully calculated small one.",
         fx = { learn = { "steamwheedle" } } } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     neighbors = {
       lines = {
-        { id = "n_default", text = "Brotherhood south: honest, broke. Horde west: honest, broke, louder. Cultists in the middle: not paying. And ogres up north who changed sides, the most goblin thing I ever saw an ogre do.",
+        { id = "n_default", text = "The Brotherhood's south of here, honest and broke, and the Horde's west, honest, broke and louder. The cultists in the middle aren't paying, and up north there's ogres who changed sides, the most goblin thing I ever saw an ogre do.",
           fx = { learn = { "twilights_hammer", "brotherhood_horse" } } },
       },
       choices = {
@@ -93,29 +93,29 @@ P:NPC {
       },
     },
     neighbors_pirates = {
-      lines = { { id = "np_default", text = "Customers. Don't tell the Brotherhood." } },
+      lines = { { id = "np_default", text = "They're customers, is what they are, so don't you go telling the Brotherhood." } },
       choices = {
         { text = "My lips are sealed.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
         { text = "I might.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
       },
     },
     gnome = {
-      lines = { { id = "gn_default", text = "Faster, sure. Then it'd explode. Mine's only exploded twice. Once on purpose." } },
+      lines = { { id = "gn_default", text = "Faster, sure, and then it'd explode. Mine's only exploded twice, and once was on purpose." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     partner = {
-      lines = { { id = "p_default", text = "Partner! Ha! No. But you're a valued customer, and in Powderfuse that's better. Partners pay rent." } },
+      lines = { { id = "p_default", text = "Partner? Ha! No, but you're a valued customer, and in Powderfuse that's better, because partners pay rent." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Born with nothing, somewhere with less. Now I own a port. Do the sums; it's a very inspiring story." } },
+    background = { { id = "tp_bg", text = "Born with nothing, somewhere with less, and now I own a port. Do the sums; it's a very inspiring story." } },
     advice = { { id = "tp_ad", text = "Never build on land somebody else owns. Build first, and make them prove it." } },
-    powderfuse_port = { { id = "tp_port", text = "Mine. Next question." } },
-    steamwheedle = { { id = "tp_cartel", text = "Fine people. Thirsty people. Every cut they take, I take back from the boat fares." } },
+    powderfuse_port = { { id = "tp_port", text = "Mine, all of it, so next question." } },
+    steamwheedle = { { id = "tp_cartel", text = "Fine people, thirsty people, and every cut they take, I take back from the boat fares." } },
     twilights_hammer = { { id = "tp_hammer", text = "Terrible customers. They never buy anything, and they keep looking at the sky like it owes them money." } },
-    _none = { { id = "tp_none", text = "Is it for sale? No? Then I haven't got an opinion." } },
+    _none = { { id = "tp_none", text = "Is it for sale? If it isn't, I haven't got an opinion." } },
   },
 }
 
@@ -126,13 +126,13 @@ P:NPC {
   notices = { "guest", "drink" },
 
   greetings = {
-    { id = "g_default", text = "Another explorer! Come in, come in. Mind the smell. It's the sea. Mostly." },
-    { id = "g_home", when = { homeInn = { "Powderfuse Port" } }, text = "Your room's ready. I aired it out. The air came back in, so it smells like fish again." },
+    { id = "g_default", text = "Another explorer! Come in, come in, and mind the smell; it's the sea, mostly." },
+    { id = "g_home", when = { homeInn = { "Powderfuse Port" } }, text = "Your room's ready! I aired it out, but the air came back in, so it smells like fish again." },
   },
 
   notice = {
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
-      text = "Oh, you've been at Argo's bottle. Sit down before the floor comes up to meet you. It does that here." },
+      text = "Oh, you've been at Argo's bottle! Sit down before the floor comes up to meet you; it does that here." },
   },
 
   start = "hello",
@@ -141,7 +141,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Zizplink, innkeeper. Beds upstairs, food down here, and everybody off the Tanaris boat comes through that door. You hear things, running the inn at the end of a boat route." },
         { id = "h_list", tags = { "news" }, when = { questActive = TODO_QUEST("Zizplink's Grocery List") },
-          text = "You've got my list! Don't lose it. And don't read it out loud; some of those are for Fimbo, and he's sensitive." },
+          text = "You've got my list! Don't lose it, and don't read it out loud; some of those are for Fimbo, and he's sensitive." },
       },
       again = { { id = "h_again", text = "Anything else, explorer?" }, { id = "h_again2", text = "More? I'll top you up while you think." } },
       choices = {
@@ -157,20 +157,20 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     gray = {
-      lines = { { id = "gr_default", text = "Gray? Brotherhood. Comes down from the keep, drinks, grumbles, tips well, goes back up. Don't sit in his chair. He doesn't own it. Don't anyway." } },
+      lines = { { id = "gr_default", text = "Gray? He's Brotherhood. He comes down from the keep, drinks, grumbles, tips well and goes back up again. Don't sit in his chair; he doesn't own it, but don't anyway." } },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "brotherhood_horse" } } } },
     },
     melbin = {
-      lines = { { id = "m_default", text = "He owns the land. So he says. I own the stew pot and the good blankets, and I never once let him forget it." } },
+      lines = { { id = "m_default", text = "He owns the land, or so he says. I own the stew pot and the good blankets, and I never once let him forget it." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Ran a kitchen, then a galley, now an inn. Every step was a bigger pot." } },
+    background = { { id = "tp_bg", text = "I ran a kitchen, then a galley, and now an inn, and every step was a bigger pot." } },
     advice = { { id = "tp_ad", text = "Breathe through your mouth on the docks at low tide. Trust me." } },
-    powderfuse_port = { { id = "tp_port", text = "Best little port on the coast! Only little port on the coast. Still counts." } },
-    _none = { { id = "tp_none", text = "Never heard of it! Ask me tomorrow. Somebody'll have told me by then." } },
+    powderfuse_port = { { id = "tp_port", text = "Best little port on the coast! It's the only little port on the coast, but that still counts." } },
+    _none = { { id = "tp_none", text = "Never heard of it! Ask me tomorrow, though; somebody'll have told me by then." } },
   },
 }
 
@@ -181,29 +181,29 @@ P:NPC {
   notices = { "standing", "drink" },
 
   greetings = {
-    { id = "g_default", text = "What? I'm busy." },
+    { id = "g_default", text = "What is it? Can't you see I'm busy?" },
     { id = "g_drink", text = "If you're going to stand there, stand there with a drink for me." },
   },
 
   notice = {
     { id = "n_hero", cat = "standing", when = { townStanding = { town = "farholde", min = 30 } },
-      text = "You're the one they talk about up at the keep. Fine. Sit. Don't make a habit of it." },
+      text = "You're the one they talk about up at the keep. Fine, sit, but don't make a habit of it." },
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
-      text = "Ha. You're further gone than me. That's a first this week. Sit, sit." },
+      text = "Ha! You're further gone than me, and that's a first this week. Sit, sit." },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Gray Dawnbright. Brotherhood of the Horse, on leave from it, or it on leave from me. I haven't decided. Make yourself useful and get Zizplink to fill this." },
+        { id = "h_default", key = true, text = "Gray Dawnbright, Brotherhood of the Horse, on leave from it, or it's on leave from me; I haven't decided. Make yourself useful and get Zizplink to fill this." },
         { id = "h_resolved", tags = { "news" }, when = { thread = { id = "farholde_lost", state = "resolved" } },
-          text = "Went up to the keep. Sat with Demar. We didn't talk about her, not really. We drank to her. Alive or not. First time in years." },
+          text = "I went up to the keep and sat with Demar. We didn't talk about her, not really; we drank to her, alive or not, and that's the first time in years." },
         { id = "h_soured", when = { thread = { id = "farholde_lost", state = "soured" } },
-          text = "Don't. Whatever it is. I've heard it." },
-        { id = "h_tessa", when = { metBefore = true }, text = "Wrote Tessa a letter. Tore it up. Wrote another. That one's in the stew, I think. Don't eat the stew." },
+          text = "Don't. Whatever it is, I've heard it." },
+        { id = "h_tessa", when = { metBefore = true }, text = "I wrote Tessa a letter, tore it up and wrote another, and that one's in the stew, I think. Don't eat the stew." },
       },
-      again = { { id = "h_again", text = "Still here? Fine. Talk." }, { id = "h_again2", text = "Go on, then." } },
+      again = { { id = "h_again", text = "Still here? Fine, then, talk." }, { id = "h_again2", text = "Go on, then." } },
       choices = {
         { text = "Why aren't you up at the keep?", next = "keep" },
         { text = "Tell me about the Brotherhood.", next = "brotherhood" },
@@ -223,12 +223,12 @@ P:NPC {
       },
     },
     keep_demar = {
-      lines = { { id = "kd_default", text = "Demar would call breathing desertion if you did it facing Stormwind. I'll go back. I always go back." } },
+      lines = { { id = "kd_default", text = "Demar would call breathing desertion if you did it facing Stormwind. I'll go back; I always go back." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     brotherhood = {
       lines = {
-        { id = "b_default", text = "Best riders east of the mountains, and nobody west of them remembers we exist. We ride, we bleed, we carve names into stone. Then we do it again.",
+        { id = "b_default", text = "Best riders east of the mountains, and nobody west of them remembers we exist. We ride, we bleed, we carve names into stone, and then we do it again.",
           fx = { learn = { "brotherhood_horse" } } },
       },
       choices = {
@@ -241,14 +241,14 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     tessa = {
-      lines = { { id = "t_default", text = "My wife. That's all you're getting. She'd tell you more. She always does." } },
+      lines = { { id = "t_default", text = "Tessa's my wife, and that's all you're getting. She'd tell you more; she always does." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     fern = {
       big = true,
       lines = {
         { id = "f_alive", key = true,
-          text = "Knew her? Everyone did, and nobody did. Here's what the stone doesn't say: nobody found her. They found her knife. Fern didn't drop knives.",
+          text = "Knew her? Everyone did, and nobody did. Here's what the stone doesn't say: nobody found her, only her knife, and Fern didn't drop knives.",
           fx = { hear = "fern_lives" } },
       },
       choices = {
@@ -258,7 +258,7 @@ P:NPC {
       },
     },
     fern_alive = {
-      lines = { { id = "fa_default", text = "I think she's somewhere. Ravenholdt taught her to vanish. Maybe she just never stopped." } },
+      lines = { { id = "fa_default", text = "I think she's somewhere. Ravenholdt taught her to vanish, and maybe she just never stopped." } },
       choices = {
         { text = "I hope you're right.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "That's a long time to stay vanished.", next = "BACK", fx = { trait = { skeptical = 1 } } },
@@ -266,7 +266,7 @@ P:NPC {
     },
     fern_word = {
       big = true,
-      lines = { { id = "fw_default", text = "Did you. And? Don't soften it. I've had years of soft." } },
+      lines = { { id = "fw_default", text = "Did you, now? Go on, and don't soften it; I've had years of soft." } },
       choices = {
         { text = "He found her dagger and nothing else. That's not a grave.", next = "fern_hope",
           fx = { thread = { id = "farholde_lost", state = "resolved" }, affinity = 3, align = { light = 1 } },
@@ -279,11 +279,11 @@ P:NPC {
       },
     },
     fern_hope = {
-      lines = { { id = "fh_default", text = "No. It isn't, is it. Hold my chair. I'm going up to the keep. Someone ought to tell the Commander he's allowed to hope." } },
+      lines = { { id = "fh_default", text = "No... it isn't, is it? Hold my chair, because I'm going up to the keep. Someone ought to tell the Commander he's allowed to hope." } },
       choices = { { text = "Go on, then.", next = "END" } },
     },
     fern_rest = {
-      lines = { { id = "fr_default", text = "Right. Right. Zizplink, another. No, I'm fine. Go on, then. You've done your bit." } },
+      lines = { { id = "fr_default", text = "Right, right. Zizplink, another one over here! No, I'm fine, so go on, then; you've done your bit." } },
       choices = { { text = "...", next = "END" } },
     },
     fern_demar = {
@@ -291,7 +291,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     drink = {
-      lines = { { id = "d_default", text = "Now you're talking sense. Zizplink! Whatever this one's having, and one for me. On them." } },
+      lines = { { id = "d_default", text = "Now you're talking sense! Zizplink, whatever this one's having, and one for me, on them." } },
       choices = {
         { text = "Cheers.", next = "BACK", fx = { affinity = 2 } },
         { text = "I said a drink. Not two.", next = "BACK", fx = { trait = { witty = 1 } } },
@@ -300,11 +300,11 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Brotherhood, married, thirsty. In that order, most days." } },
+    background = { { id = "tp_bg", text = "Brotherhood, married and thirsty, in that order, most days." } },
     advice = { { id = "tp_ad", text = "Don't stand too close to Demar when he's talking about Stormwind. He waves his hands." } },
-    fern_crimsonleaf = { { id = "tp_fernnext", text = "Fern? Sit down. Buy something. Then I'll tell you.", next = "fern" }, { id = "tp_fern", text = "Alive. Don't argue with me about it." } },
-    brotherhood_horse = { { id = "tp_brotherhood", text = "Family. The kind you'd leave for an afternoon and never for good." } },
-    _none = { { id = "tp_none", text = "Ask somebody sober. Not me. Not tonight." } },
+    fern_crimsonleaf = { { id = "tp_fernnext", text = "Fern? Sit down and buy something, and then I'll tell you.", next = "fern" }, { id = "tp_fern", text = "She's alive, and don't argue with me about it." } },
+    brotherhood_horse = { { id = "tp_brotherhood", text = "Family, the kind you'd leave for an afternoon and never for good." } },
+    _none = { { id = "tp_none", text = "Ask somebody sober, and that's not me, not tonight." } },
   },
 }
 
@@ -315,21 +315,21 @@ P:NPC {
   notices = { "class", "form" },
 
   greetings = {
-    { id = "g_default", text = "No fights today, pal. Soon. Very soon." },
+    { id = "g_default", text = "No fights today, pal, but soon, very soon!" },
   },
 
   notice = {
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
       text = "Look at the shoulders on you! I can see the poster already." },
     { id = "n_bear", cat = "form", when = { form = "bear" },
-      text = "A bear! A talking bear? Can you do that on command? Twice a night? With a little hat?" },
+      text = "A bear! A talking bear? Could you do that on command, twice a night, maybe with a little hat?" },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Jazzle Cheapshot. This is my arena. Empty, yeah. For now. Meanwhile the Horde and the Alliance are out in the fields killing each other for free! Free!" },
+        { id = "h_default", key = true, text = "Jazzle Cheapshot, and this is my arena. It's empty, yeah, for now, while the Horde and the Alliance are out in the fields killing each other for free. For free!" },
       },
       again = { { id = "h_again", text = "What else? Make it quick, I've posters to paint." } },
       choices = {
@@ -341,18 +341,18 @@ P:NPC {
       },
     },
     open = {
-      lines = { { id = "o_default", text = "When I've got fighters, a crowd, and Melbin off my back about the rent. So: soon. Goblin soon." } },
+      lines = { { id = "o_default", text = "When I've got fighters, a crowd, and Melbin off my back about the rent, so soon. Goblin soon!" } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     fighters = {
-      lines = { { id = "f_default", text = "Ogres, if Bolder'ok'll sign. Brotherhood knights, if they'd stop being so noble. Pirates, if I can get 'em to fight one at a time. You, if you've got a gimmick." } },
+      lines = { { id = "f_default", text = "Ogres, if Bolder'ok'll sign, and Brotherhood knights, if they'd stop being so noble. Pirates, if I can get 'em to fight one at a time, and you, if you've got a gimmick." } },
       choices = {
         { text = "A gimmick?", next = "gimmick" },
         { text = "Something else.", next = "BACK" },
       },
     },
     gimmick = {
-      lines = { { id = "gm_default", text = "Everybody needs one! 'The Bear Who Was a Person.' 'The Gnome With the Big Hammer.' Think on it. Come back with a name." } },
+      lines = { { id = "gm_default", text = "Everybody needs one! 'The Bear Who Was a Person', say, or 'The Gnome With the Big Hammer'. Think on it, and come back with a name." } },
       choices = {
         { text = "'The One Who Gets On With It.'", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } },
         { text = "I'll pass.", next = "BACK" },
@@ -363,7 +363,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } } },
     },
     grim = {
-      lines = { { id = "gr_default", text = "Grim? It's the same fighting with a roof and a snack cart. I'm civilizing it." } },
+      lines = { { id = "gr_default", text = "Grim? It's the same fighting with a roof and a snack cart, so I'm civilizing it." } },
       choices = {
         { text = "That's one way to see it.", next = "BACK", fx = { trait = { skeptical = 1 } } },
         { text = "Fair point, actually.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -372,9 +372,9 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Promoter. Born one. Some goblins come out with a silver tongue; mine came with a ticket booth." } },
+    background = { { id = "tp_bg", text = "I'm a promoter, born one. Some goblins come out with a silver tongue; mine came with a ticket booth." } },
     advice = { { id = "tp_ad", text = "Every fight's a show. Win it pretty and somebody'll pay to watch the next one." } },
-    _none = { { id = "tp_none", text = "Can it fight? No? Then I don't book it." } },
+    _none = { { id = "tp_none", text = "Can it fight? If it can't, I don't book it." } },
   },
 }
 
@@ -385,8 +385,8 @@ P:NPC {
   notices = { "craft" },
 
   greetings = {
-    { id = "g_default", text = "Table for one? Every table's for one. Nobody eats here in pairs." },
-    { id = "g_menu", text = "Boar or fish. Same as yesterday. Same as forever." },
+    { id = "g_default", text = "Table for one? Every table's for one, since nobody eats here in pairs." },
+    { id = "g_menu", text = "It's boar or fish, same as yesterday, and same as forever." },
   },
 
   notice = {
@@ -398,13 +398,13 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Fimbo Greasemitz! Welcome to my cafe on the water. Today we have roast boar, and roast fish. Tomorrow? Roast boar, and roast fish. I'm dying inside." },
+        { id = "h_default", key = true, text = "Fimbo Greasemitz, and welcome to my cafe on the water! Today we have roast boar and roast fish, and tomorrow, roast boar and roast fish. I'm dying inside." },
         { id = "h_stew", tags = { "news" }, when = { questActive = TODO_QUEST("A Taste of the Sea") },
-          text = "Murloc eyes and crab meat, off the beaches. Fast in the pan with the eyes; that's the secret. Keeps the sea in them." },
+          text = "Murloc eyes and crab meat, off the beaches. Fast in the pan with the eyes; that's the secret, because it keeps the sea in them." },
         { id = "h_stew_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("A Taste of the Sea"), days = 3 } },
-          text = "Seafood stew, on the menu! Three customers tried it. Two came back. That's the best this cafe has ever done." },
+          text = "Seafood stew, on the menu! Three customers tried it and two came back, which is the best this cafe has ever done." },
       },
-      again = { { id = "h_again", text = "What else? Pot's on, I can talk." } },
+      again = { { id = "h_again", text = "What else? The pot's on, so I can talk." } },
       choices = {
         { text = "Why not cook something else?", next = "menu" },
         { text = "Murloc eyes? Really?", next = "eyes" },
@@ -421,14 +421,14 @@ P:NPC {
       },
     },
     menu_dream = {
-      lines = { { id = "md_default", text = "A stew so good the Brotherhood and the Horde sit at the same table to eat it. Then they fight over seconds. But at the same table!" } },
+      lines = { { id = "md_default", text = "A stew so good the Brotherhood and the Horde sit at the same table to eat it. They'd fight over seconds, sure, but at the same table!" } },
       choices = {
         { text = "I'd eat that.", next = "BACK", fx = { affinity = 2, opinion = { peace = "for" } } },
         { text = "They'd fight over the table first.", next = "BACK", fx = { trait = { skeptical = 1 } } },
       },
     },
     eyes = {
-      lines = { { id = "e_default", text = "Really! Crunchy outside, salty inside, like the sea gave you a little kiss. A wet, crunchy kiss." } },
+      lines = { { id = "e_default", text = "Really! Crunchy outside, salty inside, like the sea gave you a little kiss... a wet, crunchy kiss." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     customers = {
@@ -436,15 +436,15 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     recipes = {
-      lines = { { id = "r_default", text = "Yes! Give me something with a sauce. Anything with a sauce. I'll give you the boar. You'll never need another boar recipe as long as you live." } },
+      lines = { { id = "r_default", text = "Yes! Give me something with a sauce, anything with a sauce, and I'll give you the boar. You'll never need another boar recipe as long as you live." } },
       choices = { { text = "Deal.", next = "BACK", fx = { affinity = 2 } } },
     },
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Cook. Always a cook. This cafe's the first kitchen that's mine, and it's on the water. That counts as floating." } },
+    background = { { id = "tp_bg", text = "A cook, always a cook. This cafe's the first kitchen that's mine, and it's on the water, which counts as floating." } },
     advice = { { id = "tp_ad", text = "Murloc eyes go in last. Everything goes in before the murloc eyes." } },
-    _none = { { id = "tp_none", text = "Is it a recipe? It isn't? Then it's wasted on me." } },
+    _none = { { id = "tp_none", text = "Is it a recipe? If it isn't, it's wasted on me." } },
   },
 }
 
@@ -460,22 +460,22 @@ P:NPC {
 
   notice = {
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
-      text = "Ha! You're keeping up! Nobody keeps up. Have another. Have mine." },
+      text = "Ha! You're keeping up, and nobody keeps up! Have another, have mine." },
     { id = "n_fish", cat = "craft", when = { profession = "Fishing" },
-      text = "A fisher! Good. Then you know there's things in this water bigger than your pole." },
+      text = "A fisher! Good, then you know there's things in this water bigger than your pole." },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Argo Brinewhistle, captain of the finest boat in the port. *hic* Well. The finest boat with a monster problem." },
+        { id = "h_default", key = true, text = "Argo Brinewhistle, captain of the finest boat in the port. *hic* Well, the finest boat with a monster problem." },
         { id = "h_monster", tags = { "news" }, when = { questActive = TODO_QUEST("The Monster Surfaces") },
-          text = "The bait goes in by the fresh wreckage, off the murloc islands. Not here! Out there. Then it comes up and you take its head. For my stern!" },
+          text = "The bait goes in by the fresh wreckage off the murloc islands, not here, out there! Then it comes up, and you take its head for my stern!" },
         { id = "h_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("The Monster Surfaces"), days = 3 } },
-          text = "Look at 'er! On my stern! Ugliest, finest figurehead on the whole coast. Drinks are on me. Again." },
+          text = "Look at 'er, up on my stern! Ugliest, finest figurehead on the whole coast, and drinks are on me, again." },
       },
-      again = { { id = "h_again", text = "What else, matey? *hic*" } },
+      again = { { id = "h_again", text = "What else can I do for you, matey? *hic*" } },
       choices = {
         { text = "What kind of monster?", next = "monster" },
         { text = "Are you ever sober?", next = "sober" },
@@ -485,32 +485,32 @@ P:NPC {
       },
     },
     monster = {
-      lines = { { id = "m_default", text = "Big. Teeth. More teeth than that. Sank three boats I know of, and one I made up to scare Gritta." } },
+      lines = { { id = "m_default", text = "Big, with teeth, and more teeth than that. It sank three boats I know of, and one I made up to scare Gritta." } },
       choices = {
         { text = "Which one did you make up?", next = "monster_lie" },
         { text = "Something else.", next = "BACK" },
       },
     },
     monster_lie = {
-      lines = { { id = "ml_default", text = "Ha! Wouldn't you like to know. *hic* The third. Or the second." } },
+      lines = { { id = "ml_default", text = "Ha! Wouldn't you like to know? *hic* The third, or maybe the second." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { skeptical = 1 } } } },
     },
     sober = {
-      lines = { { id = "s_default", text = "Once. Didn't care for it. Everything was so... clear." } },
+      lines = { { id = "s_default", text = "Once, and I didn't care for it; everything was so... clear." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     boat = {
-      lines = { { id = "b_default", text = "Little, leaky, loyal. Like me! She's never sunk. She's thought about it." } },
+      lines = { { id = "b_default", text = "Little, leaky and loyal, like me! She's never sunk, though she's thought about it." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     fish = {
-      lines = { { id = "f_default", text = "Then stay off the murloc islands at dusk, friend. That's when it feeds. Not on fish. On fishermen." } },
+      lines = { { id = "f_default", text = "Then stay off the murloc islands at dusk, friend, because that's when it feeds, and not on fish, on fishermen." } },
       choices = { { text = "Noted.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } } },
     },
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Born on a boat. *hic* Will die on a boat. In between, I'm on a boat." } },
+    background = { { id = "tp_bg", text = "Born on a boat, *hic* and I'll die on a boat, and in between, I'm on a boat." } },
     advice = { { id = "tp_ad", text = "Never trust a calm sea or a sober sailor." } },
     _none = { { id = "tp_none", text = "Don't know! *hic* Ask me after the next one." } },
   },
@@ -523,19 +523,19 @@ P:NPC {
   notices = { "craft" },
 
   greetings = {
-    { id = "g_default", text = "Chum's fresh. Fresh as chum gets." },
+    { id = "g_default", text = "Chum's fresh, or as fresh as chum gets." },
   },
 
   notice = {
     { id = "n_fisher", cat = "craft", when = { profession = "Fishing" },
-      text = "Got a fisher's squint. Good. The catfish up the rivers bite like dogs. You'll want a better pole." },
+      text = "You've got a fisher's squint, good. The catfish up the rivers bite like dogs, so you'll want a better pole." },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Gritta Chumwater. Chum, lures, fish, and advice. Only the advice is free." },
+        { id = "h_default", key = true, text = "Gritta Chumwater. I sell chum, lures, fish and advice, and only the advice is free." },
       },
       again = { { id = "h_again", text = "What else? Buy something while you think." } },
       choices = {
@@ -546,17 +546,17 @@ P:NPC {
       },
     },
     fishing = {
-      lines = { { id = "f_default", text = "Where the rivers come down to the sea. The catfish up there have whiskers like Melbin's. Don't tell him." } },
+      lines = { { id = "f_default", text = "Where the rivers come down to the sea. The catfish up there have whiskers like Melbin's, but don't tell him." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     chum = {
-      lines = { { id = "c_default", text = "Fimbo, for soup. Argo, for his monster. I don't ask which pot it ends up in, and neither should you." } },
+      lines = { { id = "c_default", text = "Fimbo buys it for soup and Argo for his monster. I don't ask which pot it ends up in, and neither should you." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Fished every coast a boat can reach. Came here because the fish are stupider. Don't tell them." } },
+    background = { { id = "tp_bg", text = "I've fished every coast a boat can reach, and came here because the fish are stupider. Don't tell them." } },
     advice = { { id = "tp_ad", text = "Fish at dawn, sell by noon, and never eat what you can't name." } },
     _none = { { id = "tp_none", text = "Fish don't talk about that, so neither do I." } },
   },

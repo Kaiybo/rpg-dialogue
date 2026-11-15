@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.2.1 (unreleased)
+- Voice pass: Gadgetzan and Steamwheedle Port now talk in whole sentences instead of clipped fragments. Marin still sells, Tran'rek still dodges and Stoley still frets, each in their own words.
+
 ## 1.2.0 (unreleased)
 - Depth: Marin, Sprinkle, Bilgewhizzle, Fizzledowser, Pestlezugg (and Rose), Tran'rek, Fizzgrimble and Stoley, with their own story and advice.
 

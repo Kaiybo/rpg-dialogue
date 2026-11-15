@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.18.0 (unreleased)
+- Voice pass: the shared pools (children, guards, innkeepers, trainers, the spirit healer and the rest), the "ask anyone" answers, the generic lines, the inn rumors and the throughline beats now talk in whole sentences instead of clipped fragments; what they say is unchanged.
+
 ## 1.17.0 (unreleased)
 - Throughline **The Scarlet Path** (`scarlet_path`): Brother Crowley's warning, Brother Anton's pride in Raleigh, Raleigh's truth, Tyrosus's welcome. Topics: The Scarlet Monastery, Raleigh the Devout.
 
