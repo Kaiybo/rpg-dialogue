@@ -10,18 +10,18 @@ P:NPC {
   notices = { "class", "pet", "kit" },
 
   greetings = {
-    { id = "g_camp", text = "Quiet, now. Ye'll scare the game. Sit, if ye must. Then be useful." },
-    { id = "g_back", when = { metBefore = true }, text = "Ye came back with all yer limbs. Good. The jungle doesnae give many second chances." },
-    { id = "g_horde", when = { faction = "Horde" }, text = "Horde, eh? Doesnae matter. A good shot's a good shot, whatever colors it's wearin'." },
+    { id = "g_camp", text = "Quiet, now, ye'll scare the game. Sit, if ye must, an' then make yerself useful." },
+    { id = "g_back", when = { metBefore = true }, text = "Ye came back with all yer limbs, good. The jungle doesnae give many second chances." },
+    { id = "g_horde", when = { faction = "Horde" }, text = "Horde, eh? That doesnae matter, for a good shot's a good shot, whatever colors it's wearin'." },
   },
 
   notice = {
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
-      text = "A hunter! Proper, by the look o' yer kit. Ye'll understand what this place is, then. The finest huntin' ground in the world." },
+      text = "A hunter, an' a proper one, by the look o' yer kit! Then ye'll understand what this place is: the finest huntin' ground in the world." },
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
-      text = "Fine animal, {pet}. Keep it close here. Every beast in this jungle would love tae make a meal o' yer friend." },
+      text = "Yer {pet} is a fine animal, but keep it close here, for every beast in this jungle would love tae make a meal o' yer friend." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
-      text = "Somethin' had a go at ye. Raptors, by the look. They hunt in packs. Learn that, or learn nothin' else." },
+      text = "Somethin' had a go at ye, raptors by the look of it. They hunt in packs, so learn that, if ye learn nothin' else." },
   },
 
   start = "hello",
@@ -29,24 +29,24 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Hemet Nesingwary. I came tae Stranglethorn for the huntin', an' I'm stayin' for the huntin'. Raptors, panthers, tigers, an' the great cat himself. There's nothin' else worth the trip." },
+          text = "Hemet Nesingwary. I came tae Stranglethorn for the huntin', an' I'm stayin' for the huntin': raptors, panthers, tigers, an' the great cat himself. There's nothin' else worth the trip." },
         { id = "h_welcome", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("Welcome to the Jungle") }, { questActive = TODO_QUEST("Hunting in Stranglethorn") }, { questActive = TODO_QUEST("Hemet Nesingwary") } } },
-          text = "Somebody sent ye tae me. Good. I've more beasts than hunters, an' I like it that way, but even I cannae shoot them all." },
+          text = "Somebody sent ye tae me? Good. I've more beasts than hunters, an' I like it that way, but even I cannae shoot them all." },
         { id = "h_raptors", when = { questActive = TODO_QUEST("Raptor Mastery") },
-          text = "Raptors. Fast an' clever, an' they never come alone. Thin them, an' ye'll start tae think like one. That's the point." },
+          text = "Raptors are fast an' clever, an' they never come alone. Thin them out, an' ye'll start tae think like one, which is the point." },
         { id = "h_bangalash", when = { questActive = TODO_QUEST("Big Game Hunter") },
-          text = "King Bangalash. The great cat o' the jungle. I've seen him once, at dusk, an' I've thought of nothin' else since. Bring me his head." },
+          text = "King Bangalash, the great cat o' the jungle. I've seen him once, at dusk, an' I've thought o' nothin' else since, so bring me his head." },
         { id = "h_dusk", when = { timeOfDay = "night" },
-          text = "Listen. Hear that? Somethin' big, west o' camp, movin' slow. Tomorrow. Tonight we drink." },
+          text = "Listen, d'ye hear that? Somethin' big, west o' camp, movin' slow. We'll go after it tomorrow; tonight we drink." },
         { id = "h_cat", when = { form = "cat" },
-          text = "Dinnae move. Dinnae... ach, it's a druid. Ye nearly had a bullet for yer trouble. Turn back intae yerself before Ajeck sees ye." },
+          text = "Dinnae move, dinnae... ach, it's only a druid! Ye nearly had a bullet for yer trouble, so turn back intae yerself before Ajeck sees ye." },
         { id = "h_king_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Big Game Hunter"), days = 3 } },
           text = "The King's head, on my wall. I've wanted that for years, an' now I've got it I keep lookin' west anyway. There's always somethin' bigger." },
       },
       again = {
-        { id = "h_again", text = "Aye? Out wi' it. The light's goin'." },
-        { id = "h_again2", text = "Somethin' else? Quick, then. I'm cleanin' the rifle." },
-        { id = "h_again3", when = { timeOfDay = "night" }, text = "Pour yerself one an' ask. Barnil willnae mind. Barnil always minds." },
+        { id = "h_again", text = "Aye? Out wi' it, then, for the light's goin'." },
+        { id = "h_again2", text = "Somethin' else? Quick, then, for I'm cleanin' the rifle." },
+        { id = "h_again3", when = { timeOfDay = "night" }, text = "Pour yerself one an' ask away. Barnil willnae mind, though Barnil always minds." },
       },
       choices = {
         { text = "Why hunt at all?", next = "why" },
@@ -63,7 +63,7 @@ P:NPC {
     why = {
       big = true,
       lines = {
-        { id = "w_default", text = "Because a man finds out what he is when somethin' bigger than him is lookin' back. Most never find out. In the jungle, everybody does. Usually quick." },
+        { id = "w_default", text = "Because a man finds out what he is when somethin' bigger than him is lookin' back. Most never find out, but in the jungle everybody does, an' usually quick." },
       },
       choices = {
         { text = "And what are you?", next = "what" },
@@ -73,7 +73,7 @@ P:NPC {
     },
     what = {
       lines = {
-        { id = "wt_default", text = "Still here. That's the answer, every mornin'. It's a good answer. Write it down. Barnil does." },
+        { id = "wt_default", text = "Still here. That's the answer every mornin', an' it's a good one, so write it down, the way Barnil does." },
       },
       choices = { { text = "Ha. Something else.", next = "BACK", fx = { affinity = 2 } } },
     },
@@ -89,7 +89,7 @@ P:NPC {
 
     danger = {
       lines = {
-        { id = "d_default", text = "Not the King. Not the tigers. The raptors, because there's always one more than ye counted. An' the trolls, because they count too." },
+        { id = "d_default", text = "Not the King, an' not the tigers. The raptors, because there's always one more than ye counted, an' the trolls, because they count too." },
       },
       choices = {
         { text = "And the King? Bangalash?", next = "danger_king" },
@@ -99,15 +99,15 @@ P:NPC {
     },
     danger_king = {
       lines = {
-        { id = "dk_default", text = "Old, white an' patient, an' he lets ye see him exactly once. I've a place on the wall for him. I've had it for years." },
+        { id = "dk_default", text = "Old, white an' patient, an' he lets ye see him exactly once. I've had a place on the wall for him for years." },
         { id = "dk_done", when = { questDone = TODO_QUEST("Big Game Hunter") },
-          text = "On my wall, thanks tae you. I look at him every mornin'. He looks back. I'm no' sure which of us won." },
+          text = "On my wall, thanks tae you. I look at him every mornin', an' he looks back, an' I'm no' sure which of us won." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     danger_venture = {
       lines = {
-        { id = "dv_default", text = "Cuttin' the jungle down tae find what's under it. Every tree they fell sends the beasts somewhere else. Usually here. Usually at supper." },
+        { id = "dv_default", text = "Cuttin' the jungle down tae find what's under it, an' every tree they fell sends the beasts somewhere else. Usually here, an' usually at supper." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "venture_company" } } } },
     },
@@ -117,7 +117,7 @@ P:NPC {
       lines = {
         { id = "hr_default", text = "Barnil talks when I'm out o' earshot. I fought when the Alliance asked, like plenty did, an' came home tae find I'd rather be shot at by a tiger." },
         { id = "hr_horde", when = { faction = "Horde" },
-          text = "Barnil says too much. Aye, I fought yer lot, once. Ye fought mine. Out here it's the beasts that keep score, an' they dinnae care what color yer tabard is." },
+          text = "Barnil says too much. Aye, I fought yer lot once, an' ye fought mine, but out here it's the beasts that keep score, an' they dinnae care what color yer tabard is." },
       },
       choices = {
         { text = "What war?", next = "hero_war", fx = { trait = { curious = 1 } } },
@@ -126,7 +126,7 @@ P:NPC {
     },
     hero_war = {
       lines = {
-        { id = "hw_default", text = "The one with the orcs in it. The first one, the second, they blur. Ask Barnil. He'll tell ye I was magnificent. I was mostly wet." },
+        { id = "hw_default", text = "The one with the orcs in it, the first or the second, for they blur. Ask Barnil an' he'll tell ye I was magnificent, but I was mostly wet." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
@@ -142,17 +142,17 @@ P:NPC {
       },
     },
     students_ajeck = {
-      lines = { { id = "sa_default", text = "Her father taught her tigers. I just gave her somewhere tae practise. She'll take Sin'Dall one day. I hope I'm awake for it." } },
+      lines = { { id = "sa_default", text = "Her father taught her tigers; I just gave her somewhere tae practise. She'll take Sin'Dall one day, an' I hope I'm awake for it." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     students_erlgadin = {
-      lines = { { id = "se_default", text = "Came out here tae forget Stormwind. Talks about it every night. Good with a blade, better wi' a grudge. Leave him his letters." } },
+      lines = { { id = "se_default", text = "Came out here tae forget Stormwind, an' talks about it every night. He's good with a blade an' better wi' a grudge, so leave him his letters." } },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "defias" } } } },
     },
 
     shot = {
       lines = {
-        { id = "sh_default", text = "A raptor, mid-leap, through the gap between two of its friends. Barnil wrote it down. I've no' been able tae do it since, an' I've tried every week." },
+        { id = "sh_default", text = "A raptor, mid-leap, through the gap between two of its friends, an' Barnil wrote it down. I've no' been able tae do it since, though I've tried every week." },
       },
       choices = {
         { text = "Mine was luckier than that.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
@@ -160,13 +160,13 @@ P:NPC {
       },
     },
     shot_teach = {
-      lines = { { id = "sht_default", text = "Ye dinnae aim where it is. Ye aim where it's decided tae be. Raptors decide early. That's yer gift. Use it." } },
+      lines = { { id = "sht_default", text = "Ye dinnae aim where it is, ye aim where it's decided tae be. Raptors decide early, an' seein' that is yer gift, so use it." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
     },
 
     rifle = {
       lines = {
-        { id = "rf_default", text = "Ironforge barrel, Stormwind stock, an' a sight I bought from a gnome who swore it'd make me famous. It did. The sight's terrible." },
+        { id = "rf_default", text = "Ironforge barrel, Stormwind stock, an' a sight I bought from a gnome who swore it'd make me famous. It did, but the sight's terrible." },
         { id = "rf_gnome", when = { race = "Gnome" },
           text = "Ironforge barrel, an' a sight from one o' yer people that I'll swear is made o' lies. Ye wouldnae know a tinker named after a cheese, would ye?" },
       },
@@ -176,14 +176,14 @@ P:NPC {
       },
     },
     rifle_hold = {
-      lines = { { id = "rh_default", text = "No. But ye may admire it from there. Closer. That's enough. Barnil'll have tae clean it again just from you lookin'." } },
+      lines = { { id = "rh_default", text = "No, but ye may admire it from there, or a wee bit closer, an' that's enough. Barnil'll have tae clean it again just from you lookin'." } },
       choices = { { text = "Fair.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 
   topics = {
     background = { { id = "tp_bg", text = "Soldier, then hunter, then writer, Light help us all. Barnil does the spellin'.", next = "hero" } },
-    advice = { { id = "tp_ad", text = "Shoot what's chargin' ye first. Then shoot what's watchin' ye. Then have a drink." } },
+    advice = { { id = "tp_ad", text = "Shoot what's chargin' ye first, then shoot what's watchin' ye, an' then have a drink." } },
     _none = { { id = "tp_none", text = "Does it have fur, claws or teeth? No? Then I couldnae care less." } },
   },
 }
@@ -195,12 +195,12 @@ P:NPC {
   notices = { "race" },
 
   greetings = {
-    { id = "g_pages", text = "Mind where ye step, friend. If ye see a loose page anywhere, it's ours. Don't step on it. Pick it up." },
+    { id = "g_pages", text = "Mind where ye step, friend. If ye see a loose page anywhere, it's ours, so don't step on it; pick it up." },
   },
 
   notice = {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
-      text = "A dwarf, in this heat! Ye'll melt. I did, the first month. Then ye stop noticin'. Mostly." },
+      text = "A dwarf, in this heat! Ye'll melt, like I did the first month, an' then ye stop noticin', mostly." },
   },
 
   start = "hello",
@@ -210,15 +210,15 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Barnil Stonepot. I keep the master's camp, his kit, an' his book. He's a hero o' the Alliance, ye know. Ye wouldnae think it, the way he snores." },
         { id = "h_book", tags = { "news" }, when = { questActive = TODO_QUEST("The Green Hills of Stranglethorn") },
-          text = "I was proofreadin' the master's book, The Green Hills of Stranglethorn, when the wind took the lot. Pages all over the jungle now. Find them. Please. He doesnae know yet." },
+          text = "I was proofreadin' the master's book, The Green Hills of Stranglethorn, when the wind took the lot, an' now there's pages all over the jungle. Find them, please, for he doesnae know yet." },
         { id = "h_quiet", when = { metBefore = true },
-          text = "I like it here, truth be told. Cleanin' rifles, packin' for the next trip. Peaceful. I miss a good fight sometimes, but the jungle's always happy tae provide one." },
+          text = "I like it here, truth be told: cleanin' rifles, packin' for the next trip, all peaceful. I miss a good fight sometimes, but the jungle's always happy tae provide one." },
         { id = "h_book_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Green Hills of Stranglethorn"), days = 3 } },
-          text = "Every page back an' bound. He's never goin' tae know. Ye'll have a drink on me for that, an' ye'll never mention it either." },
+          text = "Every page back an' bound, an' he's never goin' tae know. Ye'll have a drink on me for that, an' ye'll never mention it either." },
       },
       again = {
         { id = "h_again", text = "Aye? I'm listenin'. My hands are busy, my ears aren't." },
-        { id = "h_again2", text = "Somethin' else, friend? Mind the oil." },
+        { id = "h_again2", text = "Somethin' else, friend? Ask away, only mind the oil." },
       },
       choices = {
         { text = "What's the book about?", next = "book" },
@@ -233,7 +233,7 @@ P:NPC {
 
     book = {
       lines = {
-        { id = "b_default", text = "The huntin', mostly. The jungle, the beasts, the master bein' brave at them. It's good. Too many words about the master's rifle, but don't tell him I said so." },
+        { id = "b_default", text = "The huntin', mostly: the jungle, the beasts, an' the master bein' brave at them. It's good, if there's too many words about the master's rifle, but don't tell him I said so." },
       },
       choices = {
         { text = "Your secret's safe.", next = "BACK", fx = { affinity = 2 } },
@@ -251,7 +251,7 @@ P:NPC {
 
     master = {
       lines = {
-        { id = "m_default", text = "Kind, when he forgets tae be gruff. He's never once let me carry the rifle on a hunt. Says if he dies, someone has tae finish the book." },
+        { id = "m_default", text = "Kind, when he forgets tae be gruff. He's never once let me carry the rifle on a hunt, an' says if he dies, someone has tae finish the book." },
       },
       choices = {
         { text = "That's not a bad reason.", next = "master_reason" },
@@ -260,7 +260,7 @@ P:NPC {
       },
     },
     master_reason = {
-      lines = { { id = "mr_default", text = "I know. That's what makes me cross. A dwarf likes tae be protected about as much as he likes tae be short. Which is tae say, it's no' his choice." } },
+      lines = { { id = "mr_default", text = "I know, an' that's what makes me cross. A dwarf likes tae be protected about as much as he likes tae be short, which is tae say, it's no' his choice." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
 
@@ -277,7 +277,7 @@ P:NPC {
 
     fight = {
       lines = {
-        { id = "f_default", text = "I was a soldier before I was a servant. Ye don't forget how tae stand in a line. Out here, ye stand in it alone. It's no' the same." },
+        { id = "f_default", text = "I was a soldier before I was a servant, an' ye don't forget how tae stand in a line. Out here, ye stand in it alone, an' it's no' the same." },
       },
       choices = {
         { text = "Come with me next time.", next = "fight_offer", fx = { affinity = 1, trait = { generous = 1 } } },
@@ -285,13 +285,13 @@ P:NPC {
       },
     },
     fight_offer = {
-      lines = { { id = "fo_default", text = "Ha! An' leave the master tae cook for himself? He'd be dead by Thursday. Kind of ye, though. Kind of ye." } },
+      lines = { { id = "fo_default", text = "Ha! An' leave the master tae cook for himself? He'd be dead by Thursday, but it's kind of ye tae ask, truly." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
 
     work = {
       lines = {
-        { id = "w_default", text = "Clean four rifles. Mend three tents. Write down what he shot an' how he says he shot it. Then the other version, the true one, in the margin." },
+        { id = "w_default", text = "I clean four rifles, mend three tents, an' write down what he shot an' how he says he shot it. Then I write the other version, the true one, in the margin." },
       },
       choices = {
         { text = "You keep two versions?", next = "work_two" },
@@ -299,15 +299,15 @@ P:NPC {
       },
     },
     work_two = {
-      lines = { { id = "wt_default", text = "The book gets his. The margin gets mine. Someday someone'll read both an' have a good laugh. I hope it's me." } },
+      lines = { { id = "wt_default", text = "The book gets his an' the margin gets mine. Someday someone'll read both an' have a good laugh, an' I hope it's me." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } } },
     },
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Ironforge lad, soldier once, now the master's man. Best job I ever had. Don't tell him." } },
+    background = { { id = "tp_bg", text = "Ironforge lad, soldier once, an' now the master's man. It's the best job I ever had, but don't tell him." } },
     advice = { { id = "tp_ad", text = "Keep yer powder dry an' yer pages weighted. The wind in this jungle has opinions." } },
-    _none = { { id = "tp_none", text = "Ask the master. He'll tell ye. At length." } },
+    _none = { { id = "tp_none", text = "Ask the master; he'll tell ye, at great length." } },
   },
 }
 
@@ -318,12 +318,12 @@ P:NPC {
   notices = { "class" },
 
   greetings = {
-    { id = "g_bow", text = "Careful. I'm restringing. Talk if you like; I'll listen." },
+    { id = "g_bow", text = "Careful, I'm restringing. Talk if you like; I'll listen." },
   },
 
   notice = {
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
-      text = "Show me your bow. Hm. Not bad. Your draw's short. Fix that before you go after anything with stripes." },
+      text = "Show me your bow. Hm, not bad, but your draw's short, so fix that before you go after anything with stripes." },
   },
 
   start = "hello",
@@ -331,16 +331,16 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Ajeck Rouack. My father put a bow in my hands before I could read, and taught me tigers before he taught me manners. I teach tiger hunting now. One day I'll take Sin'Dall." },
+          text = "Ajeck Rouack. My father put a bow in my hands before I could read, and taught me tigers before he taught me manners. I teach tiger hunting now, and one day I'll take Sin'Dall." },
         { id = "h_tigers", tags = { "news" }, when = { questActive = TODO_QUEST("Tiger Mastery") },
-          text = "Young tigers first. Then the older ones. Then the ones the trolls are afraid of. That's how my father taught me, and he was never wrong about tigers." },
+          text = "Young tigers first, then the older ones, then the ones the trolls are afraid of. That's how my father taught me, and he was never wrong about tigers." },
         { id = "h_sindall", when = { metBefore = true },
-          text = "I saw Sin'Dall's tracks this morning, by the river. Fresh. He knew I'd find them. He's teasing me." },
-        { id = "h_night", when = { timeOfDay = "night" }, text = "Tigers hunt at night. So I sleep in the day, when I can. Hemet thinks it's lazy. Hemet snores." },
+          text = "I saw Sin'Dall's tracks by the river this morning, and they were fresh. He knew I'd find them; he's teasing me." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "Tigers hunt at night, so I sleep in the day when I can. Hemet thinks it's lazy, but Hemet snores." },
       },
       again = {
-        { id = "h_again", text = "What else?" },
-        { id = "h_again2", text = "Ask. I'm still restringing." },
+        { id = "h_again", text = "What else do you want to know?" },
+        { id = "h_again2", text = "Ask away; I'm still restringing." },
       },
       choices = {
         { text = "Who is Sin'Dall?", next = "sindall" },
@@ -355,7 +355,7 @@ P:NPC {
 
     sindall = {
       lines = {
-        { id = "s_default", text = "The oldest tiger in Stranglethorn. Clever, patient, and bigger than any I've seen. My father hunted him for years. I mean to finish what he started." },
+        { id = "s_default", text = "The oldest tiger in Stranglethorn: clever, patient, and bigger than any I've seen. My father hunted him for years, and I mean to finish what he started." },
       },
       choices = {
         { text = "What if he's too old to be a fair fight?", next = "sindall_fair" },
@@ -364,11 +364,11 @@ P:NPC {
       },
     },
     sindall_fair = {
-      lines = { { id = "sf_default", text = "Then he'll die by an arrow instead of starving in a ditch. That's the fair fight. Not mine. His." } },
+      lines = { { id = "sf_default", text = "Then he'll die by an arrow instead of starving in a ditch. That's the fair fight, and it's his, not mine." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     sindall_come = {
-      lines = { { id = "sc_default", text = "No. Help me with the young ones, if you want to help. Sin'Dall's mine. My father's, then mine." } },
+      lines = { { id = "sc_default", text = "No. Help me with the young ones, if you want to help, but Sin'Dall's mine. He was my father's, and now he's mine." } },
       choices = {
         { text = "Understood.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "Pride gets hunters killed.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
@@ -377,7 +377,7 @@ P:NPC {
 
     father = {
       lines = {
-        { id = "f_default", text = "Patient. Strict. He'd make me sit still in the grass until I stopped hearing myself breathe. I hated it. Now it's the only thing I do well." },
+        { id = "f_default", text = "Patient, and strict. He'd make me sit still in the grass until I stopped hearing myself breathe, and I hated it, but now it's the only thing I do well." },
       },
       choices = {
         { text = "Is he still alive?", next = "father_alive" },
@@ -405,9 +405,9 @@ P:NPC {
 
     bows = {
       lines = {
-        { id = "b_default", text = "Mine's yew, my father's. Yours is newer and heavier than it needs to be. You're compensating for your draw. Fix the draw." },
+        { id = "b_default", text = "Mine's yew, and it was my father's. Yours is newer and heavier than it needs to be, to make up for your draw, so fix the draw." },
         { id = "b_dwarf", when = { race = "Dwarf" },
-          text = "A dwarf with a bow, not a gun? Hemet will be disappointed. The tigers won't." },
+          text = "A dwarf with a bow, not a gun? Hemet will be disappointed, though the tigers won't be." },
       },
       choices = {
         { text = "Show me.", next = "bows_show", fx = { trait = { curious = 1 } } },
@@ -415,7 +415,7 @@ P:NPC {
       },
     },
     bows_show = {
-      lines = { { id = "bs_default", text = "Shoulder down. Breathe out before you release, not after. There. That's a tiger's worth of difference." } },
+      lines = { { id = "bs_default", text = "Shoulder down, and breathe out before you release, not after. There, that's a tiger's worth of difference." } },
       choices = { { text = "Thank you.", next = "BACK", fx = { affinity = 2 } } },
     },
 
@@ -432,8 +432,8 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "My father, a bow, and tigers. That's my whole life, and I'd not trade a day of it.", next = "father" } },
-    advice = { { id = "tp_ad", text = "Never hunt a cat from below it. They're always above you. Always." } },
-    _none = { { id = "tp_none", text = "Not tigers. Not my concern." } },
+    advice = { { id = "tp_ad", text = "Never hunt a cat from below it. They're always above you, always." } },
+    _none = { { id = "tp_none", text = "If it isn't tigers, it isn't my concern." } },
   },
 }
 
@@ -444,12 +444,12 @@ P:NPC {
   notices = { "class", "race" },
 
   greetings = {
-    { id = "g_sir", text = "Sir Erlgadin. Just 'Sir', thank you. I've given up the rest." },
+    { id = "g_sir", text = "Sir Erlgadin. Just 'Sir', thank you; I've given up the rest." },
   },
 
   notice = {
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
-      text = "A rogue. Honest about it, at least. That's more than I can say for my former colleagues in the House of Nobles." },
+      text = "A rogue, and honest about it, at least, which is more than I can say for my former colleagues in the House of Nobles." },
   },
 
   start = "hello",
@@ -457,16 +457,16 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Sir S. J. Erlgadin. I was a count, once, in Stormwind's House of Nobles. I've stopped answering to it. I hunt panthers now. Panthers, at least, are honest about what they want." },
+          text = "I'm Sir Erlgadin. I was a count once, in Stormwind's House of Nobles, but I've stopped answering to that, and I hunt panthers now. Panthers, at least, are honest about what they want." },
         { id = "h_panthers", tags = { "news" }, when = { questActive = TODO_QUEST("Panther Mastery") },
-          text = "Panthers. They hide better than tigers and strike faster. Learn to see one before it sees you, and you'll have learned something the nobles never did." },
+          text = "Panthers hide better than tigers and strike faster. Learn to see one before it sees you, and you'll have learned something the nobles never did." },
         { id = "h_city", when = { metBefore = true },
-          text = "A letter came from Stormwind. They want me back for a vote. I used it to start this morning's fire. It burned beautifully." },
-        { id = "h_hemet", when = { heardLine = "nesingwary.h_default" }, text = "Hemet told you about the hunting? He tells everyone. It's the only story he knows, and he tells it better every time." },
+          text = "A letter came from Stormwind wanting me back for a vote, so I used it to start this morning's fire. It burned beautifully." },
+        { id = "h_hemet", when = { heardLine = "nesingwary.h_default" }, text = "Hemet told you about the hunting? He tells everyone; it's the only story he knows, and he tells it better every time." },
       },
       again = {
-        { id = "h_again", text = "Yes? I've time. I have nothing but time; that's rather the point of exile." },
-        { id = "h_again2", text = "Something further?" },
+        { id = "h_again", text = "Yes? I've time; I have nothing but time, which is rather the point of exile." },
+        { id = "h_again2", text = "Something further? Ask it, by all means." },
       },
       choices = {
         { text = "Why did you leave the House of Nobles?", next = "nobles" },
@@ -482,7 +482,7 @@ P:NPC {
     nobles = {
       big = true,
       lines = {
-        { id = "n_default", text = "The stonemasons rebuilt our city, and the nobles refused to pay them. I sat in that hall and watched it happen. I said nothing. What came of it is in Westfall now, wearing red masks. I won't sit in that hall again." },
+        { id = "n_default", text = "The stonemasons rebuilt our city, and the nobles refused to pay them. I sat in that hall and watched it happen, and I said nothing. What came of it is in Westfall now, wearing red masks, and I won't sit in that hall again." },
       },
       choices = {
         { text = "You can't undo it.", next = "nobles_undo", fx = { affinity = 1, trait = { stern = 1 } } },
@@ -493,7 +493,7 @@ P:NPC {
       },
     },
     nobles_undo = {
-      lines = { { id = "nu_default", text = "No. I can only refuse to do it again. It's a small thing. Small things are what I have left." } },
+      lines = { { id = "nu_default", text = "No. I can only refuse to do it again, which is a small thing, but small things are what I have left." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     nobles_vote = {
@@ -522,13 +522,13 @@ P:NPC {
       },
     },
     panthers_teach = {
-      lines = { { id = "pt_default", text = "To look up. Most people never do. Most nobles don't either; that's how the masons got as far as they did." } },
+      lines = { { id = "pt_default", text = "To look up. Most people never do, and most nobles don't either, which is how the masons got as far as they did." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
     },
 
     letters = {
       lines = {
-        { id = "l_default", text = "Votes. Summons. A cousin who'd like my seat if I'm not using it. They all start with my full title. That's how I know to burn them." },
+        { id = "l_default", text = "Votes, summons, and a cousin who'd like my seat if I'm not using it. They all start with my full title, which is how I know to burn them." },
       },
       choices = {
         { text = "Will you ever go back?", next = "letters_back" },
@@ -536,14 +536,14 @@ P:NPC {
       },
     },
     letters_back = {
-      lines = { { id = "lb_default", text = "When the masons are paid. So, no. Ask me something with a better answer." } },
+      lines = { { id = "lb_default", text = "When the masons are paid, which is to say, no. Ask me something with a better answer." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
     noble = {
       big = true,
       lines = {
-        { id = "nb_default", text = "Then you'll have heard my name said unkindly over dinner. Do they still say I've gone native? I've gone honest. They'd not know the difference." },
+        { id = "nb_default", text = "Then you'll have heard my name said unkindly over dinner. Do they still say I've gone native? I've gone honest, and they'd not know the difference." },
       },
       choices = {
         { text = "They say worse.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
@@ -572,9 +572,9 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Count, once. Hunter, now. The second title I earned.", next = "nobles" } },
+    background = { { id = "tp_bg", text = "I was a count once, and I'm a hunter now, which is the only title I ever earned.", next = "nobles" } },
     advice = { { id = "tp_ad", text = "Read who's paying for something before you do it. It's the only question that matters, here or in Stormwind." } },
-    defias = { { id = "tp_defias", text = "Cheated men, turned thieves. I'd hang the thieves. I'd want the cheats hanged first." } },
-    _none = { { id = "tp_none", text = "I've no opinion on it. I've given up having opinions in public. They cost too much." } },
+    defias = { { id = "tp_defias", text = "Cheated men, turned thieves. I'd hang the thieves, but I'd want the cheats hanged first." } },
+    _none = { { id = "tp_none", text = "I've no opinion on it. I've given up having opinions in public; they cost too much." } },
   },
 }
