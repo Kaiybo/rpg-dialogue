@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.7.0 (2026-11-15)
+- Alignment now comes only from statements, never questions, and every reply that shifts alignment has an opposing one beside it. Taking one stance with someone closes the others for good.
+
 ## 1.6.0 (unreleased)
 - Depth rewrite for the rest of the city: every conversation is now a hub with branches to explore, "Something else" brings you back, and each person has their own story and advice under Ask about.
 - Mathias Shaw (SI:7): the Defias and the Stonemasons, the boy he trained, the missing King, Lady Prestor, the Lescovar affair from start to finish, rogue work, and a priest's confessions. Lord Grayson Shadowbreaker: the Silver Hand's oath, the charger and its barding, Chillwind Point, King Terenas's statuette (Forever's A Friend of the Family). General Marcus Jonathan: the statues in the Valley of Heroes and Turalyon, Solomon's letter, Westfall, and the Lordaeron insignia (Forever's Bloodied Insignia).

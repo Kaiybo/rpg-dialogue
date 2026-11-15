@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.3.0 (2026-11-15)
+- Alignment now comes only from statements, never questions, and every reply that shifts alignment has an opposing one beside it. Taking one stance with someone closes the others for good.
+
 ## 1.2.0 (unreleased)
 - Depth rewrite for all six Thelsamar NPCs: every conversation is now a hub of subjects to explore, two or three steps deep, with "what else?" lines, and each NPC answers Ask about their story and their advice.
 - Mountaineer Kadrell: the Dark Iron spy and why anyone would want the dam, the wrecks of the Second War on the loch's bottom, who needs a hand (Stormpike, Stonegear, Rockgar); the Shimmer Stout after you've brought it; gnomes get their payback. His Rat Catching lines now say what the quest says: the tunnel rats are kobolds in the western foothills.

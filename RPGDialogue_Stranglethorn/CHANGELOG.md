@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.8.0 (2026-11-15)
+- Alignment now comes only from statements, never questions, and every reply that shifts alignment has an opposing one beside it. Taking one stance with someone closes the others for good.
+
 ## 1.7.0 (2026-11-15)
 - Depth for Grom'gol: Commander Aggro'gosh, Nimboya, Kin'weelay, Far Seer Mok'thardin and Innkeeper Thulbek now each open on a hub with several branches two or three deep, "again" lines and replies that return to the hub, built from their Classic quests (the Defense of Grom'gol, the Yenniku chain from the tusks to the soul gem, the Vile Reef and Gri'lek's tablet, the Bloodscalp and Skullsplitter necklaces, Mai'Zoth and the Mind's Eye, Mok'thardin's choker and the Holy Spring, the Witherbark pike).
 - Replies for who you are: Darkspear trolls (Nimboya, Aggro'gosh), troll warlocks (Kin'weelay), orc mages (Aggro'gosh, Mok'thardin), shamans, Skyborne Windshapers, Forsaken off the zeppelin; replies after Saving Yenniku, while carrying Marg Nighteye's head from Dustwallow, and for players who've met Ruag in Stonard or Brother Nimetz at the rebel camp.

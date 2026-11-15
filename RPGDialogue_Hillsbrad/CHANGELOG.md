@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.3.0 (2026-11-15)
+- Alignment now comes only from statements, never questions, and every reply that shifts alignment has an opposing one beside it. Taking one stance with someone closes the others for good.
+
 ## 1.2.0 (unreleased)
 - Depth rewrite: every Southshore and Tarren Mill NPC now has a conversation to explore (a hub with branches two or three deep, "what else?" lines, Ask-about takes on their own story and advice). All nine meet the depth standard.
 - Marshal Redpath: the boats from Stormwind, Lothar and Khadgar; the Crushridge ogres in Alterac's ruins, the Syndicate in Durnholde's rubble, Tarren Mill across the valley; the town and who lives in it; what he really thinks of Farren. Lordaeron refugees are told there's room; paladins hear what became of Southshore's old knights; priests hear how the town buries its dead now; after the Warmongers he asks how the old city looks.

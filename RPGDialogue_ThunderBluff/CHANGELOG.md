@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.4.0 (2026-11-15)
+- Alignment now comes only from statements, never questions, and every reply that shifts alignment has an opposing one beside it. Taking one stance with someone closes the others for good.
+
 ## 1.3.0 (2026-11-15)
 - Hamuul Runetotem asks after Mulgris Deepriver once you've met him in the Western Plaguelands.
 

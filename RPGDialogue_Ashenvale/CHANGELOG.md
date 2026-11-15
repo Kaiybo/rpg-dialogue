@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.3.0 (2026-11-15)
+- Alignment now comes only from statements, never questions, and every reply that shifts alignment has an opposing one beside it. Taking one stance with someone closes the others for good.
+
 ## 1.2.0 (unreleased)
 - Depth: Raene, Pelturas, Relara, Faldreas, Kimlya and Delgren in Astranaar and Maestra's Post, and Senani, Mastok and Kuray'bin at Splintertree, are now conversations to explore. Raene on Teronis and Dartol's rod, the Warsong and her two companions; Pelturas on Orendil and Fallen Sky Lake; Relara on her papa and the bog monsters (and your pet, by name); Delgren on the Dark Strand, the night elves and why he learned Orcish.
 - Replies for hunters, druids and priests (Raene's wounded scouts), paladins and priests at Maestra's Post, travellers far from Stormwind or Ironforge (Faldreas), and on the Horde side hunters, tauren, orcs, Darkspear trolls and rogues.

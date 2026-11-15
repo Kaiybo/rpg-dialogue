@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.3.0 (2026-11-15)
+- Alignment now comes only from statements, never questions, and every reply that shifts alignment has an opposing one beside it. Taking one stance with someone closes the others for good.
+
 ## 1.2.0 (2026-11-15)
 - Depth for Stonard: Dispatch Commander Ruag, Fel'zerul, Helgrum the Swift, Bengor and Innkeeper Karakul, built from their Classic quests (the Fallen Hero's chain: The Disgraced One, The Missing Orders, The Swamp Talker; the Pool of Tears and the Atal'ai exile; Neeka Bloodscar's report).
 - Ruag on Thrall's Grasp, the orders he insists he sent, Stonard's old Horde past and its lost sister fortress Rockard; Fel'zerul on the sunken temple, the green dragons, the Atal'ai and Jammal'an's prophecy; Helgrum on the road to Kargath and Neeka; Bengor, the ambush's only survivor, on the Swamp Talker and his comrades.

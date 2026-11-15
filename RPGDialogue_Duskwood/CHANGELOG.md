@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.5.0 (2026-11-15)
+- Alignment now comes only from statements, never questions, and every reply that shifts alignment has an opposing one beside it. Taking one stance with someone closes the others for good.
+
 ## 1.4.0 (2026-11-15)
 - Madame Eva's cards react to what the spirit healer told you: another hand in your file, the lantern lit, the door past the mist.
 

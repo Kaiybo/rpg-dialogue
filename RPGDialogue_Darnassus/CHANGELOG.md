@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.3.0 (2026-11-15)
+- Alignment now comes only from statements, never questions, and every reply that shifts alignment has an opposing one beside it. Taking one stance with someone closes the others for good.
+
 ## 1.2.0 (unreleased)
 - Depth: Tyrande, Fandral, Mathrengyl, A'moora, Gracina and Saelienne are now conversations to explore, with a hub, branches two or three deep and "Something else" back to the start. Tyrande on Malfurion's barrow, immortality, the Warsong in Ashenvale, the Sentinels and Hyjal; Fandral on the dragons who refused his tree, Remulos, his vision for the kaldorei and Malfurion; Mathrengyl on the Great Bear Spirit and Auberdine's poisoned animals; A'moora on Lady Sathrah and Elune's warrior face; Gracina on the silithid (and on the Archdruid's certainty).
 - For a priest of the Light: Tyrande and A'moora greet human, dwarf and gnome priests as the Temple did in Year 1 (Priestess Alathea trained them), and each answers "Is the Light so different?" in their own way, without claiming the two faiths are one. Tyrande asks a priest in Shadowform to set it aside in the Temple.

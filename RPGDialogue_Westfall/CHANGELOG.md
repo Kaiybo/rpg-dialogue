@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.5.0 (2026-11-15)
+- Alignment now comes only from statements, never questions, and every reply that shifts alignment has an opposing one beside it. Taking one stance with someone closes the others for good.
+
 ## 1.4.0 (unreleased)
 - Depth rewrite: all fourteen people of Sentinel Hill and the farms are now a hub with branches two to four nodes deep, "what else?" lines in their own voices, and their own Ask about takes (their story, advice, their work where it fits). Every one meets the depth standard.
 - Gryan: the holdouts who still send the city a tithe, Lordaeron (he says he was at Stratholme and nothing more), the House of Nobles, the hunt for the Defias leader (Wiley's debt, Wiley's note on the goblin-built watchers, the Stonemasons' grievance), the militia and its oath, Solomon's plea, and what comes after VanCleef.

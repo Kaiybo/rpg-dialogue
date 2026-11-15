@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.5.0 (2026-11-15)
+- Alignment now comes only from statements, never questions, and every reply that shifts alignment has an opposing one beside it. Taking one stance with someone closes the others for good.
+
 ## 1.4.0 (2026-11-15)
 - Depth for Hammerfall: Drum Fel, Zengu and Innkeeper Adegwa, built from their Classic quests (The Hammer May Fall, Call to Arms, The Real Threat, Trollbane and the sigil chain to Trol'kalar).
 - Drum Fel on the camp that was, the orcs who live there now, the Witherbark and Boulderfist, the ogres in Stromgarde and what Hammerfall will become; Zengu on Ignaeus Trollbane, the sigils, Tor'gan and where the sword goes; Adegwa on the grunts' songs about Doomhammer.

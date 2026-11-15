@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.2.0 (2026-11-15)
+- Alignment now comes only from statements, never questions, and every reply that shifts alignment has an opposing one beside it. Taking one stance with someone closes the others for good.
+
 ## 1.1.1 (unreleased)
 - Voice pass: the Valley of Trials, Razor Hill and Sen'jin now talk in whole sentences instead of clipped fragments, each in their own voice (Gornek's drill, Gar'Thok's terse orders, Orgnil's grimness, Thazz'ril's exasperation, Grosk's dry humour, Gadrin's troll lilt). Same lines, same facts, same conditions.
 

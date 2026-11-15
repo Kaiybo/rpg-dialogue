@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.4.0 (2026-11-15)
+- Alignment now comes only from statements, never questions, and every reply that shifts alignment has an opposing one beside it. Taking one stance with someone closes the others for good.
+
 ## 1.3.0 (unreleased)
 - Depth: all eleven NPCs of Shadowglen and Dolanaar are now conversations to explore. Tenaron on Hyjal, the moonwell phial and the young ones he watches go down the path; Corithras tells the Crown of the Earth story; Athridas on the Druids of the Talon and Ursal; Tallonkai on Starbreeze Village; Syral on Zenn Foulhoof; Gilshalan on Githyiss and the oversized spiders; Lyreena on what each trade brings to a camp.
 - Replies only some characters get: visitors who aren't night elves, characters back from the wider world, druids, priests, alchemists, herbalists and cooks, and quest states (Crown of the Earth, Iverron's Antidote, Twisted Hatred, Zenn's Bidding).

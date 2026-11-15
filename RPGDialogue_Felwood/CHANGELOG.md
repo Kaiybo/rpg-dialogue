@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.3.0 (2026-11-15)
+- Alignment now comes only from statements, never questions, and every reply that shifts alignment has an opposing one beside it. Taking one stance with someone closes the others for good.
+
 ## 1.2.0 (2026-11-15)
 - Depth for Bloodvenom Post and Maybess Riverbreeze: Winna Hazzard, Trull Failbane and Maybess, built from their Classic quests (Well of Corruption and Corrupted Sabers, Wild Guardians and Guarding Secrets, Cleansing Felwood and the salves).
 - Winna on her kitten, the Constellas moonwell and why she'd use the corruption against the Alliance; Trull on Winterspring's wildkin and what they guard; Maybess on the salve, the Cenarion beacon and why she makes you kill elementals first.

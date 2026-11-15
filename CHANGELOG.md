@@ -2,6 +2,25 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.33.0 (2026-11-15)
+Packs: every content pack with dialogue has a new version (`python3 tools/version.py` lists them). No new files: /reload is enough.
+
+### Turning in quests
+- **No more flashing codes.** While the text types out, item icons, coins and coloured names used to show as raw codes (like `|T1508495:2`) for a moment before turning into the item. The typewriter now treats each icon or colour code as one piece, so only the finished icon ever shows.
+- **Tooltips on rewards.** Hover any item on a quest page, in the text (rewards, required items) or on a reward row, and the game's item tooltip appears.
+
+### The journal
+- **A book on your screen.** Click it to open the journal; drag it anywhere; right-click for settings. It can be hidden in settings ("Show the journal button on screen").
+- **Reads like a journal.** Four pages instead of six: **Diary** (entries under the day they happened, with the place written each time it changes), **People I've met** (how each stands toward you, and the last thing they said), **Myself** (where you stand, what you've said you believe, what the towns think of you, what people have told you, what you've heard of, books, deeds, origin) and **Notes**.
+
+### Alignment comes from what you say, not what you ask
+- A reply only shifts alignment if it is a **statement**. Questions never do.
+- Every reply that shifts alignment has at least one **opposing statement** beside it, and they are **mutually exclusive**: take one stance with someone and the others are gone for good, and the same stance never counts twice. 573 places across the packs were rewritten or given an opposing stance.
+- The validator fails content that breaks either rule.
+
+### For future work
+- A short `CLAUDE.md` and a much shorter `HANDOFF.md` replace the long read-first chain, so sessions start faster.
+
 ## 0.32.0 (2026-11-15)
 Packs: World 1.20.0, Redridge 1.4.0, Stranglethorn 1.7.0, Badlands 1.3.0, SwampOfSorrows 1.2.0, Dustwallow 1.5.0, Feralas 1.5.0, Arathi 1.4.0, Felwood 1.2.0, Desolace 1.6.0, Moonglade 1.2.0, Stonetalon 1.2.0, ThousandNeedles 1.4.0, Zephras 1.1.0, and a new one: **Burning Steppes 1.0.0** (the rest as in 0.31.0). **New folder: exit the game fully, copy RPGDialogue_BurningSteppes in, tick it, and start the game again.**
 

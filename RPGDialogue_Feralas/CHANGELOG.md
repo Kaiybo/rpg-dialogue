@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.6.0 (2026-11-15)
+- Alignment now comes only from statements, never questions, and every reply that shifts alignment has an opposing one beside it. Taking one stance with someone closes the others for good.
+
 ## 1.5.0 (2026-11-15)
 - Depth for Camp Mojache: Rok Orhan, Orwin Gizzmick and Innkeeper Greul, built from their Classic quests (A Threat in Feralas, The Ogres of Feralas, the Gordunni scroll, ceremony and orb, Gordunni Cobalt).
 - Rok Orhan on the Gordunni, the scarred High Wilderness, Uthel'nay and the orb, and fighting beside the tauren; Orwin on buried blue rocks and buyers; Greul on the camp, its braves and the loud orc at the gate.

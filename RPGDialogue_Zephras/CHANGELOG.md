@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.2.0 (2026-11-15)
+- Alignment now comes only from statements, never questions, and every reply that shifts alignment has an opposing one beside it. Taking one stance with someone closes the others for good.
+
 ## 1.1.0 (2026-11-15)
 - High Elder Talaanis Shadowsong: Skywall → the patrons → nobody knows where; the Windlord → Ansirem Runeweaver and Muln Earthfury; who are the Skyborne → Eldre'narr and Skywall; the orders → their leaders; the Shal'nan; the Council → Peacekeepers and Empyrean Blades; druid, mage and shaman replies. All from brief §10. Topics: background, advice.
 - Bible: depth-pass note.

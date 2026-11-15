@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.3.0 (2026-11-15)
+- Alignment now comes only from statements, never questions, and every reply that shifts alignment has an opposing one beside it. Taking one stance with someone closes the others for good.
+
 ## 1.2.0 (2026-11-15)
 - Keeper Remulos: hub with nine branches (the Circle and his quarrel with Staghelm; the Dream and its sleepers, Malfurion; his family: Ordanus, Celebras in Maraudon, Zaetar and the centaur; the glade and its wardens, Tajarri; Seed of Life turn-in; druid, priest, human and tauren replies). New lines for Seed of Life (active and done) and for non-druid visitors. Topics: background, advice, malfurion. The druid thread `the_circle` (b2/b5 beats) is untouched.
 - Rabine Saturna: ledger, chance → Eldre'Thalas → Millicent Serene and the Felvine, Silithus → Layo Starstrike, Umber (human reply), a Skyborne reply (Eldre'Thalas), an echo of Remulos's Dream line. **Fix:** `h_locket`/`h_locket_done` were tied to Cataclysm quests (Unlocking the Secrets Within): now A Reliquary of Purity / Shards of the Felvine, rewritten to match. New Felvine and Wasteland lines.

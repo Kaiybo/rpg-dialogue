@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.21.0 (2026-11-15)
+- Alignment now comes only from statements, never questions, and every reply that shifts alignment has an opposing one beside it. Taking one stance with someone closes the others for good.
+
 ## 1.20.0 (2026-11-15)
 - Burning Steppes: towns Morgan's Vigil (related to Lakeshire) and Flame Crest; topics the black dragonflight, Blackrock Spire, Blackrock Depths, Marshal Windsor, the ruins of Thaurissan, the Firegut ogres; claim `windsor_alive` (Ragged John; true, settled by Marshal Windsor); Marshal Maxwell carries a beat of Solomon's letters (`b8_maxwell`).
 

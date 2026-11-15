@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.3.0 (2026-11-15)
+- Alignment now comes only from statements, never questions, and every reply that shifts alignment has an opposing one beside it. Taking one stance with someone closes the others for good.
+
 ## 1.2.0 (2026-11-15)
 - Maggran Earthbinder: hardness → the wind; troubles → Bloodfury Ripper / the Venture Company; Besseleth → the bounty; Sun Rock's work → Braelyn; after the Ripper (questDone); Cairne (tauren). **Fixes:** `h_harpies` (the Bloodfuries are the source of Kalimdor's harpies, not "diving on scouts"), `h_spiders` (Webwinder Path, two-foot fang; no "bigger than a kodo"), `h_reserves` (a relief letter so Grish can see his family, not "we need more hands"), `h_bloodfury` named. New `h_ripper_dead`.
 - Tammra Windfield: why → blessing; land → Venture Company; seeds → planting; Kaya (questDone), druid reply, the future (New Life done). **Fixes:** `h_kaya` (the quest is good news, Kaya is already safe), `l_default` (the Charred Vale is west of Sun Rock, not south).

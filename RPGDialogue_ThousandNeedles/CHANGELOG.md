@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.5.0 (2026-11-15)
+- Alignment now comes only from statements, never questions, and every reply that shifts alignment has an opposing one beside it. Taking one stance with someone closes the others for good.
+
 ## 1.4.0 (2026-11-15)
 - Cliffwatcher Longhorn: high → lifts; Grimtotem → the three agents; the Galak → Splithoof Crag; Nataka; Highperch; Arnak dead and the secret notes (questDone). **Fixes:** `h_family` and `h_nataka` (a year since *Longhorn* last wrote, per Family Tree). Still no hint of his later betrayal.
 - Rau Cliffrunner: hoof → its age and Splithoof Hold; moonwell → Zangen and the dryads' phials; listening; study (after the chain); druid reply. **Fix:** `h_flame` (the three-part chain shares one title: the line now fits all of it, moonwell water breaching the flame through the dryads' and centaurs' shared ancestry). New `h_hoof_done`.
