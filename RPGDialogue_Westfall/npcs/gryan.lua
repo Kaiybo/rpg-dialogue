@@ -52,6 +52,10 @@ P:NPC {
           text = "Your people lost a home and kept going. So did mine, out here. That's a better start than most of my volunteers had." },
         { id = "h_count", when = { metBefore = true }, text = "I walked the wall at dawn and counted the militia, then counted them again. It's still not enough, but every one of them is still here, and that makes it a good morning in these parts." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Look out there, at farms that had a lamp in every window once. I count the dark ones every night, and I'd like very much to stop counting." },
+        { id = "h_warm", when = { disposition = { min = 70 } },
+          text = "There you are. The lads were asking after you, and so was I, if I'm honest; Sentinel Hill feels a little steadier with you on it." },
+        { id = "h_cold", when = { disposition = { max = 34 } },
+          text = "I'll take any help Westfall can get, but I'll not pretend I'm glad to see you. Speak your piece." },
       },
       again = {
         { id = "h_again", text = "What else is on your mind? Ask it now, while it's quiet; quiet hours never last long out here." },
@@ -262,6 +266,9 @@ P:NPC {
       choices = {
         { text = "Then they're braver than soldiers.", next = "BACK", fx = { affinity = 1, learn = { "people_militia" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "people_militia" } } },
+        { text = "How long can they really hold, Commander?", tag = "Persuade", next = "militia_truth",
+          check = { pass = { any = { { disposition = { min = 65 } }, { class = "PRIEST" }, { questDone = TODO_QUEST("The People's Militia") } } } },
+          fail = { next = "militia_hold", fx = { affinity = -1 } } },
       },
     },
     oath = {
@@ -369,9 +376,35 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    militia_truth = {
+      big = true,
+      lines = {
+        { id = "mt_default", text = "One more winter, if the watchers don't take the last good fields and the gnolls stay this side of the river. I tell the farmers we'll hold as long as it takes, and they believe me because they've nothing else to believe." },
+        { id = "mt_after", text = "After that it's Danuvin and Galiaan and a handful of the stubborn ones on this hill, and the rest of Westfall walking the road to Goldshire like the Furlbrows tried to. Keep that to yourself; it's not a thing they need to hear from anyone but me." },
+        { id = "mt_priest", when = { class = "PRIEST" }, text = "You've a priest's way of asking, so you'll get the truth a priest would: I pray every night that I'm wrong about the winter, and I plan every morning as though I'm right." },
+      },
+      choices = {
+        { text = "Then we make sure it doesn't come to that.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
+        { text = "Your secret's safe with me, Commander.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    militia_hold = {
+      lines = {
+        { id = "mh_default", text = "As long as it takes. That's the answer I give the farmers, and it's the one you'll get too, because a commander who doubts aloud soon has nobody left to command." },
+        { id = "mh_default2", text = "They'll hold, because they've nowhere else to go and nobody else coming. Ask me something I can answer without frightening the lads at the gate." },
+      },
+      choices = {
+        { text = "Understood, Commander.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Every scout and farmer in Westfall reports to this hill sooner or later, so I've heard most of what goes on out there. Ask me about any of this." },
+      { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "For you I'll make the time, and I'll not soften any of it. Ask away." },
+    },
     background = {
       { id = "tp_bg", text = "I was born here, trained in Lordaeron and came home again. The middle part I don't discuss.", next = "back" },
       { id = "tp_bg2", text = "A farm boy from these parts who went north to learn the Light and came back to find his home stolen. That's all of it that matters." },

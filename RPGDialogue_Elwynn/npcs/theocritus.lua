@@ -225,6 +225,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I have studied a great many things from this tower, most of them beyond your concern. These, however, I might explain." },
+    },
     background = { { id = "tp_bg", text = "I have a tower and a rival. That is all the biography anyone needs." } },
     advice = { { id = "tp_ad", text = "If a book is sealed, the seal is the most important thing in it." } },
     morganth = {

@@ -105,7 +105,12 @@ P:Pool {
     { id = "l_drunk", when = { drunk = { min = 2 } }, text = "You've had a few. I'll sell you one more, and then I'll sell you water." },
   },
   choices = { { text = "Pour me something.", next = "BUSINESS" } },
-  topics = { _none = { { id = "t_none", text = "I hear a lot over the bar, but not that." } } },
+  topics = {
+    knows = {
+      { id = "t_kn1", text = "Nobody tells a bartender anything on the first drink, but by the third I'm hearing all of it. Here's the best of what's been poured out lately." },
+    },
+    _none = { { id = "t_none", text = "I hear a lot over the bar, but not that." } },
+  },
 }
 
 P:Pool {
@@ -139,7 +144,13 @@ P:Pool {
     { id = "l_dwarf", when = { race = "Dwarf", class = "PALADIN" }, text = "A dwarf of the Light! Stubborn faith is the best kind, so let's begin." },
   },
   choices = { { text = "Teach me.", next = "BUSINESS" } },
-  topics = { _none = { { id = "t_none", text = "That's not a matter of the Light. Ask elsewhere, and kindly." } } },
+  topics = {
+    knows = {
+      { id = "t_kn1", text = "The Light asks us to share whatever might help another, so I will. Ask me of these, and I'll answer you honestly." },
+      { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You carry yourself with honor, and I'd gladly tell you all I know, and pray you use it well." },
+    },
+    _none = { { id = "t_none", text = "That's not a matter of the Light. Ask elsewhere, and kindly." } },
+  },
 }
 
 P:Pool {
@@ -217,6 +228,10 @@ P:Pool {
     },
   },
   topics = {
+    knows = {
+      { id = "t_kn1", text = "The sick tell me everything, and the healthy tell me the rest. Here is what I can speak to without breaking a confidence." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll answer you, because I answer everyone, but I'll choose my words with care." },
+    },
     _none = { { id = "t_none", text = "I'd only be guessing, and guessing is not a sermon." } },
     background = { { id = "t_bg", text = "I knelt once, got up a priest, and haven't sat down much since." } },
     advice = { { id = "t_ad", text = "Carry bandages anyway. The Light is generous, but it's not always quick." } },
@@ -238,7 +253,14 @@ P:Pool {
     { id = "l_default", text = "Magic is a debt: you borrow power and you pay it back in focus. Don't fall behind on payments." },
   },
   choices = { { text = "Teach me.", next = "BUSINESS" } },
-  topics = { _none = { { id = "t_none", text = "If it isn't in a book, I haven't bothered with it." } } },
+  topics = {
+    knows = {
+      { id = "t_kn1", text = "Knowledge is the one thing a mage may hoard without shame, though I'll lend a little of mine. Here's what I've read, or overheard in the library." },
+      { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You've studied properly, so I'll open the better books for you." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll answer these briefly, because every minute spent on you is a minute taken from my research." },
+    },
+    _none = { { id = "t_none", text = "If it isn't in a book, I haven't bothered with it." } },
+  },
 }
 
 P:Pool {
@@ -254,7 +276,13 @@ P:Pool {
     { id = "l_default", text = "Power is power. The ones who sneer at where it comes from never have enough of it." },
   },
   choices = { { text = "Teach me.", next = "BUSINESS" } },
-  topics = { _none = { { id = "t_none", text = "I don't share what I don't know, and I share very little of what I do." } } },
+  topics = {
+    knows = {
+      { id = "t_kn1", text = "I make it my business to know what others would rather keep hidden. Some of it I can share, so choose carefully." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "You'll get what I care to give, which is very little, and these are all of it." },
+    },
+    _none = { { id = "t_none", text = "I don't share what I don't know, and I share very little of what I do." } },
+  },
 }
 
 P:Pool {
@@ -272,7 +300,13 @@ P:Pool {
     { id = "l_default", text = "Patience first, aim second, and the rest is weather and luck." },
   },
   choices = { { text = "Teach me.", next = "BUSINESS" } },
-  topics = { _none = { { id = "t_none", text = "If it doesn't leave tracks, I don't follow it." } } },
+  topics = {
+    knows = {
+      { id = "t_kn1", text = "Tracks tell you where something's been, and travellers tell you the rest. Here's what I've picked up on the trail." },
+      { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You've a good eye and a patient hand, so I'll share what I'd tell my own students by the fire." },
+    },
+    _none = { { id = "t_none", text = "If it doesn't leave tracks, I don't follow it." } },
+  },
 }
 
 P:Pool {
@@ -288,7 +322,13 @@ P:Pool {
     { id = "l_default", text = "You don't command the elements; you ask, and you listen when they answer. Most forget the second part." },
   },
   choices = { { text = "Teach me.", next = "BUSINESS" } },
-  topics = { _none = { { id = "t_none", text = "The spirits have said nothing to me of that." } } },
+  topics = {
+    knows = {
+      { id = "t_kn1", text = "The spirits speak, and so do the people who come to hear them. These are things I can tell you of." },
+      { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "The elements sit calm around you today, which tells me you can be trusted with more than most." },
+    },
+    _none = { { id = "t_none", text = "The spirits have said nothing to me of that." } },
+  },
 }
 
 P:Pool {
@@ -306,7 +346,13 @@ P:Pool {
     { id = "l_default", text = "Balance isn't standing still. It's leaning one way and then the other and never quite falling." },
   },
   choices = { { text = "Teach me.", next = "BUSINESS" } },
-  topics = { _none = { { id = "t_none", text = "The wild has not shown me that. Perhaps it will show you." } } },
+  topics = {
+    knows = {
+      { id = "t_kn1", text = "The wild carries word on the wind, and the Circle carries the rest. Ask of these, and I'll tell you what I've learned." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "The wild is patient with you, and I'm trying to be. Ask one of these, and listen to the answer." },
+    },
+    _none = { { id = "t_none", text = "The wild has not shown me that. Perhaps it will show you." } },
+  },
 }
 
 P:Pool {
@@ -322,7 +368,14 @@ P:Pool {
     { id = "l_default", text = "Nobody remembers a quiet blade. That's the point of it." },
   },
   choices = { { text = "Teach me.", next = "BUSINESS" } },
-  topics = { _none = { { id = "t_none", text = "If I knew, it'd cost you. I don't, so it won't." } } },
+  topics = {
+    knows = {
+      { id = "t_kn1", text = "Information is the only coin that's worth more after you've spent it. Here's what I can afford to give away." },
+      { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You've kept your mouth shut when it counted, so I'll open mine a little." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "Everything I know has a price, and you can't afford most of it, but these you can have." },
+    },
+    _none = { { id = "t_none", text = "If I knew, it'd cost you. I don't, so it won't." } },
+  },
 }
 
 P:Pool {
@@ -338,7 +391,13 @@ P:Pool {
     { id = "l_default", text = "Anyone can swing a sword. A warrior knows when not to." },
   },
   choices = { { text = "Teach me.", next = "BUSINESS" } },
-  topics = { _none = { { id = "t_none", text = "Can I hit it? If not, then I don't know about it." } } },
+  topics = {
+    knows = {
+      { id = "t_kn1", text = "Soldiers talk in the training yard between bruises, and I listen. Here's what I've heard." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "Talk comes after you've learned to keep your guard up, so take one of these and get back to the drills." },
+    },
+    _none = { { id = "t_none", text = "Can I hit it? If not, then I don't know about it." } },
+  },
 }
 
 ---------------------------------------------------------------------------
@@ -358,6 +417,12 @@ P:Pool {
   },
   lines = { { id = "l_default", text = "Hold the harness, not the rider's neck. It bites." } },
   choices = { { text = "Just the flight.", next = "BUSINESS" } },
+  topics = {
+    knows = {
+      { id = "t_kn1", text = "Every wind rider brings news back from the far roosts along with the dust. Here's what's come in on the wind." },
+      { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You've flown with me enough to hear what the riders say when they think no one's listening." },
+    },
+  },
 }
 
 ---------------------------------------------------------------------------
@@ -383,7 +448,14 @@ P:Pool {
   },
   lines = { { id = "l_default", text = "Report anything strange to the nearest officer. Strange gets worse if you wait." } },
   choices = { { text = "Carry on.", next = "END" } },
-  topics = { _none = { { id = "t_none", text = "That's above my post, I'm afraid; ask an officer." } } },
+  topics = {
+    knows = {
+      { id = "t_kn1", text = "Patrols pass word along the road, and a fair bit of it reaches me. Here's what I can tell you." },
+      { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You've been a friend to these roads, so I'll speak plainly about what we've seen out here." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll answer your questions, but I'll be keeping an eye on you while I do." },
+    },
+    _none = { { id = "t_none", text = "That's above my post, I'm afraid; ask an officer." } },
+  },
 }
 
 P:Pool {
@@ -401,7 +473,14 @@ P:Pool {
   react = { { id = "r_stealth", on = "stealth", text = "I can smell you, so come out." } },
   lines = { { id = "l_default", text = "If you're looking for a fight, there are better places than my post. Ask anyone." } },
   choices = { { text = "Strength and honor.", next = "END" } },
-  topics = { _none = { { id = "t_none", text = "Ask someone who gives orders." } } },
+  topics = {
+    knows = {
+      { id = "t_kn1", text = "A guard hears the road's business whether he wants it or not. Ask about any of this." },
+      { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You've earned some respect around here, so I'll tell you what the grunts are saying." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "Ask your questions quickly, since I've a post to watch and I don't like your look." },
+    },
+    _none = { { id = "t_none", text = "Ask someone who gives orders." } },
+  },
 }
 
 ---------------------------------------------------------------------------
@@ -434,6 +513,11 @@ P:Pool {
   },
   choices = { { text = "Thanks for the directions.", next = "END" } },
   topics = {
+    knows = {
+      { id = "t_kn1", text = "The Watch hears everything in this city eventually, usually at the worst hour. Here's what I'm free to tell you." },
+      { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You've done right by Stormwind, so I'll tell you what we say in the barracks as well." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "The Watch will answer your questions, and the Watch will also be writing down your name." },
+    },
     defias = { { id = "t_defias", text = "Out in Westfall, mostly. Don't say that name loudly in Old Town." } },
     _none = { { id = "t_none", text = "Couldn't say. The Watch doesn't pay me to know everything." } },
   },
@@ -454,7 +538,14 @@ P:Pool {
     { id = "l_default", text = "Great Forge in the middle, King Magni up in the throne room, the tram to Stormwind down the Tinker Town way. Ye'll not get lost, it's a circle." },
   },
   choices = { { text = "Thanks.", next = "END" } },
-  topics = { _none = { { id = "t_none", text = "Never heard of it. Ask at the Explorers' Hall, they know everything and tell ye twice." } } },
+  topics = {
+    knows = {
+      { id = "t_kn1", text = "Under the mountain, news echoes, so ye hear it whether ye want to or no. Here's what's been bouncin' off the walls." },
+      { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "Ye've been good to the mountain, so pull up a stool, an' I'll tell ye the lot." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell ye what I must, an' then ye can be on yer way." },
+    },
+    _none = { { id = "t_none", text = "Never heard of it. Ask at the Explorers' Hall, they know everything and tell ye twice." } },
+  },
 }
 
 P:Pool {
@@ -474,7 +565,14 @@ P:Pool {
     { id = "l_default", text = "The Temple of the Moon for the priestesses, the Cenarion Enclave for the druids. Walk softly; this tree is young." },
   },
   choices = { { text = "Thank you, Sentinel.", next = "END" } },
-  topics = { _none = { { id = "t_none", text = "The Sentinels do not speak of what they do not know." } } },
+  topics = {
+    knows = {
+      { id = "t_kn1", text = "The Sentinels watch, and what we watch, we remember. I may tell you of these things." },
+      { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "Elune has smiled on you, I think, and so I will speak more freely than I would to others." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I will answer, as a Sentinel must, but my trust is not so easily given." },
+    },
+    _none = { { id = "t_none", text = "The Sentinels do not speak of what they do not know." } },
+  },
 }
 
 P:Pool {
@@ -492,7 +590,14 @@ P:Pool {
     { id = "l_default", text = "Valley of Strength by the gate, the Drag for anything crooked, and Grommash Hold for the Warchief, but don't bother him." },
   },
   choices = { { text = "Lok'tar.", next = "END" } },
-  topics = { _none = { { id = "t_none", text = "Not my business; find a shaman." } } },
+  topics = {
+    knows = {
+      { id = "t_kn1", text = "The gate hears everything that comes in from the Barrens, and plenty that crawls up out of the Drag. Here's what I know of it." },
+      { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You've bled for the Horde, so I'll tell you what the grunts don't say in front of the officers." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll answer you because the Warchief says we answer, so make it worth my time." },
+    },
+    _none = { { id = "t_none", text = "Not my business; find a shaman." } },
+  },
 }
 
 P:Pool {
@@ -509,7 +614,14 @@ P:Pool {
     { id = "l_default", text = "The rises and the bridges between them. Mind the edges; the wind does not ask permission." },
   },
   choices = { { text = "Thank you.", next = "END" } },
-  topics = { _none = { { id = "t_none", text = "The Earth Mother keeps that to herself, and so must I." } } },
+  topics = {
+    knows = {
+      { id = "t_kn1", text = "The wind carries word up the bluffs, and the Bluffwatchers hear it first. These things I can speak of." },
+      { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You walk gently among our people, so I will share what the elders have let us hear." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I will answer, but my patience is shorter than the lift ropes, so choose well." },
+    },
+    _none = { { id = "t_none", text = "The Earth Mother keeps that to herself, and so must I." } },
+  },
 }
 
 P:Pool {
@@ -528,7 +640,14 @@ P:Pool {
     { id = "l_default", text = "The Apothecarium, the Magic Quarter, the War Quarter and the Rogues' Quarter, all in a ring around the Trade Quarter. The Banshee Queen keeps the Royal Quarter, and you don't." },
   },
   choices = { { text = "Understood.", next = "END" } },
-  topics = { _none = { { id = "t_none", text = "The dead keep secrets, but that one isn't mine to keep." } } },
+  topics = {
+    knows = {
+      { id = "t_kn1", text = "The dead hear more than the living suspect, and we have nowhere else to be. Here is what has drifted down to us." },
+      { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You've done the Dark Lady good service, so I'll tell you what the Deathguard whisper among themselves." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you what the Dark Lady permits, and not a syllable that she doesn't." },
+    },
+    _none = { { id = "t_none", text = "The dead keep secrets, but that one isn't mine to keep." } },
+  },
 }
 
 ---------------------------------------------------------------------------

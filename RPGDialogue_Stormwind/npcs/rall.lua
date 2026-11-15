@@ -158,6 +158,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've trained paladins for this Cathedral long enough to know a good deal, and to keep most of it to myself. These, I'll speak to." },
+    },
     background = { { id = "tp_bg", text = "A Knight of the Silver Hand whose work is making more of them. The rest of my story belongs to them.", next = "why" } },
     advice = { { id = "tp_ad", text = "Help someone today who can't help you back. Then do it tomorrow. That's the whole of the lesson; the rest is practice." } },
     tome_of_divinity = {

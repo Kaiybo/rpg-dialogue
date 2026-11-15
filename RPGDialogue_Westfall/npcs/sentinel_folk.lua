@@ -72,6 +72,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Everyone on the hill comes through my door for a bed or a bowl, and they all talk. Ask me about any of this." },
+    },
     background = { { id = "tp_bg", text = "I'm an innkeeper. The inn came with the hill and I came with the inn, and that's as far back as anyone here cares." } },
     advice = { { id = "tp_ad", text = "Bind your hearthstone here. You'll want somewhere to come back to that isn't a field." } },
     defias = { { id = "tp_defias", text = "Some of them drank here, before all this, a few masons among them, and nice enough men they were. I try not to think about that." } },

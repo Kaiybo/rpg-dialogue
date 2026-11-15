@@ -178,6 +178,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The Abbey hears a good deal through its doors, and some of it reaches me between lessons. Ask me about any of this." },
+    },
     background = { { id = "tp_bg", text = "A brother of Northshire and a paladin of the Light. Where I came from matters less than where I kneel." } },
     advice = { { id = "tp_ad", text = "Kneel every morning, even when you don't feel like it, and especially then." } },
     defias = { { id = "t_defias", text = "They're somebody's sons. That doesn't make them less dangerous." } },

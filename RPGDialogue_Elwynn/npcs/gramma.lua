@@ -39,6 +39,8 @@ P:NPC {
           text = "They'll be found out one day. I'll be here when they are, with a stick, for anybody who raises their voice." },
         { id = "h_grown", when = { minLevel = 25, metBefore = true },
           text = "Look at you! You went out that door an errand-runner and came back with a face that's seen things. Sit down, and tell me none of them." },
+        { id = "h_warm", when = { disposition = { min = 70 } },
+          text = "There's my favourite. Sit down, you, and don't tell the family I said that, or I'll never hear the end of it." },
       },
       again = {
         { id = "h_again", text = "What else? I'm old, child, not deaf. Well, mostly not deaf." },
@@ -77,6 +79,9 @@ P:NPC {
         { text = "Fair. Something else.", next = "BACK", fx = { affinity = 1 } },
         { text = "Sacks get lighter if you set them down.", next = "BACK", fx = { trait = { kind = 1 }, align = { light = 1 } } },
         { text = "Some grudges are worth the weight of carrying.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "You can set a little of it down here, Gramma.", tag = "Persuade", next = "why_sack",
+          check = { pass = { any = { { disposition = { min = 68 } }, { class = "PRIEST" }, { questDone = TODO_QUEST("The Escape") } } } },
+          fail = { next = "why_kettle", fx = { affinity = -1 } } },
       },
     },
     maclures = {
@@ -184,9 +189,33 @@ P:NPC {
         { text = "One. Someone married the enemy.", next = "BACK", fx = { affinity = 2, opinion = { maybell_tommy = "romantic" } } },
       },
     },
+    why_sack = {
+      big = true,
+      lines = {
+        { id = "ws_default", text = "Someone I loved, over a few hard words about a fence line, of all the foolish things. I meant to make it up come the spring, and the winter took them first, and I've set out an extra cup on that day every year since." },
+        { id = "ws_priest", when = { class = "PRIEST" }, text = "There, you've had it out of me, and in my own kitchen too. Don't you go praying over it; just let an old woman have said it out loud the once." },
+      },
+      choices = {
+        { text = "Thank you for trusting me with it.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "That's why you won't let Tommy Joe wait.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    why_kettle = {
+      lines = {
+        { id = "wk_default", text = "Here, now, I said it's mine, and I meant it. You don't get my old griefs just for asking nicely in my kitchen." },
+        { id = "wk_default2", text = "Listen to you, sweet as Bernice's pastry. Save it for someone who needs it, child; I've carried mine this long without help." },
+      },
+      choices = {
+        { text = "Fair enough, Gramma.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've lived in this valley longer than most of its trees, child, and I've heard a thing or two. Ask me about any of this while the kettle boils." },
+    },
     background = { { id = "tp_bg", text = "Mildred Stonefield, since you ask, and nobody does. Everyone's called me Gramma so long I answer to nothing else." } },
     advice = { { id = "tp_ad", text = "Forgive people early, child; it costs you less than doing it late." } },
     maybell_tommy = {

@@ -21,6 +21,14 @@ P:Generic {
     { text = "Good day to you.", next = "END" },
   },
   topics = {
+    knows = {
+      { id = "t_kn1", text = "I hear things, same as anyone, though I couldn't swear to all of it. Here's what I could tell you about." },
+      { id = "t_kn2", text = "Not much gets past me in this place, and a fair bit gets past everyone else. Ask about any of this." },
+      { id = "t_kn3", text = "I'm no scholar, but I'm not deaf either, and these I can speak to, more or less." },
+      { id = "t_kn_night", when = { timeOfDay = "night" }, text = "It's late for talk, but I'll tell you what I've heard if you're quick about it." },
+      { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You've been decent to me, so I'll tell you what I know, and I won't even charge for it." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll answer a question or two, but don't expect me to enjoy it." },
+    },
     _none = {
       { id = "t_none1", text = "Couldn't tell you; I've never had cause to know." },
       { id = "t_none2", text = "That's above my station, friend." },
@@ -36,6 +44,8 @@ P:Generic {
     advice = {
       { id = "t_ad1", text = "Keep your purse close and your temper closer." },
       { id = "t_ad2", when = { band = { "Greenhorn", "Blooded" } }, text = "You're young. Be young somewhere safe for a while longer." },
+      { id = "t_ad_warm", when = { disposition = { min = 65 } }, text = "Look after the people who look after you. You seem to have the knack of it already, so don't lose it." },
+      { id = "t_ad_cold", when = { disposition = { max = 34 } }, text = "Mind your own business, and I'll mind mine. That's the best advice I've got for you." },
     },
     rumors = {
       { id = "t_ru1", text = "Nothing worth the breath. Ask at the inn; they hear everything there." },

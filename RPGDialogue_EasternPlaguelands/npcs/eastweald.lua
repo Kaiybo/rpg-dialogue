@@ -36,6 +36,8 @@ P:NPC {
           text = "So the healer told you about the missing. Every soul the Scourge lifts from the ground is one the healer never sees, and that's why the Dawn burns what the plague leaves behind." },
         { id = "h_myranda", when = { questActive = TODO_QUEST("Find Myranda") },
           text = "Myranda can help you walk among the Crusade unseen. I don't trust her, but I don't need to; I only need her to be good at what she does." },
+        { id = "h_warm", when = { disposition = { min = 70 } },
+          text = "You keep coming back to an old man's riverbank, and I've stopped pretending I don't look forward to it. Sit, and tell me the world hasn't forgotten what mercy is." },
       },
       again = { { id = "h_again", text = "Sit a while longer; the fish aren't biting anyway." } },
       choices = {
@@ -78,7 +80,12 @@ P:NPC {
     },
     son_go = {
       lines = { { id = "sg_default", text = "Perhaps, when I've found the courage to be his father again, and not just a story his mother told. Ask me another day." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
+      choices = {
+        { text = "What are you truly afraid he'll say?", tag = "Persuade", next = "son_fear",
+          check = { pass = { any = { { disposition = { min = 65 } }, { class = { "PRIEST", "PALADIN" } }, { trait = "kind" } } } },
+          fail = { next = "son_shut", fx = { affinity = -1 } } },
+        { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } },
+      },
     },
     fish = {
       lines = { { id = "f_default", text = "Rarely, because the river's sick, like everything here. I don't fish for the fish; I fish because a man has to sit still somewhere, or he goes to Hearthglen and does something foolish." } },
@@ -108,9 +115,35 @@ P:NPC {
       lines = { { id = "en_default", text = "With his own people, in Orgrimmar, I'm told. I hope they treat him better than mine treated me, and I suspect they do." } },
       choices = { { text = "Something else.", next = "BACK", fx = { opinion = { peace = "for" } } } },
     },
+    son_fear = {
+      big = true,
+      lines = {
+        { id = "sf_default", text = "That he'll be right. He was raised to believe his father betrayed Lordaeron for an orc, and if I ride into Hearthglen and he looks at me the way the Crusade taught him to, I'll have lost him twice." },
+        { id = "sf_priest", when = { class = "PRIEST" },
+          text = "You'd hear this in a confessional, so I'll say it plainly: I'm not afraid of his sword, I'm afraid of his face. A dead father is a story he can live with, and a living traitor is one he'd have to answer for." },
+      },
+      choices = {
+        { text = "He might surprise you.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Then let him decide that, not you.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    son_shut = {
+      lines = {
+        { id = "ss_default", text = "That's between me and the river, friend, and the river doesn't ask. Forgive an old man for keeping a few things back." },
+      },
+      choices = {
+        { text = "Of course. Forgive me.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've been out of the world a long while, but an old knight remembers more than he lets on. Ask me about any of these and I'll tell you what I can." },
+      { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "You've sat by this river with me often enough to ask me anything. These I can speak to, and honestly, which is the only way I still know how." },
+    },
     background = { { id = "tp_ba", text = "A lord, a paladin, a traitor, a fisherman. Each of them was true for a while.", next = "story" } },
     advice = { { id = "tp_ad", text = "Do the right thing, and pay what it costs without complaining. That's the whole of the Light, as far as I can tell." } },
     scarlet_crusade = { { id = "tp_scarlet", text = "Some of the finest people I knew joined them, to save Lordaeron, and now they burn what's left of it. My son is among them. I try not to think about that, and fail." } },
@@ -162,6 +195,10 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I know these fields and the vermin crawling over them better than any living soul. Ask about these, and be brief about it." },
+      { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "I owe you nothing, so you'll get the short list. Ask about these, or leave my land." },
+    },
     scarlet_crusade = { { id = "tp_scarlet", text = "Living fanatics who think fire cures death. They'll learn, and some of them I'll teach personally." } },
     _none = { { id = "tp_none", text = "Irrelevant." } },
   },

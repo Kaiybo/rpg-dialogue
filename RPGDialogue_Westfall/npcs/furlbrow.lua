@@ -137,6 +137,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've had a lot of time to think, sitting here by a broken wagon. Ask me about any of this, if you've a mind to." },
+    },
     background = { { id = "tp_bg", text = "A pumpkin farmer, and husband to Verna, which is the better job of the two. There's not much else to me, these days.", next = "night" } },
     advice = { { id = "tp_ad", text = "Get out of Westfall while you still can, or don't, since nobody listens to me anyway. Saldean certainly doesn't." } },
     defias = { { id = "tp_defias", text = "Please, don't ask me about them. I see red masks every time I close my eyes." } },

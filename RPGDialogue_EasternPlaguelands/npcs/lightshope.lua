@@ -84,7 +84,12 @@ P:NPC {
     },
     stratholme_plans = {
       lines = { { id = "sp_default", text = "When you're ready to walk into that city and walk out again, I'll share them, and not before. I've buried enough of the merely brave." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+      choices = {
+        { text = "I've walked out of Stratholme already. Tell me.", tag = "Persuade", next = "stratholme_truth",
+          check = { pass = { any = { { deed = "dungeon:Stratholme" }, { disposition = { min = 70 } }, { all = { { class = "PRIEST" }, { minLevel = 55 } } } } } },
+          fail = { next = "stratholme_not_yet", fx = { affinity = -1 } } },
+        { text = "Something else.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
     },
     paladin = {
       big = true,
@@ -113,9 +118,32 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    stratholme_truth = {
+      big = true,
+      lines = {
+        { id = "st_default", text = "Then hear it as the Duke and I say it to each other: the Dawn hasn't the soldiers to take that city, and won't have them in my lifetime. So we send small companies like yours to cut the heads off, the Baron in his ziggurats first, and we pray the body falls after." },
+        { id = "st_crusade", when = { deed = "dungeon:Stratholme" },
+          text = "You've seen the Crusade's corner of it, so you'll understand the rest. I don't trust whatever holds that bastion any more than I trust the Baron, and I'd not say that in front of my officers, some of whom still have brothers in red." },
+      },
+      choices = {
+        { text = "Then I'll go back in.", next = "BACK", fx = { affinity = 2, standing = { light_hope = 1 }, trait = { brave = 1 } } },
+        { text = "You suspect the Crusade's leaders?", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stratholme_not_yet = {
+      lines = {
+        { id = "sn_default", text = "Saying you've walked out of a place and having done it are different things, and I've learned to wait for the second. Come back with the city's ash on your boots and ask me again." },
+      },
+      choices = { { text = "Fair enough.", next = "BACK" } },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The Dawn hears a great deal, and a fair part of it reaches this chapel. These are the matters I can speak to with some authority." },
+      { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "You've earned plain answers from me, and I don't give many. Ask me about any of these and I'll hold nothing back that the Dawn can spare." },
+    },
     background = { { id = "tp_ba", text = "A paladin of the Silver Hand, until the Hand forgot what it was for. Now the Argent Dawn, which hasn't forgotten yet.", next = "left" } },
     advice = { { id = "tp_ad", text = "Carry the Dawn's tokens, and never fight the Scourge alone at night. It doesn't sleep, but you must." } },
     argent_dawn = { { id = "tp_dawn", text = "No crown and no warchief, only the work, and the dead who'd undo it." } },
@@ -196,6 +224,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've had a long death and a short second life to learn things in, and I'll share what I can. Ask me about any of these, friend." },
+    },
     background = { { id = "tp_ba", text = "I lived, I died in Stratholme, and I rose. The third life is the one I mean to spend well.", next = "why" } },
     advice = { { id = "tp_ad", text = "If you're bitten, go to a priest at once, not tomorrow, at once." } },
     argent_dawn = { { id = "tp_dawn", text = "They took me in when no one else would have. I'll serve them until there's nothing left to serve with." } },

@@ -201,6 +201,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I may not see much these days, but there's nothing wrong with my ears. Ask me about any of this, and speak up." },
+    },
     background = { { id = "tp_bg", text = "Stormwind Guard, all my working life. Then my eyes went, so I came out here to let the loggers do the shouting." } },
     advice = {
       { id = "tp_ad", text = "Never hand your badge to a man you can't see. And keep your kit oiled.", next = "advice" },

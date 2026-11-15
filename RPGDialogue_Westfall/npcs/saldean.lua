@@ -165,6 +165,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've farmed this land all my life, and there's not much happens on it I don't hear about. Ask me about any of this." },
+    },
     background = { { id = "tp_bg", text = "A farmer on the land my grandfather cleared. That's the whole of it, and it isn't finished yet.", next = "stay" } },
     advice = { { id = "tp_ad", text = "Don't stand still in a field after dark. The watchers don't see well, but they don't need to." } },
     harvest_watchers = {

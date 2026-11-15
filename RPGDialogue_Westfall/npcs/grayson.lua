@@ -86,6 +86,9 @@ P:NPC {
       choices = {
         { text = "Ha. Fair.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "What was your ship called?", next = "ship" },
+        { text = "You're dead, Captain. Who's left to hide it from?", tag = "Persuade", next = "pirate_honest",
+          check = { pass = { any = { { disposition = { min = 62 } }, { class = { "ROGUE", "PRIEST" } }, { trait = "witty" } } } },
+          fail = { next = "pirate_tide", fx = { affinity = -1 } } },
       },
     },
     ship = {
@@ -148,9 +151,32 @@ P:NPC {
         { text = "Maybe I'll try your way.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
       },
     },
+    pirate_honest = {
+      lines = {
+        { id = "ph_default", text = "Ha! Nobody, and that's a fair point to put to a ghost. A pirate, then, since you ask it straight: I took cargo off three kingdoms' merchantmen under whatever flag the morning called for." },
+        { id = "ph_after", text = "But I never fired on a ship that struck her colours, and I never left a crew to drown, and you can ask the sea about that too. It's the one thing I'd want carved on the lighthouse, if anybody ever bothered to carve anything." },
+      },
+      choices = {
+        { text = "An honest pirate. That's rare.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    pirate_tide = {
+      lines = {
+        { id = "pt_default", text = "Hide? I'm not hiding a thing, friend; I'm only letting the tide keep what it's already taken. Ask me about something the sea hasn't got." },
+        { id = "pt_default2", text = "A dead man keeps his own counsel, the same as a living one, only longer. I've told you what I'll tell anybody." },
+      },
+      choices = {
+        { text = "Fair enough, Captain.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "A dead man sees a good deal from the top of a lighthouse, and hears even more in the wind off the water. Ask me about any of this." },
+    },
     background = { { id = "tp_bg", text = "I was a captain once, of a ship that ran this coast, and then came the rocks, and then this. The middle was more fun than the end.", next = "pirate" } },
     advice = { { id = "tp_ad", text = "Never sail a strange coast at night without a light to steer by. I'd know." } },
     defias = { { id = "tp_defias", text = "I've seen their ships slip along this coast at night, running dark. I know the trick; I used it myself." } },

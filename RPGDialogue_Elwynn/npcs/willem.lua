@@ -183,6 +183,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I keep the Abbey gate, so I see everyone who comes and goes, and I count them too. Ask me about any of this." },
+    },
     background = { { id = "tp_bg", text = "A Stormwind guard, deputized and stuck at a door when I'd rather be out on patrol. Don't tell the Marshal I said so.", next = "beat" } },
     advice = { { id = "tp_ad", text = "Stay on the road after dark. The wolves don't, and neither do the Defias, so be where they aren't." } },
     northshire_abbey = { { id = "tp_abbey", text = "The Marshal's inside, the brothers are inside, and I'm outside. That's the order of things." } },

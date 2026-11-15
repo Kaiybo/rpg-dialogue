@@ -1560,6 +1560,12 @@ P:Pool {
     },
   },
   topics = {
+    knows = {
+      { id = "t_kn1", text = "The dead bring their news up the hill with them, and I write down whatever they let fall. This much I can speak to, if you will sit a moment longer." },
+      { id = "t_kn_many", when = { deaths = { min = 25 } }, text = "You have died often enough to have heard most of this on the way up yourself, but here is what the others have brought me." },
+      { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You have been patient with me, and I have kept a few pages aside for you. Ask, and I will read them to you." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "You want answers more than you want to listen, I think, but I will tell you what the file says, and nothing beyond it." },
+    },
     _none = {
       { id = "t_none", text = "The living ask about the living, and I keep other records." },
       { id = "t_none2", text = "Ask someone with a pulse. I gave mine up a long time ago, I think." },

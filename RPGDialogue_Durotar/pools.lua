@@ -23,6 +23,11 @@ P:Pool {
   },
   choices = { { text = "Lok'tar.", next = "END", fx = { standing = { razor_hill = 1 } } } },
   topics = {
+    knows = {
+      { id = "t_kn1", text = "Everything that comes up the road from the Barrens or in off the coast passes this gate first. Here's what I've heard of it." },
+      { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You've held the line with us, so I'll tell you what Gar'Thok won't say out loud." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "Ask, and keep it short, because the commander doesn't pay me to talk." },
+    },
     burning_blade = { { id = "t_blade", text = "Orgnil hunts them. Don't get in his way, and don't get in theirs." } },
     _none = { { id = "t_none", text = "Ask Gar'Thok, in the barracks. He doesn't like questions, but he answers them." } },
   },
@@ -50,6 +55,11 @@ P:Pool {
   },
   choices = { { text = "Stay sharp.", next = "END", fx = { standing = { senjin = 1 } } } },
   topics = {
+    knows = {
+      { id = "t_kn1", text = "Plenty of talk come across the water, mon, and plenty more come down the road. Ask me about these." },
+      { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You be a friend of the Darkspear, so I tell you everything, even what Gadrin mumble to himself." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I tell you a little, but you not be from here, and I got the water to watch." },
+    },
     echo_isles = { { id = "t_isles", text = "That be our home, and one day we take it back. Gadrin say so, and Gadrin don't lie." } },
     _none = { { id = "t_none", text = "Ask Master Gadrin. He know most things, and he tell you the rest whether you want it or not." } },
   },

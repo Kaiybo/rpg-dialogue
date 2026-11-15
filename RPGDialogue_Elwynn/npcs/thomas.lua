@@ -172,6 +172,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Standing at this bridge all day, you hear a fair bit from the folk passing over. Ask me about any of this, and I'll tell you what I know." },
+    },
     background = { { id = "tp_bg", text = "I'm Stormwind Army, and I go where I'm posted. I've been posted to this bridge, so this bridge is where you'll find me." } },
     advice = { { id = "tp_ad", text = "Don't follow the river north alone. Two good men did, on my orders." } },
     murlocs_east = {

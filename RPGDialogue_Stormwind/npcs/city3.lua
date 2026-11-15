@@ -132,6 +132,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "A lord of the House hears a great deal, and repeats very little to strangers. Still, I might indulge you on one or two of these." },
+    },
     background = { { id = "tp_bg", text = "A senior member of the House of Nobles, with a library to think in. The rest is not the business of adventurers." } },
     advice = { { id = "tp_ad", text = "Never say yes on the first asking. People value what they have to wait for. Even refusals." } },
     defias = { { id = "tp_defias", text = "Bandits. A Westfall matter. I can't imagine why anyone in this city would trouble themselves over it." } },
@@ -440,6 +443,8 @@ P:NPC {
           text = "Thredd's dead and the cells are filling back up, quietly. I'm sleeping again, badly, but again." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "Half my guards could use a priest, and the other half need a better excuse than the one they gave the Captain." },
+        { id = "h_warm", when = { disposition = { min = 70 } },
+          text = "Oh, thank the Light, it's you. You're the one person in this city I'm actually glad to see coming down those stairs." },
       },
       again = {
         { id = "h_again", text = "Yes, what else? Be quick about it, please." },
@@ -489,6 +494,9 @@ P:NPC {
         { text = "Robbing graves. The dead deserve better.", next = "BACK", when = { class = "PRIEST" }, fx = { align = { light = 1 } } },
         { text = "The dead don't need their bodies, so let the man go.", next = "BACK", when = { class = "PRIEST" }, fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "night_watch" } } },
+        { text = "Whose seal is on those letters, Warden? Or shall I ask the Captain?", tag = "Intimidate", next = "cells_seal",
+          check = { pass = { any = { { minLevel = 35 }, { class = { "WARRIOR", "ROGUE" } }, { townStanding = { town = "stormwind", min = 55 } } } } },
+          fail = { next = "cells_nerve", fx = { affinity = -1 } } },
       },
     },
     visitor = {
@@ -510,9 +518,33 @@ P:NPC {
         { text = "Prayers won't help Mac now, but justice for his killer might.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
+    cells_seal = {
+      big = true,
+      lines = {
+        { id = "cs_default", text = "No, no, don't go to the Captain, please. They come under the House of Nobles' seal, unsigned, always on good paper, and always the day before the rope's ready, as though somebody upstairs keeps my calendar." },
+        { id = "cs_after", text = "The warden before me asked who wrote them, and he's counting sheep on a Westfall watchtower now. So I don't ask, and I'd be very grateful if you didn't say I told you." },
+      },
+      choices = {
+        { text = "Your name stays out of it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Somebody should be asking.", next = "BACK", fx = { trait = { stern = 1 } } },
+      },
+    },
+    cells_nerve = {
+      lines = {
+        { id = "cn_default", text = "Ask the Captain whatever you like, and he'll tell you the Warden of the Stockade follows his orders and the House's, which I do. I'm nervous, not a fool." },
+        { id = "cn_default2", text = "You'll forgive me, but I've been threatened by better men than you this month, and most of them are in a cell. The letters are the House's business, not yours." },
+      },
+      choices = {
+        { text = "Fine. Something else.", next = "BACK" },
+        { text = "I'll leave it for now.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "A warden hears everything the cells whisper, though he'd rather not. Ask me about any of this, quietly, and I'll tell you what won't get me reassigned." },
+    },
     background = { { id = "tp_bg", text = "Warden of the Stockade. Before that, a man who thought being warden would be quiet. Never take a job for its quiet." } },
     advice = { { id = "tp_ad", text = "Check the papers, then check the person, and then check the papers again. I didn't, once." } },
     defias = { { id = "tp_defias", text = "Half my cells are full of them, and the other half of their friends. They organise better in prison than the guards do outside it." } },

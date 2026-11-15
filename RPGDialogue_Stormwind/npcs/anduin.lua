@@ -42,6 +42,8 @@ P:NPC {
           text = "The priests at the Cathedral let me sit in on lessons sometimes. Don't tell Lady Prestor. She thinks it's a waste of a king's time." },
         { id = "h_hero", when = { minLevel = 40 },
           text = "The Highlord reads your name out at council sometimes. I always sit up straighter when he does." },
+        { id = "h_warm", when = { disposition = { min = 70 } },
+          text = "It's you! I asked the guards to tell me if you came, and they did, so I'm not supposed to run but I nearly did." },
       },
       again = { { id = "h_again", text = "Do you have another question? I like questions, and hardly anybody asks me any." } },
       choices = {
@@ -100,7 +102,12 @@ P:NPC {
     },
     prestor = {
       lines = { { id = "pe_default", text = "She's very clever, but she doesn't laugh much, so I try to make her laugh at dinner. It hasn't worked yet, though Bolvar laughs, so it's not all wasted." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "You can tell me what you really think of her.", tag = "Persuade", next = "prestor_true",
+          check = { pass = { any = { { disposition = { min = 60 } }, { class = "PRIEST" }, { trait = "kind" } } } },
+          fail = { next = "prestor_proper", fx = { affinity = -1 } } },
+      },
     },
     bless = {
       lines = { { id = "bl_default", text = "Really? Here, in the throne room? Bolvar does it before council sometimes, so go on, and I'll stand very still. Kings are good at standing still." } },
@@ -116,9 +123,34 @@ P:NPC {
         { text = "Learn when to stay quiet, Your Majesty, because courts punish awkward questions.", next = "BACK", fx = { align = { honor = -1 } } },
       },
     },
+    prestor_true = {
+      big = true,
+      lines = {
+        { id = "pt_default", text = "Promise you won't tell? I don't like the way she looks at me when she thinks I'm not looking, as if I were a sum she's working out. It's silly, I know, because she's never been anything but kind." },
+        { id = "pt_father", text = "And when anyone talks about Father coming home she goes very still and very polite, and the hair on my arms stands up. Bolvar says that's only because I'm tired, so it probably is." },
+      },
+      choices = {
+        { text = "It isn't silly to trust your own feelings.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "I won't tell anyone, Your Majesty.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    prestor_proper = {
+      lines = {
+        { id = "pp_default", text = "Lady Prestor is a valued advisor to the crown, and the crown is very grateful for her counsel. That's what I'm meant to say, and I'm saying it." },
+        { id = "pp_default2", text = "I'm not supposed to talk about my advisors with people. Bolvar says it's the first rule of being king, and I've already broken lots of the others today." },
+      },
+      choices = {
+        { text = "Fair enough, Your Majesty.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I hear a lot at council, because everyone forgets I'm there. Ask me about any of it and I'll tell you, as long as it isn't a secret." },
+      { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "You can ask me about anything here, and I'll tell you the parts Bolvar skips, too." },
+    },
     westfall = { { id = "tp_westfall", text = "I asked about Westfall at council. Everyone went quiet. That's how I know it's bad." } },
     defias = { { id = "tp_defias", text = "Bolvar won't say much about them when I'm in the room, but I hear anyway. I'm small, not deaf." } },
     tome_of_divinity = { { id = "tp_tome", text = "Duthorian Rall showed it to me once. I wasn't allowed to touch it. I touched it a little." } },

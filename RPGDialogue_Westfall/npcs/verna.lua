@@ -128,6 +128,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "You hear all sorts when you're stuck by the road waiting on a wagon wheel, dear. Ask me about any of this." },
+    },
     background = { { id = "tp_bg", text = "A pumpkin farmer's wife, a horse's nursemaid, and the one in this family who remembers where things are." } },
     advice = { { id = "tp_ad", text = "Feed the animal first, dear, because it can't ask and you can." } },
     old_blanchy = {

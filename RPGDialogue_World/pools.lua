@@ -67,6 +67,12 @@ P:Pool {
     { id = "l_default", text = "Pay the fare, hold on, and don't lean. That's all there is to it." },
   },
   choices = { { text = "Just the flight, thanks.", next = "BUSINESS" } },
+  topics = {
+    knows = {
+      { id = "t_kn1", text = "Gryphon riders talk more than they ought to, and I'm the one they talk to when they land. Here's what I've heard from the roosts." },
+      { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You're one of my regulars now, so you'll hear what the riders say over their ale as well." },
+    },
+  },
 }
 
 -- Innkeepers anywhere (named innkeepers override this).

@@ -160,6 +160,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I command what passes for an army out here, so most of the bad news comes to me first. Ask me about any of this." },
+    },
     background = { { id = "tp_bg", text = "I was a farmer until the farm was taken, and a captain since, because somebody had to be. I'll be a farmer again someday, if Lord Stoutmantle's right.", next = "dignity" } },
     advice = { { id = "tp_ad", text = "Never turn your back on long grass, because gnolls crawl. And keep your blade where you can reach it sitting down." } },
     riverpaw = { { id = "tp_gnolls", text = "They're south, down by the river. Get them before they get to the farms." } },

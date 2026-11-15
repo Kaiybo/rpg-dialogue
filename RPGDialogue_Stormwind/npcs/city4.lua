@@ -157,6 +157,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The Watch reports to me on most things that happen inside these walls and a few that happen outside them. Ask me about any of this, and I'll answer as a soldier should." },
+    },
     background = { { id = "tp_bg", text = "Second War, under Turalyon. Now the walls of this city. A soldier's life is short to tell, if it's a lucky one.", next = "turalyon" } },
     advice = { { id = "tp_ad", text = "Know where your exits are before you need them. Every general who forgot that has a statue. Or a grave." } },
     defias = { { id = "tp_defias", text = "A Westfall matter, the court says, and a soldier's matter, I say. We'll see who's right." } },

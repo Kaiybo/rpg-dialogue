@@ -50,6 +50,10 @@ P:NPC {
           text = "Northshire's novices always kneel a little straighter than the rest. The brothers there are strict about posture. And about everything else, I'm told." },
         { id = "h_bell", when = { timeOfDay = "dusk" },
           text = "Listen. The sunset bell. We ring it for the kaldorei in the city, who never grew used to walls. I've grown to need it myself." },
+        { id = "h_warm", when = { disposition = { min = 70 } },
+          text = "Ah, there you are, child. I was hoping you'd come by, because the Cathedral feels a little emptier on the days you don't." },
+        { id = "h_cold", when = { disposition = { max = 34 } },
+          text = "You're welcome under this roof, as everyone is, though I'll confess you've given some of my brothers cause to worry. Sit, and let's see if we can change that." },
       },
       again = {
         { id = "h_again", text = "What else is on your heart, child?" },
@@ -110,6 +114,9 @@ P:NPC {
       choices = {
         { text = "It's more than most said.", next = "BACK", fx = { affinity = 2, learn = { "defias" }, opinion = { defias = "masons_wronged" } } },
         { text = "Saying isn't doing.", next = "BACK", fx = { trait = { stern = 1 }, learn = { "defias" } } },
+        { text = "Did the Church ever ask the crown to pay them?", tag = "Persuade", next = "masons_ledger",
+          check = { pass = { any = { { disposition = { min = 65 } }, { class = "PRIEST" }, { opinion = { topic = "defias", stance = "masons_wronged" } } } } },
+          fail = { next = "masons_gentle", fx = { affinity = -1 } } },
       },
     },
     crusade = {
@@ -182,9 +189,36 @@ P:NPC {
         { text = "Candles won't bring them back, so I'll keep my grief to myself.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
+    masons_ledger = {
+      big = true,
+      lines = {
+        { id = "ml_default", text = "Once, when the Cathedral was newly blessed, and I was told the treasury was empty and the masons would be paid in the spring. I believed it, child, and I let it drop, and the spring never came." },
+        { id = "ml_tally", text = "Their foreman left me a tally of the unpaid days, every name and every week, and it's still in my desk. I read it on the anniversary of the riot, and I've never once found the courage to carry it back up to the Keep." },
+        { id = "ml_priest", when = { class = "PRIEST" }, text = "You'll hear confessions one day, so here is mine: I was more grateful for the Cathedral than troubled by its price, and that's a sin I've been paying on ever since." },
+      },
+      choices = {
+        { text = "Then carry it up now, Your Grace.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "You've done more than most, Your Grace.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Thank you for telling me.", next = "BACK" },
+      },
+    },
+    masons_gentle = {
+      lines = {
+        { id = "mg_default", text = "The Church spoke for them, child, and it still does. That's all I'll say on it today, I think, because it's an old ache and I'd rather not wake it in front of the altar." },
+        { id = "mg_default2", text = "We asked, as we ask for many things, and the asking goes on. Come and pray with me for them some evening; that's the better answer, and the only one I have just now." },
+      },
+      choices = {
+        { text = "I understand, Your Grace.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "People bring the Cathedral their troubles from every corner of the kingdom, and some of it sticks to an old priest. Ask me about any of this, child." },
+      { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "For you, I've all the time the bells allow. Ask me anything here, and I'll tell you what I know, and what I only hope." },
+    },
     background = { { id = "tp_ba", text = "A student of Archbishop Faol who never stopped being one. The robes came later. The look of a farmer never left.", next = "faol" } },
     advice = { { id = "tp_ad", text = "Pray when you're grateful, not only when you're frightened. The Light enjoys being thanked, I think. Most of us do." } },
     tome_of_divinity = { { id = "tp_tome", text = "Duthorian's test. I've read the book, but I've never had the patience to teach from it, and he has." } },
@@ -283,6 +317,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I've been sitting by this altar long enough to hear half the Trade District's business, lad. Ask me about any of it, and I'll tell you what I can between prayers." },
+    },
     background = { { id = "tp_bg", text = "A dwarf who went lookin' for proof an' found more than he wanted. That's me lately. Ask me again when Henze is on his feet." } },
     advice = { { id = "tp_ad", text = "If a friend tells ye tae run, run, but then come back with help. Dinnae skip the second part." } },
     defias = { { id = "tp_defias", text = "Organized, well-armed, an' meaner than they look. They look plenty mean." } },
@@ -386,6 +423,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I hear all sorts on the way to the market and back, love, mostly from people who think a woman with a basket isn't listening. Ask me about any of this, quickly, before the children miss me." },
+    },
     background = { { id = "tp_bg", text = "John's wife, and everything else the orphans need. There isn't time for more of a story than that, love. There's a hem waiting." } },
     advice = { { id = "tp_ad", text = "Mend a thing before it tears all the way, whether it's clothes, roofs or people. It's always cheaper early." } },
     tome_of_divinity = { { id = "tp_tome", text = "Duthorian's young paladins come to me. I put them to work. They go away a little kinder." } },
@@ -507,6 +547,8 @@ P:NPC {
           text = "You've carried that prayer a while now. Have you needed it yet? You will, so be glad it's there." },
         { id = "h_young", when = { class = "PRIEST", maxLevel = 12 },
           text = "You're young, for the Cathedral, but that's no fault. It only means the hard lessons are still ahead, and most of them are not in books." },
+        { id = "h_warm", when = { disposition = { min = 70 } },
+          text = "Ah, good, it's you. I've told the novices about you, a little, as an example of what to aim for, so don't let it go to your head." },
       },
       again = { { id = "h_again", text = "What else? Quietly; there's a service soon." }, { id = "h_again2", text = "Ask. I'll answer what I can, and tell you when I can't." } },
       choices = {
@@ -525,6 +567,9 @@ P:NPC {
         { text = "That's frightening.", next = "lessons_fear", fx = { trait = { cautious = 1 } } },
         { text = "I'm ready for that.", next = "BACK", fx = { affinity = 2, align = { light = 2 }, trait = { brave = 1 } } },
         { text = "I'd rather not have the Light judge me so plainly.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What has the Light shown you about yourself?", tag = "Persuade", next = "lessons_own",
+          check = { pass = { any = { { all = { { class = "PRIEST" }, { disposition = { min = 60 } } } }, { disposition = { min = 72 } }, { trait = "pious" } } } },
+          fail = { next = "lessons_mine", fx = { affinity = -1 } } },
       },
     },
     lessons_fear = {
@@ -553,9 +598,35 @@ P:NPC {
         { text = "Marble suits a priest better than a scrubbing brush, frankly.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
+    lessons_own = {
+      big = true,
+      lines = {
+        { id = "lo_default", text = "Pride. I came to this Cathedral certain I'd be its finest preacher, and the first time I stood in the Light properly it showed me a woman who loved the sound of her own sermons." },
+        { id = "lo_after", text = "So I stopped preaching and started teaching, which is preaching with the vanity sanded off. I still catch myself enjoying it too much, and when I do, I go and sit with the sick at the doors." },
+      },
+      choices = {
+        { text = "That took honesty.", next = "BACK", fx = { affinity = 2 } },
+        { text = "So that's why the quiet prayers matter to you.", next = "BACK", fx = { affinity = 1, trait = { pious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lessons_mine = {
+      lines = {
+        { id = "lm_default", text = "That's between me and the Light, and you're not either of us. Ask me again when you've stood in it long enough to know why I won't answer." },
+        { id = "lm_default2", text = "A fair question, and a forward one. I teach what the Light shows the student, not what it showed the teacher, so we'll keep to your lessons." },
+      },
+      choices = {
+        { text = "Forgive me, High Priestess.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I know the Cathedral and the people who come to its doors, and very little of what happens beyond them. Ask me about any of this, and keep your voice down." },
+      { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "I'll answer on these, briefly, and then I've a service to prepare." },
+    },
     background = { { id = "tp_bg", text = "A priest who stayed when others went home. That's how most high priestesses happen. Stubbornness, mistaken for calling." } },
     advice = { { id = "tp_ad", text = "Heal first and ask questions after. The questions will still be there. The wounded may not be." } },
     northshire_abbey = { { id = "tp_abbey", text = "Where the Light learns your name. The Cathedral only learns what you've done with it." } },
@@ -769,6 +840,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The Crusade keeps itself well informed, and so do I. Ask, and I'll answer honestly, which is more than the Church upstairs does about us." },
+    },
     background = { { id = "tp_bg", text = "A priest who saw what the plague does and stopped pretending prayer alone would hold it back." } },
     advice = { { id = "tp_ad", text = "If someone you love is bitten, don't wait to be sure. Waiting is how Lordaeron fell." } },
     scarlet_crusade = { { id = "tp_scarlet", text = "The last true servants of the Light in the north. Whatever you've heard, that's the heart of it." } },

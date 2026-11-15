@@ -93,6 +93,9 @@ P:NPC {
       choices = {
         { text = "And Milly's grapes?", next = "wine_milly" },
         { text = "That's a lot of honesty, Brother.", next = "BACK", fx = { trait = { witty = 1 }, affinity = 1 } },
+        { text = "Brother Sammuel says the cellar tally is short again.", tag = "Deceive", next = "wine_caught",
+          check = { pass = { any = { { disposition = { min = 55 } }, { origin = "human_abbey_novice" }, { class = "PRIEST" } } } },
+          fail = { next = "wine_wise", fx = { affinity = -1 } } },
       },
     },
     wine_milly = {
@@ -146,9 +149,39 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    wine_caught = {
+      lines = {
+        { id = "wc_default", text = "Short? Oh dear. Oh, dear me. Well, there may have been a cask from last autumn's pressing that needed tasting rather more thoroughly than the others, for the sake of the inventory." },
+        { id = "wc_after", text = "Several times, if I'm honest, and I am, as I said, very honest. Tell Sammuel I'll make up the difference from my own stipend, and perhaps don't mention the bell tower, where the cups are." },
+      },
+      choices = {
+        { text = "Your secret's safe, Brother.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Actually, Sammuel said nothing.", next = "wine_relief" },
+      },
+    },
+    wine_relief = {
+      lines = {
+        { id = "wr_default", text = "He said nothing? You wicked thing, you've had a full confession out of an old brother for free. Well, the Light saw it, and the Light has a sense of humour, or I'd have been struck down years ago." },
+        { id = "wr_novice", when = { origin = "human_abbey_novice" }, text = "And you a novice of this very Abbey, too. I taught you to read the manifest, and this is the thanks I get, though I'll admit it was neatly done." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    wine_wise = {
+      lines = {
+        { id = "ww_default", text = "Does he now? Brother Sammuel has never once been down to the cellar, friend, because he says the stairs disagree with him. Nice try, though." },
+        { id = "ww_default2", text = "The tally is perfect, and I know it's perfect because I wrote it myself this morning. Somebody's been telling you tales." },
+      },
+      choices = {
+        { text = "My mistake, Brother.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The Abbey's records pass through my hands, along with a good deal of gossip from the novices. Ask me about any of this, friend." },
+    },
     background = { { id = "tp_bg", text = "A brother of Northshire. I keep the stores and climb the bell tower, and only one of those is good for my knees." } },
     advice = { { id = "tp_ad", text = "Keep a careful tally of everything: barrels, prayers and debts. The Light loves a careful tally, and so do creditors." } },
     northshire_abbey = { { id = "t_abbey", text = "Rebuilt by Archbishop Faol after the wars. Its foundations are older than half the walls in Stormwind, and better kept." } },

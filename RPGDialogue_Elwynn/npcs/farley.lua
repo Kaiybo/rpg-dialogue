@@ -91,7 +91,7 @@ P:NPC {
         { text = "Who'd know more than you?", next = "rumors_who" },
         { text = "Thanks, Farley.", next = "BACK" },
         { text = "Hogger can't be that bad.", next = "BACK", when = { heardClaim = "hogger_unbeatable" }, fx = { trait = { brave = 1 } } },
-        { text = "[Deceive] That was me, actually. Hogger's dead.", tag = "Deceive", next = "END",
+        { text = "That was me, actually. Hogger's dead.", tag = "Deceive", next = "END",
           when = { questBefore = TODO_QUEST("WANTED: \"Hogger\""), heardClaim = "hogger_unbeatable" },
           fx = { claim = "player_killed_hogger", align = { honor = -2 }, affinity = 1 },
           journal = { first = "Told Farley I'd killed Hogger. He believed me. Half of Goldshire will by morning.",
@@ -235,6 +235,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "An innkeeper hears everything sooner or later, friend, usually after the second ale. Ask me about any of this and I'll tell you what's going round the common room." },
+    },
     background = { { id = "tp_bg", text = "Fredrik Farley, of the Lion's Pride, like my father and his before him. The inn's the real story; I just pour.", next = "inn" } },
     advice = { { id = "tp_ad", text = "Eat something hot, sleep somewhere dry, and never pick a fight in another man's inn, especially mine." } },
     lions_pride = { { id = "t_inn", text = "Best inn between Stormwind and Lakeshire, and I'll argue with anyone who says otherwise, politely." } },

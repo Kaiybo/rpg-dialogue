@@ -60,6 +60,10 @@ P:NPC {
           fx = { learn = { "the_collector", "defias" } } },
         { id = "h_veteran", when = { minLevel = 20, metBefore = true },
           text = "Look who's back. You carried McBride's papers to this desk once. Now half my reports have your name in them." },
+        { id = "h_warm", when = { disposition = { min = 70 } },
+          text = "Ah, you. Pull up that crate, because you're one of the few people who walks into this office and makes my day shorter instead of longer." },
+        { id = "h_cold", when = { disposition = { max = 34 } },
+          text = "I've a desk full of trouble already, and I'm told some of it has your name on it. What do you want?" },
       },
       again = {
         { id = "h_again", text = "What else? The desk isn't getting any emptier." },
@@ -105,7 +109,8 @@ P:NPC {
           fx = { expose = "defias_common_thieves" } },
       },
       choices = {
-        { text = "[Persuade] The town deserves to know what it's facing.", tag = "Persuade", next = "admit",
+        { text = "The town deserves to know what it's facing.", tag = "Persuade", next = "admit",
+          check = { pass = { any = { { disposition = { min = 65 } }, { townStanding = { town = "goldshire", min = 30 } }, { questDone = TODO_QUEST("The Collector") } } } },
           fail = { next = "rebuff", fx = { affinity = -1 } } },
         { text = "Calm streets matter. I understand.", next = "BACK",
           fx = { align = { order = 2 }, trait = { cautious = 1 }, affinity = 1 } },
@@ -303,6 +308,10 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Every complaint in Goldshire ends up on this desk sooner or later, so I know a little of everything. Ask me about any of this." },
+      { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "For you, I'll even tell you what I don't put in the reports. Ask away." },
+    },
     background = { { id = "tp_bg", text = "Marshal of Goldshire. Too much forest, too few guards, and a desk I see more of than my bed.", next = "army" } },
     advice = { { id = "tp_ad", text = "Scout before you fight and report before you rest, and never believe a rumor until a soldier's seen it, even one of Remy's." } },
     defias = { { id = "t_defias", text = "They're thieves, Westfall's thieves, and I'd thank you not to say otherwise in the inn.", fx = { hear = "defias_common_thieves" } } },

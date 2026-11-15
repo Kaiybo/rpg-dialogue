@@ -53,6 +53,10 @@ P:NPC {
           text = "Dughan tells Goldshire they're common thieves, but common thieves don't keep shipping schedules. Let him keep the town calm, and I'll keep the ledger." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "Robes, in SI:7's barracks? Either you're lost, or someone has confessed something interesting, and I'll hope for the second." },
+        { id = "h_warm", when = { disposition = { min = 70 } },
+          text = "You again. My people say you keep your word and your mouth shut, which is the highest praise this building gives, so sit down." },
+        { id = "h_cold", when = { disposition = { max = 34 } },
+          text = "I've read your file, and I didn't care for it. Say what you came to say, and use the same door on your way out." },
       },
       again = {
         { id = "h_again", text = "Go on. I've ten minutes, and I've already spent two of them on you." },
@@ -105,7 +109,40 @@ P:NPC {
     },
     si7_know = {
       lines = { { id = "sn_default", text = "Yes, or no; pick whichever answer lets you sleep, because I'll be awake either way." } },
-      choices = { { text = "Fair. Something else.", next = "BACK" } },
+      choices = {
+        { text = "Fair. Something else.", next = "BACK" },
+        { text = "You can trust me with the rest of it, Shaw.", tag = "Persuade", next = "si7_truth",
+          check = { pass = { any = { { disposition = { min = 70 } }, { deed = "dungeon:The Deadmines" }, { questDone = TODO_QUEST("Brotherhood's End") } } } },
+          fail = { next = "si7_shut", fx = { affinity = -1 } } },
+      },
+    },
+    si7_truth = {
+      big = true,
+      lines = {
+        { id = "st_default", text = "Then here's the rest: we don't know. His escort never reached Theramore, no ship put in with his banner, and every agent I've sent down that coast has come back with the same nothing." },
+        { id = "st_default2", text = "I tell the Regent every week that we're close, because a man who's carrying a kingdom needs to hear it. We're not close. I'd ask you to keep that in this building, where it belongs." },
+      },
+      choices = {
+        { text = "It stays here.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Shouldn't Bolvar know the truth?", next = "si7_bolvar" },
+      },
+    },
+    si7_bolvar = {
+      lines = {
+        { id = "sb_default", text = "Bolvar knows what he needs to keep going, which isn't the same as the truth, though it's close. When I've something better than nothing, he'll have it before the ink's dry." },
+        { id = "sb_priest", when = { class = "PRIEST" }, text = "You'd tell a dying man the truth, I suppose, and you'd be right to. The Regent isn't dying, and I need him on his feet." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    si7_shut = {
+      lines = {
+        { id = "ss_default", text = "Trust isn't something you ask for in this building; it's something I find in a file after a few years of watching you. Yours isn't thick enough yet." },
+        { id = "ss_default2", text = "That's a very good try, and I've heard it from better liars than you. The answer is still the one I gave you." },
+      },
+      choices = {
+        { text = "Then I'll give you a few years.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
 
     answer = {
@@ -220,6 +257,10 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Knowing things is the whole trade here, though telling them is another matter. I'll give you what I can on any of these, and not a word more." },
+      { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "You'll get very little from me, but I'll hear the question, on these and nothing else." },
+    },
     background = { { id = "tp_bg", text = "I run SI:7. Before that I was learning to. That's all the story there is, and more than I tell most people." } },
     advice = { { id = "tp_ad", text = "Count the doors in every room you walk into. Then count the people who know about them." } },
     rumors = { { id = "tp_ru", text = "Rumours are my trade, and I don't hand out samples." } },
@@ -315,6 +356,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "The Sanctum keeps careful records, and I keep careful notes on the records. Ask me about any of these, and listen closely." },
+    },
     background = { { id = "tp_bg", text = "My history is dull, and I'd rather not waste your lesson on it. The magic is the interesting part. Ask about that." } },
     advice = { { id = "tp_ad", text = "Never cast a spell you couldn't explain to a child. If you can't explain it, you don't understand it, and it will notice." } },
     morganth = { { id = "tp_morganth", text = "His name is not spoken lightly in this building, because he stole from us, and he will be stopped." } },
@@ -422,6 +466,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I know more than I say, which is the only sensible way to know anything in this cellar. Ask about these, and keep your voice down." },
+    },
     background = { { id = "tp_bg", text = "My past is my business. Discretion is the first lesson, remember, and you've just failed it by asking." } },
     advice = { { id = "tp_ad", text = "Whatever a demon offers you, it's lying. Even the things that turn out true. Especially those." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "It sent us its warlocks once. Now it sends us its refugees. I take both." } },
@@ -495,6 +542,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Half the kingdom eats breakfast at my tables, and the other half talks about it. Ask me about any of this, love, while the kettle's on." },
+    },
     background = { { id = "tp_bg", text = "If I've a story, it happened while I was making breakfast, and I wasn't paying attention. Ask me about the guests instead." } },
     advice = { { id = "tp_ad", text = "Eat before you go out that gate. The road doesn't serve breakfast." } },
     westfall = { { id = "tp_westfall", text = "The farmers who come through from there look ten years older than they are. I feed them first." } },

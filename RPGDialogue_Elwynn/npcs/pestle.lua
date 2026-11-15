@@ -164,6 +164,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "An apothecary hears a good deal while folk wait for their remedies. Ask me about any of this, and I'll tell you what I can." },
+    },
     background = { { id = "tp_bg", text = "I'm an apothecary from Stormwind who likes the country better. My brother keeps the shop, and I keep the candles." } },
     advice = { { id = "tp_ad", text = "Label everything. The green one and the blue one look very alike by candlelight." } },
     maybell_tommy = {

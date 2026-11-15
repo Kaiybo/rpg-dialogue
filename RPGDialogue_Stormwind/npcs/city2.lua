@@ -168,6 +168,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "I have served the Silver Hand long enough to have opinions on most things, and patience for very few. Ask about these, and be brief." },
+    },
     background = { { id = "tp_bg", text = "A lord of the Silver Hand. People remember the title. The part that matters is the teaching.", next = "hand" } },
     advice = { { id = "tp_ad", text = "Care for your gear as if a life depends on it, because one will, and usually not yours." } },
     tome_of_divinity = { { id = "tp_tome", text = "The Tome is only the first trial, and there are many more. The last ones are not written in any book." } },
@@ -557,6 +560,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "A cheese merchant hears a remarkable amount, you know, people will say anything over a good wheel of cheddar. Ask me about any of this." },
+    },
     background = { { id = "tp_bg", text = "I'm a cheesemaker's husband who tastes everything first. That's my story, and I'm sticking to it." } },
     advice = { { id = "tp_ad", text = "Never trust a man who doesn't like cheese. He's hiding something worse." } },
     trade = { { id = "tp_tr", text = "Cheese: cheddar, bleu and gouda. That is the whole of my trade, as anyone will tell you.", next = "cheese" } },

@@ -63,7 +63,7 @@ P:NPC {
         { text = "Where are you from, Remy?", next = "home" },
         { text = "Who are these associates of yours?", next = "associates", when = { questDone = TODO_QUEST("Gold Dust Exchange") } },
         { text = "I know a fence when I see one.", next = "fence", when = { class = "ROGUE" } },
-        { text = "[Intimidate] Who else buys dust around here? Talk.", tag = "Intimidate", next = "talks",
+        { text = "Who else buys dust around here? Talk.", tag = "Intimidate", next = "talks",
           when = { thread = { id = "elwynn_gold", beat = "b1_dust" } },
           check = { pass = { any = { { power = { "above", "far_above" } }, { trait = "stern" }, { band = { "Seasoned", "Veteran", "Champion" } } } } },
           fail = { next = "clams", fx = { affinity = -1 } } },
@@ -161,6 +161,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Oh, I hear everything first, friend, always have, always have! Ask me about any of this and you'll hear it before anyone else does." },
+    },
     background = { { id = "tp_bg", text = "From Redridge, looking for business, looking for business! And I found plenty, plenty.", next = "home" } },
     advice = { { id = "tp_ad", text = "Never sell to a gnoll, because gnolls don't pay. And always count your change twice, twice!" } },
     gold_dust = { { id = "t_dust", text = "It's mine, my trade! Nobody in Elwynn buys dust but Remy, nobody but Remy!",

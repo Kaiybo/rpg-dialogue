@@ -141,6 +141,9 @@ P:NPC {
   },
 
   topics = {
+    knows = {
+      { id = "tp_knows", text = "An architect learns a city from its drains up, and its people along with it. Ask me about any of this, and I'll tell you what the stone has told me." },
+    },
     background = { { id = "tp_bg", text = "A Westfall boy who learned stone, rebuilt a city, and took the office his old partner refused. I don't care for the ending.", next = "farm" } },
     advice = { { id = "tp_ad", text = "Look at the foundations before the facade. In buildings and in people. The pretty part is always the last thing built." } },
     defias = {
