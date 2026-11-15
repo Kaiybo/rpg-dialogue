@@ -14,7 +14,7 @@
 ## Identity
 Farmer Saldean · Saldean's Farm · Alliance · Human · farmer
 Personality: proud, stubborn, gruff, soft about his wife
-Speech: short, earthy, farm metaphors
+Speech: plain and earthy, farm metaphors, a gruff warmth
 Knows and cares about: his land, his neighbours' empty farms, Salma
 Relationships: Salma (wife), the Furlbrows (neighbours), Gryan (respect)
 Default attitudes: people who work with their hands are honest

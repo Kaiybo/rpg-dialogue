@@ -11,45 +11,45 @@ P:NPC {
 
   greetings = {
     { id = "g_map", text = "Don't stand on the map." },
-    { id = "g_bandanas", when = { questActive = TODO_QUEST("Red Leather Bandanas") }, text = "Bandanas? Count them out. Every one's a pin on my map." },
-    { id = "g_after", when = { questDone = TODO_QUEST("Red Leather Bandanas") }, text = "My map's half red now. That's your doing. It's a good red." },
+    { id = "g_bandanas", when = { questActive = TODO_QUEST("Red Leather Bandanas") }, text = "Bandanas? Count them out on the table; every one's a pin on my map." },
+    { id = "g_after", when = { questDone = TODO_QUEST("Red Leather Bandanas") }, text = "My map's half red now, and that's your doing. It's a good red, too." },
   },
 
   notice = {
     { id = "n_stealth", cat = "stealth", place = "replace", when = { stealthed = true },
-      text = "Not bad. You'd fool a farmer. You won't fool a Defias lookout; they're paid to be paranoid. Again, slower." },
+      text = "Not bad; you'd fool a farmer. You won't fool a Defias lookout, though, because they're paid to be paranoid, so try it again, slower." },
     { id = "n_rogue", cat = "stealth", when = { class = "ROGUE" },
-      text = "You move like you've been taught to. Who by, I'll not ask. Not today." },
+      text = "You move like somebody taught you to. Who that was, I'll not ask, not today." },
     { id = "n_red", cat = "red", when = { questObjective = { TODO_QUEST("Red Leather Bandanas"), left = { max = 3 } } },
-      text = "Nearly a full count. You've got red on your gloves. Theirs, I hope." },
+      text = "That's nearly a full count, and you've got red on your gloves. Theirs, I hope." },
   },
 
   react = {
-    { id = "r_stealth", on = "stealth", text = "I saw that. Keep practising." },
+    { id = "r_stealth", on = "stealth", text = "I saw that, but keep practising." },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "Galiaan, scout. The Defias front moves every few days. I move with it, and I write down where it's been." },
+        { id = "h_default", text = "I'm Galiaan, scout for the militia. The Defias front moves every few days, so I move with it and write down where it's been." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Red Leather Bandanas") },
-          text = "They wear red leather on their faces. Proud of it. That pride's how I track them. Bring me their bandanas and I'll tell you where they were." },
+          text = "They wear red leather on their faces and they're proud of it, and that pride is how I track them. Bring me their bandanas and I'll tell you where they've been." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Red Leather Bandanas") },
           text = "Fifteen. Mark where you took each one if you can; even a rough guess helps the map." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Red Leather Bandanas"), days = 3 } },
-          text = "There's a pattern. They pull back toward Moonbrook every time we push. Gryan will want to hear that." },
+          text = "There's a pattern to it: they pull back toward Moonbrook every time we push. Gryan will want to hear that." },
         { id = "h_willem", when = { heardLine = "willem.t_default" },
           text = "Red bandanas in Northshire's vineyards too? Then they've spread further east than my map says. I'll need more pins." },
         { id = "h_skyborne", when = { race = "Skyborne" },
-          text = "You walk light, like you're used to wind in your face. That's useful in a scout. I'm not recruiting. I'm noticing." },
+          text = "You walk light, like someone used to wind in your face, and that's useful in a scout. I'm not recruiting, mind; I'm only noticing." },
         { id = "h_human_hunter", when = { race = "Human", class = "HUNTER" },
           text = "A human who tracks with a beast at heel. Not many of your folk take to it. The ones who do make the best scouts I've seen." },
-        { id = "h_dust", when = { metBefore = true }, text = "Westfall hides nothing from a patient eye. It hides everything under dust, though. I've stopped minding the dust." },
+        { id = "h_dust", when = { metBefore = true }, text = "Westfall hides nothing from a patient eye, though it hides everything under dust. I've stopped minding the dust." },
       },
       again = {
-        { id = "h_again", text = "What else? Quickly. I lose the light at dusk." },
-        { id = "h_again2", text = "More? Fine. Mind the pins." },
+        { id = "h_again", text = "What else? Be quick about it, since I lose the light at dusk." },
+        { id = "h_again2", text = "More questions? Fine, but mind the pins." },
       },
       choices = {
         { text = "Show me your map.", next = "map" },
@@ -63,7 +63,7 @@ P:NPC {
     },
     map = {
       lines = {
-        { id = "m_default", text = "Pins for camps. Thread for their roads. The thread all runs one way, see? South. Moonbrook." },
+        { id = "m_default", text = "Pins for their camps and thread for their roads. See how the thread all runs one way? South, to Moonbrook." },
       },
       choices = {
         { text = "Then that's where it ends.", next = "BACK", fx = { learn = { "moonbrook" }, trait = { brave = 1 } } },
@@ -71,7 +71,7 @@ P:NPC {
       },
     },
     look = {
-      lines = { { id = "l_default", text = "Hm. That's the first clever thing anyone's said to me this week. I'll check the coast." } },
+      lines = { { id = "l_default", text = "Hm, that's the first clever thing anyone's said to me this week. I'll have a look at the coast." } },
       choices = {
         { text = "What would you expect to find there?", next = "coast" },
         { text = "Glad to help. Something else.", next = "BACK" },
@@ -85,7 +85,7 @@ P:NPC {
       },
     },
     bandanas = {
-      lines = { { id = "ba_default", text = "Red leather, on most of them. They wear it like a uniform. Pride's a weakness in a thief, and I collect weaknesses." } },
+      lines = { { id = "ba_default", text = "Red leather, on most of them, worn like a uniform. Pride's a weakness in a thief, and I collect weaknesses." } },
       choices = {
         { text = "Riell wants red silk, not leather.", next = "silk" },
         { text = "So that's why you want fifteen.", next = "BACK", fx = { learn = { "defias" } } },
@@ -99,7 +99,7 @@ P:NPC {
       },
     },
     scouting = {
-      lines = { { id = "sc_default", text = "Walk where the ground's hard. Stop where the wind can't carry your smell. Never cross a skyline; every Defias lookout watches the hills." } },
+      lines = { { id = "sc_default", text = "Walk where the ground's hard, and stop where the wind can't carry your smell. Never cross a skyline, because every Defias lookout watches the hills." } },
       choices = {
         { text = "Where did you learn all that?", next = "scouting_learn" },
         { text = "I'll remember it.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
@@ -111,7 +111,7 @@ P:NPC {
     },
     watchers = {
       lines = {
-        { id = "wa_default", key = true, text = "Machines. Machines don't wake up angry by themselves. Someone wound them up and set them loose on the farms. I've a guess who, and it wears red.",
+        { id = "wa_default", key = true, text = "They're machines, and machines don't wake up angry by themselves. Someone wound them up and set them loose on the farms, and I've a guess who, because the guess wears red.",
           fx = { learn = { "harvest_watchers" } } },
       },
       choices = {
@@ -120,11 +120,11 @@ P:NPC {
       },
     },
     watchers_proof = {
-      lines = { { id = "wp_default", text = "No. So it's a guess, and I keep it off the map. Don't say it to Saldean. He's angry enough already." } },
+      lines = { { id = "wp_default", text = "I can't, so it stays a guess, and I keep it off the map. Don't say it to Saldean, either; he's angry enough already." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     rogue = {
-      lines = { { id = "ro_default", text = "Probably. That's what worries me about you." } },
+      lines = { { id = "ro_default", text = "Probably, and that's exactly what worries me about you." } },
       choices = {
         { text = "Then use me. Point me at a camp.", next = "BACK", fx = { affinity = 1, standing = { sentinel_hill = 1 } } },
         { text = "Worried? I'm on your side.", next = "rogue_side" },
@@ -132,31 +132,31 @@ P:NPC {
     },
     rogue_side = {
       big = true,
-      lines = { { id = "rs_default", text = "Today. Plenty of these thieves were Stormwind men once. Some laid its stones, I hear. Sides change." } },
+      lines = { { id = "rs_default", text = "On your side today, yes. Plenty of these thieves were Stormwind men once, and some laid its stones, I hear, so sides do change." } },
       choices = {
         { text = "Mine won't.", next = "BACK", fx = { affinity = 1, align = { honor = 1 }, learn = { "defias" } } },
         { text = "Fair. Watch me, then.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 }, learn = { "defias" } } },
       },
     },
     hunter = {
-      lines = { { id = "hn_default", text = "Then walk it past the Molsen farm at dusk. If it stiffens, there's a camp. Animals know before maps do." } },
+      lines = { { id = "hn_default", text = "Then walk it past the Molsen farm at dusk, and if it stiffens, there's a camp. Animals know before maps do." } },
       choices = { { text = "I'll bring you a pin's worth.", next = "BACK", fx = { affinity = 2 } } },
     },
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "A scout. Before that, a man who liked walking. The militia found a use for the walking." } },
-    advice = { { id = "tp_ad", text = "Count the bandanas in a camp before you go in. Then count again. Someone's always lying down." } },
+    background = { { id = "tp_bg", text = "I'm a scout, and before that I was a man who liked walking. The militia found a use for the walking." } },
+    advice = { { id = "tp_ad", text = "Count the bandanas in a camp before you go in, then count them again, because someone's always lying down." } },
     defias = { { id = "tp_defias", text = "Red bandanas, good boots, better discipline than they've any right to." } },
     moonbrook = {
       { id = "tp_moonbrook", text = "Every road on my map ends there. That's not a coincidence." },
-      { id = "tp_moonbrook2", text = "The end of every thread. Want to see?", next = "map" },
+      { id = "tp_moonbrook2", text = "It's where every thread on my map ends. Want to see?", next = "map" },
     },
     harvest_watchers = {
-      { id = "tp_watchers", text = "They don't move like gnolls or men. I don't map them. I avoid them." },
+      { id = "tp_watchers", text = "They don't move like gnolls or men, so I don't map them; I avoid them." },
       { id = "tp_watchers2", text = "Machines in a farmer's field. I've thoughts on that.", next = "watchers" },
     },
     people_militia = { { id = "tp_militia", text = "Farmers, mostly. I'm the one who tells them where not to walk." } },
-    _none = { { id = "tp_none", text = "Not on my map. Not my business." } },
+    _none = { { id = "tp_none", text = "If it's not on my map, it's not my business." } },
   },
 }

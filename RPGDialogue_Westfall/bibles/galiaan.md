@@ -12,7 +12,7 @@
 ## Identity
 Scout Galiaan · Sentinel Hill · Alliance · questgiver
 Personality: watchful, precise, dry, generous with credit
-Speech: short, map words (pins, thread, roads), rare praise
+Speech: plain and precise, map words (pins, thread, roads), rare praise
 Knows and cares about: Defias movements, Moonbrook, fieldcraft
 Relationships: Gryan (reports to him)
 Default attitudes: respects quiet movers

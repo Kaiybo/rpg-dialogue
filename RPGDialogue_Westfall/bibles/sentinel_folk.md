@@ -26,7 +26,7 @@
 - Heather: tidy, tired, kind; the militia sleep in their boots.
 - Lewis: harried quartermaster whose ledger counts robbed wagons.
 - Thor: brisk, proud of his gryphons; dry jokes about cargo.
-- Riell: watchful, terse; sees everyone from the tower.
+- Riell: watchful and dry; sees everyone from the tower.
 - MacGregor: dry craftsman; strings are extra.
 
 ## Depth pass (0.25.0, authored, not canon)

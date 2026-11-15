@@ -13,7 +13,7 @@
 ## Identity
 Captain Danuvin <The People's Militia> · Sentinel Hill · Alliance · Human · questgiver
 Personality: hard, impatient, proud of his farmers, bitter at the city
-Speech: orders, short sentences, a drill sergeant's humour
+Speech: a drill sergeant's directness in full sentences, blunt orders, dry humour
 Knows and cares about: patrols, the gnolls, his volunteers, Westfall's dignity
 Relationships: Gryan (commander), the volunteers (his charges)
 Default attitudes: Stormwind left them; that's a fact, not a feeling

@@ -10,14 +10,14 @@ P:NPC {
   notices = { "paladin", "kit" },
 
   greetings = {
-    { id = "g_apples", text = "Mind the basket. Those are the good apples." },
+    { id = "g_apples", text = "Mind the basket, love; those are the good apples." },
     { id = "g_valor", when = { questActive = TODO_QUEST("The Tome of Valor") }, text = "Duthorian sent you? Then pick up a weapon, not an apple." },
-    { id = "g_after", when = { questDone = TODO_QUEST("The Tome of Valor") }, text = "My defender! Take an apple. Take two. You've earned the good ones." },
+    { id = "g_after", when = { questDone = TODO_QUEST("The Tome of Valor") }, text = "There's my defender! Take an apple, or take two; you've earned the good ones." },
   },
 
   notice = {
     { id = "n_paladin", cat = "paladin", when = { class = "PALADIN", minLevel = 20 },
-      text = "A paladin of the Church. Jordan would like you. He trained for it once, before his father's forge got him." },
+      text = "A paladin of the Church! Jordan would like you; he trained for it once, before his father's forge got him." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.3 } },
       text = "You've been along the shore, I see. They don't fight fair down there. Neither do I, when I have to." },
   },
@@ -28,15 +28,15 @@ P:NPC {
       lines = {
         { id = "h_default", text = "Daphne Stilwell. This is my farm, and that's the sea, and somewhere down that hill the Defias are deciding whether today's the day. It never is, while I'm watching." },
         { id = "h_valor", tags = { "news" }, when = { questActive = TODO_QUEST("The Tome of Valor") },
-          text = "They'll come up from the shore. They always do. Stand with me, and we'll show the Brotherhood this farm isn't for taking." },
+          text = "They'll come up from the shore; they always do. Stand with me, and we'll show the Brotherhood this farm isn't for taking." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Tome of Valor"), days = 3 } },
-          text = "That's the last time they try my gate, I'd wager. I got two of them myself, you know. Don't tell Jordan. He worries." },
-        { id = "h_jordan", text = "My husband Jordan's a smith, up by the gates of Ironforge. Devoted to the Church, the most faithful man I know. Far away, mind. We write." },
+          text = "That's the last time they try my gate, I'd wager. I got two of them myself, you know, but don't tell Jordan, because he worries." },
+        { id = "h_jordan", text = "My husband Jordan's a smith, away up by the gates of Ironforge for now, and the most faithful man the Church has. It's a long way off, but we write." },
         { id = "h_apples", when = { metBefore = true }, text = "First apples are coming on, love. Small and sour, but they're mine, and nobody's burned them. That's a good year, out here." },
       },
       again = {
-        { id = "h_again", text = "What else, love? I've apples to sort." },
-        { id = "h_again2", text = "Go on. They won't come while we're talking. They don't like witnesses." },
+        { id = "h_again", text = "What else, love? I've a whole basket of apples to sort." },
+        { id = "h_again2", text = "Go on, then. They won't come while we're talking, because they don't like witnesses." },
       },
       choices = {
         { text = "Aren't you afraid out here?", next = "afraid" },
@@ -52,7 +52,7 @@ P:NPC {
     afraid = {
       big = true,
       lines = {
-        { id = "a_default", text = "Every day. Then I pick apples anyway. Fear's a poor reason to leave good trees to thieves." },
+        { id = "a_default", text = "Every day of my life, and then I pick apples anyway. Fear's a poor reason to leave good trees to thieves." },
       },
       choices = {
         { text = "That's courage.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { brave = 1 } } },
@@ -61,7 +61,7 @@ P:NPC {
       },
     },
     afraid_most = {
-      lines = { { id = "am_default", text = "Fire. An orchard takes years to grow and an hour to burn. The Defias know that. So far they've wanted the farm more than they've wanted to spite me." } },
+      lines = { { id = "am_default", text = "Fire. An orchard takes years to grow and an hour to burn, and the Defias know it. So far they've wanted the farm more than they've wanted to spite me." } },
       choices = { { text = "Let's keep it that way.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } } },
     },
     jordan = {
@@ -94,7 +94,7 @@ P:NPC {
       },
     },
     farm_seen = {
-      lines = { { id = "fs_default", text = "Men with crates, at night. Goblins, once, and I'd not have believed that if I hadn't seen it. Then I stopped looking. Looking's how you get noticed." } },
+      lines = { { id = "fs_default", text = "Men with crates, at night, and goblins once, which I'd not have believed if I hadn't seen it. Then I stopped looking, because looking's how you get noticed." } },
       choices = {
         { text = "Goblins? Working for the Defias?", next = "BACK", fx = { trait = { curious = 1 }, learn = { "defias" } } },
         { text = "Wise. Something else.", next = "BACK", fx = { trait = { cautious = 1 } } },
@@ -102,9 +102,9 @@ P:NPC {
     },
     fought = {
       lines = {
-        { id = "fo_default", text = "There's a gun in the house, and I know which end is which. The young paladins Duthorian sends do most of the work. I do some." },
+        { id = "fo_default", text = "There's a gun in the house, and I know which end is which. The young paladins Duthorian sends do most of the work, but I do some." },
         { id = "fo_done", when = { questDone = TODO_QUEST("The Tome of Valor") },
-          text = "You were there. You saw. Don't tell Jordan how close it was; let him think it was all you." },
+          text = "You were there and you saw it all, so don't tell Jordan how close it was; let him think it was all you." },
       },
       choices = {
         { text = "A gun? Out here?", next = "BACK", fx = { trait = { witty = 1 } } },
@@ -113,7 +113,7 @@ P:NPC {
     },
     rall = {
       big = true,
-      lines = { { id = "ra_default", text = "He sends his young ones out to learn that the Light protects farmers, not just kings. I'm the lesson. I try to be a good one." } },
+      lines = { { id = "ra_default", text = "He sends his young ones out to learn that the Light protects farmers, not just kings. I'm the lesson, and I try to be a good one." } },
       choices = {
         { text = "You're a fine teacher.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
         { text = "And I'm the test, I suppose.", next = "BACK", fx = { trait = { witty = 1 }, affinity = 1 } },
@@ -127,17 +127,17 @@ P:NPC {
       },
     },
     pray_church = {
-      lines = { { id = "pc_default", text = "It does. Jordan and I did the Church some good, once, the two of us. It hasn't forgotten. That's why Duthorian keeps sending his paladins." } },
+      lines = { { id = "pc_default", text = "It does. Jordan and I did the Church some good once, the two of us, and it hasn't forgotten. That's why Duthorian keeps sending his paladins." } },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "tome_of_divinity" } } } },
     },
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "A farm wife with a sea view and a husband in Ironforge. And a gun. Don't forget the gun.", next = "fought" } },
+    background = { { id = "tp_bg", text = "I'm a farm wife with a sea view, a husband in Ironforge and a gun, and you'd best not forget the gun.", next = "fought" } },
     advice = { { id = "tp_ad", text = "Pick your apples before the thieves notice they're ripe. Same goes for most things." } },
     defias = { { id = "tp_defias", text = "They want the farm because it overlooks their road to the sea. They can't have it." } },
-    westfall = { { id = "tp_westfall", text = "Hard country now. Good apples, though. The trees don't know there's a war." } },
-    tome_of_divinity = { { id = "tp_tome", text = "Duthorian's books. Valor comes after Divinity, he says. Out here it's the other way round." } },
+    westfall = { { id = "tp_westfall", text = "It's hard country now, but the apples are good, because the trees don't know there's a war on." } },
+    tome_of_divinity = { { id = "tp_tome", text = "Those are Duthorian's books. Valor comes after Divinity, he says, but out here it's the other way round." } },
     _none = { { id = "tp_none", text = "Couldn't say, love. The orchard keeps me busy enough." } },
   },
 }

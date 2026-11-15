@@ -14,7 +14,7 @@
 ## Identity
 Farmer Furlbrow (Theodore) · the Jansen Stead · Alliance · Human · farmer
 Personality: shaken, kind, ashamed of his fear, grateful
-Speech: halting, apologetic, small brave jokes
+Speech: apologetic and rambling when nervous, small brave jokes
 Knows and cares about: pumpkins, Verna, the farm, his nerve
 Relationships: Verna (wife), Old Blanchy (horse), the Saldeans (neighbours)
 Default attitudes: frightened of red and of sudden movement
