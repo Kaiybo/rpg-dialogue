@@ -1,0 +1,738 @@
+-- Lakeshire, the rest of the town: a dwarf with a drinking challenge, a rogue on the docks, a
+-- boy whose friend lost her necklace, the fishing trainer, the inn's bartender, the herbalism
+-- trainer and a man from the bridge crew. Voice: bibles/lakeshire_more.md
+local P = RPGDialogueAPI:Pack("rpgd.redridge")
+local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
+
+P:NPC {
+  key = "yorus", id = TODO_NPC("Yorus Barleybrew"), name = "Yorus Barleybrew",
+  bible = "bibles/lakeshire_more.md", role = "questgiver", tier = "quest",
+  communities = { "lakeshire" }, temper = { "jovial" }, values = { "brave", "proud" },
+  notices = { "class", "drink" },
+
+  impression = {
+    first = "Yorus Barleybrew sits in the Lakeshire Inn daring warriors to drink his family's brew and then run through gnoll country. He thinks courage is best measured staggering, and he may be right.",
+    third = "{name} met Yorus Barleybrew, a dwarf in the Lakeshire Inn whose challenge to the Alliance's warriors is called the Rethban Gauntlet.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Hah! Pull up a stool, and mind the cask; it's family." },
+    { id = "g_back", when = { metBefore = true }, text = "Back for another, are ye? Most folk only need the one sip to learn their lesson." },
+    { id = "g_run", when = { questActive = TODO_QUEST("The Rethban Gauntlet") }, text = "Why are ye standin' here? The clock's runnin', and so should you be!" },
+    { id = "g_hero", when = { questDone = TODO_QUEST("The Rethban Gauntlet") }, text = "There's the one who ran the Gauntlet! Hip hip, and I'll save the rest for when ye're sober." },
+  },
+
+  notice = {
+    { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
+      text = "Now there's a warrior's stance, feet planted like ye mean it. Ye've heard o' my challenge, then, or ye're about to." },
+    { id = "n_drunk", cat = "drink", when = { drunk = true },
+      text = "Somebody's had a head start! Careful, friend; my family's brew doesn't care for competition." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "Yorus Barleybrew, of the Barleybrews, and that's the finest brewing name in Khaz Modan whatever the Thunderbrews tell ye. I've a challenge for any warrior with the stomach for it, and the legs." },
+        { id = "h_quest", tags = { "news" }, when = { questActive = TODO_QUEST("Yorus Barleybrew") },
+          text = "Word o' my challenge reached ye, then! Take a stool and a mug, and drink slow, because a warrior should never rush what might be his final pint." },
+        { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Rethban Gauntlet"), days = 3 } },
+          text = "Ye made it back inside the hour, and still standin', near enough! I'll be tellin' that one in Ironforge till my beard's white." },
+        { id = "h_shield", when = { questDone = TODO_QUEST("The Shieldsmith") },
+          text = "Did Furen make ye a good shield? He'd better have, because he owes me more favours than I can count, and I've counted." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Talk while I pour, it saves time." },
+        { id = "h_again2", text = "Go on, {g:lad|lass}, I'm all ears and half a beard." },
+      },
+      choices = {
+        { text = "What's this challenge of yours?", next = "gauntlet" },
+        { text = "What's in Barleybrew Scalder?", next = "scalder" },
+        { text = "Why Redridge, of all places?", next = "redridge" },
+        { text = "Is it wise to drink before a fight?", next = "wisdom" },
+        { text = "I'm no warrior. Can I still run it?", next = "notwarrior", when = { class = { "PRIEST", "MAGE", "WARLOCK", "ROGUE", "HUNTER", "DRUID", "PALADIN", "SHAMAN" } } },
+        { text = "Pour me one, Yorus.", next = "END", fx = { affinity = 1 } },
+      },
+    },
+
+    gauntlet = {
+      lines = {
+        { id = "ga_default", text = "I call it the Rethban Gauntlet. Ye take a swig of my family's Scalder, run to the Rethban Caverns in the foothills north o' town, as far as the first fork, and come back here within the hour." },
+        { id = "ga_done", when = { questDone = TODO_QUEST("The Rethban Gauntlet") },
+          text = "Ye know what it is, ye ran it! Through the gnolls with Scalder in yer blood, and back before the hour, and that's a story ye'll tell yer grandchildren." },
+      },
+      choices = {
+        { text = "That sounds easy enough.", next = "gauntlet_wrinkles" },
+        { text = "And the reward?", next = "gauntlet_reward" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gauntlet_wrinkles = {
+      lines = {
+        { id = "gw_default", text = "Easy, aye, if ye ignore the gnoll packs between here and there, and the fact ye won't be walkin' straight, and the hour that doesn't wait for anyone who falls in a stream." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "redridge_gnolls" } } } },
+    },
+    gauntlet_reward = {
+      lines = {
+        { id = "gr_default", text = "A shield, from my friend Furen Longbeard in Stormwind's Dwarven District, the best shieldsmith ye'll ever meet. He owes me a big favour, and I mean to collect it on yer behalf." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    scalder = {
+      lines = {
+        { id = "sc_default", text = "Barley, fire and family secrets. It heats the blood and dulls the nerves, which is what a warrior wants, though it does leave ye a mite unsteady on yer feet for a while." },
+      },
+      choices = {
+        { text = "How unsteady?", next = "scalder_how" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    scalder_how = {
+      lines = {
+        { id = "sh_default", text = "Ye'll find out! Let's say the ground gets ideas, and ye'll be arguin' with it all the way to the caverns." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+
+    redridge = {
+      lines = {
+        { id = "r_default", text = "Because a challenge needs danger, and Redridge has plenty, gnolls in the hills and orcs past the lake. Besides, the inn's warm and Daniels doesn't mind me makin' noise, which is more than I can say for Ironforge." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "blackrock" } } } },
+    },
+
+    wisdom = {
+      big = true,
+      lines = {
+        { id = "w_default", text = "Wise? No! But a warrior who can't fight half-cut and half-blind will meet a day when he has to, and I'd rather he met it in my Gauntlet than on a battlefield." },
+      },
+      choices = {
+        { text = "A clear head wins fights. Not brew.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Hah! Fight drunk, fight anything. I like it.", next = "BACK", fx = { align = { order = -1 }, affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    notwarrior = {
+      lines = {
+        { id = "nw_default", text = "It's a warrior's challenge, so the reward's for warriors, but I'll not stop anyone fool enough to drink with me. Ye'll get a cheer and a headache, and Furen's shield stays in Stormwind." },
+      },
+      choices = {
+        { text = "A cheer and a headache. Fair enough.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+
+  topics = {
+    knows = { { id = "tp_knows", text = "I know brewin', fightin' and the shortest way to the Rethban Caverns, in roughly that order. What'll it be?" } },
+    background = { { id = "tp_bg", text = "A Barleybrew, a warrior and a dwarf a long way from home, and only the first one matters to my mother." } },
+    advice = { { id = "tp_ad", text = "Run west o' town past the herb garden before ye turn north, and ye'll miss most o' the gnolls." } },
+    redridge_gnolls = { { id = "tp_gnolls", text = "Big, angry and in the way, which makes them perfect for a Gauntlet." } },
+    _none = { { id = "tp_none", text = "No idea, friend, but I'll drink to it." } },
+  },
+}
+
+P:NPC {
+  key = "lucius", id = TODO_NPC("Lucius"), name = "Lucius",
+  bible = "bibles/lakeshire_more.md", role = "trainer", tier = "quest",
+  communities = { "lakeshire" }, temper = { "sharp" }, values = { "cunning", "practical" },
+  notices = { "class", "stealth" },
+
+  impression = {
+    first = "Lucius loiters on the Lakeshire docks among the shady good-for-nothings, which suits him, since he trains them. He's rude, quick-eyed and fonder of a clever lock than of most people.",
+    third = "{name} met Lucius, a dwarf on the Lakeshire docks who teaches young rogues to open locks that aren't theirs.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Keep your hands where I can see them, friend, mostly for your sake." },
+    { id = "g_back", when = { metBefore = true }, text = "You again. Either you've something for me, or you've got a lot of free time." },
+    { id = "g_mill", when = { questActive = TODO_QUEST("Alther's Mill") }, text = "That lockbox won't open itself, unless the orcs got to it first." },
+  },
+
+  notice = {
+    { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
+      text = "A rogue! I can tell by the way you looked at my belt pouch before you looked at my face. Good; there's hope for you yet." },
+  },
+
+  react = {
+    { id = "r_stealth", on = "stealth",
+      text = "Very nice, very quiet, and I still heard your boots on the third plank. Stand up; we'll work on it." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Lucius. I sit on these docks, I watch the boats, and if a certain sort of person comes along, I teach them something useful. You're not that sort, I'd guess, but I've been wrong." },
+        { id = "h_rogue", when = { class = "ROGUE" },
+          text = "Renzik sent you down from Stormwind? Let's see those hands... clumsy, but I've fixed worse, and some of the worst are working for the crown now." },
+        { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Alther's Mill"), days = 5 } },
+          text = "So the lockbox gave in to you. Good; whatever kills you from here on, at least it won't be my teaching." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Quietly, if you please; sound carries over water." },
+        { id = "h_again2", text = "Go on. I'm watching the boats, not ignoring you." },
+      },
+      choices = {
+        { text = "What do you teach, exactly?", next = "teach" },
+        { text = "What's at Alther's Mill?", next = "mill", when = { class = "ROGUE" } },
+        { text = "Who are you working for?", next = "who" },
+        { text = "What do you make of Lakeshire?", next = "town" },
+        { text = "Is opening other people's locks honest work?", next = "honest" },
+        { text = "I'll leave you to your boats.", next = "END" },
+      },
+    },
+
+    teach = {
+      lines = {
+        { id = "t_default", text = "Locks, mostly. Not every young thief has hands as quick as mine, so somebody has to show them how a tumbler thinks before they're sent anywhere that matters." },
+      },
+      choices = {
+        { text = "How does a tumbler think?", next = "teach_tumbler" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    teach_tumbler = {
+      lines = {
+        { id = "tt_default", text = "Slowly, and it wants to be listened to, not forced. Most people are the same, as it happens, which is the second lesson and the one I charge for." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
+    },
+
+    mill = {
+      lines = {
+        { id = "m_default", text = "Up off the road east of here is Alther's Mill, and I keep a chest up there with a token inside. Open the lockbox, bring back the token, and you'll have your certificate." },
+        { id = "m_done", when = { questDone = TODO_QUEST("Alther's Mill") },
+          text = "Empty now, and filled again by morning, for the next pair of fat fingers. You'd be amazed how many I get." },
+      },
+      choices = {
+        { text = "Anything else up there I should know?", next = "mill_orcs" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mill_orcs = {
+      lines = {
+        { id = "mo_default", text = "Orcs, now and then, sniffing about the mill for whatever orcs sniff for. Consider them the part of the lesson I don't charge for." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "blackrock" } } } },
+    },
+
+    who = {
+      lines = {
+        { id = "w_default", text = "For myself, and for some friends in Stormwind who prefer not to be named on docks. If you've heard of them, you know better than to ask, and if you haven't, you don't need to." },
+        { id = "w_rogue", when = { class = "ROGUE" },
+          text = "The same people who sent you, so let's not say their name out here. SI:7 is a word that makes the fishermen nervous." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "si7" } } } },
+    },
+
+    town = {
+      lines = {
+        { id = "to_default", text = "A nice town with a magistrate who writes orders nobody can follow and a marshal who follows them anyway. The docks are honest, mostly; it's the shore you want to watch." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    honest = {
+      big = true,
+      lines = {
+        { id = "ho_default", text = "Honest? It's useful, and useful is better than honest when the Blackrock are across the lake. A lock between a good man and an orc's battle plans is a lock I want opened." },
+      },
+      choices = {
+        { text = "Useful today, criminal tomorrow. Honesty matters.", next = "BACK", fx = { align = { honor = 1 }, affinity = -1 } },
+        { text = "Agreed. A clever hand serves the kingdom too.", next = "BACK", fx = { align = { honor = -1 }, affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+
+  topics = {
+    knows = { { id = "tp_knows", text = "I know locks, boats and who's been where they shouldn't, which is a longer list than you'd think. Choose." } },
+    background = { { id = "tp_bg", text = "I'm a dwarf on a dock, and that's as much as anyone gets, friend." } },
+    advice = { { id = "tp_ad", text = "Never pick a lock you haven't looked at twice, and never trust a door that's already open." } },
+    si7 = { { id = "tp_si7", text = "Never heard of it, and you didn't hear me say that." } },
+    _none = { { id = "tp_none", text = "Not my business, and I like to keep it that way." } },
+  },
+}
+
+P:NPC {
+  key = "shawn", id = TODO_NPC("Shawn"), name = "Shawn",
+  bible = "bibles/lakeshire_more.md", role = "child", tier = "quest",
+  communities = { "lakeshire" }, temper = { "eager" }, values = { "loyal", "hopeful" },
+  notices = { "class", "kit" },
+
+  impression = {
+    first = "Shawn fishes off the Lakeshire docks with his friend Hilary and asked me, very politely, to fetch her lost necklace out of the lake. He wants to be a hero, and he's practising on me.",
+    third = "{name} met Shawn, a boy on the Lakeshire docks whose friend Hilary dropped her necklace in the lake.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Excuse me, {g:mister|ma'am}! Are you busy? Could you help us, just a little bit?" },
+    { id = "g_back", when = { metBefore = true }, text = "You came back! Hilary, look, it's them again!" },
+    { id = "g_done", when = { questDone = TODO_QUEST("Hilary's Necklace") }, text = "Hilary's still wearing it! I'm going to be a hero like you someday, I've decided." },
+  },
+
+  notice = {
+    { id = "n_paladin", cat = "class", when = { class = { "PALADIN", "WARRIOR" } },
+      text = "Wow, is that real armour? Is it heavy? Can I knock on it? I'll knock very softly." },
+    { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
+      text = "Your armour's all broken! Did a monster do that? Was it a big one?" },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "I'm Shawn, and that's Hilary, and that's her cat Effsee. We were fishing off this dock and Hilary's necklace went missing, and we looked everywhere on the boards, so it must be in the lake." },
+        { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Hilary's Necklace") },
+          text = "Did you look in the lake yet? Mom says there's nasty things down there, but you look like you've fought nasty things before, haven't you?" },
+        { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Hilary's Necklace"), days = 5 } },
+          text = "Hilary hasn't taken it off once since you brought it back, not even for bed, and Effsee keeps trying to bat it, so she sleeps with her hand on it." },
+      },
+      again = {
+        { id = "h_again", text = "What else? I can talk all day, we're not catching anything anyway." },
+        { id = "h_again2", text = "Ask me something else! Hilary's shy, so you have to ask me." },
+      },
+      choices = {
+        { text = "Tell me about the necklace.", next = "necklace" },
+        { text = "Why don't you swim for it?", next = "swim" },
+        { text = "Do you really want to be a hero?", next = "hero" },
+        { text = "Catching anything?", next = "fish" },
+        { text = "I'll keep an eye out for it.", next = "END", fx = { affinity = 1 } },
+      },
+    },
+
+    necklace = {
+      lines = {
+        { id = "n_default", text = "Her daddy got it for her, and it's the prettiest thing she's got. She was showing it to Effsee and then it was just gone, and she cried, and I didn't know what to do, so I asked you." },
+      },
+      choices = {
+        { text = "I'll find it. I promise.", next = "BACK", when = { questBefore = TODO_QUEST("Hilary's Necklace") }, fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    swim = {
+      lines = {
+        { id = "s_default", text = "Our parents don't want us swimming in the lake. My mom says there's mean things in it, and Mister Baren says the murlocs come right up to the shore some mornings, so I don't even put my feet in." },
+      },
+      choices = {
+        { text = "Your mom's right. Stay out.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    hero = {
+      big = true,
+      lines = {
+        { id = "he_default", text = "More than anything! Heroes fight orcs and find necklaces and everybody cheers. What do heroes do when nobody's cheering, though? Do they still do it?" },
+      },
+      choices = {
+        { text = "They do. Heroes keep their word, cheers or not.", next = "BACK", fx = { align = { honor = 1 }, affinity = 2 } },
+        { text = "Mostly they get paid. Remember that.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Be a good friend first. That's a start.", next = "hero_friend" },
+      },
+    },
+    hero_friend = {
+      lines = {
+        { id = "hf_default", text = "Like asking someone to find Hilary's necklace when I couldn't? ...Huh. Maybe I'm a little bit of a hero already, then, or a helper, which is nearly the same." },
+      },
+      choices = { { text = "Nearly the same.", next = "BACK", fx = { trait = { kind = 1 } } } },
+    },
+
+    fish = {
+      lines = {
+        { id = "f_default", text = "Nothing all day, because the murlocs eat all the good ones. Effsee caught a frog, though, and she was very proud of it, so we counted that." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+
+  topics = {
+    knows = { { id = "tp_knows", text = "I know lots of things! Mostly about the dock, and Hilary, and Effsee. Ask me!" } },
+    background = { { id = "tp_bg", text = "I live in Lakeshire and I'm going to be a hero, that's my whole story so far." } },
+    advice = { { id = "tp_ad", text = "Don't swim in the lake, my mom says, so I'm saying it too." } },
+    blackrock = { { id = "tp_blackrock", text = "The orcs are across the lake. I'm not allowed to look at them, but I look sometimes." } },
+    _none = { { id = "tp_none", text = "I don't know that one. Is it a grown-up thing?" } },
+  },
+}
+
+P:NPC {
+  key = "hooper", id = TODO_NPC("Matthew Hooper"), name = "Matthew Hooper",
+  bible = "bibles/lakeshire_more.md", role = "trainer", tier = "service",
+  communities = { "lakeshire" }, temper = { "patient" }, values = { "patient", "practical" },
+  notices = { "craft", "class" },
+
+  impression = {
+    first = "Matthew Hooper teaches fishing off the end of a Lakeshire dock and talks about Lake Everstill as if it were an old friend who's fallen in with bad company. He has strong opinions about murlocs.",
+    third = "{name} met Matthew Hooper, who teaches fishing on the Lakeshire docks.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Quiet on the dock, if you would. The fish listen, even when the murlocs don't." },
+    { id = "g_back", when = { metBefore = true }, text = "Back for another lesson? Good, the lake's in a teaching mood today." },
+  },
+
+  notice = {
+    { id = "n_fisher", cat = "craft", when = { profession = "Fishing" },
+      text = "You fish! I can see it in your hands, all those little line cuts. Come and tell me what's biting where you've been." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Matthew Hooper. I teach fishing, which is mostly teaching patience with a stick and string. Lake Everstill used to be the best water in the kingdom, and it still is, if you can get to it past the murlocs." },
+        { id = "h_poachers", when = { questDone = TODO_QUEST("Murloc Poachers") },
+          text = "Since someone thinned the murlocs on the east shore, my students have actually caught things. One of them cried, and I nearly did too." },
+      },
+      again = {
+        { id = "h_again", text = "What else? The line's out, so I've time." },
+        { id = "h_again2", text = "Go on, then. Fish don't mind talk if it's soft." },
+      },
+      choices = {
+        { text = "Teach me to fish.", next = "BUSINESS" },
+        { text = "What's wrong with the lake?", next = "lake" },
+        { text = "Is there really something big out there?", next = "thresher" },
+        { text = "What do you think of the murlocs?", next = "murlocs" },
+        { text = "Good fishing, Matthew.", next = "END" },
+      },
+    },
+
+    lake = {
+      lines = {
+        { id = "l_default", text = "Murlocs in the shallows, gnolls on the north shore, orcs to the east, and a bridge missing in the middle. The fish are fine, it's everything around them that's gone wrong." },
+      },
+      choices = {
+        { text = "Where's the best water left?", next = "lake_best" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "everstill_bridge" } } },
+      },
+    },
+    lake_best = {
+      lines = {
+        { id = "lb_default", text = "Right here off the dock, honestly, where the guards can see you. The deep water east of the bridge is better, but a fish isn't worth an arrow in the back." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    thresher = {
+      lines = {
+        { id = "t_default", text = "The Lake Thresher, the old men call it, and they swear it took a whole skiff once. I've never seen it, but I've seen a line go out so fast it smoked, and I don't fish the deep water alone anymore." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
+    },
+
+    murlocs = {
+      big = true,
+      lines = {
+        { id = "m_default", text = "They're fishermen, same as us, and better at it, which is the trouble. Baren thinks something drove them here, and I think they found good water and told their friends." },
+      },
+      choices = {
+        { text = "Then drive them out. The lake's ours.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Share the lake. They were hungry first.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+
+  topics = {
+    knows = { { id = "tp_knows", text = "I know the lake, its fish, and a few of its stories, true and otherwise. Which do you want?" } },
+    background = { { id = "tp_bg", text = "I fish, and I teach others to fish, and that's been enough for one life so far." } },
+    advice = { { id = "tp_ad", text = "Fish where the guards can see you; no fish is worth an arrow in the back." } },
+    _none = { { id = "tp_none", text = "Can't say, friend; I know water, not that." } },
+  },
+}
+
+P:NPC {
+  key = "wental", id = TODO_NPC("Bartender Wental"), name = "Bartender Wental",
+  bible = "bibles/lakeshire_more.md", role = "vendor", tier = "service",
+  communities = { "lakeshire" }, temper = { "cheerful" }, values = { "friendly", "practical" },
+  notices = { "hunger", "drink" },
+
+  impression = {
+    first = "Bartender Wental serves bread, cheese, meat and milk at the Lakeshire Inn and gets asked for ale fifty times a day. He takes it with remarkable good humour, mostly.",
+    third = "{name} met Bartender Wental, who sells food and soft drink at the Lakeshire Inn.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Bread, cheese, a good cut of meat, and milk. No, not ale; Daniels does the ale." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again! And you didn't ask for ale. Light bless you, friend." },
+    { id = "g_dry", when = { questActive = TODO_QUEST("Dry Times") }, text = "Running Daniels's errand? Then you'll know why everyone keeps asking me for drink, since he's got none." },
+  },
+
+  notice = {
+    { id = "n_hungry", cat = "hunger", when = { nearlyNaked = true },
+      text = "Light's sake, friend, where's the rest of your clothes? Eat something, at least; you look half starved and half frozen." },
+    { id = "n_drunk", cat = "drink", when = { drunk = true },
+      text = "You've had plenty already, I can see. Have some bread to soak it up; it's on the menu, and it works." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Wental, bartender of the Lakeshire Inn, though I don't pour a drop of anything strong. Daniels has the barrels, I have the bread, and between us nobody goes hungry or thirsty, most weeks." },
+        { id = "h_dry_before", when = { questBefore = TODO_QUEST("Dry Times") },
+          text = "Daniels's shipment's late again, so everyone's been coming to me for drink, and I've had to tell forty soldiers that milk is very good for the bones." },
+        { id = "h_dry_done", when = { questDone = TODO_QUEST("Dry Times") },
+          text = "Daniels has his bottles back, thank the Light, and I can go back to being asked for bread like a normal bartender." },
+      },
+      again = {
+        { id = "h_again", text = "What else can I do for you? And no, still no ale." },
+        { id = "h_again2", text = "Go on. The bread's warm and I've time." },
+      },
+      choices = {
+        { text = "Let me see what you have.", next = "BUSINESS" },
+        { text = "A bartender without ale?", next = "noale" },
+        { text = "Who eats here?", next = "eaters" },
+        { text = "How's the town holding up?", next = "town" },
+        { text = "Just the bread, thanks.", next = "END" },
+      },
+    },
+
+    noale = {
+      lines = {
+        { id = "na_default", text = "I know, I know, I've heard every joke there is. Somebody hung the sign before I took the job, and Daniels said changing it would confuse the regulars, so here I am." },
+      },
+      choices = {
+        { text = "Why not sell ale yourself?", next = "noale_why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    noale_why = {
+      lines = {
+        { id = "nw_default", text = "And go to war with Daniels over the barrels? No thank you; I've seen what he does to a man who touches his tap. Bread doesn't start fights." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+
+    eaters = {
+      lines = {
+        { id = "e_default", text = "Soldiers of the battalion when Chef Breanna's kitchen is full, which is always, and travellers waiting on the bridge. The bridge crew eat like a family of bears, and pay like one." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "everstill_bridge" } } } },
+    },
+
+    town = {
+      big = true,
+      lines = {
+        { id = "t_default", text = "Nervous, if you ask me. The orcs are across the lake, the gnolls are in the hills, and folk keep saying Stormwind should send more soldiers. I'm just a bartender, but I keep wondering who'd feed them if it did." },
+      },
+      choices = {
+        { text = "Stormwind will send help. Trust the marshal.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Lakeshire should arm itself and stop waiting.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+
+  topics = {
+    knows = { { id = "tp_knows", text = "Everyone talks at a bar, even one with no ale, so I hear a fair bit. What would you like to know?" } },
+    background = { { id = "tp_bg", text = "I'm the bartender who doesn't serve drink, which is the only interesting thing about me." } },
+    advice = { { id = "tp_ad", text = "Eat before you go into the hills; a hungry fighter makes mistakes, and gnolls don't." } },
+    _none = { { id = "tp_none", text = "No idea, friend, but would you like some bread while you think about it?" } },
+  },
+}
+
+P:NPC {
+  key = "alma", id = TODO_NPC("Alma Jainrose"), name = "Alma Jainrose",
+  bible = "bibles/lakeshire_more.md", role = "trainer", tier = "service",
+  communities = { "lakeshire" }, temper = { "gentle" }, values = { "patient", "kind" },
+  notices = { "craft", "class" },
+
+  impression = {
+    first = "Alma Jainrose teaches herbalism in Lakeshire with dirt under her nails and very little patience for people who pull a plant up by the roots. She speaks of the hills as a garden that's been trampled.",
+    third = "{name} met Alma Jainrose, who teaches herbalism in Lakeshire.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Wipe your boots, please; I've seedlings drying by the door." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again? Show me your hands, and tell me you've been cutting the stems, not tearing them." },
+  },
+
+  notice = {
+    { id = "n_herb", cat = "craft", when = { profession = "Herbalism" },
+      text = "You've been gathering, I can smell the briarthorn on you. Good; now let's see if you've been doing it properly." },
+    { id = "n_druid", cat = "class", when = { class = "DRUID" },
+      text = "A druid! I've always wondered whether your sort hear the plants complain. Don't tell me if they do; I'd never pick another leaf." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I'm Alma Jainrose, and I teach herbalism to anyone who'll listen and a few who won't. Redridge grows more than people think, if the gnolls and the boars leave anything standing." },
+        { id = "h_bellygrub", when = { questDone = TODO_QUEST("An Unwelcome Guest") },
+          text = "Martie says you dealt with that boar in her garden. I've been telling her to build a better fence for years, so I'm glad somebody solved it the other way." },
+      },
+      again = {
+        { id = "h_again", text = "Something else? I'll keep sorting while you ask." },
+        { id = "h_again2", text = "Go on, I'm listening, the leaves don't mind." },
+      },
+      choices = {
+        { text = "Teach me herbalism.", next = "BUSINESS" },
+        { text = "What grows around Lakeshire?", next = "herbs" },
+        { text = "Do you and Martie work together?", next = "martie" },
+        { text = "Should herb lore be shared freely?", next = "share" },
+        { text = "Thank you, Alma.", next = "END" },
+      },
+    },
+
+    herbs = {
+      lines = {
+        { id = "he_default", text = "Peacebloom and silverleaf near the water, briarthorn and bruiseweed in the hills, and a little mageroyal if you look under the pines. The gnolls trample half of it, and the guards bleed on the other half." },
+      },
+      choices = {
+        { text = "The guards use your herbs?", next = "herbs_guards" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "redridge_gnolls" } } },
+      },
+    },
+    herbs_guards = {
+      lines = {
+        { id = "hg_default", text = "For poultices, every day, since the orcs started coming over the hills. I'd rather grow flowers for their own sake, but bandages are what's needed." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    martie = {
+      lines = {
+        { id = "ma_default", text = "We share a name and a love of growing things, and she keeps the prettier garden, which she'll tell you herself. I teach, she grows, and between us half the town's cuts get mended." },
+      },
+      choices = {
+        { text = "She seems sweet on Guard Parker.", next = "martie_parker" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    martie_parker = {
+      lines = {
+        { id = "mp_default", text = "Seems? She talks about his patrols the way I talk about rare herbs. I keep my opinions to myself, because Darcy at the inn has opinions enough for all of Lakeshire." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    share = {
+      big = true,
+      lines = {
+        { id = "s_default", text = "There's a question I argue with myself about. Teach everyone and the hills get stripped bare, or teach only the careful and leave folk without the cures they need." },
+      },
+      choices = {
+        { text = "Teach everyone. Healing belongs to all.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Guard it. Careless hands kill the land.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+
+  topics = {
+    knows = { { id = "tp_knows", text = "Herbs, soil, and who in Lakeshire needs a poultice this week, which is most of us. Ask away." } },
+    background = { { id = "tp_bg", text = "I grow things and teach others to, and that's all the story I've got." } },
+    advice = { { id = "tp_ad", text = "Cut the stem and leave the root, and the plant will be there for the next person." } },
+    redridge_gnolls = { { id = "tp_gnolls", text = "They trample everything I'd like to pick. I don't think they even notice the flowers." } },
+    _none = { { id = "tp_none", text = "That's not something that grows, so I can't help you." } },
+  },
+}
+
+P:NPC {
+  key = "trent", id = TODO_NPC("Bridge Worker Trent"), name = "Bridge Worker Trent",
+  bible = "bibles/lakeshire_more.md", role = "worker", tier = "service",
+  communities = { "lakeshire" }, temper = { "gruff" }, values = { "hardworking", "loyal" },
+  notices = { "craft", "kit" },
+
+  impression = {
+    first = "Bridge Worker Trent hauls stone for Foreman Oslow and complains about him with real affection. He has the shoulders of a man who's carried a bridge across a lake, one block at a time.",
+    third = "{name} met Bridge Worker Trent, one of Foreman Oslow's crew rebuilding the Everstill Bridge.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Mind your feet, there's stone everywhere and it all wants to land on someone." },
+    { id = "g_back", when = { metBefore = true }, text = "You again? Grab the other end of this, then, if you're going to stand there." },
+  },
+
+  notice = {
+    { id = "n_smith", cat = "craft", when = { profession = { "Blacksmithing", "Engineering", "Mining" } },
+      text = "A tradesman, by your hands! The foreman would hire you in a heartbeat, so don't let him see you." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Trent, one of Oslow's crew. The Blackrock knocked the bridge down, and we're putting it back up, one stone at a time, while the foreman tells us we're slow." },
+        { id = "h_tools", when = { questDone = TODO_QUEST("The Lost Tools") },
+          text = "You fished the foreman's toolbox out of the lake! He's been humming, and none of us knew he could hum." },
+        { id = "h_bridge", when = { questDone = TODO_QUEST("The Everstill Bridge") },
+          text = "Those iron pikes you took off the gnolls are holding up the new span now. I'll think of you every time I walk across it." },
+      },
+      again = {
+        { id = "h_again", text = "Something else? Quick, the foreman's looking." },
+        { id = "h_again2", text = "Go on, then. I could use the rest." },
+      },
+      choices = {
+        { text = "How's the bridge coming?", next = "bridge" },
+        { text = "What's Foreman Oslow like to work for?", next = "oslow" },
+        { text = "Is the work dangerous?", next = "danger" },
+        { text = "Should Stormwind pay you more for this?", next = "pay" },
+        { text = "Back to work with you.", next = "END" },
+      },
+    },
+
+    bridge = {
+      lines = {
+        { id = "b_default", fx = { learn = { "everstill_bridge" } },
+          text = "Slowly. The orcs sank our tools, the gnolls stole our iron, and the rains are coming. Every span we lay, the foreman stands on it a while like it's his own child." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    oslow = {
+      lines = {
+        { id = "o_default", text = "Hard, fair and never satisfied. He'll shout at you for a crooked stone and then buy you a drink at the inn for a straight one, and you'll work twice as hard the next day for the drink." },
+      },
+      choices = {
+        { text = "Sounds like a good foreman.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    danger = {
+      lines = {
+        { id = "d_default", text = "Falling stone, cold water and the odd orc arrow from across the lake. We work in pairs, and one of us always watches the far shore." },
+      },
+      choices = {
+        { text = "Have you lost anyone?", next = "danger_lost" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "blackrock" } } },
+      },
+    },
+    danger_lost = {
+      lines = {
+        { id = "dl_default", text = "Not yet, and the foreman means to keep it that way. He'd rather the bridge was late than one of us was buried under it, though he'd never say so out loud." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    pay = {
+      big = true,
+      lines = {
+        { id = "p_default", text = "More? We'd settle for paid on time. I've heard what happened to the masons who built Stormwind and never saw their coin, so we all keep an eye on the purse." },
+      },
+      choices = {
+        { text = "Stormwind will pay. Trust the crown.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If they don't, stop work until they do.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK", fx = { learn = { "stonemasons" } } },
+      },
+    },
+  },
+
+  topics = {
+    knows = { { id = "tp_knows", text = "I know stone, the bridge, and what the foreman likes for breakfast. That's about the lot." } },
+    background = { { id = "tp_bg", text = "I carry stone for a living, and I'm carrying this bridge across a lake, that's all." } },
+    advice = { { id = "tp_ad", text = "Lift with your legs, not your back, and never stand downhill of a block." } },
+    everstill_bridge = { { id = "tp_bridge", text = "Our bridge, near enough; we'll have it up before the rains if the foreman's right, and he usually is.", next = "bridge" } },
+    _none = { { id = "tp_none", text = "Ask the foreman, he knows everything, or says he does." } },
+  },
+}

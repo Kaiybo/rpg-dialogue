@@ -16,7 +16,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Dark times have come to Duskwood, {class}, and they haven't left. Is there news from the road?" },
+    { id = "g_default", text = "These are bad days for Duskwood, {class}, and they don't seem to end. Is there news from the road?" },
     { id = "g_back", when = { metBefore = true }, text = "You're back, and in one piece. I'll cross you off the list of people I worry about, for today." },
     { id = "g_sven", when = { questActive = TODO_QUEST("Deliveries to Sven") }, text = "Sven's crate won't carry itself, and his people won't eat until it gets there." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Come in from the dark. The Watch's lamps only reach so far, and the woods know exactly how far." },
@@ -90,7 +90,7 @@ P:NPC {
     sven = {
       lines = {
         { id = "s_default", fx = { learn = { "carevins" } },
-          text = "Now there's a man who does the work of the Light. He and his few keep a camp at the northwestern edge of the forest, so few they can't spare one of their own to fetch supplies." },
+          text = "Sven is as close to a saint as Duskwood has, though he'd hate the word. He and a handful of others camp at the forest's northwest edge, too few to send anyone back to town for food." },
         { id = "s_done", when = { questDone = TODO_QUEST("Deliveries to Sven") },
           text = "You've met him, then, so you know he's not one for company. He watches something out there that he won't name in a letter, and we keep him fed while he does it." },
       },
@@ -157,7 +157,7 @@ P:NPC {
     light = {
       big = true,
       lines = {
-        { id = "l_default", text = "I believe the Light will forsake all but those who truly walk under it. Kneeling isn't walking, {class}; walking is carrying a crate to Sven's camp when the woods are full of wolves." },
+        { id = "l_default", text = "I think the Light stays with those who carry it out the door, and leaves the rest to their prayers. Kneeling isn't walking, {class}; walking is carrying a crate to Sven's camp when the woods are full of wolves." },
       },
       choices = {
         { text = "The Light forsakes no one, Elaine.", next = "light_none", fx = { align = { light = 1 } } },
@@ -215,7 +215,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Watchmaster Sorigal. Every crate bound for Nethergarde Keep passes through my hands in Darkshire, and too many of them never reach Lungertz at the other end." },
         { id = "h_vital", tags = { "news" }, when = { questActive = TODO_QUEST("Vital Supplies") },
-          text = "Andromath sent you? Very good, because I've an urgent job and nobody fool enough to take it, until now." },
+          text = "A letter from Andromath, is it? Then you're the one I've been waiting for, and I've a job that won't keep." },
         { id = "h_crate_active", tags = { "news" }, when = { questActive = TODO_QUEST("Supplies for Nethergarde") },
           text = "East through Deadwind Pass, east again through the Swamp of Sorrows, then south into the Blasted Lands. Don't stop to admire anything, because nothing on that road deserves it." },
         { id = "h_crate_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Supplies for Nethergarde"), days = 7 } },
@@ -342,8 +342,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Step right up and wet your whistle, friend. Darkshire's dry enough without thirsty customers." },
-    { id = "g_psst", text = "Psst, over here. We've just had a fresh batch come in, if you take my meaning." },
+    { id = "g_default", text = "Come in, come in, and have something to drink, friend. Darkshire's grim enough without dry throats." },
+    { id = "g_psst", text = "Lean in a moment. There's a new jug under the counter, if you take my meaning." },
     { id = "g_back", when = { metBefore = true }, text = "There's a face I remember! That's either a compliment to you or a warning about my memory." },
     { id = "g_dry", when = { questActive = TODO_QUEST("Dry Times") }, text = "Daniels sent you from Lakeshire, didn't he? I can smell a barkeep's errand a mile off." },
   },
@@ -670,9 +670,9 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Where is everyone? You'd think someone would do something about the undead, but nobody ever does." },
+    { id = "g_default", text = "Has anyone come? Anyone at all? The dead walk the roads and nobody lifts a finger." },
     { id = "g_back", when = { metBefore = true }, text = "Oh, it's you. Any news? No, there's never any news, is there." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "Don't stand near the window. I've a feeling something dark is coming, and I'd rather it didn't see us." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Don't stand near the window. Something bad is on its way here, I can feel it, and I'd rather it didn't see us." },
   },
 
   notice = {
@@ -705,7 +705,7 @@ P:NPC {
 
     grave = {
       lines = {
-        { id = "gr_default", text = "My father's buried out past the town, and I used to visit him every week with a cloth for the stone. I can't even visit his grave in peace anymore, not with the dead walking about the place like they own it." },
+        { id = "gr_default", text = "My father's buried out past the town, and I used to visit him every week with a cloth for the stone. Now I can't go near him without the dead walking about the place like they own it." },
       },
       choices = {
         { text = "Has his grave been disturbed?", next = "grave_fear" },
@@ -739,7 +739,7 @@ P:NPC {
 
     dark = {
       lines = {
-        { id = "d_default", text = "I don't know, only that something is. The Light seems to have forsaken us here, and when the Light leaves a place, something else always moves in." },
+        { id = "d_default", text = "I don't know, only that something is. It feels as if the Light has turned its face from Darkshire, and when the Light leaves a place, something else always moves in." },
       },
       choices = {
         { text = "The Light hasn't left. I'm here.", next = "BACK", when = { class = { "PRIEST", "PALADIN" } }, fx = { affinity = 2, standing = { darkshire = 1 } } },
@@ -798,6 +798,7 @@ P:NPC {
         { text = "I need the stables.", next = "BUSINESS" },
         { text = "How do the animals take Duskwood?", next = "beasts" },
         { text = "Do you hear the wolves at night?", next = "wolves" },
+        { text = "Who else leaves animals with you?", next = "customers" },
         { text = "Good day.", next = "END" },
       },
     },
@@ -816,6 +817,22 @@ P:NPC {
         { id = "bt_default", text = "Nothing at all, just the sound of it, steady and low. It works on beasts, and on me, if I'm honest." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
+    },
+
+    customers = {
+      lines = {
+        { id = "c_default", text = "Hunters passing through, mostly, and the odd caravan driver of Sorigal's who won't take a good horse past Deadwind Pass. I don't blame him; the horses come back from that road with white round their eyes." },
+      },
+      choices = {
+        { text = "Do the horses ever refuse the road?", next = "customers_refuse" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    customers_refuse = {
+      lines = {
+        { id = "cr_default", text = "Every one of them, at the edge of the pass, and they have to be led on foot. I've never once seen a horse wrong about a road, so I'd take it as advice." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
 
     wolves = {

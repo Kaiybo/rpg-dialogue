@@ -21,3 +21,4 @@ npcs\wiley.lua
 npcs\baren.lua
 npcs\daniels.lua
 npcs\lakeshire_folk.lua
+npcs\lakeshire_more.lua

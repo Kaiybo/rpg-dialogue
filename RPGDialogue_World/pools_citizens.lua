@@ -163,7 +163,7 @@ P:Pool {
   },
   react = {
     { id = "r_shadow", on = "form", when = { form = "shadow" }, text = "Oh! Light preserve me, I nearly dropped the basket." },
-    { id = "r_stealth", on = "stealth", text = "Where did they go? Somebody check their pockets!" },
+    { id = "r_stealth", on = "stealth", text = "Where did that one get to? Everybody check your pockets, quickly!" },
   },
   lines = {
     { id = "l_rebuilt", text = "The orcs burned this city to the ground when my parents were young, and every stone you see was laid again since. Each year it looks a little more like the city they used to tell me about." },
@@ -229,7 +229,7 @@ P:Pool {
   },
   notice = {
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
-      text = "A priest, eh? The High Seat keeps a good few o' yer sort, an' the Mystic Ward's where they'll be. Say one for the miners while ye're at it; they need it more than the rest of us." },
+      text = "A priest, eh? Yer sort gather over in the Mystic Ward, past the Forge. Say one for the miners while ye're at it, for they need it more than the rest of us." },
     { id = "n_human", cat = "race", when = { race = "Human" },
       text = "Come through on the tram from Stormwind? Ye've got that green look about ye. Everybody does, the first time." },
     { id = "n_shaman", cat = "class", when = { race = "Dwarf", class = "SHAMAN" },
@@ -444,7 +444,7 @@ P:Pool {
   },
   notice = {
     { id = "n_priest", cat = "class", when = { class = "PRIEST", maxLevel = 15 },
-      text = "Fresh from the Abbey, by the look of the robes! Brother Joshua's sister lives two houses down... no, I'm thinking of someone else. Anyway, welcome to Goldshire." },
+      text = "Fresh from the Abbey, by the look of those robes! Goldshire's glad of a priest; between the kobold bites and the brawls at the inn, there's always someone who needs mending." },
     { id = "n_hogger", cat = "class", when = { class = { "WARRIOR", "PALADIN", "HUNTER" }, maxLevel = 12 },
       text = "You've got a fighter's look about you. If you're thinking of going after that great gnoll in the woods, take friends, and take more of them than you think." },
   },
@@ -477,7 +477,7 @@ P:Pool {
       text = "A young paladin, in Northshire! The Silver Hand's first knights prayed in that Abbey, or so the brothers tell everyone who'll hold still long enough." },
   },
   lines = {
-    { id = "l_abbey", text = "The Abbey's the oldest thing in the valley, and it was the first thing rebuilt after the war. The brothers said a valley without prayer was just a field." },
+    { id = "l_abbey", text = "The Abbey's the heart of this valley, and it always has been. My grandmother used to say a valley without prayer is only a field, and the brothers like to quote her." },
     { id = "l_vineyard", text = "Thieves in the vineyards, wolves in the woods and kobolds in Echo Ridge. Northshire was meant to be the quiet corner of Elwynn, and nobody told the kobolds." },
     { id = "l_recruits", text = "Every season a new crop of recruits comes up the road, all elbows and new boots. By the end of it they're walking straight and fighting wolves, and the Marshal sends them on their way." },
     { id = "l_wolves", text = "The wolves have been bolder this year. I lost two chickens last week, and the hens that are left won't lay for fright." },
@@ -806,53 +806,54 @@ P:Pool {
 P:Pool {
   id = "citizen_nijels_point", role = "citizen", community = "nijels_point",
   greetings = {
-    { id = "g_day", text = "A new face! We don't get many out here, so forgive me for staring. What brings you to Desolace?" },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "Stay inside the walls after dark. The centaur ride at night, and they don't care which banner you fly." },
+    { id = "g_day", text = "A new face! We don't get many out here, so forgive me for staring. What brings anyone to Desolace on purpose?" },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Keep inside the walls once the sun's gone. The centaur ride by night, and they don't stop to read your tabard." },
   },
   notice = {
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
-      text = "You look like the valley's been chewing on you. Centaur arrows, or just the land itself? Both are bad, out here." },
+      text = "You look like the valley's been chewing on you. Was it centaur arrows or just the land itself? Out here it's hard to tell the two apart." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
-      text = "A priest, all the way out here! Brother Anton could use the company, I think; it gets lonely being the only one praying in a land this dead." },
+      text = "A priest, all the way out here! It gets lonely being the only voice at prayers in a land this dead, so Brother Anton will be glad of you." },
   },
   lines = {
-    { id = "l_centaur", text = "The centaur clans fight each other more than they fight us, thank the Light. The Kolkar, the Gelkis, the Magram: they all hate each other, and we try to keep it that way." },
-    { id = "l_supplies", text = "The supply wagons come once a month, if they come at all. We ration everything out here, even the stories." },
-    { id = "l_land", text = "Nothing grows in Desolace, nothing at all. The old folk say there was a great battle here once, and the land never forgot it." },
+    { id = "l_centaur", text = "The centaur clans fight one another more than they fight us, thank the Light. The Kolkar, the Gelkis and the Magram all hate each other, and we do our best to keep it that way." },
+    { id = "l_supplies", text = "The supply wagons from Stonetalon come once a month, if they come at all. We ration everything out here, even the good stories." },
+    { id = "l_land", text = "Nothing grows in Desolace, nothing at all. The old soldiers say there was a terrible battle here long ago, and the ground never forgave anyone for it." },
+    { id = "l_home", text = "I came out here to make my fortune hauling ore, and so far I've made a sunburn and a very good friend who's a mule. Stormwind feels further away every week." },
   },
   topics = {
     knows = {
-      { id = "t_kn1", text = "News comes slowly out here, but it comes. Here's what I've heard from the last caravan." },
-      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you what everybody here knows, and that's not much." },
+      { id = "t_kn1", text = "News comes slowly out here, but it does come, usually with the last caravan and a lot of dust. Here's what I've heard." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you what everybody on the Point already knows, and that isn't much." },
     },
-    _none = { { id = "t_none", text = "Never heard of it. Ask the Captain; he's got all the maps." } },
+    _none = { { id = "t_none", text = "Never heard of it, I'm afraid. The Captain has all the maps, so try him." } },
   },
 }
 
 P:Pool {
   id = "citizen_feathermoon", role = "citizen", community = "feathermoon",
   greetings = {
-    { id = "g_day", text = "Welcome to Feathermoon. You came by boat, I hope, because the swimming is not recommended." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "The stars are bright over the sea tonight. The Sentinels say it's a good omen, though they say that about most things." },
+    { id = "g_day", text = "Welcome to Feathermoon. You came by boat, I hope, because the swimming is not something I would recommend." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "The stars are bright over the sea tonight. The Sentinels call it a good omen, though they say that about most clear nights." },
   },
   notice = {
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
-      text = "The ogres got to you, or the gnolls? Feralas has many teeth. Rest here a while before you go back to the mainland." },
-    { id = "n_human", cat = "race", when = { race = { "Human", "Dwarf", "Gnome" } },
-      text = "A friend from the eastern kingdoms, all the way out here! Few of your people make it to Feralas, and fewer leave it the same." },
+      text = "Was it the ogres or the gnolls? Feralas has many teeth, so rest here a while before you go back to the mainland." },
+    { id = "n_eastern", cat = "race", when = { race = { "Human", "Dwarf", "Gnome" } },
+      text = "A friend from the eastern kingdoms, all the way out here! Few of your people reach Feralas, and fewer leave it quite the same." },
   },
   lines = {
     { id = "l_eldre", text = "The ruins in the forest were Eldre'Thalas once, a city of the Highborne. Something still lives in them, people say, and it doesn't welcome visitors." },
-    { id = "l_ogres", text = "The Gordunni ogres have been bold lately, raiding the coast. The Sentinels have their hands full, and the forest is wide." },
-    { id = "l_horde", text = "The tauren have a camp on the other side of the forest. They keep to their side, and we keep to ours, and the ogres keep everyone busy." },
+    { id = "l_ogres", text = "The Gordunni ogres have grown bold lately, raiding along the coast. The Sentinels have their hands full, and the forest is very wide." },
+    { id = "l_horde", text = "The tauren keep a camp on the far side of the forest. They keep to their side and we keep to ours, and the ogres keep both of us busy." },
   },
   topics = {
     knows = {
-      { id = "t_kn1", text = "Feathermoon is far from everything, but the boats bring news. Here is what has come across the water." },
-      { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You've been good to this outpost, so I'll tell you all of it." },
+      { id = "t_kn1", text = "Feathermoon is far from everything, but the boats still bring the news across the water. Here is what has come." },
+      { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You have been good to this outpost, so I'll tell you all of it." },
     },
-    highborne = { { id = "t_highborne", text = "Our ancestors who loved magic too much and trusted the wrong queen. Some of them are still in those ruins, people whisper, and they never left." } },
-    _none = { { id = "t_none", text = "I do not know. The Sentinels might, if you can get them to talk." } },
+    highborne = { { id = "t_highborne", text = "Our ancestors who loved magic too much and trusted the wrong queen. Some of them never left those ruins, people whisper, and they still keep the old ways inside." } },
+    _none = { { id = "t_none", text = "I do not know. The Sentinels might, if you can persuade one to talk." } },
   },
 }
 
@@ -862,108 +863,110 @@ P:Pool {
 P:Pool {
   id = "citizen_refuge_pointe", role = "citizen", community = "refuge_pointe",
   greetings = {
-    { id = "g_day", text = "Welcome to Refuge Pointe. It's tents and hope, mostly, but we're still here." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "Keep close to the fires tonight. The Syndicate creeps about these hills in the dark, and so do the trolls." },
+    { id = "g_day", text = "Welcome to Refuge Pointe. It's tents and stubbornness, mostly, but we're still here, and that counts for something." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Keep close to the fires tonight. The Syndicate creep about the hills after dark, and the trolls are worse." },
   },
   notice = {
     { id = "n_human", cat = "race", when = { race = "Human" },
-      text = "Stormwind, by your accent? Stromgarde's not what it was, but it was one of the Seven Kingdoms once. We haven't forgotten." },
+      text = "Stormwind, by your accent? Stromgarde's a shadow of what it was, but it was one of the Seven Kingdoms once, and we haven't forgotten it." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
-      text = "A priest! We've buried more of our own than we've healed this year. If you've a moment, the wounded are in the big tent." },
+      text = "A priest! We've buried more of our own than we've healed this year. If you've a moment to spare, the wounded are in the big tent." },
   },
   lines = {
-    { id = "l_stromgarde", text = "Stromgarde Keep is just over the ridge, and on a clear day you can see it from here. The ogres and the Syndicate hold it now, but one day it'll be ours again." },
-    { id = "l_syndicate", text = "The Syndicate are thieves and murderers, but they used to be lords, and they still act like it. They'd sell their own mothers if the price was right." },
-    { id = "l_trolls", text = "Witherbark trolls in the hills to the east. They don't take prisoners, and they don't leave much behind." },
+    { id = "l_stromgarde", text = "My family lived in Stromgarde for six generations. The ogres and the Syndicate hold the city now, and we sit on this hill and look at it like a dog outside a butcher's." },
+    { id = "l_syndicate", text = "The Syndicate were lords and ladies of Alterac once, and they still give orders like it. They'd sell their own mothers if the price was right, and some of them have." },
+    { id = "l_trolls", text = "Witherbark trolls hold the eastern hills, and they don't take prisoners. My cousin went out after a strayed horse and we found the horse." },
+    { id = "l_hammerfall", text = "There's a Horde camp at Hammerfall, where we used to keep the orcs penned up. I suppose I can't blame them for wanting it, but I don't have to like it." },
   },
   topics = {
     knows = {
-      { id = "t_kn1", text = "News reaches the camp with the scouts, and most of it's bad. Here's what I've heard." },
-      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you what everyone knows, and then I've work to do." },
+      { id = "t_kn1", text = "The scouts bring the news in, and most of it's bad, but it's still news. Here's what I've heard." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you what the whole camp knows, and then I've a fire to keep." },
     },
-    syndicate = { { id = "t_syndicate", text = "Alterac's old nobility, turned to banditry. They hide in the hills and the ruins, and they kill for coin or for spite." } },
-    _none = { { id = "t_none", text = "I don't know. Ask the Captain; she knows what's happening in the highlands." } },
+    syndicate = { { id = "t_syndicate", text = "Alterac's old nobility, gone to banditry once their kingdom fell. They hide in the hills and the ruins, and they kill for coin or for spite, whichever's closer." } },
+    _none = { { id = "t_none", text = "I don't know that one. The Captain keeps track of what's happening in the highlands; ask her." } },
   },
 }
 
 P:Pool {
   id = "citizen_aerie_peak", role = "citizen", community = "aerie_peak",
   greetings = {
-    { id = "g_day", text = "Welcome tae Aerie Peak! Mind the gryphons; they bite, an' they're no' particular about who." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "Stars are out over the Hinterlands, an' the gryphons are settlin' down. Best hour o' the day, if ye ask me." },
+    { id = "g_day", text = "Welcome tae Aerie Peak, friend! Keep yer fingers away from the gryphons' beaks, for they're no' fussy about whose fingers." },
+    { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "The stars are out over the Hinterlands, an' the gryphons are settlin' in their roosts. It's the best hour o' the day, if ye ask me." },
   },
   notice = {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
-      text = "An Ironforge dwarf, here among the Wildhammer! Welcome, cousin. Up here we judge a dwarf by how he sits a gryphon, no' by his clan." },
+      text = "A Bronzebeard, among the Wildhammer! Welcome, cousin, an' don't fret, because up here we judge a dwarf by how he sits a gryphon, no' by his clan." },
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
-      text = "A hunter! Ye'll fit in here, then. We Wildhammer know a thing or two about beasts, an' the gryphons will like ye better than most." },
+      text = "A hunter! Ye'll fit in here, then. We Wildhammer know a thing or two about beasts, an' the gryphons will take tae ye quicker than most." },
   },
   lines = {
-    { id = "l_gryphons", text = "Every Wildhammer has a gryphon, or wants one. They're loyal, an' fierce, an' they'll carry ye anywhere, if they like ye." },
-    { id = "l_trolls", text = "The Witherbark an' the Vilebranch trolls are always raidin' our borders. We fly over 'em an' drop things on their heads, an' they hate us for it." },
-    { id = "l_feud", text = "We Wildhammer left Ironforge a long time ago, after a falling out. The Bronzebeards are cousins, but they're stubborn cousins, an' they think the same o' us." },
+    { id = "l_gryphons", text = "Every Wildhammer bairn grows up wantin' a gryphon of their own. They're loyal an' fierce, an' they'll carry ye anywhere, so long as they've decided they like ye." },
+    { id = "l_trolls", text = "The Witherbark an' the Vilebranch are forever creepin' at our borders. We fly over their camps an' drop rocks on their heads, an' they've never once forgiven us for it." },
+    { id = "l_feud", text = "We Wildhammer went our own way from Ironforge a long time ago, after a fallin' out over who'd be king. The Bronzebeards are cousins, but they're stubborn cousins, an' they say the same o' us." },
   },
   topics = {
     knows = {
-      { id = "t_kn1", text = "The gryphon riders see everythin' from the sky, an' they tell it all in the tavern. Here's what's goin' round." },
-      { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "Ye're a friend o' the Wildhammer, so I'll tell ye the lot." },
+      { id = "t_kn1", text = "The gryphon riders see everythin' from the sky, an' they tell all of it in the tavern after. Here's what's been flyin' about." },
+      { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "Ye're a friend o' the Wildhammer, so pull up a stool, an' I'll tell ye the lot." },
     },
-    _none = { { id = "t_none", text = "Never heard of it. Ask the Thane; he'll know, or he'll pretend tae." } },
+    _none = { { id = "t_none", text = "Never heard tell of it. Ask the Thane, for he'll know, or he'll say it loud enough that it sounds like he does." } },
   },
 }
 
 P:Pool {
   id = "citizen_chillwind_camp", role = "citizen", community = "chillwind_camp",
   greetings = {
-    { id = "g_day", text = "You've come to Chillwind. Keep your weapon close and your wits closer; the dead don't rest out here." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "Get to the fires. The Scourge walks at night, and the plague's worse in the dark." },
+    { id = "g_day", text = "You've reached Chillwind. Keep your weapon close and your wits closer, because the dead don't rest in these lands." },
+    { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "Get to the fires before full dark. The Scourge walk more boldly at night, and the plague seems worse for it." },
   },
   notice = {
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
-      text = "A priest, thank the Light! The plague takes more of us than the Scourge does, and we've only the one healer in camp. If you can spare the time, they'd be grateful." },
+      text = "A priest, thank the Light! The plague takes more of us than the Scourge do, and there aren't enough hands to tend the sick. If you can spare an hour, they'd bless your name." },
     { id = "n_paladin", cat = "class", when = { class = "PALADIN" },
-      text = "A paladin! The Silver Hand stood on these fields once, before the plague. It's good to see the Light come back to Lordaeron, even if it's only one of you." },
+      text = "A paladin, on these fields again! The Silver Hand rode through here before the plague, and I'd stopped hoping I'd ever see one of you back in Lordaeron." },
   },
   lines = {
-    { id = "l_scourge", text = "The Scourge holds everything from here to the eastern sea. We hold this camp, and a few others, and we pray that's enough." },
-    { id = "l_cauldrons", text = "The Scourge have set up great cauldrons across the land, spewing plague into the air. Breathe carefully near them, and wash your hands after." },
-    { id = "l_andorhal", text = "Andorhal was the heart of the plague, people say, where the grain was poisoned. Now it's a ruin full of the dead, and the Forsaken and the Scourge fight over its bones." },
-    { id = "l_scarlet", text = "The Scarlet Crusade holds Hearthglen to the north. They fight the Scourge too, but they'd as soon burn you as look at you, if they decided you were tainted." },
+    { id = "l_scourge", text = "The Scourge hold everything from here to the eastern sea. We hold this camp and a few others like it, and we pray every night that it's enough." },
+    { id = "l_cauldrons", text = "The Scourge have set great plague cauldrons across the fields, spewing sickness into the air. Breathe carefully near them, and scrub your hands raw after." },
+    { id = "l_andorhal", text = "Andorhal was where the poisoned grain went out, people say, and the whole plague started from there. Now it's a ruin full of the dead, and the Forsaken and the Scourge fight over its bones." },
+    { id = "l_scarlet", text = "The Scarlet Crusade holds Hearthglen to the north. They fight the Scourge too, but they'd as soon burn you as look at you, if they decided you'd been near the plague." },
+    { id = "l_home", text = "I grew up a day's ride from here, in a village that isn't there any more. I came back with the Dawn because somebody ought to remember where everything was." },
   },
   topics = {
     knows = {
-      { id = "t_kn1", text = "The scouts bring word from the plaguelands, and none of it is good. Here's what I've heard." },
-      { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You've fought beside us, so I'll tell you everything, even the parts that keep me awake." },
+      { id = "t_kn1", text = "The scouts bring word in from the plaguelands, and there's never a good word among it. Here's what I've heard." },
+      { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You've fought beside us, so I'll tell you everything, even the parts that keep me awake at night." },
     },
-    plague_cauldrons = { { id = "t_cauldrons", text = "Great iron pots, bubbling with plague, set up all over the countryside. The Scourge spreads its sickness from them, and the Argent Dawn wants every one destroyed." } },
-    _none = { { id = "t_none", text = "I don't know. Ask the commander, or the Argent Dawn's people; they'll know." } },
+    plague_cauldrons = { { id = "t_cauldrons", text = "Great iron pots bubbling with plague, set up all over the countryside like a farmer sets out scarecrows. The Argent Dawn wants every one of them broken." } },
+    _none = { { id = "t_none", text = "I don't know. Ask the commander, or one of the Argent Dawn's people; they'll have heard." } },
   },
 }
 
 P:Pool {
   id = "citizen_morgans_vigil", role = "citizen", community = "morgans_vigil",
   greetings = {
-    { id = "g_day", text = "You've made it to Morgan's Vigil. Welcome, and keep your head down; the Blackrock have archers." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "The mountain glows at night, and the orcs beat their drums. You get used to it, or you go home." },
+    { id = "g_day", text = "You've made it to Morgan's Vigil. Welcome, and keep your head below the wall, because the Blackrock have archers." },
+    { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "The mountain glows red at night, and the orcs beat their drums until dawn. You get used to it, or you go home." },
   },
   notice = {
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
-      text = "The Blackrock, or the dragonkin? Either way, you're lucky to be standing. Get yourself mended before you go back out." },
+      text = "Was it the Blackrock or the dragonkin? Either way, you're lucky to be standing, so get yourself mended before you go back out." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
-      text = "A priest! The Steppes are hard on the soul as well as the body. If you've a prayer to spare, there are men here who could use it." },
+      text = "A priest! The Steppes are as hard on the soul as on the body. If you've a prayer to spare, there are soldiers here who could use one." },
   },
   lines = {
-    { id = "l_blackrock", text = "The Blackrock orcs hold the Spire, and they've a dragon for a master, people say. Every day they send raiders down, and every day we send them back." },
-    { id = "l_windsor", text = "Marshal Windsor led an expedition into the mountain and never came back. Some say he's dead, and some say he's a prisoner of the Dark Irons, and nobody knows for sure." },
-    { id = "l_land", text = "The Steppes were green once, before the orcs came and the dragons burned it. Now there's nothing but ash and fire, as far as you can see." },
+    { id = "l_blackrock", text = "The Blackrock orcs hold the Spire, and they've a dragon for a master, people say. Every day they send raiders down the slope, and every day we send fewer of them back." },
+    { id = "l_windsor", text = "Marshal Windsor led his people into the mountain and never came out. Some say he's dead, and some say the Dark Irons have him in chains, and nobody here can say for sure." },
+    { id = "l_land", text = "My father remembered these hills when they were green. Now there's nothing but ash and cinders as far as you can see, and the wind tastes of burning." },
   },
   topics = {
     knows = {
-      { id = "t_kn1", text = "News comes from the front lines, and the front lines are everywhere out here. Here's what I've heard." },
-      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you what's common, and then I've a watch to stand." },
+      { id = "t_kn1", text = "Out here the front line is everywhere, so the news comes from all sides at once. Here's what I've heard." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you the common talk, and then I've a watch to stand." },
     },
-    windsor = { { id = "t_windsor", text = "A brave man who went into the mountain to find out what the Dark Irons were planning. He didn't come back, and the Marshal here hasn't stopped looking." } },
-    _none = { { id = "t_none", text = "I don't know. Ask the Marshal; he knows the Steppes better than anyone." } },
+    windsor = { { id = "t_windsor", text = "A brave man who went into the mountain to learn what the Dark Irons were planning. He didn't come back, and the soldiers here still raise a cup to him every night." } },
+    _none = { { id = "t_none", text = "I don't know. The Marshal knows the Steppes better than any of us, so ask him." } },
   },
 }
 
@@ -973,191 +976,191 @@ P:Pool {
 P:Pool {
   id = "citizen_booty_bay", role = "citizen", community = "booty_bay",
   greetings = {
-    { id = "g_day", text = "Welcome to Booty Bay, pal! Everything's for sale, and everything's got a price, so bring your purse." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "Night in the Bay, and the taverns are just getting started. Mind your pockets and mind the pier edges." },
+    { id = "g_day", text = "Welcome to Booty Bay, pal! Everything here's for sale and everything's got a price, so I hope you brought your purse." },
+    { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "The taverns are just getting going, so mind your pockets, and mind the edge of the pier on your way home." },
   },
   notice = {
     { id = "n_horde", cat = "faction", when = { faction = "Horde" },
-      text = "Horde, eh? Your coin's as good as anybody's here, so spend it freely. Just don't start anything with the Alliance folk; the Baron's bruisers don't care who started it." },
+      text = "Horde, eh? Your coin's as good as anybody's here, so spend it freely. Just don't start anything with the Alliance folk, because the Baron's bruisers don't care who swung first." },
     { id = "n_alliance", cat = "faction", when = { faction = "Alliance" },
-      text = "Alliance, eh? Your gold's welcome here, same as anybody's. Just keep your blade sheathed around the orcs; the Baron likes his town peaceful." },
+      text = "Alliance, eh? Your gold spends the same as an orc's in this town. Keep your blade in its sheath around the green folk, and we'll all get rich together." },
   },
   lines = {
-    { id = "l_cartel", text = "The Steamwheedle Cartel runs this town, and they run it for profit. As long as you're spending, you're welcome; once you stop, you're scenery." },
-    { id = "l_bloodsail", text = "The Bloodsail Buccaneers have been raiding the ships again. They're pirates, real pirates, and they've got no love for the Cartel or anybody who trades with it." },
-    { id = "l_sharks", text = "Don't go swimming in the bay. The sharks are big, and they're always hungry, and they've learned that people fall off the pier on Fridays." },
-    { id = "l_jungle", text = "The jungle's full of trolls, tigers and worse. Most folk who come through here are heading out into it, and fewer come back than you'd like." },
+    { id = "l_cartel", text = "The Steamwheedle Cartel runs this town, and they run it for profit. As long as you're spending, you're a valued guest; once you stop, you're part of the scenery." },
+    { id = "l_bloodsail", text = "The Bloodsail Buccaneers hit another merchant ship last week. Real pirates, with parrots and grudges, and they've no love at all for the Cartel." },
+    { id = "l_sharks", text = "Don't go swimming in the bay, whatever the sailors dare you. The sharks are big and always hungry, and they've learned that sailors fall off the pier after a long night." },
+    { id = "l_jungle", text = "Most folk who come through here are heading into the jungle after tigers and trolls and treasure. Fewer come back than you'd like, but the ones who do spend well." },
   },
   topics = {
     knows = {
-      { id = "t_kn1", text = "Every ship brings rumors, and I buy 'em cheap and sell 'em dear. Here's what I've got in stock." },
-      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "Rumors cost money, pal, but I'll give you the cheap ones for free." },
+      { id = "t_kn1", text = "Every ship brings rumors, and I buy them cheap and sell them dear. Here's what I've got in stock today." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "Rumors cost money, pal, but I'll give you the cheap ones for nothing." },
     },
-    bloodsail = { { id = "t_bloodsail", text = "Pirates with a grudge against the Cartel. They've got a fleet off the coast, and they don't take prisoners unless they think they can ransom 'em." } },
-    _none = { { id = "t_none", text = "Never heard of it, and I hear everything. Must not be worth much." } },
+    bloodsail = { { id = "t_bloodsail", text = "Pirates with a fleet off the coast and a grudge against the Cartel. They don't take prisoners unless they think somebody will pay to get them back." } },
+    _none = { { id = "t_none", text = "Never heard of it, and I hear everything in this town, so it can't be worth much." } },
   },
 }
 
 P:Pool {
   id = "citizen_gadgetzan", role = "citizen", community = "gadgetzan",
   greetings = {
-    { id = "g_day", text = "Welcome to Gadgetzan! Hot, dry and expensive, but the water's clean and the Cartel keeps the peace." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "Gets cold at night in the desert. Who'd have thought it? Stay inside the walls; the bandits like the dark." },
+    { id = "g_day", text = "Welcome to Gadgetzan! It's hot, dry and expensive, but the water's clean and the Cartel keeps the peace." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Gets cold in the desert at night, which nobody believes until they try it. Stay inside the walls, because the bandits like the dark." },
   },
   notice = {
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
-      text = "A gnome, in a goblin town! Don't worry, we don't bite. Much. Well, the engineers argue a bit, but it's all in good fun." },
+      text = "A gnome, in a goblin town! Don't worry, nobody bites here, though the engineers do shout at each other a fair bit, and it's mostly friendly." },
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
-      text = "The desert's been chewing on you. Bandits, or the bugs? There's a smith in town, but bring money; nothing's free in Gadgetzan." },
+      text = "The desert's been chewing on you. Was it bandits or the bugs? There's a smith in town, but bring money, because nothing in Gadgetzan comes free." },
   },
   lines = {
-    { id = "l_water", text = "Water's the most precious thing in Tanaris, and the Cartel sells it by the bucket. Don't waste it, and don't ask how much it costs if you don't want to cry." },
-    { id = "l_bandits", text = "The Wastewander bandits raid the caravans and steal the water. The Cartel's put a bounty on them, but there's always more bandits than bounty." },
-    { id = "l_trolls", text = "The Sandfury trolls hold a city in the desert to the north. Zul'Farrak, they call it, and nobody goes there who wants to come back." },
-    { id = "l_racing", text = "The Mirage Raceway's up north on the Shimmering Flats. The gnomes and the goblins race their machines, and they bet everything on it, including things they don't own." },
+    { id = "l_water", text = "Water's the most precious thing in Tanaris, and the Cartel sells it by the bucket. Don't waste a drop, and don't ask what it costs unless you want to cry." },
+    { id = "l_bandits", text = "The Wastewander bandits raid the caravans and steal the water barrels. The Cartel's put a bounty on them, but there are always more bandits than bounty." },
+    { id = "l_trolls", text = "The Sandfury trolls keep a city out in the dunes to the west, called Zul'Farrak. Nobody goes there who wants to come back with all their limbs." },
+    { id = "l_racing", text = "The Mirage Raceway's up north on the Shimmering Flats, where the gnomes and goblins race their machines. They bet everything on it, including plenty of things they don't own." },
   },
   topics = {
     knows = {
-      { id = "t_kn1", text = "Gadgetzan's the crossroads of the desert, and everybody passes through. Here's what I've heard." },
-      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "Information costs money, but I'll give you the basics for free." },
+      { id = "t_kn1", text = "Gadgetzan's the crossroads of the desert, so sooner or later everybody passes my stall. Here's what I've heard." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "Information costs money, but I'll give you the basics for nothing, just this once." },
     },
-    steamwheedle = { { id = "t_steamwheedle", text = "The goblin trading company that runs the neutral towns. Booty Bay, Ratchet, Everlook and here: if you're spending money, the Cartel's getting a cut." } },
-    _none = { { id = "t_none", text = "Never heard of it. Ask at the Road Warrior; somebody there's always talking." } },
+    steamwheedle = { { id = "t_steamwheedle", text = "The goblin trading company that runs the neutral ports, Booty Bay and Ratchet and Everlook and here. If you're spending money anywhere neutral, the Cartel's getting its cut." } },
+    _none = { { id = "t_none", text = "Never heard of it. Try the folk at the inn, because somebody there is always talking." } },
   },
 }
 
 P:Pool {
   id = "citizen_everlook", role = "citizen", community = "everlook",
   greetings = {
-    { id = "g_day", text = "Welcome to Everlook! Cold, isn't it? The Cartel built a town in the snow, and we're still wondering why." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "Freezing tonight. Get inside, or you'll be an icicle by morning." },
+    { id = "g_day", text = "Welcome to Everlook, and I hope you brought a coat! The Cartel built a town in the snow, and we're all still wondering why." },
+    { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "It's freezing tonight, so get yourself indoors, or you'll be an icicle with boots on by morning." },
   },
   notice = {
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
-      text = "The furbolgs, or the yetis? Winterspring's got plenty of both. There's a smith in town, but bring money." },
+      text = "Was it the furbolgs or the yetis? Winterspring's got plenty of both, and neither of them is friendly about it." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
-      text = "A priest! The Argent Dawn has a man here, and he'd be glad of the company, I think. The Scourge are stirring in the north, and he worries." },
+      text = "A priest! The Argent Dawn keeps a man here, and I think he'd be glad of someone to pray with. He's worried about something in the north, and he won't say what." },
   },
   lines = {
-    { id = "l_cold", text = "It's always cold in Winterspring, even in summer. The goblins wear three coats and complain about all of them." },
-    { id = "l_furbolgs", text = "The Timbermaw furbolgs hold the pass to the south. They're not as mad as their cousins, but they don't trust outsiders." },
-    { id = "l_dawn", text = "The Argent Dawn has a man in Everlook, watching the north. They say the Scourge are stirring in the mountains, and he wants to be ready." },
+    { id = "l_cold", text = "It's always cold in Winterspring, even in summer. The goblins wear three coats apiece and complain about every one of them." },
+    { id = "l_furbolgs", text = "The Timbermaw furbolgs hold the tunnels to the south. They're not as mad as their cousins in Felwood, but they don't trust outsiders, and I can't say I blame them." },
+    { id = "l_frostsabers", text = "Hunters come up here after frostsaber pelts, and some of them go home rich. The cats have their own opinion about it, and they share it with the slow ones." },
   },
   topics = {
     knows = {
-      { id = "t_kn1", text = "Travelers bring news to Everlook, and I hear it all. Here's what's going around." },
-      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you the common stuff, and then I'm going back inside." },
+      { id = "t_kn1", text = "Travelers bring their news up the mountain with their frostbite, and I hear all of it. Here's what's going around." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you the common talk, and then I'm going back inside where it's warm." },
     },
-    argent_dawn = { { id = "t_dawn", text = "A brotherhood of folk sworn to fight the Scourge, from every race and faction. They don't ask which side you're on, only whether you'll stand against the dead." } },
-    _none = { { id = "t_none", text = "Never heard of it. Ask at the inn; somebody's always got a story." } },
+    argent_dawn = { { id = "t_dawn", text = "Folk sworn to fight the Scourge, from every race and banner. They don't ask whose side you're on, only whether you'll stand against the dead with them." } },
+    _none = { { id = "t_none", text = "Never heard of it. Ask at the inn; somebody's always got a story there, true or not." } },
   },
 }
 
 P:Pool {
   id = "citizen_light_hope", role = "citizen", community = "light_hope",
   greetings = {
-    { id = "g_day", text = "You've come to Light's Hope. Whatever banner you fly, leave it at the gate; here we fight the dead together." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "The bell rings at night when the dead come close. Stay near the chapel, and pray it stays quiet." },
+    { id = "g_day", text = "You've come to Light's Hope. Whatever banner you fly, you can leave it at the gate; here the living stand together." },
+    { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "Stay near the chapel tonight, and pray the bell keeps quiet. When it rings after dark, it means the dead are close." },
   },
   notice = {
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
-      text = "A priest, here among the dead! The Light burns brightest in the darkest places, they say. You'll find plenty of darkness out there to test it on." },
+      text = "A priest, out here among the dead! The Light burns brightest in the darkest places, they say, and you'll find no darker places than these to test it." },
     { id = "n_undead", cat = "race", when = { race = "Scourge" },
-      text = "Forsaken, here? The Dawn takes anyone who fights the Scourge, and you've more reason than most. Just don't take it personally if people stare." },
+      text = "Forsaken, here? The Dawn takes anyone who fights the Scourge, and you've more reason than most. Don't take it to heart if people stare a while." },
   },
   lines = {
-    { id = "l_dawn", text = "The Argent Dawn holds this chapel against the Scourge. Humans, dwarves, orcs, even Forsaken: here, we're all just the living against the dead." },
-    { id = "l_scourge", text = "The Scourge hold Stratholme to the north, and the dead walk everywhere else. We hold this chapel, and the chapel holds us." },
-    { id = "l_scarlet", text = "The Scarlet Crusade holds Tyr's Hand to the south. They fight the Scourge too, but they'd burn half of us here for being what we are." },
+    { id = "l_dawn", text = "The Argent Dawn holds this chapel against the Scourge, and it takes anyone who'll fight. Human, dwarf, orc, even Forsaken: here we're only the living against the dead." },
+    { id = "l_strat", text = "Stratholme lies to the north, the city where the prince burned his own people. The dead hold it now, and on still nights you can hear them in the streets." },
+    { id = "l_scarlet", text = "The Scarlet Crusade holds Tyr's Hand to the south. They fight the Scourge as hard as we do, but they'd burn half the people in this chapel for being what they are." },
   },
   topics = {
     knows = {
-      { id = "t_kn1", text = "News comes to the chapel with the patrols, and it's mostly about the dead. Here's what I've heard." },
-      { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You've fought beside the Dawn, so I'll tell you everything." },
+      { id = "t_kn1", text = "The patrols bring the news back with them, and it's nearly all about the dead. Here's what I've heard." },
+      { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You've fought beside the Dawn, so I'll hold nothing back from you." },
     },
-    argent_dawn = { { id = "t_dawn", text = "We're the ones who stand against the Scourge, wherever it walks. We don't care about Alliance or Horde, only whether you'll fight the dead." } },
-    _none = { { id = "t_none", text = "I don't know. Ask inside the chapel; the commanders know more than I do." } },
+    argent_dawn = { { id = "t_dawn", text = "We stand against the Scourge wherever it walks, and we don't care about Alliance or Horde. If you'll fight the dead, you're one of us." } },
+    _none = { { id = "t_none", text = "I don't know. Ask inside the chapel; the commanders hear more than I do." } },
   },
 }
 
 P:Pool {
   id = "citizen_thorium_point", role = "citizen", community = "thorium_point",
   greetings = {
-    { id = "g_day", text = "Welcome tae Thorium Point. Aye, we're Dark Iron, but no' the bad kind, so keep yer hammer on yer belt." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "The Gorge glows red at night, an' the smoke never stops. Ye get used tae it, or ye leave." },
+    { id = "g_day", text = "Welcome tae Thorium Point. Aye, I'm Dark Iron, but I'm the kind that left, so ye can take yer hand off yer hammer." },
+    { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "The Gorge glows red at night, an' the smoke never stops risin'. Ye get used tae it, or ye leave, an' most folk leave." },
   },
   notice = {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
-      text = "A Bronzebeard, starin' at a Dark Iron! Get it out o' yer system, an' then we can talk like civilized dwarves." },
+      text = "A Bronzebeard, starin' at a Dark Iron like I've two heads! Go on, get it out o' yer system, an' then we can talk like civilized dwarves." },
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
-      text = "The Gorge chewed yer gear. Our smiths are the best in the mountains, but they're no' cheap, mind." },
+      text = "The Gorge has chewed up yer gear. Our smiths are the best in these mountains, but they're no' cheap, mind." },
   },
   lines = {
-    { id = "l_brotherhood", text = "The Thorium Brotherhood forged weapons for the Firelord's armies, until we found a way out. Now we forge for whoever pays, which is a better bargain." },
-    { id = "l_kin", text = "Our kin are still under the mountain, bowin' tae fire an' forgin' for Ragnaros. We left, an' they didnae, so don't lump us together." },
-    { id = "l_gorge", text = "The Searing Gorge was green once, before the Dark Irons called up the fire. Now it's nothin' but slag an' smoke, an' we live in the middle of it." },
+    { id = "l_brotherhood", text = "The Brotherhood forged weapons for the Firelord's armies, until enough of us found a way out from under the mountain. Now we sell tae whoever pays, an' I sleep better for it." },
+    { id = "l_kin", text = "My own brother's still down in the depths, bowin' tae the fire an' forgin' for Ragnaros. I left an' he didnae, an' I try no' tae think about which of us was right." },
+    { id = "l_gorge", text = "The Gorge was hills an' pine forest once, before my kin called up the fire. Now it's slag an' smoke, an' we've built our homes right in the middle of it." },
   },
   topics = {
     knows = {
-      { id = "t_kn1", text = "News comes up from the mountain an' down from the Spire, an' I hear most of it. Here's what's goin' round." },
-      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell ye the common stuff, an' then ye can go." },
+      { id = "t_kn1", text = "News comes up from the depths an' down from the Spire, an' I hear most of it at the forge. Here's what's goin' round." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell ye the common talk, an' then ye can be on yer way." },
     },
-    dark_iron = { { id = "t_darkiron", text = "Our kin, aye, but no' our friends. They serve the Firelord under the mountain, an' they'd kill us for leavin' if they could." } },
-    _none = { { id = "t_none", text = "Never heard of it. Ask the Overseer; he knows everything, or says he does." } },
+    dark_iron = { { id = "t_darkiron", text = "My kin, aye, but no' my friends any more. They serve the Firelord under the mountain, an' they'd kill the lot of us for leavin', if they could reach us." } },
+    _none = { { id = "t_none", text = "Never heard of it. Ask the Overseer, for he knows everythin', or so he tells us." } },
   },
 }
 
 P:Pool {
   id = "citizen_marshals_refuge", role = "citizen", community = "marshals_refuge",
   greetings = {
-    { id = "g_day", text = "Welcome to Marshal's Refuge! We've been stuck in this crater for months, so any new face is a good one." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "Stay close to the fire tonight. The devilsaurs hunt at night, and they're big enough to step on you." },
+    { id = "g_day", text = "Welcome to the Refuge! We've been stuck down in this crater for months, so any new face is a fine one." },
+    { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "Stay close to the fire tonight. The big lizards hunt after dark, and some of them could step on you without noticing." },
   },
   notice = {
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
-      text = "The crater's had a go at you, I see. Raptors, or something bigger? Either way, you're lucky." },
+      text = "The crater's had a go at you, I see. Was it raptors, or something with even bigger teeth? Either way, you're lucky to be walking." },
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
-      text = "A hunter! You'll find plenty to hunt in Un'Goro, if it doesn't hunt you first. The devilsaurs are the size of a house." },
+      text = "A hunter! You'll find plenty to hunt in Un'Goro, if it doesn't hunt you first. The devilsaurs are the size of a house, and they're quieter than you'd think." },
   },
   lines = {
-    { id = "l_stranded", text = "We came here on an expedition, and now we're stuck. The crater's walls are too steep to climb, and the only way out is the way the dinosaurs came in." },
-    { id = "l_crystals", text = "There are glowing crystals all over the crater, and nobody knows what they're for. The scholars say they're full of power, but they won't say what kind." },
-    { id = "l_silithid", text = "The silithid have a hive in the southeast, and they're spreading. Big bugs, with big mandibles, and they don't like visitors." },
+    { id = "l_stranded", text = "We came down here with an expedition, and now we're stuck. The crater walls are too steep to climb, and the passes out are full of things that eat expeditions." },
+    { id = "l_crystals", text = "There are glowing crystals all over the crater, and nobody knows what made them. The scholars say they're full of power, but they won't say what kind." },
+    { id = "l_silithid", text = "The silithid have a hive in the southeast, and it's been spreading. They're great clicking bugs with mandibles like shears, and they don't like visitors." },
   },
   topics = {
     knows = {
-      { id = "t_kn1", text = "We've been here long enough to know the crater's secrets, or some of them. Here's what I've learned." },
-      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you what's common, and then I've got to get back to watching for devilsaurs." },
+      { id = "t_kn1", text = "We've been here long enough to learn a few of the crater's secrets. Here's what I can tell you." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you the common talk, and then I've got to get back to watching the trees." },
     },
-    silithid = { { id = "t_silithid", text = "Big insects from the south, with a hive in the crater. They're spreading, and nobody knows how to stop them." } },
-    _none = { { id = "t_none", text = "Never heard of it. Ask the Marshal; he's the one who got us stuck here." } },
+    silithid = { { id = "t_silithid", text = "Giant insects with a hive in the crater, and more of them every week. They came from somewhere south and west of here, and nobody's sure how to stop them." } },
+    _none = { { id = "t_none", text = "Never heard of it. Ask somebody who's been down here longer; that's anybody but me." } },
   },
 }
 
 P:Pool {
   id = "citizen_nighthaven", role = "citizen", community = "nighthaven",
   greetings = {
-    { id = "g_day", text = "Welcome to Nighthaven. Weapons stay sheathed here, and voices stay soft; the Circle keeps the peace." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "The moon's on the lake tonight. Walk softly; the village sleeps light, and the druids sleep lighter." },
+    { id = "g_day", text = "Welcome to Nighthaven. Weapons stay sheathed and voices stay soft here, for the Circle keeps the peace in the glade." },
+    { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "The moon is on the lake tonight. Walk softly, please; the village sleeps lightly, and the druids sleep more lightly still." },
   },
   notice = {
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
-      text = "A druid! Whatever banner you fly elsewhere, here you're of the Circle. Welcome home, or as close as any of us get." },
+      text = "A druid! Whatever banner you fly elsewhere, here you're of the Circle, so welcome home, or as near to home as any of us come." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
-      text = "A priest, in Moonglade! The Light's welcome here, as long as it doesn't trample the herb beds." },
+      text = "A priest, in Moonglade! Every faith is welcome in the glade, so long as it treads lightly and stays off the herb beds." },
   },
   lines = {
-    { id = "l_circle", text = "The Cenarion Circle keeps Moonglade for all druids, whatever their race or banner. Orc and elf, tauren and human, all equal under the moon." },
-    { id = "l_remulos", text = "Keeper Remulos watches over the glade, son of Cenarius himself. He's old, older than the trees, and he sees everything." },
-    { id = "l_malfurion", text = "Malfurion Stormrage sleeps in the barrow dens beneath us, dreaming. The druids say he walks in the Dream, and that one day he'll wake." },
+    { id = "l_circle", text = "The Cenarion Circle keeps Moonglade for every druid, whatever their people or their banner. Orc and elf, tauren and human, all sit at the same fire here." },
+    { id = "l_remulos", text = "Keeper Remulos watches over the glade, and he's a son of Cenarius himself. He's older than the trees around us, and he sees more than he lets on." },
+    { id = "l_malfurion", text = "They say Malfurion Stormrage sleeps in the barrow dens below us, walking in the Dream. The druids speak of his waking the way farmers speak of rain." },
   },
   topics = {
     knows = {
-      { id = "t_kn1", text = "Druids come to Moonglade from every corner of the world, and they bring news. Here's what I've heard." },
+      { id = "t_kn1", text = "Druids come to the glade from every corner of the world, and they bring their news with them. Here's what I've heard." },
       { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You've kept the peace of the glade, so I'll tell you everything." },
     },
-    cenarion_circle = { { id = "t_circle", text = "The druids of every race, sworn to keep the balance of nature. They meet here, in the glade, and they don't care about Alliance or Horde." } },
-    _none = { { id = "t_none", text = "I don't know. Ask the druids; they know the land better than anyone." } },
+    cenarion_circle = { { id = "t_circle", text = "Druids of every people, sworn to keep the balance of the wild. They gather here in the glade, and they don't care about Alliance or Horde one bit." } },
+    _none = { { id = "t_none", text = "I don't know. Ask the druids; they know the land better than any of us." } },
   },
 }
 
@@ -1167,347 +1170,347 @@ P:Pool {
 P:Pool {
   id = "citizen_crossroads", role = "citizen", community = "crossroads",
   greetings = {
-    { id = "g_day", text = "Lok'tar, and welcome to the Crossroads. The water's at the well, and the trouble's everywhere else." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "Stay inside the walls tonight. The centaur ride at night, and they don't stop to ask whose side you're on." },
+    { id = "g_day", text = "Throm-ka, traveler. Drink from the well before you do anything else; the Barrens dries you out before you notice." },
+    { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "Get inside the palisade before full dark. The centaur ride at night, and they shoot at anything that moves." },
   },
   notice = {
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
-      text = "The Barrens has been chewing on you. Centaur, quilboar, or the heat? Get mended before you go back out." },
+      text = "The Barrens has been gnawing on you. Was it centaur, quilboar or just the heat? Get mended before you go back out there." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
-      text = "A tauren, far from the grass of Mulgore! The Barrens is hard country, cousin, but the Crossroads will shelter you." },
+      text = "A tauren, far from the grass of Mulgore! The Barrens is hard country, cousin, but the Crossroads will shelter you as long as you need." },
   },
   lines = {
-    { id = "l_centaur", text = "The centaur raid the caravans from the west, and the quilboar from the south. The Crossroads sits in the middle, and holds." },
-    { id = "l_wailing", text = "There's a cave in the south where the druids went to heal the land. They came out strange, and the water tastes wrong near there." },
-    { id = "l_northwatch", text = "The Alliance have a fort at Northwatch, on the coast. They watch us, and we watch them, and everyone waits." },
+    { id = "l_centaur", text = "The centaur raid the caravans from the west, and the quilboar from the south. Every kodo that gets through here alive is a small victory for the Warchief." },
+    { id = "l_wailing", text = "There's a cave in the south where the druids went to heal the land. They came out strange, and now the water tastes wrong for miles around it." },
+    { id = "l_northwatch", text = "The Alliance built a fort at Northwatch, down on the coast. They watch us, we watch them, and the traders between us get rich." },
+    { id = "l_ratchet", text = "Everything from across the sea comes up from Ratchet on the backs of the kodo. When the goblins raise their prices, the whole Barrens feels it by the next morning." },
   },
   topics = {
     knows = {
-      { id = "t_kn1", text = "Every caravan stops at the Crossroads, and every caravan has a story. Here's what I've heard." },
-      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you what's common, and then I've got work." },
+      { id = "t_kn1", text = "Every caravan stops at the Crossroads, and every caravan has a story to trade for water. Here's what I've heard." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you what the whole camp knows, and then I've a kodo to unload." },
     },
-    wailing_caverns = { { id = "t_wailing", text = "A cave in the south, where the druids went to heal the Barrens. Something went wrong, and now the druids are mad and the cave is full of monsters." } },
-    _none = { { id = "t_none", text = "I don't know. Ask Thork; he's on the tower, glaring at the horizon as usual." } },
+    wailing_caverns = { { id = "t_wailing", text = "The druids went down there to make the Barrens green again. Something went wrong in the dark, and now the druids are mad and the caves are full of things with fangs." } },
+    _none = { { id = "t_none", text = "I don't know. Ask up on the tower; the officers know more than a water-carrier." } },
   },
 }
 
 P:Pool {
   id = "citizen_razor_hill", role = "citizen", community = "razor_hill",
   greetings = {
-    { id = "g_day", text = "Welcome to Razor Hill. The roads to Orgrimmar, Sen'jin and the Barrens all meet here, and so does trouble." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "Get inside the walls. The cultists like the dark, and they've been bold lately." },
+    { id = "g_day", text = "Throm-ka. You'll be heading for the capital, or away from it; everyone in Razor Hill is doing one or the other." },
+    { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "Inside, quickly, before the light's gone. The cultists in the canyons grow bolder once the sun goes down." },
   },
   notice = {
     { id = "n_new", cat = "class", when = { maxLevel = 10 },
-      text = "Fresh out of the Valley of Trials, are you? Keep your weapon loose and your eyes open, because Durotar bites." },
+      text = "Fresh out of the Valley of Trials, by the look of you! Durotar will test you harder than the valley did, so keep your water close and your weapon closer." },
     { id = "n_troll", cat = "race", when = { race = "Troll" },
-      text = "Darkspear, eh? Sen'jin's just down the road, if you're homesick. The trolls there will feed you better than we can." },
+      text = "Darkspear, eh? Sen'jin is just down the coast road if you're missing home, and the trolls there cook better than we do." },
   },
   lines = {
-    { id = "l_blade", text = "The Burning Blade cultists hide in the canyons, worshipping demons. The Warchief says we're done with that, but some orcs never learn." },
-    { id = "l_kultiras", text = "The Kul Tirans have a fortress on the coast, Tiragarde Keep. They're still angry about their admiral, and they send ships to watch us." },
-    { id = "l_quilboar", text = "The quilboar come from the west, raiding the farms. They're ugly and they smell, but they fight like demons." },
+    { id = "l_blade", text = "There are orcs in the canyons who still call on demons, the fools. The Warchief told us we're done with all that, and some of them never listened." },
+    { id = "l_kultiras", text = "The humans hold a fortress on the coast, Tiragarde Keep, full of angry Kul Tiran sailors. They're still sore about their admiral, and they've long memories for humans." },
+    { id = "l_quilboar", text = "The quilboar come out of the west to raid the farms and steal the pigs, which feels personal, if you think about it." },
   },
   topics = {
     knows = {
-      { id = "t_kn1", text = "Everything that comes up the road passes Razor Hill first. Here's what I've heard." },
-      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "Ask, and keep it short; I've work to do." },
+      { id = "t_kn1", text = "Everything that comes up the road from the Barrens passes through Razor Hill first, and so does the gossip. Here's what I've heard." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "Ask, and keep it short, because I've work waiting." },
     },
-    burning_blade = { { id = "t_blade", text = "Demon-worshippers who want the old ways back. They hide in the canyons, and Orgnil hunts them; don't get in his way." } },
-    _none = { { id = "t_none", text = "I don't know. Ask Gar'Thok, in the barracks; he doesn't like questions, but he answers them." } },
+    burning_blade = { { id = "t_blade", text = "Orcs who'd drink the demons' blood all over again if they could. They hide in the canyons, and the hunters here bring back their robes when they find them." } },
+    _none = { { id = "t_none", text = "I don't know. Try the barracks; somebody there gets paid to know things." } },
   },
 }
 
 P:Pool {
   id = "citizen_brill", role = "citizen", community = "brill",
   greetings = {
-    { id = "g_day", text = "Welcome to Brill. It was a human town once, and now it's ours. The smell doesn't bother us, but you might want to breathe through your mouth." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "Night in Tirisfal. It's always gloomy here, but at night the Scarlet patrols come closer, so keep your eyes open." },
+    { id = "g_day", text = "Welcome to Brill. It was a human town once, and now it's ours, so mind where you step; some of the floorboards remember the old owners." },
+    { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "It's always gloomy in Tirisfal, but at night the Scarlet patrols creep closer, so keep your eyes on the tree line." },
   },
   notice = {
     { id = "n_undead", cat = "race", when = { race = "Scourge", maxLevel = 10 },
-      text = "Fresh from Deathknell, are you? It takes a while to get used to it all. Don't worry; the rot stops itching after the first year." },
+      text = "Fresh from Deathknell, are you? It takes a while to get used to it all. The rot stops itching after the first year, or perhaps you simply stop caring." },
     { id = "n_living", cat = "race", when = { race = { "Orc", "Troll", "Tauren", "Skyborne" } },
-      text = "One of the living, here in Brill? You'll get stares, but most of us are friendly enough, in our way." },
+      text = "One of the living, here in Brill! You'll get stares, but most of us are friendly enough, in our way. It's only that we've forgotten how to show it." },
   },
   lines = {
-    { id = "l_scarlet", text = "The Scarlet Crusade has a monastery to the northeast. They hunt us like animals, and they call it holy work." },
-    { id = "l_farms", text = "The farms around Brill are all rotting now. Some of us were farmers once, and we remember what the fields looked like when they were green." },
-    { id = "l_tavern", text = "The Gallows' End Tavern is the best place in Brill, which isn't saying much. The innkeeper is pleasant enough, for a corpse." },
+    { id = "l_scarlet", text = "The Scarlet Crusade keeps a monastery to the northeast and a fortress on the coast. They hunt us like vermin, and they sing hymns while they do it." },
+    { id = "l_farms", text = "Most of us were farmers in these fields once. I remember the smell of the barley in summer, though I can't smell anything now, which is probably a mercy around here." },
+    { id = "l_tavern", text = "The Gallows' End is the best place in Brill, which isn't saying much. The innkeeper is pleasant enough company, for a corpse, and so am I." },
   },
   topics = {
     knows = {
-      { id = "t_kn1", text = "News comes to Brill from the Undercity and the frontier. Here's what I've heard." },
-      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you what's common, and then you can leave me be." },
+      { id = "t_kn1", text = "News reaches Brill from the Undercity and the frontier, and the dead never tire of repeating it. Here's what I've heard." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you the common talk, and then you can leave me to my brooding." },
     },
-    scarlet_crusade = { { id = "t_scarlet", text = "Zealots in red who think the Light wants them to burn us. They've got a monastery to the northeast, and they never stop hunting." } },
-    _none = { { id = "t_none", text = "I don't know. Ask at the tavern; someone there might." } },
+    scarlet_crusade = { { id = "t_scarlet", text = "Zealots in red who think the Light wants them to burn us. Some of them were my neighbors, and they'd burn me twice over now, once for each life." } },
+    _none = { { id = "t_none", text = "I don't know. Ask at the tavern; someone there has nothing but time." } },
   },
 }
 
 P:Pool {
   id = "citizen_tarren_mill", role = "citizen", community = "tarren_mill",
   greetings = {
-    { id = "g_day", text = "Welcome to Tarren Mill. It's quiet here, mostly, except when the humans from Southshore come calling." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "The night's dark in Hillsbrad, and the Syndicate creep about. Stay close to the town." },
+    { id = "g_day", text = "Welcome to Tarren Mill. It's quiet here, mostly, except when the humans from Southshore come calling with torches." },
+    { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "Hillsbrad is darker than it looks after sunset, and the Syndicate creep about in it. Stay close to the town." },
   },
   notice = {
     { id = "n_living", cat = "race", when = { race = { "Orc", "Troll", "Tauren", "Skyborne" } },
-      text = "One of the living, here in Tarren Mill! The humans in Southshore hate us, but they'd hate you just as much, so we're all friends here." },
+      text = "One of the living, here in Tarren Mill! The humans in Southshore hate you nearly as much as they hate us, so that makes us friends, I suppose." },
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
-      text = "The Syndicate, or the ogres? Hillsbrad's full of both. Get yourself mended before you go back out." },
+      text = "Was it the Syndicate or the ogres? Hillsbrad has plenty of both, so get yourself mended before you go back down the hill." },
   },
   lines = {
-    { id = "l_southshore", text = "The humans in Southshore were our neighbors once, in life. Now they hate us, and we... well, we don't love them either." },
-    { id = "l_syndicate", text = "The Syndicate are Alterac's old nobles, turned to thieving. They hide in the hills and rob anyone who passes." },
-    { id = "l_apothecary", text = "The Apothecaries have business in the hills, testing their brews. I don't ask what they're testing, and you shouldn't either." },
+    { id = "l_southshore", text = "I used to sell wool in Southshore, in life. Now the same people I traded with would shoot me on sight, and I can't even say they're wrong to." },
+    { id = "l_syndicate", text = "The Syndicate are Alterac's old nobles, gone to thieving. They hide in the hills and rob anyone who passes, living or dead." },
+    { id = "l_apothecary", text = "The Apothecaries have business in the hills, testing their brews on things. I don't ask what things, and you'd be wise not to either." },
   },
   topics = {
     knows = {
-      { id = "t_kn1", text = "News comes to Tarren Mill from Southshore and the hills. Here's what I've heard." },
-      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you what's common, and then I've got work." },
+      { id = "t_kn1", text = "News reaches Tarren Mill from Southshore and from the hills, and none of it is cheerful. Here's what I've heard." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you the common talk, and then I've work to see to." },
     },
-    syndicate = { { id = "t_syndicate", text = "Thieves and cutthroats, led by the old nobles of Alterac. They want their kingdom back, and they'll kill anyone in their way." } },
-    _none = { { id = "t_none", text = "I don't know. Ask the High Executor; he knows everything that happens in Hillsbrad." } },
+    syndicate = { { id = "t_syndicate", text = "Thieves and cutthroats led by the old lords of Alterac, who want their kingdom back. They'll take it a coin at a time, and a throat at a time, if they must." } },
+    _none = { { id = "t_none", text = "I don't know. The Deathstalkers might, if you can find one who'll admit to being there." } },
   },
 }
 
 P:Pool {
   id = "citizen_bloodhoof", role = "citizen", community = "bloodhoof",
   greetings = {
-    { id = "g_day", text = "Welcome to Bloodhoof Village. The grass is high this year, and the kodo are fat." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "Mulgore is quiet at night, but sometimes too quiet. Stay near the fires." },
+    { id = "g_day", text = "Be welcome in Bloodhoof Village. The grass is tall and the kodo are fat this season, so the Earth Mother is pleased with us." },
+    { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "Come and sit by the fire, traveler. The plains are peaceful at night, but it's wiser to be peaceful near a fire." },
   },
   notice = {
     { id = "n_new", cat = "race", when = { race = "Tauren", maxLevel = 10 },
-      text = "First time out of Narache? The plains are wide, and there's no shame in walking them slowly." },
+      text = "You've come down from Narache! I remember my own first walk across the plains, how wide they seemed. Take your time; the land isn't going anywhere." },
     { id = "n_skyborne", cat = "race", when = { race = "Skyborne" },
-      text = "One of the sky-folk from Gev'rek! Thunder Bluff called you friends, so you're friends here. Earth Mother keep you." },
+      text = "One of the sky-folk from Gev'rek! Thunder Bluff named your people friends, and the word of the bluffs is good in this village. Earth Mother keep you." },
   },
   lines = {
-    { id = "l_venture", text = "The goblins of the Venture Company are cutting our trees and poisoning our wells. Baine has sent braves to stop them, but they keep coming back." },
-    { id = "l_gnolls", text = "The Palemane gnolls have been raiding the farms to the west. They're thieves and cowards, but there are a lot of them." },
-    { id = "l_kodo", text = "The kodo are the heart of our people. They carry our homes, our goods and our children, and they ask for nothing but grass." },
+    { id = "l_venture", text = "The goblins of the Venture Company are cutting our trees and fouling our wells. Our braves drive them off, and like flies they're back the next morning." },
+    { id = "l_gnolls", text = "The Palemane gnolls have been stealing from the farms to the west. They're thieves and cowards, but there are a great many of them." },
+    { id = "l_kodo", text = "The kodo are the heart of our people. They carry our homes and our children and our goods, and they ask for nothing but grass and a kind word." },
   },
   topics = {
     knows = {
-      { id = "t_kn1", text = "News crosses the plains slowly, but it does arrive. Here's what has reached us." },
-      { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You've walked the plains as a friend, so I'll tell you everything." },
+      { id = "t_kn1", text = "News crosses the plains as slowly as a kodo walks, but it arrives in the end. Here's what has reached the village." },
+      { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You've walked these plains as a friend, so I'll tell you everything I know." },
     },
-    venture_company = { { id = "t_venture", text = "Goblins with saws and drills, cutting down our trees and poisoning our water. They call it business; we call it theft." } },
-    _none = { { id = "t_none", text = "I don't know. Ask Baine, in the big tent; he listens to everyone." } },
+    venture_company = { { id = "t_venture", text = "Goblins with saws and drills, cutting down our trees and fouling our water for money. They call it business, and we call it something less polite." } },
+    _none = { { id = "t_none", text = "I don't know that. The elders might; they've had longer to listen than I have." } },
   },
 }
 
 P:Pool {
   id = "citizen_freewind", role = "citizen", community = "freewind",
   greetings = {
-    { id = "g_day", text = "Welcome to Freewind Post. Mind the edges; the mesas are high, and the wind is strong." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "The stars are close up here at night. Sit a while, if you like; the lifts will wait." },
+    { id = "g_day", text = "Welcome to Freewind Post. Mind the edges of the mesa, because the drop is long and the wind is not your friend." },
+    { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "The stars are very close up here at night. Sit a while if you like; the lift will wait for you." },
   },
   notice = {
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
-      text = "The centaur, or the Grimtotem? Thousand Needles is full of both. Rest here a while." },
+      text = "Was it the centaur in the canyons, or the Grimtotem? Thousand Needles is full of both, so rest a while before you climb down again." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
-      text = "A tauren, here among the needles! Welcome, cousin. The Grimtotem are about, so watch who you trust." },
+      text = "Welcome among the needles, cousin. The Grimtotem walk these canyons, so be careful which tauren you trust out here." },
   },
   lines = {
-    { id = "l_grimtotem", text = "The Grimtotem have been bold lately, raiding the mesas. They hate the Horde, and they hate any tauren who follows Cairne." },
-    { id = "l_centaur", text = "The Galak centaur roam the canyons below. They're not as many as in the Barrens, but they're just as mean." },
-    { id = "l_flats", text = "The goblins and gnomes race their machines on the Shimmering Flats to the east. Loud, smelly things, and they crash more often than they finish." },
+    { id = "l_grimtotem", text = "The Grimtotem have been bold lately, raiding along the mesas. They hate the Horde, and they hate any tauren who follows Cairne even more." },
+    { id = "l_centaur", text = "The Galak centaur roam the canyon floors below us. There are fewer of them than in the Barrens, but they're every bit as cruel." },
+    { id = "l_flats", text = "The goblins and gnomes race their machines on the Shimmering Flats to the east. They're loud, smelly things, and they crash more often than they finish." },
   },
   topics = {
     knows = {
-      { id = "t_kn1", text = "The wind carries news to the mesas, and I listen. Here's what I've heard." },
-      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you a little, but I'm wary of strangers." },
+      { id = "t_kn1", text = "The wind carries news up to the mesas, and I've learned to listen to it. Here's what I've heard." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you a little, but I'm careful with strangers out here." },
     },
-    grimtotem = { { id = "t_grimtotem", text = "A clan of tauren who hate the orcs and the Horde. They keep to the old ways, and they'll kill anyone who stands in their way." } },
-    _none = { { id = "t_none", text = "I don't know. Ask the Cliffwatcher; he sees everything from up there." } },
+    grimtotem = { { id = "t_grimtotem", text = "A clan of our own people who hate the orcs and the Horde with them. They keep to the old, hard ways, and they'll kill anyone who stands in their path." } },
+    _none = { { id = "t_none", text = "I don't know. Ask the watchers on the cliff; they see everything from up there." } },
   },
 }
 
 P:Pool {
   id = "citizen_taurajo", role = "citizen", community = "taurajo",
   greetings = {
-    { id = "g_day", text = "Welcome to Camp Taurajo. The quilboar are to the south, and the centaur to the west, so keep your weapon close." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "Stay near the fires tonight. The Barrens are dangerous after dark." },
+    { id = "g_day", text = "Welcome to Camp Taurajo. The quilboar are south of us and the centaur west, so keep your weapon where you can reach it." },
+    { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "Stay near the fires tonight, traveler. The southern Barrens grow dangerous once the light goes." },
   },
   notice = {
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
-      text = "The quilboar got to you? Their spines are sharp, and their tempers are worse. Get mended." },
+      text = "The quilboar got to you, did they? Their spines are sharp and their tempers sharper, so see to those wounds." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
-      text = "A tauren, far from Mulgore! Welcome to the camp, cousin. The Barrens are hard, but we hold." },
+      text = "A tauren, far from Mulgore! Welcome to the camp, cousin; the southern Barrens are hard, but we hold them." },
   },
   lines = {
-    { id = "l_quilboar", text = "The Razorfen quilboar have their warrens to the south. They're dangerous, and they hate everyone who isn't quilboar." },
-    { id = "l_dwarves", text = "There are dwarves digging in Bael Modan to the east. They're looking for something old, and they don't care whose land it's on." },
-    { id = "l_camp", text = "This camp's not much, but it's a safe place in the Barrens. That's worth more than gold, out here." },
+    { id = "l_quilboar", text = "The Razorfen quilboar keep their great thorny warrens to the south. They worship something down in the brambles, and they hate everyone who isn't quilboar." },
+    { id = "l_dwarves", text = "There are dwarves digging in Bael Modan to the east. They're looking for something old, and they don't much care whose land they dig it out of." },
+    { id = "l_camp", text = "This camp isn't much to look at, but it's a safe place in the Barrens. Out here, that's worth more than gold." },
   },
   topics = {
     knows = {
-      { id = "t_kn1", text = "News comes to the camp from the south and the east. Here's what I've heard." },
-      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you what's common, and then I've got work." },
+      { id = "t_kn1", text = "News comes to the camp from the south and the east, usually with somebody bleeding. Here's what I've heard." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you the common talk, and then I've hides to scrape." },
     },
-    _none = { { id = "t_none", text = "I don't know. Ask the Chief; he knows the Barrens better than anyone." } },
+    _none = { { id = "t_none", text = "I don't know. Ask the camp's leader; he knows the southern Barrens better than anyone." } },
   },
 }
 
 P:Pool {
   id = "citizen_stonard", role = "citizen", community = "stonard",
   greetings = {
-    { id = "g_day", text = "Welcome to Stonard. Mind the mud, and mind the crocs; they're both hungry." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "The swamp's loud at night. Most of it's frogs, but not all of it." },
+    { id = "g_day", text = "Throm-ka. Watch the mud by the gate, because it's deeper than it looks and it keeps whatever it takes." },
+    { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "The swamp sings at night: frogs, mostly, and some things that aren't frogs. Stay close to the walls." },
   },
   notice = {
     { id = "n_orc", cat = "race", when = { race = "Orc" },
-      text = "Lok'tar! You're standing where the old Horde first planted its banners on this world. Remember it was us who came back." },
+      text = "One of the young ones, born free! My grandfather marched through this swamp with the first Horde, and he'd not believe that orcs like you walk the world without a chain." },
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
-      text = "The swamp's had a go at you. Get mended, and don't drip on the smith." },
+      text = "The swamp's had its teeth in you. See the smith, and dry out before you rust." },
   },
   lines = {
-    { id = "l_swamp", text = "The Swamp of Sorrows wasn't always a swamp. My grandfather's father camped here when it was dry land, before the old Horde's magic twisted it." },
-    { id = "l_temple", text = "There's a sunken temple in the middle of the swamp, full of trolls who worship something old. Nobody goes there who wants to come back." },
-    { id = "l_humans", text = "The humans have a fortress at Nethergarde, watching the Dark Portal. They're too busy watching the Portal to bother us, mostly." },
+    { id = "l_old", text = "Stonard was built by the old Horde, back when they first came through the Portal. Some of the stones are older than any orc living, and they remember it better than we do." },
+    { id = "l_temple", text = "There's a sunken temple out in the middle of the swamp, full of trolls who pray to something old and hungry. Nobody from here goes near it if they can help it." },
+    { id = "l_nethergarde", text = "The humans keep a fortress at Nethergarde, staring at the Dark Portal all day long. They're too busy watching it to bother us, which suits everyone." },
   },
   topics = {
     knows = {
-      { id = "t_kn1", text = "News comes to Stonard slowly, but it does come. Here's what I've heard." },
-      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you what's common, and then I've got work." },
+      { id = "t_kn1", text = "News reaches Stonard slowly through the mud, but it does reach us. Here's what I've heard." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you the common talk, and then you can find your own way through the swamp." },
     },
-    _none = { { id = "t_none", text = "I don't know. Ask the Commander, in the big hall." } },
+    _none = { { id = "t_none", text = "I don't know. Try the big hall; the officers keep the maps, such as they are." } },
   },
 }
 
 P:Pool {
   id = "citizen_kargath", role = "citizen", community = "kargath",
   greetings = {
-    { id = "g_day", text = "Welcome to Kargath, the last Horde wall before the Blackrock. Keep your weapon close." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "The Dark Irons come out of the mountain at night. Stay inside the walls." },
+    { id = "g_day", text = "Throm-ka, and welcome to Kargath. You'll want water, and then shade, and then a good reason to stay." },
+    { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "Stay inside the walls after dark. The Dark Irons come down out of the mountain at night, and they don't come to trade." },
   },
   notice = {
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
-      text = "The Dark Irons got a piece of you. Get mended before they get the rest." },
+      text = "Dark Iron hammers, by the dents in you. Get mended before you go out again, because they never stop at one swing." },
     { id = "n_orc", cat = "race", when = { race = "Orc" },
-      text = "Lok'tar! The Blackrock up the road wear our faces and serve dragons. Remember which of us is which." },
+      text = "Look at you, standing straight and free. The Blackrock up north would call you a traitor for it, and that's the best thing anyone's said about you today." },
   },
   lines = {
-    { id = "l_blackrock", text = "The Blackrock call themselves the true Horde, up there in the Spire. They bow to a dragon, and they call us traitors." },
-    { id = "l_darkiron", text = "The Dark Iron dwarves come out of the mountain at night. Short, angry, and they hit hard." },
-    { id = "l_uldaman", text = "There's an old ruin in the mountains called Uldaman. The dwarves dig there, looking for something, and the troggs come out of it." },
+    { id = "l_blackrock", text = "The Blackrock in the Spire call themselves the true Horde, and they bow to a dragon. I'd rather live in this dust under Thrall than in their palace under a lizard." },
+    { id = "l_darkiron", text = "The Dark Iron dwarves come raiding out of the mountain at night. They're short and angry, and they hit like a falling cliff." },
+    { id = "l_uldaman", text = "There's an old ruin in the cliffs called Uldaman, older than the dwarves, they say. The dwarves dig into it, and the troggs come pouring back out." },
   },
   topics = {
     knows = {
-      { id = "t_kn1", text = "News comes to Kargath from the mountains and the Badlands. Here's what I've heard." },
-      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you what's common, and then I've got a wall to watch." },
+      { id = "t_kn1", text = "News blows into Kargath with the dust, from the mountain and from the Badlands. Here's what I've heard." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you the common talk, and then I've a wall to patch." },
     },
-    uldaman = { { id = "t_uldaman", text = "An old ruin in the mountains, older than the dwarves. They dig there, looking for something, and the troggs come pouring out." } },
-    _none = { { id = "t_none", text = "I don't know. Ask the Warlord, up the tower." } },
+    uldaman = { { id = "t_uldaman", text = "A great vault in the cliffs, built by somebody long before the dwarves. The dwarves want what's inside, and the troggs that live there want the dwarves." } },
+    _none = { { id = "t_none", text = "I don't know. Ask up the tower; the officers know more than a water-carrier." } },
   },
 }
 
 P:Pool {
   id = "citizen_splintertree", role = "citizen", community = "splintertree",
   greetings = {
-    { id = "g_day", text = "Welcome to Splintertree Post. The night elves are everywhere, so keep your eyes open." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "The Sentinels hunt at night. Stay close to the fires." },
+    { id = "g_day", text = "Throm-ka. Keep your eyes on the trees while you're here, because the trees have eyes of their own in Ashenvale." },
+    { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "The Sentinels hunt at night, and they hunt quietly. Stay close to the fires and don't wander off to relieve yourself." },
   },
   notice = {
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
-      text = "The Sentinels got to you? Their arrows are sharp, and their aim is good. Get mended." },
-    { id = "n_orc", cat = "race", when = { race = "Orc" },
-      text = "Lok'tar! The Warsong hold the forest for the Horde. The elves hate us, but we need the wood." },
+      text = "Those are Sentinel arrow-marks. Their aim is good and their patience is better, so get mended before you show them your back again." },
+    { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
+      text = "A shaman! The spirits of this forest are angry with us, and with good reason, perhaps. If you hear them speak, I'd like to know what they say." },
   },
   lines = {
-    { id = "l_warsong", text = "The Warsong are cutting the forest for the Horde's lumber. The elves hate it, but Orgrimmar needs the wood." },
-    { id = "l_sentinels", text = "The Sentinels hunt us through the trees. They're quiet, and they're deadly, and they never stop." },
-    { id = "l_demon", text = "There's a canyon to the east where Grom Hellscream killed the demon lord Mannoroth. The ground still burns there, people say." },
+    { id = "l_warsong", text = "The Warsong cut timber here for Orgrimmar's walls and fires. The elves call it murder, and we call it building a home, and neither side will ever see it the other way." },
+    { id = "l_sentinels", text = "The Sentinels pick us off one by one from the trees. You never see them, only the arrow and then the silence." },
+    { id = "l_demon", text = "There's a canyon to the east where Grom Hellscream killed the demon lord Mannoroth and freed us all from the blood curse. The ground still smokes there, people say." },
   },
   topics = {
     knows = {
-      { id = "t_kn1", text = "News comes to Splintertree from Orgrimmar and the forest. Here's what I've heard." },
-      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you what's common, and then I've got work." },
+      { id = "t_kn1", text = "News reaches Splintertree from Orgrimmar and from the forest, and the forest's news is mostly arrows. Here's what I've heard." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you the common talk, and then I've timber to stack." },
     },
-    warsong = { { id = "t_warsong", text = "Grom Hellscream's clan, cutting the forest for the Horde. The elves hate us for it, but we need the wood." } },
-    _none = { { id = "t_none", text = "I don't know. Ask the commander; he knows the forest better than anyone." } },
+    warsong = { { id = "t_warsong", text = "Hellscream's old clan, cutting the forest for the Horde. The elves hate us for every stump, and they've made us pay for most of them." } },
+    _none = { { id = "t_none", text = "I don't know. Try the commander's tent; they get the reports." } },
   },
 }
 
 P:Pool {
   id = "citizen_sepulcher", role = "citizen", community = "sepulcher",
   greetings = {
-    { id = "g_day", text = "Welcome to the Sepulcher. It was a graveyard once, and it still is, but now the dead keep it." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "Stay inside the walls after dark. The forest has teeth, and the worgen are hungry." },
+    { id = "g_day", text = "You've found the Sepulcher. We were buried here once, some of us, and now we keep the place tidy." },
+    { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "Keep within the walls once the light fades. The beasts of Silverpine hunt after dark, and they're always hungry." },
   },
   notice = {
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
-      text = "Worgen, by the look of those marks. You were lucky. Get patched up." },
+      text = "Those are claw marks, and big ones. You were lucky out there, so get patched up before your luck notices." },
     { id = "n_living", cat = "race", when = { race = { "Orc", "Troll", "Tauren", "Skyborne" } },
-      text = "One of the living, here in Silverpine? You'll get stares, but the Dark Lady's allies are welcome." },
+      text = "One of the living, out here among the graves! The Dark Lady's allies are welcome, but don't be offended if we forget to offer you a chair." },
   },
   lines = {
-    { id = "l_worgen", text = "The worgen roam the southern forest, hunting anything that moves. They came from the keep to the south, people say, where the mad wizard lives." },
-    { id = "l_dalaran", text = "Dalaran's mages have a camp at Ambermill, doing something with magic. The Dark Lady wants to know what, and so do we." },
-    { id = "l_pyrewood", text = "Pyrewood village is human, but they change at night. Into worgen, people say, though they don't know it themselves." },
+    { id = "l_keep", text = "There's a keep to the south where a mad wizard keeps wolf-men for hounds. On quiet nights you can hear them howling all the way up here." },
+    { id = "l_dalaran", text = "Dalaran's mages have set up at Ambermill, doing something with magic and a lot of shouting. The Dark Lady wants to know what, and so do we." },
+    { id = "l_pyrewood", text = "Pyrewood village is still full of living humans, which is odd enough out here. Odder still, they're not quite human after dark, and they don't seem to know it." },
   },
   topics = {
     knows = {
-      { id = "t_kn1", text = "The Sepulcher gets reports from every corner of Silverpine. Here's what I've heard." },
-      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you what's common, and then I've got a watch to stand." },
+      { id = "t_kn1", text = "Every scout in Silverpine reports to the Sepulcher, and the dead have long ears. Here's what I've heard." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you the common talk, and then I've graves to tend." },
     },
-    _none = { { id = "t_none", text = "I don't know. Ask the High Executor; he reads every report." } },
+    _none = { { id = "t_none", text = "I don't know. The High Executor reads every report; ask him." } },
   },
 }
 
 P:Pool {
   id = "citizen_gromgol", role = "citizen", community = "gromgol",
   greetings = {
-    { id = "g_day", text = "Welcome to Grom'gol. The zeppelins come and go, and the jungle's full of trouble." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "The jungle's loud at night. Raptors, tigers and trolls, all hunting." },
+    { id = "g_day", text = "Throm-ka. Welcome to Grom'gol, where the zeppelins come and go and the jungle stays exactly where it is, all around us." },
+    { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "The jungle's loud after dark, with raptors, tigers and trolls all hunting at once. Stay inside the stakes." },
   },
   notice = {
     { id = "n_troll", cat = "race", when = { race = "Troll" },
-      text = "Darkspear! Welcome, mon. The jungle trolls here are no friends of ours, so watch yourself." },
+      text = "Darkspear, eh? The jungle trolls here are no kin of yours, mon, whatever they look like, so don't go expecting a welcome from them." },
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
-      text = "The jungle's had a go at you. Raptors, or trolls? Get mended before you go back out." },
+      text = "Raptors or trolls, I'd guess from the look of you. Get mended before you go back out, because the jungle smells blood." },
   },
   lines = {
-    { id = "l_trolls", text = "The Bloodscalp and Skullsplitter trolls fight each other and us. They're savage, and they don't take prisoners." },
-    { id = "l_zeppelin", text = "The zeppelins fly to Orgrimmar and the Undercity. The goblins swear they're safe, but I've seen one crash." },
-    { id = "l_yenniku", text = "Vol'jin's son, Yenniku, was taken by the Bloodscalps. The Darkspear want him back, and they're asking for help." },
+    { id = "l_trolls", text = "The Bloodscalp and the Skullsplitter fight each other and us, and they collect heads like we collect coin. Keep yours on your shoulders." },
+    { id = "l_zeppelin", text = "The zeppelins fly to Orgrimmar and the Undercity, and the goblins swear they're perfectly safe. I've seen one come down in pieces, and I take the long way now." },
+    { id = "l_yenniku", text = "The Bloodscalps took Vol'jin's son Yenniku, people say. The Darkspear here want him back, and they'll take any help they can get." },
   },
   topics = {
     knows = {
-      { id = "t_kn1", text = "News comes to Grom'gol from the zeppelins and the jungle. Here's what I've heard." },
-      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you what's common, and then I've got work." },
+      { id = "t_kn1", text = "News comes in with every zeppelin and every scout back from the jungle. Here's what I've heard." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you the common talk, and then I've crates to move." },
     },
-    yenniku = { { id = "t_yenniku", text = "Vol'jin's son, taken by the Bloodscalps. The Darkspear want him back, and they'll pay well for help." } },
-    _none = { { id = "t_none", text = "I don't know. Ask the commander; he knows the jungle." } },
+    _none = { { id = "t_none", text = "I don't know. Ask the camp's commander; he knows the jungle." } },
   },
 }
 
 P:Pool {
   id = "citizen_mojache", role = "citizen", community = "mojache",
   greetings = {
-    { id = "g_day", text = "Welcome to Camp Mojache. The forest is green, but it's full of danger." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "Stay near the fires tonight. The ogres hunt in the dark." },
+    { id = "g_day", text = "Be welcome in Camp Mojache. The forest is green and good, but it's full of danger, so walk carefully." },
+    { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "Stay near the fires tonight, traveler. The ogres hunt in the dark, and they're loud about it." },
   },
   notice = {
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
-      text = "The ogres, or the gnolls? Feralas is full of both. Rest here a while." },
+      text = "Was it the ogres or the gnolls? Feralas is full of both, so rest here a while before you go back under the trees." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
-      text = "A tauren, far from Mulgore! Welcome to the camp, cousin. The Grimtotem are about, so be careful." },
+      text = "Welcome to the camp, cousin. The Grimtotem keep a camp in this forest too, so be careful which fires you sit at." },
   },
   lines = {
-    { id = "l_ogres", text = "The Gordunni ogres hold the ruins to the north. They're big, and they're mean, and they don't like visitors." },
-    { id = "l_grimtotem", text = "The Grimtotem have a camp in Feralas too. They hate the Horde, and they hate any tauren who follows Cairne." },
-    { id = "l_ruins", text = "There are old elven ruins in the forest, called Dire Maul. Something lives there, people say, and it's not friendly." },
+    { id = "l_ogres", text = "The Gordunni ogres hold the ruins to the north. They're big and mean, and they think everything smaller than them is either a servant or a meal." },
+    { id = "l_grimtotem", text = "The Grimtotem have a camp in Feralas too. They hate the Horde, and they hate any tauren who follows Cairne, so they hate us twice." },
+    { id = "l_ruins", text = "There are old elven ruins in the forest, called Dire Maul by those who've been near them. Something lives there, people say, and it isn't friendly." },
   },
   topics = {
     knows = {
-      { id = "t_kn1", text = "News comes to Camp Mojache from the forest and the coast. Here's what I've heard." },
-      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you a little, but I'm wary of strangers." },
+      { id = "t_kn1", text = "News comes to Camp Mojache from the forest and from the coast. Here's what I've heard." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you a little, but I'm careful with strangers out here." },
     },
-    grimtotem = { { id = "t_grimtotem", text = "Tauren who hate the Horde, and who follow their own ways. They've a camp in Feralas, and they're always watching." } },
+    grimtotem = { { id = "t_grimtotem", text = "Tauren who turned from Cairne and from the Horde, and follow their own hard ways. They've a camp in Feralas, and they're always watching ours." } },
     _none = { { id = "t_none", text = "I don't know. Ask the elders; they know more than I do." } },
   },
 }
@@ -1515,78 +1518,79 @@ P:Pool {
 P:Pool {
   id = "citizen_hammerfall", role = "citizen", community = "hammerfall",
   greetings = {
-    { id = "g_day", text = "Welcome to Hammerfall, named for Doomhammer. Stand up straight in it." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "The Witherbark drums are loud tonight. Stay inside the walls." },
+    { id = "g_day", text = "Throm-ka. You're standing in Hammerfall, where orcs were caged once and aren't any longer." },
+    { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "Listen, and you'll hear the troll drums in the hills. They drum most nights, and most nights we let them." },
   },
   notice = {
     { id = "n_orc", cat = "race", when = { race = "Orc" },
-      text = "Lok'tar! Your grandfathers might have stood behind these walls in chains. Remember who broke them." },
+      text = "My father spent eight years behind these walls, under human whips. Now his son sells bread inside them, and that's the best revenge I know." },
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
-      text = "The trolls, or the ogres? Arathi's full of both. Get mended." },
+      text = "Was it the trolls or the ogres? The highlands have plenty of both, so get yourself mended before you go out again." },
   },
   lines = {
-    { id = "l_camp", text = "The humans kept orcs in cages here once. Thrall and Doomhammer broke them out, and now it's ours." },
-    { id = "l_trolls", text = "The Witherbark trolls are in the hills to the east. They don't take prisoners, and they don't leave much behind." },
-    { id = "l_humans", text = "The humans of Stromgarde have a camp at Refuge Pointe. They hate us, but they hate the Syndicate more." },
+    { id = "l_camp", text = "The humans kept orcs in cages here once, and Thrall and Doomhammer broke them out. Doomhammer died for it, and we named the place for him." },
+    { id = "l_trolls", text = "The Witherbark trolls hold the hills to the east. They don't take prisoners, and they don't leave much of anyone behind." },
+    { id = "l_humans", text = "The humans of Stromgarde hold a camp at Refuge Pointe, just across the highlands. They hate us, but they hate the Syndicate more, which keeps them busy." },
   },
   topics = {
     knows = {
-      { id = "t_kn1", text = "News comes to Hammerfall from the highlands. Here's what I've heard." },
-      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you what's common, and then I've got work." },
+      { id = "t_kn1", text = "News comes to Hammerfall from all across the highlands. Here's what I've heard." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you the common talk, and then I've ovens to tend." },
     },
-    _none = { { id = "t_none", text = "I don't know. Ask Drum Fel; he leads here." } },
+    _none = { { id = "t_none", text = "I don't know. Ask the one who leads here; he hears everything." } },
   },
 }
 
 P:Pool {
   id = "citizen_brackenwall", role = "citizen", community = "brackenwall",
   greetings = {
-    { id = "g_day", text = "Welcome to Brackenwall. The marsh is wet, and the crocs are hungry." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "The marsh is louder at night. Stay close to the fires." },
+    { id = "g_day", text = "Throm-ka, and welcome to Brackenwall. The marsh is wet and the crocolisks are hungry, so watch where you put your feet." },
+    { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "The marsh is louder at night than in the day, and none of it is singing for joy. Stay close to the fires." },
   },
   notice = {
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
-      text = "The marsh got its teeth into you. Get mended before you go back out." },
+      text = "The marsh got its teeth into you. Get mended and dry out, before the mold takes what the crocolisks left." },
     { id = "n_orc", cat = "race", when = { race = "Orc" },
-      text = "Lok'tar! Welcome to the swamp. The humans at Theramore are close, so keep your axe sharp." },
+      text = "Welcome to the swamp, brother. The humans at Theramore sit close by, so keep your axe sharp and your temper sharper." },
   },
   lines = {
-    { id = "l_theramore", text = "The humans at Theramore are close, but they keep to their side. The Lady keeps the peace, mostly." },
-    { id = "l_dragons", text = "There are black dragons in the south of the marsh, people say. Big ones, and they don't like visitors." },
-    { id = "l_ogres", text = "The Stonemaul ogres hold the ruins to the south. They're big, and they're mean, and they're always hungry." },
+    { id = "l_theramore", text = "The humans at Theramore are only a day's walk away, but they keep to their side. Their Lady keeps the peace with the Warchief, mostly, and we keep our axes close anyway." },
+    { id = "l_dragons", text = "There are black dragons in the south of the marsh, people say. The wyrmkin come out at night, and nobody who goes looking for their lair comes back." },
+    { id = "l_ogres", text = "The Stonemaul ogres hold the ruins to the south. They're big and they're mean and they're always hungry, which is a terrible thing in a neighbor." },
   },
   topics = {
     knows = {
-      { id = "t_kn1", text = "News comes to Brackenwall from the marsh and the coast. Here's what I've heard." },
-      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you what's common, and then I've got work." },
+      { id = "t_kn1", text = "News comes to Brackenwall from the marsh and the coast, wet and late. Here's what I've heard." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you the common talk, and then I've nets to mend." },
     },
-    black_dragonflight = { { id = "t_dragons", text = "Black dragons, in the south of the marsh. Big, mean and clever, and they're up to something." } },
-    _none = { { id = "t_none", text = "I don't know. Ask the chieftain; he knows the marsh." } },
+    black_dragonflight = { { id = "t_dragons", text = "Black dragons, in the southern marsh. They're big and clever, and they're plotting something, because black dragons always are." } },
+    _none = { { id = "t_none", text = "I don't know. The chieftain knows the marsh better than I do." } },
   },
 }
 
 P:Pool {
   id = "citizen_bloodvenom_post", role = "citizen", community = "bloodvenom_post",
   greetings = {
-    { id = "g_day", text = "Welcome to Bloodvenom Post, the only Horde fire in Felwood. Keep close to it." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "Felwood's darker at night, and the corruption's worse. Stay close to the fires." },
+    { id = "g_day", text = "Throm-ka. You've found the one Horde camp in Felwood, so stay close to the fire and don't touch anything green." },
+    { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "Felwood's worse after dark, when the trees start whispering. Stay by the fires and don't answer them." },
   },
   notice = {
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
-      text = "The forest chewed on you. Get mended, and wash your hands; everything here is tainted." },
-    { id = "n_tauren", cat = "race", when = { race = "Tauren" },
-      text = "A long way from Mulgore's grass, cousin. Here even the grass would bite you." },
+      text = "The forest chewed on you. Get mended, and scrub your hands before you eat, because everything out there is tainted." },
+    { id = "n_druid", cat = "class", when = { class = "DRUID" },
+      text = "A druid! The ones at the sanctuary south of here are trying to heal this forest, and they could use every pair of hands that understands it." },
   },
   lines = {
-    { id = "l_corruption", text = "Demons poisoned this forest in the war, and the poison stayed when they left. Everything here is twisted." },
-    { id = "l_river", text = "Don't drink from the river, don't wash in it, and don't look at it too long." },
-    { id = "l_druids", text = "The druids at the sanctuary think they can heal this place. I hope they're right." },
+    { id = "l_corruption", text = "Demons poisoned this forest in the war, and the poison stayed when they left. Every tree here is twisted, and so is everything that lives under them." },
+    { id = "l_jaedenar", text = "There's a camp of warlocks in the south called Jaedenar, worse than any demon. They chose this, which is the part I can't get past." },
+    { id = "l_druids", text = "The druids at the sanctuary think they can heal this place, given time. I hope they're right, because I'd hate to have stood here for nothing." },
   },
   topics = {
     knows = {
-      { id = "t_kn1", text = "News comes to Bloodvenom from the forest and the north. Here's what I've heard." },
-      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you what's common, and then I've got work." },
+      { id = "t_kn1", text = "News comes to Bloodvenom from the forest and from the north, and none of it smells good. Here's what I've heard." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you the common talk, and then I've water to boil, twice." },
     },
-    _none = { { id = "t_none", text = "I don't know. Ask Trull; he's the one who sends people into the trees." } },
+    furbolgs = { { id = "t_furbolgs", text = "The Deadwood tribes have gone mad from the poison, every one. The Timbermaw to the north are still sane, and they hate what's happened to their cousins." } },
+    _none = { { id = "t_none", text = "I don't know. Ask the one who sends people into the trees; he'll know." } },
   },
 }
