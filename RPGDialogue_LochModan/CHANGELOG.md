@@ -2,6 +2,15 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.2.0 (unreleased)
+- Depth rewrite for all six Thelsamar NPCs: every conversation is now a hub of subjects to explore, two or three steps deep, with "what else?" lines, and each NPC answers Ask about their story and their advice.
+- Mountaineer Kadrell: the Dark Iron spy and why anyone would want the dam, the wrecks of the Second War on the loch's bottom, who needs a hand (Stormpike, Stonegear, Rockgar); the Shimmer Stout after you've brought it; gnomes get their payback. His Rat Catching lines now say what the quest says: the tunnel rats are kobolds in the western foothills.
+- Prospector Ironband: the carved idols that send the troggs berserk and whether his dig woke them, the blastpowder that never arrives (and Saean, once you know), Prospector Agmond when Stormpike sends you.
+- Captain Rugelfuss: the Reserve gone to the front, the chieftain Grawmug and his guards, the statues of Madoran and Khardros; Mountaineers of Dun Morogh get a watch to stand.
+- Chief Engineer Hinderweir VII: what happens if the dam goes, the Thandol Span and Dun Modr, Seaforium (after A Dark Threat Looms), his missing guards, and who built the dam; if Archesonus told you about the stonewrought method, he takes it badly.
+- Vidra and Innkeeper Hearthstove: what's really in the blood sausages, who eats them, a priest's blessing for the bears, the Stoutlager's regulars and the miners' song about the dam.
+- Voice pass over every line in the pack, the Mountaineers' pool included: whole, spoken sentences instead of clipped fragments, with the burr kept.
+
 ## 1.1.0 (unreleased)
 - Depth pass: repeat visits bring personal lines (habits, worries, running jokes), and some NPCs get night-time lines. Vidra, Hearthstove, Rugelfuss, Hinderweir.
 
