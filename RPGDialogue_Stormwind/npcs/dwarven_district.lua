@@ -323,9 +323,9 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "Miners talk while they work, an' I've listened tae more o' them than I can count. Ask, an' quick about it." },
     },
-    background = { { id = "tp_bg", text = "From Ironforge, here tae help rebuild. Still here. That's the problem." } },
+    background = { { id = "tp_bg", text = "I came from Ironforge tae help rebuild, an' I'm still here, which is the whole blasted problem." } },
     advice = { { id = "tp_ad", text = "Carry a spare pick. The first one always breaks in the best vein." } },
     camping = { { id = "tp_camp", text = "A miner who cannae camp is a miner who starves halfway tae the good ore. Learn it." } },
-    _none = { { id = "tp_none", text = "Is it rock? No? Then I've no idea, an' I've work tae do." } },
+    _none = { { id = "tp_none", text = "If it isnae rock, I've no idea, an' I've work tae do." } },
   },
 }

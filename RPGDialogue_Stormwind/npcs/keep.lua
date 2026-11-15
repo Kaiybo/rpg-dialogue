@@ -401,6 +401,6 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "A lord of the House of Nobles with a good voice and a long memory. That's all the background a man needs in the Keep." } },
     advice = { { id = "tp_ad", text = "Never go down a tavern staircase you didn't come up. That's free, and it's the best advice you'll get in this chamber." } },
-    _none = { { id = "tp_none", text = "Never heard of it, and if it were important, I would have. Next!" } },
+    _none = { { id = "tp_none", text = "Never heard of it, and if it were important, I would have done. Next!" } },
   },
 }

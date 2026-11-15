@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Walk softly here, {class}. This is a resting place, and the wastes are loud enough." },
+    { id = "g_default", text = "Walk softly here, friend, for this is a resting place, and the wastes outside are loud enough." },
     { id = "g_back", when = { metBefore = true }, text = "You're back, and in one piece. That isn't nothing, out here." },
     { id = "g_freed", when = { questDone = TODO_QUEST("The Spirits of Southwind") }, text = "Southwind is quieter since you went there. I walk the ruins some nights just to hear it." },
   },
@@ -365,7 +365,7 @@ P:NPC {
 
   notice = {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
-      text = "Now there's a proper face! Tell me ye've come with a letter from Ironforge saying the army's on its way. No? Didn't think so." },
+      text = "Now there's a proper face! Tell me ye've come with a letter from Ironforge saying the army's on its way, though I can see from your face ye haven't." },
     { id = "n_alliance", cat = "status", when = { faction = "Alliance" },
       text = "Alliance! Good, maybe ye can tell your lords we're still out here, since they've stopped reading our letters." },
   },
@@ -484,7 +484,7 @@ P:NPC {
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
       text = "A priest, eh? Do me a favour and keep your hands where I can see them. The last priestess who visited this camp did things to my head I'm still not over." },
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
-      text = "A mage! Can ye read Qiraji? No? Then you're no better than the rest of us, and we've thirty-eight languages between us." },
+      text = "A mage! Can ye read Qiraji, then? I thought not, so you're no better than the rest of us, and we've thirty-eight languages between us." },
   },
 
   start = "hello",
@@ -500,7 +500,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? The sky's not going anywhere." },
-        { id = "h_again2", text = "Go on, then. I like an audience." },
+        { id = "h_again2", text = "Go on, then, I do like an audience." },
       },
       choices = {
         { text = "What happened to Natalia, in the end?", next = "natalia" },
@@ -562,9 +562,9 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "Ask me anything. Thirty-eight languages, remember." } },
+    knows = { { id = "tp_knows", text = "Ask me anything ye like, and remember we've thirty-eight languages in this camp." } },
     background = { { id = "tp_bg", text = "Explorers' League, like Rutgar, only better company. I came for the ruins and stayed for the screaming." } },
-    advice = { { id = "tp_ad", text = "Keep a monkey. Ye'll thank me." } },
+    advice = { { id = "tp_ad", text = "Keep a monkey about the place, and ye'll thank me one day." } },
     bronze_dragonflight = { { id = "tp_bronze", text = "They fought here once, the stories say. If they're back, something's coming.", next = "skies" } },
     natalia = { { id = "tp_natalia", text = "Don't get me started. Too late, you've got me started.", next = "natalia" } },
     _none = { { id = "tp_none", text = "Not a clue, and that's rare. Ask Rutgar; he'll pretend he knows." } },

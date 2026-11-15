@@ -270,7 +270,7 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "I know where every portal in the Alliance opens and who opened it last. Ask, if you think you'll follow the answer." },
     },
-    background = { { id = "tp_bg", text = "I teach portals. I'm good at it. That is the relevant part." } },
+    background = { { id = "tp_bg", text = "I teach portals, and I'm very good at it, which is the only part of my history that should concern you." } },
     advice = { { id = "tp_ad", text = "Know one place so well you could find it with your eyes shut. Everyone should have that, mage or not." } },
     _none = { { id = "tp_none", text = "That's not my field, and I don't pretend to fields that aren't mine." } },
   },
@@ -450,7 +450,7 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "Ask. I'll answer if it pleases me." },
     },
-    background = { { id = "tp_bg", text = "I teach. My past belongs to me, and I've given away enough already." } },
+    background = { { id = "tp_bg", text = "I teach here, and my past belongs to me; I've given away enough of myself already." } },
     advice = { { id = "tp_ad", text = "Never bargain while tired. Whatever is on the other side never is." } },
     _none = { { id = "tp_none", text = "I don't concern myself with that. Neither should you." } },
   },
@@ -534,7 +534,7 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "Customers chatter, and demons chatter more, if you know how to listen. Ask me anything!" },
     },
-    background = { { id = "tp_bg", text = "Gnomeregan, then the road, then this lovely cellar. A gnome must keep busy.", next = "gnome" } },
+    background = { { id = "tp_bg", text = "Gnomeregan first, then the long road south, and now this lovely cellar, because a gnome must keep busy.", next = "gnome" } },
     advice = { { id = "tp_ad", text = "Name your imp something dignified. They live up to their names, and they never forgive a silly one." } },
     gnomeregan = { { id = "tp_gnome", text = "Home, once. I try not to think about the radiation, and mostly I manage." } },
     _none = { { id = "tp_none", text = "No idea! Is there a grimoire about it? There ought to be." } },

@@ -562,7 +562,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "A windcaller of the Circle, sent here because someone has to count the grain, and I count better than most." } },
     advice = { { id = "tp_ad", text = "Carry twice the water you think you'll need. Then carry a little more." } },
     cenarion_circle = { { id = "tp_circle", text = "Tauren and night elves, druids all, and more of us in this fort than anywhere outside Moonglade. We argue about everything but the bugs." } },
-    silithid = { { id = "tp_silithid", text = "Dangerous, but predictable. The worms are neither." } },
+    silithid = { { id = "tp_silithid", text = "Dangerous, but at least they're predictable, which is more than I can say for the worms." } },
     _none = { { id = "tp_none", text = "That's not on any manifest of mine. Ask the Commander." } },
   },
 }
@@ -912,6 +912,6 @@ P:NPC {
     background = { { id = "tp_bg", text = "Steamwheedle born, Steamwheedle trained, and stuck in a desert because the money's good. What else is there?" } },
     advice = { { id = "tp_ad", text = "If something in this desert has a tail, assume the tail's poisoned. You'll be right nine times in ten." } },
     steamwheedle = { { id = "tp_cartel", text = "The Cartel doesn't run this fort, but it sells to it, which is better: all the profit, none of the bugs." } },
-    _none = { { id = "tp_none", text = "Never heard of it. Is it poisonous? No? Then I don't care." } },
+    _none = { { id = "tp_none", text = "Never heard of it, pal, and unless it's poisonous or pays well, I don't much care." } },
   },
 }

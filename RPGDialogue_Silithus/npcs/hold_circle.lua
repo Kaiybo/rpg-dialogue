@@ -35,7 +35,7 @@ P:NPC {
         { id = "h_texts", tags = { "news" }, when = { questActive = TODO_QUEST("Secret Communication") },
           text = "Those little papers the cultists carry, covered in gibberish? Bring me a stack. Every one I've got is one they haven't." },
         { id = "h_texts_done", when = { questDone = TODO_QUEST("Secret Communication") },
-          text = "Still bringing me papers? Good! I've a whole chest of them now, and the crazies must be wondering why nobody answers their letters." },
+          text = "Still bringing me papers? Good, because I've a whole chest of them now, and the crazies must be wondering why nobody answers their letters." },
       },
       again = {
         { id = "h_again", text = "What else, friend? Huum's busy being serious, so I've got time." },
@@ -152,7 +152,7 @@ P:NPC {
           text = "Vyral the Vile hides in Twilight's Run, a cave in the northeast where the cult keeps its secrets. Bring me his signet ring, and go carefully; the cave is full of horrors." },
       },
       again = {
-        { id = "h_again", text = "Ask what you will. The land is patient, and so am I." },
+        { id = "h_again", text = "Ask what you will, {name}; the spirits have waited this long, and they can wait a little longer." },
         { id = "h_again2", text = "Go on, {name}. There is time, though less than there was." },
       },
       choices = {

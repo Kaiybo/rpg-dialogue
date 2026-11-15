@@ -204,8 +204,8 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "I know plants, and the people who walk through the Park on their way to somewhere else. Ask, but make it worth my time." },
     },
-    background = { { id = "tp_bg", text = "I study herbs. I'm better at it than anyone in this city. What more would you need to know?" } },
+    background = { { id = "tp_bg", text = "I study herbs, and I'm better at it than anyone in this city, so what more would you need to know?" } },
     advice = { { id = "tp_ad", text = "Take the leaf and leave the root. Then there's something to pick next year." } },
-    _none = { { id = "tp_none", text = "Is it a plant? Then I don't care." } },
+    _none = { { id = "tp_none", text = "If it isn't a plant, I don't care, and neither should you." } },
   },
 }
