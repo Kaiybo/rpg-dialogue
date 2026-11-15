@@ -124,7 +124,7 @@ P:NPC {
 
     greed = {
       big = true,
-      lines = { { id = "g_default", text = "Do you doubt it? Look at what runs your life, {race}: the gold you count, the land you fight over, the trinkets you strip from the dead. All of it is runoff from the greed that decides your every step." } },
+      lines = { { id = "gr_default", text = "Do you doubt it? Look at what runs your life, {race}: the gold you count, the land you fight over, the trinkets you strip from the dead. All of it is runoff from the greed that decides your every step." } },
       choices = {
         { text = "Is nobody free of it, then?", next = "greed_others" },
         { text = "Not everyone. Some fight for others.", next = "BACK", fx = { align = { honor = 1 } } },
