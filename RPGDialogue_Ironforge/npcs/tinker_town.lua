@@ -512,7 +512,7 @@ P:NPC {
     save = {
       big = true,
       lines = {
-        { id = "sa_default", text = "Do I think so? I know it! I don't know when, or how, or which of us will be left to do it, but we'll walk back through those gates, and I'll stand in my old workshop and shake my fist at the ceiling." },
+        { id = "sa_default", text = "Think it? I know it, recruit, right down to my boots! I don't know when, or how, or which of us will be left to do it, but we'll walk back through those gates, and I'll stand in my old workshop and shake my fist at the ceiling." },
       },
       choices = {
         { text = "I'll walk in beside you.", next = "BACK", fx = { align = { order = 1 }, affinity = 2, trait = { brave = 1 } } },

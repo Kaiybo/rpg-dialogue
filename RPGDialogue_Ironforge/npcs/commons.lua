@@ -376,7 +376,7 @@ P:NPC {
   topics = {
     knows = { { id = "tp_knows", text = "I've books on most things an' opinions on the rest. Be quick; here's what I know." } },
     background = { { id = "tp_bg", text = "I'm a historian o' the Explorers' League. My work's Uldaman, an' my partner in it was Hammertoe Grez, an' that's all I'll say about myself." } },
-    advice = { { id = "tp_ad", text = "If it's written in a book, read the book before ye ask me, an' if it isnae, then ask me." } },
+    advice = { { id = "tp_ad", text = "If it's written down somewhere, read it before ye ask me, an' if it isnae, then ask me." } },
     uldaman = { { id = "tp_uldaman", text = "The old titan vaults in the Badlands, where Hammertoe an' I spent our best years.", next = "work" } },
     dark_iron = { { id = "tp_dark_iron", text = "The Shadowforge clan is diggin' in Uldaman, an' they answer tae somethin' worse than themselves.", next = "shadowforge" } },
     _none = { { id = "tp_none", text = "I've nae book on that, an' nae time tae write one." } },
