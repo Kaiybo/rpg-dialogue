@@ -9,8 +9,8 @@ P:NPC {
   notices = { "greenness", "race" },
 
   greetings = {
-    { id = "g_camp", text = "Welcome to the Hawkwind's fire. Sit if you're tired. Stand if you're ready to work." },
-    { id = "g_back", when = { metBefore = true }, text = "You've returned to the fire. The tribe notices." },
+    { id = "g_camp", text = "Welcome to the Hawkwind's fire. Sit if you're tired, or stand if you're ready to work." },
+    { id = "g_back", when = { metBefore = true }, text = "You've returned to the fire, and the tribe notices." },
   },
 
   notice = {
@@ -25,9 +25,9 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Chief Hawkwind. The Bristleback took my mother from us, the Greatmother of this tribe. We mourn her by standing straighter, not by bending." },
+          text = "I am Hawkwind, chief of this camp. The Bristleback took my mother from us, the Greatmother of this tribe, and we mourn her by standing straighter, not by bending." },
         { id = "h_humble", tags = { "news" }, when = { questActive = TODO_QUEST("A Humble Task") },
-          text = "A humble task first. Every great hunter's first task was humble. Do it well anyway." },
+          text = "A humble task first, for every great hunter's first task was humble. Do it well anyway." },
         { id = "h_rites", when = { questActive = TODO_QUEST("Rites of the Earthmother") },
           text = "The rites of the Earthmother are older than this camp, older than the bluffs. Walk them with respect." },
         { id = "h_strength", when = { questActive = TODO_QUEST("Rite of Strength") },
@@ -35,7 +35,7 @@ P:NPC {
         { id = "h_adventurer", when = { questActive = TODO_QUEST("The Adventurer") },
           text = "Before you leave Mulgore, take this bundle to Kaga Wildhoof, camped outside Bloodhoof. She helped us when we needed it. I'd like to repay her." },
         { id = "h_attack", when = { questActive = TODO_QUEST("Attack on Camp Narache") },
-          text = "They came to our camp with fire and spears. Now we go to theirs. Make them remember the Hawkwind." },
+          text = "They came to our camp with fire and spears, and now we go to theirs. Make them remember the Hawkwind." },
       },
       choices = {
         { text = "Tell me about the Greatmother.", next = "greatmother" },
@@ -45,7 +45,7 @@ P:NPC {
     greatmother = {
       big = true,
       lines = {
-        { id = "gm_default", text = "The Bristleback came into our lands, and she fell before them. Every brave who trains at this camp honors her. So will you, by doing well." },
+        { id = "gm_default", text = "The Bristleback came into our lands, and she fell before them. Every brave who trains at this camp honors her, and so will you, by doing well." },
       },
       choices = {
         { text = "She sounds brave.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
@@ -66,7 +66,7 @@ P:NPC {
   notices = { "class" },
 
   greetings = {
-    { id = "g_hunt", text = "You've come to hunt? Good. Mulgore is full of things that need hunting." },
+    { id = "g_hunt", text = "You've come to hunt? Good, because Mulgore is full of things that need hunting." },
     { id = "g_back", when = { metBefore = true }, text = "Ready for more? The hunt doesn't rest, and neither should we." },
   },
 
@@ -74,7 +74,7 @@ P:NPC {
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
       text = "A druid! There's a note waiting for you from your trainer. The wild has been asking for you." },
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
-      text = "A hunter. Then you already know the first lesson: be patient, then don't be." },
+      text = "A hunter? Then you already know the first lesson: be patient, and then don't be." },
   },
 
   start = "hello",
@@ -82,15 +82,15 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Grull Hawkwind, the Chief's son. One day I'll lead this camp. Until then, I lead its hunts." },
+          text = "I'm Grull Hawkwind, the Chief's son. One day I'll lead this camp, and until then, I lead its hunts." },
         { id = "h_hunt", tags = { "news" }, when = { questActive = TODO_QUEST("The Hunt Begins") },
-          text = "Plainstriders. Fast, stupid, and good eating. Bring me meat and feathers, and we'll call it a start." },
+          text = "Plainstriders are fast, stupid, and good eating. Bring me meat and feathers, and we'll call it a start." },
         { id = "h_continues", when = { questActive = TODO_QUEST("The Hunt Continues") },
-          text = "The hunt goes on. It always does. Bring me what the grasslands give you." },
+          text = "The hunt goes on, as it always does. Bring me what the grasslands give you." },
         { id = "h_battleboars", when = { questActive = TODO_QUEST("The Battleboars") },
           text = "The quilboar breed battleboars in a pen to the south. Thin them, and the next raid on this camp comes on foot." },
         { id = "h_note", when = { questActive = TODO_QUEST("Verdant Note") },
-          text = "Your trainer wants you. Go. The Hawkwind will still be here." },
+          text = "Your trainer wants you, so go; the Hawkwind will still be here." },
       },
       choices = {
         { text = "Will you lead well?", next = "lead" },
@@ -98,7 +98,7 @@ P:NPC {
       },
     },
     lead = {
-      lines = { { id = "l_default", text = "I'll lead the way my grandmother did. In front. If that's not well, the tribe can tell me so." } },
+      lines = { { id = "l_default", text = "I'll lead the way my grandmother did, from the front. If that's not well, the tribe can tell me so." } },
       choices = { { text = "I believe you.", next = "END", fx = { affinity = 2, align = { honor = 1 } } } },
     },
   },

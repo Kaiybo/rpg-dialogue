@@ -41,7 +41,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Something else? Make it quick, because daylight's for working." },
-        { id = "h_again2", text = "Go on, then; my hands are busy, but my ears aren't." },
+        { id = "h_again2", text = "Ask away. The pumpkins won't mind if I stop to answer you." },
       },
       choices = {
         { text = "Why did you stay?", next = "stay" },

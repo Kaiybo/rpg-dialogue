@@ -44,7 +44,7 @@ P:NPC {
         { id = "h_bridge", when = { metBefore = true }, text = "Laid another span yesterday, straight as a ruler, and I stood on it a while. Don't tell the crew, or they'll think I've gone soft about bridges." },
       },
       again = {
-        { id = "h_again", text = "What else? Talk while I measure; I can do both." },
+        { id = "h_again", text = "Something else? Ask, by all means; the measuring line won't run off." },
         { id = "h_again2", text = "Go on. The bridge isn't going anywhere, which is rather the problem." },
       },
       choices = {

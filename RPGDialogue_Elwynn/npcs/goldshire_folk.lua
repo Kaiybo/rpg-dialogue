@@ -346,7 +346,7 @@ P:NPC {
         { id = "h_heard_kurran", when = { heardLine = "kurran.h_default" }, text = "Kurran called himself the other Steele? He likes being the other one, because there's less pressure in it, he says, and more time to sit." },
       },
       again = {
-        { id = "h_again", text = "What else? You can talk while I grind." },
+        { id = "h_again", text = "Another question? Ask away; the grinding stone doesn't mind." },
         { id = "h_again2", text = "Go on, but sharp questions only." },
       },
       choices = {
@@ -604,8 +604,8 @@ P:NPC {
         { id = "h_lost", when = { metBefore = true, ["not"] = { class = "WARLOCK" } }, text = "Still lost? The stairs are behind you, and they go up, so use them." },
       },
       again = {
-        { id = "h_again", text = "Something else? Keep your voice down when you ask it." },
-        { id = "h_again2", text = "Ask, and be brief about it." },
+        { id = "h_again", text = "Another question? Then lean closer and whisper it." },
+        { id = "h_again2", text = "Ask quickly; voices carry up these cellar stairs." },
       },
       choices = {
         { text = "Why train down here?", next = "cellar" },
@@ -805,7 +805,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else? Mind the drying rack while you think." },
-        { id = "h_again2", text = "Go on. My hands are busy; my ears aren't." },
+        { id = "h_again2", text = "Ask what you like. I can scrape a hide and listen at the same time." },
       },
       choices = {
         { text = "How did you learn?", next = "learn" },
