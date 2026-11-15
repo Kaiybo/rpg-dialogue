@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.15.0 (2026-11-15)
+- Dughan, Farley and McBride answer warriors, hunters, rogues, warlocks, mages, shamans and dwarves; every class trainer in Northshire and Goldshire has a real conversation about their class.
+
 ## 1.14.0 (2026-11-15)
 - Every person here writes a first impression in your diary after you first talk (the journal's People page shows it too).
 

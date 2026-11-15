@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.8.0 (2026-11-15)
+- Replies for the classes and races these people would really react to (warriors, hunters, rogues, mages, warlocks, druids, shamans, paladins; every race of the faction, and the Skyborne), each leading somewhere.
+
 ## 1.7.0 (2026-11-15)
 - Every person here writes a first impression in your diary after you first talk (the journal's People page shows it too).
 

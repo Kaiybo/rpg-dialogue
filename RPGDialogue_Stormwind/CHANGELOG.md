@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.10.0 (2026-11-15)
+- New: the warrior trainers Wu Shen, Ilsa Corbin and Ander Germaine in Old Town (new files: exit the game fully and restart).
+- Bolvar, Katrana, Anduin, Benedictus, Shaw, Marcus Jonathan and Grayson Shadowbreaker answer warriors, rogues, mages, warlocks, hunters, shamans, dwarves, gnomes, night elves and the Skyborne; every trainer has a real conversation about their class; 21 more people answer someone who isn't a priest.
+
 ## 1.9.0 (2026-11-15)
 - 43 new people: the Trade District (Renato Gallina, Elaine Trias, Thurman Mullby, Gunther Weller, Crier Goodman, Dungar Longdrink, Morgan Pestle, Harlan Bagley), Old Town (Harry Burlguard, Bartleby, Elly Langston, Stephen Ryback, Simon Tanner, Osborne the Night Man, Jasper Fel), the canals and the harbor (Suzetta Gallina, Ol' Emma, Rema Schneider, Arnold Leland, Morris Lawry, Billy, Manifest Clerk Philmor), Cathedral Square (Bishop Farthing, Brother Kristoff, Brother Sarno, Thomas the altar boy, Matron Nightingale, Shellene), the Keep (Bishop DeLavey, Count Ridgewell, Lord Wishock), the Mage Quarter (Maginor Dumas, Elsharin, Larimaine Purdue, Zardeth, Ursula Deline, Spackle Thornberry), the Dwarven District (the Deepforges, Lilliam Sparkspindle, Gelman Stonehand) and the Park (Sheldras Moontree, Shylamiir).
 - Archbishop Benedictus: a priest or paladin back from Lordaeron can tell him what the Light said up there.

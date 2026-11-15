@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.6.0 (2026-11-15)
+- Replies for the classes and races these people would really react to (warriors, hunters, rogues, mages, warlocks, druids, shamans, paladins; every race of the faction, and the Skyborne), each leading somewhere.
+
 ## 1.5.0 (2026-11-15)
 - 8 new people in Menethil Harbor: Valstag Ironjaw, Tarrel Rockweaver, Vincent Hyal, Red Jack Flint, Sida, Harold Riggs, Camerick Jongleur, Unger Statforth.
 - First impressions in your diary. New file: restart the game.

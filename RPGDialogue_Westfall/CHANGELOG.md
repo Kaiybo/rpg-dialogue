@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.8.0 (2026-11-15)
+- Gryan, Salma, Furlbrow, Captain Grayson and others answer warriors, hunters, shamans, druids, night elves and the Skyborne.
+
 ## 1.7.0 (2026-11-15)
 - Every person here writes a first impression in your diary after you first talk (the journal's People page shows it too).
 

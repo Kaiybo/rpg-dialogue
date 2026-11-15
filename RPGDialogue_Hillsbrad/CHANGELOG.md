@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.6.0 (2026-11-15)
+- Replies for the classes and races these people would really react to (warriors, hunters, rogues, mages, warlocks, druids, shamans, paladins; every race of the faction, and the Skyborne), each leading somewhere.
+
 ## 1.5.0 (2026-11-15)
 - 8 new people in Southshore: Emissary Jacques, Kundric Zanden, Barkeep Kelly, Phin Odelic, Darren Malvew, Chef Jessen, Merideth Carlson, Donald Rabonne.
 - First impressions in your diary. New file: restart the game.
