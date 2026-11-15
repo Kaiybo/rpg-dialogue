@@ -2,7 +2,7 @@
 -- Wu Shen (the senior, stance and discipline), Ilsa Corbin (fury and the two-handed blade),
 -- Ander Germaine (the shield and the line). Voices: bibles/warriors.md
 local P = RPGDialogueAPI:Pack("rpgd.stormwind")
-local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
+local TODO_NPC = P.TODO_NPC
 
 -- Wu Shen: the senior warrior trainer; calm, exacting, dry.
 P:NPC {
