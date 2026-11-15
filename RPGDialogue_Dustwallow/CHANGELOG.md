@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.4.0 (unreleased)
+- Voice pass: Jaina, Tervosh, Vimes, Tesoran, Janene, Krog, Nazeer and Theramore's guards now talk in whole sentences instead of clipped fragments, each in their own voice; what they say is unchanged.
+
 ## 1.3.0 (unreleased)
 - For a priest: ask Jaina whether the Light still answers her; sit with James Hyal for Captain Vimes. Jaina notices Shadowform.
 

@@ -5,10 +5,10 @@ P:Pool {
   id = "guard_theramore", role = "guard", community = "theramore",
   barks = {
     { id = "b_marsh", text = "Fog off the marsh again. You learn to listen instead of look." },
-    { id = "b_ships", text = "Sails on the horizon. Ours, I hope. Usually ours." },
+    { id = "b_ships", text = "Sails on the horizon, ours, I hope. Usually they're ours." },
   },
   greetings = {
-    { id = "g_isle", text = "Welcome to Theramore. The Lady keeps the peace here. So do we." },
+    { id = "g_isle", text = "Welcome to Theramore. The Lady keeps the peace here, and so do we." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Late to be out. The marsh is worse after dark: crocolisks, and things bigger than crocolisks." },
   },
   notice = {
@@ -23,7 +23,7 @@ P:Pool {
   },
   choices = { { text = "For Theramore.", next = "END", fx = { standing = { theramore = 1 } } } },
   topics = {
-    grimtotem = { { id = "t_grimtotem", text = "Tauren who don't follow Thrall. Captain Vimes has been asking about them. Wouldn't say why." } },
-    _none = { { id = "t_none", text = "Ask in the citadel. Captain Vimes or the Archmage will know." } },
+    grimtotem = { { id = "t_grimtotem", text = "Tauren who don't follow Thrall. Captain Vimes has been asking about them, though he wouldn't say why." } },
+    _none = { { id = "t_none", text = "Ask in the citadel; Captain Vimes or the Archmage will know." } },
   },
 }

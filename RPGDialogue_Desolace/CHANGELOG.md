@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.5.0 (unreleased)
+- Voice pass: Pentigast, Marandis, Kreldig, Brother Anton, Lyshaerya, Takata, Nataka and the Nijel's Point guards now talk in whole sentences instead of clipped fragments, each in their own voice; what they say is unchanged.
+
 ## 1.4.0 (unreleased)
 - Brother Anton: the letter to Raleigh the Devout, and the end of the Scarlet Path: tell him what Raleigh saw at the Monastery, or let him keep his Crusade. He remembers either way.
 - Fixed: the Valley of Bones is south of Nijel's Point, not southeast.
