@@ -146,7 +146,7 @@ P:NPC {
 
   topics = {
     scarlet_crusade = { { id = "tp_crusade", text = "Zealots in red. Ask Executor Zygand in Brill; he's been fighting them longer than I have." } },
-    _none = { { id = "tp_none", text = "That's not my concern; Deathknell is." } },
+    _none = { { id = "tp_none", text = "That is no concern of Deathknell's, nor of mine." } },
   },
 }
 

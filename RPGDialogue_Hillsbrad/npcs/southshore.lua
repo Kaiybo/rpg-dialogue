@@ -38,7 +38,7 @@ P:NPC {
           text = "Night's when the horses go missing, so I keep a lantern lit by the stables, not that the dead need the light." },
       },
       again = {
-        { id = "h_again", text = "What else? Talk while I walk the line." },
+        { id = "h_again", text = "Anything more? Ask as we go; I've the wall to inspect." },
         { id = "h_again2", text = "Go on, I've a minute, though never two." },
         { id = "h_again3", when = { timeOfDay = "night" }, text = "Ask. The night watch can spare me a moment, and I them." },
       },

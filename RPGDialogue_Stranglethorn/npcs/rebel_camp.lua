@@ -454,7 +454,7 @@ P:NPC {
           text = "I still wake up reaching for their uniform, and then I remember which side I'm on. It takes a moment longer than I'd like." },
       },
       again = {
-        { id = "h_again", text = "Something else? Keep it low, then." },
+        { id = "h_again", text = "Something more? Speak softly; the jungle listens." },
         { id = "h_again2", text = "Go on, I'm listening. I'm always listening, these days." },
       },
       choices = {
