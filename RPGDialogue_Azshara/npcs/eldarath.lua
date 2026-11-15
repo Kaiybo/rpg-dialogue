@@ -346,7 +346,7 @@ P:NPC {
           text = "The rune, the rune! The naga have it, down in Eldarath, and the elves wanted it badly. Find it, valuable employee, and we'll both be rich, or at least I will." },
       },
       again = {
-        { id = "h_again", text = "What else? Time's money, and you're spending mine." },
+        { id = "h_again", text = "Something more? Talk fast, friend; every minute here costs me a little." },
         { id = "h_again2", text = "Go on, go on. I'm all ears, and the ears are worth a fortune." },
       },
       choices = {

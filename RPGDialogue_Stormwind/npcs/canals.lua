@@ -43,7 +43,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else? I've columns to add." },
-        { id = "h_again2", text = "What else can I do for you?" },
+        { id = "h_again2", text = "Another question? Pour yourself a taste while you think of it." },
       },
       choices = {
         { text = "Let me see the wines.", next = "BUSINESS" },

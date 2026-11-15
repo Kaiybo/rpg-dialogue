@@ -287,7 +287,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_welcome", text = "Welcome, welcome, {class}, to the Cathedral of Light!" },
+    { id = "g_welcome", text = "Welcome, welcome, friend, to the Cathedral of Light!" },
     { id = "g_back", when = { metBefore = true }, text = "Back again! The Cathedral's glad of you, and so am I." },
     { id = "g_techbot", when = { questActive = TODO_QUEST("Tinkmaster Overspark") }, text = "Have you been to Tinker Town yet? Poor Overspark is waiting." },
   },
@@ -542,7 +542,7 @@ P:NPC {
           text = "Most of my children are Stormwind's, or Lordaeron's, and a few came from Westfall last year. You'll know the names of their villages, I expect, better than they do now." },
       },
       again = {
-        { id = "h_again", text = "Anything else, {class}? I've a moment before supper." },
+        { id = "h_again", text = "Anything else, dear? I've a moment before supper." },
         { id = "h_again2", text = "Go on. The children can manage without me for a minute or two." },
       },
       choices = {
@@ -617,7 +617,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "I keep the orphanage. That has been the whole of my life for longer than most of my children have been alive, and it's enough." } },
     advice = { { id = "tp_ad", text = "If you ever find a child on the road with no one, bring them here. Don't wait to be sure; we'll sort it out." } },
     defias = { { id = "tp_defias", text = "Every Westfall farmer they kill sends me another child. I've no other opinion of them, and I don't need one." } },
-    _none = { { id = "tp_none", text = "That's beyond me, {class}. I know children, and not much else." } },
+    _none = { { id = "tp_none", text = "That's beyond me, I'm afraid. I know children, and not much else." } },
   },
 }
 

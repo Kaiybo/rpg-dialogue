@@ -507,7 +507,7 @@ P:NPC {
           text = "Ain't lost a single foal since you went up them hills. The horses are sleepin' easier, and so am I." },
       },
       again = {
-        { id = "h_again", text = "What else? Talk while I brush." },
+        { id = "h_again", text = "Something more? You can talk while I brush; the mare won't mind." },
         { id = "h_again2", text = "Go on, the horses don't mind listenin'." },
       },
       choices = {
@@ -607,8 +607,8 @@ P:NPC {
           text = "The bisque is back on the menu! Folk were queuing round the inn last night, and one old fisherman wept into his bowl, and I didn't charge him." },
       },
       again = {
-        { id = "h_again", text = "What else? Talk while I stir." },
-        { id = "h_again2", text = "Go on. The pot's in no hurry, and neither am I." },
+        { id = "h_again", text = "Something more? Mind the steam, and talk while I stir." },
+        { id = "h_again2", text = "The bisque needs another hour, so I'm yours until it does." },
       },
       choices = {
         { text = "Show me what you're selling.", next = "BUSINESS" },
@@ -801,7 +801,7 @@ P:NPC {
           text = "Someone cleared the Torn Fin off the Western Strand, and the fishermen got their nets back. I thought it'd be the lieutenant, but he's still sulking at the inn." },
       },
       again = {
-        { id = "h_again", text = "What else? The line's out, so I've time." },
+        { id = "h_again", text = "The line's in the water, so I've all the time in the world. Ask away." },
         { id = "h_again2", text = "Go on, softly now." },
       },
       choices = {

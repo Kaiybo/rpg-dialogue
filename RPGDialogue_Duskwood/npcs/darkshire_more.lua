@@ -326,7 +326,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never stop on the road to Nethergarde; anything that waves you down is either dying or hungry." } },
     nethergarde = { { id = "tp_nethergarde", text = "A keep full of mages at the end of the worst road in the kingdom, and every one of them wants something yesterday.", next = "crate" } },
     dark_portal = { { id = "tp_portal", text = "I've never seen it and I never mean to. I send it powerstones, and that's as close as I like to get." } },
-    _none = { { id = "tp_none", text = "If it doesn't fit on a wagon, I can't help you." } },
+    _none = { { id = "tp_none", text = "That's not something I keep a ledger on. Ask me about crates and wagons instead." } },
   },
 }
 
@@ -366,7 +366,7 @@ P:NPC {
           text = "I hear my moonshine's sitting on a shelf in Lakeshire now. That's the furthest a bottle of mine has travelled, and I've half a mind to feel proud." },
       },
       again = {
-        { id = "h_again", text = "Anything else? The jug's not going anywhere, and neither am I." },
+        { id = "h_again", text = "More questions? Ask them over the bar; I don't leave it after dark." },
         { id = "h_again2", text = "Go on. A barkeep's half ears, after all." },
       },
       choices = {
@@ -578,7 +578,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? I've three conversations going in my head already, so one more won't hurt." },
-        { id = "h_again2", text = "Go on, go on, I'm listening, mostly." },
+        { id = "h_again2", text = "Ask, ask! Half my mind is on the stars tonight, but the other half is yours." },
       },
       choices = {
         { text = "Show me your stock.", next = "BUSINESS" },

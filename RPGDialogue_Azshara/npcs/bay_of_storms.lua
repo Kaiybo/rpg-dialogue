@@ -224,7 +224,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Stand still, {race}. My hounds are deciding whether you are worth eating." },
+    { id = "g_default", text = "Stand still, stranger. My hounds are deciding whether you are worth eating." },
     { id = "g_back", when = { metBefore = true }, text = "You return, and alive. Astonishing; I had wagered against it." },
     { id = "g_named", when = { questDone = TODO_QUEST("The Name of the Beast") }, text = "You carry the beast's name now. Do not speak it lightly, even here." },
   },

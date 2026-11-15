@@ -486,7 +486,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else? Quietly, now." },
-        { id = "h_again2", text = "Go on, I'm listening, and so is the alley." },
+        { id = "h_again2", text = "Keep talking. Old Town has ears, so choose your words with that in mind." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "ROGUE" } },

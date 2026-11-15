@@ -15,7 +15,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_wary", text = "Well met, {class}. Be wary of magic; it burns the untrained." },
+    { id = "g_wary", text = "Well met, traveler. Be wary of magic; it burns the untrained." },
     { id = "g_mage", when = { class = "MAGE" }, text = "Greetings, mage. Shall we see what you've learned since last time?" },
     { id = "g_xylem", when = { questActive = TODO_QUEST("Magecraft") }, text = "Azshara is far, but Xylem is worth the journey. Mind his servant." },
   },
@@ -143,7 +143,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_well", text = "Well met. Be wary of magic; it burns the untrained." },
+    { id = "g_well", text = "Welcome to the Mage Quarter. Touch nothing that hums, and you'll leave with your eyebrows." },
     { id = "g_mage", when = { class = "MAGE" }, text = "Greetings, mage. Shall I give you a little more insight today?" },
   },
 

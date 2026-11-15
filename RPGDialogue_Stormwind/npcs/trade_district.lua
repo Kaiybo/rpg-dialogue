@@ -191,7 +191,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else? Cheese questions are free; the cheese isn't." },
-        { id = "h_again2", text = "Go on, then. I can wrap and listen at the same time." },
+        { id = "h_again2", text = "Ask what you like; I can wrap a wheel of cheddar and listen at once." },
       },
       choices = {
         { text = "Let me see your cheese.", next = "BUSINESS" },
@@ -794,7 +794,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else? Make it quick; there's a queue." },
-        { id = "h_again2", text = "What else can I do for you?" },
+        { id = "h_again2", text = "Anything more you need before you go? Armor doesn't mend itself." },
       },
       choices = {
         { text = "Show me your armor.", next = "BUSINESS" },

@@ -15,7 +15,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Lok'tar. Valormok can use another blade, and you've not come a moment too soon." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again, {class}. The camp's still standing, more or less." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again, friend. The camp's still standing, more or less." },
     { id = "g_avenged", when = { questDone = TODO_QUEST("Betrayed") }, text = "There's the one who brought me the elf's head! Sit by my fire whenever you like." },
   },
 
@@ -247,7 +247,7 @@ P:NPC {
       },
     },
     drink = {
-      lines = { { id = "dr_default", text = "Don't tease me, {class}. Kurll sells milk and fruit juice here, as if we were children, and I've been dreaming about a mug of grog for a month." } },
+      lines = { { id = "dr_default", text = "Don't tease me, friend. Kurll sells milk and fruit juice here, as if we were children, and I've been dreaming about a mug of grog for a month." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
@@ -291,7 +291,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Kroum, wind rider master. I can send you home to Orgrimmar or Thunder Bluff, to the Crossroads, to Splintertree in Ashenvale, to Bloodvenom Post in Felwood, or north to Everlook in the snow." },
       },
-      again = { { id = "h_again", text = "Anything else, or are you flying?" } },
+      again = { { id = "h_again", text = "The wind riders are restless. Say what you need, or climb on." } },
       choices = {
         { text = "How do the wind riders like it here?", next = "beasts" },
         { text = "Is it safe to fly over the coast?", next = "coast" },
