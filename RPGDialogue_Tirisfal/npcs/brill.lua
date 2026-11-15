@@ -10,14 +10,14 @@ P:NPC {
 
   greetings = {
     { id = "g_brill", text = "State your business. The Crusade keeps me busy, and I prefer to stay that way." },
-    { id = "g_back", when = { metBefore = true }, text = "You've returned. With results, I hope." },
+    { id = "g_back", when = { metBefore = true }, text = "You've returned, and with results, I hope." },
   },
 
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
-      text = "The zealots marked you. Mend, and repay them." },
+      text = "The zealots marked you. Mend yourself, and then repay them in kind." },
     { id = "n_living", cat = "race", when = { race = { "Orc", "Troll", "Tauren" } },
-      text = "One of our living allies. Tirisfal is not kind to the breathing. Watch the fields." },
+      text = "One of our living allies. Tirisfal is not kind to the breathing, so watch the fields." },
   },
 
   start = "hello",
@@ -25,13 +25,13 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Executor Zygand. I command the Deathguard in Tirisfal. The Crusade means to burn this land clean of us. It will not go the way they hope." },
+          text = "Executor Zygand, commander of the Deathguard in Tirisfal. The Crusade means to burn this land clean of us, and it will not go the way they hope." },
         { id = "h_war", tags = { "news" }, when = { questActive = TODO_QUEST("At War With The Scarlet Crusade") },
-          text = "The Crusade masses in the fields and the monastery roads. Cut them down where you find them. Bring proof." },
+          text = "The Crusade masses in the fields and the monastery roads. Cut them down where you find them, and bring proof." },
         { id = "h_maggot", when = { questActive = TODO_QUEST("Wanted: Maggot Eye") },
-          text = "Maggot Eye. A gnoll who robs our graves. Bring me his paw, and the dead of Brill can rest." },
+          text = "Maggot Eye is a gnoll who robs our graves. Bring me his paw, and the dead of Brill can rest." },
         { id = "h_intel", when = { questActive = TODO_QUEST("Vital Intelligence") },
-          text = "Arren sent you with what the Crusade's runners carried. Let me see. Yes. This will do nicely." },
+          text = "Arren sent you with what the Crusade's runners carried? Let me see... yes, this will do nicely." },
       },
       choices = {
         { text = "Who are the Scarlet Crusade?", next = "crusade" },
@@ -49,7 +49,7 @@ P:NPC {
 
   topics = {
     scarlet_crusade = { { id = "tp_crusade", text = "Every Crusader we kill is one fewer torch at our door. I keep count." } },
-    _none = { { id = "tp_none", text = "Ask the magistrate. Administration is his burden." } },
+    _none = { { id = "tp_none", text = "Ask the magistrate; administration is his burden, not mine." } },
   },
 }
 
@@ -61,12 +61,12 @@ P:NPC {
 
   greetings = {
     { id = "g_hall", text = "Ah, you. There's work, and it's important, and I'd rather you did it than discussed it." },
-    { id = "g_back", when = { metBefore = true }, text = "Back in the town hall. Excellent. I've more for you." },
+    { id = "g_back", when = { metBefore = true }, text = "Back in the town hall? Excellent, because I've more for you." },
   },
 
   notice = {
     { id = "n_living", cat = "status", when = { faction = "Horde", race = { "Orc", "Troll", "Tauren" } },
-      text = "A living face in my hall. The Warchief's allies are welcome in Brill. Do keep your breathing quiet." },
+      text = "A living face in my hall! The Warchief's allies are welcome in Brill, but do keep your breathing quiet." },
   },
 
   start = "hello",
@@ -74,13 +74,13 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Magistrate Sevren. When we took Brill back, it was a plague town full of the mindless. Now it's a Forsaken town, and that's my doing." },
+          text = "You're speaking to Magistrate Sevren. When we took Brill back it was a plague town full of the mindless; now it's a Forsaken town, and that's my doing." },
         { id = "h_grave", tags = { "news" }, when = { questActive = TODO_QUEST("Graverobbers") },
-          text = "Gnolls are digging up our graveyard. Our dead are not their supper. Put a stop to it." },
+          text = "Gnolls are digging up our graveyard, and our dead are not their supper. Put a stop to it." },
         { id = "h_lich", when = { questActive = TODO_QUEST("The Prodigal Lich") },
           text = "Bethor Iceshard in the Undercity has asked after a lich who wears an old friend's name. Take him what we've learned." },
         { id = "h_ring", when = { questActive = TODO_QUEST("The Engraved Ring") },
-          text = "A ring with an engraving. Someone in this town knows whose. Find out who." },
+          text = "Here's a ring with an engraving, and someone in this town knows whose it is. Find out who." },
       },
       choices = {
         { text = "How did you take Brill?", next = "brill" },
@@ -94,7 +94,7 @@ P:NPC {
   },
 
   topics = {
-    scarlet_crusade = { { id = "tp_crusade", text = "Zygand's department. I sign the orders. He carries them out with alarming enthusiasm." } },
+    scarlet_crusade = { { id = "tp_crusade", text = "That's Zygand's department. I sign the orders, and he carries them out with alarming enthusiasm." } },
     _none = { { id = "tp_none", text = "That's not a matter for the town hall." } },
   },
 }
@@ -112,7 +112,7 @@ P:NPC {
 
   notice = {
     { id = "n_alch", cat = "craft", when = { profession = { "Alchemy", "Herbalism" } },
-      text = "You've a feel for plants and potions. The Society could use people like you. Think on it." },
+      text = "You've a feel for plants and potions. The Society could use people like you, so think on it." },
   },
 
   start = "hello",
@@ -122,11 +122,11 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Apothecary Johaan, of the Royal Apothecary Society. Our work here matters more than you'd guess from the smell." },
         { id = "h_plague", tags = { "news" }, when = { questActive = TODO_QUEST("A New Plague") },
-          text = "A new plague. Ours, this time, made by our hands. I need ingredients from the creatures of the glades. Bring them." },
+          text = "A new plague, ours this time, made by our own hands. I need ingredients from the creatures of the glades, so bring them to me." },
         { id = "h_grief", when = { questActive = TODO_QUEST("Fields of Grief") },
           text = "The pumpkins in the old fields grew in plague-soaked earth. That makes them very useful to me." },
         { id = "h_silverpine", when = { questActive = TODO_QUEST("Delivery to Silverpine Forest") },
-          text = "This goes to the Society's apothecary at the Sepulcher. Don't drop it. Really, don't drop it." },
+          text = "This goes to the Society's apothecary at the Sepulcher, and you mustn't drop it. Really, don't drop it." },
         { id = "h_experiment", when = { questActive = TODO_QUEST("Johaan's Experiment") },
           text = "An experiment wants a subject, and the Crusade has kindly provided one. Fetch what I need." },
       },
@@ -159,13 +159,13 @@ P:NPC {
   notices = { "drink" },
 
   greetings = {
-    { id = "g_tavern", text = "Good evening, friend. Do sit. I'm just here thinking unkind thoughts about my former employers." },
+    { id = "g_tavern", text = "Good evening, friend, do sit. I'm just here thinking unkind thoughts about my former employers." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you've come back. Tell me something that'll ruin an Agamand's day." },
   },
 
   notice = {
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
-      text = "Drinking? I miss it, you know. The taste. Enjoy it for me, there's a good fellow." },
+      text = "Drinking? I miss it, you know, the taste of it. Enjoy it for me, there's a good fellow." },
   },
 
   start = "hello",
@@ -173,11 +173,11 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Coleman Farthing. When the Scourge came, the Agamands asked us mill hands to stay and defend their property, and most of us died for it. I'd like to return the favor." },
+          text = "Coleman Farthing, at your service. When the Scourge came, the Agamands asked us mill hands to stay and defend their property, and most of us died for it. I'd like to return the favor." },
         { id = "h_deaths", tags = { "news" }, when = { questActive = TODO_QUEST("Deaths in the Family") },
-          text = "The Agamands walk the mills now, as undead as I am and twice as foul. Bring me what's left of them. I'll see they rest. Eventually." },
+          text = "The Agamands walk the mills now, as undead as I am and twice as foul. Bring me what's left of them, and I'll see they rest. Eventually." },
         { id = "h_mills", when = { questActive = TODO_QUEST("The Haunted Mills") },
-          text = "The mills are haunted. Of course they're haunted. Everyone who died there had a reason to stay angry." },
+          text = "The mills are haunted, and of course they're haunted; everyone who died there had a reason to stay angry." },
       },
       choices = {
         { text = "That's a heavy grudge.", next = "grudge" },
@@ -191,7 +191,7 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "I don't know, friend. Ask me about the Agamands. That I could talk about all night." } },
+    _none = { { id = "tp_none", text = "I don't know, friend, but ask me about the Agamands; that I could talk about all night." } },
   },
 }
 
@@ -202,12 +202,12 @@ P:NPC {
   notices = { "weary" },
 
   greetings = {
-    { id = "g_tavern", text = "Cold tonight. It's always cold, now. You stop noticing, then one day you notice again." },
+    { id = "g_tavern", text = "Cold tonight, though it's always cold, now. You stop noticing, and then one day you notice again." },
   },
 
   notice = {
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
-      text = "Fresh from the spirit healer? You've a bit of the grave on you still. It fades." },
+      text = "Fresh from the spirit healer? You've a bit of the grave on you still, but it fades." },
   },
 
   start = "hello",
@@ -215,16 +215,16 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Gretchen Dedmar. I sit in the tavern because it's warm, not because I can feel it. Habit is a comfort, even dead." },
+          text = "I'm Gretchen Dedmar. I sit in the tavern because it's warm, not because I can feel it; habit is a comfort, even dead." },
         { id = "h_chill", tags = { "news" }, when = { questActive = TODO_QUEST("The Chill of Death") },
-          text = "The chill of death never quite leaves you. I've found a way to keep it at bay, for a while. Fetch what I asked for." },
-        { id = "h_cup", when = { metBefore = true }, text = "I still order a cup of tea. I can't taste it. I hold it until it goes cold. Some habits are worth the coin." },
+          text = "The chill of death never quite leaves you, but I've found a way to keep it at bay for a while, if you'll fetch what I asked for." },
+        { id = "h_cup", when = { metBefore = true }, text = "I still order a cup of tea, though I can't taste it, and I hold it until it goes cold. Some habits are worth the coin." },
       },
       choices = { { text = "What do you miss most?", next = "miss" }, { text = "I'll be back with it.", next = "END", fx = { affinity = 1 } } },
     },
     miss = {
       lines = {
-        { id = "m_warm", text = "Being cold. Isn't that strange? I sit by the fire because I remember wanting to. Now I don't feel either. I'd give a great deal to shiver again." },
+        { id = "m_warm", text = "Being cold, isn't that strange? I sit by the fire because I remember wanting to, but now I don't feel either. I'd give a great deal to shiver again." },
       },
       choices = { { text = "I'm sorry.", next = "END", fx = { affinity = 2 } } },
     },
@@ -242,7 +242,7 @@ P:NPC {
   notices = { "weary", "race" },
 
   greetings = {
-    { id = "g_inn", text = "Welcome to the Gallows' End. Sit anywhere. Nobody here bites. Well. Nobody here bites guests." },
+    { id = "g_inn", text = "Welcome to the Gallows' End! Sit anywhere you like; nobody here bites. Well, nobody here bites guests." },
     { id = "g_home", when = { homeInn = { "Brill", "Gallows' End Tavern" } }, text = "Your room's kept. Don't mind the bats; they pay rent in silence." },
   },
 
@@ -250,7 +250,7 @@ P:NPC {
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
       text = "You look like you've been through it. Sit down, love. Whatever you need, I'll bring it." },
     { id = "n_living", cat = "race", when = { race = { "Orc", "Troll", "Tauren" } },
-      text = "A living guest! We keep food for your sort. Fresh, even. Mostly fresh." },
+      text = "A living guest! We keep food for your sort, and it's fresh, even. Mostly fresh, anyway." },
   },
 
   start = "hello",
@@ -258,9 +258,9 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Innkeeper Renee. I keep the tavern. Somebody has to look after people, even dead ones. Especially dead ones." },
+          text = "I'm Renee, and I keep the tavern. Somebody has to look after people, even dead ones, and especially dead ones." },
         { id = "h_rogue", when = { questActive = TODO_QUEST("A Rogue's Deal") },
-          text = "You're after the deal, are you? Quietly, then. Not every bargain in this town wants an audience." },
+          text = "You're after the deal, are you? Quietly, then, because not every bargain in this town wants an audience." },
       },
       choices = {
         { text = "Why keep an inn, now?", next = "why" },
@@ -268,7 +268,7 @@ P:NPC {
       },
     },
     why = {
-      lines = { { id = "w_default", text = "I spent too long on the other side of things, hurting people for a cause. Now I pour drinks and listen. It suits me better." } },
+      lines = { { id = "w_default", text = "I spent too long on the other side of things, hurting people for a cause. Now I pour drinks and listen, and it suits me better." } },
       choices = { { text = "It does.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } } },
     },
   },
@@ -287,12 +287,12 @@ P:NPC {
 
   greetings = {
     { id = "g_camp", text = "Good day. Before you ask: no, I'm not with the Crusade. I'm only passing through, on my way to the next stretch of wilderness." },
-    { id = "g_back", when = { metBefore = true }, text = "Ah, my pupil. The fire's lit. Sit, if you like." },
+    { id = "g_back", when = { metBefore = true }, text = "Ah, my pupil! The fire's lit, so sit, if you like." },
   },
 
   notice = {
     { id = "n_cook", cat = "craft", when = { profession = "Cooking" },
-      text = "A cook. Then you can build a proper campfire already, or nearly. Everything else in a camp starts from that." },
+      text = "A cook? Then you can build a proper campfire already, or nearly, and everything else in a camp starts from that." },
     { id = "n_leather", cat = "craft", when = { profession = "Leatherworking" },
       text = "A leatherworker. You'll want to learn the tent. A good tent near a fire makes a night's rest worth twice as much." },
   },
@@ -302,11 +302,11 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Eleanor Shackleton. I travel, and where I stop, I camp. If you'd like to learn how, I'm a patient teacher." },
+          text = "I'm Eleanor Shackleton. I travel, and where I stop, I camp, and if you'd like to learn how, I'm a patient teacher." },
         { id = "h_adventurer", tags = { "news" }, when = { questActive = TODO_QUEST("The Adventurer") },
-          text = "The Executor sent you to look me over, I expect. Look all you like. Then let me show you something useful." },
+          text = "The Executor sent you to look me over, I expect. Look all you like, and then let me show you something useful." },
         { id = "h_outdoors", when = { questActive = TODO_QUEST("The Great Outdoors") },
-          text = "Sit by the fire until you feel rested. Properly rested. You'll know it when it comes." },
+          text = "Sit by the fire until you feel rested, properly rested; you'll know it when it comes." },
       },
       choices = {
         { text = "Why camp, when there are inns?", next = "why" },
@@ -320,7 +320,7 @@ P:NPC {
   },
 
   topics = {
-    camping = { { id = "tp_camping", text = "A fire first, then whatever your trade can add to it. Cooks, leatherworkers, fishers. A camp is everyone's work." } },
+    camping = { { id = "tp_camping", text = "A fire first, then whatever your trade can add to it, whether you cook, work leather or fish. A camp is everyone's work." } },
     _none = { { id = "tp_none", text = "I'm only passing through. Ask someone who lives here, if that's the word." } },
   },
 }

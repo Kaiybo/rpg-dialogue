@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.1.1 (unreleased)
+- Voice pass: the Royal Quarter, the Apothecarium, the Magic Quarter and Norman's inn now talk in whole sentences instead of clipped fragments, each in their own voice (Sylvanas cold and controlled, Varimathras silky, Faranell gleeful, Bethor grieving, Norman dry). Same lines, same facts, same conditions.
+
 ## 1.1.0 (unreleased)
 - Depth pass: repeat visits bring personal lines (habits, worries, running jokes), and some NPCs get night-time lines. Norman.
 
