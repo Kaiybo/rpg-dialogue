@@ -9,13 +9,13 @@ P:NPC {
   notices = { "race", "class" },
 
   greetings = {
-    { id = "g_hut", text = "Come, come. Gadrin don't bite. Not anymore; the teeth be too old." },
+    { id = "g_hut", text = "Come, come, Gadrin don't bite. Not anymore, anyway; the teeth be too old." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you visit the old man again. Sit; the fire be warm." },
   },
 
   notice = {
     { id = "n_troll", cat = "race", when = { race = "Troll" },
-      text = "A Darkspear child! Let me look at you. Strong. You going to do the tribe proud, I can tell." },
+      text = "A Darkspear child! Let me look at you, so strong. You going to do the tribe proud, I can tell." },
     { id = "n_shaman", cat = "class", when = { class = { "SHAMAN", "PRIEST", "MAGE" } },
       text = "You got the spark, eh? Careful with it. I teach two boys with the spark once. Only one of them listen." },
   },
@@ -25,13 +25,13 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Master Gadrin. I teach the Darkspear witch doctors. I teach Vol'jin, once, and Zalazane. One of them I be proud of." },
+          text = "I be Master Gadrin, and I teach the Darkspear witch doctors. I teach Vol'jin once, and Zalazane, and one of them I be proud of." },
         { id = "h_skull", when = { questActive = TODO_QUEST("Minshina's Skull") },
-          text = "Minshina's skull sit on the isles in bad hands. Bring it to me. She deserve better." },
+          text = "Minshina's skull sit on the isles in bad hands. Bring it to me, because she deserve better." },
         { id = "h_zalazane", tags = { "news" }, when = { questActive = TODO_QUEST("Zalazane") },
-          text = "Zalazane. My student, and the shame of my years. End him, and maybe this old man sleep through the night." },
+          text = "Zalazane be my student once, and now he be the shame of my years. End him, and maybe this old man sleep through the night." },
         { id = "h_orgnil", when = { questActive = TODO_QUEST("Report to Orgnil") },
-          text = "Orgnil in Razor Hill need strong arms against the Burning Blade. Go to him. Tell him Gadrin say you be useful." },
+          text = "Orgnil in Razor Hill need strong arms against the Burning Blade. Go to him, and tell him Gadrin say you be useful." },
       },
       choices = {
         { text = "What happened on the Echo Isles?", next = "isles" },
@@ -58,8 +58,8 @@ P:NPC {
   },
 
   topics = {
-    echo_isles = { { id = "tp_isles", text = "Every morning I look at them. Every morning they still there, waiting for us." } },
-    burning_blade = { { id = "tp_blade", text = "Orcs playing with demons. Bad magic be bad magic, whoever play with it. Orgnil know." } },
-    _none = { { id = "tp_none", text = "Even an old witch doctor don't know everything. Most things, yes." } },
+    echo_isles = { { id = "tp_isles", text = "Every morning I look at them, and every morning they still there, waiting for us." } },
+    burning_blade = { { id = "tp_blade", text = "Orcs playing with demons, eh? Bad magic be bad magic, whoever play with it, and Orgnil know that." } },
+    _none = { { id = "tp_none", text = "Even an old witch doctor don't know everything, though he know most things, yes." } },
   },
 }

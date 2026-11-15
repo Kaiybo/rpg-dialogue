@@ -9,13 +9,13 @@ P:NPC {
   notices = { "greenness" },
 
   greetings = {
-    { id = "g_road", text = "Fresh off the road. Good. The Horde has room for you, if you earn it." },
-    { id = "g_back", when = { metBefore = true }, text = "Still in the valley? Then you've still got work. Go on." },
+    { id = "g_road", text = "Fresh off the road, are you? Good. The Horde has room for you, if you earn it." },
+    { id = "g_back", when = { metBefore = true }, text = "Still in the valley? Then you've still got work to do, so go on." },
   },
 
   notice = {
     { id = "n_green", cat = "greenness", when = { maxLevel = 3 },
-      text = "You've never swung a weapon at something that swings back, have you? You will. Today, probably." },
+      text = "You've never swung a weapon at something that swings back, have you? You will, and probably today." },
   },
 
   start = "hello",
@@ -23,10 +23,10 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Kaltunk. Every recruit who walks into this valley starts with me. I send you to Gornek in the Den, and he sends you to work." },
+          text = "I'm Kaltunk, and every recruit who walks into this valley starts with me. I send you to Gornek in the Den, and he sends you to work." },
         { id = "h_place", tags = { "news" }, when = { questActive = TODO_QUEST("Your Place In The World") },
-          text = "Gornek's in the Den, the cave just ahead. Tell him Kaltunk sent you. Stand up straight when you do." },
-        { id = "h_dust", when = { metBefore = true }, text = "I came off a ship with nothing but my axe and Durotar's dust in my teeth. That was enough. It's enough for you too." },
+          text = "Gornek's in the Den, the cave just ahead. Tell him Kaltunk sent you, and stand up straight when you do." },
+        { id = "h_dust", when = { metBefore = true }, text = "I came off a ship with nothing but my axe and Durotar's dust in my teeth, and that was enough. It's enough for you too." },
       },
       choices = {
         { text = "How did you come to Durotar?", next = "came" },
@@ -35,19 +35,19 @@ P:NPC {
       },
     },
     valley = {
-      lines = { { id = "v_default", text = "Boars, scorpids, cultists in the northern caves. You'll fight all three, and you'll come out the other end Horde. Or you won't." } },
+      lines = { { id = "v_default", text = "Boars, scorpids and cultists in the northern caves. You'll fight all three, and you'll come out the other end Horde, or you won't." } },
       choices = { { text = "I will.", next = "END", fx = { affinity = 2, trait = { brave = 1 } } } },
     },
     came = {
       lines = {
-        { id = "c_camps", text = "Out of the camps, like most of us. Then across the sea to this red land with the Warchief. I've been greeting new blood ever since. Somebody greeted me once. I remember who." },
+        { id = "c_camps", text = "Out of the camps, like most of us, and then across the sea to this red land with the Warchief. I've been greeting new blood ever since, because somebody greeted me once, and I remember who." },
       },
       choices = { { text = "I'll remember you, then.", next = "END", fx = { affinity = 2 } } },
     },
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Ask Gornek. I just point the way." } },
+    _none = { { id = "tp_none", text = "Ask Gornek; I just point the way." } },
   },
 }
 
@@ -58,13 +58,13 @@ P:NPC {
   notices = { "greenness", "class" },
 
   greetings = {
-    { id = "g_den", text = "Recruit. Stand straight. The valley is watching, and so am I." },
-    { id = "g_back", when = { metBefore = true }, text = "You're back on your feet. That's the first lesson. Most never learn it." },
+    { id = "g_den", text = "Stand up straight, recruit. The valley is watching you, and so am I." },
+    { id = "g_back", when = { metBefore = true }, text = "You're back on your feet, and that's the first lesson. Most never learn it." },
   },
 
   notice = {
     { id = "n_green", cat = "greenness", when = { maxLevel = 4 },
-      text = "Soft hands. That'll change. Everything soft about you will change, here." },
+      text = "Soft hands, I see. That'll change, along with everything else soft about you, here." },
     { id = "n_warlock", cat = "class", when = { class = "WARLOCK" },
       text = "A warlock, in my Den. The Burning Blade wear your colors in the caves north of here. Prove you aren't one of them." },
   },
@@ -74,7 +74,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Gornek. I run the Den. The Valley of Trials makes Horde out of whatever walks in. Some days that takes longer than others." },
+          text = "I'm Gornek, and I run the Den. The Valley of Trials makes Horde out of whatever walks in, though some days that takes longer than others." },
         { id = "h_weapons", tags = { "news" }, when = { questActive = TODO_QUEST("Wayward Weapons") },
           text = "Recruits keep dropping their training weapons out among the boars. Kzan needs every one. Go and pick up after your betters." },
         { id = "h_sarkoth", when = { questActive = TODO_QUEST("Sarkoth") },
@@ -97,8 +97,8 @@ P:NPC {
   },
 
   topics = {
-    burning_blade = { { id = "tp_blade", text = "Cultists in the coven to the north, calling up imps. Zureetha deals with them. You'll help." } },
-    _none = { { id = "tp_none", text = "Not your concern yet. Finish the valley first." } },
+    burning_blade = { { id = "tp_blade", text = "There are cultists in the coven to the north, calling up imps. Zureetha deals with them, and you'll help her." } },
+    _none = { { id = "tp_none", text = "That's not your concern yet, recruit, so finish the valley first." } },
   },
 }
 
@@ -109,8 +109,8 @@ P:NPC {
   notices = { "class" },
 
   greetings = {
-    { id = "g_blade", text = "The Burning Blade crawl out of their caves after dark. I'd rather they didn't. Help me with that." },
-    { id = "g_back", when = { metBefore = true }, text = "You've been north? Tell me what you saw. All of it." },
+    { id = "g_blade", text = "The Burning Blade crawl out of their caves after dark, and I'd rather they didn't. Help me with that." },
+    { id = "g_back", when = { metBefore = true }, text = "You've been north? Tell me what you saw, all of it." },
   },
 
   notice = {
@@ -123,13 +123,13 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Zureetha Fargaze. The Burning Blade have taken the caves to the north, and they're spilling into the valley. I watch them, and I send recruits to thin them." },
+          text = "I'm Zureetha Fargaze. The Burning Blade have taken the caves to the north and they're spilling into the valley, so I watch them, and I send recruits to thin them." },
         { id = "h_familiars", when = { questActive = TODO_QUEST("Vile Familiars") },
-          text = "Imps. The Blade's pets. They swarm the north end of the valley. Kill them before they set the scrub alight." },
+          text = "The Blade's pet imps swarm the north end of the valley. Kill them before they set the scrub alight." },
         { id = "h_medallion", tags = { "news" }, when = { questActive = TODO_QUEST("Burning Blade Medallion") },
           text = "Their leader in the coven wears a medallion. Bring it to me. I want to see whose mark is on it." },
         { id = "h_senjin", when = { questActive = TODO_QUEST("Report to Sen'jin Village") },
-          text = "Your time in the valley is done. Go south to Sen'jin and find Master Gadrin. Try not to embarrass us." },
+          text = "Your time in the valley is done. Go south to Sen'jin and find Master Gadrin, and try not to embarrass us." },
       },
       choices = {
         { text = "Who are the Burning Blade?", next = "blade" },
@@ -147,7 +147,7 @@ P:NPC {
 
   topics = {
     burning_blade = { { id = "tp_blade", text = "They hide in caves because they know what we'd do to them in daylight." } },
-    _none = { { id = "tp_none", text = "I don't know. I know the Blade. Ask me about them." } },
+    _none = { { id = "tp_none", text = "I don't know, but I know the Blade, so ask me about them." } },
   },
 }
 
@@ -158,7 +158,7 @@ P:NPC {
   notices = { "idle" },
 
   greetings = {
-    { id = "g_peon", text = "You! Are you a peon? No? Good. I have plenty of those, and they're all asleep." },
+    { id = "g_peon", text = "You! You're not a peon, are you? Good, because I have plenty of those, and they're all asleep." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, the one who can stay awake. A rare sight." },
   },
 
@@ -172,12 +172,12 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Foreman Thazz'ril. My peons are meant to be gathering lumber. Mostly they're gathering naps." },
+          text = "I'm Foreman Thazz'ril. My peons are meant to be gathering lumber, but mostly they're gathering naps." },
         { id = "h_lazy", tags = { "news" }, when = { questActive = TODO_QUEST("Lazy Peons") },
           text = "Take this blackjack. Find a sleeping peon, give him a tap, and watch him remember he has a job." },
         { id = "h_pick", when = { questActive = TODO_QUEST("Thazz'ril's Pick") },
-          text = "I left my pick in the coven while I was surveying. Enchanted, it is. Don't let those cultists keep it." },
-        { id = "h_peons", when = { metBefore = true }, text = "Found three peons asleep in the mine cart this morning. In the cart. Moving. I don't know how. I'm almost impressed." },
+          text = "I left my pick in the coven while I was surveying, and it's enchanted, so don't let those cultists keep it." },
+        { id = "h_peons", when = { metBefore = true }, text = "I found three peons asleep in the mine cart this morning, in the cart, while it was moving. I don't know how they managed it, and I'm almost impressed." },
       },
       choices = {
         { text = "Why not let them rest?", next = "rest" },
@@ -185,13 +185,13 @@ P:NPC {
       },
     },
     rest = {
-      lines = { { id = "r_default", text = "Rest? Orgrimmar's walls won't build themselves. Well, they will, if the peons build them. That's the problem." } },
+      lines = { { id = "r_default", text = "Rest? Orgrimmar's walls won't build themselves. Well, they will if the peons build them, and that's the problem." } },
       choices = { { text = "Ha.", next = "END", fx = { affinity = 1 } } },
     },
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Don't ask me. Ask a peon. Wake him up first." } },
+    _none = { { id = "tp_none", text = "Don't ask me; ask a peon, and wake him up first." } },
   },
 }
 
@@ -202,7 +202,7 @@ P:NPC {
   notices = { "hunger" },
 
   greetings = {
-    { id = "g_cook", text = "Hungry? Of course you are. Everyone in this valley is hungry." },
+    { id = "g_cook", text = "Hungry? Of course you are; everyone in this valley is hungry." },
     { id = "g_back", when = { metBefore = true }, text = "Here for seconds? Help me with thirds and we'll talk." },
   },
 
@@ -216,7 +216,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Galgar. I feed the Den. Recruits, grunts, peons. Nobody thanks the cook, but everybody notices when the pot's empty." },
+          text = "I'm Galgar, and I feed the Den: recruits, grunts and peons alike. Nobody thanks the cook, but everybody notices when the pot's empty." },
         { id = "h_apples", tags = { "news" }, when = { questActive = TODO_QUEST("Galgar's Cactus Apple Surprise") },
           text = "Cactus apples, from the plants around the valley. It's an easy job. I make it easy on purpose; you'll get harder ones soon enough." },
         { id = "h_recipe", when = { metBefore = true }, text = "Scorpid tail, fried, with a pinch of cactus. Don't make that face. You'll be asking for it by next week." },
@@ -233,7 +233,7 @@ P:NPC {
     },
     cook = {
       lines = {
-        { id = "c_camp", text = "In the camps. You learn to make something out of nothing, or you starve. Out here we've got scorpids. That's not nothing. That's practically a feast." },
+        { id = "c_camp", text = "In the camps, where you learn to make something out of nothing or you starve. Out here we've got scorpids, and that's not nothing; that's practically a feast." },
       },
       choices = { { text = "I'll try the scorpid.", next = "END", fx = { affinity = 2 } } },
     },
@@ -251,12 +251,12 @@ P:NPC {
   notices = { "kit" },
 
   greetings = {
-    { id = "g_shop", text = "Weapons. Repairs. Pick one, pay, move along." },
+    { id = "g_shop", text = "Weapons or repairs, so pick one, pay, and move along." },
   },
 
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
-      text = "Look at the state of that. Hand it over. No, I'm not doing it for free." },
+      text = "Look at the state of that. Hand it over, and no, I'm not doing it for free." },
   },
 
   start = "hello",
@@ -264,10 +264,10 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Kzan Thornslash. I keep the recruits armed. They keep dropping their weapons in the scrub. One of those jobs is harder than the other." },
+          text = "I'm Kzan Thornslash, and I keep the recruits armed while they keep dropping their weapons in the scrub. One of those jobs is harder than the other." },
         { id = "h_weapons", tags = { "news" }, when = { questActive = TODO_QUEST("Wayward Weapons") },
           text = "Gornek sent you about the training weapons? Good. Bring me six and I'll mend them for the next lot of recruits." },
-        { id = "h_edge", when = { metBefore = true }, text = "You're back. Blade still in one piece? Good. Means you're using the edge and not the flat." },
+        { id = "h_edge", when = { metBefore = true }, text = "You're back, and the blade's still in one piece? Good. That means you're using the edge and not the flat." },
       },
       choices = { { text = "I'll find them.", next = "END" } },
     },
