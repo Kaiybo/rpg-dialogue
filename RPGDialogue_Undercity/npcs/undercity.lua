@@ -14,7 +14,7 @@ P:NPC {
   greetings = {
     { id = "g_queen", text = "Before you stands the Dark Lady. Kneel if you like; I won't insist, not today." },
     { id = "g_forsaken", when = { race = "Scourge" }, text = "One of my own. You were taken, and you took yourself back; never forget that, because I don't." },
-    { id = "g_back", when = { metBefore = true }, text = "You return to me. Speak, then; I have little patience, but I have a great deal of time." },
+    { id = "g_back", when = { metBefore = true }, text = "Back once more? Speak, then; I have little patience, but I have a great deal of time." },
   },
 
   notice = {
