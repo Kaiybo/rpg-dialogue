@@ -114,3 +114,11 @@ P:Claim {
   truthNote = "Wiley's Note (Classic): goblins built the metal monsters for the Defias to prey on farmers' superstitions. Galiaan can't prove it; Saldean doesn't know.",
   exposedBy = { "gryan.wt_default" },
 }
+
+-- Western Plaguelands
+P:Claim {
+  id = "barov_heir", by = "weldon", truth = "disputed",
+  text = "The Barov family fortune belongs to me, not my brother.",
+  truthNote = "Weldon (living, at Chillwind Camp) and Alexi (Forsaken, at the Bulwark) each claim the four deeds and send adventurers for the other's head (Barov Family Fortune, The Last Barov; warcraft.wiki.gg). Neither has a better right in canon; left open.",
+  open = true,
+}

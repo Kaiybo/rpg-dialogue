@@ -1,0 +1,17 @@
+## Interface: 16001, 16002
+## Title: RPG Dialogue: Western Plaguelands |cff8a8a8a1.0.0|r
+## Notes: Chillwind Camp and the Bulwark: two walls against the dead, two brothers who want each other's heads, and the ghosts on the farms who still haven't heard the war is lost.
+## Author: RPG Dialogue
+## Version: 1.0.0
+## Dependencies: RPGDialogue
+## LoadOnDemand: 1
+## X-RPGD-Pack: rpgd.westernplaguelands
+## X-RPGD-Format: 1
+## X-RPGD-Load: zone
+## X-RPGD-Zones: Western_Plaguelands, Tirisfal_Glades
+
+pack.lua
+pools.lua
+npcs\chillwind.lua
+npcs\bulwark.lua
+npcs\wilds.lua

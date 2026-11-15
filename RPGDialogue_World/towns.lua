@@ -458,6 +458,20 @@ P:Town {
   quests = { { TODO_QUEST("The Argent Hold"), 6 }, { TODO_QUEST("Lord Maxwell Tyrosus"), 2 } },
 }
 
+P:Town {
+  id = "chillwind_camp", name = "Chillwind Camp",
+  subzones = { "Chillwind Camp" },
+  tiers = { Hero = "Hero of Chillwind" },
+  quests = { { TODO_QUEST("Clear the Way"), 2 }, { TODO_QUEST("Return to Chillwind Camp"), 3 } },
+}
+
+P:Town {
+  id = "bulwark", name = "The Bulwark",
+  subzones = { "The Bulwark" },
+  tiers = { Hero = "Keeper of the Wall" },
+  quests = { { TODO_QUEST("Scarlet Diversions"), 3 }, { TODO_QUEST("Return to the Bulwark"), 3 } },
+}
+
 -- The other capitals. Their guards speak from pools_roles.lua; standing grows from quests
 -- each capital's own pack lists later.
 P:Town {

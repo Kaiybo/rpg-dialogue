@@ -117,3 +117,8 @@ P:Topic { id = "silithid", keywords = { "silithid" }, name = "The silithid", cat
 P:Topic { id = "fel_moss", keywords = { "Fel Moss" }, name = "Fel Moss", category = "threats", learned = "Melithar, Athridas, Terenthis or Thundris" }
 P:Topic { id = "furbolgs", keywords = { "furbolg" }, name = "The furbolgs", category = "threats", learned = "Athridas, Thundris or Raene" }
 P:Topic { id = "dark_strand", keywords = { "Dark Strand" }, name = "The Dark Strand", category = "threats", learned = "Delgren the Purifier at Maestra's Post" }
+
+-- Western Plaguelands (Western Plaguelands pack)
+P:Topic { id = "plague_cauldrons", name = "The plague cauldrons", category = "threats", learned = "High Priestess MacDonnell at Chillwind Camp, or Shadow Priestess Vandis at the Bulwark" }
+P:Topic { id = "andorhal", name = "Andorhal", category = "places", learned = "Commander Valorfist or High Executor Derrington" }
+P:Topic { id = "scholomance", name = "The Scholomance", category = "places", learned = "Alchemist Arbington or Apothecary Dithers" }
