@@ -13,7 +13,7 @@ P:Pool {
   },
   notice = {
     { id = "n_nelf", cat = "race", when = { race = "NightElf" },
-      text = "Ishnu-alah, sister of the night. You'll feel it here, I think: the old grief in the stones, and the pride that caused it." },
+      text = "Ishnu-alah, {g:brother|sister} of the night. You'll feel it here, I think: the old grief in the stones, and the pride that caused it." },
     { id = "n_horde", cat = "faction", when = { faction = "Horde" },
       text = "The tauren vouches for the peace in this camp, so it holds for you too. Give me no reason to end it." },
     { id = "n_skyborne", cat = "race", when = { race = "Skyborne" },

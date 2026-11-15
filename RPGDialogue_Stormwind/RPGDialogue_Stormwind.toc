@@ -26,3 +26,6 @@ npcs\keep.lua
 npcs\mage_quarter.lua
 npcs\dwarven_district.lua
 npcs\park.lua
+npcs\trade_district.lua
+npcs\old_town.lua
+npcs\canals.lua

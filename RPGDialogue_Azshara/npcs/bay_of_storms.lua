@@ -257,7 +257,7 @@ P:NPC {
         { id = "h_felbane", when = { questActive = TODO_QUEST("The Formation of Felbane") },
           text = "Galvan the Ancient will forge the rest, in his camp near Zul'Gurub. He can work fel energy into steel, which very few smiths in this world can do, and fewer would admit to." },
         { id = "h_warm", when = { disposition = { min = 70 } },
-          text = "You. Good. Of all the mortals who have stumbled onto this island, you are the one I would least like to see die, so try not to." },
+          text = "You again, and I find I am glad of it. Of all the mortals who have stumbled onto this island, you are the one I would least like to see die, so try not to." },
       },
       again = {
         { id = "h_again", text = "What else? Be quick; the tide is turning, and what it brings in does not wait." },
@@ -411,6 +411,8 @@ P:NPC {
     satyrs = { { id = "tp_satyr", text = "Elves who sold themselves to demons and got horns and hooves in exchange. A poor bargain; I've made better." } },
     highborne = { { id = "tp_hb", text = "The fools who opened the door. Their ghosts still hunger for magic, which is how the door stays open." } },
     queen_azshara = { { id = "tp_queen", text = "She is not dead, mortal. I would stake my hounds on it. Something waits under this sea." } },
+    burning_legion = { { id = "tp_legion", text = "They were beaten, not destroyed, and they remember every insult. I have spent my life making sure they remember me too." } },
+    tainted_scar = { { id = "tp_scar", text = "Where Kazzak licks his wounds and Razelikh keeps his master's house. I will not go there, and neither should you, until you carry the name.", next = "razelikh" } },
     _none = { { id = "tp_none", text = "That is not a demon, so it does not concern me." } },
   },
 }

@@ -203,7 +203,7 @@ P:NPC {
     priest_path = {
       lines = { { id = "pp_default", text = "Then walk the divine path with me. The coursers first, then the ichor, then the drake; it will take you from this cliff to the swamps of the east, and the salve will remember every step." } },
       choices = {
-        { text = "I'm ready.", next = "BACK", fx = { standing = { talrendis_point = 1 } },
+        { text = "I'm ready.", next = "BACK", fx = { affinity = 1 },
           journal = { first = "Ogtinc of the Cenarion Circle asked a priest's help to make a salve for Felwood. I agreed to walk the path with him.",
                       third = "{name} agreed to help Ogtinc of the Cenarion Circle make a salve to heal Felwood." } },
         { text = "Something else.", next = "BACK" },
@@ -323,7 +323,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Psst! Over here, before the elves see you! Business opportunity!" },
+    { id = "g_default", text = "Psst! Over here, before the elves see you; I've got a business opportunity with your name on it!" },
     { id = "g_back", when = { metBefore = true }, text = "My favourite employee! Back for more profitable danger?" },
   },
 

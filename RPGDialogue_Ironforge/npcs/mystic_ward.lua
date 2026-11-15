@@ -426,10 +426,10 @@ P:NPC {
   },
 
   notice = {
-    { id = "n_priest_weary", cat = "weary", when = { class = "PRIEST", health = { max = 0.5 } },
-      text = "Ye've been givin' it all away again, haven't ye? Sit a moment before ye train; the Light'll wait for a priest tae catch her breath." },
-    { id = "n_weary", cat = "weary", when = { health = { max = 0.4 } },
-      text = "Ye're hurt, an' worse than ye're lettin' on. Let me see tae that first, an' then we'll talk about whatever ye came for." },
+    { id = "n_priest_weary", cat = "weary", when = { class = "PRIEST", resSick = true },
+      text = "Ye've been givin' it all away again, haven't ye, an' come back from the edge for it? Sit a moment before ye train; the Light'll wait for a priest tae catch her breath." },
+    { id = "n_weary", cat = "weary", when = { resSick = true },
+      text = "Ye've the grey look o' someone the spirit healer sent back, an' no' long ago. Sit by the brazier a while, an' then we'll talk about whatever ye came for." },
   },
 
   start = "hello",
@@ -439,7 +439,7 @@ P:NPC {
         { id = "h_default", text = "Toldren Deepiron, at yer service. I teach the priests, but I'll help anyone who comes through that door, so tell me what ye need." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "I hope the Light is wi' ye, {name}. Is there anythin' I can do for ye today, besides the trainin'? Ye look like there might be." },
-        { id = "h_night", when = { time = "night" },
+        { id = "h_night", when = { timeOfDay = "night" },
           text = "Late tae be up, but the Hall never really closes. The lamps burn all night for the ones who cannae sleep, an' there are always a few." },
       },
       again = {

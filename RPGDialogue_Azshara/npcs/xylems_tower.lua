@@ -288,8 +288,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Another pilgrim to my master's door. How dreary." },
-    { id = "g_back", when = { metBefore = true }, text = "You again, and in the same dreadful clothes. Remarkable." },
+    { id = "g_default", text = "Another pilgrim at my master's door, and how dreary you all are." },
+    { id = "g_back", when = { metBefore = true }, text = "You again, and wearing the same dreadful clothes, which is almost impressive." },
   },
 
   notice = {
@@ -298,7 +298,7 @@ P:NPC {
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
       text = "A mage, here to grovel for lessons. My master will love you; he adores an audience." },
     { id = "n_kit", cat = "kit", when = { nearlyNaked = true },
-      text = "You've come to see the Archmage dressed like that? Bold. Foolish, but bold." },
+      text = "You've come to see the Archmage dressed like that? That's bold, in the way that falling off a cliff is bold." },
   },
 
   start = "hello",

@@ -15,3 +15,7 @@ npcs\magni.lua
 npcs\ironforge_folk.lua
 npcs\ironforge_court.lua
 npcs\dunmorogh.lua
+npcs\mystic_ward.lua
+npcs\military_ward.lua
+npcs\tinker_town.lua
+npcs\commons.lua

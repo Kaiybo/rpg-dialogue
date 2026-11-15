@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Lok'tar. Another blade for Valormok, and not a moment too soon." },
+    { id = "g_default", text = "Lok'tar. Valormok can use another blade, and you've not come a moment too soon." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, {class}. The camp's still standing, more or less." },
     { id = "g_avenged", when = { questDone = TODO_QUEST("Betrayed") }, text = "There's the one who brought me the elf's head! Sit by my fire whenever you like." },
   },

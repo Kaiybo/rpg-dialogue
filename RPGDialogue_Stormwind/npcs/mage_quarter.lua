@@ -487,7 +487,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", text = "Spackle Thornberry, purveyor of fine grimoires! Each one teaches a demon a new trick, which I'm sorry to say is only of any use to warlocks, but I'll happily talk about them to anyone." },
-        { id = "h_morzul", key = true, tags = { "news" }, when = { class = "WARLOCK", minLevel = 60, questBefore = TODO_QUEST("Mor'zul Bloodbringer") },
+        { id = "h_morzul", key = true, tags = { "news" }, when = { class = "WARLOCK", minLevel = 60 },
           text = "Your mastery over the denizens of other worlds has grown very strong, and I think you're ready to bind a dreadsteed. Speak to Mor'zul Bloodbringer, at the Altar of Storms in the Burning Steppes, and bring plenty of gold." },
         { id = "h_morzul_done", when = { questDone = TODO_QUEST("Mor'zul Bloodbringer") },
           text = "Did you meet Mor'zul? Charming fellow, in an orcish sort of way. Whatever he asks of you, it'll cost blood, sweat and a great deal of money, and it's worth every bit." },

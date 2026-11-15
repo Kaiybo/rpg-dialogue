@@ -21,3 +21,4 @@ npcs\jitters.lua
 npcs\sven.lua
 npcs\abercrombie.lua
 npcs\darkshire_folk.lua
+npcs\darkshire_more.lua
