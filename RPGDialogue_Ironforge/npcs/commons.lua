@@ -34,7 +34,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Thorius, curator o' the Ironforge museum, at yer service! Every piece in this hall has a story, an' I know all o' them, so mind ye don't ask unless ye've an afternoon tae spare." },
         { id = "h_horn", tags = { "news" }, when = { questActive = TODO_QUEST("Proof of Deed") },
-          text = "What's this ye've brought? Oh my, I don't believe it; that's the horn o' Margol the Rager, the bane o' every archaeologist who ever set foot in the Searing Gorge! May I keep it?" },
+          text = "What's this ye've brought? Great stones, that's Margol the Rager's horn, the beast that's chased every digger out o' the Searing Gorge for years! Could the museum keep it?" },
         { id = "h_letter", tags = { "news" }, when = { questActive = TODO_QUEST("Suntara Stones") },
           text = "A letter, singed, wi' my brother's hand on it. Give it here; I'll read it sittin' down, if ye don't mind." },
         { id = "h_vow", tags = { "news" }, when = { questRecent = { TODO_QUEST("Suntara Stones"), days = 4 } },
@@ -148,7 +148,7 @@ P:NPC {
 
   impression = {
     first = "Librarian Mae Paledust believes that studying the past is how you brace for the future. She speaks quietly, as librarians do, and finds a book for every question.",
-    third = "{name} met Librarian Mae Paledust of the Explorers' League, who keeps the Library in the Hall of Explorers.",
+    third = "{name} met Librarian Mae Paledust of the Explorers' League, who keeps the Explorers' library in Ironforge.",
   },
 
   greetings = {
@@ -260,7 +260,7 @@ P:NPC {
 
   impression = {
     first = "Historian Karnik had no time for meaningless questions until I mentioned Uldaman, and then he had all the time in the world. He grieves his partner Hammertoe and hides it behind work.",
-    third = "{name} met Historian Karnik of the Explorers' League, who studies Uldaman from the Library in the Hall of Explorers.",
+    third = "{name} met Historian Karnik of the Explorers' League, who studies Uldaman from the League's library in Ironforge.",
   },
 
   greetings = {
@@ -279,7 +279,7 @@ P:NPC {
       lines = {
         { id = "h_default", text = "Karnik, historian o' the Explorers' League. I'm truly sorry, but I've a great deal o' work an' very little patience, so tell me what ye need, an' tell me quickly." },
         { id = "h_amulet", tags = { "news" }, when = { questActive = TODO_QUEST("Prospect of Faith") },
-          text = "That's Hammertoe's amulet. Oh, this is a different matter entirely; if he sent ye wi' it, then he knew what was at stake, an' we'll have tae mourn him later." },
+          text = "That's Hammertoe's amulet. Then this changes everythin'; if he sent ye wi' it, then he knew what was at stake, an' we'll have tae mourn him later." },
         { id = "h_belgrum", tags = { "news" }, when = { questActive = TODO_QUEST("Passing Word of a Threat") },
           text = "Find Advisor Belgrum, give him my note, an' tell him what ye saw. I'll speak tae Hammertoe's spirit in the meantime, for he may know somethin' that'll stop the Shadowforge." },
         { id = "h_infernus", tags = { "news" }, when = { questActive = TODO_QUEST("An Ambassador of Evil") },
@@ -411,9 +411,9 @@ P:NPC {
       lines = {
         { id = "h_default", text = "Belgrum, advisor tae King Magni Bronzebeard. I carry the King's word where he cannae carry it himself, which is most places, for he's a busy dwarf." },
         { id = "h_note", tags = { "news" }, when = { questActive = TODO_QUEST("Passing Word of a Threat") },
-          text = "Word from Historian Karnik? Excellent; I always have time for his business. Let me read it." },
+          text = "A note from Karnik? Good; his notes go tae the top o' the pile. Let me read it." },
         { id = "h_tidings", tags = { "news" }, when = { questDone = TODO_QUEST("Passing Word of a Threat") },
-          text = "Och, those were evil tidings Karnik sent. Tell him on the King's authority tae act swiftly; the Shadowforge must be halted in the Badlands." },
+          text = "Och, those were evil tidings Karnik sent. Go back tae him an' say the King's authority is behind him, so he's tae act swiftly; the Shadowforge must be halted in the Badlands." },
         { id = "h_tablet", tags = { "news" }, when = { questActive = TODO_QUEST("The Lost Tablets of Will") },
           text = "Hammertoe's quest is still unfulfilled. Find the Tablet o' Will in Uldaman before the Shadowforge do, for I owe him that much, an' so does Ironforge." },
         { id = "h_tablet_done", when = { questDone = TODO_QUEST("The Lost Tablets of Will") },
@@ -539,11 +539,11 @@ P:NPC {
       lines = {
         { id = "h_default", text = "Marblesten, Grand Mason o' Ironforge. If it's stone an' it's standin' in this city, chances are I carved it, or I've complained about whoever did." },
         { id = "h_tribute", tags = { "news" }, when = { questActive = TODO_QUEST("A King's Tribute") },
-          text = "So King Magni himself sent ye? My, my, this must be important! A memorial tae a soldier called Sully Balloo, ye say, who died at the Thandol Span?" },
+          text = "The King sent ye himself? Well, well, then it's no' a small job! A memorial tae a soldier called Sully Balloo, ye say, who died at the Thandol Span?" },
         { id = "h_granite", tags = { "news" }, when = { questObjective = { TODO_QUEST("A King's Tribute"), left = { min = 1 } } },
           text = "Tell me ye've enough Alterac granite for me tae begin. Darrow Hill in Hillsbrad has the finest stone in the north, an' I'll have nothin' less for this." },
         { id = "h_done", when = { questDone = TODO_QUEST("A King's Tribute") },
-          text = "The memorial came out quite well, if I say so myself, an' I do. Such fine stone comes from Lordaeron, an' such a shame the land's in such shambles." },
+          text = "The memorial's finished, an' it's some o' my best work, if I say so myself, an' I do. Lordaeron gives the finest stone there is, an' it's a pity the land's in ruins." },
       },
       again = {
         { id = "h_again", text = "What else? I've a block coolin' an' a chisel itchin'." },
@@ -596,7 +596,7 @@ P:NPC {
 
     memorials = {
       lines = {
-        { id = "me_default", text = "More than I'd like. Bah, will there ever be peace on Azeroth? I'd give my best chisel tae spend a year carvin' fountains an' doorways an' nothin' wi' a name on it." },
+        { id = "me_default", text = "More than I'd like. Bah, does the fightin' never stop? I'd give my best chisel tae spend a year carvin' fountains an' doorways an' nothin' wi' a name on it." },
       },
       choices = {
         { text = "Peace has to be fought for.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -711,7 +711,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_voice", text = "Keep yer voice down, the guards may hear ye. Now, wut is it?" },
+    { id = "g_voice", text = "Quietly, now, for the guards have big ears. Wut is it?" },
     { id = "g_rogue", when = { class = "ROGUE" }, text = "Ah, one o' Blackbeard's chosen few! Come in, an' shut the door, an' check it's shut." },
   },
 
@@ -728,7 +728,7 @@ P:NPC {
       lines = {
         { id = "h_default", text = "Hulfdan Blackbeard, an' this is the Hidden Circle, though if ye tell anyone it's here, it'll no' be hidden, will it? Speak up, but no' too loud." },
         { id = "h_salvation", tags = { "news" }, when = { questActive = TODO_QUEST("Road to Salvation") },
-          text = "So ye think ye're a right scoundrel, destined tae be one o' Blackbeard's chosen? Only a good-fer-nothin' scallywag would think so highly o' hisself, an' that's exactly wut we're lookin' fer." },
+          text = "Hogral sent ye, an' ye fancy yerself a proper rogue, one o' Blackbeard's own? Only a worthless scallywag would think so much o' himself, an' worthless scallywags are just wut the Circle needs." },
         { id = "h_shakedown", tags = { "news" }, when = { questActive = TODO_QUEST("Kingly Shakedown") },
           text = "Magni's blockheads came bargin' in here talkin' about a heist, an' somehow yer name got blurted out. Take the first gryphon tae Stormwind an' find Renzik 'The Shiv' in Old Town, an' don't dawdle." },
         { id = "h_rogue", when = { class = "ROGUE" },
@@ -786,7 +786,7 @@ P:NPC {
 
     heist = {
       lines = {
-        { id = "he_default", text = "Wut heist? There's no heist. We were plottin' out phase three o' somethin' entirely legal when a couple o' the King's guards came in an' started arrestin' folk, an' nobody puts the iron on old Blackbeard." },
+        { id = "he_default", text = "Wut heist? There's no heist. We were plottin' out phase three o' somethin' entirely legal when a couple o' the King's guards came in an' started arrestin' folk, an' nobody claps irons on Hulfdan Blackbeard." },
       },
       choices = {
         { text = "Phase three of what, exactly?", next = "heist_phase" },

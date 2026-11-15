@@ -16,8 +16,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_stand", text = "Yes, yes, what can I do for you? I have the time, since all I do is stand here while our beloved city lies in a cloud of poison." },
-    { id = "g_eng", when = { profession = "Engineering" }, text = "An engineer! It's always a good day to see another engineer, even when it's a terrible day." },
+    { id = "g_stand", text = "Yes, yes, how may I help? I've nothing but time, standing about in Tinker Town while our dear city sits under its green poison cloud." },
+    { id = "g_eng", when = { profession = "Engineering" }, text = "An engineer! Seeing a fellow engineer brightens even a terrible day, and they're all terrible lately." },
   },
 
   notice = {
@@ -172,13 +172,13 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Castpipe, Master Mechanic. I'm organizing data extraction missions into Gnomeregan, and if you're here for that, listen closely, because the procedure is complicated." },
+          text = "Castpipe, Master Mechanic. I'm sending teams back into Gnomeregan to recover our lost data, and if you've come to join one, listen closely, because the procedure is complicated." },
         { id = "h_task", tags = { "news" }, when = { questActive = TODO_QUEST("Castpipe's Task") },
           text = "You came! The Assembly told you it was important, I suppose, and for once they've undersold it. Let me explain about the punch cards." },
         { id = "h_rescue", tags = { "news" }, when = { questActive = TODO_QUEST("Data Rescue") },
-          text = "Do you have the prismatic punch card? No? Then remember: white card, terminal A; yellow card, terminal B; then blue, then red, and the prismatic's deep in the city on the D." },
+          text = "Not back with the prismatic card yet? Then remember: white card, terminal A; yellow card, terminal B; then blue, then red, and the prismatic's deep in the city on the D." },
         { id = "h_done", tags = { "news" }, when = { questDone = TODO_QUEST("Data Rescue") },
-          text = "You found the prismatic card and recovered the data, vitally, critically, immeasurably important data! Gnomeregan will remember you, and so will I, every time I open the archive." },
+          text = "You found the prismatic card and brought back the data, data so important I haven't a big enough word for it! Gnomeregan will remember you, and so will I, every time I open the archive." },
         { id = "h_low", when = { maxLevel = 24 },
           text = "You're keen, I can see that, but Gnomeregan would eat you whole just now. Come back when you've a few more scars, and some friends who have more." },
       },
@@ -284,7 +284,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_day", text = "Good day, or morning, or evening; I can't tell from down here. Do you have business for me?" },
+    { id = "g_day", text = "Hello, whatever time of day it is up there; it's always the same down here. Have you brought me business?" },
     { id = "g_quest", text = "I'm on a quest! A quest for new alloys and harder metals for the greatest invention of all!" },
   },
 
@@ -302,11 +302,11 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Klockmort Spannerspan, smith and seeker! I'm on a quest for new alloys and harder metals for the greatest invention of all, and every bit of metal you bring me gets me a little closer." },
         { id = "h_notes", tags = { "news" }, when = { questActive = TODO_QUEST("Klockmort Spannerspan") },
-          text = "Notes? From Furen Longbeard? Oh my, give them here; these are incredible, these are stupendous, they make my knees go all a-wobbly!" },
+          text = "Notes? From Furen Longbeard? Oh my, give them here; these are marvelous, these are astounding, my knees have gone quite weak!" },
         { id = "h_coral", tags = { "news" }, when = { questActive = TODO_QUEST("Iron Coral") },
-          text = "Do you have the searing coral? It grows only along the coast south of Menethil Harbor, and I'm so eager to start that my toes are twisting." },
+          text = "Have you found the searing coral? It only grows in the shallows below Menethil Harbor, and I'm so eager to start that my toes are twisting." },
         { id = "h_gauntlets", tags = { "news" }, when = { questDone = TODO_QUEST("Klockmort's Creation") },
-          text = "How are the gauntlets? Furen's process worked brilliantly; you could run them over with a siege engine and they'd spring right back into shape. Please don't test that." },
+          text = "How are the gauntlets? Furen's process worked brilliantly; a siege engine could roll over them and they'd pop back into shape. Please don't test that." },
         { id = "h_artificials", tags = { "news" }, when = { questActive = TODO_QUEST("Essential Artificials") },
           text = "The essential artificials are in the deep parts of Gnomeregan, in big steam-powered cabinets called artificial extrapolators. Nobody thought to bring any when we fled, and now I need twelve." },
       },
@@ -373,7 +373,7 @@ P:NPC {
     },
     artificial_why = {
       lines = {
-        { id = "aw_default", text = "Experiments! Lots of them, and most will fail, which is the point of experiments. Whoever brings me twelve advances gnomish research by a leap and a bound." },
+        { id = "aw_default", text = "Experiments! Lots of them, and most will fail, which is the point of experiments. Whoever brings me twelve pushes gnomish research forward by miles." },
       },
       choices = {
         { text = "Science is worth the risk.", next = "BACK", fx = { align = { order = -1 }, trait = { brave = 1 } } },
@@ -434,7 +434,7 @@ P:NPC {
         { id = "h_day_after", tags = { "news" }, when = { questActive = TODO_QUEST("The Day After") },
           text = "Ozzie Togglevolt and Razzle are working on a cure in Kharanos, so go to them and tell them Gnoarn sent you. Perhaps it isn't too late to save the city." },
         { id = "h_bingles", tags = { "news" }, when = { questActive = TODO_QUEST("Find Bingles") },
-          text = "Bingles Blastenheimer was last seen flying over the Loch on reconnaissance, and he hasn't reported in over a week. I just know he's gone and blown himself up." },
+          text = "Bingles Blastenheimer went scouting over the Loch and hasn't reported for more than a week. I'd bet my last sprocket he's exploded himself again." },
         { id = "h_shoni", tags = { "news" }, when = { questActive = TODO_QUEST("Speak with Shoni") },
           text = "Shoni the Shilent commands our underground assault crew, down in Stormwind among the dwarves. She needs help with her gyrodrillmatic excavationators, and nobody can say that word but her." },
         { id = "h_bingles_done", when = { questDone = TODO_QUEST("Find Bingles") },
@@ -456,7 +456,7 @@ P:NPC {
 
     hair = {
       lines = {
-        { id = "ha_default", text = "You don't think I was always bald, do you? I had the only gnomefro in all of Azeroth, and the radiation leak took it in clumps, clusters, right there on the workshop floor." },
+        { id = "ha_default", text = "Did you think I was born this shiny? I wore the one and only gnomefro in Azeroth, and the radiation leak took it in clumps, clusters, right there on the workshop floor." },
       },
       choices = {
         { text = "Hair grows back.", next = "hair_back" },

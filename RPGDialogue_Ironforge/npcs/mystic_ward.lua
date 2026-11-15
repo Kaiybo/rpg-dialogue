@@ -130,7 +130,7 @@ P:NPC {
     },
     came_send = {
       lines = {
-        { id = "cs_default", text = "Humans I send down tae High Priestess Laurena in the Cathedral, an' night elves tae Priestess Alathea in their Temple o' the Moon. The dwarves I keep, for there are lessons that belong tae dwarves." },
+        { id = "cs_default", text = "Humans I send down tae the Cathedral, tae Laurena, who's High Priestess there, an' night elves tae Priestess Alathea in their Temple o' the Moon. The dwarves I keep, for there are lessons that belong tae dwarves." },
         { id = "cs_ne", when = { race = "NightElf" },
           text = "Alathea sends word for her people now an' then, an' Braenna catches most o' the messages, for she's quicker on the stairs than I am. Ye'll hear from Darnassus when ye're ready, never fear." },
       },
@@ -759,7 +759,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_cough", text = "*cough* Good day tae ya! Don't mind me wounds; the good priest 'ere'll sort ol' Muiredon out in time." },
+    { id = "g_cough", text = "*cough* Well met, friend! Pay nae heed tae the holes in me; this priest 'ere's patchin' ol' Muiredon up a stitch at a time." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? I'm mendin', thank ya, slower than I'd like an' faster than Tiza'd like." },
   },
 
@@ -776,7 +776,7 @@ P:NPC {
       lines = {
         { id = "h_default", text = "Muiredon Battleforge, Tiza's husband, an' presently the Hall's favorite pincushion. I had a wee disagreement wi' some Dark Irons, an' they won the first round." },
         { id = "h_symbol", tags = { "news" }, when = { questActive = TODO_QUEST("The Tome of Divinity"), class = "PALADIN" },
-          text = "So me wife sent ya o'er tae speak tae me, huh? Fair enough; I'll tell ya exactly wut happened tae Muiredon an' his best friend Narm." },
+          text = "Tiza's sent ya tae hear it from me, has she? Then sit, an' I'll tell ya the whole of it, about me an' Narm an' the Dark Irons." },
         { id = "h_symbol2", tags = { "news" }, when = { questActive = TODO_QUEST("The Symbol of Life") },
           text = "Narm needs help, an' I'll no' rest till he gets it, though the priest says I'll rest whether I like it or no'. Take the Symbol south o' Helm's Bed Lake, an' hurry." },
         { id = "h_narm_back", tags = { "news" }, when = { questDone = TODO_QUEST("The Symbol of Life") },
@@ -798,7 +798,7 @@ P:NPC {
     },
     lake = {
       lines = {
-        { id = "la_default", text = "We was spyin' on some Dark Irons that've bunkered down south o' the lake. We knew they was up tae no good, so Narm an' me crept closer an' saw their leader givin' orders tae his men." },
+        { id = "la_default", text = "There's a band o' Dark Irons dug in south o' the lake, an' Narm an' me reckoned they were plannin' mischief. So we crept up close, close enough tae watch their leader barkin' orders." },
       },
       choices = {
         { text = "What were they after?", next = "lake_after" },
@@ -817,7 +817,7 @@ P:NPC {
     },
     lake_why = {
       lines = {
-        { id = "lw_default", text = "Because we're daft, an' because it was a chance. We took a few o' them down, but they was tougher than we thought, an' more o' them got the jump on us." },
+        { id = "lw_default", text = "Because we're daft, an' because it was a chance. We dropped a few o' them, but they fought harder than we'd bargained for, an' then their friends came at us from behind." },
       },
       choices = {
         { text = "It was brave, and worth the risk.", next = "BACK", fx = { align = { honor = 1 }, trait = { brave = 1 } } },
@@ -887,12 +887,12 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Bink told me to befriend a mage, because mages have a trick or two up their sleeves. Judging by how fast she talks, she has several up each sleeve.",
+    first = "Bink told me to make friends with a mage, since a mage's sleeves are full of tricks. Judging by how fast she talks, she has several up each sleeve.",
     third = "{name} met Bink, a quick-talking gnome mage trainer in the Hall of Mysteries.",
   },
 
   greetings = {
-    { id = "g_advice", text = "Well met! Want some advice? Befriend a mage; we've a trick or two up our sleeves, we do." },
+    { id = "g_advice", text = "Well met! Here's free advice: make friends with a mage, because our sleeves are absolutely full of tricks." },
     { id = "g_mage", when = { class = "MAGE" }, text = "A mage! Come in, come in, mind the frost on the floor; that was a demonstration." },
   },
 
@@ -913,7 +913,7 @@ P:NPC {
         { id = "h_tabetha", tags = { "news" }, when = { questActive = TODO_QUEST("Tabetha's Task") },
           text = "Off to see Tabetha, are we? Her cottage is west of Theramore, past the Stonemaul ruins, and take friends, because Tabetha's errands tend to end in Zul'Farrak." },
         { id = "h_mage_high", when = { class = "MAGE", minLevel = 40 },
-          text = "Look at you, all grown up and crackling! There's a colleague of mine in Dustwallow Marsh, Tabetha, who has a bone to pick with a troll, and you might be just the mage to help her pick it." },
+          text = "Look at you, all grown up and crackling! There's a colleague of mine in Dustwallow Marsh, Tabetha, who's quarrelling with a troll down in Zul'Farrak, and you might be just the mage to help her win it." },
       },
       again = {
         { id = "h_again", text = "What else? Quickly, before the frost melts." },
@@ -983,7 +983,7 @@ P:NPC {
 
   impression = {
     first = "Milstaff Stormeye told me plainly that he doubted I had the mental acuity to grasp portal magic. He was so sure of it that I almost apologized.",
-    third = "{name} met Milstaff Stormeye, the gnome who teaches portal magic in the Hall of Mysteries and thinks very little of everyone else's.",
+    third = "{name} met Milstaff Stormeye, the gnome portal trainer of the Hall of Mysteries, who thinks very little of everyone else's.",
   },
 
   greetings = {

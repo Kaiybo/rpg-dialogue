@@ -175,7 +175,7 @@ P:NPC {
     draenethyst = { { id = "tp_draenethyst", text = "The crystal of my people. Find it, bring it, and take your junk.", next = "draenethyst" } },
     dark_portal = { { id = "tp_portal", text = "A door, and on the far side of it, everything I have lost. I look at it every day." } },
     burning_legion = { { id = "tp_legion", text = "Older than greed, and hungrier. Even I do not walk into the Scar." } },
-    _none = { { id = "tp_none", text = "Kum'isha does not care. Bring crystals or leave." } },
+    _none = { { id = "tp_none", text = "Kum'isha does not care, {race}, so bring crystals or leave." } },
   },
 }
 
@@ -325,7 +325,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Something else? Ask precisely, please; I find vague questions tiring." },
-        { id = "h_again2", text = "Go on, then. The basilisks will keep." },
+        { id = "h_again2", text = "Go on, then; the basilisks will keep for a little while." },
       },
       choices = {
         { text = "What's special about the basilisks?", next = "basilisks" },

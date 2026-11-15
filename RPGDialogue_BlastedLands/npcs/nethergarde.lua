@@ -1114,6 +1114,6 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I'm a dwarf wi' a hammer at the end o' a long road. Nothin' more to tell." } },
     advice = { { id = "tp_ad", text = "Oil yer buckles every night out here, or the dust will seize them by morning." } },
-    _none = { { id = "tp_none", text = "Don't know, don't care. Ask the Quartermaster." } },
+    _none = { { id = "tp_none", text = "Don't know, and don't much care, so ye'd best ask the Quartermaster upstairs." } },
   },
 }
