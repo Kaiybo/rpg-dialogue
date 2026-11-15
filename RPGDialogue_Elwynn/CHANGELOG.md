@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.11.0 (2026-11-15)
+- Brother Sammuel can tell when you've been arguing with the spirit healer.
+
 ## 1.10.0 (unreleased)
 - Depth rewrite for Northshire, Goldshire's named NPCs and seven class trainers: every conversation is now a hub with branches to explore and come back from. Marshal McBride (the garrison, Echo Ridge, who drills the Defias, Dughan), Marshal Dughan (a hub of Elwynn's threats: the mines and the Collector, Westbrook and Westfall, the murlocs and the lost footmen; the Stonemasons' ring after Manhunt) and Innkeeper Farley (his family, his brother Frandis lost on a caravan to Lordaeron, the messenger who fled into the rain) are the deepest.
 - Deputy Willem, Eagan Peltskinner (and his wife Helene's pelt orders), Brother Neals (the Abbey's wars, Medivh, the locked library wing), Milly Osworth, Remy, Melika, Brother Wilhelm, Llane Beshere, Brother Danil and Smith Argus (Verner's horseshoes) reach the standard too.

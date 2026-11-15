@@ -31,3 +31,6 @@
 ## Depth pass (0.24.0)
 Sourced: An'she and Mu'sha, the Earth Mother's eyes, Mu'sha the White Lady bringing sleep ([Earth Mother](https://warcraft.wiki.gg/wiki/Earth_Mother)); Skyborne druids favor the elements over Elune (brief §10).
 Authored, not canon: Turak was a hunter who put the bow down after a stag found him, and Hamuul found him a week later; Pala's lift-runners; Hamuul counts every young druid.
+
+## Western Plaguelands echo (Thunder Bluff 1.3.0, authored, not canon)
+- Hamuul knew Mulgris Deepriver went east to mend the Plaguelands (Mulgris is of the Cenarion Circle; their acquaintance is authored).

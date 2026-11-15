@@ -10,14 +10,14 @@ P:NPC {
 
   greetings = {
     { id = "g_barracks", text = "Speak quickly. Razor Hill has work, and work doesn't wait for conversation." },
-    { id = "g_back", when = { metBefore = true }, text = "You again. Report." },
+    { id = "g_back", when = { metBefore = true }, text = "Report, and keep it short." },
   },
 
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
-      text = "Your gear is falling off you. Fix it. A grunt who can't hold his armor together can't hold a line." },
+      text = "Your gear is falling off you, so fix it. A grunt who can't hold his armor together can't hold a line." },
     { id = "n_green", cat = "greenness", when = { maxLevel = 6 },
-      text = "Out of the valley and already at my door. Good. Don't think that makes you a veteran." },
+      text = "Out of the valley and already at my door. Good, but don't think that makes you a veteran." },
   },
 
   start = "hello",
@@ -27,11 +27,11 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Gar'Thok, commander of Razor Hill. I served under Nazgrel before this. Now I hold Durotar's crossroads, and I hold them well." },
         { id = "h_betrayers", tags = { "news" }, when = { questActive = TODO_QUEST("Vanquish the Betrayers") },
-          text = "Kul Tirans hold a keep on our coast. They call it a garrison. I call it a knife at our throat. Pull it out." },
+          text = "Kul Tirans hold a keep on our coast. They call it a garrison and I call it a knife at our throat, so pull it out." },
         { id = "h_orders", when = { questActive = TODO_QUEST("The Admiral's Orders") },
-          text = "Kul Tiran orders, taken off their own officers. These go to Orgrimmar, and quickly." },
+          text = "Get these Kul Tiran orders to Orgrimmar, and quickly; they were taken off their own officers." },
         { id = "h_encroach", when = { questActive = TODO_QUEST("Encroachment") },
-          text = "Quilboar out of the Barrens, pushing into Durotar. Push harder than they do." },
+          text = "Quilboar out of the Barrens are pushing into Durotar. Push harder than they do." },
         { id = "h_wreckage", when = { questActive = TODO_QUEST("From The Wreckage....") },
           text = "There's a wreck on the coast with things worth salvaging. Get there before the sea or the Kul Tirans do." },
       },
@@ -47,8 +47,8 @@ P:NPC {
   },
 
   topics = {
-    burning_blade = { { id = "tp_blade", text = "Orgnil's business. He's good at it. I give him whatever he asks for." } },
-    _none = { { id = "tp_none", text = "Not now. Ask Orgnil, or the innkeeper." } },
+    burning_blade = { { id = "tp_blade", text = "That's Orgnil's business, and he's good at it. I give him whatever he asks for." } },
+    _none = { { id = "tp_none", text = "Not now; ask Orgnil, or the innkeeper." } },
   },
 }
 
@@ -59,15 +59,15 @@ P:NPC {
   notices = { "class", "stealth" },
 
   greetings = {
-    { id = "g_watch", text = "Young orcs and trolls train here. Traders rest here. Nothing gets into Razor Hill that I don't allow." },
+    { id = "g_watch", text = "Young orcs and trolls train here, and traders rest here, and nothing gets into Razor Hill that I don't allow." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. Any word from the canyons?" },
   },
 
   notice = {
     { id = "n_warlock", cat = "class", when = { class = "WARLOCK" },
-      text = "A warlock. I'll be watching you, the way I watch every one of you. Don't take it personally. Take it seriously." },
+      text = "A warlock. I'll be watching you, the way I watch every one of you, so don't take it personally; take it seriously." },
     { id = "n_rogue", cat = "stealth", when = { class = "ROGUE" },
-      text = "Light on your feet. The Blade use people like you to carry their messages. Make sure you never carry one." },
+      text = "You're light on your feet, and the Blade use people like you to carry their messages. Make sure you never carry one." },
   },
 
   start = "hello",
@@ -75,11 +75,11 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Orgnil Soulscar. The Burning Blade crawl through Durotar like lice in a pelt. I find them, and I end them." },
+          text = "I'm Orgnil Soulscar. The Burning Blade crawl through Durotar like lice in a pelt, and I find them, and I end them." },
         { id = "h_report", when = { questActive = TODO_QUEST("Report to Orgnil") },
-          text = "Gadrin sent you. Good. The old witch doctor has an eye for the useful ones." },
+          text = "So Gadrin sent you. Good; the old witch doctor has an eye for the useful ones." },
         { id = "h_storms", tags = { "news" }, when = { questActive = TODO_QUEST("Dark Storms") },
-          text = "The cultists talk of storms. Not the kind that bring rain. Find out what they mean." },
+          text = "The cultists talk of storms, and not the kind that bring rain. Find out what they mean." },
       },
       choices = {
         { text = "Where do the Blade hide?", next = "hide" },
@@ -89,15 +89,15 @@ P:NPC {
     hide = {
       big = true,
       lines = {
-        { id = "hd_default", text = "Caves in the canyons. Under rocks, like scorpids. And sometimes inside the walls of cities, smiling at you. Those are the ones I'd most like to meet." },
+        { id = "hd_default", text = "In caves in the canyons, and under rocks like scorpids. Sometimes they hide inside the walls of cities, smiling at you, and those are the ones I'd most like to meet." },
       },
       choices = { { text = "Inside the cities?", next = "END", fx = { affinity = 1, trait = { skeptical = 1 }, learn = { "burning_blade" } } } },
     },
   },
 
   topics = {
-    burning_blade = { { id = "tp_blade", text = "They're orcs who chose the demons twice. Once might be forgiven. Twice, no." } },
-    _none = { { id = "tp_none", text = "Not my concern. The Blade is." } },
+    burning_blade = { { id = "tp_blade", text = "They're orcs who chose the demons twice. Once might be forgiven, but twice, never." } },
+    _none = { { id = "tp_none", text = "I hunt the Blade, and nothing else is my concern." } },
   },
 }
 
@@ -108,15 +108,15 @@ P:NPC {
   notices = { "weary", "drink" },
 
   greetings = {
-    { id = "g_inn", text = "Sit. Eat. Razor Hill is safe enough to sleep in, which is more than most of Durotar." },
-    { id = "g_home", when = { homeInn = { "Razor Hill" } }, text = "Your bed's where you left it. Scorpid-free, I checked." },
+    { id = "g_inn", text = "Sit and eat. Razor Hill is safe enough to sleep in, which is more than you can say for most of Durotar." },
+    { id = "g_home", when = { homeInn = { "Razor Hill" } }, text = "Your bed's where you left it, and it's scorpid-free; I checked." },
   },
 
   notice = {
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
       text = "You look like the spirit healer sent you back with a list of complaints. Sit down before you fall down." },
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
-      text = "That's enough for now. The grunts don't carry drunks home. They leave them for the scorpids." },
+      text = "That's enough for now. The grunts don't carry drunks home; they leave them for the scorpids." },
   },
 
   start = "hello",
@@ -124,18 +124,18 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Innkeeper Grosk. Bed, ale and a roof against the sun. Everything outside is rocks and scorpids." },
+          text = "I'm Grosk, the innkeeper. I've a bed, ale and a roof against the sun, and everything outside is rocks and scorpids." },
         { id = "h_burden", when = { questActive = TODO_QUEST("A Peon's Burden") },
           text = "That bundle is for the right hands only. Get it there, and don't let a peon sit on it." },
-        { id = "h_scorpid", when = { metBefore = true }, text = "Shook a scorpid out of the blankets this morning. Not yours. Probably not yours. Check anyway." },
-        { id = "h_night", when = { timeOfDay = "night" }, text = "Hear the grunts on the wall? Singing the old songs. Badly. I wouldn't change it for anything." },
+        { id = "h_scorpid", when = { metBefore = true }, text = "I shook a scorpid out of the blankets this morning. They weren't yours, probably, but check anyway." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "Hear the grunts on the wall, singing the old songs? They sing them badly, and I wouldn't change it for anything." },
       },
       choices = { { text = "Just a meal, thanks.", next = "END" } },
     },
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "I pour drinks. I don't keep track of things. Ask Gar'Thok." } },
+    _none = { { id = "tp_none", text = "I pour drinks; I don't keep track of things. Ask Gar'Thok." } },
   },
 }
 
@@ -148,12 +148,12 @@ P:NPC {
 
   greetings = {
     { id = "g_fire", text = "Throm-ka. Sit, if you're not in a hurry. If you are, sit anyway; the road will keep." },
-    { id = "g_back", when = { metBefore = true }, text = "The one who found my journal. Sit. The fire remembers you." },
+    { id = "g_back", when = { metBefore = true }, text = "The one who found my journal, welcome back! Sit down; the fire remembers you." },
   },
 
   notice = {
     { id = "n_cook", cat = "craft", when = { profession = "Cooking" },
-      text = "A cook. Then you can build a real campfire. Everything else in a camp is built around one." },
+      text = "A cook? Then you can build a real campfire, and everything else in a camp is built around one." },
   },
 
   start = "hello",
@@ -161,9 +161,9 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Brakk. I walk Durotar and camp wherever I stop. My journal says more about it than I do." },
+          text = "I'm Brakk. I walk Durotar and camp wherever I stop, and my journal says more about it than I do." },
         { id = "h_journal", tags = { "news" }, when = { questActive = TODO_QUEST("The Adventurer") },
-          text = "My journal! I thought the scorpids had it. Every camp I've ever made is written in there. You have my thanks." },
+          text = "My journal! I thought the scorpids had it. Every camp I've ever made is written in there, so you have my thanks." },
         { id = "h_outdoors", when = { questActive = TODO_QUEST("The Great Outdoors") },
           text = "Rest by the fire until your bones stop arguing with you. You'll know when." },
       },
@@ -179,7 +179,7 @@ P:NPC {
   },
 
   topics = {
-    camping = { { id = "tp_camping", text = "Fire first. Then whatever your trade adds: a tent, a rack for fish, a pot. The more hands, the better the rest." } },
+    camping = { { id = "tp_camping", text = "Fire first, and then whatever your trade adds: a tent, a rack for fish, a pot. The more hands, the better the rest." } },
     _none = { { id = "tp_none", text = "I only know the road and the fire. Ask in Razor Hill." } },
   },
 }

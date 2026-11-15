@@ -52,7 +52,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else? Be quick about it, mind, for the wall doesnae keep itself." },
         { id = "h_again2", text = "Go on, I'm listenin' wi' one ear, though the other's on the hills." },
-        { id = "h_again3", when = { timeOfDay = "night" }, text = "Ask away; I'm no' sleepin' till the watch changes anyway." },
+        { id = "h_again3", when = { timeOfDay = "night" }, text = "Ask what ye like. I'll be up on these walls till dawn either way." },
       },
       choices = {
         { text = "Who are the Dragonmaw?", next = "dragonmaw" },
@@ -1083,7 +1083,7 @@ P:NPC {
           text = "Busiest hour. Nobody in here is doing anything wrong. That's what I tell myself, and then I keep watching." },
       },
       again = {
-        { id = "h_again", text = "Something else? Keep your voice low, then." },
+        { id = "h_again", text = "Anything else, friend? Keep it quiet in here, if you please." },
         { id = "h_again2", text = "Go on. Eyes on the door while you talk, if you don't mind." },
       },
       choices = {

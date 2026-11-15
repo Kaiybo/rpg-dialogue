@@ -748,6 +748,37 @@ describe("Content packs", function()
     eq(ns.Data.PoolsFor(info, ctx)[1].pool.id, "sick_farholde")
   end)
 
+  it("Western Plaguelands loads at Chillwind Camp and in Tirisfal for the Bulwark; both camps' defenders are their guards", function()
+    local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_WesternPlaguelands" } })
+    Mock.state.zone, Mock.state.subzone = "Western Plaguelands", "Chillwind Camp"
+    Mock.Fire("ZONE_CHANGED_NEW_AREA")
+    Mock.RunTimers()
+    for _, p in ipairs(ns.Packs.List()) do
+      if p.id == "rpgd.westernplaguelands" then ok(p.loaded); eq(p.warnings, 0) end
+    end
+    eq(ns.Data.FindNPC(nil, "Commander Ashlam Valorfist").key, "valorfist")
+    eq(ns.Data.FindNPC(nil, "Alexi Barov").key, "alexi")
+    Mock.state.units.npc = { guid = "Creature-0-1-0-1-11194-AB", name = "Argent Defender", level = 60 }
+    local ctx = ns.Context.New({ unit = "npc" })
+    local info = ns.Conversation.Identify("npc", ctx)
+    eq(info.role, "guard")
+    eq(ns.Data.PoolsFor(info, ctx)[1].pool.id, "guard_chillwind")
+    Mock.state.zone, Mock.state.subzone = "Tirisfal Glades", "The Bulwark"
+    ctx = ns.Context.New({ unit = "npc" })
+    info = ns.Conversation.Identify("npc", ctx)
+    eq(ns.Data.PoolsFor(info, ctx)[1].pool.id, "guard_bulwark")
+  end)
+
+  it("Western Plaguelands loads in Tirisfal Glades too, for the Bulwark", function()
+    local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_WesternPlaguelands" } })
+    Mock.state.zone, Mock.state.subzone = "Tirisfal Glades", "The Bulwark"
+    Mock.Fire("ZONE_CHANGED_NEW_AREA")
+    Mock.RunTimers()
+    for _, p in ipairs(ns.Packs.List()) do
+      if p.id == "rpgd.westernplaguelands" then ok(p.loaded) end
+    end
+  end)
+
   it("Stranglethorn knows Nesingwary's camp and the rest of Booty Bay", function()
     local ns = Loader.Boot({ packs = { "RPGDialogue_World", "RPGDialogue_Stranglethorn" } })
     Mock.state.zone, Mock.state.subzone = "Stranglethorn Vale", "Nesingwary's Expedition"

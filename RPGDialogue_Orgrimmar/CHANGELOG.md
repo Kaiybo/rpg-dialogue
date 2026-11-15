@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.2.1 (unreleased)
+- Voice pass: Grommash Hold, the Cleft of Shadow and the Broken Tusk now talk in whole sentences instead of clipped fragments, each in their own voice (Thrall calm and honourable, Vol'jin's dropped verbs, Neeru's silk, Gryshka flustered about Zargh, Gamon's gentle resignation). Same lines, same facts, same conditions.
+
 ## 1.2.0 (unreleased)
 - Depth pass: repeat visits bring personal lines (habits, worries, running jokes), and some NPCs get night-time lines. Gryshka after Meats to Orgrimmar, Gamon.
 

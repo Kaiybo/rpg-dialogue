@@ -339,7 +339,7 @@ P:NPC {
         { id = "h_night", when = { timeOfDay = "night" }, text = "Tigers hunt at night, so I sleep in the day when I can. Hemet thinks it's lazy, but Hemet snores." },
       },
       again = {
-        { id = "h_again", text = "What else do you want to know?" },
+        { id = "h_again", text = "Anything else you'd like to know? I've a minute before the master needs me." },
         { id = "h_again2", text = "Ask away; I'm still restringing." },
       },
       choices = {

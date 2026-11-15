@@ -150,6 +150,8 @@ def main():
                 pools.append((pack, tbl, f, line))
                 for slot, node, ln, gid in P.iter_lines(tbl, "pool:" + str(tbl.get("id"))):
                     all_lines.setdefault(gid, (pack, f, ln))
+                    if ln.get("key"):
+                        key_lines[gid] = True
             elif kind == "Generic":
                 generic.append((pack, tbl, f, line))
             elif kind in defs:
@@ -344,35 +346,8 @@ def main():
         return [t for t in targets if t]
 
     # ---- pass 2: NPCs ------------------------------------------------------------------------
-    scaffolds = 0
-    for key, (pack, tbl, f, line) in sorted(npcs.items()):
-        where = key
-        if tbl.get("scaffold"):
-            # Made by tools/new_zone.py and not written yet. The game skips it (the NPC stays
-            # pooled), so only the header is checked.
-            scaffolds += 1
-            (rep.error if args.strict else rep.warn)(pack, f, line, f"{where}: scaffold, not written yet (remove scaffold = true when it is)")
-            for field in ("id", "name", "bible", "role"):
-                if tbl.get(field) is None:
-                    rep.error(pack, f, line, f"{where}: missing {field}")
-            if P.iter_lines(tbl, key) and any(True for _ in P.iter_lines(tbl, key)):
-                rep.warn(pack, f, line, f"{where}: has lines but is still marked scaffold, so the game ignores it")
-            continue
-        for field in ("id", "name", "bible", "role"):
-            if tbl.get(field) is None:
-                rep.error(pack, f, line, f"{where}: missing {field}")
-        check_ref(pack, f, line, "npc", tbl.get("id"), where)
-        if tbl.get("role") and tbl.get("role") not in P.ROLES:
-            rep.warn(pack, f, line, f"{where}: unusual role {tbl.get('role')!r}")
-        if tbl.get("tier") and tbl.get("tier") not in P.TIERS:
-            rep.error(pack, f, line, f"{where}: tier must be one of {sorted(P.TIERS)}")
-        if isinstance(tbl.get("bible"), str):
-            for prob in bible_problems(pack, tbl.get("bible")):
-                rep.error(pack, f, line, f"{where}: {prob}")
-        notices = set(P.arr(tbl.get("notices")))
-        ids = set()
-        for slot, node, ln, gid in P.iter_lines(tbl, key):
-            check_line(pack, f, ln, f"{where}" + (f".{node}" if node else ""), slot, ids, notices)
+    def check_tree(pack, f, line, where, tbl):
+        """Node graph checks for an NPC, or a pool that carries its own conversation tree."""
         nodes = tbl.get("nodes").named() if isinstance(tbl.get("nodes"), LTable) else {}
         start = tbl.get("start") or "hello"
         if nodes and start not in nodes:
@@ -433,6 +408,37 @@ def main():
             if nid not in can_exit:
                 rep.error(pack, f, nodes[nid].line, f"{where}.{nid}: no path from here to END or BUSINESS")
 
+    scaffolds = 0
+    for key, (pack, tbl, f, line) in sorted(npcs.items()):
+        where = key
+        if tbl.get("scaffold"):
+            # Made by tools/new_zone.py and not written yet. The game skips it (the NPC stays
+            # pooled), so only the header is checked.
+            scaffolds += 1
+            (rep.error if args.strict else rep.warn)(pack, f, line, f"{where}: scaffold, not written yet (remove scaffold = true when it is)")
+            for field in ("id", "name", "bible", "role"):
+                if tbl.get(field) is None:
+                    rep.error(pack, f, line, f"{where}: missing {field}")
+            if P.iter_lines(tbl, key) and any(True for _ in P.iter_lines(tbl, key)):
+                rep.warn(pack, f, line, f"{where}: has lines but is still marked scaffold, so the game ignores it")
+            continue
+        for field in ("id", "name", "bible", "role"):
+            if tbl.get(field) is None:
+                rep.error(pack, f, line, f"{where}: missing {field}")
+        check_ref(pack, f, line, "npc", tbl.get("id"), where)
+        if tbl.get("role") and tbl.get("role") not in P.ROLES:
+            rep.warn(pack, f, line, f"{where}: unusual role {tbl.get('role')!r}")
+        if tbl.get("tier") and tbl.get("tier") not in P.TIERS:
+            rep.error(pack, f, line, f"{where}: tier must be one of {sorted(P.TIERS)}")
+        if isinstance(tbl.get("bible"), str):
+            for prob in bible_problems(pack, tbl.get("bible")):
+                rep.error(pack, f, line, f"{where}: {prob}")
+        notices = set(P.arr(tbl.get("notices")))
+        ids = set()
+        for slot, node, ln, gid in P.iter_lines(tbl, key):
+            check_line(pack, f, ln, f"{where}" + (f".{node}" if node else ""), slot, ids, notices)
+        check_tree(pack, f, line, where, tbl)
+
     # ---- pools, generic, world definitions -------------------------------------------
     for pack, tbl, f, line in pools:
         pid = tbl.get("id")
@@ -446,9 +452,8 @@ def main():
         ids = set()
         for slot, node, ln, gid in P.iter_lines(tbl, where):
             check_line(pack, f, ln, where, slot, ids)
-        pool_nodes = tbl.get("nodes").named() if isinstance(tbl.get("nodes"), LTable) else {}
-        for nid, i, ch in P.iter_choices(tbl):
-            check_choice(pack, f, ch, f"{where}.{nid}.choice{i}", pool_nodes)
+        if isinstance(tbl.get("nodes"), LTable):
+            check_tree(pack, f, line, where, tbl)
     if not generic:
         rep.error(None, "(all packs)", None, "no Generic definitions loaded: some NPCs could be silent")
     for pack, tbl, f, line in generic:

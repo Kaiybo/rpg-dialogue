@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.0.2 (unreleased)
+- Voice pass: the High Elder, the Peacekeepers, the innkeepers and the cloth sellers of Zephras Isle now talk in whole sentences instead of clipped fragments, formal and measured the Skyborne way (Talaanis' weary, wry care; the Peacekeepers' dry duty). Same lines, same facts, same conditions.
+
 ## 1.0.1 (unreleased)
 - The High Elder's account of leaving Skywall is tighter.
 

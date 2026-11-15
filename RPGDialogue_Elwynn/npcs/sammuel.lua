@@ -68,6 +68,8 @@ P:NPC {
       big = true,
       lines = {
         { id = "l_default", text = "Mercy when it costs you, and courage when it doesn't pay. The rest is detail." },
+        { id = "l_healer", once = true, when = { heardLine = "pool:spirithealer.cg_default" },
+          text = "You've been arguing with the healer on the hill; you have the look of it. The Light won't settle that argument for you, but it will ask what you mean to do now that you're back." },
         { id = "l_shadow", when = { alignment = { axis = "light", max = -30 } },
           text = "You've walked some way from it already. The road back is shorter than you think." },
       },

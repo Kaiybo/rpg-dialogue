@@ -110,7 +110,7 @@ P:NPC {
       lines = {
         { id = "h_default", text = "John Turner, at your service. My wife Stephanie and I run the orphanage in Stormwind, and I come up to Ironforge every month to gather supplies. I'm usually here, mind; it's a long month." },
         { id = "h_stephanie", when = { heardLine = "stephanie.h_tome" },
-          text = "You've met Stephanie! How is she, and is she tired? She's always tired, poor thing, so tell her I'm close to a donation, as I always am." },
+          text = "You've met Stephanie! How is she, and is she tired? She's always tired, poor thing, so tell her I've nearly got the supplies together, as I always have." },
         { id = "h_dwarf", when = { race = "Dwarf" },
           text = "Your people are generous, once they've decided you're not a fool. It took them a year to decide about me, and I'm still not sure about some of them." },
         { id = "h_linen", tags = { "news" }, when = { questActive = TODO_QUEST("The Tome of Divinity"), race = "Dwarf" },

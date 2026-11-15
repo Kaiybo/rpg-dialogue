@@ -111,8 +111,8 @@ P:NPC {
     },
     watchers = {
       lines = {
-        { id = "wa_default", key = true, text = "They're machines, and machines don't wake up angry by themselves. Someone wound them up and set them loose on the farms, and I've a guess who, because the guess wears red.", fx = { hear = "watchers_set_loose" },
-          fx = { learn = { "harvest_watchers" } } },
+        { id = "wa_default", key = true, text = "They're machines, and machines don't wake up angry by themselves. Someone wound them up and set them loose on the farms, and I've a guess who, because the guess wears red.",
+          fx = { hear = "watchers_set_loose", learn = { "harvest_watchers" } } },
       },
       choices = {
         { text = "Can you prove it?", next = "watchers_proof" },
@@ -157,6 +157,6 @@ P:NPC {
       { id = "tp_watchers2", text = "Machines in a farmer's field. I've thoughts on that.", next = "watchers" },
     },
     people_militia = { { id = "tp_militia", text = "Farmers, mostly. I'm the one who tells them where not to walk." } },
-    _none = { { id = "tp_none", text = "If it's not on my map, it's not my business." } },
+    _none = { { id = "tp_none", text = "I wouldn't know. My business ends where the coast does." } },
   },
 }

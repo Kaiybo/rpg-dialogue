@@ -16,6 +16,7 @@ Copy these folders into `World of Warcraft/<your Forever folder>/Interface/AddOn
 - `RPGDialogue_Zephras`: Zephras Isle, home of the Skyborne
 - `RPGDialogue_Redridge`: Lakeshire and the Redridge Mountains
 - `RPGDialogue_Duskwood`: Darkshire, Raven Hill and the woods
+- `RPGDialogue_WesternPlaguelands`: Chillwind Camp (Alliance), the Bulwark (Horde, on the Tirisfal border) and the ghosts of the farms
 - `RPGDialogue_EasternPlaguelands`: Light's Hope Chapel (both factions), Tirion Fordring, the Marris Stead (Horde)
 - `RPGDialogue_SearingGorge`: Thorium Point (both factions)
 - `RPGDialogue_Riverglades`: Farholde Keep and the Brotherhood of the Horse (Alliance), Powderfuse Port (neutral)

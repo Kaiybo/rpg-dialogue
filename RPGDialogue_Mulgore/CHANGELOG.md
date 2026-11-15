@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.2.1 (unreleased)
+- Voice pass: Camp Narache, Bloodhoof Village and Camp Gev'rek now talk in whole sentences instead of clipped fragments, slow and deliberate the tauren way (Hawkwind's resolve, Baine's diplomacy, Zarlman's calm, Mull's worry, Ahab's fretting over Kyle, Ayessa's steadiness). Same lines, same facts, same conditions.
+
 ## 1.2.0 (unreleased)
 - Neighbours remark on each other: Kauth on Mull, Harken on Maur.
 

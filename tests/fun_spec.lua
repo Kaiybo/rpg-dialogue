@@ -43,6 +43,107 @@ describe("Spirit healers", function()
     talkTo("Spirit Healer", 6491, "Northshire Valley")
     contains(text(ns), "Echo Ridge Mine again")
   end)
+
+  it("picks the argument back up on the next visit", function()
+    local ns = bootReal()
+    Mock.state.ghost = true
+    ns.Slash.Handle("die trivial")
+    talkTo("Spirit Healer", 6491, "Northshire Valley")
+    ns.UI.Dialogue.Click(3)                     -- I have questions.
+    ns.UI.Dialogue.Click(2)                     -- Why send us back at all?
+    ns.UI.Dialogue.Click(2)                     -- Doesn't sending us back cheapen death?
+    contains(text(ns), "song")
+    ns.UI.Dialogue.Click(4)                     -- Maybe it's a cage.
+    contains(text(ns), "cage")
+    leave(ns)
+    talkTo("Spirit Healer", 6491, "Goldshire")
+    contains(text(ns), "Last time you called this a cage")
+    leave(ns)
+    talkTo("Spirit Healer", 6491, "Goldshire")
+    eq(text(ns):find("Last time you called this a cage", 1, true), nil, "the callback is said once")
+  end)
+
+  it("tells the lantern story one chapter per visit", function()
+    local ns = bootReal()
+    Mock.state.ghost = true
+    ns.Slash.Handle("die trivial")
+    local function lantern()
+      ns.UI.Dialogue.Click(3)                   -- I have questions.
+      ns.UI.Dialogue.Click(4)                   -- Who else is out there in the gray?
+      ns.UI.Dialogue.Click(3)                   -- Tell me about one of them.
+      return text(ns)
+    end
+    talkTo("Spirit Healer", 6491, "Northshire Valley")
+    contains(lantern(), "carries a lantern")
+    ns.UI.Dialogue.Click(4)                     -- Back to my questions.
+    ns.UI.Dialogue.Click(4)                     -- Who else is out there in the gray?
+    ns.UI.Dialogue.Click(3)                     -- Tell me about one of them.
+    contains(text(ns), "carries a lantern", "no second chapter in the same visit")
+    leave(ns)
+    talkTo("Spirit Healer", 6491, "Goldshire")
+    contains(lantern(), "east road")
+    leave(ns)
+    talkTo("Spirit Healer", 6491, "Goldshire")
+    contains(lantern(), "lantern is dimmer")
+    leave(ns)
+  end)
+
+  local function ownChoices(ns)
+    local n = 0
+    for _, e in ipairs(ns.Conversation.session.choiceEntries) do if not e.game then n = n + 1 end end
+    return n
+  end
+
+  it("asks you a question, shows only its answers, and answers it too", function()
+    local ns = bootReal()
+    Mock.state.ghost = true
+    ns.Slash.Handle("die trivial")
+    talkTo("Spirit Healer", 6491, "Northshire Valley")
+    ns.UI.Dialogue.Click(4)                     -- Stay with me a moment.
+    ns.UI.Dialogue.Click(2)                     -- Ask me something.
+    eq(ownChoices(ns), 4, "three answers to this question, plus the refusal")
+    ns.UI.Dialogue.Click(1)                     -- the first answer, whichever question it was
+    ok(not text(ns):find("No answer is also an answer", 1, true), "the reply matches the answer")
+    local opinions = 0
+    for topic in pairs(ns.char.opinions) do if topic:find("^healer_") then opinions = opinions + 1 end end
+    eq(opinions, 1, "the answer is remembered as an opinion")
+    ns.UI.Dialogue.Click(1)                     -- Your turn. What would you say?
+    ok(not text(ns):find("still working on it", 1, true), "the healer answers the same question")
+    leave(ns)
+  end)
+
+  it("tells a story and answers the follow-up for that story", function()
+    local ns = bootReal()
+    Mock.state.ghost = true
+    ns.Slash.Handle("die trivial")
+    talkTo("Spirit Healer", 6491, "Northshire Valley")
+    ns.UI.Dialogue.Click(4)                     -- Stay with me a moment.
+    ns.UI.Dialogue.Click(3)                     -- Tell me about someone who came through.
+    ns.UI.Dialogue.Click(1)                     -- Someone who came back wrong.
+    eq(ownChoices(ns), 3, "one follow-up for the story told, another, thanks")
+    ns.UI.Dialogue.Click(1)                     -- the story's own follow-up
+    ok(not text(ns):find("shorter than the people in them", 1, true), "the follow-up matches the story")
+    leave(ns)
+  end)
+
+  it("can lose an argument, and remembers losing it", function()
+    local ns = bootReal()
+    Mock.state.ghost = true
+    ns.Slash.Handle("die trivial")
+    talkTo("Spirit Healer", 6491, "Northshire Valley")
+    ns.UI.Dialogue.Click(4)                     -- Stay with me a moment.
+    ns.UI.Dialogue.Click(4)                     -- Let's argue about something.
+    ns.UI.Dialogue.Click(1)                     -- Is a life that never ends really a life?
+    ns.UI.Dialogue.Click(1)                     -- It's a life. I still change and grow.
+    ns.UI.Dialogue.Click(1)                     -- I learn something each time, even there.
+    contains(text(ns), "you win this one")
+    ns.UI.Dialogue.Click(1)                     -- You have a file?
+    contains(text(ns), "I keep one for myself")
+    leave(ns)
+    talkTo("Spirit Healer", 6491, "Goldshire")
+    contains(text(ns), "You won our argument about endless life")
+    leave(ns)
+  end)
 end)
 
 describe("Ghosts", function()

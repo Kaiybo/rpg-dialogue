@@ -194,8 +194,8 @@ P:NPC {
     },
     watchers_truth = {
       lines = {
-        { id = "wt_default", text = "Goblin work, bought with Defias coin and set in the fields to frighten superstitious farmers, and it worked. Don't tell Saldean just yet, or he'll go after the goblins with a pitchfork.", fx = { expose = "watchers_set_loose" },
-          fx = { learn = { "harvest_watchers" } } },
+        { id = "wt_default", text = "Goblin work, bought with Defias coin and set in the fields to frighten superstitious farmers, and it worked. Don't tell Saldean just yet, or he'll go after the goblins with a pitchfork.",
+          fx = { expose = "watchers_set_loose", learn = { "harvest_watchers" } } },
       },
       choices = {
         { text = "Wiley says this was never about farms.", next = "wt_farms" },

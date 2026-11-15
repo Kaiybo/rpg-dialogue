@@ -485,7 +485,7 @@ P:NPC {
           text = "Flowers? You've hardly arrived and you're buying flowers, so somebody's caught your eye. Daffodils, then; they're my favourite." },
       },
       again = {
-        { id = "h_again", text = "Anything else, dear? Mind the seedlings while you think." },
+        { id = "h_again", text = "Anything else, dear? Just step around the seedling trays." },
         { id = "h_again2", text = "Go on, then. The weeds will wait; they always do." },
       },
       choices = {

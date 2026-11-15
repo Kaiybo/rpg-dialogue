@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.3.0 (2026-11-15)
+- Krinkle Goodsteel (Blacksmithing Supplies, Gadgetzan) makes the Scholomance key's mold and never asks what it opens. Written in whole sentences.
+
 ## 1.2.1 (unreleased)
 - Voice pass: Gadgetzan and Steamwheedle Port now talk in whole sentences instead of clipped fragments. Marin still sells, Tran'rek still dodges and Stoley still frets, each in their own words.
 

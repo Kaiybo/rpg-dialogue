@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.2.1 (unreleased)
+- Voice pass: everyone at the Crossroads and Camp Taurajo now talks in whole sentences instead of clipped fragments, each in their own voice (Thork's plain duty, Sergra's pride, Mankrik's grief, Tonga's patience, Helbrim's dry chill, Darsok's swagger, Zargh's chatter, Mangletooth's snorting third person). Same lines, same facts, same conditions.
+
 ## 1.2.0 (unreleased)
 - Depth pass: repeat visits now bring personal lines (habits, worries, opinions of the neighbours), night-time lines, and a question or two about the person themselves, not only their quests.
 - Byula, Tatternack, Mangletooth, Boorand, Zargh, Thork.

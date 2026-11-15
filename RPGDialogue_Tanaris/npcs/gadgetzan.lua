@@ -596,3 +596,54 @@ P:NPC {
     _none = { { id = "tp_none", text = "I don't know anything. Knowing things gets a man in trouble." } },
   },
 }
+
+P:NPC {
+  key = "krinkle", id = TODO_NPC("Krinkle Goodsteel"), name = "Krinkle Goodsteel", title = "Blacksmithing Supplies",
+  bible = "bibles/tanaris.md", role = "vendor", tier = "quest",
+  communities = { "gadgetzan" }, temper = { "sharp" }, values = { "greedy", "proud" },
+  notices = { "craft", "purse" },
+
+  greetings = {
+    { id = "g_forge", text = "Welcome to the hottest forge in the hottest town in Kalimdor, friend, and don't touch the anvil, or anything else for that matter." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again! Are you buying or mending, because I do both now, and you can ask me how." },
+  },
+
+  notice = {
+    { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
+      text = "A smith! I thought so, from the forearms, so don't look so surprised. You don't look like one, but looks lie, and mine certainly do." },
+    { id = "n_purse", cat = "purse", when = { money = { max = 1500 } },
+      text = "That's a light purse you've got there, lighter than mine, anyway. Browse all you like, because browsing's free, and everything else isn't." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "Krinkle Goodsteel. Iron, thorium, flux, and molds for things that nobody else will make molds for. If you can pay, I can pour it." },
+        { id = "h_mold", tags = { "news" }, when = { questActive = TODO_QUEST("Mold Rhymes With...") },
+          text = "Arbington's courier, or is it Dithers's? Doesn't matter, both send the same bones. Fifteen gold for the mold, up front, no haggling. The lesson on the stem I'll throw in free. I'm sentimental." },
+        { id = "h_plume", tags = { "news" }, when = { questActive = TODO_QUEST("Fire Plume Forged") },
+          text = "The key needs a fire hot enough to set it, and my forge isn't it. Fire Plume Ridge, in Un'Goro. Find the hottest spot and hold your breath." },
+        { id = "h_union", when = { metBefore = true },
+          text = "The Repairers' Union pulled my right to mend armor once, saying I was undercutting them, so I filed a complaint, and then I filed five more. Now I mend armor again, and that's persistence for you, friend." },
+      },
+      choices = {
+        { text = "Who else buys these molds?", next = "who" },
+        { text = "Show me your stock.", next = "BUSINESS" },
+      },
+    },
+    who = {
+      lines = {
+        { id = "w_default", text = "Couriers from the north, mostly, with bags of bones and long faces. I don't ask what the keys are for. That's the secret of a long career in Gadgetzan." },
+      },
+      choices = { { text = "Wise.", next = "END", fx = { affinity = 1 } } },
+    },
+  },
+
+  topics = {
+    scholomance = { { id = "tp_scholomance", text = "Never been. Never going. I make the key; somebody else gets to use it. Best arrangement there is." } },
+    steamwheedle = { { id = "tp_cartel", text = "The Cartel keeps the bruisers paid and the trade roads open. I pay my share. I complain about it, but I pay." } },
+    _none = { { id = "tp_none", text = "That's not my trade, friend, my trade is metal, so how about buying some?" } },
+  },
+}

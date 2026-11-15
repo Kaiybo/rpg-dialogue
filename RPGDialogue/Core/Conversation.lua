@@ -592,7 +592,8 @@ function Conv.ShowNode(nodeId)
   if nodeId == startId or node.hub then s.hub = nodeId end
 
   local winner
-  if returning then
+  -- A rotating node (a story told, a question asked) draws a fresh line every visit.
+  if returning and not node.rotating then
     winner = Engine.PickAgain(info, nodeId, ctx, env)
   else
     winner = Engine.PickLine(info, nodeId, ctx, env, node.big)
@@ -668,11 +669,12 @@ function Conv.BuildChoices(node, isStart)
   -- Explored in an earlier conversation: what was shown then, not counting this one.
   local explored = {}
   for id in pairs(s.prevNodes or {}) do explored[id] = true end
-  local hubs = { [(s.info.def and s.info.def.start) or "hello"] = true }
+  local hubs, rotating = { [(s.info.def and s.info.def.start) or "hello"] = true }, {}
   for id, n in pairs((s.info.def and s.info.def.nodes) or {}) do
     if n.hub then hubs[id] = true end
+    if n.rotating then rotating[id] = true end
   end
-  for _, e in ipairs(Engine.Choices(node, ctx, env, { visited = s.visited, explored = explored, hubs = hubs })) do
+  for _, e in ipairs(Engine.Choices(node, ctx, env, { visited = s.visited, explored = explored, hubs = hubs, rotating = rotating })) do
     if #entries < Engine.MAX_CHOICES then entries[#entries + 1] = e end
   end
   local intrusive = ns.Insanity and ns.Insanity.IntrusiveChoice(env.seed + #entries)
