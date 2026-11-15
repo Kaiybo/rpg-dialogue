@@ -8,6 +8,11 @@ P:NPC {
   communities = { "felstone_field" }, temper = { "cowardly" }, values = { "loving" },
   notices = { "stealth" },
 
+  impression = {
+    first = "Janice Felstone keeps asking after John and packing for a journey she will never take. She doesn't seem to know what she is, and I hadn't the heart to tell her.",
+    third = "{name} met Janice Felstone, a lost and fretful spirit still waiting for her husband at Felstone Field.",
+  },
+
   greetings = {
     { id = "g_john", text = "John, is that you? Oh, no, you're someone else, aren't you, but have you seen him anywhere?" },
     { id = "g_cold", text = "It's so cold in the house, and I'm sure I lit the fire, didn't I, so why is it still so cold?" },
@@ -115,6 +120,11 @@ P:NPC {
   bible = "bibles/westernplaguelands.md", role = "questgiver", tier = "quest",
   communities = { "writhing_haunt", "cenarion_circle" }, temper = { "steady" }, values = { "compassionate", "proud" },
   notices = { "race", "class" },
+
+  impression = {
+    first = "Mulgris Deepriver is dying in that house at the Writhing Haunt, and he knows it. Even so, he spent his breath asking mercy for the sick beasts outside rather than for himself.",
+    third = "{name} met Mulgris Deepriver, a dying tauren druid of the Cenarion Circle at the Writhing Haunt.",
+  },
 
   greetings = {
     { id = "g_dying", text = "Come closer, little one, for my voice doesn't carry the way it did, and neither do my legs." },
@@ -237,6 +247,11 @@ P:NPC {
   communities = { "sorrow_hill" }, temper = { "gentle" }, values = { "loving" },
   notices = { "class" },
 
+  impression = {
+    first = "Marlene Redpath waits on Sorrow Hill for word of her niece, Pamela, and hope is about all she has left. She asked so gently that it would be hard to refuse her anything.",
+    third = "{name} met Marlene Redpath on Sorrow Hill, who longs to learn what became of her niece Pamela after Darrowshire fell.",
+  },
+
   greetings = {
     { id = "g_pamela", text = "Have you come from the east, from Darrowshire? Please, have you seen a little girl on the road?" },
     { id = "g_back", when = { metBefore = true }, text = "Oh, you came back to me! Did you find... no, I'll let you speak first, as I promised myself I would." },
@@ -331,6 +346,11 @@ P:NPC {
   bible = "bibles/westernplaguelands.md", role = "questgiver", tier = "quest",
   communities = { "northridge_hills" }, temper = { "sharp" }, values = { "loyal", "secretive" },
   notices = { "class", "race" },
+
+  impression = {
+    first = "Kirsta Deepshadow was bleeding quietly when I found her and still managed to be funny about it. She is a scout who has seen the Crusade up close and liked none of it.",
+    third = "{name} met Kirsta Deepshadow, a wounded Stormwind scout watching Hearthglen from the Northridge hills.",
+  },
 
   greetings = {
     { id = "g_hurt", text = "Ow, sorry, hello there. Don't mind me, I'm just bleeding quietly over here." },
@@ -469,6 +489,11 @@ P:NPC {
   bible = "bibles/westernplaguelands.md", role = "questgiver", tier = "quest",
   communities = { "caer_darrow" }, temper = { "gentle" }, values = { "dutiful", "loving" },
   notices = { "race", "class" },
+
+  impression = {
+    first = "Eva Sarkhoff apologized for the state of the grounds as though she still kept house at Caer Darrow. She and Lucien want only to stop being there, and she asked it with perfect courtesy.",
+    third = "{name} met Eva Sarkhoff, the ghostly former head maid of House Barov, lingering at Caer Darrow with her husband Lucien.",
+  },
 
   greetings = {
     { id = "g_formal", text = "Good day to you, and do forgive the state of the grounds, for we are no longer able to keep them." },

@@ -9,6 +9,11 @@ P:NPC {
   communities = { "darkshire" }, temper = { "steady" }, values = { "curious", "generous" },
   notices = { "drink", "lore" },
 
+  impression = {
+    first = "Tavernkeep Smitts pours, listens and remembers what Darkshire would rather forget. He keeps the warmest room in Duskwood, and he admits it isn't saying much.",
+    third = "{name} drank at the Scarlet Raven, where Tavernkeep Smitts pours and listens and remembers what the town would rather forget.",
+  },
+
   greetings = {
     { id = "g_raven", text = "Welcome to the Scarlet Raven, friend, the warmest room in Duskwood, which isn't saying much." },
     { id = "g_back", when = { metBefore = true }, text = "Back in out of the fog, are you? Your stool's free." },

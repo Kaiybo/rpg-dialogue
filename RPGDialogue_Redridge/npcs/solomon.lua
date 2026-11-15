@@ -9,6 +9,11 @@ P:NPC {
   communities = { "lakeshire" }, temper = { "sharp" }, values = { "lawful", "stern" },
   notices = { "reputation", "deputy" },
 
+  impression = {
+    first = "Magistrate Solomon asked me to be brief and then wrote another letter nobody will answer. He carries Lakeshire's danger the way a clerk carries a stack of papers, carefully and too long.",
+    third = "{name} was received by Magistrate Solomon, Lakeshire's elected leader, whose letters asking for help mostly go unanswered.",
+  },
+
   greetings = {
     { id = "g_brief", text = "Be brief, if you please; the orcs never are." },
     { id = "g_letters", when = { questActive = TODO_QUEST("Messenger to Westfall") }, text = "Why are you still standing in my hall? Take the letter to Westfall, and go quickly." },

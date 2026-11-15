@@ -8,6 +8,10 @@ P:NPC {
   bible = "bibles/gramma.md", role = "questgiver", tier = "quest",
   communities = { "goldshire" }, temper = { "sharp" }, values = { "kind", "honest", "witty" },
   notices = { "kit", "drink" },
+  impression = {
+    first = "Gramma Stonefield is the oldest Stonefield still breathing, and she uses it freely to call the family feud a waste of good years. She is plainly scheming something and enjoying it enormously.",
+    third = "{name} met Gramma Stonefield, the family's eldest, who thinks the Stonefield and Maclure feud a waste of good years.",
+  },
 
   greetings = {
     { id = "g_door", text = "Wipe your feet; I've just done that floor. Well, somebody has." },

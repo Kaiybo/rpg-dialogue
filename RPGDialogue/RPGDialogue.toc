@@ -34,6 +34,7 @@ Systems\Books.lua
 Systems\Insanity.lua
 Systems\Barks.lua
 Systems\Errands.lua
+Systems\Diary.lua
 Systems\Origins.lua
 Systems\Export.lua
 

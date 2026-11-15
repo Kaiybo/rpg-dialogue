@@ -8,6 +8,10 @@ P:NPC {
   bible = "bibles/furlbrow.md", role = "farmer", tier = "quest",
   communities = { "westfall_farms" }, temper = { "cowardly" }, values = { "honest" },
   notices = { "startle", "mount" },
+  impression = {
+    first = "Theodore Furlbrow lost his farm to thieves and now waits beside a broken wagon with his wife. He insists they're only minding this place for now, as if saying so might make it true.",
+    third = "{name} met Farmer Furlbrow, driven from his pumpkin farm by thieves, who still hopes to go home.",
+  },
 
   greetings = {
     { id = "g_porch", text = "This isn't our place, you understand. We're just minding it for now." },

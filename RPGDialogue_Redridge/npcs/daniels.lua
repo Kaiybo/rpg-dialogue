@@ -9,6 +9,11 @@ P:NPC {
   communities = { "lakeshire" }, temper = { "steady" }, values = { "generous", "witty" },
   notices = { "drink", "travel" },
 
+  impression = {
+    first = "Barkeep Daniels has a bar and very little to put behind it since the orcs cut the road. He's cheerful about it in the way of a man trying hard not to be miserable.",
+    third = "{name} met Barkeep Daniels of Lakeshire, whose shipment of drink never came after the orcs struck the road.",
+  },
+
   greetings = {
     { id = "g_bar", text = "What'll it be? Don't say ale, because I'm nearly out of ale." },
     { id = "g_dry", when = { questActive = TODO_QUEST("Dry Times") }, text = "Any luck? Tell me there's a keg in that pack." },
@@ -127,6 +132,11 @@ P:NPC {
   bible = "bibles/daniels.md", role = "innkeeper", tier = "service",
   communities = { "lakeshire" }, temper = { "steady" }, values = { "kind", "generous" },
   notices = { "guest", "pet" },
+
+  impression = {
+    first = "Innkeeper Brianna keeps Lakeshire's rooms and, between her and Daniels, its nerves. She made me feel at home before I'd decided whether I wanted to be.",
+    third = "{name} found a room with Innkeeper Brianna, who keeps the beds in Lakeshire and does her best to keep the town calm.",
+  },
 
   greetings = {
     { id = "g_home", text = "Out of the wind, now. Make yourself at home; that's what an inn's for." },

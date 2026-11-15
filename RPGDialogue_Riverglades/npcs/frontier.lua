@@ -8,6 +8,11 @@ P:NPC {
   communities = { "farholde" }, temper = { "nervous" }, values = { "loyal", "kind" },
   notices = { "kit" },
 
+  impression = {
+    first = "Hurley worries for a living, or so it seemed, and most of his worrying is about Curly. He cuts trees for Turner and looks as if he hasn't slept properly in a month.",
+    third = "{name} met Hurley, a fretful logger at Turner's camp who looks out for his friend Curly.",
+  },
+
   greetings = {
     { id = "g_default", text = "Mind the stumps." },
     { id = "g_curly", text = "You haven't seen Curly, have you? No, of course you haven't." },
@@ -78,6 +83,11 @@ P:NPC {
   communities = { "farholde" }, temper = { "gruff" }, values = { "stern", "loyal" },
   notices = { "kit", "class" },
 
+  impression = {
+    first = "Halligan Turner runs his logging camp like a sergeant and seems to think anyone standing still owes him an hour's work. I'd wager he's softer on his people than he lets them see.",
+    third = "{name} met Halligan Turner, the gruff boss of the logging camp that feeds Farholde its timber.",
+  },
+
   greetings = {
     { id = "g_default", text = "If you're buying, talk. If you're standing around, there's an axe." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Pick up a saw or pick a direction." },
@@ -146,6 +156,11 @@ P:NPC {
   bible = "bibles/riverglades.md", role = "farmer", tier = "quest",
   communities = { "farholde" }, temper = { "stubborn" }, values = { "practical" },
   notices = { "kit" },
+
+  impression = {
+    first = "Benjy Wheeler watches the fields at Wheeler's Grange with the look of a man who has stopped expecting good news. The clicking of the reapers out in the rows doesn't seem to let anyone there sleep.",
+    third = "{name} met Benjy Wheeler at Wheeler's Grange, where harvest reapers have overrun the fields.",
+  },
 
   greetings = {
     { id = "g_default", text = "Careful by the fence. Those reapers don't stay in the field." },

@@ -9,6 +9,10 @@ P:NPC {
   bible = "bibles/sara.md", role = "questgiver", tier = "quest",
   communities = { "eastvale" }, temper = { "steady" }, values = { "ambitious", "witty" },
   notices = { "craft", "red" },
+  impression = {
+    first = "Sara Timberlain is the only person in the logging camp making anything worth wearing, and she takes thieves' bandanas as cloth without a flicker of shame. I rather admire that.",
+    third = "{name} met Sara Timberlain, an Eastvale tailor who turns Defias bandanas into honest clothing.",
+  },
 
   greetings = {
     { id = "g_loom", text = "Careful, that's a warp thread you're standing on." },
@@ -144,6 +148,10 @@ P:NPC {
   bible = "bibles/gerard.md", role = "farmer", tier = "quest",
   communities = { "goldshire" }, temper = { "steady" }, values = { "honest" },
   notices = { "drink" },
+  impression = {
+    first = "Gerard Tiller talks mostly about water, and the length of the rows, and how far it is to the well. I suspect he notices a great deal more than he ever says.",
+    third = "{name} met Gerard Tiller, a thirsty hand on the Maclure vines who sees more than he lets on.",
+  },
 
   greetings = {
     { id = "g_thirst", text = "Got any water on you, friend? Farming's thirsty work out here." },

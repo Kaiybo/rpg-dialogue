@@ -94,6 +94,8 @@ SD.CHAR_DEFAULTS = {
   originsApplied = {},
   places = {},
   errands = {},
+  arrived = {},      -- zone -> when the diary's arrival entry was written
+  journalRead = nil, -- how many diary entries have been seen (the journal button's count)
   _quarantine = {},
 }
 

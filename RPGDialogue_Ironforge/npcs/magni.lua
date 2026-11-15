@@ -10,6 +10,11 @@ P:NPC {
   communities = { "ironforge" }, temper = { "proud" }, values = { "brave", "honest", "lawful" },
   notices = { "fel", "kin" },
 
+  impression = {
+    first = "King Magni Bronzebeard has a voice made for being heard over forges and a laugh made for being heard over that. He is every inch a king, and he hasn't forgotten how to be a dwarf.",
+    third = "{name} stood before King Magni Bronzebeard in the High Seat of Ironforge.",
+  },
+
   greetings = {
     { id = "g_king", text = "Ye stand before the King of Ironforge. Speak up; the forges are loud." },
     { id = "g_dwarf", when = { race = "Dwarf" }, text = "One o' mine, by the look o' ye. Welcome home, whatever road ye've been walkin'." },

@@ -8,6 +8,11 @@ P:NPC {
   communities = { "kargath" }, temper = { "boisterous" }, values = { "proud", "loyal", "brave" },
   notices = { "race", "class", "level" },
 
+  impression = {
+    first = "Warlord Goretooth holds Kargath and plainly wishes he were fighting instead of watching. He's loud, proud and lonely on that tower, and he admitted to talking to vultures.",
+    third = "{name} met Warlord Goretooth, who holds the Horde outpost of Kargath in the Badlands.",
+  },
+
   greetings = {
     { id = "g_tower", text = "Another one climbs my tower, good! I was starting to talk to the vultures." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and still alive! That's more than I can say for the last three I sent up the road." },
@@ -189,6 +194,11 @@ P:NPC {
   communities = { "kargath" }, temper = { "dramatic" }, values = { "curious", "mischievous" },
   notices = { "race" },
 
+  impression = {
+    first = "Hierophant Theodora Mulvadania calls everyone darling and gossips like a court lady at a bonfire. When she spoke of the 109th Division, though, the charm went out of her voice entirely.",
+    third = "{name} met Hierophant Theodora Mulvadania of the Kargath Expeditionary Force, who mourns the slaughtered 109th Division.",
+  },
+
   greetings = {
     { id = "g_fire", text = "Oh, a new face at the fire! Sit, sit, darling, and you simply must tell me something dreadful, because it's been a dull week in the dust." },
   },
@@ -324,6 +334,11 @@ P:NPC {
   bible = "bibles/badlands.md", role = "questgiver", tier = "quest",
   communities = { "kargath" }, temper = { "theatrical" }, values = { "curious", "proud" },
   notices = { "class" },
+
+  impression = {
+    first = "Shadowmage Vivian Lagrave insists she is very composed and then jumps at her own shadow. Her curiosity about the Dark Irons' secrets is almost greedy, and wholly sincere.",
+    third = "{name} met Shadowmage Vivian Lagrave of the Kargath Expeditionary Force, a theatrical student of the Dark Irons' secrets.",
+  },
 
   greetings = {
     { id = "g_fire", text = "Oh! You startled me, not that I'm easily startled, of course; I'm a Shadowmage, and we're very composed." },
@@ -476,6 +491,11 @@ P:NPC {
   communities = { "kargath" }, temper = { "terse" }, values = { "practical", "loyal" },
   notices = { "class" },
 
+  impression = {
+    first = "Lexlort spends words as though each one might be overheard and sold. He knew which path I'd come in by, and that is meant to impress me, I think.",
+    third = "{name} met Lexlort, the Kargath Expeditionary Force's watchful spy on Blackrock Spire.",
+  },
+
   greetings = {
     { id = "g_shadow", text = "You found me, and most don't, which is either good news for you or bad news for me." },
   },
@@ -612,6 +632,11 @@ P:NPC {
   bible = "bibles/badlands.md", role = "innkeeper", tier = "service",
   communities = { "kargath" }, temper = { "warm" }, values = { "generous", "loyal" },
   notices = { "weary", "drink" },
+
+  impression = {
+    first = "Innkeeper Shul'kar keeps a pot on and a dry bunk ready and collects the grunts' tall tales for free. Kargath is a hard place, and his inn is the softest corner of it.",
+    third = "{name} met Innkeeper Shul'kar, who keeps the inn at Kargath for the Horde's soldiers.",
+  },
 
   greetings = {
     { id = "g_inn", text = "Come in out of the dust and sit. There's water, there's grog, and there's a bunk nobody's bled on, recently." },

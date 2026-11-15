@@ -9,6 +9,11 @@ P:NPC {
   communities = { "darkshire" }, temper = { "proud" }, values = { "lawful", "ambitious" },
   notices = { "status", "stormwind" },
 
+  impression = {
+    first = "Lord Ello Ebonlocke has asked Stormwind for soldiers more times than he can count. He is courteous, a little grand, and quietly desperate under all of it.",
+    third = "{name} met Lord Ello Ebonlocke, mayor of Darkshire, who has long petitioned Stormwind for soldiers the Night Watch badly needs.",
+  },
+
   greetings = {
     { id = "g_mayor", text = "The mayor's time is precious, {class}, and Darkshire's is more precious still." },
     { id = "g_army", when = { minLevel = 25 }, text = "Has Stormwind sent you? Please, tell me that Stormwind has finally sent you." },

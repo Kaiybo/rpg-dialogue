@@ -7,6 +7,17 @@ local TODO_QUEST = P.TODO_QUEST
 P:Thread {
   id = "elwynn_gold",
   theme = "Elwynn's mines pay someone. Not the kobolds, and not the farmers.",
+  title = "The gold of Elwynn's mines",
+  story = {   -- the journal's Stories page, by state
+    stirring = { first = "Someone is taking gold out of Elwynn's mines, and it isn't the kobolds and it isn't the farmers. Remy swears he's the only buyer of dust in the forest, and yet the dust keeps disappearing.",
+      third = "{name} had begun to wonder who was taking the gold out of Elwynn's mines, since it plainly wasn't the kobolds." },
+    unfolding = { first = "Marshal Dughan has a schedule of gold pickups from his own mines, written by a man the papers call the Collector. Whoever he is, he's no kobold, and he's been riding east.",
+      third = "{name} learned of the Collector, a man who had been quietly taking gold from Elwynn's mines on a schedule." },
+    resolved = { first = "The Collector is dealt with, and the dust is flowing again. Remy is happy, the Marshal is less unhappy, and nobody asked too many questions about where Remy's dust goes.",
+      third = "{name} saw the Collector dealt with, and the dust trade in Elwynn flowed again." },
+    soured = { first = "I pointed the Marshal at Remy. The dust trade has dried up, and so has Remy's goodwill toward me.",
+      third = "{name} pointed the Marshal at Remy, and Remy hasn't forgiven it." },
+  },
   npcs = { "remy", "farley", "dughan" },
   states = { "dormant", "stirring", "unfolding", "resolved", "soured" },
   endings = {
@@ -51,6 +62,15 @@ P:Thread {
 P:Thread {
   id = "westfall_left",
   theme = "The kingdom left Westfall to fend for itself, and Westfall noticed.",
+  title = "Westfall, left to fend for itself",
+  story = {   -- the journal's Stories page, by state
+    stirring = { first = "Everyone in Elwynn talks about Westfall as though it were a sickroom: sad, a little shameful, and best not visited. The kingdom pulled its soldiers out, and the farmers were left to hold the land themselves.",
+      third = "{name} kept hearing how the kingdom had left Westfall to fend for itself." },
+    unfolding = { first = "The people of Westfall haven't forgotten who left them. Some are bitter and some just keep working, and the King's regent says the kingdom is stretched thin. Everyone has a reason; nobody has soldiers.",
+      third = "{name} heard every side of why Westfall was left alone, and found that everyone had a reason and nobody had soldiers." },
+    resolved = { first = "Westfall holds, mostly by its own hands. Gryan Stoutmantle said the valley will remember who came when the Keep didn't, and I think he meant it as a promise.",
+      third = "{name} saw Westfall hold by its own hands, and Gryan Stoutmantle promised the valley would remember who came." },
+  },
   npcs = { "dughan", "thomas", "danuvin", "salma", "gryan", "bolvar", "ello" },
   states = { "dormant", "stirring", "unfolding", "resolved" },
   endings = {
@@ -113,6 +133,15 @@ P:Thread {
 P:Thread {
   id = "solomons_letters",
   theme = "Lakeshire asks the whole kingdom for help, and every answer has a reason in it.",
+  title = "Solomon's letters",
+  story = {   -- the journal's Stories page, by state
+    stirring = { first = "Magistrate Solomon has written to Stormwind, Westfall and Darkshire asking for soldiers against the Blackrock. If ink were soldiers, he says, Lakeshire would be the best-defended town in the kingdom.",
+      third = "{name} learned that Magistrate Solomon had written to half the kingdom begging for soldiers for Lakeshire." },
+    unfolding = { first = "Every answer to Solomon's letters comes with a good reason in it. Gryan can't spare men, Darkshire has a Night Watch of bakers, and the Keep wants proof before it moves.",
+      third = "{name} followed Solomon's letters across the kingdom and found that every refusal came with a good reason." },
+    resolved = { first = "Stormwind's answer to Lakeshire was one deputy. Solomon has decided that's a compliment to the deputy rather than an insult to Lakeshire, and it turned out to be enough, or close.",
+      third = "{name} saw Lakeshire's call for help answered with a single deputy, and saw that it was very nearly enough." },
+  },
   npcs = { "solomon", "gryan", "bolvar", "katrana", "daniels", "ello", "maxwell" },
   states = { "dormant", "stirring", "unfolding", "resolved" },
   endings = {
@@ -181,6 +210,15 @@ P:Thread {
 P:Thread {
   id = "stalvan",
   theme = "An old murder in Elwynn, and the people who never stopped thinking about it.",
+  title = "The tutor's murder",
+  story = {   -- the journal's Stories page, by state
+    stirring = { first = "Smitts, the tavernkeep in Darkshire, keeps a box of mud-stained pages under his bar. There's an old murder in them, from Elwynn, and he has never stopped thinking about it.",
+      third = "{name} learned that Smitts in Darkshire still kept the papers of an old Elwynn murder." },
+    unfolding = { first = "The old case runs from Darkshire to Elwynn and back: Smitts and Marshal Haggard worked it together, Farley remembers the quiet guest, and Madame Eva says the Tutor is waiting for someone.",
+      third = "{name} followed the threads of an old murder from Darkshire to Elwynn and back." },
+    resolved = { first = "I've been up to the tutor's manor, and the old case has its answer, if not a happy one. Smitts has waited longer than anyone to hear it.",
+      third = "{name} went up to the tutor's manor and brought the old case to an end." },
+  },
   npcs = { "smitts", "haggard", "farley", "eva", "althea" },
   states = { "dormant", "stirring", "unfolding", "resolved" },
   endings = {
@@ -233,6 +271,15 @@ P:Thread {
 P:Thread {
   id = "the_circle",
   theme = "The Cenarion Circle notices a young druid, and asks them to watch the land.",
+  title = "The Keeper's request",
+  story = {   -- the journal's Stories page, by state
+    stirring = { first = "The Keeper of Moonglade asked after me by name. Dendrite says he doesn't ask after many young druids.",
+      third = "{name} learned that Keeper Remulos of Moonglade had asked after {name} by name." },
+    unfolding = { first = "Remulos says the land is sickening in many places at once, water gone sour and moss gone wrong, and he asked me to watch for it on my roads. The druids I've met have seen it too.",
+      third = "{name} walked the land's sick places at Keeper Remulos's request, and found the other druids had seen them too." },
+    resolved = { first = "I told the Keeper what I saw in the sick places. He said the Dream is troubled, and that one day he will ask more of me than watching, but not yet.",
+      third = "{name} told Keeper Remulos what the sick places looked like, and he said he would ask more of {name} one day." },
+  },
   npcs = { "dendrite", "remulos", "tonga", "terenthis", "hamuul", "mathrengyl" },
   states = { "dormant", "stirring", "unfolding", "resolved" },
   endings = {
@@ -296,6 +343,17 @@ P:Thread {
 P:Thread {
   id = "farholde_lost",
   theme = "Fern Crimsonleaf never came back from the night that broke the siege, and Farholde can't agree on what that means.",
+  title = "Fern Crimsonleaf",
+  story = {   -- the journal's Stories page, by state
+    stirring = { first = "Fern Crimsonleaf never came back from the night that broke the siege of Farholde. Her stone at the keep says 'Presumed dead', and Gray has been presuming otherwise for years.",
+      third = "{name} heard of Fern Crimsonleaf, lost the night the siege of Farholde broke, and of Gray, who doesn't believe she's dead." },
+    unfolding = { first = "Nobody in Farholde agrees about Fern. Some speak of her fondly and some warily, and the Commander, who commanded that night, carries all of it alone.",
+      third = "{name} found that Farholde couldn't agree on what had become of Fern Crimsonleaf." },
+    resolved = { first = "I told Gray that a dagger isn't a grave. He went up to the keep, and he and the Commander drank to her, alive or not.",
+      third = "{name} told Gray a dagger isn't a grave, and he and the Commander drank to Fern together." },
+    soured = { first = "I told Gray to let Fern rest. He stopped talking about her, and started drinking alone.",
+      third = "{name} told Gray to let Fern rest, and he took to drinking alone." },
+  },
   npcs = { "gray", "ashe", "cady", "demar" },
   states = { "dormant", "stirring", "unfolding", "resolved", "soured" },
   endings = {
@@ -344,6 +402,17 @@ P:Thread {
 P:Thread {
   id = "scarlet_path",
   theme = "The Scarlet Crusade recruits under the Cathedral of Light, and the man at the end of its road has left it.",
+  title = "The Scarlet road",
+  story = {   -- the journal's Stories page, by state
+    stirring = { first = "The Scarlet Crusade recruits under the Cathedral of Light itself. Crowley says it asks for everything, your doubts and sometimes your neighbours, and gives you a purpose back.",
+      third = "{name} heard the Scarlet Crusade's offer under the Cathedral of Light." },
+    unfolding = { first = "Brother Anton sends the faithful to Raleigh the Devout in Southshore. Raleigh sends them home with the truth, because he saw something at the Monastery that Anton doesn't know about.",
+      third = "{name} followed the Scarlet road from Brother Anton to Raleigh the Devout, who had left the Crusade after the Monastery." },
+    resolved = { first = "I told Brother Anton what Raleigh saw at the Monastery. For once he had no answer ready, and he asked me to pray with him.",
+      third = "{name} told Brother Anton what Raleigh had seen, and Anton, with no answer ready, asked {name} to pray with him." },
+    soured = { first = "I let Brother Anton keep his Crusade, and told him Raleigh sent his blessing. It was kinder, I suppose, or easier.",
+      third = "{name} let Brother Anton keep his Crusade, and told him Raleigh sent his blessing." },
+  },
   npcs = { "crowley", "anton", "raleigh", "tyrosus" },
   states = { "dormant", "stirring", "unfolding", "resolved", "soured" },
   endings = {

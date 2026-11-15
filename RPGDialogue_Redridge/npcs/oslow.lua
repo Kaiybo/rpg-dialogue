@@ -9,6 +9,11 @@ P:NPC {
   communities = { "lakeshire" }, temper = { "proud" }, values = { "ambitious", "honest" },
   notices = { "craft", "swim" },
 
+  impression = {
+    first = "Foreman Oslow told me to keep walking unless I carried a hammer. His bridge was meant to be finished before the rains, and the orcs have taken that personally.",
+    third = "{name} met Foreman Oslow, who is rebuilding the Everstill Bridge at Lakeshire despite the orcs' interference.",
+  },
+
   greetings = {
     { id = "g_busy", text = "Unless you're carrying a hammer, keep walking." },
     { id = "g_tools", when = { questActive = TODO_QUEST("The Lost Tools") }, text = "My toolbox? Have you got my toolbox? Then why on earth are you dry?" },

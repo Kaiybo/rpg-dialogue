@@ -1,6 +1,8 @@
--- The journal: the character's own book, in their point of view (not the truth). Four
--- pages: Diary (what happened, day by day, place by place), People (who they've met and how
--- it stands), Myself (where they stand, what they've learned, what they've done), Notes.
+-- The journal: the character's own book, in their point of view (not the truth). Six
+-- pages: Diary (what happened, day by day, place by place), Stories (the throughlines they've
+-- stumbled into, and where each stands), People (who they've met, where, and how it stands),
+-- Heard of (topics, and what people said when asked), Myself (where they stand, what they've
+-- done), Notes.
 local _, ns = ...
 
 local C = ns.Compat
@@ -12,12 +14,16 @@ local J = {}
 ns.Journal = J
 UI.Journal = J
 
-local W, H = 560, 480
+local W, H = 660, 500
+local TAB_W, TAB_STEP = 100, 104
 local frame
 local current = "chronicle"
-local TABS = { "chronicle", "people", "sheet", "notes" }
+local TABS = { "chronicle", "stories", "people", "heard", "sheet", "notes" }
 -- Old page names (saved bindings, macros) land on the page that holds them now.
-local ALIASES = { topics = "sheet", deeds = "sheet" }
+local ALIASES = { topics = "heard", deeds = "sheet", threads = "stories" }
+-- Pages with a search box.
+local SEARCHABLE = { chronicle = true, people = true, heard = true }
+local switching   -- true while J.Show clears the search box on a page change
 
 ---------------------------------------------------------------------------
 -- Text builders (pure: also used by tests)
@@ -61,7 +67,7 @@ local function deedName(id)
   return id
 end
 
-local HEAD, DIM = "|cff6b2f0f", "|cff8a6d3b"
+local HEAD, DIM, NOTE, PLACE = "|cff6b2f0f", "|cff8a6d3b", "|cff4a3a2a", "|cff7a4a1a"
 local MONTHS = { "January", "February", "March", "April", "May", "June", "July", "August",
                  "September", "October", "November", "December" }
 local DAYS = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" }
@@ -105,22 +111,161 @@ local function diary(add, c, search)
   end
 end
 
-local function people(add, c)
-  local list = {}
-  for key, m in pairs(c.npc) do
-    if (m.times or 0) > 0 then list[#list + 1] = { key = key, m = m } end
+local function matches(needle, ...)
+  if not needle then return true end
+  for i = 1, select("#", ...) do
+    local v = select(i, ...)
+    if type(v) == "string" and v:lower():find(needle, 1, true) then return true end
   end
-  table.sort(list, function(a, b) return (a.m.last or 0) > (b.m.last or 0) end)
-  for _, p in ipairs(list) do
-    local name = p.m.name or p.key
-    heading(add, name)
-    local word = affinityWord(p.m.affinity)
-    local d = ns.Disposition and ns.Disposition.ForMemory(p.key)
-    if d then word = ns.Disposition.TierName(d):lower() end
-    add(L.J_PERSON:format(word, L.J_TALKED:format(p.m.times or 0), when(p.m.last)))
-    local line = p.m.lastLine and ns.Data.Line(p.m.lastLine)
-    if line and line.text then add(L.J_LAST_SAID:format(ns.Tokens.Render(line.text, ns.Context.New({ spoof = {} }), { info = { name = name } }))) end
+  return false
+end
+
+local function voiceText(tpl, ctx)
+  if type(tpl) ~= "table" then return nil end
+  local voice = (ns.db and ns.db.settings.journalVoice) or "first"
+  local text = tpl[voice] or tpl.first or tpl.third
+  return text and ns.Tokens.Render(text, ctx or ns.Context.New({ spoof = {} }), {}) or nil
+end
+
+local function topicNames(ids)
+  local out = {}
+  for id in pairs(ids or {}) do
+    local def = ns.Data.topics[id]
+    if def and not def.standard then out[#out + 1] = def.name end
+  end
+  table.sort(out)
+  return out
+end
+
+-- People, grouped by the zone where you last spoke with them (most recent zone first).
+local function people(add, c, search)
+  local needle = search and search ~= "" and search:lower()
+  local groups, order = {}, {}
+  for key, m in pairs(c.npc) do
+    if (m.times or 0) > 0 then
+      local def = ns.Data.npcs[key]
+      local name = m.name or (def and def.name) or key
+      local title = def and def.title
+      local place = m.zone or L.J_ELSEWHERE
+      if matches(needle, name, title, place) then
+        if not groups[place] then groups[place] = { last = 0, list = {} }; order[#order + 1] = place end
+        local g = groups[place]
+        g.list[#g.list + 1] = { key = key, m = m, def = def, name = name, title = title }
+        g.last = math.max(g.last, m.last or 0)
+      end
+    end
+  end
+  table.sort(order, function(a, b) return groups[a].last > groups[b].last end)
+  local ctx = ns.Context.New({ spoof = {} })
+  for _, place in ipairs(order) do
+    local g = groups[place]
+    table.sort(g.list, function(a, b) return (a.m.last or 0) > (b.m.last or 0) end)
+    add(PLACE .. place:upper() .. "|r")
     add(" ")
+    for _, p in ipairs(g.list) do
+      heading(add, p.name .. (p.title and (DIM .. "  <" .. p.title .. ">|r") or ""))
+      local word = affinityWord(p.m.affinity)
+      local d = ns.Disposition and ns.Disposition.ForMemory(p.key)
+      if d then word = ns.Disposition.TierName(d):lower() end
+      add(L.J_PERSON:format(word, L.J_TALKED:format(p.m.times or 0), when(p.m.last)))
+      if p.m.impressed and p.def and p.def.impression then
+        local imp = voiceText(p.def.impression, ctx)
+        if imp then add(NOTE .. imp .. "|r") end
+      end
+      local told = topicNames(p.m.topics)
+      if #told > 0 then add(L.J_ASKED_ABOUT:format(table.concat(told, ", "))) end
+      local line = p.m.lastLine and ns.Data.Line(p.m.lastLine)
+      if line and line.text then add(L.J_LAST_SAID:format(ns.Tokens.Render(line.text, ctx, { info = { name = p.name } }))) end
+      add(" ")
+    end
+  end
+end
+
+-- Stories: the throughlines heard so far, the live ones first.
+local STATE_ORDER = { unfolding = 1, stirring = 2, resolved = 3, soured = 4, faded = 5 }
+local function stories(add, c)
+  local list = {}
+  for id, t in pairs(c.threads or {}) do
+    local def = ns.Data.threads[id]
+    if def and t.state and t.state ~= "dormant" and next(t.beats or {}) then
+      list[#list + 1] = { id = id, t = t, def = def }
+    end
+  end
+  table.sort(list, function(a, b)
+    local oa, ob = STATE_ORDER[a.t.state] or 9, STATE_ORDER[b.t.state] or 9
+    if oa ~= ob then return oa < ob end
+    return (a.t.lastT or 0) > (b.t.lastT or 0)
+  end)
+  local ctx = ns.Context.New({ spoof = {} })
+  for _, s in ipairs(list) do
+    local state = s.t.state
+    heading(add, (s.def.title or s.def.id) .. "  " .. DIM .. (L["J_STORY_" .. state:upper()] or state) .. "|r")
+    local story = s.def.story or {}
+    -- A faded story reads as it stood when it was dropped.
+    local text = voiceText(story[state] or (state == "faded" and (story.unfolding or story.stirring)), ctx)
+    add(text or s.def.theme or "")
+    -- Who told me what, in the order I heard it.
+    local beats = {}
+    for _, b in ipairs(s.def.beats or {}) do
+      local at = s.t.beats[b.id]
+      if at then beats[#beats + 1] = { b = b, at = at } end
+    end
+    table.sort(beats, function(x, y) return x.at < y.at end)
+    for _, e in ipairs(beats) do
+      local npc = ns.Data.npcs[e.b.npc]
+      local who = (c.npc[e.b.npc] and c.npc[e.b.npc].name) or (npc and npc.name) or e.b.npc
+      add(DIM .. L.J_STORY_BEAT:format(who, when(e.at)) .. "|r " .. NOTE .. "\"" .. ns.Tokens.Render(e.b.text or "", ctx, { info = { name = who } }) .. "\"|r")
+    end
+    add(" ")
+  end
+end
+
+-- Heard of: every topic picked up, by category, with who first spoke of it and what
+-- people said when asked.
+local function heard(add, c, search)
+  local needle = search and search ~= "" and search:lower()
+  local cats, order = {}, {}
+  for _, t in ipairs(ns.Topics.Known(true)) do
+    if not t.standard then
+      local rec = c.topics[t.id] or {}
+      local def = ns.Data.topics[t.id]
+      local blob = {}
+      for _, a in ipairs(rec.said or {}) do
+        local line = ns.Data.Line(a.gid)
+        if line and line.text then blob[#blob + 1] = line.text end
+      end
+      if matches(needle, t.name, table.concat(blob, " "), def and def.learned) then
+        local cat = t.category or "other"
+        if not cats[cat] then cats[cat] = {}; order[#order + 1] = cat end
+        table.insert(cats[cat], t)
+      end
+    end
+  end
+  table.sort(order, function(a, b) return ns.Topics.CategoryName(a) < ns.Topics.CategoryName(b) end)
+  local ctx = ns.Context.New({ spoof = {} })
+  for _, cat in ipairs(order) do
+    add(PLACE .. ns.Topics.CategoryName(cat):upper() .. "|r")
+    add(" ")
+    table.sort(cats[cat], function(a, b) return a.name < b.name end)
+    for _, t in ipairs(cats[cat]) do
+      local src = ns.Topics.Source(t.id)
+      heading(add, t.name .. (src and (DIM .. "  " .. L.J_HEARD_FROM:format(src) .. "|r") or ""))
+      local rec = c.topics[t.id] or {}
+      local said = rec.said or {}
+      if #said == 0 then
+        add(DIM .. L.J_NOT_ASKED .. "|r")
+      else
+        for i = #said, 1, -1 do
+          local a = said[i]
+          local line = ns.Data.Line(a.gid)
+          if line and line.text then
+            local who = a.name or (c.npc[a.who] and c.npc[a.who].name) or a.who
+            add(L.J_SAID:format(who, ns.Tokens.Render(line.text, ctx, { info = { name = who } })))
+          end
+        end
+      end
+      add(" ")
+    end
   end
 end
 
@@ -163,9 +308,9 @@ local function myself(add, c)
   end
   table.sort(lines)
   section(L.J_CLAIMS, lines)
-  lines = {}
-  for _, t in ipairs(ns.Topics.Known(true)) do lines[#lines + 1] = t.name end
-  if #lines > 0 then section(L.J_TOPICS, { table.concat(lines, ", ") }) end
+  local nTopics = 0
+  for _, t in ipairs(ns.Topics.Known(true)) do if not t.standard then nTopics = nTopics + 1 end end
+  if nTopics > 0 then section(L.J_TOPICS, { L.J_TOPICS_COUNT:format(nTopics) }) end
   lines = {}
   for title in pairs(c.books) do lines[#lines + 1] = title end
   table.sort(lines)
@@ -190,8 +335,14 @@ function J.Text(tab, search)
     diary(add, c, search)
     if #out == 0 then add(L.J_EMPTY) end
   elseif tab == "people" then
-    people(add, c)
-    if #out == 0 then add(L.J_NOBODY) end
+    people(add, c, search)
+    if #out == 0 then add((search and search ~= "") and L.J_NO_MATCH or L.J_NOBODY) end
+  elseif tab == "stories" then
+    stories(add, c)
+    if #out == 0 then add(L.J_NO_STORIES) end
+  elseif tab == "heard" then
+    heard(add, c, search)
+    if #out == 0 then add((search and search ~= "") and L.J_NO_MATCH or L.J_NOTHING_HEARD) end
   elseif tab == "sheet" then
     myself(add, c)
   end
@@ -234,7 +385,7 @@ local function create()
 
   frame.tabs = {}
   for _, id in ipairs(TABS) do
-    local b = Theme.Button(frame, "", 120, 22)
+    local b = Theme.Button(frame, "", TAB_W, 22)
     b:SetText(L["J_TAB_" .. id:upper()])
     b:SetScript("OnClick", function() J.Show(id) end)
     frame.tabs[id] = b
@@ -243,7 +394,7 @@ local function create()
   frame.search = CreateFrame("EditBox", nil, frame, C.Template("editbox"))
   frame.search:SetSize(200, 20)
   frame.search:SetAutoFocus(false)
-  frame.search:SetScript("OnTextChanged", function() if current == "chronicle" then J.Show("chronicle") end end)
+  frame.search:SetScript("OnTextChanged", function() if SEARCHABLE[current] and not switching then J.Show(current) end end)
   frame.search:SetScript("OnEscapePressed", function(self) self:ClearFocus() end)
 
   frame.scroll = CreateFrame("ScrollFrame", nil, frame, C.Template("scroll"))
@@ -338,7 +489,7 @@ local function placeParts(game)
   for i, id in ipairs(TABS) do
     local b = frame.tabs[id]
     b:ClearAllPoints()
-    b:SetPoint("TOPLEFT", 14 + (i - 1) * 124, game and -32 or -40)
+    b:SetPoint("TOPLEFT", 14 + (i - 1) * TAB_STEP, game and -32 or -40)
   end
 end
 
@@ -366,14 +517,20 @@ end
 
 function J.Show(tab)
   if not frame then create() end
-  current = ALIASES[tab] or tab or current
+  local target = ALIASES[tab] or tab or current
+  if target ~= current and not switching then
+    switching = true
+    frame.search:SetText("")
+    switching = false
+  end
+  current = target
   frame.title:SetText(L.J_TITLE)
   J.Style()
   local isNotes = current == "notes"
   local isSheet = current == "sheet"
   frame.notes:SetShown(isNotes)
   frame.text:SetShown(not isNotes)
-  frame.search:SetShown(current == "chronicle")
+  frame.search:SetShown(SEARCHABLE[current] == true)
   frame.originLabel:SetShown(isSheet)
   frame.blurb:SetShown(isSheet)
   frame.originBtn:SetShown(isSheet)
@@ -389,6 +546,7 @@ function J.Show(tab)
     if id == current then b:LockHighlight() else b:UnlockHighlight() end
   end
   C.GamePadButtons(frame, ns.db.settings.gamepad ~= false and C.GamePadEnabled())
+  J.MarkRead()
   if isSheet then
     local o = ns.char.origin
     frame.originLabel:SetText(o and L.J_ORIGIN_CURRENT:format(o.name) or L.J_ORIGIN_NONE)
@@ -414,6 +572,20 @@ function J.OnKey(self, key)
     J.Show(TABS[idx])
   end
   self:SetPropagateKeyboardInput(not handled)
+end
+
+-- Unread diary entries (the journal button shows a count).
+function J.Unread()
+  local c = ns.char
+  if not c or not c.journal then return 0 end
+  return math.max(0, #c.journal - (c.journalRead or 0))
+end
+
+function J.MarkRead()
+  local c = ns.char
+  if not c or not c.journal then return end
+  c.journalRead = #c.journal
+  if ns.UI.Launcher and ns.UI.Launcher.UpdateBadge then ns.UI.Launcher.UpdateBadge() end
 end
 
 function J.Current() return current end

@@ -9,6 +9,10 @@ P:NPC {
   communities = { "stormwind" }, temper = { "sharp" }, values = { "pious", "stern", "honest" },
   spiritSensitive = true,
   notices = { "readiness", "humility" },
+  impression = {
+    first = "Duthorian Rall tests paladins and seems more interested in how they pass than whether they do. He speaks of the Light as a debt owed to people who can never repay it.",
+    third = "{name} met Duthorian Rall in the Cathedral of Light, who tests the paladins sent to him from across the kingdom.",
+  },
 
   greetings = {
     { id = "g_test", text = "Ready? No one ever is, so come anyway." },

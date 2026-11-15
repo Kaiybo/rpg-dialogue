@@ -9,6 +9,11 @@ P:NPC {
   communities = { "mirage_raceway" }, temper = { "eager" }, values = { "ambitious", "proud" },
   notices = { "craft", "status" },
 
+  impression = {
+    first = "Pozzik built a raceway to prove goblins are better engineers than gnomes, and he means to keep proving it every single day. He talks like a man always ten minutes from the next heat.",
+    third = "{name} met Pozzik, the goblin half of the rivalry that runs the Mirage Raceway.",
+  },
+
   greetings = {
     { id = "g_race", text = "Hey hey! Here for the race? There's always a race, every day, rain or shine, and mostly shine, since it's a salt flat." },
     { id = "g_back", when = { metBefore = true }, text = "My favorite spectator returns! You bet on us last time? Smart, so bet again." },
@@ -123,6 +128,11 @@ P:NPC {
   bible = "bibles/thousandneedles.md", role = "questgiver", tier = "quest",
   communities = { "mirage_raceway" }, temper = { "excitable" }, values = { "proud", "curious" },
   notices = { "craft", "race" },
+
+  impression = {
+    first = "Fizzle Brassbolts told me to stand very still before he said hello. He is the gnomish half of a rivalry at the Mirage Raceway, and he treats a cracked piston as a personal tragedy.",
+    third = "{name} met Fizzle Brassbolts, the excitable gnome who runs the Mirage Raceway alongside his goblin rival.",
+  },
 
   greetings = {
     { id = "g_track", text = "Mind the track, and the fuel lines, and the nitro... actually, just stand very still!" },
@@ -239,6 +249,11 @@ P:NPC {
   bible = "bibles/thousandneedles.md", role = "citizen", tier = "quest",
   communities = { "mirage_raceway" }, temper = { "sly" }, values = { "cunning", "ambitious" },
   notices = { "purse", "drink" },
+
+  impression = {
+    first = "Kravel Koalbeard speaks in a low voice and treats every conversation like a bet he's already won. Neither racing crew should trust him, and I'd wager both of them do.",
+    third = "{name} met Kravel Koalbeard, a sly dwarf who fetches parts and whispers tips at the Mirage Raceway.",
+  },
 
   greetings = {
     { id = "g_flap", text = "Close the flap behind ye. Walls have ears, an' at a racetrack the ears are usually bettin'." },

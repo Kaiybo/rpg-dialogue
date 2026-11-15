@@ -544,3 +544,9 @@ P:Town {
   tiers = { Hero = "Melbin's Favorite Customer" },
   quests = { { TODO_QUEST("A Taste of the Sea"), 3 }, { TODO_QUEST("The Monster Surfaces"), 4 } },
 }
+
+-- 0.35.0: Blasted Lands (towns for that pack go below this line)
+
+-- 0.35.0: Azshara (towns for that pack go below this line)
+
+-- 0.35.0: Silithus (towns for that pack go below this line)

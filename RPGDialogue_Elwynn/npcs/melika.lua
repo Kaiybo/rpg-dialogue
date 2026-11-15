@@ -8,6 +8,10 @@ P:NPC {
   bible = "bibles/melika.md", role = "innkeeper", tier = "quest",
   communities = { "goldshire" }, temper = { "steady", "sharp" }, values = { "kind", "witty" },
   notices = { "form", "road", "regular" },
+  impression = {
+    first = "Melika Isenstrider keeps the inn running while everyone else talks, and she notices how people sit down. She seems to think better of guests who look as if they've earned their rest.",
+    third = "{name} met Melika Isenstrider, the assistant innkeeper, who misses very little and wipes the benches twice.",
+  },
 
   greetings = {
     { id = "g_busy", text = "Sit wherever there's a chair. I'll get to you." },

@@ -9,6 +9,10 @@ P:NPC {
   communities = { "gevrek" }, temper = { "steady" }, values = { "loyal", "devout", "proud" },
   spiritSensitive = true,
   notices = { "race", "class" },
+  impression = {
+    first = "Ayessa Dawnsinger leads the Windshapers with a steady hand and a careful word. She is grateful to Thunder Bluff, and plainly determined that her people never give the tauren cause to regret their welcome.",
+    third = "{name} met Ayessa Dawnsinger, leader of the Windshapers at Camp Gev'rek in Mulgore.",
+  },
 
   greetings = {
     { id = "g_winds", text = "Winds be with you. You're welcome at Gev'rek, as long as you come in peace." },

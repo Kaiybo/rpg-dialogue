@@ -10,6 +10,10 @@ P:NPC {
   communities = { "undercity" }, temper = { "cold" }, values = { "proud", "vengeful" },
   spiritSensitive = true,
   notices = { "race", "class" },
+  impression = {
+    first = "The Dark Lady speaks with the patience of someone who has all the time in the world and none of the forgiveness. When she names Arthas, the cold in her voice goes deeper still.",
+    third = "{name} stood before Lady Sylvanas Windrunner, the Dark Lady and queen of the Forsaken, in the Royal Quarter of the Undercity.",
+  },
 
   greetings = {
     { id = "g_queen", text = "Before you stands the Dark Lady. Kneel if you like; I won't insist, not today." },
@@ -101,6 +105,10 @@ P:NPC {
   bible = "bibles/undercity.md", role = "noble", tier = "major",
   communities = { "undercity" }, temper = { "arrogant" }, values = { "proud" },
   notices = { "class", "fel" },
+  impression = {
+    first = "Varimathras calls himself the Dark Lady's most loyal servant and says he always chooses wisely. He is courteous in the way a cat is courteous to a mouse.",
+    third = "{name} met Varimathras, the dreadlord who serves as majordomo to the Dark Lady in the Undercity.",
+  },
 
   greetings = {
     { id = "g_dread", text = "You may approach, slowly. I serve the Dark Lady, and in her name I suffer visitors." },
@@ -163,6 +171,10 @@ P:NPC {
   bible = "bibles/undercity.md", role = "scholar", tier = "major",
   communities = { "undercity" }, temper = { "theatrical" }, values = { "curious", "proud" },
   notices = { "craft", "race" },
+  impression = {
+    first = "Everything in the Apothecarium delights Master Apothecary Faranell, including the living, purely academically. His cheer is so bright that it takes a moment to notice what he is actually brewing.",
+    third = "{name} met Master Apothecary Faranell, the gleeful head of the Royal Apothecary Society in the Undercity.",
+  },
 
   greetings = {
     { id = "g_lab", text = "Welcome, welcome, to the Apothecarium! Mind the green, and mind the purple, too; actually, mind all the colours." },
@@ -224,6 +236,10 @@ P:NPC {
   bible = "bibles/undercity.md", role = "questgiver", tier = "quest",
   communities = { "undercity" }, temper = { "cold" }, values = { "pragmatic", "loyal" },
   notices = { "class" },
+  impression = {
+    first = "Bethor Iceshard still carries the wand from an apprentice's oath, though one of the friends who swore it sold himself to the Lich King. He says he has grown cold, and I believe him, though not entirely.",
+    third = "{name} met Bethor Iceshard in the Magic Quarter, a Forsaken mage haunted by an old friend who became a lich.",
+  },
 
   greetings = {
     { id = "g_magic", text = "The Magic Quarter. Knowledge is the only weapon the Forsaken never had to dig out of a grave. What do you need?" },
@@ -273,6 +289,10 @@ P:NPC {
   bible = "bibles/undercity.md", role = "innkeeper", tier = "service",
   communities = { "undercity" }, temper = { "dry" }, values = { "hospitable" },
   notices = { "race", "weary" },
+  impression = {
+    first = "What Innkeeper Norman really sells is a chair and a place of one's own to people who no longer sleep. Nobody takes anyone's chair down there, he says, and he guards that last courtesy kindly.",
+    third = "{name} found a chair at Innkeeper Norman's inn by the Trade Quarter, one of the few homely corners of the Undercity.",
+  },
 
   greetings = {
     { id = "g_rest", text = "Sit yourself down and put your feet up, whatever state they're in. Mine have seen better centuries." },

@@ -8,6 +8,10 @@ P:NPC {
   bible = "bibles/baros.md", role = "questgiver", tier = "quest",
   communities = { "stormwind" }, temper = { "proud" }, values = { "ambitious", "honest" },
   notices = { "westfall", "stone" },
+  impression = {
+    first = "Baros Alexston has drawn half the streets of Stormwind and grew up on a Westfall farm, and both facts seem to weigh on him. He keeps his plans close and his past closer.",
+    third = "{name} met Baros Alexston, Stormwind's City Architect, a careful man of Westfall birth.",
+  },
 
   greetings = {
     { id = "g_plans", text = "Careful of the plans. Those are the Mage Quarter's new drains." },

@@ -11,6 +11,10 @@ P:NPC {
   communities = { "darnassus" }, temper = { "fierce" }, values = { "protective", "devout" },
   spiritSensitive = true,
   notices = { "fel", "race", "class", "form" },
+  impression = {
+    first = "High Priestess Tyrande Whisperwind speaks as though Elune is listening, and perhaps she is. Leading her people alone shows only in how little time she spares for idle words.",
+    third = "{name} stood before Tyrande Whisperwind, High Priestess of Elune, in the Temple of the Moon.",
+  },
 
   greetings = {
     { id = "g_temple", text = "You stand in the Temple of the Moon, so speak plainly. Elune hears everything said here, and I have little time for what she would not care to hear." },
@@ -312,6 +316,10 @@ P:NPC {
   bible = "bibles/darnassus.md", role = "noble", tier = "major",
   communities = { "darnassus" }, temper = { "abrasive" }, values = { "proud", "ambitious" },
   notices = { "race", "class" },
+  impression = {
+    first = "Pride sits on Arch Druid Fandral Staghelm like a mantle, pride in Teldrassil and in having led his people out of the darkness, as he tells it. He wanted me brief, and I was glad to oblige.",
+    third = "{name} met Arch Druid Fandral Staghelm, who leads the Cenarion Circle from the Enclave and suffers no doubts about it.",
+  },
 
   greetings = {
     { id = "g_enclave", text = "Yes? The Enclave is busy, and I am busier still, so be brief." },
@@ -517,6 +525,10 @@ P:NPC {
   bible = "bibles/darnassus.md", role = "trainer", tier = "quest",
   communities = { "darnassus" }, temper = { "calm" }, values = { "wise", "loyal" },
   notices = { "form", "class" },
+  impression = {
+    first = "Mathrengyl Bearwalker has the calm of someone who once stood beside power and found he preferred teaching. Every question gets a patient answer from him, even the foolish ones.",
+    third = "{name} met Mathrengyl Bearwalker, the dignified trainer of druids in the Cenarion Enclave.",
+  },
 
   greetings = {
     { id = "g_druid", when = { class = "DRUID" }, text = "Welcome, young one. The Enclave's doors are open to you, and so is my time." },
@@ -627,6 +639,10 @@ P:NPC {
   bible = "bibles/darnassus.md", role = "priest", tier = "quest",
   communities = { "darnassus" }, temper = { "gentle" }, values = { "devout", "kind" },
   notices = { "class", "death" },
+  impression = {
+    first = "Priestess A'moora called me 'little star' as if she had known me for years. Most come to her tired, she says, and I did leave the Temple pool lighter than I arrived.",
+    third = "{name} met Priestess A'moora, who tends the Temple of the Moon's pool and the weary souls who come to it.",
+  },
 
   greetings = {
     { id = "g_moon", text = "Even here under the branches, Elune's light finds you. Come in and sit by the pool." },
@@ -751,6 +767,10 @@ P:NPC {
   bible = "bibles/darnassus.md", role = "scholar", tier = "quest",
   communities = { "darnassus" }, temper = { "intent" }, values = { "curious", "devout" },
   notices = { "lore", "trophy" },
+  impression = {
+    first = "Some of Gracina Spiritmight's specimens are only mostly dead, and she wants to hear about every creature I have ever seen. Something in the southern deserts frightens her badly, and she does not strike me as easily frightened.",
+    third = "{name} met Gracina Spiritmight, the priestess and scholar of the Temple of the Moon whose study of insects has led her somewhere troubling.",
+  },
 
   greetings = {
     { id = "g_study", text = "Careful with the specimens. Some of them are only mostly dead." },
@@ -871,6 +891,10 @@ P:NPC {
   bible = "bibles/darnassus.md", role = "innkeeper", tier = "service",
   communities = { "darnassus" }, temper = { "warm" }, values = { "kind" },
   notices = { "weary", "race" },
+  impression = {
+    first = "Innkeeper Saelienne warned me not to look down from the terrace, which of course made me do it. Her inn rocks gently with the branches at night, and she swears most guests find it soothing.",
+    third = "{name} found rest at Innkeeper Saelienne's inn on the Craftsmen's Terrace, high in the branches of Darnassus.",
+  },
 
   greetings = {
     { id = "g_rest", text = "Rest a while, traveller. The branches rock a little at night. Most find it soothing." },

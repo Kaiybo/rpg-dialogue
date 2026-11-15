@@ -8,6 +8,11 @@ P:NPC {
   communities = { "farholde", "brotherhood_horse" }, temper = { "proud", "steady" }, values = { "loyal", "brave", "stern" },
   notices = { "class", "stormwind", "kit" },
 
+  impression = {
+    first = "Knight Commander Demar Brant holds Farholde with what Stormwind left him, which he insists is nothing. He speaks of his dead by name, and he sized me up like a man counting swords for the wall.",
+    third = "{name} met Knight Commander Demar Brant, who has held Farholde for the Brotherhood of the Horse through twenty hard years.",
+  },
+
   greetings = {
     { id = "g_default", text = "Farholde stands, for another day at least. Say what you need." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and good to see it. Most who leave the Riverglades never come back." },
@@ -365,6 +370,11 @@ P:NPC {
   communities = { "farholde", "brotherhood_horse" }, temper = { "sharp", "chatty" }, values = { "curious", "loyal" },
   notices = { "arcane", "curse" },
 
+  impression = {
+    first = "Ashe Amberhall talks faster than I can write, then catches herself and apologizes, then carries on anyway. Underneath all the books there is someone grieving, and very good at not showing it.",
+    third = "{name} met Ashe Amberhall, the Knight Commander's advisor at Farholde, a quick-tongued mage who keeps her father's notes.",
+  },
+
   greetings = {
     { id = "g_default", text = "Visitors! Sit, if you can find a chair that isn't holding a book." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Good, because I've had a thought since you left. Several, actually." },
@@ -601,6 +611,11 @@ P:NPC {
   communities = { "brotherhood_horse" }, temper = { "weary", "steady" }, values = { "loyal", "stern" },
   notices = { "kit", "curse" },
 
+  impression = {
+    first = "Sergeant Riftan has fought the cultists so long he has stopped counting the years. He keeps one eye on the ridge even while he talks, and complains about Ashe in a way that sounds almost fond.",
+    third = "{name} met Sergeant Riftan, a weary veteran of the Brotherhood of the Horse holding the line against the Twilight cultists.",
+  },
+
   greetings = {
     { id = "g_default", text = "Keep low; they've archers on the ridge." },
     { id = "g_back", when = { metBefore = true }, text = "Still alive, good. I'm running out of room to remember names." },
@@ -698,6 +713,11 @@ P:NPC {
   communities = { "farholde", "brotherhood_horse" }, temper = { "patient" }, values = { "kind", "pious" },
   notices = { "healer", "disease", "form" },
 
+  impression = {
+    first = "Sister Rowland keeps the sick soldiers clean, fed and prayed over, and won't pretend to know what ails them. There is a calm about her that I suspect costs her more than she lets on.",
+    third = "{name} met Sister Rowland, who tends the Brotherhood's sick in Farholde's chapel.",
+  },
+
   greetings = {
     { id = "g_default", text = "Quietly, please; some of them are sleeping." },
     { id = "g_back", when = { metBefore = true }, text = "You came back. Would you sit with one of them a moment? Talking helps, though I don't know why." },
@@ -788,6 +808,11 @@ P:NPC {
   bible = "bibles/riverglades.md", role = "soldier", tier = "quest",
   communities = { "farholde", "brotherhood_horse" }, temper = { "wary", "sharp" }, values = { "loyal", "cautious" },
   notices = { "pets", "elves", "form" },
+
+  impression = {
+    first = "Cady Lloydriel is a ranger of few words, and most of her attention stays on the cradle beside her. Her dog and cat seem to have more opinions than she shares.",
+    third = "{name} met Cady Lloydriel, a ranger of the Brotherhood who keeps watch over Farholde's walls and a cradle.",
+  },
 
   greetings = {
     { id = "g_default", text = "Mind the cradle." },
@@ -898,6 +923,11 @@ P:NPC {
   communities = { "farholde" }, temper = { "gentle" }, values = { "patient" },
   notices = { "mount", "class" },
 
+  impression = {
+    first = "Wheatley, the stable master, plainly likes horses better than the people who ride them, and he said as much. I found it hard to hold that against him.",
+    third = "{name} met Wheatley, Farholde's stable master, who tends every horse in the Brotherhood.",
+  },
+
   greetings = {
     { id = "g_default", text = "Mind your step there; it's fresh." },
     { id = "g_mount", text = "Want your mount looked at? I look at all of them anyway." },
@@ -960,6 +990,11 @@ P:NPC {
   communities = { "farholde" }, temper = { "brisk" }, values = { "proud" },
   notices = { "flight" },
 
+  impression = {
+    first = "Gretchen Mayberry runs Farholde's gryphons briskly and is proud of every grumpy one of them. If the fog troubles her, she keeps it to herself.",
+    third = "{name} met Gretchen Mayberry, the Gryphon Master of Farholde Keep.",
+  },
+
   greetings = {
     { id = "g_default", text = "Need a lift? The birds are fed, and grumpy with it." },
     { id = "g_fog", when = { timeOfDay = "dawn" }, text = "Fog's in. They'll fly, but they'll complain the whole way." },
@@ -1014,6 +1049,11 @@ P:NPC {
   bible = "bibles/riverglades.md", role = "blacksmith", tier = "quest",
   communities = { "farholde" }, temper = { "taciturn" }, values = { "patient", "proud" },
   notices = { "kit", "craft" },
+
+  impression = {
+    first = "Alphonse Dumas spends his words the way he spends his coal, carefully and not often. He talked to me without once looking up from the anvil.",
+    third = "{name} met Alphonse Dumas, the smith who keeps the Brotherhood shod and armed at Farholde.",
+  },
 
   greetings = {
     { id = "g_default", text = "Embers are hot, so don't touch." },

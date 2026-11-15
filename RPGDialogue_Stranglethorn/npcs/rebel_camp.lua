@@ -8,6 +8,11 @@ P:NPC {
   communities = { "rebel_camp" }, temper = { "wary" }, values = { "dutiful", "loyal" },
   notices = { "kit", "soldier" },
 
+  impression = {
+    first = "Lieutenant Doren met me with a drawn sword and a hard question about Colonel Kurzen. Whatever took the Colonel's mind, this man has not forgiven it.",
+    third = "{name} was challenged at the rebel camp by Lieutenant Doren, who led the men who broke from Colonel Kurzen's expedition.",
+  },
+
   greetings = {
     { id = "g_halt", text = "Stop there and state your business. If you're one of the Colonel's, you won't be walking out of this camp." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. We've few enough friends this far from Stormwind." },
@@ -294,6 +299,11 @@ P:NPC {
   communities = { "rebel_camp" }, temper = { "earnest" }, values = { "devout", "curious" },
   notices = { "class", "craft", "form" },
 
+  impression = {
+    first = "Brother Nimetz has glassware drying on every flat surface of a jungle camp, which says a great deal about him. He tended the sick, and now he studies what drove them mad.",
+    third = "{name} met Brother Nimetz at the rebel camp, a priest studying the sickness of mind that took Colonel Kurzen and his men.",
+  },
+
   greetings = {
     { id = "g_glass", text = "The Light keep you. Mind your step; I've glassware drying on every flat surface in this camp." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, it's you again. Any news is welcome here, even bad news." },
@@ -467,6 +477,11 @@ P:NPC {
   bible = "bibles/stranglethorn.md", role = "soldier", tier = "quest",
   communities = { "rebel_camp" }, temper = { "wary" }, values = { "loyal", "brave" },
   notices = { "stealth", "kit" },
+
+  impression = {
+    first = "Private Thorsen spent time inside Kurzen's force pretending to be one of them, and he still keeps his voice down out of habit. He knows more than he's said.",
+    third = "{name} met Private Thorsen, who went among Colonel Kurzen's men in disguise and nearly did not come back.",
+  },
 
   greetings = {
     { id = "g_careful", text = "Keep your voice down. This part of the jungle has ears, and some of them belong to Kurzen." },

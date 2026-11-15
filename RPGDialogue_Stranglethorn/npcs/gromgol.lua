@@ -8,6 +8,11 @@ P:NPC {
   communities = { "gromgol" }, temper = { "blunt" }, values = { "dutiful", "stern" },
   notices = { "kit", "race" },
 
+  impression = {
+    first = "Commander Aggro'gosh asked whether I'd come to work before he asked anything else. Grom'gol holds because he simply refuses to let it fall.",
+    third = "{name} met Commander Aggro'gosh, who keeps Grom'gol and the road to Stonard open against ogres and the Bloodscalp.",
+  },
+
   greetings = {
     { id = "g_camp", text = "This is Grom'gol, and everyone in Grom'gol works. Are you here to work?" },
     { id = "g_back", when = { metBefore = true }, text = "You again? Fine, there's always more to do than hands to do it." },
@@ -202,6 +207,11 @@ P:NPC {
   communities = { "gromgol" }, temper = { "wary" }, values = { "loyal", "stern" },
   notices = { "race" },
 
+  impression = {
+    first = "Nimboya came from Orgrimmar to find a chief's lost son, Yenniku, and he says he will not go home without him. I believe him.",
+    third = "{name} met Nimboya at Grom'gol, a troll who has sworn not to leave Stranglethorn without the chief's lost son, Yenniku.",
+  },
+
   greetings = {
     { id = "g_wary", text = "Nimboya don't know you. Say what you come for, and say it quick." },
     { id = "g_back", when = { metBefore = true }, text = "You again, good. You keep coming back like this, maybe you be useful." },
@@ -364,6 +374,11 @@ P:NPC {
   bible = "bibles/stranglethorn.md", role = "questgiver", tier = "quest",
   communities = { "gromgol" }, temper = { "playful" }, values = { "loyal", "curious" },
   notices = { "class", "form" },
+
+  impression = {
+    first = "Kin'weelay complained that the spirits are rude, and laughed about it. Beneath the joking there is a witch doctor who takes the unseen very seriously indeed.",
+    third = "{name} met Kin'weelay, a Darkspear witch doctor sent from Orgrimmar to help Nimboya with what cannot be seen.",
+  },
 
   greetings = {
     { id = "g_spirits", text = "The spirits told me somebody coming, but they don't say who. Spirits be rude like that, mon." },
@@ -562,6 +577,11 @@ P:NPC {
   communities = { "gromgol" }, temper = { "calm" }, values = { "wise", "patient" },
   notices = { "class" },
 
+  impression = {
+    first = "Far Seer Mok'thardin keeps the one quiet fire in a loud camp. He listens far more than he talks, and he wants the old power out of Stranglethorn's beasts.",
+    third = "{name} sat by Far Seer Mok'thardin's fire at Grom'gol, where the orc studies the old power in the blood and bones of Stranglethorn's beasts.",
+  },
+
   greetings = {
     { id = "g_fire", text = "The camp is loud, but here by the fire it's quieter. Speak, and I'll listen." },
     { id = "g_back", when = { metBefore = true }, text = "The fire kept your place for you. Sit." },
@@ -699,6 +719,11 @@ P:NPC {
   bible = "bibles/stranglethorn.md", role = "innkeeper", tier = "service",
   communities = { "gromgol" }, temper = { "warm" }, values = { "generous" },
   notices = { "weary", "drink" },
+
+  impression = {
+    first = "Innkeeper Thulbek trades a bed for a war story and seems to think he's getting the better end. Out here, he says, a fire keeps things away rather than cold.",
+    third = "{name} found a bed at Grom'gol with Innkeeper Thulbek, who asks only for a story of the fighting in return.",
+  },
 
   greetings = {
     { id = "g_inn", text = "Come in and sit by the fire! Out here a fire keeps things away, not cold." },

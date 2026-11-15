@@ -8,6 +8,11 @@ P:NPC {
   communities = { "emerald_sanctuary" }, temper = { "hopeful" }, values = { "devout", "patient" },
   notices = { "class", "race" },
 
+  impression = {
+    first = "Eridan Bluewind insists there's still green under Felwood's sickness, and she plants a seed every morning to prove it. Her hope is stubborn enough to be almost catching.",
+    third = "{name} met Eridan Bluewind of the Emerald Circle, who believes Felwood can be healed.",
+  },
+
   greetings = {
     { id = "g_green", text = "Welcome, traveler. Look past the sickness, if you can, for there's still green under it." },
     { id = "g_back", when = { metBefore = true }, text = "You came back to Felwood, when most don't once they've seen it. Thank you." },
@@ -116,6 +121,11 @@ P:NPC {
   communities = { "emerald_sanctuary" }, temper = { "wary" }, values = { "protective", "wise" },
   notices = { "class", "race" },
 
+  impression = {
+    first = "Greta Mosshoof keeps a stone from Mulgore in her pocket for when the forest grows too loud. She is wary of anyone who might be tempted by the power here, and she says so.",
+    third = "{name} met Greta Mosshoof of the Emerald Circle, who fights Felwood's corruption from the Emerald Sanctuary.",
+  },
+
   greetings = {
     { id = "g_welcome", text = "The Emerald Circle welcomes you. Stay on the path, and don't touch anything that glows." },
     { id = "g_back", when = { metBefore = true }, text = "Still clean? Good; Felwood gets into people, so watch for it." },
@@ -205,6 +215,11 @@ P:NPC {
   bible = "bibles/felwood.md", role = "questgiver", tier = "quest",
   communities = { "emerald_sanctuary" }, temper = { "earnest" }, values = { "kind", "practical" },
   notices = { "craft" },
+
+  impression = {
+    first = "Maybess Riverbreeze believes the forest can be mended more than fought for, one salve at a time. She asks everyone to help and seems to mean everyone.",
+    third = "{name} met Maybess Riverbreeze of the Emerald Circle, who asks the Horde to help heal Felwood.",
+  },
 
   greetings = {
     { id = "g_hello", text = "The Earth Mother's blessing on you. Come and sit a moment; there's always more work than hands in Felwood." },
@@ -331,6 +346,11 @@ P:NPC {
   bible = "bibles/felwood.md", role = "questgiver", tier = "quest",
   communities = { "emerald_sanctuary" }, temper = { "determined" }, values = { "protective", "devout" },
   notices = { "craft" },
+
+  impression = {
+    first = "Arathandris Silversky spent a whole morning watching a single clean flower by the road. Her patience is the fighting kind, and she says the curse is no more stubborn than she is.",
+    third = "{name} met Arathandris Silversky of the Emerald Circle, who asks the Alliance to help cleanse Felwood.",
+  },
 
   greetings = {
     { id = "g_hello", text = "These woods were beautiful, once. Help me make them so again." },

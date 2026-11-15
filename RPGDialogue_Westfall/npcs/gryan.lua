@@ -9,6 +9,10 @@ P:NPC {
   communities = { "sentinel_hill" }, temper = { "steady" }, values = { "brave", "lawful", "kind" },
   spiritSensitive = true,
   notices = { "reputation", "paladin" },
+  impression = {
+    first = "Gryan Stoutmantle came home from the war to find Westfall in thieves' hands, and he means to take it back one farm at a time. He carries the whole hill on his shoulders without a word about the weight.",
+    third = "{name} met Gryan Stoutmantle at Sentinel Hill, who raised the People's Militia to reclaim his homeland.",
+  },
 
   greetings = {
     { id = "g_hill", text = "Sentinel Hill, such as it is. Find a spot out of the wind." },

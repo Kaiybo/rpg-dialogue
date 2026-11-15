@@ -8,6 +8,11 @@ P:NPC {
   communities = { "stonard" }, temper = { "methodical" }, values = { "dutiful", "practical" },
   notices = { "kit", "class" },
 
+  impression = {
+    first = "Dispatch Commander Ruag sends scouts into the swamp and counts what comes back. He keeps the old business at Thrall's Grasp close, and plainly wishes he could forget it.",
+    third = "{name} met Dispatch Commander Ruag, who directs the Horde's scouts from Stonard in the Swamp of Sorrows.",
+  },
+
   greetings = {
     { id = "g_hall", text = "Another pair of boots, good. I send them out, and the swamp sends back what's left of the maps." },
     { id = "g_back", when = { metBefore = true }, text = "You're back, and dry-ish, so report." },
@@ -200,6 +205,11 @@ P:NPC {
   communities = { "stonard" }, temper = { "grim" }, values = { "loyal", "sharp" },
   notices = { "class" },
 
+  impression = {
+    first = "Fel'zerul watches the sunken temple the way some people watch a sleeping beast. Whatever stirs beneath the Pool of Tears, he has felt it, and he doesn't like it.",
+    third = "{name} met Fel'zerul, sent by the Warchief to watch the Temple of Atal'Hakkar from Stonard.",
+  },
+
   greetings = {
     { id = "g_temple", text = "You feel it too? The swamp hums near the Pool of Tears, because something old is awake down there." },
   },
@@ -343,6 +353,11 @@ P:NPC {
   communities = { "stonard" }, temper = { "restless" }, values = { "loyal", "brave" },
   notices = { "kit" },
 
+  impression = {
+    first = "Helgrum the Swift can't keep still and admits he's fast rather than clever. He spoke of Neeka Bloodscar with an easy pride that made me like him at once.",
+    third = "{name} met Helgrum the Swift, the restless runner who carries word between Stonard and Kargath.",
+  },
+
   greetings = {
     { id = "g_post", text = "Can't stand still in this place, because the mud's always trying to keep you." },
   },
@@ -442,6 +457,11 @@ P:NPC {
   bible = "bibles/swampofsorrows.md", role = "questgiver", tier = "quest",
   communities = { "stonard" }, temper = { "stoic" }, values = { "proud", "dutiful" },
   notices = { "weary" },
+
+  impression = {
+    first = "Bengor can barely walk or talk, and he insists on remembering all the same. He wears what the murlocs did to him with a soldier's stubborn pride.",
+    third = "{name} met Bengor, a gravely wounded Horde soldier at Stonard who remembers what became of the lost orders.",
+  },
 
   greetings = {
     { id = "g_cough", text = "Don't look at me like that, it's only the swamp air in my chest, and everyone here coughs." },
@@ -545,6 +565,11 @@ P:NPC {
   bible = "bibles/swampofsorrows.md", role = "innkeeper", tier = "service",
   communities = { "stonard" }, temper = { "gruff" }, values = { "generous" },
   notices = { "weary", "drink" },
+
+  impression = {
+    first = "Innkeeper Karakul made me take my boots off at the door before he made me eat. Gruff as he is, he plainly thinks feeding the scouts is the most important job in Stonard.",
+    third = "{name} met Innkeeper Karakul, who keeps Stonard's scouts fed and dry in the Swamp of Sorrows.",
+  },
 
   greetings = {
     { id = "g_inn", text = "Boots off by the door, because the mud stays outside, even if you don't have to." },

@@ -9,6 +9,10 @@ P:NPC {
   bible = "bibles/ashenvale.md", role = "questgiver", tier = "major",
   communities = { "astranaar" }, temper = { "fierce" }, values = { "protective", "loyal" },
   notices = { "pet", "form", "class" },
+  impression = {
+    first = "Raene Wolfrunner would sooner face every furbolg and orc in Ashenvale alone than watch another tree fall. When she speaks of her friend Teronis, the grief sits close under all that fierceness.",
+    third = "{name} met Raene Wolfrunner, who commands the scouts of Astranaar and fights for every tree in Ashenvale.",
+  },
 
   greetings = {
     { id = "g_forest", text = "Ashenvale needs you, truly. The forest needs every blade it can get, and every pair of eyes." },
@@ -176,6 +180,10 @@ P:NPC {
   bible = "bibles/ashenvale.md", role = "questgiver", tier = "quest",
   communities = { "astranaar" }, temper = { "anxious" }, values = { "loving", "determined" },
   notices = { "class" },
+  impression = {
+    first = "Pelturas Whitemoon asked me to speak softly for his daughter's sake, then listened for her the whole time we talked. He has tried nearly every cure there is, and he has not once stopped hoping.",
+    third = "{name} met Pelturas Whitemoon of Astranaar, a father searching for any cure for his daughter Relara's fever and nightmares.",
+  },
 
   greetings = {
     { id = "g_worried", text = "Please, speak softly; my daughter is sleeping. At least, I hope she's sleeping." },
@@ -267,6 +275,10 @@ P:NPC {
   bible = "bibles/ashenvale.md", role = "child", tier = "quest",
   communities = { "astranaar" }, temper = { "frightened" }, values = { "gentle" },
   notices = { "pet" },
+  impression = {
+    first = "Small and sick as she is, Relara Whitemoon still means to become a Sentinel or a hippogryph, whichever gets to fly. Her papa, she assured me, is fixing everything.",
+    third = "{name} met Relara Whitemoon, Pelturas's young daughter, who faces her fevered nightmares with a child's stubborn hope.",
+  },
 
   greetings = {
     { id = "g_sleep", text = "Is it morning yet? It's always dark when I wake up... is Papa here?" },
@@ -339,6 +351,10 @@ P:NPC {
   bible = "bibles/ashenvale.md", role = "questgiver", tier = "quest",
   communities = { "astranaar" }, temper = { "steady" }, values = { "dutiful" },
   notices = { "kit" },
+  impression = {
+    first = "Faldreas keeps a list of everyone who goes out on Astranaar's roads and everyone who ought to have come back. Crossing names off the right way, he says, is the best part of his day.",
+    third = "{name} met Faldreas Goeth'Shael, who keeps track of every traveller leaving Astranaar and listens to the forest spirits.",
+  },
 
   greetings = {
     { id = "g_road", text = "Ishnu-alah, traveller. The roads out of Astranaar are long and not as safe as they look, so mind them." },
@@ -413,6 +429,10 @@ P:NPC {
   bible = "bibles/ashenvale.md", role = "innkeeper", tier = "service",
   communities = { "astranaar" }, temper = { "warm" }, values = { "kind" },
   notices = { "weary" },
+  impression = {
+    first = "Every night Innkeeper Kimlya sends broth up to a sick child, knowing the father will eat it if the girl won't. Astranaar's inn seems to run on that sort of quiet kindness.",
+    third = "{name} rested at Innkeeper Kimlya's inn on Astranaar's island, a refuge for scouts, healers and weary travellers.",
+  },
 
   greetings = {
     { id = "g_rest", text = "You look worn through, body and spirit both. Rest here a while, and may Elune keep your dreams gentle." },
@@ -477,6 +497,10 @@ P:NPC {
   communities = { "maestras_post" }, temper = { "earnest" }, values = { "devout", "brave" },
   spiritSensitive = true,
   notices = { "class" },
+  impression = {
+    first = "Delgren the Purifier greets everyone with the Light's blessing and a cheerful word, a long way from home and glad of company. He is earnest and warm, though I would not want to be a warlock standing near his hammer.",
+    third = "{name} met Delgren the Purifier at Maestra's Post, a servant of the Light hunting the Dark Strand cult in Ashenvale.",
+  },
 
   greetings = {
     { id = "g_light", text = "Light keep you, friend! Maestra's Post bids you welcome; it's a long way from home, but there's work for the righteous everywhere." },

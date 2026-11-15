@@ -10,6 +10,11 @@ P:NPC {
   communities = { "zephras_isle" }, temper = { "steady" }, values = { "honest", "lawful" },
   notices = { "kin", "stranger" },
 
+  impression = {
+    first = "High Elder Talaanis Shadowsong holds the office by the Council's choice and much against her own. She answers questions plainly and admits what nobody knows, which I found more reassuring than any promise.",
+    third = "{name} met Talaanis Shadowsong, High Elder of Zephras Isle, chosen by the Council of Elders and much against her own wishes.",
+  },
+
   greetings = {
     { id = "g_winds", text = "Winds be with you." },
     { id = "g_stranger", when = { ["not"] = { race = "Skyborne" } }, text = "A guest, and we have few. Winds be with you all the same." },

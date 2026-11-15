@@ -964,6 +964,7 @@ function Conv.Ask(topic)
     s.lastLine = w.gid
     text = Tokens.Render(w.line.text, s.ctx, s.env)
   end
+  if w and not brushoff then ns.Topics.RecordAnswer(topic, s.memKey, s.info and s.info.name, w.gid) end
   local linked = Conv.Hear(text, topic)
   local tdef = ns.Data.topics[topic]
   View(s).ShowAnswer(text, tdef and tdef.name or topic, linked)

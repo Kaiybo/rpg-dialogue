@@ -8,6 +8,10 @@ P:NPC {
   bible = "bibles/verna.md", role = "farmer", tier = "quest",
   communities = { "westfall_farms" }, temper = { "steady" }, values = { "kind", "honest" },
   notices = { "animal", "craft" },
+  impression = {
+    first = "Verna Furlbrow holds her family together with kind words and a wagon held up by string and prayer. She worries more for their tired horse Blanchy than for herself.",
+    third = "{name} met Verna Furlbrow, who cares for her husband and their weary horse Blanchy beside a broken wagon.",
+  },
 
   greetings = {
     { id = "g_wagon", text = "Careful round the wagon, dear. It's held up with string and prayer." },

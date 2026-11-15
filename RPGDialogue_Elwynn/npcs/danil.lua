@@ -7,6 +7,10 @@ P:NPC {
   bible = "bibles/danil.md", role = "vendor", tier = "service",
   communities = { "northshire" }, temper = { "sharp" },
   notices = { "purse", "kit" },
+  impression = {
+    first = "Brother Danil sells bread and thread off the Abbey's stores and can apparently hear a full purse from across the yard. He mentioned the leaking roof more than once, and I doubt it was an accident.",
+    third = "{name} browsed the humble stores of Brother Danil, who never lets a customer forget that the Abbey roof leaks.",
+  },
 
   greetings = {
     { id = "g_faithful", text = "Supplies for the faithful, and for anyone else with coin." },

@@ -8,6 +8,10 @@ P:NPC {
   bible = "bibles/city4.md", role = "soldier", tier = "major",
   communities = { "stormwind" }, temper = { "steady" }, values = { "dutiful", "courteous" },
   notices = { "soldier", "kit" },
+  impression = {
+    first = "General Marcus Jonathan keeps Stormwind's walls with whatever the Keep will spare him, and it plainly isn't enough. He reads every letter from the provinces twice and answers fewer than he'd like.",
+    third = "{name} met General Marcus Jonathan, High Commander of Stormwind's defence, who watches over the Valley of Heroes.",
+  },
 
   greetings = {
     { id = "g_gate", text = "Well met. The Valley of Heroes is open to all who come in peace. Keep your blade sheathed and you'll find us friendly." },
@@ -174,6 +178,10 @@ P:NPC {
   bible = "bibles/city4.md", role = "trainer", tier = "quest",
   communities = { "stormwind" }, temper = { "prickly" }, values = { "proud", "practical" },
   notices = { "class", "stealth" },
+  impression = {
+    first = "Renzik speaks of himself by name, like a goblin selling his own legend, and he is second at SI:7 all the same. He decided I might be worth something and told me so bluntly.",
+    third = "{name} met Renzik the Shiv, the goblin who serves as second at SI:7 and decides what good means there.",
+  },
 
   greetings = {
     { id = "g_rogue", when = { class = "ROGUE" }, text = "You got potential, and Renzik can see it. Renzik can also see you're about to get yourself killed, so let's fix that." },
@@ -272,6 +280,10 @@ P:NPC {
   bible = "bibles/city4.md", role = "guard", tier = "quest",
   communities = { "stormwind" }, temper = { "curt" }, values = { "dutiful" },
   notices = { "soldier" },
+  impression = {
+    first = "Major Samuelson keeps the throne room orderly and expects visitors to behave as though they know where they are standing. He said that was all I needed to know about him, and he meant it.",
+    third = "{name} met Major Samuelson, captain of the guard in Stormwind Keep, a man of few words and fewer exceptions.",
+  },
 
   greetings = {
     { id = "g_throne", text = "This is the King's throne room. Conduct yourself accordingly." },
@@ -370,6 +382,10 @@ P:NPC {
   barks = {
     { id = "b_bread", text = "Bread! Hot from the oven, or near enough!" },
     { id = "b_loaf", text = "A loaf for the road, a loaf for the pocket, a loaf for later!" },
+  },
+  impression = {
+    first = "Thomas Miller walks the Trade District from dawn to dusk with a basket of bread and a left foot that complains the whole way. He had a roll halfway into my hand before I'd decided I was hungry.",
+    third = "{name} met Thomas Miller, the Trade District's walking baker, whose basket always wins the argument with his feet.",
   },
   greetings = {
     { id = "g_bread", text = "Bread, friend? Best price in the Trade District, and I'll stand behind every crust." },

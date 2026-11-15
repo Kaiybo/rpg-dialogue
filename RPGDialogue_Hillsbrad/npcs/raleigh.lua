@@ -13,6 +13,11 @@ P:NPC {
   communities = { "southshore" }, temper = { "grave", "guarded" }, values = { "honest", "devout" },
   notices = { "light", "scarlet" },
 
+  impression = {
+    first = "Raleigh the Devout asked me to close the door before anything else and wanted to know who'd sent me. He wore the Crusade's red once, and he still watches the north road.",
+    third = "{name} called on Raleigh the Devout, a former Scarlet Crusader who keeps a room above the Southshore inn.",
+  },
+
   greetings = {
     { id = "g_door", text = "Close the door behind you, and then tell me who sent you." },
     { id = "g_back", when = { metBefore = true }, text = "You again? Sit down, then; I've had worse company than people who listen." },

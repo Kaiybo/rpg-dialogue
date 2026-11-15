@@ -8,6 +8,10 @@ P:NPC {
   communities = { "goldshire" }, temper = { "sharp" }, values = { "pious", "kind", "honest" },
   spiritSensitive = true,
   notices = { "kit", "affliction" },
+  impression = {
+    first = "Brother Wilhelm works in the forge smoke and seems to measure people by how straight they stand when they leave. He mends souls, he says, and slowly.",
+    third = "{name} met Brother Wilhelm, Goldshire's paladin trainer, who teaches what a paladin's oath truly weighs.",
+  },
 
   greetings = {
     { id = "g_default", text = "Brother Wilhelm. Mind the forge smoke, it gets everywhere." },

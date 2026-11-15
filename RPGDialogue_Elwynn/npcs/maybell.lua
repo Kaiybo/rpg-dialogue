@@ -8,6 +8,10 @@ P:NPC {
   bible = "bibles/maybell.md", role = "questgiver", tier = "quest",
   communities = { "goldshire" }, temper = { "cowardly" }, values = { "kind", "romantic" },
   notices = { "stealth", "craft" },
+  impression = {
+    first = "Maybell Maclure blushes easily and lies badly, and both have to do with a boy across the river. By her own account she has never been very good at rules.",
+    third = "{name} met Maybell Maclure, who counts grapes by the river while thinking of a Stonefield she isn't allowed to see.",
+  },
 
   greetings = {
     { id = "g_hush", text = "Shh, not so loud, please! They'll hear you up at the house." },

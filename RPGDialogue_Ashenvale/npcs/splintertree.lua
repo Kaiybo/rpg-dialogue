@@ -9,6 +9,10 @@ P:NPC {
   bible = "bibles/ashenvale.md", role = "questgiver", tier = "quest",
   communities = { "splintertree" }, temper = { "reflective" }, values = { "reverent", "kind" },
   notices = { "pet", "class" },
+  impression = {
+    first = "Senani Thunderheart came to Ashenvale to hunt and stayed because the forest was the most beautiful thing she had ever seen. That there is a war in it is a sorrow she carries openly.",
+    third = "{name} met Senani Thunderheart at Splintertree Post, a tauren hunter who honours the great beasts of Ashenvale even as she hunts them.",
+  },
 
   greetings = {
     { id = "g_forest", text = "Look at this forest, truly look at it. Whatever happens tomorrow, it was beautiful today." },
@@ -106,6 +110,10 @@ P:NPC {
   bible = "bibles/ashenvale.md", role = "questgiver", tier = "quest",
   communities = { "splintertree" }, temper = { "gruff" }, values = { "practical" },
   notices = { "kit" },
+  impression = {
+    first = "Given the choice, Mastok Wrilehiss prefers wagons to people, because wagons never ask anything. He counts the burned ones too, so he will remember who to be angry at.",
+    third = "{name} met Mastok Wrilehiss, the gruff orc who tracks every caravan in and out of Splintertree Post.",
+  },
 
   greetings = {
     { id = "g_gruff", text = "What is it? I'm counting wagons, so speak fast or speak elsewhere." },
@@ -183,6 +191,10 @@ P:NPC {
   bible = "bibles/ashenvale.md", role = "soldier", tier = "quest",
   communities = { "splintertree" }, temper = { "wary" }, values = { "loyal", "cunning" },
   notices = { "stealth", "race" },
+  impression = {
+    first = "Kuray'bin keeps his eyes open and his back to the wall. He thinks the elves and the Horde are each a little right about the forest, which is more than most soldiers will admit.",
+    third = "{name} met Kuray'bin, a wary troll who watches the paths into Splintertree for night elf runners.",
+  },
 
   greetings = {
     { id = "g_wary", text = "Easy, mon. Eyes open and back to the wall, that be how we live in these woods." },

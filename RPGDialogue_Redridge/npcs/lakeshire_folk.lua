@@ -10,6 +10,11 @@ P:NPC {
   communities = { "lakeshire" }, temper = { "formal" }, values = { "lawful", "dutiful" },
   notices = { "soldier", "stealth" },
 
+  impression = {
+    first = "Bailiff Conacher carries out the Magistrate's rulings and says the work is less glamorous than it sounds. He addressed me as citizen, and somehow it felt like a summons.",
+    third = "{name} was received by Bailiff Conacher of the Court of Lakeshire, who sees the Magistrate's rulings carried out.",
+  },
+
   greetings = {
     { id = "g_court", text = "The Court of Lakeshire is in session whenever the Magistrate is at his desk, which is always, so state your matter." },
     { id = "g_back", when = { metBefore = true }, text = "Citizen, the court recognises you. You may approach." },
@@ -134,6 +139,11 @@ P:NPC {
   communities = { "lakeshire" }, temper = { "anxious" }, values = { "dutiful" },
   notices = { "kit" },
 
+  impression = {
+    first = "Deputy Feldon counts gnolls at the south end of the bridge, and the count keeps going up. He has a dry sense of humour about it that I suspect keeps him upright.",
+    third = "{name} met Deputy Feldon, who watches the south end of Lakeshire's bridge and keeps a rising count of gnolls.",
+  },
+
   greetings = {
     { id = "g_bridge", text = "Keep to the bridge and keep to the road, because what's south of here bites." },
     { id = "g_back", when = { metBefore = true }, text = "Still walking? Good. I think there are fewer gnolls on the road this week, or I hope so." },
@@ -244,6 +254,11 @@ P:NPC {
   communities = { "lakeshire" }, temper = { "steady" }, values = { "dutiful", "shy" },
   notices = { "kit", "travel" },
 
+  impression = {
+    first = "Guard Parker walks the road between Lakeshire and the Duskwood line and watches the hills like they owe him money. He wanted to know exactly where I was going.",
+    third = "{name} was stopped on the road by Guard Parker, who patrols between Lakeshire and the Duskwood line.",
+  },
+
   greetings = {
     { id = "g_road", text = "Hold up, where are you headed? The road's watched, but not as well as I'd like." },
     { id = "g_back", when = { metBefore = true }, text = "The road's been quiet. Too quiet, or just quiet; you can never tell out here." },
@@ -350,6 +365,11 @@ P:NPC {
   bible = "bibles/lakeshire_folk.md", role = "citizen", tier = "quest",
   communities = { "lakeshire" }, temper = { "bright" }, values = { "kind", "romantic" },
   notices = { "hunger", "drink" },
+
+  impression = {
+    first = "Darcy called me love and seated me away from the wobbly table. She hears all the gossip in Lakeshire and swears she passes on only the nice parts.",
+    third = "{name} was served at the Lakeshire inn by Darcy, who hears all the town's gossip and claims to repeat only the kind parts.",
+  },
 
   greetings = {
     { id = "g_inn", text = "Sit anywhere, love, I'll be right round. Anywhere but that table, mind, because it wobbles." },
@@ -465,6 +485,11 @@ P:NPC {
   communities = { "lakeshire" }, temper = { "warm" }, values = { "patient", "proud" },
   notices = { "craft", "animal" },
 
+  impression = {
+    first = "Martie Jainrose grows herbs for the healer and flowers for nobody in particular. Her garden by the lake is the gentlest thing I've seen in Redridge.",
+    third = "{name} met Martie Jainrose, who keeps a garden by the lake in Lakeshire and grows herbs for the town's healer.",
+  },
+
   greetings = {
     { id = "g_garden", text = "Step round the beds, dear, they're only just coming up. Lovely weather for it, if it holds." },
     { id = "g_back", when = { metBefore = true }, text = "Hello again! The tulips have opened, well, two of them have, and two's a start." },
@@ -577,6 +602,11 @@ P:NPC {
   bible = "bibles/lakeshire_folk.md", role = "questgiver", tier = "quest",
   communities = { "lakeshire" }, temper = { "harried" }, values = { "generous", "practical" },
   notices = { "craft", "soldier" },
+
+  impression = {
+    first = "Chef Breanna feeds every soldier Stormwind has sent to Lakeshire and makes it plain there aren't nearly enough of them. Her kitchen runs like a barracks, only louder.",
+    third = "{name} met Chef Breanna, who cooks for every soldier stationed in Lakeshire and wishes there were more of them.",
+  },
 
   greetings = {
     { id = "g_pots", text = "If you're here to eat, sit; if you're here to help, wash your hands. If you're here to complain, Gretchen will see you out." },

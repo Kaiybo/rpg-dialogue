@@ -8,6 +8,11 @@ P:NPC {
   communities = { "theramore" }, temper = { "earnest", "sharp" }, values = { "wise", "kind", "dutiful" },
   notices = { "class", "race", "form" },
 
+  impression = {
+    first = "Lady Jaina Proudmoore would rather hear bad news early, and she meant it. She carries Theramore and its peace on her shoulders, and seems to have forgotten what sitting down feels like.",
+    third = "{name} met Lady Jaina Proudmoore, who founded Theramore and works to keep the peace between Alliance and Horde.",
+  },
+
   greetings = {
     { id = "g_tower", text = "Welcome to Theramore, and speak freely; I'd rather hear bad news early than good news late." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back, good. I have few enough people I can rely on outside these walls." },
@@ -224,6 +229,11 @@ P:NPC {
   communities = { "theramore" }, temper = { "brisk" }, values = { "loyal", "curious" },
   notices = { "class", "craft" },
 
+  impression = {
+    first = "Archmage Tervosh spoke quickly, as though the day were already running out on him. Between the Lady's errands and his books, I gather his garden gets very little of him.",
+    third = "{name} met Archmage Tervosh, Lady Jaina's brisk and loyal advisor in Theramore.",
+  },
+
   greetings = {
     { id = "g_tower", text = "Quickly, please. There's a great deal to do and not much day to do it in." },
   },
@@ -316,6 +326,11 @@ P:NPC {
   bible = "bibles/dustwallow.md", role = "soldier", tier = "quest",
   communities = { "theramore" }, temper = { "direct", "sharp" }, values = { "dutiful", "lawful" },
   notices = { "race", "kit" },
+
+  impression = {
+    first = "Captain Garran Vimes refuses to decide what the evidence means before he's seen all of it, which makes him rare in Theramore. Everyone else blames the Horde for the inn, and he isn't everyone.",
+    third = "{name} met Captain Garran Vimes of the Theramore Guard, who is looking into the burning of the Shady Rest Inn.",
+  },
 
   greetings = {
     { id = "g_citadel", text = "Captain Vimes, Theramore Guard. If you've come about the inn, sit down; if not, be quick." },
@@ -435,6 +450,11 @@ P:NPC {
   communities = { "theramore" }, temper = { "orderly" }, values = { "dutiful", "practical" },
   notices = { "kit" },
 
+  impression = {
+    first = "Adjutant Tesoran asked for my name, unit and business before he caught himself. He keeps every soldier's record in Theramore, and I'd guess he could find anything in them blindfolded.",
+    third = "{name} met Adjutant Tesoran, who keeps the records of the Theramore Guard.",
+  },
+
   greetings = {
     { id = "g_records", text = "Name, unit, business? Sorry, that's habit; I keep the Guard's records, and everyone's a form to me." },
   },
@@ -505,6 +525,11 @@ P:NPC {
   bible = "bibles/dustwallow.md", role = "innkeeper", tier = "service",
   communities = { "theramore" }, temper = { "steady" }, values = { "loyal", "generous" },
   notices = { "weary", "drink" },
+
+  impression = {
+    first = "Innkeeper Janene runs her inn like the kitchen of all Theramore and plainly loves the place. She fed me before she asked a single thing about me.",
+    third = "{name} met Innkeeper Janene, the warm and steady keeper of Theramore's inn.",
+  },
 
   greetings = {
     { id = "g_inn", text = "Come in out of the damp. Dustwallow gets into your bones; a hot meal gets it out again." },

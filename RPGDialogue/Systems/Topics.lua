@@ -127,6 +127,21 @@ function Topics.Asked(id, npcKey, answered)
   end
 end
 
+-- What people said when asked about it, for the journal's "Heard of" page: one answer per
+-- person (the latest), at most MAX_ANSWERS people per topic. Stored as line ids.
+Topics.MAX_ANSWERS = 8
+function Topics.RecordAnswer(id, npcKey, name, gid)
+  local rec = ns.char.topics[id]
+  if not rec or not gid then return end
+  rec.said = rec.said or {}
+  local who = npcKey or name or "?"
+  for i, a in ipairs(rec.said) do
+    if a.who == who then table.remove(rec.said, i); break end
+  end
+  table.insert(rec.said, { who = who, name = name, gid = gid, t = C.Now() })
+  while #rec.said > Topics.MAX_ANSWERS do table.remove(rec.said, 1) end
+end
+
 -- They were asked and had nothing to say about it.
 function Topics.NothingFrom(id, npcKey)
   local mem = npcKey and ns.char.npc[npcKey]

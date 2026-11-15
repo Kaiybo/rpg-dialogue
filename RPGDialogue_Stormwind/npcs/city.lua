@@ -9,6 +9,10 @@ P:NPC {
   bible = "bibles/city.md", role = "noble", tier = "major",
   communities = { "stormwind" }, temper = { "sharp" }, values = { "cunning", "lawful" },
   notices = { "stealth", "watch" },
+  impression = {
+    first = "Master Mathias Shaw talks like a man who has already read my file, and he probably has. I couldn't tell whether he approved of me or merely made a note.",
+    third = "{name} met Master Mathias Shaw, head of SI:7, who knows a great deal more than he says.",
+  },
 
   greetings = {
     { id = "g_rogue", when = { class = "ROGUE" }, text = "Sit. I knew you were coming before you did." },
@@ -279,6 +283,10 @@ P:NPC {
   bible = "bibles/city.md", role = "trainer", tier = "service",
   communities = { "stormwind" }, temper = { "steady" }, values = { "curious", "lawful" },
   notices = { "arcane" },
+  impression = {
+    first = "Jennea Cannon teaches in the Wizard's Sanctum, where even the floor is warded, and she doesn't hand out compliments lightly. Her praise comes in very small measures, and it seems to be worth earning.",
+    third = "{name} met Jennea Cannon of the Wizard's Sanctum, a mage trainer who believes everyone's fundamentals have gaps.",
+  },
 
   greetings = {
     { id = "g_mage", when = { class = "MAGE" }, text = "The Sanctum. Wipe your boots; the floor wards are sensitive." },
@@ -372,6 +380,10 @@ P:NPC {
   bible = "bibles/city.md", role = "trainer", tier = "service",
   communities = { "stormwind" }, temper = { "sharp" }, values = { "cunning", "ambitious" },
   notices = { "pet", "watch" },
+  impression = {
+    first = "Gakin the Darkbinder teaches beneath the Slaughtered Lamb and values discretion above everything. He spoke as though every word cost him something he meant to be repaid.",
+    third = "{name} met Gakin the Darkbinder, the warlock trainer beneath the Slaughtered Lamb, who pays well for silence.",
+  },
 
   greetings = {
     { id = "g_warlock", when = { class = "WARLOCK" }, text = "Close the door behind you, quietly. The people upstairs drink to forget us." },
@@ -482,6 +494,10 @@ P:NPC {
   bible = "bibles/city.md", role = "innkeeper", tier = "service",
   communities = { "stormwind" }, temper = { "steady" }, values = { "kind", "generous" },
   notices = { "guest", "drink" },
+  impression = {
+    first = "Innkeeper Allison runs the Gilded Rose between the bank and the auction house, so she feeds the newly rich and the newly poor alike. She called me love before she even knew my name.",
+    third = "{name} took a room at the Gilded Rose, where Innkeeper Allison keeps the fire lit for every tired traveler.",
+  },
 
   greetings = {
     { id = "g_rose", text = "In you come. The Gilded Rose has a bed for every tired pair of boots." },

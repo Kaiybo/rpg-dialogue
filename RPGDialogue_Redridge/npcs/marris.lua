@@ -9,6 +9,11 @@ P:NPC {
   communities = { "lakeshire" }, temper = { "steady" }, values = { "brave", "lawful" },
   notices = { "soldier", "trophy" },
 
+  impression = {
+    first = "Marshal Marris keeps his eyes east, where the Blackrock are, and his guard stretched thin across a whole lake. He wanted numbers from me, not stories.",
+    third = "{name} met Marshal Marris of Lakeshire, who holds the town against the Blackrock orcs with too few guards.",
+  },
+
   greetings = {
     { id = "g_watch", text = "Keep your eyes east, friend; with the Blackrock it's always the east." },
     { id = "g_menace", when = { questActive = TODO_QUEST("Blackrock Menace") }, text = "Back from the valley already? Good, now tell me how many." },

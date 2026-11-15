@@ -8,6 +8,10 @@ P:NPC {
   bible = "bibles/eastvale_stables.md", role = "vendor", tier = "service",
   communities = { "eastvale" }, temper = { "brisk" }, values = { "proud", "careful" },
   notices = { "mount", "race" },
+  impression = {
+    first = "Katie Hunter breeds the horses Stormwind rides and watches every stranger near her gate as if they might leave it open. She'll talk horses with anyone, but she sells them with great care.",
+    third = "{name} met Katie Hunter, the Eastvale horse breeder whose mares belong to Stormwind and whose trust must be earned.",
+  },
 
   greetings = {
     { id = "g_default", text = "Mind the gate. They're gentle, but they're not stupid, and they know an open gate." },
@@ -74,6 +78,10 @@ P:NPC {
   bible = "bibles/eastvale_stables.md", role = "trainer", tier = "service",
   communities = { "eastvale" }, temper = { "patient", "dry" }, values = { "careful", "practical" },
   notices = { "class", "mount" },
+  impression = {
+    first = "Randal Hunter told me to keep my heels down before he noticed I wasn't on a horse. Some habits go deeper than the man who carries them.",
+    third = "{name} met Randal Hunter, the Eastvale riding trainer who can't stop teaching even when nobody is in the saddle.",
+  },
 
   greetings = {
     { id = "g_default", text = "Heels down, back straight. Oh, you're not on a horse; it's habit." },

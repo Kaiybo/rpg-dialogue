@@ -8,6 +8,10 @@ P:NPC {
   bible = "bibles/teldrassil.md", role = "questgiver", tier = "quest",
   communities = { "shadowglen" }, temper = { "delighted" }, values = { "kind", "devout" },
   notices = { "greenness", "class" },
+  impression = {
+    first = "Every morning's light through the leaves seems to delight Conservator Ilthalaine as if it were the first. He counts the nightsaber cubs like a fond uncle, and even his worries about the glade sound gentle.",
+    third = "{name} met Conservator Ilthalaine, who keeps the balance in Shadowglen and delights in the glade he tends.",
+  },
 
   greetings = {
     { id = "g_glade", text = "Look at the light through the leaves. Every morning it's new, and every morning I'm glad of it." },
@@ -109,6 +113,10 @@ P:NPC {
   bible = "bibles/teldrassil.md", role = "questgiver", tier = "quest",
   communities = { "shadowglen" }, temper = { "earnest" }, values = { "dutiful", "patient" },
   notices = { "class", "form" },
+  impression = {
+    first = "Melithar Staghelm talks about Aldrassil as though the old tree could hear every word. He is earnest enough that I found myself lowering my voice near the roots.",
+    third = "{name} met Melithar Staghelm, the earnest young druid who tends Aldrassil's roots and the newcomers who gather beneath them.",
+  },
 
   greetings = {
     { id = "g_tree", text = "Peace, young one. Aldrassil is listening, as it always is. Speak kindly near it." },
@@ -205,6 +213,10 @@ P:NPC {
   bible = "bibles/teldrassil.md", role = "noble", tier = "major",
   communities = { "shadowglen" }, temper = { "warm" }, values = { "wise", "kind" },
   notices = { "greenness", "race" },
+  impression = {
+    first = "From the crown of Aldrassil, Tenaron Stormgrip watches every young elf walk the path down to Dolanaar. He has the warmth of someone who hopes each of them will one day climb back up.",
+    third = "{name} climbed to the crown of Aldrassil and met Tenaron Stormgrip, who watches over Shadowglen and blesses all who leave it.",
+  },
 
   greetings = {
     { id = "g_aldrassil", text = "Welcome to the top of Aldrassil. From here you can see most of Shadowglen, and it looks small from up here, though it isn't." },
@@ -365,6 +377,10 @@ P:NPC {
   bible = "bibles/teldrassil.md", role = "questgiver", tier = "quest",
   communities = { "shadowglen" }, temper = { "wistful" }, values = { "kind", "loyal" },
   notices = { "pet" },
+  impression = {
+    first = "Dirania Silvershine kept glancing toward the spider cave the whole time we spoke. She calls Shadowglen home, but her mind was plainly on a friend who keeps getting himself into trouble.",
+    third = "{name} met Dirania Silvershine, a wistful soul of Shadowglen forever worrying over her friend Iverron.",
+  },
 
   greetings = {
     { id = "g_home", text = "All isn't well in the glade, I know. But coming back here always feels like coming home." },
@@ -442,6 +458,10 @@ P:NPC {
   bible = "bibles/teldrassil.md", role = "questgiver", tier = "quest",
   communities = { "shadowglen" }, temper = { "solitary" }, values = { "curious" },
   notices = { "craft" },
+  impression = {
+    first = "Alone on Aldrassil's steps sits Gilshalan Windwalker, who studies the Webwood spiders from a distance, mostly. I liked his dry way of talking, and I suspect the distance is not only for science.",
+    third = "{name} met Gilshalan Windwalker, a solitary scholar on Aldrassil's steps who studies the Webwood spiders of Shadowthread Cave.",
+  },
 
   greetings = {
     { id = "g_steps", text = "Oh, hello. I was only sitting; the steps are good for sitting." },

@@ -8,6 +8,11 @@ P:NPC {
   communities = { "nijels_point" }, temper = { "calculating" }, values = { "dutiful", "cunning" },
   notices = { "kit", "status" },
 
+  impression = {
+    first = "Captain Pentigast plays the centaur clans against each other the way other men play cards, and he doesn't pretend it's pretty. He has more ground than soldiers and knows exactly how thin he's stretched.",
+    third = "{name} met Captain Pentigast, who commands the Stormwind Army's thin garrison at Nijel's Point.",
+  },
+
   greetings = {
     { id = "g_post", text = "Another sword for Nijel's Point, good. I've more ground to hold than men to hold it." },
     { id = "g_back", when = { metBefore = true }, text = "Back from the valley? Which clan did you run into this time?" },
@@ -150,6 +155,11 @@ P:NPC {
   communities = { "nijels_point" }, temper = { "formal" }, values = { "proud", "devout" },
   notices = { "class", "form" },
 
+  impression = {
+    first = "Keeper Marandis speaks as though every word were borrowed from the Cenarion Circle and must be returned in good condition. Whatever errand brought him down from Stonetalon, he considers it far from small.",
+    third = "{name} met Keeper Marandis of the Cenarion Circle, who keeps the grove at Nijel's Point.",
+  },
+
   greetings = {
     { id = "g_keeper", text = "You stand before a keeper of the grove. Speak carefully; my time is the Circle's, not mine." },
   },
@@ -238,6 +248,11 @@ P:NPC {
   communities = { "nijels_point" }, temper = { "busy" }, values = { "practical", "friendly" },
   notices = { "craft" },
 
+  impression = {
+    first = "Kreldig Ungor is up to his beard in salvage and reagents and still found time to be friendly. He patched a kettle with an arrow hole in it and seemed prouder of that than of anything else.",
+    third = "{name} met Kreldig Ungor, the busy dwarf who runs Reclaimers Inc.'s business out of Nijel's Point.",
+  },
+
   greetings = {
     { id = "g_busy", text = "Got a lot on out here, friend. Wrecks to pick, reagents to fetch, an' only the one of me." },
   },
@@ -311,6 +326,11 @@ P:NPC {
   bible = "bibles/desolace.md", role = "priest", tier = "quest",
   communities = { "nijels_point" }, temper = { "zealous" }, values = { "devout", "brave" },
   notices = { "class", "race" },
+
+  impression = {
+    first = "Brother Anton is earnest, brave and wholly certain of the Scarlet Crusade. He looked at me as a recruit he hadn't signed up yet.",
+    third = "{name} met Brother Anton, an emissary of the Scarlet Crusade who seeks the faithful at Nijel's Point.",
+  },
 
   greetings = {
     { id = "g_light", text = "The Light be with you, friend. Have you come to take up the Crusade's cause? There's work for the faithful here." },
@@ -431,6 +451,11 @@ P:NPC {
   communities = { "nijels_point" }, temper = { "calm" }, values = { "kind" },
   notices = { "weary" },
 
+  impression = {
+    first = "Innkeeper Lyshaerya sweeps the Desolace dust while she talks and has given up winning against it. Her calm is the kind people come a long way to sit beside.",
+    third = "{name} met Innkeeper Lyshaerya, who keeps the only warm hearth at Nijel's Point.",
+  },
+
   greetings = {
     { id = "g_inn", text = "Rest here. There's little enough comfort in Desolace; take what this roof can give." },
     { id = "g_home", when = { homeInn = { "Nijel's Point" } }, text = "You've come back to the Point. Your bed's made, though the dust got in anyway." },
@@ -484,6 +509,11 @@ P:NPC {
   bible = "bibles/desolace.md", role = "soldier", tier = "major",
   communities = { "ghost_walker" }, temper = { "hard" }, values = { "loyal", "stern" },
   notices = { "class", "kit" },
+
+  impression = {
+    first = "Takata Steelblade hunts the Burning Blade and every satyr who shelters them, and nothing about him invites small talk. He measures people by whether they will fight.",
+    third = "{name} met Takata Steelblade, the hard-bitten orc who hunts the Burning Blade from Ghost Walker Post.",
+  },
 
   greetings = {
     { id = "g_post", text = "You're in Desolace now, and the demons' servants are thick here. Are you here to fight them?" },
@@ -649,6 +679,11 @@ P:NPC {
   bible = "bibles/desolace.md", role = "questgiver", tier = "quest",
   communities = { "ghost_walker" }, temper = { "easygoing" }, values = { "patient", "practical" },
   notices = { "craft", "race" },
+
+  impression = {
+    first = "Nataka Longhorn has grown fond of Desolace and asked me not to tell anyone. He's the most unhurried soul I've met out here, and a fisherman at heart.",
+    third = "{name} met Nataka Longhorn of Thunder Bluff, an easygoing tauren posted at Ghost Walker Post.",
+  },
 
   greetings = {
     { id = "g_post", text = "Desolace isn't such a bad place, once you stop expecting it to grow anything. Sit down." },

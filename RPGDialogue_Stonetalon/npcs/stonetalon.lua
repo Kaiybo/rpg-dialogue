@@ -8,6 +8,10 @@ P:NPC {
   bible = "bibles/stonetalon.md", role = "soldier", tier = "major",
   communities = { "sun_rock" }, temper = { "hard" }, values = { "loyal", "brave" },
   notices = { "kit", "race" },
+  impression = {
+    first = "Maggran Earthbinder holds Sun Rock with the hardness of an old warrior who says he was gentle once. The years and the battles took that from him, he claims, and I believe him.",
+    third = "{name} met Maggran Earthbinder, the battle-hardened tauren who holds Sun Rock Retreat for Cairne Bloodhoof.",
+  },
 
   greetings = {
     { id = "g_rock", text = "The wind is strong on Sun Rock and the sun stronger, which is good for old wounds. Say what you need." },
@@ -193,6 +197,10 @@ P:NPC {
   bible = "bibles/stonetalon.md", role = "questgiver", tier = "quest",
   communities = { "sun_rock" }, temper = { "gentle" }, values = { "hopeful", "patient" },
   notices = { "class", "form" },
+  impression = {
+    first = "On her knees in burned ground, Tammra Windfield coaxes green shoots out of it and counts five living against two dead as a good night. I have rarely seen stubbornness look so hopeful.",
+    third = "{name} met Tammra Windfield, who tends what grows on Sun Rock and means to bring the Charred Vale back to life.",
+  },
 
   greetings = {
     { id = "g_seeds", text = "Careful where you step. Those little green shoots are the first things to grow in that soil in years." },
@@ -336,6 +344,10 @@ P:NPC {
   bible = "bibles/stonetalon.md", role = "questgiver", tier = "quest",
   communities = { "sun_rock" }, temper = { "bitter" }, values = { "ambitious", "vengeful" },
   notices = { "class", "form" },
+  impression = {
+    first = "Braelyn Firehand keeps her fire lit without wood and her grudges burning longer still. Her hatred of the druids has the sound of an old wound, and she would rather not say how she learns most things.",
+    third = "{name} met Braelyn Firehand, an embittered mage at Sun Rock who wants the druids of the Talon Den gone and the land's magic restored.",
+  },
 
   greetings = {
     { id = "g_mage", text = "You've a capable look, and I've work for capable people. It's unpleasant work, but well paid." },
@@ -483,6 +495,10 @@ P:NPC {
   bible = "bibles/stonetalon.md", role = "questgiver", tier = "quest",
   communities = { "sun_rock" }, temper = { "sly" }, values = { "loyal", "curious" },
   notices = { "class", "race" },
+  impression = {
+    first = "Most of the cages in Witch Doctor Jin'Zil's cave are empty, he told me, and then he said 'most' again in a way I did not care for. He laughs easily and boasts endlessly that he is better than Darsok.",
+    third = "{name} met Witch Doctor Jin'Zil, a sly Darkspear who keeps a cave full of cages and a pot always on the boil near Sun Rock.",
+  },
 
   greetings = {
     { id = "g_cave", text = "Come in, come in, mon, and don't mind the cages; most of dem be empty. Most." },
@@ -609,6 +625,10 @@ P:NPC {
   bible = "bibles/stonetalon.md", role = "innkeeper", tier = "service",
   communities = { "sun_rock" }, temper = { "warm" }, values = { "generous" },
   notices = { "weary" },
+  impression = {
+    first = "Innkeeper Jayka wants weapons down, boots off and a story of who you have been fighting before anything else. The wind howls around her inn, and she would not live anywhere else.",
+    third = "{name} rested at Innkeeper Jayka's inn on Sun Rock, where weary warriors trade stories for a seat by the fire.",
+  },
 
   greetings = {
     { id = "g_inn", text = "Weapons down, boots off, and tell me who you've been fighting. That's how we do it on Sun Rock." },
@@ -701,6 +721,10 @@ P:NPC {
   communities = { "stonetalon_peak" }, temper = { "serene" }, values = { "patient", "protective" },
   spiritSensitive = true,
   notices = { "class", "form" },
+  impression = {
+    first = "Keeper Albagorm calls everyone 'little one' and says crimes are done with hands, not banners. The fires in the vale to the south weigh on him, though he speaks of them with great patience.",
+    third = "{name} met Keeper Albagorm, the serene keeper of the grove at Stonetalon Peak who mourns the burning of the Charred Vale.",
+  },
 
   greetings = {
     { id = "g_grove", text = "Peace, little one. This grove is old, and wise, and wary. Tread softly and you'll find it kind." },
@@ -854,6 +878,10 @@ P:NPC {
   bible = "bibles/stonetalon.md", role = "innkeeper", tier = "service",
   communities = { "stonetalon_peak" }, temper = { "quiet" }, values = { "kind" },
   notices = { "weary" },
+  impression = {
+    first = "Up at the top of the peak, Innkeeper Faralia keeps a small, quiet inn and tries to count the stars from her step. She speaks softly and gives sensible warnings about walking down after dark.",
+    third = "{name} found Innkeeper Faralia's small inn atop Stonetalon Peak, a quiet refuge for the few who climb that far.",
+  },
 
   greetings = {
     { id = "g_inn", text = "Rest here. It's quiet on the peak, and the trees keep the wind off." },

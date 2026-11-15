@@ -9,6 +9,10 @@ P:NPC {
   communities = { "stormwind" }, temper = { "steady" }, values = { "lawful", "brave", "honest" },
   spiritSensitive = true,
   notices = { "reputation", "paladin" },
+  impression = {
+    first = "Highlord Bolvar Fordragon holds the kingdom for a boy and an absent king, and he looks tired in the way only honest men get tired. He asked me to speak plainly, and he meant it.",
+    third = "{name} stood before Highlord Bolvar Fordragon, Regent of Stormwind, who keeps the throne for a king who never came home.",
+  },
 
   greetings = {
     { id = "g_court", text = "Speak plainly. The court has enough of the other kind." },

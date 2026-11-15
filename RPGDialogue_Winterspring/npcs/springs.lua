@@ -8,6 +8,11 @@ P:NPC {
   communities = { "winterspring_wilds" }, temper = { "warm" }, values = { "curious", "protective" },
   notices = { "race", "class" },
 
+  impression = {
+    first = "Donova Snowden studies the hot springs and the creatures around them, and she is worried sick about the Winterfall furbolgs. Something is poisoning them, and she means to find out what.",
+    third = "{name} met Donova Snowden, a warm-hearted dwarf naturalist studying the hot springs of Winterspring.",
+  },
+
   greetings = {
     { id = "g_springs", text = "Welcome, welcome! Come stand by the spring. It's the only warm water for miles, an' Winterspring has more secrets than snowflakes." },
   },
@@ -107,6 +112,11 @@ P:NPC {
   bible = "bibles/winterspring.md", role = "questgiver", tier = "quest",
   communities = { "winterspring_wilds" }, temper = { "playful" }, values = { "mystical", "proud" },
   notices = { "race", "class" },
+
+  impression = {
+    first = "Witch Doctor Mau'ari speaks of herself by name and bargains in spirits and juju. She has been up in the ice long enough to stop complaining about the cold, though not to stop feeling it.",
+    third = "{name} met Witch Doctor Mau'ari, the playful troll witch doctor of Winterspring who trades in E'ko and juju.",
+  },
 
   greetings = {
     { id = "g_hello", text = "Ah, a visitor come all dis way to see Mau'ari! Smart, you are, or maybe lost, but either way, sit." },

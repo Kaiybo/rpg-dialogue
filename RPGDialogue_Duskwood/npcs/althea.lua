@@ -9,6 +9,11 @@ P:NPC {
   communities = { "darkshire" }, temper = { "steady" }, values = { "brave", "lawful", "stern" },
   notices = { "soldier", "night" },
 
+  impression = {
+    first = "Commander Althea Ebonlocke speaks to everyone as if they were already on her watch roster. She looked tired in the way only the Night Watch seems to manage.",
+    third = "{name} reported to Commander Althea Ebonlocke of the Night Watch, sworn to keep the people of Darkshire alive.",
+  },
+
   greetings = {
     { id = "g_watch", text = "Night Watch. State your business, {class}, and then make yourself useful." },
     { id = "g_recruit", when = { questDone = TODO_QUEST("The Night Watch") }, text = "You're one of mine now, or near enough, so report." },

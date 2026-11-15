@@ -8,6 +8,10 @@ P:NPC {
   bible = "bibles/thomas.md", role = "questgiver", tier = "quest",
   communities = { "eastvale" }, temper = { "steady" }, values = { "lawful", "brave" },
   notices = { "kit", "death" },
+  impression = {
+    first = "Guard Thomas holds the bridge with what little he has, and he asked Dughan for soldiers before he got me instead. He hasn't forgotten the two men he sent north along the river.",
+    third = "{name} met Guard Thomas, who keeps the eastern bridge and still waits for word of his missing men.",
+  },
 
   greetings = {
     { id = "g_business", text = "State your business with the Stormwind Army." },

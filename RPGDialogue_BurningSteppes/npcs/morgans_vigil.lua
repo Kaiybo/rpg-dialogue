@@ -8,6 +8,11 @@ P:NPC {
   communities = { "morgans_vigil" }, temper = { "steady", "sharp" }, values = { "dutiful", "loyal" },
   notices = { "class", "race", "deputy" },
 
+  impression = {
+    first = "Marshal Maxwell writes reports nobody reads and keeps his camp together anyway. He's tired, and bitter about Stormwind's silence, but the kindness hasn't gone out of him yet.",
+    third = "{name} met Marshal Maxwell, who commands what is left of Stormwind's presence at Morgan's Vigil.",
+  },
+
   greetings = {
     { id = "g_default", text = "Another Alliance face this far north? That's the best news I've had all week." },
     { id = "g_back", when = { metBefore = true }, text = "Back from the mountain in one piece, I see. Pull up a crate; it's the only furniture we have." },
@@ -294,6 +299,11 @@ P:NPC {
   communities = { "morgans_vigil" }, temper = { "steady", "sharp" }, values = { "wise", "curious" },
   notices = { "race", "class", "form", "pet" },
 
+  impression = {
+    first = "Helendis Riverhorn watches the mountain as if it were a page he means to finish reading. He speaks slowly and seems to weigh every person who climbs the ridge.",
+    third = "{name} met Helendis Riverhorn, the night elf sent from Darnassus to learn what stirs in the Burning Steppes.",
+  },
+
   greetings = {
     { id = "g_default", text = "Ishnu-alah. Mind the edge of the ridge; the ground is softer than it looks." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Good; I have been reading the smoke over the mountain, and I'd welcome another pair of eyes." },
@@ -508,6 +518,11 @@ P:NPC {
   communities = { "morgans_vigil" }, temper = { "proud", "excitable" }, values = { "loyal", "brave" },
   notices = { "class", "race", "kit" },
 
+  impression = {
+    first = "Oralius barks orders like a field marshal and argues with a pirate named Captain Winky whom I never quite saw. His enthusiasm for the war is boundless, and a little alarming.",
+    third = "{name} met Oralius of Morgan's Vigil, who plans grand campaigns against the Firegut ogres of Dreadmaul Rock.",
+  },
+
   greetings = {
     { id = "g_default", text = "Stand at attention when you approach, soldier! Winky, look sharp, we've got company." },
     { id = "g_back", when = { metBefore = true }, text = "Soldier! Back on the ridge and reporting, are we? Good, good, because Winky's been telling lies about you again." },
@@ -671,6 +686,11 @@ P:NPC {
   communities = { "morgans_vigil" }, temper = { "nervous", "earnest" }, values = { "kind", "dutiful" },
   notices = { "class", "race", "kit" },
 
+  impression = {
+    first = "Jalinda Sprig jumps at every noise, and on a ridge where everything is on fire I can't really blame her. She leads her expedition anyway, and she worries over her mages like a mother.",
+    third = "{name} met Jalinda Sprig, the jumpy leader of the expedition trying to reach Blackrock Depths.",
+  },
+
   greetings = {
     { id = "g_default", text = "Oh! Oh, you startled me. Everything up here is either on fire or about to be, so I've become rather jumpy." },
     { id = "g_back", when = { metBefore = true }, text = "You're back, and you're not even singed! Well, not very singed." },
@@ -802,6 +822,11 @@ P:NPC {
   communities = { "morgans_vigil" }, temper = { "sharp", "proud" }, values = { "curious", "greedy" },
   notices = { "class", "origin" },
 
+  impression = {
+    first = "Mayara Brightwing catalogues old treasures for a Stormwind count and treats the Dark Irons' ruins like a market stall. She is sharp, proud and plainly enjoying herself.",
+    third = "{name} met Mayara Brightwing, who collects relics at Morgan's Vigil on behalf of Count Remington Ridgewell.",
+  },
+
   greetings = {
     { id = "g_default", text = "Hello, and do watch the crates; some of them are older than Stormwind." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you again. Bring me something shiny and we'll be friends for life." },
@@ -931,6 +956,11 @@ P:NPC {
   bible = "bibles/burningsteppes.md", role = "flightmaster", tier = "service",
   communities = { "morgans_vigil" }, temper = { "steady" }, values = { "dutiful" },
   notices = { "race", "mount" },
+
+  impression = {
+    first = "Borgus Stoutarm fusses over his gryphons and their sooty feathers more than over any traveler. He knows which bird is in a good mood, and that seems to be what matters most to him.",
+    third = "{name} met Borgus Stoutarm, the dwarf who keeps the gryphons of Morgan's Vigil.",
+  },
 
   greetings = {
     { id = "g_default", text = "Need a bird? Mind the ash; they hate it on their feathers." },

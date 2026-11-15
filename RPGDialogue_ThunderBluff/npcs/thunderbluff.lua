@@ -9,6 +9,10 @@ P:NPC {
   bible = "bibles/thunderbluff.md", role = "noble", tier = "major",
   communities = { "thunder_bluff" }, temper = { "steady" }, values = { "honorable", "gentle", "wise" },
   notices = { "race", "class" },
+  impression = {
+    first = "Cairne Bloodhoof has the weight of a mountain and the warmth of a hearth, and he speaks of Mulgore as a home long waited for. He means to keep it, and I would not care to test him.",
+    third = "{name} met Cairne Bloodhoof, who leads the tauren tribes of Mulgore from the High Rise of Thunder Bluff.",
+  },
 
   greetings = {
     { id = "g_chief", text = "The High Rise greets you, young one. The Earth Mother's wind blows strong up here, so stand firm." },
@@ -100,6 +104,10 @@ P:NPC {
   bible = "bibles/thunderbluff.md", role = "noble", tier = "major",
   communities = { "thunder_bluff" }, temper = { "calm" }, values = { "wise", "balanced" },
   notices = { "form", "race" },
+  impression = {
+    first = "Arch Druid Hamuul Runetotem counts every young druid who rides up the lift and is not ashamed of it. He has spent years trying to be worth the yes Malfurion gave him, and it shows in his kindness.",
+    third = "{name} met Arch Druid Hamuul Runetotem on Elder Rise, the first tauren to learn the druid's path from Malfurion Stormrage.",
+  },
 
   greetings = {
     { id = "g_rise", text = "Peace, traveller. You're on Elder Rise, so speak softly; the old ones are thinking." },
@@ -182,6 +190,10 @@ P:NPC {
   bible = "bibles/thunderbluff.md", role = "trainer", tier = "quest",
   communities = { "thunder_bluff" }, temper = { "patient" }, values = { "balanced", "wise" },
   notices = { "form", "class" },
+  impression = {
+    first = "Turak Runetotem teaches the steps while the Arch Druid teaches why they matter, and he seems content with that share. He speaks of balance as a thing practised daily, like any honest craft.",
+    third = "{name} met Turak Runetotem, who helps the Arch Druid train young druids on Elder Rise.",
+  },
 
   greetings = {
     { id = "g_druid", when = { class = "DRUID" }, text = "Welcome, young druid. Keep your mind clear and your heart strong, and the Great Balance will keep a place for you." },
@@ -247,6 +259,10 @@ P:NPC {
   bible = "bibles/thunderbluff.md", role = "noble", tier = "major",
   communities = { "thunder_bluff" }, temper = { "cunning" }, values = { "proud", "ambitious" },
   notices = { "race", "class" },
+  impression = {
+    first = "Cairne lets her live on Elder Rise to keep an eye on her, Magatha Grimtotem says, and she lets him think it works. Every courtesy she offered seemed to come with a reason she was keeping to herself.",
+    third = "{name} met Magatha Grimtotem, the sharp-tongued Elder Crone of the Grimtotem who dwells on Elder Rise.",
+  },
 
   greetings = {
     { id = "g_crone", text = "Hm. Another one come to stare at the old crone. Well, stare, and then be useful or be gone." },
@@ -319,6 +335,10 @@ P:NPC {
   bible = "bibles/thunderbluff.md", role = "innkeeper", tier = "service",
   communities = { "thunder_bluff" }, temper = { "warm" }, values = { "generous", "kind" },
   notices = { "weary", "race" },
+  impression = {
+    first = "Innkeeper Pala gives everyone the same welcome and the same stew at the Cat and the Shaman. She fusses over her guests like a mother, and she clearly enjoys every minute of it.",
+    third = "{name} rested at Innkeeper Pala's inn, the Cat and the Shaman, high on the bluffs of Thunder Bluff.",
+  },
 
   greetings = {
     { id = "g_inn", text = "In out of the wind with you. There's always room by my fire." },

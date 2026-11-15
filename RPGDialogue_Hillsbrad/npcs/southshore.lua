@@ -8,6 +8,11 @@ P:NPC {
   communities = { "southshore" }, temper = { "steady" }, values = { "dutiful", "protective" },
   notices = { "soldier", "kit" },
 
+  impression = {
+    first = "Marshal Redpath was headman when Southshore took in Stormwind's refugees, and now the town is full of their children. He's small-town stubborn and proud of it.",
+    third = "{name} met Marshal Redpath, who has watched over Southshore since the first refugee boats came from Stormwind.",
+  },
+
   greetings = {
     { id = "g_hall", text = "Southshore. We're small, we're stubborn, and we're still here. State your business." },
     { id = "g_back", when = { metBefore = true }, text = "Good, you're back. Southshore's short of hands that stay." },
@@ -259,6 +264,11 @@ P:NPC {
   communities = { "southshore" }, temper = { "weary" }, values = { "lawful", "dutiful" },
   notices = { "status" },
 
+  impression = {
+    first = "Magistrate Henry Maleb is young for the post and buried in papers about the Syndicate. He was pleased to see me, and a little too honest about wishing he were a clerk somewhere safer.",
+    third = "{name} met Magistrate Henry Maleb, Southshore's young magistrate, whose desk is buried in reports about the Syndicate.",
+  },
+
   greetings = {
     { id = "g_office", text = "Sit, sit, and don't mind the papers. The Syndicate keep me in reading." },
   },
@@ -419,6 +429,11 @@ P:NPC {
   bible = "bibles/hillsbrad.md", role = "soldier", tier = "quest",
   communities = { "southshore" }, temper = { "sulky" }, values = { "ambitious" },
   notices = { "drink" },
+
+  impression = {
+    first = "Lieutenant Farren Orinelle claims every chair in the inn and has apparently been in charge of murlocs since last spring. He calls it building character, and he doesn't look convinced.",
+    third = "{name} met Lieutenant Farren Orinelle, late of the Stormwind City Guard, now charged with Southshore's murloc troubles.",
+  },
 
   greetings = {
     { id = "g_inn", text = "Pull up a chair... no, not that one, that's mine. They're all mine, actually, I've been here so long." },
@@ -604,6 +619,11 @@ P:NPC {
   communities = { "southshore" }, temper = { "rueful" }, values = { "honest" },
   notices = { "paladin", "drink" },
 
+  impression = {
+    first = "Brewmeister Bilger was a knight of the Silver Hand once and never touched a drop. He has made up for it since, and he tells the story without a trace of shame.",
+    third = "{name} met Brewmeister Bilger in the Southshore cellar, a former knight of the Silver Hand who turned to brewing.",
+  },
+
   greetings = {
     { id = "g_cellar", text = "Careful o' the casks, {g:lad|lass}, hic! They're older than you an' better behaved." },
   },
@@ -758,6 +778,11 @@ P:NPC {
   communities = { "southshore" }, temper = { "dry" }, values = { "curious", "careful" },
   notices = { "lore" },
 
+  impression = {
+    first = "Loremaster Dibbs is saving what's left of the old kingdom's books from ogre cookfires. He talks about them the way other people talk about lost friends.",
+    third = "{name} met Loremaster Dibbs, who collects the scattered knowledge of the old kingdom in Southshore.",
+  },
+
   greetings = {
     { id = "g_books", text = "If you've come about the books, sit. If you've come about anything else, sit anyway; I'll get to the books." },
   },
@@ -888,6 +913,11 @@ P:NPC {
   bible = "bibles/hillsbrad.md", role = "innkeeper", tier = "service",
   communities = { "southshore" }, temper = { "steady" }, values = { "practical" },
   notices = { "weary" },
+
+  impression = {
+    first = "Innkeeper Anderson told me to shut the door against the rain and then admitted every corner leaks. Honest about his roof is honest enough for me.",
+    third = "{name} took shelter at the Southshore inn, kept by Innkeeper Anderson, where the rain finds every corner.",
+  },
 
   greetings = {
     { id = "g_inn", text = "Shut the door, the rain gets in. Is it a bed, food or both? Both, by the look of you." },

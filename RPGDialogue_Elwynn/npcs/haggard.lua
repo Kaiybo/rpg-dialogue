@@ -8,6 +8,10 @@ P:NPC {
   bible = "bibles/haggard.md", role = "questgiver", tier = "quest",
   communities = { "eastvale" }, temper = { "proud" }, values = { "lawful", "brave" },
   notices = { "kit" },
+  impression = {
+    first = "Nearly blind and still every inch a soldier, Marshal Haggard listens to the path below his door more closely than most men watch one. He ran the Stormwind Guard once, and he hasn't forgotten it.",
+    third = "{name} met old Marshal Haggard, once of the Stormwind Guard, who sits at home listening to the loggers swear.",
+  },
 
   greetings = {
     { id = "g_squint", text = "Who's that there? Come a little closer, no, closer still... ah, I don't know you at all." },

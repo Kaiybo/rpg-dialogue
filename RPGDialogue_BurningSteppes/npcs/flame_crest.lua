@@ -8,6 +8,11 @@ P:NPC {
   communities = { "flame_crest" }, temper = { "cowardly", "sharp" }, values = { "loyal", "lazy" },
   notices = { "drink", "race", "poison" },
 
+  impression = {
+    first = "Ragged John hiccups, laughs at his own jokes and calls his cave home without a trace of shame. Under all the ale there's a sharp old dwarf who knows exactly what people say about him.",
+    third = "{name} met Ragged John, the hard-drinking dwarf of Flame Crest who was with Marshal Windsor when he vanished.",
+  },
+
   greetings = {
     { id = "g_default", text = "What'll ye be wantin', then? *hic* Pardon me." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Ye must like my stories, or my ale, and I'll take either one as a compliment." },
@@ -229,6 +234,11 @@ P:NPC {
   communities = { "flame_crest" }, temper = { "shrewd" }, values = { "greedy", "curious" },
   notices = { "purse", "class" },
 
+  impression = {
+    first = "Maxwort Uberglint asked whether I'd come to make him rich before he asked my name. He chases the legends of the Seven for the money, and he doesn't pretend otherwise.",
+    third = "{name} met Maxwort Uberglint, a treasure hunter at Flame Crest chasing the lost knowledge of the Seven.",
+  },
+
   greetings = {
     { id = "g_default", text = "Welcome, welcome. Are you here to make me rich? Please say yes." },
     { id = "g_back", when = { metBefore = true }, text = "My favourite scribe returns! Do you have anything shiny, or only your charming face?" },
@@ -347,6 +357,11 @@ P:NPC {
   bible = "bibles/burningsteppes.md", role = "scholar", tier = "quest",
   communities = { "flame_crest" }, temper = { "earnest", "nervous" }, values = { "curious", "proud" },
   notices = { "craft", "race" },
+
+  impression = {
+    first = "Tinkee Steamboil names her gadgets with great ceremony and warned me off a bench of things that are very nearly stable. When her patron comes up she goes quiet, which I noticed.",
+    third = "{name} met Tinkee Steamboil, an excitable goblin scholar of dragonkin working out of Flame Crest.",
+  },
 
   greetings = {
     { id = "g_default", text = "Hello, hello! Don't touch anything on that bench; some of it is very nearly stable." },
@@ -486,6 +501,11 @@ P:NPC {
   communities = { "flame_crest" }, temper = { "shrewd" }, values = { "greedy", "practical" },
   notices = { "craft", "purse" },
 
+  impression = {
+    first = "Yuka Screwspigot sells engineering supplies with a cheerful grin and talks about her family as a business arrangement. I would not want to owe her money, or be her brother.",
+    third = "{name} met Yuka Screwspigot, who sells engineering supplies at Flame Crest and keeps the Screwspigot family accounts.",
+  },
+
   greetings = {
     { id = "g_default", text = "Supplies in hot demand at rock-bottom prices! Well, rock-bottom for a volcano." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more? Of course you are, everybody runs out of blasting powder up here." },
@@ -589,6 +609,11 @@ P:NPC {
   bible = "bibles/burningsteppes.md", role = "questgiver", tier = "quest",
   communities = { "flame_crest" }, temper = { "cheerful", "shrewd" }, values = { "greedy", "kind" },
   notices = { "pet", "purse" },
+
+  impression = {
+    first = "Kibler talks like a salesman and handles his animals like a man who truly loves them. His parrot, Opus, keeps interrupting him, and I'm not sure which of them runs the shop.",
+    third = "{name} met Kibler, the goblin behind Kibler's Exotic Pets in the caves at Flame Crest.",
+  },
 
   greetings = {
     { id = "g_default", text = "Welcome to Kibler's Exotic Pets! How can you help me today?" },
@@ -703,6 +728,11 @@ P:NPC {
   communities = { "flame_crest" }, temper = { "sharp", "proud" }, values = { "proud", "greedy" },
   notices = { "class", "race" },
 
+  impression = {
+    first = "Mathredis Firestar told me I was standing in his light and never quite let me out of it. There's a hunger in him for magic, and under the contempt, something that looks like grief.",
+    third = "{name} met Mathredis Firestar, a cold elven mage of Quel'Thalas who seeks the lost librams of his masters.",
+  },
+
   greetings = {
     { id = "g_default", text = "You are standing in my light, {race}; speak, or move aside and let me work." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Have you found a libram, or only more of my time to waste?" },
@@ -815,6 +845,11 @@ P:NPC {
   bible = "bibles/burningsteppes.md", role = "flightmaster", tier = "service",
   communities = { "flame_crest" }, temper = { "steady" }, values = { "loyal", "dutiful" },
   notices = { "race" },
+
+  impression = {
+    first = "Vahgruk keeps the wind riders at Flame Crest and doesn't waste words on anything else. He seems content to be the way home for whoever comes this far north.",
+    third = "{name} met Vahgruk, the orc who keeps the wind riders at Flame Crest.",
+  },
 
   greetings = {
     { id = "g_default", text = "Lok'tar. You need a rider, or you're lost?" },

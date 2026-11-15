@@ -10,6 +10,11 @@ P:NPC {
   communities = { "raven_hill" }, temper = { "steady" }, values = { "kind", "curious" },
   notices = { "body", "craft" },
 
+  impression = {
+    first = "Abercrombie is a kind, rambling old man who lives alone near Raven Hill and speaks of his late wife as if she were in the next room. Something about the hut made my skin crawl.",
+    third = "{name} visited Abercrombie, an old hermit near Raven Hill who lives alone and talks fondly of his late wife.",
+  },
+
   greetings = {
     { id = "g_hermit", text = "A visitor, how lovely! I don't get many, dear, not living ones." },
     { id = "g_supplies", when = { questActive = TODO_QUEST("Supplies from Darkshire") }, text = "Back from Darkshire already, dear? No, of course not; everyone's so slow these days, though I'm not, not anymore." },

@@ -8,6 +8,11 @@ P:NPC {
   communities = { "freewind" }, temper = { "grim" }, values = { "dutiful", "protective" },
   notices = { "kit", "race" },
 
+  impression = {
+    first = "Cliffwatcher Longhorn sees the centaur long before they see him, and he spoke as though the canyon were a debt he means to collect. Underneath, he is worried about a brother he hasn't written to.",
+    third = "{name} met Cliffwatcher Longhorn, who keeps watch over the Thousand Needles from Freewind Post.",
+  },
+
   greetings = {
     { id = "g_watch", text = "From up here I see the centaur long before they see us. That is why we built on the mesas." },
     { id = "g_back", when = { metBefore = true }, text = "The canyon gave you back, good. It keeps more than it returns." },
@@ -188,6 +193,11 @@ P:NPC {
   communities = { "freewind" }, temper = { "intent" }, values = { "curious", "patient" },
   notices = { "class", "form" },
 
+  impression = {
+    first = "Rau Cliffrunner has been staring at centaur carvings since dawn and would happily keep going until the moon sets. There is a scholar's patience in that, and a scholar's hunger too.",
+    third = "{name} met Rau Cliffrunner of Freewind Post, who studies the centaur relic called the Cloven Hoof.",
+  },
+
   greetings = {
     { id = "g_study", text = "Ah, a visitor. Forgive the mess; I've been staring at centaur carvings since dawn." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned! I hoped you might, because I've had questions piling up." },
@@ -306,6 +316,11 @@ P:NPC {
   communities = { "freewind" }, temper = { "eager" }, values = { "curious" },
   notices = { "pet" },
 
+  impression = {
+    first = "Hagar Lightninghoof asked whether I'd seen a very large egg before he asked anything else. His mind keeps drifting back to it, and he is too delighted to apologize properly.",
+    third = "{name} met Hagar Lightninghoof of Thunder Bluff, who came to the Thousand Needles chasing tales of a strange egg.",
+  },
+
   greetings = {
     { id = "g_egg", text = "You haven't seen an egg, have you, a very large one? No? Ah, well, it was worth asking." },
     { id = "g_back", when = { metBefore = true }, text = "There you are! I've been waiting to tell somebody, anybody, really." },
@@ -408,6 +423,11 @@ P:NPC {
   bible = "bibles/thousandneedles.md", role = "questgiver", tier = "quest",
   communities = { "freewind" }, temper = { "bitter" }, values = { "loyal", "stern" },
   notices = { "race" },
+
+  impression = {
+    first = "Thalia Amberhide warned me she was poor company and was right about it. She keeps a knotted cord for the friend the Grimtotem took, and her fingers never stop finding it.",
+    third = "{name} met Thalia Amberhide at Freewind Post, who waits for word of her friend Lakota Windsong.",
+  },
 
   greetings = {
     { id = "g_inn", text = "Sit if you like, but don't expect me to be good company." },
@@ -526,6 +546,11 @@ P:NPC {
   bible = "bibles/thousandneedles.md", role = "innkeeper", tier = "service",
   communities = { "freewind" }, temper = { "gentle" }, values = { "kind", "generous" },
   notices = { "weary", "drink" },
+
+  impression = {
+    first = "Innkeeper Abeqwa keeps the blankets dry and tells guests not to look down from the mesa. The wind sings over her inn at night, and she plainly loves it.",
+    third = "{name} met Innkeeper Abeqwa, who keeps the inn atop the mesas at Freewind Post.",
+  },
 
   greetings = {
     { id = "g_inn", text = "Rest here, traveler. The wind sings over the mesa at night; most guests find it soothing." },

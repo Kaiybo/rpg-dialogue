@@ -10,6 +10,10 @@ P:NPC {
   bible = "bibles/bernice.md", role = "questgiver", tier = "quest",
   communities = { "goldshire" }, temper = { "proud" }, values = { "honest", "stern" },
   notices = { "craft" },
+  impression = {
+    first = "Auntie Bernice Stonefield guards her kitchen like a fortress and her grudges like heirlooms. She had decided who stole her necklace long before anybody asked her.",
+    third = "{name} met Auntie Bernice Stonefield, a baker with strong opinions about pie crusts and the Maclure family.",
+  },
 
   greetings = {
     { id = "g_pie", text = "Mind the sill, there's pies cooling, so keep your hands off." },
@@ -168,6 +172,10 @@ P:NPC {
   bible = "bibles/ma_stonefield.md", role = "farmer", tier = "quest",
   communities = { "goldshire" }, temper = { "sharp" }, values = { "stern", "honest" },
   notices = { "trophy" },
+  impression = {
+    first = "Ma Stonefield is losing her whole crop to one enormous pig, and she takes it as a personal insult. She is not a crier, she says, and I believe her.",
+    third = "{name} met Ma Stonefield, whose cabbages are being devoured by the Brackwells' prize sow, Princess.",
+  },
 
   greetings = {
     { id = "g_field", text = "If you're here for the vegetables, there aren't many left. Ask the pig." },
@@ -303,6 +311,10 @@ P:NPC {
   bible = "bibles/billy.md", role = "child", tier = "quest",
   communities = { "goldshire" }, temper = { "cowardly" }, values = { "witty" },
   notices = { "food", "wonder" },
+  impression = {
+    first = "Before I'd accused him of anything, Billy Maclure had already sworn he didn't do it, which is either very honest or very suspicious. Mostly he seems hungry.",
+    third = "{name} met young Billy Maclure, accused of a theft he swears he didn't commit and hungry enough to bargain over it.",
+  },
 
   greetings = {
     { id = "g_kid", text = "I didn't do it, whatever it is, I was here the whole time!" },

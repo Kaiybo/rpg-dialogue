@@ -7,6 +7,10 @@ P:NPC {
   bible = "bibles/llane.md", role = "trainer", tier = "service",
   communities = { "northshire" }, temper = { "steady" },
   notices = { "fitness", "stance" },
+  impression = {
+    first = "Llane Beshere corrected my stance before he asked what I wanted, which says everything about him. He believes warriors are made by being knocked down and getting back up.",
+    third = "{name} met Llane Beshere, Northshire's warrior trainer, who teaches a proper stance as if it were scripture.",
+  },
 
   greetings = {
     { id = "g_feet", text = "Feet apart, recruit. Now, what do you need?" },

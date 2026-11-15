@@ -187,3 +187,5 @@ Never says:
 - `disposition` (0-100; DESIGN §3.12) gates what people confide: warm confidences at `{ min = 65 }`-`{ min = 75 }`, curt lines at `{ max = 34 }`.
 - Every major NPC gets `topics.knows`: the lead-in to "What do you know?", one or two whole sentences that come before a list of subjects and name none of them (the addon lists them).
 - Journal templates come in both voices: `journal = { first = "...", third = "{name} ..." }`.
+- **Every named NPC carries an `impression`** (0.35.0): the player character's private diary note about them, written after the first conversation. `first`: 1-2 whole sentences, 40 words or fewer, what they noticed and made of the person, readable whether written after the first or the fifth meeting (no "Today I met"). `third`: one chronicle sentence with `{name}`. No assumptions about the player's class, race, gender or faction; no new facts beyond the bible.
+- **Every zone gets a `P:Arrival`** in `RPGDialogue_World/arrivals.lua` (exact in-game zone name): the diary line on first arrival. Faction variants (`when = { faction = ... }`) go before the plain entry.

@@ -7,6 +7,10 @@ P:NPC {
   bible = "bibles/durotar.md", role = "priest", tier = "major",
   communities = { "senjin" }, temper = { "folksy" }, values = { "wise", "proud" },
   notices = { "race", "class" },
+  impression = {
+    first = "Master Gadrin taught Vol'jin and Zalazane both, and only one of them makes him proud. He jokes about his old teeth, but the shame of Zalazane plainly keeps him from sleeping through the night.",
+    third = "{name} met Master Gadrin at Sen'jin Village, the old Darkspear witch doctor who once taught both Vol'jin and Zalazane.",
+  },
 
   greetings = {
     { id = "g_hut", text = "Come, come, Gadrin don't bite. Not anymore, anyway; the teeth be too old." },

@@ -8,6 +8,11 @@ P:NPC {
   communities = { "feathermoon" }, temper = { "intent" }, values = { "loyal", "dutiful", "brave" },
   notices = { "class", "race" },
 
+  impression = {
+    first = "Shandris Feathermoon watches the water around Sardor Isle as though it might betray her at any moment. Her loyalty to the High Priestess runs deeper than duty, and it shows in every word.",
+    third = "{name} met Shandris Feathermoon, General of the Sentinels, who holds Feathermoon Stronghold for the High Priestess.",
+  },
+
   greetings = {
     { id = "g_isle", text = "Welcome to Sardor Isle. Keep your bow strung and your eyes on the water; that's all I ask of anyone here." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back across the water, good. Now report." },
@@ -174,6 +179,11 @@ P:NPC {
   communities = { "feathermoon" }, temper = { "genial" }, values = { "kind", "practical" },
   notices = { "craft", "class" },
 
+  impression = {
+    first = "Pratt McGrubben calls himself mostly retired from paladin work and fully busy with leather. He has an old soldier's patience and a friendly word for whoever wanders up to his bench.",
+    third = "{name} met Pratt McGrubben, a genial semi-retired paladin who works leather at Feathermoon Stronghold.",
+  },
+
   greetings = {
     { id = "g_shop", text = "Well met! Leather, repairs, or a kind word: which can I do for you?" },
   },
@@ -249,6 +259,11 @@ P:NPC {
   communities = { "feathermoon" }, temper = { "gentle" }, values = { "kind", "generous" },
   notices = { "weary" },
 
+  impression = {
+    first = "Innkeeper Shyria keeps the kettle on for Sentinels coming in from the rain at every hour. She has a gentle way about her that makes the island feel safer than it is.",
+    third = "{name} met Innkeeper Shyria, who shelters the Sentinels of Feathermoon Stronghold beneath her roof.",
+  },
+
   greetings = {
     { id = "g_inn", text = "Come in from the rain. Feralas is always wet; at least here it's warm and wet." },
     { id = "g_home", when = { homeInn = { "Feathermoon Stronghold" } }, text = "You've returned to the island. Your bed is ready, and the tea is fresh." },
@@ -304,6 +319,11 @@ P:NPC {
   bible = "bibles/feralas.md", role = "soldier", tier = "major",
   communities = { "mojache" }, temper = { "fierce" }, values = { "loyal", "stern" },
   notices = { "class", "kit" },
+
+  impression = {
+    first = "Rok Orhan has one answer for most problems in Feralas, and it involves killing ogres. Still, he spoke of the land healing someday, which I didn't expect from him.",
+    third = "{name} met Rok Orhan, who leads the Horde's fight against the Gordunni ogres from Camp Mojache.",
+  },
 
   greetings = {
     { id = "g_camp", text = "You want to help the Horde in Feralas? Good, then kill ogres; that's how." },
@@ -477,6 +497,11 @@ P:NPC {
   communities = { "mojache" }, temper = { "eager" }, values = { "curious", "ambitious" },
   notices = { "craft" },
 
+  impression = {
+    first = "Orwin Gizzmick keeps a sack of rocks under his bed that might be a fortune, and he can't stop talking about them. Half scholar, half salesman, and both halves are hungry.",
+    third = "{name} met Orwin Gizzmick, a goblin at Camp Mojache who wants to know what the Gordunni cobalt is worth.",
+  },
+
   greetings = {
     { id = "g_ore", text = "You look like someone who can carry rocks: valuable rocks, mysterious rocks!" },
   },
@@ -579,6 +604,11 @@ P:NPC {
   bible = "bibles/feralas.md", role = "innkeeper", tier = "service",
   communities = { "mojache" }, temper = { "warm" }, values = { "generous" },
   notices = { "weary" },
+
+  impression = {
+    first = "Innkeeper Greul made me feel welcome before I'd shaken the rain off. In a land so full of teeth, her fire feels like the safest spot in Feralas.",
+    third = "{name} met Innkeeper Greul, the hospitable tauren who keeps the fire at Camp Mojache.",
+  },
 
   greetings = {
     { id = "g_inn", text = "Come in, come in! Feralas is wide and wet and full of teeth, but in here, it's just warm." },

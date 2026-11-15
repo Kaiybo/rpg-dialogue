@@ -8,6 +8,11 @@ P:NPC {
   communities = { "eastweald" }, temper = { "weary" }, values = { "honorable", "loyal", "kind" },
   notices = { "race", "class" },
 
+  impression = {
+    first = "Tirion Fordring was a lord and a paladin once, and now he fishes by a river with an old horse for company. He carries his losses quietly, and his kindness hasn't soured in the slightest.",
+    third = "{name} met Tirion Fordring, the exiled paladin who lives by a quiet stream in the Eastweald with his old horse Mirador.",
+  },
+
   greetings = {
     { id = "g_river", text = "A visitor, out here? Mind Mirador; he's old, and he doesn't like strangers. Neither did I, once, but I've had time to change." },
     { id = "g_back", when = { metBefore = true }, text = "Back by the river? Sit with me; the fish don't bite, but the water's still pleasant to watch." },
@@ -157,6 +162,11 @@ P:NPC {
   bible = "bibles/easternplaguelands.md", role = "soldier", tier = "major",
   communities = { "marris_stead" }, temper = { "cold" }, values = { "loyal", "proud" },
   notices = { "race", "class" },
+
+  impression = {
+    first = "Nathanos Blightcaller stands on his family's old land and speaks of the Banshee Queen as the one who gave him back his mind. He measured me as a tool, and found me adequate, barely.",
+    third = "{name} met Nathanos Blightcaller, the cold Forsaken ranger who serves as the Banshee Queen's champion at Marris Stead.",
+  },
 
   greetings = {
     { id = "g_stead", text = "You stand on my land. It was my family's before the plague, and now it serves the Banshee Queen, as do I." },

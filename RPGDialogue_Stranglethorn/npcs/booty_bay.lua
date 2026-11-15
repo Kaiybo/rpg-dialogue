@@ -9,6 +9,11 @@ P:NPC {
   communities = { "booty_bay" }, temper = { "shrewd" }, values = { "ambitious", "proud" },
   notices = { "purse", "kit" },
 
+  impression = {
+    first = "Baron Revilgaz watches the cove from his balcony the way a miser watches a purse. He was perfectly civil to me, and I had the distinct sense of being priced.",
+    third = "{name} was received by Baron Revilgaz, who keeps Booty Bay for the Steamwheedle Cartel and counts its ships and coins from his balcony.",
+  },
+
   greetings = {
     { id = "g_balcony", text = "From this balcony I can count every ship in the cove and most of the coins coming off them. State your business." },
     { id = "g_back", when = { metBefore = true }, text = "You again? Good; repeat business is the only kind I trust." },
@@ -217,6 +222,11 @@ P:NPC {
   communities = { "booty_bay" }, temper = { "boisterous" }, values = { "brave", "loyal" },
   notices = { "race", "kit" },
 
+  impression = {
+    first = "Fleet Master Seahorn laughs like someone who has survived a great many bad ideas, most of them his own. I liked him at once, which may be exactly what he intended.",
+    third = "{name} met Fleet Master Seahorn of the Blackwater Raiders, a loud, cheerful pirate who answers to the Baron and to no one else.",
+  },
+
   greetings = {
     { id = "g_deck", text = "Up the stairs and still breathing! That's a good start, for I've watched orcs come down those stairs headfirst." },
     { id = "g_back", when = { metBefore = true }, text = "The tide's brought you back! I like a sailor who can find the way home." },
@@ -357,6 +367,11 @@ P:NPC {
   bible = "bibles/stranglethorn.md", role = "questgiver", tier = "quest",
   communities = { "booty_bay" }, temper = { "chatty" }, values = { "cunning", "ambitious" },
   notices = { "craft", "purse" },
+
+  impression = {
+    first = "Krazek talks faster than I can follow and seems to know the price of everything in the jungle. I suspect he already knew mine before I opened my mouth.",
+    third = "{name} met Krazek, Baron Revilgaz's secretary, who claims to know every price, pirate and debt in Stranglethorn.",
+  },
 
   greetings = {
     { id = "g_desk", text = "Busy, busy, busy, but never too busy for a customer. You are a customer, aren't you?" },
@@ -524,6 +539,11 @@ P:NPC {
   communities = { "booty_bay" }, temper = { "menacing" }, values = { "cunning", "practical" },
   notices = { "purse", "drink" },
 
+  impression = {
+    first = "Sea Wolf MacKinley was friendly enough over the knucklebones, and I still came away feeling like a column in his ledger. I mean to stay out of his debt.",
+    third = "{name} shared a crate with Sea Wolf MacKinley, a Booty Bay moneylender who swears that not even death cancels a debt owed to him.",
+  },
+
   greetings = {
     { id = "g_crate", text = "Pull up a crate, then. Are you any good at knucklebones? It doesn't matter much, since I'm better." },
     { id = "g_back", when = { metBefore = true }, text = "Look who it is! You don't owe me a thing, not yet anyway." },
@@ -643,6 +663,11 @@ P:NPC {
   communities = { "booty_bay" }, temper = { "slick" }, values = { "ambitious", "cunning" },
   notices = { "purse" },
 
+  impression = {
+    first = "Kebok smiled through his whole pitch, and I noticed the smile never reached the part about his agents getting killed. I am apparently meant to be harder to kill.",
+    third = "{name} heard a business proposition from Kebok, a goblin trader whose agents keep dying in the jungle.",
+  },
+
   greetings = {
     { id = "g_pitch", text = "You've the look of somebody who'd like to be rich, and I can help with that for a fee, a small one, or medium at most." },
     { id = "g_back", when = { metBefore = true }, text = "My favorite contractor is back! Don't tell the others I said so." },
@@ -750,6 +775,11 @@ P:NPC {
   communities = { "booty_bay" }, temper = { "wry" }, values = { "practical" },
   notices = { "drink", "guest" },
 
+  impression = {
+    first = "Innkeeper Skindle keeps the Salty Sailor running under the Baron's nose and lowers his voice near the stairs. Sensible man, and the rum was better than I expected.",
+    third = "{name} took a stool at the Salty Sailor, where Innkeeper Skindle keeps the rooms, the rum and a careful eye on the Baron's stairs.",
+  },
+
   greetings = {
     { id = "g_inn", text = "In you come, out of the sun. Stools by the windows get the breeze, and the sea air covers the smell of the fish." },
     { id = "g_home", when = { homeInn = { "Booty Bay", "The Salty Sailor Tavern" } }, text = "Your room's just as you left it, mostly, though the parrots got in again." },
@@ -825,6 +855,11 @@ P:NPC {
   bible = "bibles/stranglethorn.md", role = "questgiver", tier = "quest",
   communities = { "booty_bay" }, temper = { "vengeful" }, values = { "proud", "stubborn" },
   notices = { "kit" },
+
+  impression = {
+    first = "Captain Smotts lost two ships and a fortune to three sea giants, and he tells the story as though it happened to someone he'd like to punch. He has not given up.",
+    third = "{name} heard Captain Hecklebury Smotts tell of the three sea giants who sank two of his ships and took everything he owned.",
+  },
 
   greetings = {
     { id = "g_giants", text = "Sea giants, three of 'em! You can ask me about them or not, for I'll tell you anyway." },
@@ -960,6 +995,11 @@ P:NPC {
   communities = { "booty_bay" }, temper = { "nervous" }, values = { "cautious" },
   notices = { "kit" },
 
+  impression = {
+    first = "Shaky Phillipe jumped when I came near and asked, a little too casually, whether a large man with a gambling habit had been looking for him. Somebody clearly has.",
+    third = "{name} met Shaky Phillipe, a nervous Booty Bay sailor who seems very worried about a certain large gambler.",
+  },
+
   greetings = {
     { id = "g_jump", text = "Ah! Oh, it's only you; I thought you were... well, nobody, nobody in particular, so hello there." },
   },
@@ -1092,6 +1132,11 @@ P:NPC {
   communities = { "booty_bay", "blackwater" }, temper = { "eager" }, values = { "loyal", "fierce" },
   notices = { "race" },
 
+  impression = {
+    first = "First Mate Crazz hates the Bloodsail Buccaneers with a steady, practical sort of hatred. Anyone with news of a red bandana will have a friend in him, for an afternoon.",
+    third = "{name} met First Mate Crazz of the Blackwater Raiders, who wants to know what the Bloodsail Buccaneers are planning and then to sink it.",
+  },
+
   greetings = {
     { id = "g_bloodsail", text = "If you've seen a red bandana on the coast, tell me where. I've been wanting a reason all week." },
   },
@@ -1198,6 +1243,11 @@ P:NPC {
   bible = "bibles/stranglethorn.md", role = "questgiver", tier = "quest",
   communities = { "booty_bay" }, temper = { "shifty" }, values = { "greedy", "clever" },
   notices = { "purse" },
+
+  impression = {
+    first = "Crank Fizzlebub called me over from across the dock with a promise of easy money. Nothing he offers will be easy, and I'm fairly sure that's the point.",
+    third = "{name} was hailed by Crank Fizzlebub, a Booty Bay goblin with schemes for anyone who has a strong arm and a short memory.",
+  },
 
   greetings = {
     { id = "g_profit", text = "Psst, you there, yes, you! Want to make some money? Course you do, everybody does, so lean in." },
@@ -1333,6 +1383,11 @@ P:NPC {
   communities = { "booty_bay" }, temper = { "jovial" }, values = { "generous", "touchy" },
   notices = { "drink" },
 
+  impression = {
+    first = "Whiskey Slim raised a toast to me before he knew my name, and two more after. Somewhere under the drink is a real grief over a lost cask of port.",
+    third = "{name} was toasted by Whiskey Slim, a cheerful drinker in Booty Bay who still mourns a lost cask of the finest port.",
+  },
+
   greetings = {
     { id = "g_toast", text = "A toast! To you, stranger, and to whatever brought you here, unless it was trouble, in which case, to you anyway!" },
   },
@@ -1429,6 +1484,11 @@ P:NPC {
   communities = { "booty_bay" }, temper = { "boastful" }, values = { "proud", "greedy" },
   notices = { "craft" },
 
+  impression = {
+    first = "Drizzlik praised his own leatherwork for longer than most people pray. The trouble is that the work deserves most of it.",
+    third = "{name} browsed Drizzlik's Emporium in Booty Bay, where the goblin leathercrafter praises his own crocolisk and panther hides at great length.",
+  },
+
   greetings = {
     { id = "g_emporium", text = "Welcome to Drizzlik's Emporium, the finest leather in the South Seas! The finest leather anywhere, if you ask me, and you are asking me." },
   },
@@ -1499,6 +1559,11 @@ P:NPC {
   bible = "bibles/stranglethorn.md", role = "citizen", tier = "quest",
   communities = { "booty_bay" }, temper = { "haunted" }, values = { "loyal" },
   notices = { "drink" },
+
+  impression = {
+    first = "Sprogger cooked for Captain Smotts and came up out of the sea with him when the giants struck. He speaks of it plainly, which made it worse to hear.",
+    third = "{name} met Sprogger, Captain Smotts' cook, who survived the sinking of the Smotts' Revenge alongside his captain.",
+  },
 
   greetings = {
     { id = "g_cook", text = "You hungry? I can cook, I'm a cook. Well, I was a cook, on a ship, two ships actually." },
@@ -1607,6 +1672,11 @@ P:NPC {
   communities = { "booty_bay", "blackwater" }, temper = { "miserable" }, values = { "hopeful" },
   notices = { "kit" },
 
+  impression = {
+    first = "Fin Fizracket is sweating out the Stranglethorn Fever and warned me off in the same breath as he asked for help. I kept a polite distance anyway.",
+    third = "{name} met Fin Fizracket, a Blackwater Raider laid low by the Stranglethorn Fever.",
+  },
+
   greetings = {
     { id = "g_sick", text = "Don't come too close, or do, I don't know if it's catching, and nobody else knows anything either. Ugh." },
   },
@@ -1687,6 +1757,11 @@ P:NPC {
   bible = "bibles/stranglethorn.md", role = "worker", tier = "quest",
   communities = { "booty_bay" }, temper = { "watchful" }, values = { "careful", "practical" },
   notices = { "race" },
+
+  impression = {
+    first = "Wharfmaster Lozgil sees every crate and every face that comes off a boat in Booty Bay. He looked at mine long enough that I wondered which list I'd gone on.",
+    third = "{name} passed Wharfmaster Lozgil on the docks of Booty Bay, where everything and everyone coming off a boat goes past him first.",
+  },
 
   greetings = {
     { id = "g_docks", text = "Watch your step on the boards, and your purse on the docks. Not necessarily in that order." },

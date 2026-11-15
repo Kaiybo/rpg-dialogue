@@ -9,6 +9,11 @@ P:NPC {
   communities = { "nesingwary_camp" }, temper = { "gruff" }, values = { "brave", "proud" },
   notices = { "class", "pet", "kit" },
 
+  impression = {
+    first = "Hemet Nesingwary hushed me so I wouldn't scare the game, then talked about the great cat for a quarter of an hour. Hunting is the whole of the man.",
+    third = "{name} found Hemet Nesingwary at his camp in Stranglethorn, where the famous hunter is after raptors, panthers, tigers and the great cat himself.",
+  },
+
   greetings = {
     { id = "g_camp", text = "Quiet, now, ye'll scare the game. Sit, if ye must, an' then make yerself useful." },
     { id = "g_back", when = { metBefore = true }, text = "Ye came back with all yer limbs, good. The jungle doesnae give many second chances." },
@@ -198,6 +203,11 @@ P:NPC {
   communities = { "nesingwary_camp" }, temper = { "patient" }, values = { "loyal", "orderly" },
   notices = { "race" },
 
+  impression = {
+    first = "Barnil Stonepot keeps Nesingwary's camp, kit and book, and he is fiercely proud of all three. He asked me to pick up any loose pages I found.",
+    third = "{name} met Barnil Stonepot, who keeps Hemet Nesingwary's camp and minds the great hunter's book with fierce pride.",
+  },
+
   greetings = {
     { id = "g_pages", text = "Mind where ye step, friend. If ye see a loose page anywhere, it's ours, so don't step on it; pick it up." },
   },
@@ -321,6 +331,11 @@ P:NPC {
   bible = "bibles/stranglethorn.md", role = "questgiver", tier = "quest",
   communities = { "nesingwary_camp" }, temper = { "focused" }, values = { "proud", "brave" },
   notices = { "class" },
+
+  impression = {
+    first = "Ajeck Rouack restrung her bow while we talked and never once looked up. She means to take Sin'Dall someday, and he says it like a plain fact.",
+    third = "{name} met Ajeck Rouack at Nesingwary's camp, a tiger hunter who means one day to bring down Sin'Dall.",
+  },
 
   greetings = {
     { id = "g_bow", text = "Careful, I'm restringing. Talk if you like; I'll listen." },
@@ -448,6 +463,11 @@ P:NPC {
   bible = "bibles/stranglethorn.md", role = "questgiver", tier = "quest",
   communities = { "nesingwary_camp" }, temper = { "bitter" }, values = { "honorable", "proud" },
   notices = { "class", "race" },
+
+  impression = {
+    first = "Sir Erlgadin was a count in Stormwind once and would rather nobody mentioned it. He hunts panthers now, and he seems to find them better company than nobles.",
+    third = "{name} met Sir S. J. Erlgadin, a former count of Stormwind who gave up the House of Nobles to hunt panthers in Stranglethorn.",
+  },
 
   greetings = {
     { id = "g_sir", text = "Sir Erlgadin. Just 'Sir', thank you; I've given up the rest." },

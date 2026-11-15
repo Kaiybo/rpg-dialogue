@@ -10,6 +10,11 @@ P:NPC {
   communities = { "darkshire" }, temper = { "stern" }, values = { "devout", "wary" },
   notices = { "form", "stranger" },
 
+  impression = {
+    first = "Jonathan Carevin watched my hands before he watched my face. His household goes out past the lamps after the dead, and he has the stillness of someone who does that often.",
+    third = "{name} met Jonathan Carevin, whose household hunts demons and the walking dead beyond Darkshire's lamps.",
+  },
+
   greetings = {
     { id = "g_wary", text = "You're new here. State your business, and keep your hands where I can see them." },
     { id = "g_back", when = { metBefore = true }, text = "Still breathing, I see, and in Duskwood that counts as a reference." },
@@ -183,6 +188,11 @@ P:NPC {
   communities = { "darkshire" }, temper = { "fierce" }, values = { "devout", "proud" },
   notices = { "form", "trophy" },
 
+  impression = {
+    first = "Calor asked whether I'd ever swung a blade at something that swung back. He stood a Night Watch post for years before joining Carevin, and it shows in how he watches the trees.",
+    third = "{name} met Calor, a former Night Watch guard who now hunts the dark of Duskwood alongside Jonathan Carevin.",
+  },
+
   greetings = {
     { id = "g_hunt", text = "You have the look of someone who's swung a blade, but have you swung it at anything that swung back?" },
     { id = "g_back", when = { metBefore = true }, text = "Out of the trees again, are you? Count your fingers, and then tell me what you killed." },
@@ -339,6 +349,11 @@ P:NPC {
   bible = "bibles/darkshire_folk.md", role = "scholar", tier = "quest",
   communities = { "darkshire" }, temper = { "fussy" }, values = { "curious", "careful" },
   notices = { "lore", "arcane" },
+
+  impression = {
+    first = "Sirra Von'Indi lives under a landslide of papers and seems happiest when a visitor stands perfectly still. If it happened in Darkshire and someone wrote it down, he has read it twice.",
+    third = "{name} met Sirra Von'Indi, Darkshire's historian, who knows the town's old scripts and older families.",
+  },
 
   greetings = {
     { id = "g_busy", text = "Hm? Yes, yes, come in, and mind the papers, and those papers too... actually, just stand there, would you?" },
@@ -530,6 +545,11 @@ P:NPC {
   communities = { "darkshire" }, temper = { "eager" }, values = { "curious", "rational" },
   notices = { "craft", "arcane" },
 
+  impression = {
+    first = "Viktori Prism'Antras studies the stars from the darkest forest I know, and he is entirely aware of the joke. His delight over twenty minutes of open sky was catching.",
+    third = "{name} met Viktori Prism'Antras, an astronomer who studies the stars through a single gap in Duskwood's canopy.",
+  },
+
   greetings = {
     { id = "g_sky", text = "Ah! Did you know there's a gap in the canopy right above this hut? Some nights it gives me twenty minutes of sky, and I don't waste them." },
     { id = "g_back", when = { metBefore = true }, text = "You're back, good! The fog lifted for nearly an hour last night, and I saw three stars I'd never charted." },
@@ -681,6 +701,11 @@ P:NPC {
   communities = { "darkshire" }, temper = { "cheerful" }, values = { "proud", "generous" },
   notices = { "craft", "hunger" },
 
+  impression = {
+    first = "Chef Grual runs the Scarlet Raven's kitchen with a cleaver and a grin, and calls every customer his favourite. It's the warmest place in Darkshire, in every sense.",
+    third = "{name} met Chef Grual, who cooks for the Scarlet Raven and insists it is the best food in Darkshire.",
+  },
+
   greetings = {
     { id = "g_kitchen", text = "Come in, come in, the kitchen's warm and the pot's on! Mind the cleaver, though, because it's got a mind of its own." },
     { id = "g_back", when = { metBefore = true }, text = "My favourite customer! Don't tell the others, because I say that to all of them." },
@@ -818,6 +843,11 @@ P:NPC {
   bible = "bibles/darkshire_folk.md", role = "noble", tier = "quest",
   communities = { "darkshire" }, temper = { "indignant" }, values = { "just", "proud" },
   notices = { "status", "soldier" },
+
+  impression = {
+    first = "Councilman Millstipe keeps a list of grievances for anyone who looks remotely like Stormwind. He is angry in the patient, documented way of a man who's written too many letters.",
+    third = "{name} met Councilman Millstipe of the Council of Darkshire, who has given up waiting for Stormwind to read his letters.",
+  },
 
   greetings = {
     { id = "g_council", text = "If you're from Stormwind, I have a list for you, and if you're from anywhere else, a shorter one." },
@@ -971,6 +1001,11 @@ P:NPC {
   communities = { "darkshire" }, temper = { "steady" }, values = { "practical", "kind" },
   notices = { "weary", "kit" },
 
+  impression = {
+    first = "Innkeeper Trelayne checks the shutters twice and told me not to stand in a lit doorway. In Darkshire that counts as hospitality, and I was grateful for it.",
+    third = "{name} took a room from Innkeeper Trelayne, who keeps Darkshire's guests indoors and its shutters firmly closed after dark.",
+  },
+
   greetings = {
     { id = "g_beds", text = "Beds are upstairs and blankets are in the chest, and the shutters stay closed, which isn't a suggestion." },
     { id = "g_home", when = { homeInn = { "Darkshire", "Scarlet Raven Tavern" } }, text = "Your room's just as you left it, and I checked the shutters twice, out of habit." },
@@ -1044,6 +1079,11 @@ P:NPC {
   bible = "bibles/darkshire_folk.md", role = "trainer", tier = "service",
   communities = { "darkshire" }, temper = { "wry" }, values = { "practical", "craft" },
   notices = { "craft", "stealth" },
+
+  impression = {
+    first = "Clarise Gnarltree teaches the craft with a heavy hammer and very little patience for anyone standing where the sparks go. There's a Gnarltree for every part of a fighter, she says.",
+    third = "{name} met Clarise Gnarltree, who teaches smithing in Darkshire alongside Gavin and Morg Gnarltree.",
+  },
 
   greetings = {
     { id = "g_forge", text = "The forge is hot and the hammer's heavy, and you're standing right where the sparks go, so step left." },

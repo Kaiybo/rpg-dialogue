@@ -7,6 +7,10 @@ P:NPC {
   bible = "bibles/willem.md", role = "questgiver", tier = "quest",
   communities = { "northshire" }, temper = { "steady" },
   notices = { "newcomer", "thief", "stranger" },
+  impression = {
+    first = "Deputy Willem watches the Abbey road with friendly eyes and keeps a careful count of everything on it. If there's trouble in the valley, he assures me, he has already heard of it.",
+    third = "{name} met Deputy Willem on the Northshire road, who keeps the Marshal's tallies and an eye on every stranger.",
+  },
 
   greetings = {
     { id = "g_morning", when = { timeOfDay = { "dawn", "day" } }, text = "Morning! Keep to the road and you'll keep your purse." },

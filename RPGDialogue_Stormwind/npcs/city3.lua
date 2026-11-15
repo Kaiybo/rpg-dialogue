@@ -10,6 +10,10 @@ P:NPC {
   bible = "bibles/city3.md", role = "noble", tier = "quest",
   communities = { "stormwind" }, temper = { "smooth" }, values = { "proud", "ambitious" },
   notices = { "deed", "status" },
+  impression = {
+    first = "Courtesy from Lord Gregor Lescovar feels rather like being weighed on a merchant's scale. He comes to the library to escape the noise of the House of Nobles, or so he says.",
+    third = "{name} met Lord Gregor Lescovar of the House of Nobles, an elegant man who prefers the quiet of the library.",
+  },
 
   greetings = {
     { id = "g_library", text = "Quietly, please. This is a library, not a market, whatever the Trade District has taught you." },
@@ -150,6 +154,10 @@ P:NPC {
   bible = "bibles/city3.md", role = "citizen", tier = "quest",
   communities = { "stormwind" }, temper = { "brawler" }, values = { "proud" },
   notices = { "body", "drink" },
+  impression = {
+    first = "Dashel Stonefist asked what I was looking at in a tone that suggested any answer would end in a fight. I gather most of his evenings end that way, and he enjoys them.",
+    third = "{name} met Dashel Stonefist, an Old Town brawler who settles his arguments with his fists.",
+  },
 
   greetings = {
     { id = "g_fist", text = "What're you lookin' at? No, go on, I'm askin'. I like to know what folk are lookin' at before I hit 'em." },
@@ -272,6 +280,10 @@ P:NPC {
   bible = "bibles/city3.md", role = "blacksmith", tier = "quest",
   communities = { "stormwind" }, temper = { "earnest" }, values = { "craft", "loyal" },
   notices = { "kit", "craft" },
+  impression = {
+    first = "Furen Longbeard learned his trade from Grimand Elmore and is still learning it, as Elmore reminds him daily. He looks at a dent and sees the whole fight that made it.",
+    third = "{name} met Furen Longbeard, Grimand Elmore's student, who forges shields meant to be trusted rather than admired.",
+  },
 
   greetings = {
     { id = "g_shop", text = "Shields an' mail, made right. If it's got a dent, I'll take it out. If it's got a hole, I'll tell ye how ye got it." },
@@ -372,6 +384,10 @@ P:NPC {
     { id = "b_spare", text = "A copper for an honest man! Or a dishonest one, I'm not proud!" },
     { id = "b_shine", text = "Armour shined, two coppers! One copper if you don't look too closely!" },
   },
+  impression = {
+    first = "Topper McNabb was a farmer once and begs behind the Auction House now, and he has a generous word for every passer-by. He told me I have a generous face, and I suspect he tells everyone.",
+    third = "{name} met Topper McNabb, a cheerful beggar behind the Auction House who used to work a farm.",
+  },
   greetings = {
     { id = "g_coin", text = "Friend! That's a kind face, a generous face. Has anyone ever told you you've a generous face?" },
     { id = "g_back", when = { metBefore = true }, text = "My favourite benefactor returns! I've told everyone about you, though nobody believed me." },
@@ -441,6 +457,10 @@ P:NPC {
   bible = "bibles/city3.md", role = "guard", tier = "quest",
   communities = { "stormwind" }, temper = { "anxious" }, values = { "self-preserving" },
   notices = { "soldier", "stealth" },
+  impression = {
+    first = "Warden Thelwater keeps Stormwind's worst beneath its canals and would very much like the recent trouble never mentioned again. He has the look of a man who has stopped opening his letters.",
+    third = "{name} met Warden Thelwater of the Stockade, an anxious man who would rather nobody heard about his lower tiers.",
+  },
 
   greetings = {
     { id = "g_quiet", text = "Yes? Quickly, and quietly, please, because everything about this place should be quiet, especially lately." },

@@ -8,6 +8,11 @@ P:NPC {
   communities = { "bulwark" }, temper = { "sharp", "steady" }, values = { "practical", "cunning" },
   notices = { "race", "class" },
 
+  impression = {
+    first = "High Executor Derrington runs the Bulwark like a man who has buried his patience along with everything else. He has no use for Undercity's court games, only for whoever is still standing at dawn.",
+    third = "{name} met High Executor Derrington, the Forsaken commander holding the Bulwark against the Scourge of the Plaguelands.",
+  },
+
   greetings = {
     { id = "g_wall", text = "This is the Bulwark, built of junk and timber and the stubbornness of the dead, so speak quickly." },
     { id = "g_back", when = { metBefore = true }, text = "You came back through the gate, which not everyone manages. Report, then." },
@@ -160,6 +165,11 @@ P:NPC {
   communities = { "bulwark" }, temper = { "sharp" }, values = { "practical", "faithless" },
   notices = { "class", "race" },
 
+  impression = {
+    first = "Shadow Priestess Vandis watched my hands while we talked, and I'm fairly sure she was counting my fingers. Whatever faith she had in life, she traded it for something sharper.",
+    third = "{name} met Shadow Priestess Vandis at the Bulwark, who means to turn the plague cauldrons against their makers.",
+  },
+
   greetings = {
     { id = "g_dry", text = "Speak, I'm listening, though I'm also counting your fingers, out of habit." },
     { id = "g_back", when = { metBefore = true }, text = "Back from the farms, are you? I hope you've brought me something foul." },
@@ -261,6 +271,11 @@ P:NPC {
   bible = "bibles/westernplaguelands.md", role = "questgiver", tier = "quest",
   communities = { "bulwark", "apothecarium" }, temper = { "jovial" }, values = { "curious", "morbid" },
   notices = { "craft", "race" },
+
+  impression = {
+    first = "Apothecary Dithers is cheerful in a way that only a dead man elbow-deep in plague samples could be. He forecasts the weather with an exposed knee and seems proud of it.",
+    third = "{name} met Apothecary Dithers, the Royal Apothecary Society's cheerful chemist on loan to the Bulwark.",
+  },
 
   greetings = {
     { id = "g_knee", text = "Weather's turning, my knee says so, or at least the bit of it that's still showing does." },
@@ -367,6 +382,11 @@ P:NPC {
   bible = "bibles/westernplaguelands.md", role = "noble", tier = "quest",
   communities = { "bulwark" }, temper = { "proud", "sharp" }, values = { "greedy", "vengeful" },
   notices = { "race", "kit" },
+
+  impression = {
+    first = "Alexi Barov still wears the family signet and the family manners, which are worse. He spoke of his own brother's death the way other people discuss a late payment.",
+    third = "{name} met Alexi Barov, the Forsaken heir of House Barov, who waits at the Bulwark for his brother's fortune.",
+  },
 
   greetings = {
     { id = "g_bored", text = "Mm? Oh, another one of you, how tiresome. Do try to be interesting." },
@@ -494,6 +514,11 @@ P:NPC {
   bible = "bibles/westernplaguelands.md", role = "questgiver", tier = "quest",
   communities = { "bulwark", "argent_dawn" }, temper = { "steady" }, values = { "honorable", "fair" },
   notices = { "race", "class" },
+
+  impression = {
+    first = "Argent Officer Garush spent his life as a weapon aimed by others, and he seems at peace now with the one enemy the Dawn gave him. He speaks plainly and means every word.",
+    third = "{name} met Argent Officer Garush, the orc who serves the Argent Dawn at the Bulwark.",
+  },
 
   greetings = {
     { id = "g_dawn", text = "For the Dawn, friend, so say it with me, and it gets easier each time." },

@@ -8,6 +8,10 @@ P:NPC {
   bible = "bibles/galiaan.md", role = "questgiver", tier = "quest",
   communities = { "sentinel_hill" }, temper = { "sharp" }, values = { "curious", "lawful" },
   notices = { "stealth", "red" },
+  impression = {
+    first = "Scout Galiaan thinks in maps and pins, and he asked me not to stand on his before he asked anything else. His praise is rare and precise, much like his notes.",
+    third = "{name} met Scout Galiaan of the People's Militia, who tracks the shifting Defias front on his map.",
+  },
 
   greetings = {
     { id = "g_map", text = "Don't stand on the map." },

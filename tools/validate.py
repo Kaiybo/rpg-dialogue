@@ -106,6 +106,7 @@ def main():
     # ---- pass 1: collect everything --------------------------------------------------
     npcs, pools, generic = {}, [], []
     defs = {k: {} for k in ("Thread", "Claim", "Topic", "Town", "Origin", "Rumors", "Book", "Errand")}
+    arrivals = []
     key_lines, all_lines = {}, {}
     for pack in packs:
         for f, line, msg in pack.errors:
@@ -154,6 +155,8 @@ def main():
                         key_lines[gid] = True
             elif kind == "Generic":
                 generic.append((pack, tbl, f, line))
+            elif kind == "Arrival":
+                arrivals.append((pack, tbl, f, line))
             elif kind in defs:
                 did = tbl.get("id")
                 if not did:
@@ -417,6 +420,18 @@ def main():
                 rep.error(pack, f, nodes[nid].line, f"{where}.{nid}: no path from here to END or BUSINESS")
 
     scaffolds = 0
+    for pack, tbl, f, line in arrivals:
+        if not isinstance(tbl.get("zone"), str):
+            rep.error(pack, f, line, "Arrival needs zone = \"<zone name>\"")
+        check_journal(pack, f, line, tbl, f"arrival {tbl.get('zone')}")
+        if tbl.get("when") is not None:
+            check_when(pack, f, line, tbl.get("when"), f"arrival {tbl.get('zone')}")
+        for voice in ("first", "third"):
+            t = tbl.get(voice)
+            if isinstance(t, str):
+                for tok in re.findall(r"\{([^}]*)\}", t):
+                    if tok.split(":")[0] not in tokens:
+                        rep.error(pack, f, line, f"arrival {tbl.get('zone')}: unknown token {{{tok}}}")
     for key, (pack, tbl, f, line) in sorted(npcs.items()):
         where = key
         if tbl.get("scaffold"):
@@ -441,6 +456,18 @@ def main():
         if isinstance(tbl.get("bible"), str):
             for prob in bible_problems(pack, tbl.get("bible")):
                 rep.error(pack, f, line, f"{where}: {prob}")
+        imp = tbl.get("impression")
+        if imp is not None:
+            check_journal(pack, f, line, imp, where + " impression")
+            if isinstance(imp, LTable):
+                for voice in ("first", "third"):
+                    t = imp.get(voice)
+                    if isinstance(t, str):
+                        for tok in re.findall(r"\{([^}]*)\}", t):
+                            if tok.split(":")[0] not in tokens:
+                                rep.error(pack, f, line, f"{where} impression: unknown token {{{tok}}}")
+                        if len(t.split()) > 50:
+                            rep.warn(pack, f, line, f"{where} impression: {len(t.split())} words (aim for 40 or fewer)")
         notices = set(P.arr(tbl.get("notices")))
         ids = set()
         for slot, node, ln, gid in P.iter_lines(tbl, key):

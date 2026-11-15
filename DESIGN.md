@@ -834,6 +834,14 @@ If a line throws an error, paste the error instead. That tells us something too.
 - **Identity tags.** A reply with no `tag` whose `when` names who the player is (top level or inside `all`; never `any`/`not`) shows it: `[Priest]`, `[Human Priest]`, `[Dwarf]`, the origin's `tag`/name, `[Alchemy]`, `[Kind]` (`Conv.IdentityTag`). Setting `identityTags`; the `tags = "never"` setting turns them off too.
 - **Approval and check results.** After a reply, a dim note under the next page: "<NPC> approves." / "approves greatly." (affinity +1 / +2 or more), "disapproves", the new disposition tier when it changed, and "Persuade: success." / "failed." for checks (`Conv.ChoiceNote`, shown by `Conv.ShowPendingNote` via `ShowReaction`). Settings `approval`, `checkResults`, `showDisposition`.
 
+### 3.13 The journal and the self-writing diary (0.35.0)
+- **Pages** (`UI/Journal.lua`, `J.Text(tab, search)` is pure and tested): Diary (`chronicle`), Stories (`stories`), People (`people`), Heard of (`heard`), Myself (`sheet`), Notes. Search on Diary, People and Heard of. Old names alias: `topics` -> Heard of, `deeds` -> Myself, `threads` -> Stories.
+- **Stories:** every thread with a beat heard, live ones first. Thread fields `title` and `story = { stirring|unfolding|resolved|soured = { first, third } }`; a faded thread shows its last live text, marked "(left unfinished)". Under it, each beat heard: who said it, when, the line.
+- **People:** grouped by the zone where you last spoke with them (`mem.zone`, set on `CONVERSATION_ENDED`), with title, disposition word, the impression (once written), topics asked of them, the last thing they said.
+- **Heard of:** topics by category; who first spoke of it (`Topics.Source`) and what each person answered when asked (`Topics.RecordAnswer`: `rec.said`, one per person, up to 8, stored as line ids).
+- **The diary writes itself** (`Systems/Diary.lua`): an NPC's `impression = { first, third }` after the first conversation with them (`mem.impressed`; people met before 0.35.0 get it at the next talk); a zone's `P:Arrival { zone, first, third, when? }` (World `arrivals.lua`, first match wins, `char.arrived`) on the first `zone:` deed; built-in lines for the first death (names the killer), each tenth level, a first dungeon.
+- **Journal button count:** unread diary entries (`char.journalRead`, `J.Unread`, `Launcher.UpdateBadge`); opening the journal marks them read. Characters from before 0.35.0 start with everything read.
+
 ### 3.10 Window style (look)
 
 Two looks, setting "Window style" (`look`), switchable while a conversation is open:

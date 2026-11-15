@@ -8,6 +8,11 @@ P:NPC {
   communities = { "powderfuse_port" }, temper = { "shrewd" }, values = { "greedy", "proud" },
   notices = { "craft", "purse", "race" },
 
+  impression = {
+    first = "According to Melbin Powderfuse, every plank in Powderfuse Port is his, and so is every nail. He watched my hands the whole time, as if I might carry off a wall.",
+    third = "{name} met Melbin Powderfuse, Master Goblin Engineer, who claims to have built Powderfuse Port from nothing but sand.",
+  },
+
   greetings = {
     { id = "g_default", text = "Hands off the walls, pal; I built those." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Spending today, or just admiring?" },
@@ -154,6 +159,11 @@ P:NPC {
   communities = { "powderfuse_port" }, temper = { "cheerful", "chatty" }, values = { "generous" },
   notices = { "guest", "drink" },
 
+  impression = {
+    first = "Innkeeper Zizplink calls everyone an explorer and seems to mean it kindly. Her inn smells of the sea, and she hears every rumor that comes off the Tanaris boat.",
+    third = "{name} met Innkeeper Zizplink, the cheerful goblin who keeps the inn at Powderfuse Port.",
+  },
+
   greetings = {
     { id = "g_default", text = "Another explorer! Come in, come in, and mind the smell; it's the sea, mostly." },
     { id = "g_home", when = { homeInn = { "Powderfuse Port" } }, text = "Your room's ready! I aired it out, but the air came back in, so it smells like fish again." },
@@ -211,6 +221,11 @@ P:NPC {
   bible = "bibles/riverglades.md", role = "citizen", tier = "quest",
   communities = { "powderfuse_port", "brotherhood_horse" }, temper = { "surly" }, values = { "loyal" },
   notices = { "standing", "drink" },
+
+  impression = {
+    first = "Gray Dawnbright was rude to me before I had said a word, and I suspect he is rude to everyone. Something is eating at him that drink isn't fixing.",
+    third = "{name} met Gray Dawnbright, a sour Brotherhood rider drinking away his leave at Powderfuse Port.",
+  },
 
   greetings = {
     { id = "g_default", text = "What is it? Can't you see I'm busy?" },
@@ -349,6 +364,11 @@ P:NPC {
   communities = { "powderfuse_port" }, temper = { "brash" }, values = { "greedy", "ambitious" },
   notices = { "class", "form" },
 
+  impression = {
+    first = "Jazzle Cheapshot owns an arena with no fights in it yet, and that doesn't dent his enthusiasm one bit. He looked me over like a poster he hadn't painted.",
+    third = "{name} met Jazzle Cheapshot, who runs an empty arena at Powderfuse Port and dreams of filling it.",
+  },
+
   greetings = {
     { id = "g_default", text = "No fights today, pal, but soon, very soon!" },
   },
@@ -418,6 +438,11 @@ P:NPC {
   bible = "bibles/riverglades.md", role = "questgiver", tier = "quest",
   communities = { "powderfuse_port" }, temper = { "dramatic" }, values = { "curious" },
   notices = { "craft" },
+
+  impression = {
+    first = "Fimbo Greasemitz cooks boar and fish every single day and suffers loudly over it. Give him one new ingredient, I think, and he'd weep with joy.",
+    third = "{name} met Fimbo Greasemitz, who keeps a cafe on the water at Powderfuse Port and is bored of his own menu.",
+  },
 
   greetings = {
     { id = "g_default", text = "Table for one? Every table's for one, since nobody eats here in pairs." },
@@ -489,6 +514,11 @@ P:NPC {
   communities = { "powderfuse_port" }, temper = { "jovial" }, values = { "brave", "generous" },
   notices = { "drink", "craft" },
 
+  impression = {
+    first = "Argo Brinewhistle hiccups through every sentence and calls his boat the finest in the port, sea monster and all. Drunk or not, there's a real sailor's nerve in him.",
+    third = "{name} met Argo Brinewhistle, a hard-drinking captain at Powderfuse Port with a sea monster problem.",
+  },
+
   greetings = {
     { id = "g_default", text = "Ahoy! *hic* Pull up a crate." },
   },
@@ -556,6 +586,11 @@ P:NPC {
   bible = "bibles/riverglades.md", role = "vendor", tier = "service",
   communities = { "powderfuse_port" }, temper = { "blunt" }, values = { "practical" },
   notices = { "craft" },
+
+  impression = {
+    first = "Gritta Chumwater sells chum, lures, fish and advice, and only the advice comes free. She says what she thinks and doesn't waste breath dressing it up.",
+    third = "{name} met Gritta Chumwater, the blunt goblin who sells fishing supplies at Powderfuse Port.",
+  },
 
   greetings = {
     { id = "g_default", text = "Chum's fresh, or as fresh as chum gets." },

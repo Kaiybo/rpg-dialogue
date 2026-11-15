@@ -11,6 +11,10 @@ P:NPC {
   communities = { "stormwind" }, temper = { "proud" }, values = { "pious", "lawful", "stern" },
   spiritSensitive = true,
   notices = { "kit", "readiness" },
+  impression = {
+    first = "Lord Grayson Shadowbreaker of the Silver Hand is not easily satisfied, and he told me so himself. He seems to judge a person first by how they keep their gear.",
+    third = "{name} met Lord Grayson Shadowbreaker of the Silver Hand, the Cathedral's exacting paladin trainer.",
+  },
 
   greetings = {
     { id = "g_paladin", when = { class = "PALADIN" }, text = "The Light's protection on you today. Now, what have you learned since I saw you last?" },
@@ -186,6 +190,10 @@ P:NPC {
   communities = { "stormwind" }, temper = { "steady" }, values = { "pious", "kind" },
   spiritSensitive = true,
   notices = {},
+  impression = {
+    first = "Arthur the Faithful isn't sure he has earned his name, which is probably why he has. He invites everyone to kneel a moment before they begin, and he means it kindly.",
+    third = "{name} met Arthur the Faithful, a devout paladin trainer in the Cathedral's east wing.",
+  },
 
   greetings = {
     { id = "g_paladin", when = { class = "PALADIN" }, text = "{g:Brother|Sister}. Come and kneel a moment before we begin." },
@@ -256,6 +264,10 @@ P:NPC {
   bible = "bibles/city2.md", role = "blacksmith", tier = "quest",
   communities = { "stormwind" }, temper = { "proud" }, values = { "honest", "ambitious" },
   notices = { "craft", "kit" },
+  impression = {
+    first = "Grimand Elmore boasts about his work as if he were stating plain fact, and from what I saw, he may be. His praise is so rare that it nearly sounds like an insult.",
+    third = "{name} met Grimand Elmore, master weaponsmith of the Dwarven District, who makes barding for paladins' chargers.",
+  },
 
   greetings = {
     { id = "g_anvil", text = "Finest craftsmanship on the continent, right here. It isnae cheap, but it's worth every coin." },
@@ -369,6 +381,10 @@ P:NPC {
   bible = "bibles/city2.md", role = "scholar", tier = "quest",
   communities = { "stormwind" }, temper = { "cowardly" }, values = { "curious" },
   notices = { "lore" },
+  impression = {
+    first = "In the Royal Library one whispers, because Milton Sheaf believes the books are sleeping. He forgave a book seventy years overdue for the sake of a pressed flower, which tells you everything.",
+    third = "{name} met Milton Sheaf, keeper of Stormwind's Royal Library, who collects books and the people who fetch them.",
+  },
 
   greetings = {
     { id = "g_hush", text = "Shh, whisper, please, because the books are sleeping." },
@@ -472,6 +488,10 @@ P:NPC {
   bible = "bibles/city2.md", role = "vendor", tier = "quest",
   communities = { "stormwind" }, temper = { "sharp" }, values = { "cunning", "witty" },
   notices = { "watch" },
+  impression = {
+    first = "Nobody has ever insisted on selling only cheese as firmly as Elling Trias does. He stands behind his counter looking honest with real dedication.",
+    third = "{name} met Elling Trias at his Trade District cheese shop, a man very insistent that he is only a cheesemaker.",
+  },
 
   greetings = {
     { id = "g_cheese", text = "Cheese. We sell cheese, and that's all we do here: cheese." },

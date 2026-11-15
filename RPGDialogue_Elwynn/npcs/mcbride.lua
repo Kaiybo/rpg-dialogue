@@ -7,6 +7,10 @@ P:NPC {
   bible = "bibles/mcbride.md", role = "questgiver", tier = "major",
   communities = { "northshire" }, temper = { "steady", "sharp" },
   notices = { "greenness", "kit", "follow_through" },
+  impression = {
+    first = "Marshal McBride calls everyone recruit, and he means it as a duty more than an insult. He has a whole valley to hold and nowhere near enough people to hold it.",
+    third = "{name} reported to Marshal McBride, who holds Northshire Valley and likes his recruits to stay alive.",
+  },
 
   greetings = {
     { id = "g_brief", text = "Speak up, recruit, and make it quick. I've a valley to hold." },

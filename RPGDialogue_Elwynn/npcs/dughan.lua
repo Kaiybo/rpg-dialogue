@@ -8,6 +8,10 @@ P:NPC {
   bible = "bibles/dughan.md", role = "questgiver", tier = "major",
   communities = { "goldshire" }, temper = { "proud" }, values = { "stern", "brave" },
   notices = { "reputation", "bounty" },
+  impression = {
+    first = "Marshal Dughan keeps Goldshire standing on stubbornness and very little sleep. He looked at me the way a man looks at one more pair of hands.",
+    third = "{name} met Marshal Dughan, who keeps Goldshire standing on stubbornness and very little sleep.",
+  },
 
   greetings = {
     { id = "g_desk", text = "Make it quick, friend; I've half of Elwynn on this desk." },

@@ -10,6 +10,10 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "steady" }, values = { "honorable", "compassionate", "cunning" },
   spiritSensitive = true,
   notices = { "race", "class" },
+  impression = {
+    first = "Thrall carries Orgrim Doomhammer's hammer and spends every day trying to deserve it. He listens like a shaman and speaks like a chieftain, and he has plainly never forgotten what it was to be a slave.",
+    third = "{name} stood before Thrall, Warchief of the Horde, in Grommash Hold in Orgrimmar.",
+  },
 
   greetings = {
     { id = "g_warchief", text = "Lok'tar. Speak freely, warrior. In this hall, every voice of the Horde is heard." },
@@ -113,6 +117,10 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "wry" }, values = { "cunning", "loyal", "wise" },
   spiritSensitive = true,
   notices = { "race", "class" },
+  impression = {
+    first = "Vol'jin only talks to the interesting ones, he says, and he watched me the whole time as if deciding which I was. His humour is sly, but his debt to Thrall runs deeper than any joke.",
+    third = "{name} met Vol'jin, chief of the Darkspear trolls, who stands at the Warchief's side in Orgrimmar.",
+  },
 
   greetings = {
     { id = "g_hall", text = "Come, sit. The Warchief talk to everybody, but Vol'jin only talk to the interesting ones, so let's see which you be." },
@@ -203,6 +211,10 @@ P:NPC {
   bible = "bibles/orgrimmar.md", role = "questgiver", tier = "major",
   communities = { "orgrimmar" }, temper = { "smooth" }, values = { "ambitious", "proud" },
   notices = { "class", "fel" },
+  impression = {
+    first = "Smooth-spoken Neeru Fireblade calls himself a loyal servant of the Warchief, which may well be true. He watches the Horde's fire-worshippers very closely, and I cannot quite tell how he feels about what he sees.",
+    third = "{name} met Neeru Fireblade in the Cleft of Shadow, who claims to keep watch over those in the Horde who still play with fire.",
+  },
 
   greetings = {
     { id = "g_cleft", text = "The Cleft of Shadow welcomes you. Don't be alarmed by the dark; it keeps the curious out, and the useful in." },
@@ -290,6 +302,10 @@ P:NPC {
   bible = "bibles/orgrimmar.md", role = "innkeeper", tier = "service",
   communities = { "orgrimmar" }, temper = { "hearty" }, values = { "generous" },
   notices = { "weary", "hunger" },
+  impression = {
+    first = "Innkeeper Gryshka insists on meat first and stories after, and nobody leaves the Broken Tusk hungry. Mention Zargh, though, and she grows flustered, which is the most charming thing I have seen in Orgrimmar.",
+    third = "{name} found a seat at the Broken Tusk, where Innkeeper Gryshka feeds Orgrimmar's warriors and keeps the inn loud.",
+  },
 
   greetings = {
     { id = "g_tusk", text = "Sit, warrior. Food first, then you tell me who you fought. That's the price of a seat at the Tusk." },
@@ -338,6 +354,10 @@ P:NPC {
   bible = "bibles/orgrimmar.md", role = "citizen", tier = "service",
   communities = { "orgrimmar" }, temper = { "resigned" }, values = { "patient" },
   notices = { "class", "drink" },
+  impression = {
+    first = "Gamon was a warrior once and now spends most days on the inn floor, knocked down by whoever wants an easy fight. He always gets back up, which is the saddest and bravest thing about him.",
+    third = "{name} met Gamon, a weary tauren in Orgrimmar who has been knocked down so often he no longer asks why.",
+  },
 
   greetings = {
     { id = "g_sigh", text = "Oh, hello. You're not going to hit me, are you? Everyone hits me, and I've stopped asking why." },

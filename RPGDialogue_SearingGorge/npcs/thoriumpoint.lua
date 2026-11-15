@@ -8,6 +8,11 @@ P:NPC {
   communities = { "thorium_point" }, temper = { "stern" }, values = { "proud", "practical" },
   notices = { "race", "profession" },
 
+  impression = {
+    first = "Overseer Oilfist takes responsibility for everything at Thorium Point, and he made it clear that now includes me. He is a Dark Iron who stopped serving the mountain and carries that choice like a weight.",
+    third = "{name} met Overseer Oilfist, who leads the Thorium Brotherhood's outpost at Thorium Point.",
+  },
+
   greetings = {
     { id = "g_point", text = "Welcome tae Thorium Point, where everything that happens is my responsibility, an' that includes you, now." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, good. Ye're either useful or lost, an' I'm hopin' useful." },
@@ -109,6 +114,11 @@ P:NPC {
   communities = { "thorium_point" }, temper = { "grumbling" }, values = { "loyal", "lazy" },
   notices = { "race", "kit" },
 
+  impression = {
+    first = "Hansel Heavyhands complained about being made to stand up before he complained about anything else. Freedom, for him, mostly seems to mean a chair, and I can't say I blame him.",
+    third = "{name} met Hansel Heavyhands, the weary enforcer of the Thorium Brotherhood at Thorium Point.",
+  },
+
   greetings = {
     { id = "g_rest", text = "Och, what is it now, when I'd just sat down? Fine, fine, out with it." },
     { id = "g_back", when = { metBefore = true }, text = "You again, good! Ye can do the thing they want me tae do, an' everyone's happy." },
@@ -182,6 +192,11 @@ P:NPC {
   bible = "bibles/searinggorge.md", role = "guard", tier = "quest",
   communities = { "thorium_point" }, temper = { "jovial" }, values = { "loyal", "proud" },
   notices = { "drink", "stealth" },
+
+  impression = {
+    first = "Lookout Captain Lolo Longstriker is nearly blind and smells out trouble instead, with a little help from the bottle. Nobody has snuck up on Thorium Point yet, so perhaps he's onto something.",
+    third = "{name} met Lookout Captain Lolo Longstriker, the near-blind lookout of Thorium Point.",
+  },
 
   greetings = {
     { id = "g_who", text = "Who goes there? No, don't tell me, I'll know ye by yer step... hmm, no idea at all. Who goes there?" },
@@ -267,6 +282,11 @@ P:NPC {
   bible = "bibles/searinggorge.md", role = "questgiver", tier = "quest",
   communities = { "searing_gorge_wilds" }, temper = { "brooding" }, values = { "vengeful", "cunning" },
   notices = { "class" },
+
+  impression = {
+    first = "Kalaran Windblade speaks of his murdered father and of vengeance on the Dark Iron in the same brooding breath. He tells it like a story he has told many times before.",
+    third = "{name} met Kalaran Windblade in the Searing Gorge, who seeks vengeance on the Dark Iron for his father's death.",
+  },
 
   greetings = {
     { id = "g_vengeance", text = "Another traveler, good. I have need of someone with a strong arm and no love for the Dark Iron." },

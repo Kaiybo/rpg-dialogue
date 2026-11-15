@@ -8,6 +8,11 @@ P:NPC {
   communities = { "thelsamar" }, temper = { "hearty" }, values = { "dutiful", "friendly" },
   notices = { "kit", "race" },
 
+  impression = {
+    first = "Mountaineer Kadrell pointed me straight to the bounty poster by the League's door. He watches Thelsamar's road with a cheerful readiness for whatever crawls out of the hills next.",
+    third = "{name} met Mountaineer Kadrell, who keeps watch over the road through Thelsamar for the King of Ironforge.",
+  },
+
   greetings = {
     { id = "g_town", text = "Welcome tae Thelsamar, friend, an' make yerself comfortable! While ye're at it, have a look at that poster by the League's door." },
     { id = "g_back", when = { metBefore = true }, text = "Back on the loch, an' good tae see ye! The tunnel rats have been askin' after ye, though no' fondly." },
@@ -130,6 +135,11 @@ P:NPC {
   bible = "bibles/thelsamar.md", role = "scholar", tier = "quest",
   communities = { "thelsamar" }, temper = { "steady" }, values = { "honest", "practical" },
   notices = { "craft" },
+
+  impression = {
+    first = "Prospector Ironband admits his dig is slow and insists it will pick up any day now. He has the stubborn patience of someone who has been saying that for a while.",
+    third = "{name} visited Prospector Ironband's excavation in Loch Modan, where the Explorers' League dig goes slowly but steadily.",
+  },
 
   greetings = {
     { id = "g_dig", text = "Watch the trench, an' the ropes, an' the lads, for they're workin', slowly but workin'." },
@@ -254,6 +264,11 @@ P:NPC {
   communities = { "thelsamar" }, temper = { "jolly" }, values = { "generous" },
   notices = { "weary", "drink" },
 
+  impression = {
+    first = "Innkeeper Hearthstove claims the Stoutlager pours the best ale between Ironforge and the Wetlands, and he'll fight anyone who disagrees once they've paid. I didn't disagree.",
+    third = "{name} drank at the Stoutlager Inn in Thelsamar, where Innkeeper Hearthstove pours what he calls the best ale in Loch Modan.",
+  },
+
   greetings = {
     { id = "g_inn", text = "The Stoutlager welcomes ye! Sit down, have a pint an' tell us a tale, in that order." },
     { id = "g_home", when = { homeInn = { "Thelsamar", "Stoutlager Inn" } }, text = "The Stoutlager missed ye! Yer bed's warm an' yer mug's clean, or clean enough, anyway." },
@@ -324,6 +339,11 @@ P:NPC {
   bible = "bibles/thelsamar.md", role = "questgiver", tier = "quest",
   communities = { "thelsamar" }, temper = { "brisk" }, values = { "proud" },
   notices = { "craft" },
+
+  impression = {
+    first = "Vidra Hearthstove ran me out of her kitchen unless I'd brought something to cook. Her blood sausages are famous, she says, at least in Thelsamar.",
+    third = "{name} met Vidra Hearthstove, who cooks Thelsamar's famous blood sausages in the Stoutlager's kitchen.",
+  },
 
   greetings = {
     { id = "g_kitchen", text = "Out o' my kitchen, unless ye've brought me somethin' tae cook." },
@@ -414,6 +434,11 @@ P:NPC {
   bible = "bibles/thelsamar.md", role = "soldier", tier = "quest",
   communities = { "thelsamar" }, temper = { "formal" }, values = { "dutiful" },
   notices = { "soldier" },
+
+  impression = {
+    first = "Captain Rugelfuss told me ceremony could wait until the troggs did. He has the worn calm of an officer who's been fighting the same fight from the same hill for too long.",
+    third = "{name} met Captain Rugelfuss, who holds the Valley of Kings against troggs rising from under the hills.",
+  },
 
   greetings = {
     { id = "g_ease", text = "At ease. Ceremony can wait until the troggs do." },
@@ -558,6 +583,11 @@ P:NPC {
   bible = "bibles/thelsamar.md", role = "worker", tier = "quest",
   communities = { "thelsamar" }, temper = { "anxious" }, values = { "proud", "careful" },
   notices = { "craft" },
+
+  impression = {
+    first = "Chief Engineer Hinderweir VII begged me to hold the rail on a walkway he swore was perfectly safe. The weight of six forebears and one great dam sits squarely on his shoulders.",
+    third = "{name} met Chief Engineer Hinderweir VII, seventh of his name to tend the Stonewrought Dam in Loch Modan.",
+  },
 
   greetings = {
     { id = "g_dam", text = "Careful on the walkway! It's perfectly safe, mostly safe, engineered to be safe, but please hold the rail." },

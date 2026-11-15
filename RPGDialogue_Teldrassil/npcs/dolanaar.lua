@@ -8,6 +8,10 @@ P:NPC {
   bible = "bibles/teldrassil.md", role = "questgiver", tier = "quest",
   communities = { "dolanaar" }, temper = { "grave" }, values = { "devout", "dutiful" },
   notices = { "class" },
+  impression = {
+    first = "Corithras Moonrage tastes the moonwells himself and swears the third one is wrong. The Sentinels think he fusses, but I have rarely seen anyone so certain and so quietly afraid.",
+    third = "{name} met Corithras Moonrage, the grave keeper of Teldrassil's moonwells, who watches the young tree like a feverish child.",
+  },
 
   greetings = {
     { id = "g_well", text = "The moonwells of Teldrassil each have a voice. Listen, and you'll hear that they don't all sing the same note." },
@@ -102,6 +106,10 @@ P:NPC {
   bible = "bibles/teldrassil.md", role = "questgiver", tier = "quest",
   communities = { "dolanaar" }, temper = { "stern" }, values = { "protective", "dutiful" },
   notices = { "class", "form" },
+  impression = {
+    first = "There is no patience for riddles in Athridas Bearmantle, only plain words and a heavy heart. The Gnarlpine were never his enemies, and it grieves him more than he lets on that they are now.",
+    third = "{name} met Athridas Bearmantle, the stern druid of Dolanaar who would rather cure the maddened Gnarlpine than kill them.",
+  },
 
   greetings = {
     { id = "g_druid", text = "Speak plainly, friend. The forest has troubles enough, and I've no patience for riddles today." },
@@ -205,6 +213,10 @@ P:NPC {
   bible = "bibles/teldrassil.md", role = "questgiver", tier = "quest",
   communities = { "dolanaar" }, temper = { "approving" }, values = { "protective", "kind" },
   notices = { "greenness" },
+  impression = {
+    first = "Something fatherly shows in the way Tallonkai Swiftroot looks over the young ones guarding the groves. He wants his dreamcatcher back, and I suspect he would like a few other things handled quietly as well.",
+    third = "{name} met Tallonkai Swiftroot of Dolanaar, who approves of the young taking up the groves' defence and has errands of his own for them.",
+  },
 
   greetings = {
     { id = "g_groves", text = "Good to see the young taking a hand in guarding the groves. Come, I've work for willing hands." },
@@ -284,6 +296,10 @@ P:NPC {
   bible = "bibles/teldrassil.md", role = "questgiver", tier = "quest",
   communities = { "dolanaar" }, temper = { "composed" }, values = { "dutiful", "loyal" },
   notices = { "craft" },
+  impression = {
+    first = "Syral Bladeleaf sorts the Council's orders by which ones get someone hurt if they wait. He is calm about it, which may be the only way to bear having more orders than hands.",
+    third = "{name} met Syral Bladeleaf, who carries the Council of the Forest's orders to anyone in Dolanaar willing to follow them.",
+  },
 
   greetings = {
     { id = "g_council", text = "Dolanaar welcomes those who welcome the land. Tell me, do you?" },
@@ -368,6 +384,10 @@ P:NPC {
   bible = "bibles/teldrassil.md", role = "innkeeper", tier = "service",
   communities = { "dolanaar" }, temper = { "gentle" }, values = { "generous" },
   notices = { "weary" },
+  impression = {
+    first = "At Keldamyr's inn the tea is always ready and nobody is asked why they look tired. Travellers leave lighter, and I think that is the whole point of the place.",
+    third = "{name} stopped at Innkeeper Keldamyr's hearth in Dolanaar, where every traveller between Shadowglen and Darnassus rests sooner or later.",
+  },
 
   greetings = {
     { id = "g_inn", text = "Rest a while; the inn is yours for as long as you need it." },
@@ -436,6 +456,10 @@ P:NPC {
   bible = "bibles/teldrassil.md", role = "questgiver", tier = "quest",
   communities = { "dolanaar" }, temper = { "easy" }, values = { "curious", "generous" },
   notices = { "craft" },
+  impression = {
+    first = "Lyreena Duskblade would rather sleep under the canopy than a roof, and she counts stars through the leaves until she drifts off. Sitting at her small fire, I found it hard to argue with her.",
+    third = "{name} shared a small fire with Lyreena Duskblade, who teaches anyone willing how to make a camp feel like home.",
+  },
 
   greetings = {
     { id = "g_fire", text = "Come and sit down. The fire's small, but it's honest, and there's room for one more." },

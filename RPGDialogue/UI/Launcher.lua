@@ -76,6 +76,10 @@ function Launcher.Book()
   local icon = book:CreateTexture(nil, "ARTWORK")
   icon:SetAllPoints()
   icon:SetTexture(ICON)
+  -- Unread diary entries: a small count in the corner.
+  book.badge = book:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
+  book.badge:SetPoint("BOTTOMRIGHT", 2, -2)
+  book.badge:SetTextColor(1, 0.82, 0)
   local hl = book:CreateTexture(nil, "HIGHLIGHT")
   hl:SetAllPoints()
   hl:SetColorTexture(1, 1, 1, 0.2)
@@ -92,14 +96,23 @@ function Launcher.Book()
     GameTooltip:SetOwner(self, "ANCHOR_LEFT")
     GameTooltip:SetText(L.J_TITLE)
     GameTooltip:AddLine(L.JOURNAL_BUTTON_TIP, 1, 1, 1, true)
+    local n = ns.Journal and ns.Journal.Unread and ns.Journal.Unread() or 0
+    if n > 0 then GameTooltip:AddLine(L.J_UNREAD:format(n), 1, 0.82, 0) end
     GameTooltip:Show()
   end)
   book:SetScript("OnLeave", function() GameTooltip:Hide() end)
   return book
 end
 
+function Launcher.UpdateBadge()
+  if not book or not book.badge then return end
+  local n = ns.Journal and ns.Journal.Unread and ns.Journal.Unread() or 0
+  book.badge:SetText(n > 0 and (n > 99 and "99+" or tostring(n)) or "")
+end
+
 function Launcher.Refresh()
   if ns.db.settings.journalButton ~= false then Launcher.Book():Show() elseif book then book:Hide() end
+  Launcher.UpdateBadge()
 end
 
 ns.OnLogin(function()

@@ -8,6 +8,11 @@ P:NPC {
   communities = { "refuge_pointe" }, temper = { "firm" }, values = { "dutiful", "proud" },
   notices = { "kit", "race" },
 
+  impression = {
+    first = "Captain Nials told me to make it quick, and meant it. What's left of Stromgarde is mostly tents now, and she carries that like a sword he refuses to put down.",
+    third = "{name} met Captain Nials at Refuge Pointe, an officer of Stromgarde fighting to win back the fallen kingdom.",
+  },
+
   greetings = {
     { id = "g_tent", text = "Captain Nials. Make it quick; the highlands don't wait, and neither do I." },
     { id = "g_back", when = { metBefore = true }, text = "Back from the hills, are you? What did you find?" },
@@ -152,6 +157,11 @@ P:NPC {
   bible = "bibles/arathi.md", role = "soldier", tier = "major",
   communities = { "hammerfall" }, temper = { "driven" }, values = { "loyal", "ambitious" },
   notices = { "race", "kit" },
+
+  impression = {
+    first = "Drum Fel speaks of Hammerfall as though its prosperous days have already begun. He sees the ogres and Witherbark as obstacles on a road he's certain of.",
+    third = "{name} met Drum Fel, who leads Hammerfall and means to clear the highlands of ogres and trolls.",
+  },
 
   greetings = {
     { id = "g_fort", text = "You're in Hammerfall, where we fight now and soon we'll prosper. Which are you here for?" },
@@ -303,6 +313,11 @@ P:NPC {
   communities = { "hammerfall" }, temper = { "patient" }, values = { "loyal", "brave" },
   notices = { "class", "race" },
 
+  impression = {
+    first = "Zengu is patient the way a good hunter is patient, and he finds it very funny that a human-made troll-killing sword might be turned on the Gurubashi. I rather agree.",
+    third = "{name} met Zengu, a Darkspear troll sent by Vol'jin to find the sword Trol'kalar in Arathi.",
+  },
+
   greetings = {
     { id = "g_hunt", text = "Sit, sit. Zengu be patient, mon, like a good hunter always be." },
   },
@@ -448,6 +463,11 @@ P:NPC {
   bible = "bibles/arathi.md", role = "innkeeper", tier = "service",
   communities = { "hammerfall" }, temper = { "warm" }, values = { "generous" },
   notices = { "weary" },
+
+  impression = {
+    first = "Innkeeper Adegwa keeps the one soft place in Hammerfall's hard stone. A tauren far from Mulgore, he offered me rest as though it was the most natural thing in the world.",
+    third = "{name} rested by Innkeeper Adegwa's fire, a tauren far from Mulgore who keeps the inn at Hammerfall.",
+  },
 
   greetings = {
     { id = "g_inn", text = "Come, rest. Hammerfall is hard stone, but there's a soft hide by my fire." },

@@ -8,6 +8,11 @@ P:NPC {
   communities = { "everlook" }, temper = { "jumpy" }, values = { "friendly", "practical" },
   notices = { "weary", "drink" },
 
+  impression = {
+    first = "Innkeeper Vizzie checked me for bugs before she let me near the fire. She moved to the top of the world to get away from insects, and she's still losing to one beetle.",
+    third = "{name} met Innkeeper Vizzie, the jumpy goblin who keeps the only inn in Everlook.",
+  },
+
   greetings = {
     { id = "g_inn", text = "Come in and shut the door, shut it, before the cold gets in, and the bugs! You didn't bring any bugs, did you?" },
     { id = "g_home", when = { homeInn = { "Everlook" } }, text = "Welcome back! There's a warm bed, a hot drink and no bugs, because I checked, twice." },
@@ -61,6 +66,11 @@ P:NPC {
   bible = "bibles/winterspring.md", role = "trainer", tier = "service",
   communities = { "everlook" }, temper = { "playful" }, values = { "inventive", "mischievous" },
   notices = { "race", "class" },
+
+  impression = {
+    first = "Umi Rumplesnicker told me not to touch anything, then changed her mind three times about which things. Whatever she's building, it's furry, and someone is going to scream.",
+    third = "{name} met Umi Rumplesnicker, the playful goblin engineer of Everlook with a prank in progress.",
+  },
 
   greetings = {
     { id = "g_shop", text = "Oh, a customer! Don't touch that, or that, though that one's fine... no, wait, don't touch that one either!" },
@@ -122,6 +132,11 @@ P:NPC {
   bible = "bibles/winterspring.md", role = "questgiver", tier = "quest",
   communities = { "everlook", "argent_dawn" }, temper = { "steady" }, values = { "devout", "dutiful" },
   notices = { "race", "class" },
+
+  impression = {
+    first = "Gregor Greystone keeps the Argent Dawn's ear among Everlook's traders and greets everyone the same, whatever banner they fly. He is steady and kind, and he forgets to eat.",
+    third = "{name} met Gregor Greystone, who speaks for the Argent Dawn in Everlook.",
+  },
 
   greetings = {
     { id = "g_hello", text = "Good day to you, and may the Light keep you warm. Winterspring could use the help." },

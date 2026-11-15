@@ -9,6 +9,11 @@ P:NPC {
   communities = { "gadgetzan" }, temper = { "eager" }, values = { "ambitious", "practical" },
   notices = { "purse", "drink" },
 
+  impression = {
+    first = "Marin Noggenfogger talks about his elixir the way some people talk about their children, side effects and all. He was sweating, cheerful and already pricing me as a customer.",
+    third = "{name} met Marin Noggenfogger, the goblin alchemist who runs Gadgetzan and dreams of a fortune in elixirs.",
+  },
+
   greetings = {
     { id = "g_heat", text = "Hot, hot, hot, every single day it's hot! Come in out of the sun, come in, because I've got something to tell you about." },
     { id = "g_back", when = { metBefore = true }, text = "My favorite partner in progress! Well, partner's a strong word, so let's say associate, or customer at the very least!" },
@@ -146,6 +151,11 @@ P:NPC {
   communities = { "gadgetzan" }, temper = { "warm" }, values = { "loyal", "generous" },
   notices = { "craft" },
 
+  impression = {
+    first = "Sprinkle calls everyone sweetie and believes that anything can taste good with the right ingredient. She lets Marin think he runs their partnership, and seems to enjoy it.",
+    third = "{name} met Sprinkle, the warm-hearted goblin of Gadgetzan who fixes food that tastes wrong.",
+  },
+
   greetings = {
     { id = "g_kitchen", text = "Hello, sweetie! You look like someone who hasn't eaten anything that tasted good in a week." },
   },
@@ -228,6 +238,11 @@ P:NPC {
   communities = { "gadgetzan" }, temper = { "harried" }, values = { "practical", "proud" },
   notices = { "craft", "kit" },
 
+  impression = {
+    first = "Chief Engineer Bilgewhizzle watches his pressure gauge the way other men watch the sky for storms. In a desert town he keeps the water flowing, and it shows on his face.",
+    third = "{name} met Chief Engineer Bilgewhizzle, the harried head of the Gadgetzan Water Company.",
+  },
+
   greetings = {
     { id = "g_water", text = "Water Company business only, please. If you're here about the pressure, take a number." },
   },
@@ -299,6 +314,11 @@ P:NPC {
   bible = "bibles/tanaris.md", role = "scholar", tier = "quest",
   communities = { "gadgetzan" }, temper = { "cautious" }, values = { "practical", "dutiful" },
   notices = { "craft" },
+
+  impression = {
+    first = "Senior Surveyor Fizzledowser keeps a map full of circles where water used to be, and he expects every simple job to go wrong. In fairness, out here, he may have learned that the hard way.",
+    third = "{name} met Senior Surveyor Fizzledowser, who searches the desert for new water on behalf of the Gadgetzan Water Company.",
+  },
 
   greetings = {
     { id = "g_maps", text = "Careful with the maps. Every one of those circles is a place we used to have water." },
@@ -374,6 +394,11 @@ P:NPC {
   bible = "bibles/tanaris.md", role = "vendor", tier = "quest",
   communities = { "gadgetzan" }, temper = { "brisk" }, values = { "curious", "practical" },
   notices = { "craft", "pet" },
+
+  impression = {
+    first = "Alchemist Pestlezugg keeps a rat named Rose for an assistant and seems to trust her more than most people. He is brisk, curious and a little too pleased by horrible discoveries.",
+    third = "{name} met Alchemist Pestlezugg, the Gadgetzan alchemist who studies the desert's stranger creatures for the Water Company.",
+  },
 
   greetings = {
     { id = "g_shop", text = "Vials, phials, the good flasks, whatever you're after. Don't mind the rat; that's Rose, and she's my assistant." },
@@ -452,6 +477,11 @@ P:NPC {
   bible = "bibles/tanaris.md", role = "questgiver", tier = "quest",
   communities = { "gadgetzan" }, temper = { "evasive" }, values = { "cunning", "ambitious" },
   notices = { "purse" },
+
+  impression = {
+    first = "Tran'rek answered every question about his business without actually answering any of them. He buys what the desert offers, sells it elsewhere and keeps his margins very close.",
+    third = "{name} met Tran'rek, an evasive goblin trader of Gadgetzan who deals in whatever the desert yields.",
+  },
 
   greetings = {
     { id = "g_shifty", text = "What do I do? A bit of this and a bit of that, all of it profitable, and you can't have any." },
@@ -551,6 +581,11 @@ P:NPC {
   communities = { "gadgetzan" }, temper = { "chatty" }, values = { "generous" },
   notices = { "drink", "weary" },
 
+  impression = {
+    first = "Innkeeper Fizzgrimble runs the only inn in Gadgetzan and makes a joke of it before anyone else can. He calls the sand in the stew seasoning, and somehow I believed him.",
+    third = "{name} met Innkeeper Fizzgrimble, the chatty keeper of the Road Warrior inn in Gadgetzan.",
+  },
+
   greetings = {
     { id = "g_inn", text = "Welcome to the Road Warrior! Grab a stool, grab a drink, shake the sand out of your boots." },
     { id = "g_home", when = { homeInn = { "Gadgetzan", "The Road Warrior" } }, text = "You again! Your room's ready and the sand's been swept out of it, mostly." },
@@ -606,6 +641,11 @@ P:NPC {
   bible = "bibles/tanaris.md", role = "citizen", tier = "quest",
   communities = { "steamwheedle_port" }, temper = { "nervous" }, values = { "practical" },
   notices = { "purse" },
+
+  impression = {
+    first = "Stoley asked who sent me and then guessed before I could answer. He owes money in Booty Bay and seems to spend most of his days hoping nobody notices him.",
+    third = "{name} met Stoley, a nervous trader at Steamwheedle Port with debts in Booty Bay.",
+  },
 
   greetings = {
     { id = "g_dock", text = "Who sent you? No, don't tell me, I know who sent you, because it's always the same fellow." },
@@ -681,6 +721,11 @@ P:NPC {
   bible = "bibles/tanaris.md", role = "vendor", tier = "quest",
   communities = { "gadgetzan" }, temper = { "sharp" }, values = { "greedy", "proud" },
   notices = { "craft", "purse" },
+
+  impression = {
+    first = "Krinkle Goodsteel will pour a mold for anything if the coin is right, and he says so proudly. He fought the Repairers' Union and won, which tells me a lot about him.",
+    third = "{name} met Krinkle Goodsteel, a sharp-tongued goblin smith in Gadgetzan who makes molds nobody else will.",
+  },
 
   greetings = {
     { id = "g_forge", text = "Welcome to the hottest forge in the hottest town in Kalimdor, friend, and don't touch the anvil, or anything else for that matter." },

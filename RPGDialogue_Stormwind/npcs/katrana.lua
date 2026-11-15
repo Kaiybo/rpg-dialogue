@@ -8,6 +8,10 @@ P:NPC {
   bible = "bibles/katrana.md", role = "noble", tier = "major",
   communities = { "stormwind" }, temper = { "proud" }, values = { "ambitious", "cunning" },
   notices = { "status", "ambition" },
+  impression = {
+    first = "Everyone in the king's hall seemed to agree with Lady Katrana Prestor before she had finished speaking. She was charming to me, and I couldn't decide whether I'd been welcomed or appraised.",
+    third = "{name} was received by Lady Katrana Prestor, the Regent's gracious adviser, whose opinions soon seem to become everyone else's.",
+  },
 
   greetings = {
     { id = "g_cool", text = "Yes?" },

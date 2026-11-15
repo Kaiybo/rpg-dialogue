@@ -7,6 +7,10 @@ P:NPC {
   bible = "bibles/silverpine.md", role = "soldier", tier = "major",
   communities = { "sepulcher" }, temper = { "iron" }, values = { "loyal", "dutiful" },
   notices = { "kit", "race" },
+  impression = {
+    first = "With enemies on three sides, High Executor Hadrec has no time to spare for a fourth. He lists the worgen, the Scourge, the gnolls and Dalaran's mages among them, and seems entirely undaunted by the list.",
+    third = "{name} met High Executor Hadrec, who holds the Sepulcher and Silverpine Forest for the Dark Lady.",
+  },
 
   greetings = {
     { id = "g_sepulcher", text = "Speak. The Sepulcher has enemies on three sides, and I have little time for the fourth." },
@@ -64,6 +68,10 @@ P:NPC {
   bible = "bibles/silverpine.md", role = "scholar", tier = "quest",
   communities = { "sepulcher" }, temper = { "focused" }, values = { "ambitious", "curious" },
   notices = { "craft" },
+  impression = {
+    first = "Apothecary Renferrel works far from the Undercity's eyes and nose, and he takes Silverpine's damp as a personal insult. He calls his work improving on a recipe for death without a hint of irony.",
+    third = "{name} met Apothecary Renferrel of the Royal Apothecary Society, who pursues his studies in the damp crypts of the Sepulcher.",
+  },
 
   greetings = {
     { id = "g_lab", text = "Don't touch anything green, or anything that glows, or anything at all, really." },
@@ -104,6 +112,10 @@ P:NPC {
   bible = "bibles/silverpine.md", role = "scholar", tier = "quest",
   communities = { "sepulcher" }, temper = { "proud" }, values = { "sharp", "proud" },
   notices = { "class" },
+  impression = {
+    first = "Dalar Dawnweaver would still like to be called Archmage, and thinks the Kirin Tor rude for stopping when he died. He warned Dalaran once and nobody listened, and he has not let it go.",
+    third = "{name} met Dalar Dawnweaver, a former archmage of the Kirin Tor who now watches Dalaran's mages from the Sepulcher.",
+  },
 
   greetings = {
     { id = "g_mage", text = "You may address me as Archmage, if you like. The Kirin Tor stopped doing so when I died, which I thought rude of them." },
@@ -153,6 +165,10 @@ P:NPC {
   bible = "bibles/silverpine.md", role = "priest", tier = "quest",
   communities = { "sepulcher" }, temper = { "smooth" }, values = { "cunning", "loyal" },
   notices = { "class", "stealth" },
+  impression = {
+    first = "Shadow Priest Allister had heard I was coming before I arrived, and he wanted me to know it. He keeps watchers in every corner of Lordaeron and trades in whatever they bring him.",
+    third = "{name} met Shadow Priest Allister, the Sepulcher's spymaster, who learns of everything that moves in Silverpine.",
+  },
 
   greetings = {
     { id = "g_shadows", text = "Ah, I heard you were coming. I hear most things." },
@@ -195,6 +211,10 @@ P:NPC {
   bible = "bibles/silverpine.md", role = "innkeeper", tier = "service",
   communities = { "sepulcher" }, temper = { "hospitable" }, values = { "generous" },
   notices = { "weary" },
+  impression = {
+    first = "Innkeeper Bates runs an inn in a crypt and keeps calling the beds slabs out of habit. He has come to an arrangement with the spiders, and he can tell the worgen apart by their howls.",
+    third = "{name} rested at Innkeeper Bates's crypt of an inn at the Sepulcher, where the roof at least keeps the worgen out.",
+  },
 
   greetings = {
     { id = "g_inn", text = "Come in out of the pines. There's a chair by the fire and nothing out here that bites. Mostly." },

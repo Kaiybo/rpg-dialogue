@@ -11,6 +11,11 @@ P:NPC {
   communities = { "menethil" }, temper = { "fierce" }, values = { "dutiful", "brave" },
   notices = { "soldier", "kit" },
 
+  impression = {
+    first = "Captain Stoutfist holds Menethil's wall against the Dragonmaw and has more work than hands. He asked nothing about me except whether I'd go where I was told.",
+    third = "{name} reported to Captain Stoutfist, who holds Menethil Harbor against the Dragonmaw for Ironforge and the Alliance.",
+  },
+
   greetings = {
     { id = "g_wall", text = "Quickly now. I've a wall to keep an' a hill full o' orcs to keep it from." },
     { id = "g_back", when = { metBefore = true }, text = "Ye're back, an' good timin' too. I've more work than hands, an' ye've brought a pair." },
@@ -277,6 +282,11 @@ P:NPC {
   communities = { "menethil" }, temper = { "maudlin" }, values = { "loyal" },
   notices = { "drink", "fright" },
 
+  impression = {
+    first = "First Mate Fitzsimmons asked for a drink in exchange for a tale and seemed delighted that anyone listened. He has no ship left to be first mate of, and I don't think he's sober about that, or anything.",
+    third = "{name} heard a tale from First Mate Fitzsimmons, a Kul Tiran sailor without a ship who sits by the door of the Deepwater Tavern.",
+  },
+
   greetings = {
     { id = "g_tale", text = "Sit down, sit down! A drink and a tale, that's my price. You bring the drink, I'll bring the tale." },
     { id = "g_back", when = { metBefore = true }, text = "My friend, you came back! Nobody ever comes back. Sit down, sit downwind, as they all say, though I can't think why." },
@@ -449,6 +459,11 @@ P:NPC {
   bible = "bibles/menethil.md", role = "priest", tier = "quest",
   communities = { "menethil" }, temper = { "grumpy" }, values = { "devout", "dutiful" },
   notices = { "fel", "class" },
+
+  impression = {
+    first = "Glorin Steelbrow tends Menethil's souls and grumbles that nobody warned him they'd come with mud and murlocs. He blesses people in the same breath as he complains about them.",
+    third = "{name} met Glorin Steelbrow, the overworked dwarf priest who tends to the souls of Menethil Harbor.",
+  },
 
   greetings = {
     { id = "g_busy", text = "Hmph, another one. Aye, aye, the Light bless ye, now what is it? I've three things on the fire an' two o' them are smokin'." },
@@ -659,6 +674,11 @@ P:NPC {
   communities = { "menethil" }, temper = { "bitter" }, values = { "brave", "proud" },
   notices = { "body", "kin" },
 
+  impression = {
+    first = "Harlo Barnaby took an axe in the back at Dun Modr and wakes every day hungry for news from the north. He's laid up by the healer's orders and resents every hour of it.",
+    third = "{name} met Harlo Barnaby, a wounded dwarf recovering in Menethil after the Dark Iron attack on Dun Modr.",
+  },
+
   greetings = {
     { id = "g_bed", text = "Don't mind me, I'm no' gettin' up; healer's orders. My own orders are different, but she's got the bigger stick." },
     { id = "g_back", when = { metBefore = true }, text = "Ye're back! Any word from the north, any word at all?" },
@@ -800,6 +820,11 @@ P:NPC {
   communities = { "menethil" }, temper = { "steady" }, values = { "hardworking", "practical" },
   notices = { "kit" },
 
+  impression = {
+    first = "Karl Boran keeps cargo moving through a harbour the marsh is trying to swallow. He asked me to stand still before I tripped on something, and I liked him for it.",
+    third = "{name} met Karl Boran, a merchant sailor who keeps cargo moving through the docks of Menethil Harbor.",
+  },
+
   greetings = {
     { id = "g_dock", text = "Careful of the ropes, and the nets, and the crates... actually, just stand still a moment, would you?" },
     { id = "g_back", when = { metBefore = true }, text = "There you are. The work never stops, but the company's better." },
@@ -930,6 +955,11 @@ P:NPC {
   communities = { "menethil" }, temper = { "jolly" }, values = { "generous" },
   notices = { "weary", "drink" },
 
+  impression = {
+    first = "Innkeeper Helbrek's Deepwater only leaks over the bar, which he counts as good planning. He has a gift for making soaked strangers feel like regulars.",
+    third = "{name} came in out of the rain at the Deepwater Tavern, kept by Innkeeper Helbrek of Menethil Harbor.",
+  },
+
   greetings = {
     { id = "g_tavern", text = "In ye come, out o' the wet! The Deepwater's dry, warm, an' only leaks over the bar, which is where ye want it." },
     { id = "g_home", when = { homeInn = { "Menethil Harbor", "Deepwater Tavern" } }, text = "Hang yer cloak by the fire an' it'll steam like a kettle; they all do." },
@@ -1012,6 +1042,11 @@ P:NPC {
   bible = "bibles/menethil.md", role = "scholar", tier = "quest",
   communities = { "menethil" }, temper = { "eager" }, values = { "curious" },
   notices = { "lore", "travel" },
+
+  impression = {
+    first = "Archaeologist Flagongut has turned a tavern table into a dig site while the raptors hold the road. Mind the maps, he said, and the maps were everywhere.",
+    third = "{name} met Archaeologist Flagongut of the Explorers' League, stuck in Menethil while raptors block the road to the dig at Whelgar's.",
+  },
 
   greetings = {
     { id = "g_maps", text = "Careful, careful, that's a map! They're all maps. Mind where ye put yer elbows." },
@@ -1134,6 +1169,11 @@ P:NPC {
   bible = "bibles/menethil.md", role = "citizen", tier = "quest",
   communities = { "menethil" }, temper = { "watchful" }, values = { "loyal", "discreet" },
   notices = { "stealth", "drink" },
+
+  impression = {
+    first = "Mikhail tends a bar he doesn't sell from and told me to sit where I could see the door. He says nothing happens in Menethil, and he says it like a man who is counting on that.",
+    third = "{name} met Mikhail, a quiet man from Stormwind who keeps a bar in Menethil and sells nothing from it.",
+  },
 
   greetings = {
     { id = "g_bar", text = "Evening. Before you ask, no, I don't sell drinks; Helbrek does that, and I just stand here." },

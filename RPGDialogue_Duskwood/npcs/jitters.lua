@@ -9,6 +9,11 @@ P:NPC {
   communities = { "raven_hill" }, temper = { "cowardly" }, values = { "honest" },
   notices = { "fright", "hunger" },
 
+  impression = {
+    first = "Jitters jumps at every sound and begged me for food before he told me anything else. Whatever he saw in these woods, he hasn't stopped seeing it.",
+    third = "{name} met Jitters, a frightened man hiding near Raven Hill who jumps at every sound in the woods.",
+  },
+
   greetings = {
     { id = "g_flinch", text = "Wh-who's there... oh, it's only a person, thank the Light, because you are a person, aren't you?" },
     { id = "g_food", when = { questActive = TODO_QUEST("Jitters' Growling Gut") }, text = "Is that food? Please tell me that's food you've got there." },

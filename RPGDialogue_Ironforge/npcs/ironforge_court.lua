@@ -10,6 +10,11 @@ P:NPC {
   communities = { "ironforge" }, temper = { "quick" }, values = { "inventive", "compassionate" },
   notices = { "craft", "kin" },
 
+  impression = {
+    first = "High Tinker Mekkatorque speaks fast, worries about whether people are eating, and has more ideas than he can test. Leading his people from someone else's city weighs on him more than he lets on.",
+    third = "{name} met High Tinker Gelbin Mekkatorque, the elected leader of the gnomes, who works from Ironforge while Gnomeregan cannot be lived in.",
+  },
+
   greetings = {
     { id = "g_tinker", text = "Hello, hello! Mind the floor, there's a gear loose somewhere; there's always a gear loose somewhere." },
     { id = "g_gnome", when = { race = "Gnome" }, text = "A gnome! Good, good. Are you eating properly, and sleeping? Someone has to ask, and it may as well be me." },
@@ -272,6 +277,11 @@ P:NPC {
   communities = { "ironforge" }, temper = { "steady" }, values = { "curious", "honest" },
   notices = { "lore" },
 
+  impression = {
+    first = "Royal Historian Archesonus learned my voice before she learned my name, since her eyes went long ago. Her memory has more than made up for it.",
+    third = "{name} spoke with Royal Historian Archesonus, the blind keeper of Ironforge's history who knows her visitors by their voices.",
+  },
+
   greetings = {
     { id = "g_voice", text = "That's a step I don't know. Come closer and speak, so I can learn yer voice, for that's how I keep my visitors." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, I know that voice. Sit, sit, and tell me where we left off." },
@@ -443,6 +453,11 @@ P:NPC {
   bible = "bibles/ironforge_court.md", role = "scholar", tier = "quest",
   communities = { "ironforge" }, temper = { "eager" }, values = { "curious", "serious" },
   notices = { "lore", "travel" },
+
+  impression = {
+    first = "High Explorer Magellas warned me not to touch anything with a label, or without one. His Prospectors do the digging, he says, and he does the worrying, and he's good at it.",
+    third = "{name} met High Explorer Muninn Magellas in the Hall of Explorers, who leads the Explorers' League from Ironforge.",
+  },
 
   greetings = {
     { id = "g_league", text = "This is the Hall of Explorers, so touch nothing with a label on it, and nothing without one, either, until you've asked." },
@@ -621,6 +636,11 @@ P:NPC {
   communities = { "ironforge" }, temper = { "hot" }, values = { "proud" },
   notices = { "craft" },
 
+  impression = {
+    first = "Prospector Stormpike looked up from his reading just long enough to make clear I'd interrupted. He isn't unkind, only spare with his words and his time.",
+    third = "{name} interrupted Prospector Stormpike's reading in the Hall of Explorers, and the dwarf made plain he had little time for chat.",
+  },
+
   greetings = {
     { id = "g_busy", text = "What is it? I'm reading, I'm always reading, so make it quick." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Fine, then, say what ye came tae say." },
@@ -753,6 +773,11 @@ P:NPC {
   communities = { "ironforge" }, temper = { "brisk" }, values = { "dutiful", "practical" },
   notices = { "kit", "greenness" },
 
+  impression = {
+    first = "Senator Mehr Stonehallow could be debating somewhere warm and is counting troggs in a quarry instead. He seems proud of that, and rightly.",
+    third = "{name} met Senator Mehr Stonehallow, who left the warmth of the Senate to hold the Gol'Bolar Quarry against the troggs.",
+  },
+
   greetings = {
     { id = "g_quarry", text = "Watch yer footing, for the troggs come up out o' the quarry like water from a cracked pipe." },
     { id = "g_back", when = { metBefore = true }, text = "There are fewer o' the beasts since ye were last here, I'll grant ye, though no' none, mind." },
@@ -871,6 +896,11 @@ P:NPC {
   bible = "bibles/ironforge_court.md", role = "innkeeper", tier = "service",
   communities = { "ironforge" }, temper = { "jolly" }, values = { "generous" },
   notices = { "drink", "weary" },
+
+  impression = {
+    first = "Innkeeper Firebrew keeps the Stonefire loud, warm and full of stories that grow as the kegs empty. He likes anyone who'll add to the noise.",
+    third = "{name} took a stool at the Stonefire Tavern, where Innkeeper Firebrew keeps the beer strong and the stories tall.",
+  },
 
   greetings = {
     { id = "g_tavern", text = "Welcome tae the Stonefire! Grab a stool, grab a mug, an' if ye've a story, grab the room's attention." },

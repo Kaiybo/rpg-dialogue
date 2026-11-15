@@ -9,6 +9,11 @@ P:NPC {
   communities = { "lakeshire" }, temper = { "steady" }, values = { "brave", "stern" },
   notices = { "soldier", "kit" },
 
+  impression = {
+    first = "Corporal Keeshan survived the fall of Stonewatch and a long while in Blackrock hands. He is thin and tired, and there is still a soldier standing straight underneath.",
+    third = "{name} found Corporal Keeshan of the Stormwind Army, taken prisoner by the Blackrock orcs after the fall of Stonewatch.",
+  },
+
   greetings = {
     { id = "g_cell", text = "You took your time, but it doesn't matter now. You're here." },
     { id = "g_after", when = { questDone = TODO_QUEST("Missing In Action") }, text = "There's my escort, still standing, I see. Good, so am I." },

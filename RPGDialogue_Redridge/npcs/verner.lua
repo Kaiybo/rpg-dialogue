@@ -9,6 +9,11 @@ P:NPC {
   communities = { "lakeshire" }, temper = { "steady" }, values = { "honest", "stern" },
   notices = { "kit", "mount" },
 
+  impression = {
+    first = "Verner Osgood has a hot forge and no iron, because the Guard takes every scrap. He seemed glad to have someone to grumble at besides his horses.",
+    third = "{name} met Verner Osgood, the Lakeshire smith whose iron all goes to the Guard.",
+  },
+
   greetings = {
     { id = "g_forge", text = "The forge is hot, so make it quick or make it useful." },
     { id = "g_shoes", when = { questActive = TODO_QUEST("The Price of Shoes") }, text = "Did Argus get my note? He'll grumble; he always grumbles." },

@@ -131,3 +131,9 @@ P:Topic { id = "blackrock_depths", keywords = { "Blackrock Depths" }, name = "Bl
 P:Topic { id = "windsor", keywords = { "Windsor" }, name = "Marshal Windsor", category = "people", learned = "Marshal Maxwell at Morgan's Vigil, or Ragged John at Flame Crest" }
 P:Topic { id = "thaurissan", keywords = { "Thaurissan" }, name = "The ruins of Thaurissan", category = "lore", learned = "Helendis Riverhorn, Mayara Brightwing or Maxwort Uberglint in the Burning Steppes" }
 P:Topic { id = "firegut", keywords = { "Firegut" }, name = "The Firegut ogres", category = "threats", learned = "Oralius or Marshal Maxwell at Morgan's Vigil" }
+
+-- 0.35.0: Blasted Lands (topics for that pack go below this line)
+
+-- 0.35.0: Azshara (topics for that pack go below this line)
+
+-- 0.35.0: Silithus (topics for that pack go below this line)

@@ -8,6 +8,10 @@ P:NPC {
   bible = "bibles/danuvin.md", role = "questgiver", tier = "quest",
   communities = { "sentinel_hill" }, temper = { "sharp" }, values = { "brave", "stern" },
   notices = { "trophy", "kit" },
+  impression = {
+    first = "Captain Danuvin has made soldiers of farmers who were too stubborn to leave, and he speaks of that stubbornness with real respect. He counts gnoll paws the way a banker counts coin.",
+    third = "{name} met Captain Danuvin of the People's Militia, who turns Westfall's stubborn farmers into soldiers.",
+  },
 
   greetings = {
     { id = "g_line", text = "Fall in or move along." },

@@ -7,6 +7,10 @@ P:NPC {
   bible = "bibles/taurajo.md", role = "trainer", tier = "quest",
   communities = { "taurajo" }, temper = { "patient" }, values = { "wise", "kind" },
   notices = { "class", "pet" },
+  impression = {
+    first = "Jorn Skyseer believes stillness is a hunter's first lesson, and he teaches it by example. Sitting beside him, the empty Barrens began to look a great deal less empty.",
+    third = "{name} met Jorn Skyseer, the patient tauren at Camp Taurajo who teaches hunters to see the life hidden on the Barrens.",
+  },
 
   greetings = {
     { id = "g_camp", text = "The Barrens look empty to those who don't know where to look. Sit; I'll show you where to look." },
@@ -56,6 +60,10 @@ P:NPC {
   bible = "bibles/taurajo.md", role = "questgiver", tier = "quest",
   communities = { "taurajo" }, temper = { "scheming" }, values = { "cunning" },
   notices = { "race" },
+  impression = {
+    first = "Mangletooth snorts through the bars of his cage and offers deals as though he were the one holding the keys. He remembers every one of his captors, and I suspect he will remember me too.",
+    third = "{name} met Mangletooth, a caged Razormane quilboar at Camp Taurajo with a grudge against his own kin and a deal for anyone who listens.",
+  },
 
   greetings = {
     { id = "g_cage", text = "*snort* Come closer, come closer; Mangletooth doesn't bite, not through the bars." },
@@ -112,6 +120,10 @@ P:NPC {
   bible = "bibles/taurajo.md", role = "blacksmith", tier = "quest",
   communities = { "taurajo" }, temper = { "curious" }, values = { "curious", "practical" },
   notices = { "craft", "kit" },
+  impression = {
+    first = "To Tatternack Steelforge, every weapon is a letter from the hand that held it. He is writing it all down for the Warchief, who may never read it, and he does not seem to mind.",
+    third = "{name} met Tatternack Steelforge, a curious smith at Camp Taurajo who studies the weapons of every people the Horde meets.",
+  },
 
   greetings = {
     { id = "g_forge", text = "Come, come. Let me see what you're carrying. Every weapon tells me something about the hand that holds it." },
@@ -153,6 +165,10 @@ P:NPC {
   bible = "bibles/taurajo.md", role = "innkeeper", tier = "service",
   communities = { "taurajo" }, temper = { "warm" }, values = { "generous", "kind" },
   notices = { "weary" },
+  impression = {
+    first = "Innkeeper Byula keeps Taurajo's fire lit and serves the kodo herders first because they have earned it. She has never found the hyenas' laughter funny, and she says the stew helps more than you would think.",
+    third = "{name} rested at Innkeeper Byula's inn at Camp Taurajo, where the fire is always lit for travellers of the southern Barrens.",
+  },
 
   greetings = {
     { id = "g_inn", text = "Welcome, traveler. Taurajo's fire is always lit, and there's always room by it." },

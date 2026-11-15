@@ -8,6 +8,10 @@ P:NPC {
   bible = "bibles/tommyjoe.md", role = "questgiver", tier = "quest",
   communities = { "goldshire" }, temper = { "steady" }, values = { "kind", "romantic" },
   notices = { "craft", "pet" },
+  impression = {
+    first = "Nobody watches a river as carefully as Tommy Joe Stonefield, who says he's only looking at the water and says it far too quickly. Every day lately is a fine day to him.",
+    third = "{name} met Tommy Joe Stonefield by the river, where he is certainly not waiting for anyone in particular.",
+  },
 
   greetings = {
     { id = "g_river", text = "I'm just watching the river, that's all, nothing else at all." },

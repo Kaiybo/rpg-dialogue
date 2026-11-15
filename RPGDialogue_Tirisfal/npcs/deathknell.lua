@@ -7,6 +7,10 @@ P:NPC {
   bible = "bibles/tirisfal.md", role = "worker", tier = "quest",
   communities = { "deathknell" }, temper = { "matter_of_fact" }, values = { "practical" },
   notices = { "greenness" },
+  impression = {
+    first = "Undertaker Mordo tends the graves at Deathknell and greets the newly risen with a matter-of-fact kindness. He buries things, he says, and leaves the explaining to others.",
+    third = "{name} met Undertaker Mordo, who tends the graves of Deathknell and welcomes those who rise from them.",
+  },
 
   greetings = {
     { id = "g_grave", text = "Ah, you're up. Sit a moment if you need to; the first few minutes are the strangest." },
@@ -51,6 +55,10 @@ P:NPC {
   bible = "bibles/tirisfal.md", role = "priest", tier = "major",
   communities = { "deathknell" }, temper = { "sardonic" }, values = { "loyal", "sharp" },
   notices = { "class" },
+  impression = {
+    first = "Having died once already, Shadow Priest Sarvis finds it hard to take death seriously. His humour is dry as grave dust, and the Light plainly makes him uneasy.",
+    third = "{name} met Shadow Priest Sarvis, the sardonic voice of the Forsaken in Deathknell, who serves the Dark Lady alone.",
+  },
 
   greetings = {
     { id = "g_chapel", text = "Another one walks in under their own power. Splendid. Death couldn't keep you, so let's see what you're good for." },
@@ -113,6 +121,10 @@ P:NPC {
   bible = "bibles/tirisfal.md", role = "soldier", tier = "quest",
   communities = { "deathknell" }, temper = { "clipped" }, values = { "dutiful", "loyal" },
   notices = { "kit" },
+  impression = {
+    first = "Executor Arren wastes no words and expects reports rather than conversation. He wants the Scarlet Crusade gone, and he does not care whether they ever understand why.",
+    third = "{name} met Executor Arren, who keeps Deathknell against the Scarlet Crusade camped to its southeast.",
+  },
 
   greetings = {
     { id = "g_post", text = "You there, can you hold a weapon? Then Deathknell needs every pair of hands that still works." },
@@ -159,6 +171,10 @@ P:NPC {
   bible = "bibles/tirisfal.md", role = "trainer", tier = "quest",
   communities = { "deathknell" }, temper = { "steadfast" }, values = { "devout", "patient" },
   notices = { "class" },
+  impression = {
+    first = "Though it hurts him to hold the Light, Aramis Hammerhand will not let go of it. He calls the pain a forge, and he says it like a man who has made his peace with burning.",
+    third = "{name} met Aramis Hammerhand in the Deathknell church, who teaches those Forsaken who woke still holding the Light.",
+  },
 
   greetings = {
     { id = "g_church", text = "Come in. The church still remembers what it was for, even if the town has forgotten." },

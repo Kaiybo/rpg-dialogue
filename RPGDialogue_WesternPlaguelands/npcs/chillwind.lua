@@ -8,6 +8,11 @@ P:NPC {
   communities = { "chillwind_camp" }, temper = { "steady", "proud" }, values = { "dutiful", "brave" },
   notices = { "class", "kit" },
 
+  impression = {
+    first = "Commander Valorfist counts his soldiers out of the gate and counts them back in, and he writes the letters himself on days the numbers don't match. He has very little, and spends it carefully.",
+    third = "{name} met Commander Ashlam Valorfist, who holds Chillwind Camp for Stormwind against the dead of Andorhal.",
+  },
+
   greetings = {
     { id = "g_camp", text = "On your feet or on your way, soldier, for Chillwind hasn't room for anyone sitting down." },
     { id = "g_back", when = { metBefore = true }, text = "Back in one piece, good. I counted you out of that gate, and I'm glad to count you in again." },
@@ -208,6 +213,11 @@ P:NPC {
   communities = { "chillwind_camp" }, temper = { "sharp" }, values = { "devout", "fierce" },
   notices = { "class", "race" },
 
+  impression = {
+    first = "High Priestess MacDonnell speaks of the plague cauldrons with real appetite, as if each one were a personal insult. Her Light is the kind that burns, and she said so cheerfully.",
+    third = "{name} met High Priestess MacDonnell at Chillwind Camp, who means to give the Scourge a dose of its own plague.",
+  },
+
   greetings = {
     { id = "g_light", text = "The Light keep you, friend, and keep you upwind of the farms while it's at it." },
     { id = "g_back", when = { metBefore = true }, text = "You're back! Tell me a cauldron coughed and choked out there, and you'll have made my whole day." },
@@ -346,6 +356,11 @@ P:NPC {
   communities = { "chillwind_camp" }, temper = { "cowardly" }, values = { "curious", "honest" },
   notices = { "craft", "greenness" },
 
+  impression = {
+    first = "Alchemist Arbington asked me to stand still, keep my elbows in and touch nothing, all in one anxious breath. Frightened as he is, he keeps working, and I respect that more than I expected.",
+    third = "{name} met Alchemist Arbington, Chillwind Camp's nervous alchemist and reluctant student of the Scholomance.",
+  },
+
   greetings = {
     { id = "g_busy", text = "Mind the cauldron, and mind the bottles, and actually, if you'd just stand right there and not move, I'd be ever so grateful." },
     { id = "g_back", when = { metBefore = true }, text = "You again! You're a terrible influence, you know. Every time you visit I end up doing something brave by proxy." },
@@ -464,6 +479,11 @@ P:NPC {
   bible = "bibles/westernplaguelands.md", role = "noble", tier = "quest",
   communities = { "chillwind_camp" }, temper = { "cowardly", "proud" }, values = { "greedy", "vengeful" },
   notices = { "race", "kit" },
+
+  impression = {
+    first = "Weldon Barov sleeps with a sword under his blanket and talks about his brother's death as an inheritance matter. Fear and greed have been sharing his face for a long time.",
+    third = "{name} met Weldon Barov, the last living Barov, hiding from his brother's assassins at Chillwind Camp.",
+  },
 
   greetings = {
     { id = "g_who", text = "Who sent you, and what's your business? Say it slowly, and keep your hands where I can see them." },
@@ -613,6 +633,11 @@ P:NPC {
   communities = { "chillwind_camp", "argent_dawn" }, temper = { "steady" }, values = { "devout", "fair" },
   notices = { "race", "class" },
 
+  impression = {
+    first = "Argent Officer Pureheart keeps a table where nobody draws steel, whatever colors they wear. There's an easy warmth to him that seems to have been earned the hard way.",
+    third = "{name} met Argent Officer Pureheart, who speaks for the Argent Dawn at Chillwind Camp.",
+  },
+
   greetings = {
     { id = "g_dawn", text = "For the Dawn, friend, and whatever else you fight for, add that to it." },
     { id = "g_back", when = { metBefore = true }, text = "Well met again. Have you any scourgestones in your pack? The Dawn will always take them off your hands." },
@@ -737,6 +762,11 @@ P:NPC {
   communities = { "chillwind_camp" }, temper = { "steady" }, values = { "loyal", "stubborn" },
   notices = { "race", "craft" },
 
+  impression = {
+    first = "Nathaniel Dumah came back to the Plaguelands for his father's mill, which says a good deal about him. He talks easily, and asks after Northridge like a man asking after family.",
+    third = "{name} met Nathaniel Dumah at Chillwind Camp, who wants his family's Northridge mill back from the Scarlet Crusade.",
+  },
+
   greetings = {
     { id = "g_mill", text = "Good afternoon, or whatever this is, since the sky never seems to decide up here." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Any word from Northridge? Bad news counts too, for I'd rather know than wonder." },
@@ -841,6 +871,11 @@ P:NPC {
   bible = "bibles/westernplaguelands.md", role = "flightmaster", tier = "service",
   communities = { "chillwind_camp" }, temper = { "jovial" }, values = { "cheerful" },
   notices = { "race" },
+
+  impression = {
+    first = "Bibilfaz Featherwhistle chatters to his gryphons at night about Ironforge pastries. He is the cheeriest thing in the Plaguelands, and I suspect he's working very hard at it.",
+    third = "{name} met Bibilfaz Featherwhistle, the gnomish gryphon master at Chillwind Camp.",
+  },
 
   greetings = {
     { id = "g_fly", text = "Wings ready! Well, their wings are ready, anyway, since mine are purely theoretical." },

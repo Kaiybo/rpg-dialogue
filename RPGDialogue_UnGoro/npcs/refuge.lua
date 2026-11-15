@@ -8,6 +8,11 @@ P:NPC {
   communities = { "marshals_refuge" }, temper = { "warm" }, values = { "curious", "responsible" },
   notices = { "level", "kit" },
 
+  impression = {
+    first = "Williden Marshal lost his base camps to the crater and still talks about Un'Goro like a man in love with it. He welcomed me warmly, and then he warned me twice about the dinosaurs.",
+    third = "{name} met Williden Marshal, leader of the Marshal Expedition, at Marshal's Refuge in Un'Goro Crater.",
+  },
+
   greetings = {
     { id = "g_refuge", text = "Welcome, welcome! You made it up the rim in one piece, which puts you ahead of most of my expedition." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still in one piece! The crater must like you, and it doesn't like many." },
@@ -121,6 +126,11 @@ P:NPC {
   communities = { "marshals_refuge" }, temper = { "earnest" }, values = { "brave", "honorable" },
   notices = { "race", "class" },
 
+  impression = {
+    first = "Linken can't remember where he came from or why, and he is cheerful about it in a way that hurts to watch. He is quite sure he's a warrior, because it feels right.",
+    third = "{name} met Linken, a gnome at Marshal's Refuge who lost his memory somewhere in Un'Goro Crater.",
+  },
+
   greetings = {
     { id = "g_hello", text = "Hello, traveler! I'm sure I know something important, only I can't remember what. Have we met?" },
     { id = "g_back", when = { metBefore = true }, text = "You! I remember you, and that's a good sign, isn't it? I'm remembering things!" },
@@ -201,6 +211,11 @@ P:NPC {
   communities = { "marshals_refuge" }, temper = { "eager" }, values = { "curious", "persistent" },
   notices = { "class" },
 
+  impression = {
+    first = "J.D. Collie lost an eyebrow to his crystals this morning and seemed to think it a fair trade. His cave hums, and so does he, with theories.",
+    third = "{name} met J.D. Collie, the Marshal Expedition's eager student of Un'Goro's crystals.",
+  },
+
   greetings = {
     { id = "g_cave", text = "Welcome to my cave! Mind the crystals, because some of them hum. The humming is fine; it's when they stop humming that you should worry." },
   },
@@ -270,6 +285,11 @@ P:NPC {
   bible = "bibles/ungoro.md", role = "questgiver", tier = "quest",
   communities = { "marshals_refuge" }, temper = { "anxious" }, values = { "loyal", "kind" },
   notices = { "weary" },
+
+  impression = {
+    first = "Spraggle Frock asked after her friend Ringo before she'd even said her own name. She worries for a living and seems to be very good at it.",
+    third = "{name} met Spraggle Frock, the anxious supply runner of the Marshal Expedition who frets over her missing friend Ringo.",
+  },
 
   greetings = {
     { id = "g_hello", text = "Oh, hi, hello, welcome to the Refuge! Did you come up from the south, and did you see a goblin on the way, skinny and loud, name of Ringo?" },

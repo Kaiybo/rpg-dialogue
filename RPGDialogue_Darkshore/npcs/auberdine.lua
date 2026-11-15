@@ -11,6 +11,10 @@ P:NPC {
   communities = { "auberdine" }, temper = { "steady" }, values = { "fair", "wise" },
   spiritSensitive = true,
   notices = { "class", "race" },
+  impression = {
+    first = "Thundris Windweaver sees to Auberdine's daily needs, which lately means seeing to its fears. He listens far more than he speaks, and his lamps burn late because he sleeps so little.",
+    third = "{name} met Thundris Windweaver, the steady elder of Auberdine, who means to learn why Darkshore is sickening.",
+  },
 
   greetings = {
     { id = "g_elder", text = "Auberdine is glad of you, traveller. Rest and eat first, and when you are ready I may ask something of you, for the village has troubles enough to share." },
@@ -203,6 +207,10 @@ P:NPC {
   bible = "bibles/auberdine.md", role = "questgiver", tier = "quest",
   communities = { "auberdine" }, temper = { "intent" }, values = { "determined", "curious" },
   notices = { "form", "class" },
+  impression = {
+    first = "Whatever Fel Moss Terenthis burns grows back, and he means to keep burning it all the same. He insists the furbolgs are sick rather than evil, and he seems to need someone to believe it with him.",
+    third = "{name} met Terenthis, a druid come to Darkshore to learn how far the Fel Moss has spread and how to end it.",
+  },
 
   greetings = {
     { id = "g_moss", text = "Careful where you step, friend; that moss on your boots is exactly what I came here to stop." },
@@ -310,6 +318,10 @@ P:NPC {
   bible = "bibles/auberdine.md", role = "priest", tier = "quest",
   communities = { "auberdine" }, temper = { "gentle" }, values = { "devout", "curious" },
   notices = { "class" },
+  impression = {
+    first = "The Temple of the Moon sent Gwennyth to tend Auberdine's people, and she found the beach strewn with dead sea creatures instead. She keeps one eye on the tide, as if expecting another.",
+    third = "{name} met Gwennyth Bly'Leggonde of the Sisterhood, who wants to know why the sea keeps giving up its dead on Darkshore's shore.",
+  },
 
   greetings = {
     { id = "g_temple", text = "The Temple of the Moon sent me to help Auberdine, though the sea, it turns out, has its own ideas about what help means." },
@@ -392,6 +404,10 @@ P:NPC {
   bible = "bibles/auberdine.md", role = "soldier", tier = "quest",
   communities = { "auberdine" }, temper = { "urgent" }, values = { "protective", "dutiful" },
   notices = { "kit" },
+  impression = {
+    first = "Sentinel Glynda Nal'Shea walks the beach every morning counting murloc sign. She told me plainly that the Sentinels watch everyone, and I decided not to take it personally.",
+    third = "{name} met Sentinel Glynda Nal'Shea, who holds back murlocs on Auberdine's beaches and corruption in its groves.",
+  },
 
   greetings = {
     { id = "g_watch", text = "If you're staying in Auberdine, then you're under the Sentinels' eye; don't take it personally, for we watch everyone." },
@@ -478,6 +494,10 @@ P:NPC {
   bible = "bibles/auberdine.md", role = "questgiver", tier = "quest",
   communities = { "auberdine" }, temper = { "melancholy" }, values = { "devoted", "loyal" },
   notices = { "class" },
+  impression = {
+    first = "On the Auberdine dock, Cerellean Whiteclaw watches the water as though someone might walk out of it. He slept for thousands of years dreaming of Anaya, and he has never stopped grieving her.",
+    third = "{name} met Cerellean Whiteclaw, who has mourned his beloved Anaya of Ameth'Aran since the Sundering.",
+  },
 
   greetings = {
     { id = "g_dock", text = "Hm? Forgive me; I was watching the water. I do a great deal of that." },
@@ -565,6 +585,10 @@ P:NPC {
   bible = "bibles/auberdine.md", role = "innkeeper", tier = "service",
   communities = { "auberdine" }, temper = { "warm" }, values = { "kind", "devout" },
   notices = { "weary" },
+  impression = {
+    first = "Innkeeper Shaussiy brings tea to everyone, even to those who forget to drink it. She claims the waves will sing me to sleep after a night or two, and she listens for storms in the floorboards.",
+    third = "{name} found a bed at Innkeeper Shaussiy's inn by the Auberdine docks, where nearly every guest arrives seasick.",
+  },
 
   greetings = {
     { id = "g_rest", text = "Your spirit is tired, I can tell. Rest here; the waves are loud, but they'll sing you to sleep after a night or two." },

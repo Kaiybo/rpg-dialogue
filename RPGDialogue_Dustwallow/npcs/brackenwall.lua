@@ -8,6 +8,11 @@ P:NPC {
   communities = { "brackenwall" }, temper = { "blunt" }, values = { "loyal", "dutiful" },
   notices = { "race", "kit" },
 
+  impression = {
+    first = "Krog wants to know who burned that inn because someone made a liar of his Warchief, and he takes that personally. He doesn't waste a word, and he doesn't trust the easy answer.",
+    third = "{name} met Krog, the orc who commands Brackenwall Village and investigates the burning of the Shady Rest Inn.",
+  },
+
   greetings = {
     { id = "g_boss", text = "You're here because the Warchief wants answers, and so do I. Talk." },
     { id = "g_back", when = { metBefore = true }, text = "Back, good. What did you find?" },
@@ -176,6 +181,11 @@ P:NPC {
   bible = "bibles/dustwallow.md", role = "soldier", tier = "quest",
   communities = { "brackenwall" }, temper = { "suspicious" }, values = { "loyal", "cunning" },
   notices = { "class", "stealth" },
+
+  impression = {
+    first = "Nazeer Bloodpike counts the Alliance's smiles and the knives behind them, and I suspect he counts mine too. He trusts paper peace about as far as the marsh lets it stay dry.",
+    third = "{name} met Nazeer Bloodpike, the suspicious orc spymaster who watches Theramore from Brackenwall.",
+  },
 
   greetings = {
     { id = "g_watch", text = "The Alliance smiles from its island. I keep count of the smiles, and of the knives behind them." },

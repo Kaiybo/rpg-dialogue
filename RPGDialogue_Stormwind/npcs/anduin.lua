@@ -8,6 +8,10 @@ P:NPC {
   bible = "bibles/anduin.md", role = "noble", tier = "major",
   communities = { "stormwind" }, temper = { "steady" }, values = { "kind", "curious" },
   notices = { "wonder", "far", "form" },
+  impression = {
+    first = "The king of Stormwind is a boy who still forgets the proper words of welcome, and he tries very hard to remember them. He seemed far more curious about me than about being king.",
+    third = "{name} was received by the boy king Anduin Wrynn, who rules until his father comes home and tries very hard at it.",
+  },
 
   greetings = {
     { id = "g_formal", text = "Welcome to Stormwind Keep! Um, I mean, be welcome; I think that's how you're supposed to say it." },

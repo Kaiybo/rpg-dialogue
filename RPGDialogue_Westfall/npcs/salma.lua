@@ -8,6 +8,10 @@ P:NPC {
   bible = "bibles/salma.md", role = "farmer", tier = "quest",
   communities = { "westfall_farms" }, temper = { "steady" }, values = { "kind", "generous" },
   notices = { "hunger", "craft" },
+  impression = {
+    first = "Salma Saldean keeps a pot on the stove for anyone who comes to the door hungry, and that is the rule of her house. She'll put murloc eyes in it if she must, and she won't apologise.",
+    third = "{name} met Salma Saldean, a Westfall cook who believes no visitor should leave her kitchen hungry.",
+  },
 
   greetings = {
     { id = "g_welcome", text = "Come in, come in! There's always a pot on." },

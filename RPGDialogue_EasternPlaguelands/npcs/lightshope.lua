@@ -8,6 +8,11 @@ P:NPC {
   communities = { "light_hope", "argent_dawn" }, temper = { "reserved" }, values = { "devout", "pragmatic" },
   notices = { "race", "class", "form" },
 
+  impression = {
+    first = "Lord Maxwell Tyrosus leads the Argent Dawn and says he's out of practice with visitors, though he hardly seemed it. He asks nothing about whose crown anyone serves, only whether they'll stand.",
+    third = "{name} met Lord Maxwell Tyrosus, who leads the Argent Dawn from the chapel at Light's Hope.",
+  },
+
   greetings = {
     { id = "g_rare", text = "I don't often receive visitors. You'll forgive me if I'm out of practice." },
     { id = "g_back", when = { metBefore = true }, text = "You again, good. Few return from the Plaguelands twice, and fewer bother to call on me." },
@@ -157,6 +162,11 @@ P:NPC {
   bible = "bibles/easternplaguelands.md", role = "questgiver", tier = "quest",
   communities = { "light_hope", "argent_dawn" }, temper = { "gentle" }, values = { "devout", "selfless" },
   notices = { "race", "class", "form" },
+
+  impression = {
+    first = "Leonid Barthalomew apologized for his face before anything else. He is dead and knows it, and has decided to use that, with a calm I found more unsettling than any rage.",
+    third = "{name} met Leonid Barthalomew the Revered, the undead priest who serves the Argent Dawn at Light's Hope Chapel.",
+  },
 
   greetings = {
     { id = "g_hello", text = "Don't be alarmed by my face. The Light still hears me, whatever I've become." },

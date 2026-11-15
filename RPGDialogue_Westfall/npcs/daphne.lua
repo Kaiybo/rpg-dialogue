@@ -8,6 +8,10 @@ P:NPC {
   bible = "bibles/daphne.md", role = "questgiver", tier = "quest",
   communities = { "westfall_farms" }, temper = { "steady" }, values = { "pious", "brave" },
   notices = { "paladin", "kit" },
+  impression = {
+    first = "Daphne Stilwell guards her farm above the sea with an apple basket in one hand and no fear at all of the Defias below. She writes to her husband Jordan, and she clearly misses him.",
+    third = "{name} met Daphne Stilwell, a farmer who refuses to let the Defias take her land while her husband works far away.",
+  },
 
   greetings = {
     { id = "g_apples", text = "Mind the basket, love; those are the good apples." },

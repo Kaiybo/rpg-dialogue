@@ -8,6 +8,11 @@ P:NPC {
   communities = { "explorers_league" }, temper = { "weary" }, values = { "loyal", "curious" },
   notices = { "race" },
 
+  impression = {
+    first = "Prospector Ryedol checked that I wasn't a troll, an ogre or a Dark Iron before anything else. He is worn through with worry for his partner Hammertoe and tries hard not to show it.",
+    third = "{name} met Prospector Ryedol of the Explorers' League, whose partner Hammertoe went into the Badlands digsite and never came out.",
+  },
+
   greetings = {
     { id = "g_hill", text = "Easy, easy! Ye're no' a troll or an ogre or a Dark Iron? Good, that's three things off my list." },
   },
@@ -104,6 +109,11 @@ P:NPC {
   bible = "bibles/badlands.md", role = "scholar", tier = "quest",
   communities = { "badlands_camp" }, temper = { "distracted" }, values = { "curious", "inventive" },
   notices = { "race", "class" },
+
+  impression = {
+    first = "Lotwil Veriatus warned me off anything glowing, humming or warm, which ruled out most of his camp. He is delighted by rock elementals in a way I'll never fully understand.",
+    third = "{name} met Lotwil Veriatus, an absent-minded gnomish scholar who studies the elements in the Dustbowl.",
+  },
 
   greetings = {
     { id = "g_camp", text = "Hm? Oh, a visitor! Mind Servo, he's harmless, mostly, and don't touch anything glowing, or humming, or warm." },

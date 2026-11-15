@@ -9,6 +9,10 @@ P:NPC {
   bible = "bibles/argus.md", role = "blacksmith", tier = "service",
   communities = { "goldshire" }, temper = { "proud" },
   notices = { "kit", "craft" },
+  impression = {
+    first = "Before Smith Argus looked at my face, he looked at my armor, and he plainly found it wanting. He mends what's bent and makes what's needed, and he doesn't pretend to work miracles.",
+    third = "{name} met Smith Argus, a blacksmith who judges people by the state of their armor and rarely approves.",
+  },
 
   greetings = {
     { id = "g_anvil", text = "Careful there, the anvil's still hot." },

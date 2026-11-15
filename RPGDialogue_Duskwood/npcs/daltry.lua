@@ -9,6 +9,11 @@ P:NPC {
   communities = { "darkshire" }, temper = { "cowardly" }, values = { "lawful", "curious" },
   notices = { "lore" },
 
+  impression = {
+    first = "Clerk Daltry keeps Darkshire's records with a dry wit and too many entries marked missing, presumed wolf. He made the joke because the alternative is weeping into the ledgers.",
+    third = "{name} met Clerk Daltry, who keeps the records of Darkshire, including far too many names marked missing.",
+  },
+
   greetings = {
     { id = "g_records", text = "Records, permits and deeds, all in order. Which form are you here to fill in wrong?" },
     { id = "g_stalvan", when = { questActive = TODO_QUEST("The Legend of Stalvan") }, text = "The Mistmantle file again, is it? Mind the dust, because I'm fairly sure it's load-bearing." },

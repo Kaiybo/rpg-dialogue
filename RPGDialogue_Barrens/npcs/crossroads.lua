@@ -8,6 +8,10 @@ P:NPC {
   bible = "bibles/crossroads.md", role = "soldier", tier = "quest",
   communities = { "crossroads" }, temper = { "firm" }, values = { "loyal", "dutiful" },
   notices = { "race", "kit" },
+  impression = {
+    first = "Thork keeps the Crossroads for the Warchief and treats every road in the Barrens as his to hold. He is firm and fair after his fashion, and he will not spend soldiers on a grieving man's vengeance.",
+    third = "{name} met Thork, the steadfast orc who holds the Crossroads for the Warchief against every threat in the Barrens.",
+  },
 
   greetings = {
     { id = "g_home", text = "Make yourself at home at the Crossroads, and mind your own business while you do." },
@@ -80,6 +84,10 @@ P:NPC {
   bible = "bibles/crossroads.md", role = "questgiver", tier = "quest",
   communities = { "crossroads" }, temper = { "fierce" }, values = { "proud", "fair" },
   notices = { "gender", "kit" },
+  impression = {
+    first = "Sergra Darkthorn runs the Crossroads and dares anyone to be bothered by it. She sends people out past the walls with a grin, as if the Barrens were a test she enjoys setting.",
+    third = "{name} met Sergra Darkthorn, the fierce orc who runs the Crossroads and sends new blood out to prove itself on the Barrens.",
+  },
 
   greetings = {
     { id = "g_road", text = "You're new here. Good; the Barrens eats the timid, and you don't look timid to me. Now prove it." },
@@ -148,6 +156,10 @@ P:NPC {
   bible = "bibles/crossroads.md", role = "soldier", tier = "quest",
   communities = { "crossroads" }, temper = { "grieving" }, values = { "loyal", "vengeful" },
   notices = { "kit", "kin" },
+  impression = {
+    first = "Up on the wall, Mankrik watches the horizon as if Olgra might walk out of the grass at any moment. His grief has gone hard and angry, and it will not let him rest.",
+    third = "{name} met Mankrik, a grieving orc who stands watch at the Crossroads waiting for word of his wife Olgra.",
+  },
 
   greetings = {
     { id = "g_horizon", text = "Hm? Oh, it's you. Stand aside, I'm watching the horizon, and if they come I want to see them first." },
@@ -231,6 +243,10 @@ P:NPC {
   bible = "bibles/crossroads.md", role = "questgiver", tier = "quest",
   communities = { "crossroads" }, temper = { "measured" }, values = { "balanced", "patient" },
   notices = { "form", "class" },
+  impression = {
+    first = "Tonga Runetotem found the strange power Thunder Bluff sent him looking for, and he wishes he had not. He speaks calmly about poisoned oases, which made what he said all the more unsettling.",
+    third = "{name} met Tonga Runetotem, a tauren druid at the Crossroads tracing the sickness that poisons the oases of the Barrens.",
+  },
 
   greetings = {
     { id = "g_calm", text = "Peace, friend. The land is restless lately. All the more reason for us not to be." },
@@ -301,6 +317,10 @@ P:NPC {
   bible = "bibles/crossroads.md", role = "scholar", tier = "quest",
   communities = { "crossroads" }, temper = { "clinical" }, values = { "curious", "practical" },
   notices = { "craft", "race" },
+  impression = {
+    first = "Apothecary Helbrim swears the Society only wants to study the Barrens, not harm it, mostly. That 'mostly' has stayed with me longer than anything else he said.",
+    third = "{name} met Apothecary Helbrim of the Royal Apothecary Society, who studies what grows, festers and stings in the Barrens.",
+  },
 
   greetings = {
     { id = "g_samples", text = "Hands! Living ones, even, which is excellent. Mine shake a little, these days." },
@@ -358,6 +378,10 @@ P:NPC {
   bible = "bibles/crossroads.md", role = "questgiver", tier = "quest",
   communities = { "crossroads" }, temper = { "boastful" }, values = { "proud" },
   notices = { "class", "stealth" },
+  impression = {
+    first = "If Darsok Swiftdagger is to be believed, he is the best there is and cheaper besides. He is so pleased with himself that it is almost charming, though I would still keep an eye on my purse.",
+    third = "{name} met Darsok Swiftdagger, a boastful blade at the Crossroads who wages his own war on the harpies of the hills.",
+  },
 
   greetings = {
     { id = "g_blade", text = "Need someone dead? I'm the best there is. Need someone dead quietly? That's still me, and I'm cheaper, too." },
@@ -409,6 +433,10 @@ P:NPC {
   bible = "bibles/crossroads.md", role = "vendor", tier = "quest",
   communities = { "crossroads" }, temper = { "jolly" }, values = { "generous" },
   notices = { "hunger", "craft" },
+  impression = {
+    first = "Zargh the butcher sells meat to everyone who passes the Crossroads, which is everyone. Mention Gryshka in Orgrimmar and he goes as bashful as a butcher with a cleaver can.",
+    third = "{name} met Zargh, the jolly butcher of the Crossroads, who has his heart set on a certain innkeeper in Orgrimmar.",
+  },
 
   greetings = {
     { id = "g_meat", text = "Fresh meat! Well, recent meat. Stock up before you head out; the Barrens won't feed you kindly." },
@@ -456,6 +484,10 @@ P:NPC {
   bible = "bibles/crossroads.md", role = "innkeeper", tier = "service",
   communities = { "crossroads" }, temper = { "warm" }, values = { "generous" },
   notices = { "weary", "drink" },
+  impression = {
+    first = "Hooves, feet or whatever else comes through the door, Innkeeper Boorand Plainswind welcomes them all. He likes his leaky roof because that is how the stars get in, and he keeps putting food in Mankrik's hands.",
+    third = "{name} rested at Innkeeper Boorand Plainswind's inn at the Crossroads, where every traveller of the Barrens sleeps sooner or later.",
+  },
 
   greetings = {
     { id = "g_inn", text = "Rest your hooves, or your feet, or whatever you've got. Everyone's welcome under this roof." },

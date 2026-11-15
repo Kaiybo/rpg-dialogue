@@ -8,6 +8,10 @@ P:NPC {
   bible = "bibles/saldean.md", role = "farmer", tier = "quest",
   communities = { "westfall_farms" }, temper = { "proud" }, values = { "stern", "honest" },
   notices = { "work", "kit" },
+  impression = {
+    first = "When all his neighbours fled, Farmer Saldean stayed, and he says so with a certain grim pride. His furrows are the only straight thing he has left, by his own reckoning.",
+    third = "{name} met Farmer Saldean, who holds his ground while harvest watchers stalk his fields.",
+  },
 
   greetings = {
     { id = "g_fields", text = "Step careful. The furrows are all I've got left that's straight." },

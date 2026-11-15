@@ -8,6 +8,11 @@ P:NPC {
   communities = { "tarren_mill" }, temper = { "cold" }, values = { "loyal", "relentless" },
   notices = { "race", "class" },
 
+  impression = {
+    first = "High Executor Darthalia measures everyone by their use to the Dark Lady's front. She pushes the line toward Southshore one field at a time, and she doesn't intend to stop.",
+    third = "{name} met High Executor Darthalia, who holds Tarren Mill for the Dark Lady and presses the line against Southshore.",
+  },
+
   greetings = {
     { id = "g_front", text = "You stand at the Dark Lady's front. Be useful to it, or stand somewhere else." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned, good. The front moves forward only when people like you push it." },
@@ -198,6 +203,11 @@ P:NPC {
   communities = { "tarren_mill" }, temper = { "glum" }, values = { "devoted" },
   notices = { "craft", "race" },
 
+  impression = {
+    first = "Apothecary Lydon told me not to touch anything, since most of it would kill me. He says he feels very little now, except about his work and something called Umpi.",
+    third = "{name} met Apothecary Lydon of the Royal Apothecary Society, who brews deadly things at Tarren Mill.",
+  },
+
   greetings = {
     { id = "g_bored", text = "Oh, a visitor, how thrilling. Please don't touch anything; most of it will kill you, and the rest will make you wish it had." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you again. I'd say I'm pleased, but I'm not anything, really, though you are useful." },
@@ -346,6 +356,11 @@ P:NPC {
   bible = "bibles/hillsbrad.md", role = "innkeeper", tier = "service",
   communities = { "tarren_mill" }, temper = { "dry" }, values = { "practical" },
   notices = { "race", "weary" },
+
+  impression = {
+    first = "Innkeeper Shay keeps chairs for guests who no longer need to rest. The humour at Tarren Mill's inn is as dry as old bone, and I suspect that's deliberate.",
+    third = "{name} visited the inn at Tarren Mill, kept by Innkeeper Shay, whose guests rarely need to sleep.",
+  },
 
   greetings = {
     { id = "g_inn", text = "Rest here, if you rest. Some of my guests don't need to, but they like the chairs." },

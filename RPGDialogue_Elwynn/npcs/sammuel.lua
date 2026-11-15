@@ -8,6 +8,10 @@ P:NPC {
   communities = { "northshire" }, temper = { "sharp" }, values = { "pious", "kind", "brave" },
   spiritSensitive = true,
   notices = { "affliction", "light" },
+  impression = {
+    first = "Brother Sammuel speaks softly and senses curses and sickness the way a healer feels for a pulse. He teaches those the Light has chosen and prays for the rest without complaint.",
+    third = "{name} met Brother Sammuel of Northshire Abbey, who hears the oaths of new paladins and prays for everyone else.",
+  },
 
   greetings = {
     { id = "g_light", text = "The Light keeps you." },

@@ -8,6 +8,10 @@ P:NPC {
   bible = "bibles/rainer.md", role = "questgiver", tier = "quest",
   communities = { "goldshire" }, temper = { "sharp" }, values = { "lawful", "brave" },
   notices = { "trophy", "kit" },
+  impression = {
+    first = "Deputy Rainer holds Westbrook with whatever the kingdom has left him, and he greeted me like the squad he asked for and never got. There was no bitterness in it, only tiredness.",
+    third = "{name} met Deputy Rainer at Westbrook Garrison, the last post before Westfall, held with far too few soldiers.",
+  },
 
   greetings = {
     { id = "g_gate", text = "Welcome to Westbrook Garrison, what there is of it." },

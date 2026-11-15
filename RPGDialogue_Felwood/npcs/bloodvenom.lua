@@ -8,6 +8,11 @@ P:NPC {
   communities = { "bloodvenom_post" }, temper = { "manic" }, values = { "curious", "mischievous" },
   notices = { "race", "pet" },
 
+  impression = {
+    first = "Winna Hazzard cackles at the end of every other sentence and keeps a kitten she plans to make much larger. Felwood delights her, and that alone ought to worry everyone.",
+    third = "{name} met Winna Hazzard, the cackling alchemist of Bloodvenom Post, who finds the corruption of Felwood fascinating.",
+  },
+
   greetings = {
     { id = "g_laugh", text = "*cackles* Oh, a visitor! Mind the kitten, and mind the bottles, and mind everything, really." },
     { id = "g_back", when = { metBefore = true }, text = "*laughs* You came back, and nobody comes back! That's my favourite kind of person." },
@@ -147,6 +152,11 @@ P:NPC {
   bible = "bibles/felwood.md", role = "soldier", tier = "quest",
   communities = { "bloodvenom_post" }, temper = { "grim" }, values = { "loyal", "practical" },
   notices = { "kit" },
+
+  impression = {
+    first = "Trull Failbane wants to know everything Felwood hides, and he'll know if I skip a part of my report. He is grim and careful, and he plainly doesn't trust the alchemist either.",
+    third = "{name} met Trull Failbane, the grim orc who serves as Orgrimmar's eyes at Bloodvenom Post.",
+  },
 
   greetings = {
     { id = "g_post", text = "Did Orgrimmar send you, or did you wander up here by mistake? Either way, you're useful now." },

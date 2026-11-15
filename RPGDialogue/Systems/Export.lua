@@ -12,7 +12,7 @@ Export.HEADER = "RPGD1"
 Export.FIELDS = {
   "npc", "heard", "quests", "align", "traits", "opinions", "flags", "claims", "deeds", "threads",
   "towns", "origin", "originsApplied", "topics", "books", "deaths", "deathCount", "homeInn",
-  "journal", "insanity", "notes", "conversations",
+  "journal", "insanity", "notes", "conversations", "arrived", "journalRead",
 }
 
 ---------------------------------------------------------------------------

@@ -9,6 +9,11 @@ P:NPC {
   communities = {}, temper = { "sharp" }, values = { "stern", "honest" },
   notices = { "kit", "grief" },
 
+  impression = {
+    first = "Sven Yorgen keeps a lonely fire in the woods and remembers when this forest was green. He talked as though nothing much mattered to him anymore, and I didn't believe it.",
+    third = "{name} met Sven Yorgen at his lonely camp in Duskwood, a man who remembers when the forest was still green.",
+  },
+
   greetings = {
     { id = "g_camp", text = "Sit by the fire or move along; I don't much care which." },
     { id = "g_figure", when = { questActive = TODO_QUEST("The Shadowy Figure") }, text = "Well? Have you found out who was at my farm that night?" },

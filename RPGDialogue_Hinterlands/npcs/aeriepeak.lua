@@ -8,6 +8,11 @@ P:NPC {
   communities = { "aerie_peak" }, temper = { "boisterous" }, values = { "proud", "brave", "loyal" },
   notices = { "race", "class" },
 
+  impression = {
+    first = "Falstad Wildhammer greets visitors like long-lost kin and talks of trolls the way other people talk of weather to be got through. A Wildhammer and his gryphon, he says, are one creature.",
+    third = "{name} met Falstad Wildhammer, High Thane of the Wildhammer clan, at Aerie Peak.",
+  },
+
   greetings = {
     { id = "g_keep", text = "Ha! A visitor tae Wildhammer Keep! Come in, come in, an' tell me ye're here tae fight trolls!" },
     { id = "g_back", when = { metBefore = true }, text = "Back again, good! I like a face that keeps comin' back, for it means the trolls didnae get it." },
@@ -147,6 +152,11 @@ P:NPC {
   communities = { "aerie_peak" }, temper = { "gruff" }, values = { "loyal", "practical" },
   notices = { "class" },
 
+  impression = {
+    first = "Gryphon Master Talonaxe would plainly rather be in the air than talking to me. He keeps the aeries safe from the trolls, and I don't think he's ever lost an argument with one.",
+    third = "{name} met Gryphon Master Talonaxe, who keeps the aviary at Aerie Peak safe from the forest trolls.",
+  },
+
   greetings = {
     { id = "g_aviary", text = "Aye, what is it? I'd rather be up in the air than down here talkin', but the gryphons won't take orders from the ground, so somebody has tae." },
   },
@@ -233,6 +243,11 @@ P:NPC {
   bible = "bibles/hinterlands.md", role = "questgiver", tier = "quest",
   communities = { "aerie_peak" }, temper = { "solemn" }, values = { "devout", "protective" },
   notices = { "class" },
+
+  impression = {
+    first = "Fraggar Thundermantle's eyes are failing, but he listens to the land and says it is not happy. The Vilebranch rites trouble him deeply.",
+    third = "{name} sat with Fraggar Thundermantle, who speaks for the spirits of the Hinterlands at Aerie Peak.",
+  },
 
   greetings = {
     { id = "g_spirits", text = "Sit, friend. My eyes are no' what they were, but I hear the land well enough, an' it's no' happy." },
@@ -322,6 +337,11 @@ P:NPC {
   bible = "bibles/hinterlands.md", role = "innkeeper", tier = "service",
   communities = { "aerie_peak" }, temper = { "jovial" }, values = { "generous", "friendly" },
   notices = { "drink", "weary" },
+
+  impression = {
+    first = "Innkeeper Thulfram promised a fire hot enough to thaw a gryphon and very nearly delivered. Everyone ends up at his bar sooner or later, he says, and I believe it.",
+    third = "{name} rested at Innkeeper Thulfram's inn at Aerie Peak, where gryphon riders and wanderers all end up at his bar.",
+  },
 
   greetings = {
     { id = "g_inn", text = "Come in, come in, an' pull up a bench! There's ale, there's stew, an' there's a fire hot enough tae thaw a gryphon." },

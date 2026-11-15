@@ -8,6 +8,10 @@ P:NPC {
   bible = "bibles/theocritus.md", role = "questgiver", tier = "quest",
   communities = { "eastvale" }, temper = { "proud" }, values = { "curious", "ambitious" },
   notices = { "arcane", "fel" },
+  impression = {
+    first = "Theocritus looked at me as if I were an interruption to more important work, and in his own tower I probably was. His gnomes seem to do most of the stair-climbing.",
+    third = "{name} climbed the Tower of Azora to meet Theocritus, a mage with little patience and a great deal to do.",
+  },
 
   greetings = {
     { id = "g_stairs", text = "You climbed all those stairs, which is admirable, if probably pointless." },
