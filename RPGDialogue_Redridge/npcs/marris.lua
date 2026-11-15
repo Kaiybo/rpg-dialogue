@@ -10,42 +10,42 @@ P:NPC {
   notices = { "soldier", "trophy" },
 
   greetings = {
-    { id = "g_watch", text = "Eyes east. Always east." },
-    { id = "g_menace", when = { questActive = TODO_QUEST("Blackrock Menace") }, text = "Back from the valley? Good. How many?" },
-    { id = "g_keeshan", when = { questDone = TODO_QUEST("Missing In Action") }, text = "You brought Keeshan home. I won't forget it." },
+    { id = "g_watch", text = "Keep your eyes east, friend; with the Blackrock it's always the east." },
+    { id = "g_menace", when = { questActive = TODO_QUEST("Blackrock Menace") }, text = "Back from the valley already? Good, now tell me how many." },
+    { id = "g_keeshan", when = { questDone = TODO_QUEST("Missing In Action") }, text = "You're the one who brought Keeshan home, and I won't forget it." },
   },
 
   notice = {
     { id = "n_soldier", cat = "soldier", when = { class = { "WARRIOR", "PALADIN" }, minLevel = 18 },
-      text = "You hold that blade like someone who's been in a shield wall. I could use ten of you. I'll take one." },
+      text = "You hold that blade like someone who's stood in a shield wall. I could use ten of you, but I'll gladly take one." },
     { id = "n_trophy", cat = "trophy", place = "before", when = { questReady = TODO_QUEST("Blackrock Menace") },
-      text = "That's Blackrock work on your armor. And Blackrock blood on your sleeve. Good trade." },
+      text = "That's Blackrock work on your armor, and Blackrock blood on your sleeve. I'd call that a good trade." },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "Marris, Marshal of Lakeshire. I've a guard stretched across a lake and orcs who don't sleep. What do you need?" },
+        { id = "h_default", text = "I'm Marris, Marshal of Lakeshire, with a guard stretched across a lake and orcs who never sleep. What do you need?" },
         { id = "h_menace", when = { questBefore = TODO_QUEST("Blackrock Menace") },
           text = "The Blackrock came out of the Burning Steppes and took Stonewatch Keep. Now they raid everything north of town, and there's another nest of them in Render's Valley. I want their numbers down." },
         { id = "h_menace_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Blackrock Menace"), days = 3 } },
-          text = "Quieter nights this week. My guards actually slept. One of them snored. I've never been so glad to hear it." },
+          text = "Quieter nights this week, and my guards actually slept. One of them snored, and I've never been so glad to hear it." },
         { id = "h_keeshan", tags = { "news" }, when = { questBefore = TODO_QUEST("Missing In Action") },
           text = "Corporal Keeshan was taken when Stonewatch fell. If the scouts are right, the orcs hold him at Render's Rock, by the Steppes pass. I can't spare the men to fetch him." },
         { id = "h_keeshan_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Missing In Action"), days = 3 } },
-          text = "Keeshan's sleeping it off in the barracks. He told me what you did. Twice. He doesn't tell anything twice." },
+          text = "Keeshan's sleeping it off in the barracks. He told me what you did twice over, and he never tells anything twice." },
         { id = "h_orbs", when = { questActive = TODO_QUEST("Shadow Magic") },
-          text = "Their shadowcasters carry midnight orbs, and every orb has cost me a guard. Bring them here and they'll be destroyed. Don't carry them close." },
+          text = "Their shadowcasters carry midnight orbs, and every orb has cost me a guard. Bring them here to be destroyed, and don't carry them close to your skin." },
         { id = "h_tharilzun", when = { questActive = TODO_QUEST("Tharil'zun") },
-          text = "Tharil'zun runs their Outrunners, the ones ambushing the road to Stonewatch. Take friends. Take more friends than you think you need." },
+          text = "Tharil'zun runs their Outrunners, the ones ambushing the road to Stonewatch. Take friends with you, and more of them than you think you need." },
         { id = "h_tharilzun_done", tags = { "news" }, when = { questDone = TODO_QUEST("Tharil'zun") },
           text = "Without Tharil'zun the valley's just a camp full of angry orcs. Angry orcs I can handle. Organized ones were killing us." },
-        { id = "h_count", when = { metBefore = true }, text = "Twelve guards on the morning roll. Twelve on the evening. Days like that, I thank the Light out loud." },
+        { id = "h_count", when = { metBefore = true }, text = "Twelve guards on the morning roll, and twelve on the evening. On days like that I thank the Light out loud." },
       },
       again = {
         { id = "h_again", text = "What else? Make it quick; the road's quiet, and I don't trust it." },
-        { id = "h_again2", text = "Go on. I'm listening with one ear. The other's on the bridge." },
+        { id = "h_again2", text = "Go on; I'm listening with one ear, and the other's on the bridge." },
       },
       choices = {
         { text = "What happened at Stonewatch?", next = "stonewatch" },
@@ -61,7 +61,7 @@ P:NPC {
     stonewatch = {
       big = true,
       lines = {
-        { id = "sw_default", text = "We held the Keep with a platoon. They came with an army. Good soldiers died on those walls. The rest of us fell back to the lake." },
+        { id = "sw_default", text = "We held the Keep with a platoon, and they came with an army. Good soldiers died on those walls, and the rest of us fell back to the lake." },
       },
       choices = {
         { text = "Then we take it back.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 }, align = { honor = 1 } } },
@@ -83,7 +83,7 @@ P:NPC {
 
     bad = {
       lines = {
-        { id = "b_default", text = "Orcs east, gnolls south, murlocs in the water, a broken bridge and a magistrate who writes letters. Bad enough." },
+        { id = "b_default", text = "Orcs to the east, gnolls to the south, murlocs in the water, a broken bridge, and a magistrate who writes letters. Bad enough, I'd say." },
       },
       choices = {
         { text = "Where do I start?", next = "start" },
@@ -92,7 +92,7 @@ P:NPC {
     },
     start = {
       lines = {
-        { id = "st_default", text = "Axes. Bring me ten Blackrock axes and that's ten orcs who won't reach my bridge. Then their shadowcasters. Then Tharil'zun, if you're still breathing." },
+        { id = "st_default", text = "Start with axes. Bring me ten Blackrock axes and that's ten orcs who won't reach my bridge; then their shadowcasters, and then Tharil'zun, if you're still breathing." },
       },
       choices = {
         { text = "Put me to work, Marshal.", next = "BUSINESS", fx = { affinity = 1, standing = { lakeshire = 1 } } },
@@ -102,7 +102,7 @@ P:NPC {
     orbs = {
       big = true,
       lines = {
-        { id = "o_default", text = "Midnight orbs. The orbs in their hands have struck my men down from across a field. Demon-tainted, every one. I want them out of this war." },
+        { id = "o_default", text = "Midnight orbs, demon-tainted every one. The orbs in their hands have struck my men down from across a field, and I want them out of this war." },
       },
       choices = {
         { text = "I'll bring you the orbs.", next = "BACK", fx = { affinity = 1 } },
@@ -120,9 +120,9 @@ P:NPC {
 
     tharil = {
       lines = {
-        { id = "t_default", text = "He leads their Outrunners. He picks the ground between here and Stonewatch, hits my patrols, and he's gone before the horn. Crafty. I hate crafty." },
+        { id = "t_default", text = "He leads their Outrunners. He picks the ground between here and Stonewatch, hits my patrols, and he's gone before the horn sounds; he's crafty, and I hate crafty." },
         { id = "t_done", when = { questDone = TODO_QUEST("Tharil'zun") },
-          text = "Led. Past tense, thanks to you. The road to Stonewatch is only dangerous now, not murderous." },
+          text = "He led them, past tense, thanks to you. The road to Stonewatch is only dangerous now, not murderous." },
       },
       choices = {
         { text = "Where do I find him?", next = "tharil_find" },
@@ -130,7 +130,7 @@ P:NPC {
       },
     },
     tharil_find = {
-      lines = { { id = "tf_default", text = "Walk the road toward Stonewatch until something shoots at you. That's his ground. Don't go alone; I've buried the ones who did." } },
+      lines = { { id = "tf_default", text = "Walk the road toward Stonewatch until something shoots at you, because that's his ground. Don't go alone; I've buried the ones who did." } },
       choices = {
         { text = "Then I'll hunt him.", next = "BUSINESS", fx = { trait = { brave = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -139,7 +139,7 @@ P:NPC {
 
     bellygrub = {
       lines = {
-        { id = "bg_default", text = "I did. A boar the size of a cart, eating Martie's garden down to the dirt. Naming it was easier than killing it, and I'm short of guards." },
+        { id = "bg_default", text = "I did. It's a boar the size of a cart, eating Martie's garden down to the dirt, and naming it was easier than killing it while I'm short of guards." },
       },
       choices = {
         { text = "I'll deal with your boar.", next = "BACK", fx = { affinity = 1, standing = { lakeshire = 1 } } },
@@ -147,19 +147,19 @@ P:NPC {
       },
     },
     bellygrub_name = {
-      lines = { { id = "bn_default", text = "A town under siege needs one villain it can laugh at. Bellygrub obliges. Martie has never forgiven me." } },
+      lines = { { id = "bn_default", text = "A town under siege needs one villain it can laugh at, and Bellygrub obliges. Martie has never forgiven me for it." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
 
     keeshan_after = {
-      lines = { { id = "ka_default", text = "Sleeping like the dead and swearing in his sleep. He'll be back on the walls before I let him. That's Keeshan." } },
+      lines = { { id = "ka_default", text = "He's sleeping like the dead and swearing in his sleep. He'll be back on the walls before I let him, because that's Keeshan." } },
       choices = {
         { text = "He's tougher than he looks.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
     dwarf = {
-      lines = { { id = "d_default", text = "Then tell me what my guards don't know. You've fought them longer. How do you beat them?" } },
+      lines = { { id = "d_default", text = "Then tell me what my guards don't know, since you've fought them longer. How do you beat them?" } },
       choices = {
         { text = "Kill whoever's giving the orders. They break.", next = "BACK", fx = { affinity = 2, trait = { stern = 1 } } },
         { text = "Never let them choose the ground.", next = "BACK", fx = { affinity = 2, trait = { cautious = 1 } } },
@@ -169,13 +169,13 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Marshal, Stormwind Army. They posted me to Lakeshire. I've stopped expecting to be posted anywhere else." } },
+    background = { { id = "tp_bg", text = "I'm a Marshal of the Stormwind Army, and they posted me to Lakeshire. I've stopped expecting to be posted anywhere else." } },
     advice = { { id = "tp_ad", text = "Count your arrows before you leave, and your friends when you come back." } },
-    stonewatch_keep = { { id = "tp_stonewatch", text = "Our keep, their flag. Every morning I look at it from the bridge. Every morning it's still theirs.", next = "stonewatch" } },
-    keeshan = { { id = "tp_keeshan", text = "My corporal. Stubborn, loud, and alive, if the scouts are right. I'll take all three." } },
+    stonewatch_keep = { { id = "tp_stonewatch", text = "Our keep, flying their flag. Every morning I look at it from the bridge, and every morning it's still theirs.", next = "stonewatch" } },
+    keeshan = { { id = "tp_keeshan", text = "He's my corporal: stubborn, loud, and alive, if the scouts are right. I'll take all three." } },
     blackrock = { { id = "tp_blackrock", text = "Disciplined, which is the worst thing an orc can be. Someone's teaching them." } },
-    everstill_bridge = { { id = "tp_bridge", text = "Without it my guards walk the long way round the lake. Oslow knows. Oslow knows I know." } },
-    morganth = { { id = "tp_morganth", text = "A tower full of gnolls and something worse at the top. Not until Render's Valley is done." } },
-    _none = { { id = "tp_none", text = "Ask the magistrate. He likes questions. I like answers with a body count." } },
+    everstill_bridge = { { id = "tp_bridge", text = "Without it my guards walk the long way round the lake. Oslow knows that, and Oslow knows I know it." } },
+    morganth = { { id = "tp_morganth", text = "A tower full of gnolls with something worse at the top, and I won't touch it until Render's Valley is done." } },
+    _none = { { id = "tp_none", text = "Ask the magistrate; he likes questions. I like answers with a body count." } },
   },
 }

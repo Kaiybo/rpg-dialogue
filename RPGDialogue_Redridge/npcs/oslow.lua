@@ -11,41 +11,41 @@ P:NPC {
 
   greetings = {
     { id = "g_busy", text = "Unless you're carrying a hammer, keep walking." },
-    { id = "g_tools", when = { questActive = TODO_QUEST("The Lost Tools") }, text = "My toolbox? Have you got my toolbox? Then why are you dry?" },
-    { id = "g_after", when = { questDone = TODO_QUEST("The Everstill Bridge") }, text = "Look at that span. Go on, look at it. That's craftsmanship." },
+    { id = "g_tools", when = { questActive = TODO_QUEST("The Lost Tools") }, text = "My toolbox? Have you got my toolbox? Then why on earth are you dry?" },
+    { id = "g_after", when = { questDone = TODO_QUEST("The Everstill Bridge") }, text = "Look at that span, go on, look at it. That's craftsmanship, that is." },
   },
 
   notice = {
     { id = "n_smith", cat = "craft", when = { any = { { profession = "Blacksmithing" }, { profession = "Engineering" }, { profession = "Mining" } } },
-      text = "You've a tradesman's hands. If you ever want honest work that isn't stabbing things, I'm hiring. I'm always hiring. Nobody stays." },
+      text = "You've a tradesman's hands. If you ever want honest work that isn't stabbing things, I'm hiring; I'm always hiring, because nobody stays." },
     { id = "n_wet", cat = "swim", when = { questReady = TODO_QUEST("The Lost Tools") },
-      text = "You're dripping on my plans. Never mind. Is that my box? That's my box!" },
+      text = "You're dripping on my plans! Never mind that; is that my box? That's my box!" },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "Oslow. I'm rebuilding the Everstill Bridge, on schedule and under budget, before the rains. That was the plan. Then the orcs had opinions." },
+        { id = "h_default", text = "Oslow's the name. I'm rebuilding the Everstill Bridge on schedule and under budget, before the rains, or that was the plan until the orcs had opinions." },
         { id = "h_tools", when = { questBefore = TODO_QUEST("The Lost Tools") },
-          text = "My tools came across the lake by boat. A catapult put the boat at the bottom. My tools are down there with it. My good hammer." },
+          text = "My tools came across the lake by boat, and a catapult put the boat at the bottom. They're down there with it, my good hammer and all." },
         { id = "h_tools_active", tags = { "news" }, when = { questActive = TODO_QUEST("The Lost Tools") },
           text = "Off the end of the wreck, at the bottom. Hold your breath, mind the murlocs, and don't drop it on the way up." },
         { id = "h_tools_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Lost Tools"), days = 3 } },
-          text = "Rusted shut, but they're mine. Every one's got my mark on the handle. Back to work." },
+          text = "Rusted shut, but they're mine, and every one has my mark on the handle. Back to work, then." },
         { id = "h_supplies", when = { questActive = TODO_QUEST("The Everstill Bridge") },
-          text = "Gnolls ran off with my iron from Stormwind. Pikes and rivets. What does a gnoll want with rivets? They don't even build." },
+          text = "Gnolls ran off with my iron from Stormwind, pikes and rivets both. What does a gnoll want with rivets, when they don't even build?" },
         { id = "h_rains", when = { questDone = TODO_QUEST("The Everstill Bridge") },
-          text = "The rains are coming. The bridge will be done before they do. Write that down somewhere I can point at later." },
+          text = "The rains are coming, and the bridge will be done before they do. Write that down somewhere I can point at later." },
         { id = "h_ink", tags = { "news" }, when = { questActive = TODO_QUEST("Ink Supplies") },
-          text = "A librarian wants ore. For ink. While I've got a town to fortify. Northshire has a funny idea of what matters this month." },
+          text = "A librarian wants ore, for ink, while I've got a town to fortify. Northshire has a funny idea of what matters this month." },
         { id = "h_rethban", when = { questActive = TODO_QUEST("Rethban Ore") },
           text = "Rethban Caverns, north of town. The gnolls are digging the seam out themselves now, so take it off them and carry it to Paxton yourself." },
-        { id = "h_bridge", when = { metBefore = true }, text = "Laid another span yesterday. Straight as a ruler. I stood on it a while. Don't tell the crew. They'll think I've gone soft about bridges." },
+        { id = "h_bridge", when = { metBefore = true }, text = "Laid another span yesterday, straight as a ruler, and I stood on it a while. Don't tell the crew, or they'll think I've gone soft about bridges." },
       },
       again = {
-        { id = "h_again", text = "What else? Talk while I measure. I can do both." },
-        { id = "h_again2", text = "Go on. The bridge isn't going anywhere. That's rather the problem." },
+        { id = "h_again", text = "What else? Talk while I measure; I can do both." },
+        { id = "h_again2", text = "Go on. The bridge isn't going anywhere, which is rather the problem." },
       },
       choices = {
         { text = "Why does the bridge matter so much?", next = "why" },
@@ -75,7 +75,7 @@ P:NPC {
     collapse = {
       big = true,
       lines = {
-        { id = "c_default", text = "The Blackrock hit the town so hard the bridge went with it. Blown out in an afternoon. Putting it back takes a season, if nobody sinks my tools." },
+        { id = "c_default", text = "The Blackrock hit the town so hard the bridge went with it, blown out in a single afternoon. Putting it back takes a season, if nobody sinks my tools." },
       },
       choices = {
         { text = "Will it hold this time?", next = "collapse_hold" },
@@ -83,7 +83,7 @@ P:NPC {
       },
     },
     collapse_hold = {
-      lines = { { id = "ch_default", text = "I build bridges to hold. Nobody builds them to hold against orcs with catapults. Somebody should. Give me ten years and it might be me." } },
+      lines = { { id = "ch_default", text = "I build bridges to hold, but nobody builds them to hold against orcs with catapults. Somebody should, and give me ten years and it might be me." } },
       choices = {
         { text = "I believe it.", next = "BACK", fx = { affinity = 2 } },
         { text = "Ten years? Lakeshire doesn't have ten weeks.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
@@ -102,7 +102,7 @@ P:NPC {
       },
     },
     tools_where = {
-      lines = { { id = "tw_default", text = "The deepest water east of the bridge. Murlocs on the way down, and something big out there the fishermen call the Lake Thresher. Ask Baren. Then swim fast." } },
+      lines = { { id = "tw_default", text = "The deepest water east of the bridge, with murlocs on the way down and something big out there the fishermen call the Lake Thresher. Ask Baren about it, then swim fast." } },
       choices = {
         { text = "I'll fetch your toolbox.", next = "BUSINESS", fx = { affinity = 1, trait = { brave = 1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "everstill_bridge" } } },
@@ -127,7 +127,7 @@ P:NPC {
       },
     },
     supplies_verner = {
-      lines = { { id = "sv_default", text = "He's begging for iron to shoe horses, and a gnoll's using a pike as a back-scratcher. Don't mention it near his forge. He's got hammers." } },
+      lines = { { id = "sv_default", text = "He's begging for iron to shoe horses, and a gnoll's using a pike as a back-scratcher. Don't mention it near his forge; he's got hammers." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
@@ -146,7 +146,7 @@ P:NPC {
       },
     },
     novice = {
-      lines = { { id = "nv_default", text = "Northshire? Then you've copied your prayers in my ore and never knew it. Paxton's ink. Tell him the price went up. It hasn't. Tell him anyway." } },
+      lines = { { id = "nv_default", text = "Northshire? Then you've copied your prayers in my ore and never known it, because Paxton makes his ink from it. Tell him the price went up; it hasn't, but tell him anyway." } },
       choices = {
         { text = "Ha. I'll tell him.", next = "BACK", fx = { affinity = 2 } },
         { text = "Ore makes ink?", next = "rethban" },
@@ -164,11 +164,11 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "Every job on time and under budget. That's my whole story, and I mean to keep it true.", next = "why" },
-                   { id = "tp_bg2", text = "Foreman. Bridges, mostly. This one, lately, again." } },
-    advice = { { id = "tp_ad", text = "Measure twice. Then look up for catapults." } },
-    redridge_gnolls = { { id = "tp_gnolls", text = "Thieves. They took my iron, and now they're digging Rethban's seam. Next they'll want my job." } },
-    everstill_bridge = { { id = "tp_bridge", text = "Before the rains. That's not a hope, that's a schedule." } },
-    blackrock = { { id = "tp_blackrock", text = "They knock down what I build. I build it again. One of us is going to get tired, and it isn't me." } },
-    _none = { { id = "tp_none", text = "Is it load-bearing? Then I don't care." } },
+                   { id = "tp_bg2", text = "I'm a foreman: bridges, mostly, and lately this one, again." } },
+    advice = { { id = "tp_ad", text = "Measure twice, then look up for catapults." } },
+    redridge_gnolls = { { id = "tp_gnolls", text = "Thieves, the lot of them. They took my iron, and now they're digging Rethban's seam; next they'll want my job." } },
+    everstill_bridge = { { id = "tp_bridge", text = "Before the rains, and that's not a hope, that's a schedule." } },
+    blackrock = { { id = "tp_blackrock", text = "They knock down what I build, and I build it again. One of us is going to get tired, and it isn't me." } },
+    _none = { { id = "tp_none", text = "Is it load-bearing? If not, I don't care." } },
   },
 }

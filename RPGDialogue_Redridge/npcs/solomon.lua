@@ -10,15 +10,15 @@ P:NPC {
   notices = { "reputation", "deputy" },
 
   greetings = {
-    { id = "g_brief", text = "Be brief. Orcs are not." },
-    { id = "g_letters", when = { questActive = TODO_QUEST("Messenger to Westfall") }, text = "Why are you still here? Westfall. The letter. Go." },
-    { id = "g_hero", when = { townStanding = { town = "lakeshire", min = 55 } }, text = "Lakeshire's champion. Sit, if you like. You're the only visitor I don't mind." },
-    { id = "g_distrust", when = { townStanding = { town = "lakeshire", max = -20 } }, text = "The court has heard your name. Not kindly." },
+    { id = "g_brief", text = "Be brief, if you please; the orcs never are." },
+    { id = "g_letters", when = { questActive = TODO_QUEST("Messenger to Westfall") }, text = "Why are you still standing in my hall? Take the letter to Westfall, and go quickly." },
+    { id = "g_hero", when = { townStanding = { town = "lakeshire", min = 55 } }, text = "Ah, Lakeshire's champion. Sit, if you like; you're the only visitor I don't mind." },
+    { id = "g_distrust", when = { townStanding = { town = "lakeshire", max = -20 } }, text = "The court has heard your name, and not kindly." },
   },
 
   notice = {
     { id = "n_deputy", cat = "deputy", place = "before", when = { questDone = TODO_QUEST("The True Masters") },
-      text = "The Regent's deputy. I asked Stormwind for an army and it sent me you. I've stopped being insulted. You've earned that." },
+      text = "So you're the Regent's deputy. I asked Stormwind for an army and it sent me you, and I've stopped being insulted by that, because you've earned it." },
     { id = "n_hero", cat = "reputation", when = { townStanding = { town = "lakeshire", min = 30 } },
       text = "The fishermen say your name now when they talk about the lake being safe. The fishermen never agree on anything." },
   },
@@ -28,32 +28,32 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Solomon. Magistrate, elected, which means the people of Lakeshire chose me to be the one who writes letters nobody answers." },
+          text = "I am Solomon, elected Magistrate of Lakeshire, which means the people chose me to be the one who writes the letters nobody answers." },
         { id = "h_new", when = { maxLevel = 17 },
-          text = "You've come up from Elwynn. Good. Lakeshire needs every blade it can borrow, even the short ones." },
+          text = "You've come up from Elwynn? Good, because Lakeshire needs every blade it can borrow, even the short ones." },
         { id = "h_westfall", tags = { "news" }, when = { questActive = TODO_QUEST("Messenger to Westfall") },
-          text = "I hear they've a militia in Westfall. Farmers with spears, holding their own. Take my letter to their leader. If anyone understands, it's him." },
+          text = "I hear they've raised a militia in Westfall, farmers with spears holding their own. Take my letter to their leader; if anyone understands our plight, it's him." },
         { id = "h_westfall_done", tags = { "news" }, when = { questDone = TODO_QUEST("Messenger to Westfall") },
           text = "Stoutmantle can't spare a man. I'd be angrier if I didn't know exactly how he feels." },
         { id = "h_gath", when = { questActive = TODO_QUEST("Wanted: Gath'Ilzogg") },
-          text = "Gath'Ilzogg sits in Stonewatch Keep as if he built it. He didn't. We did. Bring me his head, and the court will consider the matter closed." },
+          text = "Gath'Ilzogg sits in Stonewatch Keep as if he built it, but he didn't; we did. Bring me his head, and the court will consider the matter closed." },
         { id = "h_fangore", when = { questActive = TODO_QUEST("Wanted: Lieutenant Fangore") },
           text = "Fangore leads Morganth's Shadowhides in the eastern hills. The court has ruled him a betrayer of the kingdom. You carry out the sentence." },
         { id = "h_masters", tags = { "news" }, when = { questActive = TODO_QUEST("The True Masters") },
           text = "Orcs don't plan like this. Somebody is directing them, and the letter you carried names who. Take it to the Keep before the next raid." },
         { id = "h_masters_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The True Masters"), days = 5 } },
-          text = "The Highlord read it all and still won't send soldiers without more. So he sent a deputy. You. I suppose that's an answer." },
+          text = "The Highlord read it all and still won't send soldiers without more proof, so he sent a deputy instead, which is to say you. I suppose that's an answer." },
         { id = "h_skyborne", when = { race = "Skyborne" },
-          text = "An elf from the sky. If your people could fly, I'd want a dozen on the walls. You glide, I'm told? I'll take gliders." },
+          text = "An elf from the sky, is it? If your people could fly I'd want a dozen on the walls, but I'm told you glide, and I'll gladly take gliders." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "A priest, in my hall. I asked the kingdom for soldiers and bandages. It seems to have sent the next best thing." },
         { id = "h_letters", when = { metBefore = true }, text = "Another letter to Stormwind this morning. The court notes that it is the fortieth. The court also notes that it expects no reply." },
-        { id = "h_night", when = { timeOfDay = "night" }, text = "The court is closed. The magistrate is not. Say what you came to say, and briefly." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "The court is closed, but the magistrate is not. Say what you came to say, and say it briefly." },
       },
       again = {
-        { id = "h_again", text = "What else? Quickly. The docket is long and the day is not." },
+        { id = "h_again", text = "What else? Quickly, if you would; the docket is long and the day is not." },
         { id = "h_again2", text = "Go on. You have the court's attention, which is more than Stormwind gives it." },
-        { id = "h_again3", when = { timeOfDay = "night" }, text = "Ask. The letters will keep. They always do." },
+        { id = "h_again3", when = { timeOfDay = "night" }, text = "Ask what you like. The letters will keep, as they always do." },
       },
       choices = {
         { text = "What does Lakeshire need?", next = "need" },
@@ -72,7 +72,7 @@ P:NPC {
 
     need = {
       lines = {
-        { id = "n_default", text = "A bridge that stays up. Walls that stay manned. And for once, a week where nobody comes to this office carrying someone else's blood." },
+        { id = "n_default", text = "A bridge that stays up and walls that stay manned. And for once, a week where nobody walks into this office carrying someone else's blood." },
       },
       choices = {
         { text = "What's the worst of it?", next = "need_worst" },
@@ -83,7 +83,7 @@ P:NPC {
     need_worst = {
       big = true,
       lines = {
-        { id = "nw_default", text = "Bandages. We ran out of them before we ran out of courage. I put that in a report to the King, and it still shames me." },
+        { id = "nw_default", text = "Bandages, of all things. We ran out of them before we ran out of courage, and I put that in a report to the King. It still shames me." },
         { id = "nw_priest", when = { class = "PRIEST" },
           text = "Bandages, and someone who knows what to do when the bandages aren't enough. You'll have guessed why I'm telling you." },
       },
@@ -98,9 +98,9 @@ P:NPC {
       big = true,
       lines = {
         { id = "s_default", key = true,
-          text = "I've asked. Every territory of the kingdom, one after another. The answers were polite. None of them were soldiers." },
+          text = "I've asked every territory of the kingdom, one after another. The answers were all polite, and none of them were soldiers." },
         { id = "s_heard", when = { heardLine = "bolvar.t_westfall" },
-          text = "The Highlord told Westfall the kingdom is stretched thin? He told me the same. Word for word, almost. Someone's writing his answers." },
+          text = "The Highlord told Westfall the kingdom is stretched thin? He told me the same, almost word for word. I begin to think someone is writing his answers for him." },
       },
       choices = {
         { text = "Who did you write to?", next = "letters" },
@@ -137,7 +137,7 @@ P:NPC {
     },
     letters_gryan = {
       lines = {
-        { id = "lgr_default", text = "Farmers holding Westfall by their fingernails. He'd have sent men if he had any. His reply asked me where Stormwind's army had gone. I've been asking since." },
+        { id = "lgr_default", text = "Gryan's farmers are holding Westfall by their fingernails, and he'd have sent men if he had any. His reply asked me where Stormwind's army had gone, which is what I've been asking ever since." },
       },
       choices = {
         { text = "Westfall and Lakeshire should stand together.", next = "BACK", fx = { affinity = 1, learn = { "westfall", "people_militia" } } },
@@ -145,7 +145,7 @@ P:NPC {
       },
     },
     letters_marcus = {
-      lines = { { id = "lm_default", text = "What the kingdom can spare. I've read that phrase in his hand more than once. It means none, said by a decent man." } },
+      lines = { { id = "lm_default", text = "'What the kingdom can spare.' I've read that phrase in his hand more than once, and it means none, said by a decent man." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     amiss = {
@@ -162,7 +162,7 @@ P:NPC {
       },
     },
     amiss_court = {
-      lines = { { id = "ac_default", text = "The court makes no accusation it can't prove. Write that down. Then write down that I didn't say no." } },
+      lines = { { id = "ac_default", text = "The court makes no accusation it can't prove, so write that down. Then write down that I didn't say no." } },
       choices = {
         { text = "Careful, Magistrate. Stormwind's walls have ears.", next = "BACK", fx = { trait = { cautious = 1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } },
@@ -170,9 +170,9 @@ P:NPC {
     },
     prestor = {
       lines = {
-        { id = "pr_default", text = "Patience. The court notes that Lady Prestor has never stood a night on Lakeshire's wall. The court would be glad to lend her a spear." },
+        { id = "pr_default", text = "Patience, is it? The court notes that Lady Prestor has never stood a night on Lakeshire's wall, and it would gladly lend her a spear." },
         { id = "pr_masters", when = { questDone = TODO_QUEST("The True Masters") },
-          text = "She called me paranoid, I'm told, with the Highlord standing beside her. A paranoid magistrate with a letter about dragons. I'll wear it." },
+          text = "She called me paranoid, I'm told, with the Highlord standing beside her. A paranoid magistrate with a letter about dragons; very well, I'll wear it." },
       },
       choices = {
         { text = "She has the Regent's ear.", next = "BACK", fx = { opinion = { stormwind = "abandoned_its_own" } } },
@@ -197,7 +197,7 @@ P:NPC {
       lines = {
         { id = "ga_default", text = "The Blackrock warlord who led the assault, now sitting in our keep. There's a price on his head, and I mean it plainly." },
         { id = "ga_done", when = { questDone = TODO_QUEST("Wanted: Gath'Ilzogg") },
-          text = "Was. His head sat on this desk for a day before I let them take it away. The first step toward taking the keep back." },
+          text = "Was, you mean. His head sat on this desk for a day before I let them take it away, and that was the first step toward taking the keep back." },
       },
       choices = {
         { text = "Can the keep be retaken?", next = "gath_retake" },
@@ -206,7 +206,7 @@ P:NPC {
       },
     },
     gath_retake = {
-      lines = { { id = "gr_default", text = "With an army. Which returns us, as everything in this hall returns, to the letters." } },
+      lines = { { id = "gr_default", text = "With an army, which brings us back, as everything in this hall comes back, to the letters." } },
       choices = {
         { text = "Then tell me about the letters.", next = "letters" },
         { text = "Something else.", next = "BACK" },
@@ -214,7 +214,7 @@ P:NPC {
     },
     morganth = {
       lines = {
-        { id = "mo_default", text = "Soon after the victory. He raised a tower in the northeast and took the Shadowhide gnolls for his own, with Fangore at their head.",
+        { id = "mo_default", text = "He did, soon after the victory. He raised a tower in the northeast and took the Shadowhide gnolls for his own, with Fangore at their head.",
           fx = { learn = { "morganth" } } },
       },
       choices = {
@@ -230,7 +230,7 @@ P:NPC {
       lines = {
         { id = "ke_default", text = "Corporal Keeshan was seen dragged off by the Blackrock. The notice outside the inn is mine: whoever brings him home, Marris rewards." },
         { id = "ke_done", when = { questDone = TODO_QUEST("Missing In Action") },
-          text = "Keeshan walked back into this town and reported for duty with his head still bleeding. It's in the record. It's in mine, too, privately." },
+          text = "Keeshan walked back into this town and reported for duty with his head still bleeding. It's in the court's record, and it's in mine too, privately." },
       },
       choices = {
         { text = "Then I'll look for him.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
@@ -256,7 +256,7 @@ P:NPC {
       },
     },
     court_mercy = {
-      lines = { { id = "cm_default", text = "We don't hang them. We can't catch them. The law is a statement of what we'd do with the time." } },
+      lines = { { id = "cm_default", text = "We don't hang them, because we can't catch them. The law is a statement of what we would do if we had the time." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     court_history = {
@@ -285,7 +285,7 @@ P:NPC {
       },
     },
     priest_church = {
-      lines = { { id = "pc_default", text = "I asked the Cathedral too. They're stretched like everyone else, and they sent prayers. I'll take prayers. I'd rather take you." } },
+      lines = { { id = "pc_default", text = "I asked the Cathedral too, but they're stretched like everyone else, and they sent prayers. I'll take prayers gladly, though I'd rather take you." } },
       choices = {
         { text = "Prayers matter more than you think.", next = "BACK", fx = { align = { light = 1 }, trait = { pious = 1 } } },
         { text = "I'll tell the Archbishop what I saw here.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
@@ -315,14 +315,14 @@ P:NPC {
       },
     },
     lordaeron_north = {
-      lines = { { id = "ln_default", text = "Nothing good. I wrote to the King that something darker than any orc is brewing up there. Nobody answered that part either." } },
+      lines = { { id = "ln_default", text = "Nothing good, I'm afraid. I wrote to the King that something darker than any orc is brewing up there, and nobody answered that part either." } },
       choices = {
         { text = "You were right. I've seen it.", next = "BACK", fx = { affinity = 2, trait = { stern = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     dwarf = {
-      lines = { { id = "dw_default", text = "So I reasoned. We sent envoys to King Magni months ago, asking for help against the Blackrock. No dwarves have come over the mountains yet." } },
+      lines = { { id = "dw_default", text = "That's what I reasoned too, so we sent envoys to King Magni months ago, asking for help against the Blackrock. No dwarves have come over the mountains yet." } },
       choices = {
         { text = "Ironforge keeps its word. Give it time.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "They came. Princess Moira was taken on the road.", next = "dwarf_moira", when = { questDone = TODO_QUEST("Kharan's Tale") } },
@@ -331,7 +331,7 @@ P:NPC {
     },
     dwarf_moira = {
       big = true,
-      lines = { { id = "dm_default", text = "The princess herself? For Lakeshire? I wrote that letter. Lakeshire will remember her name, whatever comes of this." } },
+      lines = { { id = "dm_default", text = "The princess herself, for Lakeshire? Light help me, I wrote that letter. Lakeshire will remember her name, whatever comes of this." } },
       choices = {
         { text = "It wasn't your doing.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -348,17 +348,17 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "The township elected me to judge its quarrels and keep its peace. Lately the quarrels carry axes.", next = "court" },
-                   { id = "tp_bg2", text = "Magistrate of Lakeshire. The rest of my story is in the letters, and nobody reads those." } },
+                   { id = "tp_bg2", text = "I'm the Magistrate of Lakeshire, and the rest of my story is in the letters, which nobody reads." } },
     advice = { { id = "tp_ad", text = "Keep to the roads, and never trust a quiet night in Redridge. The orcs count on both." } },
-    stonewatch_keep = { { id = "tp_stonewatch", text = "Ours, until Morganth's sorcery and Gath'Ilzogg's axes took it. The court has not ruled it lost. Only taken.", next = "stonewatch" } },
+    stonewatch_keep = { { id = "tp_stonewatch", text = "It was ours until Morganth's sorcery and Gath'Ilzogg's axes took it. The court has not ruled it lost, only taken.", next = "stonewatch" } },
     keeshan = { { id = "tp_keeshan", text = "Of the 12th Sabre Regiment, dragged off the walls at Stonewatch. The notice by the inn carries my seal." } },
-    night_watch = { { id = "tp_watch", text = "Lord Ebonlocke's lantern-bearers. I asked him for them anyway. That's how desperate Lakeshire has become." } },
-    redridge_gnolls = { { id = "tp_gnolls", text = "Two packs. One steals our horses, one serves a warlock. I've put a price on the second." } },
-    defias = { { id = "tp_defias", text = "Westfall's trouble. Stoutmantle's reply told me enough to stop asking him for men." } },
-    blackrock = { { id = "tp_blackrock", text = "Render's Valley and Stonewatch Keep. Too many, too organized, and getting bolder." } },
-    everstill_bridge = { { id = "tp_bridge", text = "Oslow says before the rains. Oslow said that last year." } },
-    westfall = { { id = "tp_westfall", text = "They have it worse. I wrote anyway. Desperation makes poor manners." } },
-    morganth = { { id = "tp_morganth", text = "The tower in the eastern hills. The gnolls there serve him. That's all I know and more than I like." } },
+    night_watch = { { id = "tp_watch", text = "Lord Ebonlocke's lantern-bearers, you mean. I asked him for them anyway, which tells you how desperate Lakeshire has become." } },
+    redridge_gnolls = { { id = "tp_gnolls", text = "There are two packs: one steals our horses, and the other serves a warlock. I've put a price on the second." } },
+    defias = { { id = "tp_defias", text = "That's Westfall's trouble, and Stoutmantle's reply told me enough to stop asking him for men." } },
+    blackrock = { { id = "tp_blackrock", text = "They hold Render's Valley and Stonewatch Keep, and there are too many of them, too well organized, and getting bolder by the week." } },
+    everstill_bridge = { { id = "tp_bridge", text = "Oslow says it'll be finished before the rains, but Oslow said that last year." } },
+    westfall = { { id = "tp_westfall", text = "They have it worse than we do, and I wrote to them anyway. Desperation makes for poor manners." } },
+    morganth = { { id = "tp_morganth", text = "He holds the tower in the eastern hills, and the gnolls there serve him. That's all I know, and it's more than I like." } },
     _none = { { id = "tp_none", text = "If it's not a threat to Lakeshire, it can wait until there aren't any." } },
   },
 }

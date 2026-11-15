@@ -10,35 +10,35 @@ P:NPC {
   notices = { "soldier", "kit" },
 
   greetings = {
-    { id = "g_cell", text = "Took your time. Doesn't matter. You're here." },
-    { id = "g_after", when = { questDone = TODO_QUEST("Missing In Action") }, text = "My escort! Still standing? Good. So am I." },
+    { id = "g_cell", text = "You took your time, but it doesn't matter now. You're here." },
+    { id = "g_after", when = { questDone = TODO_QUEST("Missing In Action") }, text = "There's my escort, still standing, I see. Good, so am I." },
   },
 
   notice = {
     { id = "n_soldier", cat = "soldier", when = { class = { "WARRIOR", "PALADIN" } },
-      text = "Stormwind trained, by the stance. Keep your shield higher. They aim for the shoulder when they're tired, and they're always tired." },
+      text = "You're Stormwind trained, by the stance. Keep your shield higher; they aim for the shoulder when they're tired, and they're always tired." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
-      text = "You came to rescue me in that? Light help us both. Stay close, then. Very close." },
+      text = "You came to rescue me in that? Light help us both, then, and stay close. Very close." },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "Corporal Keeshan, Stormwind Army. I was on the walls at Stonewatch when it fell. They kept me alive. Orcs like a prisoner who can talk." },
+        { id = "h_default", text = "Corporal Keeshan, Stormwind Army. I was on the walls at Stonewatch when it fell, and they kept me alive, because orcs like a prisoner who can talk." },
         { id = "h_rescue", tags = { "news" }, when = { questActive = TODO_QUEST("Missing In Action") },
-          text = "You're from Lakeshire? Then you're the best thing I've seen in this cave. Get me to the Marshal. I'll try to keep up." },
+          text = "You're from Lakeshire? Then you're the best thing I've seen in this cave. Get me to the Marshal and I'll try to keep up." },
         { id = "h_after", tags = { "news" }, when = { questRecent = { TODO_QUEST("Missing In Action"), days = 3 } },
-          text = "First proper meal in weeks. First proper bed. I keep waking up thinking I'm still on that rock." },
+          text = "A proper meal and a proper bed, the first in weeks. I keep waking up thinking I'm still on that rock." },
         { id = "h_later", when = { questLater = { TODO_QUEST("Missing In Action"), days = 7 } },
-          text = "Marris wants me back on the walls. Soon as my hands stop shaking. They've nearly stopped." },
+          text = "Marris wants me back on the walls as soon as my hands stop shaking, and they've nearly stopped." },
         { id = "h_young", when = { maxLevel = 20 },
-          text = "How old are you? Never mind. I was younger when I first went to war. That's not the comfort it sounds like." },
-        { id = "h_sleep", when = { metBefore = true }, text = "Slept through the night, first time since the camp. Woke up reaching for a sword that wasn't there. Progress." },
+          text = "How old are you? Never mind; I was younger when I first went to war, and that's not the comfort it sounds like." },
+        { id = "h_sleep", when = { metBefore = true }, text = "I slept through the night, the first time since the camp, and woke up reaching for a sword that wasn't there. That's progress, I suppose." },
       },
       again = {
-        { id = "h_again", text = "What else? Keep it short. My head's still ringing." },
-        { id = "h_again2", text = "Go on. Talking keeps me awake, and awake is good." },
+        { id = "h_again", text = "What else? Keep it short, if you would; my head's still ringing." },
+        { id = "h_again2", text = "Go on, talk. It keeps me awake, and awake is good." },
       },
       choices = {
         { text = "What did you see up there?", next = "seen" },
@@ -54,7 +54,7 @@ P:NPC {
     seen = {
       big = true,
       lines = {
-        { id = "s_default", text = "More of them than Lakeshire thinks. Better armed. And they take orders from someone who isn't an orc. I heard them argue about it." },
+        { id = "s_default", text = "There are more of them than Lakeshire thinks, and better armed. And they take orders from someone who isn't an orc; I heard them argue about it." },
       },
       choices = {
         { text = "Someone's directing them?", next = "who", fx = { learn = { "blackrock" } } },
@@ -63,11 +63,11 @@ P:NPC {
       },
     },
     who = {
-      lines = { { id = "w_default", text = "Don't know. Didn't see. Just heard them grumble about orders. Tell the magistrate. He likes a mystery." } },
+      lines = { { id = "w_default", text = "I don't know and I didn't see; I only heard them grumble about orders. Tell the magistrate, since he likes a mystery." } },
       choices = { { text = "I will.", next = "BACK", fx = { affinity = 1 } } },
     },
     numbers = {
-      lines = { { id = "nu_default", text = "Enough to hold a keep and raid a town in the same week, with more coming down the Steppes pass. Lakeshire counts the raiders. Nobody's counting the camps." } },
+      lines = { { id = "nu_default", text = "Enough to hold a keep and raid a town in the same week, with more coming down the Steppes pass. Lakeshire counts the raiders, but nobody's counting the camps." } },
       choices = {
         { text = "Then I'll count them.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -93,14 +93,14 @@ P:NPC {
     },
 
     walk = {
-      lines = { { id = "wk_default", text = "Can I? I'll have to. My head's ringing like a temple bell. Keep the orcs off me and point me downhill." } },
+      lines = { { id = "wk_default", text = "Can I? I'll have to, though my head's ringing like a temple bell. Keep the orcs off me and point me downhill." } },
       choices = {
         { text = "Lean on me.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Then let's go.", next = "END" },
       },
     },
     priest = {
-      lines = { { id = "pr_default", text = "Careful, that's... oh. That's better. Light, that's better. I'd forgotten what not hurting felt like." } },
+      lines = { { id = "pr_default", text = "Careful, that's... oh, that's better. Light, that's so much better; I'd forgotten what not hurting felt like." } },
       choices = {
         { text = "The Light hadn't forgotten you.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Good. Now you can walk.", next = "BACK", fx = { affinity = 1 } },
@@ -124,11 +124,11 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "Corporal, 12th Sabre Regiment, Stormwind Army. That's all a prisoner gives, and I'm still in the habit.", next = "fall" },
-                   { id = "tp_bg2", text = "Soldier. Was one before the cave, and I mean to be one after." } },
-    advice = { { id = "tp_ad", text = "Keep your head down and your shield up. I managed one of those." } },
+                   { id = "tp_bg2", text = "I'm a soldier. I was one before the cave, and I mean to be one after." } },
+    advice = { { id = "tp_ad", text = "Keep your head down and your shield up; I only managed one of those." } },
     stonewatch_keep = { { id = "tp_stonewatch", text = "I was on its walls when it fell. That's all I'll say about it sober." } },
-    keeshan = { { id = "tp_keeshan", text = "That's me. Ask me something I don't have to think hard about." } },
-    blackrock = { { id = "tp_blackrock", text = "Disciplined. Well fed. That doesn't happen by accident." } },
+    keeshan = { { id = "tp_keeshan", text = "That's me, and I'd rather you asked me something I don't have to think hard about." } },
+    blackrock = { { id = "tp_blackrock", text = "They're disciplined and well fed, and that doesn't happen by accident." } },
     _none = { { id = "tp_none", text = "I've been on a rock. Ask me again when I've had a drink." } },
   },
 }

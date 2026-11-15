@@ -10,14 +10,14 @@ P:NPC {
   notices = { "kit", "mount" },
 
   greetings = {
-    { id = "g_forge", text = "Forge is hot. Make it quick or make it useful." },
-    { id = "g_shoes", when = { questActive = TODO_QUEST("The Price of Shoes") }, text = "Argus get my note? He'll grumble. He always grumbles." },
-    { id = "g_yowler", when = { questDone = TODO_QUEST("Howling in the Hills") }, text = "Haven't heard a howl in a week. My horses are sleeping. So am I." },
+    { id = "g_forge", text = "The forge is hot, so make it quick or make it useful." },
+    { id = "g_shoes", when = { questActive = TODO_QUEST("The Price of Shoes") }, text = "Did Argus get my note? He'll grumble; he always grumbles." },
+    { id = "g_yowler", when = { questDone = TODO_QUEST("Howling in the Hills") }, text = "I haven't heard a howl in a week, and my horses are sleeping. So am I, for once." },
   },
 
   notice = {
     { id = "n_shoes", cat = "mount", when = { mounted = true },
-      text = "Hold that animal still. Front left shoe's loose. I can hear it from here. No, I haven't got iron for it. That's rather the point." },
+      text = "Hold that animal still; its front left shoe's loose, and I can hear it from here. No, I haven't got iron for it, which is rather the point." },
     { id = "n_kit", cat = "kit", place = "before", when = { durability = { max = 0.25 } },
       text = "You're coming apart at every rivet. The Guard gets my iron first, by order, but I can at least tell you what's wrong." },
   },
@@ -26,28 +26,28 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "Osgood. Smith. The Guard takes every scrap of iron I've got and I'm meant to shoe the town's horses with what's left. What's left is nothing." },
+        { id = "h_default", text = "Osgood, the smith. The Guard takes every scrap of iron I've got, and I'm meant to shoe the town's horses with what's left, which is nothing." },
         { id = "h_shoes", when = { questBefore = TODO_QUEST("The Price of Shoes") },
           text = "Smith Argus in Goldshire owes me, and he's got iron. If someone carried a note down to him, I might see horseshoes this side of winter." },
         { id = "h_shoes_active", tags = { "news" }, when = { questActive = TODO_QUEST("The Price of Shoes") },
-          text = "Goldshire, the smithy. Hand him the note and stand there till he reads it, or he'll use it to light the forge." },
+          text = "Go to the smithy in Goldshire. Hand him the note and stand there till he reads it, or he'll use it to light the forge." },
         { id = "h_return", tags = { "news" }, when = { questRecent = { TODO_QUEST("Return to Verner"), days = 3 } },
-          text = "Shoes! Real shoes, from real iron. He came through. Don't tell him I said so; he'll be unbearable." },
+          text = "Shoes! Real shoes, from real iron, so he came through after all. Don't tell him I said so, or he'll be unbearable." },
         { id = "h_scales", when = { questActive = TODO_QUEST("Underbelly Scales") },
           text = "Underbelly scales, from the black whelps that wander south of the lake. Argus wants paying, and scales are the only coin I've got." },
         { id = "h_gnolls", when = { questBefore = TODO_QUEST("A Baying of Gnolls") },
-          text = "The gnolls up in the hills take any horse that wanders. Then they eat it. I've stopped naming the foals." },
+          text = "The gnolls up in the hills take any horse that wanders off, and then they eat it. I've stopped naming the foals." },
         { id = "h_baying", when = { questActive = TODO_QUEST("A Baying of Gnolls") },
           text = "Brutes and mystics, on the ridge north of my stable. Clear them off before they clear off with another horse." },
         { id = "h_yowler", when = { questActive = TODO_QUEST("Howling in the Hills") },
-          text = "Yowler. Big one, leads the pack. Bring me proof he's done and I'll sleep through the night for the first time since spring." },
+          text = "Yowler's the big one who leads the pack. Bring me proof he's done and I'll sleep through the night for the first time since spring." },
         { id = "h_argus", when = { heardLine = "argus.s_default" },
-          text = "Argus told you never to let the apprentice near the quench? He learned that from me. He won't admit it." },
-        { id = "h_horse", when = { metBefore = true }, text = "Shod a grey mare this morning. Best-tempered beast in Lakeshire. Better company than most of the people. Don't tell Argus I said anything nice about anything." },
+          text = "Argus told you never to let the apprentice near the quench? He learned that from me, though he'll never admit it." },
+        { id = "h_horse", when = { metBefore = true }, text = "Shod a grey mare this morning, the best-tempered beast in Lakeshire and better company than most of its people. Don't tell Argus I said anything nice about anything." },
       },
       again = {
-        { id = "h_again", text = "What else? I can talk and hammer. Can't promise you'll hear the talk." },
-        { id = "h_again2", text = "Go on. The iron's not getting any hotter while you think." },
+        { id = "h_again", text = "What else? I can talk and hammer at once, though I can't promise you'll hear the talk." },
+        { id = "h_again2", text = "Go on, then. The iron's not getting any hotter while you think." },
       },
       choices = {
         { text = "Let's see what you've got.", next = "BUSINESS" },
@@ -62,12 +62,12 @@ P:NPC {
 
     argus = {
       lines = {
-        { id = "a_default", text = "We go back. Long enough to have argued about everything twice. He's quicker. I'm better. We've never settled which matters." },
+        { id = "a_default", text = "We go back far enough to have argued about everything twice. He's quicker and I'm better, and we've never settled which matters more." },
       },
       choices = { { text = "Which is it?", next = "which" } },
     },
     which = {
-      lines = { { id = "wh_default", text = "Better. Obviously. Ask Argus and he'll say quicker, and he'll say it faster than I just did. That's his whole trouble." } },
+      lines = { { id = "wh_default", text = "Better, obviously. Ask Argus and he'll say quicker, and he'll say it faster than I just did, which is his whole trouble." } },
       choices = {
         { text = "Ha.", next = "BACK", fx = { affinity = 1 } },
         { text = "Will he send you shoes?", next = "bill" },
@@ -75,9 +75,9 @@ P:NPC {
     },
     bill = {
       lines = {
-        { id = "bl_default", text = "He'll send them, if someone carries my note. Then he'll send a bill. I know him." },
+        { id = "bl_default", text = "He'll send them, if someone carries my note, and then he'll send a bill. I know him." },
         { id = "bl_done", when = { questDone = TODO_QUEST("Return to Verner") },
-          text = "He sent them. Fifty shoes in a crate, and a note on top asking to be paid. Paid! As if we'd never met." },
+          text = "He sent them: fifty shoes in a crate, and a note on top asking to be paid. Paid, as if we'd never met!" },
       },
       choices = {
         { text = "How will you pay him?", next = "scales" },
@@ -106,9 +106,9 @@ P:NPC {
     },
     yowler = {
       lines = {
-        { id = "y_default", text = "Yowler. You'll know his howl; it's louder than the rest and closer than it should be. The army's busy with orcs. Nobody's coming for a gnoll that steals horses." },
+        { id = "y_default", text = "That's Yowler. You'll know his howl, louder than the rest and closer than it should be, and with the army busy with orcs, nobody's coming for a gnoll that steals horses." },
         { id = "y_done", when = { questDone = TODO_QUEST("Howling in the Hills") },
-          text = "Yowler did. The ridge has been quiet since you went up it. The horses noticed before I did." },
+          text = "Yowler did, until you went up there. The ridge has been quiet since, and the horses noticed before I did." },
       },
       choices = {
         { text = "Somebody just did.", next = "BUSINESS", fx = { affinity = 2, trait = { brave = 1 } } },
@@ -126,7 +126,7 @@ P:NPC {
       },
     },
     iron_short = {
-      lines = { { id = "is_default", text = "Oslow wants rivets, Marris wants mail, the horses want shoes. I've one anvil and two hands. Somebody always goes without." } },
+      lines = { { id = "is_default", text = "Oslow wants rivets, Marris wants mail, and the horses want shoes, but I've one anvil and two hands. Somebody always goes without." } },
       choices = {
         { text = "That's a hard trade.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -150,10 +150,10 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "Smith, and the stable with it. If I had to keep one, I'd keep the horses." } },
-    advice = { { id = "tp_ad", text = "Stable your horse at night. Gnolls don't knock." } },
-    redridge_gnolls = { { id = "tp_gnolls", text = "Horse thieves with fur. Yowler leads them. Leads them right into my paddock." } },
-    blackrock = { { id = "tp_blackrock", text = "They've got good steel, and I'd love to know where they get it. Not from me." } },
+    advice = { { id = "tp_ad", text = "Stable your horse at night, because gnolls don't knock." } },
+    redridge_gnolls = { { id = "tp_gnolls", text = "Horse thieves with fur, and Yowler leads them right into my paddock." } },
+    blackrock = { { id = "tp_blackrock", text = "They've got good steel, and I'd love to know where they get it, because it isn't from me." } },
     everstill_bridge = { { id = "tp_bridge", text = "Oslow keeps asking for nails. I keep asking for iron. We stare at each other." } },
-    _none = { { id = "tp_none", text = "Can you shoe it? No? Then I can't help you." } },
+    _none = { { id = "tp_none", text = "Can you shoe it? If not, I can't help you." } },
   },
 }
