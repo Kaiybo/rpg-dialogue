@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.4.0 (unreleased)
+- Voice pass: Tyrosus, Leonid, Tirion, Nathanos and the Light's Hope guards now talk in whole sentences instead of clipped fragments, each in their own voice; what they say is unchanged.
+
 ## 1.3.0 (unreleased)
 - Tyrosus carries the Scarlet Path's last beat: some left the Hand before it became the Crusade, some after.
 

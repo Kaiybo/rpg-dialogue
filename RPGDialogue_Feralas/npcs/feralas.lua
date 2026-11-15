@@ -9,15 +9,15 @@ P:NPC {
   notices = { "class", "race" },
 
   greetings = {
-    { id = "g_isle", text = "Welcome to Sardor Isle. Keep your bow strung and your eyes on the water. That's all I ask of anyone here." },
-    { id = "g_back", when = { metBefore = true }, text = "You've come back across the water. Good. Report." },
+    { id = "g_isle", text = "Welcome to Sardor Isle. Keep your bow strung and your eyes on the water; that's all I ask of anyone here." },
+    { id = "g_back", when = { metBefore = true }, text = "You've come back across the water, good. Now report." },
   },
 
   notice = {
     { id = "n_hunter", cat = "class", when = { class = { "HUNTER", "WARRIOR" } },
-      text = "You carry yourself like someone who's held a line. Feralas will test that. So will I." },
+      text = "You carry yourself like someone who's held a line. Feralas will test that, and so will I." },
     { id = "n_kaldorei", cat = "race", when = { race = "NightElf" },
-      text = "Sister, or brother, of the kaldorei. The Sentinels can always use another. Think on it." },
+      text = "Sister, or brother, of the kaldorei: the Sentinels can always use another. Think on it." },
   },
 
   start = "hello",
@@ -27,10 +27,10 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Shandris Feathermoon, General of the Sentinels. This stronghold watches over Feralas for the High Priestess. The naga stir along the coast, and the ogres in the hills; we watch them both." },
         { id = "h_tyrande", when = { heardLine = "tyrande.h_default" },
-          text = "You've stood before the High Priestess. Then you know why I serve as I do. She found me when I had no one. I've never left her side since." },
-        { id = "h_night", when = { timeOfDay = "night" }, text = "Elune's light on the water. The naga hate it. That's reason enough for me to love it." },
+          text = "You've stood before the High Priestess, so you know why I serve as I do. She found me when I had no one, and I've never left her side since." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "Elune's light on the water. The naga hate it, and that's reason enough for me to love it." },
       },
-      again = { { id = "h_again", text = "Report, or ask. Either is useful." }, { id = "h_again2", text = "What else?" } },
+      again = { { id = "h_again", text = "Report, or ask; either is useful." }, { id = "h_again2", text = "What else?" } },
       choices = {
         { text = "What troubles Feralas?", next = "troubles" },
         { text = "The stronghold carries your name.", next = "name" },
@@ -70,7 +70,7 @@ P:NPC {
       },
     },
     name_like = {
-      lines = { { id = "nl_default", text = "The Watch. The Rock. Anything that sounds like it does its job and doesn't need thanking." } },
+      lines = { { id = "nl_default", text = "The Watch, or the Rock, or anything that sounds like it does its job and doesn't need thanking." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     tyrande = {
@@ -82,7 +82,7 @@ P:NPC {
       },
     },
     tyrande_debt = {
-      lines = { { id = "td_default", text = "It isn't a debt. Debts get paid off. This is a vow, and vows don't end." } },
+      lines = { { id = "td_default", text = "It isn't a debt, because debts get paid off. This is a vow, and vows don't end." } },
       choices = { { text = "Something else.", next = "BACK", fx = { align = { honor = 1 } } } },
     },
     watch = {
@@ -90,22 +90,22 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     archery = {
-      lines = { { id = "a_default", text = "That post, past the dock. The knot in the middle. One arrow. Don't hurry; I can tell when someone hurries." } },
+      lines = { { id = "a_default", text = "That post, past the dock, and the knot in the middle of it. One arrow, and don't hurry; I can tell when someone hurries." } },
       choices = {
         { text = "I take my time and loose.", next = "archery_hit", fx = { trait = { cautious = 1 } } },
         { text = "I loose at once.", next = "archery_miss", fx = { trait = { brave = 1 } } },
       },
     },
     archery_hit = {
-      lines = { { id = "ah_default", text = "Good. Not perfect. Good. You'd be welcome on the night watch, if you ever tire of wandering." } },
+      lines = { { id = "ah_default", text = "Good. Not perfect, but good. You'd be welcome on the night watch, if you ever tire of wandering." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2, standing = { feathermoon = 1 } } } },
     },
     archery_miss = {
-      lines = { { id = "am_default", text = "Fast. Wide. Feralas forgives neither. Again, next time you're here, and slower." } },
+      lines = { { id = "am_default", text = "Fast and wide, and Feralas forgives neither. Try again next time you're here, and slower." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     sentinels = {
-      lines = { { id = "s_default", text = "Then come back when you're ready to stand a watch and not just a fight. They're different things. Most learn that late." } },
+      lines = { { id = "s_default", text = "Then come back when you're ready to stand a watch and not just a fight. They're different things, and most learn that late." } },
       choices = { { text = "I'll be ready.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } } },
     },
     pratt = {
@@ -122,10 +122,10 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "The High Priestess raised me. The Sentinels taught me. Feralas is where I keep the promise I made to both.", next = "tyrande" } },
+    background = { { id = "tp_ba", text = "The High Priestess raised me and the Sentinels taught me, and Feralas is where I keep the promise I made to both.", next = "tyrande" } },
     advice = { { id = "tp_ad", text = "Keep the water at your back only if you can see what's in it. Here, you can't." } },
-    cenarion_circle = { { id = "tp_circle", text = "The druids heal the land. We keep it whole long enough for them to finish. It's a fair arrangement." } },
-    _none = { { id = "tp_none", text = "Not a matter for the Sentinels. Ask in Darnassus." } },
+    cenarion_circle = { { id = "tp_circle", text = "The druids heal the land, and we keep it whole long enough for them to finish. It's a fair arrangement." } },
+    _none = { { id = "tp_none", text = "That's not a matter for the Sentinels. Ask in Darnassus." } },
   },
 }
 
@@ -136,14 +136,14 @@ P:NPC {
   notices = { "craft", "class" },
 
   greetings = {
-    { id = "g_shop", text = "Well met! Leather, repairs, a kind word. Which can I do for you?" },
+    { id = "g_shop", text = "Well met! Leather, repairs, or a kind word: which can I do for you?" },
   },
 
   notice = {
     { id = "n_leather", cat = "craft", when = { profession = "Leatherworking" },
       text = "A leatherworker! Then I've a pattern or two you'll want to earn. Bring me proof of good work and we'll see." },
     { id = "n_paladin", cat = "class", when = { class = "PALADIN" },
-      text = "A paladin, out here! I swung a hammer for the Light longer than I care to count. Now I swing a needle. The Light doesn't seem to mind." },
+      text = "A paladin, out here! I swung a hammer for the Light longer than I care to count, and now I swing a needle. The Light doesn't seem to mind." },
   },
 
   start = "hello",
@@ -151,11 +151,11 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Pratt McGrubben. Mostly retired from paladin work, fully employed in leather. I patch whatever the Sentinels bring back torn." },
+          text = "Pratt McGrubben, mostly retired from paladin work and fully employed in leather. I patch whatever the Sentinels bring back torn." },
         { id = "h_quality", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("The Mark of Quality") }, { questActive = TODO_QUEST("Improved Quality") } } },
-          text = "Show me the hides, and I'll show you how to make something a Sentinel would be proud to wear. Quality takes patience. I've got plenty now." },
+          text = "Show me the hides, and I'll show you how to make something a Sentinel would be proud to wear. Quality takes patience, and I've got plenty of that now." },
       },
-      again = { { id = "h_again", text = "Anything else, friend? I'll keep stitching." } },
+      again = { { id = "h_again", text = "Anything else, friend? I'll keep stitching while you think." } },
       choices = {
         { text = "Show me your goods.", next = "BUSINESS" },
         { text = "Why did you retire?", next = "retire" },
@@ -173,7 +173,7 @@ P:NPC {
       },
     },
     retire_why = {
-      lines = { { id = "rw_default", text = "Knees, mostly. And a feeling that there were enough young paladins and not enough people who could fix their boots." } },
+      lines = { { id = "rw_default", text = "Knees, mostly, and a feeling that there were enough young paladins and not enough people who could fix their boots." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     human = {
@@ -185,7 +185,7 @@ P:NPC {
       choices = { { text = "Thank you.", next = "BACK", fx = { affinity = 2 } } },
     },
     light = {
-      lines = { { id = "li_default", text = "Every morning. It doesn't care what you're holding, hammer or needle. It cares what you do with it." } },
+      lines = { { id = "li_default", text = "Every morning. It doesn't care what you're holding, hammer or needle; it cares what you do with it." } },
       choices = { { text = "Something else.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } } },
     },
   },
@@ -210,7 +210,7 @@ P:NPC {
 
   notice = {
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
-      text = "You've come back from somewhere grey and far away. Sit. The Sentinels can spare you for an evening." },
+      text = "You've come back from somewhere grey and far away. Sit; the Sentinels can spare you for an evening." },
   },
 
   start = "hello",
@@ -220,9 +220,9 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Innkeeper Shyria. The Sentinels sleep in shifts, and every shift passes through my door. You're welcome among them." },
         { id = "h_jonespyre", when = { questActive = TODO_QUEST("Jonespyre's Request") },
-          text = "Quantas Jonespyre has a request. Go and hear him out; he'll explain." },
-        { id = "h_shift", when = { metBefore = true }, text = "The night shift came in soaked and laughing. Some ogre fell in the sea chasing them. Elune forgive me, I laughed too." },
-        { id = "h_night", when = { timeOfDay = "night" }, text = "The Sentinels change watch at this hour. Listen: no words, only the bows being passed. They've done it so long they don't need words." },
+          text = "Quantas Jonespyre has a request, so go and hear him out; he'll explain." },
+        { id = "h_shift", when = { metBefore = true }, text = "The night shift came in soaked and laughing, because some ogre fell in the sea chasing them. Elune forgive me, I laughed too." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "The Sentinels change watch at this hour. Listen: no words, only the bows being passed, because they've done it so long they don't need words." },
       },
       again = { { id = "h_again", text = "Anything else? The kettle's on." } },
       choices = {
@@ -237,7 +237,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     rain = {
-      lines = { { id = "r_default", text = "Once, for an afternoon, long ago. The whole island came out to look at the sky. Then it started again, and we all felt better." } },
+      lines = { { id = "r_default", text = "Once, for an afternoon, long ago, and the whole island came out to look at the sky. Then it started again, and we all felt better." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
@@ -245,7 +245,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I've kept this inn as long as the Sentinels have kept this island. Neither of us has thought of leaving." } },
     advice = { { id = "tp_ad", text = "Dry your bowstring before you sleep. The damp here warps everything but a Sentinel's patience." } },
-    _none = { { id = "tp_none", text = "I keep the inn. The General keeps the rest." } },
+    _none = { { id = "tp_none", text = "I keep the inn, and the General keeps the rest." } },
   },
 }
 
@@ -257,14 +257,14 @@ P:NPC {
   notices = { "class", "kit" },
 
   greetings = {
-    { id = "g_camp", text = "You want to help the Horde in Feralas? Good. Ogres. Kill ogres. That's how." },
+    { id = "g_camp", text = "You want to help the Horde in Feralas? Good, then kill ogres; that's how." },
   },
 
   notice = {
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
-      text = "A warrior. The Gordunni are big and stupid. Hit them where it hurts; that's everywhere if you hit hard enough." },
+      text = "A warrior, good. The Gordunni are big and stupid, so hit them where it hurts, and that's everywhere if you hit hard enough." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
-      text = "Ogre clubs do that. Get mended and go back. They don't stop, so we don't either." },
+      text = "Ogre clubs do that. Get mended and go back; they don't stop, so we don't either." },
   },
 
   start = "hello",
@@ -272,21 +272,21 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Rok Orhan. Belgrom Rockmaul sent me to break the Gordunni ogres of Feralas. They're many, they're foul, and they're nearly broken." },
+          text = "Rok Orhan. Belgrom Rockmaul sent me to break the Gordunni ogres of Feralas, and they're many, and foul, and nearly broken." },
         { id = "h_threat", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("A Threat in Feralas") }, { questActive = TODO_QUEST("The Ogres of Feralas") } } },
-          text = "The Gordunni hold the hills north of camp. Thin them. Every ogre you drop is one fewer club at our gate." },
+          text = "The Gordunni hold the hills north of camp, so thin them. Every ogre you drop is one fewer club at our gate." },
         { id = "h_ceremony", when = { questActive = TODO_QUEST("Dark Ceremony") },
-          text = "Their shamans are at some ritual. Dark work. Stop it before it finishes." },
+          text = "Their shamans are at some ritual, dark work. Stop it before it finishes." },
         { id = "h_scroll", when = { any = { { questActive = TODO_QUEST("The Gordunni Scroll") }, { questActive = TODO_QUEST("The Gordunni Orb") } } },
-          text = "The ogres are carrying scrolls and orbs. Bring them here. I want to know what an ogre's doing with writing." },
+          text = "The ogres are carrying scrolls and orbs, so bring them here. I want to know what an ogre's doing with writing." },
       },
       choices = { { text = "I'll fight.", next = "END", fx = { affinity = 2, trait = { brave = 1 }, standing = { mojache = 1 } } } },
     },
   },
 
   topics = {
-    grimtotem = { { id = "tp_grimtotem", text = "Tauren trouble. The tauren here watch for them. I watch for ogres." } },
-    _none = { { id = "tp_none", text = "Don't know. Is it an ogre? Then I'll learn." } },
+    grimtotem = { { id = "tp_grimtotem", text = "Tauren trouble. The tauren here watch for them, and I watch for ogres." } },
+    _none = { { id = "tp_none", text = "I don't know, but if it's an ogre, I'll learn." } },
   },
 }
 
@@ -297,12 +297,12 @@ P:NPC {
   notices = { "craft" },
 
   greetings = {
-    { id = "g_ore", text = "You look like someone who can carry rocks. Valuable rocks. Mysterious rocks!" },
+    { id = "g_ore", text = "You look like someone who can carry rocks: valuable rocks, mysterious rocks!" },
   },
 
   notice = {
     { id = "n_miner", cat = "craft", when = { profession = { "Mining", "Engineering" } },
-      text = "A miner! Have you ever seen Gordunni cobalt? Nobody has. Well, the ogres have. That's the problem." },
+      text = "A miner! Have you ever seen Gordunni cobalt? Nobody has, well, except the ogres, and that's the problem." },
   },
 
   start = "hello",
@@ -310,17 +310,17 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Orwin Gizzmick, here on Orgrimmar's business and a bit of my own. The ogres guard an ore up north nobody understands. I'd like to understand it. Then sell it." },
+          text = "Orwin Gizzmick, here on Orgrimmar's business and a bit of my own. The ogres guard an ore up north nobody understands, and I'd like to understand it. Then sell it." },
         { id = "h_cobalt", tags = { "news" }, when = { questActive = TODO_QUEST("Gordunni Cobalt") },
-          text = "Gordunni cobalt, from their compound. They guard it jealously. That's how you know it's worth something." },
-        { id = "h_rocks", when = { metBefore = true }, text = "I've got a sack of rocks under my bed that might be worth a fortune. Or might be rocks. Science is mostly waiting to find out." },
+          text = "Gordunni cobalt, from their compound. They guard it jealously, which is how you know it's worth something." },
+        { id = "h_rocks", when = { metBefore = true }, text = "I've got a sack of rocks under my bed that might be worth a fortune, or might be rocks. Science is mostly waiting to find out." },
       },
       choices = { { text = "I'll get you some.", next = "END", fx = { affinity = 1 } } },
     },
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Not a rock, not my business." } },
+    _none = { { id = "tp_none", text = "If it's not a rock, it's not my business." } },
   },
 }
 
@@ -331,13 +331,13 @@ P:NPC {
   notices = { "weary" },
 
   greetings = {
-    { id = "g_inn", text = "Come in, come in. Feralas is wide and wet and full of teeth. In here, it's just warm." },
+    { id = "g_inn", text = "Come in, come in! Feralas is wide and wet and full of teeth, but in here, it's just warm." },
     { id = "g_home", when = { homeInn = { "Camp Mojache" } }, text = "Welcome home to Mojache. The hides are dry and the kettle's on." },
   },
 
   notice = {
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
-      text = "You look worn thin as old hide. Sit. Nothing in Feralas can reach you for an hour." },
+      text = "You look worn thin as old hide. Sit; nothing in Feralas can reach you for an hour." },
   },
 
   start = "hello",
@@ -345,14 +345,14 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Innkeeper Greul. Braves, hunters, traders, all of them pass my fire. Mojache keeps travelers safe; I keep them fed." },
-        { id = "h_rain", when = { metBefore = true }, text = "Rain again. It always rains in Feralas. The ogres hate it. That's the only thing I like about it." },
+          text = "Innkeeper Greul. Braves, hunters, traders, all of them pass my fire, and while Mojache keeps travelers safe, I keep them fed." },
+        { id = "h_rain", when = { metBefore = true }, text = "Rain again; it always rains in Feralas. The ogres hate it, and that's the only thing I like about it." },
       },
       choices = { { text = "Just a rest, thank you.", next = "END" } },
     },
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "I keep the fire. Rok Orhan keeps the ogres away. Ask her." } },
+    _none = { { id = "tp_none", text = "I keep the fire, and Rok Orhan keeps the ogres away, so ask her." } },
   },
 }

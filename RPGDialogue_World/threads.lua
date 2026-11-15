@@ -22,25 +22,25 @@ P:Thread {
     {
       id = "b1_dust", npc = "remy",
       when = { thread = { id = "elwynn_gold", notBeat = "b1_dust" } },
-      text = "Nobody in Elwynn buys dust but me. Nobody but me! So why do the kobolds have less to sell every week?",
+      text = "Nobody in Elwynn buys dust but me, nobody but me! So why do the kobolds have less to sell every week?",
       fx = { thread = { id = "elwynn_gold", beat = "b1_dust", state = "stirring" }, hear = "remy_only_buyer", learn = { "gold_dust" } },
     },
     {
       id = "b2_riders", npc = "farley",
       when = { thread = { id = "elwynn_gold", notBeat = "b2_riders" } },
-      text = "Odd custom lately. A rider paid for a room in gold dust, then never slept in it. Rode east toward the pumpkin patch before dawn.",
+      text = "Odd custom lately: a rider paid for a room in gold dust, then never slept in it, and rode east toward the pumpkin patch before dawn.",
       fx = { thread = { id = "elwynn_gold", beat = "b2_riders", state = "stirring" }, learn = { "the_collector" } },
     },
     {
       id = "b3_schedule", npc = "dughan",
       when = { questDone = TODO_QUEST("The Collector") },
-      text = "A schedule of gold pickups. From my mines, under my nose. Whoever this Collector is, he isn't a kobold.",
+      text = "A schedule of gold pickups, from my mines, under my nose! Whoever this Collector is, he isn't a kobold.",
       fx = { thread = { id = "elwynn_gold", beat = "b3_schedule", state = "unfolding" } },
     },
     {
       id = "b4_after", npc = "remy",
       when = { questDone = TODO_QUEST("Manhunt"), thread = { id = "elwynn_gold", notBeat = "b4_after" } },
-      text = "Dust is flowing again. Flowing again! Whatever you did out east, the kobolds have more to sell.",
+      text = "The dust is flowing again, flowing again! Whatever you did out east, the kobolds have more to sell.",
       fx = { thread = { id = "elwynn_gold", beat = "b4_after", state = "resolved" } },
     },
   },
@@ -65,31 +65,31 @@ P:Thread {
     {
       id = "b1_dughan", npc = "dughan",
       when = { minLevel = 9, thread = { id = "westfall_left", notBeat = "b1_dughan" } },
-      text = "Westfall fed half the kingdom once. Now nobody goes there who doesn't have to. Gryan Stoutmantle holds Sentinel Hill with farmers.",
+      text = "Westfall fed half the kingdom once, and now nobody goes there who doesn't have to. Gryan Stoutmantle holds Sentinel Hill with farmers.",
       fx = { thread = { id = "westfall_left", beat = "b1_dughan", state = "stirring" }, learn = { "westfall" } },
     },
     {
       id = "b2_thomas", npc = "thomas",
       when = { minLevel = 9, thread = { id = "westfall_left", notBeat = "b2_thomas" } },
-      text = "The city sends Westfall nothing. Not a sword. Anyone heading west gets my blessing, and my pity.",
+      text = "The city sends Westfall nothing, not a single sword. Anyone heading west gets my blessing, and my pity.",
       fx = { thread = { id = "westfall_left", beat = "b2_thomas", state = "stirring" } },
     },
     {
       id = "b3_danuvin", npc = "danuvin",
       when = { thread = { id = "westfall_left", notBeat = "b3_danuvin" } },
-      text = "You came from Elwynn. Did anyone there say they were sorry? No. They never do.",
+      text = "You came from Elwynn. Did anyone there say they were sorry? No, they never do.",
       fx = { thread = { id = "westfall_left", beat = "b3_danuvin", state = "unfolding" }, hear = "stormwind_abandoned_westfall" },
     },
     {
       id = "b4_salma", npc = "salma",
       when = { thread = { id = "westfall_left", notBeat = "b4_salma" } },
-      text = "The city forgot us. Fine. We'll remember for both of us what this land's for. Here. Eat.",
+      text = "The city forgot us, and fine, let it; we'll remember for both of us what this land's for. Here, eat something.",
       fx = { thread = { id = "westfall_left", beat = "b4_salma", state = "unfolding" } },
     },
     {
       id = "b5_bolvar", npc = "bolvar",
       when = { thread = { id = "westfall_left", beat = "b3_danuvin" } },
-      text = "Westfall. Yes. The kingdom is stretched thinner than any of us would like, and my council urges patience. I mislike it. I mislike it more than they know.",
+      text = "Westfall, yes. The kingdom is stretched thinner than any of us would like, and my council urges patience. I mislike it, and I mislike it more than they know.",
       fx = { thread = { id = "westfall_left", beat = "b5_bolvar" } },
     },
     {
@@ -101,7 +101,7 @@ P:Thread {
     {
       id = "b6_gryan", npc = "gryan",
       when = { deed = "dungeon:The Deadmines", thread = { id = "westfall_left", notBeat = "b6_gryan" } },
-      text = "You walked the Deadmines and came back. No order from the Keep ever did that much for us. Westfall will remember who came.",
+      text = "You walked the Deadmines and came back, and no order from the Keep ever did that much for us. Westfall will remember who came.",
       fx = { thread = { id = "westfall_left", beat = "b6_gryan", state = "resolved" }, standing = { sentinel_hill = 5 } },
     },
   },
@@ -127,19 +127,19 @@ P:Thread {
     {
       id = "b1_solomon", npc = "solomon",
       when = { minLevel = 15, thread = { id = "solomons_letters", notBeat = "b1_solomon" } },
-      text = "Stormwind. Westfall. Darkshire. If ink were soldiers, Lakeshire would be the best-defended town in the kingdom.",
+      text = "Stormwind, Westfall, Darkshire: I've written to them all. If ink were soldiers, Lakeshire would be the best-defended town in the kingdom.",
       fx = { thread = { id = "solomons_letters", beat = "b1_solomon", state = "stirring" }, learn = { "blackrock" } },
     },
     {
       id = "b2_gryan", npc = "gryan",
       when = { questDone = TODO_QUEST("Messenger to Westfall"), thread = { id = "solomons_letters", notBeat = "b2_gryan" } },
-      text = "Solomon's letter. I read it twice. If I send men to Lakeshire, Westfall falls by spring. He'll understand. I hope he'll understand.",
+      text = "I've read Solomon's letter twice. If I send men to Lakeshire, Westfall falls by spring, and he'll understand. I hope he'll understand.",
       fx = { thread = { id = "solomons_letters", beat = "b2_gryan", state = "unfolding" } },
     },
     {
       id = "b3_katrana", npc = "katrana",
       when = { thread = { id = "solomons_letters", beat = "b1_solomon" } },
-      text = "Lakeshire again. The magistrate has a lovely hand. One almost hates to tell him no. Almost.",
+      text = "Lakeshire again. The magistrate has a lovely hand, and one almost hates to tell him no. Almost.",
       fx = { thread = { id = "solomons_letters", beat = "b3_katrana" }, hear = "prestor_patience" },
     },
     {
@@ -151,13 +151,13 @@ P:Thread {
     {
       id = "b5_daniels", npc = "daniels",
       when = { thread = { id = "solomons_letters", beat = "b1_solomon" } },
-      text = "Every rider the magistrate sends comes back through my bar first. Thirsty, and empty-handed. I could set my calendar by them.",
+      text = "Every rider the magistrate sends comes back through my bar first, thirsty and empty-handed. I could set my calendar by them.",
       fx = { thread = { id = "solomons_letters", beat = "b5_daniels" } },
     },
     {
       id = "b7_ello", npc = "ello",
       when = { questDone = TODO_QUEST("Messenger to Darkshire") },
-      text = "Solomon asked me for soldiers. Me. I've got a Night Watch made of bakers. I sent him my sympathy and a list of my own troubles. It was a long list.",
+      text = "Solomon asked me for soldiers, me, and I've got a Night Watch made of bakers. I sent him my sympathy and a list of my own troubles, and it was a long list.",
       fx = { thread = { id = "solomons_letters", beat = "b7_ello", state = "unfolding" } },
     },
     {
@@ -189,31 +189,31 @@ P:Thread {
     {
       id = "b1_smitts", npc = "smitts",
       when = { minLevel = 22, thread = { id = "stalvan", notBeat = "b1_smitts" } },
-      text = "I keep a box of mud-stained pages under the bar. Ask me why sometime. Ask me on a quiet night.",
+      text = "I keep a box of mud-stained pages under the bar. Ask me why sometime, on a quiet night.",
       fx = { thread = { id = "stalvan", beat = "b1_smitts", state = "stirring" }, learn = { "stalvan" } },
     },
     {
       id = "b2_haggard", npc = "haggard",
       when = { thread = { id = "stalvan", beat = "b1_smitts" } },
-      text = "Smitts still has those pages? Of course he does. We worked that murder for a season, he and I. The papers in my attic came with this house. The same house. I've never liked thinking about that.",
+      text = "Smitts still has those pages? Of course he does. We worked that murder for a season, he and I. The papers in my attic came with this house, the same house, and I've never liked thinking about that.",
       fx = { thread = { id = "stalvan", beat = "b2_haggard", state = "unfolding" } },
     },
     {
       id = "b3_farley", npc = "farley",
       when = { thread = { id = "stalvan", beat = "b1_smitts" } },
-      text = "The man from Darkshire who keeps asking about our old guest? Smitts. He writes every year or so. I tell him the same thing every time. Quiet fellow, paid in coin, kept to himself.",
+      text = "The man from Darkshire who keeps asking about our old guest? That's Smitts, and he writes every year or so. I tell him the same thing every time: quiet fellow, paid in coin, kept to himself.",
       fx = { thread = { id = "stalvan", beat = "b3_farley" } },
     },
     {
       id = "b4_eva", npc = "eva",
       when = { thread = { id = "stalvan", beat = "b2_haggard" } },
-      text = "The cards have been turning up the Tutor all week. He's waiting for someone. It may as well be you.",
+      text = "The cards have been turning up the Tutor all week. He's waiting for someone, and it may as well be you.",
       fx = { thread = { id = "stalvan", beat = "b4_eva", state = "unfolding" } },
     },
     {
       id = "b5_althea", npc = "althea",
       when = { visited = "Manor Mistmantle", thread = { id = "stalvan", beat = "b1_smitts" } },
-      text = "You've been up to the manor. Don't tell me what you saw. Tell Smitts. He's waited longer than anyone.",
+      text = "You've been up to the manor. Don't tell me what you saw; tell Smitts. He's waited longer than anyone.",
       fx = { thread = { id = "stalvan", beat = "b5_althea", state = "resolved" }, standing = { darkshire = 3 } },
     },
   },
@@ -241,7 +241,7 @@ P:Thread {
     {
       id = "b1_dendrite", npc = "dendrite",
       when = { class = "DRUID", thread = { id = "the_circle", notBeat = "b1_dendrite" } },
-      text = "The Keeper asked after you yesterday. By name. He doesn't ask after many young druids. Go and see him at the shrine when you can.",
+      text = "The Keeper asked after you yesterday, by name, and he doesn't ask after many young druids. Go and see him at the shrine when you can.",
       fx = { thread = { id = "the_circle", beat = "b1_dendrite", state = "stirring" }, learn = { "cenarion_circle" } },
     },
     {
@@ -259,13 +259,13 @@ P:Thread {
     {
       id = "b3_terenthis", npc = "terenthis",
       when = { class = "DRUID", thread = { id = "the_circle", beat = "b2_remulos" } },
-      text = "The Keeper's druid! He wrote that you might come. Look at this moss, then. Look closely. Tell him what you see, because I've run out of ways to say it.",
+      text = "The Keeper's druid! He wrote that you might come. Look at this moss, then, and look closely. Tell him what you see, because I've run out of ways to say it.",
       fx = { thread = { id = "the_circle", beat = "b3_terenthis" } },
     },
     {
       id = "b4_hamuul", npc = "hamuul",
       when = { class = "DRUID", any = { { thread = { id = "the_circle", beat = "b3_tonga" } }, { thread = { id = "the_circle", beat = "b3_terenthis" } } } },
-      text = "Remulos writes that you've seen the sick places with your own eyes. Good. Go and tell him yourself. He listens better to the ones who've walked it.",
+      text = "Remulos writes that you've seen the sick places with your own eyes. Good; go and tell him yourself. He listens better to the ones who've walked it.",
       fx = { thread = { id = "the_circle", beat = "b4_hamuul" } },
     },
     {
@@ -305,20 +305,20 @@ P:Thread {
     {
       id = "b1_gray", npc = "gray",
       when = { minLevel = 35, thread = { id = "farholde_lost", notBeat = "b1_gray" } },
-      text = "Been up at the keep? Read Fern's stone? 'Presumed dead.' Presumed. I've been presuming otherwise for years, and I'm not tired yet.",
+      text = "Been up at the keep and read Fern's stone? It says 'Presumed dead', and I've been presuming otherwise for years, and I'm not tired of it yet.",
       fx = { thread = { id = "farholde_lost", beat = "b1_gray", state = "stirring" }, learn = { "fern_crimsonleaf" }, hear = "fern_lives" },
     },
     {
       id = "b2_ashe", npc = "ashe",
       when = { any = { { thread = { id = "farholde_lost", beat = "b1_gray" } }, { bookRead = "Fern Crimsonleaf" } },
                ["not"] = { thread = { id = "farholde_lost", beat = "b2_ashe" } } },
-      text = "Fern? My father used to say she could vanish in a lit room. He said it fondly. Looking back, I think he also said it as a warning.",
+      text = "Fern? My father used to say she could vanish in a lit room, and he said it fondly, though looking back, I think he also said it as a warning.",
       fx = { thread = { id = "farholde_lost", beat = "b2_ashe", state = "unfolding" } },
     },
     {
       id = "b3_cady", npc = "cady",
       when = { thread = { id = "farholde_lost", beat = "b2_ashe" }, ["not"] = { thread = { id = "farholde_lost", beat = "b3_cady" } } },
-      text = "You're asking about Fern Crimsonleaf. Don't ask the Commander. He commanded that night, and everything that happened in it is his to carry.",
+      text = "You're asking about Fern Crimsonleaf. Don't ask the Commander; he commanded that night, and everything that happened in it is his to carry.",
       fx = { thread = { id = "farholde_lost", beat = "b3_cady" } },
     },
     {
@@ -360,7 +360,7 @@ P:Thread {
       id = "b2_anton", npc = "anton",
       when = { any = { { thread = { id = "scarlet_path", beat = "b1_crowley" } }, { questDone = TODO_QUEST("Brother Anton") } },
                ["not"] = { thread = { id = "scarlet_path", beat = "b2_anton" } } },
-      text = "Prove yourself in the valley and I'll send you to Raleigh the Devout, in Southshore, a true son of the Crusade. He writes less often than he used to. Busy, I expect.",
+      text = "Prove yourself in the valley and I'll send you to Raleigh the Devout, in Southshore, a true son of the Crusade. He writes less often than he used to; busy, I expect.",
       fx = { thread = { id = "scarlet_path", beat = "b2_anton", state = "unfolding" }, learn = { "raleigh" } },
     },
     {
@@ -373,7 +373,7 @@ P:Thread {
     {
       id = "b4_tyrosus", npc = "tyrosus",
       when = { thread = { id = "scarlet_path", beat = "b3_raleigh" }, ["not"] = { thread = { id = "scarlet_path", beat = "b4_tyrosus" } } },
-      text = "You found Raleigh. Some of us left the Hand before it became the Crusade; some, like him, left after. I don't rank them. The Dawn has room for both.",
+      text = "You found Raleigh. Some of us left the Hand before it became the Crusade, and some, like him, left after. I don't rank them; the Dawn has room for both.",
       fx = { thread = { id = "scarlet_path", beat = "b4_tyrosus" } },
     },
   },

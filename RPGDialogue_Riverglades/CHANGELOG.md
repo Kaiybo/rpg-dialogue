@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.3.0 (unreleased)
+- Voice pass: everyone at Farholde, the logging camp, Wheeler's Grange and Powderfuse Port now talks in whole sentences instead of clipped fragments, in their own voices; nothing they say has changed.
+
 ## 1.2.0 (unreleased)
 - For a priest: bless Demar Brant's riders at dawn. Sister Rowland asks a priest in Shadowform to step out of it near the sick.
 
