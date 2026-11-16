@@ -745,7 +745,7 @@ P:NPC {
         { text = "Why 'the Road Warrior'?", next = "name" },
         { text = "Do the Sandfury ever drink here?", next = "x_troll", when = { race = "Troll" } },
         { text = "Who cooks for the Road Warrior?", next = "kitchen" },
-        { text = "Horde and Alliance drink here together?", next = "both", when = { level = { min = 40 } } },
+        { text = "Horde and Alliance drink here together?", next = "both", when = { minLevel = 40 } },
         { text = "Just a drink, thanks.", next = "END" },
       },
     },

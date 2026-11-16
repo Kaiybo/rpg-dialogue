@@ -12,3 +12,4 @@
 
 pack.lua
 npcs\feralas.lua
+npcs\wilds.lua

@@ -252,7 +252,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Dirge Quikcleave, greatest living chef in all of Azeroth, and the living part matters, because the competition keeps dying in the desert. Water's short in Gadgetzan, but meat isn't, so what'll it be?" },
-        { id = "h_chops_before", when = { level = { min = 58 }, questBefore = TODO_QUEST("Dirge's Kickin' Chimaerok Chops") },
+        { id = "h_chops_before", when = { minLevel = 58, questBefore = TODO_QUEST("Dirge's Kickin' Chimaerok Chops") },
           text = "You look like somebody who goes to dangerous places, and I've got a recipe that needs a dangerous place. Chimaerok, friend, off the Isle of Dread, and nobody's tasted it the way I cook it." },
         { id = "h_chops_during", tags = { "news" }, when = { questActive = TODO_QUEST("Dirge's Kickin' Chimaerok Chops") },
           text = "The Isle of Dread's off the Feralas coast, and the chimaerok there are the size of houses and twice as mean. Bring me their tenderloins, and the rest of the recipe's my secret." },
@@ -268,7 +268,7 @@ P:NPC {
         { text = "Let's see what you're selling.", next = "BUSINESS" },
         { text = "Where does the meat come from?", next = "meat" },
         { text = "Greatest living chef? Says who?", next = "boast" },
-        { text = "Tell me about these chimaerok chops.", next = "chops", when = { level = { min = 55 } } },
+        { text = "Tell me about these chimaerok chops.", next = "chops", when = { minLevel = 55 } },
         { text = "Any tips for a fellow cook?", next = "cook", when = { profession = "Cooking" } },
         { text = "Goodbye.", next = "END" },
       },
@@ -425,7 +425,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Trenton Lighthammer, smith. I work here by the south gate because it's nearest the road to Zul'Farrak, and the trolls of that city have something I need for my craft." },
-        { id = "h_before", when = { level = { min = 42 }, questBefore = TODO_QUEST("Troll Temper") },
+        { id = "h_before", when = { minLevel = 42, questBefore = TODO_QUEST("Troll Temper") },
           text = "You have the look of someone who could walk into Zul'Farrak and walk out again. The Sandfury carry a temper in vials, a troll-made thing for treating steel, and I'd pay well for it." },
         { id = "h_during", tags = { "news" }, when = { questActive = TODO_QUEST("Troll Temper") },
           text = "Twenty vials of their temper is what I need, and the Sandfury carry it on their persons, not in some storeroom. You'll have to take it from them, one troll at a time." },
@@ -524,7 +524,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Yeh'kinya, they call me, and I sit here by the water and study the old gods of my people. My eyes are tired and my hands shake from the drink, but the spirits still talk to me, mon." },
-        { id = "h_screech_before", when = { level = { min = 42 }, questBefore = TODO_QUEST("Screecher Spirits") },
+        { id = "h_screech_before", when = { minLevel = 42, questBefore = TODO_QUEST("Screecher Spirits") },
           text = "The screechers of Feralas are cousins to an old god of the trolls, and their spirits remember him. Bring me a few of those spirits, and I'll tell you a story most outsiders never hear." },
         { id = "h_screech_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Screecher Spirits"), days = 3 } },
           text = "The screecher spirits are restless in their jar, mon, and that's a good sign. Now Yeh'kinya can tell you of Hakkar, the Soulflayer." },
