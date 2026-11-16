@@ -41,6 +41,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "She does, and she always has. The Sentinels walk in shadow under her moon, and when Azshara's palace fell, it was quiet hands as much as loud blades that got our people out alive. Only remember that the dark hides a blade and a betrayal equally well, and choose which one you carry." },
+      },
+      choices = {
+        { text = "I'll carry the blade, High Priestess, never the betrayal.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Betrayal is just a blade aimed elsewhere. I choose my own targets.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "Because the Alliance asked us to, and because I have seen what happens when my people refuse to listen to anyone. But I fought the Legion beneath the walls of Zin-Azshari and again at Mount Hyjal, and I have watched what demons do to those who call them servants, so I will pray for you, and I will watch you." },
+      },
+      choices = {
+        { text = "Then watch. I'll give you no reason to raise a bow.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Your fear is ten thousand years old. My craft is not.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     mage_t = {
       big = true,
       lines = {
@@ -109,9 +131,11 @@ P:NPC {
         { id = "h_alathea", when = { class = "PRIEST", race = { "Human", "Dwarf", "Gnome" } },
           text = "Alathea has trained a few of your Church's young priests in this temple. She tells me you pray loudly and heal well, and I approve of at least one of those." },
         { id = "h_night", when = { timeOfDay = "night" },
+          text = "The moon is up, and this is Elune's hour rather than the petitioners'. You are fortunate that I am still listening." },
         { id = "h_warm", when = { disposition = { min = 75 } },
           text = "You return, and I find I am glad of it, which is rarer in this temple than you might think. Speak freely, friend of the kaldorei." },
-          text = "The moon is up, and this is Elune's hour rather than the petitioners'. You are fortunate that I am still listening." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You walk softly, and I notice it, because the Sentinels taught me to. Elune's priestesses have hidden in the dark for ten thousand years, so I don't think less of anyone who does the same for a good cause." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "The thing you have bound to you stands in my temple, warlock, and I am letting it. Do not mistake that for welcome." },
       },
       again = {
         { id = "h_again", text = "What else? The Sentinels report at moonrise, and I mean to hear them." },
@@ -131,6 +155,8 @@ P:NPC {
         { text = "I study the arcane, High Priestess.", next = "mage_t", when = { class = "MAGE" } },
         { text = "I fight with a blade. Where am I needed?", next = "warrior_t", when = { class = "WARRIOR" } },
         { text = "The Explorers' League digs your ruins in Darkshore.", next = "dwarf_t", when = { race = "Dwarf" } },
+        { text = "Does Elune have any use for one who works unseen?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Why do you tolerate me at all, High Priestess?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Elune be with you.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -394,6 +420,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "The Circle needs a great many things, and not all of them can be asked for in council. There are those in Darnassus who question how I tend this tree, and I would rather know what they whisper before they whisper it to Tyrande." },
+      },
+      choices = {
+        { text = "I don't spy on our own people, Archdruid.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Name them, and I'll learn what they say.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hunter_f = {
       lines = {
         { id = "hf_default", text = "Everyone keeps the balance these days, if you ask them. A hunter takes from the forest and a druid becomes it, so do not mistake the one for the other in my Enclave." },
@@ -457,9 +494,10 @@ P:NPC {
         { id = "h_priest", when = { class = "PRIEST" },
           text = "A priest? The Temple is across the gardens. If the High Priestess sent you to watch me, it is still across the gardens." },
         { id = "h_human", when = { race = "Human" },
+          text = "A human in the Enclave; Malfurion always held the doors too wide. Well, you are in now, so be useful." },
         { id = "h_cold", when = { disposition = { max = 34 } },
           text = "You again, and no more welcome than the last time. Say what you came to say and let me return to work that matters." },
-          text = "A human in the Enclave; Malfurion always held the doors too wide. Well, you are in now, so be useful." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue, in the Cenarion Enclave. I hope you came to listen, because there's nothing on these branches worth stealing." },
       },
       again = {
         { id = "h_again", text = "Well? Something else, or are we finished?" },
@@ -477,6 +515,7 @@ P:NPC {
         { text = "My nightsaber and I keep the balance too, Archdruid.", next = "hunter_f", when = { class = "HUNTER" } },
         { text = "The arcane could heal this tree faster.", next = "mage_f", when = { class = "MAGE" } },
         { text = "I've seen what the fel does to a forest.", next = "warlock_f", when = { class = "WARLOCK" } },
+        { text = "Does the Circle ever need work done quietly, Archdruid?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -649,6 +688,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Because they remember the Well of Eternity, and the Highborne who drank from it until they couldn't stop. I don't hold your craft against you, but I knew some of those Highborne before they went mad, and I'd ask you to keep a careful measure of what you take." },
+      },
+      choices = {
+        { text = "I'll keep the measure. I've no wish to repeat their mistake.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The Highborne failed. That doesn't mean the arcane did.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "I have walked through Felwood, which was Ashenvale's green heart before the Legion's taint soaked into it, and the trees there still weep. Druids are healing it one grove at a time, and I'd thank you not to make us start over in Teldrassil." },
+      },
+      choices = {
+        { text = "I'll keep my servants far from these groves.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Felwood was the Legion's doing. My power answers to me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     claw_w = {
       lines = {
         { id = "cw_default", text = "You hold the line with a shield you can put down, and we hold it with a body we have to remember to take off. Some of the first Druids of the Claw forgot how, long ago, which is why I teach the heart before the claws." },
@@ -684,6 +745,8 @@ P:NPC {
         { id = "h_questions", when = { metBefore = true, class = "DRUID" }, text = "Every druid who passes through the Enclave leaves something behind, usually a question. Yours are good ones, so keep asking them." },
         { id = "h_cat", tags = { "news" }, when = { questActive = TODO_QUEST("The Great Cat Spirit") },
           text = "The Great Cat Spirit sets each generation its own trial. I can't tell you what yours will be. I can tell you it plays before it bites." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "You carry the smell of the arcane in here, {class}, like smoke in a cloak. Nobody will say anything, but the older druids will step a little to one side." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I trained bears for the Archdruid when he still listened to me, warlock, and every one of them is growling at you right now in my head." },
       },
       again = {
         { id = "h_again", text = "Ask on. The young ones' questions are the best part of my day." },
@@ -696,6 +759,8 @@ P:NPC {
         { text = "What's wrong in Auberdine?", next = "auberdine" },
         { text = "What can a priest learn from a druid?", next = "healers", when = { class = "PRIEST" } },
         { text = "Bear and warrior both stand in front. What's the difference?", next = "claw_w", when = { class = "WARRIOR" } },
+        { text = "Why do the old druids step aside from a mage?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Have you ever seen what a demon does to a forest?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -780,6 +845,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Not strange at all, child. Shadow belongs to Elune as much as moonlight does, and the ones who live in it often need her quiet more than anyone, so come whenever you like and leave your daggers by the door." },
+      },
+      choices = {
+        { text = "Then I'll leave them, and rest a while.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My daggers stay where I can reach them, Priestess.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Because our grandmothers' grandmothers loved magic so much they nearly unmade the world for it, and the sea still covers what they lost. You aren't to blame for the Highborne, of course, but you'll find that the old grief is slow to fade here." },
+      },
+      choices = {
+        { text = "I'll carry my magic gently while I'm among you.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Your grief isn't mine to carry, Priestess.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     gnome_a = {
       lines = {
         { id = "ga_default", text = "You carry it with you, little star; you look up at the branches as if you were checking for the ceiling. My people lost our home too, when the Well fell, and I can tell you the moon finds you wherever you end up." },
@@ -803,6 +890,8 @@ P:NPC {
           text = "The fountain took Sathrah's sacrifice. I like to think she spins again somewhere, in kinder moonlight." },
         { id = "h_light", when = { class = "PRIEST", race = { "Human", "Dwarf", "Gnome" } },
           text = "A priest of the Light, by our pool! Alathea teaches your kind sometimes. She says you pray as if someone might not be listening. Someone always is, little star." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You came in very quietly, and the pool barely rippled. Sit down if you like, because nobody is watching you here except the moon." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "Welcome, {class}. The water here is only water, I'm afraid, and it won't answer to any spell, but it's lovely to look at." },
       },
       again = {
         { id = "h_again", text = "What else, little star?" },
@@ -815,6 +904,8 @@ P:NPC {
         { text = "Does Elune hear a priest of the Light?", next = "light",
           when = { class = "PRIEST", ["not"] = { race = "NightElf" } } },
         { text = "I'm a long way from Gnomeregan, Priestess.", next = "gnome_a", when = { race = "Gnome" } },
+        { text = "Is it strange for a rogue to come to the temple?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Why are your people so wary of mages?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Thank you, Priestess.", next = "END" },
       },
     },
@@ -918,6 +1009,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Demons, for one, which first came because Queen Azshara's Highborne opened the way for them through the Well. There are also stranger things in the corners of Azshara and Felwood that I can't yet name, and so I'd like you to remember that every door your magic opens may be found by something else." },
+      },
+      choices = {
+        { text = "I'll close every door behind me, then.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If something comes through, I'll study it too.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "I could learn a great deal, and I will admit the temptation, but the Highborne began by studying too. I will read about your servant in old books written by those who fought them, and I'll leave it to you whether you end up in the next one." },
+      },
+      choices = {
+        { text = "Then I'll make sure the books speak kindly of me.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Your old books were written by losers of the argument.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hunter_g = {
       lines = {
         { id = "hg_default", text = "Then tell me this, hunter: did one ever run from you? Wolves scatter when the leader falls and boars bolt when they're hurt, but I've never once read of a silithid turning back, and that frightens me more than the mandibles." },
@@ -946,6 +1059,8 @@ P:NPC {
           text = "You've met the Archdruid, then. He thinks my insects are a scholar's hobby, and he is very certain of it, but then, so was the hive." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "Another priest. People forget the Sisterhood studies as well as prays. Someone ought to write down everything that crawls under the moon." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, and you've arrived at a fitting moment. I've been reading about creatures that the arcane drew here from elsewhere, and none of them are kind." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I study creatures that do not belong in this world, warlock, and I can see one standing behind you. I'd rather it didn't come any closer to my notes." },
       },
       again = {
         { id = "h_again", text = "Go on, but mind the jar on your left; it bites." },
@@ -958,6 +1073,8 @@ P:NPC {
         { text = "I carried that report. What now?", next = "silithid_done", when = { questDone = TODO_QUEST("Rise of the Silithid") } },
         { text = "A priestess who studies insects?", next = "priest_g", when = { class = "PRIEST" } },
         { text = "I've tracked beasts across Kalimdor. These insects too.", next = "hunter_g", when = { class = "HUNTER" } },
+        { text = "What creatures does the arcane draw into this world?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Couldn't you learn more about demons from a warlock?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good luck with your studies.", next = "END" },
       },
     },
@@ -1060,6 +1177,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Because it opens onto the branches and nobody watches it, and the last rogue who stayed here asked for it before she even asked for supper. I don't ask what my guests do with their windows, only that they pay for the room and don't use it for a door." },
+      },
+      choices = {
+        { text = "I'll come and go by the front, like an honest guest.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A window's a door if you're brave enough. I'll take it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Not trouble, exactly, but careless, the way people get when they can make fire out of nothing. My guests come up from Rut'theran tired and frightened of the height, so I'd ask you to keep your magic to yourself under my roof and let them sleep." },
+      },
+      choices = {
+        { text = "I'll keep it quiet. Your guests deserve their rest.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "If it keeps a guest warm, I'll cast it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Saelienne. I keep the inn on the Craftsmen's Terrace. Travellers come up from the boats looking lost. I make sure they leave looking rested." },
@@ -1067,6 +1206,8 @@ P:NPC {
           text = "You'll sleep well up here, I think. Your people are used to the ground being a long way down." },
         { id = "h_louder", when = { metBefore = true }, text = "A young Sentinel once asked me what the world below the tree was like, and I told her it was louder. She looked so disappointed." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "The city's quietest now. Listen and you'll hear the branches settle, like an old house." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You've come up the stairs without a sound, so either you're a rogue or the boards have finally stopped creaking. Shall I give you the room by the back window?" },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A human mage or a gnome one, I can never quite tell from the stairs, but you're both welcome here. Just don't light the candles with a spell, because the last one who tried singed my curtains." },
       },
       again = {
         { id = "h_again", text = "Anything else? There's moonberry juice, if you're staying." },
@@ -1075,6 +1216,8 @@ P:NPC {
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "How do outsiders find Darnassus?", next = "outsiders" },
         { text = "What's the talk on the Terrace?", next = "talk" },
+        { text = "Why would a rogue want the back window?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Are mages often trouble at your inn?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Just resting.", next = "END" },
       },
     },

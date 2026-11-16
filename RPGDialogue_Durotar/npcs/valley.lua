@@ -24,6 +24,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "It does, and Thrall himself owes his freedom partly to quiet work done in the dark. Learn your trade with Kaplak in Razor Hill when you're ready, but first do the work Gornek gives you, because every recruit starts there." },
+      },
+      choices = {
+        { text = "I'll start with Gornek's work, like everyone else.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Quiet work is my work. Gornek's chores can wait.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Some do, and some remember too much of the fel to trust any magic they can't feel in the earth. Show them your fire burns the Blade and not the Horde, and you'll win them over sooner than you think." },
+      },
+      choices = {
+        { text = "I'll show them. My fire's for the Horde.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Their trust doesn't matter. My spells work either way.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Quiet, and not the good kind. We had the warlocks and their demons, and then the camps, and then nothing at all, and an orc with nothing to pray to is an orc who drinks. Thrall gave us the spirits back, and I'll not hear a word against him for it." } },
@@ -41,6 +63,8 @@ P:NPC {
           text = "Gornek's in the Den, the cave just ahead. Tell him Kaltunk sent you, and stand up straight when you do." },
         { id = "h_dust", when = { metBefore = true }, text = "I came off a ship with nothing but my axe and Durotar's dust in my teeth, and that was enough. It's enough for you too." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, walking into the valley. When I came off the ship there wasn't an orc among us who'd talk to the spirits, and now the Warchief sends your kind to me by the dozen." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue, fresh to the Valley. Don't try your tricks on Gornek, because he catches every one, and he'll make you carry water for it." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, fresh to the Valley. You'll want Un'Thuwa in Sen'jin village eventually, but every recruit starts with Gornek." },
       },
       choices = {
         { text = "What was it like when the orcs had no shamans?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -48,6 +72,8 @@ P:NPC {
         { text = "What happens in the valley?", next = "valley" },
         { text = "Do the Darkspear get the same welcome as orcs?", next = "troll", when = { race = "Troll" } },
         { text = "I was born in the camps too.", next = "campborn", when = { origin = "orc_camp_born" } },
+        { text = "Does the Horde truly have a place for rogues?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Do the orcs here trust the arcane at all?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "I'm on my way.", next = "END" },
       },
       again = {
@@ -116,6 +142,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Same work, different approach, because the Den doesn't care how you get it done. Kill what needs killing and bring back what I ask for, and nobody in the Valley will ask whether you did it in the open." },
+      },
+      choices = {
+        { text = "Same work, done honestly. I'll not cut corners.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "However it gets done, it gets done. That's all.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "That you can tell the spirits' voice from your own anger. The ones who drank Mannoroth's blood thought the power was theirs, and the whole Horde paid for their pride, so I'll be watching to see that you ask before you take." } },
@@ -136,6 +173,7 @@ P:NPC {
         { id = "h_parchment", when = { any = { { questActive = TODO_QUEST("Glyphic Parchment") }, { questActive = TODO_QUEST("Tainted Tablet") } } },
           text = "Your trainer left word for you. Read it, then go and find them. The Horde has a place for what you can do." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, out of my Den. The first lesson still holds for you, because the spirits won't pick you up when you fall, so learn to get up yourself." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "Rogue. Every season I get a few who think the Den's for warriors only, and every season they prove me wrong somewhere in the scrub." },
       },
       choices = {
         { text = "What should a young shaman prove to you, Gornek?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -144,6 +182,7 @@ P:NPC {
         { text = "I'm no cultist, Gornek. My power answers to me.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "An orc with a spellbook. Say what you're thinking.", next = "orcmage", when = { race = "Orc", class = "MAGE" } },
         { text = "My people hunted the jungles long before this valley.", next = "headhunter", when = { race = "Troll", class = "HUNTER" } },
+        { text = "Will you give a rogue the same work as a warrior?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "I'll get to work.", next = "END", fx = { affinity = 1, standing = { valley_of_trials = 1 } } },
       },
       again = {
@@ -242,6 +281,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Their numbers, and the name of whoever leads them, though I suspect it's Yarrog Baneshadow. Bring me what you learn, and don't start a fight you can't finish, because the imps in there swarm the careless." },
+      },
+      choices = {
+        { text = "Numbers and a name. I'll report back carefully.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll finish Yarrog myself if I get the chance.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "It could, because the Blade's imps burn just as well as anything else. I keep my own demons watching them too, though, so don't be surprised if I trust my own hand over yours in the end." },
+      },
+      choices = {
+        { text = "Fair. Together, we'll keep the Valley safe.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "My hand will be the one that ends it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -252,11 +313,15 @@ P:NPC {
           text = "Their leader in the coven wears a medallion. Bring it to me. I want to see whose mark is on it." },
         { id = "h_senjin", when = { questActive = TODO_QUEST("Report to Sen'jin Village") },
           text = "Your time in the valley is done. Go south to Sen'jin and find Master Gadrin, and try not to embarrass us." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue! Good, because the Burning Blade have sentries in the caves and I need someone who can get past them unseen." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, out here watching the caves with me? Your magic is a cleaner thing than the Blade's, and I'll be glad of it beside me." },
       },
       choices = {
         { text = "Who are the Burning Blade?", next = "blade" },
         { text = "You draw on the same power the Blade do, don't you?", next = "warlock", when = { class = "WARLOCK" } },
         { text = "The spirits here feel sick near those caves.", next = "shaman", when = { class = "SHAMAN" } },
+        { text = "What do you need from inside the Blade's caves?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Could the arcane help you fight the Burning Blade?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "I'll go north.", next = "END" },
       },
       again = {
@@ -327,6 +392,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "No, not truly, because peons who are frightened work slower, and then they nap more to recover. Still, if you could conjure a little fresh water for them, it might help them stay awake." },
+      },
+      choices = {
+        { text = "Water, then. No fires for the peons.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A little fire would wake them. They'd thank me later.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "Far more, because every peon grew up hearing about the fel and the old curse. If you want them to work, keep your demon out of sight, and let them think about lumber instead of nightmares." },
+      },
+      choices = {
+        { text = "Out of sight, then. I'll let them work.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Fear makes them work faster than sleep does.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Probably, but you haven't seen how deep these peons sleep. I've tried shouting and I've tried the blackjack, and if the sky itself can't wake them I'll give up and let them have the lumber camp." } },
@@ -346,12 +433,16 @@ P:NPC {
           text = "I left my pick in the coven while I was surveying, and it's enchanted, so don't let those cultists keep it." },
         { id = "h_peons", when = { metBefore = true }, text = "I found three peons asleep in the mine cart this morning, in the cart, while it was moving. I don't know how they managed it, and I'm almost impressed." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can you call a little thunder over the lumber pile? The blackjack works, but a bolt out of a clear sky would keep my peons awake for a week." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage! Could you wake up my peons with a spell? A small fire, perhaps, or a cold breeze? I'm only half joking." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Warlock! Keep that imp away from my peons; they're frightened enough of me already, and I'd rather they were awake than trembling." },
       },
       choices = {
         { text = "Shouldn't the spirits be called for better things than peons?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why not let them rest?", next = "rest" },
         { text = "I know a few things about blackjacks, Foreman.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Want me to shout them awake instead?", next = "warrior", when = { class = "WARRIOR" } },
+        { text = "Would you really want me to frighten your peons?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do the peons fear warlocks more than you?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I'll wake them.", next = "END" },
       },
       again = {
@@ -402,6 +493,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Not a bit, because I've heard conjured bread tastes like nothing at all. Come and eat with the grunts sometime, and you'll learn more about the Horde over one bowl of stew than in a year of spells." },
+      },
+      choices = {
+        { text = "I'll eat with the grunts. It's worth learning.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Conjured bread is fine. I'll eat alone.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "I feed everyone who walks into this Den, because hunger doesn't care what you are. Just keep your imp out of the kitchen, and I'll fill your bowl like anyone's." },
+      },
+      choices = {
+        { text = "Agreed. The imp stays away from your pot.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My imp can eat where it likes, cook.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "My mother did, every night, until the camps took her pot and her fire both. I've got out of the habit, but now and then I toss a scrap of scorpid in the coals, and the fire's never once burned my stew." } },
@@ -419,6 +532,8 @@ P:NPC {
           text = "Cactus apples, from the plants around the valley. It's an easy job. I make it easy on purpose; you'll get harder ones soon enough." },
         { id = "h_recipe", when = { metBefore = true }, text = "Scorpid tail, fried, with a pinch of cactus. Don't make that face; you'll be asking for it by next week." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Then you know fire better than I do, so don't tell me how to cook with it, and I won't tell you how to call it." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage! You can conjure your own bread, I hear, so you won't be wanting my cooking. Your loss, because my scorpid tail is famous." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Warlock, keep that imp away from my pot. The last one spat in my stew, and the grunts haven't forgiven me." },
       },
       choices = {
         { text = "Do you ever thank the fire spirits for your cookfire?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -426,6 +541,8 @@ P:NPC {
         { text = "What's the surprise?", next = "surprise" },
         { text = "Have you got anything my pet would eat?", next = "pet", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "Do tauren even eat scorpid?", next = "tauren", when = { race = "Tauren" } },
+        { text = "Do you mind that mages can conjure their own food?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Would you still feed a warlock, Galgar?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Thanks, Galgar.", next = "END" },
       },
       again = {
@@ -481,6 +598,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "More than the recruits do, which is saying something, because mages don't think about weapons until they need them. Buy a staff, keep it close, and don't leave it in the scrub where the quilboar will chew it." },
+      },
+      choices = {
+        { text = "A staff, kept close. I'll take your advice.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Spells are my weapon. A staff is decoration.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "I sell to anyone the Den trusts, and Gornek's let you in, so you'll get the same price as anybody. Just keep your demon's claws off my stock, because I've enough trouble with recruits dropping things." },
+      },
+      choices = {
+        { text = "Fair. I'll keep the imp's claws to itself.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My imp does as it pleases, Kzan.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "More than you'd think, because a mace that's been struck by its owner's lightning comes back to me blackened and cracked at the haft. I mend them, and then I tell the shaman to stop hitting things with the sky and the hammer at the same time." } },
@@ -498,11 +637,15 @@ P:NPC {
           text = "Gornek sent you about the training weapons? Good. Bring me six and I'll mend them for the next lot of recruits." },
         { id = "h_edge", when = { metBefore = true }, text = "You're back, and the blade's still in one piece? Good. That means you're using the edge and not the flat." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, and you'll want a mace, not one of those training axes the recruits keep losing. I'll sell you one, but you'll pay full price like everyone else." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage in my shop. I'll not sell you an axe, because you'll drop it, so how about a staff?" },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Warlock, your imp's eyeing my blades. Tell it I'll sell to you, not to it." },
       },
       choices = {
         { text = "Do shamans bring you many weapons to mend?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What should a warrior carry out of this valley?", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Do you sell anything for a rogue's hand?", next = "rogue", when = { class = "ROGUE" } },
+        { text = "Do mages really drop their weapons so often?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do you sell to warlocks as freely as anyone?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I'll find them.", next = "END" },
       },
       again = {

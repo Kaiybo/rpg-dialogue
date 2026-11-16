@@ -38,6 +38,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "She is the moon, and the moon is what lights the dark without driving it away. Our Sentinels walk at night in her name, so I have never thought the shadows themselves were wicked, only some of what hides in them." },
+      },
+      choices = {
+        { text = "Then I'll be one of the shadows she smiles on.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Wicked or not, the shadows keep me alive.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     mage_a = {
       lines = {
         { id = "mga_default", text = "A place to sit, certainly, and a place to pray if you want one. But don't ask me to teach you anything while your hands still smell of the Well, because the last of my people who mixed the two are at the bottom of the sea." },
@@ -100,6 +111,7 @@ P:NPC {
           text = "The moon's up, and the Temple is at its best. The water holds her light longer than you'd think; stand by the pool a while before you go." },
         { id = "h_human_priest", when = { class = "PRIEST", race = "Human" },
           text = "Laurena's students all pray with their eyes shut, I've noticed, and I expect you do too. We pray with ours open, toward the moon, and neither of us has been struck down for it yet." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Elune shines on the shadows as well as the open ground, rogue, so you needn't stand at the edge of the room like that." },
       },
       again = {
         { id = "h_again", text = "What else would you ask? I have time; the moon is patient, and so am I." },
@@ -116,6 +128,7 @@ P:NPC {
         { text = "Is there a place for a mage in Elune's house?", next = "mage_a", when = { class = "MAGE" } },
         { text = "You've noticed what I carry. Say it.", next = "warlock_a", when = { class = "WARLOCK" } },
         { text = "The Light makes a soldier of me, Priestess.", next = "paladin_a", when = { class = "PALADIN" } },
+        { text = "Does Elune truly look kindly on the shadows?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Elune be with you, Priestess.", next = "END" },
       },
     },
@@ -306,6 +319,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "We hear whatever anyone needs to say, and Elune doesn't ask for your trade before she listens. I won't pretend I'd approve of everything you've done, but I would rather you said it here than carried it into Ashenvale alone." },
+      },
+      choices = {
+        { text = "Then I'll speak, and try to do better.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Some things I carry. That's how I prefer it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Because our ancestors went from wonder to hunger without noticing the step between, and the Well of Eternity swallowed a whole kingdom for it. I don't think every mage is Azshara, but I'd like you to notice the step, if you ever come to it." },
+      },
+      choices = {
+        { text = "I'll watch for the step. Thank you, Priestess.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Hunger is how anyone learns anything worth knowing.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     warlock_s = {
       big = true,
       lines = {
@@ -326,6 +361,8 @@ P:NPC {
           text = "Elune smiled on you that night, and I think she still does. You brought a lost soul back to her, and I don't say that lightly." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Most of the city is asleep, and the Temple is at its busiest. The ones who can't sleep come here, and I'm one of them." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You can sit down, rogue. I listen better than I lecture, and you look like someone who has things they don't say." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, and you look tired in a way spells don't fix. Sit for a while, if you like; the Temple is quiet." },
       },
       again = {
         { id = "h_again", text = "Anything else? I'm in no hurry tonight." },
@@ -337,6 +374,8 @@ P:NPC {
         { text = "Can anyone be forgiven?", next = "forgive" },
         { text = "What do the people who can't sleep tell you?", next = "listen" },
         { text = "Could Elune hear a warlock, Priestess?", next = "warlock_s", when = { class = "WARLOCK" } },
+        { text = "Do priestesses hear confessions from rogues?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Why do priestesses distrust the arcane so deeply?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Good night, Priestess.", next = "END" },
       },
     },
@@ -428,16 +467,42 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Don't spend your last spell on the last enemy, because there's always one more coming up the road from the Barrens. A Sentinel who can't move keeps fighting with her bow, and you should keep something back in the same way." },
+      },
+      choices = {
+        { text = "I'll hold something back. That's sensible.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Hold back, and you lose the fight early.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "I think you've chosen a hurt and called it a tool, and that's the hardest sort to heal because you won't let anyone near it. If you ever want to set it down, come back here, and I'll help however I can." },
+      },
+      choices = {
+        { text = "Maybe one day. Thank you for the offer.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I don't need mending. My power works fine.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Jandria. I teach the practical side of things here: how to keep your mana when the fight runs long, and how to heal a Sentinel who won't stop moving." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Night is when the wounded come up from the portal, so I keep my hands busy and my lessons short." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "Mana's a practical matter, mage, and you burn through it faster than any priest I train. Want some advice for the long fights?" },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock in the Temple. I teach healing, not banishing, but I've read enough to know what that is at your heel." },
       },
       again = { { id = "h_again", text = "Something more? Be quick about it, because a student of mine is kneeling by the pool and pretending not to listen." } },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "What's the hardest thing to teach?", next = "hard" },
         { text = "Who do you heal most often?", next = "wounded" },
+        { text = "What advice would a priestess give a mage?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do you think I'm beyond healing, Priestess?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -505,15 +570,41 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Who comes in and who leaves, how long they stand by the water, and what they look at when they think no one sees them. I'd guess you watch people the same way, so be gentle with what you learn." },
+      },
+      choices = {
+        { text = "I'll be gentle with it. People deserve that.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "What I learn is mine to use as I please.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "It tugs at it, the way a current in a pool tugs at a leaf. The old stories say the Well of Eternity did the same to the stars before the Sundering, and so I'd ask you not to stand too near the water for too long." },
+      },
+      choices = {
+        { text = "Of course. I'll leave the pool to the moon.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The moon can bend a little. It'll survive.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Lariia. I teach here, and when I'm not teaching I watch the pool, because the moonlight on it tells you a great deal about the night if you look long enough." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You chose the darkest corner by the pool, rogue, which is where I'd sit too. The moonlight shows more from there." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "The moonlight bends a little around you, mage, and I'm not sure you even know it does. It's very pretty, and slightly unsettling." },
       },
       again = { { id = "h_again", text = "Is there more you wish to know? Keep your voice low by the moonwell, for it carries." } },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "What does the pool tell you?", next = "pool" },
         { text = "Do the Temple's priests ever leave Darnassus?", next = "leave" },
+        { text = "What does the moonlight show you, Priestess?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Does the arcane change the moonlight somehow?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Goodbye, Lariia.", next = "END" },
       },
     },
@@ -578,6 +669,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Something about the Highborne and the Well of Eternity, which I've read about until I could recite it, though it all happened so long ago. The priestesses still talk as if Azshara were in the next room, and I'm told one day I'll understand why." },
+      },
+      choices = {
+        { text = "Listen to them. They lived through it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Old fear shouldn't decide what you think, Aquinne.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "A little, yes, though the priestesses say fear is a poor teacher and pity a better one. I'll pray for you tonight, if you'll let me, and I'll keep the flowers between us until I've finished." },
+      },
+      choices = {
+        { text = "Pray if you like. I won't refuse it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Save your prayers. I don't need them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     sky_a = {
       lines = {
         { id = "sk_default", text = "In the sky? Truly, islands just floating up there? I've only read about Eldre'Thalas in old books, and none of them said anything about sky, so I'm afraid you'll have to tell me everything." },
@@ -605,6 +718,8 @@ P:NPC {
           text = "A'moora told me you laid Lady Sathrah to rest at the fountain. I cried a little, I'm afraid, and then I went and lit a lamp for her." },
         { id = "h_tears", when = { questActive = TODO_QUEST("Tears of the Moon") },
           text = "You're going after Lady Sathrah, aren't you? Be gentle with her, if you can, because she was beautiful once." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "Oh, a mage! I've never spoken to one properly, because the priestesses don't really approve. Is it true you can make flowers bloom out of season?" },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Elune protect me, that's a demon, isn't it? I'm sorry, I didn't mean to stare, only I've never seen one up close." },
       },
       again = {
         { id = "h_again", text = "What else? The bell won't ring for my lessons for a while yet, so ask away." },
@@ -616,6 +731,8 @@ P:NPC {
         { text = "What's it like, training at the Temple?", next = "training" },
         { text = "We study the Light much the same way.", next = "light", when = { class = "PRIEST", ["not"] = { race = "NightElf" } } },
         { text = "My people lived on islands in the sky.", next = "sky_a", when = { race = "Skyborne" } },
+        { text = "Why do the priestesses disapprove of mages, Aquinne?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Are you frightened of me, Aquinne?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good luck with your studies.", next = "END" },
       },
     },
@@ -717,17 +834,43 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Not often, because the Sentinels outside are very good at their work, but once is enough to make a banker careful. Store what you like and take it back whenever you wish, and leave everyone else's boxes exactly where they are." },
+      },
+      choices = {
+        { text = "Your boxes are safe from me. I'm no thief.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Watch my hands all you like. You'll see nothing.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "Call the Sentinels, and then a priestess, and then very probably the Archdruid himself, and I'd rather not trouble any of them. Keep your stranger possessions on your own person, please, and our accounts will stay friendly." },
+      },
+      choices = {
+        { text = "Agreed. Nothing that whispers goes in your vault.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "What I store is my business, banker.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Idriana, and I keep accounts and safety deposit boxes for anyone with valuables they'd rather not carry through Ashenvale. Everything here is guarded, recorded and returned on request." },
         { id = "h_voucher", tags = { "news" }, when = { questActive = TODO_QUEST("Calm Before the Storm") },
           text = "Gracina Spiritmight has told me to expect you. When you bring her voucher, I'm to withdraw something from her account and present it to you, so congratulations would seem to be in order." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Everything here is guarded and recorded, rogue, so you'll forgive me if I watch your hands while we talk." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I'll keep your deposits, warlock, as I keep anyone's, though I'll ask you not to store anything that whispers." },
       },
       again = { { id = "h_again", text = "Is there anything else? Your coin is as safe under the Temple's roof as anywhere in Darnassus." } },
       choices = {
         { text = "I'd like to see my box.", next = "BUSINESS" },
         { text = "Who keeps accounts here?", next = "accounts" },
         { text = "Is anything here ever stolen?", next = "stolen" },
+        { text = "Do rogues really trouble the bank so often?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What would you do if a box started whispering?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Thank you.", next = "END" },
       },
     },
