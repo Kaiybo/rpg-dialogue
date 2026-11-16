@@ -171,7 +171,7 @@ P:NPC {
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     x_1 = {
-      lines = { { id = "x_1_l", text = "Oh, might it ever! May I take notes? I promise I won't poke it, at least not without asking." } },
+      lines = { { id = "x_1_l", text = "Oh, it might ever, and I'd love to take notes while it does, though I promise I won't poke it, at least not without asking." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     s_1 = {
