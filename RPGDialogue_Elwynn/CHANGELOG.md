@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.17.0 (2026-11-16)
+- New people: Northshire's smiths and Brother Paxton; Antonio Perelli on the roads.
+- New files: exit the game fully and restart.
+
 ## 1.16.0 (2026-11-16)
 - Goldshire: Tomas the cook, Kira Songshine the travelling baker, Bo and Matt, and the Maclures (Pa and Joshua).
 - New files: exit the game fully and restart.

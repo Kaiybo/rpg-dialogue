@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.11.0 (2026-11-16)
+- New people: The Gizeltons' caravan, Smeed Scrabblescrew, Dalinda Malem, Vahlarriel Demonslayer and Rexxar.
+- New files: exit the game fully and restart.
+
 ## 1.10.0 (2026-11-15)
 - Replies for the classes and races these people would really react to (warriors, hunters, rogues, mages, warlocks, druids, shamans, paladins; every race of the faction, and the Skyborne), each leading somewhere.
 

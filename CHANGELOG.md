@@ -2,6 +2,18 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.38.0 (2026-11-16)
+Packs: 40 content packs have a new version (`python3 tools/version.py` lists them). **New files in most packs: exit the game fully, copy the folders in, and start the game again**; /reload won't load them.
+
+### People between the towns, and people who were skipped
+- **About 140 new named people**, most of them out on the roads: camps, lone huts, outposts, mines, escorts and prisoners waiting for help. Among them: Alterac's Lord Jorach Ravenholdt and Gol'dir, Quae and Kinelory in Arathi, the Redpaths in the Plaguelands, Myranda the Hag, the Defias Traitor, Dun Morogh's and Loch Modan's mountaineers and prospectors, Teldrassil's Denalan, Darkshore's Volcor and Kerlonian, the Gizelton caravan, Rexxar in Desolace, Gregan Brewspewer, the Swiftstriders, Ratchet's Gazlowe, Dustwallow's Tabetha and Mok'Morokk, Un'Goro's Marshal camp, Winterspring's Rivern Frostwind and Ranshalla, and Silithus's war-effort envoys.
+- **Town folk the earlier passes missed**: Northshire's smiths and Brother Paxton, Stormwind's Tannysa and Felicia Gump, gryphon and hippogryph masters, the Undercity's bat handler, Orgrimmar's and Thunder Bluff's trainers.
+- Every one of them is a real conversation, with replies for the races and classes they'd notice.
+
+### Fixes
+- Some Gadgetzan lines that depend on your level never showed; they do now.
+- A few Tarren Mill, Revantusk, Hammerfall, Sentinel Hill and Auberdine lines that referred to each other now work.
+
 ## 0.37.0 (2026-11-16)
 Packs: 14 packs have new versions (`python3 tools/version.py` lists them). **New files in many packs: exit the game fully and restart**; /reload won't load them.
 

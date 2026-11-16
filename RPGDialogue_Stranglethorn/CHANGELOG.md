@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.13.0 (2026-11-16)
+- New people: Booty Bay's docks: Old Man Heming, Mazk Snipeshot and Haren Kanmae.
+- New files: exit the game fully and restart.
+
 ## 1.12.0 (2026-11-16)
 - Booty Bay: Gyll, Gringer, Viznik Goldgrubber, Jutak, Zarena Cromwind, Narkk, Nixxrax Fillamug, Xizk Goodstitch; Skindle answers both factions. Grom'gol: Nez'raz, Thysta, Uthok; Thulbek knows who keeps the camp.
 - New files: exit the game fully and restart.

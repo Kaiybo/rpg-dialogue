@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.9.0 (2026-11-16)
+- New people: Dun Morogh's roads: Rudra Amberstill, Tundra MacGrann, Pilot Bellowfiz and Hegnar Rumbleshot.
+- New files: exit the game fully and restart.
+
 ## 1.8.0 (2026-11-15)
 - Magni, Mekkatorque and Rohan answer dwarf shamans, warlocks, gnome mages, rogues and warriors; the Military and Mystic Ward trainers talk about their class; 35 people in all.
 

@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.8.0 (2026-11-16)
+- New people: Asterion, Prospector Remtravel, Onu, Volcor and Kerlonian Evershade between the towns.
+- New files: exit the game fully and restart.
+
 ## 1.7.0 (2026-11-16)
 - Auberdine: Tharnariun Treetender, Sentinel Elissa Starbreeze and Caylais Moonfeather; Innkeeper Shaussiy has more to say.
 - New files: exit the game fully and restart.

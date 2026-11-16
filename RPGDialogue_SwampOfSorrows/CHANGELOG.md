@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.8.0 (2026-11-16)
+- New people: Galen Goodward and the Fallen Hero of the Horde.
+- New files: exit the game fully and restart.
+
 ## 1.7.0 (2026-11-16)
 - Stonard: Dar, Breyk, Greshka (grimoires for warlocks only) and Malosh; Innkeeper Karakul talks about the regulars.
 - New files: exit the game fully and restart.

@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.11.0 (2026-11-16)
+- New people: Tabetha, "Swamp Eye" Jarl, Ogron, Private Hendel, Overlord Mok'Morokk and Draz'Zilb.
+- New files: exit the game fully and restart.
+
 ## 1.10.0 (2026-11-16)
 - Theramore: Baldruc, Morgan Stern and Doctor Gustaf VanHowzen (Triage); Janene and Tesoran on Kul Tiras and Daelin's men.
 - New files: exit the game fully and restart.

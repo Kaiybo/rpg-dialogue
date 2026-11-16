@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.10.0 (2026-11-16)
+- New people: Quae, Kinelory and Professor Phizzlethorpe, out on the roads.
+- New files: exit the game fully and restart.
+
 ## 1.9.0 (2026-11-16)
 - New: Hammerfall (Gor'mul, Tor'gan, Korin Fel, Urda) and Refuge Pointe (Skuerto, Apprentice Kryten, Cedrik Prose, Vikki Lonsav), with their quests.
 - New files: exit the game fully and restart.

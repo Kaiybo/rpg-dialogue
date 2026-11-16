@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.11.0 (2026-11-16)
+- New people: Tannysa, Shaina Fuller, Frederick Stover and Felicia Gump.
+- New files: exit the game fully and restart.
+
 ## 1.10.0 (2026-11-15)
 - New: the warrior trainers Wu Shen, Ilsa Corbin and Ander Germaine in Old Town (new files: exit the game fully and restart).
 - Bolvar, Katrana, Anduin, Benedictus, Shaw, Marcus Jonathan and Grayson Shadowbreaker answer warriors, rogues, mages, warlocks, hunters, shamans, dwarves, gnomes, night elves and the Skyborne; every trainer has a real conversation about their class; 21 more people answer someone who isn't a priest.

@@ -8,7 +8,8 @@ Short on purpose: current state and next step only. History is in `CHANGELOG.md`
 - Wants quick, efficient sessions: no constant re-validation; use `CLAUDE.md`'s checks.
 - Uses DialogueUI. Tests in game and sends screenshots.
 
-## State (0.37.0)
+## State (0.38.0)
+- 0.38.0 (user: "Get people that are between towns and NPCs that were skipped"): ~141 named NPCs in 40 packs, mostly roadside camps, huts, escorts and outposts, plus skipped town vendors/trainers; files named `npcs/roads.lua`, `between.lua`, `wilds.lua` etc. Written from memory; uncertain lore listed below. Core 0.38.0.
 - 0.37.0 (user: "Move onto the 0.37.0 release"; picked from the next steps): ~75 new named NPCs: Revantusk Village (new file, new town `revantusk`), Hammerfall and Refuge Pointe, Tarren Mill, Kargath, Stonard, Grom'gol, Goldshire, Sentinel Hill, Auberdine, Astranaar, Theramore, Booty Bay, Gadgetzan, Everlook. Unvalidated by the user's choice (only `luac -p`).
 - Core 0.36.0; every pack's version: `python3 tools/version.py`. 47 folders.
 - 0.36.0 (user: "more dialogue specific to every race and class, not just priest... another big content push"): every class trainer pool is a full conversation (`pools_roles.lua`, test `tests/classes_spec.lua`); Stormwind's warrior trainers (`npcs/warriors.lua`); ~450 named NPCs gained class/race-gated branches (no new priest content); guard/innkeeper/child/stable/smith/flight pools and all 48 town citizen pools notice classes and races; class advice in `asks.lua`; 39 new origins (`origins/orc.lua`, `troll.lua`, `tauren.lua`, `forsaken.lua`, plus class origins for every Alliance race and Skyborne), used in lines across packs.
@@ -26,6 +27,6 @@ Short on purpose: current state and next step only. History is in `CHANGELOG.md`
 Right-click on untitled townsfolk opening the box (citizen role via `UnitCreatureType`, which is localized: non-English clients may treat beasts as citizens); the journal button's count badge; Shadowform as form 28; most of `Compat.lua` beyond `/rpgd probe`; the DialogueUI paged Ask list in the real addon.
 
 ## Next step
-1. User installs 0.37.0 (new files: exit fully, restart). Ask how 0.36.0's class content and 0.37.0's towns feel in play.
-2. Lore to confirm (writers unsure): Gringer's title and the flight routes; Storm Shadowhoof unfriendly to Alliance in Classic; six Gadgetzan/Everlook service NPCs only "fairly sure" Classic; Tor'gan written as Darkspear.
-3. Then: more named NPCs where writers skipped for lack of sources; Alterac/Dalaran (Forever) once documented; any lines the user flags.
+1. User installs 0.38.0 (new files in most packs: exit fully, restart). Ask how the roadside people feel in play, and whether 0.36.0/0.37.0's class and town content landed.
+2. Lore to confirm (0.38.0 writers unsure): quest names "Sunken Treasure", "Dawn's Gambit", "Smokey's Special Compound", "Homeward Bound", "Muigin and Larion", Margoz's, Sputtervalve's, Dizzywig's, Stormpike's and Rigglefuzz's; Rane Yorick's gender; Rin'ji's escort faction; Curgle and Jabbey's races; where Kanati Greycloud, Motega Firemane, Kimberly Hiett, Henry Chapal, Shaina Fuller, Frederick Stover and Felicia Gump stand. Invented details are marked "authored, not canon" in the bibles. Plus 0.37.0's list: Gringer, Storm Shadowhoof, six Gadgetzan/Everlook service NPCs, Tor'gan.
+3. Skipped for lack of sources: Truk Wildbeard, Agnar Beastamer, Rhapsody Shindigger, Theldurin the Lost, Lucien Tosselwrench, Gorzeeki Wildeyes, Nessa Shadowsong, Rellian Greenspyre, Lorekeeper Raintotem, Skorn Whitecloud, Seer Ravenfeather, Takrin Pathseeker, Larion. Then Alterac/Dalaran (Forever) once documented, and lines the user flags.

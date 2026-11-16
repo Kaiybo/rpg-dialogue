@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.9.0 (2026-11-16)
+- New people: Martek the Exiled and Rigglefuzz in their camps.
+- New files: exit the game fully and restart.
+
 ## 1.8.0 (2026-11-16)
 - Kargath: Neeka Bloodscar, Jarkal Mossmeld upstairs at the inn, Gorrik and Grawl; Goretooth and Shul'kar talk about them.
 - New files: exit the game fully and restart.

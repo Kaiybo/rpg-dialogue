@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.8.0 (2026-11-16)
+- New people: Alterac: Lord Jorach Ravenholdt, Archmage Ansirem Runeweaver, Gol'dir; Serge Hinott in Tarren Mill.
+- New files: exit the game fully and restart.
+
 ## 1.7.0 (2026-11-16)
 - Tarren Mill: Krusk, Novice Thaivand, Deathguard Humbert, Deathguard Samsa, Tallow, Zarise and Kayren Soothallow; Innkeeper Shay has much more to say.
 - New files: exit the game fully and restart.
