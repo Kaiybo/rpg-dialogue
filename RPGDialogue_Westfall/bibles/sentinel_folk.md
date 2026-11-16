@@ -42,3 +42,6 @@ Thor: the birds (no names they'll share), the routes (why only roosts you've see
 Riell: what the tower sees (lights at the old farms, the messenger's route), red silk (under Moonbrook), life in the tower. Rogues: slipping past her; night elves: Sentinel watches.
 MacGregor: hunters get a bow recommendation. l_father no longer invents a father.
 Authored, not canon: Heather's slate and the sleepless militia; Lewis's forms and the bread bin; Thor's lost arrow crate and nameless birds; Riell's bed at the inn and her messenger 'clock'; MacGregor's hunter's bow.
+
+## 0.37.0
+Depth for Heather and MacGregor, and the four new vendors: see sentinel_more.md.
