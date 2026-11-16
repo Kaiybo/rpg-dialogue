@@ -13,6 +13,7 @@
 pack.lua
 pools.lua
 npcs\booty_bay.lua
+npcs\booty_bay_more.lua
 npcs\gromgol.lua
 npcs\gromgol_more.lua
 npcs\rebel_camp.lua

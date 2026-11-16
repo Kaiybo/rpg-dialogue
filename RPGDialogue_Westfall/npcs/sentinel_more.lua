@@ -133,8 +133,8 @@ P:NPC {
       big = true,
       lines = { { id = "p_default", text = "Because one wagon in two gets here, and someone has to pay for the other one. Christopher eats his losses and calls it kindness. I'd rather still be selling next year." } },
       choices = {
-        { text = "A fair price for a hard road. I'll pay it.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "Profiting off a town at war isn't right.", next = "BACK", fx = { align = { honor = -1 }, affinity = -1, trait = { stern = 1 } } },
+        { text = "Hard roads cost coin. Your price is fair.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Then I'll buy from Christopher and let him eat the loss.", next = "BACK", fx = { align = { honor = -1 }, affinity = -1, trait = { greedy = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -305,7 +305,7 @@ P:NPC {
     },
   },
   topics = {
-    background = { { id = "tp_bg", text = "I'm a baker, son of millers, or so the name says. I've never ground a grain myself." } },
+    background = { { id = "tp_bg", text = "I'm a baker. With a name like Miller, folk expect flour on my sleeves, and they're never disappointed." } },
     advice = { { id = "tp_ad", text = "Carry bread, not cake. Cake's lovely until it's crumbs in your pack." } },
     harvest_watchers = { { id = "tp_watchers", text = "Scarecrows that walk, in fields that should be wheat. That's Westfall now in a sentence.", next = "flour" } },
     westfall = { { id = "tp_westfall", text = "The kingdom's breadbasket, people used to say. Now it's a basket, and that's about all." } },

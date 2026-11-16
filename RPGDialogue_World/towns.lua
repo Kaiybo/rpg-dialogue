@@ -420,7 +420,7 @@ P:Town {
   id = "revantusk", name = "Revantusk Village",
   subzones = { "Revantusk Village" },
   tiers = { Hero = "Friend of the Revantusk" },
-  quests = { { TODO_QUEST("Kidnapped Elder Torntusk!"), 8 }, { TODO_QUEST("Separation Anxiety"), 6 }, { TODO_QUEST("Vilebranch Hooligans"), 4 } },
+  quests = { { TODO_QUEST("Return to Primal Torntusk"), 8 }, { TODO_QUEST("Separation Anxiety"), 6 }, { TODO_QUEST("Vilebranch Hooligans"), 4 } },
 }
 
 P:Town {
