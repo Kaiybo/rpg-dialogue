@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "They say the water around the Pool of Tears is wrong, warm where it should be cold and quiet where it should be loud. I can't put that on a map, but I write it down anyway, because I've learned to listen to what my scouts won't say twice." } },
+      choices = {
+        { text = "Write it all down, Commander. A good record serves the Horde.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Forget the records. Send me out to see it myself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_talk = {
       lines = { { id = "dt_default", text = "Some say the Sunken Temple, where the trolls once worshipped a blood god. Others say it was always a sorrowful place. Whatever it is, the water is foul and the beasts grow strange. Find the cause, and Stonard will owe you." } },
       choices = {
@@ -37,6 +46,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Good, because my scouts come back from the deep swamp spooked, and they'd sooner tell a shaman what they felt out there than tell me." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid. Thrall's Horde has need of healers in this swamp, and the swamp has need of healing worse than we do." },
         { id = "h_default", key = true,
@@ -55,6 +65,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm writing as you talk." },
       },
       choices = {
+        { text = "What do your scouts feel out in the deep swamp?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What has poisoned the Swamp of Sorrows?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Why scout a swamp?", next = "scout" },
         { text = "Tell me about Stonard.", next = "stonard" },
@@ -453,6 +464,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "I never thought to, because I'm not clever, as I said, but now you've put it in my head I'll be asking them every morning. If I reach Kargath a day early, I'll tell Neeka Bloodscar it was your doing." } },
+      choices = {
+        { text = "Ask humbly, and the winds might just listen.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Don't bother asking. Just run harder, Helgrum.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_talk = {
       lines = { { id = "dt_default", text = "Perhaps, perhaps not. But you would have to learn the paths first, and the swamp changes them every season. Run with me once, and we will see who reaches Stonard first." } },
       choices = {
@@ -461,6 +481,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can you really run like a wolf spirit? I've heard your lot can, and I'd like a race from here to Kargath." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "You run on four feet sometimes, I'm told. Then you'll understand why I keep to the high paths. The swamp eats the slow." },
         { id = "h_default", key = true,
@@ -475,6 +496,7 @@ P:NPC {
         { id = "h_again", text = "What else? Talk fast, I've got a run at noon." },
       },
       choices = {
+        { text = "Do you ever ask the winds to speed you on the road?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I could run your messages faster than any wolf.", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Why do they call you the Swift?", next = "swift" },
         { text = "Who is Neeka Bloodscar?", next = "neeka" },
@@ -579,8 +601,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Not in words, but some nights I wake with the faces of my company as clear as day, and the swamp goes quiet around me. I think they want the orders found as much as I do, so I keep remembering for them." } },
+      choices = {
+        { text = "Then I'll carry their memory with you, Bengor.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The dead are gone. Let them go, Bengor.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The elders say the spirits keep what the living forget, and I'm glad of it, because my memory is all I have left to give." },
         { id = "h_default", key = true,
           text = "Bengor, a soldier of the Horde, or what the murlocs left of one. I can't walk and I can hardly talk, but I still remember, and remembering is my duty now." },
         { id = "h_orders", when = { questActive = TODO_QUEST("The Missing Orders") },
@@ -592,6 +624,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "More? I have breath for a little more, if you speak slowly." } },
       choices = {
+        { text = "Do the spirits of your fallen comrades speak to you?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What happened to you?", next = "ambush" },
         { text = "Are you ill?", next = "ill" },
         { text = "Who was with you on the road?", next = "others" },
@@ -702,6 +735,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "By the time they raised Stonard the shamans were long gone, and the warlocks ran everything. I'm told this inn stands on the stones of the old one, so I'd like to think it keeps better company now." } },
+      choices = {
+        { text = "The shamans are back, and the warlocks must never rule again.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The warlocks built this town. Give them their due.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_talk = {
       lines = { { id = "dt_default", text = "We do not live, druid, we endure. Stonard was built to hold the Horde's road to the Blasted Lands, not to be pleasant. We drink boiled water and keep the fires high, and we sleep when we can." } },
       choices = {
@@ -710,6 +752,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Sit down and eat, and if you've any pull with the water spirits, ask them to keep the swamp out of my cellar." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid from Mulgore! Your folk need wide plains and clean skies, and you have come to a swamp. Rest here a while." },
         { id = "h_default", key = true,
@@ -718,6 +761,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Something else? The stew won't keep forever, and neither will I." } },
       choices = {
+        { text = "Did the old Horde ever keep shamans here in Stonard?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "A warrior needs feeding too, Karakul. What have you got?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Does your stew meat come from hunters, Karakul?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "How do your people live amid such rot?", next = "druid_talk", when = { class = "DRUID" } },

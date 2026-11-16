@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.14.0 (2026-11-16)
+- Horde shaman get their own conversation with 5 people, among them the Gizeltons and Rexxar.
+
 ## 1.13.0 (2026-11-16)
 - Druids are noticed: nine people at Nijel's Point, Shadowprey and on the roads greet a druid as one and have something to ask and argue about.
 

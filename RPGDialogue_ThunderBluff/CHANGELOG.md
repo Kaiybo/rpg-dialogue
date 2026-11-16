@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.10.0 (2026-11-16)
+- Horde shaman get their own conversation with 14 people in Thunder Bluff.
+
 ## 1.9.0 (2026-11-16)
 - New people with no quests, who had nothing to say until now: Chesmu, Tal, Ansekhwa, Kuna Thunderhorn, Kah Mistrunner, Aska Mistrunner, Bena Winterhoof, Nida Winterhoof, Una.
 - New files: exit the game fully and restart.

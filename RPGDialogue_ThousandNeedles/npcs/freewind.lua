@@ -55,6 +55,7 @@ P:NPC {
           text = "You climb this mesa more often than the wind does, and I've come to listen for your step on the lift. Stand with me a while and watch the canyon." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid of Thunder Bluff. The Galak have trampled the canyon floor bare in places, and I would hear whether the land down there can recover." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Good, because the Galak have their own spirit-callers, and I'd like to see one of ours answer them." },
       },
       again = {
         { id = "h_again", text = "What else? Speak, but keep one eye on the canyon while you do." },
@@ -72,6 +73,7 @@ P:NPC {
         { text = "The Grimtotem shame every tauren.", next = "x_tauren", when = { race = "Tauren" } },
         { text = "Send me against the Galak, Cliffwatcher.", next = "x_warrior", when = { class = "WARRIOR" } },
         { text = "The Horde stands with Freewind.", next = "x_orc", when = { race = "Orc" } },
+        { text = "Do the Galak centaur have shamans, Longhorn?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Earth Mother watch over you.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -214,6 +216,15 @@ P:NPC {
       },
       choices = {
         { text = "Then the debt is paid both ways.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "They have something, and their windchasers call on the elements as if the canyon owed them blood, because the centaur believe it does. The Needles remember every raid, and I want them to remember that Freewind answered." } },
+      choices = {
+        { text = "Then we answer them in the open, raid for raid.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then we strike their camps at night, before they call anything.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -404,6 +415,7 @@ P:NPC {
           text = "It hatched, and I know the shape from the old tales: Arikara, the Vengeance. Motega Firemane must hear of this." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! Then you'll understand that the egg I'm after is no ordinary serpent's; there's something old and angry in it, and I mean to know what." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Do the spirits of the air know anything about very large eggs? I ask everyone, and you seem better informed than most." },
       },
       again = {
         { id = "h_again", text = "Yes, yes, what else? Forgive me, my mind keeps wandering back to that shell." },
@@ -416,6 +428,7 @@ P:NPC {
         { text = "What is Arikara?", next = "legend", when = { questDone = TODO_QUEST("Alien Egg") } },
         { text = "My companion? Born, not hatched.", next = "pet", when = { pet = { type = "Beast" } } },
         { text = "My people raise raptors from the egg.", next = "x_troll", when = { race = "Troll" } },
+        { text = "Why would the air spirits know about your egg, Hagar?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Good luck with your egg.", next = "END" },
       },
     },
@@ -483,6 +496,15 @@ P:NPC {
         { text = "A raptor knows its rider. Nothing else matters.", next = "BACK", fx = { trait = { stern = 1 } } },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Because the wind serpents nest high on the Needles, and the wind goes everywhere, so it must have passed the egg at some point. If the spirits would only tell me which pinnacle, I'd stop asking travelers, though I'd probably keep asking anyway." } },
+      choices = {
+        { text = "The spirits deserve respect, not questions about eggs.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Ask them anyway. Curiosity is a gift from the Earth Mother too.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -534,6 +556,7 @@ P:NPC {
           text = "Lakota's home, and I knew in my bones she'd find her way back to me. She told me how you fought for her, and I won't forget it." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid. If you have any way of seeing into the Grimtotem's camp, I would walk any trail you named for word of Lakota." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. If the spirits could tell me whether Lakota still lives, I would listen to anything they said." },
       },
       again = {
         { id = "h_again", text = "What else? Say it, and then let me be." },
@@ -547,6 +570,7 @@ P:NPC {
         { text = "Arnak is dead. I killed him.", next = "arnak_dead", when = { questDone = TODO_QUEST("Wanted - Arnak Grimtotem") } },
         { text = "I'm tauren. I know what the Grimtotem should be to us.", next = "kin", when = { race = "Tauren" } },
         { text = "I'd have stood with Lakota's brother that night.", next = "x_warrior", when = { class = "WARRIOR" } },
+        { text = "Have you asked the spirits about Lakota, Thalia?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I'm sorry.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -626,6 +650,15 @@ P:NPC {
         { text = "You're right. I'm sorry.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "I asked an elder at Freewind, and she said the wind up at Darkcloud Pinnacle carries only Grimtotem voices now. So I keep my cord and I wait, because I don't know what else to do with an answer like that." } },
+      choices = {
+        { text = "Don't give up. The spirits haven't said she's gone.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Waiting won't bring her back. Arnak should pay in blood.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -677,6 +710,7 @@ P:NPC {
         { id = "h_night", when = { timeOfDay = "night" }, text = "Look out there. The needles throw long shadows under the moon, like the canyon is full of sleeping giants." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! You'll want the room by the edge, then; the wind sings through it at night, and the druids who stay here say it's the canyon talking." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Then you'll know why I love the wind singing over this mesa at night, because you can hear what it's singing about." },
       },
       again = {
         { id = "h_again", text = "Something more, friend? There's no hurry on the mesa." },
@@ -689,6 +723,7 @@ P:NPC {
         { text = "Who else lodges here?", next = "guests" },
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "Do I frighten your guests, innkeeper?", next = "x_forsaken", when = { race = "Scourge" } },
+        { text = "What does the wind sing about over Freewind, Abeqwa?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Just a bed, thank you.", next = "END" },
       },
     },
@@ -739,6 +774,15 @@ P:NPC {
       },
       choices = {
         { text = "Thank you, Abeqwa.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "I like to think it sings about the centaur getting lost in the canyons, but the shaman who stayed here last winter said it carries the songs of the tribes who wandered through long ago. Whichever it is, it puts my guests to sleep, and that's good enough for an innkeeper." } },
+      choices = {
+        { text = "Then it sings for us, and we should keep listening.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Wind is only wind, whatever the shamans read into it.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

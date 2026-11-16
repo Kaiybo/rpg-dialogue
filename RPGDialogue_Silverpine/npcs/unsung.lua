@@ -26,8 +26,12 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Gwyn Farrow, and I sell mushrooms to the Sepulcher. They grow well in the dark and the damp, which is the only thing this forest has more of than worgen." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You'll know which mushrooms the spirits like, I expect, and I'd love to know, because I've three here I can't put a name to." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, come to see my mushrooms! I keep them in the dark under the stairs, and they grow better here than anything I tried to grow in life." },
       },
       choices = {
+        { text = "Shall I tell you which caps are safe for the living, Gwyn?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do the mushrooms grow from the plague, Gwyn?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Show me your mushrooms.", next = "BUSINESS" },
         { text = "Where do you find them?", next = "where" },
         { text = "Why mushrooms, of all things?", next = "why" },
@@ -50,6 +54,24 @@ P:NPC {
     why = {
       lines = { { id = "y_default", text = "Because they grow without sunlight, they keep for weeks, and the dead can eat them without trouble. Before I died I grew turnips, and frankly, mushrooms are much better company." } },
       choices = { { text = "Ha, fair enough. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Oh, please do, dear, since I can't taste the difference anymore and I'd hate to poison a guest. The grey ones from Lordamere Lake are fine for the dead, but I had an orc go a shade greener after eating one, which I didn't think was possible." } },
+      choices = {
+        { text = "Mark the dangerous ones, Gwyn. Your customers deserve it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let the living learn for themselves, Gwyn.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_q = {
+      big = true,
+      lines = { { id = "dq_default", text = "Some of them, I think, because the ones off the crypt walls are a funny colour, and those I sell only to the apothecaries. The ones from the old logs by the lake are clean as you like, so buy those, dear, and don't ask about the others." } },
+      choices = {
+        { text = "Then sell only the clean ones, Gwyn, and mark the rest.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Sell them all. The buyer can take care.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
   topics = {
@@ -82,8 +104,12 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Andrea Boynton, clothier, and I sell robes and cloth armor to the Sepulcher's mages and priests. Most of them come to me looking like they dressed in the dark, which I suppose they did." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in mail and furs with totems knocking about your belt? Come here and let me at least fix how all that's tied on." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You change shape, I'm told, so tell me, what happens to the robe?" },
       },
       choices = {
+        { text = "What's wrong with how I dress, Andrea?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Would you believe it simply comes back, Andrea?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Show me your clothes.", next = "BUSINESS" },
         { text = "Were you a tailor in life?", next = "past" },
         { text = "Where do you get cloth out here?", next = "cloth" },
@@ -106,6 +132,24 @@ P:NPC {
     cloth = {
       lines = { { id = "c_default", text = "Wool comes from the farms in Pyrewood and Ambermill, when the Deathstalkers can get it, and the rest is linen from whatever the worgen leave behind. Dalaran's mages up at Ambermill wear lovely silk, and I try not to think about how to get it." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Nothing a little thought couldn't fix, dear, and everything that matters to me. You've a totem knocking against your hip with every step, and in Silverpine you'll want to walk quietly, so let me sew you a loop, and you'll thank me when the worgen don't hear you coming." } },
+      choices = {
+        { text = "Sew it, then. Good work deserves respect.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My gear suits me fine. Leave it be.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_q = {
+      big = true,
+      lines = { { id = "dq_default", text = "I would not, because nothing in my trade simply comes back, and I've spent a lifetime mending what didn't. But I watched one of your sort turn into a bear by the Sepulcher gate and come back without a stitch out of place, so I suppose I must, and I find it very upsetting." } },
+      choices = {
+        { text = "There's no trick to it. It's honest magic.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Every craft has its secrets. I'll keep mine.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
   topics = {
@@ -136,8 +180,12 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Edwin Harly, and I keep the supplies for the Sepulcher. Silverpine is a forest that eats travelers, so everything I sell is meant to help you get out of it alive, or as alive as you were when you came in." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll want water and food like any of the living, and I've both, though the water tastes of the crypt." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You'll be going into the forest, I expect, so buy what you need now, because the forest won't sell you anything." },
       },
       choices = {
+        { text = "Could the spirits clean your water, Harly?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Is anything in Silverpine still worth saving, Harly?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "What makes the forest so dangerous?", next = "forest" },
         { text = "Where should I go from here?", next = "roads" },
@@ -160,6 +208,24 @@ P:NPC {
     roads = {
       lines = { { id = "r_default", text = "North takes you back to Tirisfal and the Undercity, and south leads to Pyrewood and Shadowfang Keep, where you don't want to go yet. The road east past Lordamere Lake takes you to the Hillsbrad Foothills, where the Deathguard hold Tarren Mill." } },
       choices = { { text = "Thanks. Something else.", next = "BACK" } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "They could try, and I'd charge you the same either way. The Sepulcher's water comes from a well the dead have used for a year, and I've had no complaints, though most of my customers can't taste anything." } },
+      choices = {
+        { text = "I'll clean it for nothing. The living need it too.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then the living can fetch their own water.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_q = {
+      big = true,
+      lines = { { id = "dq_default", text = "The trees, maybe, if you can get the worgen out of them, and Lordamere Lake, if you can get the Dalaran mages off its shore. As for the rest, I count crates for a living, friend, so I'll leave the saving to someone with better odds." } },
+      choices = {
+        { text = "Then I'll save what I can, odds or no odds.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "You're right. Save what's useful and let the rest burn.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
   topics = {

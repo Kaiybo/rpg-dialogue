@@ -854,6 +854,7 @@ P:NPC {
           text = "My hoof still tingles from that Bloodbelly fish, and the whole post smelled of frying for an evening. That's the best thing to happen here all season." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid, here at Shadowprey? Sit down, sit down. The sea is the only thing in Desolace that hasn't given up, and I suspect you'll like it." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, out here in Desolace? The spirits of this place are tired, so be gentle with them." },
       },
       again = {
         { id = "h_again", text = "Something else? Sit; nothing out here is in a hurry except the centaur." },
@@ -868,6 +869,7 @@ P:NPC {
         { text = "I fish. What should I know about these waters?", next = "fisher", when = { profession = "Fishing" } },
         { text = "I met your brother. He seemed well.", next = "brother_met", when = { heardLine = "longhorn.h_default" } },
         { text = "I've run the plains with my kodo since I was a calf.", next = "hunter_nt", when = { race = "Tauren", class = "HUNTER" } },
+        { text = "Why are the spirits of Desolace so tired, Nataka?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -944,6 +946,15 @@ P:NPC {
         { id = "bm_default", text = "Good, good; that's all I needed to hear. If you pass through Freewind again, tell him his brother is eating well, even if it isn't quite true yet." },
       },
       choices = { { text = "I will.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "The Kodo Graveyard is full of ancient bones, the Burning Blade foul the ground around Thunder Axe Fortress, and the centaur clans spill blood over every spring. I fish and I let the land be, because I think it's done enough for one age." } },
+      choices = {
+        { text = "Then we should help it rest, and heal what we can.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Tired land is still land, and the Horde should take what it gives.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 

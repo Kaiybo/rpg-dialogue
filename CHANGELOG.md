@@ -2,6 +2,13 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.42.0 (2026-11-16)
+Packs: 20 packs have new versions (`python3 tools/version.py` lists them). No new files in 0.42.0: /reload is enough if you have 0.39.0 or later.
+
+### Shaman, and the Forsaken meet druids
+- **Shaman are noticed across the Horde**: about 260 people from Durotar to Stranglethorn greet an orc, troll or tauren shaman as a shaman, and have a question to ask and something to argue about: the Valley of Trials, Orgrimmar, the Barrens, Mulgore and Thunder Bluff, Stonetalon, the Needles, Desolace, Feralas, Tarren Mill, Hammerfall, Revantusk, Kargath, Grom'gol and Booty Bay, Stonard, Brackenwall and Splintertree.
+- **Tirisfal, the Undercity and Silverpine** were the last Horde lands with no druid or shaman lines. All 51 of their named people, Sylvanas included, now have something to say to a tauren druid and to a shaman about living magic in a dead land.
+
 ## 0.41.0 (2026-11-16)
 Packs: 20 packs have new versions (`python3 tools/version.py` lists them). No new files in 0.41.0, but if you skipped 0.39.0, exit the game fully and restart.
 

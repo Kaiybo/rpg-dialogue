@@ -276,6 +276,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Only rumour, darling, but the rumour is very good. They say the Dark Irons called a fire lord up out of the earth centuries ago and have been his servants ever since, which would explain the heat, and the tempers, and the abysmal manners." } },
+      choices = {
+        { text = "Then the Horde must stand together and put that fire out.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let the Dark Irons burn in their master's fire. It's their mess.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Vivian, as usual, because she has books and I have only opinions. She says the earth here was scorched by old wars long before the orcs came, and I say it simply has a sour disposition, like the Warlord." } },
       choices = {
@@ -286,6 +295,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" },
+          text = "A shaman, darling! You must tell me whether the spirits gossip, because if they do, I'd very much like to know what they say about the Warlord." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid, at Kargath? How delightful. Vivian and I have a running wager on whether the Badlands were ever green, and I suspect you could settle it." },
         { id = "h_default", key = true,
@@ -308,6 +319,7 @@ P:NPC {
       choices = {
         { text = "Who's winning the wager, Hierophant?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Can a warrior's steel do anything against the Dark Iron?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
+        { text = "The fire spirits rage under Blackrock Mountain. Do you know why?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Any gossip?", next = "gossip" },
         { text = "What are these machines?", next = "machines" },
         { text = "What does a Hierophant do?", next = "hierophant" },
@@ -450,8 +462,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Trouble me? It thrills me, though I suppose it shouldn't. The Dark Irons trap fire and earth inside their golems to make them walk, and if I learn how, the Expeditionary Force could do it too, which I admit sounds worse when I say it to a shaman." } },
+      choices = {
+        { text = "Free them, Vivian. No spirit should be chained inside a golem.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Study it. If the Dark Irons can, the Horde should too.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" },
+          text = "A shaman! Oh, how fortunate, because I've been taking apart elemental cores all week and I'd love to know whether they mind." },
         { id = "h_default", key = true,
           text = "Shadowmage Vivian Lagrave, of the Kargath Expeditionary Force. I study the things in the mountain that the Dark Irons would rather we didn't, which is thrilling work, though mostly dust." },
         { id = "h_element", tags = { "news" }, when = { questActive = TODO_QUEST("The Last Element") },
@@ -469,6 +492,7 @@ P:NPC {
       },
       choices = {
         { text = "My beasts could scout the Burning Steppes for you, Vivian.", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
+        { text = "Those golem essences hold bound elementals, Vivian. Does that trouble you?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "The Warlord speaks well of you.", next = "flustered" },
         { text = "What are you really studying?", next = "study" },
         { text = "Why does a Shadowmage want a beer recipe?", next = "thunderbrew" },
@@ -638,8 +662,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "If they'll take orders, I'll take them on, though nothing I've met takes orders well. The earth under Blackrock Mountain shakes when something moves deep inside, so you tell me what it's saying and I'll tell you whether to worry." } },
+      choices = {
+        { text = "I'll report everything the earth tells me, straight to you.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The spirits answer to me, not to the Expeditionary Force.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" },
+          text = "A shaman, which is useful to me, since spirits don't sell plans to the Blackrock, and that already puts them ahead of Grark." },
         { id = "h_default", key = true,
           text = "Lexlort. The Expeditionary Force needs eyes on the Spire, and I'm the eyes, but sometimes I need hands." },
         { id = "h_grark", tags = { "news" }, when = { questActive = TODO_QUEST("Grark Lorkrub") },
@@ -657,6 +692,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, but keep your voice down; the wind carries." },
       },
       choices = {
+        { text = "Could the spirits help you watch the Spire, Lexlort?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What do you watch for?", next = "watch" },
         { text = "Who is Grark Lorkrub?", next = "grark" },
         { text = "Who's Bijou?", next = "bijou" },
@@ -795,14 +831,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "All night, every night, and my favourite is the one about the young Warchief calling the elements down on the internment camps to free his people. I know it's mostly true, which makes it better, and the grunts tell it as if they'd been standing next to him." } },
+      choices = {
+        { text = "Tell it true. Thrall earned it without any embellishment.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Embellish away. A good story wins more grunts than the truth.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" },
+          text = "A shaman at my fire. The grunts swear one of yours called down a storm on the Dark Irons at the Gorge last week, and the storm gets bigger every time they tell it." },
         { id = "h_default", key = true,
           text = "I'm Shul'kar, and I keep the inn. Out here a hot meal and a dry bunk are worth more than gold, and I don't charge much more than gold for them." },
         { id = "h_story", when = { metBefore = true }, text = "A grunt told me last night he fought a Dark Iron the size of a door, and then it was two doors, and by morning it was a castle. Good story, though." },
       },
       again = { { id = "h_again", text = "Anything else, while the pot's still on?" } },
       choices = {
+        { text = "Do the grunts tell many stories about shamans, Shul'kar?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Want to hear a battle?", next = "story" },
         { text = "Who's the town named for?", next = "name" },
         { text = "Who passes through Kargath?", next = "travelers" },

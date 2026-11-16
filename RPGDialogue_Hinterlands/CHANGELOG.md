@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.12.0 (2026-11-16)
+- Horde shaman get their own conversation with 6 people at Revantusk Village.
+
 ## 1.11.0 (2026-11-16)
 - Horde hunters with a beast out hear their companion named by the people who already talked hunting.
 

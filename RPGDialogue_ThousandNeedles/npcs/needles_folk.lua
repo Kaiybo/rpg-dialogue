@@ -30,12 +30,14 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "I am Nyse, and I keep the wind riders of Freewind Post. From the top of this mesa they'll carry you to Thunder Bluff, to the Crossroads, or south over the salt flats to Gadgetzan." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The wind riders always fly smoother with one of you aboard, and I've stopped asking why." },
       },
       again = {
         { id = "h_again", text = "What else would you ask? The wind is changing." },
         { id = "h_again2", text = "Speak, friend. The riders can wait a little longer." },
       },
       choices = {
+        { text = "Do the air spirits watch over the wind riders, Nyse?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Where can I fly?", next = "BUSINESS", when = { faction = "Horde" } },
         { text = "Why build a post on top of a mesa?", next = "mesa" },
         { text = "Is it hard flying between the needles?", next = "flying" },
@@ -67,6 +69,15 @@ P:NPC {
     flying_harpy = {
       lines = { { id = "fh_default", text = "They screech and they follow, but they don't dare come close to a wind rider. The riders would tear them out of the sky, and the harpies know it." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "I think they do, because I've never lost a rider over the salt flats, and the gusts up here could knock a kodo off its feet. I leave a little offering at the roost every morning, and I don't tell the riders, in case it stops working." } },
+      choices = {
+        { text = "Keep the offerings. The old ways look after us.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Your riders' skill keeps them aloft, not offerings.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -113,6 +124,7 @@ P:NPC {
           text = "I am Awenasa, and I keep the stables of Freewind Post. Hunters leave their companions with me, and I keep them fed and watered, and away from the edge of the mesa." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! The animals settle when your kind walks in, as if they know you would understand them." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The animals settle when your kind come into the stables, and I'd love to learn how you do it." },
       },
       again = {
         { id = "h_again", text = "Is there more you would like to know about the stables?" },
@@ -121,6 +133,7 @@ P:NPC {
       choices = {
         { text = "Are the beasts content up here on the mesa?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I'd like to see my stabled pets.", next = "BUSINESS", when = { class = "HUNTER" } },
+        { text = "Why do the animals settle around shamans, Awenasa?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "How do you get animals up a mesa?", next = "lift" },
         { text = "What do hunters tame around here?", next = "tame" },
         { text = "Goodbye.", next = "END" },
@@ -136,6 +149,15 @@ P:NPC {
       choices = {
         { text = "Wild things should stay wild.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "A good hunter can tame anything.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Perhaps they hear the spirits around you, the way they hear thunder long before we do. My cats are calmest with shamans and my wolves are calmest with orcs, and I've stopped trying to explain it to the hunters." } },
+      choices = {
+        { text = "Animals know who means them no harm, so trust their judgment.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Animals sense power, and they fear it. That's all it is.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

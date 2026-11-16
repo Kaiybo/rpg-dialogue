@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "They chant at the water every night and wave my strongbox at it, which I'd find funny if it weren't mine. If they think their gods want my coin, their gods have excellent taste, but I'd rather they didn't get it." } },
+      choices = {
+        { text = "I'll free you, Galen, and ask nothing in return.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll free you, but that strongbox had better pay well.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_talk = {
       lines = { { id = "dt_default", text = "Treasure, if I'm honest, and a map that turned out to be more hope than ink. The swamp has a way of making a man regret his choices, and the lizardfolk have a way of making him regret them faster." } },
       choices = {
@@ -38,6 +47,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can't you just ask the earth to open this cage? No? Well, a strong arm will do just as nicely, I suppose." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid! Thank the Light. Get me free of these chains and I'll swear never to speak ill of the woods again." },
         { id = "h_default", key = true,
@@ -52,6 +62,7 @@ P:NPC {
         { id = "h_again2", text = "What else? I'm not going anywhere, worse luck." },
       },
       choices = {
+        { text = "Do the murlocs here worship anything, Galen?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why did you come into this swamp alone?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "How did you end up in there?", next = "caught" },
         { text = "What's in this strongbox?", next = "box" },
@@ -147,8 +158,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "The ancestors cannot give what only the truth can, shaman. When I know who held back those orders, my soldiers will rest and I will follow them, but not one hour before." } },
+      choices = {
+        { text = "Then I'll find the truth for you and your soldiers.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Some truths aren't worth haunting a swamp for. Let it go.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You hear me better than most of the living, then, and you'll know why a spirit cannot rest with its duty undone." },
         { id = "h_default", key = true,
           text = "I led a regiment of the Horde called Thrall's Grasp, and it was destroyed in the lands beyond this swamp. Nineteen of my soldiers could have been spared, had the orders reached us, and I cannot rest until I know why they did not." },
         { id = "h_quest", when = { questActive = TODO_QUEST("The Disgraced One") },
@@ -159,6 +180,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, then. The dead have nothing but time." },
       },
       choices = {
+        { text = "Shall I ask the ancestors to give you peace?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What happened to Thrall's Grasp?", next = "grasp" },
         { text = "What orders do you mean?", next = "orders" },
         { text = "What lies in the Blasted Lands?", next = "lands" },

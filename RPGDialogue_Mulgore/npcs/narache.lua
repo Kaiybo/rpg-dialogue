@@ -40,6 +40,7 @@ P:NPC {
           text = "Before you leave Mulgore, take this bundle to Kaga Wildhoof, camped outside Bloodhoof. She helped us when we needed it. I'd like to repay her." },
         { id = "h_attack", when = { questActive = TODO_QUEST("Attack on Camp Narache") },
           text = "They came to our camp with fire and spears, and now we go to theirs. Make them remember the Hawkwind." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "The spirits have touched you, young one, and I can see it in the way you stand. My mother would have wanted you beside her at the rites." },
       },
       choices = {
         { text = "Tell me about the Greatmother.", next = "greatmother" },
@@ -47,6 +48,7 @@ P:NPC {
         { text = "Where should a hunter go first, Chief?", next = "hunter", when = { class = "HUNTER" } },
         { text = "The trainer says I'm to be a druid.", next = "druid", when = { race = "Tauren", class = "DRUID" } },
         { text = "I was born Grimtotem, Chief. I chose Bloodhoof.", next = "grimtotem", when = { origin = "tauren_grimtotem_born" } },
+        { text = "Did the Greatmother walk with the spirits, Chief?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I'll do what's asked.", next = "END", fx = { affinity = 2, standing = { narache = 1 } } },
       },
       again = {
@@ -89,6 +91,15 @@ P:NPC {
       choices = {
         { text = "She sounds brave.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Then let's make them pay.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "She did, and the elements answered her more readily than they answer most elders on the bluffs. When the Bristleback came, she called on the earth against them, and it was not enough, so learn faster than she was given time to." } },
+      choices = {
+        { text = "I'll learn the rites properly, step by step, as she did.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then I'll find my own way to strength, and quicker.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },
@@ -137,10 +148,12 @@ P:NPC {
           text = "The quilboar breed battleboars in a pen to the south. Thin them, and the next raid on this camp comes on foot." },
         { id = "h_note", when = { questActive = TODO_QUEST("Verdant Note") },
           text = "Your trainer wants you, so go; the Hawkwind will still be here." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Good, because the hunt goes better when the wind is on our side, and you can ask it nicely." },
       },
       choices = {
         { text = "Will you lead well?", next = "lead" },
         { text = "Can my beast hunt beside your braves?", next = "hunter", when = { class = "HUNTER" } },
+        { text = "Should a shaman hunt, Grull, or only bless the hunters?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Good hunting, Grull.", next = "END" },
       },
       again = {
@@ -160,6 +173,15 @@ P:NPC {
       choices = {
         { text = "I believe you.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "A wise chief leads from where the spears can't reach.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Both, if you ask me, and nobody ever does. A shaman who sits by the fire knows less about plainstriders than one who's chased them, and the Bristleback won't wait for a blessing before they raid." } },
+      choices = {
+        { text = "I'll hunt beside the braves and earn my place there.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Let the spirits strike from afar. Why risk my own hide?", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },

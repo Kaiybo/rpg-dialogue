@@ -24,6 +24,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "If they do, they speak quietly, which suits this house well. These hills have watched a king betray his own people and the Syndicate rise out of what was left, and I imagine the spirits have learned, as I have, to choose their confidants carefully." } },
+      choices = {
+        { text = "Then whatever they tell me here, I'll keep in confidence, my lord.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Secrets are currency. I'd sell what the spirits tell me.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "We hide in it, and in return we keep it free of the Syndicate's woodcutters and smugglers, which I suspect suits the forest well enough. Alterac's nobles stripped these hills for coin once, and I do not intend to let their hirelings finish the work." } },
       choices = {
@@ -34,6 +43,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" },
+          text = "A shaman of Thrall's Horde, at Ravenholdt. The Warchief's people rebuilt an old faith out of ashes in a few short years, and I respect anyone who builds something that lasts." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid at Ravenholdt. My guests usually arrive in shadow, but few of them arrive on four paws, and I confess I find it refreshing." },
         { id = "h_default", key = true,
@@ -43,6 +54,7 @@ P:NPC {
       },
       choices = {
         { text = "Does your house keep this forest, my lord, or only hide in it?", next = "druid_q", when = { class = "DRUID" } },
+        { text = "Do the spirits of Alterac speak to your house, my lord?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why does the Syndicate trouble you so much?", next = "syndicate" },
         { text = "What is this house, exactly?", next = "house" },
         { text = "I've walked in shadows a while. Is there a place for me here?", next = "rogue", when = { class = "ROGUE" } },
@@ -186,8 +198,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Some nights, when the guards slept, I heard the wind in the pines and remembered that Thrall freed our people from cages like these. The spirits did not break my chains, but they reminded me that chains have been broken before." } },
+      choices = {
+        { text = "Then walk out with your head high, and let the Syndicate see it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Freedom's enough. We slip out quietly, before anyone notices.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" },
+          text = "A shaman of the Horde, here in these camps. I have asked the spirits of the earth to break these chains for many nights now, and perhaps they sent you instead." },
         { id = "h_default", key = true,
           text = "I am Gol'dir, and the Syndicate has kept me in chains longer than I care to count. They move me between their camps so nobody can find me, and still you found me." },
         { id = "h_alliance", when = { faction = "Alliance" },
@@ -196,6 +219,7 @@ P:NPC {
           text = "Krusk sent you? Then the old warrior did not forget me. Get these chains off, and I will walk back to Tarren Mill on my own feet." },
       },
       choices = {
+        { text = "Did the spirits keep you company in your chains, Gol'dir?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why did the Syndicate take you?", next = "taken" },
         { text = "Who is Krusk to you?", next = "krusk" },
         { text = "What are they digging for at Strahnbrad?", next = "dig" },
@@ -269,14 +293,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "The herbs are the same, peacebloom and silverleaf and the rest, and only the intentions differ. You ask the plant's spirit to help, and I ask the plant to stop a heart by morning, and I've never yet met a plant that refused me." } },
+      choices = {
+        { text = "Then I'll ask the spirits to undo whatever harm you brew.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "An herb is an herb. Use it however the war needs.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" },
+          text = "A shaman at my bench. Your kind brew with herbs and prayers, I'm told, while I use herbs and arithmetic, and only one of us has ever had a complaint." },
         { id = "h_default", key = true,
           text = "Serge Hinott, alchemist to Tarren Mill. The Apothecary Society does the grand work in the Undercity, and I do the useful work out here, where a draught has to be ready by morning." },
         { id = "h_living", when = { faction = "Alliance" },
           text = "A living one from Southshore's side of the hills. I'll not sell to you, but you can listen, I suppose, and then you can walk away quickly." },
       },
       choices = {
+        { text = "Do your draughts and a shaman's herbs have anything in common?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What do you brew out here?", next = "brews" },
         { text = "How do you get along with Apothecary Lydon?", next = "lydon" },
         { text = "Good day.", next = "END" },

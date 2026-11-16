@@ -38,6 +38,7 @@ P:NPC {
           text = "You've met my father on the bluffs, so he'll have told you about the land. He tells everyone; he never tires of it." },
         { id = "h_rounds", when = { metBefore = true }, text = "I walk the village each evening, every tent and every fire. A leader should know every face, and I'm still learning a few." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Stars over Stonebull Lake, and on nights like this I can almost hear the old songs from when we wandered." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You carry totems, and the grass seems to lean toward you as you walk. My father calls the shamans the oldest memory of our people, so I'm glad to see one more." },
       },
       choices = {
         { text = "How did the tauren come to Mulgore?", next = "coming" },
@@ -50,6 +51,7 @@ P:NPC {
         { text = "Your father stood up for my people. Why?", next = "forsaken", when = { race = "Scourge" } },
         { text = "I've begun to walk the druid's path.", next = "druid", when = { race = "Tauren", class = "DRUID" } },
         { text = "Are the Windshapers good neighbours?", next = "skyborne", when = { race = "Skyborne" } },
+        { text = "Do the spirits favor talking the Venture Company down, Baine?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Earth Mother guide you.", next = "END", fx = { affinity = 1 } },
       },
       again = {
@@ -132,6 +134,15 @@ P:NPC {
         { id = "c_default", text = "We wandered for longer than any elder remembers. My father met Thrall's orcs, and with them beside us we drove the centaur from these plains. Mulgore is the first home our people have held in centuries." },
       },
       choices = { { text = "A home worth guarding.", next = "BACK", fx = { affinity = 2, standing = { bloodhoof = 1 } } } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "The earth spirits are furious with the goblins at the mine, and I can't blame them. But a furious spirit beside a furious tauren would leave nothing standing in the east, so I ask the shamans to calm the one while I try to calm the other." } },
+      choices = {
+        { text = "Calm first. Mulgore has seen enough fire.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let the earth swallow their mine, and the goblins with it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -255,10 +266,12 @@ P:NPC {
         { id = "h_knees", when = { metBefore = true }, text = "My grandfather read the weather from how the birds flew. I read it from how my knees ache. The tribe calls that progress." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Even the swoops sleep at this hour, but I don't, much; it's an old habit from the wandering years." },
         { id = "h_maur", when = { heardLine = "maur.h_default" }, text = "Maur's after that beast again? He's tracked it longer than some of our braves have been alive." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, is it? Then you'll know the wind is turning before my knees do, and I'd thank you to tell me when." },
       },
       choices = {
         { text = "Why watch the sky?", next = "sky" },
         { text = "Do the swoops ever come down at a hunter's beast?", next = "hunter", when = { class = "HUNTER" } },
+        { text = "The air over Mulgore feels uneasy. Have you noticed, Harken?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I'll see to it.", next = "END", fx = { affinity = 1 } },
       },
       again = {
@@ -278,6 +291,15 @@ P:NPC {
         { id = "s_map", text = "When we wandered, the sky was the only map we had. Now we've a home with walls of grass, and I still can't stop looking up." },
       },
       choices = { { text = "Keep watching for us.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Noticed it? The Windfury harpies have the swoops flying crooked over the whole plain, and the winds off their ridge smell of trouble. In the wandering years we'd simply have moved on, but we have a home now, so the wind will have to get used to us." } },
+      choices = {
+        { text = "We have a home now, so we hold it against the harpies.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The wind can't be owned. Maybe we should still move with it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -315,10 +337,12 @@ P:NPC {
           text = "The beast is called Mazzranache. Find it, end it, and bring me proof, and the young ones will stop whispering and start bragging." },
         { id = "h_slow", when = { metBefore = true }, text = "The young braves ask me how to track. I tell them: walk slower than you want to. Not one of them listens." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Something big moves out in the dark grass. I've heard it more than I've seen it, and that's the part I don't like." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You walk like a shaman, light on the grass, and that's a gift on a hunt. The beast I'm tracking would hear anyone else coming a mile off." },
       },
       choices = {
         { text = "How did you get your name?", next = "name" },
         { text = "I'm a tracker too. What have its tracks told you?", next = "hunter", when = { class = "HUNTER" } },
+        { text = "Would the spirits frown on hunting Mazzranache, Maur?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I'll find it.", next = "END", fx = { affinity = 1, trait = { brave = 1 } } },
       },
       again = {
@@ -341,6 +365,15 @@ P:NPC {
         { id = "n_rain", text = "It rained on every camp I made, the whole long walk to Mulgore. My mother said the clouds had adopted me, and the name stuck, and so did the clouds." },
       },
       choices = { { text = "It's a good name.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "I asked an elder that once, and she told me the spirits don't frown on a hunt, only on a waste. If I take its hide, I'll honor every part of it, and I'll thank the earth for letting us meet." } },
+      choices = {
+        { text = "A clean hunt, honestly given. The spirits can't ask more.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A trap works better than a chase, and nobody's the wiser.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -455,12 +488,14 @@ P:NPC {
           text = "He's home! Look at him, Kyle, sit, Kyle, sit, oh, he won't sit and I don't care one bit. He's home!" },
         { id = "h_fence", when = { questDone = TODO_QUEST("Kyle's Gone Missing!"), metBefore = true }, text = "Kyle chewed through the fence again, but he didn't go anywhere; he just likes chewing fences. I've stopped mending it." },
         { id = "h_watch", when = { questDone = TODO_QUEST("Kyle's Gone Missing!"), timeOfDay = "night" }, text = "He sleeps across the door now, like he's afraid I'll be the one to wander off. Silly dog." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You're a shaman? Then maybe the spirits have seen my Kyle, because he's a scruffy little thing and he goes wherever his nose takes him." },
       },
       choices = {
         { text = "Tell me about Kyle.", next = "kyle" },
         { text = "I'll keep an eye out for him.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "It's only a dog.", next = "END", fx = { affinity = -2 } },
         { text = "My beast could follow Kyle's scent.", next = "hunter", when = { class = "HUNTER", pet = { type = "Beast" } } },
+        { text = "Do the spirits ever watch over a lost dog, Ahab?", next = "xhsham", when = { class = "SHAMAN" } },
       },
       again = {
         { id = "h_again", text = "Anything else? Sorry, I keep looking at the lake shore in case he comes back." },
@@ -475,6 +510,15 @@ P:NPC {
         { id = "k_pup", text = "Found him as a pup down by the lake, soaking wet and barking at a frog. He's been barking at things ever since. Best friend I've got." },
       },
       choices = { { text = "He sounds wonderful.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "I hope they do, because I leave a bowl by the door every night and every morning it's still full. If the wind carries his scent anywhere, it's probably toward the wolves, and Kyle is no match for a wolf, though he'd never believe it." } },
+      choices = {
+        { text = "The spirits look after small, loyal things. He'll come home.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If the wolves got him, better to know and grieve now.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -516,14 +560,24 @@ P:NPC {
         { id = "h_view", when = { metBefore = true }, text = "The bluff folk come down for my stew and say they're here for the view. The view's fine, but the stew's better." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "The wind's dropped, so listen: that's the lake against the shore, the best sound in Mulgore." },
         { id = "h_mull", when = { heardLine = "mull.h_default" }, text = "Mull's been to every well again, hasn't he? I bring him stew, and he forgets to eat it, so I bring more." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman at my table! Sit near the fire, since your kind always seem to be listening to it, and I'll bring you a bowl of stew." },
       },
-      choices = { { text = "What's in the stew?", next = "stew" }, { text = "Just a meal, thank you.", next = "END" } },
+      choices = { { text = "What's in the stew?", next = "stew" }, { text = "Do the elders still bless the hearths in Bloodhoof, Kauth?", next = "xhsham", when = { class = "SHAMAN" } }, { text = "Just a meal, thank you.", next = "END" } },
     },
     stew = {
       lines = {
         { id = "s_roots", text = "Tallstrider, wild roots, and whatever the hunters bring in that they can't name. Don't ask more than that; it spoils the taste." },
       },
       choices = { { text = "Smells good.", next = "END", fx = { affinity = 1 } } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Old Zarlman blesses everything from the well to my stewpot, and I let him, because it only costs me a bowl. Mull won't touch the stew, but he says the fire burns cleaner since, and I'll take a compliment wherever I find one." } },
+      choices = {
+        { text = "Old ways keep a village whole. I'm glad he blesses it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A good fire needs good wood, not blessings.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -564,11 +618,13 @@ P:NPC {
         { id = "h_outdoors", when = { questActive = TODO_QUEST("The Great Outdoors") },
           text = "Sit by the fire and let it work on you. The rest comes when it comes." },
         { id = "h_narache", when = { metBefore = true }, text = "I came past Camp Narache on the way in, where the young ones were fighting boars with sticks. I gave them a few pointers, and a few bandages." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman at the campfire is good luck, the old wanderers used to say, because the fire burns brighter beside one of you. Sit down, and we'll test the saying." },
       },
       choices = {
         { text = "What is it you love about camping?", next = "why" },
         { text = "My people camped under a different sky.", next = "skyborne", when = { race = "Skyborne" } },
         { text = "I hunt as I travel. Does that suit a camp?", next = "hunter", when = { class = "HUNTER" } },
+        { text = "Did the wandering bands keep shamans on the long road, Kaga?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Earth Mother keep you.", next = "END" },
       },
       again = {
@@ -586,6 +642,15 @@ P:NPC {
     why = {
       lines = { { id = "w_default", text = "Every fire is a small village for a night. Whoever passes can sit at it. I've met more friends at campfires than in any town." } },
       choices = { { text = "Teach me.", next = "BACK", fx = { affinity = 2, learn = { "camping" } } } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Every band had one, and ours sang to the earth each night before we slept, so we'd know where the water hid. Now Mulgore is home and the shamans sit up on the bluffs, and I miss hearing that singing out on the plains." } },
+      choices = {
+        { text = "The bluffs keep the songs safe for everyone, and that's worth something.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A shaman belongs on the open road, singing for the people.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 

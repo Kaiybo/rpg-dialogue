@@ -413,8 +413,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "The spirits don't care much who made the sword, mon, they care who swing it. Trol'kalar been sleepin' in Trollbane's tomb a long time, dreamin' of troll blood, so maybe we ask the ancestors to cool its temper before Vol'jin pick it up." } },
+      choices = {
+        { text = "Cleanse it first. A cursed blade shames whoever wields it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let it stay angry. The Gurubashi earned every drop.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" },
+          text = "A shaman, mon! The Darkspear been talkin' to the spirits long before the orcs come, but Thrall teach us a few new tricks too, and the loa don't seem to mind." },
         { id = "h_default", key = true,
           text = "Zengu, of the Darkspear. Vol'jin send me for a sword, Trol'kalar, made by humans to kill trolls, and we going to use it against the Gurubashi, which be a fine joke, mon." },
         { id = "h_trollbane", tags = { "news" }, when = { questActive = TODO_QUEST("Trollbane") },
@@ -430,6 +441,7 @@ P:NPC {
         { id = "h_again", text = "More? Zengu got all day, mon. Hunters always do." },
       },
       choices = {
+        { text = "Will the spirits bless a human sword against the Gurubashi?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "A human sword against trolls?", next = "joke" },
         { text = "Why does Vol'jin want it?", next = "why" },
         { text = "How do we open the tomb?", next = "sigils" },
@@ -580,6 +592,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Angry and grieving both, I think, because men have fought over these hills longer than any tauren can remember. The grunts say elementals walk inside the old stone circles out in the Highlands, so I leave a cup of water by the door at night, in case the gentler spirits come calling." } },
+      choices = {
+        { text = "I'll soothe them where I can, as the Earth Mother would ask.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Grieving spirits make dangerous neighbors. I'll put them down if I must.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Every morning, when I wake to stone and orc voices instead of wind in the grass. But the Earth Mother is under these hills too, and somebody must keep a fire burning for the warriors who walk them." } },
       choices = {
@@ -590,6 +611,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" },
+          text = "A shaman, walking the Earth Mother's paths so far from home! The spirits of the Highlands are sour and stony, but sit by my fire, and perhaps they'll warm to you as they've slowly warmed to me." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "One of the Earth Mother's druids, and a tauren besides! Sit by my fire and tell me whether the grass still grows tall in Mulgore." },
         { id = "h_default", key = true,
@@ -600,6 +623,7 @@ P:NPC {
       again = { { id = "h_again", text = "Something else? The fire's in no hurry, and neither am I." } },
       choices = {
         { text = "Do you miss Mulgore, Adegwa?", next = "druid_q", when = { class = "DRUID" } },
+        { text = "Are the spirits of the Highlands angry, Adegwa?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "How does a tauren fare among orcs?", next = "among" },
         { text = "What do the grunts sing about?", next = "songs" },
         { text = "We're a long way from Mulgore, you and I.", next = "home", when = { race = "Tauren" } },

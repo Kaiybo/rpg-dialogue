@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "They blame the axes, and the axes are ours, so I suppose they blame us all. The Earthmother teaches that we take only what we need, and I have watched the Warsong take far more than that, and I grieve for it." } },
+      choices = {
+        { text = "Then the Horde must take less and make peace with the forest.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Horde needs timber to survive. The forest will grow back.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     orc_s = {
       big = true,
       lines = {
@@ -43,6 +52,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You must feel it too, the way the ancient spirits of this forest watch us, and how little they welcome what we do here." },
         { id = "h_default", key = true,
           text = "I am Senani Thunderheart. I came here to hunt and stayed because this forest is the most beautiful thing I have ever seen, and that we are at war in it is a sorrow I carry." },
         { id = "h_hunt", tags = { "news" }, when = { questActive = TODO_QUEST("The Ashenvale Hunt") },
@@ -63,6 +73,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, and then go and listen to the trees a while." },
       },
       choices = {
+        { text = "Do the forest spirits blame the Horde for the Warsong camp?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why hunt them, if you love the forest?", next = "why" },
         { text = "Tell me about the three beasts.", next = "beasts" },
         { text = "Does it trouble you, fighting a war here?", next = "war_s" },
@@ -141,6 +152,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Wagons break and kodos go lame, and once a whole load of timber rolled off a cart on a flat road with no wind at all. The grunts blamed the elves' spirits and I blamed the driver, and I'm still not sure which of us was right." } },
+      choices = {
+        { text = "Respect the forest, and your wagons might roll easier, Mastok.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Spirits don't tip wagons. Sack the driver.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     warsong_m = {
       lines = {
         { id = "wsm_default", text = "Ours, is it? Every log here is Orgrimmar's, and it's on my ledger before it's on anyone's shoulders. Your family can be as Warsong as they like, but if they want a plank, they sign for it like everybody else." },
@@ -161,6 +181,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You lot talk to everything, I hear, so maybe you can talk my wagon wheels out of the mud on the Splintertree road." },
         { id = "h_default", text = "Name's Mastok. I track every caravan in and out of Splintertree, because people are trouble and wagons are just wagons, and I prefer wagons." },
         { id = "h_element", tags = { "news" }, when = { questDone = TODO_QUEST("Stonetalon Standstill") },
           text = "Somebody churned that lake up good, I hear, and the transports to Stonetalon are moving again. That's what I call useful." },
@@ -173,6 +194,7 @@ P:NPC {
         { id = "h_again2", text = "Still here? Then ask your question and let me count." },
       },
       choices = {
+        { text = "Do the elves' spirits ever bother your caravans?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why count everything?", next = "count" },
         { text = "Why don't you like people?", next = "people" },
         { text = "What's going on at Mystral Lake?", next = "mystral" },
@@ -243,6 +265,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Sometimes the runner turn away before I see him, like the trees told him I be waiting. I don't like fighting the forest as well as the elves, but the Warchief need the timber, so I watch the paths anyway." } },
+      choices = {
+        { text = "Fight the elves, not the forest. The spirits aren't our enemy.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If the trees take the elves' side, they're enemies too.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hunter_k = {
       lines = {
         { id = "hk_default", text = "Ha, now that be useful talk. The outrunners come down the creek bed at dusk, low and fast, and they don't stop for nothin' but a good arrow; put your beast on the bank and your bow in the trees, and we see who gets home." },
@@ -256,6 +287,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? The night elves got their own spirits in these trees, and they be whispering about us, so keep your ears open on the paths." },
         { id = "h_default", text = "I be Kuray'bin, and I watch the paths into Splintertree. The night elves send runners through the trees, quick and quiet, and I make sure they don't get home." },
         { id = "h_outrunners", tags = { "news" }, when = { questActive = TODO_QUEST("Ashenvale Outrunners") },
           text = "Outrunners from Silverwing Outpost be sneakin' round our ground, countin' our numbers for their captains. Hunt them in the forest south of here before they get home." },
@@ -268,6 +300,7 @@ P:NPC {
         { id = "h_again2", text = "Ask it quick, and then back to watchin' the trees." },
       },
       choices = {
+        { text = "Do the forest spirits warn the night elf runners about you?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do you miss the islands?", next = "islands" },
         { text = "How bad is the fighting?", next = "fighting" },
         { text = "What are the outrunners after?", next = "outrun" },

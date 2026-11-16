@@ -27,8 +27,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "All the time, and I tell the passengers it's perfectly safe, which is a lie I'm paid to tell. Put a shaman aboard, though, and the storms seem to step aside, so I've started giving your lot the good seats." } },
+      choices = {
+        { text = "Tell your passengers the truth about the storms, Nez'raz.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A comforting lie keeps passengers calm. Keep telling it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You wouldn't put in a word with the air spirits about the crosswinds, would you? The last crossing nearly put us in the sea." },
         { id = "h_default", key = true,
           text = "Nez'raz, zeppelin master! The ship from this tower drops off at Orgrimmar, and the sun here beats the dust there any day of the week. Best post on the line, if you ask me, and nobody ever does." },
         { id = "h_night", when = { timeOfDay = "night" },
@@ -39,6 +49,7 @@ P:NPC {
         { id = "h_again2", text = "Ask away while we wait. I love a chat." },
       },
       choices = {
+        { text = "Do the zeppelins ever fly through storms on the way?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Are these zeppelins safe?", next = "safe" },
         { text = "Why do you like it here?", next = "sun" },
         { text = "Do you see much from up here?", next = "view" },
@@ -117,8 +128,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "They do, and I think it's because you listen to the wind instead of shouting at it. Most riders shout, and the beasts carry them anyway, but they carry a shaman as if they were glad to." } },
+      choices = {
+        { text = "Listening is the better way, with beasts and with spirits.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A beast is a tool. It should carry whoever pays.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The wind riders feel the air before we do, and they've been restless all morning, so perhaps you can tell me why." },
         { id = "h_default", key = true,
           text = "Thysta, wind rider master. From Grom'gol the riders go to Kargath and Stonard, and to the goblins at Booty Bay, if you've any business that far south." },
       },
@@ -127,6 +148,7 @@ P:NPC {
         { id = "h_again2", text = "Anything more? The riders are waiting, but patiently." },
       },
       choices = {
+        { text = "Do the wind riders take to shamans more than to others?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "How do the riders like the jungle?", next = "jungle" },
         { text = "You watch the trolls on the ridges?", next = "trolls" },
         { text = "Show me where I can fly.", next = "BUSINESS" },
@@ -192,8 +214,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "The zeppelin does, along with everything else, and the goblins mark them up twice before they reach me. I mark them up once more, so don't look at me like that, because I'm the cheapest of the three." } },
+      choices = {
+        { text = "Supplying the Horde should be a duty and never a trade.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Everyone profits off the war. Take your cut.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll want ankhs, then, and shiny scales, though the jungle turns my stock green as fast as I unpack it." },
         { id = "h_default", key = true,
           text = "Uthok, general supplies. Everything I sell came off a zeppelin, and the jungle will rot it or eat it in a week, so buy what you need and use it fast." },
       },
@@ -202,6 +234,7 @@ P:NPC {
         { id = "h_again2", text = "Anything more? I've got crates to open." },
       },
       choices = {
+        { text = "Who supplies your ankhs this far from Orgrimmar?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What's the hardest thing to keep in stock?", next = "stock" },
         { text = "Do the trolls ever try to steal from you?", next = "thieves" },
         { text = "Show me what you have.", next = "BUSINESS" },

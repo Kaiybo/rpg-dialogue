@@ -224,8 +224,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "The spirits favor whoever respect them, mon, and the Vilebranch don't respect nothin'. My brother used to say a thanks to the beast after every kill, and I think the wilds still remember him for it." } },
+      choices = {
+        { text = "I'll thank every beast I take, as your brother did.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A kill is a kill. The spirits don't need my thanks.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" },
+          text = "A shaman come to Revantusk. The Vilebranch witch doctors be twistin' the spirits up at Jintha'Alor, so a shaman with clean hands be welcome at my fire." },
         { id = "h_default", key = true,
           text = "Huntsman Markhor, master of the hunt for Revantusk. Many brave trolls been lost to these wilds, and I hunt what hunts us, so the rest of the village can sleep." },
         { id = "h_stalkers", when = { questActive = TODO_QUEST("Stalking the Stalkers") },
@@ -244,6 +255,7 @@ P:NPC {
         { id = "h_again2", text = "Speak. The beasts be quiet for now." },
       },
       choices = {
+        { text = "Do the spirits of the wilds favor the hunter or the hunted?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What hunts in these hills?", next = "wilds" },
         { text = "Tell me about your brother.", next = "brother" },
         { text = "Why hate the gryphons so?", next = "gryphons" },
@@ -465,8 +477,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Every single fish, mon, I say a little word before I let it go or put it in the pot. The sea give and the sea take, and the only ones who never say thank you be them snapjaws, which is why the sea don't like them neither." } },
+      choices = {
+        { text = "I'll thank the water too, and only take what I need.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fish are fish. The sea won't miss what I take.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" },
+          text = "A shaman, mon! You go ask the water spirits to send the fish my way, and leave the snapjaws out of it, if you please." },
         { id = "h_default", key = true,
           text = "Katoom the Angler. I teach the fishin' and I sell the gear, but mostly I sit right here and fish, which be the most pleasant thing a troll can do." },
         { id = "h_snapjaws", when = { questActive = TODO_QUEST("Snapjaws, Mon!") },
@@ -483,6 +506,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, I be listenin' and fishin' both." },
       },
       choices = {
+        { text = "Do you ever thank the water for what you catch, Katoom?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Who taught you to fish?", next = "pagle" },
         { text = "What's wrong with the turtles?", next = "snapjaws" },
         { text = "Doesn't the war worry you?", next = "war" },
@@ -561,8 +585,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Lard would like that very much, because the hearth gets sad when it rains and the trolls complain about the smoke. You make it happy, and Lard will cook you a fish, and maybe not burn it this time." } },
+      choices = {
+        { text = "I'll bless it properly, the way the spirits ask.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll do it quickly. The spirits won't care how it's done.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" },
+          text = "Lard see you are shaman. Lard like shaman, because one time a shaman make the rain stop on Lard's picnic, and Lard never forget it." },
         { id = "h_default", key = true,
           text = "Lard keep the inn for the trolls, and Lard keep the peace, because nobody want to fight when Lard is standin' there. Lard is very big, so it work good." },
         { id = "h_lunch", tags = { "news" }, when = { questActive = TODO_QUEST("Lard Lost His Lunch") },
@@ -576,6 +611,7 @@ P:NPC {
       },
       choices = {
         { text = "Got anything I can feed my companion, Lard?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
+        { text = "Can I bless the inn's hearth for you, Lard?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Make this inn my home.", next = "BUSINESS" },
         { text = "An ogre among trolls?", next = "ogre" },
         { text = "Where's your secret spot?", next = "spot" },
@@ -665,8 +701,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Ask away, but tell it I'm grateful already, because it never let me down, even when the Vilebranch took my tools. The trolls here leave little offerings by the coals, and I've stopped sweeping them up, since the steel's come out cleaner ever since." } },
+      choices = {
+        { text = "I'll bless it for the whole village. Revantusk's forge serves everyone.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The fire answers whoever feeds it. You need no village's blessing.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" },
+          text = "A shaman at my forge. Fire's the first spirit any smith learns to respect, and I've been talking to mine for twenty years, though it's never once answered me." },
         { id = "h_default", key = true,
           text = "Smith Slagtree, and I keep the forge for Revantusk. Nobody leaves this village with a split shield while I've got coals in the forge." },
         { id = "h_tools", tags = { "news" }, when = { questActive = TODO_QUEST("Vilebranch Hooligans") },
@@ -680,6 +727,7 @@ P:NPC {
       },
       choices = {
         { text = "Can you mend a warrior's armor, Slagtree?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
+        { text = "Shall I ask the fire spirit to bless your forge, Slagtree?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Mend my gear.", next = "BUSINESS" },
         { text = "A gnome gave you tools?", next = "gnome" },
         { text = "What's an orc doing with trolls?", next = "village" },
@@ -757,8 +805,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "I set anything I can against the Wildhammer, mon, and the spirits would be the best weapon of all. Them dwarves claim the storms favor them and their birds, and it would please me very much to see the storms pick a side." } },
+      choices = {
+        { text = "The spirits won't serve a grudge, Otho. They answer to balance.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then I'll call the storm on them, and gladly.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" },
+          text = "A shaman, mon! Someday you call the storm down on Aerie Peak, and we see how them dwarves like the lightning on their gryphons." },
         { id = "h_default", key = true,
           text = "Otho Moji'ko. I sell the spices and the salt and the things a cook can't do without, but what I really want be sendin' the Wildhammer a message they never forget." },
         { id = "h_elves", when = { questActive = TODO_QUEST("Message to the Wildhammer") },
@@ -775,6 +834,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. I be thinkin' up the next message anyway." },
       },
       choices = {
+        { text = "Would you set the spirits against the Wildhammer, Otho?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why hate the Wildhammer so much?", next = "dwarves" },
         { text = "What kind of message?", next = "message" },
         { text = "Show me your supplies.", next = "BUSINESS" },
@@ -852,8 +912,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "If they mind, they've a funny way of showing it, because they keep the waves calm off this pier and send me nothing but small fry. I think that grouper has a spirit of its own, and it's the stubbornest one on the coast." } },
+      choices = {
+        { text = "Be patient and respectful, and the sea will reward you.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Forget patience. Net the whole cove and be done with it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" },
+          text = "A shaman. Don't suppose you could ask the sea to send that grouper my way? I've tried asking nicely and it hasn't worked." },
         { id = "h_default", key = true,
           text = "Gorkas, wind rider master. The beasts fly to Tarren Mill, Hammerfall and the Undercity, and in between flights I fish off this pier until I catch the biggest grouper on the coast." },
         { id = "h_night", when = { timeOfDay = "night" },
@@ -864,6 +935,7 @@ P:NPC {
         { id = "h_again2", text = "Speak up, but quietly." },
       },
       choices = {
+        { text = "Do the sea spirits mind you fishing between flights, Gorkas?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Show me where I can fly.", next = "BUSINESS" },
         { text = "What grouper?", next = "grouper" },
         { text = "How do the wind riders like the coast?", next = "riders" },

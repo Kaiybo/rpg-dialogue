@@ -19,6 +19,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I'm Pao'ka Swiftmountain, and I came out here to gather things for my family, but I got turned around in the canyons. The Galak centaurs are everywhere, and I don't think I can make it back to Freewind alone." },
         { id = "h_c0", when = { questActive = TODO_QUEST("Homeward Bound") }, text = "You'll walk me home? I'll stay close, I promise, and I'll run if I see centaurs, because I'm better at running than fighting." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You're a shaman! Could you ask the spirits for the way back to Freewind? I've gotten so turned around in these canyons." },
       },
       again = { { id = "h_again", text = "What else? I'm listening, just a bit nervous." }, { id = "h_again2", text = "Ask me anything; it helps to talk." } },
       choices = {
@@ -26,6 +27,7 @@ P:NPC {
         { text = "Who's your family?", next = "b2_1" },
         { text = "Why are the centaurs dangerous?", next = "b3_1" },
         { text = "Freewind is my kin's home too.", next = "x_1", when = { race = "Tauren" } },
+        { text = "Are you frightened of the Galak, Pao'ka?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Should you have stayed home?", next = "s_1" },
         { text = "Farewell.", next = "END" },
       },
@@ -57,6 +59,15 @@ P:NPC {
     s_1 = {
       lines = { { id = "s_1_l", text = "My father would say I should have, and maybe he'd be right, but I wanted to see the canyons for myself." } },
       choices = { { text = "Adventure is worth a little danger.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } }, { text = "Listen to your father. The world is dangerous.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Very, because they ride faster than I can run, and they shout things at me I don't understand. My grandmother says the earth won't let a tauren come to harm in the Needles, but I think the earth is very busy." } },
+      choices = {
+        { text = "Listen to your grandmother. The elders know these canyons.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Don't wait on elders or spirits. Trust your own feet.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
   topics = { _none = { { id = "tp_none", text = "I don't know, but I'm only young, so maybe that's fine." } } },
@@ -160,6 +171,7 @@ P:NPC {
         { id = "h_c0", when = { race = "Tauren" }, text = "A fellow tauren who walks the Earth Mother's path, not Magatha's. You are welcome at my fire." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "You walk the Earth Mother's path as a druid should, but Magatha's people bend the spirits to their will, and I would hear what you make of that." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Good, because the Grimtotem call on the elements too, and I want someone at Freewind who can call back louder." },
       },
       again = { { id = "h_again", text = "What else?" }, { id = "h_again2", text = "Ask, if you have more." } },
       choices = {
@@ -168,6 +180,7 @@ P:NPC {
         { text = "Why not go back to Mulgore?", next = "b2_1" },
         { text = "What of the goblins in the Flats?", next = "b3_1" },
         { text = "I'll take the fight to them.", next = "x_1", when = { class = "WARRIOR" } },
+        { text = "What would you have a shaman do against the Grimtotem, Motega?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Are you being too harsh on them?", next = "s_1" },
         { text = "Farewell.", next = "END" },
       },
@@ -200,6 +213,15 @@ P:NPC {
       lines = { { id = "s_1_l", text = "Some say I'm too angry about the Grimtotem, but I've buried friends because of them. Anger seems fair." } },
       choices = { { text = "Your anger is earned. Use it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } }, { text = "Anger will make you as bad as them.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Stand in front of them with your totems planted and show them the Earth Mother doesn't belong to their clan. Magatha's people think the spirits are theirs to command, and I'd like to watch them learn otherwise." } },
+      choices = {
+        { text = "The spirits belong to all tauren, and I'll say so openly.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Let them think they command the spirits. Surprise works better.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = { _none = { { id = "tp_none", text = "That I do not know, friend." } } },
 }
@@ -221,6 +243,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Razzeric, the fastest goblin on the Shimmering Flats! I race for the goblin team, and every time I take the car out, the gnomes start sweating." },
         { id = "h_c0", when = { race = "Gnome" }, text = "Uh-oh, a gnome. You here to sabotage my car, or just to watch me beat your friends?" },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, huh? Can you make the wind blow at the gnomes' car and not mine? I'm kidding, mostly, unless you can." },
       },
       again = { { id = "h_again", text = "What else? Talk quick, like me." }, { id = "h_again2", text = "More? Sure, I got a minute between laps." } },
       choices = {
@@ -228,6 +251,7 @@ P:NPC {
         { text = "Is it safe?", next = "b2_1" },
         { text = "What's the prize?", next = "b3_1" },
         { text = "I bet you've got a trick or two in that car.", next = "x_1", when = { class = "ROGUE" } },
+        { text = "Would you really cheat with the wind, Razzeric?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Is racing worth the danger?", next = "s_1" },
         { text = "Farewell.", next = "END" },
       },
@@ -260,6 +284,15 @@ P:NPC {
       lines = { { id = "s_1_l", text = "Pozzik says I'm crazy to keep racing. I say a goblin without risk is just a banker with a hat." } },
       choices = { { text = "Life's short. Race fast.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } }, { text = "You'll get killed for nothing. Slow down.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Cheat's a strong word, pal, and besides, Daisy would catch it on her stopwatch and Pozzik would dock my pay. The flats get gusty in the afternoons anyway, so I just make sure I'm racing in the mornings." } },
+      choices = {
+        { text = "Win it fairly, Razzeric, or the win means nothing.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A little wind on the gnomes' side wouldn't hurt anybody.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = { _none = { { id = "tp_none", text = "Never heard of it, but if it's fast, I want to drive it." } } },
 }
@@ -280,12 +313,14 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Daisy, and I keep the times at the Mirage Raceway. If it happens on the track, I've got it on my stopwatch, so nobody argues about who won." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You're a shaman? Then don't go calling lightning down on my track, because the last storm cost me a whole afternoon of times." },
       },
       again = { { id = "h_again", text = "What else, hon?" }, { id = "h_again2", text = "Make it fast; the cars sure are." } },
       choices = {
         { text = "Who's winning?", next = "b1_1" },
         { text = "Is the job dangerous?", next = "b2_1" },
         { text = "Do the racers ever cheat?", next = "s_1" },
+        { text = "Has a storm really stopped a race, Daisy?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -304,6 +339,15 @@ P:NPC {
     s_1 = {
       lines = { { id = "s_1_l", text = "Everybody tries something, hon, from tweaked engines to bent fuel. My job's to time them, not to judge them, but I see it." } },
       choices = { { text = "Cheaters should be disqualified. Fair is fair.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } }, { text = "Racing's about winning. Let them cheat.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "One came off the salt flats last season and blew the gnomes' car clean off the track, and the gnomes blamed the goblins for it. I wrote it down as weather, because that's what the stopwatch says, and the stopwatch doesn't take sides." } },
+      choices = {
+        { text = "Good. The record should be honest, whoever it helps.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "You could have sold that result to the goblins.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
   topics = { _none = { { id = "tp_none", text = "Couldn't tell you. I only know what happens on the track." } } },

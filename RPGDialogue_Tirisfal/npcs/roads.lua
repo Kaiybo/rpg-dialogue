@@ -29,8 +29,12 @@ P:NPC {
           text = "Deathguard Saltain. Deathknell is ruins and the Dark Lady's people need everything, so we scavenge, and you'll start with the scraps the Scourge left behind in those houses." },
         { id = "h_scavenge", tags = { "news" }, when = { questActive = TODO_QUEST("Scavenging Deathknell") },
           text = "Scraps of cloth and old gear, from the houses up the hill. They were somebody's once, and now they're ours, so don't be sentimental about it." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in Deathknell? Then you can tell me whether your spirits want anything from those ruined houses, because my people have already stripped them." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You'll be wanting a look at our fields, I suppose, and I'll tell you now they're no better than they look." },
       },
       choices = {
+        { text = "Do you leave anything for the dead, Deathguard?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Could Deathknell's gardens grow again, Deathguard?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Need another blade on the road, Deathguard?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "I was a soldier of Lordaeron. I know how to forage.", next = "soldier", when = { origin = "forsaken_lordaeron_soldier" } },
         { text = "Whose things were they?", next = "whose" },
@@ -79,6 +83,24 @@ P:NPC {
       lines = { { id = "so_default", text = "A soldier of Lordaeron, then you'll remember the long marches with half rations. Scavenging is no different, except the people you're taking from won't complain." } },
       choices = { { text = "Old habits, then.", next = "BACK", fx = { affinity = 2 } } },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "We are the dead, shaman, so I'd say we leave plenty for ourselves. If there's an old charm or a family cup in those houses, it goes in a soldier's pack, because sentiment never stopped a Scourge claw." } },
+      choices = {
+        { text = "Then at least speak their names when you take their things.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Fair. The past has no claim on what's useful.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_q = {
+      big = true,
+      lines = { { id = "dq_default", text = "Grow what, and for whom? Joshua Kien gets his bread from Brill and the apothecaries want only the weeds, but if you can coax a few rows of something useful out of that soil, I'll set a guard on it, though I'll not set three." } },
+      choices = {
+        { text = "One guard will do. I'll make the rows worth guarding.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Guard it or don't. I'll plant what I like.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -115,8 +137,12 @@ P:NPC {
           text = "The Damned in the fields are what we'd have been without the Dark Lady, mindless and hungry. Put them to rest; it's the kindest thing left to do." },
         { id = "h_marla", when = { questActive = TODO_QUEST("Marla's Last Wish") },
           text = "Marla Fowler's husband, Samuel, rose and wanders mindless near the Solliden Farmstead. Bring his remains back to her grave, so the two of them can rest together." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Sarvis says spirits are only voices, but you've spoken to them, so tell me, do they ever speak of us?" },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, in Deathknell! I've read that your people tend the land the way we tend the dead, and I'd love to know if that's true." },
       },
       choices = {
+        { text = "Shall I ask the spirits whether the Damned can rest, Elreth?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do you think the dead belong to the land, Elreth?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I prayed to the Light once, too. Does it still answer?", next = "priest", when = { class = "PRIEST" } },
         { text = "Who are the Damned?", next = "damned" },
         { text = "Tell me about Marla.", next = "marla" },
@@ -156,6 +182,24 @@ P:NPC {
       lines = { { id = "pr_default", text = "For some of us it does, faintly, and Sarvis pretends not to notice. Try it, when you're alone, and tell me what you hear." } },
       choices = { { text = "I will.", next = "BACK", fx = { affinity = 2 } } },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Would you? I put them down as gently as I can and I say a word for each, but I never know whether anyone hears it. If the spirits told you the Damned were at peace afterwards, I think I could bear the work much better." } },
+      choices = {
+        { text = "I'll ask, and tell you truly, whatever they say.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll tell you they rest. That's the kindness you need.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_q = {
+      big = true,
+      lines = { { id = "dq_default", text = "I'd like to think so, though Sarvis laughs when I say it. The Damned walk the fields because nobody let them lie down properly, and I wonder sometimes whether the earth misses them, or whether it's only me." } },
+      choices = {
+        { text = "Then let the earth have them back, gently.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Sentiment won't help them. Cut them down and move on.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -192,8 +236,12 @@ P:NPC {
           text = "Ready, then? First to fall loses, and the loser pays. Try not to drop an arm on the way down." },
         { id = "h_beaten", when = { questDone = TODO_QUEST("A Rogue's Deal") },
           text = "Oh, it's you. Yes, you won, you needn't look so pleased, and no, you're not getting a rematch." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, out here? I'll not wager against anyone who throws lightning, thank you, so put your hands down." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, is it? I've heard your lot turn into cats, and I'll not fight a cat, because I've owned one and I know how that ends." },
       },
       choices = {
+        { text = "Afraid of a little lightning, Montague?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "How did it end with the cat, Montague?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I've been tracking something through these fields.", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "I was a rogue before I died. Let's see who's faster.", next = "rogue", when = { class = "ROGUE" } },
         { text = "What's a living man doing out here?", next = "why" },
@@ -245,6 +293,24 @@ P:NPC {
       lines = { { id = "ro_default", text = "One of the trade, risen and still twitchy! This should be interesting, so try not to fall apart before I've had my fun." } },
       choices = { { text = "You first, Montague.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } } },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Afraid? Sensible, friend. I've a little coin, a lot of skill and exactly one life, and I'd like to keep all three, so fight me with your fists like an honest scoundrel and I'll take your wager gladly." } },
+      choices = {
+        { text = "Fists it is. I'll fight you fairly.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll use whatever I like, and you'll still lose.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_q = {
+      big = true,
+      lines = { { id = "dq_default", text = "Badly for my hands, and worse for my pride. I once wagered a barmaid in Brill that I could keep her tabby off the counter for an hour, and it took eight minutes, so no, I'll not fight you unless you stay on two legs." } },
+      choices = {
+        { text = "Two legs, then. I'll beat you fairly.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll take whatever shape wins me the coin.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -279,8 +345,12 @@ P:NPC {
           text = "Junior Apothecary Holland, of the Royal Apothecary Society, though I won't be junior for long. Johaan's teaching me, and I'm learning fast, and the fields around Brill are full of useful things." },
         { id = "h_weed", tags = { "news" }, when = { questActive = TODO_QUEST("Doom Weed") },
           text = "Doom weed grows in the fields around the town, and in the graveyard, too, where it's thickest. Gather me a good bundle, and mind the roots; they're the part I want." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Do the elements have any use for doom weed, do you think? I've so much of it, and only one Johaan to give it to." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You'll know plants better than I do, so tell me honestly, does the doom weed look healthy to you?" },
       },
       choices = {
+        { text = "What does the Society really want with all this doom weed?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Why does doom weed grow best in the graveyard, Holland?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I know my herbs. Could the Society use me?", next = "herb", when = { profession = { "Herbalism", "Alchemy" } } },
         { text = "What is doom weed for?", next = "weed" },
         { text = "How do you find working for Johaan?", next = "johaan" },
@@ -319,6 +389,24 @@ P:NPC {
     herb = {
       lines = { { id = "hb_default", text = "Could it? Johaan would weep, if he still could! Bring the doom weed first, and then talk to him, and please mention I found you." } },
       choices = { { text = "I'll mention you.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "I wish I knew, honestly, but Johaan only says it's for the Scourge and sends me back out to dig. If your spirits ever whisper what the Society is brewing, do tell me first, because I'd like to know before I'm promoted, not after." } },
+      choices = {
+        { text = "Trust your masters, Holland. Ask less and you'll rise.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Keep asking, Holland. A secret that big is worth knowing.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_q = {
+      big = true,
+      lines = { { id = "dq_default", text = "Because the plague is thickest there, I think, and the doom weed seems to like it. Johaan says that's exactly why it's useful, and he got a very strange look when he said it, so I wrote it down." } },
+      choices = {
+        { text = "Then I'll help you gather it. The Society's work matters.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'd burn any weed that feeds on plague, Holland.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 

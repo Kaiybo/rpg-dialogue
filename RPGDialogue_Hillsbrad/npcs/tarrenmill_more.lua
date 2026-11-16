@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "We did, and he was the first to fall, because the Syndicate knew to aim at the one calling the lightning. If the spirits could not save him, I have to wonder whether these hills are too full of the dead for them to hear us." } },
+      choices = {
+        { text = "Then I'll honor him by freeing Drull and Tog'thar.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Next time I'll strike the Syndicate from the shadows, before they aim.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Perhaps not, for there were three times our number and they came through the trees with dogs. But a druid might have heard them coming, and an orc who listens only to his own anger hears nothing at all." } },
       choices = {
@@ -37,6 +46,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" },
+          text = "A shaman, and of the Warchief's own calling. The spirits came back to our people because Thrall asked them to, and I trust them more than I trust anyone in this town of corpses." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A tauren druid. I wish I'd had one of you with us at Durnholde, because I would not be the only one left to tell of it." },
         { id = "h_default", key = true,
@@ -56,6 +67,7 @@ P:NPC {
       },
       choices = {
         { text = "Would a druid have saved them, Krusk?", next = "druid_q", when = { class = "DRUID" } },
+        { text = "Did your band have a shaman with them at Durnholde?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What happened at Durnholde?", next = "ambush" },
         { text = "What were you sent to find?", next = "mission" },
         { text = "How do you like the Forsaken?", next = "forsaken" },
@@ -147,8 +159,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "His spirit was torn out of him by a mob of farmers with pitchforks, and nobody asked his will then. When I call him back he will thank me, and the first thing he will do is visit Southshore's churchyard and return the favour." } },
+      choices = {
+        { text = "The dead deserve rest, even Helcular. I won't help bind him.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then call him back, and let Southshore reap what it sowed.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" },
+          text = "A shaman, come among the dead. Your kind speak with spirits, so perhaps you understand what I mean to do for my master better than the Deathguards do." },
         { id = "h_default", key = true,
           text = "Novice Thaivand, apprentice to the great Helcular. He was nearly a lich when a mob from Southshore found his lair in the hills and butchered him, and then they buried him in their own churchyard as if he were one of their farmers." },
         { id = "h_rod", tags = { "news" }, when = { questActive = TODO_QUEST("Helcular's Revenge") },
@@ -161,6 +184,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, and then help me." },
       },
       choices = {
+        { text = "Raising Helcular binds his spirit against its will. Have you considered that?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Who was Helcular?", next = "helcular" },
         { text = "What will you do when he rises?", next = "rising" },
         { text = "Where are the pyres?", next = "pyres" },
@@ -241,8 +265,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "I asked a troll who was passing through, and he burned some leaves and told me the sword was somewhere to the south, which I already knew, because that's where the dwarves of Dun Garok live. If the spirits are going to tell me things, I'd like them to be more specific." } },
+      choices = {
+        { text = "Win it back from the dwarves yourself. That's how a soldier mends shame.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Forget that sword. Take a better one off a Southshore guard.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" },
+          text = "A shaman! Do the spirits ever tell you where things are? Only I've lost a sword, as everyone keeps reminding me, and I'm not too proud to ask anyone for help now." },
         { id = "h_default", key = true,
           text = "Deathguard Humbert. I came back to camp one evening and my gear was gone, and the tracks led to Dun Garok. Dwarven scouts, sneaking past while I was busy elsewhere, and now I stand guard with a borrowed club." },
         { id = "h_sword", when = { questActive = TODO_QUEST("Humbert's Sword") },
@@ -255,6 +290,7 @@ P:NPC {
       },
       choices = {
         { text = "The hills are thick with game. Want me to clear some?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
+        { text = "Have you asked the spirits to find your sword, Humbert?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "How did you lose your gear?", next = "lost" },
         { text = "What's at Dun Garok?", next = "dungarok" },
         { text = "What do the others say?", next = "teasing" },
@@ -334,8 +370,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "I'd love it, as long as the High Executor doesn't ask what it's for, and I'd love it more if it scared off Southshore's scouts. Mind you don't plant it near my skulls, though, because I've only just got them lined up straight." } },
+      choices = {
+        { text = "I'll ask the High Executor first. Her town, her rules.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll plant it where the spirits want it, permission or not.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" },
+          text = "A shaman! I've heard you can call lightning out of a clear sky, which must be marvellous, though I'm stuck here guarding a door where nothing ever needs striking." },
         { id = "h_default", key = true,
           text = "Deathguard Samsa. While you're out slaying humans and pillaging farms, I stand at this post, so I've taken up a hobby: skulls, human ones, from the fields." },
         { id = "h_skulls", when = { questActive = TODO_QUEST("Souvenirs of Death") },
@@ -349,6 +396,7 @@ P:NPC {
       },
       choices = {
         { text = "Southshore's guards are soft. Let me test them.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
+        { text = "Would you let me set a totem by your door, Samsa?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why skulls?", next = "skulls" },
         { text = "Why aren't you fighting?", next = "post" },
         { text = "What do you think of Humbert?", next = "humbert" },
@@ -424,8 +472,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "You can call fire and close wounds, so you're more use than half the recruits I send to Hammerfall. What I don't trust is the talking, because the spirits never asked the dead what we wanted, and I don't see why I should care what they want now." } },
+      choices = {
+        { text = "The spirits mourn the dead too. They'd welcome you, given the chance.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Fair enough. The spirits can wait, but Hammerfall can't.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" },
+          text = "A shaman. Hammerfall's orcs could use one, since they're losing ground to the Boulderfist, and maybe they'd listen to someone who talks to rocks." },
         { id = "h_default", key = true,
           text = "Tallow. Hammerfall's under attack in Arathi, and the orcs there need help before they're overrun. I'd go myself, but this town keeps me so busy I can barely keep an edge on my axe." },
         { id = "h_hammer", tags = { "news" }, when = { questActive = TODO_QUEST("The Hammer May Fall") },
@@ -437,6 +496,7 @@ P:NPC {
         { id = "h_again", text = "Something else? Say it." },
       },
       choices = {
+        { text = "Do the Forsaken have any use for shamans, Tallow?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why send me at all?", next = "why" },
         { text = "What's Hammerfall to the Forsaken?", next = "hammerfall" },
         { text = "What's wrong with your axe?", next = "axe" },
@@ -502,8 +562,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Only over the mountains, where the air gets thin and moody and the bats have to fight for every wingbeat to Revantusk. Some of the trolls say the spirits of the peaks get angry up there, but I say it's weather, and the bats agree with me." } },
+      choices = {
+        { text = "I'll ask the winds to grant your bats safe passage.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then bind the winds and make them carry the bats.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" },
+          text = "A shaman. The bats don't care for lightning, so kindly keep it in your pocket until we're well clear of the Mill." },
         { id = "h_default", key = true,
           text = "Zarise, bat handler. They fly to the Undercity and to Hammerfall, and over the mountains to Revantusk, and they'll bring you back if you're polite to them." },
         { id = "h_night", when = { timeOfDay = "night" },
@@ -513,6 +584,7 @@ P:NPC {
         { id = "h_again", text = "Anything else? They're restless." },
       },
       choices = {
+        { text = "Do the wind spirits trouble your bats in flight?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Show me where I can fly.", next = "BUSINESS" },
         { text = "Why bats?", next = "bats" },
         { text = "Do they ever drop anyone?", next = "drop" },
@@ -566,8 +638,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Not many, though one came through last month and bought every flask on the shelf to fill at the well, and I didn't ask what he meant to do with them. He paid in full and said thank you, which is more than the Deathguards ever manage." } },
+      choices = {
+        { text = "I'll buy here, and tell the Horde you treat the living fairly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll gather what I need from the land, not a shelf.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" },
+          text = "A shaman. The Undercity's reagent sellers keep ankhs for your kind, I'm told, and I've never understood why the dead would sell anyone a second life." },
         { id = "h_default", key = true,
           text = "Kayren Soothallow, general goods. The dead need less than the living, but we still need rope, and somebody has to sell it." },
       },
@@ -576,6 +659,7 @@ P:NPC {
       },
       choices = {
         { text = "Do you sell arrows, or only reagents?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
+        { text = "Do many shamans pass through your shop, Kayren?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Let me see your goods.", next = "BUSINESS" },
         { text = "What's on the right shelf?", next = "shelf" },
         { text = "Do the dead buy much?", next = "dead" },

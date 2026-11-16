@@ -327,6 +327,7 @@ P:NPC {
         { id = "h_listen", when = { metBefore = true }, text = "The Arch Druid speaks to the Circle. I speak to the young ones. Between the two of us, someone is always being listened to." },
         { id = "h_skyborne", when = { race = "Skyborne", class = "DRUID" }, text = "A druid from the sky isles! Your people lean on the elements before Elune, I'm told, and I'm glad of it. The Earth Mother made the winds too, and she won't mind sharing you." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Mu'sha has her eye open, and the White Lady brings sleep to the plains, though not to me, tonight." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! The Arch Druid and your elders argue over tea about which of us listens better, and neither of them ever wins." },
       },
       choices = {
         { text = "How did you become a druid?", next = "path" },
@@ -336,6 +337,7 @@ P:NPC {
         { text = "I hunted before I heard the call, like you.", next = "hunter", when = { class = "DRUID", origin = { "tauren_narache_hunter", "tauren_plains_runner" } } },
         { text = "The sky isles never taught me the Earth Mother.", next = "skyborne", when = { race = "Skyborne", class = "DRUID" } },
         { text = "I'm a hunter. Is there anything you'd teach me?", next = "hunterclass", when = { class = "HUNTER" } },
+        { text = "Who listens better, Turak, a druid or a shaman?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Farewell.", next = "END" },
       },
       again = {
@@ -387,6 +389,15 @@ P:NPC {
         { id = "s_default", text = "I've wondered for years. I think it wanted to see if I'd keep chasing, and I didn't, and that was the lesson." },
       },
       choices = { { text = "I'll remember it.", next = "BACK", fx = { affinity = 2, trait = { cautious = 1 } } } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Druids listen to the wild until we become part of it, and shamans speak to the elements and wait for an answer. I'd say we practice the same balance, and like any craft it comes down to who does the work each day." } },
+      choices = {
+        { text = "Balance is a discipline, so it should be practiced daily.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Balance is overrated. The elements answer passion, not routine.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -542,11 +553,13 @@ P:NPC {
         { id = "h_lifts", when = { metBefore = true }, text = "The lift-runners eat here every night, the strongest backs in the city and the softest hearts. Don't tell them I said so." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Late and windy tonight, so listen to the totems creak; it sounds like the whole bluff is breathing." },
         { id = "h_turak", when = { heardLine = "turak.h_default" }, text = "You've been up to Turak on Elder Rise? He eats here twice a moon, and sits by the window and doesn't speak, but he tips well." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "Oh, a shaman! You'll fit right in at the Cat and the Shaman, dear, so sit down and I'll find you the warm corner." },
       },
       choices = {
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "Why 'the Cat and the Shaman'?", next = "name" },
         { text = "Do the Forsaken ever stay here?", next = "forsaken", when = { race = "Scourge" } },
+        { text = "Why is your inn called the Cat and the Shaman, Pala?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Just resting.", next = "END" },
       },
       again = {
@@ -560,6 +573,15 @@ P:NPC {
     name = {
       lines = { { id = "n_default", text = "Ask three regulars and you'll get three stories, and my favourite has the cat winning. Make up your own; everyone else does." } },
       choices = { { text = "Ha.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Because the druids come in wearing fur and the shamans come in smelling of rain, and they always sit together and argue. I named the place after them so they'd feel at home, and now they argue over who gets top billing." } },
+      choices = {
+        { text = "Arguing over stew is better than arguing with spears.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let them quarrel properly. A little blood sharpens both sides.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 

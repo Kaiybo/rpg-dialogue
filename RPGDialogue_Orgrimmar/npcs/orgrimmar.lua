@@ -508,6 +508,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "My grandmother said a well-kept hearth is the first thing the spirits look for, and I keep this one burning night and day. The warlocks from the Cleft never sit near it, though, and you can make of that whatever you like." } },
+      choices = {
+        { text = "A warm hearth and a full plate honor the spirits best.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Warlock or not, their coin spends the same at an inn.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Better than you'd think, once the ale's poured. The orcs boast and the tauren listen, and by the end of the night they're singing the same song in two languages." } },
       choices = {
@@ -526,8 +535,10 @@ P:NPC {
         { id = "h_bones", when = { questDone = TODO_QUEST("Meats to Orgrimmar") }, text = "Zargh's kept sending cuts since that first delivery, and I send back the bones, clean. Let him wonder what it means; I'm still wondering myself." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "It's late, and the Tusk is loud, which is good. A quiet inn in Orgrimmar means something's wrong." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A tauren druid in the Broken Tusk! Sit down before you knock the lamps over, and mind the stools, because the last one a tauren sat on is still in pieces." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman at the Broken Tusk! Sit down and eat first, because the spirits can wait for you to finish a plate, and I'll not have you calling storms on an empty stomach." },
       },
       choices = {
+        { text = "Do the spirits favor a good hearth, Gryshka?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do orcs and tauren get along here, Gryshka?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "What's the best thing you cook?", next = "best" },
@@ -584,13 +595,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Once, I think, back before the drinking, when I still carried an axe for the Warchief. The wind told me to duck, and I did, and the spear went over my head, and I've been trying to hear it again ever since, mostly at the bottom of a mug." } },
+      choices = {
+        { text = "The wind still speaks, Gamon. Put the mug down and listen.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Some warriors only have one good day in them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "I'm Gamon. I help Tazan with his trade when I'm sober, and I'm usually here, lying on the floor because someone's knocked me down again." },
         { id = "h_bruise", when = { metBefore = true }, text = "Oh, you again. You didn't hit me last time, which makes you my favourite person in Orgrimmar. It's a short list." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Don't call lightning down on me, please, because I've been hit by most other things in this inn and I'd like to keep that one off the list." },
       },
       choices = {
+        { text = "Did the spirits ever speak to you, Gamon?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why does everyone attack you?", next = "why" },
         { text = "I won't hit you.", next = "END", fx = { affinity = 3, trait = { kind = 1 } } },
         { text = "You were a warrior once. What happened?", next = "warrior", when = { class = "WARRIOR" } },

@@ -242,8 +242,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Lady Proudmoore has stood beside Thrall and knows what a shaman is, so she doesn't fear you, but her soldiers do. I'd keep it that way, because fear is cheaper than walls." } },
+      choices = {
+        { text = "Fear breeds war. Better they learn what we truly are.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let them fear us. It keeps the peace in our favor.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll hear the marsh better than my spies do, so tell me if the water ever carries a voice from Theramore." },
         { id = "h_default", key = true,
           text = "Nazeer Bloodpike, and I watch Theramore for the Horde. There's a peace, on paper, but in the marsh, paper gets wet." },
         { id = "h_head", tags = { "news" }, when = { questActive = TODO_QUEST("The Severed Head") },
@@ -263,6 +273,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. Nobody's listening, and I've checked twice." },
       },
       choices = {
+        { text = "Does Theramore fear the shamans of the Horde?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Who was your agent near Theramore?", next = "marg" },
         { text = "Is the peace with Theramore real?", next = "peace" },
         { text = "What do you make of Krog's hunt?", next = "krog" },

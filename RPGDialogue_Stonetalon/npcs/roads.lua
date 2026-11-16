@@ -22,6 +22,7 @@ P:NPC {
       lines = {
         { id = "h_default", text = "Name's Ziz Fizziks, freelance engineer and a man of vision, and that vision is the Venture Company's Super Reaper 6000. Their operators carry the blueprints, so if you happen to take some off them, I'll make it worth your while." },
         { id = "h_cond", when = { race = "Gnome" }, text = "A gnome! Now you'd appreciate a good set of shredder schematics, wouldn't you? Don't answer that, I don't want any competition." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, huh? Can you get the ground to swallow a Venture Company operator or two? I'm asking for a friend, and the friend is me." },
       },
       again = {
         { id = "h_again1", text = "What else? Make it quick, the shift changes soon." },
@@ -32,6 +33,7 @@ P:NPC {
         { text = "Why do you hate the Venture Company?", next = "venture" },
         { text = "Isn't it dangerous hiding here?", next = "crag" },
         { text = "I'd only want a peek at the schematics.", next = "gnome", when = { race = "Gnome" } },
+        { text = "The earth here hates the Venture Company. Does that bother you, Ziz?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Good luck with your machine.", next = "END" },
       },
     },
@@ -76,6 +78,15 @@ P:NPC {
         { text = "Deal. Something else.", next = "BACK" },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Bother me? I hate 'em too, pal, though for business reasons and not spiritual ones. Their shredders chew through these woods like the trees owe them money, so if your rocks want revenge, we're on the same side for once." } },
+      choices = {
+        { text = "I'd fight the Venture Company openly, for the earth's sake.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'd rather lift their plans quietly and let the shredders rust.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -104,6 +115,7 @@ P:NPC {
       lines = {
         { id = "h_default", text = "I am Tsunaman, and I plant what others cut down. The Venture Company has stripped the Charred Vale and the woods below, and the Earth Mother will heal them, but she's glad of a little help." },
         { id = "h_cond", when = { race = "Tauren" }, text = "A shu'halo! Then you know the land is our mother, and a child does not stand by while his mother is hurt." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The earth here cries out under the Venture Company's saws, and I'm glad someone who can hear it has come." },
       },
       again = {
         { id = "h_again1", text = "What else, friend?" },
@@ -114,6 +126,7 @@ P:NPC {
         { text = "What happened to the Charred Vale?", next = "vale" },
         { text = "How is Sun Rock holding?", next = "sunrock" },
         { text = "I'll help heal her.", next = "tauren", when = { race = "Tauren" } },
+        { text = "How can the land here heal, Tsunaman?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "May the seeds take root.", next = "END" },
       },
     },
@@ -158,6 +171,15 @@ P:NPC {
         { text = "I will.", next = "BACK" },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Slowly, as it always does, with seeds in the ash and rain in its season. The earth spirits are angry and I don't blame them, but anger won't plant a single tree, so I ask them to let me work while they rage." } },
+      choices = {
+        { text = "Patience and planting. That's how we answer the machines.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The machines should burn the way the forest burned.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -186,6 +208,7 @@ P:NPC {
       lines = {
         { id = "h_default", text = "I'm Kaya Flathoof, and the Grimtotem fell on our camp, and I've been hiding ever since. My uncle is at Sun Rock, and I think he must believe I'm dead, so will you walk me home?" },
         { id = "h_cond", when = { race = "Tauren" }, text = "Shu'halo! You'll know the Grimtotem are tauren too, which makes this worse, doesn't it? They're our own people, and they did this." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You're a shaman, aren't you? The Grimtotem had shamans too, but they never looked at anyone kindly, so please be different." },
       },
       again = {
         { id = "h_again1", text = "I'll answer anything you like, if it means we're closer to leaving." },
@@ -196,6 +219,7 @@ P:NPC {
         { text = "Who's waiting for you at Sun Rock?", next = "uncle" },
         { text = "Is the road dangerous?", next = "road" },
         { text = "They've betrayed every tauren.", next = "tauren", when = { race = "Tauren" } },
+        { text = "Were there Grimtotem shamans at Camp Aparaje, Kaya?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I'll take you home soon, Kaya.", next = "END" },
       },
     },
@@ -237,6 +261,15 @@ P:NPC {
         { id = "tauren_default", text = "They have, and when I'm home I'll tell the Bluff so, if anyone asks a young cow what she thinks. Thank you for saying it out loud." },
       },
       choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "I think so, because I heard them chanting before the braves came over the ridge. I don't understand how anyone can ask the Earth Mother's spirits to help them kill other tauren." } },
+      choices = {
+        { text = "The spirits don't belong to killers. They'll answer someone better.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The spirits answer strength, and the Grimtotem simply have more.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

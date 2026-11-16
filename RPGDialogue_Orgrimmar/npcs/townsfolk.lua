@@ -26,17 +26,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "I doubt it, but the orcs who listen to them seem to keep less of it and sleep better for it. In the camps we couldn't own a copper, and now we lock up chests of it, so perhaps the spirits are right to laugh at us." } },
+      choices = {
+        { text = "Gold kept in good order serves the Horde well.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Hoarded gold is just another chain, like the camps.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Karus, of the bank of Orgrimmar. Whatever you leave with me stays locked away until you come for it, and you can reach the same vault from any bank in the Horde." },
         { id = "h_orc", when = { race = "Orc" }, text = "When we were in the camps, the only thing an orc could own was his anger. Now look at us, queuing for our own vaults like merchants. Your vault is ready, {g:brother|sister}." },
         { id = "h_rich", when = { money = { min = 1000000 } }, text = "You carry more gold than most warbands ever saw. Leave some of it with me before a Kolkar cuts your purse off your belt in the Barrens." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, at the vaults. Your kind give back to the earth what they take from it, which is more than most of my depositors do with their gold." },
       },
       again = {
         { id = "h_again", text = "Something else, or shall I open the vault?" },
         { id = "h_again2", text = "Go on. The ledger can wait a moment, though not a long one." },
       },
       choices = {
+        { text = "Do the spirits care about gold, Karus?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Open my vault, please.", next = "BUSINESS" },
         { text = "How can every bank reach the same vault?", next = "vault" },
         { text = "What do orcs keep in a bank?", next = "keep" },
@@ -106,13 +117,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Elemental earth and fire, mostly, scraped off the creatures in the Badlands and Searing Gorge, and the smiths fight over every scrap of it. The shamans who list it always look a little guilty, so I don't ask where it came from." } },
+      choices = {
+        { text = "Selling the remains of elementals dishonors the spirits.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If an elemental attacks me, what's left of it is mine to sell.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Auctioneer Thathung. You list your goods, other people bid, and the house takes a deposit and a cut. That's the whole of it, though you'd be amazed how many warriors want it explained twice." },
         { id = "h_low", when = { maxLevel = 15 }, text = "New to the house, are you? Start by selling the linen and the copper you've been carrying around, because somebody here always needs it more than you do." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! If you're selling totems this isn't the place, and if you're buying them it isn't either, because no shaman I know would trust one made by another hand." },
       },
       again = { { id = "h_again", text = "Another question? Ask it quickly; the bids don't wait." } },
       choices = {
+        { text = "Do shamans ever sell anything through the house?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Show me what's for sale.", next = "BUSINESS" },
         { text = "Why do I pay a deposit?", next = "deposit" },
         { text = "What sells best in Orgrimmar?", next = "sells" },
@@ -183,13 +205,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "They do, and they listen better than their riders. Before a storm comes in off the sea every wind rider on this tower goes quiet and tucks its head, and I've learned to cancel the flights when they do, whatever the passengers say." } },
+      choices = {
+        { text = "You're right to keep that rule, Doras.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'd fly straight into it. The air spirits wouldn't harm me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Doras. I keep the wind riders, and they'll carry you to the Crossroads, to Thunder Bluff, or anywhere else the Horde has a roost. Have you flown before, or will you be holding on with your eyes shut?" },
         { id = "h_tauren", when = { race = "Tauren" }, text = "A tauren up my tower! You'd make a wind rider sweat, but they've carried heavier, so climb on and keep your hooves tucked in." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The wind riders like your kind, because you smell of storms, and they were flying through storms long before the Horde came to this land." },
       },
       again = { { id = "h_again", text = "Is that all, or do I saddle one? They get restless when people stand about talking." } },
       choices = {
+        { text = "Do the wind riders hear the air spirits?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I need a ride.", next = "BUSINESS" },
         { text = "Where do the wind riders come from?", next = "beasts" },
         { text = "Why can't I fly somewhere new?", next = "roosts" },
@@ -246,6 +279,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Every one I register, if I had my way. The Frostwolves kept their shamans when the other clans traded theirs for warlocks, and that is why Drek'Thar still speaks for them while the rest of us had to learn it all again from Thrall." } },
+      choices = {
+        { text = "A guild needs an elder to keep it honest.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A guild should choose its own way, not copy the old clans.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Tribes, they call them, Bloodhoof and Runetotem and the rest, and Cairne holds them together the way the Warchief holds us. I envy them that, because the camps scattered our clans and left half of us with no name to give." } },
       choices = {
@@ -259,9 +301,11 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Urtrun Clanbringer, and the Warchief has charged me with recording every new guild of the Horde. In the old days we had clans, and now we have guilds, but a band of warriors who share a name is a clan, whatever you call it." },
         { id = "h_orc", when = { race = "Orc" }, text = "Which clan were your parents, {g:brother|sister}? Never mind; many don't know any more, and the camps took the names from more of us than the war did. Start a new one, then, and make it worth remembering." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A tauren druid, come to the registry of guilds! Your people never had much need for the word clan, I think, because a whole tribe stands behind every one of you." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, at the guild registry! In the old clans every warband had a shaman to speak for its ancestors, and I'll say plainly that the guilds could use a few more." },
       },
       again = { { id = "h_again", text = "What else? Ask, and I'll answer like a clan elder." } },
       choices = {
+        { text = "Should every guild keep a shaman, as the clans did?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do the tauren keep clans as the orcs do?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I want to start a guild.", next = "BUSINESS" },
         { text = "What were the old clans like?", next = "clans" },
@@ -333,6 +377,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Every day, though he'd say he never left it. Drek'Thar taught him among the Frostwolves, and he carries the Doomhammer that Orgrim gave him, and I've seen the sky darken when he's angry, which is why I'd rather he wasn't." } },
+      choices = {
+        { text = "Then I'll hold myself to the Warchief's standard.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The Warchief walks his path, and I'll walk my own.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Not a chance, and I'd let them try if I didn't have to explain the broken bones afterward. The Warchief wants orcs and tauren to stand as brothers, so I keep the bloody noses to a minimum." } },
       choices = {
@@ -347,9 +400,11 @@ P:NPC {
         { id = "h_young", when = { maxLevel = 10 }, text = "Fresh from the Valley of Trials, by the look of you. Don't get lost in the Drag, and don't buy anything a goblin calls a bargain." },
         { id = "h_vet", when = { minLevel = 50 }, text = "You've seen real fighting; it's in how you stand. The young ones here could learn something from watching you walk, so walk slowly." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A tauren druid, eh? Mind the recruits, because they've heard your kind can turn into bears, and half of them want to find out whether they could win." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The Warchief walks your path himself, so you'll hold yourself to his standard in my valley, and that means no lightning near the inn." },
       },
       again = { { id = "h_again", text = "Anything else? Make it quick; I'm on my rounds." } },
       choices = {
+        { text = "Does the Warchief still walk the shaman's path, Overlord?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Would any of them win, Overlord?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Who was the city named for?", next = "name" },
         { text = "What trouble do you see in the city?", next = "trouble" },
@@ -422,6 +477,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Every one, and a stubborn one at that. The shamans say a wolf's spirit is half the beast and half the wind on the plains, and when one of mine dies I sit with it until the spirit has gone, because a wolf should never run alone." } },
+      choices = {
+        { text = "A wolf that served the Horde deserves that kindness.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A wolf is a mount, and mourning it seems a waste.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "A wolf raised by my hand knows no other life, and I've never seen one that didn't want to run beside its rider. Still, I'll admit the wild wolves of Durotar look at mine as if they pity them." } },
       choices = {
@@ -437,9 +501,11 @@ P:NPC {
         { id = "h_friend", when = { ["not"] = { race = "Orc" }, reputation = { faction = "Orgrimmar", min = "exalted" } },
           text = "The whole city speaks well of you, and that's enough for me to sell you a wolf, whoever your people are. Come and choose one." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! The wolves smell something on you they can't name, and look, they've gone quiet, which is more respect than they show most orcs." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! The wolves know your kind, because the Frostwolves have run with shamans for as long as there have been Frostwolves, and see, they're already watching you." },
       },
       again = { { id = "h_again", text = "Anything else? The wolves are listening, so ask nicely." } },
       choices = {
+        { text = "Do wolves have spirits of their own, Ogunaro?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do the wolves mind being raised for war?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Show me your wolves.", next = "BUSINESS" },
         { text = "Why only orcs?", next = "orcs", when = { ["not"] = { race = "Orc" } } },
@@ -506,13 +572,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Help, if you're patient with them, and patience is the only bait I've ever needed. On a still morning at the river below the city I can feel something watching the line with me, and I haven't felt alone out there since the camps." } },
+      choices = {
+        { text = "Peace on the river is a gift worth guarding.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The water gives what you take from it, and that's all.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Lumak. I teach fishing, though most orcs who walk past me think it's a job for peons. Then they spend a week in the Barrens with nothing but dry jerky, and they come back asking for a pole." },
         { id = "h_troll", when = { race = "Troll" }, text = "A Darkspear wants fishing lessons from an orc? Your people were fishing off the Echo Isles before mine ever saw the sea. You could probably teach me." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, here by the water. Keep your voice low, because the water spirits are easier to frighten than the fish, and a good deal harder to catch." },
       },
       again = { { id = "h_again", text = "Something else? Keep your voice low; voices carry over water." } },
       choices = {
+        { text = "Do the water spirits help or hinder a fisherman?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Teach me to fish.", next = "BUSINESS" },
         { text = "Where's good fishing near Orgrimmar?", next = "where" },
         { text = "Why did you take up fishing?", next = "why" },
@@ -576,13 +653,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Not in words, but I listen before I swing the pick, and stone tells you when it's angry if you're quiet enough. The shamans say the earth spirits of Durotar are hard and slow to forgive, and every vein I've worked agrees with them." } },
+      choices = {
+        { text = "Ask first and dig carefully. That's the right way.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The ore is there to be taken, so I'll take it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Makaru, and I teach mining. The city was built from the stone of these hills, and every forge in the Valley of Honor burns ore that somebody dug out with a pick." },
         { id = "h_smith", when = { profession = "Blacksmithing" }, text = "A smith! Then you know what bad ore does to a blade, so learn to dig your own and never trust a stranger's bars." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in the miners' hall. You'll ask the earth's leave before you dig, I suppose, and I won't laugh at you for it, because the hills here have dropped a roof on more than one miner who didn't." },
       },
       again = { { id = "h_again", text = "What else? Make it quick; the light's going in the hills." } },
       choices = {
+        { text = "Do you ask the earth's leave before you dig?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Teach me mining.", next = "BUSINESS" },
         { text = "Where can I find ore near here?", next = "where" },
         { text = "What makes a good miner?", next = "good" },
@@ -649,13 +737,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "My teacher thought so, and he never lit a forge without a word to the flame first. I'm less sure, but I still do it, because the one morning I forgot, my best blade cracked in the quench and I never found another reason why." } },
+      choices = {
+        { text = "The old rites at the forge are worth keeping.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Good steel needs skill, not rituals.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Saru Steelfury. I teach smithing at these forges, and everything the Grunts on the walls carry was hammered here. Do you want to learn, or have you only come to watch?" },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "A warrior at my forge! Good, because you'll understand why a blade's balance matters more than its shine. Learn to make your own, and you'll never have to trust a trader's." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman at my forge! Good, because you'll want a weapon that can take a jolt of lightning, and most of what the traders sell will crack the first time you try." },
       },
       again = { { id = "h_again", text = "What else? Speak up over the hammer." } },
       choices = {
+        { text = "Do the fire spirits help you at the forge?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Teach me blacksmithing.", next = "BUSINESS" },
         { text = "What makes a good weapon?", next = "weapon" },
         { text = "How did orcs learn to smith?", next = "history" },
@@ -720,14 +819,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Tried it twice, and I've still got most of my eyebrows to prove it. The orcs tell me the storm has a spirit and it doesn't like being put in a jar, and after the second time I'm inclined to agree with them." } },
+      choices = {
+        { text = "Leave the storm alone. Some things shouldn't be bottled.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If you ever manage it, I want to see it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Nogg, engineer and proprietor! I teach engineering to anyone with the coin and the nerve, and the orcs here have plenty of nerve. Want to learn how to make things that go boom on purpose?" },
         { id = "h_goblin", when = { race = "Goblin" }, text = "A fellow goblin! You know how it is: these orcs think a wrench is a club, but they pay on time, so I'm not complaining." },
         { id = "h_eng", when = { profession = "Engineering" }, text = "Ah, a colleague! How are your bombs holding up? Not too stable, I hope, because a stable bomb is a boring bomb." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You call lightning out of the sky for free, and I spend a fortune on copper wire to do half as much, so we should talk business sometime." },
       },
       again = { { id = "h_again", text = "Got another question? Ask quick; something's smoking in the back." } },
       choices = {
+        { text = "Have you ever tried to bottle lightning, Nogg?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Teach me engineering.", next = "BUSINESS" },
         { text = "Why does a goblin work in Orgrimmar?", next = "why" },
         { text = "Is engineering dangerous?", next = "danger" },
@@ -798,13 +908,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "More than me, mon. A cat will stare all night at a corner of the stable where there be nothin' at all, and the old witch doctors say that be a spirit passin' through, so I leave a little water in that corner and the cat sleep fine." } },
+      choices = {
+        { text = "Small kindnesses to the spirits keep everything in balance.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A beast spooked by nothing needs firmer handling.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Xon'cha, and I keep the stables. You leave your beast with me and it be fed, brushed and talked to every day until you come back for it. Most hunters forget the talkin', but I don't." },
         { id = "h_troll", when = { race = "Troll" }, text = "Ah, a Darkspear! You come up from Sen'jin, or from further? Leave your beast here and I treat it like family." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, mon! The beasts in my pens feel you comin' before they see you, so walk slow and let them get a good look at you." },
       },
       again = { { id = "h_again", text = "Somethin' else? The beasts don't mind waitin', but I do." } },
       choices = {
+        { text = "Do the beasts feel the spirits, Xon'cha?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I need the stables.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "Do you speak to the beasts?", next = "speak" },
         { text = "What's the strangest beast you've kept?", next = "strange" },

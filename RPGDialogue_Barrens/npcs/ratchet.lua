@@ -22,14 +22,25 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "He talked to 'em plenty, sure, but the walls went up because my crews worked double shifts, and he paid us, which I respect. He said the earth there was willing, whatever that means, and I'll take willing earth over a lazy goblin any day." } },
+      choices = {
+        { text = "A spirit's blessing holds a city up better than mortar.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Walls are walls, and coin and labor built them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Name's Gazlowe, and Ratchet's my town, so whatever you need, it goes through me eventually. Keep your blades sheathed on the docks and we'll get along just fine." },
         { id = "h_pirates", when = { questActive = TODO_QUEST("Southsea Freebooters") },
           text = "Those Southsea freebooters are camped right down the coast, bleeding my shipping dry. Thin 'em out for me, and Ratchet breathes easier." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! The big guy, Thrall, is one of you, and I'll tell you what I told him, which is that lightning's great but a good crane is better for building a city." },
       },
       choices = {
+        { text = "Did Thrall use the spirits to build Orgrimmar?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "You built Orgrimmar?", next = "orgrimmar" },
         { text = "What's the trouble with the pirates?", next = "pirates" },
         { text = "Who else should I know in Ratchet?", next = "town" },
@@ -96,14 +107,25 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Anger them? I hope not, but now that you mention it, the Samophlange did spark something terrible right before I lost it. That was probably just the coil, though, wasn't it? Please say it was the coil." } },
+      choices = {
+        { text = "Respect the elements, and your machines will fare better.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "It was the coil. Gears need no spirit's permission.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Sputtervalve, inventor and tinker, at your service, mostly. You wouldn't happen to have seen a Samophlange lying around out in the Barrens, would you?" },
         { id = "h_samo", when = { questActive = TODO_QUEST("Samophlange") },
           text = "The Samophlange is still out there, and every day it sits in the dust I lose another year off my life. Please hurry, and please don't drop it." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Oh, you don't happen to know a spirit who finds lost things, do you, because the Samophlange is still out there and I've asked everyone else already." },
       },
       choices = {
+        { text = "Do your machines ever anger the elements, Sputtervalve?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What is a Samophlange?", next = "samo" },
         { text = "How did you lose it?", next = "lost" },
         { text = "Is Ratchet good for a tinker?", next = "ratchet" },
@@ -160,14 +182,25 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Anger them? Friend, I give those raptors a second life in a bottle, which is more than the Barrens ever gave them. The tauren don't see it that way, of course, but the tauren don't pay my rent either." } },
+      choices = {
+        { text = "A beast killed for its horn deserves better than a sales pitch.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Dead raptors need no apology. Business is business.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Mebok Mizzyrix, purveyor of fine tonics and quality refreshment. I'm always looking for a few special ingredients, and the Barrens is full of them, if you've got the stomach to collect." },
         { id = "h_horns", when = { questActive = TODO_QUEST("Raptor Horns") },
           text = "Raptor horns, friend, the bigger the better! The thunderheads and stormsnouts out west have the good ones." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Now there's a customer who appreciates a tonic with a little lightning in it, and I happen to have exactly that, if you take my meaning." },
       },
       choices = {
+        { text = "Do your tonics anger the spirits of the beasts you use?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What do you use raptor horns for?", next = "horns" },
         { text = "Do your tonics actually work?", next = "work" },
         { text = "What's Ratchet like for business?", next = "biz" },
@@ -224,14 +257,25 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "The orc crews do, and they tip a cup of grog overboard before they cast off, which comes out of my stores, so I log it. The goblin crews call it a waste, and the goblin crews lose more cargo, and I've started to wonder whether those two things are related." } },
+      choices = {
+        { text = "Then log the offering as a proper cost of business.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "No ledger will ever strike a bargain with the sea.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Wharfmaster Dizzywig, and every crate that comes through Ratchet goes through my ledger first. Lately too many of them have been going missing before they ever reach it." },
         { id = "h_ship", when = { questActive = TODO_QUEST("The Missing Shipment") },
           text = "That shipment should have come in days ago, and the only thing the sea brought back was rumors. Find out what happened to it, would you?" },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, good. If you can talk to the sea, ask it where my shipments went, because it's taken nine crates since the spring and it hasn't filed a single report." },
       },
       choices = {
+        { text = "Do your sailors ask the sea spirits for safe passage?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Where do the shipments go missing?", next = "missing" },
         { text = "Where do your boats sail?", next = "boats" },
         { text = "How long have you kept the docks?", next = "dock" },

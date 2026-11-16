@@ -26,6 +26,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "I trust grunts, walls and reports, and the spirits have never sent me a report. But my scouts say the earth went quiet before the last quilboar raid, so if you hear it go quiet again, you tell me first." } },
+      choices = {
+        { text = "I'll report what the spirits tell me, Commander, like any grunt would.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The spirits take no orders, and neither does their shaman.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "We take what it gives and we don't complain, because it's ours and nobody gave it to us. The Warchief named it for his father, and every orc here would bleed into that red dirt before he let it go." } },
       choices = {
@@ -47,8 +56,10 @@ P:NPC {
         { id = "h_wreckage", when = { questActive = TODO_QUEST("From The Wreckage....") },
           text = "There's a wreck on the coast with things worth salvaging. Get there before the sea or the Kul Tirans do." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A tauren druid in Razor Hill. You're a long way from Mulgore's grass and Durotar won't feed you half so kindly, but the Horde's glad of you all the same." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The Warchief brought your craft back to us, so I'll expect you on the line when the Kul Tirans come, and not off somewhere talking to rocks." },
       },
       choices = {
+        { text = "Do you trust the spirits to guard Razor Hill, Commander?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "How do you endure this land, Commander?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why does Razor Hill matter?", next = "why" },
         { text = "Put me on the wall, commander.", next = "warrior", when = { class = "WARRIOR" } },
@@ -138,6 +149,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Maybe. Wherever the cultists work their rites the ground goes sour and the spirits flee it, and Gadrin says a shaman feels that the way a hound smells blood. Walk the canyons near Skull Rock and tell me where the earth won't speak to you." } },
+      choices = {
+        { text = "I'll cleanse what they've fouled, and not only kill them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The land can wait until every cultist is dead.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "It does, though slower than they'd like. Where they work their demon magic the scrub dies and the scorpids go mad, and I've seen the ground around their caves gone black." } },
       choices = {
@@ -155,8 +175,10 @@ P:NPC {
         { id = "h_storms", tags = { "news" }, when = { questActive = TODO_QUEST("Dark Storms") },
           text = "The cultists talk of storms, and not the kind that bring rain. Find out what they mean." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, good! The Burning Blade foul everything they touch, and you'll smell their fel stink around Skull Rock long before you see them." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Every warlock in the Burning Blade had shamans for grandfathers, and they traded the elements for fel fire, so forgive me if I watch your hands for a while." },
       },
       choices = {
+        { text = "Could a shaman find the Blade by the ground they've poisoned?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Does the Burning Blade's magic poison Durotar?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Where do the Blade hide?", next = "hide" },
         { text = "You watch me like I'm one of them, Orgnil.", next = "warlock", when = { class = "WARLOCK" } },
@@ -225,6 +247,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Only the ones in the barrel, and those I can handle. The old grunts say the fire spirits like Durotar because it's half on fire already, and on summer nights I'm inclined to believe them." } },
+      choices = {
+        { text = "Every hearth deserves an offering, as the old ways teach.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The spirits can mind themselves, and you can mind the ale.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Cactus, mostly, and the peons cut it for the fruit. There's a bit of green down by the coast and up in Thunder Ridge, but nobody who lives here calls this land kind." } },
       choices = {
@@ -242,8 +273,10 @@ P:NPC {
         { id = "h_scorpid", when = { metBefore = true }, text = "I shook a scorpid out of the blankets this morning. They weren't yours, probably, but check anyway." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Hear the grunts on the wall, singing the old songs? They sing them badly, and I wouldn't change it for anything." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A tauren druid! Mind your horns on the beam, and if you're looking for anything green out there, I'm sorry to say it's all rocks and scorpids." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, is it? If you can talk the sky into raining on Durotar you'll be the first, and I'll want to hear how you did it." },
       },
       choices = {
+        { text = "Do the spirits ever trouble your inn, Grosk?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Is there nothing green in Durotar, Grosk?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Just a meal, thanks.", next = "END" },
       },
