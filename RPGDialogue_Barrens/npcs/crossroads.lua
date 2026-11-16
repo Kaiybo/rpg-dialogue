@@ -36,6 +36,30 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "There is, though I won't say it too loudly on the wall where the grunts can hear. The Kolkar and the Razormane both scout this road at night, and a blade that watches their scouts without being seen is worth ten that charge them." },
+        { id = "xrogue_scourge", when = { race = "Scourge" }, text = "There is, and I've learned to look past what the Forsaken are when they make themselves useful. The Kolkar and the Razormane both scout this road at night, and a blade that watches their scouts without being seen is worth ten that charge them." },
+      },
+      choices = {
+        { text = "A scout who never sees me never reports back.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'd rather meet them in the open, under your banner.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "What else threatens the Crossroads?", next = "threats" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "Only if your demon forgets whose road this is. The Warchief allows your kind under watch, and I'll keep that watch myself, so keep the thing leashed and away from the tauren caravans, who've heard enough about the Burning Blade to reach for their spears." },
+        { id = "xwarlock_orc", when = { race = "Orc" }, text = "You're an orc, so you know what that power cost our people the first time. The Warchief allows it under watch, and I'll be the watch here, so keep your demon leashed and away from the tauren caravans." },
+      },
+      choices = {
+        { text = "My demon answers to me, and I answer to the Warchief.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My power is my own business, Thork.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What's the hardest part of holding the Crossroads?", next = "hardest" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -54,6 +78,8 @@ P:NPC {
         { text = "Do you need the spirits' help to hold the Crossroads?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What's the hardest part of holding the Crossroads?", next = "hardest" },
         { text = "What threatens the Crossroads?", next = "threats" },
+        { text = "I work from the shadows, Thork. Is there a use for that here?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "I'm a warlock, Thork. Will that be trouble at the Crossroads?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I'm loyal to the Horde.", next = "END", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "I look out for myself first, and the Horde second.", next = "END", fx = { align = { honor = -1 } } },
         { text = "Give me a post on the wall, Thork.", next = "warrior", when = { class = "WARRIOR" } },
@@ -150,6 +176,29 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Then you'll see more of it than most, because the Barrens hides plenty from anyone who stomps. Go and watch the Kolkar camps by the Stagnant Oasis and count the fires they light at night, and you'll have earned your keep before anyone else is awake." },
+      },
+      choices = {
+        { text = "Unseen work is still work, and it wins fights.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll scout, but when it comes to it, I'll fight openly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "What else does the Barrens need?", next = "need" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Fire works too well out here, {class}, because the grass has been dry since spring and one careless spell sets a whole plain burning. Use your frost on the raptors and keep your fire for the centaur, and nobody at the Crossroads will have to put out your mistakes." },
+        { id = "xmage_troll", when = { race = "Troll" }, text = "A Darkspear who reads books, now that's something new for the Barrens. Fire works too well out here, though, because the grass is dry, so keep your frost for the raptors and your fire for the centaur." },
+      },
+      choices = {
+        { text = "I'll mind the grass. A burnt plain helps nobody.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If the plain burns with the Kolkar on it, so be it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Why do some orcs resent you?", next = "resent" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -172,6 +221,8 @@ P:NPC {
         { text = "What does the Barrens need?", next = "need" },
         { text = "My beast and I are ready to hunt.", next = "hunter", when = { class = "HUNTER" } },
         { text = "Do the trolls here answer to you too?", next = "troll", when = { race = "Troll" } },
+        { text = "I'd rather scout the Barrens unseen than hunt it loudly.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Fire and frost work out here as well as any spear.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "I'll get to it.", next = "END", fx = { affinity = 1 } },
       },
       again = {
@@ -260,6 +311,29 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Quietly is how she'd have done it, if she'd ever had the sense to run, though Olgra never ran from anything in her life. The quilboar camps to the south took prisoners after that fight, so look there, and if you find her, don't let them see you leave." },
+      },
+      choices = {
+        { text = "If I find who did it, they'll never see me coming.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll find her, and then I'll face her killers openly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "What was Olgra like?", next = "olgra" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "I hate the stink of the things, and I hate that the Horde still has to look at them. But if your demon puts its claws in the quilboar who swarmed us, I won't spit when it walks past me, and that's the most you'll get from me." },
+        { id = "xwarlock_orc", when = { race = "Orc" }, text = "Our people sold themselves to those things once, and look what it bought us. But if your demon tears into the quilboar who swarmed us, I'll keep my mouth shut about it, and that's more than I'd give most warlocks." },
+      },
+      choices = {
+        { text = "A demon's claws are still claws, and revenge is revenge.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll do it with my own hands, not a demon's.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Who was the tauren who found you?", next = "tauren" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -278,6 +352,8 @@ P:NPC {
         { text = "Revenge won't bring her back.", next = "revenge" },
         { text = "I fight with an axe too. Tell me how she fought.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "A tauren found you on the road?", next = "tauren", when = { race = "Tauren" } },
+        { text = "I can slip into the quilboar camps and look for her quietly.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "My demons could hunt the ones who took her.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I'll keep an eye out.", next = "END", fx = { affinity = 1 } },
       },
       again = {
@@ -362,6 +438,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Perhaps it could, though I confess the arcane makes me uneasy, because it is a power taken rather than one given. The trouble in the Wailing Caverns began with a druid who reached too far for something he wanted, so whatever you see down there, look carefully and do not reach." },
+        { id = "xmage_scourge", when = { race = "Scourge" }, text = "Perhaps, though a dead mage studying a dying oasis is a strange sight, even for me. The trouble in the Wailing Caverns began with a druid who reached too far for something he wanted, so look carefully down there and do not reach." },
+      },
+      choices = {
+        { text = "I'll study it to mend it, not to take it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Power is power, and I'll take what I can learn.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What exactly did you find out there?", next = "found" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "Leashed is a word I've heard before, usually just before something got loose. The tauren know what the Burning Blade's fire does to living things, and I won't pretend your company sits easily with me, but if you know corruption, perhaps you'll know it when you smell it at the oases." },
+      },
+      choices = {
+        { text = "Then I'll use what I know to help cleanse them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Corruption is only a tool, and I'll use it as I like.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What did you find at the oases?", next = "found" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -379,6 +478,8 @@ P:NPC {
         { text = "What did you find?", next = "found" },
         { text = "I'm a druid too, Tonga. Can I help heal the oases?", next = "druid", when = { class = "DRUID" } },
         { text = "The water spirits here are crying out.", next = "shaman", when = { class = "SHAMAN" } },
+        { text = "Could an arcane eye help you trace the power in the caverns?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "I know the feel of corruption. Mine is leashed, at least.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Farewell, Tonga.", next = "END" },
       },
       again = {
@@ -467,6 +568,29 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "They do, and the Society has never pretended otherwise, whatever it tells the tauren. The spiders and serpents of the Barrens carry venoms that would interest anyone with a blade, though I'd rather not write it all down where our hooved friends might read it." },
+        { id = "xrogue_scourge", when = { race = "Scourge" }, text = "They do, and you'll know as well as I do that the Dark Lady values both. The spiders and serpents of the Barrens carry venoms that would interest anyone with a blade, though I'd rather not write it all down where our hooved friends might read it." },
+      },
+      choices = {
+        { text = "Better the tauren don't know everything. Secrets keep us strong.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The Horde should know what its allies are brewing.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "What are you studying out here, exactly?", next = "study" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "The Forsaken trust nobody, which makes us admirably fair about it. The Dark Lady keeps a dreadlord of her own on a short chain in Undercity, so a warlock is welcome among us for exactly as long as he remembers who is holding the chain." },
+      },
+      choices = {
+        { text = "Every power needs a master, and I hold my chain tightly.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Chains are for the weak. My demon and I need none.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Does the Society send you word from Undercity?", next = "forsaken" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "The name is Helbrim, of the Royal Apothecary Society. The Society sent me to see what grows out here that might be useful, and a great deal does, it turns out." },
@@ -483,6 +607,8 @@ P:NPC {
         { text = "What are you studying?", next = "study" },
         { text = "Does the Society send you word from Undercity?", next = "forsaken", when = { race = "Scourge" } },
         { text = "My people make medicine from these plants too.", next = "troll", when = { race = "Troll" } },
+        { text = "An apothecary's venoms and a rogue's blades go well together.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Do the Forsaken trust warlocks more than the orcs do?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Good luck with your work.", next = "END" },
       },
       again = {
@@ -557,6 +683,29 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Use, sure, if you can stand at the back and set their feathers alight while I go to work up close. The Witchwing harpies nest in the hills west of here, and they come at you screaming in threes, so keep your spells fast and your back to a rock." },
+        { id = "xmage_troll", when = { race = "Troll" }, text = "Use, sure, and a Darkspear mage is a fine thing to see, so long as you stand behind me. The Witchwing harpies nest in the hills west of here and come at you screaming in threes, so keep your spells fast and your back to a rock." },
+      },
+      choices = {
+        { text = "I'll burn them from cover while they're busy with you.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll stand in front with you, not behind.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Are you truly the best, Darsok?", next = "best" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "Jealous of a little thing that sets my cloak on fire whenever it gets bored? Not really, friend, because a good blade never asks to be fed and never talks back, and I'll take that over a demon on my shoulder any day." },
+      },
+      choices = {
+        { text = "A demon is just a sharper knife.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "You're right. I'd rather trust my own steel.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Are you really the best around?", next = "best" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -576,6 +725,8 @@ P:NPC {
         { text = "Are you really the best?", next = "best" },
         { text = "I'm a blade too. Teach me something.", next = "rogue", when = { class = "ROGUE" } },
         { text = "You know Jin'Zil? He's Darkspear, like me.", next = "troll", when = { race = "Troll" } },
+        { text = "Would a mage be any use to you against the harpies?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "My imp does the dirty work for me. Jealous, Darsok?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I'll handle the harpies.", next = "END", fx = { affinity = 1 } },
       },
       again = {
@@ -639,6 +790,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Quietly, you say? Well, I wouldn't say no, though if she finds out somebody's been asking she'll know it was me, and then I'll never show my face in the Broken Tusk again, so tell her the meat's still good out here and leave the rest alone." },
+      },
+      choices = {
+        { text = "A little sneaking never hurt a romance.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Fair enough. Some things a man should ask himself.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "What happened to your finger, Zargh?", next = "finger" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "Once, and the thing ate the whole haunch in a breath and looked at me like I was next on the hook. I don't know what demons eat when nobody's feeding them, and I'd rather not, so I'll sell you meat for your own belly and that's where it stays." },
+      },
+      choices = {
+        { text = "Fair. My demon goes hungry, and I keep it lean.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "It eats what I let it eat, and it's always hungry.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "How did you lose that finger?", next = "finger" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Name's Zargh, and I'm the butcher. I sell meat to everyone who passes through the Crossroads, which is everyone, so business is good. Everything else is the Barrens." },
@@ -654,6 +827,8 @@ P:NPC {
         { text = "What happened to your finger?", next = "finger" },
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "I hunt the plains. Want what I bring back?", next = "hunter", when = { class = "HUNTER" } },
+        { text = "I could find out how Gryshka feels about you, quietly.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Do warlocks ever buy meat to feed their demons?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Not hungry.", next = "END" },
       },
       again = {
@@ -715,6 +890,29 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "You and every trader who's crossed the Barrens with a full purse, friend. Nobody steals under my roof, because the walls are thin and the tauren snore loud enough to wake the dead, so take your boots off and let the stars come in through the holes." },
+        { id = "xrogue_scourge", when = { race = "Scourge" }, text = "You don't sleep at all, I've heard, so I don't know why you'd keep your boots on. Nobody steals under my roof, because the walls are thin and the tauren snore loud enough to wake the dead, which I'm told you won't take personally." },
+      },
+      choices = {
+        { text = "If you say so, I'll trust your roof tonight.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I trust nobody's roof. The boots stay on.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What news is there from the road?", next = "news" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "You could, I suppose, but then I'd lose the stars, and they're the best thing about this inn. My mother said the sky over the Barrens was the Earth Mother's blanket, and I'd rather sleep under a blanket with a few holes in it than under one of your spells." },
+      },
+      choices = {
+        { text = "Then I'll leave the stars where they are.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A good spell beats a leaky roof, Boorand.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Any news from the road, Boorand?", next = "news" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Boorand Plainswind is my name, and I keep the inn at the Crossroads. Orcs, trolls, tauren, the odd Forsaken: they all sleep the same once they're tired enough." },
@@ -729,6 +927,8 @@ P:NPC {
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "Any news?", next = "news" },
         { text = "I don't really sleep anymore, Boorand.", next = "forsaken", when = { race = "Scourge" } },
+        { text = "I sleep light, Boorand, and with my boots on.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Could a mage patch your leaky roof with a spell?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Just resting.", next = "END" },
       },
       again = {

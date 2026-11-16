@@ -27,6 +27,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "Quietly or loudly, I'd thank you either way, for they steal from my nets every night. They gather thickest down the coast where the threshers come in close." },
+      },
+      choices = {
+        { text = "I'll do it cleanly, Laird.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "They'll never know what hit them.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What's the coast like?", next = "coast" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "Mages? They're polite enough, I'd say, but polite isn't fond, and you'll likely get the room by the dock. Don't take it to heart, for they've had ten thousand years to nurse a grudge, and it shows." },
+      },
+      choices = {
+        { text = "I'll earn their respect in time.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Their grudge is their own business.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Who's Nessa, then?", next = "nessa" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Laird, and I sell fish here in the inn. The Darkshore coast is a rougher place to cast a line than Teldrassil, with the murlocs and the threshers and worse, but the catch is better for it." },
@@ -44,6 +64,8 @@ P:NPC {
         { text = "What makes this coast so dangerous?", next = "coast" },
         { text = "How do you know Nessa Shadowsong?", next = "nessa" },
         { text = "Why sell fish inside the inn?", next = "inn" },
+        { text = "Murlocs at your nets? I could thin them quietly.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "I suppose the elves don't like my sort much.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Farewell, Laird.", next = "END" },
       },
     },
@@ -114,6 +136,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "Most do, and for the ones who don't, I keep their things a season and then sell them honestly. I'd ask you to do the same if you ever find a purse on the dock." },
+      },
+      choices = {
+        { text = "I'd return it, Dalmond.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Finders keepers, where I'm from.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What do people forget most?", next = "forget" },
+      },
+    },
+    xlock = {
+      lines = {
+        { id = "xwl_default", text = "I sell candles, plain ones, for reading and for finding your way in the dark. If you need black ones, I'd rather not know what for, and I'd ask you not to light them in Auberdine." },
+      },
+      choices = {
+        { text = "Plain candles are fine. Nothing dark here.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Some work needs darker light than reading.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Why do you worry about travelers?", next = "worry" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Dalmond, and I sell general goods here in Auberdine: bread, water, thread and bags. Everything a traveler forgets, I keep, because sooner or later they come back for it." },
@@ -126,6 +168,8 @@ P:NPC {
         { text = "Show me your goods.", next = "BUSINESS" },
         { text = "What do travelers forget most often?", next = "forget" },
         { text = "Why do you worry so much?", next = "worry" },
+        { text = "Everything travelers forget, you keep. Do they ever come back?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do you sell candles? Black ones, ideally.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Goodbye, Dalmond.", next = "END" },
       },
     },
@@ -191,6 +235,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "That's kind, but the groves give it to me cool enough, and the Sentinels would rather not see magic over the counter. My elders remember the Highborne at their worst, and none of them likes a spell anywhere near a drink." },
+      },
+      choices = {
+        { text = "Of course. Nothing over the counter.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A little magic never spoiled a drink.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What's best here?", next = "best" },
+      },
+    },
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "To the boats, mostly, and back to Menethil, where they say the ale's better. I won't point you to anyone selling it under the dock, if that's what you're asking." },
+      },
+      choices = {
+        { text = "Just asking. Juice is fine.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll find it myself, then.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Why nothing strong?", next = "strong" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Taldan, and I sell drinks in Auberdine: water, milk and the juices from the groves. Nothing strong, I'm afraid, because the Sentinels prefer the docks quiet, and so do I." },
@@ -203,6 +267,8 @@ P:NPC {
         { text = "Let me see your drinks.", next = "BUSINESS" },
         { text = "What's the best thing you sell?", next = "best" },
         { text = "Why nothing stronger?", next = "strong" },
+        { text = "I could chill your juice with a word.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Nothing strong? Where do the sailors go for a real drink?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Farewell, Taldan.", next = "END" },
       },
     },
@@ -265,6 +331,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "Daggers, then, and short ones, for Darkshore's fights are close ones among the trees. I'll show you how the kaldorei balance a blade, which is not how the humans do it." },
+        { id = "xro_nightelf", when = { race = "NightElf" }, text = "Daggers, then, as a kaldorei should carry them, short and close for fighting among the trees. Let me show you how a blade ought to sit in the hand, for the ones from Menethil never do." },
+      },
+      choices = {
+        { text = "Teach me the kaldorei way.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Balance is balance. I'll judge it myself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Where do your weapons come from?", next = "where" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "A few, plain wood from Ashenvale, and I keep nothing with old runes on it. If you want an enchanted staff, look in the human cities, and ask them where it came from." },
+      },
+      choices = {
+        { text = "Plain wood suits me fine.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Runes are only dangerous to fools.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What should I carry, then?", next = "need" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Naram Longclaw, and I sell weapons here in Auberdine. Darkshore will test whatever you carry, so you'd best carry something worth testing." },
@@ -277,6 +364,8 @@ P:NPC {
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "What will I need in Darkshore?", next = "need" },
         { text = "Where do your weapons come from?", next = "where" },
+        { text = "I prefer daggers. Have you anything with good balance?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Mages carry staves. Do you sell any?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Farewell, Naram.", next = "END" },
       },
     },
@@ -341,6 +430,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "It's a kind of something, and it isn't smithing. I'll sell you a file and a hammer like I'd sell anyone, and what you do with them is your business until the Sentinels make it theirs." },
+      },
+      choices = {
+        { text = "Honest work only, I promise.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A lock is just a puzzle with a door on it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Why sell here, of all places?", next = "why" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "Not the forge, no; it's fire and iron, and they understand that well enough. It's your sort they mind, and you'll find they're politer to a sweaty smith than to a mage, for they know what a hammer can't do." },
+      },
+      choices = {
+        { text = "I'll respect their wariness.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Their fear isn't my concern.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What do the elves think of you?", next = "elves" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Elisa Steelhand, and I sell blacksmithing supplies here in Auberdine. The elves don't do much smithing themselves, so somebody has to keep the forges fed, and I'm happy for it to be me." },
@@ -358,6 +467,8 @@ P:NPC {
         { text = "What brings a dwarf to Auberdine?", next = "why" },
         { text = "How do the night elves treat you?", next = "elves" },
         { text = "Do you know the dwarves digging south of here?", next = "dig" },
+        { text = "Lockpicking's a kind of metalwork, isn't it?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do the elves mind your forge?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Farewell, Elisa.", next = "END" },
       },
     },

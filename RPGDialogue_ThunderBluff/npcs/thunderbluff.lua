@@ -31,6 +31,39 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "There can be, if the shadow protects someone who could not protect themselves. I've known warriors who struck from ambush to save their kin and warriors who fought in the open for nothing but their own glory, and I know which I would rather share a fire with." },
+      },
+      choices = {
+        { text = "I'd still rather face my enemies openly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Shadow work saves lives, and that's honor enough.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Why do you follow Thrall, chieftain?", next = "thrall" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "We don't fear it, but we remember. Our oldest stories say that magic once tore the world in two, and the tauren learned to live with the land instead of above it, so forgive us if we watch the arcane with an old people's caution." },
+      },
+      choices = {
+        { text = "Caution is wise. I'll study it with care.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Old stories shouldn't bind new learning.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "How did the tauren come to Mulgore?", next = "mulgore" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "I did, with my eyes open, because Thrall told me himself what the demon blood did to his people and what it cost them to be free of it. If he keeps your kind under watch, I trust him, but you should know that every tauren on these bluffs is watching too." },
+      },
+      choices = {
+        { text = "Then I'll give your people nothing to fear.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Watch me all you like. I'll do as I must.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Why do you follow Thrall at all?", next = "thrall" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -53,6 +86,9 @@ P:NPC {
         { text = "Hamuul has taught me the druid's way, chieftain.", next = "druid", when = { race = "Tauren", class = "DRUID" } },
         { text = "I'm a warrior. Teach me how you fought, chieftain.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "The Earth Mother's spirits answer me now.", next = "shaman", when = { race = "Tauren", class = "SHAMAN" } },
+        { text = "My work is done in shadow, chieftain. Is there honor in it?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Do the tauren fear the arcane, chieftain?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "You allied with a Horde that has warlocks, chieftain.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Earth Mother keep you, chieftain.", next = "END", fx = { affinity = 1 } },
       },
       again = {
@@ -190,6 +226,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "He spoke of little else when he spoke of the past, because it was the highborne's hunger for magic that drew the Burning Legion into the world. He doesn't hate mages, as far as I know, but he taught me that every power asks for something back, and the arcane asks more than most." },
+      },
+      choices = {
+        { text = "Then I'll pay its price carefully, Arch Druid.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll take the power and pay whatever it costs.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What did Malfurion teach you?", next = "taught" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "No, and I won't soften that for you, because the Circle exists to heal what demons and their servants broke. You may walk in Thunder Bluff under Cairne's peace, but in Moonglade the druids would see only what you carry." },
+      },
+      choices = {
+        { text = "Then I'll stay away from Moonglade. That's fair.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Their loss. Power is neither good nor evil.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What's the most important lesson you learned?", next = "lesson" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -212,6 +270,8 @@ P:NPC {
         { text = "I'm a druid of the sky isles. Will the Circle have me?", next = "skyborne", when = { race = "Skyborne", class = "DRUID" } },
         { text = "The elements speak to me. Is that so different from the wild?", next = "shaman", when = { class = "SHAMAN" } },
         { text = "Does the wild have any place for my kind?", next = "forsaken", when = { race = "Scourge" } },
+        { text = "Did Malfurion ever speak of the arcane, Arch Druid?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Would the Cenarion Circle ever accept a warlock?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Farewell, Arch Druid.", next = "END" },
       },
       again = {
@@ -312,6 +372,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Quieter, I'd wager, since we have soft paws and you have boots. But I'll grant you that a rogue and a druid both learn that the quiet hunter eats and the loud one goes hungry, which is a lesson I teach every cub who comes up the lift." },
+      },
+      choices = {
+        { text = "Quiet hunters win, and that's the whole lesson.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Quiet is good, but I'll still fight fair.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "What is the Great Balance?", next = "balance" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "That's a question the Arch Druid would answer better than I, but I'll tell you what I think. Everything has a place in the balance, even fire, though the arcane has a way of forgetting its own place and taking someone else's." },
+      },
+      choices = {
+        { text = "I'll remember my place in it, then.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Balance is for druids. I'll take what I need.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What do you mean by the Great Balance?", next = "balance" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Turak Runetotem, and I help the Arch Druid train the young ones. I teach the steps; he teaches why they matter." },
@@ -338,6 +420,8 @@ P:NPC {
         { text = "The sky isles never taught me the Earth Mother.", next = "skyborne", when = { race = "Skyborne", class = "DRUID" } },
         { text = "I'm a hunter. Is there anything you'd teach me?", next = "hunterclass", when = { class = "HUNTER" } },
         { text = "Who listens better, Turak, a druid or a shaman?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "A cat druid moves as quietly as I do.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Is the arcane part of the Great Balance, Turak?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
       again = {
@@ -433,6 +517,39 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Everyone on Elder Rise keeps secrets, child, and the clever ones keep them from Cairne. A rogue might be useful to an old woman, so long as she knew whose purse the rogue had been in last." },
+      },
+      choices = {
+        { text = "My secrets are for sale, if the price is right.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "My loyalty is to Cairne, not to you.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "What do the Grimtotem really want?", next = "want" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "They are as different as a river and a stolen bucket of water, child. The earth answers me because the Grimtotem have always known how to ask it hard, and your arcane answers you because you never stop grabbing at it, which I almost admire." },
+      },
+      choices = {
+        { text = "Grabbing gets results, and your earth would agree.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll learn to ask, not grab.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "What do you think of Cairne?", next = "cairne" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "The Grimtotem fear very little, and certainly not a little imp on a chain. But I've seen what demons made of the orcs, and I'll tell you what Cairne won't, which is that any power that makes you its servant is a poor bargain, however strong it feels." },
+      },
+      choices = {
+        { text = "You're right. I'll never let it master me.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Strength is strength, whatever it costs me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "And what do the Grimtotem want?", next = "want" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -453,6 +570,9 @@ P:NPC {
         { text = "What can your ways give back to my people?", next = "forsaken", when = { race = "Scourge" } },
         { text = "I was born Grimtotem, Elder Crone.", next = "grimtotem", when = { origin = "tauren_grimtotem_born" } },
         { text = "Hamuul made me a druid. You disapprove.", next = "druid", when = { race = "Tauren", class = "DRUID" } },
+        { text = "I'm the sort who keeps secrets, Elder Crone.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Your earth magic and my arcane aren't so different.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do the Grimtotem fear demons, Elder Crone?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I'll go.", next = "END" },
       },
       again = {
@@ -545,6 +665,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "They do, and they've done it for years, because nobody in Thunder Bluff has ever given them a reason not to. If that changes while you're under my roof, I'll know which guest to blame, so let's both keep it from changing." },
+      },
+      choices = {
+        { text = "No need to worry, Pala. I'm an honest guest.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then they should learn to watch their packs.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Why call it the Cat and the Shaman?", next = "name" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "You'll do no such thing at my hearth! The stew is warm, and if it's gone cold it's because you've been talking instead of eating, so pick up that spoon and leave the fire to the fire." },
+      },
+      choices = {
+        { text = "Sorry, Pala. Your hearth, your rules.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A spell is quicker than waiting on your fire.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Do the Forsaken ever stay at your inn?", next = "forsaken" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Pala, and I keep the Cat and the Shaman. Warriors, druids, traders off the lifts: everyone gets the same welcome and the same stew." },
@@ -560,6 +702,8 @@ P:NPC {
         { text = "Why 'the Cat and the Shaman'?", next = "name" },
         { text = "Do the Forsaken ever stay here?", next = "forsaken", when = { race = "Scourge" } },
         { text = "Why is your inn called the Cat and the Shaman, Pala?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Your guests leave their packs unattended, Pala.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Your stew's gone cold, Pala. Shall I warm it with a spell?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Just resting.", next = "END" },
       },
       again = {

@@ -25,6 +25,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Sturdy enough that you'll never find out, and I'll thank you not to wonder aloud near the guards. The vaults of Thunder Bluff are cut into the rock of the mesa itself, and anyone who wants in will need a pick and a lifetime." },
+      },
+      choices = {
+        { text = "Only curious, Chesmu. Your vaults are safe from me.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A lifetime is long. Locks only need patience.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Is Thunder Bluff safe for my things?", next = "safe" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Mages keep the strangest things of anyone, and I've learned not to ask. One left a stone that hummed all night, and another left a book I'm sure moved to a different shelf by itself, so I keep the mages' things at the far end." },
+      },
+      choices = {
+        { text = "Fair. I'll keep my strange things properly sealed.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "What I keep is my own business, banker.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What do tauren keep in their vaults?", next = "keep" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Chesmu, and I keep the vaults of Thunder Bluff. Whatever you leave here is safe until you return for it, and you may reach the same vault from any bank of the Horde." },
@@ -38,6 +60,8 @@ P:NPC {
         { text = "Did the tauren always have banks?", next = "history" },
         { text = "What do tauren keep in their vaults?", next = "keep" },
         { text = "Is Thunder Bluff safe for my things?", next = "safe" },
+        { text = "Your vaults look sturdy, Chesmu. How sturdy, I wonder?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Do mages keep anything strange in your vaults?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Farewell, Chesmu.", next = "END" },
       },
     },
@@ -106,6 +130,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "The wind riders watch it, and they sleep lighter than any guard. More than one thief has tried to climb the tower at night, and the beasts woke the whole rise before he reached the top, so I've never needed to sleep with one eye open." },
+      },
+      choices = {
+        { text = "Good beasts. Nobody should rob a flight master.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Light sleepers only need a quieter thief.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What is it like to fly?", next = "fly" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "They'll carry you, but not what follows you, and they'll grumble about the smell of you the whole way to the Crossroads. Wind riders are honest beasts, and they don't care for anything that comes from the Twisting Nether." },
+      },
+      choices = {
+        { text = "I'll leave it behind. Calm skies for your beasts.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "They'll learn to bear it, like everyone else.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Where do the wind riders come from?", next = "beasts" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Tal, and I keep the wind riders of Thunder Bluff. They will carry you to the Crossroads, Camp Taurajo, Sun Rock Retreat, or anywhere else the Horde keeps a roost you've visited." },
@@ -119,6 +165,8 @@ P:NPC {
         { text = "What is it like to fly?", next = "fly" },
         { text = "Where do the wind riders come from?", next = "beasts" },
         { text = "Why don't you fly to Bloodhoof Village?", next = "bloodhoof" },
+        { text = "Who watches the tower while you sleep, Tal?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Will your wind riders carry a warlock?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Farewell, Tal.", next = "END" },
       },
     },
@@ -187,6 +235,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "They do, in their way, which is the way of the hand that slips between the herd and the wolf. I'll grant you that a dagger in the dark has saved more than one camp, though I'd still rather the wolf saw us coming and chose to leave." },
+      },
+      choices = {
+        { text = "Better the wolf sees us and runs. Agreed.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The wolf who never sees us never comes back.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Why protect the herd and not conquer?", next = "herd" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "A staff is a fine weapon, and the oldest, since every tauren elder carries one whether or not they can cast. Learn to swing it properly and you'll be glad of it the day your spells run dry, which is a day that comes for every mage." },
+      },
+      choices = {
+        { text = "Then I'll learn the staff properly. Wise advice.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My spells won't run dry. I'll be fine.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Which weapon do you prefer?", next = "prefer" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Ansekhwa, and I teach the use of weapons to any who can learn them. A weapon is a tool for protecting the herd, and the more tools you carry, the fewer ways the herd can be hurt." },
@@ -199,6 +269,8 @@ P:NPC {
         { text = "Teach me a weapon.", next = "BUSINESS" },
         { text = "Which weapon do you prefer?", next = "prefer" },
         { text = "Why protect the herd and not conquer?", next = "herd" },
+        { text = "Do daggers protect the herd too, in their way?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "A mage only needs a staff, Ansekhwa.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Farewell, Ansekhwa.", next = "END" },
       },
     },
@@ -254,6 +326,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "They buy throwing knives, mostly, and sometimes a small crossbow, though they never say what for. I sell to anyone who pays, but I tell them all the same thing, which is that a Thunderhorn bow has never been fired into a tauren's back and I'd like to keep it that way." },
+      },
+      choices = {
+        { text = "Fair words. I'll keep my aim honest.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Where an arrow lands is the archer's business.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What makes a good bow?", next = "bow" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "A wand fires true, I'll grant you, but it's only a stick with somebody else's magic in it. A bow needs a string and a strong arm, and I'll wager on a strong arm over borrowed magic any day." },
+      },
+      choices = {
+        { text = "Perhaps. There's something to be said for simple tools.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Magic is magic, borrowed or not. It works.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Are you kin to Holt Thunderhorn?", next = "holt" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Kuna Thunderhorn, and I sell bows, arrows and guns on Hunter Rise. The Thunderhorns have always been hunters, and somebody in the family had to make the bows instead of only using them." },
@@ -267,6 +361,8 @@ P:NPC {
         { text = "What makes a good bow?", next = "bow" },
         { text = "Are you kin to Holt Thunderhorn?", next = "holt" },
         { text = "Why sell guns, if you make bows?", next = "guns" },
+        { text = "Do rogues ever buy your bows, Kuna?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Bows are clumsy. A wand fires just as true.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -413,6 +509,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Because conjured bread tastes like nothing and keeps you going for an hour, child, and a good stew warms you until morning. Learn to cook something real and you'll make more friends at a campfire than you ever will with your spells." },
+      },
+      choices = {
+        { text = "You're right. Real food it is.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Conjured bread costs nothing. That's good enough.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What should I cook first?", next = "first" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Then a rogue is a fool, and I've met many who prove it. A cold camp keeps you hidden, I'll grant you, but a little dried meat stewed at dawn before you move on will keep you alive longer than any shadow." },
+      },
+      choices = {
+        { text = "Fair point. I'll take your advice.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll keep my cold camps, thank you.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Why does cooking matter so much?", next = "why" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Aska Mistrunner, and I teach cooking. A warrior who can cook eats well on the road and makes friends at every campfire, and those are both worth more than a sharper sword." },
@@ -426,6 +544,8 @@ P:NPC {
         { text = "What should I cook first?", next = "first" },
         { text = "What's the best food in Mulgore?", next = "best" },
         { text = "Why does cooking matter so much?", next = "why" },
+        { text = "I can conjure food, Aska. Why learn to cook?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "A rogue eats cold on the road, Aska.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Farewell, Aska.", next = "END" },
       },
     },
@@ -492,6 +612,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Your poisons are what alchemy becomes when someone forgets why the Earth Mother grew the herbs. I'll not teach you to make them, and I'll not pretend I like seeing them on your belt, but the orcs and trolls have always used them and I can't change that." },
+      },
+      choices = {
+        { text = "Fair. I'll only use them on those who deserve it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A poison is just a potion with a purpose.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What do you think of the Forsaken apothecaries?", next = "forsaken" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "My advice is to buy them from someone else, because I'll not have my herbs feeding a demon's summoning. The Earth Mother grows things to heal and strengthen, and nothing I teach is meant to open a door to the Twisting Nether." },
+      },
+      choices = {
+        { text = "Fair. Your herbs should serve healing, not demons.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Herbs don't care whose hands they're in.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What potion should I learn first?", next = "first" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Bena Winterhoof, and I teach alchemy. The Earth Mother grows the herbs, and alchemy draws out what she put in them to heal and to strengthen, which is all it should be used for." },
@@ -505,6 +647,8 @@ P:NPC {
         { text = "What do you think of the Forsaken apothecaries?", next = "forsaken" },
         { text = "What potion should I learn first?", next = "first" },
         { text = "Is the Winterhoof Water Well named for your clan?", next = "well" },
+        { text = "My poisons are alchemy too, Bena.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Warlocks use reagents too, Bena. Any advice?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -575,6 +719,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Then you're still gathering the Earth Mother's gifts, and I'd ask you to thank her for them whatever you mean to do with them. Some of the plants on the plains are poison in the wrong hands, and I'd rather they stayed in the right ones." },
+      },
+      choices = {
+        { text = "I'll thank her, and use them wisely.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A plant is just a plant. I'll use it as I please.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What herbs grow in Mulgore?", next = "herbs" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Rarely, because mages buy their powders from the reagent sellers and think the plants grow in little bags. I'd like to see more of them out on the plains with a gathering pouch, because a mage who knows where things come from respects them more." },
+      },
+      choices = {
+        { text = "You're right. I'll learn where my reagents come from.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I don't need to dig in dirt to cast a spell.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Why thank the Earth Mother for weeds?", next = "thanks" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Nida Winterhoof, and I teach herbalism. The Earth Mother grows what we need everywhere, if we only learn to see it, and I teach that seeing." },
@@ -588,6 +754,8 @@ P:NPC {
         { text = "What herbs grow in Mulgore?", next = "herbs" },
         { text = "Why thank the Earth Mother for weeds?", next = "thanks" },
         { text = "Do you work with Bena?", next = "bena" },
+        { text = "I gather herbs too, though not always for healing.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Do mages ever come to you for herbs?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Farewell, Nida.", next = "END" },
       },
     },
@@ -653,6 +821,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Soft leather, oiled well, because a stiff hide creaks and a creaking rogue is a dead one. Use all of the beast, as I tell my students, and when you slip past someone in the armour it gave you, remember who made you quiet." },
+      },
+      choices = {
+        { text = "I'll remember the beast. That's only fair.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "It's leather, and the beast is long gone.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "How do you honour a beast you've skinned?", next = "honour" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Too heavy for you, perhaps, but not for the hunters and druids who trust it with their lives. Cloth is pretty, I'll grant you, though I've never seen a robe turn a raptor's claw." },
+      },
+      choices = {
+        { text = "Fair. Each to their own armour.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A good spell turns a claw better than leather.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What's the best hide in Mulgore?", next = "best" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Una, and I teach leatherworking. Every hide that comes to me was a living beast, and I teach my students to use all of it and waste none, because that's how you honour what was given." },
@@ -665,6 +855,8 @@ P:NPC {
         { text = "Teach me leatherworking.", next = "BUSINESS" },
         { text = "What's the best hide in Mulgore?", next = "best" },
         { text = "How do you honour a beast you've skinned?", next = "honour" },
+        { text = "Rogues wear leather too. What would you recommend?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Mages wear cloth, Una. Leather's too heavy.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Farewell, Una.", next = "END" },
       },
     },

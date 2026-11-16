@@ -103,6 +103,28 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "They don't fear it, child, they despise it, and so do I. The orc shamans learned that lesson in their own blood when their warlocks turned the elements away from them, and I'll not see the young of Narache learn it from you." },
+      },
+      choices = {
+        { text = "I won't bring it near your students.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The elements' opinion of me changes nothing.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "How do you listen to the elements?", next = "listen" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "The elements are alive, and they answer when you ask with respect. The arcane answers whoever has the will to grasp it, and that's exactly what makes my people wary of it." },
+      },
+      choices = {
+        { text = "Asking with respect is the wiser path.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Will and study are all any power needs.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Who taught the tauren the shaman's way?", next = "tradition" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Meela Dawnstrider, and I teach the young shaman of Narache to hear the earth, fire, water and air. The elements are not tools, and the first lesson is learning to listen before you ask them for anything." },
@@ -113,6 +135,8 @@ P:NPC {
         { text = "How do you listen to the elements?", next = "listen" },
         { text = "Who taught the tauren the shaman's way?", next = "tradition" },
         { text = "I'm an orc shaman. Is our way different?", next = "orc", when = { race = "Orc" } },
+        { text = "Your elements don't fear my demon, do they?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Is the arcane so different from the elements?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Farewell, Meela.", next = "END" },
       },
       again = {
@@ -242,6 +266,28 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "So I've heard the orcs of the Shattered Hand fought, and nobody I know calls them cowards. I'll teach my warriors to stand firm and you can go around the side, but mind you don't arrive after the fight's already won." },
+      },
+      choices = {
+        { text = "The flank wins battles. The front only bleeds.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll stand at the front with your braves.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "What do you make of the Horde?", next = "horde" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "So the Warchief says, and I'll follow his word, because the Horde gave us Mulgore. But I've heard what the Burning Blade did in Durotar, and I'll keep a spear near my hand whenever you're near the barracks." },
+      },
+      choices = {
+        { text = "I'll follow the Warchief's rules, as you do.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Watch me all you like. I answer to myself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What threats does Mulgore face?", next = "threats" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Krang Stonehoof, and I train the warriors of Bloodhoof Village. Since Cairne joined the Horde, our braves fight beside orcs and trolls, and they must learn to fight as well as any of them." },
@@ -252,6 +298,8 @@ P:NPC {
         { text = "How do shamans fight beside the Horde's warriors, Krang?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What threats does Mulgore face?", next = "threats" },
         { text = "What do you think of the Horde?", next = "horde" },
+        { text = "Your warriors fight in the open. I prefer the flanks.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "A warlock fights for the Horde too, Krang.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I'll go.", next = "END" },
       },
       again = { { id = "h_again", text = "What else would you ask of an old warrior? Speak, and be quick about it." } },
@@ -307,6 +355,28 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "I do, though I keep them on the bottom shelf where no tauren has to look at them. Orc and troll rogues come through Bloodhoof more often than you'd think, and I'm not too proud to admit the little things sell." },
+      },
+      choices = {
+        { text = "A small blade in the right place beats a big one.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Fair. A big weapon in plain sight is more honest.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "What weapon would you choose for me?", next = "advice" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "A light staff, as if a mage ever carried any other kind. I've got a few carved from Mulgore ash that won't snap, and I'll admit a staff is the one weapon where tauren and mages agree it ought to be long." },
+      },
+      choices = {
+        { text = "Mulgore ash it is. Good, honest wood.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Wood is wood. I only care about the enchantment.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Where does your wood and iron come from?", next = "materials" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Mahnott Roughwound, and I sell weapons to the braves of Bloodhoof. Most of what I have is heavy, because a tauren with a little dagger looks like a kodo wearing a hat." },
@@ -318,6 +388,8 @@ P:NPC {
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "Where does your wood and iron come from?", next = "materials" },
         { text = "What weapon would you choose for me?", next = "advice" },
+        { text = "So you don't sell daggers, then, Mahnott?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "I'd want a staff, Mahnott, and a light one.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },
       again = { { id = "h_again", text = "Anything else, or are you ready to buy something heavy?" } },
@@ -372,6 +444,28 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Then the thieves had better come and ask, because I'd give them a loaf before I'd let them steal one. Nobody in Bloodhoof goes hungry while my ovens are hot, and that includes whatever sort of person you are." },
+      },
+      choices = {
+        { text = "I'd ask, Jhawna. A gift beats a theft.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A thief who asks isn't much of a thief.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Where does the wheat come from?", next = "wheat" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Conjured bread, is it? I tasted some once, from a Forsaken mage passing through, and it was like chewing on a cloud that had only heard about wheat, so fill your belly on it if you must, but don't tell me it's bread." },
+      },
+      choices = {
+        { text = "Fair. Real bread from real fields is better.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "It fills a belly and costs nothing. That's bread.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What's the news in the village?", next = "news" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Jhawna Oatwind, and I bake for Bloodhoof Village. The wheat comes from the farms around us, and if you have ever wondered why Mulgore smells so sweet in the morning, it's my ovens." },
@@ -383,6 +477,8 @@ P:NPC {
         { text = "Where does the wheat come from?", next = "wheat" },
         { text = "What's the news in the village?", next = "news" },
         { text = "I can cook too.", next = "cook", when = { profession = "Cooking" } },
+        { text = "Your bread cart could feed a whole thieves' camp, Jhawna.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "A conjured loaf is lighter to carry than yours.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Farewell, Jhawna.", next = "END" },
       },
       again = { { id = "h_again", text = "Anything else, little one? The ovens are warm, and so am I." } },

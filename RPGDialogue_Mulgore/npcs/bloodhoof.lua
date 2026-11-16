@@ -30,6 +30,39 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "You may be right, and I won't pretend I've never wished to know what the Venture Company tells its foremen. But a tauren caught listening at a goblin's tent can never sit across a fire from him again, so if you go, go knowing that my father's name goes with you." },
+      },
+      choices = {
+        { text = "Secrets win more peace than open talk ever has.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll go openly and speak your words plainly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "What troubles the plains most?", next = "troubles" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Perhaps it could, but my people's oldest stories tell of a time when magic broke the world apart. I'll take your help gladly against the gnolls and the goblins, though I'd ask you to keep your fire away from the grain fields." },
+      },
+      choices = {
+        { text = "I'll respect the fields. Your village, your rules.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Fire is fire, and I'll use it where it works.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Why talk, if they won't listen?", next = "talk" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "They will bear it because my father asks them to, but don't mistake that for welcome. Our hunters have heard what the Burning Blade did in Durotar, and a tauren who sees your imp will reach for a spear before he remembers we are allies, so keep it close and keep it quiet." },
+      },
+      choices = {
+        { text = "I'll keep it leashed. Your people's peace matters.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Let them stare. My power protects the Horde too.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "How did the tauren come to Mulgore?", next = "coming" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -52,6 +85,9 @@ P:NPC {
         { text = "I've begun to walk the druid's path.", next = "druid", when = { race = "Tauren", class = "DRUID" } },
         { text = "Are the Windshapers good neighbours?", next = "skyborne", when = { race = "Skyborne" } },
         { text = "Do the spirits favor talking the Venture Company down, Baine?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Talking works better when you know their secrets first, Baine.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "The arcane could help defend Bloodhoof, Baine.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "I bring a demon to Mulgore. Will your people bear it?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Earth Mother guide you.", next = "END", fx = { affinity = 1 } },
       },
       again = {
@@ -183,6 +219,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "They mind it the way a herd minds a stranger at the waterhole, child. The arcane does not belong to the land, and the spirits of Bloodhoof feel it pass like a cold draft, so they will not trouble you, but neither will they speak to you." },
+        { id = "xmage_scourge", when = { race = "Scourge" }, text = "The spirits are uneasy around the restless dead already, and the arcane only adds a cold draft to it. They will not trouble you, child, but neither will they speak to you, and I am sorry for it." },
+      },
+      choices = {
+        { text = "Then I'll respect their silence, elder.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I don't need the spirits' approval to study.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What are the spirits saying?", next = "spirits" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "They sensed it before you crested the hill, and every one of them has gone quiet and watchful. Fel magic is a wound, not a power, and I fear the spirits will never forgive what walks beside you." },
+      },
+      choices = {
+        { text = "Then I'll keep it far from the village, elder.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The spirits' forgiveness means nothing to me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What are the spirits saying lately?", next = "spirits" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -197,6 +256,8 @@ P:NPC {
         { text = "What does the rite show?", next = "vision" },
         { text = "The spirits answer me now, elder. What should I ask them?", next = "shaman", when = { class = "SHAMAN" } },
         { text = "Do the spirits mind what I am, elder?", next = "forsaken", when = { race = "Scourge" } },
+        { text = "Do the spirits mind the arcane, elder?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Can the spirits sense my demon, elder?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Thank you, elder.", next = "END" },
       },
       again = {
@@ -257,6 +318,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Then between us we'd see everything, and that's more than most of Bloodhoof manages. The Palemane gnolls creep in from the west at dusk, so if you have quiet feet and sharp eyes, watch the western road and tell the braves what you see." },
+      },
+      choices = {
+        { text = "Better they never see me. Then they can't fight back.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll watch, then meet them openly with the braves.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Why do you watch the sky?", next = "sky" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "You could, and the young hunters would never forgive you for stealing their practice. Swoops are a nuisance, not a war, and I'd rather the youngsters learned to drop them with an arrow than watched a stranger freeze them out of the sky." },
+      },
+      choices = {
+        { text = "Fair enough. The young need their practice.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A pest is a pest, and I'll clear them anyway.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Why keep watch on the sky?", next = "sky" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -272,6 +355,8 @@ P:NPC {
         { text = "Why watch the sky?", next = "sky" },
         { text = "Do the swoops ever come down at a hunter's beast?", next = "hunter", when = { class = "HUNTER" } },
         { text = "The air over Mulgore feels uneasy. Have you noticed, Harken?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "I watch the ground the way you watch the sky.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "I could bring down those swoops with frost.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "I'll see to it.", next = "END", fx = { affinity = 1 } },
       },
       again = {
@@ -329,6 +414,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Then you'll be the first, because that beast has winded every hunter who's gone after it. It hunts by smell more than sight, so rub yourself in sage and keep downwind, and you might get close enough to see its eyes." },
+      },
+      choices = {
+        { text = "I'll strike before it knows I'm there.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I want it to see me. Let it be a fair hunt.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "How did you come by your name?", next = "name" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "You could, but the hide would come back scorched, and I want that hide to hang in Bloodhoof. A hunt is a conversation between the hunter and the hunted, and fire is no kind of conversation at all." },
+      },
+      choices = {
+        { text = "You're right. The beast deserves an honest hunt.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Hunting isn't a conversation. It's a kill.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "How did you get your name?", next = "name" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -343,6 +450,8 @@ P:NPC {
         { text = "How did you get your name?", next = "name" },
         { text = "I'm a tracker too. What have its tracks told you?", next = "hunter", when = { class = "HUNTER" } },
         { text = "Would the spirits frown on hunting Mazzranache, Maur?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Your beast won't see me coming, Maur.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Can't a mage simply blast the beast from afar?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "I'll find it.", next = "END", fx = { affinity = 1, trait = { brave = 1 } } },
       },
       again = {
@@ -404,6 +513,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Would you? The goblins swear it's only water from their drills, but I've tasted the wells and I know better, so find out what they're pouring and where, and I'll know which well to save first." },
+      },
+      choices = {
+        { text = "I'll wreck their drills while I'm in there.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll find the truth and let the elders confront them.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Who poisoned the wells?", next = "who" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "I've asked myself that, because I'd take help from almost anywhere now. But the wells are alive in a way your magic doesn't understand, and I'd rather see them healed slowly by the Earth Mother than quickly by something that doesn't know what it's healing." },
+      },
+      choices = {
+        { text = "Then I'll leave the healing to the Earth Mother.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Slow healing means more poisoned water. Let me try.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Who's poisoning the wells?", next = "who" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -418,6 +549,8 @@ P:NPC {
       },
       choices = {
         { text = "Who poisoned them?", next = "who" },
+        { text = "I could slip into the goblin camp and see what they're dumping.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Could a mage purify the water, Mull?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "I'll help cleanse them.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Goblin oil means goblin coin, and I won't stand in its way.", next = "END", fx = { align = { light = -1 } } },
         { text = "The water spirits are frightened. I can hear them.", next = "shaman", when = { class = "SHAMAN" } },
@@ -478,6 +611,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Kyle wants to be found, I'm sure of it, he's just got his nose in something he shouldn't. He loves tender meat more than he loves me, the scamp, so if you see a scruffy tail wagging by the lake, that's my boy." },
+      },
+      choices = {
+        { text = "I'll find him, Ahab. You have my word.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If I find him, I'll expect something for my trouble.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What's Kyle like?", next = "kyle" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "If you can, you're a better mage than any I've heard of. Kyle doesn't answer to spells, he answers to tender meat, and he'll come running for a good bit of wolf if you leave it where he can smell it." },
+      },
+      choices = {
+        { text = "Then I'll look the old way, for Kyle's sake.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Magic can find anything. I'll show you.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What does Kyle look like?", next = "kyle" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -492,6 +647,8 @@ P:NPC {
       },
       choices = {
         { text = "Tell me about Kyle.", next = "kyle" },
+        { text = "I'm good at finding things that don't want to be found.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Can a mage find a lost dog, do you think?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "I'll keep an eye out for him.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "It's only a dog.", next = "END", fx = { affinity = -2 } },
         { text = "My beast could follow Kyle's scent.", next = "hunter", when = { class = "HUNTER", pet = { type = "Beast" } } },
@@ -551,6 +708,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Easy to rob and hard to carry, friend, because it's iron and it's hot and it's bigger than you. Besides, nobody in Bloodhoof needs to steal from me, since I feed anyone who asks, and that's the best lock any inn ever had." },
+      },
+      choices = {
+        { text = "That's a good lock. I'd never rob a kind host.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A full belly never stopped a real thief.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What's in the stew today?", next = "stew" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "Your imp gets a bowl when the Earth Mother herself comes to supper and asks for one. I don't feed things from the Twisting Nether, friend, so it can wait outside the door and you can eat for the both of you." },
+      },
+      choices = {
+        { text = "Fair. It waits outside, and I'll eat its share.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "It's hungry, and it's coming in whether you like it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What goes into the stew?", next = "stew" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -562,7 +741,13 @@ P:NPC {
         { id = "h_mull", when = { heardLine = "mull.h_default" }, text = "Mull's been to every well again, hasn't he? I bring him stew, and he forgets to eat it, so I bring more." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman at my table! Sit near the fire, since your kind always seem to be listening to it, and I'll bring you a bowl of stew." },
       },
-      choices = { { text = "What's in the stew?", next = "stew" }, { text = "Do the elders still bless the hearths in Bloodhoof, Kauth?", next = "xhsham", when = { class = "SHAMAN" } }, { text = "Just a meal, thank you.", next = "END" } },
+      choices = {
+        { text = "What's in the stew?", next = "stew" },
+        { text = "Do the elders still bless the hearths in Bloodhoof, Kauth?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Your stew pot would be easy to rob, Kauth.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Does my imp get a bowl too, Kauth?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Just a meal, thank you.", next = "END" },
+      },
     },
     stew = {
       lines = {
@@ -609,6 +794,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Then you're missing the best part of camping, friend, which is the fire and whoever wanders up to it. I've met more good friends at a campfire than I've lost to bandits, and I'd rather take that wager than sleep cold and alone in the dark." },
+      },
+      choices = {
+        { text = "Perhaps you're right. I'll light a fire tonight.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Friends find you too easily. Better cold and alone.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What is it you love about camping?", next = "why" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Ha, that's true, and I once watched a troll mage light a campfire with a snap of his fingers. Still, striking flint makes a fire feel earned, so I'll keep doing it the old way, though I won't refuse your spark if the wood is wet." },
+      },
+      choices = {
+        { text = "The old way has its place. I'll strike flint.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Flint is a waste of time when a spell works faster.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What do you love about camping?", next = "why" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -625,6 +832,8 @@ P:NPC {
         { text = "My people camped under a different sky.", next = "skyborne", when = { race = "Skyborne" } },
         { text = "I hunt as I travel. Does that suit a camp?", next = "hunter", when = { class = "HUNTER" } },
         { text = "Did the wandering bands keep shamans on the long road, Kaga?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "I prefer camps with no fire, where nobody finds me.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "A mage never needs flint to start a fire.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Earth Mother keep you.", next = "END" },
       },
       again = {

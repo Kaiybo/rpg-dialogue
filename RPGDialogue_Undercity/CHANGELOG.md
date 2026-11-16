@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.10.0 (2026-11-16)
+- Horde rogues, mages and warlocks get their own conversation with 17 people in the Undercity, Sylvanas included.
+
 ## 1.9.0 (2026-11-16)
 - Horde shaman and tauren druids get their own conversations with all 18 named people in the Undercity, Sylvanas included.
 

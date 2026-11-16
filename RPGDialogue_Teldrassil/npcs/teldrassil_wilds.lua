@@ -21,6 +21,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "Arcane? I hope not, for that would mean someone brought it here, and I would rather it were only a young tree's growing pains. If you sense something, tell me, but do not go casting at my timberlings to find out." },
+      },
+      choices = {
+        { text = "I'll watch, and cast nothing near them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "If magic did this, magic can find it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What's wrong with the timberlings?", next = "timber" },
+      },
+    },
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "Then watch them, and tell me how they behave when they think no one is near, for they are wary of me now. Their seeds may tell us what is wrong, so bring me those if you can." },
+      },
+      choices = {
+        { text = "I'll watch them, and harm none needlessly.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Easier to cut a few open and look inside.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Why work by the lake?", next = "lake" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -41,6 +61,8 @@ P:NPC {
         { text = "Why study plants out here, not in Darnassus?", next = "why" },
         { text = "Tell me about Lake Al'Ameth.", next = "lake" },
         { text = "As a druid, I feel something amiss in the land.", next = "druid", when = { class = "DRUID" } },
+        { text = "Something arcane may be twisting your timberlings.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Your timberlings never hear me. I could watch them for you.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Elune guide your work.", next = "END" },
       },
     },
@@ -100,6 +122,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "You know poisons? Then you know how slow this one is, and I would rather not hear how it ends. Dirania has gone for a cure, but if you can tell me how long I have, perhaps I could stop counting." },
+      },
+      choices = {
+        { text = "The truth is it's serious, but slow. You have time.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "You'll be fine. Don't think on it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Who is Dirania to you?", next = "dirania" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "A spell? I would not know, and forgive me, I am not sure I want to learn it from a stranger's magic. Dirania is bringing a remedy of herbs, and our people trust herbs more than spells." },
+      },
+      choices = {
+        { text = "Herbs it is. I won't interfere.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If she's late, I'm trying the spell.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What happened in the cave?", next = "cave" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -118,6 +160,8 @@ P:NPC {
         { text = "Who is Dirania to you?", next = "dirania" },
         { text = "What lives in Shadowglen?", next = "glen" },
         { text = "Let me see the wound. I'm a priest.", next = "priest", when = { class = "PRIEST" } },
+        { text = "I know poisons. I could tell you what this is.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Could a spell draw the venom out?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Rest easy, Iverron.", next = "END" },
       },
     },
@@ -176,6 +220,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "Conjured bread! A human traveler offered me some once, and it tasted of nothing but its own cleverness. Sit and eat a proper meal, and tell me afterwards which you prefer." },
+      },
+      choices = {
+        { text = "Your cooking, of course. I'll stay.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Conjured bread keeps me fed. That's enough.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What is the oldest recipe you keep?", next = "recipe" },
+      },
+    },
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "My spice cupboard is guarded by my good opinion of my guests, which you are testing. Ask, and I will share; take, and you will eat elsewhere." },
+      },
+      choices = {
+        { text = "I'd only ever ask, Zarrin.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I was only testing your lock.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Who eats here, mostly?", next = "guests" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -192,6 +256,8 @@ P:NPC {
         { text = "Who comes to eat here?", next = "guests" },
         { text = "What was it like before Teldrassil?", next = "before" },
         { text = "I cook too. Any secrets to share?", next = "cook", when = { profession = "Cooking" } },
+        { text = "I can conjure bread. You needn't cook for me.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Your spice cupboard is very poorly guarded.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Farewell, Zarrin.", next = "END" },
       },
     },

@@ -27,6 +27,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "Some of us did. The Highborne, Queen Azshara's court, drew on the Well of Eternity until they called the Burning Legion into the world, and the Well's destruction tore the land apart. That is why you will find few here glad to see a mage, though I will try to be one of them." },
+      },
+      choices = {
+        { text = "Then I'll use my craft carefully here, Conservator.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The Highborne's failure is no reason to forget the craft.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What does balance mean, here?", next = "balance" },
+      },
+    },
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "Then you would do well to remember they are not your enemies, only the glade's overflow. Thin the young nightsabers and the grell only as much as the balance needs, and no more." },
+        { id = "xro_nightelf", when = { race = "NightElf" }, text = "You have the stillness of a hunter, child, and Shadowglen's creatures are not your enemies, only the glade's overflow. Thin them as much as the balance needs, and no more." },
+      },
+      choices = {
+        { text = "Only as many as you ask, Conservator.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Whatever I hunt, I'll hunt my own way.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What does the balance ask of me?", next = "balance" },
+      },
+    },
     hunter_i = {
       lines = {
         { id = "hi_default", text = "Your companion would cull them too, young hunter, and without any of the guilt. The glade has more boars and nightsabers than it can feed this year, and thinning them keeps the rest from starving through winter." },
@@ -63,6 +84,8 @@ P:NPC {
         { text = "I've seen the world since. It's not balanced.", next = "world", when = { minLevel = 20 } },
         { text = "I'm a long way from home here.", next = "stranger", when = { ["not"] = { race = "NightElf" } } },
         { text = "Must I cull beasts when my companion is one of them?", next = "hunter_i", when = { class = "HUNTER" } },
+        { text = "I hear the kaldorei once ruled through magic.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Shadowglen's creatures never hear me coming.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Thank you, Conservator.", next = "END" },
       },
     },
@@ -252,6 +275,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "Then study it from the ground, stranger, and with your eyes and not your spells. The last of my people who studied great power too closely brought the Legion to Hyjal, and the scars of it are older than your kingdom." },
+        { id = "xma_gnome", when = { race = "Gnome" }, text = "Then study it from the ground, and with your eyes and not your spells. Your people lost their city to their own cleverness, I'm told, and mine lost a world to theirs, so we may understand each other better than either of us expects." },
+      },
+      choices = {
+        { text = "I'll respect your tree and your history.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Not every mage is a Highborne.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What can you see from up here?", next = "view" },
+      },
+    },
+    xlock = {
+      lines = {
+        { id = "xwl_default", text = "Once, and longer and harder than your people can imagine, at the foot of Hyjal and in the ruins of our own cities. I can smell the same burning on you that I smelt on them, and you'll find no welcome here while it clings to you." },
+      },
+      choices = {
+        { text = "Then I'll turn it against the Legion, never for it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Your war is over. Mine is just beginning.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What happened at Hyjal?", next = "hyjal" },
+      },
+    },
     warrior_tn = {
       lines = {
         { id = "wtn_default", text = "Start with the grells and the mangy wolves at the glade's edge, and don't be ashamed of them, because every Sentinel in Ashenvale started there. When you can walk to Dolanaar without stopping to bind a wound, go and see Elanaria on the Warrior's Terrace." },
@@ -322,6 +366,8 @@ P:NPC {
         { text = "I was raised to the blade. Where do I start?", next = "warrior_tn", when = { class = "WARRIOR" } },
         { text = "My bow is strung. What should I hunt first?", next = "hunter_tn", when = { class = "HUNTER" } },
         { text = "I learned to move quietly before I could fight.", next = "rogue_tn", when = { class = "ROGUE" } },
+        { text = "I came a long way to study your great tree.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "I'd heard the kaldorei fought demons once.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll go when I'm ready.", next = "END" },
       },
     },
@@ -548,6 +594,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "Count them, please, and mind where you step, for the webs feel you before the spiders do. Your quiet will serve you well in there, though venom doesn't care how quiet you are." },
+      },
+      choices = {
+        { text = "I'll do exactly as you ask, no more.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Better to burn the nest while I'm there.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What's down in the cave?", next = "cave" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "Fire, on Teldrassil? The tree is young and alive, and a fire in the Webwood would scar it worse than any spider. Use your craft if you must, but use frost, and use it sparingly." },
+      },
+      choices = {
+        { text = "Frost it is. The tree comes first.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "If the spiders spread, the tree suffers anyway.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Why do you study the spiders?", next = "why" },
+      },
+    },
     hunter_g = {
       lines = {
         { id = "hgl_default", text = "Please don't send it into Shadowthread Cave on my account. The Webwood spiders treat anything with four legs as a meal, and I'd rather study them from these steps than write an account of how your companion died." },
@@ -580,6 +646,8 @@ P:NPC {
         { text = "What's in Shadowthread Cave?", next = "cave" },
         { text = "I'm an alchemist. Venom interests me.", next = "alch", when = { profession = "Alchemy" } },
         { text = "My companion could take a spider's measure for you.", next = "hunter_g", when = { class = "HUNTER" } },
+        { text = "I could slip into the spider cave and count the eggs.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "A little fire would clear that cave.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll go to the cave.", next = "END", fx = { affinity = 1, trait = { brave = 1 } } },
       },
     },

@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.12.0 (2026-11-16)
+- Rogues, mages and warlocks get their own conversation with 25 people in Lakeshire and along the lake.
+
 ## 1.11.0 (2026-11-16)
 - Druids get their own greeting, question and short conversation with several people here.
 

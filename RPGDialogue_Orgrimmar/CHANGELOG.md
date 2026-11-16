@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.11.0 (2026-11-16)
+- Horde rogues, mages and warlocks get their own conversation with 19 people in Orgrimmar, Thrall and Vol'jin included.
+
 ## 1.10.0 (2026-11-16)
 - Horde shaman get their own conversation with 16 people across Orgrimmar, from Gryshka's inn to the trainers.
 

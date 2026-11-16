@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.12.0 (2026-11-16)
+- Horde rogues, mages and warlocks get their own conversation with 21 people in Deathknell, Brill and on the roads.
+
 ## 1.11.0 (2026-11-16)
 - A player reply that asked a question while taking a stance now reads as a plain statement.
 

@@ -31,6 +31,39 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Now you're talking my language, pal! Somebody on my own docks is tipping off the Southsea about which boats carry what, and I'd love to know who, though the bruisers won't lay a hand on anybody without proof, so bring me something better than a hunch." },
+      },
+      choices = {
+        { text = "Leave it to me. Nobody will even know I was looking.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll catch them openly, in front of your bruisers.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "What's the trouble with the pirates, anyway?", next = "pirates" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Expensive is the best word in the language, pal, and I respect a professional. The last mage who worked my docks froze a Southsea boarding party solid and then froze half my pier along with 'em, so if you want work around here, you aim better than he did." },
+      },
+      choices = {
+        { text = "I'll be careful with your pier. Precision is the job.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A little damage to the pier is part of the price.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Who else should I know around Ratchet?", next = "town" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "The bruisers care about one thing, which is whether you start trouble on my docks. Your demon's welcome to stand around looking scary for all I care, but if it sets fire to so much as one crate, you're paying for the crate, the fire and the bruiser who puts it out." },
+      },
+      choices = {
+        { text = "Fair rules. My demon won't touch a crate.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If your docks burn, they burn. I'm not paying.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "How does a goblin town stay neutral?", next = "neutral" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -45,6 +78,9 @@ P:NPC {
         { text = "What's the trouble with the pirates?", next = "pirates" },
         { text = "Who else should I know in Ratchet?", next = "town" },
         { text = "How does a goblin town stay neutral?", next = "neutral", when = { race = { "Human", "Dwarf", "Gnome", "NightElf" } } },
+        { text = "Your docks leak cargo. I could find out who's helping it along.", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Need a mage for anything? I'm told I'm expensive.", next = "xmage", when = { class = "MAGE" } },
+        { text = "A warlock walks into Ratchet. Do the bruisers care?", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "I'll see you around, Gazlowe.", next = "END" },
       },
       again = {
@@ -116,6 +152,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Would I! The Venture Company boys out at the Sludge Fen have it, I'm almost certain, and they'll have it locked up tighter than a gnome's toolbox, so if you can slip in without blowing anything up, which is more than I've ever managed, you'll be the best friend a tinker ever had." },
+      },
+      choices = {
+        { text = "I'll take it back quietly. They stole it first.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll take it fair and square, even if it means a fight.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "What exactly is a Samophlange, anyway?", next = "samo" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -130,6 +177,7 @@ P:NPC {
         { text = "How did you lose it?", next = "lost" },
         { text = "Is Ratchet good for a tinker?", next = "ratchet" },
         { text = "Magic does what gears can't, little tinker.", next = "magic", when = { class = { "MAGE", "WARLOCK" } } },
+        { text = "I get into places quietly. Shall I fetch your Samophlange?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Good luck with it.", next = "END" },
       },
       again = { { id = "h_again", text = "More questions? I love questions, almost as much as I love gears, almost." } },
@@ -191,6 +239,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Oh, it would, and I've had three customers ask this week alone, but I'm a purveyor of fine refreshment, not poisons! Of course, a strong enough sleeping draught does help a fellow sleep very soundly, and who's to say which guard ends up drinking it." },
+      },
+      choices = {
+        { text = "Sleeping guards make for easy work. Count me in.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "No. I'd rather keep my business honest.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Do your tonics actually work, Mebok?", next = "work" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Shh, not so loud, pal! Nobody said magic, I said refreshment, and if a customer feels a little brighter after a swig, who am I to argue with a satisfied customer?" },
+      },
+      choices = {
+        { text = "Fair enough. A good sale is a good sale.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Your customers deserve to know what they're drinking.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "What do you use the raptor horns for?", next = "horns" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -205,6 +275,8 @@ P:NPC {
         { text = "Do your tonics actually work?", next = "work" },
         { text = "What's Ratchet like for business?", next = "biz" },
         { text = "Tauren medicine doesn't need goblin salesmanship.", next = "tauren", when = { race = "Tauren" } },
+        { text = "A tonic that puts a guard to sleep would sell well, Mebok.", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Your tonics aren't magic, Mebok. I'd know.", next = "xmage", when = { class = "MAGE" } },
         { text = "Maybe later.", next = "END" },
       },
       again = { { id = "h_again", text = "Another question, friend? Mebok's always happy to talk, especially about Mebok." } },
@@ -266,6 +338,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "No, they don't, and I've got a whole page in my ledger for crates that walked off with somebody's help. Half go to the Southsea, but the other half go missing right here between the ship and my scales, and that tells me somebody in Ratchet knows how to lift a lid quietly." },
+      },
+      choices = {
+        { text = "Then I'll help you catch them, wharfmaster.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Somebody's good at their job. I respect that.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Where do the shipments usually go missing?", next = "missing" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Have you seen what a mage does to a crate of eggs when he teleports it? The boat to Booty Bay works fine and the sea never sends me a bill, so I'll keep my cargo on the water where I can count it." },
+      },
+      choices = {
+        { text = "Fair enough. The old ways work well enough.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Magic is the future. Your boats are behind the times.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Where do your boats sail?", next = "boats" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -280,6 +374,8 @@ P:NPC {
         { text = "Where do your boats sail?", next = "boats" },
         { text = "How long have you kept the docks?", next = "dock" },
         { text = "Do you check Alliance cargo as hard as Horde?", next = "fair", when = { race = { "Human", "Dwarf", "Gnome", "NightElf" } } },
+        { text = "Your missing crates don't vanish on their own, wharfmaster.", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Couldn't a mage just teleport your cargo for you?", next = "xmage", when = { class = "MAGE" } },
         { text = "I'll let you work.", next = "END" },
       },
       again = { { id = "h_again", text = "What else? Make it quick, because the tide doesn't wait and neither do my crews." } },

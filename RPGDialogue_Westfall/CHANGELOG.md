@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.13.0 (2026-11-16)
+- Rogues, mages and warlocks get their own conversation with 21 people at Sentinel Hill, Moonbrook and the farms.
+
 ## 1.12.0 (2026-11-16)
 - Druids get their own greeting, question and short conversation with several people here.
 
