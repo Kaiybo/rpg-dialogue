@@ -13,3 +13,4 @@
 pack.lua
 pools.lua
 npcs\nighthaven.lua
+npcs\nighthaven_more.lua

@@ -504,7 +504,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", text = "I am Sentinel Glynda Nal'Shea. Corruption creeps into the groves and murlocs creep up the beaches, and I am only one Sentinel, so I could use another pair of hands." },
+        { id = "h_default", key = true, text = "I am Sentinel Glynda Nal'Shea. Corruption creeps into the groves and murlocs creep up the beaches, and I am only one Sentinel, so I could use another pair of hands." },
         { id = "h_crystal", tags = { "news" }, when = { questActive = TODO_QUEST("The Red Crystal") },
           text = "The reports say hostile moonkin are gathering around a large red crystal along the eastern mountains. Find out whether it truly exists, and whatever you do, don't touch it." },
         { id = "h_cascade", when = { questActive = TODO_QUEST("As Water Cascades") },

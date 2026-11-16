@@ -14,3 +14,4 @@ pack.lua
 pools.lua
 npcs\auberdine.lua
 npcs\auberdine_more.lua
+npcs\between.lua

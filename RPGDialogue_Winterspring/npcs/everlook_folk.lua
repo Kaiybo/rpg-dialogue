@@ -201,7 +201,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "I'm Jessica Redpath. I left Lordaeron before the plague reached us, but my family stayed behind, and I've heard nothing of them since the fighting at Darrowshire." },
-        { id = "h_before", when = { level = { min = 53 }, questBefore = TODO_QUEST("Sister Pamela") },
+        { id = "h_before", when = { minLevel = 53, questBefore = TODO_QUEST("Sister Pamela") },
           text = "You look like someone who could walk into the Plaguelands and come out again. My little sister Pamela was in Darrowshire when the dead came, and I miss her more than I can say." },
         { id = "h_during", tags = { "news" }, when = { questActive = TODO_QUEST("Sister Pamela") },
           text = "Darrowshire is in the southern hills of the eastern Plaguelands, below the old roads. Pamela would be little still, in my mind at least, with a doll she never let go of." },
@@ -312,7 +312,7 @@ P:NPC {
           text = "I am Malyfous Darkhammer of the Thorium Brotherhood, and I do not waste my hours on idle talk. If you have a task worthy of my hammer, name it; if not, there are snowdrifts outside you could study." },
         { id = "h_warm", when = { reputation = { faction = "Thorium Brotherhood", min = "honored" } },
           text = "You're known to the Brotherhood, I see, so I'll grant you a little patience. A little." },
-        { id = "h_beast", when = { level = { min = 58 } },
+        { id = "h_beast", when = { minLevel = 58 },
           text = "There's a beast in Blackrock Spire whose hide would make armour fit for a king, if anyone could skin it whole. The odds of a pristine hide are one in a million, so I don't expect you to bring me one." },
         { id = "h_after", tags = { "news" }, when = { questDone = TODO_QUEST("Pip Quickwit, At Your Service!") },
           text = "You brought me the hide, and it's pristine, so the catalogue is open to you. Choose carefully, because I don't make anything twice." },

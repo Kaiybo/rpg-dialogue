@@ -15,3 +15,4 @@ pools.lua
 npcs\everlook.lua
 npcs\springs.lua
 npcs\everlook_folk.lua
+npcs\wilds.lua
