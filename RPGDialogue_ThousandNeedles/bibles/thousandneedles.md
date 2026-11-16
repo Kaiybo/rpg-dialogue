@@ -49,3 +49,11 @@ Freewind's NPCs are Horde: an Alliance character can't speak to them, so no Alli
 ## 0.34.0
 Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon, unless marked).
 - Longhorn (Persuade, `nataka_why`): every letter to Nataka turns into a list of the Galak's dead, so he puts the quill down (authored reason for the canon year of silence).
+
+## Quiet hands (0.39.0, npcs/needles_folk.lua; keys nyse, awenasa, jinky)
+### Sources
+- https://warcraft.wiki.gg/wiki/Nyse (tauren, female, wind rider master at Freewind Post before Cataclysm), https://warcraft.wiki.gg/wiki/Awenasa (tauren, female, stable master at Freewind Post, Classic only; NPC 11117), https://warcraft.wiki.gg/wiki/Jinky_Twizzlefixxit (gnome, female, engineering supplies at the Mirage Raceway before Cataclysm)
+### Their quests
+- none: service NPCs (Jinky's quests are Cataclysm, not used).
+### Voices (authored, not canon)
+- Nyse: calm, loves the wind off the needles; hopes for something better than war with the Galak. Awenasa: gentle; a bear that wouldn't step off the lift. Jinky: cheerful gnome who sells to both teams and won't say who buys more.

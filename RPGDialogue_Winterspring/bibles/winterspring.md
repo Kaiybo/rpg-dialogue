@@ -60,3 +60,11 @@ Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon,
 ### Voices (authored, not canon)
 - Legacki: smug gossip, laughs at Umi; her bet with Umi is authored. Felnok: fussy, gloves, counts his springs. Jessica: quiet, guilty survivor. Malyfous: contemptuous, warms only to work. Storm: stern hunter's honour. Yugrek: gruff, his wind riders chew everything. Maethrya: soft-spoken, politely suspicious of the goblins.
 - Existing NPCs deepened: Vizzie on her neighbours and a hunter's offer; Umi on Legacki; Gregor on Jessica.
+
+## Everlook's shopkeepers (0.39.0, npcs/everlook_trades.lua; keys grizzlin, wixxrak, qia, azzleby, evie)
+### Sources
+- https://warcraft.wiki.gg/wiki/Auctioneer_Grizzlin (goblin; infobox says female, the town list's icon says male, so lines avoid pronouns; NPC 9857), https://warcraft.wiki.gg/wiki/Wixxrak (Weaponsmith & Gunsmith; NPC 11184), https://warcraft.wiki.gg/wiki/Qia (Trade Supplies, in the building with the bank and auctioneer; NPC 11189), https://warcraft.wiki.gg/wiki/Azzleby (stable master by the gates; NPC 11119), https://warcraft.wiki.gg/wiki/Evie_Whirlbrew (Alchemy Supplies; NPC 11188), https://warcraft.wiki.gg/wiki/Everlook (NPC list)
+### Their quests
+- none: service NPCs (Wixxrak's BRD quest is later and not used).
+### Voices (authored, not canon)
+- Grizzlin: brisk, wants the door shut. Wixxrak: eager gun-oil man with a secret mixture. Qia: dry, exact about thread; supplies come through the Timbermaw tunnel. Azzleby: likes beasts better than people; keeps frostsabers and wolves apart. Evie: delighted by snow herbs, packs vials in straw.

@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.7.0 (2026-11-16)
+- New people with no quests, who had nothing to say until now: Frang, Ken'jai, Duokna, Uhgar, Thotar, Kaplak, Tai'jin, Un'Thuwa.
+- New files: exit the game fully and restart.
+
 ## 1.6.0 (2026-11-16)
 - New people: Misha Tor'kren, Margoz, Swart and Tarshaw Jaggedscar.
 - New files: exit the game fully and restart.

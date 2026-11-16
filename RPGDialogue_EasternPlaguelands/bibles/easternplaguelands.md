@@ -32,3 +32,13 @@
 Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon, unless marked).
 - Tirion (Persuade, `son_fear`): he fears Taelan's face more than his sword; a dead father is a story Taelan can live with, a living traitor one he'd have to answer for (authored confidence; says nothing of how the chain ends).
 - Tyrosus (Persuade, `stratholme_truth`): he and the Duke agree the Dawn can't take Stratholme with an army; they send small companies to strike at the Baron first. With the Stratholme deed he adds he doesn't trust whatever holds the Crusade's bastion (an unease, never Balnazzar's name).
+
+## Light's Hope working folk (0.39.0, npcs/lightshope_folk.lua; keys khaelyn, georgia, jessica_chambers, jase_farlane)
+### Sources
+- https://warcraft.wiki.gg/wiki/Khaelyn_Steelwing (dwarf, female, Alliance gryphon master; NPC 12617), https://warcraft.wiki.gg/wiki/Georgia (Forsaken, female, Horde bat handler beside her; NPC 12636)
+- https://warcraft.wiki.gg/wiki/Jessica_Chambers (human innkeeper at Light's Hope; NPC 16256, a late-Classic addition), https://warcraft.wiki.gg/wiki/Jase_Farlane (human trade supplies, Argent Dawn; NPC 12941)
+### Their quests
+- none: service NPCs.
+### Voices (authored, not canon)
+- Khaelyn: blunt, watches her birds' eyes for sickness; a practical peace with Georgia. Georgia: dry, patient Forsaken; bats don't take the plague. Jessica: warm, plain, feeds everyone the same. Jase: brisk supply man; Scarlets have seized wagons.
+- Never: the later battles at the chapel, the souls beneath it, Death Knights. The chapel is simply holy ground the Scourge avoids.

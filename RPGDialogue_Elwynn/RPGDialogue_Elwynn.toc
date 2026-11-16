@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: Elwynn Forest |cff8a8a8a1.17.0|r
+## Title: RPG Dialogue: Elwynn Forest |cff8a8a8a1.18.0|r
 ## Notes: Northshire Valley and Goldshire.
 ## Author: RPG Dialogue
-## Version: 1.17.0
+## Version: 1.18.0
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.elwynn
@@ -48,3 +48,6 @@ npcs\goldshire_more.lua
 npcs\maclures.lua
 npcs\northshire_smiths.lua
 npcs\roadside.lua
+npcs\eastvale_trades.lua
+npcs\azora.lua
+npcs\herb_house.lua

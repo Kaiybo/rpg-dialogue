@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.6.0 (2026-11-16)
+- New people with no quests, who had nothing to say until now: William Montague, Anya Maulray, Archibald, James Van Brunt, Brom Killian, Lavinia Crowe, Carolyn Ward, Ezekiel Graves, Mary Edras, Armand Cromwell.
+- New files: exit the game fully and restart.
+
 ## 1.5.0 (2026-11-16)
 - New people: Michael Garrett, Anastasia Hartwell and Apothecary Zinge.
 - New files: exit the game fully and restart.

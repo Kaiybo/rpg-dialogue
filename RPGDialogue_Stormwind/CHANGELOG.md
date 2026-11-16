@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.12.0 (2026-11-16)
+- New people with no quests, who had nothing to say until now: Lucan Cordell, Jessara Cordell, Catherine Leland, Lisbeth Schneider, Agustus Moulaine, Theresa Moulaine, Jenova Stoneshield, Billibub Cogspinner, Lilyssia Nightbreeze, Eldraeith, Georgio Bolero, Alexandra Bolero, Lawrence Schneider, Ardwyn Cailen, Charys Yserian, Wynne Larson, Gerik Koen, Maris Granger, Jillian Tanner, Alyssa Griffith, Kendor Kabonka, Olivia Burnside, Newton Burnside, John Burnside, Auctioneer Chilton, Auctioneer Fitch, Auctioneer Jaxon, Aldwin Laughlin, Woo Ping, Marda Weller, Keldric Boucher, Kyra Boucher.
+- New files: exit the game fully and restart.
+
 ## 1.11.0 (2026-11-16)
 - New people: Tannysa, Shaina Fuller, Frederick Stover and Felicia Gump.
 - New files: exit the game fully and restart.

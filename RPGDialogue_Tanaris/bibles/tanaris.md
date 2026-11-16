@@ -68,3 +68,14 @@ Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
 ### Voices (authored, not canon)
 - Gimblethorn: dry, careful goblin banker. Bera: blunt dwarf, hates sand, loves her gryphons. Bulkrek: gruff orc, a grudging nod across the yard to Bera. Dirge: boastful cook. Blizrik: loud gunsmith living in the loophole between selling guns and shooting them. Trenton: patient night elf smith who will learn from an enemy. Yeh'kinya: sly old troll, "mon", third person now and then.
 - Authored, not canon: Gimblethorn counted coins in Booty Bay; Bera learned gryphons in Dun Morogh; Bulkrek's chewed chicken; Blizrik's exploded workshops (Ratchet, Booty Bay); Fizzgrimble's view of Dirge and of the two flight masters.
+
+## Gadgetzan's trades (0.39.0, npcs/gadgetzan_trades.lua; keys beardo, laziphus, buzzek, pikkle)
+### Sources
+- https://warcraft.wiki.gg/wiki/Auctioneer_Beardo (goblin, male, Gadgetzan auction house; NPC 8661), https://warcraft.wiki.gg/wiki/Gadgetzan (NPC list)
+- https://warcraft.wiki.gg/wiki/Laziphus (goblin stable master, Gadgetzan; NPC 9985), https://warcraft.wiki.gg/wiki/Buzzek_Bracketswing (goblin engineering trainer in the southernmost hut; NPC 8736), https://warcraft.wiki.gg/wiki/Pikkle (goblin mining trainer; NPC 8128)
+- Nixx Sprocketspring (goblin engineering trainer next to Buzzek) is named only; his own quests are left to him.
+### Their quests
+- none: all four are service NPCs built from role and place.
+### Voices (authored, not canon)
+- Beardo: eager, smiling, prices everything; the neutral house lists for both factions and charges more for it. Laziphus: weary, grumbles about water bills, kind to the animals. Buzzek: cheerful about explosions, exiled to the south hut by the bank. Pikkle: blunt mining goblin; mithril and truesilver in the hills, thorium west in Un'Goro.
+- Authored: Buzzek's roof replaced twice and his good left ear; Laziphus's long tongs for scorpids; Pikkle dug for the Cartel before teaching.

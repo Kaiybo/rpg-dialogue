@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.9.0 (2026-11-16)
+- New people with no quests, who had nothing to say until now: Chesmu, Tal, Ansekhwa, Kuna Thunderhorn, Kah Mistrunner, Aska Mistrunner, Bena Winterhoof, Nida Winterhoof, Una.
+- New files: exit the game fully and restart.
+
 ## 1.8.0 (2026-11-16)
 - New people: Apothecary Zamah, Holt Thunderhorn and Ker Ragetotem.
 - New files: exit the game fully and restart.

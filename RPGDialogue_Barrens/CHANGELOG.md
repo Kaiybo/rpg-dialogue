@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.8.0 (2026-11-16)
+- New people with no quests, who had nothing to say until now: Devrak, Barg, Hula'mahi, Uthrok, Omusa Thunderhorn, Bragok, Wenna Silkbeard, Ironzar.
+- New files: exit the game fully and restart.
+
 ## 1.7.0 (2026-11-16)
 - New people: Ratchet: Gazlowe, Sputtervalve, Mebok Mizzyrix and Wharfmaster Dizzywig.
 - New files: exit the game fully and restart.
