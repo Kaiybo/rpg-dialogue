@@ -36,6 +36,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "That's because you're thinking like a rogue! A poison does one thing and does it badly, but my elixir does several things and does them interestingly, and only one or two of them involve becoming a skeleton for a while." } },
+      choices = {
+        { text = "You should test it properly before you sell it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Sell it now. Let the buyers take the risk.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Polymorph turns a man into a sheep for a minute, and he hates you forever after. My elixir turns him into a skeleton, and he pays me for the privilege, and comes back for more, so tell me which of us has the better business sense." } },
+      choices = {
+        { text = "Magic should never be sold like a cheap tonic.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Fair point. Coin talks louder than spells.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else, Marin.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -52,6 +70,10 @@ P:NPC {
           text = "You drank it and you're still the right size, or mostly the right size, anyway! I'm putting you in the advertisements." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! Perfect, a customer who knows herbs, and my elixir is mostly natural, you know, apart from the bits that aren't." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue! You lot know your poisons, so you'll appreciate what I'm doing with my elixir, which is very nearly not a poison at all, most of the time." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage, eh? Don't go telling me magic does it better, because I've heard that, and magic doesn't come in a bottle you can sell for forty silver." },
       },
       again = {
         { id = "h_again", text = "More questions? Ask them in the shade, then, because everything's better in the shade." },
@@ -69,6 +91,8 @@ P:NPC {
         { text = "I could ask the spirits for rain, you know.", next = "x_shaman", when = { class = "SHAMAN" } },
         { text = "Do the Sandfury trolls give you trouble?", next = "x_troll", when = { race = "Troll" } },
         { text = "A gnome could improve that elixir.", next = "x_gnome", when = { race = "Gnome" } },
+        { text = "Your elixir sounds a lot like a poison to me.", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Polymorph does better than your elixir, Marin.", next = "xmage", when = { class = "MAGE" } },
         { text = "Good luck with it.", next = "END" },
       },
     },
@@ -226,6 +250,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "A cook always knows, sweetie, because you look at food the way I do, wondering what's been added. I'd ask you not to practice on anything in my kitchen, though, because Marin's experiments already give me enough to fix." } },
+      choices = {
+        { text = "I'd never poison an innocent's food.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A weapon's a weapon, whatever it's mixed into.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's talk about something else, sweetie.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Alive isn't the same as fed, sweetie, and anybody who's eaten my stew knows the difference. Still, in a drought like this I'll not turn my nose up at a mage's water, so long as you let me add a pinch of something to make it worth drinking." } },
+      choices = {
+        { text = "Food is for living, not for pleasure.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "You're right. Food should be enjoyed.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -234,6 +276,10 @@ P:NPC {
           text = "Noggy's elixir tastes like a swamp? Of course it does. There's a mushroom up in the Hinterlands that fixes anything, so bring me some, sweetie." },
         { id = "h_secret", when = { questActive = TODO_QUEST("Sprinkle's Secret Ingredient") },
           text = "When I was little I couldn't stand my sister's cooking. Then I found the secret ingredient, and suddenly I could. Fetch me some, would you?" },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "You know what goes in a drink to make it wrong, sweetie, I can see it on you. Well, I know what goes in to make it right again, so we'd make quite a pair." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage, sweetie! I've tasted conjured bread before, and I'm sorry to tell you it tastes of nothing at all, which is the worst thing food can taste of." },
       },
       again = { { id = "h_again", text = "Anything else, sweetie?" }, { id = "h_again2", text = "Go on, sweetie; I'm stirring, but I can listen." } },
       choices = {
@@ -243,6 +289,8 @@ P:NPC {
         { text = "Tell me about your sister's cooking.", next = "sister" },
         { text = "Trade a recipe?", next = "trade", when = { profession = "Cooking" } },
         { text = "Hinterlands cooking, is it? I know Wildhammer cooking.", next = "x_dwarf", when = { race = "Dwarf" } },
+        { text = "You can tell I use poisons?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Conjured bread keeps you alive. That's what matters.", next = "xmage", when = { class = "MAGE" } },
         { text = "Thanks, Sprinkle.", next = "END" },
       },
     },
@@ -342,6 +390,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "It could, and it would ruin me doing it, because I can't sell water you can make for free. Still, I'd rather have a mage on the walls than a Wastewander at the well, so you'll get no complaints from me about the conjuring, only about the price." } },
+      choices = {
+        { text = "Water should be free to all in a desert.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Someone has to pay for the wells and pipes.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let's leave the water alone.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "No, they're thieves, and you're a professional, which I'll grant is different. The Wastewander steal water pouches by the dozen and sell them back to us, and a rogue who knew their camps could cut that trade off at the root." } },
+      choices = {
+        { text = "I'd go after them for honest pay.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "They're only surviving. A thirsty man steals water.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -352,6 +418,10 @@ P:NPC {
           text = "Pressure's up two notches since you thinned the Wastewanders, two whole notches! I nearly cried, and I'm an engineer, and engineers don't cry, not often." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! I don't suppose you can talk a well into filling faster? No? Then I'll settle for you talking sense into the Wastewanders, because they've got our water and they don't share." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage, and I suppose you're about to tell me you can make water out of thin air. Do you know what that does to a water company's quarterly projections?" },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "Another sneak in my town. If you've been near the Wastewander camps, I'll want to know, and if you've been near my water tower, I'll want to know more." },
       },
       again = { { id = "h_again", text = "What else? Quickly, the gauge is twitching." } },
       choices = {
@@ -361,6 +431,8 @@ P:NPC {
         { text = "Who runs the Water Company?", next = "company" },
         { text = "Let me look at that pump.", next = "pump", when = { profession = "Engineering" } },
         { text = "Point me at the Wastewanders, Chief.", next = "x_warrior", when = { class = "WARRIOR" } },
+        { text = "Conjured water could save lives in a drought.", next = "xmage", when = { class = "MAGE" } },
+        { text = "I'm no Wastewander, Bilgewhizzle.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Good luck with the pressure.", next = "END" },
       },
     },
@@ -439,6 +511,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Maybe, though everything out here goes wrong for me sooner or later, so I'd expect the spell to find a Wastewander camp instead. I've lost good surveyors to Thistleshrub and to bandits, and a fancy spell doesn't make the desert any kinder." } },
+      choices = {
+        { text = "Try new methods. The old way keeps failing.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Stick to your rods. They've worked for years.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else, please.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Quietly would be new, I'll grant you, because my lads go in loud and come out running. If you can slip into a bandit camp and slip out again, you'd be the first plan of mine in a month that didn't go wrong." } },
+      choices = {
+        { text = "Leave the thieves alone. Your gear isn't worth blood.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Thieves deserve what's coming to them.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -451,6 +541,10 @@ P:NPC {
           text = "Is that Pestlezugg's report you've got there? Let me see... oh, oh dear, that's worse than I hoped, and I'd hoped for nothing at all." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid, out here? If you can feel water under the sand, please tell me, because my dowsing widget certainly can't, and it cost the Company a fortune." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage. You'll be thinking you could find water with a spell faster than my rods, and I'll be the one who has to explain to the Company why nobody tried it sooner." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "You'd make a decent scout, if you can keep your head down. The Wastewander keep taking my survey gear, and my men keep getting caught trying to take it back." },
       },
       again = { { id = "h_again", text = "Something else? I'll mark it on a map." } },
       choices = {
@@ -460,6 +554,8 @@ P:NPC {
         { text = "What happened to the old sources?", next = "maps" },
         { text = "Pestlezugg thinks they come from Un'Goro.", next = "ungoro", when = { heardLine = "pestlezugg.h_march" } },
         { text = "The earth would tell me where water runs.", next = "x_shaman", when = { class = "SHAMAN" } },
+        { text = "Could magic really find water faster?", next = "xmage", when = { class = "MAGE" } },
+        { text = "I could get your gear back quietly.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I'll go and look.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -552,6 +648,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Someone who can freeze a sample before it goes off in this heat, mostly. Whatever the Water Company finds in the bad wells rots in an hour, and I'd rather study it fresh than smell it stale." } },
+      choices = {
+        { text = "Science needs patience, not shortcuts.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Use whatever works, magic included.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "It interests me, which is worse, because interesting things blow up. I'd be curious what fel residue does to a reagent, but I'd want it kept in a jar a long way from my rat." } },
+      choices = {
+        { text = "Fel is just another reagent. Study it.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Keep it far from your rat. It corrupts.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -565,6 +679,10 @@ P:NPC {
         { id = "h_rose", when = { metBefore = true }, text = "Rose ate the label off a jar again, so now I've a jar of something and no idea what. She looks pleased with herself, which worries me." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "Rose, mind your manners, it's a druid. Druids always ask what I'm dissecting, and they never like the answer." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage. Good, you'll have a steady hand, and Rose likes steady hands; she bites the shaky ones." },
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "Warlock. I can smell the brimstone on your sleeve, and so can Rose, which is why she's hiding behind the flasks." },
       },
       again = { { id = "h_again", text = "Anything else? Rose is getting impatient, though Rose is always impatient." } },
       choices = {
@@ -574,6 +692,8 @@ P:NPC {
         { text = "What did you find in the insect parts?", next = "insects" },
         { text = "Talk shop with me.", next = "shop", when = { profession = "Alchemy" } },
         { text = "Your rat doesn't like my imp much.", next = "x_warlock", when = { class = "WARLOCK" } },
+        { text = "What does an alchemist want with a mage?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Does my craft bother you, alchemist?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Just browsing.", next = "END" },
       },
     },
@@ -655,6 +775,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Offering? I don't offer anything, friend; I just mention things. Now, if somebody happened to bring me something from Lost Rigger Cove the pirates were fond of, I might happen to pay well for it, and nobody would happen to remember." } },
+      choices = {
+        { text = "I don't steal for other people.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Pirates' goods are anyone's goods.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because everyone sells something, friend, and your sort always have the strangest things to offer. I keep away from soul business in general, because the Cartel doesn't like it, and I'm fond of the Cartel liking me." } },
+      choices = {
+        { text = "The Cartel's rules aren't my concern.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Wise. Some trade isn't worth the coin.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -665,6 +803,10 @@ P:NPC {
           text = "I want uncracked scarab shells, and uncracked is the important part, because cracked ones are worth exactly nothing." },
         { id = "h_valley", when = { questActive = TODO_QUEST("Thistleshrub Valley") },
           text = "Thistleshrub Valley has something I want, and don't ask me why I want it; just bring it." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "One of the quiet trade, I see. Funny, I was just thinking how nice it'd be to have someone who could find things, and never mention where they found them." },
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "Ah, a warlock. I don't buy what you'd sell and I don't sell what you'd buy, so we needn't waste each other's time, unless you'd like to." },
       },
       again = { { id = "h_again", text = "Still here asking questions? That's how I started, and look where it got me." } },
       choices = {
@@ -673,6 +815,8 @@ P:NPC {
         { text = "Who buys this stuff?", next = "buyers" },
         { text = "I've coin. Let me invest.", next = "invest", when = { money = { min = 500000 } } },
         { text = "I know a smuggler when I see one, Tran'rek.", next = "x_rogue", when = { class = "ROGUE" } },
+        { text = "Are you offering me work, Tran'rek?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "What makes you think I'd sell anything dark?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll bring them.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -772,12 +916,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "In a desert, friend, water is the most expensive thing on the menu, and I didn't set the price, the Water Company did. A mage could put me out of business with a flick of the wrist, so keep the conjuring to your room and I'll keep the stew warm." } },
+      choices = {
+        { text = "Water should be free in a drought.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Business is business. I'll keep it quiet.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else, Fizzgrimble.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Not often, because the Bruisers are quick and I'm quicker. Still, the port brings in all sorts, and I've had pirates at one table and Booty Bay debt-collectors at the next, so a smart innkeeper watches his guests' pockets as well as his own." } },
+      choices = {
+        { text = "A smart thief wouldn't steal under the Bruisers' noses.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "I'd never steal from your guests.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Innkeeper Fizzgrimble, of the Road Warrior: the best inn in Gadgetzan, and also the only inn in Gadgetzan, and those two facts are related." },
         { id = "h_sand", when = { metBefore = true }, text = "There's sand in the stew again, so I tell the guests it's seasoning, a very exclusive desert seasoning." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Night's when Gadgetzan cools off and the Bruisers relax, a little. Hear that? Somebody's arguing about water again." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage! Please don't go conjuring water in my common room, friend, because I charge for it, and everybody watching will want it free." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue in my inn! Keep your hands off the other guests' purses, if you'd be so kind, and I'll keep my hands off the bill." },
       },
       again = {
         { id = "h_again", text = "Anything else? Have a drink while you think." },
@@ -790,6 +956,8 @@ P:NPC {
         { text = "Do the Sandfury ever drink here?", next = "x_troll", when = { race = "Troll" } },
         { text = "Who cooks for the Road Warrior?", next = "kitchen" },
         { text = "Horde and Alliance drink here together?", next = "both", when = { minLevel = 40 } },
+        { text = "You charge for water in your inn?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do guests often lose their purses here?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Just a drink, thanks.", next = "END" },
       },
     },
@@ -866,6 +1034,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "That's what the last one said, right before he asked me where I kept my strongbox. If you're truly not from Booty Bay, you'll understand why I keep looking over your shoulder, and you won't take it personally." } },
+      choices = {
+        { text = "Pay your debts. You'll sleep better.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Run further. Booty Bay can't reach everywhere.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "A sheep! Well, nobody in Booty Bay is looking for a sheep, that's true, but I'd rather keep my own feet. I suppose I'll just have to keep my head down and hope the next ship doesn't bring anyone who remembers my face." } },
+      choices = {
+        { text = "You should face the people you owe.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Hide if you must. Debts can wait.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -877,6 +1063,10 @@ P:NPC {
         { id = "h_deliver", when = { questActive = TODO_QUEST("Deliver to MacKinley") },
           text = "Take it to the Sea Wolf with my compliments, and tell him we're even... please, tell him we're even." },
         { id = "h_owe", when = { metBefore = true }, text = "If MacKinley's sent you, I'm not here. If he hasn't, I'm here, and I've got a fine selection of bottles." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "Did Booty Bay send you? You look like the sort they'd send, all quiet feet and patient eyes, and I swear I'll have the money soon." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage! You couldn't, ah, make a man look like somebody else for a while, could you? Asking for a friend, who owes money." },
       },
       again = { { id = "h_again", text = "Anything else? Say it quietly, because ships have ears." } },
       choices = {
@@ -885,6 +1075,8 @@ P:NPC {
         { text = "Why not just sail away?", next = "leave" },
         { text = "What's MacKinley like, to owe?", next = "mackinley", when = { heardLine = "mackinley.h_default" } },
         { text = "I'm not here to judge you, Stoley.", next = "x_paladin", when = { class = "PALADIN" } },
+        { text = "Nobody sent me, Stoley.", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "I could turn you into a sheep, Stoley.", next = "xmage", when = { class = "MAGE" } },
         { text = "You should pay your debts.", next = "END", fx = { affinity = -1, align = { order = 1 } } },
         { text = "Debts in Booty Bay are for fools who get caught.", next = "END", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Good luck.", next = "END", fx = { affinity = 1 } },
@@ -960,6 +1152,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "For anyone who pays and doesn't stab a Bruiser with it, yes, and I've never asked what my edges get used for. The Repairers' Union wanted me to ask questions, and that's partly why I don't belong to the Repairers' Union." } },
+      choices = {
+        { text = "A smith should care whose hands hold his blades.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Steel's steel. What it cuts isn't your business.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "A rod, a focus, a setting for some crystal nobody else will touch; I've poured all of them for mages with odd ideas. I'll pour anything for the right coin, and I'm proud of that, whatever the Union says about standards." } },
+      choices = {
+        { text = "Some things shouldn't be made, whatever the price.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Good. A craftsman should make what's asked.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Never mind molds.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -970,6 +1180,10 @@ P:NPC {
           text = "The key needs a fire hot enough to set it, and my forge isn't it. Fire Plume Ridge, in Un'Goro. Find the hottest spot and hold your breath." },
         { id = "h_union", when = { metBefore = true },
           text = "The Repairers' Union pulled my right to mend armor once, saying I was undercutting them, so I filed a complaint, and then I filed five more. Now I mend armor again, and that's persistence for you, friend." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue, and with blades that haven't seen a proper stone in weeks. I could put an edge on those daggers that'll go through a Wastewander's leathers like butter." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage. You don't need my steel, but I'll wager you'd like a smith who can pour a mold for something the Kirin Tor never bothered to make." },
       },
       again = {
         { id = "h_again", text = "More questions? Ask them over the anvil, because the thorium cools while we chat." },
@@ -979,6 +1193,8 @@ P:NPC {
         { text = "Who else buys these molds?", next = "who" },
         { text = "Show me your stock.", next = "BUSINESS" },
         { text = "Goblin steel? Let's see if it meets a dwarf's standards.", next = "x_dwarf", when = { race = "Dwarf" } },
+        { text = "Do you sharpen for anyone who pays?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "What would a mage need from a mold?", next = "xmage", when = { class = "MAGE" } },
       },
     },
     who = {

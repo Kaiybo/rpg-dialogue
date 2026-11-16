@@ -52,6 +52,12 @@ P:NPC {
           text = "There's the soldier I'd pick first, if Stormwind ever let me pick anyone. Come in by the fire and tell me what the farms looked like today." },
         { id = "h_cold", when = { disposition = { max = 34 } },
           text = "You again. Say your business and get on the road, because I've no time for anyone I can't count on." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "I'll be honest with you, {class}, I don't like warlocks, but I like the Scourge less, and I'm short of soldiers by about two hundred." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage, good, {class}, for the last time I asked Stormwind for spellcasters they sent me a priestess and an alchemist and told me to make do." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "I've a report from Stormwind on my desk that I never asked for, {class}, and the agent who brought it walked a good deal like you. Sit down, and tell me who sent you." },
       },
       again = {
         { id = "h_again", text = "What else? Be quick about it, the dead don't wait on our conversations." },
@@ -68,7 +74,37 @@ P:NPC {
         { text = "Put me on the line, Commander.", next = "x_warrior", when = { class = "WARRIOR" } },
         { text = "I can scout the watchtowers for you.", next = "x_hunter", when = { class = "HUNTER" } },
         { text = "Ironforge has a stake in this fight too.", next = "x_dwarf", when = { race = "Dwarf" } },
+        { text = "Will your soldiers fight beside a warlock?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Wouldn't Dalaran send help against Andorhal?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Does SI:7 really operate this far north, Commander?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Point me at the dead.", next = "END", fx = { affinity = 1, standing = { chillwind_camp = 1 }, trait = { brave = 1 } } },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "They operate wherever Stormwind has a worry, and Hearthglen worries someone. Kirsta Deepshadow's out in the Northridge Hills testing the Crusade's defenses now, and if she doesn't come back, I'll want somebody quiet to find out why." } },
+      choices = {
+        { text = "Spies win wars that armies can't.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Spying on the Crusade shames an honest army.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let's talk about the camp.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Dalaran's behind its dome, and the Kirin Tor are busy deciding whose fault the plague was. Meanwhile Andorhal sits a day's march from my gate, so I'll take any mage who'll stand on the line." } },
+      choices = {
+        { text = "They should have come. That was their duty.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Duty's cheap. Every city looks after itself first.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "They'll fight beside anyone who walks back out of Andorhal with them, and they'll talk about you behind your back the whole way. MacDonnell will be harder, for she thinks every demon is one more thing the Light ought to burn." } },
+      choices = {
+        { text = "I'll earn their trust in battle.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I don't need their trust, only their silence.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Commander.", next = "BACK" },
       },
     },
     need = {
@@ -283,6 +319,10 @@ P:NPC {
           text = "Arbington's been up all night with your sample, and he smells like a crypt, but he's happier than I've seen him in months. Well done, friend." },
         { id = "h_jars", when = { metBefore = true },
           text = "I label every sample jar myself, Felstone and Dalson's and the Haunt and Gahrron's. Arbington says my handwriting's worse than the plague, and Arbington is welcome to write his own labels." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! Can you boil a cauldron dry, {class}? I've wanted to see one of those foul pots burst for months, and my prayers don't seem to manage it." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You've a quiet step, {class}, and I've learned not to ask the commander's quiet visitors what they've been up to. The Light sees it anyway, so I needn't." },
       },
       again = {
         { id = "h_again", text = "Something else on your mind? Ask away, I've a jar or two to label while you talk." },
@@ -294,7 +334,27 @@ P:NPC {
         { text = "What's the commander like to serve under?", next = "commander" },
         { text = "Teach me how the Light burns.", next = "priest", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Poisoning the poisoners? That's my kind of work.", next = "x_warlock", when = { class = "WARLOCK" } },
+        { text = "Fire would spread the plague. Isn't that a risk?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Does the Light judge what's done in shadow?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I'll get your samples.", next = "END", fx = { affinity = 1, standing = { chillwind_camp = 1 }, learn = { "plague_cauldrons" } } },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "The Light judges what's done for the wrong reasons, and the dark has nothing to do with it. Stab a cultist in the back on his way to a cauldron and I'll pray for you myself, for I think the Light likes that sort of thing better than people imagine." } },
+      choices = {
+        { text = "Intent matters more than method. I agree.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Light can judge what it likes. I don't answer to it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, priestess.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Arbington says the same, and he's right, curse him, which is why we brew the counter agent first. But once the plague's dead in the pot, I want you to melt the thing to slag, and I'll stand there and pray over the puddle." } },
+      choices = {
+        { text = "Do it properly. Counter agent first, then fire.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'd burn it now and pray the wind is kind.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     dose = {
@@ -433,6 +493,10 @@ P:NPC {
           text = "You have the key, and you'll go in, won't you? I'd ask you to write and tell me what's inside, but I already know, and I'd rather not read it in your handwriting." },
         { id = "h_pay", when = { metBefore = true },
           text = "Stormwind pays me in coin, mud and the occasional ghoul through the tent wall. I did the sums once, and then I stopped doing sums altogether." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "Please don't summon anything, {class}, not here, not near the vials. I'm sure your demon's very well behaved, but this glassware came all the way from Stormwind." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "Oh, you startled me! Please, {class}, cough or something when you come in, for I've reagents on this table that won't forgive a jogged elbow." },
       },
       again = {
         { id = "h_again", text = "Was there something else? I don't mind, really, it's nice to talk to someone who isn't a bone." },
@@ -445,7 +509,27 @@ P:NPC {
         { text = "Could the Light help with your work?", next = "priest", when = { class = "PRIEST" } },
         { text = "How does the focuser work?", next = "alch", when = { profession = "Alchemy" } },
         { text = "Did you study in Dalaran, Arbington?", next = "x_mage", when = { class = "MAGE" } },
+        { text = "Fel and alchemy have more in common than you think.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Need anything fetched quietly from Caer Darrow?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I'll get what you need.", next = "END", fx = { affinity = 1 } },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Need? Everything there is guarded by dead students and worse teachers, and anything worth having is locked. I'm building a key out of bones so we can walk in the front door, but if you'd rather go round the back, I won't stop you, and I won't watch either." } },
+      choices = {
+        { text = "Your key is the right way. I'll wait for it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The front door is too slow. I'll find another way.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let's talk of other things, alchemist.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "That's precisely what frightens me, for the Scourge's cauldrons are alchemy too, alchemy gone wrong in ambitious hands. I read the Scholomance's books for my work, and I stopped sleeping well somewhere around the second chapter." } },
+      choices = {
+        { text = "Some books should stay closed, alchemist.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Every book is worth reading once, even theirs.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's speak of something else.", next = "BACK" },
       },
     },
     scholo = {
@@ -567,6 +651,10 @@ P:NPC {
           text = "So Alexi's gone, truly gone at last. I thought I'd feel something about it, but I find I mostly feel rich, and that will have to do." },
         { id = "h_sleep", when = { metBefore = true },
           text = "I sleep with my back to the cliff and a sword under my blanket, because of the assassins, you understand. He sends them, and in his place I'd do the same." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock. You're not one of Alexi's, are you, {class}? He keeps unpleasant company now that he's dead, and I sleep with a sword under the blanket for good reason." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! My family once kept a Kirin Tor tutor, {class}, and I'm told I was his most promising pupil, whatever Alexi may say about it." },
       },
       again = {
         { id = "h_again", text = "Well? You're still here, so you must want something else." },
@@ -579,8 +667,28 @@ P:NPC {
         { text = "My family lost everything in Lordaeron too.", next = "refugee", when = { origin = "human_lordaeron_refugee" } },
         { text = "Was it worth it, now he's gone?", next = "worth", when = { questDone = TODO_QUEST("The Last Barov") } },
         { text = "Your brother might hire someone like me, you know.", next = "x_rogue", when = { class = "ROGUE" } },
+        { text = "If I were Alexi's, you'd already be dead.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Did the Barovs know Kel'Thuzad well?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll see what I can find.", next = "END", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "I won't help a man who'd murder his own brother.", next = "END", fx = { affinity = -1, align = { honor = 1 } } },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Too well, I'm afraid, for he was a guest at Caer Darrow more often than I care to remember, and my parents were charmed by every word. I got out with my life and Alexi didn't, and somehow he still claims to be the clever one." } },
+      choices = {
+        { text = "Your family sold out its people. That's unforgivable.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Plenty were fooled. Your parents were only unlucky.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Let's speak of something else, Barov.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "That's not nearly as reassuring as you think it is. Still, if you've a demon to spare, I'd not object to one standing guard outside my tent, for the Argent folk here don't take my fears at all seriously." } },
+      choices = {
+        { text = "Your fear is sensible. Keep the sword close.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A coward's fears are no business of mine.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's talk of other things.", next = "BACK" },
       },
     },
     darrow = {
@@ -730,6 +838,12 @@ P:NPC {
           text = "You've been to Everlook, then you've met Gregor Greystone, who's one of mine. Tell me he's eating properly, because he forgets." },
         { id = "h_tyrosus", when = { heardLine = "tyrosus.h_default" },
           text = "You've spoken with Lord Tyrosus? Then you've had more of his time than I have this year. Is he well? He'd never say if he wasn't." },
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "A warlock, and I'll not pretend the others at this table like it, {class}. But the Dawn turns away no one who fights the Scourge, and I meant that when I said it." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage at my table! Alliance or Horde, {class}, your fire burns the dead just the same, and the Dawn is grateful for it." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "No knives at this table, {class}, whoever you work for. I keep one place in the Plaguelands where nobody draws steel, and I'd like it to stay that way." },
       },
       again = {
         { id = "h_again", text = "What else can I tell you? The Dawn has no secrets worth keeping from a friend." },
@@ -743,7 +857,37 @@ P:NPC {
         { text = "I was raised in the Silver Hand's teachings.", next = "paladin", when = { class = "PALADIN" } },
         { text = "Your soldiers don't look pleased to see me.", next = "horde", when = { faction = "Horde" } },
         { text = "Is there room in the Dawn for the spirits too?", next = "x_shaman", when = { class = "SHAMAN" } },
+        { text = "Does that hold even for fel magic?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do mages of both sides really work together here?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Does the Dawn ever need something done quietly?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I'll bring you stones.", next = "END", fx = { affinity = 1, learn = { "argent_dawn" } } },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Sometimes, and I'd rather not know about it, for the Dawn's good name opens doors in Stormwind and the Undercity both. Work against the Scourge however you must, but don't wear our colours while you do the ugly parts." } },
+      choices = {
+        { text = "I won't do anything I'd hide from the Dawn.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Some ugly work has to be done. I'll do it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let's talk of other things, officer.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "They do, though they argue over Dalaran's history the whole time. I've seen a gnome and a Forsaken trade spells over a burning ghoul, and if that's possible, I think almost anything is." } },
+      choices = {
+        { text = "Old hatreds don't matter against the Scourge.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Some hatreds are earned. A truce isn't friendship.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "That's good to hear. Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "It holds for anyone who keeps their power aimed at the dead. Officer Garush at the Bulwark watches warlocks closely, and he has his reasons, but give him time and you'll find he's fair." } },
+      choices = {
+        { text = "I'll prove my power serves the living.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll aim it wherever I please, officer.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Understood. Something else.", next = "BACK" },
       },
     },
     left = {
@@ -867,6 +1011,10 @@ P:NPC {
           text = "I almost feel sorry for them, sitting in a mill that's falling down around their ears. Almost, but it was never their mill to begin with." },
         { id = "h_father", when = { metBefore = true },
           text = "Father used to say a mill's only as good as its river, and the river's still there, sick as it is. That's more than I can say for most of Northridge." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! My father used to say a Dalaran wizard once fixed the mill's waterwheel with a single word, {class}, though I suspect he embellished." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You look like someone who could walk into Northridge without the Crusade noticing, {class}, and my father's mill could use a visitor like that." },
       },
       again = {
         { id = "h_again", text = "Something else you wanted to ask? Go ahead, I don't mind talking." },
@@ -878,7 +1026,27 @@ P:NPC {
         { text = "Tell me about the mill.", next = "mill" },
         { text = "I fled Lordaeron too, when I was young.", next = "refugee", when = { origin = "human_lordaeron_refugee" } },
         { text = "Termites in a mill? Nature can be cruel.", next = "x_druid", when = { class = "DRUID" } },
+        { text = "Would the mill still run, if you got it back?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What's the Crusade doing in your father's mill?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I'll help you take it back.", next = "END", fx = { affinity = 2, standing = { chillwind_camp = 1 } } },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Cutting lumber for Hearthglen's walls, from what I hear, with my father's saws and my father's sweat still in the timbers. Walk in quiet and count how many there are, and I'll know whether to hope or to give up on it." } },
+      choices = {
+        { text = "The mill is yours by right. Take it back.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Deeds mean little now. Let the Crusade keep it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "The wheel's sound as far as I know, and the river doesn't care who won the war. It's the land around it that worries me, for the plague's in the soil, and you can't build homes on poisoned ground with any spell I've heard of." } },
+      choices = {
+        { text = "The land will heal. It always does, in time.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Better to burn it all and start fresh.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's talk of other things.", next = "BACK" },
       },
     },
     family = {
@@ -982,6 +1150,10 @@ P:NPC {
           text = "Bibilfaz Featherwhistle, gryphon master! I can take you to Ironforge, or Aerie Peak, or Light's Hope if you're feeling brave, and the birds hate the smell up here as much as you do, so they fly fast." },
         { id = "h_home", when = { metBefore = true },
           text = "I tell the gryphons about Ironforge at night, the forges and the tram and the pastries in the Commons. I think they're homesick too, or possibly just hungry, it's hard to tell with gryphons." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! You could teleport to Ironforge in a blink, {class}, so you must be here for the company, and I'm very flattered." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "Ooh, sneaky! You walked right past the big grey gryphon and he didn't even blink, {class}, and he blinks at everything, poor thing." },
       },
       again = { { id = "h_again", text = "Anything else? The birds aren't going anywhere without me, so take your time." } },
       choices = {
@@ -989,6 +1161,26 @@ P:NPC {
         { text = "How do the gryphons cope up here?", next = "gryphons" },
         { text = "Let's fly.", next = "BUSINESS" },
         { text = "Do your gryphons know Wildhammer riders?", next = "x_dwarf", when = { race = "Dwarf" } },
+        { text = "Teleport can't bring me to the Plaguelands, though.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Could I hitch a ride without signing your ledger?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Absolutely not, the ledger's sacred, and so is the Ironforge pastry fund it helps pay for! Besides, a gryphon won't take off with a stranger who hasn't been introduced properly, so you'd only end up sitting on a very confused bird." } },
+      choices = {
+        { text = "Rules are rules. I'll sign the ledger.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Rules are made to be slipped, Bibilfaz.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Fair. Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "No, and that's why I'm still in business, though I'd rather be in Tinker Town eating cake. Some places are only reached the long way, and my birds don't mind it half as much as the people riding them." } },
+      choices = {
+        { text = "Some places should stay hard to reach.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Every place should be one spell away.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Let's talk of something else.", next = "BACK" },
       },
     },
     routes = {

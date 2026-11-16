@@ -33,8 +33,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "They trust me a little more each season, I think, because I keep my promise and bring no trouble. A warlock will find it harder, for they have seen what demons did to this land, and I cannot say they are wrong to fear it." } },
+      choices = {
+        { text = "Their fear is fair. I'll earn their trust.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fear is their weakness, not my problem.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "I'll keep my demon quiet.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "They clung to their magic when the world broke, and now it clings to them, so they cannot rest. I pray over each one I free, and I write to the elders of Thunder Bluff about what I learn, though I am never sure they understand." } },
+      choices = {
+        { text = "They deserve to rest. I'll help free them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "They made their choice. Let them linger.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "That's a sad fate.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "A warlock, here among the Sentinels? You are braver than I was, friend, or less careful, because the elves watch even a quiet tauren closely." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage. The Highborne ghosts at the Shadowsong Shrine were mages too, and they still cling to this land, so I wonder whether you feel them more keenly than I do." },
         { id = "h_default", key = true,
           text = "I am Loh'atu. The Sentinels let me share their camp so long as I bring no trouble with me, and I have kept that promise for longer than they expected. I came to learn what is wrong with this land, and I have learned a great deal of it." },
         { id = "h_satyr", when = { questActive = TODO_QUEST("A Land Filled with Hatred") },
@@ -60,6 +82,8 @@ P:NPC {
         { text = "These ruins belonged to my people, long ago.", next = "elf", when = { race = "NightElf" } },
         { text = "The Earthmother sent you a long way from home.", next = "kin", when = { race = "Tauren" } },
         { text = "My ancestors were Highborne, as it happens.", next = "skyborne", when = { all = { { race = "Skyborne" }, { faction = "Alliance" } } } },
+        { text = "Do the Sentinels trust you after all this time?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Why do the Highborne ghosts remain?", next = "xmage", when = { class = "MAGE" } },
         { text = "I'll keep the peace here, Loh'atu.", next = "END", fx = { affinity = 1, standing = { talrendis_point = 1 } } },
       },
     },
@@ -300,8 +324,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Because things move on the water after dark that I would rather not see, and my birds feel them before I do. A rogue might call that superstition, but I have kept these hippogryphs alive by listening to them." } },
+      choices = {
+        { text = "Your birds know best. I'd trust them too.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Fear of the dark is no way to live.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll fly by day, then.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Keep your demon unsummoned while you are near the roost, and do not linger. The cursed coast has seen enough of the Legion's fire, and I will not have my birds frightened by more of it." } },
+      choices = {
+        { text = "I'll respect your wishes. Your birds come first.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll do as I please, birdkeeper.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "Understood.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue. You will find no work for your skills at Talrendis Point, for the Sentinels watch every shadow, and so do my hippogryphs." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock, at Talrendis Point. I will fly you where the Alliance permits, but my hippogryphs do not care for your kind, and neither, in truth, do I." },
         { id = "h_default", key = true,
           text = "Jarrodenus, keeper of the hippogryphs at Talrendis Point. They will carry you to Auberdine or Astranaar, to Talonbranch Glade or Everlook, or south to Ratchet and Theramore, if your business takes you so far." },
         { id = "h_night", when = { timeOfDay = "night" },
@@ -312,6 +358,8 @@ P:NPC {
         { text = "Why not fly over the bay?", next = "bay" },
         { text = "How do the hippogryphs like Azshara?", next = "birds" },
         { text = "Show me where I can fly.", next = "BUSINESS" },
+        { text = "Why won't you fly over the bay at night?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Is there anything I can do to ease your mistrust?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Not today.", next = "END" },
       },
     },

@@ -26,12 +26,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Oh, every week, I'd imagine, and I'd never be able to prove it. The Cartel's rule is that a thing in my ledger belongs to whoever listed it, and I've found that rule keeps the peace better than any lock." } },
+      choices = {
+        { text = "Stolen goods shouldn't be sold here.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "What's listed is listed. That's fair trade.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Let's talk business instead.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Close enough for my ledger, friend, because you both turn sparkly things into gold. If you ever take up enchanting, come and see me first, because I can get you a price in Gadgetzan that Stormwind or Orgrimmar would never match." } },
+      choices = {
+        { text = "Arcane goods shouldn't be sold to the enemy.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Gold is gold, whoever's paying it.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Auctioneer Beardo, at your service. This is the only house in Kalimdor where an orc can bid on a dwarf's old boots and nobody gets stabbed for it, so long as the Bruisers are watching." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "The bidding never sleeps, friend, and neither do I, mostly. Desert nights are cool enough that the buyers come out like scorpions." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue! Now, I don't ask where my sellers get their goods, but I'd appreciate it if they came from a long way away, because the Bruisers do ask." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage! Wonderful, because enchanters' dust sells like water in a drought, and I've got bidders on both sides of the war waiting for it." },
       },
       again = {
         { id = "h_again", text = "What else can I do for you? The ledger's open." },
@@ -42,6 +64,8 @@ P:NPC {
         { text = "How is this house different from the city ones?", next = "neutral" },
         { text = "What sells best out here?", next = "sells" },
         { text = "Ever had stolen goods come through?", next = "stolen", when = { class = "ROGUE" } },
+        { text = "Has anyone ever sold you stolen goods?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Mages and enchanters aren't the same thing, Beardo.", next = "xmage", when = { class = "MAGE" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -123,6 +147,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Then it did something to that shade that looked a great deal like eating, and I'm not paying the Water Company to cool beasts that don't need cooling. Keep your demon with you, friend, and keep it out of the sun for your own sake." } },
+      choices = {
+        { text = "My demons are my business, not yours.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Fair. I'll keep my servant with me.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "You'd be the first mage who offered, and I'd thank you for it. The heat here kills more animals than the scorpids do, and anyone who'd spare water for a beast that isn't theirs is welcome in my stable." } },
+      choices = {
+        { text = "Every creature deserves water in this heat.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I won't waste spells on animals.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -131,6 +173,10 @@ P:NPC {
           text = "Come into the shade if you're talking to me, because I'm not standing out in that sun for anybody. The animals have the right idea; they haven't moved since breakfast." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid? Then you'll understand when I say every animal in this stable would rather be somewhere wetter, and frankly so would I." },
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "No, I don't stable demons, before you ask. Last warlock who left his voidwalker with me came back to find it had eaten the shade over three stalls." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage! Can you conjure water? My beasts drink more than the Bruisers, and the Water Company charges me as if every horse were a dragon." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've got a raptor that wants its lunch." },
@@ -142,6 +188,8 @@ P:NPC {
         { text = "How do you keep animals alive out here?", next = "heat" },
         { text = "What sort of beasts come through?", next = "beasts" },
         { text = "Do you keep mounts too?", next = "mounts" },
+        { text = "Voidwalkers don't eat, Laziphus.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "I could conjure water for your beasts.", next = "xmage", when = { class = "MAGE" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -210,10 +258,32 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "That's what I tell my students, and it's true, but I've watched a rogue use blasting powder to open a strongbox and lose half a strongbox and two eyebrows. If you want to make things go bang, learn it properly, from someone who still has all his digits." } },
+      choices = {
+        { text = "Patience and care. That's the right way.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Sometimes you just need things to go bang.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Never mind explosives.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Ha! Maybe, but when one of my gadgets goes wrong, I can take it apart and see why. When a spell goes wrong, you get a crater and a lot of questions, and I've seen enough craters to know which I prefer." } },
+      choices = {
+        { text = "Magic is more elegant than gears.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Engineering's more reliable. You're right.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Buzzek Bracketswing, engineering trainer, at the southern end of town where the explosions don't bother the bank. If you've got the coin and the nerve, I'll teach you how to make things go bang on purpose." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue! Your lot always want to know about the explosives, and I always want to know how many fingers you'll have left when you're done." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage! Your lot never understand engineering, because you can just wave a hand and make things happen. We have to build them, piece by piece." },
       },
       again = {
         { id = "h_again", text = "What else? I've got a fuse burning somewhere, I'm sure of it." },
@@ -224,6 +294,8 @@ P:NPC {
         { text = "Goblin or gnomish engineering: which is better?", next = "schools" },
         { text = "Why set up out here, at the edge of town?", next = "hut" },
         { text = "Can an engineer earn real money in Gadgetzan?", next = "money", when = { profession = "Engineering" } },
+        { text = "Explosives are just another tool, Buzzek.", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Engineering and magic aren't so different, Buzzek.", next = "xmage", when = { class = "MAGE" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -284,10 +356,32 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Maybe, but nobody ever got arrested for mining a thorium vein. Mind you, the ogres in the hills might disagree, since they think every rock in Tanaris is theirs, and they're just as quick to crack your head for it." } },
+      choices = {
+        { text = "Honest work is still the best kind.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Honest work doesn't pay as well.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "In the rich veins, where thorium grows thick, and sometimes there's a crystal locked inside it. Un'Goro's got good veins if you can dodge the devilsaurs, and I'll teach you to mine them if you'd rather not pay someone else for the privilege." } },
+      choices = {
+        { text = "I'd rather earn it myself than pay.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Better to pay an expert than risk my neck.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else, Pikkle.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Pikkle, mining trainer for Gadgetzan. The desert looks like nothing but sand, but there's metal under it and in the hills, and I'll teach you how to get it out." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue. You pick locks, I pick rock, and I'd wager my picks see a lot more honest work than yours do." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage! You'll be after arcane crystals, then, because every mage who comes through asks me where the rich thorium is. Don't look so surprised, it's always the same question." },
       },
       again = {
         { id = "h_again", text = "Anything else you want to know, or shall I get back to my ore samples?" },
@@ -297,6 +391,8 @@ P:NPC {
         { text = "Teach me what you know.", next = "BUSINESS" },
         { text = "Where's the good ore around Tanaris?", next = "ore" },
         { text = "Is mining in the desert dangerous?", next = "danger" },
+        { text = "Picking a lock takes more skill than mining.", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Where would someone find arcane crystals?", next = "xmage", when = { class = "MAGE" } },
         { text = "Goodbye.", next = "END" },
       },
     },

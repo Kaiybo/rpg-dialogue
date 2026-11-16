@@ -18,8 +18,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Something in the forest's poison made the Deadwood and the other tribes forget who they were, and it smells like you do. Grazle will not shut the door on you for a smell, but you must prove yourself twice over before the Timbermaw let you pass." } },
+      choices = {
+        { text = "Then I'll prove it. The Deadwood deserve justice.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I owe the Timbermaw nothing. Let me through.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "I'll think about it.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "The Deadwood have tried, and one or two outsiders who thought furbolgs were stupid. None of them tried twice, because the Timbermaw remember a face for a very long time, and we remember a broken trust even longer." } },
+      choices = {
+        { text = "Trust earned openly is worth more. I'll earn it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Any door can be opened by someone patient enough.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "I'll keep that in mind.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "Grazle smells demon on you, warlock, the same stink the Deadwood carry now. Speak quickly and plainly, and Grazle will decide whether you are a danger to the Timbermaw." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "You came up very quietly, rogue, but Grazle heard you anyway. A furbolg's ears are older than your tricks, and our doorway is guarded better than you might think." },
         { id = "h_default", text = "I am Grazle of the Timbermaw. Our cousins the Deadwood have taken the corruption into themselves, and they attack anyone who walks these woods, Timbermaw included." },
         { id = "h_cond", when = { class = "DRUID" }, text = "A druid, who knows the forest is sick. You will understand why the Timbermaw guard our door so closely." },
       },
@@ -32,6 +54,8 @@ P:NPC {
         { text = "What is Timbermaw Hold?", next = "hold" },
         { text = "Why distrust outsiders?", next = "outsiders" },
         { text = "The Circle hopes the furbolgs can be healed.", next = "druidg", when = { class = "DRUID" } },
+        { text = "Did fel corrupt the Deadwood?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Has anyone ever sneaked into Timbermaw Hold?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },
@@ -100,8 +124,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Nafien wishes it were so, but the Deadwood will not go, and they will not stop until they reach our tunnels. A quick death from a blade they never see is kinder than what the poison is doing to them, and that is the only mercy left to give." } },
+      choices = {
+        { text = "A quick end is a mercy. I'll make it clean.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "They chose their side. I won't lose sleep over it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll think on that.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "The shamans of the Timbermaw have tried every rite they know, and none has brought a Deadwood back. Perhaps a mage's learning knows something ours does not, but until someone finds it, Nafien must hunt his own kin." } },
+      choices = {
+        { text = "I'll look for a cure, if there is one.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "You're doing what must be done. That's enough.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'm sorry it's come to this.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue, good, for the Deadwood keep watch on their camps and you could get close before they howl. Nafien does not enjoy this hunt, but he would rather it ended quickly." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "Nafien has met few mages, but he knows you throw fire and ice from far away. Against the Deadwood that is a good thing, because their claws are poisoned now." },
         { id = "h_default", text = "I am Nafien. The Deadwood keep their camps to the south of our hold, and every feather and totem they carry is a mark of the corruption in them. Bring them to me, and the Timbermaw will know whose side you stand on." },
         { id = "h_cond", when = { class = "HUNTER" }, text = "A hunter, good. The Deadwood are not beasts, but they hunt like beasts now, and you will know how to answer that." },
       },
@@ -114,6 +160,8 @@ P:NPC {
         { text = "Are the Timbermaw at war?", next = "tribe" },
         { text = "Is anywhere in Felwood still clean?", next = "felwood" },
         { text = "I'll track them for you.", next = "hunterq", when = { class = "HUNTER" } },
+        { text = "Wouldn't it be kinder to drive the Deadwood off than kill them?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Is there any way to cure the Deadwood?", next = "xmage", when = { class = "MAGE" } },
         { text = "Good hunting, Nafien.", next = "END" },
       },
     },
@@ -182,8 +230,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Niby is biding his time, as the great ones do, and choosing his servants with care. Kroshius will rise again, and when he does, those who helped Niby will be remembered, and those who mocked him will be remembered much less fondly." } },
+      choices = {
+        { text = "I serve no imp. Keep your threats.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Fine, I'll play along, for now.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Whatever you say, Almighty.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Niby wants nothing stolen, because Niby is owed everything already. But if a certain mighty doomguard's remains happened to need waking, and a certain sneaky someone happened to help, Niby might consider that very loyal, very loyal indeed." } },
+      choices = {
+        { text = "I steal for myself, not for imps.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Loyalty to the Almighty it is, if it pays.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'll keep my hands in my pockets.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage, how quaint. You fling your little fireballs and think you're terribly clever, but Niby the Almighty has forgotten more about fire than Dalaran ever learned." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue! Niby approves of sneaking, since it saves on all the tiresome fighting. Do you also steal things for great and powerful masters, or only for yourself?" },
         { id = "h_default", text = "I am Niby the Almighty, master of fel secrets, keeper of terrible knowledge, and yes, I am small, so don't mention it. Felwood is full of demonic remains, and Niby knows exactly what they're good for." },
         { id = "h_cond", when = { class = "WARLOCK" }, text = "A warlock! At last, someone who appreciates a demon's wisdom, and who might do as Niby says without all the whining." },
       },
@@ -196,6 +266,8 @@ P:NPC {
         { text = "Who's the other imp?", next = "impsy" },
         { text = "Why camp in Felwood?", next = "felwood" },
         { text = "I could use a demon's knowledge.", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "If you're so mighty, why are you camped in a ruin?", next = "xmage", when = { class = "MAGE" } },
+        { text = "What would the Almighty want stolen?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Farewell, Almighty One.", next = "END" },
       },
     },

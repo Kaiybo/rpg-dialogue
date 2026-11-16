@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.3.0 (2026-11-16)
+- Rogues, mages and warlocks are noticed: named people here greet them as such, with a question to ask and something to argue about. No new files. Needs RPG Dialogue 0.43.0.
+
 ## 1.2.0 (2026-11-16)
 - New people with no quests, who had nothing to say until now: Kurll, Gruul Darkblade.
 - New files: exit the game fully and restart.

@@ -36,6 +36,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Close enough, since both of us wait in the quiet for the right moment and strike before the other fellow knows what happened. The difference is that a fish never holds a grudge, and I'd guess your marks aren't so forgiving." } },
+      choices = {
+        { text = "I strike only when I must. Patience is everything.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A grudge is fine, so long as they never see me coming.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Heming.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Once, a young mage who froze a whole patch of the bay solid and then couldn't work out how to get the fish out of the ice. I laughed so hard I nearly fell off the dock, and he walked away with nothing but a cold pair of hands." } },
+      choices = {
+        { text = "The old way is best. I'll learn from you.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "He just needed a better spell. Magic will get there.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Your folk know water better than most, so I'd wager you can tell a good fishing day before the fish can." },
@@ -43,6 +61,8 @@ P:NPC {
           text = "Name's Heming, and I've fished these waters since before the goblins carved this bay into a town. Every Sunday the Baron holds his fishing tournament, and I like to think I taught half the winners, though none of them ever thank me." },
         { id = "h_quest", when = { questActive = TODO_QUEST("Old Man Heming") },
           text = "Still at it, are you? Keep your line slack and your temper slacker, and the fish will come round in time." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, out on my docks. You'll make a fine fisherman, I reckon, since you already know how to sit still and wait for something to bite." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Don't you go freezing my fish in the water, now, because I've been fishing these docks for years and I've never once needed magic to fill my bucket." },
       },
       again = {
         { id = "h_again", text = "What else is on your mind? The fish aren't biting anyhow." },
@@ -54,6 +74,8 @@ P:NPC {
         { text = "What lives in these waters?", next = "fish" },
         { text = "How long have you lived here?", next = "past" },
         { text = "I'm a fisherman myself.", next = "angler", when = { profession = "Fishing" } },
+        { text = "Is fishing really like my line of work, Heming?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Have you ever seen magic used to fish, Heming?", next = "xmage", when = { class = "MAGE" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -155,11 +177,31 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Because a dagger only works up close, and sometimes the trouble's across the room, and that's when you want something that goes bang. I've sold pistols to half the Bloodsail captains on this coast, and they're still alive, so that's proof enough." } },
+      choices = {
+        { text = "I'd sell to Booty Bay, not the Bloodsail. Pick a side.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Gold's gold. Sell to whoever has it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Mazk.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I'd sell a gun to a gorilla if it had the gold, and I've come close more than once. The trouble with demons is they never seem to carry any money, so I'd need you to sign for it, and I'd charge you extra for the scorch marks." } },
+      choices = {
+        { text = "My demon doesn't need a gun. Keep your blunderbuss.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Arm the imp. Let's see what happens.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? Lightning's grand, but it never lands quite where you point it, and that's why I sell guns." },
         { id = "h_default", key = true,
           text = "Mazk Snipeshot, gunsmith to the finest pirates, hunters and lunatics in the South Seas. Everything on this table shoots straight, mostly, and anything that doesn't is on sale." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! Now, I know your sort likes things quiet, but let me tell you, pal, nothing ends an argument faster than a nice loud gun." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Now that's something I've never sold a gun to, pal, though I'd bet a demon would look mighty fine with a blunderbuss on its shoulder." },
       },
       again = {
         { id = "h_again", text = "What else can I sell you, pal? I mean, help you with?" },
@@ -170,6 +212,8 @@ P:NPC {
         { text = "Who buys guns in Booty Bay?", next = "buyers" },
         { text = "Where do your guns come from?", next = "source" },
         { text = "Show me your wares.", next = "BUSINESS" },
+        { text = "Why should a rogue carry a gun, Mazk?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Would you really sell a gun to a demon, Mazk?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -247,6 +291,24 @@ P:NPC {
         { text = "Thank you. Let me ask something else.", next = "BACK", fx = { affinity = 1 } },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Because a bow lets you strike from the shadows without telling the whole jungle where you are, and a gun tells everyone. The goblins here love their noise, but I've seen a single arrow end a fight that a dozen guns only made worse." } },
+      choices = {
+        { text = "Quiet work is better work. I'll take a bow.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Noise has its uses. Sometimes you want them to hear.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Haren.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "I do, since every bow starts as a living tree and ends as something that sings when you draw it. The goblins call it wood and string, but a mage should understand that the shaping is half the power, and I think you do." } },
+      choices = {
+        { text = "The craft is the magic. You're right about that.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "It's wood and string. Magic is something else entirely.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'd know the spirits of the wood, then, so ask them to keep the damp out of my staves, because nothing else has worked." },
@@ -254,6 +316,8 @@ P:NPC {
           text = "You've the sea in your eyes, druid, or the forest anyway, so sit a while if you like, since the water's calm today." },
         { id = "h_default", key = true,
           text = "Haren Kanmae, bowyer. The jungle's damp warps a bow faster than anywhere I've worked, so I oil the staves every morning and pray the humidity breaks, which it never does." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll want a bow that doesn't creak when you draw it, I suspect, and I make the quietest bows in Booty Bay, though nobody here appreciates quiet." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. You'll not need a bow, I'd guess, but you're welcome to look, because a good bow is as much a work of craft as any spell." },
       },
       again = {
         { id = "h_again", text = "What else, friend?" },
@@ -265,6 +329,8 @@ P:NPC {
         { text = "Why a bow over a gun?", next = "bowgun" },
         { text = "How do you work in this damp?", next = "damp" },
         { text = "Show me your bows.", next = "BUSINESS" },
+        { text = "Why do you prefer bows to guns, Haren?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Do you see bowmaking as a kind of art, Haren?", next = "xmage", when = { class = "MAGE" } },
         { text = "Farewell.", next = "END" },
       },
     },

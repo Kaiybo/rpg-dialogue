@@ -45,6 +45,12 @@ P:NPC {
           text = "My mate sleeps in his own hut again, though he wakes at every drum, and I be Primal Torntusk still. The Vilebranch learned what Revantusk does when it be wronged." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Midnight again. That be the hour they came for him, so the watchers stand double on the walls now, and I stand with them." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
+          text = "There be a dark thing hangin' off your shoulder, {class}, and the Vilebranch got plenty of those already. What you call it, and what it eat?" },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
+          text = "Fire and frost at your fingertips, {class}, I can smell it. The Amani learned to fear the arcane when the elves and the men of Arathor turned it on them, and some trolls never forgave it." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
+          text = "You move like a Revantusk scout, {class}, low and quiet and lookin' at the exits. Good, because Jintha'Alor be full of eyes, and the Vilebranch never see the quiet ones comin'." },
       },
       again = {
         { id = "h_again", text = "What else do you need, then? Say it quick." },
@@ -62,7 +68,37 @@ P:NPC {
         { text = "My people were in those camps too.", next = "orc", when = { race = "Orc" } },
         { text = "The Darkspear stand with you, Primal.", next = "troll", when = { race = "Troll" } },
         { text = "I serve the Dark Lady. What use am I here?", next = "forsaken", when = { race = "Scourge" } },
+        { text = "Do you fear a warlock's magic, Primal?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do the Revantusk still hold that grudge against magic?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Could someone quiet slip into Jintha'Alor unseen?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "I'll go up to Jintha'Alor.", next = "END", fx = { affinity = 2, standing = { revantusk = 1 } } },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Many tried, and the Vilebranch put their heads on poles along the stairs. But one who walk soft and don't stop to fight get further than any war party, and the Revantusk remember a name like that a long time." } },
+      choices = {
+        { text = "A quiet blade gets further than a war party.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'd rather face the Vilebranch head-on, Primal.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else, Primal.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Some of the old ones do, and they spit when a mage walk by. But the Revantusk stand with the Horde now, and the Horde take whoever fight, so Torntusk say a fireball be a fireball, so long as it land on a Vilebranch." } },
+      choices = {
+        { text = "Old grudges should stay buried. The Vilebranch are the enemy.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The old ones are right. Never forget a wound.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Torntusk fear nothin' but losin' her mate. The Vilebranch priests bargain with dark things on Jintha'Alor every night, so if you got your own dark thing that bite them back, maybe that be a fair trade." } },
+      choices = {
+        { text = "I use it carefully. Dark things want more than they give.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Darkness against darkness is the only way to win.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's speak of other things.", next = "BACK" },
       },
     },
     raid = {
@@ -249,6 +285,10 @@ P:NPC {
           text = "My brother's bones be somewhere in that pit with the oozes, or in the wolf den near the top. I cannot save his life, but I can still save his spirit." },
         { id = "h_buried", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Separation Anxiety"), days = 3 } },
           text = "Yayo'jin prepared him last night, and we gave him to the earth the proper way. I slept for the first time since the raid, and I have you to thank for it." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
+          text = "The beasts in the stables don't like you, {class}, and the beasts be never wrong about a thing. Keep your demon away from them." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
+          text = "You walk downwind of me like you know what you doin', {class}. My brother walked like that too, before the Vilebranch caught him in the dark." },
       },
       again = {
         { id = "h_again", text = "What else you need, hunter?" },
@@ -263,7 +303,27 @@ P:NPC {
         { text = "I'd like to stable my pet.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "I learned the arcane, huntsman. It's served me well.", next = "mage", when = { class = "MAGE" } },
         { text = "The Earth Mother keeps the beasts in balance too.", next = "tauren", when = { race = "Tauren" } },
+        { text = "Why do beasts fear what I carry?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do you track the Vilebranch, or do they track you?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "I'll hunt for Revantusk.", next = "END", fx = { affinity = 1 } },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Both, and whoever see the other first be the one who come home. The Vilebranch hunt at night with their faces painted dark, so you learn to listen for the bird that stop singin', and you never sleep in the same place twice." } },
+      choices = {
+        { text = "Even the hunt has rules. I keep them.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Hunt them as they hunt us, with no quarter.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let's talk of other things, huntsman.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because a beast know what belong in the wild and what don't, and your little demon don't belong anywhere in this world. I don't judge a weapon by how it smell, but I judge the hunter by how tight the hunter hold the leash." } },
+      choices = {
+        { text = "I hold the leash tight. It obeys me.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Leashes are for beasts. My demon and I understand each other.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
       },
     },
     wilds = {
@@ -375,6 +435,12 @@ P:NPC {
           text = "The smoke over Agol'watha be thinner today, and I know whose work that be. Zul'jin himself would nod at you, and he don't nod for much." },
         { id = "h_malkhor", when = { questDone = TODO_QUEST("Separation Anxiety") },
           text = "I prepared Malkhor for the earth with my own hands. His brother wept the whole night, and that be how it should be." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
+          text = "Soul shards rattlin' in your bag, {class}? Yayo'jin hear them from here, and she don't ask whose they were." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
+          text = "A mage, and you need reagents, mon, because no portal ever open on wishes. Look before you touch, {class}, and Yayo'jin will tell you what each thing be for." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
+          text = "Hands where Yayo'jin can see them, {class}, because these candles be counted and the powders be weighed. You look like somebody who weigh things too." },
       },
       again = {
         { id = "h_again", text = "Somethin' more? The spirits be listenin'." },
@@ -387,7 +453,37 @@ P:NPC {
         { text = "What do the spirits say lately?", next = "spirits", when = { class = { "SHAMAN", "PRIEST" } } },
         { text = "Our loa are the same, mystic.", next = "troll", when = { race = "Troll" } },
         { text = "Let me see your goods.", next = "BUSINESS" },
+        { text = "Does dark magic trouble the Revantusk, mystic?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do trolls practice the arcane, Yayo'jin?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do you ever ask where your goods come from, mystic?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "I'll be going.", next = "END" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Yayo'jin don't ask where a thing slept last night, mon, so long as it don't come from Revantusk. A rogue who lift a fetish off a Vilebranch altar be doin' the whole village a favor, and the loa won't mind it neither." } },
+      choices = {
+        { text = "Stealing from enemies is fair play.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I don't steal, mystic, not even from the Vilebranch.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Some do now, mon, more every year. But the old Amani priests called it elf-magic and spat on it, because elf-magic be what broke the Amani in the Troll Wars, and some grudges get handed down like a good knife." } },
+      choices = {
+        { text = "Magic belongs to whoever learns it, elf or troll.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Some grudges deserve to be handed down.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll look at your wares later. Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "It trouble them when it be Vilebranch magic, because that kind feed on our blood. Yours feed on somethin' else, and Yayo'jin don't need to know what, so long as you pay for the candles." } },
+      choices = {
+        { text = "It feeds only on enemies. I make sure of it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "It feeds on whatever I give it. That's the price.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll leave that there.", next = "BACK" },
       },
     },
     vilebranch = {
@@ -500,6 +596,10 @@ P:NPC {
           text = "My lure, mon! I been usin' it all mornin', and the fish be pilin' up like they missed it as much as I did." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Night fishin' be the best fishin', mon. The water goes quiet and the big ones come up to look at the moon." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
+          text = "A mage! You can make it rain fish, mon? No? Then you no more use to Katoom than anybody else, {class}, but sit down anyway." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
+          text = "Quiet feet, {class}, good, because loud feet scare the fish. Sit, sit, and don't steal my bait, because the turtles do that already." },
       },
       again = {
         { id = "h_again", text = "What else you need, mon? The fish be patient with us." },
@@ -512,7 +612,27 @@ P:NPC {
         { text = "Doesn't the war worry you?", next = "war" },
         { text = "Teach me to fish.", next = "BUSINESS" },
         { text = "What's the best bait on this coast?", next = "bait", when = { profession = "Fishing" } },
+        { text = "I could freeze the water and catch them that way.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Isn't sitting this still a lot like keeping watch?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Not now, Katoom.", next = "END" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Fishin' and watchin' be the same thing, mon, only fishin' feed you. I see every snapjaw on this coast and every stranger who come along the shore, and nobody ever think the old troll with the rod be lookin' at anything but the water." } },
+      choices = {
+        { text = "Hiding in plain sight is the smartest trick there is.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'd rather watch openly and let them know it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll let you fish. Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "And then what, you got a block of ice with a fish in it and no story to tell? The fish be half the joy, mon, and the waitin' be the other half, which be why Katoom never take a shortcut." } },
+      choices = {
+        { text = "Patience is its own reward. You're right.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Results are what matter. The waiting is wasted time.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Fair enough. Let's talk of something else.", next = "BACK" },
       },
     },
     pagle = {
@@ -604,6 +724,12 @@ P:NPC {
           text = "Lard's picnic got ruined by Vilebranch with big sticks, and Lard ran so fast he left the whole basket behind. Now Lard's belly is makin' noises like a storm." },
         { id = "h_lunch_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Lard Lost His Lunch"), days = 3 } },
           text = "Lard still thinkin' about that lunch you bring back! It was the best haunch Lard ever ate, and Lard eat many haunches." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
+          text = "Lard don't like your little friend, the one with the horns. It look at Lard's fish like it want to eat them." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
+          text = "Lard like mages, because one time a mage make Lard bread out of nothing. You can do that, {class}? Lard is very hungry." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
+          text = "Lard see you sneakin', little one, because Lard is tall and see over everything. No stealin' from the inn, or Lard sit on you." },
       },
       again = {
         { id = "h_again", text = "What else little one want? Lard listenin'." },
@@ -617,7 +743,37 @@ P:NPC {
         { text = "Where's your secret spot?", next = "spot" },
         { text = "How do you keep the peace?", next = "peace" },
         { text = "Ogres are enemies of the Horde.", next = "orc", when = { race = "Orc" } },
+        { text = "My imp won't touch your fish, Lard.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Conjured bread fills you, but it doesn't taste of much.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do you ever catch thieves in the inn, Lard?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Goodbye, Lard.", next = "END" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "One time a Vilebranch come in the window to steal fish, and Lard sit on him, and then he was very sorry. Lard don't like fightin', so it is better if sneaky people just pay, and then everybody is happy and nobody get sat on." } },
+      choices = {
+        { text = "Paying is better. I'm no thief, Lard.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Sneaky people don't get caught, Lard. Only clumsy ones.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Lard, tell me about something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Lard don't care how it taste, Lard care how much. But fish taste better, and Lard cook fish, so maybe one day you bring magic bread and Lard bring fish, and then we both eat good." } },
+      choices = {
+        { text = "Sharing food is the best magic there is.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My bread's for me, Lard. Catch your own fish.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's talk of something else, Lard.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Imp say that, and then the fish is gone. Lard is gentle, but Lard is big, and if the little horn-man touch the fish, Lard will throw him in the sea, and you can go get him." } },
+      choices = {
+        { text = "Fair. I'll keep it on a short leash.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "It does as it likes. I can't watch it every moment.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Fine, Lard. Something else.", next = "BACK" },
       },
     },
     ogre = {
@@ -720,6 +876,10 @@ P:NPC {
           text = "Those Vilebranch thieves took my tools in the raid, the good set. Try the temples up in the northeast, or Skulk Rock, and bring them back, because they mean the world to me." },
         { id = "h_tools_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Vilebranch Hooligans"), days = 3 } },
           text = "My tools! I still can't believe you found them. I've been using them all day just to feel the weight of them in my hands again." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
+          text = "The old Horde had warlocks, {class}, and every orc my age remembers what their fire cost us. Stand on the far side of the anvil and we'll get along fine." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
+          text = "Light fingers, {class}? The Vilebranch took my best tools up to Jintha'Alor, and nothing would please me more than a quiet pair of hands bringing them home." },
       },
       again = {
         { id = "h_again", text = "Speak, then, but these borrowed tools make me short of temper, so keep it plain." },
@@ -733,7 +893,27 @@ P:NPC {
         { text = "What's an orc doing with trolls?", next = "village" },
         { text = "What do the Vilebranch want with tools?", next = "thieves" },
         { text = "My people have no love for gnomes.", next = "orc_gnome", when = { race = { "Orc", "Troll", "Scourge" } } },
+        { text = "The Warchief tolerates warlocks now. Why don't you?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "What makes those tools worth the climb to Jintha'Alor?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Later, smith.", next = "END" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "A gnome gave them to me years back, after he saved my life, and a Horde smith owing his life to a gnome is a strange debt to carry. I carried it all the same, and the Vilebranch have no right to it." } },
+      choices = {
+        { text = "A debt is a debt, whoever you owe it to.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Debts to the Alliance don't count for much.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, smith.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Tolerating isn't trusting. The Warchief lets your kind study because he'd rather watch you than chase you, and I mend your armor because a split breastplate kills a warlock as dead as any grunt." } },
+      choices = {
+        { text = "You're right to be wary. I'm wary of it myself.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fel is a tool. Orcs fear it more than they should.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's leave it at that.", next = "BACK" },
       },
     },
     gnome = {
@@ -828,6 +1008,10 @@ P:NPC {
           text = "You got the spear, mon. Plant it by the well in the middle of Aerie Peak, drive it deep, and then run, because they gonna be very, very angry." },
         { id = "h_spear_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("The Final Message to the Wildhammer"), days = 3 } },
           text = "I wish I coulda seen their faces, mon! Tell me again how loud the Thane yelled, and don't leave nothin' out." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
+          text = "A warlock! You could curse the Wildhammer's ale so it taste of ash for a month, {class}, and Otho would laugh about it until the day he die." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
+          text = "You got the look of somebody who could walk into Aerie Peak and out again with no dwarf ever the wiser, mon, and Otho like that look very much." },
       },
       again = {
         { id = "h_again", text = "What else you need, mon? Talk fast now." },
@@ -840,7 +1024,27 @@ P:NPC {
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "I've been to Aerie Peak. They're tough.", next = "peak", when = { questDone = TODO_QUEST("The Final Message to the Wildhammer") } },
         { text = "The Darkspear have their own grudges, Otho.", next = "troll", when = { race = "Troll" } },
+        { text = "Is your hatred of the Wildhammer worth a curse, Otho?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "What would you want done at Aerie Peak, Otho?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Not today, Otho.", next = "END" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Nothin' that bleed, not yet, just somethin' they wake up to find. A Revantusk mark painted on the thane's own door, maybe, so every Wildhammer know a troll been inside and they never even smell him." } },
+      choices = {
+        { text = "Fear without blood is a clever message. I like it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If I go that far, I won't leave only paint.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Maybe later. Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Their riders hunt trolls from the sky like we be rabbits, mon, and they never ask which tribe they shootin' at. So yes, a little curse, a little fear, and maybe they think twice before the next one fly over this coast." } },
+      choices = {
+        { text = "Curses breed curses. I won't start a feud.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "They earned it. I'll curse whoever sneers at the Horde.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Let's speak of spices instead.", next = "BACK" },
       },
     },
     dwarves = {
@@ -929,6 +1133,10 @@ P:NPC {
           text = "Gorkas, wind rider master. The beasts fly to Tarren Mill, Hammerfall and the Undercity, and in between flights I fish off this pier until I catch the biggest grouper on the coast." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Wind riders sleep, the trolls sleep, and the grouper is somewhere out there laughing at me. Where do you need to go?" },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
+          text = "A mage, eh? Don't you dare freeze my pier, {class}, because that grouper be down there somewhere and I want him fair and square." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
+          text = "You sneak up on a troll fishin', you get a hook in the ear, {class}. Sit down, and keep your shadow off the water." },
       },
       again = {
         { id = "h_again", text = "Anything else? The line's twitching." },
@@ -939,7 +1147,27 @@ P:NPC {
         { text = "Show me where I can fly.", next = "BUSINESS" },
         { text = "What grouper?", next = "grouper" },
         { text = "How do the wind riders like the coast?", next = "riders" },
+        { text = "I could just teleport home and skip your wind riders.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do the wind riders bring you any interesting news?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Goodbye, Gorkas.", next = "END" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Every rider bring a bag and a mouth, and the mouth be worth more. I hear what Hammerfall worry about before Drum Fel do, and what the Undercity whisper before the Dark Lady hear it, and I keep it all behind my teeth, mostly." } },
+      choices = {
+        { text = "Keep it behind your teeth. Loose talk gets riders killed.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "News like that should be sold, Gorkas.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Fine. Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "And you'd miss the coast, the Highlands and the Undercity's towers from above, all for the sake of an hour. Teleport if you like, but you'll never know what the world look like, and you'll never see my grouper." } },
+      choices = {
+        { text = "You're right. Some roads should be taken slowly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "There's no shame in the quick way.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Good luck with the grouper. Something else.", next = "BACK" },
       },
     },
     grouper = {

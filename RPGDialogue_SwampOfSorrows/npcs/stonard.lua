@@ -44,8 +44,28 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Anything that hides, which in this swamp is everything, from the Atal'ai round the temple to the Alliance patrols that come down from Duskwood. I need someone who sees them first and doesn't stop to tell them about it." } },
+      choices = {
+        { text = "I'll scout for Stonard, Commander. Send me out.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I scout for myself first. Stonard gets what's left.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Commander.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Faster, maybe, but a spell leaves a trail any Atal'ai priest can follow, and a runner leaves only footprints in the mud. Thrall's Grasp died waiting on orders, and I'll not trust the next ones to anything I can't count." } },
+      choices = {
+        { text = "Then trust your runners. Speed isn't everything.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Runners failed you once. Try something new.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Another question, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. I could use one in Stonard, if only to dry out the dispatches before the ink runs, because the swamp gets into everything." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. You'd make a better scout than half of mine, because you'd come back with something besides mud on your boots." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Good, because my scouts come back from the deep swamp spooked, and they'd sooner tell a shaman what they felt out there than tell me." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid. Thrall's Horde has need of healers in this swamp, and the swamp has need of healing worse than we do." },
@@ -77,6 +97,8 @@ P:NPC {
         { text = "I'm a hunter. Send me where the maps go blank.", next = "k_hunter", when = { class = "HUNTER" } },
         { text = "Trolls built that temple, Commander. Not my kind of troll.", next = "k_troll", when = { race = "Troll" } },
         { text = "This swamp suits my kind, Commander.", next = "k_scourge", when = { race = "Scourge" } },
+        { text = "What do your scouts miss out there, Commander?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Could magic carry your messages faster than runners?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Send me out.", next = "END", fx = { affinity = 1, standing = { stonard = 1 } } },
       },
     },
@@ -292,8 +314,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Wards are the least of it, because the temple was sunk to stop the Atal'ai, and they're still down there chanting. A mage might break a ward, but a ward is only a lock, and I'm more worried about what's behind the door." } },
+      choices = {
+        { text = "Then leave the door shut. Some things should sleep.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Break the lock. Better to know what's there.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Fel'zerul.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Closer than an orc, at least, since you don't clank and you don't shout, but the Atal'ai have eyes in the water and the trees. Get me a look at the inner rings, and don't touch anything that hums, however much you want to." } },
+      choices = {
+        { text = "I'll look and touch nothing, as you ask.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "If it hums, it's worth something. I'll touch it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Never mind that for now.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. Good, because the temple needs someone who can get in and out without the Atal'ai noticing, and nobody I've sent has managed the second part." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. The Atal'ai worked a magic older than anything Dalaran taught, and it called something into this swamp that your fireballs won't send back." },
         { id = "h_default", key = true,
           text = "I am Fel'zerul, and the Warchief sent me to watch the Temple of Atal'Hakkar. The trolls who built it worshipped something terrible, and something there is stirring." },
         { id = "h_pool", tags = { "news" }, when = { questActive = TODO_QUEST("Pool of Tears") },
@@ -318,6 +360,8 @@ P:NPC {
         { text = "How do you keep your demons leashed?", next = "kin", when = { class = "WARLOCK" } },
         { text = "I'm a troll warlock. Am I the Atal'ai's heir?", next = "troll_warlock", when = { race = "Troll", class = "WARLOCK" } },
         { text = "The spirits told me what warlocks did to our people.", next = "k_shaman", when = { race = "Orc", class = "SHAMAN" } },
+        { text = "Could a mage break the temple's wards?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "How close can I get to the temple unseen?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "I'll go.", next = "END", fx = { affinity = 1, trait = { curious = 1 } } },
       },
     },
@@ -479,8 +523,28 @@ P:NPC {
         { text = "Thank you. Let me ask something else.", next = "BACK", fx = { affinity = 1 } },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Neeka says that too, every time I come back from Kargath with a dozen coyotes on my heels. Maybe you're both right, but the swamp's too wet for quiet, and fast gets the letters there before the ink runs." } },
+      choices = {
+        { text = "Do it Neeka's way. She knows the trade.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Ignore Neeka. Run your own way, Helgrum.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else, Helgrum.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "A few yards is a few yards, and on the Kargath road that's the difference between a coyote's teeth and a clean pair of heels. I'll race you to the gate, no spells, and if you win I'll call you the Swift instead." } },
+      choices = {
+        { text = "No spells, then. A fair race.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll blink anyway. Winning's winning, Helgrum.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage! Can you really blink across a room? That sounds like cheating, and I'd like to race you anyway." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue! You couldn't outrun me, I'd wager, but I bet you could trip me in the dark, which isn't fair, so don't." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can you really run like a wolf spirit? I've heard your lot can, and I'd like a race from here to Kargath." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "You run on four feet sometimes, I'm told. Then you'll understand why I keep to the high paths. The swamp eats the slow." },
@@ -504,6 +568,8 @@ P:NPC {
         { text = "What did Neeka's report say?", next = "shared", when = { questDone = TODO_QUEST("Report to Helgrum") } },
         { text = "I'm fast too. Race you to the gate?", next = "race", when = { class = { "HUNTER", "SHAMAN", "DRUID" } } },
         { text = "I ran the plains of Mulgore. Swamp's no different.", next = "k_tauren", when = { race = "Tauren" } },
+        { text = "Fast is good, Helgrum, but quiet is better.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Blink only goes a few yards, Helgrum.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "I'll look for her.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -610,8 +676,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "You might, if you go at dusk, when the murlocs sing and don't listen. Find the orders and bring them back, and if you can, let the Swamp Talker know who sent you." } },
+      choices = {
+        { text = "He'll know, Bengor. I'll make sure of it.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "I'll fetch the orders. Revenge won't heal you.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else, Bengor.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. You'd have heard the Swamp Talker's lot coming, I think, and we didn't, and that's the whole of my story." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The elders say the spirits keep what the living forget, and I'm glad of it, because my memory is all I have left to give." },
         { id = "h_default", key = true,
           text = "Bengor, a soldier of the Horde, or what the murlocs left of one. I can't walk and I can hardly talk, but I still remember, and remembering is my duty now." },
@@ -631,6 +707,7 @@ P:NPC {
         { text = "Let me try to heal you.", next = "heal", when = { class = { "PRIEST", "SHAMAN", "PALADIN", "DRUID" } } },
         { text = "I got the orders back, Bengor.", next = "orders_back", when = { questDone = TODO_QUEST("The Swamp Talker") } },
         { text = "I'm a soldier too, Bengor. Tell me what happened.", next = "k_warrior", when = { class = "WARRIOR" } },
+        { text = "Could I find the Swamp Talker's cave unseen?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "I'll go.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -750,8 +827,28 @@ P:NPC {
         { text = "Thank you. Let me ask something else.", next = "BACK", fx = { affinity = 1 } },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Conjure all you like, but a scout two days out in the swamp is two days from your spells, and he needs something that stays in the pack. Feed them while they're here, mage, and let my salted meat feed them while they're gone." } },
+      choices = {
+        { text = "Then I'll help where I can and leave the rest.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The scouts aren't my problem, innkeeper.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Karakul.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Nothing yet, and I'd like to keep it that way. One of Greshka's customers brought an imp through here last season, and it ate half a sack of onions out of spite, and I'm still getting looks from the scouts." } },
+      choices = {
+        { text = "Mine behaves. I'll answer for it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Imps are imps. Count your onions.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "On to other things.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Boots off at the door, and the imp's too, if it has any, and keep it off the hearth while the stew's on." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, at my table? You could conjure your own supper, I know, so either you're being polite or you've tasted the stew." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Sit down and eat, and if you've any pull with the water spirits, ask them to keep the swamp out of my cellar." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid from Mulgore! Your folk need wide plains and clean skies, and you have come to a swamp. Rest here a while." },
@@ -771,6 +868,8 @@ P:NPC {
         { text = "Our people built this town, didn't they?", next = "old", when = { race = "Orc" } },
         { text = "Who eats at your tables besides scouts?", next = "regulars" },
         { text = "Do you cook for tauren, Karakul?", next = "k_tauren", when = { race = "Tauren" } },
+        { text = "Should I conjure food for the scouts, Karakul?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "What has my imp done to deserve that, Karakul?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Just a meal, thanks.", next = "END" },
       },
     },

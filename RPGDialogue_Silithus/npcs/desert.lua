@@ -30,8 +30,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "They died badly, when the silithid came up out of the sand, and nobody buried them properly. I tend their graves and pray over them, and some nights I think they hear me, though I cannot be sure." } },
+      choices = {
+        { text = "Your care honors them. I'll tread lightly.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The dead are dead. They don't need prayers.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "I'll be quiet here.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Not yet, but the Twilight's Hammer pass close by on their way west, and I do not trust what they might want with the dead. So I keep my watch, and I pray that it is enough." } },
+      choices = {
+        { text = "Grave robbers deserve worse than a chase.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The dead can't miss what they don't have.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "I'll keep my hands to myself.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage, at Valor's Rest. The dead here were soldiers and farmers, not spellcasters, but they rest uneasily all the same, and I would ask you to tread quietly." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue, among the graves. I hope you are not here to rob them, because there is nothing left to take, and the dead have suffered enough." },
         { id = "h_default", key = true,
           text = "The past lives in these wastes, {class}, and we must be careful not to wake it. I am Layo Starstrike, and I keep watch here at Valor's Rest for the Cenarion Circle, over the graves and over the desert beyond them." },
         { id = "h_wasteland", tags = { "news" }, when = { questActive = TODO_QUEST("Wasteland") },
@@ -60,6 +82,8 @@ P:NPC {
         { text = "Rabine Saturna sends his regards.", next = "rabine", when = { questDone = TODO_QUEST("Wasteland") } },
         { text = "Would you free my soul too, druid?", next = "x_forsaken", when = { race = "Scourge" } },
         { text = "I bind souls, druid. Does that trouble you?", next = "x_warlock", when = { class = "WARLOCK" } },
+        { text = "Why do the dead of Southwind rest uneasily?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Has anyone tried robbing the graves?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Elune keep you, Layo.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -243,8 +267,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Summoned things, mostly, and read from books that made my head hurt just to look at them. I was never one of the clever ones, you understand, but I heard the screaming at night, and that's when I knew it was time to leave." } },
+      choices = {
+        { text = "You did right to leave. That took courage.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "You were part of it. Cook or not.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "That's a dark story.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Robes, a medallion, and the patience to chant at nothing for hours on end, which is more than I ever had. Get the words wrong once and they'll know you, so a rogue had best be a quick study." } },
+      choices = {
+        { text = "A good disguise is worth a hundred swords.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'd rather face them openly than chant for them.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll leave the chanting to them.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage! The Hammer had plenty of those, and they were the worst of the lot, always muttering about the Old Gods and drawing circles in the sand." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue! You'd make a fine spy among the Hammer, you would, if you could stand the chanting, which I couldn't, and that's why I'm here." },
         { id = "h_default", key = true,
           text = "I've no business with strangers, so if you've come to drag me back to my brothers in the Hammer, you'll find I bite. If you haven't, well, an enemy of theirs is a friend of mine, so talk quickly." },
         { id = "h_deserter", tags = { "news" }, when = { questActive = TODO_QUEST("The Deserter") },
@@ -270,6 +316,8 @@ P:NPC {
         { text = "Another human, hiding in a desert cave?", next = "human", when = { race = "Human" } },
         { text = "Would the cult have welcomed someone like me?", next = "x_warlock", when = { class = "WARLOCK" } },
         { text = "The cult worships the elements. My people respect them.", next = "x_shaman", when = { class = "SHAMAN" } },
+        { text = "What did the Twilight's Hammer mages do?", next = "xmage", when = { class = "MAGE" } },
+        { text = "What would a spy need to fool the Hammer?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I'll leave you to your hiding.", next = "END" },
       },
     },
@@ -424,8 +472,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Ruins older than Ironforge, an' carvings that say there's somethin' big under the Scarab Wall, bigger than anyone's guessed. Brann'd know more, if he'd stay put long enough tae tell me, but he's off chasin' some new lead as usual." } },
+      choices = {
+        { text = "This should be shared with Ironforge, quickly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Keep it quiet until you know more.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Brann always finds trouble.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Tablets, carvings, an' maybe somethin' that'll explain what the Qiraji are plannin'. The bugs don't care for scholars, so a rogue who can slip in an' out would save us a lot o' trouble an' a few dwarves." } },
+      choices = {
+        { text = "I'll get you those tablets, quietly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll get them if the price is right.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll think about it.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage! Are ye daft, wanderin' out here in robes? The sand gets in everywhere, an' I mean everywhere, so mind yer spellbooks." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue, eh? We could use someone wi' light fingers tae get into the ruins the bugs are guardin', an' I'll not ask how ye do it." },
         { id = "h_default", key = true,
           text = "Rutgar Glyphshaper, holding this camp for the Explorers' League while Brann's off somewhere getting himself into trouble. That dwarf didn't get a scrap of his brothers' good sense, and we're onto something huge down here." },
         { id = "h_natalia", tags = { "news" }, when = { questActive = TODO_QUEST("Dearest Natalia") },
@@ -448,6 +518,8 @@ P:NPC {
         { text = "I'll carry word to Ironforge myself.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Did the rubbings make any sense?", next = "glyphs", when = { questDone = TODO_QUEST("Glyph Chasing") } },
         { text = "A gnome could help with those glyphs, Rutgar.", next = "x_gnome", when = { race = "Gnome" } },
+        { text = "What has the Explorers' League found here?", next = "xmage", when = { class = "MAGE" } },
+        { text = "What's in the ruins the silithid guard?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -551,8 +623,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "The best in the desert, an' a hero besides, because he kept his head when Natalia lost hers an' saved the lot of us. So if he helps himself tae yer lunch, ye'll let him, same as the rest of us do." } },
+      choices = {
+        { text = "Sounds like a born thief. I like it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Stealing's no joke, even for a monkey.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "That's quite a monkey.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because they've never come near Silithus before, not in all the history we've read, an' now they're circlin' like vultures. Somethin's drawin' them here, an' I'd like tae know what before it draws them down on our heads." } },
+      choices = {
+        { text = "The dragons should be watched. You're right to worry.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Dragons are trouble. Let them be.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll keep an eye on the sky.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue! Ye'd get on wi' Glibb, I reckon, because that monkey can lift a sandwich out of yer hand before ye know it's gone." },
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "A warlock! The dragons overhead don't like yer sort, I'll wager, an' neither do the bugs, so keep yer demon close while ye're in my camp." },
         { id = "h_default", key = true,
           text = "Look up at the sky, friend! There are dragons over this desert, when not one of the flights has come near Silithus in a thousand years, so the Qiraji are up to something, mark my words." },
         { id = "h_natalia", tags = { "news" }, when = { questActive = TODO_QUEST("Dearest Natalia") },
@@ -571,6 +665,8 @@ P:NPC {
         { text = "What do you want with silithid brains?", next = "brains", when = { any = { { questActive = TODO_QUEST("Breaking the Code") }, { questDone = TODO_QUEST("Breaking the Code") } } } },
         { text = "Those spells she used... I know them.", next = "priest", when = { class = "PRIEST" } },
         { text = "Natalia's magic: was it arcane at all?", next = "x_mage", when = { class = "MAGE" } },
+        { text = "Is Glibb really a thief?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Why do you watch the dragons so closely?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll let you watch your sky.", next = "END" },
       },
     },

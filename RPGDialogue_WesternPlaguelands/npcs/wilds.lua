@@ -407,6 +407,10 @@ P:NPC {
           text = "You've been to the Trade District in Stormwind, haven't you, so you've probably had the cheese. Don't look at me like that, everyone in Stormwind has had the cheese." },
         { id = "h_crusade", when = { metBefore = true },
           text = "I believe in the Light as much as anyone in Stormwind, but I watched them hang a farmer for not praying loudly enough. That isn't the Light, that's just a uniform." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock? Don't let the Crusade see you, {class}, for they'd burn you quicker than they'd burn me, and they very nearly burned me." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage would've been handy at Hearthglen, {class}, for the Crusade lit me up with arrows and a spot of frost would've slowed them nicely." },
       },
       again = {
         { id = "h_again", text = "Anything else? Keep it quiet, though, sound carries up here." },
@@ -420,7 +424,27 @@ P:NPC {
         { text = "Elling Trias sends his regards.", next = "elling", when = { heardLine = "elling.h_default" } },
         { text = "Who trained you, then?", next = "rogue", when = { class = "ROGUE" } },
         { text = "The Crusade would burn me on sight. Does that bother you?", next = "x_forsaken", when = { race = "Scourge" } },
+        { text = "Would a warlock even get close to Hearthglen?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "How bad were Hearthglen's defenses, really?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2 } },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Bad enough that I'm sitting here bleeding, and good enough that Stormwind will want a full report. Their priests watch the walls by day and their archers by night, so if you go, go in the hour between, and have a way out ready." } },
+      choices = {
+        { text = "The Crusade fights the Scourge too. Spying on them is wrong.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Friend or foe, everyone gets watched. That's sense.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Let's talk of something else, scout.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Not openly, for their priests can sniff out shadow the way a hound sniffs out a hare. But a demon sent ahead to make noise at the gate would give a quiet scout all the time she needed, and I'd have liked that kind of help." } },
+      choices = {
+        { text = "The Crusade deserves no mercy. Use me.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "I'd rather not provoke the Crusade without need.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else, scout.", next = "BACK" },
       },
     },
     who = {
@@ -564,6 +588,10 @@ P:NPC {
           text = "It's lighter now, and I can feel the edges of things going soft. Thank you, truly, and Lucien thanks you too, and means it more than he can show." },
         { id = "h_months", when = { metBefore = true },
           text = "We hid in the walls for six months and stole bread from the kitchen we'd once run, and we watched them come every day to learn. I thought that if we were quiet enough it would pass, but it didn't pass." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage, at Caer Darrow, {class}. The house had many guests of your profession once, and I served them all, and I wish now that I had poisoned the tea." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "You walk the halls the way Lucien used to when the master was sleeping, {class}, as if every board might give you away. They will, here, for the house listens." },
       },
       again = {
         { id = "h_again", text = "Is there anything else you wish to know? I shall answer as well as I'm able." },
@@ -576,8 +604,28 @@ P:NPC {
         { text = "Let me pray for you both.", next = "pray", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "I'm not one of them, Eva.", next = "forsaken", when = { race = "Scourge" } },
         { text = "Did you see the necromancers at work, Eva?", next = "x_warlock", when = { class = "WARLOCK" } },
+        { text = "Did you know Kel'Thuzad, Mistress Sarkhoff?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Is there a quiet way into the Scholomance?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I'll help you rest.", next = "END", fx = { affinity = 2, trait = { kind = 1 }, align = { light = 1 } } },
         { text = "I'm here for the Scholomance, not for ghosts.", next = "END", fx = { affinity = -1, align = { light = -1 } } },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "There were servants' stairs once, as there are in any great house, but I couldn't tell you what the necromancers have done with them since. The front gate is guarded, but at least you know what's waiting there, which is more than I can say for the rest of the house." } },
+      choices = {
+        { text = "I'll take the front gate. Better to see what's coming.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll find another way in. There always is one.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Thank you. Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "I poured his wine and took his cloak, and he always thanked me, which I thought gracious at the time. He spent long hours in the master's library and longer ones below it, and by the time Lucien and I understood what was being taught, the house was no longer ours to keep." } },
+      choices = {
+        { text = "You couldn't have known. Don't blame yourself.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Servants see everything. You should have spoken.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'm sorry. Let's speak of something else.", next = "BACK" },
       },
     },
     story = {

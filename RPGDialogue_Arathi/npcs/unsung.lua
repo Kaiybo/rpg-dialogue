@@ -32,6 +32,10 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Jannos Ironwill, macecrafter. I came to Refuge Pointe to help the League of Arathor take the Highlands back, and since I'm too old to march with them, I make the maces they carry instead." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! I've a mace or two that'd take an enchantment well, {class}, though I'll warn ye now I've no coin tae pay for it." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "They tell me a rogue's no use wi' a mace, {class}, but I've seen a quiet {g:lad|lass} wi' a cudgel do more damage behind a Syndicate camp than a whole squad." },
       },
       again = {
         { id = "h_again", text = "What else d'ye want to know about the Pointe?" },
@@ -42,7 +46,27 @@ P:NPC {
         { text = "What's the League of Arathor?", next = "league" },
         { text = "Who are the soldiers fighting out there?", next = "enemies" },
         { text = "Why does a dwarf care about Arathi?", next = "dwarf" },
+        { text = "Why aren't Stromgarde's soldiers carrying enchanted maces?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do the Syndicate use rogues of their own?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Not today.", next = "END" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Aye, the Syndicate are thieves an' cutthroats wi' noble names, the leftovers o' Alterac's lords, an' they've more knives than honor. If ye know their tricks, I'd sooner ye used 'em against the Syndicate than sold 'em tae the highest bidder." } },
+      choices = {
+        { text = "I'll use what I know against them.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Knowledge goes to whoever pays the most.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let's talk of maces instead.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because enchanters want gold, an' Stromgarde's down tae tents an' promises, an' I'll no take a soldier's last silver for a glowin' head on a stick. A good dwarven mace swung hard does the job well enough, an' it doesnae need a spell tae remember how." } },
+      choices = {
+        { text = "Simple steel is honest. I respect that.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Without magic, Stromgarde will never retake its keep.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let's talk of something else.", next = "BACK" },
       },
     },
     league = {

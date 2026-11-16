@@ -34,8 +34,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because a teleport takes you home and nowhere else, and my gryphons will carry you to Morgan's Vigil, which your spell can't. Besides, the birds like a passenger who doesn't smell of slag, and you smell of library." } },
+      choices = {
+        { text = "Old ways are good ways. I'll fly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Spells are faster. Your birds are a luxury.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "The Brotherhood swear they don't, and Oilfist would skin anyone who did, but I seal every letter twice all the same. A Bronzebeard living among Dark Irons learns to trust slowly, and to keep a knife in her boot." } },
+      choices = {
+        { text = "Trust them, Lanie. They broke with the mountain.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Keep the knife. Old enemies stay enemies.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Lanie.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. If you're here to read the letters my birds carry, they're sealed, they're dull, and the birds bite." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, flying? Most of your lot teleport off to Ironforge or Stormwind in a flash of light, and leave my birds wondering what they did wrong." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A night elf druid! The gryphons don't trust the Gorge any more than you would, and they'll fly you out of here gladly, back to where things still grow." },
         { id = "h_default", key = true,
@@ -50,6 +70,8 @@ P:NPC {
         { text = "Where can I fly?", next = "BUSINESS", when = { faction = "Alliance" } },
         { text = "A Bronzebeard among Dark Irons?", next = "brotherhood" },
         { text = "How do the gryphons stand the Gorge?", next = "ash" },
+        { text = "Why fly when I could teleport home, Lanie?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do the Dark Irons here ever try to read your letters?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -113,8 +135,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "They mind the smell of the arcane, which they say is like lightning that never lands, but they carry you all the same. Watch what you buy from the dwarves while you're here, mage, because some of their enchantments were first made for Ragnaros." } },
+      choices = {
+        { text = "Power is power, whoever forged it first.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Nothing made for Ragnaros belongs in Horde hands.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else, Grisha.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Wind riders came to us in Kalimdor, after the old days, and they never learned to love the fel the way the old Horde did. Some of my grunts haven't forgiven the warlocks either, and I'd not ask them to." } },
+      choices = {
+        { text = "Fel is a tool, and the Horde will need it again.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The old warlocks earned that hatred. I'll do better.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Keep your demon on the far side of the perch, because my riders have long memories and short tempers, and they don't like demons." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage of the Horde. You could teleport home and leave my riders idle, but you came to me, so I'll take it as a compliment." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A tauren druid at Thorium Point. My wind riders will sniff you over, because you smell of grass and they haven't had that in a while." },
         { id = "h_default", key = true,
@@ -129,6 +171,8 @@ P:NPC {
         { text = "Where can I fly?", next = "BUSINESS", when = { faction = "Horde" } },
         { text = "How do you feel about the dwarves here?", next = "dwarves" },
         { text = "Do you get along with the gryphon master?", next = "lanie" },
+        { text = "Do your riders mind carrying a mage?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Why do your riders hate demons so much?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
     },

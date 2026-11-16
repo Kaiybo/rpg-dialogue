@@ -28,8 +28,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Mana potions, by the crate, because a Watcher who runs dry in the middle of a reading has to start the whole night over. I've told them to sleep more and brew less, and they've told me to sell more and talk less." } },
+      choices = {
+        { text = "They should rest more. Overwork helps nobody.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Portal doesn't rest, so neither should they.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Nina.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Because the captain would have me down those stairs faster than I could carry the vials. Antidotes I'll sell to anyone, though, since half the scorpids out there would kill a soldier before he made it back to the gate." } },
+      choices = {
+        { text = "Antidotes save lives. That's the better trade.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Poison wins fights. Antidotes only lose them slower.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Another question, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. If you're shopping for poison reagents, I don't keep them, and if you're shopping for antidotes, I keep plenty, so it depends which end of the knife you're on." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, up all these stairs! Do try not to practise anything fiery near the shelves, because half of this stock goes bang if you look at it wrongly." },
         { id = "h_default", key = true,
           text = "Nina Lightbrew, alchemy supplies, at the top of the tower where the mages can find me easily. Vials, reagents, a few potions for the soldiers, and a quiet place to brew, as long as nobody downstairs is practicing fire spells." },
       },
@@ -42,6 +62,8 @@ P:NPC {
         { text = "Why sell potions at the top of a tower?", next = "tower" },
         { text = "What grows out in the Blasted Lands?", next = "plants" },
         { text = "What's it like living beside the Dark Portal?", next = "portal" },
+        { text = "What do the Watchers buy from you most?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Why no poisons, Nina?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },

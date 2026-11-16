@@ -360,6 +360,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "I suspect everything, and I can prove nothing, which is the worst place a healer can be. The troll ruins are full of old curses, and Kurzen's camp is close to more than one of them, so I'd not rule out a spell." } },
+      choices = {
+        { text = "Let me examine the ruins. Magic leaves a trace.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Burn the ruins and be done with the curses.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Brother.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Men who were good soldiers once, turned into things that kill without thinking, and I could do nothing to save them. If your power could find the cause, I'd take your help gladly, whatever the Light might say about it." } },
+      choices = {
+        { text = "The Light and I can work together on this.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Light failed them. My power won't.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -373,6 +391,8 @@ P:NPC {
         { id = "h_dreams", when = { metBefore = true }, text = "One of the men woke screaming the Colonel's name again. Whatever touched Kurzen's mind touches their dreams too." },
         { id = "h_maizoth_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Mai'Zoth"), days = 3 } },
           text = "I kept my vow, through your hands, and I said a prayer for him anyway. I'm not sure the Light approves of that, but I am." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Perhaps you can help me understand what drove Kurzen's men mad, since I've studied every herb and fever in the jungle and found nothing that explains it." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'll be honest with you, the Light makes me wary of your craft, but I've seen worse in this jungle than anything you could summon." },
       },
       again = {
         { id = "h_again", text = "Yes? Mind the flask by your elbow. That one I'm still not sure about." },
@@ -386,6 +406,8 @@ P:NPC {
         { text = "Let me look at the residue.", next = "residue", when = { profession = "Alchemy" } },
         { text = "The Light keep you, Brother.", next = "END", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A druid could help with the cure, Brother.", next = "k_druid", when = { class = { "DRUID", "SHAMAN" } } },
+        { text = "Do you suspect magic drove Kurzen's men mad, Brother?", next = "xmage", when = { class = "MAGE" } },
+        { text = "What have you seen in the jungle, Brother?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Keep your prayers, Brother, because they won't help out here.", next = "END", fx = { align = { light = -1 } } },
       },
     },
@@ -546,6 +568,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because the Colonel told them magic was the cause of everything that went wrong, and they believed him. I never knew if he was telling the truth or just looking for someone to blame, and I'm still not sure now." } },
+      choices = {
+        { text = "Kurzen lied to them. Magic didn't do this.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "He may have been right. Someone should investigate.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Something else, Thorsen.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Without a second thought, because they saw demons in every shadow, real or not. The madness made them suspicious of everything, and a real demon walking into their camp would have set them screaming." } },
+      choices = {
+        { text = "Their madness was their own. I'd have walked in anyway.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'd have left my demon behind, out of respect.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -556,6 +596,8 @@ P:NPC {
           text = "Kurzen's men carry orders, and orders are paper, and paper talks. Bring me what they carry; Lieutenant Doren needs to know what I know." },
         { id = "h_sleep", when = { metBefore = true },
           text = "I still wake up reaching for their uniform, and then I remember which side I'm on. It takes a moment longer than I'd like." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Kurzen's men feared magic more than anything, and I'll admit I still flinch a little when I see a spell cast." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I spent months pretending to be one of Kurzen's men, and I'll tell you that his officers would've killed you on sight." },
       },
       again = {
         { id = "h_again", text = "Something more? Speak softly; the jungle listens." },
@@ -569,6 +611,8 @@ P:NPC {
         { text = "I'll help you.", next = "END", fx = { affinity = 2, align = { order = 1 } } },
         { text = "Kurzen's war isn't mine, Private, and I'll stay out of it.", next = "END", fx = { align = { order = -1 } } },
         { text = "I'm a soldier, Private. What did they do to you?", next = "k_warrior", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "Why did Kurzen's men fear magic so much, Thorsen?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Would Kurzen's officers really have killed me on sight, Thorsen?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Rest. I'll leave you be.", next = "END", fx = { trait = { kind = 1 } } },
       },
     },

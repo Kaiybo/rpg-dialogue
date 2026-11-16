@@ -15,8 +15,30 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "A stinger the size of a wagon, out in the dunes, and I'd only stopped to pick one herb. If you see any of them out there, take their venom sacs, and maybe I'll cure myself before Beetix finishes worrying me to death." } },
+      choices = {
+        { text = "I'll get those sacs. You'll be fine.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "You should have watched your step.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "Rest easy, Noggle.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "There's one, if someone brings me enough venom sacs to brew an antidote. It's slow work, and I'm a terrible patient, but I'll get it done, and then I'm leaving this desert and never coming back." } },
+      choices = {
+        { text = "I'll help you brew it. Hang on.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Maybe you'll learn some patience.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Good luck, Noggle.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue! You know poisons, don't you? Tell me honestly, how long have I got, because my cousin keeps saying I'll be fine and she's a terrible liar." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage! Can you magic this venom out of me? No? Then what good is all that study, I ask you, when a goblin can't even get a decent cure?" },
         { id = "h_default", key = true, text = "Noggle Ficklespragg, and yes, I'm related to Beetix, and no, I don't want to talk about it. I got stung by something nasty out in the desert, and now I'm stuck here until somebody brings me the makings of a cure." },
         { id = "h_c0", when = { questActive = TODO_QUEST("Noggle's Last Hope") }, text = "The venom sacs, friend, from the stingers out there. Bring me enough and I can brew my own cure, and then I'm leaving Silithus forever." },
       },
@@ -27,6 +49,8 @@ P:NPC {
         { text = "Why come to Silithus?", next = "b3_1" },
         { text = "Let me see if I can ease your pain.", next = "x_1", when = { class = { "PRIEST", "DRUID", "SHAMAN" } } },
         { text = "Is profit worth this risk?", next = "s_1" },
+        { text = "How did you get poisoned?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Is there truly no cure for your venom?", next = "xmage", when = { class = "MAGE" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -75,8 +99,30 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "The end comes on its own, from beneath the sand, but those who bargain with darkness will meet it sooner and with less surprise. Repent, warlock, while there is still time to choose a better master." } },
+      choices = {
+        { text = "I'll consider your warning.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll choose my own master, preacher.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "Sure, sure.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "An army older than the kaldorei, waiting for the walls to fall. The Circle builds forts and the dwarves dig, but none of them listen, and when the end comes they will wish they had." } },
+      choices = {
+        { text = "Maybe you're right. We should prepare.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "You're a madman, nothing more.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Interesting theory.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "A warlock! You bear the mark of the fallen, the bargain of the damned, and the hives below will rise to meet you in the end of all things." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage, who reads the stars and the books and thinks they are wise! Wisdom will not save you when the hives open, but perhaps it will let you understand your doom." },
         { id = "h_default", key = true, text = "I am Jonathan the Revelator, and I have seen what lies beneath these sands. The silithid swarm is only the beginning, and something older and darker stirs below them." },
       },
       again = { { id = "h_again", text = "Ask while there's still time to ask, for the end draws nearer with every grain of sand!" }, { id = "h_again2", text = "Ask, while there is still time!" } },
@@ -86,6 +132,8 @@ P:NPC {
         { text = "Do the druids listen to you?", next = "b3_1" },
         { text = "The Light will stand against any darkness.", next = "x_1", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Is there any hope?", next = "s_1" },
+        { text = "Do you think warlocks will bring the end?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What do you think is beneath the sand?", next = "xmage", when = { class = "MAGE" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -134,8 +182,30 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Eyes in the hives, and knives in the bug-queens' guards, so my warriors can push in. The Alliance has its own soldiers here, and I'd rather the Horde's name was on the victory than theirs." } },
+      choices = {
+        { text = "I'll fight for the Horde's honor.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I fight for myself, Krug.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "I'll see what I can do.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Well enough, if they stand their ground and don't hide behind their pets. The bugs swarm fast, and a demon can hold a line while you burn them, so long as you keep your nerve." } },
+      choices = {
+        { text = "I'll stand my ground and fight beside you.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "My demon fights. I stay back.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "I'll do my part.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
+          text = "A rogue of the Horde! I prefer an axe in the open, but I won't turn away a blade in the shadows, not with the bugs breeding faster than we can kill them." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
+          text = "A warlock. I've seen your demons fight, and I'll admit they hit hard, so bring them to the hives and let them earn their keep." },
         { id = "h_default", key = true, text = "I am Krug Skullsplit, and I speak for the Horde's forces here in Silithus. The silithids are a threat to all of Kalimdor, and the Horde will not let them overrun our lands." },
         { id = "h_c0", when = { faction = "Horde" }, text = "A child of the Horde, here at the front! The Warchief's eyes are on Silithus, and your service will be remembered." },
       },
@@ -146,6 +216,8 @@ P:NPC {
         { text = "How do I help?", next = "b3_1" },
         { text = "My axe is ready for the swarm.", next = "x_1", when = { class = "WARRIOR" } },
         { text = "Should we fight beside the Alliance?", next = "s_1" },
+        { text = "What does the Horde need from a rogue here?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Do warlocks fight well against the silithid?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -194,8 +266,30 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Watching everyone, I'd imagine, including the Circle and the cult. I keep my soldiers honest and my eyes on the swarm, and whatever the spies do in the shadows is their business, not mine." } },
+      choices = {
+        { text = "Spies keep the Alliance strong. I'd join them.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Honest soldiers win more battles than spies.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll keep that in mind.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Slowly, and bloodily, and the Horde's not helping as much as they claim. But we hold the line, and every mage who comes to Silithus is one more reason the bugs stay in their hives." } },
+      choices = {
+        { text = "I'll fight at your side. The line will hold.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The Horde's doing more than you think.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll see where I'm needed.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue of the Alliance. I'd not be surprised if SI:7 had people in Silithus already, though they'd never report to a soldier like me." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage of the Alliance! The bugs burn well, I'm told, and we could use every fireball you've got on the front lines." },
         { id = "h_default", key = true, text = "Merok Longstride, Alliance commander here at Cenarion Hold. The silithids threaten everyone, and the Alliance has sent me to make sure we're ready when the time comes to strike." },
         { id = "h_c0", when = { faction = "Alliance" }, text = "A fellow member of the Alliance! Stormwind and Ironforge have both pledged support, and soldiers like you make that pledge real." },
       },
@@ -206,6 +300,8 @@ P:NPC {
         { text = "How can I help?", next = "b3_1" },
         { text = "Our people have fought worse than bugs.", next = "x_1", when = { race = { "Human", "Dwarf" } } },
         { text = "Should we trust the Horde here?", next = "s_1" },
+        { text = "Is SI:7 watching the Horde here?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "How goes the fight against the silithid?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },

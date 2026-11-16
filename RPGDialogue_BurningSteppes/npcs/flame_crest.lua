@@ -30,8 +30,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Would ye? *hic* Just a wee frost on the staves, mind, for if ye freeze the brew solid I'll have tae chew it. There's no' a dwarf alive who'd say no tae a cold ale in a land that's on fire, an' I'm a dwarf, last I checked." } },
+      choices = {
+        { text = "Gladly. Every dwarf deserves one cold drink.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "It'll cost you a mug, John. Nothing's free.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, John.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Everythin' worries me, which is why I drink. The Dark Irons up there got intae bed wi' fire an' sorcery once, an' look what crawled out, so ye'll forgive an old dwarf for keepin' his ale an' his beard well away from yer wee friend." } },
+      choices = {
+        { text = "My imp keeps to heel. Your beard's safe.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A little fel never hurt anyone's ale, John.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Is that an imp in my cave? *hic* Mind it keeps off the cask, for the last thing I need is fel in my ale, an' the second last thing is a burnin' beard." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Can ye chill a cask, friend? A cold ale in the Burnin' Steppes is worth more than all the gold in the Depths, an' I've been dreamin' of one for years." },
         { id = "h_default", key = true,
           text = "Ragged John, they call me, on account of my good looks. I've a cave, a cask and a story, and only the first two are for sale." },
         { id = "h_business", tags = { "news" }, when = { questActive = TODO_QUEST("The True Masters") },
@@ -57,6 +77,8 @@ P:NPC {
         { text = "Running was the smart play, John. I'd have done the same.", next = "k_rogue", when = { class = "ROGUE" } },
         { text = "Those Blackrock orcs aren't my Horde, dwarf.", next = "k_orc", when = { race = "Orc" } },
         { text = "Is your milk for the living or the dead, John?", next = "k_scourge", when = { race = "Scourge" } },
+        { text = "Shall I chill your cask, John?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Does fel worry you, John?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll leave you to your cask.", next = "END" },
       },
     },
@@ -285,8 +307,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Whatever glitters, my friend, and whatever's written down, because one makes you rich and the other tells you where to find more. I'd never ask you to break any laws, of course, but I don't believe the Dark Irons have any laws worth mentioning." } },
+      choices = {
+        { text = "Robbing the Dark Irons is practically a public service.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "I'm nobody's burglar, Maxwort, not even a goblin's.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else, Maxwort.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! Now there's a professional I respect, because the Dark Irons won't sell me what I want, and you look like someone who doesn't take no for an answer." },
         { id = "h_default", key = true,
           text = "Maxwort Uberglint, treasure hunter. I came to the Steppes chasing the legends of the Seven, because where you find old knowledge you find power, and where you find power, my friend, you find wealth." },
         { id = "h_tablet", when = { questActive = TODO_QUEST("Tablet of the Seven") },
@@ -309,6 +341,7 @@ P:NPC {
         { text = "I can read old scripts, if you need a scribe.", next = "scholar", when = { class = { "MAGE", "PRIEST" } } },
         { text = "The Royal Historian told me about Thaurissan.", next = "archesonus", when = { heardLine = "archesonus.t_default" } },
         { text = "The Seven's sorcery interests me, Maxwort. Professionally.", next = "k_lock", when = { class = "WARLOCK" } },
+        { text = "What would you have me take from the Dark Irons?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Good hunting, Maxwort.", next = "END" },
       },
     },
@@ -420,8 +453,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "For study, of course, and because my patron wants them kept fresh, very fresh, for reasons he says are scholarly. Frozen eggs don't hatch, you see, which is the only thing that makes collecting them safe at all." } },
+      choices = {
+        { text = "Dragon eggs for a stranger? Be careful, Tinkee.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Science first. What your patron wants is his affair.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Tinkee.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Everyone in Flame Crest, I think, and Felnok up in Everlook would only steal them to tell me they're wrong. The only one who never asks is my patron, because he says the eggs are all he needs, which is very generous of him, or very strange." } },
+      choices = {
+        { text = "Trust nobody, Tinkee, least of all your patron.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A patron who pays deserves your loyalty.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! Ooh, are you here to steal my schematics? You can't, because I keep them in my head, mostly, and the rest are on fire." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Can you do frost? My device is supposed to freeze dragon eggs, but you could probably do it with a flick of your wrist, and I'd love to compare results." },
         { id = "h_default", key = true,
           text = "Tinkee Steamboil, scholar of dragonkin! The Burning Steppes are dangerous, but a real scholar will do almost anything to learn something new, and I've learned so much here already." },
         { id = "h_essence", when = { questActive = TODO_QUEST("Broodling Essence") },
@@ -449,6 +502,8 @@ P:NPC {
         { text = "Can I see your schematics?", next = "engineer", when = { profession = "Engineering" } },
         { text = "Leonid told me who your patron really serves.", next = "leonid", when = { questDone = TODO_QUEST("Leonid Barthalomew") } },
         { text = "Could a hunter tame one of those whelps?", next = "k_hunter", when = { class = "HUNTER" } },
+        { text = "Why freeze dragon eggs at all, Tinkee?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Who else wants your schematics, Tinkee?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Good luck with the dragons.", next = "END" },
       },
     },
@@ -573,8 +628,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "He's paying it now, a little every month, through his cousin in Booty Bay, with interest. The Screwspigots never forget a debt, friend, and that's why we're still in business while everyone else in Flame Crest is on their third shop." } },
+      choices = {
+        { text = "Fair enough. Debts should always be paid.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "He blew up a crate. Call it a lesson and move on.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Yuka.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Could it? Maybe, but then I'd owe a demon a favour, and the Screwspigots don't owe anyone anything, least of all something that lives in a fire. Find him yourself, if you like, and leave the imp out of the family business." } },
+      choices = {
+        { text = "Then I'll find him myself, no demons involved.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Use every tool you've got, Yuka. Demons included.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Lovely, though I'm told imps are terrible around engineering supplies, so do keep yours outside where it can't ruin my stock." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Don't conjure anything in my shop, please, because the last mage who did set off a crate of sappers, and I'm still billing him for it." },
         { id = "h_default", key = true,
           text = "Yuka Screwspigot, engineering supplies, best prices this side of the mountain, mostly because I'm the only supplier this side of the mountain. What can I sell you?" },
         { id = "h_sought", tags = { "news" }, when = { questActive = TODO_QUEST("Yuka Screwspigot") },
@@ -595,6 +670,8 @@ P:NPC {
         { text = "Your sister Yorba says hello.", next = "yorba", when = { questDone = TODO_QUEST("Yuka Screwspigot") } },
         { text = "Got anything an engineer can't find elsewhere?", next = "engineer", when = { profession = "Engineering" } },
         { text = "I could find Ribbly for you. Quietly.", next = "k_rogue", when = { class = "ROGUE" } },
+        { text = "Did that mage ever pay the bill?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Could my imp find Ribbly for you?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Goodbye, Yuka.", next = "END" },
       },
     },
@@ -693,8 +770,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "No? How long does it last, then? Never mind, don't tell me, because I've already promised two, and I'd rather not know what my clients would wake up to. Opus thinks it's funny, but then Opus thinks everything is funny." } },
+      choices = {
+        { text = "Tell your clients the truth, Kibler. It's only fair.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Buyer beware. That's their problem, not yours.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "On to other things.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "They're Blackrock worgs, raised to follow a scent across the whole of the Steppes, and the first scent they learn in my shop is mine. Somebody pinched one last spring, and it walked back in the next morning with his boot in its mouth." } },
+      choices = {
+        { text = "Then I'll pay for one honestly, like a proper customer.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Clever pup. I'd still have tried, Kibler.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Kibler.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! You're not here to pinch a worg pup out of the cage, are you? They bite, they howl, and they always find their way back to me." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Can you turn things into sheep? I've had clients ask for a sheep that used to be a worg, and I haven't the faintest idea where to start." },
         { id = "h_default", key = true,
           text = "Kibler, at your service, animal lover by nature and salesman by trade. I find exotic beasts for the rich and famous and teach them to behave like proper pets, more or less." },
         { id = "h_pups", when = { questActive = TODO_QUEST("Kibler's Exotic Pets") },
@@ -715,6 +812,8 @@ P:NPC {
         { text = "What would you give for my companion?", next = "hunter", when = { class = "HUNTER" } },
         { text = "A druid could teach you a thing about beasts.", next = "druid", when = { class = "DRUID" } },
         { text = "Would your rich clients buy an imp?", next = "k_lock", when = { class = "WARLOCK" } },
+        { text = "A polymorphed worg won't stay a sheep, Kibler.", next = "xmage", when = { class = "MAGE" } },
+        { text = "How do your worg pups always find their way back?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Goodbye, Kibler.", next = "END" },
       },
     },
@@ -821,8 +920,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "To sell it, of course, to someone like me, for more than it is worth to anyone but me. Your kind have picked over the ruins of Quel'Thalas since the Scourge came through, so I know exactly what you are, and I pay accordingly." } },
+      choices = {
+        { text = "I'd sooner see them returned to your people.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then we understand each other. Name your price.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let's leave that there.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, standing in my light. At least you have the decency to do it quietly, which is more than I can say for most who come here." },
         { id = "h_default", key = true,
           text = "Mathredis Firestar, of Quel'Thalas, while there was a Quel'Thalas. I seek the lost librams of the elven masters, and if you bring me one, I will make you something of power, at a price you will find high." },
         { id = "h_libram", when = { questActive = TODO_QUEST("Libram of Rumination") },
@@ -841,6 +950,7 @@ P:NPC {
         { text = "Your people brought this on themselves.", next = "kaldorei", when = { race = "NightElf" } },
         { text = "My people are Highborne too, from Eldre'Thalas.", next = "k_sky", when = { race = "Skyborne" } },
         { text = "I know that hunger. Mine comes from the Nether.", next = "k_lock", when = { class = "WARLOCK" } },
+        { text = "What would a rogue want with an elven libram?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I'll leave you.", next = "END" },
       },
     },
@@ -959,8 +1069,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because from up there you see how far the Blackrock reach, right to the edge of the mountain, and how few of us hold Flame Crest. A mage who has seen that spends fire more carefully." } },
+      choices = {
+        { text = "Careful fire wins wars. I'll remember that.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll burn every Blackrock between here and the Spire.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "They do, and they've no Thrall to tell them no, which is the difference that matters. Keep your demons on a short chain while you're at Flame Crest, so nobody mistakes you for one of Rend's." } },
+      choices = {
+        { text = "I'll never be like Rend's warlocks. Mark that.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Rend's warlocks have power worth learning from.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Vahgruk.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. The Blackrock up on the mountain keep warlocks too, the old kind, and my riders can't tell the difference by smell." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. You could open your own way home, but my riders show you the Steppes on the way, and the Steppes should be seen once, burning." },
         { id = "h_default", key = true,
           text = "Vahgruk. I keep the Horde's wind riders at Flame Crest, so that anyone the Warchief sends this far north has a way home again." },
       },
@@ -969,6 +1099,8 @@ P:NPC {
         { text = "Where do your riders fly?", next = "routes" },
         { text = "What do you make of the Blackrock?", next = "rend" },
         { text = "Show me the routes.", next = "BUSINESS" },
+        { text = "Why should I see the Steppes from above?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do the Blackrock still have warlocks?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },
     },

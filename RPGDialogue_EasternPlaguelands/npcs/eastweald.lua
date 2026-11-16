@@ -53,6 +53,12 @@ P:NPC {
           text = "Myranda can help you walk among the Crusade unseen. I don't trust her, but I don't need to; I only need her to be good at what she does." },
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "You keep coming back to an old man's riverbank, and I've stopped pretending I don't look forward to it. Sit, and tell me the world hasn't forgotten what mercy is." },
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "I can feel what you carry, {class}, and once I'd have drawn steel at the sight of you. I've learned to wait and see what a person does before I judge what they are." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage. I knew a few of the Kirin Tor in better days, {class}, when Dalaran's towers were the brightest thing in Lordaeron, and I miss the sight more than I'd have guessed." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "You came down the bank so quietly the fish never noticed, {class}, and neither did I until just now. That's a rare gift, and I hope you use it kindly." },
       },
       again = { { id = "h_again", text = "Sit a while longer; the fish aren't biting anyway." } },
       choices = {
@@ -65,8 +71,38 @@ P:NPC {
         { text = "An orc saved your life?", next = "eitrigg", when = { race = { "Orc", "Human", "Dwarf" } } },
         { text = "Would you show mercy to the dead, Tirion?", next = "x_forsaken", when = { race = "Scourge" } },
         { text = "What turns a soldier into a zealot?", next = "x_warrior", when = { class = "WARRIOR" } },
+        { text = "And what do you see in me, Tirion?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do you blame Dalaran for not stopping the plague?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Does a paladin think less of someone who works unseen?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I'll help you.", next = "END", fx = { affinity = 2, align = { light = 1, honor = 1 } } },
         { text = "You chose an orc over your own people, and I can't respect that.", next = "END", fx = { affinity = -1, align = { light = -1 } } },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "I was a paladin, and I'm not sure what I am now, but Hearthglen taught me that the ones doing right in the open aren't always the ones doing right. I showed an orc named Eitrigg mercy where no one could see it, and it cost me everything, and it was still worth it." } },
+      choices = {
+        { text = "Quiet mercy is still mercy.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Mercy got you exiled. I'll stick to the knife.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "I blame no single city, for Lordaeron fell because too many of us looked away at once, my own order among them. Kel'Thuzad came out of Dalaran, true, but so did the mages who fought the Scourge while the rest of us were still arguing." } },
+      choices = {
+        { text = "Everyone shares the blame. That's the honest answer.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Some carry more blame than others, Tirion.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Someone who chose a dangerous road and is still walking it, which takes a kind of courage, I'll grant. Turn that power on the Scourge and the Crusade will call you damned, but I'll be fishing here, and I'll think better of you than they do." } },
+      choices = {
+        { text = "I'll use it only against the dead. You have my word.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My power isn't for your approval, old man.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Tirion.", next = "BACK" },
       },
     },
     story = {
@@ -235,6 +271,12 @@ P:NPC {
           text = "You've stood before my Queen, so you know why I serve. She gave me back my mind, and I'll give her everything else." },
         { id = "h_back", when = { metBefore = true },
           text = "Still alive? Adequate; most of those she sends me are not." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
+          text = "A warlock. The Undercity has its own masters of shadow, {class}, and the Dark Lady keeps them close, for she knows how quickly a servant becomes a master." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
+          text = "A mage. Dalaran's people were scattered across this kingdom when the plague came, {class}, and a fair number of them now serve the Dark Lady in the Undercity." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
+          text = "A rogue. The Banshee Queen's Deathstalkers move as you do, {class}, and I've found them far more useful than soldiers who announce themselves." },
       },
       again = {
         { id = "h_again", text = "More? Ask it quickly, because the plaguebats won't wait on your curiosity." },
@@ -246,8 +288,38 @@ P:NPC {
         { text = "Teach me what the elves taught you.", next = "x_hunter", when = { class = "HUNTER" } },
         { text = "We both woke in the dark, Blightcaller.", next = "x_forsaken", when = { race = "Scourge" } },
         { text = "Another elf, Blightcaller. Do you hate us all?", next = "x_skyborne", when = { race = "Skyborne" } },
+        { text = "Does the Banshee Queen fear her warlocks?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do you trust mages, Blightcaller?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Would you set me on the Scarlet zealots, Blightcaller?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "I'll clear the fields.", next = "END", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll hunt where I please, Blightcaller, not where you point.", next = "END", fx = { align = { order = -1 } } },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "On anything that crawls across these fields, and the Crusade crawl more than most, preaching all the while. Get close enough to cut a throat before the prayer is finished, and I'll count you worth my time." } },
+      choices = {
+        { text = "Zealots get no fair fight from me.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'll face them openly. Even zealots get that.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else, Blightcaller.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "I trust no one, and the Dark Lady trusts less, which is why she rules. But the arcane burns plaguebats out of the sky better than any arrow I've loosed, so I'll put you where they swarm and see what you're worth." } },
+      choices = {
+        { text = "Trust is earned. I'll earn it in fire.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I don't need your trust, only your targets.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "She fears nothing, but she remembers, for she was a servant to a master once and it cost her everything. Learn from that, {class}, and keep your demons on a short chain, or one morning you'll wake to find yourself their pet." } },
+      choices = {
+        { text = "My demons serve me. That will never change.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Chains break. I'll be ready when they do.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Blightcaller.", next = "BACK" },
       },
     },
     home = {

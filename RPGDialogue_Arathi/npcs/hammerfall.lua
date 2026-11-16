@@ -49,6 +49,10 @@ P:NPC {
           text = "The raptor's spirit still burns in my blood, and I cannot remember the last time I felt anything burn. Tell Tor'gan I'll listen to him, for now, but only for now." },
         { id = "h_later", when = { questDone = TODO_QUEST("Guile of the Raptor") },
           text = "Tor'gan tells me of Orgrimmar and the shaman, and of a warchief who is Durotan's son. Some of it I even believe, and that is more than I could say before you came." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
+          text = "I smell the green fire on you, {class}, the same that burned in the old Horde's blood. The Warchief broke us free of that, and you walk back into it." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
+          text = "You move like the grunt who slipped his chains the night the Warchief came, {class}, and vanished into the dark before the guards ever saw him go." },
       },
       again = {
         { id = "h_again", text = "Something more? Ask, then, for all the good it will do." },
@@ -63,7 +67,27 @@ P:NPC {
         { text = "Thrall leads a new Horde now.", next = "thrall" },
         { text = "I was born in the camps too.", next = "camp", when = { origin = "orc_camp_born" } },
         { text = "The dead don't always stay dead, orc.", next = "forsaken", when = { race = "Scourge" } },
+        { text = "The Warchief freed you from chains, not from fire.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do you wish you had run that night too?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Leave him be.", next = "END" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Every night, and then I remember the Warchief would have died anyway, and I would only have been somewhere else when it happened. Running saves the one who runs, and I no longer know if that is courage or cowardice." } },
+      choices = {
+        { text = "Surviving isn't cowardice. It's how we fight on.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Standing your ground is the only honor left.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "He freed us from both, and you would know it if you had seen orcs in the camps, sick for the demon blood they had lost. Use your shadows on the Witherbark if you must, but do not speak to me of it, for I have nightmares enough." } },
+      choices = {
+        { text = "I'll keep it from you. You've suffered enough.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "That fire was strength, and the Horde threw it away.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     night = {
@@ -186,6 +210,10 @@ P:NPC {
           text = "Somebody summon demons at Northfold Manor; I felt it in my blood before I ever saw the place. Bring me the bloodstone amulets the Syndicate use, so I learn what they be callin'." },
         { id = "h_gormul_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Guile of the Raptor"), days = 3 } },
           text = "Gor'mul spoke to me today, and not to curse me. When the raptor's fire fades I will sit with him and tell him what the Horde be now, and I think this time he will hear it." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
+          text = "You carry somethin' the spirits don't like, {class}, and they be whisperin' about it in my ear like gossips. Sit down, and let them have a good look." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
+          text = "Mage fire be hot and quick, {class}, and Tor'gan's fire be slow and patient. Both burn, mon, they just burn different things." },
       },
       again = {
         { id = "h_again", text = "What else be on your mind, friend?" },
@@ -200,7 +228,27 @@ P:NPC {
         { text = "How did a troll come to be shaman here?", next = "shaman" },
         { text = "Teach me something of the raptor spirits.", next = "xshaman", when = { class = "SHAMAN" } },
         { text = "Can a Forsaken be healed by spirits?", next = "forsaken", when = { race = "Scourge" } },
+        { text = "Can the spirits forgive a warlock, Tor'gan?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "What does your slow fire burn, Tor'gan?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "I'll help Gor'mul.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Despair, mostly, and it take a long time, because despair be wet wood. The orcs here carry Doomhammer's death like a stone, and a quick fire would only scorch them, so I sit with them and wait for the spark to catch." } },
+      choices = {
+        { text = "Patience heals. I'll remember that.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Some wounds need a hot iron, not patience.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "The spirits forgave the whole Horde for the demon blood, so they can forgive you, but forgivin' don't mean forgettin'. Every time you call on fel they flinch, and one day you might want their help and find them lookin' the other way." } },
+      choices = {
+        { text = "Then I'll call on it as little as I can.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I've never needed the spirits. I won't start now.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Tor'gan.", next = "BACK" },
       },
     },
     gormul = {
@@ -313,6 +361,12 @@ P:NPC {
           text = "Or'Kalar waits in Stromgarde with a trap laid for my husband. Kill him before Drum learns he's there, and bring me his head so I can stop dreaming of it." },
         { id = "h_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("The Real Threat"), days = 3 } },
           text = "I slept last night, for the first time in weeks. Drum asked why I was smiling at breakfast, and I told him the porridge was good, which it was not." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
+          text = "The bones went black when you walked in, {class}, and they only do that for death or demons. I hope for your sake it is demons." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
+          text = "A mage reads the world in lines and numbers, {class}, and I read it in smoke and bone. I wonder sometimes which of us sees further." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
+          text = "Keep your voice down, {class}. The auguries speak of a knife in the dark, and I would sooner it were yours than the Witherbark's." },
       },
       again = {
         { id = "h_again", text = "Anything else? Keep your voice down." },
@@ -325,7 +379,37 @@ P:NPC {
         { text = "Why hide it from your husband?", next = "secret" },
         { text = "How do you read the auguries?", next = "auguries" },
         { text = "I read the bones as well.", next = "xshaman", when = { class = "SHAMAN" } },
+        { text = "What do your bones say about demons, Korin?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do your auguries ever show you the arcane?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "What do the auguries say about a knife in the dark?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "I'll keep your secret.", next = "END", fx = { affinity = 2 } },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "That danger is gathering around my husband, and that he will not see it coming, for Drum Fel looks only at the road ahead. If I tell him, he will ride out to meet it with every grunt he has, so I watch the shadows for him, and now perhaps you will too." } },
+      choices = {
+        { text = "Keeping it from him is right. He'd only charge in.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "He deserves to know. Secrets like that are wrong.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "They show it as a cold light, like frost on the bones, and it always comes before a change. The frost was thick on my stones the night you arrived, so whatever you do here, I think Hammerfall will feel it." } },
+      choices = {
+        { text = "Then I'll change things for the better.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Better or worse doesn't concern me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Korin.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "That they keep their bargains to the letter and never to the spirit, and the orcs learned that at a terrible price. Read your own contracts carefully, {class}, for there is always a line written smaller than the rest." } },
+      choices = {
+        { text = "I read every line. I won't be fooled.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Bargains are made to be broken, by either side.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     orkalar = {
@@ -427,6 +511,10 @@ P:NPC {
           text = "Urda, wind rider master of Hammerfall. North to Tarren Mill and the Undercity, or over the mountains to Revantusk on the Hinterlands coast; tell me where and I'll tell you if the wind allows it." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Night flights over the Highlands are cold but quiet. The Witherbark can't aim what they can't see." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
+          text = "A mage who flies, {class}? Good, for your teleports don't reach the Hinterlands, and my wind riders do." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
+          text = "Sneak up on a wind rider and you'll lose a hand, {class}. They smell fear and mischief equally well, and you've a whiff of both." },
       },
       again = {
         { id = "h_again", text = "Anything else? The wind's turning." },
@@ -437,7 +525,27 @@ P:NPC {
         { text = "Show me where I can fly.", next = "BUSINESS" },
         { text = "What are the winds like here?", next = "winds" },
         { text = "Do the trolls shoot at your riders?", next = "trolls" },
+        { text = "Do the Highlands' winds trouble your beasts?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Could I fly out without the guards knowing?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Not today.", next = "END" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "You can fly out with every grunt in Hammerfall waving, or not at all, for my beasts don't leave without me knowing. Ask Gorkas at Revantusk if you like, and he'll tell you the same, between fish." } },
+      choices = {
+        { text = "Fair enough. Rules keep the beasts safe.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Rules are for those who get caught.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Urda.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "They come off Thoradin's Wall cold and twisting, and they've thrown more than one rider into the hills. I've learned to read them like an old enemy, and I'd trust a gust over a spell, for the wind at least warns you before it kills you." } },
+      choices = {
+        { text = "Respect the wind, and it respects you.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The wind's a nuisance. A good spell beats it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let's talk of something else.", next = "BACK" },
       },
     },
     winds = {

@@ -38,8 +38,30 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Oh, it could, it could! But a vial on a blade kills one elf, and the right poison in the right well could make a hundred kittens into a hundred weapons, which is the sort of arithmetic the Dark Lady appreciates. *cackles*" } },
+      choices = {
+        { text = "A quiet blade is cleaner than a poisoned well.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Whatever works. The Alliance would do the same to us.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'll leave the arithmetic to you.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "It makes things bigger and angrier, mostly, and one sip doubled my kitten's size before I could stop laughing. The satyrs pour their foulness into it at the Ruins of Constellas, and the well breeds more of them, which a mage like you might call an elegant little engine." } },
+      choices = {
+        { text = "That well should be destroyed, not studied.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "An engine like that could be made to work for us.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "I'll keep my hands out of it, thanks.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue, how lovely! You lot always know which bottle not to drink from, and that makes you twice as useful to me as anyone in this post. *cackles*" },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage! Do you know, the water in the Jadefire well does something arcane to it, I'm almost certain, though I haven't found a mage willing to taste it yet. *cackles*" },
         { id = "h_default", key = true,
           text = "Winna Hazzard, alchemist of a sort and keeper of one kitten! Felwood is the most interesting place I've ever been, because everything in it is wrong in some new way. *cackles*" },
         { id = "h_strange", tags = { "news" }, when = { questActive = TODO_QUEST("A Strange One") },
@@ -64,6 +86,8 @@ P:NPC {
         { text = "Keep your potions away from my pet.", next = "hunter", when = { class = "HUNTER" } },
         { text = "Moonwells were sacred to someone.", next = "tauren", when = { race = "Tauren" } },
         { text = "Fel is just another reagent to me.", next = "warlock_w", when = { class = "WARLOCK" } },
+        { text = "Your work could poison a whole Alliance camp, couldn't it?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "What does the corrupted moonwell actually do to the water?", next = "xmage", when = { class = "MAGE" } },
         { text = "I'll go.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -192,8 +216,30 @@ P:NPC {
         { text = "If a chief's alone, I won't just count him.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Lights in the Jaedenar hollows that burn green without wood, and wards cut into the ground around the Shadow Council's camps. I write them down as best I can, but I'd sooner have someone who knows the arcane read my notes than some clerk in Orgrimmar." } },
+      choices = {
+        { text = "Burn the wards and ask questions later.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "You're right to write it all down first.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll keep an eye out for the green lights.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "So did the Shadow Council, once, and look at what they made of Jaedenar. I don't say you're one of them, but I've read enough of what fel does to the people who use it to keep my eyes open." } },
+      choices = {
+        { text = "Fair enough. The Council were traitors and deserve their end.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Council were fools. I know where the line is.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Watch all you like, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage. Good; I've seen things in this forest I can't name, and you might put names to them before they get to Orgrimmar ahead of my report." },
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "A warlock, at Bloodvenom. I'll be watching you as closely as I watch the forest, so don't take it personally when you catch me at it." },
         { id = "h_default", key = true,
           text = "Trull Failbane. Orgrimmar wants eyes in Felwood, and these are them; this forest hides a great deal, and I'm paid to find out what." },
         { id = "h_guardians", tags = { "news" }, when = { questActive = TODO_QUEST("Wild Guardians") },
@@ -216,6 +262,8 @@ P:NPC {
         { text = "What do you make of that glowing necklace?", next = "nara", when = { questDone = TODO_QUEST("Guarding Secrets") } },
         { text = "The wildkin are kin to one of my forms.", next = "druid", when = { class = "DRUID" } },
         { text = "You want eyes? Mine work in the dark.", next = "rogue_tr", when = { class = "ROGUE" } },
+        { text = "What have you seen that you can't name?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Why watch me? I serve the Horde like you.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll be your eyes too.", next = "END", fx = { affinity = 1, standing = { bloodvenom_post = 1 } } },
       },
     },

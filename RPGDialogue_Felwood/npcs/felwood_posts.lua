@@ -26,8 +26,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "When the Sentinels ask it, yes, though I keep the birds high and the passengers quiet. Satyr archers in Jadefire Glen have tried for my hippogryphs before, so I would rather carry one silent scout than a whole noisy patrol." } },
+      choices = {
+        { text = "Scouting from the air is safer for everyone.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'd sooner go in on foot and do it properly.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll remember to keep quiet up there.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "They will, because I ask it of them, and because the Alliance asks it of me. But I will check their feathers twice tonight, and I hope you understand that it is the fire I mistrust and not, perhaps, you." } },
+      choices = {
+        { text = "I understand. The fel ruined this land, and I won't excuse it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fire is fire. It burns whoever doesn't master it.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "I'll keep my distance from the birds.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You walk softly, which my birds appreciate, because a hippogryph startled in this forest does not always come down where you meant it to." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "You carry the smell of the same fire that burned this forest, warlock, and my birds have noticed it before I have. Stand back a little, please, while I calm them." },
         { id = "h_default", key = true,
           text = "I am Mishellena, and I keep the hippogryphs of Talonbranch Glade. From here they carry the Alliance to Ashenvale and Darkshore and to Everlook in the snows, and away from the corruption, for a little while." },
       },
@@ -39,6 +61,8 @@ P:NPC {
         { text = "Where can I fly?", next = "BUSINESS", when = { faction = "Alliance" } },
         { text = "How do the hippogryphs bear this forest?", next = "corrupt" },
         { text = "What was Felwood before?", next = "before" },
+        { text = "Do you ever fly scouts over the Jaedenar camps?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Will your hippogryphs carry me, even so?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -95,8 +119,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "That's what Gul'dan's people said, and the Horde paid for it with its whole spirit until Thrall pulled us out. I'll fly you where you need to go, but you'll not summon anything on my landing, and that's not a request." } },
+      choices = {
+        { text = "You're right. We must never wear those chains again.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Thrall's way is slow. Power wins wars.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "No summoning on the landing, then.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Once, a goblin from who knows where tried to walk off with a saddle, and my best beast nearly took his arm for it. The riders know their handlers, so thieves get bitten long before they get far, and I let them." } },
+      choices = {
+        { text = "A thief who gets bitten deserves it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Poor fool. Everyone's got to eat.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll keep my hands off the saddles.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
+          text = "Warlock. We drank the demon's blood once and it nearly finished us, so don't expect me to smile when I see that green light in your hands." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
+          text = "Hm, a rogue, and I didn't hear you come up the path, which is more than I can say for the satyrs. Want a ride, or did you just want to prove you could sneak up on an old orc?" },
         { id = "h_default", key = true,
           text = "Brakkar, wind rider master at Bloodvenom Post. My beasts fly to Splintertree Post, to Everlook in the snows and to Valormok, and from there to anywhere the Horde can reach, so tell me where you're going and let's be done." },
       },
@@ -108,6 +154,8 @@ P:NPC {
         { text = "Where can I fly?", next = "BUSINESS", when = { faction = "Horde" } },
         { text = "Why keep a post in this forest at all?", next = "post" },
         { text = "How do your wind riders stand it here?", next = "riders" },
+        { text = "The power's the same. What matters is who holds the leash.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Does anyone try to steal your wind riders?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -161,8 +209,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I sell bread and water to anyone of the Horde who is hungry, and a warlock gets as hungry as anyone. What I cannot do is tell you the earth here forgives, because it does not, and I would not want you to learn that the hard way." } },
+      choices = {
+        { text = "I'll respect this land. It has suffered enough.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The earth doesn't get a say in what I do.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "I'll take the bread, then.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "The druids at the Emerald Sanctuary are trying, but every spring here drinks from the same poisoned ground, so I haul barrels up the road from Ashenvale instead. If a mage knew a spell to make the water clean, I would trade all my stock to learn it." } },
+      choices = {
+        { text = "Patience will heal this land, as the druids say.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Cleanse it all at once with fire, if need be.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll leave the hauling to you.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
+          text = "You are a warlock, I think; the land shivers a little where you stand, as it does in the hollows of Jaedenar. I do not judge you, but I would ask you to tread gently here." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
+          text = "A mage of the Horde, and far from any city. Could you keep my water cold with a spell, I wonder, or is that a foolish question to ask someone who studies the arcane?" },
         { id = "h_default", key = true,
           text = "I am Bale, and I keep the general goods at Bloodvenom Post. Water, food, thread and tools, all of it brought in from outside, because nothing that grows in Felwood is fit to eat." },
       },
@@ -174,6 +244,8 @@ P:NPC {
         { text = "Let me see your goods.", next = "BUSINESS" },
         { text = "Nothing here is fit to eat?", next = "food" },
         { text = "Why is a tauren out here?", next = "why" },
+        { text = "You'd sell goods to a warlock, knowing what fel did here?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Why carry all the water in? Can't the springs be cleansed?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
     },

@@ -41,6 +41,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "We have neighbors' manners, nothing more, since their dome sits not far from my hills and their secrets are not my trade. Still, a mage who can open a lock with a word is worth knowing, and I make it my business to know who can." } },
+      choices = {
+        { text = "My talents are my own. I'm no one's tool, my lord.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The Kirin Tor and Ravenholdt both serve order. I'd bridge them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Something else, my lord.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because a demon is the one guest who cannot be bribed, flattered or frightened, and those are the three tools my house relies upon. The Syndicate has dabbled in darker help, I'm told, and I would know if you were their messenger." } },
+      choices = {
+        { text = "I serve no Syndicate. My demons answer to me alone.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Everyone's loyalty has a price, my lord, even mine.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let us speak of other things.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" },
@@ -51,6 +69,8 @@ P:NPC {
           text = "I am Jorach Ravenholdt, and this house has stood in these hills longer than Alterac's kings stood on their thrones. We keep our own counsel here, and we keep the Syndicate in its place." },
         { id = "h_emblems", tags = { "news" }, when = { questActive = TODO_QUEST("Syndicate Emblems") },
           text = "Those Syndicate emblems, yes. Every one you cut from a Syndicate cloak is a man who will not be reporting to the Perenoldes tonight, and I count them carefully." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage at Ravenholdt. The Kirin Tor's servants do not usually find this house, so I must assume either great skill or a very good guide, and I am curious which." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. You are welcome under my roof as any guest is, though my people will watch your shadow more closely than they watch you." },
       },
       choices = {
         { text = "Does your house keep this forest, my lord, or only hide in it?", next = "druid_q", when = { class = "DRUID" } },
@@ -58,6 +78,8 @@ P:NPC {
         { text = "Why does the Syndicate trouble you so much?", next = "syndicate" },
         { text = "What is this house, exactly?", next = "house" },
         { text = "I've walked in shadows a while. Is there a place for me here?", next = "rogue", when = { class = "ROGUE" } },
+        { text = "Does Ravenholdt have dealings with the Kirin Tor, my lord?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Why does Ravenholdt watch warlocks so closely, my lord?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll leave you to your counsel, my lord.", next = "END" },
       },
       again = {
@@ -134,15 +156,37 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Several, from Syndicate scavengers to plain treasure hunters who heard the vaults were left unguarded. The dome keeps them out, and the ones who try too hard are found in the morning, a little singed and very confused about where they are." } },
+      choices = {
+        { text = "Dalaran's secrets should stay safe. I'd help you guard them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A locked vault is a challenge, Archmage, not a warning.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Archmage.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "He sat on our council, and he was brilliant, and he went looking for powers we had forbidden until he found the Lich King waiting for him. We cast him out too late, and Dalaran paid for it twice, once to the plague and once to Archimonde." } },
+      choices = {
+        { text = "His choices were his own. Knowledge didn't damn him.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll learn from his fall and keep my craft in check.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Archmage Ansirem Runeweaver of the Kirin Tor, at your service, within reason. Dalaran is closed while we rebuild, and I keep an eye on those who would rather it stayed broken." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, standing outside Dalaran's dome. I'd ask you not to test our wards, because they are less forgiving than I am, and I am not especially forgiving." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, at Dalaran's very gate. You'll understand if I keep my hand near my staff, because the last of your school I knew well was Kel'Thuzad, and look what came of him." },
       },
       choices = {
         { text = "Why is the city sealed?", next = "dome" },
         { text = "Who wants Dalaran to stay broken?", next = "enemies" },
         { text = "I studied magic once. Does the Kirin Tor still teach?", next = "teach", when = { class = "MAGE" } },
+        { text = "Has anyone tried to sneak inside the dome, Archmage?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Was Kel'Thuzad really one of the Kirin Tor, Archmage?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Good day, Archmage.", next = "END" },
       },
       again = { { id = "h_again", text = "Yes? I have a little patience left, and the dome has none." } },
@@ -302,6 +346,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Mostly the plain ones: a little nightshade for the blade, a little something stronger for the wells in Hillsbrad Fields. The Apothecary Society prefers the grand plagues, but out here a rogue with a good vial wins more fields than a cauldron." } },
+      choices = {
+        { text = "Poison the blades, not the wells. Spare the farmers.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Use it all. The living gave us no mercy.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else, Serge.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Now and then, though the Society frowns on anything it can't fully control, and the Dreadlords make the Society nervous. I keep my fel reagents in a separate cupboard with a separate key, and I've never once forgotten which is which." } },
+      choices = {
+        { text = "Control is everything. Keep your cupboards locked.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The Society is too cautious. Push the work further.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" },
@@ -310,11 +372,15 @@ P:NPC {
           text = "Serge Hinott, alchemist to Tarren Mill. The Apothecary Society does the grand work in the Undercity, and I do the useful work out here, where a draught has to be ready by morning." },
         { id = "h_living", when = { faction = "Alliance" },
           text = "A living one from Southshore's side of the hills. I'll not sell to you, but you can listen, I suppose, and then you can walk away quickly." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. Then you'll want to know which of my bottles will put a man to sleep and which will put him under, and I'll tell you, because the Dark Lady's enemies deserve both." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Your craft and mine aren't so different: we both mix things that should never meet and hope we're standing back far enough." },
       },
       choices = {
         { text = "Do your draughts and a shaman's herbs have anything in common?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What do you brew out here?", next = "brews" },
         { text = "How do you get along with Apothecary Lydon?", next = "lydon" },
+        { text = "What poisons does Tarren Mill make for its rogues, Serge?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Do you ever use fel reagents in your alchemy, Serge?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Good day.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? The flask on the left is about to do something interesting." } },

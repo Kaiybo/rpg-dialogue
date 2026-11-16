@@ -23,6 +23,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Once, a hired guard who thought a crate of Gadgetzan whiskey wouldn't be missed between two centaur raids. Rigger caught it in the ledger by sundown, and we left him at the next waystone with a waterskin and a long walk." } },
+      choices = {
+        { text = "That's fair justice. A caravan runs on trust.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Harsh. Out here, a man takes what he can.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "One, a gnome with a temper, who set the Magram's arrows alight in midair and then set fire to our flour by mistake. We went hungry for three days and I'd still hire him again, because we didn't lose a single kodo." } },
+      choices = {
+        { text = "Better a scorched cart than a dead kodo. Burn first, count later.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'd rather protect the cargo carefully than scorch it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Cork Gizelton, and this is the Gizelton caravan, the only honest freight between the Kodo Graveyard and the south road. My brother Rigger runs the back half and I run the front, and the centaurs would happily run off with both." },
@@ -30,6 +48,8 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid, eh? If you can talk to kodos, tell mine to walk faster, because they've never once listened to me." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, huh? Ask your spirits to keep the centaurs off my kodos, because I'm tired of doing it with a crossbow." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "You've got a rogue's way of walking, friend, and I'll say this once: the cargo's counted, so if anything goes missing, I'll know whose boots to check." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage on the road! If you can freeze a centaur in its tracks, you can walk at the front with me, and I'll even let you pick the song." },
       },
       again = { { id = "h_again", text = "What else? Talk fast, the next ridge is a bad one." }, { id = "h_again2", text = "Ask away, but keep one eye on the hills." } },
       choices = {
@@ -40,6 +60,8 @@ P:NPC {
         { text = "I can hold a line against centaurs.", next = "x_1", when = { class = "WARRIOR" } },
         { text = "Do the Kolkar and the Magram trouble the caravan often, Cork?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why not just pay the centaurs off?", next = "s_1" },
+        { text = "Does anyone ever try to rob the caravan from inside, Cork?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Have mages guarded the caravan before, Cork?", next = "xmage", when = { class = "MAGE" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -97,11 +119,31 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Cork thinks so and I've half come round to it, because the Kolkar know our timings better than our own drivers do. Somebody at one of the waystones is talking, and I'd pay well for a quiet word with whoever's listening." } },
+      choices = {
+        { text = "Find the leak and make an example of him.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Find the leak and turn him over to Nijel's Point.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Something else, Rigger.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Ever since we hauled past Thunder Axe Fortress and a pair of the Burning Blade's felhounds came down the slope at us. The kodos stampeded halfway to the Kodo Graveyard, and it took us two days to round them up again." } },
+      choices = {
+        { text = "My minion follows my word. Your kodos are safe.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Your kodos will learn. Demons aren't going anywhere.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Rigger Gizelton, the half of the Gizelton caravan that does the counting. Cork shouts at the front and I make sure everything we started with is still here when we stop." },
         { id = "h_c0", when = { questActive = TODO_QUEST("Gizelton Caravan") }, text = "You're guarding us through the Kolkar country, then. Stay by the wagons and don't chase them into the hills, because that's exactly what they want." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. I don't suppose the spirits can count, because I could use a second pair of eyes on this ledger." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, eh? Then you'll appreciate that every lock on this caravan was bought from a goblin who swore it couldn't be picked, and I'd rather not find out he lied." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Please keep that little fellow of yours away from the kodos, because they spook at the smell of him and I'm the one who has to calm them down." },
       },
       again = { { id = "h_again", text = "Anything else? I've a ledger waiting." }, { id = "h_again2", text = "Go on, I'm listening, and counting." } },
       choices = {
@@ -111,6 +153,8 @@ P:NPC {
         { text = "I've kept a few ledgers myself.", next = "x_1", when = { race = { "Dwarf", "Gnome" } } },
         { text = "Does the caravan ever carry anything for shamans, Rigger?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do you ever cheat the books?", next = "s_1" },
+        { text = "Do you think someone is selling your route, Rigger?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Have your kodos always feared demons, Rigger?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -176,6 +220,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Discreet folk, pal, and they stay discreet because I don't spread their names around Desolace. Let's just say a kodo fetches a better price in Booty Bay than it does here, and the Cartel takes a smaller cut than you'd think." } },
+      choices = {
+        { text = "I don't care who buys. Show me the coin.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'd want to know where the beasts end up first.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I want kodos rounded up, pal, and I'm not fussy about the shepherd. The trouble is every kodo in the Graveyard bolts at the first whiff of brimstone, so your demon would cost me more in runaways than it saves." } },
+      choices = {
+        { text = "My demons aren't hired hands. Find another shepherd.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A demon will work if the price is right. Make an offer.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Smeed Scrabblescrew, entrepreneur. The Graveyard's full of old bones, sure, but the live kodos that wander in are worth real money to the right buyers, and I've got the buyers." },
@@ -183,6 +245,8 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid? Look, before you start, the kodos don't mind the Kombobulator, or at least none of them has ever complained to me about it." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can you call a kodo over for me? I've got buyers waiting, and the blasted things won't come when I whistle." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "Ah, a professional! You've got the look of someone who knows how to slip a rope round something big without it noticing, and that's a skill I pay for." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Now, don't take this wrong, but could one of your demons herd kodos? I'd pay double for a felhound that works for free." },
       },
       again = { { id = "h_again", text = "Another question? Fine, but every one of 'em costs me a kodo bone I could be hauling." }, { id = "h_again2", text = "Ask, ask! Every question's free, for now." } },
       choices = {
@@ -193,6 +257,8 @@ P:NPC {
         { text = "My people do not sell the kodo's last walk.", next = "x_1", when = { race = "Tauren" } },
         { text = "Why sell the kodos of the Graveyard at all, Smeed?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Graverobbing kodos seems wrong to me.", next = "s_1" },
+        { text = "Who are your buyers for these kodos, Smeed?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Do you really want demons herding your kodos, Smeed?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -318,12 +384,32 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Patience, mostly, and a good look at the walls before the sun goes down. The cult changes its watch at dusk, and for a few breaths the north side of the fortress is looking the wrong way, which is how Dalinda's trail came back to me at all." } },
+      choices = {
+        { text = "Then I'll slip in at dusk and leave no one alive.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll go in quietly and bring her out alive. Nothing more.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Shadow and fel, the same gifts the Legion gave the orcs before Thrall cast them off. They bind imps and felhounds to guard their halls, and I've seen a single sorcerer hold a doorway against three Sentinels." } },
+      choices = {
+        { text = "Burn them out. They gave up mercy when they bowed to demons.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll stop them, but the captives come first.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll ask something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Vahlarriel Demonslayer. I hunt the Burning Blade, the cult that bends the knee to demons, and their trail runs straight through Thunder Axe Fortress. One of ours, Dalinda Malem, went missing there." },
         { id = "h_c0", when = { questActive = TODO_QUEST("Return to Vahlarriel") }, text = "Bring Dalinda back to me alive, and whatever she's learned inside that fortress may be worth more than anything we could take by force." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "Ishnu-alah, druid. The Burning Blade has fouled the earth around Thunder Axe Fortress, and you will feel it in your bones before you see it." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "You walk quietly, and I've learned to value that, because the Burning Blade post sentries at Thunder Axe who are better at listening than at fighting." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. The Burning Blade's sorcerers at Thunder Axe throw fel fire, and I'd welcome someone who knows how to throw something back." },
       },
       again = { { id = "h_again", text = "Ask, but quickly; the Burning Blade does not rest while we talk." }, { id = "h_again2", text = "Speak, then, but briefly; the Burning Blade won't hunt themselves down." } },
       choices = {
@@ -333,6 +419,8 @@ P:NPC {
         { text = "What of Dalinda Malem?", next = "b3_1" },
         { text = "I command demons too, and I serve no cult.", next = "x_1", when = { class = "WARLOCK" } },
         { text = "Can the Burning Blade's followers be saved?", next = "s_1" },
+        { text = "How do you get past the Blade's sentries, Vahlarriel?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "What kind of magic do the Blade's sorcerers use, Vahlarriel?", next = "xmage", when = { class = "MAGE" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -389,12 +477,32 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "That every creature here kills only what it must, and leaves the rest alone. The cities are full of people who stab for coin and call it cunning, and I trust Misha's instincts over theirs every day." } },
+      choices = {
+        { text = "I strike only when there's need. That's the hunter's way.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Coin is need enough. The wilds aren't my home.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I hold it against anyone who thinks the demons can be mastered, because the Horde believed that too and paid for it with its soul. Thrall broke that chain, and I'll not watch someone forge a new link in it." } },
+      choices = {
+        { text = "I master my demons. The old Horde was weak, not cursed.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I know the price. I won't let the Horde pay it again.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let us speak of something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Rexxar, Champion of the Horde, though I spend little time near its cities. The wilds suit Misha and me better than walls and politics do." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid. Misha likes you, which is more than she says for most who walk these roads." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Thrall's shamans walk with the elements the way I walk with Misha, as partners, so I'll hear you out." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'd do well in the wilds, for you already know how to move without being heard, and that's a lesson most of the Horde never learns." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "You carry the stink of demons. My father's people drank from that cup once, and I've seen what it did to them, so speak carefully." },
       },
       again = { { id = "h_again", text = "Speak your mind." }, { id = "h_again2", text = "Misha's listening too." } },
       choices = {
@@ -403,6 +511,8 @@ P:NPC {
         { text = "Why travel alone?", next = "b1_1" },
         { text = "Tell me about Misha.", next = "b2_1" },
         { text = "Is the Horde worth fighting for?", next = "s_1" },
+        { text = "What do the wilds teach that the cities don't, Rexxar?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Do you hold the orcs' past against warlocks, Rexxar?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },

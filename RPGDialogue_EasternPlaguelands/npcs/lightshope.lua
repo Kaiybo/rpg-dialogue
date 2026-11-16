@@ -49,6 +49,10 @@ P:NPC {
           text = "The Argent Hold is open to you now. What's inside was made to be used against the dead, so use it." },
         { id = "h_quiet", when = { metBefore = true },
           text = "I walk the chapel at dawn, before the guards change, because it's the only hour the Plaguelands are quiet. I've come to treasure it." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage, and welcome, {class}. We lost many of the Kirin Tor when Lordaeron fell, and those who came to the Dawn brought fire the Scourge still remembers." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "You came in quieter than most of my knights, {class}, which shames them more than it ought to impress me, though it does both." },
       },
       again = { { id = "h_again", text = "What else? Speak freely; the chapel keeps no secrets from its own." } },
       choices = {
@@ -62,7 +66,27 @@ P:NPC {
         { text = "What does the Dawn need from a healer?", next = "priest_dawn", when = { class = "PRIEST" } },
         { text = "Will the Dawn take a warlock's help?", next = "x_warlock", when = { class = "WARLOCK" } },
         { text = "Ironforge sends you little, my lord. I came anyway.", next = "x_dwarf", when = { race = "Dwarf" } },
+        { text = "Why would Kirin Tor mages join the Dawn and not Dalaran?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Does the Argent Dawn have a use for rogues?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "How can I help?", next = "END", fx = { affinity = 2, standing = { light_hope = 1 } } },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "The Dawn has a use for anyone who fights the Scourge, and you'd be surprised how many of our best scouts once picked locks for a living. I ask no one what they did before, only what they'll do now, and the dead in Stratholme give us plenty to do." } },
+      choices = {
+        { text = "The past shouldn't define anyone. I agree.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Some pasts should still be answered for.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Some had nothing left in Dalaran to go back to, and some couldn't bear to watch from behind a dome while their families walked the fields as ghouls. The Dawn asks no one to choose a crown, so they came here and kept fighting." } },
+      choices = {
+        { text = "They did right. People come before institutions.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Dalaran needed them too. They should have stayed.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else, Lord Tyrosus.", next = "BACK" },
       },
     },
     left = {
@@ -234,6 +258,10 @@ P:NPC {
           text = "I was in Stratholme when Ras Frostwhisper became what he is. I remember his face as it changed. I'd like very much for him to stop." },
         { id = "h_sacrifice", when = { metBefore = true },
           text = "They call me Revered, though I'd rather they didn't. I only did what anyone would, if they'd already lost everything else." },
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "A warlock. The Dawn's living members flinch at us both, {class}, but I think the Scourge flinches more, and that is all I ask of my own darkness." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage. Forgive my face, {class}, for the plague took it before the Banshee Queen gave me back my mind, and mages in particular tend to stare." },
       },
       again = { { id = "h_again", text = "Yes? I have time; it's one of the few things the dead have plenty of." } },
       choices = {
@@ -243,8 +271,28 @@ P:NPC {
         { text = "Who is Ras Frostwhisper?", next = "ras" },
         { text = "We're the same, you and I.", next = "forsaken", when = { race = "Scourge" } },
         { text = "The Light answers me too, Revered.", next = "x_paladin", when = { race = "Scourge", class = "PALADIN" } },
+        { text = "Do you see your undeath as a weapon too?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What does the Dawn ask of its mages, Leonid?", next = "xmage", when = { class = "MAGE" } },
         { text = "I'd like to help the Dawn, if you'll have me.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "I'll work with the dead when I must, but I won't trust them.", next = "END", fx = { align = { light = -1 } } },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Fire, mostly, and patience, for the Scourge in Stratholme and the Plaguewood rebuild their ranks faster than we burn them. A mage who keeps burning after the hundredth ghoul is worth ten who burn brightly once and go home." } },
+      choices = {
+        { text = "Then I'll keep burning, as long as it takes.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "One great blow is worth a hundred small ones.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I do, for the plague cannot sicken what is already dead, and I walk where living knights would choke. Your demons are a weapon too, and I would only ask what I ask of myself, that you remember who you are when the weapon starts to feel like you." } },
+      choices = {
+        { text = "I know who I am. The darkness doesn't change that.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Maybe the weapon is who I am now.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Leonid.", next = "BACK" },
       },
     },
     light = {

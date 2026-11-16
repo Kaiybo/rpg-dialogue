@@ -51,6 +51,10 @@ P:NPC {
           text = "Phylactery, orb an' the ember agate, all in chests in the Tower of Arathor. The defenses'll help, but they'll no' do the fightin' for ye, so keep yer weapon out." },
         { id = "h_tower_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Attack on the Tower"), days = 3 } },
           text = "Every piece on my list, in one bag, an' nobody dead. I've scouted for a lot o' wizards, an' that's never happened before." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "Ye've a smell about ye like a forge fire gone wrong, {class}, an' I'd ask ye kindly tae keep it away from the lad, for he's impressionable." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "Another mage! Kryten's enough for one camp, {class}, an' he talks about Archmage Malin like the fellow walks on water." },
       },
       again = {
         { id = "h_again", text = "What else? Make it quick, I've maps tae draw." },
@@ -64,7 +68,27 @@ P:NPC {
         { text = "Where did you learn to scout?", next = "scouting" },
         { text = "I'd scout quieter than you, dwarf.", next = "rogue", when = { class = { "ROGUE", "HUNTER" } } },
         { text = "I could carry word to Malin in Stormwind.", next = "priest", when = { race = "Human" } },
+        { text = "Do the Witherbark have warlocks of their own?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What did Trelane leave behind, Skuerto?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Off I go.", next = "END" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Books, mostly, an' a tower full o' wards that Malin wants back before the Witherbark or the Syndicate work out what they're worth. I scout an' the lad reads, so if ye can do both, ye'd save me a deal o' walkin'." } },
+      choices = {
+        { text = "Knowledge like that belongs in safe hands.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Books belong to whoever finds them first.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let's talk of something else, Skuerto.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "They've shadow hunters an' witch doctors, an' that's dark enough for anyone, though I'd no call it fel. Whatever ye carry, keep it pointed at them an' no at Kryten, for Malin would have my beard if anythin' happened tae him." } },
+      choices = {
+        { text = "I'll keep him safe. You have my word.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The lad will have to see real power sometime.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's talk of other things.", next = "BACK" },
       },
     },
     trelane = {
@@ -168,6 +192,10 @@ P:NPC {
           text = "I've been up all night with the pouches, and some of those herbs aren't in any book in Stormwind. Malin will be delighted, and slightly jealous." },
         { id = "h_enchant", tags = { "news" }, when = { questActive = TODO_QUEST("An Apprentice's Enchantment") },
           text = "The agate's enchanted, and it should open the tower's defenses, if my reading of Trelane's notes is right. Take it to Skuerto, and do tell him I was right." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock! Archmage Malin says warlocks are mages who stopped asking questions, {class}, but I'm sure that's unfair, probably." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "Oh! I didn't hear you come in, {class}, which is either very impressive or very worrying. Skuerto would know which, but he's out scouting." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've plenty of ink." },
@@ -180,7 +208,27 @@ P:NPC {
         { text = "How do you put up with Skuerto?", next = "skuerto" },
         { text = "I trained in Stormwind's Mage Quarter too.", next = "mage", when = { class = "MAGE" } },
         { text = "Is it wise to study troll magic?", next = "priest", when = { class = { "PRIEST", "PALADIN" } } },
+        { text = "Do you think your master's right about warlocks?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you need anything taken from the Witherbark camps?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Good luck with your studies.", next = "END" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Well, their witch doctors keep fetishes that hold enchantments I've never seen in any book, and I'd dearly love one to study. I couldn't possibly ask you to steal it, of course, but if one happened to come my way, I'd write it all down very carefully." } },
+      choices = {
+        { text = "Stealing from the Witherbark harms no one who matters.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I don't steal, even for scholarship.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let's talk of something else, Kryten.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I think he's right about most things, but he's never met a warlock who could explain their craft as well as he explains his. If you told me how a soul shard holds its charge, I'd listen very politely and only take a few notes." } },
+      choices = {
+        { text = "Knowledge should be free, even mine.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Some things should stay with those trained for them.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Maybe another time. Something else.", next = "BACK" },
       },
     },
     witherbark = {
@@ -261,6 +309,10 @@ P:NPC {
           text = "Cedrik Prose, gryphon master. I fly the Captain's letters south and her soldiers home, and anyone else who needs to be somewhere other than the Highlands." },
         { id = "h_badges", when = { questDone = TODO_QUEST("Stromgarde Badges") },
           text = "Those badges you brought back went south in my saddlebags. I don't usually think about what I carry, but I thought about those." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage who still pays for gryphons, {class}! Your teleport could have you home in a heartbeat, so I'll take the custom as a compliment." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "Quiet on your feet, {class}, good, because the gryphons startle easily, and a startled gryphon is a hard thing to calm." },
       },
       again = {
         { id = "h_again", text = "Anything more? The gryphons smell trolls on the wind and won't settle until we're done." },
@@ -269,7 +321,27 @@ P:NPC {
         { text = "Show me where I can fly.", next = "BUSINESS" },
         { text = "What do you carry south?", next = "letters" },
         { text = "Are the skies safe here?", next = "skies" },
+        { text = "A teleport can't reach Refuge Pointe, so I'm stuck with you.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do you ever carry messages you shouldn't read?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Not now.", next = "END" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Every dispatch the Captain sends south is sealed, and I've never broken a seal in my life. That said, the Syndicate would pay a fortune to know what's in them, so I sleep with the bag under my head and a knife beside it." } },
+      choices = {
+        { text = "A sealed letter should stay sealed. Good.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A curious courier lives longer. Read them.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Fair enough. Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Stuck with me and the finest birds in the Highlands, so you've done well out of it. The flight south over Thandol Span is the best view in Lordaeron, and no mage I've flown has ever said otherwise." } },
+      choices = {
+        { text = "Some views are worth the slow road.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Magic will put your birds out of work someday.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let's talk of something else.", next = "BACK" },
       },
     },
     letters = {
@@ -324,6 +396,12 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Vikki Lonsav, general goods. If the Pointe runs out of something, it's my fault, so I make sure it doesn't run out of much." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "Please keep your imp out of my supply tent, {class}, for the last time one came in here, I lost a bolt of linen and two candles." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! I don't suppose you've any spare conjured bread, {class}? The soldiers are tired of mine, and it's the only bread I've got." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "I count every arrow and every loaf at the end of the day, {class}, so if something goes missing I'll know exactly when you were here." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've a tally to finish." },
@@ -332,7 +410,37 @@ P:NPC {
         { text = "Let me see your goods.", next = "BUSINESS" },
         { text = "How do supplies reach you?", next = "supplies" },
         { text = "What runs out first?", next = "first" },
+        { text = "I'll pay for anything my imp breaks.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do the soldiers really eat conjured bread?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Has anyone actually stolen from you, Vikki?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "That's all.", next = "END" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Twice, and both times it was a soldier who hadn't eaten in two days, so I let it go and charged the Captain. The Syndicate are the real thieves in these hills, and they'd steal the tent out from under me if they thought it worth the walk." } },
+      choices = {
+        { text = "Hunger isn't a crime. You did right.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let one thief go and the rest will follow.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Vikki.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "They eat anything, but they prefer real bread, for conjured bread fills you up and leaves you wondering whether you ate at all. I sell what comes up the road from the Wetlands, and it's never as much as the Pointe needs." } },
+      choices = {
+        { text = "Then I'll leave some bread for the soldiers.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Conjured food is for mages. The soldiers can manage.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "That's decent of you, though I'd still rather it stayed outside, for the soldiers jump at every shadow since Stromgarde fell. A little imp sitting on a crate is enough to start a panic in a camp this tired." } },
+      choices = {
+        { text = "Then it stays outside. They've been through enough.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The soldiers will have to toughen up.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     supplies = {

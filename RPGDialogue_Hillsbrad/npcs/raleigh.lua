@@ -33,6 +33,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Not openly, but they remember every face that turned away, and they don't take kindly to it. I saw what they did at Hearthglen to a brother they suspected of the plague, and I left the next night without saying goodbye." } },
+      choices = {
+        { text = "Then I'll keep watch for you. No one should be hunted for leaving.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Desertion is a crime, even from the Crusade.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else, Raleigh.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I don't know, and that frightens me more than you do. The Light teaches mercy, and the Crusade taught me to forget that, and every day in this room I try to remember which one I believe." } },
+      choices = {
+        { text = "Mercy is the Light's true teaching. Hold on to that.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Crusade wasn't wrong about everything. Some things should burn.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -43,6 +61,8 @@ P:NPC {
           text = "The Monastery's in Tirisfal, and the Houndmaster, Herod, Mograine and Whitemane hold it. Until they fall, anyone who crosses the Crusade's path is in danger." },
         { id = "h_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("In the Name of the Light"), days = 3 } },
           text = "It's done, then. I won't celebrate, and neither should you. But there are people in Tirisfal tonight who'll live to see morning." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "Close the door, and I'll ask you plainly: were you sent by the Crusade? You move like the men they send for those of us who left." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. The Crusade would have burned you before you finished speaking, and once I'd have lit the pyre myself, which is something I think about more than I'd like." },
       },
       again = {
         { id = "h_again", text = "Something else? Ask away; I've stopped keeping secrets for them." },
@@ -55,6 +75,8 @@ P:NPC {
         { text = "Were you a paladin before the Crusade?", next = "paladin", when = { class = { "PALADIN", "PRIEST" } } },
         { text = "I came out of Lordaeron too.", next = "refugee", when = { origin = "human_lordaeron_refugee" } },
         { text = "Was it right, what I did there?", next = "after", when = { questDone = TODO_QUEST("In the Name of the Light") } },
+        { text = "Does the Crusade hunt those who leave, Raleigh?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Would you still see me burned, Raleigh?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll leave you to your window.", next = "END" },
       },
     },

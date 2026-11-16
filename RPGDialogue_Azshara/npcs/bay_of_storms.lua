@@ -61,8 +61,30 @@ P:NPC {
         { text = "Then the Circle must keep the storm in check.", next = "BACK", fx = { align = { order = 1 } } },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because your demons burn as the Firelord's servants burn, and they foul any water they touch. The Waterlords have no quarrel with you, warlock, so long as your fire serves my war against Ragnaros and not your own appetite." } },
+      choices = {
+        { text = "I'll turn my fire against the Firelord, then.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My fire serves me first, Duke.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "I'll keep my servant out of sight.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "The servants of fire and earth are strong but they are not watchful, and a quiet blade can reach the lieutenants who order them. Strike where they do not look, and the pure waters will remember the service, though I will not pretend to love the method." } },
+      choices = {
+        { text = "A quiet blade wins wars. I'll strike where they don't look.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'd rather face them openly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The tide and I will see.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "A warlock. You command creatures of fire and shadow, mortal, and the pure waters recoil from them, so keep your servant out of my sight while we speak." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue. The tide moves quietly too, mortal, and it wears down mountains, so perhaps there is a use in you that your size hides." },
         { id = "h_default", key = true,
           text = "I am Hydraxis, Duke of the Waterlords. Your kind were not born of the deep, mortal, and our war is beyond you, but a mortal may still be useful to it, and be rewarded for it." },
         { id = "h_poison", when = { questActive = TODO_QUEST("Poisoned Water") },
@@ -94,6 +116,8 @@ P:NPC {
         { text = "I wield fire, Duke. Does that make me your enemy?", next = "mage_hy", when = { class = "MAGE" } },
         { text = "My people have fought the Dark Irons for centuries.", next = "dwarf_hy", when = { race = "Dwarf" } },
         { text = "The tides are part of the balance I serve.", next = "druid_hy", when = { class = "DRUID" } },
+        { text = "Your war is with fire. Why scorn shadow too?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What use would a Waterlord have for a rogue?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I'll take my leave, Duke.", next = "END" },
       },
     },
@@ -294,8 +318,30 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "I blame the Highborne, and I blame Queen Azshara, and I watch every mage I meet for the same hunger. Most of you are fools who light candles, but some of you are not, and those are the ones I hunt eventually." } },
+      choices = {
+        { text = "I'll never seek that kind of power. You have my word.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fear of knowledge is how wars are lost.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "I'll remember the warning.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Shades of demons slain long ago, and some not slain at all, waiting for the veil to thin. You could stand beside one and never know it, rogue, which is why I live here and you are only visiting." } },
+      choices = {
+        { text = "I'd want to know. Show me how to see them.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Some things are better left unseen.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll watch my back, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage. Your kind opened the door to the Legion once, at the Well of Eternity, and you still dabble at the threshold as if nothing happened." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue. You hide from the eyes of mortals, but not from mine, and certainly not from the things that walk unseen along this shore." },
         { id = "h_default", key = true,
           text = "Can you see them, mortal? The shapes at the edge of the tide, the shadows that are not shadows? No; I thought not. Your kind have eyes and see nothing with them, which spares you a great deal, and is why I live here and you are only visiting." },
         { id = "h_story", when = { questActive = TODO_QUEST("Loramus") },
@@ -325,6 +371,8 @@ P:NPC {
         { text = "Our people cast out demon hunters.", next = "nelf", when = { race = "NightElf" } },
         { text = "Your hounds are demons. My beast is honest.", next = "hunter_lo", when = { class = "HUNTER" } },
         { text = "My forebears in Eldre'Thalas fought a prince who drank the Nether.", next = "sky_lo", when = { race = "Skyborne" } },
+        { text = "Do you blame all mages for the Legion's coming?", next = "xmage", when = { class = "MAGE" } },
+        { text = "What walks unseen along the shore?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },
@@ -506,8 +554,30 @@ P:NPC {
         { text = "I'll remember the one's name.", next = "BACK", fx = { affinity = 1 } },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "They sing of the night the waters closed over Zin-Azshari, and the one has heard that song more times than there are shells on this shore. The makrura say the drowned city still lies beneath the waves, and the one would not have mortals with magic in their hands disturbing what sleeps there." } },
+      choices = {
+        { text = "Then I'll leave the drowned city in peace.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Its secrets should be found, not left to rot.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "I'll keep my spells away from the sea.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "They poisoned the land above, and the rivers carried their poison down into the one's waters, and the deep folk sickened for it. Bring no demon to this temple, small one, or the one's grief for his sons will find a new target." } },
+      choices = {
+        { text = "I'll bring no demon here. You've suffered enough.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My demons go where I choose, god or no god.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "I'll keep it away.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A small one who bends the tides of magic. The deep folk sing of the Highborne, who did the same, and the sea took their city for it." },
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "Arkkoroc smells the burning ones on you, small one. The sea quenches fire, and the one would quench yours if you brought it near the temple's waters." },
         { id = "h_default", key = true,
           text = "Arkkoroc is the one who rules these waters, the god of the deep folk and the lord of this temple. The makrura bow to the one, the murlocs sing to the one, and the sea itself remembers the one's name." },
         { id = "h_name", when = { questActive = TODO_QUEST("The Name of the Beast") },
@@ -523,6 +593,8 @@ P:NPC {
         { text = "This was a temple of Elune, once.", next = "temple" },
         { text = "I seek the name of a demon lord.", next = "name", when = { questActive = TODO_QUEST("The Name of the Beast") } },
         { text = "My people know gods too. The loa.", next = "troll_ar", when = { race = "Troll" } },
+        { text = "What do the deep folk sing of the Highborne?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do the burning ones trouble the sea?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll go, great one.", next = "END", fx = { affinity = 1 } },
       },
     },

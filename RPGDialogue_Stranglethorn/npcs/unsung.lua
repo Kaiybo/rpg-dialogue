@@ -37,6 +37,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "A quiet tap behind the ear, friend, which ends a fight without all the mess a dagger leaves on the deck. The Bruisers carry clubs for exactly that reason, because the Baron hates cleaning blood off his docks." } },
+      choices = {
+        { text = "A clean knockout is kinder than a blade. I'll take one.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Mess is a message. I'll stick with the dagger.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Kizz.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "One did, a Forsaken fellow who wanted something heavy to hold down the corners of his chalk diagram during a sea breeze. He paid in full and never came back, and I like to think the mace is still doing its job somewhere." } },
+      choices = {
+        { text = "A good tool is a good tool, whatever the use.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "A mace is for fighting. Sell it for that.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Your lot love a good mace, so step right up, because nothing channels the earth like a lump of iron on a stick." },
@@ -44,6 +62,8 @@ P:NPC {
           text = "Kizz Bluntstrike, macecrafter to the finest cove in the South Seas. Swords need sharpening and axes get stuck, but a good mace just keeps working, and so do I, at a fair price." },
         { id = "h_holy", when = { class = { "PRIEST", "PALADIN" } },
           text = "A servant of the Light, in my shop! Your lot are my best customers, you know, because whoever wrote your rules about edges was a friend to the mace trade." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! Now, I know your kind prefers a little blade, but let me tell you, friend, a mace has a poetry all its own, and nobody ever argues with it twice." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock in my shop! Now, you won't need a mace, I suppose, but a fine one makes a lovely ornament for a summoning circle, if I do say so myself." },
       },
       again = {
         { id = "h_again", text = "What else? I've got all day, and the maces aren't going anywhere unless you buy them." },
@@ -57,6 +77,8 @@ P:NPC {
         { text = "Who buys maces in a pirate town?", next = "buyers" },
         { text = "I'm told my faith forbids edged weapons.", next = "priest", when = { class = "PRIEST" } },
         { text = "A mace is a dwarf's weapon, goblin.", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "What could a mace offer someone who fights from the shadows, Kizz?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Do warlocks really buy maces for their circles, Kizz?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Just looking.", next = "END" },
       },
     },
@@ -171,11 +193,31 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "I buy hides by the quality, friend, and a good raptor hide doesn't say where it was skinned. The Venture Company sells me some, the trolls sell me others, and I keep the ledger clean by never writing down the seller's name." } },
+      choices = {
+        { text = "Fair trade is fair trade. No names needed.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "You should know who you're dealing with. It matters.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else, Rikqiz.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because the Blackwater Raiders will put an arrow in anything wearing a red bandana, and they don't always check whether it's a pirate or just a customer with poor taste. I sold a red cloak to a mage last spring, and I still feel bad about it." } },
+      choices = {
+        { text = "I'll wear violet, then. No need to tempt trouble.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll wear what I like. Let them try.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll want mail, I suppose, though your lot always ask whose hide it was, which slows business down." },
         { id = "h_default", key = true,
           text = "Rikqiz, leatherworking supplies. The jungle's full of tigers, raptors and basilisks, and all of them are wearing hides that somebody wants, so I sell the somebodies what they need to turn them into armor." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! Now, I'll bet you've got a few hides in that pack you'd rather not explain, and I'm the very goblin who won't ask you to." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! You'll want dyes for your robes, I'd guess, and I've got every color from Kirin Tor violet to Bloodsail red, though I'd not recommend the red in Booty Bay." },
       },
       again = {
         { id = "h_again", text = "What else, friend? Ask quick; the salt's drawing damp." },
@@ -188,6 +230,8 @@ P:NPC {
         { text = "How does leather keep in this heat?", next = "heat" },
         { text = "Do you sell patterns too?", next = "patterns", when = { profession = "Leatherworking" } },
         { text = "I hunt here. What should I bring you?", next = "hunter", when = { class = "HUNTER" } },
+        { text = "Do you buy hides without asking where they came from, Rikqiz?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Why not wear Bloodsail red in Booty Bay, Rikqiz?", next = "xmage", when = { class = "MAGE" } },
         { text = "Nothing today.", next = "END" },
       },
     },
@@ -286,11 +330,41 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "More than anything else, since half the jungle crawls with something venomous and the other half wants to be. I keep them spotless, because a dirty vial ruins a good poison, and a ruined poison makes for a very unhappy rogue." } },
+      choices = {
+        { text = "A clean vial means a clean kill. I'll take care of them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A little residue never hurt a poison.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Glyx.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Wax seals, oilcloth and a cellar the Baron doesn't know I have, which is the driest place in the whole town. I check everything twice a week, and I throw out anything that's gone soft, no matter what it cost me." } },
+      choices = {
+        { text = "Good care makes good reagents. I'll buy from you.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Soft reagents still work. Don't waste them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Just an imp, and only for a moment, but it set fire to a shelf of oils and laughed the whole time it burned. The warlock paid for the damage, I'll give him that, but I'm still finding soot behind the jars." } },
+      choices = {
+        { text = "That was careless. I'll keep my craft outside.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Imps will be imps. Some soot is the cost of business.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll be wanting clean reagents, I expect, and mine are the only clean ones in Booty Bay." },
         { id = "h_default", key = true,
           text = "Glyx Brewright, alchemy supplies. I sell vials, flasks and the odd reagent you can't pick in the jungle, and everything I sell is clean, which is more than any other shop in Booty Bay can say." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, eh? You'll be wanting vials for your poisons, and I'll ask you to clean them before you bring them back, because I've seen what's left in some of them." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! You'll want reagents for your spells, I suppose, and I've got the cleanest in Booty Bay, though I'll warn you the jungle damp gets into everything eventually." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! I'll sell you candles and chalk, but I'll ask you not to summon anything in my shop, because the last time someone tried, the soot took me a week to scrub out." },
       },
       again = {
         { id = "h_again", text = "Anything else? Keep your hands off the shelves while you think." },
@@ -303,6 +377,9 @@ P:NPC {
         { text = "Why does cleanliness matter so much?", next = "clean" },
         { text = "Who buys potions in Booty Bay?", next = "buyers" },
         { text = "Do the trolls here brew anything worth knowing?", next = "trolls", when = { race = "Troll" } },
+        { text = "Do you sell many vials for poisons, Glyx?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "How do you keep your reagents dry in this jungle, Glyx?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Did someone really summon a demon in your shop, Glyx?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -399,6 +476,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "For the work, plain and simple, since the forges in Stormwind had more smiths than they needed. I meant to stay a season and go home, but the goblins pay in gold and never ask questions, and I've found I don't miss the questions." } },
+      choices = {
+        { text = "Honest work is honest work. Good on you.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "No questions asked is the best place to work.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Jansen.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "For wards, one of them told me, and for something to do with binding a spell into metal, though it went right over my head. I just make sure it's pure, because she said a single speck of slag would ruin the whole working." } },
+      choices = {
+        { text = "Pure materials make pure work. I'll buy some.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Any old flux would do in a pinch.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, is it? I've sold iron to a few of yours, and they always ask where it was mined before they buy, which I respect." },
@@ -406,6 +501,8 @@ P:NPC {
           text = "Jansen Underwood. I sell what a forge needs: coal, flux, iron bars and the tools to work them. Every smith in Booty Bay buys from me, and so do the ships' carpenters when their nails run out." },
         { id = "h_dwarf", when = { race = "Dwarf" },
           text = "A dwarf in the shop, so I'll have to mind my prices; your folk know what iron's worth better than anyone. Jansen Underwood, blacksmithing supplies, and I'll not try to cheat you." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll not need coal or iron, I'd guess, but if you want a blade sharpened properly, I keep a good whetstone, and I'll not ask what you've been cutting." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. I don't sell much your sort would want, but I've had a few come in looking for iron filings and pure flux, and I never asked why." },
       },
       again = {
         { id = "h_again", text = "Need anything else from the bins?" },
@@ -418,6 +515,8 @@ P:NPC {
         { text = "Where does the coal come from?", next = "coal" },
         { text = "What's it like, working for goblins?", next = "goblins" },
         { text = "I'm learning the forge myself.", next = "smith", when = { profession = "Blacksmithing" } },
+        { text = "Why did you come south to Booty Bay, Jansen?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Why would a mage need iron filings and flux, Jansen?", next = "xmage", when = { class = "MAGE" } },
         { text = "Good day, Jansen.", next = "END" },
       },
     },
@@ -519,11 +618,31 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Every single one, because a town full of pirates makes for a very nervous banker. I've never once lost a coin to a thief, and I intend to keep it that way, no matter how charming they are." } },
+      choices = {
+        { text = "Your caution is wise. I'll keep my hands to myself.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Counting twice won't stop a good thief.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Rickle.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Once, and the wards caught it before the illusion even settled. Conjured gold vanishes after an hour, and the Cartel doesn't take kindly to depositors who try to pay their fees with it." } },
+      choices = {
+        { text = "An honest deposit is the only kind. Good wards.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A clever trick deserves a try, at least.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Please don't call any lightning near the vault, because I've only just had the hinges oiled and the noise sets my nerves off." },
         { id = "h_default", key = true,
           text = "Rickle Goldgrubber, banker to the Steamwheedle Cartel. I keep your valuables in a vault that's never once been robbed, and I'd like to keep saying that, so I check every box twice and the doors three times." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. I'll be counting every coin twice while you're here, so don't take it personally, because I count everyone's twice." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! I'll warn you now, friend, the vault has wards against spells, so don't try to conjure any extra coins into your box." },
       },
       again = {
         { id = "h_again", text = "Is there anything else? I'm in the middle of a count." },
@@ -535,6 +654,8 @@ P:NPC {
         { text = "Never once robbed? In Booty Bay?", next = "robbed" },
         { text = "Are you related to Viznik?", next = "viznik" },
         { text = "Can I reach my Stormwind box from here?", next = "reach" },
+        { text = "Do you really count everyone's coins twice, Rickle?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Has a mage ever tried to conjure coins into the vault, Rickle?", next = "xmage", when = { class = "MAGE" } },
         { text = "Nothing, thanks.", next = "END" },
       },
     },
@@ -618,6 +739,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Light silk, loosely woven, with a hood to keep the sun off and enough room in the sleeves for all that hand-waving. Wool is for Dalaran and Ironforge, not for a place where the air itself feels like soup." } },
+      choices = {
+        { text = "Silk it is, then. You know your trade.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A mage wears the robes of their order, heat or no heat.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Qixdi.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "More than mages do, I've found, because a warlock wants to look the part when the demon arrives. I've made more black silk robes for warlocks than I can count, and every one of them wanted a high collar, no matter the heat." } },
+      choices = {
+        { text = "Looks matter less than comfort. Make it light.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A warlock must look the part. High collar, please.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Oh, you poor thing, wearing all that in this heat. I've got a lovely linen shirt that would go under it beautifully." },
@@ -625,6 +764,8 @@ P:NPC {
           text = "Qixdi Goodstitch, cloth armor! The Goodstitches have been dressing Booty Bay since before the shark's jaws went up over the gate, and I've got robes for every mage, priest and warlock who's ever sweated through a woolen one." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "A priest, good! Your robes up north are all heavy velvet and gold thread, which looks lovely in the Cathedral and terrible in a jungle. Qixdi Goodstitch, cloth armor, and I can fix that." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Now, please tell me you're not wearing wool in this jungle, because I can see from here that you're sweating through it." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! You'll want something dark, I'd guess, but not too heavy, because summoning in this heat is hard enough without a thick robe on top of it." },
       },
       again = {
         { id = "h_again", text = "What else? Don't be shy; I've heard every question about trousers there is." },
@@ -636,6 +777,8 @@ P:NPC {
         { text = "The Goodstitches? There's more of you?", next = "family" },
         { text = "Can cloth really protect anyone out there?", next = "protect" },
         { text = "Where does your cloth come from?", next = "cloth" },
+        { text = "What should a mage wear in the jungle, Qixdi?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do warlocks really care so much about their robes, Qixdi?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'm fine, thanks.", next = "END" },
       },
     },
@@ -729,11 +872,31 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Because the way you hold an axe tells me whether you've used one, and the jungle doesn't forgive a fumble. Hemet's hunters all carry bows, but I've seen a good axe save more lives in close quarters than any arrow." } },
+      choices = {
+        { text = "I'll learn to hold it right. Teach me.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll hold it however I like.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Jaquilina.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Mind? He'd be furious, and he'd let you know it for an hour. The cats are his whole life, and anything that chases them off before he gets a shot is an enemy of the camp." } },
+      choices = {
+        { text = "I'll keep my demon well away from the game.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The cats will come back. They always do.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll end up fighting close sooner or later, like everyone out here, so you'll want an axe with weight behind it." },
         { id = "h_default", key = true,
           text = "Jaquilina Dramet, and I sell axes. The hunters here all carry bows, but when a panther gets inside your shot, a bow won't save you, so sooner or later they all come to my tent." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll be wanting a small axe, I'd guess, something you can throw or hide, and I'll show you how to hold one properly before you hurt yourself." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, out at Nesingwary's camp. Keep your demon away from the game, because Hemet will have words with you if it scares off his cats." },
       },
       again = {
         { id = "h_again", text = "What else? The brush grows back faster than I can talk." },
@@ -746,6 +909,8 @@ P:NPC {
         { text = "What's Hemet like to work beside?", next = "hemet" },
         { text = "What's the most dangerous thing out there?", next = "danger" },
         { text = "I'm a hunter. My bow serves me well enough.", next = "hunter", when = { class = "HUNTER" } },
+        { text = "Why do you judge customers by how they hold an axe, Jaquilina?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Would Nesingwary really mind my demon scaring the game, Jaquilina?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Not right now.", next = "END" },
       },
     },
@@ -836,11 +1001,31 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "They're wonderful, with enough pepper, and they keep for weeks in a sealed pouch. I've sold them to sailors, hunters and a few rogues who swore they were the only thing that kept them going on a long night's work." } },
+      choices = {
+        { text = "I'll try them. A good meal matters on the road.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll take my chances with whatever I find.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Kelsey.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because pepper turns a dull fish into a feast and a rubbery clam into something you'd actually want to eat. Conjured bread can keep you alive, but it can't make you happy, and a happy mage casts better spells, I'm sure of it." } },
+      choices = {
+        { text = "Then I'll take the pepper. You've convinced me.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A full belly is all I need. Pepper's a luxury.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! I hear tauren cooking is all roots and plains game, so you must be dying for a decent fish stew." },
         { id = "h_default", key = true,
           text = "Kelsey Yance, cook. I sell spices and recipes for the things that swim and crawl round Booty Bay, because a sailor who eats well fights well, and a sailor who eats badly ends up in the infirmary." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! You'll want something light to carry on the road, I suppose, and I've got recipes for dried clam strips that'll keep you going for days without slowing you down." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Now, I know you can conjure your own food, but you can't conjure pepper, and without pepper, life's not worth living." },
       },
       again = {
         { id = "h_again", text = "What else? Ask, and I'll tell you how to cook it." },
@@ -852,6 +1037,8 @@ P:NPC {
         { text = "What's good to eat around here?", next = "eat" },
         { text = "What shouldn't I eat in the jungle?", next = "dont" },
         { text = "Who do you cook for?", next = "cook_for" },
+        { text = "Dried clam strips? Are they any good, Kelsey?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Why does pepper matter so much, Kelsey?", next = "xmage", when = { class = "MAGE" } },
         { text = "I'll pass, thanks.", next = "END" },
       },
     },
@@ -937,11 +1124,31 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "That's a trade secret, pal, and it took me three tries and both my eyebrows to get it right. It makes a flash and a puff of smoke without the noise, so you can slip away while everyone's still rubbing their eyes." } },
+      choices = {
+        { text = "I'll pay well for it. Good work deserves gold.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Tell me the trick and skip the price.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Gnaz.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Completely, pal, because magic depends on whoever's casting it, and engineering works the same no matter who pulls the lever. Mostly, anyway, since some of my levers have a mind of their own, but that's what the eyebrows are for." } },
+      choices = {
+        { text = "Both have their place. I respect your craft.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Magic doesn't need levers. That's why it's better.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Do you know what a lightning bolt would do to a capacitor? Neither do I, but I've got a capacitor and I'd love to find out." },
         { id = "h_default", key = true,
           text = "Gnaz Blunderflame, engineering supplies! I sell the gears, the powder and the bolts that every tinkerer from here to Gadgetzan needs, and I've only blown up the shop once this year, which is a personal record." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! Now, I've got flash powder, smoke bombs and a little something that goes bang very quietly, if you know what I mean, and I'm sure you do." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Now, I've heard your kind say engineering is just magic for people who can't cast spells, and I'll tell you right now that's not true." },
       },
       again = {
         { id = "h_again", text = "What else? Quickly, I've got something on the bench that's ticking." },
@@ -953,6 +1160,8 @@ P:NPC {
         { text = "You blew up the shop?", next = "boom" },
         { text = "Who buys blasting powder in a port?", next = "buyers" },
         { text = "Does all this work, or is it just noise?", next = "work" },
+        { text = "How does something go bang quietly, Gnaz?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Is engineering really so different from magic, Gnaz?", next = "xmage", when = { class = "MAGE" } },
         { text = "I'll keep my distance, thanks.", next = "END" },
       },
     },
