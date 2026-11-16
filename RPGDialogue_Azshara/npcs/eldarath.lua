@@ -42,8 +42,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Healthier than Felwood's, but the ruins below hold old magic and older ghosts, and the earth around them is restless. The coursers still run and the trees still grow, so I tell myself the land is only sleeping badly. The Circle hopes to keep it from waking into something worse." } },
+      choices = {
+        { text = "The Circle is wise. Leave the old ruins sealed.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Old ruins hide power. Someone ought to open them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, and welcome. My people had shamans before the corruption, and you remind me of the elders who taught me to hear the forest." },
         { id = "h_default", key = true,
           text = "I am Ogtinc, and I serve the Cenarion Circle. I keep watch on this cliff over the Ruins of Eldarath, and I gather what the Circle needs to heal the lands the demons left sick." },
         { id = "h_aid", when = { questActive = TODO_QUEST("Cenarion Aid") },
@@ -67,6 +77,7 @@ P:NPC {
         { id = "h_again3", when = { timeOfDay = "night" }, text = "Ask. The ghosts below are loud tonight, and I would rather hear you." },
       },
       choices = {
+        { text = "Are the spirits of Azshara still healthy, Ogtinc?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "A furbolg in the Cenarion Circle?", next = "who" },
         { text = "Tell me about the coursers.", next = "coursers" },
         { text = "What does the Circle want here?", next = "circle" },
@@ -355,8 +366,18 @@ P:NPC {
         { text = "I'll stand here being short, thanks.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Both, and the curse is the elves' fault as far as I'm concerned! The old ones built all this, blew it up and left it full of ghosts and satyrs, and then their cousins come along and hire me to dig through it. If your spirits want to be useful, they can find my equipment before the satyrs at Legash do." } },
+      choices = {
+        { text = "For a fair cut, I'll find your gear myself.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "The spirits don't fetch goods, Kim'jael. Show some respect.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Good, you can tell me if this place is cursed, because I've been robbed, stabbed at and called a rat, and I'm starting to take it personally." },
         { id = "h_default", key = true,
           text = "They call me Kim'jael, and oh, Kim'jael indeed! It's elvish for little rat, near enough, and those bullies called me that the whole time they were paying me." },
         { id = "h_gear", when = { questActive = TODO_QUEST("Kim'jael Indeed!") },
@@ -369,6 +390,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, go on. I'm all ears, and the ears are worth a fortune." },
       },
       choices = {
+        { text = "Is Azshara cursed, Kim'jael, or just unlucky for you?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Who hired you?", next = "hired" },
         { text = "What did the elves want here?", next = "treasure" },
         { text = "Why not leave Azshara?", next = "leave" },

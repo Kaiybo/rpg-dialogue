@@ -140,8 +140,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "They do, and the elements are losing, which is the worst of it. The Shadow Council at Jaedenar drew fel up through the roots until the earth itself turned sour, and now even the fire in this forest burns green. A shaman who listens too closely here may find something other than the spirits listening back." } },
+      choices = {
+        { text = "I'll keep to the old ways and leave the fel alone.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Every power can be mastered, given the will. Even this one.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, here? Then you'll feel the fel in this place pulling at you, so mind you don't answer it; I've watched stronger spirits than yours bend." },
         { id = "h_default", key = true,
           text = "Greta Mosshoof, of the Emerald Circle. The satyrs and the Shadow Council made this forest what it is. I'd like to unmake it. Don't let the power here tempt you; it's what poisoned the land." },
         { id = "h_jaedenar", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("Forces of Jaedenar") }, { questActive = TODO_QUEST("A Final Blow") } } },
@@ -157,6 +167,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Yes? Ask, and I'll hold my stone while you do." } },
       choices = {
+        { text = "Do the fel and the elements fight each other here, Greta?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Who are the Shadow Council?", next = "council" },
         { text = "Tempt me? How?", next = "tempt" },
         { text = "Tell me about the stone.", next = "stone", when = { metBefore = true } },
@@ -382,8 +393,18 @@ P:NPC {
         { text = "Show me what to hit. I'll leave the patience to you.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "It goes down to the roots and the water both, which is why salves and seeds take so long. My people would say Elune's light has gone out of this place, and yours would say the spirits are sick, and I think we're describing the same wound from opposite sides. That's as near as I'll come to agreeing with the Horde today." } },
+      choices = {
+        { text = "The spirits don't care about banners, and neither do I.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "My place is with the Horde, and I'll mend from there.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A Horde shaman. I'll say plainly that it's the Alliance I ask for help, but I won't pretend your kind don't know the land's voice, so speak." },
         { id = "h_default", key = true,
           text = "Arathandris Silversky, of the Emerald Circle. I ask the Alliance to help me cleanse Felwood, and the curse is old and stubborn, but so am I." },
         { id = "h_cleansing", tags = { "news" }, when = { questActive = TODO_QUEST("Cleansing Felwood") },
@@ -395,6 +416,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Something else? Mind the flower, though." } },
       choices = {
+        { text = "Does the curse here go deeper than the trees?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why is it harder than war?", next = "harder" },
         { text = "Tell me about the flower.", next = "flower", when = { metBefore = true } },
         { text = "Do you work with Maybess?", next = "maybess" },

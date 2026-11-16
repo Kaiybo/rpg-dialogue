@@ -54,8 +54,18 @@ P:NPC {
         { text = "I'll share what I can.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Twist them? It overpowered them, my dear shaman, which is rather the point of Highborne magic. The power under this coast still runs hot, and the elements here behave like dogs that have been kicked once too often. I find it fascinating, and I expect you find it sad, which is precisely why one of us lives in a tower." } },
+      choices = {
+        { text = "Fascinating is right. I'd study it myself, given the chance.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Magic that cows the elements should be left buried.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in my tower? How quaint. I suppose you've come to tell me the Highborne relics upset the local spirits, and I suppose I'll pretend to listen." },
         { id = "h_default", key = true,
           text = "Archmage Xylem, at your service, or rather, you at mine, if you're any use. I study what the Highborne left on this coast, which is a great deal, guarded by a great many things that would rather I didn't." },
         { id = "h_dust", when = { questActive = TODO_QUEST("Magic Dust") },
@@ -83,6 +93,7 @@ P:NPC {
         { id = "h_again3", when = { disposition = { min = 70 } }, text = "Ask me anything, {name}. Within reason, and the reason is mine." },
       },
       choices = {
+        { text = "Does the Highborne magic here twist the elements, Archmage?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What do you study up here?", next = "study" },
         { text = "Who is Morphaz?", next = "morphaz" },
         { text = "What do you want with the naga?", next = "naga" },
@@ -326,8 +337,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Rocks, wind and a very long drop, which I look at every day and care for less each time. The Highborne built all along this coast, and my master says their magic still hums in the stone, though to me it only hums. If your spirits are listening, ask them to carry me somewhere warm." } },
+      choices = {
+        { text = "Your master won't notice if you slip off south.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Serve your master well. There's honour even in waiting.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, smelling of smoke and earth, as your sort always do. My master won't care what you are, so I suppose neither will I." },
         { id = "h_default", key = true,
           text = "Sanath Lim-yo, servant of Archmage Xylem. My master's tower stands above us, and there are no stairs, so you will need me to send you up, which I am obliged to do for anyone at all now, more's the pity." },
         { id = "h_magecraft", when = { questActive = TODO_QUEST("Magecraft") },
@@ -338,6 +359,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. Bore me a little more; I'm almost asleep." },
       },
       choices = {
+        { text = "Do these cliffs hold anything the spirits care for?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Send me up to your master.", next = "up" },
         { text = "You used to charge for this?", next = "toll" },
         { text = "What is your master like?", next = "master" },

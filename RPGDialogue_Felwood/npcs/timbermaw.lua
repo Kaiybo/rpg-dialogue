@@ -18,8 +18,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Our shamans hear the earth crying under the Deadwood camps, where the corruption soaked in deepest. The spirits there no longer answer the Deadwood, and Grazle thinks that is how the madness took them: they stopped listening, and something else began to talk. You understand this, shaman, better than the others who come to Grazle's door." } },
+      choices = {
+        { text = "Your elders should decide what's done here, not outsiders.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Waiting on elders heals nothing. Someone has to act.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The Timbermaw have shamans of their own, and Grazle knows the look, so you may stand a little closer than most outsiders." },
         { id = "h_default", text = "I am Grazle of the Timbermaw. Our cousins the Deadwood have taken the corruption into themselves, and they attack anyone who walks these woods, Timbermaw included." },
         { id = "h_cond", when = { class = "DRUID" }, text = "A druid, who knows the forest is sick. You will understand why the Timbermaw guard our door so closely." },
       },
@@ -28,6 +38,7 @@ P:NPC {
         { id = "h_again2", text = "Speak. Grazle listens." },
       },
       choices = {
+        { text = "What do your shamans hear from the Deadwood's land?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What happened to the Deadwood?", next = "deadwood" },
         { text = "What is Timbermaw Hold?", next = "hold" },
         { text = "Why distrust outsiders?", next = "outsiders" },
@@ -100,8 +111,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "They carve them from blackened wood and paint them in the colours of the corruption, and still they pray to them. The spirits will not live in such things, so the Deadwood pray to nothing, or to something worse than nothing. Every totem you bring to Nafien is one less mouth for the corruption to speak through." } },
+      choices = {
+        { text = "A defiled totem should be burned with respect, not hoarded.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A totem's a trophy. I'll bring you every one I find.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, and Nafien is glad of it, because a shaman knows a totem when he sees one, and the Deadwood carve theirs wrong now." },
         { id = "h_default", text = "I am Nafien. The Deadwood keep their camps to the south of our hold, and every feather and totem they carry is a mark of the corruption in them. Bring them to me, and the Timbermaw will know whose side you stand on." },
         { id = "h_cond", when = { class = "HUNTER" }, text = "A hunter, good. The Deadwood are not beasts, but they hunt like beasts now, and you will know how to answer that." },
       },
@@ -110,6 +131,7 @@ P:NPC {
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
+        { text = "What did the Deadwood do to their totems?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why the feathers and totems?", next = "totems" },
         { text = "Are the Timbermaw at war?", next = "tribe" },
         { text = "Is anywhere in Felwood still clean?", next = "felwood" },
@@ -182,8 +204,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Power? The elements in Felwood are leftovers, shaman, scraps the Legion didn't bother to finish! Fel runs through every root and rock in this forest, and the spirits you chatter to are hiding in the corners. Niby could show you real power, but you'd only use it to make it rain, and Niby finds that very sad." } },
+      choices = {
+        { text = "I serve no balance. I'll take power where I find it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The spirits keep a balance your Legion never understood.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Niby does not care for your sort, all totems and talking rocks, but even Niby admits you're more interesting than a peasant." },
         { id = "h_default", text = "I am Niby the Almighty, master of fel secrets, keeper of terrible knowledge, and yes, I am small, so don't mention it. Felwood is full of demonic remains, and Niby knows exactly what they're good for." },
         { id = "h_cond", when = { class = "WARLOCK" }, text = "A warlock! At last, someone who appreciates a demon's wisdom, and who might do as Niby says without all the whining." },
       },
@@ -192,6 +224,7 @@ P:NPC {
         { id = "h_again2", text = "Yes, yes, what else?" },
       },
       choices = {
+        { text = "Do the elements still have any power here, imp?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What are you planning, imp?", next = "power" },
         { text = "Who's the other imp?", next = "impsy" },
         { text = "Why camp in Felwood?", next = "felwood" },

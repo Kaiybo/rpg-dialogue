@@ -184,8 +184,18 @@ P:NPC {
         { text = "Fair price. Everything's for sale.", next = "BACK", fx = { align = { order = -1 }, affinity = 2 } },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "If they mind, they've not said so to me, and I've been digging a good while. The Highborne were demon-lovers who brought ruin on their own city, so I don't lose sleep over their ghosts. Ag'tor would tell you to leave it be, but Ag'tor isn't the one buying his way back to Orgrimmar." } },
+      choices = {
+        { text = "Dig away. The Horde needs coin more than ghosts need tablets.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "The dead deserve better, even Highborne dead.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, and I can already hear the lecture about respecting dead elves. Save it, because the tablets don't mind where they end up." },
         { id = "h_default", key = true,
           text = "Jediga, and I'm not out here for glory or honour, before you ask. One orc's wounded pride put me in this forest, and I mean to make enough coin out of my exile to buy my way home." },
         { id = "h_tablets", when = { questActive = TODO_QUEST("Stealing Knowledge") },
@@ -200,6 +210,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. You're better company than Ag'tor, at least." },
       },
       choices = {
+        { text = "Do the spirits here mind you digging up the Highborne ruins?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Whose pride sent you here?", next = "exile" },
         { text = "Who buys Highborne tablets?", next = "buyers" },
         { text = "What do you make of the Archmage?", next = "xylem" },
@@ -310,13 +321,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Couldn't say, shaman, but it troubles the beasts. The wind comes off the bay full of salt and storm, and they shake their heads at it as if it stings. Talk to it if you like, and I'll keep the harness oiled." } },
+      choices = {
+        { text = "I'll ask the wind's leave before I fly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I fly where I please. The wind can follow.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "Shaman. The beasts like you better than they like me, so maybe you'll calm them before you fly." },
         { id = "h_default", key = true,
           text = "Kroum, wind rider master. I can send you home to Orgrimmar or Thunder Bluff, to the Crossroads, to Splintertree in Ashenvale, to Bloodvenom Post in Felwood, or north to Everlook in the snow." },
       },
       again = { { id = "h_again", text = "The wind riders are restless. Say what you need, or climb on." } },
       choices = {
+        { text = "Does the salt wind off the coast trouble the spirits too?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "How do the wind riders like it here?", next = "beasts" },
         { text = "Is it safe to fly over the coast?", next = "coast" },
         { text = "Show me where I can fly.", next = "BUSINESS" },

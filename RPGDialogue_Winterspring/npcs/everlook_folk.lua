@@ -35,8 +35,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Respect them? This is a Steamwheedle town, so we respect the exchange rate first and the weather second. Umi thinks the snow's a personal friend, and the troll witch doctor out in the hills thanks every critter she skins, but the rest of us just want the wind to stop getting under the door." } },
+      choices = {
+        { text = "Fair enough. Coin keeps you warmer than spirits do.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "The land feeds this town. It deserves more than that.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "Oh, a shaman, all bones and feathers and totems! It's a look, I'll give you that, though I'd lose a few of the teeth." },
         { id = "h_default", key = true,
           text = "Legacki, at your service, and the only goblin in Everlook with any taste. You've met Umi? Then you've seen her latest toy, and I'll bet you a gold piece it falls apart before the thaw." },
         { id = "h_after", tags = { "news" }, when = { questDone = TODO_QUEST("Are We There, Yeti?") },
@@ -48,6 +58,7 @@ P:NPC {
         { id = "h_again2", text = "Ask away, but stand where I can see your hands." },
       },
       choices = {
+        { text = "Does anyone in Everlook respect the spirits of this land?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do the goblins care about Winterspring's woods?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What's wrong with Umi's inventions?", next = "umi" },
         { text = "What's there to do in Everlook?", next = "town" },
@@ -113,8 +124,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Because the chimaera live in that wind all their lives, and the cold gets into the horn the way rust gets into iron. Tinkee wants them whole for her work, so I take them uncracked or not at all. I suppose you'd say there's a spirit of the ice in them, and I'd say it's density, and we could both be right, if you insist." } },
+      choices = {
+        { text = "A horn's a horn. Take as many as Tinkee pays for.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Respect the beast that gave the horn, Felnok.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, is it? Kindly keep your totems off my bench, because I've a horn here that cracks if you so much as breathe on it." },
         { id = "h_default", key = true,
           text = "Felnok Steelspring, and I build things for people who can't build them for themselves. Right now that's Tinkee Steamboil, down in the Burning Steppes, and she wants her order finished yesterday." },
         { id = "h_from_tinkee", tags = { "news" }, when = { questActive = TODO_QUEST("Felnok Steelspring") },
@@ -132,6 +153,7 @@ P:NPC {
         { id = "h_again3", text = "Go on. I'll listen while I count these springs again." },
       },
       choices = {
+        { text = "Why do the chillwind horns hold the cold so well?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What does Tinkee need all this for?", next = "tinkee" },
         { text = "Why do the horns matter so much?", next = "horns" },
         { text = "Why work out here in the cold?", next = "cold" },
@@ -207,8 +229,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "It's whiter and quieter, and nothing here remembers me, which is a kind of mercy, I suppose. Lordaeron had green hills and farms all the way to Darrowshire, and they say the plague has turned it all grey. If the land up there has spirits like yours, I hope somebody is still being kind to them." } },
+      choices = {
+        { text = "If I travel north, I'll ask the spirits after your family.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Let Lordaeron go. The living need you here.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You're a shaman? I've never met one, though I've heard the orcs who speak to spirits are gentler than the ones I was taught to fear as a girl." },
         { id = "h_default", key = true,
           text = "I'm Jessica Redpath. I left Lordaeron before the plague reached us, but my family stayed behind, and I've heard nothing of them since the fighting at Darrowshire." },
         { id = "h_before", when = { minLevel = 53, questBefore = TODO_QUEST("Sister Pamela") },
@@ -223,6 +255,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, please. It's good to hear a voice that isn't a trader's." },
       },
       choices = {
+        { text = "How does Winterspring compare to the land you left?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Tell me about your family.", next = "family" },
         { text = "How did you end up in Everlook?", next = "everlook" },
         { text = "What happened at Darrowshire?", next = "darrowshire" },
@@ -316,8 +349,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "A forge answers to the smith, ant, and that is the lesson my people learned at a terrible price beneath Blackrock. Thaurissan called up the Firelord thinking fire would serve him, and now Ragnaros rules our kin. I keep my fire small and my hammer heavy, and I do not ask the flame what it wants." } },
+      choices = {
+        { text = "Fire must be respected, not commanded. Your people learned that.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then bind it better than Thaurissan did, smith.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. My people bound fire once and were burned for it, ant, so don't expect me to be impressed by your little totems." },
         { id = "h_default", key = true,
           text = "I am Malyfous Darkhammer of the Thorium Brotherhood, and I do not waste my hours on idle talk. If you have a task worthy of my hammer, name it; if not, there are snowdrifts outside you could study." },
         { id = "h_warm", when = { reputation = { faction = "Thorium Brotherhood", min = "honored" } },
@@ -332,6 +375,7 @@ P:NPC {
         { id = "h_again2", text = "More questions. The ants always have questions." },
       },
       choices = {
+        { text = "Does a Dark Iron forge answer to the fire spirits?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What is the Thorium Brotherhood?", next = "brotherhood" },
         { text = "What could you make from the Beast's hide?", next = "hide" },
         { text = "Why work in Everlook, so far from home?", next = "everlook" },
@@ -423,8 +467,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "I believe they do. Ursius of the Shardtooth, Brumeran of the Chillwind and Shy-Rotam the frostsaber have lived long enough to grow great, and nothing in this snow grows old without the land's favour. I hunt them with respect and give the spirits thanks after every hunt, because a hunter who forgets his thanks soon stops coming home." } },
+      choices = {
+        { text = "A hunt given thanks is the only honourable hunt.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The spirits don't choose who's hunted. Strength decides.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, the Earth Mother's blessing on you. The great beasts here are wise, and I think the cold spirits keep them strong, so walk softly when you pass their dens." },
         { id = "h_default", key = true,
           text = "I am Storm Shadowhoof, and I hunt the great beasts of Winterspring. Every herd and pack in these hills has a leader, and those leaders are the hunts worth telling of." },
         { id = "h_alliance", when = { faction = "Alliance" },
@@ -442,6 +496,7 @@ P:NPC {
         { id = "h_again2", text = "Speak on, but quietly; sound carries over snow." },
       },
       choices = {
+        { text = "Do the spirits favour the great beasts of Winterspring?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Which beasts of Winterspring do you hunt, Storm?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Which beasts do you hunt?", next = "beasts" },
         { text = "Why come so far north to hunt?", next = "why" },
@@ -520,8 +575,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Harsher, shaman, because it comes down off the peaks all night and drives the snow sideways into the roosts. I've wrapped the riders in blankets and still they shiver. If the air spirits here have a grudge, I'd like to know whose it is, because it isn't mine." } },
+      choices = {
+        { text = "Leave the wind an offering at the roost, as is proper.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The wind answers no one. Your beasts will have to toughen up.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Good, maybe you can tell the wind up here to stop biting my beasts, because they won't listen to me." },
         { id = "h_default", key = true,
           text = "I am Yugrek, and I keep the wind riders here for the Horde. They'll take you south to Felwood and on to Orgrimmar, if your business is with the Horde." },
         { id = "h_alliance", when = { faction = "Alliance" },
@@ -533,6 +598,7 @@ P:NPC {
         { id = "h_again2", text = "Speak, then, and quickly." },
       },
       choices = {
+        { text = "Is the wind over Winterspring as harsh as it seems?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What's wrong with the trees of Felwood?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Where can I fly?", next = "BUSINESS", when = { faction = "Horde" } },
         { text = "How do wind riders stand the cold?", next = "cold" },

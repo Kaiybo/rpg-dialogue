@@ -294,8 +294,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Ruins, bones and debts, mortal. The Highborne opened this land to demons ten thousand years ago, and something of that door still lingers around Eldarath and the old palaces. Your spirits feel it as a wrongness and look away, while I look straight at it, and that is the whole difference between us." } },
+      choices = {
+        { text = "Then I'll look at it too, whatever my elders say.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Spirits keep their distance for a reason. That's wisdom, not fear.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, listening to rocks and rivers. You'd hear more if you listened to what lies under them, because Azshara is thick with the Legion's leavings and your spirits are too polite to mention it." },
         { id = "h_default", key = true,
           text = "Can you see them, mortal? The shapes at the edge of the tide, the shadows that are not shadows? No; I thought not. Your kind have eyes and see nothing with them, which spares you a great deal, and is why I live here and you are only visiting." },
         { id = "h_story", when = { questActive = TODO_QUEST("Loramus") },
@@ -316,6 +326,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, mortal. My hounds are patient, and so, today, am I." },
       },
       choices = {
+        { text = "What has the Legion left in Azshara's earth?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Who are you, Loramus?", next = "who" },
         { text = "What do you see that I can't?", next = "see" },
         { text = "Tell me about Razelikh.", next = "razelikh" },
@@ -506,8 +517,18 @@ P:NPC {
         { text = "I'll remember the one's name.", next = "BACK", fx = { affinity = 1 } },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "The bay obeys no one, not even the one, though it is fond of Arkkoroc, and that is nearly the same. The Waterlords on their island think the tides belong to them, and the naga think the deep belongs to them, and the one lets them think it. A hydra has been killing the one's sons and the sea did nothing to stop it, so you see even a god's waters have their limits." } },
+      choices = {
+        { text = "The waters should have a lord. Better you than the naga.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The sea is free. No god or duke commands it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, who speaks to water as though the water would answer. The sea answers Arkkoroc, little one, but you may listen if you are quiet." },
         { id = "h_default", key = true,
           text = "Arkkoroc is the one who rules these waters, the god of the deep folk and the lord of this temple. The makrura bow to the one, the murlocs sing to the one, and the sea itself remembers the one's name." },
         { id = "h_name", when = { questActive = TODO_QUEST("The Name of the Beast") },
@@ -518,6 +539,7 @@ P:NPC {
         { id = "h_again2", text = "Speak, small thing. The tide is slow; the one is patient, for now." },
       },
       choices = {
+        { text = "Do the waters of this bay obey you, great one?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Are you truly a god?", next = "god" },
         { text = "Who threatens your children?", next = "sons" },
         { text = "This was a temple of Elune, once.", next = "temple" },

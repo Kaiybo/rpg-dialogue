@@ -95,8 +95,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "The wind over this forest is foul, shaman; it carries the stink of the river and something worse besides, and the beasts fight their harness when we climb through it. I fly them high and fast and never let them drink below. If the air spirits are sick here, I'd thank you to say a word to them on my riders' behalf." } },
+      choices = {
+        { text = "I'll ask the wind's leave properly, by the old rites.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I don't bother with rites. I tell the wind what I need.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, then. My beasts grow calmer when one of your kind is near, which is more than I can say for this forest." },
         { id = "h_default", key = true,
           text = "Brakkar, wind rider master at Bloodvenom Post. My beasts fly to Splintertree Post, to Everlook in the snows and to Valormok, and from there to anywhere the Horde can reach, so tell me where you're going and let's be done." },
       },
@@ -105,6 +115,7 @@ P:NPC {
         { id = "h_again2", text = "Speak. I've time, but not much patience." },
       },
       choices = {
+        { text = "Do the winds over Felwood trouble your riders, Brakkar?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Where can I fly?", next = "BUSINESS", when = { faction = "Horde" } },
         { text = "Why keep a post in this forest at all?", next = "post" },
         { text = "How do your wind riders stand it here?", next = "riders" },
@@ -161,8 +172,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "I don't know, shaman, and I've asked myself that every morning I've stood at this counter. In Mulgore the soil was black and sweet, but here it's grey and it stings the hand, and even the water I sell has to be carried in from outside. The Emerald Circle says it can be mended, and I'd like to believe them, though I've seen what runs in that river." } },
+      choices = {
+        { text = "We owe the Earth Mother our help. I'll do my part.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Some land is lost. Our strength is better spent elsewhere.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, Earth Mother be thanked. Sit a while, if you can bear it; the ground here weeps, and I think you'll hear it more plainly than I do." },
         { id = "h_default", key = true,
           text = "I am Bale, and I keep the general goods at Bloodvenom Post. Water, food, thread and tools, all of it brought in from outside, because nothing that grows in Felwood is fit to eat." },
       },
@@ -171,6 +192,7 @@ P:NPC {
         { id = "h_again2", text = "Take your time. There's no hurry in my corner." },
       },
       choices = {
+        { text = "Can the earth of Felwood ever heal, Bale?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Let me see your goods.", next = "BUSINESS" },
         { text = "Nothing here is fit to eat?", next = "food" },
         { text = "Why is a tauren out here?", next = "why" },

@@ -210,8 +210,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "I think they do, though I'm a priestess and not a shaman, so I feel it as Elune's light and you'll feel it as something else. The ground around each altar stays a little warmer, and the wild things gather there even when they're dangerous to us. Whatever lives in these hills remembers that the altars once meant something." } },
+      choices = {
+        { text = "Sacred places deserve protecting, whoever raised them.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Elune's altars are no concern of the Horde's.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde? I didn't think one of you would come to an altar of Elune, but the spirits and the Mother Moon both watch these hills, so perhaps you belong here more than I thought." },
         { id = "h_default", text = "I am Ranshalla, a priestess of Elune, and there are old altars in these hills that have been dark for far too long. I mean to light their torches again, but the wild things guard them now, and I can't go alone." },
         { id = "h_cond", when = { class = "PRIEST" }, text = "A priest! Then you'll feel it too, when we reach the altar, the way the Mother Moon still listens there." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! The altars I mean to light were raised before the Sundering, and I think the Circle would be glad to see them burning again." },
@@ -221,6 +231,7 @@ P:NPC {
         { id = "h_again2", text = "Speak, the moon is patient tonight." },
       },
       choices = {
+        { text = "Do the old altars still draw the land's spirits?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What do the altars mean to the wild things, Ranshalla?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What's at the altar?", next = "altar" },
         { text = "Why do the altars matter to Elune?", next = "elune" },
@@ -294,8 +305,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "The ice was here long before us, mortal, for Winterspring has always been cold. We chose these caves because the frost keeps out the curious and keeps in what we guard. If the spirits of the ice speak to you, they will tell you they tolerate us, which is more than they offer you." } },
+      choices = {
+        { text = "Every power needs a keeper. The ice is in good hands.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "No flight owns the ice, Haleh, nor the magic.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You at least bargain with the powers you use instead of stealing them, which puts you a step above the mages, though not a large one." },
         { id = "h_default", text = "I am Haleh of the blue dragonflight, and these caves are ours to guard. Magic has been stolen and misused across this world, and the blue flight does not forgive those who play with what they don't understand." },
         { id = "h_cond", when = { class = "MAGE" }, text = "A mage. You wield a power that belongs to my flight, you know, and you wield it like a child with a lantern." },
       },
@@ -304,6 +325,7 @@ P:NPC {
         { id = "h_again2", text = "Speak, and be brief." },
       },
       choices = {
+        { text = "Is the ice of Mazthoril the blue flight's doing?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What does the blue flight guard?", next = "magic" },
         { text = "What is Mazthoril?", next = "mazthoril" },
         { text = "Who leads your flight?", next = "malygos" },
@@ -376,8 +398,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Less than Felwood, but it reached. Demons still keep to Darkwhisper Gorge in the south of this valley, and the snow around it is never quite clean. I could tell you the spirits fled, shaman, but I think they simply turned their backs, which is what anyone sensible does with a satyr." } },
+      choices = {
+        { text = "Spirits forgive more than you'd think, if you make amends.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "You chose your bargain. Your debts are your own.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The spirits must loathe me, I suppose, and I would in their place, for I gave away everything they would have given me freely." },
         { id = "h_default", text = "I am Lorax, and once I was something better than this, before I bargained my soul away to the Legion. Now I want only to strike back at the demon who holds my debt, and I can't do it alone." },
         { id = "h_cond", when = { class = "WARLOCK" }, text = "A warlock, of all things. Then you know already how a demon's bargain works, and how it always ends." },
       },
@@ -386,6 +418,7 @@ P:NPC {
         { id = "h_again2", text = "Ask. Lorax has nothing but time." },
       },
       choices = {
+        { text = "Did the Legion's touch reach Winterspring's land too?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Tell me your tale, then.", next = "tale" },
         { text = "What about the other satyrs here?", next = "satyrs" },
         { text = "Why hide in Winterspring?", next = "winterspring" },
@@ -458,8 +491,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Spoil them? It keeps them, friend, it's the best larder in Kalimdor! The trouble is getting the stores here at all, through the tunnels or over the pass, and the snow shuts one or the other every week. The way I see it, the frost spirits and I have a deal: they keep my meat cold, and I don't complain about the wind." } },
+      choices = {
+        { text = "That's a fair bargain. Keep your word to the frost.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "No bargain binds the wind. It'll take what it likes.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You'll be wanting something hot, I'll bet, because no spirit I ever heard of can make a stew in this cold." },
         { id = "h_default", text = "Himmik's the name, food and drink's the game, and in Everlook that's the most important trade there is. Everything I sell has to come over the pass or through the tunnels, so believe me, the prices are a bargain." },
         { id = "h_cond", when = { race = "Dwarf" }, text = "A dwarf! You'll want something that sticks to the ribs, and I've got a stew that'll hold up a mine shaft." },
       },
@@ -468,6 +511,7 @@ P:NPC {
         { id = "h_again2", text = "Anything else for you?" },
       },
       choices = {
+        { text = "Does the cold up here ever spoil your stores, Himmik?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What's cooking?", next = "BUSINESS" },
         { text = "What's good today?", next = "food" },
         { text = "How's business in Everlook?", next = "everlook" },
