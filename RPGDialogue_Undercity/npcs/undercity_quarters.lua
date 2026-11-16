@@ -91,7 +91,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "If you've come to learn, then listen. If you've come to waste my time, the door is behind you." },
-    { id = "g_back", when = { metBefore = true }, text = "So, you've come back to the Undercity's shadows. Show me your hands are quieter than last time." },
+    { id = "g_back", when = { metBefore = true }, text = "So, you've come back to the Undercity's shadows. Tell me your spellwork has grown sharper since last time." },
   },
 
   notice = {
@@ -109,7 +109,7 @@ P:NPC {
           text = "Anastasia Hartwell, of the Magic Quarter. I teach the arcane to those of the Forsaken with the wit to learn it, and to the Dark Lady's allies, when they behave." },
       },
       again = {
-        { id = "h_again", text = "Something else? Ask it plainly; I've rogues to teach and little patience left." },
+        { id = "h_again", text = "Something else? Ask it plainly; I have apprentices to correct and little patience left." },
         { id = "h_again2", text = "Anything further?" },
       },
       choices = {
