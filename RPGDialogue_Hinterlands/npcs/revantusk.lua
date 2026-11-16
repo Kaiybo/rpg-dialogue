@@ -50,7 +50,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
           text = "Fire and frost at your fingertips, {class}, I can smell it. The Amani learned to fear the arcane when the elves and the men of Arathor turned it on them, and some trolls never forgave it." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
-          text = "You move like a Revantusk scout, {class}, low and quiet and lookin' at the exits. Good, because Jintha'Alor be full of eyes, and my mate be at the top of it." },
+          text = "You move like a Revantusk scout, {class}, low and quiet and lookin' at the exits. Good, because Jintha'Alor be full of eyes, and the Vilebranch never see the quiet ones comin'." },
       },
       again = {
         { id = "h_again", text = "What else do you need, then? Say it quick." },
@@ -70,13 +70,13 @@ P:NPC {
         { text = "I serve the Dark Lady. What use am I here?", next = "forsaken", when = { race = "Scourge" } },
         { text = "Do you fear a warlock's magic, Primal?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do the Revantusk still hold that grudge against magic?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "Could someone slip into Jintha'Alor and reach your mate?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Could someone quiet slip into Jintha'Alor unseen?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "I'll go up to Jintha'Alor.", next = "END", fx = { affinity = 2, standing = { revantusk = 1 } } },
       },
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Many tried, and the Vilebranch put their heads on poles along the stairs. But one who walk soft and don't stop to fight might get further than any war party, and the Revantusk would remember that name a long time." } },
+      lines = { { id = "xrogue_default", text = "Many tried, and the Vilebranch put their heads on poles along the stairs. But one who walk soft and don't stop to fight get further than any war party, and the Revantusk remember a name like that a long time." } },
       choices = {
         { text = "A quiet blade gets further than a war party.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "I'd rather face the Vilebranch head-on, Primal.", next = "BACK", fx = { align = { honor = 1 } } },
