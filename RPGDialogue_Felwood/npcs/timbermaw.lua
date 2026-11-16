@@ -63,6 +63,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "That you prove your prayers by your deeds, because many have come here speaking softly and then cut down our kin. The Deadwood are lost to the corruption, and the Timbermaw will judge you by what you do about them, not by what you say to your gods." } },
+      choices = {
+        { text = "Then judge me by my deeds. I'll earn your trust.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I don't need the Timbermaw's leave to walk these woods.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The Timbermaw have shamans of their own, and Grazle knows the look, so you may stand a little closer than most outsiders." },
@@ -76,6 +85,7 @@ P:NPC {
           text = "A priest of the Alliance, Grazle thinks, with a healer's hands. The Timbermaw have little use for your temples, but Grazle has seen what the Deadwood do to a body, and healers are welcome near our door." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "Grazle sees a paladin, shining like the sun on snow. Your kind are loud and bright, but Grazle hears that you do not lie, and that is worth more at this door than any armour." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, at the Timbermaw door. I do not know your gods, but I know the look of someone who has tended the dying, and you have it." },
       },
       again = {
         { id = "h_again1", text = "Grazle will hear another question, if it is a short one." },
@@ -91,6 +101,7 @@ P:NPC {
         { text = "Has anyone ever sneaked into Timbermaw Hold?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Can the Deadwood be healed, Grazle, or only fought?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why are honest outsiders so rare at Timbermaw Hold?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What do the Timbermaw ask of a stranger who prays?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },
@@ -195,6 +206,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "The shamans burn their totems and speak their names, so that whatever was Timbermaw in them may find its way home. Nafien does not know whether your loa or your Light would hear such a prayer, but he would not stop you from offering one." } },
+      choices = {
+        { text = "I'll offer one for each of them I hunt.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Dead is dead. I'll save my prayers for the living.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, and Nafien is glad of it, because a shaman knows a totem when he sees one, and the Deadwood carve theirs wrong now." },
@@ -206,6 +226,7 @@ P:NPC {
         { id = "h_cond", when = { class = "HUNTER" }, text = "A hunter, good. The Deadwood are not beasts, but they hunt like beasts now, and you will know how to answer that." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest, Nafien thinks, and you will not like this hunt. Nafien does not like it either, but the Deadwood are past our shamans' help, and they have tried." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. Then you have sat beside the dying, and you will understand why Nafien takes no joy in the hunting he must do." },
       },
       again = {
         { id = "h_again1", text = "What else?" },
@@ -220,6 +241,7 @@ P:NPC {
         { text = "Wouldn't it be kinder to drive the Deadwood off than kill them?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Is there any way to cure the Deadwood?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do the Timbermaw honour the Deadwood dead?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is there any rite left for the Deadwood dead, Nafien?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Good hunting, Nafien.", next = "END" },
       },
     },
@@ -315,6 +337,15 @@ P:NPC {
         { text = "I'll keep my hands in my pockets.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Niby wants nothing from priests, since they are always trying to banish things, which is very rude. Still, a Forsaken who dabbles in shadow might see that Kroshius' remains are a great opportunity, and Niby rewards those who see opportunity." } },
+      choices = {
+        { text = "I banish demons, Niby. I don't wake them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Shadow is shadow. Tell me about this opportunity.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Niby does not care for your sort, all totems and talking rocks, but even Niby admits you're more interesting than a peasant." },
@@ -324,6 +355,7 @@ P:NPC {
           text = "A rogue! Niby approves of sneaking, since it saves on all the tiresome fighting. Do you also steal things for great and powerful masters, or only for yourself?" },
         { id = "h_default", text = "I am Niby the Almighty, master of fel secrets, keeper of terrible knowledge, and yes, I am small, so don't mention it. Felwood is full of demonic remains, and Niby knows exactly what they're good for." },
         { id = "h_cond", when = { class = "WARLOCK" }, text = "A warlock! At last, someone who appreciates a demon's wisdom, and who might do as Niby says without all the whining." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest? Niby supposes even the Almighty must suffer visitors who pray, so pray quietly, and don't point any of that holy light at my imp." },
       },
       again = {
         { id = "h_again1", text = "Niby is waiting, and Niby is very busy." },
@@ -337,6 +369,7 @@ P:NPC {
         { text = "I could use a demon's knowledge.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "If you're so mighty, why are you camped in a ruin?", next = "xmage", when = { class = "MAGE" } },
         { text = "What would the Almighty want stolen?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "What would a demon want with a priest, Niby?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Farewell, Almighty One.", next = "END" },
       },
     },

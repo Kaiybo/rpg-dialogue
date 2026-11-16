@@ -17,10 +17,34 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Perhaps because you don't startle them, and a hippogryph that isn't startled flies straight. Mind that you're honest with them, though, because they remember a rider who mistreated them for years." },
+      },
+      choices = {
+        { text = "I'll treat them well. They've earned it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A mount is a mount. I'll ride what I'm given.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Never, and I'm glad of it, because the hippogryphs are older than any spell for going places. The druids say a road you didn't travel is one you don't understand, and I've come to think they're right about that much." },
+      },
+      choices = {
+        { text = "Then I'll fly with you and learn the road.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A shorter road is still a road, flight master.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Vesprystus. My hippogryphs carry our people from the foot of Teldrassil to Auberdine across the water, and from there to the rest of the world." },
         { id = "h_cond", when = { race = "Human" }, text = "A human, here at the roots of our tree! Our hippogryphs are gentler than your gryphons, I think, though I would not say so in Ironforge." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "My hippogryphs are fond of you, rogue, which is odd, since they're usually wary of anyone who walks that quietly." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage taking the long way! I'd heard your kind can step from one place to another with a word, so it's a compliment that you'd choose my birds." },
       },
       again = {
         { id = "h_again", text = "What else would you ask?" },
@@ -30,6 +54,8 @@ P:NPC {
         { text = "I need a flight.", next = "BUSINESS" },
         { text = "Why live at the roots, not in the city?", next = "a" },
         { text = "Are the hippogryphs hard to train?", next = "b" },
+        { text = "Why would a hippogryph trust someone who walks quietly?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do the kaldorei ever travel by magic instead?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Thank you, Vesprystus.", next = "END" },
       },
     },
@@ -74,10 +100,34 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "We do, but a Sentinel's dagger is a last answer, and a rogue's is often the first. I'll teach you either way, but I'd rather you learned patience with the blade before speed, because speed without patience gets people killed." },
+      },
+      choices = {
+        { text = "Patience first, then. Teach me properly.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Speed's kept me alive so far. I'll take it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "One day you'll be out of mana in Ashenvale with a Warsong grunt in front of you, and then you'll be very glad you listened to an old weapon master. I teach patience above all, and a mage needs it more than most." },
+      },
+      choices = {
+        { text = "Then show me. I'd rather be ready.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My spells won't run dry if I'm careful.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Ilyenia Moonfire, weapon master of Darnassus. I teach daggers, staves, bows and blades, but first I teach patience." },
         { id = "h_cond", when = { class = "WARRIOR" }, text = "A warrior. You will have the strength, but the Sentinels would tell you strength without balance is only a slower way to fall." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Daggers, I'd wager, and I can see you favour the right hand. Come, let me show you why the left matters just as much." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A staff, of course, and you'll want to know how to swing it when the spells run dry. Every mage thinks they'll never need to, and every mage is wrong." },
       },
       again = {
         { id = "h_again", text = "Anything else?" },
@@ -87,6 +137,8 @@ P:NPC {
         { text = "Teach me a weapon.", next = "BUSINESS" },
         { text = "What do the Sentinels favor?", next = "a" },
         { text = "Who else trains here?", next = "b" },
+        { text = "Do the Sentinels train with daggers as rogues do?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Will I really need a staff in a fight?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -131,10 +183,34 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "That every track is a story about something hungry or frightened, and you should know which before you follow it. A rogue tracks to take, but a hunter tracks to understand, and I think you'd do your work better if you tried my way once." },
+      },
+      choices = {
+        { text = "I'll try it your way. Understanding helps.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Understanding is slow. Taking is quick.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "Of your servant, though she's no fonder of you for bringing it. Beasts know the fel by its stink, as surely as they know fire, and every hunter in Darnassus will read the same thing in their pets the moment you walk past." },
+      },
+      choices = {
+        { text = "Then I'll keep my distance from your cats.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Your cat can get used to it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Jeen'ra Nightrunner. I teach the hunters of Darnassus to track, to shoot and to bond with the wild beasts of Teldrassil." },
         { id = "h_cond", when = { class = "HUNTER" }, text = "Ah, one of mine. Your beast trusts you; I can see it in how it stands. That trust is worth more than any skill I could teach." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You'd make a fine tracker, rogue, if only you'd learn to follow something other than a purse." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "My cat has her ears flat and her tail low, warlock, and I've learned to trust her over my own eyes." },
       },
       again = {
         { id = "h_again", text = "What else?" },
@@ -144,6 +220,8 @@ P:NPC {
         { text = "I want training.", next = "BUSINESS" },
         { text = "How do you bond with a beast?", next = "a" },
         { text = "Where should a young hunter go?", next = "b" },
+        { text = "What would a hunter teach a rogue about tracking?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Is your cat afraid of me or of my servant?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Farewell, Jeen'ra.", next = "END" },
       },
     },

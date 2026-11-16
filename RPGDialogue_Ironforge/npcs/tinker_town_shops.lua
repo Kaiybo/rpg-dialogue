@@ -27,10 +27,32 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "To anyone who pays, and I assume they're for opening chests in Gnomeregan, which is a perfectly honest use. What you do with them after is between you and the guards." } },
+      choices = {
+        { text = "They'll open chests in Gnomeregan, nothing more.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The guards and I have an understanding. I avoid them.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Once, and the smell lingered for a month. I've no objection to your craft, mind, but I'd like my parts used for engineering and not for whatever it is you do in the dark." } },
+      choices = {
+        { text = "I'll use your parts for engineering, Gearcutter. Honestly.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "What I do in the dark is my own business.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Gearcutter Cogspinner, engineering supplies, and every part in this shop is tested twice before it's sold. If something of mine blows up, it's because you meant it to, and that's the only kind of explosion I'll stand behind." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue! I'll tell you now that my lockpicks are tested twice, like everything else, and that I don't ask what they're for." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock! I'll warn you that none of my parts are rated for fel energy, and I won't take them back if they melt." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've a box of springs to count." },
@@ -41,6 +63,8 @@ P:NPC {
         { text = "What does a new engineer need?", next = "need" },
         { text = "Where do your parts come from now?", next = "parts" },
         { text = "Is engineering really so dangerous?", next = "danger" },
+        { text = "Do you really sell lockpicks to anyone who asks?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Has fel energy melted your parts before?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Thanks, Gearcutter.", next = "END" },
       },
     },
@@ -110,10 +134,32 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "That's precisely the question, and my best guess is that the arcane doesn't like going in circles. Gnomeregan's engineers had it solved before the fall, but their notes are in the radiation, so I'm starting from nothing." } },
+      choices = {
+        { text = "Then we'll solve it again, safely, from the beginning.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Explosions are only data. Turn it up and see.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Mostly on its own, though there was an imp nearby at the time, and I have my suspicions. I'm a scientist, so I can't prove it, but I've also stopped inviting warlocks to my demonstrations." } },
+      choices = {
+        { text = "Fair enough. I'll keep the imp well away from your work.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The imp probably improved it, Springspindle.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Springspindle Fizzlegear, engineer, inventor and future destroyer of the wheel. If my calculations hold, wheels will be completely out of date within a generation, and I'll be the reason." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! I've been working on an arcane-powered replacement for the wheel, and I need someone to tell me why it keeps exploding." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock! I'd ask you not to summon anything near my prototypes, for the last one caught fire on its own and I don't need help." },
       },
       again = {
         { id = "h_again", text = "More questions? Excellent, I love questions." },
@@ -125,6 +171,8 @@ P:NPC {
         { text = "What's the difference between gnomish and goblin engineering?", next = "spec" },
         { text = "Have you ever been hurt by an invention?", next = "hurt" },
         { text = "I studied tinkering in Gnomeregan as well.", next = "k_tinker", when = { origin = "gnome_tinker_apprentice" } },
+        { text = "Why would an arcane wheel replacement keep exploding?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Did your last prototype really catch fire on its own?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll let you get back to it.", next = "END" },
       },
     },
@@ -213,12 +261,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Because I'd rather my students saved lives than ended them, and because the guards would ask questions. The Forlorn Cavern has others who teach your sort of brewing, and I'd prefer not to know the details." } },
+      choices = {
+        { text = "Healing's the better art, Tally. I respect your choice.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A poison and a potion are the same art, Tally.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Like berries mixed with something that isn't berries, which is the best I've managed so far. Gnomeregan's alchemists had a better recipe, but they left it behind, and I'm working from memory." } },
+      choices = {
+        { text = "I'll drink it gladly and help you improve it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Taste doesn't matter. Just make it stronger.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Tally Berryfizz, alchemist! I teach anyone who wants to learn how to turn a handful of weeds into something that'll save their life, and I've never yet lost a student, or not for very long." },
         { id = "h_druid", when = { class = "DRUID" },
           text = "Tally Berryfizz, alchemist, and I think you'll be good at this, being a druid. You already know which plants heal and which ones bite, so I only have to teach you the boiling part." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue! You'll want poisons, I expect, and I'll tell you now I only teach the healing sort." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! You'll want mana potions, I expect, and I've a new recipe that tastes almost like berries." },
       },
       again = {
         { id = "h_again", text = "What else would you like to know? I've a kettle on." },
@@ -229,6 +299,8 @@ P:NPC {
         { text = "Why sell potions and mixed drinks together?", next = "drinks" },
         { text = "Where can I find herbs near Ironforge?", next = "herbs" },
         { text = "What's the most useful potion?", next = "useful" },
+        { text = "Why won't you teach poisons, Tally?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What does your mana potion actually taste like?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Goodbye, Tally.", next = "END" },
       },
     },

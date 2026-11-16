@@ -27,12 +27,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Now an' then, an' usually the young ones who think a shopkeeper doesnae notice. I've kept this shop through the Second War an' the troll raids, so a cutpurse doesnae frighten me much." } },
+      choices = {
+        { text = "I'll pay my way, Kreg. You've earned that respect.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Every shopkeeper says that until the till is empty.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because most o' them stay in the city, where the trainin' is, an' the rest go straight on tae Stormwind. Out here we've troll raids an' troggs, an' folk havenae much patience for anythin' that might make it worse." } },
+      choices = {
+        { text = "Then I'll show them I make things better, not worse.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Their patience isn't my concern. Results are.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Kreg Bilmn, general supplies, an' I've kept this shop in Kharanos since before most o' the new recruits were born. Whatever ye forgot tae bring from Anvilmar, I've likely got it." },
         { id = "h_gnome", when = { race = "Gnome" },
           text = "Kreg Bilmn, general supplies, an' welcome tae Kharanos, wee one. Yer people have been comin' through here since the city fell, an' I've learned tae stock things a gnome likes, like spare bolts an' very small boots." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "I know every face on the Kharanos road, an' I know when one o' them's countin' my shelves. Buy what ye need, an' we'll get on fine." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock in Kharanos is a rare thing, an' I'll tell ye now the recruits will stare. Ignore them, an' they'll get bored soon enough." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? I've a crate tae unpack." },
@@ -43,6 +65,8 @@ P:NPC {
         { text = "What's the warning you mentioned?", next = "warn" },
         { text = "What's Kharanos like?", next = "town" },
         { text = "Do you see many gnomes come through?", next = "gnomes" },
+        { text = "Do travellers often try to rob you, Kreg?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Why are warlocks so rare out here in Kharanos?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Thanks, Kreg.", next = "END" },
       },
     },
@@ -112,12 +136,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "I'd refuse tae sell it tae a cutthroat, an' I'd know one if I saw one. Ye look like ye've a reason for yer trade, so I'll trust ye this once, an' I'll hear about it if I'm wrong." } },
+      choices = {
+        { text = "My blades are for the troggs and the trolls.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A dagger doesn't care whose back it's in, Grawn.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Only the clever ones, for a mage wi' a dagger can still fight when the mana's gone. I've seen a gnome mage hold off a trogg wi' a carvin' knife after his spells ran dry, an' that's no' a sight ye forget." } },
+      choices = {
+        { text = "A good mage prepares for every fight. I'll buy one.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If I need a blade, I've already lost the fight.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Grawn Thromwyn, weaponsmith. Every blade in this shop was made tae be used, no' hung on a wall, an' I'll take back any that breaks in an honest fight." },
         { id = "h_warrior", when = { class = "WARRIOR" },
           text = "Grawn Thromwyn, weaponsmith, an' ye're a warrior by the way ye walk. I've axes, swords an' maces, so take yer pick an' tell me what ye'll be hittin' with it." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue wantin' a blade? I'll sell ye a dagger, but I'll want tae know it's for the troggs an' no' for a dwarf's back." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage buyin' a blade! I'd ask what for, but I suppose even mages run out o' spells." },
       },
       again = {
         { id = "h_again", text = "What else? I've steel coolin'." },
@@ -128,6 +174,8 @@ P:NPC {
         { text = "Which weapon would you choose?", next = "choose" },
         { text = "Do you really take back broken blades?", next = "back" },
         { text = "Why make weapons in Kharanos, not Ironforge?", next = "why" },
+        { text = "Would you refuse to sell me a dagger?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do mages often buy weapons from you, Grawn?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Thank you, Grawn.", next = "END" },
       },
     },
@@ -197,12 +245,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because ye need tae move yer hands freely, an' my mail would weigh ye down like an anvil. Stick tae cloth, an' let the warriors stand in front o' ye, for that's what they're there for." } },
+      choices = {
+        { text = "I'll trust the warriors to stand in front of me.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd sooner stand alone than rely on anyone else.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I make armor for whoever needs it, but I'll admit I prefer the ones who fight wi' axes. Yer kind's demons do the fightin' for ye, an' I've no' the trick o' makin' armor for a voidwalker." } },
+      choices = {
+        { text = "I fight my own battles, Boran. The demon only helps.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "My demon bleeds so I don't have to. That's the point.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Boran Ironclink, armorer, an' my armor's kept more recruits alive in Dun Morogh than any priest. Mail, shields, helms, the lot, an' all made tae keep the cold out as well as the claws." },
         { id = "h_paladin", when = { class = "PALADIN" },
           text = "Boran Ironclink, armorer, an' ye're a paladin, so ye'll want the heaviest mail I've got. The Light'll protect yer soul, but somebody has tae protect yer ribs, an' that's my job." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage wantin' armor? I'll sell ye somethin', but ye'll no' be able tae cast in plate, so don't come back complainin'." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock in my shop? Ye'll no' be wantin' plate, I'd guess, so what is it ye're after?" },
       },
       again = {
         { id = "h_again", text = "What else, friend?" },
@@ -213,6 +283,8 @@ P:NPC {
         { text = "Why do you wear your own stock?", next = "wear" },
         { text = "What's the worst thing out there in Dun Morogh?", next = "worst" },
         { text = "Is heavy armor worth the weight?", next = "weight" },
+        { text = "Why can't a mage cast spells in your armor?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do you not make armor for warlocks, Boran?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Thanks, Boran.", next = "END" },
       },
     },
@@ -282,12 +354,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Aye, if ye oil it right an' cut it soft, which is why my leathers cost a wee bit more. I make it for scouts an' hunters, but I've no' asked any o' them what they get up to in the dark." } },
+      choices = {
+        { text = "I'll use it to scout the Frostmane, nothing more.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Better you don't ask, Durnan. It's healthier that way.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Durnan Furcutter, cloth an' leather. Every recruit who comes through Anvilmar needs somethin' warmer than what they arrived in, an' I make sure they get it." },
         { id = "h_mage", when = { class = { "MAGE", "PRIEST", "WARLOCK" } },
           text = "Durnan Furcutter, cloth an' leather, an' ye'll be wantin' the cloth, I'd guess. Robes are warm enough, as long as ye stay near a fire, which a spellcaster always seems tae manage somehow." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue fresh out o' Anvilmar! Ye'll want leather that doesnae creak, an' I've a few pieces that'll suit ye." },
       },
       again = {
         { id = "h_again", text = "Anythin' else I can help ye with, recruit?" },
@@ -298,6 +381,7 @@ P:NPC {
         { text = "What should a new recruit wear?", next = "wear" },
         { text = "What's the danger here in Coldridge Valley?", next = "danger" },
         { text = "Where do recruits go after Anvilmar?", next = "after" },
+        { text = "Can leather really be made to stay quiet?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Thanks, Durnan.", next = "END" },
       },
     },

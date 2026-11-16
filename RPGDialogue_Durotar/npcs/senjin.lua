@@ -26,6 +26,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Maybe, though Zalazane hides on the Echo Isles behind his voodoo and his hexed Darkspear, and they be our own people under the spell. Cut the witch doctor if you can reach him, but spare the hexed ones, because they be family still." },
+      },
+      choices = {
+        { text = "I'll spare the hexed. They're Darkspear, after all.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "In a fight, I can't stop to ask who's hexed.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "The spirits, yes, once Zalazane be dead and his voodoo with him. The trolls he twisted, I don't know, and I pray to the loa every night that I find out." } },
       choices = {
@@ -45,6 +56,7 @@ P:NPC {
         { id = "h_orgnil", when = { questActive = TODO_QUEST("Report to Orgnil") },
           text = "Orgnil in Razor Hill need strong arms against the Burning Blade. Go to him, and tell him Gadrin say you be useful." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid come to Sen'jin! The loa of the islands and your Earth Mother be old friends, I think, but Zalazane be twisting the spirits on the Echo Isles so bad that they barely know each other now." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "You move quiet as a raptor in the grass, mon. Zalazane's hexed ones never hear you coming, I bet." },
       },
       choices = {
         { text = "Can Zalazane's corruption be undone, Master Gadrin?", next = "druid_q", when = { class = "DRUID" } },
@@ -54,6 +66,7 @@ P:NPC {
         { text = "The spirits answer me now. Teach me to listen better.", next = "shaman", when = { class = "SHAMAN" } },
         { text = "I studied the arcane, Master. Is that so strange?", next = "mage", when = { race = "Troll", class = "MAGE" } },
         { text = "I hunt heads for the tribe, the old way.", next = "headhunter", when = { race = "Troll", class = "HUNTER" } },
+        { text = "Could a rogue help you against Zalazane?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Thank you, Master.", next = "END" },
       },
       again = {

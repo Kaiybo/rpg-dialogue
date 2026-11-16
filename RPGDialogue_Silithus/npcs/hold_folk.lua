@@ -15,6 +15,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Once, when a shipment of mine fell off a zeppelin, and it never came back, so I've not bothered since. But I'll make an exception today, because this venom's got me seeing things, and one of them looked a lot like a bill from Beetix." } },
+      choices = {
+        { text = "I'll pray for you anyway, Noggle. Rest now.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Pain teaches better than prayer. You'll heal when you've learned.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "A stinger the size of a wagon, out in the dunes, and I'd only stopped to pick one herb. If you see any of them out there, take their venom sacs, and maybe I'll cure myself before Beetix finishes worrying me to death." } },
@@ -41,6 +50,7 @@ P:NPC {
           text = "A mage! Can you magic this venom out of me? No? Then what good is all that study, I ask you, when a goblin can't even get a decent cure?" },
         { id = "h_default", key = true, text = "Noggle Ficklespragg, and yes, I'm related to Beetix, and no, I don't want to talk about it. I got stung by something nasty out in the desert, and now I'm stuck here until somebody brings me the makings of a cure." },
         { id = "h_c0", when = { questActive = TODO_QUEST("Noggle's Last Hope") }, text = "The venom sacs, friend, from the stingers out there. Bring me enough and I can brew my own cure, and then I'm leaving Silithus forever." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Finally, somebody who can fix me without making me drink anything, so lay on hands, or chant, or whatever it is you lot do, and be quick about it." },
       },
       again = { { id = "h_again", text = "What else? Talking hurts, so make it quick." }, { id = "h_again2", text = "Ask, if you must." } },
       choices = {
@@ -51,6 +61,7 @@ P:NPC {
         { text = "Is profit worth this risk?", next = "s_1" },
         { text = "How did you get poisoned?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Is there truly no cure for your venom?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Have you ever prayed for anything yourself, Noggle?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -99,6 +110,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "They say the swarm is only the hands, priest, and that whatever moves those hands is still sleeping far below! Pray with me while there is still time to pray, because soon there will only be time to run." } },
+      choices = {
+        { text = "I'll pray, Jonathan, but I'll stand and fight rather than run.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If something sleeps below, I'd like to hear what it says.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "A heartbeat, slow and vast, under the hives and under the wall, and every night it beats a little closer to the surface. The druids call it the land's grief, but I have listened longer than they have, and grief does not hunger." } },
@@ -129,6 +149,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You hear the earth, so you must hear it too: the sand groans, the stones weep, and the swarm below gnaws at the roots of the world." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde! Then you have heard them too, in your prayers, the voices beneath the sand that whisper of the end of all things!" },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock! You bear the mark of the fallen, the bargain of the damned, and the hives below will rise to meet you in the end of all things." },
         { id = "h_magecl", when = { class = "MAGE" },
@@ -145,6 +166,7 @@ P:NPC {
         { text = "Is there any hope?", next = "s_1" },
         { text = "Do you think warlocks will bring the end?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What do you think is beneath the sand?", next = "xmage", when = { class = "MAGE" } },
+        { text = "What do the voices beneath the sand say, Jonathan?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -193,6 +215,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "It needs them badly, and I would say so to the Warchief's face, because the silithid poison every wound they make. Keep my grunts breathing long enough to swing an axe, and I will call you as much a warrior as any of them." } },
+      choices = {
+        { text = "Then I'll serve wherever the Horde needs me, Krug.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I walk my own path, Krug, not the Horde's war effort.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "With axes, mostly, and with shaman like you calling down fire where the bugs swarm thickest. The ground is hollow with their tunnels, so we strike fast and pull back before it opens under us, and that is not a fight orcs were made for." } },
@@ -223,6 +254,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde! Good, that is the Warchief's own path, and we need your lightning at this front more than we need anyone's prayers." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. I have said we need lightning more than prayers, but the healers here have kept enough of my warriors standing that I would take it back, if you asked." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "A rogue of the Horde! I prefer an axe in the open, but I won't turn away a blade in the shadows, not with the bugs breeding faster than we can kill them." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
@@ -240,6 +272,7 @@ P:NPC {
         { text = "Should we fight beside the Alliance?", next = "s_1" },
         { text = "What does the Horde need from a rogue here?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do warlocks fight well against the silithid?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Does the Horde's war effort need priests, Krug?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Farewell.", next = "END" },
       },
     },

@@ -51,6 +51,15 @@ P:NPC {
         { text = "That's a sad fate.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Coldly, at first, and then with a watchful sort of courtesy that I have come to value. They watch the ruins for Highborne ghosts and I watch with them, and a quiet guest who keeps his word is worth more here than any warrior." } },
+      choices = {
+        { text = "Then I'll keep the peace, as you have.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Courtesy's a mask. I'd watch them just as closely.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_lockcl", when = { class = "WARLOCK" },
@@ -67,6 +76,7 @@ P:NPC {
           text = "Sit with me a while, friend. You have done more good on this border than most who pass over that bridge, and I would rather talk with you than with the ghosts." },
         { id = "h_cool", when = { disposition = { max = 34 } },
           text = "I keep my promises to the Sentinels, and I would ask you to keep yours to me. Say what you need, and then let us both go about our work." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, here at Talrendis Point. Walk softly, friend, for the Sentinels let me stay on a promise of no trouble, and I would like that promise to hold." },
       },
       again = {
         { id = "h_again", text = "What else would you know? I have time; the land does not hurry, and neither do I." },
@@ -84,6 +94,7 @@ P:NPC {
         { text = "My ancestors were Highborne, as it happens.", next = "skyborne", when = { all = { { race = "Skyborne" }, { faction = "Alliance" } } } },
         { text = "Do the Sentinels trust you after all this time?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Why do the Highborne ghosts remain?", next = "xmage", when = { class = "MAGE" } },
+        { text = "How do the Sentinels treat a Horde guest, Loh'atu?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "I'll keep the peace here, Loh'atu.", next = "END", fx = { affinity = 1, standing = { talrendis_point = 1 } } },
       },
     },

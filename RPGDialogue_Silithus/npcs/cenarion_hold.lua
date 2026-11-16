@@ -33,6 +33,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Healers for the riders who come back from the hives, and steady hands that do not tremble at what they find in the sand. The silithid wound the body and the Twilight's Hammer wound the mind, and the Hold has too few who can mend either." } },
+      choices = {
+        { text = "Then put me where the wounded come in, Commander.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let others nurse the broken. I'd rather see the cult suffer.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Perhaps, if a rogue went where my scouts cannot, into the Twilight camps and the empty places in the south. I will not order anyone to look for my wife, {class}; the Hold comes first, and I must keep reminding myself of that." } },
@@ -80,6 +89,7 @@ P:NPC {
           text = "The deserter's parchment has changed our battle plans more than any scout's report this season. We had thought the cult a nuisance at our flank, and it is nothing of the kind." },
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "There you are. I find the Hold steadier when you're in it, which is a strange thing to say of someone who's rarely here." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde at Cenarion Hold. You are welcome here, as are all who stand against the swarm, though forgive me if my thoughts wander when I see a priest." },
       },
       again = {
         { id = "h_again", text = "What else would you know? Ask, before the next runner finds me." },
@@ -100,6 +110,7 @@ P:NPC {
         { text = "Could a rogue help you find what happened on that dig?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What do the crystals have to do with the silithid?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do you fear warlocks will join the Twilight's Hammer?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What does the Hold need from a priest, Commander?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "I'll leave you to your work, Commander.", next = "END", fx = { affinity = 1, standing = { cenarion_hold = 1 } } },
       },
     },
@@ -368,6 +379,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "That's what I'd like tae know, because they hum for the Twilight's Hammer too, an' I'd hate tae think ye had anythin' in common wi' them. It's somethin' in yer power, Light or shadow, an' the rocks o' Silithus are listenin' for it." } },
+      choices = {
+        { text = "Then let them hear the Light, and nothing the cult brings.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Shadow speaks louder here. Perhaps the stones prefer it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Aye, they can, through the sand, an' they swarm a heavy walker faster than ye'd believe. A light step gets ye closer tae the crystals, an' that's where I need samples taken, before the hum gets any louder." } },
@@ -404,6 +424,7 @@ P:NPC {
           text = "I've barely put that prism down since ye brought it. The outer layer turns, ye see, and only when it lines up with the marks inside does the message come through, which is clever, and I hate it." },
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "There's my favourite pair of ears! Pull up a crate, the comfortable one with the agate in it." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest o' the Horde! Ye'll not mind if I ask ye tae hold still a moment, because the stones in my satchel have started hummin' since ye walked in." },
       },
       again = {
         { id = "h_again", text = "What else? I've got rocks to sort, but they're not going anywhere." },
@@ -422,6 +443,7 @@ P:NPC {
         { text = "The earth spirits are speaking here. Can't you hear them?", next = "x_shaman", when = { class = "SHAMAN" } },
         { text = "Can the silithid really feel footsteps?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "You think the crystals have a dark power?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Why would the stones hum for a priest, Larksbane?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "I'll let you get back to your rocks.", next = "END" },
       },
     },
@@ -603,6 +625,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Grain comes in by caravan, and every wagon must be guarded across the open sand, where the silithid like to rise up beneath the wheels. A healer on the supply road is worth a dozen carts, because a driver who lives keeps driving." } },
+      choices = {
+        { text = "I'll ride with the next caravan, Windcaller.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Caravans make easy targets. Let soldiers forage for themselves.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "They've soured them; there's no better word. Storms rise out of nowhere near the Twilight camps and scatter my supply carts across the dunes, and a windcaller who can't call the wind is, I'm sorry to say, a quartermaster." } },
@@ -661,6 +692,7 @@ P:NPC {
           text = "The dredge strikers lie under the sand along the northern road and burst out under the carts. Thin them out, {name}, before I lose another wagon of grain." },
         { id = "h_security", tags = { "news" }, when = { questActive = TODO_QUEST("Stepping Up Security") },
           text = "With the strikers gone, the crushers from the south are moving into their old hunting grounds. Bigger worms, same road, and the same carts I can't spare." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde! The Hold needs every healer it can get, and I would rather spend my grain carts feeding soldiers than burying them." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest of the Alliance, and very welcome, because the Hold goes through bandages faster than grain, and nobody has yet found a way to grow linen in sand." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -681,6 +713,7 @@ P:NPC {
         { text = "Why are the worms such a threat to the supplies?", next = "xmage", when = { class = "MAGE" } },
         { text = "Would you trust a warlock to guard your supplies?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Can the Hold truly win against the silithid, Windcaller?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "How do you keep the soldiers fed and whole, Windcaller?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do the supply carts come under attack often?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll keep an eye on the roads.", next = "END", fx = { standing = { cenarion_hold = 1 } } },
       },
@@ -779,6 +812,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Fewer prayers and more bandaging, mostly, because my guards come back from Hive'Ashi with holes in places nobody should have holes. If you can keep a sentry on his feet through the night, you'll have earned your place on the wall." } },
+      choices = {
+        { text = "Then I'll stand the night watch with your sentries, Captain.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'm nobody's bandage, Captain. I'll fight as I see fit.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Every night, up through the floor of this tower and into my teeth. The bugs dig deeper every season, and I don't need eyes to know the ground under the Hold isn't as solid as the Commander likes to think." } },
@@ -835,6 +877,7 @@ P:NPC {
           text = "Vish Kozus, Captain of the Guard. The Commander hasn't been himself since his wife vanished on a dig in the southern desert, without a trace, so I watch twice as hard. If you're looking for work, there's a poster by the door; do I need to draw you a picture?" },
         { id = "h_deathclasp", tags = { "news" }, when = { questActive = TODO_QUEST("Wanted - Deathclasp, Terror of the Sands") },
           text = "Deathclasp's gone to ground in the southern mountains, behind the dwarves' camp. Bring me her pincer, and only her pincer; I've been offered a lot of stories in my time, and not one of them had claws." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. I heard your robes before I heard your feet, and I'd guess Forsaken or troll from the way you walk, though I'm far too polite to say which." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest. The barracks could use you more than the inn could, because half my guards come off the walls with stings they're too proud to mention." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -855,6 +898,7 @@ P:NPC {
         { text = "How do you see with that blindfold on?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do you trust anyone at the Hold?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Are your guards holding up against the silithid?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What does the Hold's guard need from a priest, Captain?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "How does the Commander fare since his wife vanished?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll leave you to your watch.", next = "END" },
       },
@@ -970,6 +1014,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Some of them do, dear, because they come back from the Twilight camps with nightmares that a bowl of worm stew won't touch. I'm only an innkeeper, so I give them a blanket and a lamp, but a priest might give them something more." } },
+      choices = {
+        { text = "I'll sit with them tonight, and keep the lamp lit.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Nightmares harden a soldier. Let them face their own.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Barely, and only because the druids tend it. The sand creeps in a little every week and the silithid dig underneath, so there are mornings the water tastes of the hive, and I boil it twice before I let anyone drink." } },
@@ -1019,6 +1072,7 @@ P:NPC {
           text = "If you go by the cult's camp to the west, keep an eye out for anything they cook from. Sandworm's so bitter I can't get it past my own lips, and they eat it every day." },
         { id = "h_kitchen", tags = { "news" }, when = { questActive = TODO_QUEST("Kitchen Assistance") },
           text = "Smoked desert dumplings, from a cultist's cookbook! I'll never live it down if anyone finds out, so help me make a batch quickly, before I lose my nerve." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, at the Oasis Inn! Sit, dear, and rest your feet, whether you pray to the Light or the loa or something I'd rather not ask about." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! Sit down and let me shake the sand from your robes, because I've seen Elune's priestesses come in tidier after a sandstorm, and you've clearly been through two." },
       },
@@ -1038,6 +1092,7 @@ P:NPC {
         { text = "Do many rogues stay at the Oasis Inn?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What are you trying to cook?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do you miss Auberdine, Calandrath?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do the guests at the Oasis need more than a bed, Calandrath?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Thank you, Calandrath.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -1141,6 +1196,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Only if you start charging, friend, and then we'd have to talk about splitting the market. Between you and me, the venom out of those stingers is nasty stuff, and if your Light or your loa can ease Noggle where my potions can't, I'll call it a fair trade." } },
+      choices = {
+        { text = "I'll tend Noggle for nothing. Keep your potions for others.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My healing has a price too, Beetix. Name your cut.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "The stingers out here feed on things that ought not to be eaten, and the silithid poison whatever they don't eat. I've tested samples from the edge of Hive'Ashi that would fell a thunder lizard, and the closer to the hives they come from, the worse it gets." } },
@@ -1192,6 +1256,7 @@ P:NPC {
           text = "The first antidote didn't take, which means something nastier got him down south. I need fewer samples this time, but from more kinds of nasty, so this is our last shot." },
         { id = "h_satchel", when = { questActive = TODO_QUEST("Noggle's Lost Satchel") },
           text = "He's awake and already moaning about his bag. If you find it, check the reagents are all there before he does, or I'll never hear the end of it." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, and just in time, because Noggle's been moaning about dying all morning, and I'd love a second opinion that doesn't cost me reagents." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! Oh, thank the Cartel, could you look at Noggle? I'll still need the samples, mind, because whatever's in him is too stubborn for one prayer." },
       },
@@ -1209,6 +1274,7 @@ P:NPC {
         { text = "How bad is Noggle's poisoning?", next = "xmage", when = { class = "MAGE" } },
         { text = "Could a curse really help draw out venom?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "How bad is Noggle's poisoning, truly?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Would a priest's healing put you out of business, Beetix?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "I'll keep an eye out for nasty things with stingers.", next = "END" },
       },
     },

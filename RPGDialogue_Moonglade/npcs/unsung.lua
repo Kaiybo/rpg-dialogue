@@ -29,9 +29,49 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "On most of them, if they stay long enough, and priests seem to catch it quickest of all. I sold a Forsaken priest a bag last spring, and he sat by the lake for three days and left without a word, but he was smiling, or near enough." } },
+      choices = {
+        { text = "Then I'll stay a while, and let the peace take hold.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Peace is a luxury. I'll keep my edge, thank you.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Not for trouble, anyway, because the grove sees to that. I've had rogues come in wound tight as a bowstring and leave whistling, and I like to think a quiet bag of supplies from me had a little to do with it." } },
+      choices = {
+        { text = "Then I'll let myself unwind a little.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll stay wound tight. Peace doesn't last outside.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Only the arcane kind, and only because of the Highborne, which was a very long time ago, though you'd never know it from how they talk. Be gentle with your spells and kind to the trees, and they'll warm to you, slowly." } },
+      choices = {
+        { text = "Gentle spells and kind words. I can manage that.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I won't tiptoe around ancient grudges, Daeolyn.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Anyone who comes in peace, and the Keeper knows the difference better than any of us. I don't pretend to like the fel, but I've seen warlocks sit by the lake as quietly as any druid, and I'd rather judge the person than the craft." } },
+      choices = {
+        { text = "Then judge me by my peace. I'll keep it here.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Judge me how you like. The fel serves me well.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Daeolyn Summerleaf, and I keep the general goods for Nighthaven: water, thread, bags and the small things that travelers run short of. Most who come here are druids, but anyone the grove lets in may buy from me." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, welcome to Nighthaven! The grove is quieter than any temple, and I've seen priests of every sort stay a day longer than they meant to." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, welcome! You needn't keep to the shadows here, because nobody in Nighthaven is looking for anyone, and that's the whole charm of the place." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! The druids get a bit prickly about magic, but I've always thought a mage's company makes the evenings shorter, and Nighthaven's evenings are very long." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. You're welcome to my wares like anyone else the grove lets in, though I'd thank you to keep your companion outside, because it frightens the moths." },
       },
       again = {
         { id = "h_again", text = "Is there anything else? The grove is in no hurry." },
@@ -41,6 +81,10 @@ P:NPC {
         { text = "Let me see your goods.", next = "BUSINESS" },
         { text = "Horde and Alliance both trade here?", next = "both" },
         { text = "How did you come to live in Moonglade?", next = "came" },
+        { text = "Does Moonglade's peace really rub off on travellers, Daeolyn?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Is no one in Nighthaven ever looking for anyone, Daeolyn?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Are the druids truly prickly about magic, Daeolyn?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Does the grove truly let in anyone at all, Daeolyn?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Farewell, Daeolyn.", next = "END" },
       },
     },
@@ -106,9 +150,49 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Not with ears, but they lean toward a kind voice the way they lean toward the moon, I'm sure of it. A troll priest once prayed over my peacebloom, and it flowered twice that season, though I suppose it might have been the rain." } },
+      choices = {
+        { text = "Then I'll tend them as patiently as you do.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'd sooner pick them than pray to them, Malvor.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "None that grow here willingly, for the grove sits so near the Dream that everything in it wants to heal. Take the same seed to Felwood and it might come up bitter, which tells you more about Felwood than about the seed." } },
+      choices = {
+        { text = "Then I'll leave Moonglade's herbs to their healing.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Bitter seeds have their uses too, Malvor.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Wake it, I suspect, and not gently. The Emerald Dream is a quiet place by all accounts and the arcane is a very loud magic, so I like to keep the two well apart, the way you'd keep a lantern away from straw." } },
+      choices = {
+        { text = "Then I'll keep my magic far from the herbs.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Some things ought to be woken, Malvor.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "They do, as surely as a hand pulls back from a flame. The plants of Felwood didn't have the choice, and look at them now, all twisted and glowing, which I think is why these ones remember to flinch." } },
+      choices = {
+        { text = "Then I'll stand back and let them grow.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Plants that flinch from power won't survive the world.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Malvor, and I tend the herbs of Moonglade and teach those who wish to learn herbalism. Everything here grows a little differently, because the grove sits so close to the Dream." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, here among the herbs. Moonglade's plants grow so close to the Dream that some say they listen to prayers, so do keep yours gentle." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, among my herbs. You'll know your poisons, I expect, and I'm afraid Moonglade's plants are too sleepy and too gentle to give you any." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Do be careful casting near the herb beds, because the plants here dream, I think, and I'd hate to see what the arcane does to their dreams." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. The herbs pull away from you a little, can you see it? I don't think they mean any offence, because they're only very sensitive to fel." },
       },
       again = {
         { id = "h_again", text = "Is there another herb on your mind, or something else entirely?" },
@@ -118,6 +202,10 @@ P:NPC {
         { text = "Teach me herbalism.", next = "BUSINESS" },
         { text = "What grows differently here?", next = "grows" },
         { text = "What do you mean, close to the Dream?", next = "dream" },
+        { text = "Do Moonglade's herbs truly listen to prayers, Malvor?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Are there truly no poisons growing in Moonglade, Malvor?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "What would the arcane do to a dreaming plant, Malvor?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do Moonglade's herbs really shrink from the fel, Malvor?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Farewell, Malvor.", next = "END" },
       },
     },
@@ -180,9 +268,49 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "A good prayer can mend the hole an arrow leaves, I'll grant you, but it's a poor shield before it lands. Every traveller who leaves this grove meets furbolgs and worse on the road, so take a friend with a bow, if you won't take one yourself." } },
+      choices = {
+        { text = "I'll travel with friends and watch their backs.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll let others take the arrows first.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "I sell to travellers, and what they do on the road is between them and whoever they meet there. Inside the grove nobody fights, and outside it the Deadwood and the Winterfall don't ask whether you're a rogue or a saint before they attack." } },
+      choices = {
+        { text = "My arrows are for honest fights, Narianna.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Best not to ask, then. I won't tell.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Better is a strong word, and cheaper and quieter is fairer. The druids don't love the arcane flying around these hills, so a spell on the road out is fine, but in the grove you'll find a bow draws far fewer frowns." } },
+      choices = {
+        { text = "I'll respect the grove's ways while I'm here.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Frowns don't trouble me. I'll cast as I need.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "They dislike anything that comes into the world from somewhere it shouldn't, and a demon fits that rather well. I'm a practical woman, so I'll say it plainly: keep your pets on the far side of the hills, and nobody here will trouble you." } },
+      choices = {
+        { text = "Fair enough. I'll leave my demons beyond the hills.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My demons go where I go. Practical, as you say.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Narianna, and I sell bows, arrows and quivers here in Nighthaven. Nobody fights inside the grove, but everyone who comes here has to leave again, and the roads out are not so kind." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. You'll not want a bow, I imagine, but the roads out of Moonglade run through Felwood and Winterspring, and a prayer can't stop an arrow." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll want a bow for when the dagger doesn't reach, and I'll not ask what you're aiming at, so long as it's outside the grove." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, at a bowyer's stall. You'll be telling me a fireball does the same work as an arrow, I expect, and you'd be right, but my arrows don't run out of mana." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I've nothing to sell you, since you can't draw a bow, though I'd say the druids would sooner see you try than summon something." },
       },
       again = {
         { id = "h_again", text = "What else?" },
@@ -192,6 +320,10 @@ P:NPC {
         { text = "Show me your bows.", next = "BUSINESS" },
         { text = "Isn't selling bows here a bit odd?", next = "odd" },
         { text = "Where do people go from here?", next = "roads" },
+        { text = "Is a prayer truly no match for an arrow, Narianna?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Do you sell to rogues knowing what they'll do, Narianna?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Is an arrow truly better than a spell, Narianna?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do the druids really dislike summoning so much, Narianna?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Farewell, Narianna.", next = "END" },
       },
     },

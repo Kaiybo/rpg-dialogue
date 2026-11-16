@@ -27,10 +27,32 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "A young gnome tried tae make it hotter, an' it spat a blob o' molten iron at him that I'm still scrapin' off the floor. Arcane fire an' forge fire dinnae mix, an' that's a lesson I'd rather ye learned from me." } },
+      choices = {
+        { text = "I'll leave the Great Forge to the smiths, Bengus.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A hotter forge would make better steel. It's worth trying.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I'll no' find out, an' that's the point. A warlock came by in the winter an' tried tae temper a blade in green flame, an' the steel came out black an' brittle, an' nobody would touch it after." } },
+      choices = {
+        { text = "Then I'll keep fel fire far from honest metal.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Black steel has uses, Bengus. You just didn't find them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Bengus Deepforge, an' this is the Great Forge, the fire at the heart o' Ironforge, which has never once gone out. If ye want tae learn tae work metal, there's no better place on this world tae learn it." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage at the Great Forge! Mind ye don't try tae light it, for it's never gone out an' it doesnae need yer help." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "I'll warn ye once, warlock: the Great Forge doesnae take kindly tae fel fire, an' neither do I." },
       },
       again = {
         { id = "h_again", text = "Speak up, the bellows are loud." },
@@ -42,6 +64,8 @@ P:NPC {
         { text = "What makes a good smith?", next = "good" },
         { text = "Where should a new smith find ore?", next = "ore" },
         { text = "A paladin's hammer is only as good as its maker.", next = "k_pally", when = { class = "PALADIN" } },
+        { text = "Has a mage ever tried to light the Great Forge?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Does fel fire really harm the Great Forge?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -135,12 +159,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Plenty. A good miner knows every crack an' passage, every sound the stone makes, an' that's more than most thieves will ever know. Just don't use what I teach ye tae rob my own diggings." } },
+      choices = {
+        { text = "I'll use it against the Dark Irons, not your diggings.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Your diggings are safe until they're worth robbing.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Too many, an' every one makes them twitch. The troggs came up from the deep places, an' nobody knows what they found down there, so a miner seein' a demon in the dark is apt tae swing a pick first an' ask after." } },
+      choices = {
+        { text = "I'll keep the creature close and out of their way.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "If they swing at my demon, they'll regret it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Geofram Bouldertoe, o' Deepmountain Minin'. I teach folk how tae find a seam, how tae follow it, an' how tae come back out o' the tunnel afterwards, which is the part most forget." },
         { id = "h_miner", when = { profession = { "Mining" } },
           text = "Geofram Bouldertoe, o' Deepmountain Minin', an' I see ye're one o' us already, by the dust on ye. Come tae learn the next vein, have ye?" },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue, aye? Ye'll want tae learn the deep tunnels, I reckon, for there's plenty o' places a body could hide down there." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "Warlock, ye'll want tae keep yer creature out o' my tunnels, for the miners down there are jumpy enough wi' the troggs about." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? I've a seam map tae finish." },
@@ -151,6 +197,8 @@ P:NPC {
         { text = "How do I find a seam?", next = "seam" },
         { text = "What happened to the mines near Gnomeregan?", next = "troggs" },
         { text = "Who sells the picks around here?", next = "golnir" },
+        { text = "Could a rogue learn something useful from a miner?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Have your miners seen many troggs lately?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good digging, Geofram.", next = "END" },
       },
     },
@@ -220,10 +268,32 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Emrul, every week, though he'll deny it. Ye might think a recipe's a small thing, but a good cook's livelihood rests on knowin' what nobody else knows, much like yer trade." } },
+      choices = {
+        { text = "A recipe's a cook's secret. I'll respect yours.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Secrets are meant to be pried loose. That's the fun.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because conjured food tastes like nothin' an' cooks like nothin', an' I've tried. Real cookin' starts wi' real meat an' honest fire, an' I'll make a cook o' ye yet if ye let me." } },
+      choices = {
+        { text = "Real food from real fire. You've convinced me, Daryl.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Conjured food fills the belly. Taste is a luxury.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Daryl Riknussun, cook, an' welcome tae the Bronze Kettle. I teach anyone who wants tae learn, from a fresh recruit wi' a boar haunch tae a grizzled mountaineer who's lived on hard biscuits too long." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue in my kitchen? Ye'll find nothin' worth stealin' but my recipes, an' those I keep in my head." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage at the Bronze Kettle! I'll teach ye tae cook, but I'll no' have ye conjurin' the ingredients." },
       },
       again = {
         { id = "h_again", text = "What else would ye like tae know? Ask while the pot's on." },
@@ -235,6 +305,8 @@ P:NPC {
         { text = "What's the finest dish in Ironforge?", next = "finest" },
         { text = "Who's the dwarf selling spices out front?", next = "emrul" },
         { text = "Do dwarves eat anything that isn't meat?", next = "k_elf", when = { race = "NightElf" } },
+        { text = "Has anyone tried to steal your recipes, Daryl?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Why not let a mage conjure your ingredients?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll come back hungry.", next = "END" },
       },
     },
@@ -331,10 +403,32 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "No' often, but the last one took my saffron an' sold it back tae me at the auction. I'd admire it if it hadnae been my saffron, an' I've no' forgiven him yet." } },
+      choices = {
+        { text = "Stealing from a shopkeeper is low. I won't do it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Selling it back to you was rather clever, Emrul.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Some do, for they say a warlock's gold comes from places it shouldnae. I'll take yours, mind, for it spends the same, but I'll no' pretend there's nobody in the Commons who'll look at ye sideways." } },
+      choices = {
+        { text = "My coin's honestly earned, Emrul. You've nothing to fear.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Where my gold came from is none of your business.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Emrul Riknussun, cookin' supplies, an' the better-lookin' Riknussun, no matter what ye've heard. If Daryl's taught ye a recipe, I've the spices for it, an' a few recipes he hasnae thought o' yet." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue! I'll be watchin' my spice jars, mind, for some o' them cost more than a sword." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock wantin' spices? Ye'll forgive me if I check yer coin for brimstone before I take it." },
       },
       again = {
         { id = "h_again", text = "What else, then? I've a customer behind ye, I think." },
@@ -345,6 +439,8 @@ P:NPC {
         { text = "Daryl says your prices are criminal.", next = "prices" },
         { text = "Where do your spices come from?", next = "spices" },
         { text = "Which recipe would you recommend?", next = "recipe" },
+        { text = "Do rogues steal spices from you often?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do people really worry about warlocks' coin?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Goodbye, Emrul.", next = "END" },
       },
     },
@@ -414,12 +510,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because ye stand at the back throwin' fire an' forget the trolls can throw spears. Learn tae wrap a wound, an' ye'll live long enough tae get good at the rest." } },
+      choices = {
+        { text = "Then I'll learn properly and help the others too.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll learn it for myself. Others can look after themselves.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Some o' ye do, an' I've patched up a few dwarves who came out o' a fight paler than they went in. A bandage costs ye nothin' but a strip o' cloth, an' it costs nobody else a thing." } },
+      choices = {
+        { text = "A bandage it is, Nissa. I'll leave your patients be.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Their life serves me better than it serves them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Nissa Firestone, physician. I teach bandagin' tae anyone wi' sense enough tae learn it, for ye'll no' always have a priest nearby when the trouble starts." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "Nissa Firestone, physician, an' I see ye're one o' the Light's lot. Don't scoff at bandages, priest, for there'll come a day when ye've no prayer left an' a friend still bleedin'." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage wantin' tae learn bandagin'? Good, for ye'll be the first tae fall when the trolls charge." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "I'll teach ye, warlock, but I'll no' have ye drainin' my patients' life tae heal yerself." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? I've a patient upstairs." },
@@ -430,6 +548,8 @@ P:NPC {
         { text = "Why learn bandages when there are priests?", next = "why" },
         { text = "Who can teach me beyond what you know?", next = "beyond" },
         { text = "What sort of wounds do you see most?", next = "wounds" },
+        { text = "Why would mages fall first in a fight?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do warlocks really steal life to heal themselves?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Thank you, Nissa.", next = "END" },
       },
     },
@@ -511,10 +631,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "To steal the formulas, of course, and I keep them in a book with three locks, two of which are traps. I'll teach you honestly if you ask honestly, but I'd thank you to keep your hands out of my book." } },
+      choices = {
+        { text = "I'll ask honestly, Gimble. Your formulas are safe from me.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Three locks and two traps? That sounds like a challenge.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Gimble Thistlefuzz, enchanter, and you've found the Arcanery, which most people don't. I can teach you to bind magic into cloth and steel, if you promise not to tell anyone how I do it." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You're not here to learn enchanting, are you? Nobody sneaks into the Arcanery to learn enchanting." },
       },
       again = {
         { id = "h_again", text = "What else? Quickly, before someone else comes up the stairs." },
@@ -525,6 +656,7 @@ P:NPC {
         { text = "Why are you so nervous?", next = "nervous" },
         { text = "How does enchanting actually work?", next = "how" },
         { text = "Who's the gnome downstairs?", next = "tilli" },
+        { text = "Why would anyone sneak into the Arcanery?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I'll leave you in peace.", next = "END" },
       },
     },

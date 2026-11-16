@@ -20,6 +20,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Once, at night, an' the ram carried him halfway tae Kharanos before it threw him in a snowbank. If ye want tae help, track whatever's killin' my herd instead, for that's a quieter sort o' work that'd suit ye." } },
+      choices = {
+        { text = "I'll track the beast for you, Rudra. Your herd matters.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll track it, but a ram would make a fine payment.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Every ram on the ranch jumped the fence at once, an' I spent three days fetchin' them from the hills. I don't doubt yer magic's useful, but out here we do things slow an' steady, the way rams like it." } },
+      choices = {
+        { text = "Slow and steady it is, Rudra. I'll respect the ranch.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Rams will get used to magic sooner or later.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -28,6 +46,10 @@ P:NPC {
           text = "Vagash is up in the hills to the south, and every day he lives is another ram I lose. Go and put an end to him, {class}." },
         { id = "h_done", when = { questDone = TODO_QUEST("Protecting the Herd") },
           text = "There's the one who brought down Vagash! The rams are grazin' easy again, and so am I." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "If ye're thinkin' o' liftin' a ram, {g:lad|lass}, they bite, an' they bleat louder than any guard." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage, an' I'll ask ye tae keep yer fire away from the rams. They've no' forgotten the last one who blinked in front o' them." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? The feed won't spread itself." },
@@ -38,6 +60,8 @@ P:NPC {
         { text = "Tell me about the rams themselves.", next = "rams" },
         { text = "How far is Kharanos from here?", next = "road" },
         { text = "A hunter could track your beast, Rudra.", next = "hunter", when = { class = "HUNTER" } },
+        { text = "Has anyone tried to steal your rams?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What happened when a mage blinked near your rams?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Good day to you.", next = "END" },
       },
     },
@@ -104,6 +128,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because conjured bread is no' my bread, an' it's no' my brandy either. I've lived on these snows forty years, an' I'll eat what I stored, thank ye, once somebody gets it back from that black brute." } },
+      choices = {
+        { text = "I'll get your own stash back, Tundra. That's only right.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Food's food, Tundra. Conjured bread would save you the bother.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I'd trust a warlock as far as I'd trust a frozen pond, which is only as far as I've tested it. Ye'll have tae walk a bit further wi' me before I say more." } },
+      choices = {
+        { text = "Then I'll walk with you, and you'll see I'm sound.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Trust doesn't matter out here. Only survival does.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -112,6 +154,10 @@ P:NPC {
           text = "Ol' Sooty's the thief, and he's dragged my stash back to his den. Get it back for me and I'll sing yer praises to every rock in Dun Morogh." },
         { id = "h_done", when = { questDone = TODO_QUEST("Tundra MacGrann's Stolen Stash") },
           text = "My stash, back where it belongs! I've been eatin' like a king of Ironforge since, or at least like his cook." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage could warm these old bones, I'd wager, but I'd sooner ye found the bear that took my stash." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "Ye've a warlock's look, an' the snow's gone grey where ye stood. I'll no' ask, if ye'll no' tell." },
       },
       again = {
         { id = "h_again", text = "Somethin' else on yer mind? I've nowhere to be." },
@@ -122,6 +168,8 @@ P:NPC {
         { text = "Why live out here alone?", next = "life" },
         { text = "What's the danger in these hills?", next = "hills" },
         { text = "The cold doesn't trouble a gnome, you know.", next = "gnome", when = { race = "Gnome" } },
+        { text = "Why not let a mage conjure you new food?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Would you trust a warlock out here in the snows?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Farewell, Tundra.", next = "END" },
       },
     },
@@ -188,6 +236,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "A troll, once, at Steelgrill's Depot, which was a very long and loud trip. I've fitted a lock since, but I suspect a clever rogue could open it, so I'm trusting you to be a nice rogue." } },
+      choices = {
+        { text = "I'm a nice rogue, Pilot. Your flier is safe with me.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Your lock's the weak point, Pilot. I'd fix it soon.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "In theory, yes, and in practice, the last gnome who tried it ended up on the roof of Steelgrill's Depot. Gnomeregan was full of magic and machinery working together, and I miss that more than I miss my workshop." } },
+      choices = {
+        { text = "Then we'll build it carefully, with safety measures first.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let's test it right now. Theory is for cowards.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -196,6 +262,10 @@ P:NPC {
           text = "Bear meat, boar meat and a bit of thick hide, that's what Jetsteam needs! Well, that's what I need, but Jetsteam needs me fed." },
         { id = "h_done", when = { questDone = TODO_QUEST("Stocking Jetsteam") },
           text = "Jetsteam's fully stocked, thanks to you! I'll name a loop-the-loop after you, if I survive it." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A sneaky sort! You'd make a terrible stowaway, though, because my flier only seats one and I'd notice the extra weight." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! I've always wondered whether arcane power could drive a flier, and I'd very much like you to tell me it can." },
       },
       again = {
         { id = "h_again", text = "Something else? Quickly, quickly, the engine's warm!" },
@@ -206,6 +276,8 @@ P:NPC {
         { text = "What is this depot for?", next = "depot" },
         { text = "Who else works out here?", next = "people" },
         { text = "A fellow gnome! Where are you flying?", next = "gnome", when = { race = "Gnome" } },
+        { text = "Have you had stowaways on your flier before?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Could arcane magic really power a flying machine?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Safe flying.", next = "END" },
       },
     },
@@ -264,12 +336,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "More than ye'd think, for a pistol's a fine thing tae have when the dagger misses. I'll sell ye one, but if I hear it was used on an honest dwarf, I'll come lookin', an' I'm a very good shot." } },
+      choices = {
+        { text = "I'd only ever aim it at an enemy, Hegnar.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Who I shoot is my business once I've paid.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because most o' yer lot reckon a curse beats a bullet, an' I'd argue the bullet's quicker. If ye keep a gun as well as yer demons, at least the troggs will die honestly." } },
+      choices = {
+        { text = "A clean shot is honest work. I'll keep one handy.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The curse is slower, Hegnar, and that's the point.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Hegnar Rumbleshot, gunsmith, and every barrel on that rack's been tested by my own hand. If it didnae knock me on my backside, it doesnae get sold." },
         { id = "h_ammo", when = { questActive = TODO_QUEST("Ammo for Rumbleshot") },
           text = "Is that my ammunition ye've got there? Good, I was startin' to sell guns with nothin' to put in them." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue! Ye'll be wantin' somethin' quiet, an' I'll tell ye now nothin' on this rack is quiet." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock buyin' a gun? That's a new one, though I'll sell tae anyone wi' coin an' sense." },
       },
       again = {
         { id = "h_again", text = "What else? I've a rifle to oil." },
@@ -278,6 +372,8 @@ P:NPC {
         { text = "Why camp out here instead of the city?", next = "camp" },
         { text = "What makes a good gun?", next = "guns" },
         { text = "I'm a hunter. What would you recommend?", next = "hunter", when = { class = "HUNTER" } },
+        { text = "Do rogues ever buy guns from you?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Why would a warlock not buy a gun?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Just looking, thanks.", next = "END" },
       },
     },

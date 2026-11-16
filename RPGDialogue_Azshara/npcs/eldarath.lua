@@ -69,6 +69,15 @@ P:NPC {
         { text = "I'll keep it in mind.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Very little that a healer can give, I fear, for the Highborne ghosts there do not want healing, and the coursers are sick in ways no salve can reach. But Felwood still waits for the Circle's medicines, and every herb gathered here goes south to the sick woods." } },
+      choices = {
+        { text = "Then I'll gather for Felwood, and pray it helps.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Leave the sick coursers be. Let the strong survive.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, and welcome. My people had shamans before the corruption, and you remind me of the elders who taught me to hear the forest." },
@@ -92,6 +101,7 @@ P:NPC {
           text = "The wavethrashers live on the eastern shore, half in the water and half out of it. Fight them on the sand, never in the surf." },
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "Friend. Sit by the fire; I have saved you the dry stone. It is good to see a face I trust on this cliff." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. The Circle does not ask which gods you pray to, only that you help the land heal, and I am glad of any healer on this cliff." },
       },
       again = {
         { id = "h_again", text = "What else would you ask? The ruins will wait; they have waited a long time." },
@@ -111,6 +121,7 @@ P:NPC {
         { text = "My people are kin to yours, I've heard.", next = "tauren_og", when = { race = "Tauren" } },
         { text = "Can someone who uses fel help heal the land?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Why hunt the coursers at all?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "What do the Ruins of Eldarath need from a healer, Ogtinc?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Walk the divine path, Ogtinc.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -350,6 +361,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Only for the names on my list, and the list grows every season. I'm a Stormwind man and I was raised to the Light, but if your loa, or whatever the Forsaken pray to, will take a few of those names off my hands, I won't argue." } },
+      choices = {
+        { text = "Give me the names, and I'll say the words.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fools who hunt dragons dig their own graves.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_roguecl", when = { class = "ROGUE" },
@@ -362,6 +382,7 @@ P:NPC {
           text = "A priest, good, because half my students come back from the dragons needing one, and the other half don't come back at all. The list is by the fire, if you've the stomach for it." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! You'll want dragonscale, I suppose, though plate's more your style; still, if you mean to go hunting dragons, I'd rather you went in armour than in hope." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, in my camp! Well, dragons don't care about banners and neither do I, so welcome, though I'll offer my condolences before you go hunting anything with scales." },
       },
       again = { { id = "h_again", text = "What else? I've a hide soaking, so make it quick." },
                 { id = "h_again2", text = "Go on, I'm listening, and so's the dragon whelp up on the ridge, probably." } },
@@ -373,6 +394,7 @@ P:NPC {
         { text = "Do you really keep a list of dead customers?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do you ever pray for the names on your list?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is hunting dragons for their scales an honourable trade?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does a dragonscale craftsman ever pray, Peter?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Farewell, Peter.", next = "END" },
       },
     },
@@ -474,6 +496,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Vengeance is bad business, so no, I want compensation, which is vengeance with a ledger. They hired me, they named me and they tried to stick a knife in me, and somebody ought to pay for all three, preferably in gold." } },
+      choices = {
+        { text = "Let it go. Grudges cost more than gold.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Make them pay twice. They'd do the same to you.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Good, you can tell me if this place is cursed, because I've been robbed, stabbed at and called a rat, and I'm starting to take it personally." },
@@ -489,6 +520,7 @@ P:NPC {
           text = "The rune, the rune! The naga have it, down in Eldarath, and the elves wanted it badly. Find it, valuable employee, and we'll both be rich, or at least I will." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! Would you say something holy over my equipment, once it's back? The elves who hired me said a few words over it too, and every one of them was a curse." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, and Horde at that! Good, maybe you can put a curse on those elves who called me little rat, or a blessing on me, whichever's cheaper." },
       },
       again = {
         { id = "h_again", text = "Something more? Talk fast, friend; every minute here costs me a little." },
@@ -504,6 +536,7 @@ P:NPC {
         { text = "Did the elves steal your equipment?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What did the elf mages want with you?", next = "xmage", when = { class = "MAGE" } },
         { text = "Why stay in Azshara after the elves turned on you?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you want vengeance on the elves, Kim'jael?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Later, Kim'jael.", next = "END" },
       },
     },
@@ -626,6 +659,15 @@ P:NPC {
         { text = "Tell your passengers they owe me.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Every hour, because I chose the course that brought us past the naga, and I light a lamp for every sailor who didn't make it ashore. A priest of any faith could tell me it wasn't my fault, and I still wouldn't believe it." } },
+      choices = {
+        { text = "Grief is a burden we can share. Let me help.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then carry it. Guilt keeps a captain sharp.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_magecl", when = { class = "MAGE" },
@@ -636,6 +678,7 @@ P:NPC {
           text = "Captain Vanessa Beltis, of the Horizon Scout, or I was, before she went to the bottom. My crew's in shambles, our cargo and passengers are scattered along this beach, and the naga aren't finished with us yet." },
         { id = "h_fight", when = { questActive = TODO_QUEST("A Crew Under Fire") },
           text = "My scouts are watching the mouth of the valley. When they shout, the naga are coming, and we fight at the barricade or we don't fight at all." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Horde or not, I'd hoped for one, because I've sailors on this beach who need more than bandages, and prayers are all I've got left to offer them." },
       },
       again = {
         { id = "h_again", text = "What else? Keep one eye on the valley while we talk." },
@@ -649,6 +692,7 @@ P:NPC {
         { text = "Put me on the line facing the water.", next = "warrior_bl", when = { class = "WARRIOR" } },
         { text = "Could I help your crew with my magic?", next = "xmage", when = { class = "MAGE" } },
         { text = "What cargo did the naga take?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Do you blame yourself for the Horizon Scout, Captain?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "I'll stand with your crew if they come.", next = "END", fx = { affinity = 1, trait = { brave = 1 } } },
       },
     },

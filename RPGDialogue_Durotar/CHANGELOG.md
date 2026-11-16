@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.10.0 (2026-11-16)
+- 29 people in the Valley of Trials, Razor Hill, Sen'jin and on the roads notice rogues, mages and warlocks (43 new branches), and orcs remember what fel magic cost them.
+
 ## 1.9.0 (2026-11-16)
 - Horde shaman get their own conversation with 19 people in the Valley of Trials, Razor Hill and along the roads.
 

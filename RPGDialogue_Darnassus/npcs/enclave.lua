@@ -33,6 +33,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Constantly, and I once fancied myself a rogue like you, slipping through the shadows of grand houses. The trouble is I can't keep quiet for more than a minute, so I'm back with the dirt, which never tells anyone what I've said." },
+      },
+      choices = {
+        { text = "Honest dirt is better than a dishonest trade, Jenal.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A rogue's life beats digging, and you know it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Because they think the arcane is how our people lost half the world, and they're not wrong, are they? Still, it'd be very nice to have a spell for shoveling, and I'd keep it a secret if you did." },
+      },
+      choices = {
+        { text = "Dig with your hands, Jenal. The druids are right.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If I had that spell, I'd teach it you myself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     gnome_j = {
       lines = {
         { id = "gj_default", text = "Machines that dig! There, you see, a visionary idea, and I'm nearly certain I had it first. Don't mention it to the Arch Druid, though, because he'd only make me dig the machine a ditch." },
@@ -52,6 +74,8 @@ P:NPC {
           text = "Your Un'Goro soil is in the third pile, the important one. The Arch Druid wanted a word with you after, and I'd go, since he doesn't ask twice and he certainly doesn't ask me." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Still here, yes, and still digging. A visionary keeps odd hours, and the dirt doesn't mind the dark." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Oh, a rogue! Have you come to dig too? No, of course you haven't, nobody does, but you're welcome to stand there and look thoughtful." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A real mage, here among the dirt piles! Could you make these move themselves? No, the druids would have my ears for it, forget I asked." },
       },
       again = {
         { id = "h_again", text = "What else? I've got all night, and a great deal of dirt." },
@@ -63,6 +87,8 @@ P:NPC {
         { text = "Who's keeping you down?", next = "conspiracy" },
         { text = "What does the Circle want with Un'Goro soil?", next = "soil", when = { any = { { questActive = TODO_QUEST("Un'Goro Soil") }, { questDone = TODO_QUEST("Un'Goro Soil") } } } },
         { text = "Gnomes build machines that dig, you know.", next = "gnome_j", when = { race = "Gnome" } },
+        { text = "Did you ever think about another line of work?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Why would the druids object to a little magic?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll let you dig.", next = "END" },
       },
     },
@@ -174,6 +200,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Your kind crackles, and anyone with patience can feel it across a room, the way our ancestors felt Azshara's palace humming before it fell. If you ever need to go unnoticed, let a rogue do it, and don't be too proud to ask." },
+      },
+      choices = {
+        { text = "I'll ask. There's no shame in using the right tool.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll do my own work, unseen or not.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "Both, and with good reason, since the Highborne who called the Legion into this world began as curious as you. I'll tell you plainly that if your demon so much as turns toward a student of mine, I'll have my blade in it before it finishes turning." },
+      },
+      choices = {
+        { text = "Fair. I'll keep it leashed while I'm here.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "You'd find my servant harder to kill than you think.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     rogue_s = {
       big = true,
       lines = {
@@ -204,6 +252,8 @@ P:NPC {
           text = "Sethir the Ancient hides on a branch beyond the Oracle Glade, and everyone who approached him openly met their doom. Go unseen, take what he carries and bring it to me." },
         { id = "h_sethir_done", when = { questDone = TODO_QUEST("Destiny Calls") },
           text = "Sethir's journal said what I feared: the sickness in Darkshore's forests is creeping into ours. You did well, but this is beyond a rogue's reach now." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "You aren't a rogue, so I can't teach you anything. You are a mage, though, and that makes you very easy to hear coming." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock in the Enclave. You're bolder than most of my students, and I don't mean that kindly." },
       },
       again = {
         { id = "h_again", text = "Anything else? Be brief." },
@@ -215,6 +265,8 @@ P:NPC {
         { text = "What's wrong with Teldrassil's forests?", next = "forest" },
         { text = "Why do night elves need rogues?", next = "why" },
         { text = "Teach me how the kaldorei move unseen.", next = "rogue_s", when = { class = "ROGUE" } },
+        { text = "Is a mage really so easy to notice?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do the kaldorei hate warlocks, or only fear them?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll leave you to the shadows.", next = "END" },
       },
     },
@@ -305,6 +357,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "A hunter hides to watch the balance, and strikes only when the balance asks it. A rogue hides for whatever reason pleases them, and that is the difference, so take care which of the two you become." },
+      },
+      choices = {
+        { text = "I'll strike only when there's need, as a hunter does.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I hide for my own reasons, and that's enough.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "A hunter's companion is bound by trust and freely given, while your servant is bound by chains and hates you for them. The forest knows the difference, and you'll find every beast in Teldrassil does too." },
+      },
+      choices = {
+        { text = "Then I'll treat my servant with care, at least.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Chains work. Trust is slower and less reliable.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     sabers = {
       lines = {
         { id = "sb_default", text = "Then you learned the first lesson before you came to me: a saber carries you because it chooses to. Riders make patient hunters, and impatient ones, which are you?" },
@@ -353,6 +427,8 @@ P:NPC {
           text = "A fledgling hunter, with a companion of your own now. I can teach you to train it, to feed it and to call it back if it falls, so listen well." },
         { id = "h_beast_done", when = { questDone = TODO_QUEST("Training the Beast") },
           text = "You and your companion have grown since we last spoke. Remember the balance, and we shall speak again when you're ready for more." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You move like a hunter stalking, rogue, only without the respect. The forest still notices you, even if the guards don't." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "The beasts are restless, warlock, and so am I. Whatever walks behind you is no part of the balance I teach." },
       },
       again = {
         { id = "h_again", text = "What else? Speak; I'm listening." },
@@ -367,6 +443,8 @@ P:NPC {
         { text = "I rode nightsabers before I ever drew a bow.", next = "sabers", when = { origin = "nightelf_nightsaber_rider" } },
         { text = "Humans hunt too. Where do I fit?", next = "human_h", when = { race = "Human", class = "HUNTER" } },
         { text = "My rifle serves me as well as any bow.", next = "gun_h", when = { race = "Dwarf", class = "HUNTER" } },
+        { text = "What does a hunter think of a rogue's stealth?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Is a demon really so different from a hunter's pet?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Farewell, Jocaste.", next = "END" },
       },
     },
@@ -458,6 +536,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Mostly how you can draw on something so wild without it drawing on you in turn. Malfurion taught us that the arcane was a wound in the world, which is why we turned to Cenarius instead, and I've yet to meet a mage who could tell me he was wrong." },
+      },
+      choices = {
+        { text = "Maybe he wasn't wrong. I'll take care with the wound.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Malfurion knew nature. He didn't know my craft.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "There is, slowly, which is why Felwood still has druids working at its edges instead of only graves. It takes a hundred of us a year to cleanse what one careless summoner can burn in an afternoon, so you'll forgive me for not offering you tea." },
+      },
+      choices = {
+        { text = "Then I'll be the careful kind of summoner.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The fel burns quicker than you heal. That's your problem.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     forms = {
       big = true,
       lines = {
@@ -482,6 +582,8 @@ P:NPC {
           text = "Mathrengyl Bearwalker has asked for you by name, young druid. He's on the second floor of the Arch Druid's tree, and you'll find no wiser teacher in all of Teldrassil." },
         { id = "h_bear_done", when = { questDone = TODO_QUEST("Body and Heart") },
           text = "You've met the Great Bear, I can tell; you stand differently. Mathrengyl chose well." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage in the Enclave, studying us studying the land. I suppose that's fair, since we spend enough time wondering about you." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I teach young druids to heal what the fel has burned, warlock, so you'll understand if I'd rather you kept walking." },
       },
       again = {
         { id = "h_again", text = "What else would you know? The Enclave is slow, and so are its answers, but they come." },
@@ -493,6 +595,8 @@ P:NPC {
         { text = "What does a young druid learn first?", next = "first" },
         { text = "How is the Circle under Fandral?", next = "circle" },
         { text = "Which shape is truest to a druid?", next = "forms", when = { class = "DRUID" } },
+        { text = "What do druids wonder about mages?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Is there any healing for what the fel has done?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },

@@ -76,6 +76,33 @@ P:NPC {
         { text = "How did Cenarius hunt?", next = "family" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "The glade turns away no one who comes in peace, and shadow is part of the night as surely as the moon is. But shadow fed too long forgets it was ever part of anything, and devours what it touches, so hold it as the night holds it, lightly, and give it back to the dawn." } },
+      choices = {
+        { text = "I'll hold it lightly, Keeper, and give it back.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Shadow is mine to hold as tightly as I need.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Nothing within these hills, for the glade is warded and no blade is drawn here. The world outside is another matter, and I know your craft keeps many alive out there, but I would ask you to remember how it felt to walk here unafraid." } },
+      choices = {
+        { text = "I'll remember, and walk openly while I'm here.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Old habits keep me alive. I'll stay in the shadows.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "They remember it, which is not quite the same thing. Queen Azshara's Highborne drew on the Well until the Legion heard them, and the whole world paid, so the druids forswore that power, but I do not judge every mage for the sins of the Highborne." } },
+      choices = {
+        { text = "Power needs restraint, and the Highborne had none.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Power is neutral, Keeper. Fearing it helps no one.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -94,6 +121,10 @@ P:NPC {
           text = "My brother's seed sleeps in good soil now. I thought Zaetar lost to us for good, and you brought me word that he was only waiting to be reborn." },
         { id = "h_visitor", when = { ["not"] = { class = "DRUID" } },
           text = "Few who are not druids find the road to Moonglade, for it runs through the furbolgs' tunnels and over the cold of Winterspring. You are welcome all the same." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, in my father's glade. The trolls speak to their loa and the Forsaken to whatever answers them, and either way you are welcome here, little one, so long as you come in peace." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A shadow-walker, in my father's glade. There is nothing to steal in Moonglade, little one, and nobody to hide from, so you may walk in the open here." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, in Moonglade. The kaldorei learned the price of the arcane when the Well of Eternity tore the world apart, little one, so forgive my druids if they watch your hands." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, in my father's glade. You may rest here in peace, as any guest may, but the fel you carry is the very thing my druids give their lives to cleanse." },
       },
       again = {
         { id = "h_again", text = "The glade is patient, and so am I. What else would you ask?" },
@@ -112,6 +143,9 @@ P:NPC {
         { text = "An orc killed your father. Yet I'm welcome here?", next = "orc_re", when = { race = "Orc" } },
         { text = "I carry the fel, Keeper. Will you turn me away?", next = "warlock_re", when = { class = "WARLOCK" } },
         { text = "I hunt, Keeper. Does the glade allow it?", next = "hunter_re", when = { class = "HUNTER" } },
+        { text = "Is shadow welcome in Moonglade, Keeper?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Is there truly nothing to hide from here, Keeper?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Do your druids still blame the arcane for the Sundering, Keeper?", next = "xmage", when = { class = "MAGE" } },
         { text = "I'll leave you to the glade.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -345,6 +379,42 @@ P:NPC {
         { text = "I go where I like, permitted or not.", next = "BACK", fx = { align = { order = -1 }, affinity = -1 } },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Perhaps to rest, or to be reminded that faith grows in more soil than one. The Circle has kept the balance in this glade since long before your people's grandmothers were born, and those who come asking questions usually leave carrying an answer they didn't expect." } },
+      choices = {
+        { text = "Then I'll listen, and see what the glade intends.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Nothing sent me, Rabine. I came because I chose to.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "On everyone who matters, and on many who think they don't. I don't believe in chance, and a rogue who wanders into Moonglade has a reason, even if you haven't told it to yourself yet." } },
+      choices = {
+        { text = "No reason but rest. You can close the ledger.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Write what you like. You'll never read my reasons.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because some of the eldest of the Circle were alive when the Highborne's magic drew the Legion into this world, and ten thousand years is not so long to an elf. They don't expect you to answer for it, but they will notice whether you've learned from it." } },
+      choices = {
+        { text = "Then I'll show them a mage can practise restraint.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll study as I please. The Highborne aren't my burden.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Every sapling the fel has killed in Felwood is a debt someone owes, and your kind have run up a long account. I don't send collectors, mind; I simply wait, and sooner or later warlocks come here to pay it, whether they meant to or not." } },
+      choices = {
+        { text = "Then I'll pay some of it back in Felwood.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I owe the Circle nothing. The fel was there before me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Rabine Saturna, majordomo to Keeper Remulos. He watches the glade; I watch everything else, so he needn't. It's a quieter job than it sounds, most days." },
@@ -358,6 +428,10 @@ P:NPC {
           text = "Layo Starstrike waits at Valor's Rest, where Silithus buries its dead. Show him my letter and he'll trust you as I do." },
         { id = "h_remulos", when = { heardLine = "remulos.t_default" },
           text = "The Keeper spoke to you of the Dream? He doesn't tell many, so take it as a sign of trust, and a warning, both." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. I don't believe in chance, so I'll assume you were meant to come here, and I'll be curious to learn why." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, in Nighthaven. I keep the Circle's ledger, so I'll know if anything goes missing, and I'll know who was standing near it." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. The Keeper is patient with your kind, and so am I, but the druids remember the Highborne better than most, so I'd keep any spellwork modest while you're here." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'll write your name down, as I do everyone's, and I'll be watching to see what you owe the Circle by the time you leave." },
       },
       again = {
         { id = "h_again", text = "Go on, then. I've a ledger to finish, but it can wait for a good question." },
@@ -371,6 +445,10 @@ P:NPC {
         { text = "My people came from Eldre'Thalas, long ago.", next = "skyborne", when = { race = "Skyborne" } },
         { text = "The Keeper told me about the Dream.", next = "dream", when = { heardLine = "remulos.t_default" } },
         { text = "Is one of the Forsaken welcome in Moonglade?", next = "forsaken_rb", when = { race = "Scourge" } },
+        { text = "Why would a priest be meant to come here, Rabine?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Do you keep a ledger on everyone, Rabine?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Why do the druids remember the Highborne so keenly, Rabine?", next = "xmage", when = { class = "MAGE" } },
+        { text = "What would a warlock owe the Circle, Rabine?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Goodbye, Rabine.", next = "END" },
       },
     },
@@ -518,6 +596,42 @@ P:NPC {
         { text = "Darnassus can think what it likes.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Patience, mostly, and that the world doesn't need you to fix it all at once. Our young druids learn to cure poison like any traveller with a satchel, because a druid who can only heal with grand magic hasn't learned to heal at all." } },
+      choices = {
+        { text = "Humble work keeps a healer honest. I'll remember that.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll heal with whatever power gets it done.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Because the bear's way is to stand where it can be seen and dare the world to move it. Stealth has its uses, I'm sure, but you'll find nobody in Nighthaven who'll teach it, and the spirit would only yawn at you." } },
+      choices = {
+        { text = "Standing in the open has its own courage.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Courage in the open gets you killed. I'll keep to shadows.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Fear is a strong word, though fire in a grove does make us twitchy. The arcane takes from the world without asking, and our trials teach young druids the opposite, which is why I'd rather you practised down by the lake, well away from the trees." } },
+      choices = {
+        { text = "Fair enough. I'll keep my spells away from the grove.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The arcane is a craft like any other. I won't apologise.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "A druid asks the bear for its strength and gives thanks, and a warlock binds a demon and gives orders. Both are power, I'll grant you, but one leaves the world as it found it, and the other leaves Felwood." } },
+      choices = {
+        { text = "Fair. I'll keep my demons well away from the grove.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Thanks or orders, the power's the same. Mine just obeys.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -536,6 +650,10 @@ P:NPC {
           text = "The sea's yours now, as much as the forest. Few druids feel at home in both, so try to be one of the few." },
         { id = "h_skyborne", when = { race = "Skyborne", class = "DRUID" },
           text = "A druid of the shen'dorei! There are few of you, I'm told, and you look to the winds before the moon, but the trials don't mind which. Balance is balance." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. You aren't here for the trials, I suspect, so I'll tell you what I tell everyone: the village is lovely this time of year." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! You aren't here for the trials, I take it, which is just as well, because the Great Bear Spirit finds sneaking rather rude." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. I'll tell you what I tell everyone who isn't a druid: the village is lovely this time of year, and please don't set any of it on fire." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, in Nighthaven. I'm obliged to be polite and I will be, but I'd be lying if I said the Circle's trials and your craft had anything in common." },
       },
       again = {
         { id = "h_again", text = "Ask what you like. A student who asks nothing learns nothing, in my experience." },
@@ -549,6 +667,10 @@ P:NPC {
         { text = "Where do I look for the pendant halves?", next = "pendant", when = { questActive = TODO_QUEST("Trial of the Sea Lion") } },
         { text = "My faith leans to the winds. Does that matter?", next = "winds", when = { race = "Skyborne", class = "DRUID" } },
         { text = "Hamuul taught me. Are the trials the same for tauren?", next = "tauren_dn", when = { race = "Tauren", class = "DRUID" } },
+        { text = "Could a priest learn anything from the druids' trials, Dendrite?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Why would the Great Bear Spirit mind a little stealth?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Does the Circle really fear a mage's fire, Dendrite?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Is a warlock's craft really so unlike a druid's, Dendrite?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Thank you, Dendrite.", next = "END" },
       },
     },
@@ -686,12 +808,52 @@ P:NPC {
         { text = "The Circle should be whole. You're right.", next = "BACK", fx = { align = { order = -1 }, affinity = 2 } },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Better than you'd think, since the night needs the dark half as much as the bright. It's only when a healer forgets that shadow is half of a whole and starts treating it as the whole that the scale tips, and I've seen it tip in priests and druids alike." } },
+      choices = {
+        { text = "Then I'll mind the other half, and not let it tip.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let it tip, then. Shadow gets results.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "You can try, which is more than most rogues ever do. Your craft is always leaning one way or another, toward the shadows or away from them, and balance is learning when to stop leaning." } },
+      choices = {
+        { text = "Then I'll learn to sit still, at least here.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Leaning keeps me alive. Balance can wait.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "By remembering that the arcane isn't the whole world, only a very loud part of it. The Highborne forgot that and the sea took their cities, so I'd say a quiet hour by the lake is worth more to you than another tome." } },
+      choices = {
+        { text = "Then I'll take the quiet hour and set down the tome.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The tome teaches more than any lake, Loganaar.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Perhaps, if the warlock is honest about the weight on the scale. Most aren't, and that's how a little fel in a satchel becomes a forest like Felwood, one excuse at a time." } },
+      choices = {
+        { text = "Then I'll be honest about my demons.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Balance is for druids. I carry what I must.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Loganaar, and I train the druids who find their way to Nighthaven. Balance isn't somewhere you go; it's something you carry, and I help you pack." },
         { id = "h_dream", when = { minLevel = 20, class = "DRUID" },
           text = "One day the Dream will call you, and you'll sleep a long while among the purest of things. Learn all you can awake, first." },
         { id = "h_tea", when = { metBefore = true }, text = "Sit, if you have a moment, not for training but only to sit. Most druids forget to, and it shows in their bears." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, in Nighthaven. Balance is something you carry, priest, and yours looks heavier than most, so sit, if you'd like to set it down for a moment." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, in Nighthaven. You carry your balance on the balls of your feet, I see, which is good for a quick exit and poor for sitting still." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, in Nighthaven. You carry a great deal of power, I can tell, and power is the heaviest thing there is to keep in balance." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Balance is something you carry, and yours has a demon sitting on one side of the scale, so I'd guess it's hard going." },
       },
       again = {
         { id = "h_again", text = "Something more? There's no hurry in Nighthaven, whatever they tell you in the cities." },
@@ -702,6 +864,10 @@ P:NPC {
         { text = "Train me.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "How do you find balance?", next = "balance" },
         { text = "In Darnassus they call Moonglade's druids fools.", next = "darnassus_lg", when = { race = "NightElf", class = "DRUID" } },
+        { text = "Can a priest of shadow keep the balance, Loganaar?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Can someone like me find balance by sitting still, Loganaar?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "How does a mage keep their power in balance, Loganaar?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Can a warlock ever truly be in balance, Loganaar?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -758,6 +924,42 @@ P:NPC {
         { text = "(Sit quietly with the spirit.)", next = "sit" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "The strength to stand between the wounded and what would finish them, and not be moved. A mother bear does not ask whether her cub deserves protecting, and a true healer does not ask it of the wounded either." } },
+      choices = {
+        { text = "Then I'll heal without asking who deserves it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Some don't deserve healing. I choose who I save.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "When there is something behind you that cannot run, and nowhere left for it to go. The quiet way serves you well in the forest, but a day will come when hiding is not enough, and you must decide what you are willing to stand for." } },
+      choices = {
+        { text = "Then I'll stand when it matters, spirit.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Standing is for bears. I'll find another way.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "That power used in haste is only noise, as loud and as quickly gone. The Highborne were quick and clever and very sure of themselves, and the bear watched them drown, and slept, and woke, and is here still." } },
+      choices = {
+        { text = "Patience, then. I'll learn to wait before I strike.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Haste wins battles, spirit. Patience loses them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because a demon is all hunger and no patience, and the bear has outwaited many hungry things. The fel you carry will ask and ask of you, little one, and the strength the bear teaches is the strength to answer no." } },
+      choices = {
+        { text = "Then I'll learn to tell my demon no.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My demon asks, and I answer as I please.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Old as the hills you walked to reach me, I am, and I do not hurry. Sit, and when you are still, I will speak." },
@@ -766,6 +968,10 @@ P:NPC {
         { id = "h_not", when = { ["not"] = { class = "DRUID" } },
           text = "Not of the Circle, this one. Still, you came all this way to sit with an old bear. That is a kind of wisdom too." },
         { id = "h_return", when = { metBefore = true }, text = "You came back, and most do not. They think one visit is a lesson learned, when it is only a lesson begun." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A healer of the Horde sits before me. You have tended wounds, little one, and that is a kind of strength the bear understands." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "One who walks softly comes before me. The bear walks softly too, little one, but only until it needs to stand." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A wielder of the old fire comes before me. Your power is quick, little one, and the bear is slow, yet the bear has outlived every mage who thought that mattered." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "One who carries a demon comes before me. The bear smells it on you, little one, sour and hungry, and the bear is not afraid of it." },
       },
       again = {
         { id = "h_again", text = "The bear settles again, watching you with calm, unhurried eyes, and waits for you to speak." },
@@ -778,6 +984,10 @@ P:NPC {
         { text = "I'm a priest. I came to pray where it's quiet.", next = "pray", when = { class = "PRIEST" } },
         { text = "(Sit quietly a while.)", next = "sit", fx = { affinity = 2 } },
         { text = "I'm a warrior. I came to learn strength, not shapes.", next = "warrior_gb", when = { class = "WARRIOR" } },
+        { text = "What strength does the bear see in a healer, spirit?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "When should a quiet walker choose to stand, spirit?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "What can a slow bear teach a mage, spirit?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Why is the bear not afraid of demons, spirit?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "(Rise and leave the spirit in peace.)", next = "END" },
       },
     },
@@ -883,6 +1093,42 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "The old one hisses at anyone who smells of the grave, so she'd hiss at a Forsaken and at a few of my own kin besides. The young ones only care whether you've brought them anything to eat, which I think is a better way to judge people." } },
+      choices = {
+        { text = "Gentle words with them, then. They deserve kindness.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A beast that hisses at me gets no gentleness.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Once, a goblin with a rope and a great deal of confidence, and he left with neither. They fly for druids only because they choose to, so a thief would get as far as the edge of the perch and then a very long way down." } },
+      choices = {
+        { text = "I wouldn't dream of it. They're yours to fly.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "With the right rope and some patience, I'd manage it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "They feel it the way they feel a storm coming, all prickling feathers and wide eyes. The druids say the old Highborne magic still hangs over Azshara like a smell, and my birds won't fly that way for anything." } },
+      choices = {
+        { text = "Then I'll keep my magic well away from them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "They'll get used to it. Everything does, in time.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "As plain as smoke, and they hate it, because they've flown over Felwood and seen what it does. I don't think it makes you a bad person, but I'd rather the old one didn't bite you, because then I'd have to apologise to you both." } },
+      choices = {
+        { text = "Then I'll keep my distance. Their fear is earned.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fel is power. Your birds will have to cope.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Silva, and I keep the Circle's hippogryphs. They fly one road only, to Rut'theran by Teldrassil, and only for druids; they're very particular." },
@@ -890,6 +1136,10 @@ P:NPC {
           text = "You'd rather have your own wings, I imagine. These ones bite less than you'd think, if only slightly less." },
         { id = "h_names", when = { metBefore = true }, text = "The oldest of my hippogryphs won't fly unless I say her name first, and politely. I've stopped finding it strange." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Night flights are the best. Teldrassil's lights come up out of the sea like someone's left a lantern for you." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde! My birds only fly for druids, I'm afraid, but you're welcome to sit with them, because they like a quiet voice and priests usually have one." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, sneaking up on my hippogryphs? They'll hear you long before you hear them, I promise, and the old one bites." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Could you not conjure anything near the perches, please? The last spark that flew over here put the birds off their feed for a week." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'm sorry, but you'll need to stand a little further off, because the birds can smell the fel on you and it makes them very cross." },
       },
       again = {
         { id = "h_again", text = "Anything else? The birds are restless, but they'll wait for you." },
@@ -899,6 +1149,10 @@ P:NPC {
         { text = "Why only druids?", next = "rule" },
         { text = "Where can I find half of the sea lion's pendant?", next = "pendant", when = { questActive = TODO_QUEST("Trial of the Sea Lion") } },
         { text = "Show me the flight.", next = "BUSINESS", when = { class = "DRUID" } },
+        { text = "Do your hippogryphs mind a troll or a Forsaken near them, Silva?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Has anyone ever tried to steal a hippogryph, Silva?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Why do your hippogryphs mind the arcane so, Silva?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Can your birds really smell the fel on me, Silva?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -959,6 +1213,42 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "The Earth Mother hears everyone who walks on her, friend, whether they call her by name or not. The trolls of our Horde have their loa and the Forsaken have their own dark faith, and I've never thought she minded, so long as the prayer was honest." } },
+      choices = {
+        { text = "Then I'll pray honestly, whatever name I use.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Honest prayers are rare. Mine are mostly useful.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "They take offence at nearly everyone, but quiet folk most, since anything that sneaks on the plains wants to eat them. Stomp a bit and hum a tune, and they'll grumble and leave you be, which is about as friendly as a wind rider gets." } },
+      choices = {
+        { text = "I'll stomp and hum, then. No need to startle them.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If they can't hear me coming, all the better.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "By me, on a cold night, yes, though the druids might frown if it got out of hand. The Circle remembers the Highborne and their burning, and a tauren knows better than most that a small fire on the plains can be a big one by morning." } },
+      choices = {
+        { text = "A small fire, well tended, then. I'll be careful.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A fire that's never let loose is barely a fire.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "She turns from no one, but some turn from her, and the fel has a way of crowding out everything gentle. I won't refuse you a seat on the perch, friend, but I'll ask you to leave your imp at the bottom of the hill, because my riders eat imps." } },
+      choices = {
+        { text = "I'll leave it below. The Earth Mother's welcome matters.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My imp goes where I go, Bunthen.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Bunthen Plainswind is my name, and I keep the Circle's wind riders, who fly for druids to Thunder Bluff. It's a short road through the sky, from one home to another." },
@@ -966,6 +1256,10 @@ P:NPC {
           text = "From the sky to the Bluff, your folk came, I hear, and the Earthen Ring vouched for you. The winds are kind to you. Let my riders be kind too." },
         { id = "h_rider", when = { metBefore = true }, text = "My riders grumble at Nighthaven's quiet, because they like the wind on the Bluff. So do I, if I'm honest, but don't tell the Keeper." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Mu'sha's eye is open over the lake, and it's a good night for flying. The riders know it too; listen to them fidget." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, so far from the Bluff! My riders fly for druids alone, friend, but you're welcome to share the perch and a little conversation." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, at the perch. My riders don't trust anyone who moves that quietly, friend, so walk loud near them, for your own sake." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, so far from the cities! The riders don't care for magic on the wind, but I've always thought a mage's fire would be welcome on a cold night by the lake." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. The Earth Mother keep you, friend, though I wonder whether your demons let her near you at all." },
       },
       again = {
         { id = "h_again", text = "Something more, friend? The riders can wait a little." },
@@ -975,6 +1269,10 @@ P:NPC {
         { text = "Why do the Circle's riders fly for druids alone?", next = "rule" },
         { text = "Where can I find half of the sea lion's pendant?", next = "pendant", when = { questActive = TODO_QUEST("Trial of the Sea Lion") } },
         { text = "Show me the flight.", next = "BUSINESS", when = { class = "DRUID" } },
+        { text = "Does a priest's prayer reach the Earth Mother, Bunthen?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Do your wind riders take offence at quiet folk, Bunthen?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Is a mage's fire really welcome in Moonglade, Bunthen?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Would the Earth Mother turn from a warlock, Bunthen?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Farewell.", next = "END" },
       },
     },

@@ -61,6 +61,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Honest work, if they're open about the price, which is more than I can say for half the bidders in this room. Horde or Alliance, a priest still needs reagents and a meal, and I've never seen a holy candle sell itself." } },
+      choices = {
+        { text = "My healing isn't for sale, Grizzlin.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Everyone has a price. Mine's just better hidden.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, welcome to the auction house. Totems sell slowly up here, but if you've anything fire-charged, the cold makes it worth double." },
@@ -74,6 +83,7 @@ P:NPC {
           text = "Night in Winterspring and you've come to look at the auction board? Either you're very keen or very cold, and I'll take your coin either way." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! You lot hardly ever sell anything, you just buy linen for bandages, which honestly makes you my favourite customers, because you never haggle." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Bless the auction house if you like; it couldn't hurt the bidding, and Steamwheedle doesn't charge for prayers, yet." },
       },
       again = {
         { id = "h_again", text = "What else? Make it quick, the brazier's going out." },
@@ -87,6 +97,7 @@ P:NPC {
         { text = "Has anyone ever robbed a Steamwheedle auction house?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do mages sell much through the auction house?", next = "xmage", when = { class = "MAGE" } },
         { text = "Doesn't it trouble you, selling to both Horde and Alliance?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What do you make of priests who sell their services, Grizzlin?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -179,6 +190,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "More than you'd think, especially the Forsaken ones, who say a bullet saves mana. I don't judge, I just oil the barrels so they fire in the cold, and the yetis out there don't much care whose prayers come after." } },
+      choices = {
+        { text = "I'd rather mend wounds than make them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A bullet's a fine prayer for a yeti.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Now, I know your lot like a good mace or axe, and I've got ones that hold an edge even when your fingers won't." },
@@ -190,6 +210,7 @@ P:NPC {
           text = "Wixxrak, weaponsmith and gunsmith to everybody who comes through Everlook. Swords, axes, rifles and enough shot to keep you busy all winter, which in Winterspring is the whole year." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! Now there's a customer who appreciates a good hammer, and I've got maces that won't go brittle in the cold, which you'd be surprised how many smiths can't say." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, eh? Most of your kind buy a mace and nothing else, but I'll sell you a rifle too, if your prayers ever need a little extra reach." },
       },
       again = {
         { id = "h_again", text = "What else can I tell you about, before I go back to telling you what to buy?" },
@@ -203,6 +224,7 @@ P:NPC {
         { text = "Why would cold weather ruin a dagger?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do mages really need a dagger?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do you sell weapons to anyone who pays, Wixxrak?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do priests ever buy your guns, Wixxrak?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -290,6 +312,15 @@ P:NPC {
         { text = "I'll take a look at the stock.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Every one that passes through, Horde or Alliance, since the cold eats a robe faster than any battle does. A troll priest bought rune thread from me last month and told me her loa liked a neat hem, and I've thought better of the loa ever since." } },
+      choices = {
+        { text = "A neat robe shows a disciplined mind.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My robes go ragged, and the loa don't mind.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll want leather and heavy thread, I expect, because nothing you carry survives a Winterspring winter without mending." },
@@ -299,6 +330,7 @@ P:NPC {
           text = "A warlock! You'll be wanting felcloth, I expect, since your lot never want anything else. I keep it in the back so it doesn't stink up the thread." },
         { id = "h_default", key = true,
           text = "Qia, trade supplies, right here beside the bank and the auction house. Every crafter in Everlook buys from me sooner or later, because the next shop with thread is a long, cold walk away." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! You'll be after thread for your robes, I expect, because nothing tears a robe faster than a Winterspring wind." },
       },
       again = {
         { id = "h_again", text = "Anything else, or have I sold you enough thread for one day?" },
@@ -311,6 +343,7 @@ P:NPC {
         { text = "Where does your stock come from?", next = "stock" },
         { text = "Where does felcloth even come from?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do many warlocks buy from you?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do priests often come to you for robe cloth, Qia?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -391,6 +424,15 @@ P:NPC {
         { text = "I'll keep my sheep elsewhere.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Some do, the ones from the Barrens and the jungles, who were never meant for snow. I keep them warm and fed, and the frostsabers sniff at their stalls like they're laughing at them, which I suppose they are." } },
+      choices = {
+        { text = "Then I'll bless the ones from the warm lands.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A beast that can't stand the cold shouldn't be here.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! The beasts in my stable perk up when your kind come by, so stand near the stalls as long as you like and warm them up a bit." },
@@ -400,6 +442,7 @@ P:NPC {
           text = "A mage. I suppose you've no beast to stable, unless you count the sheep you turn people into, and I don't board those either." },
         { id = "h_default", key = true,
           text = "Azzleby, stable master, right by the gate so the hunters don't have to drag their beasts all the way through town. I board pets for anyone who's tamed one, and I keep them warmer than the inn keeps its guests." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. I don't get many of you at the stables unless a pet's ailing, so if you've a blessing to spare, the beasts in the back need it more than the folk in the inn." },
       },
       again = {
         { id = "h_again", text = "Anything else? There's a bear back there that wants its dinner." },
@@ -412,6 +455,7 @@ P:NPC {
         { text = "Do hunters tame much in Winterspring?", next = "tame" },
         { text = "Is a demon really so different from a pet?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Would a polymorphed sheep be welcome in your stables?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do the beasts in your stable suffer the cold, Azzleby?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -502,6 +546,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Well, it glows a little, and it keeps its cold even in a warm hand, so it's either holy or very stubborn. A troll priest told me once that every herb has a little loa in it, and I can't prove her wrong, so I've started thanking mine." } },
+      choices = {
+        { text = "Thank them, then. Respect keeps the world in balance.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Herbs are herbs. Grind them and stop wondering.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! I've no totems to sell, but I've vials aplenty for your water spirits, packed in straw so they won't crack in this cold." },
@@ -513,6 +566,7 @@ P:NPC {
           text = "Evie Whirlbrew, alchemy supplies, the only shop in Everlook where the bottles are packed in straw. Vials, a recipe or two and the odd potion for anyone who doesn't have the patience to brew their own." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! You won't want healing potions, will you, not with the real thing in your hands, and here's me with all my bottles packed in straw." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! I've always wondered whether a potion and a prayer are cousins, because icecap from these hills feels half holy when you cut it fresh." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've a pot on the boil." },
@@ -526,6 +580,7 @@ P:NPC {
         { text = "Do you sell poisons too?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Black lotus grows in Winterspring?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do you think potions and prayer do the same work?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you really think icecap is half holy, Evie?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Goodbye.", next = "END" },
       },
     },

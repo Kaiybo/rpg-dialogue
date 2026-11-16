@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.7.0 (2026-11-16)
+- Troll and Forsaken priests are greeted as priests by 20 people at Cenarion Hold and in the desert, who talk about the hives and the Twilight's Hammer.
+
 ## 1.6.0 (2026-11-16)
 - Priests and paladins are noticed: 7 people greet an Alliance priest or paladin as one, and have something to ask and argue about.
 

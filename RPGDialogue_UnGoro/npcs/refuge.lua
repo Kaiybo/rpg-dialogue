@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "I would, though I'm not sure which words fit, because the crater never left us anything to bury. The raptors and the oozes and the things in the tar don't keep graves, so say them over the camps, if you would, and I'll know they've been said." } },
+      choices = {
+        { text = "I'll say them at each camp, so your people are remembered.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The crater keeps its dead. Words won't call them back.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Like a living thing, I'll be honest with you, one that breathes heat and eats anything foolish enough to stand still. The crystals glow, the springs boil and the mountain smokes, and every scholar I've brought down here has a different theory why, which is half the reason I keep coming back." } },
@@ -57,6 +66,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, here at the Refuge! Then perhaps you can tell me what the crater wants, because it's certainly made clear that it doesn't want my base camps." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, here at the Refuge! The crater's taken three of my camps and a few good people with them, and I'd be glad of someone who knows the proper words for that." },
         { id = "h_default", key = true,
           text = "Williden Marshal, leader of the Marshal Expedition. My sister and I brought scholars and explorers down into Un'Goro for crystals and rare plants, but the crater had other plans, and we lost our base camps and fell back up here." },
         { id = "h_hunter", when = { class = "HUNTER" },
@@ -86,6 +96,7 @@ P:NPC {
         { text = "Your guards couldn't hold the camps?", next = "x_warrior", when = { class = "WARRIOR" } },
         { text = "What do you think the crystals are, Williden?", next = "xmage", when = { class = "MAGE" } },
         { text = "Would you have work for someone who goes unnoticed?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Would you like words said for the people you lost, Williden?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "I'll help the expedition.", next = "END", fx = { affinity = 2, standing = { marshals_refuge = 1 } } },
       },
     },
@@ -203,6 +214,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "I think I would, friend, though I'm not sure, which I suppose is the whole trouble. Something bad happened before I woke in the marsh, I can feel that much, but the not knowing feels worse than any memory could." } },
+      choices = {
+        { text = "Then I'll pray the truth comes back to you gently.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Forgetting is a mercy. Leave the past buried where it fell.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Everything feels strange to me, friend, but the crater feels strange in a friendly sort of way. The plants grow too big and the beasts are too old, as if this place forgot to keep up with the rest of the world, the way I've forgotten everything." } },
       choices = {
@@ -270,6 +290,7 @@ P:NPC {
           text = "You've got quiet feet! I think I had quiet feet once, or I knew someone who did; it's hard to tell which memories are mine and which ones the raft took." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! Can mages find lost things? I've lost quite a lot, you see, and most of it was inside my own head." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Do your prayers ever help a fellow remember things, because I've tried shouting at the sky and the sky hasn't been at all forthcoming." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "You're a priest? Can priests mend a head that's been hit, do you think, because mine was, and the rest of me is fine, but there are holes in it where things ought to be." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -288,6 +309,7 @@ P:NPC {
         { text = "Maybe you were a thief, not a warrior.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Magic can't mend a lost memory, Linken.", next = "xmage", when = { class = "MAGE" } },
         { text = "Would you like me to pray over your memory, Linken?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Would you want to remember, Linken, even if it hurt?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do you think you were a knight, once?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll help you remember.", next = "END", fx = { affinity = 3, trait = { kind = 1 } } },
       },
@@ -364,6 +386,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "They answer to something, because the red ones hum higher when someone prays over them, though that might just be the heat. I've a theory that something old grew them down here on purpose, and if so, a priest's touch might wake whatever they were meant for." } },
+      choices = {
+        { text = "I'll only touch them with the Light. Let's see what wakes.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Let me try shadow on them. I want to hear them sing.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Some of them hum, some of them heal, and some make every plant around them grow twice as big. I honestly don't know whether they're good for the crater or just very, very strange." } },
       choices = {
@@ -406,6 +437,7 @@ P:NPC {
           text = "A mage! Finally, someone who won't look at me funny when I say the red crystals are warmer than the blue ones, because you'll have felt it too, won't you?" },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "The crystals don't like you, friend. I mean no offence, but the pylon readings went sour the moment you walked in, the same way they do near the fire elementals up on the ridge." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, splendid! The crystals hum a little louder when spellcasters come into the cave, and I'm dying to know whether they prefer the Light or the shadow." },
       },
       again = { { id = "h_again", text = "Another question? Lovely, because questions are my favourite thing after crystals." } },
       choices = {
@@ -417,6 +449,7 @@ P:NPC {
         { text = "A gnome scholar out here? I'd have studied with you.", next = "x_gnome", when = { race = "Gnome" } },
         { text = "What do you hope the crystals will do?", next = "xmage", when = { class = "MAGE" } },
         { text = "Are you afraid of what I might do with them?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do your crystals really answer to a priest's power, J.D.?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "I'll gather crystals.", next = "END", fx = { affinity = 2, trait = { curious = 1 } } },
       },
     },
@@ -485,6 +518,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Every night, though I'm not sure anyone's listening, because the crater is very loud and my prayers are very small. If yours are bigger, then please aim them south of the Refuge, because that's where he was heading." } },
+      choices = {
+        { text = "I'll pray for him, and then I'll go and look.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Prayers won't find him. Only luck and a sharp eye will.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Probably, and I've told Williden so, but he says we've come too far to turn back now. Every time I hear a devilsaur stomping through the jungle, I think he's wrong." } },
       choices = {
@@ -544,6 +586,7 @@ P:NPC {
           text = "You're the sort who could slip through the ferns without the raptors noticing, aren't you? Oh, I wish Ringo had your feet instead of his own, because he trips over everything." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! Can you conjure water? Ringo never carries enough, and if you find him before I do, he'll be so thirsty that he won't make it back without some." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Would you say a prayer for Ringo, please, any prayer at all, because he's been gone for days and I've run clean out of my own." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "You're a priest! Could you, I mean, would you say a prayer for Ringo, because he went off toward the volcano days ago and I keep thinking of him out there, all alone and thirsty and maybe hurt?" },
       },
@@ -559,6 +602,7 @@ P:NPC {
         { text = "Should I find Ringo quietly, or quickly?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I can conjure water. Is that all he needs?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do you think Ringo is still alive, Spraggle?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Have you prayed for Ringo yourself, Spraggle?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "I'll look for Ringo.", next = "END", fx = { affinity = 3, trait = { kind = 1 } } },
       },
     },
