@@ -2,8 +2,11 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.10.0 (2026-11-16)
+- Shaman are noticed: 10 people greet a shaman as one and have something to ask and argue about the land's elements.
+
 ## 1.9.0 (2026-11-16)
-- Shaman are noticed: 10 people greet a shaman as one, and have something to ask and argue about.
+- Rogues, mages and warlocks are noticed: named people here greet them as such, with a question to ask and something to argue about. No new files. Needs RPG Dialogue 0.43.0.
 
 ## 1.8.0 (2026-11-16)
 - Druids are noticed: eight people at Marshal's Refuge and in the crater greet a druid as one and have something to ask and argue about.

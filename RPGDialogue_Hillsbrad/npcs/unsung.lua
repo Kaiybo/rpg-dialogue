@@ -28,12 +28,32 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "More than you'd think, and none of them have ever fished in their lives. Donald says I should ask what it's for, but I find it's better business not to know, and the bay doesn't mind either way." } },
+      choices = {
+        { text = "Smart of you not to ask. Keep it that way.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "You should ask. Line can strangle as well as fish.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else, Lindea.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "He'd be heartbroken, though he'd never show it, since he believes fishing is about patience, not power. I tell him the fish don't care how they're caught, and he tells me that's why I'll never understand fishing." } },
+      choices = {
+        { text = "Donald is right. Patience is the real reward.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The fish don't care how they're caught. Neither do I.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Lindea Rabonne, fishing supplies. Donald teaches the lessons, I sell the gear, and between us we've put a pole in the hands of half of Southshore. The other half are soldiers, and they never have the time." },
         { id = "h_coast", when = { questDone = TODO_QUEST("Down the Coast") },
           text = "You're the one who cleared the Torn Fin off the strand, aren't you? The nets are coming back full again, and I've sold more line this week than all last month, so you have my thanks." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll want fishing line, I suppose, though I suspect you'll use it to trip someone rather than catch a fish, and I'll not ask which." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! You'll not need a pole, I suppose, since your kind just freeze the fish where they swim, and Donald will be very disappointed to hear it." },
       },
       again = {
         { id = "h_again", text = "What else, love? The tide waits for no one, but I can." },
@@ -45,6 +65,8 @@ P:NPC {
         { text = "What's biting in the bay?", next = "fish" },
         { text = "Southshore seems tense these days.", next = "tense" },
         { text = "Do the murlocs trouble the docks?", next = "murlocs", when = { questBefore = TODO_QUEST("Down the Coast") } },
+        { text = "Do rogues often buy fishing line from you, Lindea?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Would Donald really be disappointed in me, Lindea?", next = "xmage", when = { class = "MAGE" } },
         { text = "Good fishing to you.", next = "END" },
       },
     },
@@ -138,10 +160,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because the Syndicate holds most of the hills, the ogres hold the rest, and the Forsaken have been poisoning the springs. I pay a premium for anything a gatherer manages to bring down alive, and they don't always come back." } },
+      choices = {
+        { text = "Then I'll gather what I need myself. Easier on everyone.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The Syndicate must be driven out of the hills. I'll help.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Something else, Nandar.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Candles and chalk and a few herbs that go into the less unpleasant rituals, but nothing more. I've watched what the apothecaries up the hill brew in their cauldrons, and I'll not have Southshore's name on anything that goes into a summoning." } },
+      choices = {
+        { text = "Fair enough. I'll get my reagents elsewhere.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Your fear is foolish. Reagents are just tools.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Nandar Branson, alchemy supplies. I keep the vials clean and the reagents dry, and I try not to think too much about what the apothecaries in Tarren Mill are mixing up there in their cauldrons." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! You'll want reagents for your spells, and I'll warn you that the good ones come from the Alterac hills, which means they're expensive and hard won." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. You'll want soul shards, I suppose, and I'll tell you now that I don't sell them, and I'd rather not know where you get them." },
       },
       again = {
         { id = "h_again", text = "Yes? Is there something else, friend?" },
@@ -153,6 +195,8 @@ P:NPC {
         { text = "What herbs grow in Hillsbrad?", next = "herbs" },
         { text = "Who buys potions in a town like this?", next = "buyers" },
         { text = "The Light could help those sick farms.", next = "priest", when = { class = { "PRIEST", "PALADIN" } } },
+        { text = "Why are reagents from Alterac so hard to come by, Nandar?", next = "xmage", when = { class = "MAGE" } },
+        { text = "What reagents do you sell to warlocks, Nandar?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -244,10 +288,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Every week, from people who say they've lost their keys, and I tell every one of them to see the Magistrate. Southshore's a small town, and if a lock gets picked, everyone knows who bought the tools." } },
+      choices = {
+        { text = "You're right. A small town needs honest traders.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A lockpick is just a tool. You could sell it honestly.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Micha.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Enough that I keep a shelf of purple dye just for the ones who came down from Dalaran. They're particular about the shade, and I've learned to stock three kinds of violet, which is more than any town this size should need." } },
+      choices = {
+        { text = "The violet matters. It's a sign of who we are.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Dalaran's colors are a vanity. Any cloth will do.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Micha Yance, trade supplies. If you're stitching, tanning, smithing or tinkering, I've got the bits you need, and if I don't, it's on the next cart from Menethil." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll want leather, thread and maybe a lockpick or two, though I'll say I only sell the first two, and I'd prefer you didn't ask about the third." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! You'll want silk thread and maybe a little dye, since I've noticed your robes need patching after a few weeks in the hills." },
       },
       again = {
         { id = "h_again", text = "Ask on; I've a cart to unload, but my tongue works fine while I do." },
@@ -258,6 +322,8 @@ P:NPC {
         { text = "What sells best in Southshore?", next = "sells" },
         { text = "How do your carts get through?", next = "carts" },
         { text = "I'm a tailor. Where's the good cloth?", next = "tailor", when = { profession = "Tailoring" } },
+        { text = "Has anyone asked you for lockpicks before, Micha?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Do many mages buy cloth and dye in Southshore, Micha?", next = "xmage", when = { class = "MAGE" } },
         { text = "That's all.", next = "END" },
       },
     },
@@ -348,15 +414,6 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
-    xhrogue = {
-      big = true,
-      lines = { { id = "xhrogue_default", text = "Rope, lamp oil and black dye, and a lot more of the dye than any honest tailor would need, which I'm sure is a coincidence. They pay in old Alterac coin, and I melt it down, because nobody else will take it." } },
-      choices = {
-        { text = "The Syndicate are outlaws. Stop trading with them.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Thieves are customers too. Keep the gold flowing.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "If they do, they haven't put in an order, and I'd sell to them too, at a fair markup. Southshore buys my lamp oil and Tarren Mill buys my rope, and the hills don't seem to mind either one, so I don't see why I should." } },
@@ -364,6 +421,24 @@ P:NPC {
         { text = "The Horde should win here, and you should pick a side.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Smart goblin. Sides are for people who can't do arithmetic.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Of course, pal, because gold doesn't care which side of the war it's on, and neither do I. The Overwatch units keep the road safe enough, and both towns pay me to keep their secrets, which is the best kind of business there is." } },
+      choices = {
+        { text = "Selling to both sides is smart. Gold is gold.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Playing both sides will catch up with you someday.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else, Zixil.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "It climbed inside looking for something shiny and set fire to the wiring, and the robot walked into Lordamere Lake before I could stop it. I fished it out the next morning, and it still clanks funny, so I've banned imps from the stall." } },
+      choices = {
+        { text = "I'll keep my imp away from your robots.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Imps go where they want. Build better robots.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
       },
     },
     hello = {
@@ -374,14 +449,12 @@ P:NPC {
           text = "A priest, and a customer, I hope! Holy water, unholy water, plain water with a nice label on it, I don't judge, I just price." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } },
           text = "A mage! You can conjure your own bread and water, which is terrible for my business, so I hope you've come for something you can't make out of thin air." },
-        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
-          text = "A warlock! The robots get twitchy around demons, so keep your little friend on a short leash and we'll do business just fine." },
-        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } },
-          text = "A rogue! Look all you like, but these robots count every item twice and they have very long arms, so let's keep this nice and legal." },
         { id = "h_default", key = true,
           text = "Zixil, merchant supplier to the hills! I walk from Southshore to Tarren Mill and back again, selling a little of this and a little of that, and the two Overwatch units keep the road very polite." },
         { id = "h_horde", when = { faction = "Horde" },
           text = "Zixil, merchant supplier to the hills, and yes, I was in Southshore an hour ago, and no, I won't tell you what they're up to. A goblin who carries tales doesn't carry goods for long." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! Now there's a customer who appreciates a good deal and a quiet exchange, and I've got both, if you know what to ask for." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Now I've got a few things that might interest you, pal, though I'll ask you not to let the imp near my robots, because it shorted one out last month." },
       },
       again = {
         { id = "h_again", text = "What else, customer? Talk while you walk; I've a schedule." },
@@ -389,13 +462,14 @@ P:NPC {
       },
       choices = {
         { text = "Do the spirits care who wins in Hillsbrad, Zixil?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Ever sold anything magical to Southshore, Zixil?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
-        { text = "What do the Syndicate buy from you, Zixil?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Ever sold anything magical to Southshore, Zixil?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Show me what you're carrying.", next = "BUSINESS" },
         { text = "You trade with both towns?", next = "both" },
         { text = "Tell me about your robots.", next = "robots" },
         { text = "What exactly do you sell?", next = "goods" },
         { text = "How did a gnome machine end up guarding you?", next = "gnome", when = { race = "Gnome" } },
+        { text = "Do you really sell to both Southshore and Tarren Mill, Zixil?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "How did an imp short out your robot, Zixil?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Safe travels.", next = "END" },
       },
     },

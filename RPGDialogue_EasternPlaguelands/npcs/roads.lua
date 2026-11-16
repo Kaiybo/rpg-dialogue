@@ -44,6 +44,10 @@ P:NPC {
           text = "And the heroes, too; their things are scattered and forgotten, and they shouldn't be. Joseph's among them, of course, and so is Davil Lightfire, who came to help us." },
         { id = "h_pamela", when = { questDone = TODO_QUEST("Uncle Carlin") },
           text = "You found Pamela, or what's left of her, and she remembered me. I don't know whether to thank you or weep, so I expect I'll do both." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage. Darrowshire had one, {class}, an old fellow who did the fireworks at the harvest fair, and he burned more ghouls than any soldier the night the town fell." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "You move like the scouts Joseph sent out the night Darrowshire fell, {class}, the ones who came back too late to tell us how many there were." },
       },
       choices = {
         { text = "Will anything grow in Darrowshire again?", next = "druid_q", when = { class = "DRUID" } },
@@ -51,9 +55,29 @@ P:NPC {
         { text = "What happened at Darrowshire?", next = "battle" },
         { text = "Tell me about Joseph.", next = "joseph" },
         { text = "Are there others of your family?", next = "family" },
+        { text = "Is that why you joined the Argent Dawn, Carlin?", next = "xmage", when = { class = "MAGE" } },
+        { text = "What would you have done with more warning?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I'll leave you to your memories.", next = "END" },
       },
       again = { { id = "h_again", text = "What else would you hear? I've little but stories now, but I've plenty of those." } },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Got the children out, for a start, and sent for help before the Scourge closed the road. Joseph would have fought anyway, he always did, but an hour's warning might have saved Pamela, and I think about that more than I should." } },
+      choices = {
+        { text = "It wasn't your fault. You couldn't have known.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Regret won't help. Make the Scourge pay instead.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Partly, for I wanted to stand with people who'd fight back the way he did. I'm no mage and no paladin either, but the Dawn doesn't care, so long as you're still standing when the Scourge comes." } },
+      choices = {
+        { text = "Standing is enough. You honor them by fighting.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Better to live quietly and let the dead rest.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Carlin.", next = "BACK" },
+      },
     },
     battle = {
       lines = {
@@ -208,14 +232,38 @@ P:NPC {
           text = "Smokey LaRue's the name, an' Scourge bits are me trade, more's the pity. I brew things for the Dawn that keep the plague off our boots, an' the recipes call for parts you'd rather not carry." },
         { id = "h_compound", tags = { "news" }, when = { questActive = TODO_QUEST("Smokey's Special Compound") },
           text = "Ye've got the bits? Good, toss 'em in the bin, not on me bench. The compound's half done, an' it's a mean thing when it's interrupted." },
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "A warlock, eh? Ye'll no mind the smell in here, {class}, for I've seen what yer imps leave behind, an' my workshop's cleaner by comparison." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "Ye've light fingers, {class}, I can see it from here. Good, for the Scourge bits I need come off the dead quicker if ye know how tae cut a purse." },
       },
       choices = {
         { text = "What does the plague do to the beasts out here?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What does the compound do?", next = "compound" },
         { text = "Why does everyone call you Smokey?", next = "name" },
+        { text = "Do you ever use fel in your brews, Smokey?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What exactly do you want cut off the dead?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I'll leave you to it.", next = "END" },
       },
       again = { { id = "h_again", text = "Still here? Fine, but ye're breathin' my smoke." } },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Ye don't want me tae answer that wi' yer dinner still in ye. Let's say the Dawn's salves need certain parts the Scourge no longer use, an' a nimble pair o' hands gets 'em clean, which saves me boilin' twice." } },
+      choices = {
+        { text = "The dead don't need them. Fair harvest.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "It's grim work. I'd rather leave the dead whole.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Let's talk of something less grim.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Never, an' I'll thank ye no tae suggest it where the paladins can hear. Scourge bits are foul enough, but they're honest foul, an' fel's the kind o' foul that comes wi' a price ye cannae see on the label." } },
+      choices = {
+        { text = "Wise. Fel always costs more than it looks.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fel would make your brews twice as strong.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Smokey.", next = "BACK" },
+      },
     },
     compound = {
       lines = {
@@ -276,6 +324,10 @@ P:NPC {
           text = "Betina Bigglezink, of the Argent Dawn. I make things that help, and right now I'm making something that helps by being very unpleasant to the Cult of the Damned." },
         { id = "h_gambit", tags = { "news" }, when = { questActive = TODO_QUEST("Dawn's Gambit") },
           text = "You've got the Gambit, how wonderful! Set it in the viewing room in Scholomance, step back, and then please step back a bit further than that." },
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "Oh, a warlock! Please don't let your imp near my bench, {class}, for it'll eat the copper wiring, and I've only got the one spool." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage! Perfect, {class}, for I've a device that wants an arcane jolt to wake it up, and the last time I used a lightning rod I lost my eyebrows." },
       },
       choices = {
         { text = "Do your devices harm the land, Betina?", next = "druid_q", when = { class = "DRUID" } },
@@ -283,9 +335,29 @@ P:NPC {
         { text = "What is Scholomance?", next = "scholo" },
         { text = "What exactly are you building?", next = "gambit" },
         { text = "How did a gnome end up at Light's Hope?", next = "why" },
+        { text = "Could fel power your contraptions, Betina?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What's your device for, Betina?", next = "xmage", when = { class = "MAGE" } },
         { text = "Good luck with it.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? I can talk and solder, mostly." } },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "It's for the Scholomance, and the Cult of the Damned are going to hate it, which is the nicest thing I can say about anything. Gandling's students treat those halls like a library, so I'm building something that does to them what a bookworm does to a book." } },
+      choices = {
+        { text = "Destroy every page they've written. Leave nothing.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Some of their learning might help us fight them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's talk of other things.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "It could, and that's exactly why I'd never let it, for a machine that runs on demons will want what demons want sooner or later. Steam, sparks and a little arcane are bad enough, and at least they don't whisper." } },
+      choices = {
+        { text = "A wise rule. Fel corrupts everything it touches.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fel's only energy. You're being superstitious.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
     },
     scholo = {
       lines = {

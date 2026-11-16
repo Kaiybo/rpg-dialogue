@@ -34,9 +34,31 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Because Ag'tor needs sharp eyes on the woods and steady hands on the axes, and grog gives neither. A rogue knows that better than most, I'd say, since one slip in the dark is all it takes." } },
+      choices = {
+        { text = "You're right. A clear head saves lives.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A little grog never hurt anyone.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "I'll take the fruit.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Hard enough, with naga on the shore and elves in the woods. Every supply run from Orgrimmar risks lives, so I make sure nothing goes to waste, and I'd thank you not to conjure anything that makes my stock look poor." } },
+      choices = {
+        { text = "I'll respect your stores. Every scrap counts.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Conjured food is better anyway.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll take some water.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, good, then you'll keep a clear head, which is more than I can say for the warriors who keep asking me for grog." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
+          text = "A rogue. You'll want something light to eat, I expect, so you can keep moving, and I've got fresh fruit, which is more than the naga ever offer." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
+          text = "A mage. You'll want plenty of water, I expect, since your kind drink it like it's going out of style, and I've got barrels of it." },
         { id = "h_default", key = true,
           text = "Kurll, and I feed this camp. We're a handful of orcs at the edge of a cursed land with naga in the water and elves in the woods, so what we need is sharp eyes and full bellies, and that's what I sell." },
       },
@@ -49,6 +71,8 @@ P:NPC {
         { text = "Let me see your goods.", next = "BUSINESS" },
         { text = "Why no grog in an orc camp?", next = "grog" },
         { text = "Where does your food come from?", next = "supply" },
+        { text = "Why no grog in your camp?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Is it hard to keep the camp supplied?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -113,9 +137,31 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "I blame the elf who did it, but I watch every mage the same way now. You're Horde, so I'll sell to you, but don't expect me to turn my back while you're casting." } },
+      choices = {
+        { text = "I understand. Rimtori will answer for it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Your fear makes you weak, smith.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "I'll take a dagger.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Not many, and they don't take care of what they buy. A demon's fire ruins an edge faster than anything, so if you want my blades to last, keep them away from your pet's flames." } },
+      choices = {
+        { text = "I'll take care of my weapons.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A blade's a tool. It'll break eventually.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll see what you've got.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? Then you'll swing a mace or an axe with lightning behind it, and I'll make sure the edge is worth the lightning." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
+          text = "A mage. You'll not be needing my weapons, I expect, unless you want a dagger for when your spells run dry. The elves who killed our warriors were mages too." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
+          text = "A warlock. You'll want a blade that can take a beating, since your demon does most of the fighting and you're left with whatever's in your hand." },
         { id = "h_default", key = true,
           text = "Gruul Darkblade, weaponsmith for Valormok. Axes, swords, maces, whatever you swing, and I'll have it sharp before you go hunting elves or naga, because both of them are hunting us." },
       },
@@ -128,6 +174,8 @@ P:NPC {
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "What happened to this camp's warriors?", next = "elves" },
         { text = "What's the best weapon against naga?", next = "naga" },
+        { text = "Do you blame all mages for what Rimtori did?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do warlocks buy many weapons?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
     },

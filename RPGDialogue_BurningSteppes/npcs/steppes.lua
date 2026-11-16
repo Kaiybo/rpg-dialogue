@@ -27,8 +27,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Humility, first, though few of you survive the lesson. Your spells are borrowed light, mortal, and fire like mine was old before your first wizard drew breath, so study it if you must, but from a distance." } },
+      choices = {
+        { text = "Then I'll study from a distance, great one.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll master your fire someday, dragon. Mark that.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Bold, and foolish, which in mortals is the same thing. A dragon's hoard is a lifetime of tribute and a thief's is a week of luck, and when we meet over the same treasure, only one of us walks away." } },
+      choices = {
+        { text = "Then I'll rob smaller prey. No shame in that.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'd face you openly, dragon, not as a thief.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "On to other things.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A thief. I can smell gold on your fingers, little one, and none of it was given to you freely." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Your kind toy with sparks and call it mastery, while my flight was born in the deep fire of the world. Still, you interest me, and very little does." },
         { id = "h_default", key = true,
           text = "I am Cyrus Therepentous, of the Flight, and I am deciding whether to devour you whole or let you live to be useful. Choose your next words with care." },
         { id = "h_proof", when = { questActive = TODO_QUEST("A Taste of Flame") },
@@ -47,6 +67,8 @@ P:NPC {
         { text = "I have a molt from Kalaran Windblade.", next = "molt", when = { questDone = TODO_QUEST("Divine Retribution") } },
         { text = "The Light isn't afraid of you, dragon.", next = "light", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "I bargain with demons. A dragon doesn't frighten me.", next = "k_lock", when = { class = "WARLOCK" } },
+        { text = "What would a dragon teach a mage?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Dragons hoard and I take. Are we so different?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I'll be going.", next = "END" },
       },
     },

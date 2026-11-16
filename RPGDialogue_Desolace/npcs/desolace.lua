@@ -66,6 +66,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "More than you'd think, because a single fireball dropped between the Kolkar and the Gelkis at the right moment starts a feud that lasts all season. I'd rather the clans blamed each other's shamans than came looking for us, and a little well-placed flame helps them along." } },
+      choices = {
+        { text = "I'll start no feuds. I fight in the open, Captain.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Point me at the right camp and I'll light it.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I trust results, and I keep a close eye on how they're got. Thunder Axe Fortress is full of cultists who thought they had their masters on a leash, so if you go down there, mind that yours doesn't slip while you're watching theirs." } },
+      choices = {
+        { text = "My demons answer to me. Judge me by what I bring back.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll keep the imp leashed and follow your orders, Captain.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -76,6 +94,8 @@ P:NPC {
           text = "Politics out here are brutal: make friends with one clan, then remind them they were never ours. It's ugly work, but necessary." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid of the Circle at Nijel's Point. Keeper Marandis has his own business in Desolace, and I'd be obliged if one of you told me what it is." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, and from the look of you, one who can throw fire farther than my archers can shoot. I won't ask where you studied, so long as you're willing to do it from my ridge." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock at Nijel's Point. I'll be plain with you: the last people out here who trafficked with demons were the Burning Blade, and I've buried soldiers they sent to me in pieces." },
       },
       again = { { id = "h_again", text = "Anything else? Make it count; the drums are starting." } },
       choices = {
@@ -90,6 +110,8 @@ P:NPC {
         { text = "Another blade for the Point, Captain.", next = "warrior_pg", when = { class = "WARRIOR" } },
         { text = "Betraying a clan sits ill with the Light.", next = "paladin_pg", when = { class = "PALADIN" } },
         { text = "Stormwind's soldiers march through our forests to get here.", next = "nelf_pg", when = { race = "NightElf" } },
+        { text = "What use does Nijel's Point have for a mage, Captain?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Will you trust a warlock on your ridge, Captain?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll help hold the Point.", next = "END", fx = { affinity = 1, standing = { nijels_point = 1 } } },
       },
     },
@@ -229,6 +251,24 @@ P:NPC {
         { text = "A hunter eats what's there, sick or not.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "We distrust carelessness, and arcane power has always invited it, as the Well of Eternity taught us at a terrible price. The earth of Desolace was poisoned long ago, and I would not have a young mage add a new wound while the old ones are still weeping." } },
+      choices = {
+        { text = "Magic is a tool like any other. The fault is in the hand.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll tread lightly and wield my power with care.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "May I ask about something else?", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because I have walked the corrupted ground around the Mannoroc Coven, where the earth itself still remembers what fell there, and nothing grows true. Whatever pact you have made, the land pays for it in the end, even if you never see the bill." } },
+      choices = {
+        { text = "I'll turn the fel against the demons. It's a weapon.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "You're right to be wary. I'll keep my pacts away from the green.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let us speak of something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -237,6 +277,8 @@ P:NPC {
           text = "The earth here is sick at its root. Bring me proof of what's poisoning it, for the Circle must know." },
         { id = "h_strong", when = { minLevel = 45 },
           text = "You've grown strong, so hear it: a princess of the earth, Theradras, holds the body of one dear to the Circle, and we mean to take it back." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "You carry the scent of the arcane, and my people remember where that scent led the Highborne. Still, you came to the Circle's camp openly, so I will speak with you." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "The fel clings to you as smoke clings to cloth, and I can smell it from across the clearing. Say what you have come to say, and do not call anything here." },
       },
       again = { { id = "h_again", text = "You have another question; ask it plainly." } },
       choices = {
@@ -246,6 +288,8 @@ P:NPC {
         { text = "The Circle asks more of me. How do I answer?", next = "druid", when = { class = "DRUID" } },
         { text = "Tell me of Theradras.", next = "theradras", when = { minLevel = 45 } },
         { text = "I hunt these lands. The beasts are wrong here.", next = "hunter_md", when = { class = "HUNTER" } },
+        { text = "Do the keepers distrust all mages, Keeper?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Why does the fel trouble you so much, Keeper?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -328,6 +372,33 @@ P:NPC {
         { text = "Fair enough. Salvage feeds people.", next = "BACK", fx = { align = { order = -1 }, affinity = 2 } },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "We find what others lost, friend, an' there's a fine line between lost an' taken that I'd rather not walk. Bring me salvage from the Karnitol wreck or the old ruins an' I'll not ask twice, but bring me a man's purse an' ye'll be talkin' to the Captain." } },
+      choices = {
+        { text = "Lost or taken, it's all salvage once it's in Desolace.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Fair enough. I'll stick to wrecks and ruins, then.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Odds an' ends from the night elves' time, mostly, an' bits from the Karnitol's hold that some noble wanted kept dry. Half o' them hum when ye hold 'em, an' I've learned to set the hummin' ones down gently an' walk away." } },
+      choices = {
+        { text = "Leave anything that hums sealed. Some things should stay lost.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Crack them open. Knowledge is worth the risk of a burn.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Soul shards I'll not touch, an' I'll thank ye not to leave any lyin' about, but I've candles, chalk an' good thick string, which is more than ye'll find down in the valley. The Burning Blade at Thunder Axe have their own suppliers, an' I'd like to keep it that way." } },
+      choices = {
+        { text = "I'll buy honestly and keep my business tidy.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My business is mine. Sell me the chalk and ask nothing.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -339,6 +410,9 @@ P:NPC {
         { id = "h_business", when = { questActive = TODO_QUEST("Reclaimers' Business in Desolace") },
           text = "Ye came all this way on Reclaimers' business? Good, then pull up a crate." },
         { id = "h_salvage", when = { metBefore = true }, text = "Found a perfectly good kettle in the dust yesterday, wi' a centaur arrow through it. I patched it, an' it makes tea fine; that's Reclaimers' work in one kettle." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "Light-fingered sort, are ye? I can tell by how ye looked at me crates afore ye looked at me, an' I'll ask ye to keep yer hands where Reclaimers Inc. can see 'em." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Grand, because I've a crate o' scrolls an' trinkets from the old ruins that might be priceless or might explode, an' I've no way o' tellin' which." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, is it? Ye're welcome to warm yer hands, but if anythin' o' yours gets into me reagents, ye'll be payin' for the lot." },
       },
       again = { { id = "h_again", text = "Anythin' else? Mind the crates." } },
       choices = {
@@ -347,6 +421,9 @@ P:NPC {
         { text = "How do you get on with the Explorers' League?", next = "league" },
         { text = "I know salvage from scrap.", next = "salvage", when = { profession = "Mining" } },
         { text = "The Explorers' League would call you looters.", next = "dwarf_kr", when = { race = "Dwarf" } },
+        { text = "Does Reclaimers Inc. ever buy things that are quietly recovered?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "What sort of relics are you pulling out of Desolace, Kreldig?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do you stock anything a warlock might need, Kreldig?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll help.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -418,6 +495,24 @@ P:NPC {
         { text = "Maybe it isn't too late. Pray for me.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Eyes in the dark, mostly, because the Scourge hide in ruins and cellars where an honest soldier makes far too much noise. Brother Crowley values those who can find the plague's servants before they find us, and he asks few questions about where they learned it." } },
+      choices = {
+        { text = "I'd hunt the Scourge for you, but I keep my own counsel.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "If the cause is just, I'd serve the Crusade gladly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Perhaps something else, Brother.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "The Crusade trusts any arm that strikes at the undead, and fire purifies better than steel ever could. Some of the brothers say that magic opened the door to the plague, but I say the Lich King would have come no matter what Dalaran did." } },
+      choices = {
+        { text = "The Crusade's zeal frightens me more than the Scourge.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Fire against the Scourge is a fine use for my craft.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Something else, Brother.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -432,6 +527,8 @@ P:NPC {
           text = "I've been praying on what you told me about Raleigh, and I haven't finished. I'm starting to think I'm not meant to." },
         { id = "h_soured", when = { thread = { id = "scarlet_path", state = "soured" } },
           text = "Raleigh sends his blessing, you said. I think of it every night when the valley goes quiet, and it helps." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "You move like someone who has slipped through a few doors, friend. The Crusade has use for such skills, though we'd ask you to use them only against the Scourge." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, and still among the living, praise the Light. Dalaran's fall cost us so many of your kind, and the Crusade would welcome your fire against the Scourge." },
       },
       again = { { id = "h_again", text = "Yes, friend? The Light hears every question." } },
       choices = {
@@ -443,6 +540,8 @@ P:NPC {
           when = { thread = { id = "scarlet_path", beat = "b3_raleigh", state = { "stirring", "unfolding" } } } },
         { text = "I'll go to the valley.", next = "END", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Would the Crusade take a warlock, Brother?", next = "warlock_an", when = { class = "WARLOCK" } },
+        { text = "What would the Crusade want with someone like me, Brother?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Does the Crusade trust mages after Dalaran, Brother?", next = "xmage", when = { class = "MAGE" } },
         { text = "I won't fight for the Crusade, Brother.", next = "END", fx = { align = { order = -1 } } },
       },
     },
@@ -552,6 +651,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Everyone passes through eventually, because there is no other roof between Stonetalon and Feralas. I've fed Reclaimers, Crusaders, Sentinels and a few who gave three names in one night, and I've found that a full plate keeps most of them honest while they're under mine." } },
+      choices = {
+        { text = "Then I'll be honest under your roof, at least.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Three names is careful, not shady. Desolace is a hard road.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Twice, on the worst storm nights, when the wind came up from the Kodo Graveyard and filled the chimney with grit. I sat everyone round a single lamp and told stories until morning, and I'd rather that than any spell, though I'm glad to see a mage all the same." } },
+      choices = {
+        { text = "A good story warms better than any fire I could conjure.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Next storm, let a mage keep the hearth lit. Power is for using.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -560,6 +677,8 @@ P:NPC {
         { id = "h_night", when = { timeOfDay = "night" }, text = "The centaur drums carry a long way at night. You stop hearing them after a week, though I haven't stopped yet." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid, come down to Desolace. Most of your kind take one look at the dust and go straight back to Feralas, and I can't say I blame them." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "Walk as softly as you like, but my floorboards have learned every trick, and they'll tell me if you come down for a midnight snack. Sit, and I'll bring you something honestly." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Could you warm the hearth a little? I'm only joking, though the dust does make the fire sulk, and I'd not say no." },
       },
       again = { { id = "h_again", text = "Something else? I'll keep sweeping." } },
       choices = {
@@ -567,6 +686,8 @@ P:NPC {
         { text = "I'd like a room.", next = "BUSINESS" },
         { text = "What do the drums mean?", next = "drums" },
         { text = "Why keep an inn in Desolace?", next = "why" },
+        { text = "Do many shady folk pass through your inn, Lyshaerya?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Has the dust ever beaten your hearth, Lyshaerya?", next = "xmage", when = { class = "MAGE" } },
         { text = "Just a room, thank you.", next = "END" },
       },
     },
@@ -645,6 +766,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Quietly, from the inside, until they no longer trust their own brothers. Their cultists in Thunder Axe sleep beside the demons they serve, and a cultist who wakes up next to a dead brother starts wondering which of them sold the other." } },
+      choices = {
+        { text = "I'll make them doubt each other. That's how cults fall.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'll kill them face to face. Even cultists deserve that.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "They fear what they remember, and orcs once filled the sky with fel fire before Thrall freed us of it. Burn the satyrs of Sargeron with clean flame and let the tauren see the difference with their own eyes, because that will do more than any talking." } },
+      choices = {
+        { text = "My magic answers to me alone. Let them think what they like.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll fight where the tauren can see me. Trust is earned.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -659,6 +798,8 @@ P:NPC {
           text = "Azrethoc is dead, and the Blade has lost its newest master. For the first time since I came here, I think we may one day call some place safe again." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid. You'll feel the satyrs' rot in the soil long before you see their horns, and that's reason enough to help me thin them." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. Good, because the Burning Blade fear knives in the dark more than axes in daylight, and I want them afraid." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage of the Horde. Your fire is not fel, so I have no quarrel with it, but do not let anyone at Ghost Walker Post mistake you for the Blade." },
       },
       again = {
         { id = "h_again", text = "Something else? Say it and be done." },
@@ -676,6 +817,8 @@ P:NPC {
         { text = "I'm an orc mage, not a warlock.", next = "orc_mage", when = { race = "Orc", class = "MAGE" } },
         { text = "The spirits here are sick with demon taint.", next = "shaman_tk", when = { class = "SHAMAN" } },
         { text = "Give me a satyr camp. I'll clear it.", next = "warrior_tk", when = { class = "WARRIOR" } },
+        { text = "How do you want the Blade hunted, Takata?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Do the tauren here fear mages, Takata?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "I'll hunt with you.", next = "END", fx = { affinity = 2, learn = { "burning_blade" } } },
       },
     },
@@ -840,6 +983,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "The water off Shadowprey is clean and cold and full of fish that have learned to be patient, and I've learned to be more patient than they are. You might try your fire on the centaurs if you need to burn something, because the sea has done nothing to deserve it." } },
+      choices = {
+        { text = "Patience is its own magic. I'll sit with you a while.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A frost bolt into the shallows would fill your net faster.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Ground where nothing grows, and kodos that will not walk past the fortress walls even when I lead them by the horn. My elders say the land remembers wounds, and Desolace has more of them than any place I know, so I ask you to add no new ones." } },
+      choices = {
+        { text = "The fel is a tool. I don't answer to the Legion.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll leave the land as I found it. You have my word.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Something else, Nataka.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -856,9 +1017,9 @@ P:NPC {
           text = "A druid, here at Shadowprey? Sit down, sit down. The sea is the only thing in Desolace that hasn't given up, and I suspect you'll like it." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, out here in Desolace? The spirits of this place are tired, so be gentle with them." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, come all the way out to Desolace. The land here could use a prayer, though I think it would be content just to be left alone for a while." },
-        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. Out here you'll find old bones, old ruins and old magic, and I'd ask you to leave most of it where it lies." },
-        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. The Burning Blade at Thunder Axe Fortress call up their demons the same way you do, so I hope you'll understand if I keep my fishing line between us." },
         { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You came up so quietly the fish didn't even notice, which is more than I can manage. Sit, if you like, and tell me what you're really doing in Desolace." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, out here with the fishermen. If you could conjure a fish that bites, I'd call it the greatest magic I've ever seen." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. You'll forgive me if I keep my line between us, because I've seen what the Burning Blade leave behind at Thunder Axe, and it doesn't sit well with me." },
       },
       again = {
         { id = "h_again", text = "Something else? Sit; nothing out here is in a hurry except the centaur." },
@@ -874,8 +1035,10 @@ P:NPC {
         { text = "I met your brother. He seemed well.", next = "brother_met", when = { heardLine = "longhorn.h_default" } },
         { text = "I've run the plains with my kodo since I was a calf.", next = "hunter_nt", when = { race = "Tauren", class = "HUNTER" } },
         { text = "Why are the spirits of Desolace so tired, Nataka?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "What should a spellcaster know about Desolace?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "What should a spellcaster know about Desolace?", next = "xhcast", when = { class = "PRIEST", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Who should I watch out for in Desolace?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Is fishing in Desolace really so hard, Nataka?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "What have you seen the Burning Blade leave behind, Nataka?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -956,7 +1119,6 @@ P:NPC {
     xhcast = {
       big = true,
       lines = {
-        { id = "xhcast_lock", when = { class = "WARLOCK" }, text = "That the Burning Blade at Thunder Axe deal in the same fire you do, and they'd welcome you more warmly than I'd like. I hope you'll prove them wrong about the Horde's warlocks." },
         { id = "xhcast_default", text = "That the land remembers whatever is done to it, and a great deal has been done. The Burning Blade foul the ground near Thunder Axe, and the Kodo Graveyard has a weight to it that no spell could lift, so walk softly and you'll do better than most." },
       },
       choices = {

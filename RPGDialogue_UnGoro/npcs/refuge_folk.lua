@@ -43,12 +43,34 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "It hurts my pride more than my purse, because I paid a goblin to haul every barrel up that cliff. Still, a mage who can feed their own belly is one less mouth on my stores, and the Refuge needs every crumb it can keep." } },
+      choices = {
+        { text = "Conjured food spares your stores. That's good for everyone.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Honest food should be paid for, magic or no.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Then ye'll not mind me counting, will ye? Out here a missing sack of meal could starve a scholar, so I count everything twice and trust nobody once, and it's kept the Refuge fed so far." } },
+      choices = {
+        { text = "Fair enough. Count away, I've nothing to hide.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A man who counts that hard expects to be robbed.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Never mind that.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? Ye'll not find me buying anything ye've charmed out o' that crater, so don't ask. Bread from Gadgetzan and water I've boiled twice, that's all I trust." },
         { id = "h_default", key = true,
           text = "Nergal, and I keep the stores for the Refuge. Bread, meat, water and ammunition, all carried up here by people braver than me, so the expedition doesn't have to eat what lives in the crater." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, eh? Then you'll be glad to know none of my stores came out of the crater, because I've seen what the raptors eat and I'd rather not join the meal." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage, eh? Then ye'll not be needing my water, since ye conjure your own, and I'll thank ye not to tell the expedition how easy it is." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "I'll be counting my crates after ye've gone, friend, so don't take it personal. I've known a few of your trade, and every one of them was charming right up until the stores came up short." },
       },
       again = {
         { id = "h_again", text = "Anything more ye need from the stores, friend, before I get back to my crates?" },
@@ -60,6 +82,8 @@ P:NPC {
         { text = "Let me see your goods.", next = "BUSINESS" },
         { text = "Why not eat what's in the crater?", next = "crater_food" },
         { text = "What happened to the expedition?", next = "expedition" },
+        { text = "Does conjured water hurt your trade, Nergal?", next = "xmage", when = { class = "MAGE" } },
+        { text = "I'm no thief, Nergal.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -130,12 +154,34 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Not if they pay, and not if the Bruisers aren't asking either. Folk come out of the crater with all sorts of reasons to keep quiet, and I've found I fly faster when I don't know any of them." } },
+      choices = {
+        { text = "Good. Some business is nobody else's.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "You should know who you're carrying.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "That's the sweetest thing anybody's said to me this week, friend! Ironforge, Stormwind, Orgrimmar, sure, but out here you need a flyer, and a flyer needs me, and I need your silver." } },
+      choices = {
+        { text = "You'd charge your own mother for a seat.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Fair trade. You earn your fare.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! My beasts don't love flying near the volcano, so if you've any pull with the winds round Fire Plume Ridge, put in a good word for them." },
         { id = "h_default", key = true,
           text = "Gryfe, flight master for Marshal's Refuge. I'll fly anybody to Gadgetzan or to Cenarion Hold, Horde or Alliance alike, because coin's the same colour whichever side pays it." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Your Circle keeps watch at Cenarion Hold, and I fly folk there most days, so I hear plenty about the bugs in Silithus." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "You've got the look of someone who'd rather not leave a name on the flight log, friend. Lucky for you, I only write down the coin." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "Ah, a mage. Planning to teleport out and save yourself the fare? Go on, break a goblin's heart." },
       },
       again = {
         { id = "h_again", text = "What else? The flyer's getting twitchy." },
@@ -147,6 +193,8 @@ P:NPC {
         { text = "Where can I fly?", next = "BUSINESS" },
         { text = "Why fly anyone, Horde or Alliance?", next = "neutral" },
         { text = "Is flying over the crater safe?", next = "safe" },
+        { text = "You don't ask who your passengers are?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Mages can't teleport to Gadgetzan, Gryfe.", next = "xmage", when = { class = "MAGE" } },
         { text = "Goodbye.", next = "END" },
       },
     },

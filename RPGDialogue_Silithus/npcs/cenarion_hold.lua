@@ -33,8 +33,41 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Perhaps, if a rogue went where my scouts cannot, into the Twilight camps and the empty places in the south. I will not order anyone to look for my wife, {class}; the Hold comes first, and I must keep reminding myself of that." } },
+      choices = {
+        { text = "Duty first, Commander. The Hold needs you whole.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Forget orders. I'll look for her myself.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "I'll keep my eyes open.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Larksbane believes they stir the hives, and I have learned to trust her ear for stone. Something beneath the Scarab Wall is awake and listening, and I would rather a mage studied that than any of us fed it." } },
+      choices = {
+        { text = "Then let it be studied carefully, under the Circle's watch.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Smash the crystals. Study is a luxury here.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll speak with Larksbane.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I fear anyone who mistakes power for wisdom, and the cult is full of them. Fight beside us and you will be treated as any ally, but if I hear of a demon loose among the tents, I will not ask whose it was." } },
+      choices = {
+        { text = "That's fair. My demons answer to me, and to the Hold's peace.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The cult were weak. I am not.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I understand, Commander.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue. Vish Kozus will have marked you before you reached the gate, so do not take it amiss if he watches you; he watches everyone twice since... since the dig went wrong." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage. The arcane lies thick and strange in this desert, and the crystals out in the sand sing with it; Larksbane will tell you more than I can, if you have the patience for a dwarf." },
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "A warlock, on the Circle's ground. You are welcome so long as you fight what threatens the Hold, but the Twilight's Hammer began, I think, with people who were sure they could master what they summoned." },
         { id = "h_default", key = true,
           text = "I am Commander Mar'alith, and I hold this fort for the Cenarion Circle. From here we watch the hives, and the cult, and the wall our ancestors raised against something far worse than either." },
         { id = "h_dearest", tags = { "news" }, when = { questActive = TODO_QUEST("Dearest Natalia") },
@@ -64,6 +97,9 @@ P:NPC {
         { text = "What will you do now, Commander?", next = "after", when = { questDone = TODO_QUEST("Into The Maw of Madness") } },
         { text = "My blade is yours, Commander.", next = "x_warrior", when = { class = "WARRIOR" } },
         { text = "The elements here are in torment, Commander.", next = "x_shaman", when = { class = "SHAMAN" } },
+        { text = "Could a rogue help you find what happened on that dig?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "What do the crystals have to do with the silithid?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do you fear warlocks will join the Twilight's Hammer?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll leave you to your work, Commander.", next = "END", fx = { affinity = 1, standing = { cenarion_hold = 1 } } },
       },
     },
@@ -332,8 +368,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Aye, they can, through the sand, an' they swarm a heavy walker faster than ye'd believe. A light step gets ye closer tae the crystals, an' that's where I need samples taken, before the hum gets any louder." } },
+      choices = {
+        { text = "I'll get your samples, quick and quiet.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'd rather burn the hives and be done with it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll mind my feet.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I think they're connected tae somethin' big an' old an' angry, an' I'd sooner not find out what. Whatever it is, it's no' demonic, mind, but it's no' friendly either, an' I'd keep yer imp well away from it." } },
+      choices = {
+        { text = "I'll keep my demon away. Caution is wise.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'd like to see what my demon makes of it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "That's unsettling.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue, aye? Then ye'll have quiet feet, an' I'll need 'em, because the bugs out by the crystals feel every footstep in the sand." },
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "A warlock, is it? Then tell me, when ye listen tae those crystals, does the hum sound like anythin' ye've heard from yer demons? Because it's no natural sound tae me." },
         { id = "h_default", key = true,
           text = "Can ye hear that? It's the crystals out in the sand, and the hum gets louder every day I'm here. I'm the Circle's geologist, for my sins, and I'm fair sure those stones are what's driving the bugs out of their heads." },
         { id = "h_mystery", tags = { "news" }, when = { questActive = TODO_QUEST("The Twilight Mystery") },
@@ -362,6 +420,8 @@ P:NPC {
         { text = "What did the prism tell you?", next = "prism", when = { questDone = TODO_QUEST("Unraveling the Mystery") } },
         { text = "Those crystals hum with arcane power, don't they?", next = "x_mage", when = { class = "MAGE" } },
         { text = "The earth spirits are speaking here. Can't you hear them?", next = "x_shaman", when = { class = "SHAMAN" } },
+        { text = "Can the silithid really feel footsteps?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "You think the crystals have a dark power?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll let you get back to your rocks.", next = "END" },
       },
     },
@@ -552,9 +612,31 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "They come up beneath the carts, assuming the sand is soft enough, and take wagon and driver both. A mage who can strike them from a distance keeps the carts rolling, and while the carts roll, the Hold stands." } },
+      choices = {
+        { text = "I'll protect your carts. Supplies win wars.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let the drivers fend for themselves.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "I'll keep an eye on the worms.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I would trust a warlock who has proven reliable, assuming the proof is in the counting. Every crate that reaches the Hold is a victory, and I do not much care whose demon defended it, provided it doesn't eat the grain." } },
+      choices = {
+        { text = "I'll prove myself reliable, crate by crate.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll guard what I like, when I like.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "I'll keep my demon out of the grain.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde! The Hold is glad of you, and so am I, because the winds have been foul since the cult began its summonings, and every caravan I send needs fair weather." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage, provided you can keep the sand out of your robes, will be a great help to the supply lines. Fire is very effective against the larger worms." },
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "A warlock, here at the Hold. Provided your demons fight the silithid and not the supply carts, I see no reason we cannot work together." },
         { id = "h_default", key = true,
           text = "From this fort we strike at the silithid where they're strongest, and while we hold it, I'm convinced we cannot lose. Provided, of course, the supplies keep coming, which is where I come in." },
         { id = "h_lines", tags = { "news" }, when = { questActive = TODO_QUEST("Securing the Supply Lines") },
@@ -574,6 +656,8 @@ P:NPC {
         { text = "This desert must be hard on a child of the plains.", next = "tauren", when = { race = "Tauren" } },
         { text = "What does a windcaller do, exactly?", next = "druid", when = { class = "DRUID" } },
         { text = "I could scout the supply roads for you.", next = "x_hunter", when = { class = "HUNTER" } },
+        { text = "Why are the worms such a threat to the supplies?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Would you trust a warlock to guard your supplies?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll keep an eye on the roads.", next = "END", fx = { standing = { cenarion_hold = 1 } } },
       },
     },
@@ -680,9 +764,31 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "I don't need to tell you, and I won't. What I will tell you is that I saw you coming from the road, and I can see the scorch marks on your sleeve, so don't waste your time wondering." } },
+      choices = {
+        { text = "Your secret's yours. I respect that.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll figure it out sooner or later.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Fair enough, Captain.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I trust the Commander, and I trust my guards to follow orders, and that is the list. Everyone else, including you, I watch, because the Twilight's Hammer has eyes in places you wouldn't think." } },
+      choices = {
+        { text = "Good. Watching everyone keeps the Hold safe.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Your suspicion will drive away allies.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Watch all you like.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, is it? I can hear your totems knocking together from up here, so don't bother sneaking. If the elements have anything useful to say about the hives, I'm listening; if not, the poster's by the door." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage. Don't bother casting anything to see behind the blindfold; better minds than yours have tried, and none of them got an answer." },
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "Warlock. I can feel that thing at your heel from up here, so keep it close and keep it quiet, or my guards will put it down." },
         { id = "h_default", key = true,
           text = "Vish Kozus, Captain of the Guard. The Commander hasn't been himself since his wife vanished on a dig in the southern desert, without a trace, so I watch twice as hard. If you're looking for work, there's a poster by the door; do I need to draw you a picture?" },
         { id = "h_deathclasp", tags = { "news" }, when = { questActive = TODO_QUEST("Wanted - Deathclasp, Terror of the Sands") },
@@ -700,6 +806,8 @@ P:NPC {
         { text = "How do you see anything in that blindfold?", next = "blindfold" },
         { text = "I move quietly. Does that worry you?", next = "rogue", when = { class = "ROGUE" } },
         { text = "Need another blade on the walls, Captain?", next = "x_warrior", when = { class = "WARRIOR" } },
+        { text = "How do you see with that blindfold on?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do you trust anyone at the Hold?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },
@@ -823,9 +931,31 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "A few, and they always pick the bed nearest the window and leave before dawn. I don't ask what they're doing, but I leave a little bread by the door, because nobody should go into that desert hungry." } },
+      choices = {
+        { text = "That's kind of you. Everyone needs a little care.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Kindness is wasted on rogues.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "I'll take the window bed.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Worm stew, if you can believe it, because the cult's cooks seem to manage it and I'm too proud to be outdone. It's nothing like Auberdine's fish, but a cook works with what the desert gives." } },
+      choices = {
+        { text = "Making do is a virtue. I admire that.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'd rather go hungry than eat worm.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll try a bowl.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman at the Oasis Inn? You're welcome, of course, and if you can ask the water here to stay sweet a while longer, I'll be grateful to you and to it." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "Oh, you poor thing, you've been crouching in the sand all day, haven't you? Sit down, sit, and let me shake some of that grit out of your cloak." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage! Can you conjure water? I've got the oasis, of course, but it's warm and brackish, and I'd love a bucket of something cold for my soup." },
         { id = "h_default", key = true,
           text = "Welcome to the Oasis Inn, the only place in Silithus with soft beds and clean water. Rest here as long as you like; the desert will still be there when you're ready, more's the pity." },
         { id = "h_recipe", tags = { "news" }, when = { questActive = TODO_QUEST("Desert Recipe") },
@@ -846,6 +976,8 @@ P:NPC {
         { text = "How do you keep everyone fed?", next = "inn" },
         { text = "I'd like a room.", next = "BUSINESS" },
         { text = "Have you heard of my people, the shen'dorei?", next = "x_skyborne", when = { race = "Skyborne" } },
+        { text = "Do many rogues stay at the Oasis Inn?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "What are you trying to cook?", next = "xmage", when = { class = "MAGE" } },
         { text = "Thank you, Calandrath.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -958,9 +1090,31 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Bad enough that I'm spending every copper on antidotes, and every hour watching him sleep. If a mage could slow the venom with a frost spell, I'd pay good coin for the experiment, but nobody seems keen." } },
+      choices = {
+        { text = "I'll help Noggle however I can.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "That's your problem, not mine.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "I'll look for samples.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I don't know, which is why I'm asking, and I'm desperate enough to try anything that won't kill him faster. Mind you, if your trick costs extra, I'll be adding it to Noggle's tab." } },
+      choices = {
+        { text = "I won't experiment on your cousin. It's too risky.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll try a curse, if you're paying.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I don't know any such trick.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can you heal venom with a totem, or a chant, or anything else that doesn't cost me reagents? Noggle's eating my profits faster than the venom's eating him." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage! You don't happen to have a spell for curing scorpid venom, do you? No? Then you're about as useful as a priest who's run dry, and I'll need samples instead." },
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "A warlock! Your kind know poison, don't you, all that curse business? Maybe you'll know a trick I don't for drawing venom out of a goblin." },
         { id = "h_default", key = true,
           text = "My cousin Noggle gathers rare herbs for the alchemists here, or he did until he came back with enough venom in him to drop a kodo. I've slowed it down, but slowing isn't stopping, and I need samples of whatever bit him." },
         { id = "h_venom", tags = { "news" }, when = { questActive = TODO_QUEST("Deadly Desert Venom") },
@@ -981,6 +1135,8 @@ P:NPC {
         { text = "I know a little alchemy myself.", next = "alchemist", when = { profession = { "Alchemy" } } },
         { text = "What's a goblin doing working for druids?", next = "goblin" },
         { text = "Venom like that would coat a blade nicely.", next = "x_rogue", when = { class = "ROGUE" } },
+        { text = "How bad is Noggle's poisoning?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Could a curse really help draw out venom?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll keep an eye out for nasty things with stingers.", next = "END" },
       },
     },

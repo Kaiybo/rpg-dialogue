@@ -32,12 +32,34 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "More than another rifle would, some days. A scout who can slip past a devilsaur without stirring it can warn a camp before the raptors reach it, and my last two scouts were brave and loud, and I buried them both." } },
+      choices = {
+        { text = "A good scout slips past the beast. Fighting it is a fool's job.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'd rather face a beast than creep around it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "I've watched a mage freeze a whole raptor pack in the mud, so I won't pretend it doesn't work. But mana runs dry and I've never yet run out of shot, so I'd want both, and I'd want the mage standing behind my rifle." } },
+      choices = {
+        { text = "Then hire mages. The expedition needs proper guards.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Every scholar ought to learn to defend themselves.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "That's enough on spells.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Good, maybe you can tell me why the ground in this crater is warm to the touch even at midnight, because nobody else can, and it keeps me awake." },
         { id = "h_default", key = true, text = "Hol'anyee Marshal, Williden's sister and the better shot of the two of us, whatever he tells you. While he plans, I go out and keep the raptors from eating our scholars." },
         { id = "h_c0", when = { class = "HUNTER" }, text = "A hunter! Finally, someone who understands why I sleep with my rifle. The raptors here hunt like nothing else in Azeroth." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Williden will want to ask you about the plants, but I'd rather know whether you can talk the raptors out of eating our scholars." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "You came up my path without me hearing a single step, and that's a rare thing in this crater. I could use feet like yours on patrol, because the raptors hear everything else." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A spellcaster at my campfire, so Williden will want you near his crystals by sundown. Just don't set anything alight, because the ferns down there burn quicker than you'd think." },
       },
       again = { { id = "h_again", text = "What else? I've got a patrol soon." }, { id = "h_again2", text = "Ask away, quickly." } },
       choices = {
@@ -48,6 +70,8 @@ P:NPC {
         { text = "Why did the camps fall?", next = "b3_1" },
         { text = "I'll fight anything down there.", next = "x_1", when = { class = "WARRIOR" } },
         { text = "Should the expedition pull out?", next = "s_1" },
+        { text = "Would quiet feet really help your patrols down there?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Would magic guard your scholars better than rifles?", next = "xmage", when = { class = "MAGE" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -113,12 +137,34 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "The great raptor hides in the ferns and strikes from them, and no one calls him dishonorable. I would only ask that you take what you kill with respect, whether you killed it in the open or from the shadows." } },
+      choices = {
+        { text = "A kill is a kill. The prey doesn't care how it died.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'd rather meet my quarry face to face.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Tell me something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "The Earth Mother made the raptors and the ferns and the fire under this crater, and none of them were made to be bound. What you call upon was made somewhere else entirely, and the creatures of Un'Goro know it, even if your own people pretend not to." } },
+      choices = {
+        { text = "Power is power. I use what answers me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I keep it leashed. I know the danger better than you.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "We should speak of other things.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman comes into the crater. Then you have felt it too: the land here is young and old at once, and the Earth Mother's breath is very close to the surface." },
         { id = "h_default", key = true, text = "I am Torwa Pathfinder. I came to this crater to learn from its beasts, and the greatest of them, Lar'korwi, has become my teacher and my quarry." },
         { id = "h_c0", when = { questActive = TODO_QUEST("The Bait for Lar'korwi") }, text = "Lay the bait where Lar'korwi hunts, and be ready, for he will come quickly and he will not come gently." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid has come to the crater. Then you will understand why I call Lar'korwi my teacher, for nothing here hunts as purely as he does." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "You walk softly, stranger, which is the first lesson Lar'korwi would teach you. But a raptor smells what it cannot hear, so softness alone will not save you here." },
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "There is a sourness on you that the beasts can smell, and so can I. Whatever you carry in your shadow, keep it leashed while you walk near my camp." },
       },
       again = { { id = "h_again", text = "Ask, and I'll answer while I watch the treeline for raptors." }, { id = "h_again2", text = "Speak, hunter." } },
       choices = {
@@ -129,6 +175,8 @@ P:NPC {
         { text = "Is it dangerous out here?", next = "b3_1" },
         { text = "The Earth Mother guide you, Torwa.", next = "x_1", when = { race = "Tauren" } },
         { text = "Should Lar'korwi be left alone?", next = "s_1" },
+        { text = "Do you think hunting from hiding is dishonorable, Torwa?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Does my magic offend you, hunter?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -186,11 +234,33 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Only a little spell, and only on the small ones, because the big ones bite. Plants that eat meat shouldn't exist anywhere, so I can't help wondering if something odd was done to this crater long ago, and magic might be how we find out." } },
+      choices = {
+        { text = "Science should be careful. Larion's right to worry.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Try it. You'll never learn anything by being timid.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "I'll think about it. Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "They do, just a little, the way they lean from a cold draught! I don't know what that means, and I'm not sure I want to, but if you'd stand still by that pot for a moment, I'd be ever so grateful for the data." } },
+      choices = {
+        { text = "Study it. Every power should be understood.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Maybe the plants know better than we do.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Do the spirits ever talk to plants, do you think? Some of my bloodpetals behave as if they're listening, and frankly it's a little unsettling." },
         { id = "h_default", key = true, text = "Muigin, botanist! I study the plants of Un'Goro, especially the bloodpetals, which are as fascinating as they are dangerous. My partner Larion and I have been experimenting with them." },
         { id = "h_c0", when = { questActive = TODO_QUEST("Muigin and Larion") }, text = "Bring me those bloodpetal sprouts, and mind the ones that bite. They're very hungry this time of year." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "Oh, a mage! You must tell me whether the bloodpetals react to arcane magic, because Larion insists it's dangerous to try and I suspect he's simply jealous he didn't think of it." },
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "You're a warlock, aren't you? I can tell by the way the bloodpetal sprouts lean away from you, which I've never seen them do for anyone else, and I'd very much like to take notes." },
       },
       again = { { id = "h_again", text = "What else?" }, { id = "h_again2", text = "Ask me about the plants!" } },
       choices = {
@@ -200,6 +270,8 @@ P:NPC {
         { text = "Do the plants really bite?", next = "b3_1" },
         { text = "Is there magic in that sap?", next = "x_1", when = { class = { "MAGE", "DRUID" } } },
         { text = "Is it right to experiment on living plants?", next = "s_1" },
+        { text = "Would you really have me cast at your bloodpetals?", next = "xmage", when = { class = "MAGE" } },
+        { text = "The plants lean away from me?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -336,11 +408,33 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Not the spring, the idea! If the Venture Company hears there's bottled mineral water to be had in Un'Goro, they'll be down here with pumps before I've finished drawing the label, and you look like you'd know how they think." } },
+      choices = {
+        { text = "A good idea belongs to whoever gets there first.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Stake your claim properly with the Cartel, then.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Never mind the water.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Not boil, temper! The minerals do something to aches and pains, and if a mage could cool it to drinking heat, I could sell it in Gadgetzan by the barrel. I'm not saying the Kirin Tor would approve, but the Kirin Tor aren't paying my bills." } },
+      choices = {
+        { text = "Magic isn't for peddling bathwater.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A spell's worth whatever someone will pay for it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else, Krakle.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, perfect! You talk to water spirits, right? Ask the ones in Golakka what they'd want for exclusive bottling rights, because I'm prepared to negotiate." },
         { id = "h_default", key = true, text = "Krakle's the name, and the hot springs are my game. These springs are boiling with heat and minerals, and somebody's going to figure out how to sell them." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "Ooh, a druid! Your folks love a good hot spring, right, all that steam and nature? I could use an endorsement once I figure out how to bottle these." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "You've got the look of someone who finds things before anybody else does, friend. I've got a hot spring here that's worth a fortune, and I'd hate for it to wander off while I'm not looking." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage! Tell me, can you make water hot or cold on command, because if you can, I've got a business proposition that'll make the springs look like small change." },
       },
       again = { { id = "h_again", text = "What else?" }, { id = "h_again2", text = "Talk quick, the springs won't wait." } },
       choices = {
@@ -349,6 +443,8 @@ P:NPC {
         { text = "What's special about the springs?", next = "b1_1" },
         { text = "Is it safe here?", next = "b2_1" },
         { text = "Should these springs be sold?", next = "s_1" },
+        { text = "Worried someone will steal a whole hot spring?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "You want me to boil your springs for coin?", next = "xmage", when = { class = "MAGE" } },
         { text = "Farewell.", next = "END" },
       },
     },

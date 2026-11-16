@@ -36,15 +36,6 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
-    xhrogue = {
-      big = true,
-      lines = { { id = "xhrogue_default", text = "Constantly, pal, and it always turns up in Booty Bay a week later with a new label on it. I blame the crew, the crew blames the jungle, and the jungle doesn't answer, so nobody gets fired." } },
-      choices = {
-        { text = "Somebody on that crew should answer for it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Sounds like a fine little racket. I want in.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "All the time, and I tell the passengers it's perfectly safe, which is a lie I'm paid to tell. Put a shaman aboard, though, and the storms seem to step aside, so I've started giving your lot the good seats." } },
@@ -54,17 +45,35 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Perfectly, pal, almost entirely, and I've only lost one crate over the side in the last month. The engine makes a funny noise now and then, but that's just it singing, and a happy engine is a safe engine." } },
+      choices = {
+        { text = "I'll trust your word. You know your zeppelin.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll check the engine myself, just in case.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Nez'raz.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Every one of them who knows the spell, and they never even say goodbye. I tell them the view's better from the zeppelin, and it's true, but they'd rather blink and be home than spend an afternoon looking at the sea." } },
+      choices = {
+        { text = "I'll take the zeppelin. The view's worth it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll teleport. Time is too precious to waste.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You wouldn't put in a word with the air spirits about the crosswinds, would you? The last crossing nearly put us in the sea." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Say a little something for the engine, would you, pal? It's been coughing since the last crossing." },
-        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage, pal! You could teleport and put me out of business, so thanks kindly for taking the zeppelin." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock! Your little buddy rides in the hold, pal, because the last imp we let up top set the balloon smoking." },
-        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "Nice and quiet, pal, I like that in a passenger. Just keep your hands off the other passengers' luggage." },
         { id = "h_default", key = true,
           text = "Nez'raz, zeppelin master! The ship from this tower drops off at Orgrimmar, and the sun here beats the dust there any day of the week. Best post on the line, if you ask me, and nobody ever does." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Night runs are the quiet ones, pal, and the jungle down there sounds like it's eating itself. Up here you just hear the engine and the wind, and that's how I like it." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! Now, the zeppelin's perfectly safe, pal, and I'll thank you not to go poking around the engine, because it doesn't like being poked." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage! You'll be teleporting to Orgrimmar, I suppose, and leaving my zeppelin empty, which is a crying shame, pal." },
       },
       again = {
         { id = "h_again", text = "Anything else, pal? The zeppelin waits for nobody, except when it does." },
@@ -72,11 +81,12 @@ P:NPC {
       },
       choices = {
         { text = "Do the zeppelins ever fly through storms on the way?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "What happens if the zeppelin goes down over the jungle?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
-        { text = "Does anything ever go missing from the zeppelin's hold?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
+        { text = "What happens if the zeppelin goes down over the jungle?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Are these zeppelins safe?", next = "safe" },
         { text = "Why do you like it here?", next = "sun" },
         { text = "Do you see much from up here?", next = "view" },
+        { text = "Is the zeppelin really perfectly safe, Nez'raz?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Do many mages skip the zeppelin, Nez'raz?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "I'll catch the next one.", next = "END" },
       },
     },
@@ -161,15 +171,6 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
-    xhrogue = {
-      big = true,
-      lines = { { id = "xhrogue_default", text = "Smoke, mostly, where it shouldn't be: the Kurzen camp, the Venture Company's saws, and lately a ring of fires near the old troll ruins that nobody seems to light. I report it to the Commander, and he tells me it isn't my concern." } },
-      choices = {
-        { text = "I'll scout those fires and report to the Commander.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "The Commander can wait. I'll go and see for myself.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "They do, and I think it's because you listen to the wind instead of shouting at it. Most riders shout, and the beasts carry them anyway, but they carry a shaman as if they were glad to." } },
@@ -179,15 +180,33 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Everything that comes and goes from Grom'gol, including the wind riders, which is why I fly them low and fast. The Bloodscalp have archers who can hit a rider at a hundred paces, and I've lost a beast to them already." } },
+      choices = {
+        { text = "I'll clear the archers from the ridges.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Fly higher. That's the simplest answer.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Thysta.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because they remember the old Horde, when the orcs drank demon blood and the skies were full of fel fire. A wind rider never forgets a smell, and they've been nervous of anything fel ever since." } },
+      choices = {
+        { text = "I'll keep my demon away. The beasts deserve calm.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The beasts will learn. Times have changed.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The wind riders feel the air before we do, and they've been restless all morning, so perhaps you can tell me why." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The riders are uneasy around the dead and the loa alike, but they'll carry you, because I ask them to." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. Some of you can teleport, I know, but the riders go where your spells don't reach, which is most places." },
-        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. Keep your demon close and quiet, I ask you, because a frightened wind rider is a dangerous thing to sit on." },
-        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You came up quietly. The riders noticed, even if I didn't, so keep that in mind before you try it again." },
         { id = "h_default", key = true,
           text = "Thysta, wind rider master. From Grom'gol the riders go to Kargath and Stonard, and to the goblins at Booty Bay, if you've any business that far south." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. You'll be wanting to scout the ridges, I suppose, and I'll warn you that the trolls up there see more than they let on." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. The wind riders don't care for your companion, so I'll ask you to keep it on the ground while I saddle your mount." },
       },
       again = {
         { id = "h_again", text = "Ask, then. The wind riders are fed and resting, so I have a moment." },
@@ -195,11 +214,12 @@ P:NPC {
       },
       choices = {
         { text = "Do the wind riders take to shamans more than to others?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Are the routes to Stonard and Kargath safe for a lone caster?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
-        { text = "What do your riders see from the air that others don't?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Are the routes to Stonard and Kargath safe for a lone caster?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "How do the riders like the jungle?", next = "jungle" },
         { text = "You watch the trolls on the ridges?", next = "trolls" },
         { text = "Show me where I can fly.", next = "BUSINESS" },
+        { text = "What do the trolls on the ridges see, Thysta?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Why don't wind riders like demons, Thysta?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Not now.", next = "END" },
       },
     },
@@ -271,15 +291,6 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
-    xhrogue = {
-      big = true,
-      lines = { { id = "xhrogue_default", text = "A crate a week, at least, and I know it's someone in camp, because the ogres don't drink rum. If you find the thief, bring him to me, not the Commander; I'd like a word with him first." } },
-      choices = {
-        { text = "I'll find your thief and hand him straight to you.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Thieves in camp are the Commander's business, Uthok.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "The zeppelin does, along with everything else, and the goblins mark them up twice before they reach me. I mark them up once more, so don't look at me like that, because I'm the cheapest of the three." } },
@@ -289,15 +300,33 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Trolls, mostly, who sneak down from the ridges at night and take whatever they can carry. I've started sleeping beside the crates, and I've a club close at hand, so the next one who tries will have a headache." } },
+      choices = {
+        { text = "I'll help you guard the crates.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A few lost crates won't sink Grom'gol.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Uthok.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "A little, but not as much as you'd think, since conjured food doesn't keep and most folk still want something real at the end of the day. The zeppelin brings in fresh supplies every week, and they always sell out." } },
+      choices = {
+        { text = "Real food is worth paying for. I'll buy some.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Conjured food is free. Your trade will suffer.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll want ankhs, then, and shiny scales, though the jungle turns my stock green as fast as I unpack it." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Candles, cloth and bandages, that's what your lot buy, and the jungle eats the candles." },
-        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. Your reagents are in the back, and they cost more than they did, because the goblins charge for every crate." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. I've got what you need for your rituals, and I don't ask what you need it for." },
-        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "A rogue. I've got flash powder and thieves' tools, and you'll pay for them up front like everyone else." },
         { id = "h_default", key = true,
           text = "Uthok, general supplies. Everything I sell came off a zeppelin, and the jungle will rot it or eat it in a week, so buy what you need and use it fast." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. I'll be watching my stock while you're here, so don't take it personally, because I watch everyone." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. You'll want food and water, I'd guess, unless you're the kind who conjures his own and leaves honest merchants with nothing to sell." },
       },
       again = {
         { id = "h_again", text = "What else?" },
@@ -305,11 +334,12 @@ P:NPC {
       },
       choices = {
         { text = "Who supplies your ankhs this far from Orgrimmar?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "What supplies run short in Grom'gol for casters?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
-        { text = "Does anything go missing between the zeppelin and your crates?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
+        { text = "What supplies run short in Grom'gol for casters?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "What's the hardest thing to keep in stock?", next = "stock" },
         { text = "Do the trolls ever try to steal from you?", next = "thieves" },
         { text = "Show me what you have.", next = "BUSINESS" },
+        { text = "Has anyone stolen from you at Grom'gol, Uthok?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Does conjured food hurt your trade, Uthok?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Nothing today.", next = "END" },
       },
     },

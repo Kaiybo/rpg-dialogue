@@ -32,8 +32,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Maybe, if ye're quiet an' patient, for the troggs are stupid but they're no' deaf. Hammertoe went in loud, singin', I shouldnae wonder, an' I'd give a lot for him tae have had yer sense." } },
+      choices = {
+        { text = "Anything of Hammertoe's comes back to you.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Finders keepers, Prospector. Whatever's down there is mine.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Never mind that for now.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Discs an' keepers an' a vault o' stone older than Ironforge, an' I cannae make sense o' half of it. The Explorers' League would give their beards for a mage who could, an' maybe they'll get one, if ye're willin'." } },
+      choices = {
+        { text = "Some old vaults should stay sealed, Prospector.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Whatever's sealed in Uldaman, I want to see it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let's leave Uldaman for now.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! If ye can make heads or tails o' Hammertoe's scribbles before ye take 'em tae Ironforge, I'd be glad tae hear it, for they read like a fever dream tae me." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue, aye? Then ye'll be lighter on yer feet than Hammertoe ever was, an' that might be what it takes tae get in an' out o' that dig alive." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid, out here in the Badlands? There's nae a green thing for miles, friend, unless ye count the lichen on Hammertoe's old pack, an' I'd not count it." },
         { id = "h_default", key = true,
@@ -51,6 +71,8 @@ P:NPC {
         { text = "What chased you out of the dig?", next = "chased" },
         { text = "I'm with the League too.", next = "league", when = { origin = "dwarf_explorers_league" } },
         { text = "I'll go in after Hammertoe. I'm a fighter.", next = "k_fighter", when = { class = { "WARRIOR", "PALADIN", "HUNTER" } } },
+        { text = "Could I slip into the dig unseen?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What did Hammertoe write that troubles you?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2 } },
       },
     },
@@ -161,8 +183,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "You'd be amazed, because a bound elemental core sells for a fortune in Gadgetzan, and Lucien caught a goblin sniffing round the sample tray just last week. I've started labelling everything 'explosive', which is only partly true." } },
+      choices = {
+        { text = "Guard them well, then. Science deserves protecting.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Sell them yourself. Why let the goblins profit?", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let's talk science instead.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "Oh! I didn't hear you come in, which is either very impressive or very worrying. You're not after my samples, are you?" },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! Splendid, a fellow practitioner of the natural sciences, though you'd call them something prettier, I expect. Tell me, can you feel the elementals in these rocks the way I measure them?" },
         { id = "h_default", key = true,
@@ -183,6 +215,7 @@ P:NPC {
         { text = "Engineer to engineer: what are you building?", next = "engineer", when = { profession = "Engineering" } },
         { text = "I study magic too, Lotwil.", next = "k_mage", when = { class = { "MAGE", "WARLOCK" } } },
         { text = "The elements speak to me. You only measure them.", next = "k_shaman", when = { class = "SHAMAN" } },
+        { text = "What would a thief want with rock elemental samples?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "For science.", next = "END", fx = { affinity = 2, trait = { curious = 1 } } },
       },
     },

@@ -28,10 +28,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Less than you'd think, because Theramore is small and everyone knows whose boots went where. The real thief is the marsh, which eats through sacks and barrels faster than any pickpocket I've ever caught." } },
+      choices = {
+        { text = "Then I'll keep my hands honest in your shop.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The marsh steals more than I ever could. Watch the barrels.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Charity.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Ink and candles by the crate, because the tower burns through them reading at night, and the young ones from Dalaran always want the good quills. I keep the paper in waxed boxes now, since the last shipment went soft before I could sell it." } },
+      choices = {
+        { text = "Good stock is worth the trouble. Keep the waxed boxes.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Mages have magic. They can mend their own soggy paper.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Charity Mipsy, general supplies. Everything Theramore needs that doesn't come out of a forge or a spellbook comes through my door, and the marsh eats through all of it faster than the ships can bring more." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "You keep your hands in your pockets in a shop, which means either you're polite or you've already taken something, and I haven't decided which." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "Oh, a mage! If you need paper, ink or candles for your studies, I have them, though I can't promise the damp hasn't already got to the paper." },
       },
       again = {
         { id = "h_again", text = "What else, dear? I'm only stacking flour sacks; I can listen." },
@@ -42,6 +62,8 @@ P:NPC {
         { text = "What do I need to survive the marsh?", next = "marsh" },
         { text = "How do supplies reach the isle?", next = "ships" },
         { text = "What's life like here, under Lady Jaina?", next = "jaina" },
+        { text = "Do you lose much stock to thieves, Charity?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Do the Theramore mages buy much from you, Charity?", next = "xmage", when = { class = "MAGE" } },
         { text = "Nothing today, thanks.", next = "END" },
       },
     },
@@ -126,10 +148,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Not much, because the Guard wants plate and shields, and I've only got so many hours before the rust wins. Go and see Piter for blades, and if you need your leather patched, the marsh will rot it before I could anyway." } },
+      choices = {
+        { text = "Leather keeps me fast. Plate is for those who stand still.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Plate keeps the line. I respect the Guard's armor.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Something else, Hans.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because it gets in the way of their hand-waving, they tell me, and they'd rather a ward than a breastplate. I've seen what a raptor does to a ward when the mage is tired, so I keep a bit of hope that one of you will listen to me someday." } },
+      choices = {
+        { text = "A ward has served me well enough. I'll trust it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "You're right. I'll be careful out there and heed your advice.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Hans Weston, armorer and shieldsmith. I make the guard's plate and their shields, and I spend half my days scraping rust off what I made the week before, because this marsh rots steel faster than anywhere I've ever worked." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "Leather, not plate, and from the look of you, you've never wanted to clank in your life. I don't hold it against you, though I'll say a good shield has saved more than one quiet fellow." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, wearing cloth into the marsh. Every year one of your lot comes back from the Bloodfen with three arrows in his robe and asks why I didn't sell him armor." },
       },
       again = {
         { id = "h_again", text = "What else? I've got plates cooling." },
@@ -141,6 +183,8 @@ P:NPC {
         { text = "Who do you make shields for?", next = "guard" },
         { text = "Plate or mail for the marsh?", next = "plate" },
         { text = "I'm a smith myself.", next = "smith", when = { profession = "Blacksmithing" } },
+        { text = "Do you make anything for those of us in leather, Hans?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Why don't mages wear armor in the marsh, Hans?", next = "xmage", when = { class = "MAGE" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -225,10 +269,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Short swords and daggers, mostly, balanced for a quick hand rather than a heavy arm. The marsh's raptors are fast, so a slow blade gets you killed, and I'd rather send you out with something you can trust in the fog." } },
+      choices = {
+        { text = "A good blade, used fairly, is worth any price.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The quick strike is all that matters. Fair has no place in fog.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Piter.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "A few staves, cut from good timber that comes by boat from Kul Tiras, and plain daggers for those who like a bit of steel just in case. The mages in the tower tell me the enchanting is their business and the balance is mine, and we get on well that way." } },
+      choices = {
+        { text = "Your craft and mine work together. That's how Theramore lasts.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A mage shouldn't rely on steel. The spell is enough.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Piter Verance, weaponsmith. I forge for the guard and sell to anyone who's headed into the marsh, which is everybody sooner or later, and I do my best to send you out with something that won't fail you in the mud." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, eh? You'll be wanting something short and sharp, and I've got a few blades that'll do you proud, though I'll ask you to use them on the marsh and not on my customers." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage in a weapon shop! You'll want a staff or a dagger for the off hand, I'd guess, and I'll not pretend to know much about either beyond the wood and the steel." },
       },
       again = {
         { id = "h_again", text = "Something else you need from the weapon racks?" },
@@ -239,6 +303,8 @@ P:NPC {
         { text = "What's the best weapon for the marsh?", next = "marsh" },
         { text = "Do you work alongside Hans Weston?", next = "hans" },
         { text = "Do you ever sell to the Horde?", next = "horde" },
+        { text = "What blades do you sell to those who fight quietly, Piter?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Do you make anything for mages, Piter?", next = "xmage", when = { class = "MAGE" } },
         { text = "Not right now.", next = "END" },
       },
     },

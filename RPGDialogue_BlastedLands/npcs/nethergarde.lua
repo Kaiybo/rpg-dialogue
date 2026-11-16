@@ -33,8 +33,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "They feed the wards that watch the Portal, as I understand it, and when the stones go dark the wards go dark with them. I don't pretend to know how, but I know that when a crate comes in late, Mahar Ba stops sleeping, and then everybody hears about it." } },
+      choices = {
+        { text = "The wards matter. I'll help keep them fed.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Wards on a dead portal? Sounds like waste to me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Quartermaster.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Ogres, mostly, and the swamp, which swallows a wagon wheel as soon as look at it, and now and then a soldier who's tired of hardtack. I count everything twice, and I'd count it three times if the candles lasted." } },
+      choices = {
+        { text = "I'll bring your crates back, Quartermaster.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A hungry soldier's theft hardly counts, surely.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let's leave that there.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. My crates go missing between Darkshire and here often enough without help, so please tell me you're the kind who brings things back." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! The tower lot will be glad of you, and so will I, because every mage up there wants powerstones, and every powerstone comes through my ledger." },
         { id = "h_default", key = true,
           text = "Quartermaster Lungertz, keeper of every crate, barrel and sack in Nethergarde Keep. The mages watch the Portal, the soldiers watch the ogres, and I make sure they all eat while they're at it." },
         { id = "h_powerstones", tags = { "news" }, when = { questActive = TODO_QUEST("Supplies for Nethergarde") },
@@ -64,6 +84,8 @@ P:NPC {
         { text = "What do your soldiers need most, Quartermaster?", next = "k_warrior", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "Does the keep need fresh meat? I hunt.", next = "k_hunter", when = { class = "HUNTER" } },
         { text = "A gnome could keep your powerstones working.", next = "k_gnome", when = { race = "Gnome" } },
+        { text = "Why do the mages need so many powerstones?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Who takes your crates on the road?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I'll keep an eye out for your crates.", next = "END", fx = { affinity = 1, standing = { nethergarde = 1 } } },
       },
     },
@@ -567,8 +589,28 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "As real as yer fireballs, though it doesnae make as pretty a noise. The Watchers measure the Portal wi' crystals an' charts, an' I ask the smoke what it's seen, an' half the time we get the same answer, though I'll no' tell them that." } },
+      choices = {
+        { text = "Chants or charts, whatever works should be used.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Proper study beats chanting, Thadius. Respectfully.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else, Thadius.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "It could, an' it has, an' I've charged handsomely for it. If ye've a mind tae lift anythin' in Nethergarde, remember there's a diviner up these stairs who'll find it by mornin', an' he'll want payin' by the thief." } },
+      choices = {
+        { text = "I'll keep my hands clean in Nethergarde.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then I'll steal somewhere far from your stairs.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. I find lost things, an' ye find things that werenae lost till ye came along, so in a way we're in the same trade." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. The Watchers downstairs think my chantin' is old superstition, an' I think their sums are, so we get along by no' talkin' at all." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid. You have the look of one who would rather be anywhere else. I understand; I dream of trees myself, and wake to this." },
         { id = "h_default", key = true,
@@ -598,6 +640,8 @@ P:NPC {
         { text = "I speak with the spirits too, Thadius.", next = "k_shaman", when = { class = "SHAMAN" } },
         { text = "My beast could track Sharpbeak's scent.", next = "k_hunter", when = { class = "HUNTER" } },
         { text = "Your divinations smell of my own arts.", next = "k_lock", when = { class = "WARLOCK" } },
+        { text = "Is divination real magic, Thadius?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Could your divination find stolen goods?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I'll leave you to your chalk.", next = "END" },
       },
     },
@@ -782,8 +826,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "I speak for those who remember what Archimonde did to Dalaran, which ought to be everyone and is almost nobody. The Kirin Tor are scattered, and while they rebuild, the Alliance and the Horde sharpen their swords on each other." } },
+      choices = {
+        { text = "Then the old enemies should make peace.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Peace with the Horde? Not while blood's still fresh.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Ambassador.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Then perhaps every spy is sincere, which would be a pleasant surprise for us all. I carry no knives and steal no letters, which is more than I can say for half the garrison, so judge me by what I ask of you, not by what I won't say." } },
+      choices = {
+        { text = "Fair. I'll judge you by your deeds.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Secrets cut both ways. I'll find yours, Ambassador.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Another question, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll be wondering who I truly work for, I expect, and I'll tell you what I tell the captain: someone who would rather you lived." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Then you know, as I do, that Dalaran was not the Legion's first target, and it will not be the last." },
         { id = "h_default", key = true,
           text = "Ambassador Ardalan, at your service, though most here would say I serve nobody they'd care to name. I'm here to tell anyone who'll listen that we fight the wrong enemy in these lands." },
         { id = "h_squabbles", tags = { "news" }, when = { questActive = TODO_QUEST("Petty Squabbles") },
@@ -807,6 +871,8 @@ P:NPC {
         { text = "You'd use warlocks against the Legion, Ambassador?", next = "k_lock", when = { class = "WARLOCK" } },
         { text = "My people fought the Legion ten thousand years ago.", next = "k_elf", when = { race = "NightElf" } },
         { text = "My ancestors were Highborne, Ambassador.", next = "k_sky", when = { race = "Skyborne" } },
+        { text = "Do you speak for Dalaran, Ambassador?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Every spy says that, Ambassador.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Good day, Ambassador.", next = "END" },
       },
     },
@@ -994,8 +1060,28 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Done, an' a fair trade! Kharanos is snow an' stills an' the best ale in Khaz Modan, an' Ragnar's there fumin' over our stolen brew while I drink Nethergarde's swill, so ye can see why a cold mug cheers me." } },
+      choices = {
+        { text = "Duty first. The keep needs you more than Kharanos.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Family first. Kharanos needs you more than the keep.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Never mind that for now.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because they're watchin' the very door the demons came through, an' ye're standin' there wi' one at yer heel. Me, I judge a body by what they drink an' how they pay, so pull up a crate, an' keep the wee beastie off my mug." } },
+      choices = {
+        { text = "Demons are a weapon. Nethergarde should use them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "They're right to be wary. I'd be wary too.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Something else, Enohar.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, at Nethergarde. Well, there's a sight; most o' the folk in this keep would sooner see the Portal open than one o' yer kind on the wall." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Could ye put a wee frost on this mug? Nethergarde's ale comes in warm an' stays warm, an' it's an insult tae every Thunderbrew livin'." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid! You'll be wanting to see what this place was before the Dark Portal, I suppose. So would I." },
         { id = "h_default", key = true,
@@ -1017,6 +1103,8 @@ P:NPC {
         { text = "To Ironforge, and to good ale!", next = "toast", when = { race = "Dwarf" } },
         { text = "I've had a few myself, if I'm honest.", next = "drunk", when = { drunk = true } },
         { text = "I could steal the ale back, quiet-like.", next = "k_rogue", when = { class = "ROGUE" } },
+        { text = "A frost for your mug, if you'll tell me about home.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Why do they mistrust warlocks here?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Enjoy your brew, Enohar.", next = "END" },
       },
     },
@@ -1121,8 +1209,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "They mind the wards on the tower more, because the air hums when the Watchers are working and the birds hate a humming sky. Every one of them has learned to land on the far side of the keep, which tells you how clever they are." } },
+      choices = {
+        { text = "Then I'll keep my spells quiet near your birds.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Birds can learn to put up with a little noise.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because this whole land smells of them, and the birds have flown over it all their lives, and they know what that smell means even if they've never seen the thing. I'd take a nervous bird over a brave one out here, any day." } },
+      choices = {
+        { text = "Wise birds. I'll leave my demon outside.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fear makes them weak. They'll get used to it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Alexandra.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Keep your demon well away from the roost, because a gryphon that smells a demon won't fly for a day." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. If you're flying, keep your hands in your lap; the last one cast a frost spell to cool off, and my bird came down at Darkshire with ice on its wings." },
         { id = "h_default", key = true,
           text = "Alexandra Constantine, gryphon master of Nethergarde. My birds carry the keep's letters and the keep's visitors, and the Blasted Lands do their best to kill all three." },
         { id = "h_night", when = { timeOfDay = "night" },
@@ -1133,6 +1241,8 @@ P:NPC {
         { text = "Where can your gryphons take me?", next = "routes" },
         { text = "How do the birds manage this place?", next = "birds" },
         { text = "Show me the routes.", next = "BUSINESS" },
+        { text = "Do your gryphons mind the arcane, Alexandra?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Why do gryphons fear demons so much?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -1187,8 +1297,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "It fills you up and it doesn't taste of anything, which is fine for a march and miserable for a mess hall. The soldiers here would trade all the magic bread in Dalaran for one wheel of real cheese, and I've the ledger to prove it." } },
+      choices = {
+        { text = "Real food is worth the trouble, Bernie.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Food is fuel. Taste is a luxury.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "On to other things.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Somebody on the third watch, and I'll find out who, because I've started counting the wheels at night. The Quartermaster says to let it go, but you don't let cheese go out here, not when it's come all the way from Darkshire." } },
+      choices = {
+        { text = "Find the thief. Rules hold, even for cheese.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let it go. A little cheese keeps the watch happy.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Bernie.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. I know every soldier's business in this keep, so if you're after gossip you've come to the right counter, and if you're after the cheese, you haven't." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! You won't be buying bread, I suppose, since you can make your own, though I'll tell you now, conjured bread is no match for a proper loaf." },
         { id = "h_default", key = true,
           text = "Bernie Heisten, food and drink for the finest and grimmest garrison in the Alliance. Bread, cheese and water, mostly, because that's what survives the road from Darkshire." },
         { id = "h_caravan", when = { questRecent = { TODO_QUEST("Deliver the Shipment"), days = 7 } },
@@ -1199,6 +1329,8 @@ P:NPC {
         { text = "What's good today?", next = "food" },
         { text = "You must hear all the keep's gossip.", next = "gossip" },
         { text = "Show me what you have.", next = "BUSINESS" },
+        { text = "Is conjured bread really that bad, Bernie?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Who's stealing cheese in this keep, Bernie?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Not hungry, thanks.", next = "END" },
       },
     },
@@ -1257,8 +1389,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Dry it out an' crack it, for the dust gets intae every seam an' the cold nights finish the job. Oil it every night, an' if ye don't, come tae me, an' I'll take yer coin an' say nothin'." } },
+      choices = {
+        { text = "I'll oil it nightly. Good gear deserves care.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Gear's for wearing out. I'll buy new.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let's leave that there.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "For the brackets on their crystals, aye, an' the cages on their braziers, an' once for a mirror that started talkin' back. I didnae ask what was in it, an' they didnae tell me, an' I charged double." } },
+      choices = {
+        { text = "Wise not to ask. Some things aren't your business.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd have asked. A smith should know what he's caging.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, at my forge? Cloth doesnae need an anvil, friend, though I'll mend yer gloves if ye ask nicely." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Leather, is it? I'm an armorer, no' a tanner, but I'll stitch yer jerkin if ye don't mind it comin' back stiff." },
         { id = "h_default", key = true,
           text = "Strumner Flintheel, armorer. There's no other forge between here and Darkshire that'll take yer coin, so ye'll forgive me if I don't haggle." },
       },
@@ -1268,6 +1420,8 @@ P:NPC {
         { text = "Is it hard to work out here?", next = "work" },
         { text = "I need repairs.", next = "BUSINESS" },
         { text = "What's the clay done to my plate?", next = "k_plate", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "What do the Blasted Lands do to leather?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do the mages upstairs ever need a smith?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Never mind.", next = "END" },
       },
     },

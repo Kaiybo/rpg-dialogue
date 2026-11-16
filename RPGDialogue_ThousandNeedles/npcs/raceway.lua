@@ -36,6 +36,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Shame, because I've got a list. Still, honest folk are good for the track, and goblins don't need sabotage when we've got better engineering anyway." } },
+      choices = {
+        { text = "Cheating ruins racing. Win fairly.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A good racer uses every trick.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Pozzik.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Faster, sure, until it melts the engine and sends the driver into orbit! Racing's about engineering, friend, and I'd rather lose fair than win with a fireball in the fuel tank, mostly." } },
+      choices = {
+        { text = "Engineering's the true test. Keep it pure.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Use every edge you can get.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -52,9 +70,11 @@ P:NPC {
           text = "A druid at the raceway? Don't tell me the vultures sent you, because I only take the bones they're done with." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can you talk the earth into staying flat? Every rumble on the Shimmering Flats knocks a bolt loose somewhere." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Say, do the gods take sides in racing? Because if they do, I'd like to know which ones, so I can thank them properly when we win." },
-        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage, eh? Fizzle's always bragging that gnomes understand magic better, so do me a favor and make him look bad." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock! I've never seen a demon race, but I'd sell tickets to it, so keep that in mind if your little friend gets restless." },
-        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You've got the look of a professional, and I don't mean racing. If you see anyone near my engines who shouldn't be, you let me know first." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue! You're not working for that gnome Fizzle, are you? Because if you are, I'll double whatever he's paying, and you can sabotage his car instead." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage! Don't go telling Fizzle you've got spells, because he'll want to strap you to his car, and I'll want to strap you to mine first." },
       },
       again = {
         { id = "h_again", text = "What else? Talk fast, the next heat's in ten minutes." },
@@ -70,8 +90,9 @@ P:NPC {
         { text = "Aren't you worried I'm a gnome spy?", next = "spy", when = { race = "Gnome" } },
         { text = "Could a tauren even fit in one of those cars?", next = "x_tauren", when = { race = "Tauren" } },
         { text = "Do the earth spirits mind your raceway, Pozzik?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Does Fizzle's team use magic on their car?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
-        { text = "Who's been near your engines that shouldn't be?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Does Fizzle's team use magic on their car?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "I'm not here for sabotage, Pozzik.", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Would magic make your car faster?", next = "xmage", when = { class = "MAGE" } },
         { text = "Good luck out there.", next = "END" },
       },
     },
@@ -146,15 +167,6 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
-    xhrogue = {
-      big = true,
-      lines = { { id = "xhrogue_default", text = "Nobody I can prove, which is the worst kind of nobody. Kravel fetches parts for both teams, and I trust him exactly as far as I can throw a rocket car, which isn't far." } },
-      choices = {
-        { text = "I'll watch Kravel and tell you what I see.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Let me talk to Kravel. Maybe we can make a deal.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "If they mind, they've never filed a complaint, and I keep the noise down after sundown, mostly. The flats were nothing but empty salt before we came, so I figure we gave the spirits something worth watching." } },
@@ -212,6 +224,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Help, maybe, but magic doesn't care about blueprints, and I care about blueprints very much! A spell that works once is a trick, but an engine that works every time is an achievement." } },
+      choices = {
+        { text = "You're right. Reliable beats brilliant.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Magic's brilliance is worth the risk.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Fizzle.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "That's exactly what the last warlock said, right before it happened! I'd ask you to keep your friend well back, because I've worked too hard on this engine to lose it to an imp's appetite." } },
+      choices = {
+        { text = "I'll keep my demon away. Your work's safe.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A demon goes where it pleases.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -226,6 +256,10 @@ P:NPC {
           text = "My hydro ratchets and repeater bolts! Let me check them for rattles, because rattles are bad, and ticking is worse." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "Stand very still, druid, because the last time somebody turned into a bear near my pit, the whole piston rack fell over!" },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage! Gnomes have studied the arcane as long as we've studied gears, you know, but on the track, engineering is king, and I'd thank you not to disagree." },
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "A warlock! Stand very still, please, because the last time a demon came near my car, it ate a valve and I had to rebuild the entire intake." },
       },
       again = {
         { id = "h_again", text = "Yes? Yes? Quickly, the pistons are cooling!" },
@@ -240,6 +274,8 @@ P:NPC {
         { text = "Martek told me about indurium.", next = "indurium", when = { questDone = TODO_QUEST("News for Fizzle") } },
         { text = "I'm an engineer too.", next = "engineer", when = { profession = "Engineering" } },
         { text = "Could a haste spell help your rocket car?", next = "x_mage", when = { class = "MAGE" } },
+        { text = "Couldn't magic help your engines, Fizzle?", next = "xmage", when = { class = "MAGE" } },
+        { text = "My demon wouldn't eat your car, Fizzle.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll stand very still. Goodbye.", next = "END" },
       },
     },
@@ -348,6 +384,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Oh, just a little whisper here an' there, maybe a loose bolt that wasn't loose a minute ago. Nothin' that'd hurt anybody, mind, just enough to make the right car win." } },
+      choices = {
+        { text = "I don't fix races.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Every race has a price.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else, Kravel.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I'm only sayin' it's possible, friend, and a dwarf can wonder aloud. The crews would never suspect a curse, an' I'd never suspect anyone who did it." } },
+      choices = {
+        { text = "Curses aren't for cheating at races.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A curse might be worth the coin.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -362,7 +416,10 @@ P:NPC {
           text = "Now the gnomes, for fair's fair. If everybody's slow, nobody's slow, an' I collect on my wager." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? A fella who talks to rocks probably hears things, an' I like a fella who hears things." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage, eh? Folk who can spot a spell on a car before the heat are worth a lot to me, an' I'd keep it quiet, if you catch my meanin'." },
-        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. Your little friend's handy for gettin' into places, I'd wager, an' I've a few places in mind, if you're the curious sort." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue, eh? Now there's someone I could do business with, quiet-like, if ye know what I mean. Both crews pay well for the right word in the right ear." },
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "A warlock at the races! I'll bet ye've got ways of makin' a car go wrong that'd leave no tracks at all. Not that I'd ever ask, of course." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? Quietly, now." },
@@ -379,7 +436,9 @@ P:NPC {
         { text = "A dwarf, out here among goblins?", next = "dwarf", when = { race = "Dwarf" } },
         { text = "One schemer to another: what's the angle?", next = "x_rogue", when = { class = "ROGUE" } },
         { text = "What would you pay to hear what the elements know, Kravel?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "What would a spellcaster be worth to you here?", next = "xhcast", when = { class = { "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "What would a spellcaster be worth to you here?", next = "xhcast", when = { class = "MAGE", race = { "Orc", "Troll", "Scourge" } } },
+        { text = "What kind of business, Kravel?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "You want me to curse a car?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I didn't hear any of this.", next = "END", fx = { affinity = 1 } },
       },
     },

@@ -35,6 +35,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Bad enough that farmers lock their doors in daylight and the Magistrate has a stack of reports taller than he is. They're Alterac's old nobility playing at bandits, and they think the hills still belong to them, which is why they hate us so." } },
+      choices = {
+        { text = "I'll root them out of the hills for good.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Hard to blame them. Alterac was theirs once.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Marshal.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "I'd like to think so, but the Kirin Tor keep to their dome while the Syndicate takes the hills around it. Jacques is down here asking for aid, and I keep wondering why a city full of archmages needs a fishing town's help." } },
+      choices = {
+        { text = "Dalaran stood against the Scourge. It deserves the Alliance's aid.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let the Kirin Tor look after themselves for once.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -51,6 +69,8 @@ P:NPC {
           text = "Another one out of the north, then. Southshore was taking in people with nothing long before you got here, and you're welcome." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Night's when the horses go missing, so I keep a lantern lit by the stables, not that the dead need the light." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "You've the look of someone who knows the Syndicate's tricks from the inside, and I'd rather have that on my side than on theirs, so welcome to Southshore." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Emissary Jacques will want a word with you, because the Kirin Tor seem to need every friend they can find these days." },
       },
       again = {
         { id = "h_again", text = "Anything more? Ask as we go; I've the wall to inspect." },
@@ -73,6 +93,8 @@ P:NPC {
         { text = "I've been hunting in the Alterac foothills.", next = "xhunter", when = { class = "HUNTER" } },
         { text = "The Stormpike are digging into Alterac, I hear.", next = "xdwarf", when = { race = "Dwarf" } },
         { text = "My people came to Dalaran from the sky.", next = "xskyborne", when = { race = "Skyborne" } },
+        { text = "How bad is the Syndicate in Hillsbrad these days, Marshal?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Will the Alliance help Dalaran, Marshal?", next = "xmage", when = { class = "MAGE" } },
         { text = "Good day, Marshal.", next = "END" },
       },
     },
@@ -338,6 +360,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "I've worked out names, mostly old Alterac houses like the Perenoldes, and a few places in the hills I can't find on any map. The rest is either very clever code or very bad spelling, and after three weeks I honestly can't tell which." } },
+      choices = {
+        { text = "Let me help you crack it properly. The law deserves the truth.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Burn the letters and burn their camps. Simpler that way.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Magistrate.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -355,6 +386,7 @@ P:NPC {
           text = "Baron Vardus signed my death in red wax, and he's cold, cruel, and an Alterac lord to his boots. Find him in the mountains and bring him to justice." },
         { id = "h_vardus_done", when = { questDone = TODO_QUEST("Baron's Demise") },
           text = "I slept through the night, the whole night, and I'd forgotten what that was like." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Could you possibly read the Syndicate's coded letters? I've got a drawer of them and not one person in Southshore who can make sense of the cipher." },
       },
       again = {
         { id = "h_again", text = "What else? The depositions will keep a minute." },
@@ -369,6 +401,7 @@ P:NPC {
         { text = "My family knew some of the Alterac houses.", next = "noble", when = { origin = "human_minor_noble" } },
         { text = "Baron Vardus is dead.", next = "vardus", when = { questDone = TODO_QUEST("Baron's Demise") } },
         { text = "I could make the Syndicate fear the shadows.", next = "xwarlock", when = { class = "WARLOCK" } },
+        { text = "What do the Syndicate letters say, Magistrate?", next = "xmage", when = { class = "MAGE" } },
         { text = "Good day, Magistrate.", next = "END" },
       },
     },
@@ -522,6 +555,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "They come up out of the bay at night and steal nets, fish and the occasional boot, and they're far cleverer at it than they have any right to be. The town wants me to stop them, and I'd give a month's pay for someone who could sneak up on them as you just did on me." } },
+      choices = {
+        { text = "I'll handle the murlocs. Southshore deserves a quiet night.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let them have the boots. You're wasting your talents here.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Lieutenant.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because the fishermen would lose their catch and the Magistrate would hold me responsible for every frostbitten fish, I'm told. The murlocs, of course, would wait for the thaw and carry on as if nothing had happened." } },
+      choices = {
+        { text = "Then we'll do this properly, one murloc at a time.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Freeze it anyway. Some problems need a heavy hand.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -539,6 +590,8 @@ P:NPC {
           text = "Torn Fin murlocs, down the Western Strand. Kill a few for me, then a few more for Redpath. Then we'll both have something to talk about." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Another evening in Southshore, and the gulls have gone to bed. I envy the gulls." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "You crept up on me, and I was watching for murlocs, so either you're very good or I'm very tired, and I'd honestly accept either answer." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Can't you just freeze the whole bay for a night? I've asked, and everyone says no, but I feel the question deserves a proper hearing." },
       },
       again = {
         { id = "h_again", text = "Still here? Fine, I wasn't going anywhere; I never am." },
@@ -555,6 +608,8 @@ P:NPC {
         { text = "Major Samuelson read your report.", next = "reassign", when = { questDone = TODO_QUEST("Reassignment") } },
         { text = "Fine, I'll deal with the murlocs.", next = "BUSINESS", fx = { affinity = 1 } },
         { text = "The naga were kaldorei once.", next = "xnightelf", when = { race = "NightElf" } },
+        { text = "Do murlocs really give you that much trouble, Lieutenant?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Why not freeze the bay, Lieutenant?", next = "xmage", when = { class = "MAGE" } },
         { text = "I'll leave you to your chair.", next = "END" },
       },
     },
@@ -724,6 +779,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Trust is a strong word, lad, but cold ale is a stronger one, an' I've had worse in me cellar than a mage. When the Hand broke up, I swore I'd never take another oath, but I'll swear by a cold mug any day o' the week." } },
+      choices = {
+        { text = "You've earned a cold drink, old knight. I'll chill the keg.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A broken oath is still broken. Drink won't fix it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Bilger.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Every day, an' every night, which is why I drink. Uther believed every soul could be saved, an' I believed it with him, but then Arthas showed us what a soul can turn into, an' I never found the faith again." } },
+      choices = {
+        { text = "Uther was right. Even a warlock can serve the Light.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Faith is a crutch. Power is what saves people.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -737,6 +810,8 @@ P:NPC {
           text = "Night shift in the cellar, hic. The casks talk at night, ye know, an' mostly they say 'more'." },
         { id = "h_xsilverhand", when = { origin = "dwarf_silver_hand" },
           text = "Ye've the look o' a dwarf who knelt before Uther, same as I did, hic, an' ye're still sober, which is more than I can say. Sit doon, brother, an' don't tell the others what I used to be." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, hic! Ye wouldn't be able to chill a keg, would ye? The cellar gets warm in summer, an' warm ale is a sin even I won't forgive." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, hic, in me inn. In the old days, the Hand would've had ye in irons, an' now I'll just ask ye to keep the imp away from me barrels." },
       },
       again = {
         { id = "h_again", text = "Hic. What else, {g:lad|lass}?" },
@@ -750,6 +825,8 @@ P:NPC {
         { text = "I squired for the Silver Hand before it broke.", next = "squire", when = { origin = "human_paladin_squire" } },
         { text = "The Light forgives, Bilger.", next = "priest", when = { class = "PRIEST" } },
         { text = "A dwarf in the Silver Hand?", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "Would you really trust a mage near your cellar, Bilger?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do you miss the Silver Hand, Bilger?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Cheers.", next = "END" },
       },
     },
@@ -883,6 +960,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Rarely, because most thieves can't imagine anyone paying for paper, but the Syndicate once took a whole crate thinking it held Alterac deeds. I found half of it in an ogre camp being used as kindling, which was a bitter day." } },
+      choices = {
+        { text = "I'll recover what I can from the ogres. History deserves saving.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Old books burn the same as new. Let the past go.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Loremaster.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Old Alterac texts on summoning and binding, written in a hand that grew shakier the farther I read. I think the author learned more than he wanted, and I won't be the one to finish his research, no matter what you offer." } },
+      choices = {
+        { text = "Forbidden knowledge is still knowledge. Don't let it rot.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then keep them locked. Some books should never be opened.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Dibbs. I collect what's left of the old kingdom's knowledge before the ogres finish using it to start their fires, and it's slow work, for they're quick readers, in their way." },
@@ -897,6 +992,8 @@ P:NPC {
           text = "Stormpike will crow about this cipher for a month, and I'll let him, since he'll read it and that's what matters." },
         { id = "h_milton_done", when = { questDone = TODO_QUEST("Return to Milton") },
           text = "Milton wrote to thank me, three pages of it, and two of them were about the bindings." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "You have very careful hands, which is a fine quality in someone who handles old books, though I'll ask you to keep them off the ones I haven't catalogued yet." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. You'll be interested in a few books I've found in the hills, I suspect, and I'll tell you now that I've locked them away because I don't want anyone interested in them." },
       },
       again = {
         { id = "h_again", text = "Another question? Good, for questions are the only thing I collect faster than books." },
@@ -909,6 +1006,8 @@ P:NPC {
         { text = "Why not go to the ruins yourself?", next = "climb" },
         { text = "I could help with your enchanted parchments.", next = "mage", when = { class = "MAGE" } },
         { text = "I came out of Lordaeron myself.", next = "refugee", when = { origin = "human_lordaeron_refugee" } },
+        { text = "Do thieves ever come after your books, Loremaster?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "What sort of books did you find in the hills, Loremaster?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Good luck with the books.", next = "END" },
       },
     },
@@ -1020,6 +1119,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "More than you'd think, since Southshore's close enough to the Syndicate's hills that some folk come down to sell what they've found. I don't ask questions, and they don't make trouble, and the lieutenant's too busy with murlocs to notice either way." } },
+      choices = {
+        { text = "Not asking questions is a fine policy. I'll follow it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "You should report them. The Magistrate needs to know.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else, Anderson.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because every time I patch one leak, the rain finds another, and the carpenters are all busy shoring up the farms against the Forsaken. I've started to think the roof's just tired, and I can't say I blame it." } },
+      choices = {
+        { text = "I'll lend a hand with the roof. Magic isn't everything.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A leaky roof is the innkeeper's problem, not mine.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Anderson's the name, and I keep the inn: fishermen, soldiers, and a lieutenant who's been sitting in that chair since last spring." },
@@ -1029,6 +1146,8 @@ P:NPC {
         { id = "h_night", when = { timeOfDay = "night" }, text = "Fishermen come in at this hour smelling of the bay, so I keep the windows open, out of habit more than anything." },
         { id = "h_refugee", when = { origin = "human_lordaeron_refugee" },
           text = "Up from the north? There's a bed for you, and you can pay when you can; Redpath would have my hide if I turned you away." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "You came in without the door creaking, and that door creaks for everybody, so I'll guess you're the quiet sort with quiet business. Just pay for your room and we'll get on." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Don't suppose you could do something about the leaks? Every corner drips when it rains, and it always rains in Hillsbrad." },
       },
       again = {
         { id = "h_again", text = "Anything else? The stew's hot and the chairs are dry, mostly." },
@@ -1038,6 +1157,8 @@ P:NPC {
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "Who drinks here?", next = "regulars" },
         { text = "Any news from the road?", next = "news" },
+        { text = "Do you get many quiet customers at the inn, Anderson?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Why not just fix the roof, Anderson?", next = "xmage", when = { class = "MAGE" } },
         { text = "Just resting.", next = "END" },
       },
     },

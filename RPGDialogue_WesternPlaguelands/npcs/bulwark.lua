@@ -46,6 +46,8 @@ P:NPC {
           text = "Araj is destroyed, and the Dark Lady will be told it was the Bulwark's doing. You'll be mentioned too, briefly, which is how glory works in Undercity." },
         { id = "h_living", when = { metBefore = true },
           text = "Our living allies eat three times a day and expect thanks for it. I don't mind, really, since it reminds me what we're guarding." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
+          text = "A mage of the Horde, and welcome, {class}. Kel'Thuzad was a magus of the Kirin Tor before he taught the Scourge its craft, so you'll forgive me if I watch what you study." },
       },
       again = {
         { id = "h_again", text = "Something else? Make it useful, and make it quick." },
@@ -60,7 +62,17 @@ P:NPC {
         { text = "Do the Forsaken truly trust the living here?", next = "living", when = { race = { "Orc", "Tauren", "Troll" } } },
         { text = "Our warlocks could turn the dead on the Crusade.", next = "x_warlock", when = { class = "WARLOCK" } },
         { text = "I prefer a knife in the dark to a banner.", next = "x_rogue", when = { class = "ROGUE" } },
+        { text = "Do you hold every mage to account for Kel'Thuzad?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Send me east.", next = "END", fx = { affinity = 1, standing = { bulwark = 1 } } },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Every living one, and a few dead ones too, for more than a few of the cultists who poisoned these fields learned their letters in Dalaran's libraries. Burn the Scourge out of Andorhal and I'll forget where you studied, on my word as executor." } },
+      choices = {
+        { text = "Hold me to account. I'll answer with fire.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A mage's teachers don't decide the mage's sins.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let's speak of the Bulwark instead.", next = "BACK" },
       },
     },
     play = {
@@ -217,6 +229,12 @@ P:NPC {
           text = "Dithers is pleased with your sample, and he actually hummed. I've never heard him hum before, and I found it rather unsettling." },
         { id = "h_faith", when = { metBefore = true },
           text = "When I was alive I prayed to the Light, and once it answered me. When I died I prayed again and heard nothing, so I learned to stop asking and start taking." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
+          text = "A warlock, and the shadows in this tent lean toward you like old friends. Sit, {class}, for you're the first visitor today who doesn't flinch at me." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
+          text = "A mage, and still in possession of all ten fingers, I see. The cauldrons hate fire, {class}, so you may be more useful to me than most of the volunteers." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
+          text = "You came in without a sound, {class}, which is either good training or very bad manners. Here, the two are often the same thing." },
       },
       again = {
         { id = "h_again", text = "Is there more? Ask it, then, I've samples waiting." },
@@ -228,7 +246,37 @@ P:NPC {
         { text = "What do you make of Derrington?", next = "derrington" },
         { text = "I'm a priest too. Does the shadow cost much?", next = "priest", when = { class = "PRIEST" } },
         { text = "The Earth Mother's light isn't like yours.", next = "x_tauren", when = { race = "Tauren" } },
+        { text = "Shadow and fel make good allies, priestess.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Couldn't fire alone destroy the cauldrons?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Would you rather I fetched the samples quietly?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "I'll fetch your samples.", next = "END", fx = { affinity = 1, standing = { bulwark = 1 }, learn = { "plague_cauldrons" } } },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "I would rather you fetched them at all, which is more than most volunteers manage. The cauldron guardians watch the front of each pot, so a careful thief who comes in from behind and fills a vial will save the Bulwark a great deal of burying." } },
+      choices = {
+        { text = "No glory in sneaking, but it works.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'd rather cut the guardians down in the open.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Understood. Let's talk of something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Fire would scatter the plague on the wind, and the Bulwark would breathe it by morning. No, we need the samples and the apothecaries' patience, and then we turn the brew back on the Scourge and let it choke on what it made." } },
+      choices = {
+        { text = "Then fire waits. Patience kills more cleanly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Burn them anyway. I won't wait on apothecaries.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Very well. Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Good allies and poor friends, as anyone in this ruined kingdom could tell you. The Scourge was built on bargains with darker things than yours, so use your demons on the cauldron guards, {class}, and keep your own bargains small." } },
+      choices = {
+        { text = "Small bargains are wise. I won't be another Kel'Thuzad.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Power comes from large bargains. I'll take what I need.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll keep that in mind. Something else.", next = "BACK" },
       },
     },
     shadow = {
@@ -339,6 +387,10 @@ P:NPC {
           text = "You've got the key! Bring me back a souvenir, would you, a note or a bone or a recipe, only not a student, please. Students follow you home." },
         { id = "h_knee", when = { metBefore = true },
           text = "I can tell a storm three days off by the ache in my knee, or two if it's the exposed bit. The Society wanted to study it, and they can have it when I'm finished with it." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
+          text = "A warlock at the Bulwark! Do tell me, {class}, does your imp's blood boil at room temperature, or only when it's cross? I've always wondered." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
+          text = "A mage! Splendid, for I need someone to keep the samples cold, and my knee says it's going to be a warm week. Do you do frost, {class}?" },
       },
       again = {
         { id = "h_again", text = "More questions? Marvelous, I love questions, they're so much tidier than answers." },
@@ -350,7 +402,27 @@ P:NPC {
         { text = "How's the knee?", next = "knee" },
         { text = "What's in your quickener?", next = "alch", when = { profession = "Alchemy" } },
         { text = "My knee aches too, Apothecary.", next = "x_forsaken", when = { race = "Scourge" } },
+        { text = "My imp isn't a sample, apothecary.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "I'm not a cold box, apothecary.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "I'll gather what you need.", next = "END", fx = { affinity = 1 } },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Of course not, of course not, though you'd make a fine one. The counter agent spoils if it warms, you see, and the Society would sooner lose an apothecary than a batch, which tells you everything you need to know about the Society." } },
+      choices = {
+        { text = "The work matters more than any one of us.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Your Society treats you poorly, and you shouldn't stand for it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Everything's a sample if you look at it properly, but I take your point and I withdraw the scalpel. The key to the Scholomance wants bones, not imps, and I've enough to do without a fire-sprite loose in my cabinet." } },
+      choices = {
+        { text = "Studying demons could teach us how to fight them.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Some things shouldn't be cut open, apothecary.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Let's talk of the key instead.", next = "BACK" },
       },
     },
     agent = {
@@ -459,6 +531,10 @@ P:NPC {
           text = "So Weldon's gone, then. He spared me once, you know, the sentimental fool, and I've no such weakness, I've checked." },
         { id = "h_signet", when = { metBefore = true },
           text = "I still wear the family signet, though my fingers are thinner now and I had it sized. A Barov keeps up appearances, even this Barov." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
+          text = "A warlock, and of the Horde, which makes you a far better class of guest than my brother. Did you know, {class}, that the Scholomance teaches the shadow arts to anyone with ambition and a strong stomach?" },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
+          text = "A mage. My family once paid a Kirin Tor tutor more than most villages earn in a year, {class}, and I learned nothing from him but how to look interested." },
       },
       again = {
         { id = "h_again", text = "You're still here, I see. Well, go on, amuse me." },
@@ -470,8 +546,28 @@ P:NPC {
         { text = "What was your family like?", next = "family" },
         { text = "We were both freed by the Dark Lady.", next = "forsaken", when = { race = "Scourge" } },
         { text = "I could take care of Weldon for you.", next = "x_rogue", when = { class = "ROGUE" } },
+        { text = "Are you suggesting I study there, Barov?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Kel'Thuzad was Kirin Tor. Is that how he found your family?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "I'll look for the deeds.", next = "END", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "I won't do a Barov's dirty work, living or dead.", next = "END", fx = { affinity = -1, align = { honor = 1 } } },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "He found my parents' vanity, which was easier, and he flattered it until they gave him the keys to Caer Darrow. In a sense they got what they wanted, for the Barov name now hangs over the finest school of necromancy in Lordaeron." } },
+      choices = {
+        { text = "They chose this. Your family should own its shame.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "They were fooled. The blame is Kel'Thuzad's.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Let's speak of something less grim.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Heavens, no, I'm suggesting you burn it down, though I'd want the deeds out first. Gandling keeps the halls, and his students are the kind of ambitious I recognise from family dinners, so you'll find them very easy to hate." } },
+      choices = {
+        { text = "Burn it all, deeds included. That school deserves nothing.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll bring your deeds out first. Business is business.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else, Barov.", next = "BACK" },
       },
     },
     spared = {
@@ -599,6 +695,12 @@ P:NPC {
           text = "A report from Everlook, in Gregor's hand? He writes small and I read slowly, but we always get there in the end." },
         { id = "h_pureheart", when = { metBefore = true },
           text = "Pureheart's at Chillwind on the Alliance side, and the two of us write to each other. Ten years ago one of us would have killed the other, and now we argue about rations." },
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "A warlock. I saw what the old Horde's warlocks made of my people, {class}, the blood-curse and the madness, and I'll not pretend I'm glad to see you." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage, and the Plaguelands need fire more than steel some days. Burn the bodies, {class}, so they don't get up again." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "In the old Horde we called your kind the quiet blades, {class}, and I never knew whether to thank them or watch them. In the Dawn I thank them, for the dead don't care how they're put down." },
       },
       again = {
         { id = "h_again", text = "What else, friend? Ask it plain, and I'll answer plain." },
@@ -611,7 +713,37 @@ P:NPC {
         { text = "I'm Alliance. Am I welcome here?", next = "alliance", when = { faction = "Alliance" } },
         { text = "Does the Horde not need you more?", next = "orc", when = { race = "Orc" } },
         { text = "Can the spirits even be heard here, Garush?", next = "x_shaman", when = { class = "SHAMAN" } },
+        { text = "Then why does the Dawn accept warlocks, Garush?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Is fire really the answer to the Scourge?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Does the Dawn have work for a quiet blade?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I'll bring you stones.", next = "END", fx = { affinity = 1, learn = { "argent_dawn" } } },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "More than for a loud one, for cauldron guards and Scarlet scouts alike die easier when they don't see it coming. I was a loud blade all my life, and I've buried friends who'd still be breathing if we'd learned your way sooner." } },
+      choices = {
+        { text = "I still fight with honor, even unseen.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Honor is for the living. The dead get no warning.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, officer.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Fire is the answer to the dead who won't stay down, and nothing else I know is as quick. But these fields are still somebody's farms, and the Dawn means to give them back one day, so burn the corpses and spare the barns." } },
+      choices = {
+        { text = "Then I'll burn carefully. The land deserves a future.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Burn everything. Clean ash is better than tainted barns.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Understood. Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because the Dawn looks at the enemy and not the weapon, and I'm trying to learn that lesson late in life. Turn your fel on the Scourge and I'll stand beside you, but if it turns on the living, I'll be the first to stop you." } },
+      choices = {
+        { text = "Fair. If I ever fall to it, stop me.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fel is only a weapon, officer. Your fear makes you weak.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's talk of other things.", next = "BACK" },
       },
     },
     why = {

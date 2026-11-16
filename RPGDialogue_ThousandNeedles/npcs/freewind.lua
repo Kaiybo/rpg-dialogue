@@ -35,6 +35,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "A rogue could walk into their camps below and count their spears before they ride, which is more than my scouts manage from up here. The centaur see a tauren coming from a mile off, but they might never see you." } },
+      choices = {
+        { text = "Knowing the enemy wins wars. I'll scout for you.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Scouting is slow. Better to cut down their chiefs.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Cliffwatcher.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I think power that answers to no spirit is a dangerous thing, wherever it comes from. Still, the Warchief accepts your kind, and the Galak raid whatever walks below us, so I will not turn away any weapon that faces the canyon." } },
+      choices = {
+        { text = "My power is a weapon. I aim it where it's needed.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I understand your caution. I'll earn your trust.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -58,8 +76,10 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Good, because the Galak have their own spirit-callers, and I'd like to see one of ours answer them." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. When the Galak raid the canyon floor there is always someone to carry up to Freewind, and I'd sooner they reached a healer than a pyre." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. From up here a fireball could reach the Galak camps before they ever saw you coming, and I'd like to see that someday." },
-        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock, on Freewind. The Galak would call you a demon-caller and they'd not be wrong, but here we judge by deeds, so show me yours." },
-        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You came up onto the mesa without anyone noticing, and that's no small thing on Freewind. The Galak camps are below us, and I could use eyes inside them." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
+          text = "You came up the lift without a sound, and I watch that lift all day. The Galak would pay well for feet like yours, so I'm glad they belong to the Horde." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
+          text = "A warlock on my watch. The Galak have their own dark-hearted shamans, and I like their fires no better than yours, but you at least stand on the right side of the cliff." },
       },
       again = {
         { id = "h_again", text = "What else? Speak, but keep one eye on the canyon while you do." },
@@ -78,8 +98,9 @@ P:NPC {
         { text = "Send me against the Galak, Cliffwatcher.", next = "x_warrior", when = { class = "WARRIOR" } },
         { text = "The Horde stands with Freewind.", next = "x_orc", when = { race = "Orc" } },
         { text = "Do the Galak centaur have shamans, Longhorn?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "What do the Galak windchasers call down on the canyon?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
-        { text = "How many Galak are camped below Freewind?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
+        { text = "What do the Galak windchasers call down on the canyon?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Could a rogue be of use against the Galak?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "You think my power no better than the centaurs' magic?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Earth Mother watch over you.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -234,15 +255,6 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
-    xhrogue = {
-      big = true,
-      lines = { { id = "xhrogue_default", text = "More each season, and they move their camps whenever they think we've counted them. Go down among them quietly and come back with a number, and I'll know how many braves to send." } },
-      choices = {
-        { text = "I'll count them, and I won't start a fight.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'll count them, and I'll leave a few less.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "They have something, and their windchasers call on the elements as if the canyon owed them blood, because the centaur believe it does. The Needles remember every raid, and I want them to remember that Freewind answered." } },
@@ -292,6 +304,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "That's what I think, but I've no proof, and a scholar who thinks without proof is only a dreamer. If you ever get close enough to the flame to sense what feeds it, I'd be grateful for the word, because I'd rather know than guess." } },
+      choices = {
+        { text = "Leave sacred things in peace. Some mysteries stay mysteries.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Every secret can be learned. I'll find out.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else, Rau.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I think I don't know, and that bothers me more than any answer would. You'd know the feel of a summoned thing better than I would, so if you ever walk near their hold, I'd value your opinion, even from a warlock." } },
+      choices = {
+        { text = "I'll look. Knowledge serves us all.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Some questions are better left unasked.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -300,6 +330,10 @@ P:NPC {
           text = "Moonwell water is the key. The dryads and the centaur share an ancestry, so water from the night elves' wells can breach that eternal flame for a little while, if whoever carries it is quick." },
         { id = "h_hoof_done", when = { questDone = TODO_QUEST("The Sacred Flame") },
           text = "I can feel a strange energy coming off the Hoof even now, and I've barely begun. Every night I think I'm close to one of its secrets, and every morning it has another." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
+          text = "A mage! You'll want to hear about the flame that guards the Cloven Hoof, because it burns without fuel, and I've never been able to decide whether it's magic or the centaur are simply very good at lying." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
+          text = "A warlock. The Galak call on the spirits of their dead khans before they raid, and I've often wondered whether what answers them is a spirit at all." },
       },
       again = {
         { id = "h_again", text = "Anything else? I'll warn you, I can talk about centaur until the moon sets." },
@@ -312,6 +346,8 @@ P:NPC {
         { text = "What have you learned from the Hoof?", next = "study", when = { questDone = TODO_QUEST("The Sacred Flame") } },
         { text = "I'm a druid too. What does the Hoof feel like to you?", next = "druid", when = { class = "DRUID" } },
         { text = "Do the spirits speak through the Cloven Hoof?", next = "x_shaman", when = { class = "SHAMAN" } },
+        { text = "A flame without fuel must be magic, Rau.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "You think something darker answers the centaur?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Good luck with your studies.", next = "END" },
       },
     },
@@ -429,6 +465,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "That's what I've been telling everyone, and they all laugh at me! If you find it before I do, don't break it, and don't sell it to a goblin, because I think whatever's inside it deserves to hatch." } },
+      choices = {
+        { text = "Let it hatch in peace. Nature knows best.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Something that rare should be studied, not left.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Hagar.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "No, no, I only want to see it, and maybe draw it. But the wind serpents guard their nests fiercely, and a quiet climber could get close enough to look without ending up as dinner." } },
+      choices = {
+        { text = "Looking's harmless. I'll climb up for you.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If it's worth seeing, it's worth taking.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -441,9 +495,11 @@ P:NPC {
           text = "A druid! Then you'll understand that the egg I'm after is no ordinary serpent's; there's something old and angry in it, and I mean to know what." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Do the spirits of the air know anything about very large eggs? I ask everyone, and you seem better informed than most." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Have you ever, by any chance, prayed over a very large egg? No? Well, if you ever do, I'd love to know how it went." },
-        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage! Could you tell me whether an egg would give off magic, if it were very old and very large? I'm asking for purely scholarly reasons." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock! Do demons lay eggs, do you know? I'm sorry, I'm sure you're asked that constantly, but it's been on my mind." },
-        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You look like someone who finds things that don't want to be found, and I have exactly the thing in mind. It's an egg, and it's very large." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
+          text = "A mage! Can you tell me if an egg can be magical? There's one in these canyons bigger than any wind serpent could lay, and I'd give a great deal to know what's strange about it." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
+          text = "You look like someone who could climb to a nest without the mother noticing. Not that I'm asking, only wondering aloud." },
       },
       again = {
         { id = "h_again", text = "Yes, yes, what else? Forgive me, my mind keeps wandering back to that shell." },
@@ -457,8 +513,9 @@ P:NPC {
         { text = "My companion? Born, not hatched.", next = "pet", when = { pet = { type = "Beast" } } },
         { text = "My people raise raptors from the egg.", next = "x_troll", when = { race = "Troll" } },
         { text = "Why would the air spirits know about your egg, Hagar?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Could magic help you find this egg of yours?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
-        { text = "Who else is looking for your egg?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Could magic help you find this egg of yours?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "A strange egg might well hold magic, Hagar.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "You want me to steal an egg?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Good luck with your egg.", next = "END" },
       },
     },
@@ -535,15 +592,6 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
-    xhrogue = {
-      big = true,
-      lines = { { id = "xhrogue_default", text = "Goblins, I think, because one of them at the raceway asked me about it far too casually. If they find it first, it'll end up in a crate bound for Booty Bay, and I'll never see it at all." } },
-      choices = {
-        { text = "Then I'll find it first, and it stays with you.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Maybe I'll find it first, and name my own price.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Because the wind serpents nest high on the Needles, and the wind goes everywhere, so it must have passed the egg at some point. If the spirits would only tell me which pinnacle, I'd stop asking travelers, though I'd probably keep asking anyway." } },
@@ -593,6 +641,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "If anyone could, it would be someone like you, because a war party would only get her killed. Arnak keeps her close, and I've been sitting here counting days, too afraid to go and too ashamed to stay." } },
+      choices = {
+        { text = "I'll bring her back. Quietly, and alive.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Arnak should die for this. I'll see to it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "No, and that's what frightens me, because I want Arnak dead more than I want anything good. Tell me I'm wrong to think of it, and I'll believe you, because I want to believe someone." } },
+      choices = {
+        { text = "You're not wrong. Let your anger burn.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Don't go down that road. Hold to the Earth Mother.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -607,8 +673,10 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. If the spirits could tell me whether Lakota still lives, I would listen to anything they said." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Would you say something for Lakota's brother, who died trying to stop them? Nobody has said anything for him that I've heard." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. If you can see far, then look up at Darkcloud Pinnacle and tell me whether there's a light in the high camp, because I can't stop looking." },
-        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. I don't know what I think of that, and honestly I'm too tired to decide, so sit down if you're going to." },
-        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You came up so quietly I nearly didn't notice you, and I wish the Grimtotem were that easy to slip past. Maybe they are, for someone like you." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
+          text = "You move like someone who could get up to the pinnacle without the Grimtotem seeing. I've thought of nothing else since Lakota was taken." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
+          text = "Warlock. I have prayed to the Earth Mother every night for Lakota, and I am starting to wonder if your kind of power answers faster." },
       },
       again = {
         { id = "h_again", text = "What else? Say it, and then let me be." },
@@ -623,8 +691,9 @@ P:NPC {
         { text = "I'm tauren. I know what the Grimtotem should be to us.", next = "kin", when = { race = "Tauren" } },
         { text = "I'd have stood with Lakota's brother that night.", next = "x_warrior", when = { class = "WARRIOR" } },
         { text = "Have you asked the spirits about Lakota, Thalia?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Could magic help find Lakota?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
-        { text = "What do you know about the Grimtotem's camp on Darkcloud?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Could magic help find Lakota?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Could I get Lakota out quietly?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Vengeance doesn't need the Earth Mother's blessing.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I'm sorry.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -713,15 +782,6 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
-    xhrogue = {
-      big = true,
-      lines = { { id = "xhrogue_default", text = "Only what travelers tell me, that Arnak keeps to the high camp and the paths up are watched day and night. I don't want you dead too, but if anyone could get up there unseen, it might be you." } },
-      choices = {
-        { text = "I'll go up quietly, and I'll bring her back.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I'll go for Arnak's hide, not just for Lakota.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "I asked an elder at Freewind, and she said the wind up at Darkcloud Pinnacle carries only Grimtotem voices now. So I keep my cord and I wait, because I don't know what else to do with an answer like that." } },
@@ -774,6 +834,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "No, but everyone who sleeps here is a guest, and I treat my guests kindly. If you'd rather not, I'll understand, but you'd make a cold traveler very happy, and that's worth something, even to a mage." } },
+      choices = {
+        { text = "A small kindness costs me nothing. I'll help.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My magic isn't a servant's tool.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "It's the safest way down, and I'd ask you to use it, because I've had to tell more than one family their child fell climbing. The canyon doesn't forgive a slip, however quiet the feet." } },
+      choices = {
+        { text = "I'll take the lift. Safety first.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll climb. I trust my own hands.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -784,9 +862,11 @@ P:NPC {
           text = "A druid! You'll want the room by the edge, then; the wind sings through it at night, and the druids who stay here say it's the canyon talking." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Then you'll know why I love the wind singing over this mesa at night, because you can hear what it's singing about." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Come in and sit, and if you could bless the bridges on your way out I'd sleep better, because I'm forever telling guests not to look down." },
-        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. Please don't practice anything near the edge, because the last thing I want is a guest blowing themselves off the mesa." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. Your companion may stay, but not near the blankets, and certainly not near the edge, because I won't be explaining a falling demon to the cliffwatchers." },
-        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You're a quiet one, and that's welcome here, where the wind does all the talking. Only don't creep about at night, because my guests startle easily this high up." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
+          text = "A mage! Would you warm the blankets for my guests? The wind up here cuts through anything, and a little fire in the right place would make their sleep sweeter." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
+          text = "You walk the mesa like you know the ground, but you look like you'd sooner climb down the cliff than ride the lift. Most rogues do, I've noticed." },
       },
       again = {
         { id = "h_again", text = "Something more, friend? There's no hurry on the mesa." },
@@ -800,8 +880,9 @@ P:NPC {
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "Do I frighten your guests, innkeeper?", next = "x_forsaken", when = { race = "Scourge" } },
         { text = "What does the wind sing about over Freewind, Abeqwa?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Does the wind up here do anything to magic?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
-        { text = "Who stays at your inn that I should know about?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Does the wind up here do anything to magic?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Mages aren't hearth-keepers, Abeqwa.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "The lift's too slow and too open.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Just a bed, thank you.", next = "END" },
       },
     },
@@ -861,15 +942,6 @@ P:NPC {
       choices = {
         { text = "I'll keep my spells tame while I'm your guest.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Lighter spells? I'll test that from the edge.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xhrogue = {
-      big = true,
-      lines = { { id = "xhrogue_default", text = "Traders, braves, a goblin or two on the way to the raceway, and Hagar Lightninghoof, who'll talk to you about eggs if you let him. Most are harmless, though I keep an eye on anyone who asks too much about the Grimtotem." } },
-      choices = {
-        { text = "Good instinct. Tell the cliffwatchers if one comes back.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Asking questions isn't a crime. Leave them be.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

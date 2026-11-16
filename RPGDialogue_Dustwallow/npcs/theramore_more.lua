@@ -36,6 +36,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Once, a deserter who thought he could fly south and disappear. The gryphon took him a mile out over the marsh, turned round and dropped him in the shallows by the docks, and the Guard collected him with a net." } },
+      choices = {
+        { text = "The gryphon did the right thing. Deserters should face justice.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "He was brave to try. I'd have picked a slower bird.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Baldruc.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "The older ones teleport and the younger ones haven't learned how yet, so it's mostly the young ones I fly. They spend the whole trip reading and complain about the wind turning their pages, and the gryphons don't care for them much either." } },
+      choices = {
+        { text = "I'll fly your gryphons. Some things shouldn't be skipped.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll teleport. Time matters more than the view.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -44,6 +62,8 @@ P:NPC {
           text = "Night flights over the marsh are cold and black as a mine shaft. The birds know the way, so you just keep your head down and hold on." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid, is it? If you can talk to beasts, tell my gryphons the damp won't kill them, because they won't believe it from me." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "Don't even think about borrowing a gryphon after dark, because they'll bite whoever's sitting on them and then come straight back to me." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, and you'll be wanting to teleport home instead of using my gryphons, I suppose. That's fine, but don't come crying to me when you land somewhere damp." },
       },
       again = {
         { id = "h_again", text = "Something else, or shall I saddle one?" },
@@ -57,6 +77,8 @@ P:NPC {
         { text = "Do the dragons in the south bother you?", next = "dragons" },
         { text = "My people fly the winds too, after a fashion.", next = "x_skyborne", when = { race = "Skyborne" } },
         { text = "I'd rather ride my own mount, thanks.", next = "x_mount", when = { class = { "PALADIN", "WARLOCK" } } },
+        { text = "Has anyone ever tried to steal one of your gryphons, Baldruc?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Do mages really never use your gryphons, Baldruc?", next = "xmage", when = { class = "MAGE" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -155,6 +177,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Every week, and they're always soldiers who've worked a double watch and can't wait for supper. I don't report them, I just feed them, because a man who steals bread is a man who's hungry, and I'd rather fix the hunger." } },
+      choices = {
+        { text = "That's kind. Hunger makes thieves of honest folk.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Feed them and they'll steal more. Report them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Morgan.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "I resent that it's always on hand when the supply ships are late, and nobody ever asks me for tortoise soup when there's free bread to be had. It's good for a soldier in the field, I'll grant, but you can't build a garrison on it." } },
+      choices = {
+        { text = "You're right. Good food keeps morale up.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Free food is free food. A garrison should take what's easiest.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -165,6 +205,8 @@ P:NPC {
           text = "Any luck with the mudrocks? Mind their jaws; they'll take a finger and look innocent about it afterward." },
         { id = "h_done", when = { questRecent = { TODO_QUEST("Mudrock Soup and Bugs"), days = 5 } },
           text = "The soup went down a treat! The Captain had two bowls and said nothing, which from Captain Vimes is a speech." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "You smell of nothing at all, which in my kitchen is suspicious, because everyone else smells of tortoise and onions. Rogues and cooks both like to go unnoticed, I suppose." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! I'll make you a deal: you don't conjure any of that tasteless bread near my kitchen, and I won't sneer at your tea." },
       },
       again = {
         { id = "h_again", text = "What else, while it simmers?" },
@@ -177,6 +219,8 @@ P:NPC {
         { text = "I know a thing or two about stews.", next = "x_cook", when = { profession = "Cooking" } },
         { text = "Troll cooking would put fire in that pot.", next = "x_troll", when = { race = "Troll" } },
         { text = "I'll bring you those tongues.", next = "END", fx = { affinity = 2, standing = { theramore = 1 } } },
+        { text = "Do you ever catch thieves in your kitchen, Morgan?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Do you resent conjured food, Morgan?", next = "xmage", when = { class = "MAGE" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -278,6 +322,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Spider bites from the marsh, mostly, and a few arrows that came back from the Bloodfen tipped with something nasty. I treat them in order of how soon they'll kill, and I write down every one, because a poison you've seen twice is half beaten." } },
+      choices = {
+        { text = "I'll bring you what I learn about the Bloodfen poisons.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Knowing poison is knowing how to use it. I keep mine.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Doctor.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "During the Second War, yes, and they don't heal the way a sword cut does, because the flesh around them keeps rotting long after the burn has closed. I learned to cut wide and pray hard, and I still don't know which of the two did more good." } },
+      choices = {
+        { text = "My craft is for demons, not soldiers. You have my word.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A weapon wounds. What matters is who holds it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -288,6 +350,8 @@ P:NPC {
           text = "The tent's full, so go in and decide who needs you first. The loudest patient is rarely the worst one, so remember that." },
         { id = "h_done", when = { questDone = TODO_QUEST("Triage") },
           text = "You came through triage with your head clear and your hands steady. There are surgeons with letters after their names who couldn't say the same." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "You have the hands of someone who knows where to put a blade, and I'm glad to see they're steady. The marsh teaches me what poisons do to a body, and I suspect you've studied them from the other side." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'll be frank, I have bandaged too many soldiers who met the wrong end of the old Horde's warlocks to feel easy, but a patient is a patient, so tell me where it hurts." },
       },
       again = {
         { id = "h_again", text = "Anything else? Quickly, I've dressings to change." },
@@ -300,6 +364,8 @@ P:NPC {
         { text = "How do you stay so calm?", next = "calm" },
         { text = "I heal with the Light. Why bother with bandages?", next = "x_healer", when = { class = { "PRIEST", "PALADIN", "SHAMAN", "DRUID" } } },
         { text = "Do you treat the dead who walk, Doctor?", next = "x_scourge", when = { race = "Scourge" } },
+        { text = "Do you see many poisoned wounds in Theramore, Doctor?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Have you treated fel wounds before, Doctor?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Goodbye, Doctor.", next = "END" },
       },
     },

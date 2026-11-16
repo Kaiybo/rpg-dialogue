@@ -66,6 +66,33 @@ P:NPC {
         { text = "I'll find them and report. Your archers can finish it.", next = "BACK", fx = { align = { honor = 1 } } },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "You call upon the same powers that broke the world and turned our own kin into the satyrs that haunt Eldre'Thalas. I will judge you by your deeds while you are here, but I will not forget what you are, and neither will my Sentinels." } },
+      choices = {
+        { text = "I master the Legion's power. It doesn't master me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I understand your caution. I'll earn your trust.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then let us speak of other things.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "I distrust what magic does to those who love it too much, and I watched the Highborne love it far too much. The High Priestess has made peace with your people's mages for the sake of the Alliance, and I keep that peace, though I keep my eyes open as I do." } },
+      choices = {
+        { text = "Magic is a tool. It's the wielder who matters.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Your caution is wise. Magic needs a firm hand.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Watch the Hatecrest where my archers cannot, and tell me what they plan before they plan it. The naga strike from the water without warning, and a quiet blade among them would save Sentinel lives." } },
+      choices = {
+        { text = "I'll fight for Feathermoon gladly.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll go where the pay is best, General.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -75,6 +102,12 @@ P:NPC {
         { id = "h_night", when = { timeOfDay = "night" }, text = "Elune's light on the water. The naga hate it, and that's reason enough for me to love it." },
         { id = "h_warm", when = { disposition = { min = 75 } },
           text = "You're back, and the sisters will be glad of it; so am I, though I'll deny it if Latronicus asks." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "You carry the stench of the Legion, warlock, and every Sentinel on this isle can smell it. You stand on Feathermoon by the grace of the Alliance, and by nothing else." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage of the Alliance. Our people remember too well what arcane hunger did to this world, so you'll forgive me if I watch your spells as closely as I watch the naga." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You walk like a Sentinel on the hunt, which I'll take as a compliment to whoever trained you. The naga on the coast are sly, and I have use for anyone who can match them." },
       },
       again = { { id = "h_again", text = "Report, or ask; either is useful." }, { id = "h_again2", text = "What else?" } },
       choices = {
@@ -89,6 +122,9 @@ P:NPC {
         { text = "My people came from Eldre'Thalas, General.", next = "sky_sh", when = { race = "Skyborne" } },
         { text = "The Circle sent me. What does Feathermoon need from a druid?", next = "druid_sh", when = { class = "DRUID" } },
         { text = "I work best where your archers can't see me.", next = "rogue_sh", when = { class = "ROGUE" } },
+        { text = "I've done nothing to earn your contempt, General.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you distrust all who study magic, General?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What would you have a rogue do here, General?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Elune guide your arrows.", next = "END", fx = { affinity = 1, standing = { feathermoon = 1 } } },
       },
     },
@@ -256,6 +292,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "It worries me, which is different, and it worries the Sentinels a great deal more. I've seen what fel does to a soul over time, and I'll patch your leathers just the same, but I'll say a quiet word to the Light for you while I do it." } },
+      choices = {
+        { text = "Pray all you like. I don't need it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll take any prayers you have to spare.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "I patched a few in the war, when SI:7 lads came through our camps needing their kit mended in a hurry. They never said where they'd been, and I never asked, and I got rather good at sewing quiet." } },
+      choices = {
+        { text = "SI:7 did the dirty work that kept us safe.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Spies and cutthroats, the lot of them.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Pratt.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -263,6 +317,10 @@ P:NPC {
         { id = "h_quality", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("The Mark of Quality") }, { questActive = TODO_QUEST("Improved Quality") } } },
           text = "Show me the hides, and I'll show you how to make something a Sentinel would be proud to wear. Quality takes patience, and I've got plenty of that now." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the Circle! Good, because half the hides the Sentinels bring me were torn by things I'd rather a druid explained to me." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock, is it? I've hung up my hammer, friend, but a man doesn't stop being a paladin all at once, and I'll admit my hand still twitches for it." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "Now there's a rogue's coat, and it's had a rough time of it, by the look of those seams. Oil those seams before you go near the naga, because creaky leather gets more of your lot killed than bad luck does." },
       },
       again = { { id = "h_again", text = "Anything else, friend? I'll keep stitching while you think." } },
       choices = {
@@ -273,6 +331,8 @@ P:NPC {
         { text = "Teach me something about leather.", next = "leather", when = { profession = "Leatherworking" } },
         { text = "Does the Light answer a leatherworker?", next = "light", when = { class = "PALADIN" } },
         { text = "I skin what I hunt. Any use to you?", next = "hunter_pr", when = { class = "HUNTER" } },
+        { text = "Does my craft offend you, Pratt?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "You know a lot about rogues' leathers, Pratt.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Just browsing.", next = "END" },
       },
     },
@@ -346,6 +406,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Of course, for the kettle at least. My sisters are wary of your kind, and they have their reasons, but I've never met a mage who couldn't be trusted with a cup of tea, and the Sentinels drink a great deal of it." } },
+      choices = {
+        { text = "Kindness should come first, whatever someone's craft.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Your sisters are right to be wary.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "No harm done, though some of the Sentinels jump at shadows after their watch, and I'd hate for you to catch an arrow in my inn. They've seen naga come out of the water without a sound, and they don't take kindly to surprises." } },
+      choices = {
+        { text = "I'll announce myself. Your guests deserve their rest.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Being unheard keeps me alive. I won't change.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -355,6 +433,10 @@ P:NPC {
         { id = "h_shift", when = { metBefore = true }, text = "The night shift came in soaked and laughing, because some ogre fell in the sea chasing them. Elune forgive me, I laughed too." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "The Sentinels change watch at this hour. Listen: no words, only the bows being passed, because they've done it so long they don't need words." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "Welcome, druid. The Sentinels rest easier with one of the Cenarion Circle under this roof, though I suspect you'd rather sleep under the trees." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! If you'd warm the kettle for me, I'd thank you, because the rain gets into the firewood and the Sentinels come in wet and cold at every hour." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You came in so quietly I nearly poured tea on you, friend. Sit down by the fire and dry off, and do make a little more noise next time." },
       },
       again = { { id = "h_again", text = "Anything else? The kettle's on." } },
       choices = {
@@ -362,6 +444,8 @@ P:NPC {
         { text = "I'd like a room.", next = "BUSINESS" },
         { text = "What do the Sentinels talk about here?", next = "talk" },
         { text = "Is the rain ever going to stop?", next = "rain" },
+        { text = "You'd let a mage near your hearth?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Sorry. Old habits, Shyria.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Thank you.", next = "END" },
       },
     },
@@ -431,6 +515,24 @@ P:NPC {
         { text = "I'll burn them with their own fire.", next = "BACK", fx = { align = { light = -1 }, trait = { brave = 1 } } },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "The ogres have always had their warlocks and shamans, and their spells killed more of my warriors than their clubs did. If you mean to turn your power against them, I'll be glad of it, but I'll be watching where else you turn it." } },
+      choices = {
+        { text = "I'll burn the Gordunni for the Horde.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll use my power as I see fit, orc.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Enough of that. Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "I would have you strike them however breaks them fastest. The Gordunni don't fight with honor, so I won't ask you to, but I'd want the job done cleanly and the camp told who did it." } },
+      choices = {
+        { text = "A sleeping ogre is still an enemy.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Even ogres deserve a fair fight.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -446,6 +548,10 @@ P:NPC {
         { id = "h_proven", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Ogres of Feralas"), days = 3 } },
           text = "You came back, and the Gordunni outpost is quieter for it. In time the land will heal, as long as we don't give up on it." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A tauren druid, good! The Gordunni burn the old trees for their cookfires out west, and I'd like to see what a bear does to an ogre." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
+          text = "A warlock. Thrall lets your kind serve the Horde, and so I let you stand in my camp, but the Gordunni have their own dark casters, so you'll understand if I don't care for the smell." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
+          text = "You walk soft for one of the Horde. Good, because the Gordunni sleep in shifts, and a blade that comes in the dark is worth ten that come at noon." },
       },
       again = {
         { id = "h_again", text = "What else? Ogres don't wait for talk." },
@@ -462,6 +568,8 @@ P:NPC {
         { text = "I could read that orb for you.", next = "mage", when = { class = { "MAGE", "WARLOCK" } } },
         { text = "My people once lived in these hills.", next = "skyborne", when = { race = "Skyborne" } },
         { text = "The ogres' shamans call on the elements wrongly.", next = "shaman_ro", when = { class = "SHAMAN" } },
+        { text = "The Gordunni use dark magic too?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "You'd have me strike the ogres in their sleep?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "I'll fight.", next = "END", fx = { affinity = 2, trait = { brave = 1 }, standing = { mojache = 1 } } },
       },
     },
@@ -618,6 +726,24 @@ P:NPC {
         { text = "I'll fight for it openly, goblin.", next = "BACK", fx = { align = { honor = 1 } } },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because the ogres don't guard anything unless it hums, and this hums! Orgrimmar wants to know if it's useful, and I want to know if it's sellable, and you might be the one who can tell us both." } },
+      choices = {
+        { text = "Some things shouldn't be sold, Orwin.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Sell it. Let the buyers worry about the risk.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Steal is a strong word for taking something from an ogre who'd crack your skull for looking at it. I'd call it fair collection on behalf of the Horde, with a little left over for a goblin's curiosity." } },
+      choices = {
+        { text = "I'll do it for the Horde, not your purse.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll do it for whoever pays the most.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Never mind the cobalt.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -629,8 +755,11 @@ P:NPC {
         { id = "h_rocks", when = { metBefore = true }, text = "I've got a sack of rocks under my bed that might be worth a fortune, or might be rocks. Science is mostly waiting to find out." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Do the earth spirits know anything about the ore the ogres guard up north? Because the rocks under my bed won't tell me." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, and here I thought this camp was all braves and drums. Do your gods care about ore, I wonder? I've a sample that could use a blessing, or at least an explanation." },
-        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage! Wonderful, then you can help me work out what this cobalt really is, because the ogres guard it like it's holy and I'd like to know if they're right." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. Well, I won't ask where your power comes from if you don't ask where my samples come from, and I think that's a fair trade." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
+          text = "A mage! Tell me what you feel off this lump of cobalt, would you? The Gordunni guard it like it's worth more than gold, and I'd like to know why before I price it." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
+          text = "A rogue! You know, the Gordunni keep their best cobalt in the deepest parts of their camps, and I'd pay very well for a sample that didn't come with an ogre attached." },
       },
       again = {
         { id = "h_again", text = "More questions? Ask fast, my friend; time is money, and so is cobalt." },
@@ -643,7 +772,9 @@ P:NPC {
         { text = "This is tauren land, goblin.", next = "tauren", when = { race = "Tauren" } },
         { text = "I could lift some cobalt off the ogres quietly.", next = "rogue_or", when = { class = "ROGUE" } },
         { text = "Should we really be digging up the ogres' ore, Orwin?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "What's so special about the ogres' ore?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "What's so special about the ogres' ore?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "What makes you think the cobalt is magical?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "You want me to steal from the ogres?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "I'll get you some.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -760,6 +891,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Then you'd have more friends in this camp than any warchief, little one! Still, I think the Earth Mother means for us to get wet now and then, and a warm fire and a bowl of stew are their own kind of magic." } },
+      choices = {
+        { text = "The Earth Mother gives us the rain for a reason.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "No one should suffer rain that magic can stop.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Then you'll forgive me for keeping a bucket of water nearby while you're here, won't you? I'll feed anyone of the Horde who comes to Mojache, but I'd like my roof to stay where it is." } },
+      choices = {
+        { text = "I'll keep my imp in line. You have my word.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A little chaos is in an imp's nature.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -768,9 +917,11 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the Earth Mother at my fire! Sit, because the braves say you hear things in Feralas the rest of us miss, and I like a good story with my stew." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman by my fire! Sit down, because the rain in Feralas never stops, and your kind are usually the ones who brought it." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest at my fire! Sit and eat, and if the braves come in torn up from the ogre hills tonight, I'll know where to send them." },
-        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage, and soaked like everyone else, I see. Even your fire can't keep Feralas out of your boots, so come and stand by mine." },
-        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. You're welcome at my fire like any traveler, but keep your companion out of the stew, because the braves will notice if any goes missing." },
         { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You came in out of the rain without a drip on the floor, which is a trick I'd like to learn. Sit down and warm yourself, and keep your hands on your own bowl." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
+          text = "A mage! Sit by my fire and dry those robes, because Feralas rains every day, and I've yet to see a spell that keeps the wet out of a traveler's boots." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
+          text = "You're welcome at my fire, warlock, as every traveler is. But tell your little companion not to play with the flames, because the last imp that came through set my roof thatch smoldering." },
       },
       again = { { id = "h_again", text = "Something more? Sit a while longer; the rain isn't going anywhere." } },
       choices = {
@@ -779,8 +930,10 @@ P:NPC {
         { text = "Who's the loud orc by the gate?", next = "rok" },
         { text = "Do you miss Mulgore?", next = "mulgore", when = { race = "Tauren" } },
         { text = "Does the rain in Feralas ever stop, Greul?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "What dangers do travelers bring you word of?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "What dangers do travelers bring you word of?", next = "xhcast", when = { class = "PRIEST", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Who's been asking strange questions at your fire?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Magic could keep the rain away, Greul.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Imps can be hard to control, Greul.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Just a rest, thank you.", next = "END" },
       },
     },

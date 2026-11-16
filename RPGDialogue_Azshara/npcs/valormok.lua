@@ -39,8 +39,41 @@ P:NPC {
         { text = "She betrayed them. She gets no warning.", next = "BACK", fx = { align = { honor = -1 } } },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "We guarded her expedition into the ruins, on Belgrom's orders, and when she found what she wanted, she turned her magic on us. Twelve warriors, cut down by spells they never saw coming, and I cut their names into that post myself." } },
+      choices = {
+        { text = "Their deaths will be avenged. I swear it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "They should have watched her more closely.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "I'm sorry for your loss.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I think the Horde paid for demon power once, and I'd rather we never paid again. But Thrall lets your kind serve, and I follow Thrall, so you'll fight beside us and I'll judge you by what you do here." } },
+      choices = {
+        { text = "Judge me by my deeds, then. I'll fight with honor.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Power is power. The Horde needs every weapon.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Fair enough.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Rimtori's people, I think, watching to see whether any of us are still standing. Find their scouts and deal with them, and I'll sleep a little easier at night." } },
+      choices = {
+        { text = "I'll hunt their scouts. Valormok deserves peace.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll do it, but on my own terms.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll see what I can find.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
+          text = "A mage of the Horde. The last mage who came to Valormok was an elf, and she killed my warriors, so forgive me if I watch your hands." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
+          text = "A warlock. I don't love your kind, but you're Horde and we need hands, so I won't turn you away, not with elves in the woods and naga on the shore." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
+          text = "A rogue. Good, because the elves have scouts in the woods, and I need someone who can find them before they find us." },
         { id = "h_default", key = true,
           text = "Ag'tor Bloodfist, and this is Valormok, or what's left of it. Belgrom Rockmaul sent us out here to guard an elf mage's expedition, and she repaid us by killing nearly every warrior in this camp." },
         { id = "h_letter", when = { questActive = TODO_QUEST("Betrayed") },
@@ -58,6 +91,9 @@ P:NPC {
         { text = "How does Valormok hold out here?", next = "camp" },
         { text = "The spirits of your dead deserve rites.", next = "rites", when = { class = { "SHAMAN", "PRIEST" } } },
         { text = "I'm a warrior. Let me answer for your dead.", next = "warrior_ag", when = { class = "WARRIOR" } },
+        { text = "What did Magus Rimtori do here?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do you think warlocks shame the Horde?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Who's scouting Valormok?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Lok'tar, Ag'tor.", next = "END", fx = { affinity = 1, standing = { valormok = 1 } } },
       },
     },
@@ -193,9 +229,31 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Anyone who wants to study them or sell them on, and I'm not particular about which. Xylem would buy them in a heartbeat, but I'd rather sell to a goblin than to that pompous fool." } },
+      choices = {
+        { text = "Sell to the highest bidder. That's smart business.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Those tablets should go to the Horde, not goblins.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Good luck with your sales.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "A few, and they make my skin crawl, but they sell for more than the plain ones. The Highborne dabbled in everything, and some of what they wrote down would make even a warlock think twice." } },
+      choices = {
+        { text = "I'll pass. Some knowledge is too dangerous.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll take the dark ones. Knowledge is power.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Show me what you have.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, and I can already hear the lecture about respecting dead elves. Save it, because the tablets don't mind where they end up." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
+          text = "A rogue! Finally, someone who understands business. I've got tablets to sell and buyers to find, and I could use someone who knows how to move goods quietly." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
+          text = "A warlock, here? You'll be wanting the darker tablets, I expect, the ones with the demon scribbles on them. They cost extra." },
         { id = "h_default", key = true,
           text = "Jediga, and I'm not out here for glory or honour, before you ask. One orc's wounded pride put me in this forest, and I mean to make enough coin out of my exile to buy my way home." },
         { id = "h_tablets", when = { questActive = TODO_QUEST("Stealing Knowledge") },
@@ -217,6 +275,8 @@ P:NPC {
         { text = "What would you do back in Orgrimmar?", next = "home" },
         { text = "You and me both, I could use a drink.", next = "drink", when = { drunk = true } },
         { text = "I'm an orc mage. These tablets interest me.", next = "mage_jd", when = { race = "Orc", class = "MAGE" } },
+        { text = "Who buys Highborne tablets out here?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Are there demonic tablets among the Highborne ruins?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Good luck, Jediga.", next = "END" },
       },
     },
@@ -330,9 +390,31 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "They hate them, and so do I. Keep it unsummoned near the roost and we'll have no trouble, but if one of my beasts gets spooked, you'll walk back to Orgrimmar." } },
+      choices = {
+        { text = "Fair. The beasts come first.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My demon stays with me.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "I'll keep it away.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "When Ag'tor asks, I do, but I keep my beasts high and fast. The elves have archers, and a wind rider is a big target, so I'm careful about who I carry." } },
+      choices = {
+        { text = "Your caution keeps them alive.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Risks are part of war.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll keep quiet, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "Shaman. The beasts like you better than they like me, so maybe you'll calm them before you fly." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
+          text = "Warlock. Keep your demon away from the wind riders." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
+          text = "Rogue. You're quiet, which I like, because the wind riders hate noise almost as much as I do." },
         { id = "h_default", key = true,
           text = "Kroum, wind rider master. I can send you home to Orgrimmar or Thunder Bluff, to the Crossroads, to Splintertree in Ashenvale, to Bloodvenom Post in Felwood, or north to Everlook in the snow." },
       },
@@ -342,6 +424,8 @@ P:NPC {
         { text = "How do the wind riders like it here?", next = "beasts" },
         { text = "Is it safe to fly over the coast?", next = "coast" },
         { text = "Show me where I can fly.", next = "BUSINESS" },
+        { text = "Do your wind riders fear demons?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do you ever fly scouts over the elf camps?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },
     },

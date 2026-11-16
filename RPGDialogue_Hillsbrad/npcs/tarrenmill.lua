@@ -35,6 +35,33 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "One at a time, by night, so the humans wake up to find their neighbors gone and wonder who is next. Fear spreads faster than plague, and it costs the Dark Lady nothing at all." } },
+      choices = {
+        { text = "Fear is a weapon. I'll use it well.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "I'll fight soldiers, not frighten farmers.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else, High Executor.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "The living still cower before fire and frost, and the Kirin Tor's survivors hide behind their dome while we take their old lands. Burn the fields around Southshore and you'll do more for the front than a hundred Deathguards." } },
+      choices = {
+        { text = "I'll serve the front, but not by burning farms.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Point me at the fields. They'll burn.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I trust the Dark Lady, and the Dark Lady trusts him as far as she must. His kind once ruled us through the Lich King, and I watch every dreadlord who walks the Undercity with the same care I'd watch a coiled snake." } },
+      choices = {
+        { text = "The dreadlord serves us now. Use him.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Never trust a dreadlord. Watch him as he watches us.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -59,6 +86,9 @@ P:NPC {
           text = "Krusk's leader is free, I hear, and the orcs are grateful. Gratitude from Orgrimmar is a currency I intend to spend." },
         { id = "h_xsoldier", when = { origin = "forsaken_lordaeron_soldier" },
           text = "You carried Lordaeron's colours once; it shows in how you stand. Southshore's watchmen once served the same king, so try to remember which side of the line you are on now." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. Good, because Southshore's farms are best taken quietly, and I have no patience for soldiers who announce themselves with a battle cry." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage of the Forsaken or the Horde, it hardly matters. The Dark Lady values any power that can break a human line, and you'll find plenty of lines to break here." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Lord Varimathras has given us many gifts, and I suspect you're one of the few who understands what they cost." },
       },
       again = {
         { id = "h_again", text = "What else? Be brief about it." },
@@ -79,6 +109,9 @@ P:NPC {
         { text = "The Light answers me, High Executor, even now.", next = "xpaladin", when = { race = "Scourge", class = "PALADIN" } },
         { text = "The spirits of this land are restless.", next = "xshaman", when = { class = "SHAMAN" } },
         { text = "The Windshapers fight for the Horde.", next = "xskyborne", when = { race = "Skyborne" } },
+        { text = "How do you want Southshore's farms taken, High Executor?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "What use does the Dark Lady have for mages, High Executor?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do you trust Lord Varimathras, High Executor?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll take my leave.", next = "END" },
       },
     },
@@ -279,15 +312,6 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
-    xhrogue = {
-      big = true,
-      lines = { { id = "xhrogue_default", text = "Only Hinott, who pretends not to look into my cellar and fails, and the occasional Southshore spy who drinks the wrong flask and saves me the trouble. I find them in the morning, though Umpi usually finds them first." } },
-      choices = {
-        { text = "I'd rather catch spies with a blade than a trick.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Leave a flask out for the next spy. Poison suits them.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "I've no idea, shaman, and I suspect you're about to tell me. The water spirits in Hillsbrad's streams are welcome to complain to the Society in writing, though I doubt Master Faranell will read it." } },
@@ -305,6 +329,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "I make them for the Dark Lady, and if you're carrying out her work, I suppose that includes you. The ones in the blue bottles are for blades, and the ones in the black bottles are for something much larger, and I'd advise you not to mix them up." } },
+      choices = {
+        { text = "Give me what I need for the blade. I'll use it carefully.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'd like to know what's in the black bottles, Lydon.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Lydon.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Umpi is my frog, and she has survived more of my tests than any frog should, so I'd hate for her to end up as an imp's supper. Keep your demon away from my table and we'll both stay happy, or what passes for happy in Tarren Mill." } },
+      choices = {
+        { text = "I'll keep my minion far from Umpi. You have my word.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My demon goes where it pleases, Lydon.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" },
@@ -313,10 +355,6 @@ P:NPC {
           text = "A druid at Tarren Mill. I suspect you won't approve of my work, tauren, since most of it is about making green things die faster." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
           text = "A priest. The Light stopped visiting Tarren Mill some time ago, and the loa never came at all, so you'll have to make do with me and Umpi." },
-        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
-          text = "A warlock. You trade with demons and I trade in poisons, so neither of us gets invited to many dinners, though since I can't eat anymore, I don't much mind." },
-        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } },
-          text = "One of the sneaking sort. If you've come to steal a vial, take the green ones, because those are the ones I've given up on." },
         { id = "h_default", key = true,
           text = "Lydon, of the Royal Apothecary Society. I make things that hurt, for the Dark Lady's work, and it's the only thing that still makes me feel much of anything, that and Umpi." },
         { id = "h_pain", tags = { "news" }, when = { questActive = TODO_QUEST("Elixir of Pain") },
@@ -333,6 +371,8 @@ P:NPC {
           text = "Night, finally, and fewer birds." },
         { id = "h_innocents", tags = { "news" }, when = { questActive = TODO_QUEST("Blood of Innocents") },
           text = "A toxin to bleed the violence out of goblins. It needs innocent blood, and the Syndicate's shadow mages have been collecting it for me. How generous of them." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "Don't touch the bottles, rogue, unless you'd like to find out what's in them the hard way, and some of them are designed to be found out the hard way." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. You'll want to know whether I've a use for your shards, and the answer is no, since I've enough trouble keeping Umpi out of my reagents." },
       },
       again = {
         { id = "h_again", text = "What else? Not that it matters." },
@@ -342,8 +382,7 @@ P:NPC {
         { text = "Why poison the very land the Horde fights for?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Will your plague do my fighting for me, Lydon?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "What do your poisons do to the spirits of this land?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Does the Society ever use magic in its work, Lydon?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
-        { text = "Does anyone in Tarren Mill try to steal your work?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Does the Society ever use magic in its work, Lydon?", next = "xhcast", when = { class = "PRIEST", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Who's Umpi?", next = "umpi" },
         { text = "What are you working on?", next = "work" },
         { text = "Why are you so miserable?", next = "misery" },
@@ -353,6 +392,8 @@ P:NPC {
         { text = "Troll's blood? For your elixir?", next = "troll", when = { race = "Troll" } },
         { text = "Do you miss anything, from before?", next = "forsaken", when = { race = "Scourge" } },
         { text = "I studied in Dalaran before I died.", next = "xmage", when = { race = "Scourge", class = "MAGE" } },
+        { text = "Do you make poisons for rogues too, Lydon?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Is Umpi safe around my demon, Lydon?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -499,15 +540,6 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
-    xhrogue = {
-      big = true,
-      lines = { { id = "xhrogue_default", text = "The Syndicate send a man through now and then pretending to be a trader, and he tips too well for an honest one. Then there's Zixil the goblin, who sells to both towns and smiles at everyone, which in my experience is the surest sign of a liar." } },
-      choices = {
-        { text = "Point out the Syndicate man. I'll deal with him openly.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll pick his pockets first and read his letters.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "If they do, nobody's told me, and I'd be the first to hear, since I hear everything at this bar. The old ones say the mill wheel still turns some nights with no water behind it, but the old ones say a great many things." } },
@@ -517,23 +549,39 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "All of them, really, since this is Tarren Mill and the living are always one bad day from a Southshore pike. The rogues sit closest to the back door, which I've always considered sensible." } },
+      choices = {
+        { text = "I'll sit near the back door too. Old habits.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "I'll sit in the open. I've nothing to hide.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else, Shay.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Some do, some don't, and some pretend not to so the others won't see. I still light the fire for the living who pass through, and for a few of ours who like to sit by it and remember." } },
+      choices = {
+        { text = "Keep the fire lit. Memory is worth keeping.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The dead don't need fires. Waste of wood.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman under my roof. The last one who stayed asked me to open the windows for the spirits, and I told him the spirits could pay for a room like everyone else." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
           text = "A priest. Some of my guests used to pray before supper, and now they don't eat supper, so the praying stopped too, but you're welcome to start it up again." },
-        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } },
-          text = "A mage. Please don't conjure your own food and water at my tables, because I've little enough custom as it is." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
           text = "A warlock. Your imp can stay, but if it sets fire to my curtains, as somebody's did last month, I'll be charging you for the curtains." },
-        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } },
-          text = "Someone who walks in without the floorboards noticing. Sit where I can see you, if you don't mind, because the last quiet one left without paying." },
         { id = "h_default", text = "I'm Shay, and I keep the inn. When this town was alive someone else did, and the customers complain less now." },
         { id = "h_clean", when = { metBefore = true }, text = "I polished the bar today. Nobody here eats or drinks much anymore, but a clean bar is a clean bar. Habit's what's left." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Night's our busy hour, though everyone's always up here, so I've stopped putting the chairs on the tables." },
         { id = "h_skulls", when = { questDone = TODO_QUEST("Souvenirs of Death") }, text = "Samsa's hung his skulls on the wall behind my inn, thanks to you. I've asked him to at least line them up straight." },
         { id = "h_krusk", when = { heardLine = "krusk.h_default" }, text = "You've met Krusk, then. He's the only one in town who orders a hot meal, and he eats it with his back to the wall." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll find the inn makes a fine hiding place, since nobody looks twice at the corner tables anymore, and the dead don't gossip much." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. You'll want something warm, I suppose, though warmth is wasted on most of my guests, and I've stopped heating the kettle out of habit." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've all night, and every night after it." },
@@ -542,13 +590,14 @@ P:NPC {
       choices = {
         { text = "Is there a place to stable a beast in Tarren Mill?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Do the dead of Tarren Mill trouble the spirits here?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Who around Tarren Mill could use a spellcaster's help, Shay?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
-        { text = "Who drinks here that I should keep an eye on?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Who around Tarren Mill could use a spellcaster's help, Shay?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "What was Tarren Mill like before?", next = "before" },
         { text = "Who stays here?", next = "guests" },
         { text = "Do you miss sleeping?", next = "sleep", when = { race = "Scourge" } },
         { text = "Is there anything here a living body can eat?", next = "food", when = { race = { "Orc", "Tauren", "Troll", "Skyborne" } } },
+        { text = "Do you get many visitors who prefer to stay hidden, Shay?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Don't the Forsaken miss warmth, Shay?", next = "xmage", when = { class = "MAGE" } },
         { text = "Just passing through.", next = "END" },
       },
     },

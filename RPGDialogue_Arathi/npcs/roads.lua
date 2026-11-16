@@ -40,6 +40,10 @@ P:NPC {
           text = "Quae, and that nervous one by the tree is Kinelory. We work for Phin Odelic in Southshore, and we've been watching Go'Shek Farm longer than either of us likes." },
         { id = "h_phin", tags = { "news" }, when = { questActive = TODO_QUEST("Hints of a New Plague?") },
           text = "Phin sent you? Light bless that worried man. Tell him we're alive, and tell him he was right, because the Forsaken are sending something to that farm." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage, {class}? Then maybe you can read the courier's papers, for I can't make out half of it, and the half I can, I don't like." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You've a quiet way of standing, {class}, and Phin would like the look of you. Sit down, and keep your head below the ridge." },
       },
       choices = {
         { text = "What are the Forsaken doing at Go'Shek Farm?", next = "druid_q", when = { class = "DRUID" } },
@@ -47,11 +51,31 @@ P:NPC {
         { text = "Why does Phin care about an orc farm?", next = "phin" },
         { text = "How long have you been out here?", next = "watch" },
         { text = "Phin said you hadn't checked in. He was frantic.", next = "frantic", when = { questActive = TODO_QUEST("Hints of a New Plague?") } },
+        { text = "What kind of writing is on the courier's papers?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What are the Forsaken doing at Go'Shek Farm?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Stay low, then. Farewell.", next = "END" },
       },
       again = {
         { id = "h_again", text = "What else? I can talk and watch at the same time, mostly." },
         { id = "h_again2", text = "Go on, quietly." },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Moving papers and crates, and the crates smell of the apothecaries' work, which is why Phin wants to know who signs those papers. I watch who comes and goes, but someone who could get inside the farm would learn more in a night than I have in a month." } },
+      choices = {
+        { text = "If the Forsaken brew plague, they must be stopped.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Whatever they brew could be turned to our use.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Apothecary shorthand, I think, full of measures and words I don't know, and a few lines that look like a recipe. A mage might see a pattern in it, and Phin would be very glad of anyone who could tell him what the Forsaken are brewing." } },
+      choices = {
+        { text = "If it's plague, it must be stopped at once.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Their recipes could be useful to us.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Quae.", next = "BACK" },
       },
     },
     courier = {
@@ -123,15 +147,39 @@ P:NPC {
           text = "Kinelory, at your service, if you'll have a nervous one. There's a Forsaken courier who carries papers to Go'Shek Farm, and I mean to take them off him before he gets there." },
         { id = "h_strike", tags = { "news" }, when = { questActive = TODO_QUEST("Kinelory Strikes") },
           text = "Ready, are you? Stay close and keep his guards off me, and I'll do the rest, as long as my hands stop shaking first." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock! Oh dear, please don't take that the wrong way, {class}, it's only that the courier is Forsaken, and I'd rather not be surrounded by spooky things." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "Oh, you're quiet, {class}, quieter than me by a mile, and I've been practising all week so the courier won't hear me coming." },
       },
       choices = {
         { text = "I'll take the loud part. Stealth was never my way.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Why go after him yourself?", next = "why" },
         { text = "What's the plan?", next = "plan" },
         { text = "Quae says you're braver than you are sensible.", next = "quae" },
+        { text = "I'll keep my demon behind you, then.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Want some help ambushing the Forsaken courier?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Not today, I'm afraid.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? Talking helps, honestly, so please do." } },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "I'd like it more than I can say, though I'll still go if you don't, because Phin needs those papers and Quae can't leave her post. Stay close behind me, and if I start shaking, just pretend you didn't see." } },
+      choices = {
+        { text = "No shame in shaking. You're braver than you think.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Shaking gets people killed. Steady yourself.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Kinelory.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Behind me is worse, actually, for I'd keep looking back at it instead of at the road. Perhaps out front, where the courier can be frightened instead of me, which seems fairer all round." } },
+      choices = {
+        { text = "Using fear on the enemy is fair play.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'd rather beat him fairly, without tricks.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
     },
     why = {
       lines = {

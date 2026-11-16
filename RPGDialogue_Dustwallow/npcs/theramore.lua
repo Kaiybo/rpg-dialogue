@@ -37,6 +37,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "It has people who lost family to orcs and haven't forgiven a peace they never asked for, and I understand them. Some of the deserters out in the marsh were my own soldiers, and if someone is stirring them up against the Horde, I want to know who." } },
+      choices = {
+        { text = "Let me find them, and I'll bring them to your justice.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Some of them have reason. Peace can't be forced on grief.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let me ask about something else, my lady.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -51,6 +60,7 @@ P:NPC {
           text = "Still awake? So am I. The tower's quiet at night, and it's the only time I can hear myself think about anything but the next letter." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid of the Cenarion Circle in Theramore. I stood beside your people on Mount Hyjal, and I haven't forgotten what the forest gave to stop the Legion there." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "You have the light step of someone who prefers not to be noticed, and I won't ask whom you've been reporting to. Theramore has nothing to hide from friends." },
       },
       again = {
         { id = "h_again", text = "What else? I have a few minutes before the next dispatch." },
@@ -70,6 +80,7 @@ P:NPC {
         { text = "I'd serve in Theramore's guard, my lady.", next = "x_warrior", when = { class = "WARRIOR" } },
         { text = "Dalaran would have burned me. Will you?", next = "x_warlock", when = { class = "WARLOCK" } },
         { text = "Dwarves helped build these walls, I hear.", next = "x_dwarf", when = { race = "Dwarf" } },
+        { text = "Does Theramore have enemies inside its walls, my lady?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Farewell, my lady.", next = "END" },
       },
     },
@@ -307,6 +318,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "I fear for them everywhere, because half of what I carried out of Dalaran's libraries is the only copy left in the world. Some of it would fetch a fortune in Booty Bay, and the rest would burn a careless reader's hand off, so it stays locked away." } },
+      choices = {
+        { text = "I'd never steal them. Some things matter more than gold.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If they're that valuable, someone will try. Lock them tighter.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Archmage.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "We studied it the way a physician studies plague, carefully and with the windows open. Kel'Thuzad was a member of our council once, and his fascination with forbidden magic led straight to the Cult of the Damned, so you'll understand why I'm wary." } },
+      choices = {
+        { text = "Knowledge isn't evil, Archmage. Kel'Thuzad chose his path himself.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Your caution is earned. I'll keep my craft honest.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -318,6 +347,8 @@ P:NPC {
         { id = "h_garden", when = { metBefore = true }, text = "The marsh air is wonderful for herbs and terrible for parchment, so I've chosen the herbs. My notes forgive me, mostly." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! Please don't look too closely at my garden; I've read every herbal in Theramore, and they're all wrong about swamp soil." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "You'll forgive me if I keep an eye on my books, because a rogue in a mage's study is like a cat in a fishmonger's, and I'm fond of both." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock in my tower. The Lady has asked me to judge by deeds rather than by schools, and I'm trying, though I'll confess my wards are less patient than I am." },
       },
       again = { { id = "h_again", text = "Yes, yes, what else? Keep it short, if you would." }, { id = "h_again2", text = "Another question? Good, ask it while I water these." } },
       choices = {
@@ -330,6 +361,8 @@ P:NPC {
         { text = "Any advice for a mage on their own?", next = "mage", when = { class = "MAGE" } },
         { text = "A gnome could rig your garden proper irrigation.", next = "x_gnome", when = { race = "Gnome" } },
         { text = "Your herbs would grow better by moonlight.", next = "x_nightelf", when = { race = "NightElf" } },
+        { text = "Do you fear for your books in Theramore, Archmage?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Did the Kirin Tor ever study warlock magic, Archmage?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll be quick.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -429,6 +462,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "The hoofprints and axes say the Horde, but the burned beams say the fire started inside, and orcs don't need an invitation to come in. Someone wanted this blamed on Brackenwall, and they knew our people would believe it without asking." } },
+      choices = {
+        { text = "I'll follow the evidence wherever it leads, Captain.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Sometimes you have to bend the rules to catch a liar.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "I don't know, and that's why I'm asking, because the ash at the Shady Rest burned hotter in some spots than a lamp could account for. It may be nothing more than spilled oil, but I won't rule anything out before I've seen it all." } },
+      choices = {
+        { text = "Let me examine the ash. I'll tell you the truth of it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Blame the oil and close the case. Theramore needs answers fast.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -441,6 +492,8 @@ P:NPC {
           text = "Paval Reethe was one of ours, until he wasn't. If he's involved, I want to hear it from him." },
         { id = "h_shield", when = { questActive = TODO_QUEST("The Black Shield") },
           text = "A black shield, found where it shouldn't be. Somebody's trying very hard to make this look like something it isn't." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "You read a room before you walked into it, and I noticed. That's useful, because I need someone who sees what's hidden rather than what's convenient." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Archmage Tervosh is too busy to help me, so maybe you can tell me whether a fire looks different when someone starts it with magic." },
       },
       again = { { id = "h_again", text = "Next question, then; I've a case on." }, { id = "h_again2", text = "Go on." } },
       choices = {
@@ -452,6 +505,8 @@ P:NPC {
         { text = "I could sit with James Hyal.", next = "priest_hyal", when = { class = "PRIEST" } },
         { text = "Want another sword in the Guard, Captain?", next = "x_warrior", when = { class = "WARRIOR" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2, align = { order = 1 }, standing = { theramore = 1 } } },
+        { text = "What do you think is hidden in the Shady Rest case, Captain?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Do you suspect magic started the inn fire, Captain?", next = "xmage", when = { class = "MAGE" } },
         { text = "It was the Horde, and everyone knows it.", next = "END", fx = { affinity = -1, align = { order = -1 } } },
       },
     },
@@ -560,6 +615,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Only what the Lady permits, which is very little, because the mages answer to her and to Archmage Tervosh. I keep their names, their quarters and their sailing dates, and I leave the rest to people who can read their handwriting." } },
+      choices = {
+        { text = "Good. Mages should answer to their own kind.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Everyone should be on the record, mages included.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Something else, Adjutant.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "The regulations say every soldier and every beast of burden must be counted, and your companion is close enough to either for my purposes. Captain Vimes once told me a good record has saved more lives than a good sword, and I've chosen to believe him." } },
+      choices = {
+        { text = "Record it, then. Rules are rules.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My servant is my own business, not Theramore's.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -569,6 +642,8 @@ P:NPC {
         { id = "h_daelin", tags = { "news" }, when = { questActive = TODO_QUEST("Daelin's Men") },
           text = "Some of the Admiral's men never accepted that his war was over, and our records say where they went. Our records are very thorough." },
         { id = "h_ink", when = { metBefore = true }, text = "I ran out of ink yesterday and had to borrow from the Archmage, and his ink glows. My records glow now, and nobody will take them seriously." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. I don't have a ledger for you, since the Kirin Tor keep their own records, but I'll note your arrival anyway, because I note everything." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'll need your name for the ledger, and I'll need it twice, once for you and once for whatever you've got following you." },
       },
       again = { { id = "h_again", text = "Anything else? I'll note it either way." } },
       choices = {
@@ -579,6 +654,8 @@ P:NPC {
         { text = "Records on deserters? I'd be hard to find.", next = "x_rogue", when = { class = "ROGUE" } },
         { text = "What became of the Admiral's men?", next = "daelin" },
         { text = "A paladin keeps his oath. Do your deserters?", next = "x_paladin", when = { class = "PALADIN" } },
+        { text = "Do you keep records on Theramore's mages too, Adjutant?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Must you record my demon too, Adjutant?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Thank you.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -690,6 +767,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Every night, because soldiers talk when they're tired and sailors talk when they're drunk, and mages talk to themselves. I keep all of it in the kitchen and none of it in my mouth, which is why they keep coming back." } },
+      choices = {
+        { text = "A good innkeeper keeps her guests' secrets. I'd do the same.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Secrets are worth something. You could sell them.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Janene.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "They do, and the Lady insists on it, because she says a city that doesn't eat together doesn't fight together. The young ones from Dalaran still sit a little apart, but I've noticed the soldiers are starting to sit beside them." } },
+      choices = {
+        { text = "The Lady is right. We stand or fall together.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Mages and soldiers are different. Let them keep apart.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -698,6 +793,8 @@ P:NPC {
         { id = "h_night", when = { timeOfDay = "night" }, text = "The sea's loud tonight. Sailors say a loud sea is a lucky sea, but sailors say a lot of things." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid at my tables! Sit down, dear, and tell me the truth: is it the marsh air, or does everyone from Darnassus look this tired when they first arrive?" },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "You moved through my common room without spilling a drink or bumping a chair, which is more than most soldiers manage, so I suppose that makes you a rogue." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "Another mage at my tables! Half of Theramore's tower eats here, and they all want their tea hotter than I can make it, so don't you start." },
       },
       again = { { id = "h_again", text = "Anything else, love?" } },
       choices = {
@@ -708,6 +805,8 @@ P:NPC {
         { text = "Do you keep a proper dwarven stout?", next = "x_dwarf", when = { race = "Dwarf" } },
         { text = "Who are the sailors in the corner?", next = "sailors" },
         { text = "You look like you could use a blessing yourself.", next = "x_priest", when = { class = "PRIEST" } },
+        { text = "Do you hear many secrets over your tables, Janene?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Do the Theramore mages eat with everyone else, Janene?", next = "xmage", when = { class = "MAGE" } },
         { text = "Just passing through.", next = "END" },
       },
     },

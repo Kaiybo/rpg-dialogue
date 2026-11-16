@@ -51,9 +51,31 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Ogtinc does not know, but the divine path asks that we try to mend what we have broken. If you truly wish to help, gather what the Circle needs and use your power only against those who would sicken the land further." } },
+      choices = {
+        { text = "I'll use my power only to protect the land.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll use my power as I see fit.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "I'll think on the divine path.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "The Circle needs their hearts for its work in Felwood, and Ogtinc grieves each one, for they were beautiful before the corruption touched them. Kill them swiftly and cleanly, and they suffer less, which is the only mercy Ogtinc can give." } },
+      choices = {
+        { text = "I'll make it swift and clean.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "They're just beasts. Let them suffer.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "I'll keep it in mind.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, and welcome. My people had shamans before the corruption, and you remind me of the elders who taught me to hear the forest." },
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "You walk with a demon's shadow, warlock, and the spirits of this cliff go quiet when you come near. Ogtinc does not turn away anyone who would help the land, but he asks you to remember what fel has done to it." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue moves like a hunter, quiet and patient, and Ogtinc respects that. The coursers of these ruins are hard to approach, and quiet feet would serve you well among them." },
         { id = "h_default", key = true,
           text = "I am Ogtinc, and I serve the Cenarion Circle. I keep watch on this cliff over the Ruins of Eldarath, and I gather what the Circle needs to heal the lands the demons left sick." },
         { id = "h_aid", when = { questActive = TODO_QUEST("Cenarion Aid") },
@@ -87,6 +109,8 @@ P:NPC {
         { text = "Cenarius guide your hunt, brother.", next = "druid", when = { class = "DRUID" } },
         { text = "The Timbermaw call me friend.", next = "timbermaw", when = { reputation = { faction = "Timbermaw Hold", min = "friendly" } } },
         { text = "My people are kin to yours, I've heard.", next = "tauren_og", when = { race = "Tauren" } },
+        { text = "Can someone who uses fel help heal the land?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Why hunt the coursers at all?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Walk the divine path, Ogtinc.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -290,8 +314,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Steal, no; scales don't come off a living dragon unless it wants them to, and it never does. But you can get close enough to see where the weak plates are, and I'll teach you to work them once they're off a corpse, so condolences in advance." } },
+      choices = {
+        { text = "I'll fight for my scales, fair and square.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll strike while the dragon sleeps.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Keep the condolences handy.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Every one of them, and the list is longer than I'd like, though shorter than my competitor's in Stormwind. Leatherworking is a trade for the living, so I'll teach you what you need and hope your name never goes on that parchment." } },
+      choices = {
+        { text = "I'll be careful. I don't want to be on that list.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A good mage doesn't die to dragons.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll take my chances.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue. You'll want to sneak past a dragon, I expect, rather than fight one, and I'd call that the most sensible plan anyone's brought me this month." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage. Dragons can feel magic, so the blues say, and every customer of mine who went hunting with spells in their hands is on my list of the departed." },
         { id = "h_default", key = true,
           text = "Peter Galen, of Stormwind, master of dragonscale leather. I work the scales of the most dangerous prey there is, and I teach anyone who's daft enough to go and get them." },
       },
@@ -301,6 +347,8 @@ P:NPC {
         { text = "Why work out here, of all places?", next = "why" },
         { text = "Is dragonscale worth the danger?", next = "scale" },
         { text = "Show me what you teach.", next = "BUSINESS" },
+        { text = "Can a rogue really steal a dragon's scales?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Do you really keep a list of dead customers?", next = "xmage", when = { class = "MAGE" } },
         { text = "Farewell, Peter.", next = "END" },
       },
     },
@@ -375,9 +423,31 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Stole it, scattered it, and left me for the naga, and called me little rat while they did it! I need my gear back, every crate of it, and a rogue knows how to find things that aren't where they should be." } },
+      choices = {
+        { text = "I'll get it back. That's only fair.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll get it back, for a cut.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Little rat, eh?", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "A goblin to haul their crates and dig through ruins, that's what, and then they decided they'd rather not pay him. Those runes they were after are worth plenty to the right buyer, and Kim'jael means to find that buyer before anyone else does." } },
+      choices = {
+        { text = "Those runes belong to whoever uncovered them.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Those runes are dangerous. Leave them in the ruins.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Good luck with that.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Good, you can tell me if this place is cursed, because I've been robbed, stabbed at and called a rat, and I'm starting to take it personally." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue! Kim'jael indeed, a rogue! Now you're the sort who knows the value of an employee's equipment, and how easily it goes missing." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage! Don't tell me, you work for one of those pointy-eared mages too, and you're here to finish what they started. No? Good, because Kim'jael is fresh out of patience for spellcasters." },
         { id = "h_default", key = true,
           text = "They call me Kim'jael, and oh, Kim'jael indeed! It's elvish for little rat, near enough, and those bullies called me that the whole time they were paying me." },
         { id = "h_gear", when = { questActive = TODO_QUEST("Kim'jael Indeed!") },
@@ -396,6 +466,8 @@ P:NPC {
         { text = "Why not leave Azshara?", next = "leave" },
         { text = "What's a wizzlegoober?", next = "wizzle" },
         { text = "Funny. A goblin hired by elves, robbed by elves.", next = "gnome_kj", when = { race = "Gnome" } },
+        { text = "Did the elves steal your equipment?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "What did the elf mages want with you?", next = "xmage", when = { class = "MAGE" } },
         { text = "Later, Kim'jael.", next = "END" },
       },
     },
@@ -500,8 +572,30 @@ P:NPC {
         { text = "Better to strike their camp before they come.", next = "BACK", fx = { align = { honor = -1 } } },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Food and water would be a blessing, and a fireball for the next naga raid would be better still. My sailors are tough, but they're tired, and every hand that helps us is one less lamp I have to light." } },
+      choices = {
+        { text = "I'll help your crew however I can.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Your crew is your responsibility, Captain.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "I'll see what I can do.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Passengers' goods, mostly, and some crates I'm not at liberty to discuss. The naga don't know what they've got, and I'd like it back before they figure it out, so a quiet hand would serve better than a loud one." } },
+      choices = {
+        { text = "I'll get it back quietly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "What's in those crates you won't discuss?", next = "BACK" },
+        { text = "Tell your passengers they owe me.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage, ahoy! If you can conjure fresh water, my crew will love you for it, because we've been rationing what we saved from the Horizon Scout." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue, is it? The naga keep my scattered cargo in their camps up the shore, and I'd rather it was fetched quietly than fought over." },
         { id = "h_default", key = true,
           text = "Captain Vanessa Beltis, of the Horizon Scout, or I was, before she went to the bottom. My crew's in shambles, our cargo and passengers are scattered along this beach, and the naga aren't finished with us yet." },
         { id = "h_fight", when = { questActive = TODO_QUEST("A Crew Under Fire") },
@@ -517,6 +611,8 @@ P:NPC {
         { text = "Who were your passengers?", next = "passengers" },
         { text = "Let me tend your wounded.", next = "heal", when = { class = { "PRIEST", "PALADIN", "DRUID", "SHAMAN" } } },
         { text = "Put me on the line facing the water.", next = "warrior_bl", when = { class = "WARRIOR" } },
+        { text = "Could I help your crew with my magic?", next = "xmage", when = { class = "MAGE" } },
+        { text = "What cargo did the naga take?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I'll stand with your crew if they come.", next = "END", fx = { affinity = 1, trait = { brave = 1 } } },
       },
     },
@@ -618,8 +714,30 @@ P:NPC {
         { text = "Fair. Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Tymor's a mage in Ironforge, and he reckons these Highborne runes have somethin' tae teach the Mystic Ward. I fly 'em home, he reads 'em, and I'm none the wiser, which suits me fine as long as he pays the fuel." } },
+      choices = {
+        { text = "Knowledge like that should be studied carefully.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Old runes are best left in the ruins.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Fly safe, Xiggs.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "The naga and the ghosts don't like visitors, and a dwarf on a helipad can only watch from the sky. A rogue could slip in, take the rubbings, and slip out again, and I'd fly ye home a hero." } },
+      choices = {
+        { text = "I'll slip in quietly and get them.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'll fight my way in if I have to.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll think about it.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage, eh, lad or lass? Tymor of the Mystic Ward'll want tae hear about ye, since he's the one sendin' me after these rubbings in the first place." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue! Ye'll be quiet in the ruins, then, which is more than the last lot managed, wi' all their clankin' armour." },
         { id = "h_default", key = true,
           text = "Pilot Xiggs Fuselighter, at yer service. Tymor of the Mystic Ward's got me runnin' rubbings off this coast for the Explorers' League, and I patrol the skies here besides, so if ye've got somethin' for Ironforge, I'm yer dwarf." },
         { id = "h_runes", when = { questActive = TODO_QUEST("Arcane Runes") },
@@ -632,6 +750,8 @@ P:NPC {
         { text = "Tell me about your flying machine.", next = "machine" },
         { text = "What's she running on, Xiggs?", next = "machine_eng", when = { profession = "Engineering" } },
         { text = "Did a gnome build your flying machine?", next = "gnome_xg", when = { race = "Gnome" } },
+        { text = "Who is Tymor, and what does he want with rubbings?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Are the ruins dangerous for the rubbings?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Safe flight, Xiggs.", next = "END" },
       },
     },

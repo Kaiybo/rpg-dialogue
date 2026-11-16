@@ -28,10 +28,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Less to thieves than to the dust, honestly, and the dust doesn't even have the decency to run off with it. The Captain's men keep a close eye on the store, so most of the light fingers here belong to the centaurs, and they prefer whole wagons." } },
+      choices = {
+        { text = "I'd never steal from the last green spot in Desolace.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A good thief would have taken it before you noticed.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Candles, flour, string and a box of chalk I bought from a Reclaimer who swore it came from a Dalaran estate. It's probably just chalk, but it's very good chalk, and it's the closest thing to an arcane supply you'll find for a hundred miles." } },
+      choices = {
+        { text = "I'll take the chalk and believe the story. It's half the value.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Sell it as chalk, and you'll have nothing to answer for.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Christi Galvanis, general goods. Nijel's Point is the last bit of green before the whole of Desolace turns to dust, so whatever you need for the trip down, buy it from me, because nobody else is going to sell it to you." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, browsing my shelves with both hands in plain sight. I appreciate the courtesy, truly, because in Desolace most thieves can't be bothered to pretend." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! I don't suppose you could conjure me a shipment that arrives on time, because the caravan certainly can't." },
       },
       again = {
         { id = "h_again", text = "What else? I'm not going anywhere, and neither is the dust." },
@@ -42,6 +62,8 @@ P:NPC {
         { text = "What do I need for Desolace?", next = "need" },
         { text = "How do you keep the shelves stocked out here?", next = "stock" },
         { text = "Why would anyone live at Nijel's Point?", next = "why" },
+        { text = "Do you lose much stock to thieves out here, Christi?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Do you stock anything for mages, Christi?", next = "xmage", when = { class = "MAGE" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -128,12 +150,32 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "It fills you, I'll grant, but it doesn't taste of anything, and you can't share it with a stranger at the fire the way you can share a good loaf. A body walking down into Desolace needs real food, and a soul needs company, so I make both as best I can." } },
+      choices = {
+        { text = "Real bread, then. You're right about the company.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Conjured food keeps me alive and costs nothing. I'll stick to it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Janet.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "A few, and they're the quietest customers I have, which I suppose makes sense if your companions are always listening. One of them told me the imps eat anything, so I've started locking the bread away at night, just in case." } },
+      choices = {
+        { text = "I'll keep my imp in hand. Your bread is safe.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Imps go where they please. Lock the bread away.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Janet Hommers, and I feed this outpost. Bread, cheese, water and something stronger for the evenings, and I make sure nobody goes down into Desolace on an empty stomach, because it's hard enough on a full one." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! Sit down and eat, dear, because there's nothing growing down there worth putting in your mouth." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "Are you a mage? Then promise me you'll eat my bread before you eat that conjured stuff, because it can't be good for you to live on magic and water." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Well, everyone eats, and I'll feed you as well as anyone, but please keep the little red thing off my tables, because it bit the last loaf I set out." },
       },
       again = {
         { id = "h_again", text = "Anything else, dear?" },
@@ -145,6 +187,8 @@ P:NPC {
         { text = "How do you bake bread out here?", next = "bread" },
         { text = "How are the soldiers holding up?", next = "soldiers" },
         { text = "Do many travelers come through?", next = "travelers" },
+        { text = "What's wrong with conjured food, Janet?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do you get many warlocks at Nijel's Point, Janet?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Goodbye.", next = "END" },
       },
     },

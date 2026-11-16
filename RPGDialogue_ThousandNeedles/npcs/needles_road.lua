@@ -118,12 +118,34 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "It would help, because they've grown bold, and my braves are too loud to get close. Find out how many warriors they keep at the pinnacle, and we'll know how many we need to send." } },
+      choices = {
+        { text = "I'll scout for Freewind gladly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll strike while I'm there.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Kanati.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "The winds fear what does not belong to this world, and your power is one of those things. I do not judge you for it, but I will not pretend the land welcomes you as gladly as I do." } },
+      choices = {
+        { text = "Then the land must learn to live with me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll walk carefully. I mean no harm here.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Kanati Greycloud. Freewind Post sits above the canyons, and from here we watch both the centaurs below and the Grimtotem who think these mesas belong to them." },
         { id = "h_c0", when = { race = "Tauren" }, text = "A child of Mulgore here at Freewind! The Earth Mother keeps you, kin, and Cairne would be proud to see you so far from home." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid of the Earth Mother! Then you'll feel what the Grimtotem do to these mesas, even if the others only see it." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
+          text = "You walk softly, friend. The Grimtotem and the Galak both keep watch, but neither of them would hear you coming." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
+          text = "A warlock. The winds grow still when you pass, and I wonder what they fear. You are of the Horde, so I welcome you, but I ask you to walk carefully here." },
       },
       again = { { id = "h_again", text = "What else?" }, { id = "h_again2", text = "Speak, friend." } },
       choices = {
@@ -133,6 +155,8 @@ P:NPC {
         { text = "How do you live up here?", next = "b3_1" },
         { text = "The spirits here feel restless.", next = "x_1", when = { class = "SHAMAN" } },
         { text = "Should the Grimtotem be forgiven?", next = "s_1" },
+        { text = "Should I scout the Grimtotem for you, Kanati?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "The winds fear my power?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -189,6 +213,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "No, but power without the Earth Mother's blessing is power that goes astray. Magatha's followers forgot that, and now they kill their own kin for land that was never theirs to take." } },
+      choices = {
+        { text = "Power is power. I'll use it wisely.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "You're right. I'll remember the Earth Mother.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "I would have you strike them however they fall fastest, for they have stopped fighting with honor. I'd rather a clean fight in the open, but I'll not mourn a Grimtotem who never saw the blade." } },
+      choices = {
+        { text = "Even the Grimtotem deserve an honest fight.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Honor's wasted on traitors. I'll strike unseen.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Motega Firemane, and I keep watch over Freewind Post. The Grimtotem grow bolder each season, and someone has to stand against them before they take the whole of the Needles." },
@@ -198,8 +240,10 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Good, because the Grimtotem call on the elements too, and I want someone at Freewind who can call back louder." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The Grimtotem have shamans of their own and they'd love to prove the spirits favor them, so stand with Freewind and let your prayers answer theirs." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. The Grimtotem think the Needles belong to them, so I'd very much like to see your fire prove them wrong at Darkcloud Pinnacle." },
-        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. Some of the elders would turn you away, but I care more about which side you stand on than what you call to stand beside you, and you stand with the Horde." },
-        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You move quietly, and the Grimtotem post watchers on every path to their pinnacle. I could use someone who reaches them before they raise the alarm." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
+          text = "Warlock. The Grimtotem bargain with powers they do not understand, and I hope you understand yours better, because I have seen where that path leads." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
+          text = "A rogue of the Horde. The Grimtotem are many, and they fight like cornered bulls, but a blade in the dark is something they don't expect." },
       },
       again = { { id = "h_again", text = "What else?" }, { id = "h_again2", text = "Ask, if you have more." } },
       choices = {
@@ -209,9 +253,10 @@ P:NPC {
         { text = "What of the goblins in the Flats?", next = "b3_1" },
         { text = "I'll take the fight to them.", next = "x_1", when = { class = "WARRIOR" } },
         { text = "What would you have a shaman do against the Grimtotem, Motega?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "How strong are the Grimtotem's spellcasters?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
-        { text = "Where are the Grimtotem weakest on their pinnacle?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
+        { text = "How strong are the Grimtotem's spellcasters?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Are you being too harsh on them?", next = "s_1" },
+        { text = "My power is not the Grimtotem's, Motega.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Would you have me strike the Grimtotem unseen?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -252,15 +297,6 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
-    xhrogue = {
-      big = true,
-      lines = { { id = "xhrogue_default", text = "Their watchers on the lower paths are young and bored, and they doze at dawn more often than they'd admit. Slip past them and you'll be halfway up before anyone thinks to shout." } },
-      choices = {
-        { text = "A sleeping guard is an easy kill. I'll take it.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "I'll slip past, but I won't kill a sleeping guard.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Stand in front of them with your totems planted and show them the Earth Mother doesn't belong to their clan. Magatha's people think the spirits are theirs to command, and I'd like to watch them learn otherwise." } },
@@ -287,14 +323,35 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "That's what the last one said too! Still, if you're honest, you're welcome to watch me win, because I don't need sabotage when I've got this engine." } },
+      choices = {
+        { text = "Fair races are the only ones worth winning.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A win's a win, however you get it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "That's the risk I take every lap anyway, friend! Pozzik won't let me try it, says it's cheating, but I say it's just engineering with a bit of sparkle." } },
+      choices = {
+        { text = "Pozzik's right. Magic in a race is cheating.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Rules are for slow racers. Try it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Razzeric, the fastest goblin on the Shimmering Flats! I race for the goblin team, and every time I take the car out, the gnomes start sweating." },
         { id = "h_c0", when = { race = "Gnome" }, text = "Uh-oh, a gnome. You here to sabotage my car, or just to watch me beat your friends?" },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, huh? Can you make the wind blow at the gnomes' car and not mine? I'm kidding, mostly, unless you can." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Bless the car, would ya? I don't care which god does it, as long as the gnomes' car doesn't get blessed too." },
-        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage! Can you make a car go faster? I'm asking hypothetically, because Daisy's watching and Pozzik reads the rules out loud." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock, huh? Is it true imps can run on fire? Because I've got an engine that could use a little enthusiasm." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue! You're not here to mess with my car, are you, friend? Because the gnomes hired someone like you last season and I lost two wheels before the first lap." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage! You could make my car faster with a spell, couldn't you? A little fire in the engine, maybe, or a little ice in the tires?" },
       },
       again = { { id = "h_again", text = "What else? Talk quick, like me." }, { id = "h_again2", text = "More? Sure, I got a minute between laps." } },
       choices = {
@@ -303,8 +360,10 @@ P:NPC {
         { text = "What's the prize?", next = "b3_1" },
         { text = "I bet you've got a trick or two in that car.", next = "x_1", when = { class = "ROGUE" } },
         { text = "Would you really cheat with the wind, Razzeric?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "What could magic do for the goblin team?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "What could magic do for the goblin team?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Is racing worth the danger?", next = "s_1" },
+        { text = "I don't sabotage cars, Razzeric.", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Magic in your car might blow it apart, Razzeric.", next = "xmage", when = { class = "MAGE" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -371,14 +430,34 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Far enough to cross the finish line before anyone else, and that's what matters. I've got enough trouble keeping the goblins and gnomes honest without mages making it worse." } },
+      choices = {
+        { text = "I'd never cheat a race with magic.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If you can't catch it, it's not cheating.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Both crews, on a bad day, and Kravel always seems to know who. I don't trust him, and I don't trust anyone who looks at my stopwatch too long, so keep your eyes on the track." } },
+      choices = {
+        { text = "Fixed times ruin the race. I'd never touch it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Everything's for sale out here.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Daisy, and I keep the times at the Mirage Raceway. If it happens on the track, I've got it on my stopwatch, so nobody argues about who won." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You're a shaman? Then don't go calling lightning down on my track, because the last storm cost me a whole afternoon of times." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. If you're praying for one team or the other, kindly do it off the track, because I don't time prayers." },
-        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. Don't cast anything on the cars, please, because I'd have to write it down, and I hate writing down cheats." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. Keep your demon off the track, because if it runs across during a heat it's getting a time, and you won't like what I write next to it." },
-        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You've got sneaky feet, and I've got a stopwatch. If anyone tampers with a car I'll know about it, so let's keep things friendly." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage! Don't you dare blink across my finish line, because I can't time a racer who skips half a length, and the gnomes would argue about it for a week." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "You've got quick hands, I can tell. Keep them away from my stopwatch, because there's more than one crew that would pay to have it run slow." },
       },
       again = { { id = "h_again", text = "What else, hon?" }, { id = "h_again2", text = "Make it fast; the cars sure are." } },
       choices = {
@@ -386,8 +465,9 @@ P:NPC {
         { text = "Is the job dangerous?", next = "b2_1" },
         { text = "Do the racers ever cheat?", next = "s_1" },
         { text = "Has a storm really stopped a race, Daisy?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Has anyone tried to use magic on the races?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
-        { text = "Who on the flats would pay to know a race's outcome?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Has anyone tried to use magic on the races?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Mages can't really blink that far, Daisy.", next = "xmage", when = { class = "MAGE" } },
+        { text = "Who would pay to fix the times?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -413,15 +493,6 @@ P:NPC {
       choices = {
         { text = "Good. Honest times matter, even here.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A clever cheat deserves to win once in a while.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xhrogue = {
-      big = true,
-      lines = { { id = "xhrogue_default", text = "Half the crews and all of the bettors, and a certain dwarf who hangs around the parts sheds more than any parts man needs to. I don't name names, but I do write down who's standing where." } },
-      choices = {
-        { text = "Write it down. Someone should catch him eventually.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Sounds like an opportunity, not a crime.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -451,15 +522,39 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "So the trolls say, and I've no reason to doubt them! I'd like to know whether it's magic or something in the mallet itself, because if it's engineering, I want the blueprints." } },
+      choices = {
+        { text = "Some things should stay troll secrets.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If there's a secret, it's meant to be found.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else, Wizzle.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "That's a shame, because I'd have hired one if you'd said otherwise. Still, fire's fire, and I'd love to know if demon fire burns hotter than coal, just for science, of course." } },
+      choices = {
+        { text = "Science shouldn't play with fel fire.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fel fire would make your car unbeatable.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Wizzle Brassbolts, gnome engineer, at your service! I help design the cars for our team, and I'm quite sure this season's model is the best yet, assuming it holds together." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage! Did you know Gahz'rilla, the hydra in Zul'Farrak, can be summoned with a special mallet? It's the most fascinating thing, and I'd love a mage's view on how it works." },
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "A warlock! Do you suppose your imps could help with engines? They like fire, and engines like fire, and I like engines that go fast." },
       },
       again = { { id = "h_again", text = "What else?" }, { id = "h_again2", text = "Questions? I love questions!" } },
       choices = {
         { text = "How do you beat the goblins?", next = "b1_1" },
         { text = "Are you related to Fizzle?", next = "b2_1" },
         { text = "Is racing a good use of engineering?", next = "s_1" },
+        { text = "A mallet summons a hydra?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Imps make poor engineers, Wizzle.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Farewell.", next = "END" },
       },
     },

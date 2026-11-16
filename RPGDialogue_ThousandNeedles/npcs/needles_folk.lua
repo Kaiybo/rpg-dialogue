@@ -26,15 +26,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Over the Galak, often, and over the Grimtotem when Cliffwatcher asks it. A rider who doesn't frighten the beast can see everything from up high, and the mesas hide no secrets from the sky." } },
+      choices = {
+        { text = "The skies belong to the Horde. Watch everything.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Spying from the sky is cowardly.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Not at all, because teleporting is a fine trick, but you miss the view. Flying over the Needles at sunset is something no spell can give you, and I'd say that's worth the fare by itself." } },
+      choices = {
+        { text = "The journey matters as much as arriving.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Arriving quickly is what matters most.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "I am Nyse, and I keep the wind riders of Freewind Post. From the top of this mesa they'll carry you to Thunder Bluff, to the Crossroads, or south over the salt flats to Gadgetzan." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The wind riders always fly smoother with one of you aboard, and I've stopped asking why." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. If you'd like to say a prayer before your flight, the top of the mesa is a fine place for it, and I won't tell anyone." },
-        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. You won't need to teleport anywhere while my wind riders are fed, and they're a great deal more scenic." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. The wind riders shy from your kind, so let me calm them first, and keep your companion well back from the roost." },
-        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You walk the edge of the mesa like it's flat ground, which is either very brave or very foolish. The riders like quiet passengers, so you'll suit them." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
+          text = "You'd make a good rider, quiet as you are. The wind riders don't like noise, and they don't like sudden moves, and you seem to know both." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
+          text = "A mage! You could teleport to Orgrimmar or Undercity, but you'll still need my wind riders to reach anywhere out here, because no mage I know has a spell for the Needles." },
       },
       again = {
         { id = "h_again", text = "What else would you ask? The wind is changing." },
@@ -42,11 +62,12 @@ P:NPC {
       },
       choices = {
         { text = "Do the air spirits watch over the wind riders, Nyse?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Do spellcasters make the wind riders uneasy?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
-        { text = "What do the wind riders see from up there?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Do spellcasters make the wind riders uneasy?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Where can I fly?", next = "BUSINESS", when = { faction = "Horde" } },
         { text = "Why build a post on top of a mesa?", next = "mesa" },
         { text = "Is it hard flying between the needles?", next = "flying" },
+        { text = "Do wind riders carry scouts over enemy ground?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Do you resent mages for teleporting, Nyse?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -82,15 +103,6 @@ P:NPC {
       choices = {
         { text = "I'll wait until they're calm. They know best.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "They'll get used to me. I won't be waiting.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xhrogue = {
-      big = true,
-      lines = { { id = "xhrogue_default", text = "Everything, the Galak camps, the Grimtotem on their pinnacle and the goblins racing on the flats. The riders won't tell you, of course, but I watch where they flinch, and that tells me where the trouble is." } },
-      choices = {
-        { text = "Share what they see with the cliffwatchers, then.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Keep it between us. Quiet knowledge is worth more.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -142,6 +154,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "That's a mercy for both of us, I think. The animals here are gentle, and they've done nothing to deserve the fear your servants bring, so keep them on your side of the mesa and we'll stay friends." } },
+      choices = {
+        { text = "Your beasts are safe. I'll keep my distance.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My servants go where I go. That's final.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Then you'll know they can smell a lie as well as I can hear one. Come and scratch the kodo's ears if you like, and I'll think better of rogues for it." } },
+      choices = {
+        { text = "Animals are better company than most people.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I don't have time for beasts.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -151,8 +181,10 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The animals settle when your kind come into the stables, and I'd love to learn how you do it." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. My animals heal faster when someone kind is near them, I think, so stay a while and keep them company." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. My cats don't care for the smell of the arcane, so let them come to you, and they will, eventually." },
-        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. The animals don't like whatever walks beside you, so please leave it outside the pens, and I'll be glad to talk with you myself." },
-        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You walk like a cat, and my cats noticed before I did. They'll like you, I think, though they'll never admit it." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
+          text = "I don't stable demons, warlock, though I'll admit I've wondered what a voidwalker eats. Keep it away from my beasts, because they can feel it, and it frightens them." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
+          text = "A rogue, and you've no pet with you, which means you've no business in my stables. But you're welcome to visit the animals, if you're gentle." },
       },
       again = {
         { id = "h_again", text = "Is there more you would like to know about the stables?" },
@@ -162,10 +194,11 @@ P:NPC {
         { text = "Are the beasts content up here on the mesa?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I'd like to see my stabled pets.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "Why do the animals settle around shamans, Awenasa?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Does magic frighten the animals you keep?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
-        { text = "Has anyone tried to steal a pet from your stables?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Does magic frighten the animals you keep?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "How do you get animals up a mesa?", next = "lift" },
         { text = "What do hunters tame around here?", next = "tame" },
+        { text = "My demons need no stable, Awenasa.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "I like animals, Awenasa.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -188,15 +221,6 @@ P:NPC {
       choices = {
         { text = "Then I'll be gentle with them, spell or no spell.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Animals are tools. They'll do what they're told.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xhrogue = {
-      big = true,
-      lines = { { id = "xhrogue_default", text = "Once, a goblin from the flats came asking about my rarest cats, and he was far too interested in the latches. I moved them that night, and I've kept a closer eye on the pens ever since." } },
-      choices = {
-        { text = "Good. I'll keep watch too while I'm here.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "A good latch is just a challenge. Get a better one.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -242,10 +266,32 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Oh, gnomes love mages, back home in Ironforge and all, but out here on the Flats we're engineers first. Magic's lovely when it works, but when a bolt doesn't fit, I'd rather have a wrench than a spell." } },
+      choices = {
+        { text = "Engineering's more honest than magic.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Magic can do things no wrench can.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Jinky.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Then you're the first rogue this month who isn't! Both crews pay well for a little sabotage, and I keep my best bolts locked up, so even if you were, you'd find slim pickings." } },
+      choices = {
+        { text = "Sabotage is cheating. I won't touch it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Sabotage is just another way to race.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Jinky Twizzlefixxit, engineering supplies, right here on the Shimmering Flats! The racers burn through parts faster than they burn through fuel, so I'm never short of customers." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage! Don't go casting near my stock, friend, because the last mage who sneezed in here set off a crate of fuses and Pozzik's crew still blames me for the delay." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue! Are you working for the goblins or the gnomes? Because I've noticed the parts go missing whenever someone like you visits the track." },
       },
       again = {
         { id = "h_again", text = "Anything else? The next race starts soon!" },
@@ -255,6 +301,8 @@ P:NPC {
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "You sell to both teams?", next = "both" },
         { text = "Which team will win?", next = "winner" },
+        { text = "Do gnomes and mages often clash?", next = "xmage", when = { class = "MAGE" } },
+        { text = "I'm not here to steal parts, Jinky.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Goodbye.", next = "END" },
       },
     },
