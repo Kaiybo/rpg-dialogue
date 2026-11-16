@@ -202,6 +202,7 @@ P:NPC {
           text = "An alliance between our enemies? How very unholy. Break it before it learns to stand." },
       },
       choices = {
+        { text = "Your guards are dreadlords, Varimathras. Mine is a shield.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "How did you come to serve her?", next = "serve" },
         { text = "I command demons too, dreadlord.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "The Light answers me. Does that trouble you?", next = "paladin", when = { class = "PALADIN" } },
@@ -244,6 +245,14 @@ P:NPC {
       choices = {
         { text = "That's not quite an answer.", next = "answer", fx = { trait = { skeptical = 1 } } },
         { text = "A wise choice.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    xhwar = {
+      big = true,
+      lines = { { id = "xhwar_default", text = "How refreshingly blunt, warrior. A shield is an honest thing, at least, and the Dark Lady values honest things, or so she tells me. Lean on it as you like; just don't lean on me." } },
+      choices = {
+        { text = "My shield serves the Dark Lady, and so do I.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My shield serves me. Remember that, demon.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
     answer = {
@@ -298,6 +307,7 @@ P:NPC {
           text = "Lydon, in Tarren Mill? Yes, yes, a brilliant mind and terrible company. He named his frog, and I told him not to name the frog!" },
       },
       choices = {
+        { text = "What use are your potions to a warrior, Faranell?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "What are you making?", next = "making" },
         { text = "I need poisons for my blades. Can you help?", next = "rogue", when = { class = "ROGUE" } },
         { text = "I trained in Dalaran. Your work is a kind of magic.", next = "mage", when = { class = "MAGE" } },
@@ -353,6 +363,14 @@ P:NPC {
         { text = "Impressive.", next = "BACK", fx = { affinity = 1 } },
       },
     },
+    xhwar = {
+      big = true,
+      lines = { { id = "xhwar_default", text = "More than you'd guess, though fewer than I'd like. A warrior with a few of my tonics fights longer and heals faster, and if the work goes well, the Scourge will one day have none of either." } },
+      choices = {
+        { text = "Poison is a coward's weapon. I'll keep my axe.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Your plague will end the Scourge. I'll fight beside it.", next = "BACK", fx = { align = { light = -1 } } },
+      },
+    },
     only = {
       lines = { { id = "o_default", text = "What a suspicious mind you have, and I like it; you'd make a fine apothecary. Now run along." } },
       choices = { { text = "...", next = "END" } },
@@ -403,6 +421,7 @@ P:NPC {
           text = "So he's gone. I thought I'd feel something, but all I felt was the wand in my pocket, and I still carry it." },
       },
       choices = {
+        { text = "Do mages ever need a hunter, Bethor?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "What happened to Thule?", next = "thule" },
         { text = "I studied in Dalaran too. Do you miss it?", next = "mage", when = { class = "MAGE", race = "Scourge" } },
         { text = "An orc mage. What does Dalaran's man make of that?", next = "orcmage", when = { race = "Orc", class = "MAGE" } },
@@ -434,6 +453,14 @@ P:NPC {
       choices = {
         { text = "Watch, then. I know where my line is.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Thule was weak. He sold too cheaply.", next = "BACK", fx = { affinity = -2, align = { light = -1 } } },
+      },
+    },
+    xhhunt = {
+      big = true,
+      lines = { { id = "xhhunt_default", text = "When the reagents still have teeth, yes, I'm afraid we do. Half my research waits on things that live in the deep woods of Silverpine, and none of them come when called." } },
+      choices = {
+        { text = "Tell me what you need, and I'll fetch it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Pay me first, and I'll think about it.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
     thule = {

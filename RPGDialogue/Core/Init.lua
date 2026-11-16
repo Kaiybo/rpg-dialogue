@@ -4,7 +4,7 @@ local addonName, ns = ...
 ns.name = addonName
 -- This build's version. The TOC's "## Version" must match (tools/version.py keeps them in
 -- step); a mismatch at login means the game still has an old file list (see Packs).
-ns.VERSION = "0.38.0"
+ns.VERSION = "0.40.0"
 
 ---------------------------------------------------------------------------
 -- Game events

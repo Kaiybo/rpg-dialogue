@@ -52,6 +52,7 @@ P:NPC {
         { id = "h_again3", when = { questDone = TODO_QUEST("Return to Primal Torntusk") }, text = "Ask what you want, friend of Revantusk." },
       },
       choices = {
+        { text = "The Revantusk need more warriors, Primal. I can fight.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Tell me about the raid.", next = "raid" },
         { text = "Why do the other trolls hate you?", next = "tribes" },
         { text = "How did the Revantusk come to the Horde?", next = "horde" },
@@ -170,6 +171,14 @@ P:NPC {
       choices = {
         { text = "I'll tell him.", next = "BACK", fx = { affinity = 2, standing = { revantusk = 1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhwar = {
+      big = true,
+      lines = { { id = "xhwar_default", text = "We need warriors who know who they fight for, mon. The Witherbark shame our people and the dwarves of Aerie Peak harry our shores, so a warrior standing with Revantusk must fight for the tribe." } },
+      choices = {
+        { text = "Then I'll fight for the Revantusk.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll fight for the Horde. The tribe's your business.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
     forsaken = {
@@ -564,6 +573,7 @@ P:NPC {
         { id = "h_again2", text = "You still here, and that good, because Lard like company." },
       },
       choices = {
+        { text = "Got anything I can feed my companion, Lard?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Make this inn my home.", next = "BUSINESS" },
         { text = "An ogre among trolls?", next = "ogre" },
         { text = "Where's your secret spot?", next = "spot" },
@@ -593,6 +603,14 @@ P:NPC {
     spot_promise = {
       lines = { { id = "sp_default", text = "You do that for Lard? Then Lard make you a picnic basket of your own, a little one, for a little one. Watch out for the Vilebranch, because they hit hard." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xhhunt = {
+      big = true,
+      lines = { { id = "xhhunt_default", text = "Lard has fish, lots of fish, and even more fish if you wait till Katoom comes back. Your beast can have the heads, which are the best part, though people never believe Lard about that." } },
+      choices = {
+        { text = "I'll take the fish heads, with thanks.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll find my own scraps, thank you.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
     },
     peace = {
       big = true,
@@ -656,6 +674,7 @@ P:NPC {
         { id = "h_again2", text = "Ask away; I can talk and hammer at once." },
       },
       choices = {
+        { text = "Can you mend a warrior's armor, Slagtree?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Mend my gear.", next = "BUSINESS" },
         { text = "A gnome gave you tools?", next = "gnome" },
         { text = "What's an orc doing with trolls?", next = "village" },
@@ -684,6 +703,14 @@ P:NPC {
     thieves = {
       lines = { { id = "th_default", text = "Nothing; they don't know iron from bone. They took them because they were shiny and they were mine, which is the Vilebranch all over." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xhwar = {
+      big = true,
+      lines = { { id = "xhwar_default", text = "I can mend near anything, mon, if you don't mind the smell of the forge on it after. Revantusk warriors trust my work, and I think you'll be the next one." } },
+      choices = {
+        { text = "I'll trust your work, then.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll keep my own kit. I trust no smith.", next = "BACK", fx = { align = { order = -1 } } },
+      },
     },
     orc_gnome = {
       lines = { { id = "og_default", text = "Neither did I, till one of them saved my hide. I'm not asking you to like them, friend; I'm asking you to bring my tools back." } },

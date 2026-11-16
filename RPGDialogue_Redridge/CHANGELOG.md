@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.10.0 (2026-11-16)
+- Druids get their own greeting, question and short conversation with several people here.
+
 ## 1.9.0 (2026-11-16)
 - New people: Ariena Stormfeather, Kimberly Hiett and Henry Chapal in Lakeshire.
 - New files: exit the game fully and restart.

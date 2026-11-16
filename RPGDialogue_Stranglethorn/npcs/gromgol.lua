@@ -296,6 +296,7 @@ P:NPC {
       },
       choices = {
         { text = "Who is Yenniku?", next = "yenniku" },
+        { text = "Do the jungle trolls fear a warrior's axe, Nimboya?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "And the Bloodscalp?", next = "bloodscalp" },
         { text = "Why punish the Witherbark?", next = "witherbark" },
         { text = "Do the Darkspear miss this jungle?", next = "walls" },
@@ -404,6 +405,14 @@ P:NPC {
       choices = {
         { text = "It's still a victory.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Then Zanzil should answer for it.", next = "BACK", fx = { affinity = 2, trait = { stern = 1 } } },
+      },
+    },
+    xhwar = {
+      big = true,
+      lines = { { id = "xhwar_default", text = "They fear nothing much, mon, not even the Gurubashi's own gods. But they respect strength, so you show them strength and they'll keep their distance from Grom'gol." } },
+      choices = {
+        { text = "Then I'll show them strength, without cruelty.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll show them strength. Mercy's their problem.", next = "BACK", fx = { align = { honor = -1 } } },
       },
     },
     k_shaman = {
@@ -841,6 +850,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Still here? Good, the stew's still hot, so what else?" } },
       choices = {
+        { text = "Does Grom'gol need meat for the cookfire, Thulbek?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "I've a story or two.", next = "story" },
         { text = "What's the talk in camp?", next = "talk" },
         { text = "Where does the zeppelin go?", next = "zeppelin" },
@@ -899,6 +909,14 @@ P:NPC {
       choices = {
         { text = "It's good to see the Horde here.", next = "BACK", fx = { align = { order = 1 }, affinity = 2 } },
         { text = "It's still our jungle, not the Horde's.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
+    xhhunt = {
+      big = true,
+      lines = { { id = "xhhunt_default", text = "Always, hunter, always. The tigers and raptors are plentiful here, and the grunts eat as though they're feeding three mouths apiece. Bring meat and I'll be your friend for a week." } },
+      choices = {
+        { text = "I'll hunt for the camp, then.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll hunt for my own needs first.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
     forsaken = {

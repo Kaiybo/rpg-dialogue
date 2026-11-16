@@ -285,6 +285,7 @@ P:NPC {
         { id = "h_again2", text = "Don't stop now, I was just starting to enjoy myself." },
       },
       choices = {
+        { text = "Can a warrior's steel do anything against the Dark Iron?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Any gossip?", next = "gossip" },
         { text = "What are these machines?", next = "machines" },
         { text = "What does a Hierophant do?", next = "hierophant" },
@@ -371,6 +372,14 @@ P:NPC {
         { text = "I'll be careful.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },
+    xhwar = {
+      big = true,
+      lines = { { id = "xhwar_default", text = "Steel against Dark Iron is like hammering an anvil with an anvil, warrior. You'll need fire and shadow too, which is why Kargath keeps people like me around." } },
+      choices = {
+        { text = "Then I'll be the anvil, and you be the fire.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll trust steel. Magic only fails you.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
     k_lock = {
       lines = {
         { id = "xlk_default", text = "Flinch? My dear, I've shared a corridor with abominations and a bench with the Royal Apothecaries, and an imp is the politest guest I've had all month. Do keep it away from the Warlord, though; he swings first and asks never." },
@@ -437,6 +446,7 @@ P:NPC {
         { id = "h_again2", text = "Something else? Oh good, I was hoping you'd stay." },
       },
       choices = {
+        { text = "My beasts could scout the Burning Steppes for you, Vivian.", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "The Warlord speaks well of you.", next = "flustered" },
         { text = "What are you really studying?", next = "study" },
         { text = "Why does a Shadowmage want a beer recipe?", next = "thunderbrew" },
@@ -552,6 +562,14 @@ P:NPC {
         { text = "The loa keep their distance from my work.", next = "BACK", fx = { align = { light = -1 }, trait = { skeptical = 1 } } },
         { text = "The loa watch me. They'd warn me if I went too far.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
         { text = "What did the report say?", next = "k_troll_report" },
+      },
+    },
+    xhhunt = {
+      big = true,
+      lines = { { id = "xhhunt_default", text = "They could, and they'd be less likely to be noticed than one of my apprentices. The black dragonflight has keen eyes, though, so send them low and send them at dusk." } },
+      choices = {
+        { text = "I'll send them as you say.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My beasts go where I decide, Shadowmage.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
     k_troll_report = {

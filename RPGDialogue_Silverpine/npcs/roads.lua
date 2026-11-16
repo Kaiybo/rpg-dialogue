@@ -33,6 +33,7 @@ P:NPC {
           text = "You're no friend of the Sepulcher, so I'll keep my hand on my knife while we talk. Still, you've not drawn on me, and the worgen won't care which flag either of us flies." },
       },
       choices = {
+        { text = "I hunt worgen in these woods. Any advice?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "I was a deathstalker recruit. Tell me what to watch for.", next = "recruit", when = { origin = "forsaken_deathstalker_recruit" } },
         { text = "What are the worgen?", next = "worgen" },
         { text = "Who is Rane Yorick?", next = "yorick" },
@@ -68,6 +69,14 @@ P:NPC {
         { id = "af_default", text = "Not of the dark, of what's in it. I was killed once already, by the Scourge, and I'd rather not be killed again by something with fleas." },
       },
       choices = { { text = "Fair. I'll watch your back.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } } },
+    },
+    xhhunt = {
+      big = true,
+      lines = { { id = "xhhunt_default", text = "Hunt them in daylight and never alone, and don't follow a wounded one into the trees, because that's exactly what it wants. They're cleverer than wolves and crueler than men." } },
+      choices = {
+        { text = "I'll face them openly, and finish what I wound.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll set traps and let them come to me.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
     },
     recruit = {
       lines = { { id = "rc_default", text = "Then you'll know the drill, at least. Watch the tree line, not the road, because the worgen come from the side and never from the front." } },
@@ -110,6 +119,7 @@ P:NPC {
           text = "You got Erland here in one piece, which is more than he usually manages himself. I'll have his report, and then I'll have a word with him about the noise he makes." },
       },
       choices = {
+        { text = "You keep watch alone out here, Yorick?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Do the gnolls trouble you this far south?", next = "gnolls" },
         { text = "What's happening in Pyrewood?", next = "pyrewood" },
         { text = "What do the scouts report?", next = "reports" },
@@ -144,6 +154,14 @@ P:NPC {
         { id = "de_default", text = "Then you'll know orders come from the Sepulcher, not from me. But if you're going south anyway, count the worgen you see and tell me the number, because nobody else is counting properly." },
       },
       choices = { { text = "I'll count them.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    xhwar = {
+      big = true,
+      lines = { { id = "xhwar_default", text = "Alone is the job, warrior, and I'm good at it. Shadowfang Keep sits on that ridge full of horrors, and somebody has to count them so the Sepulcher knows when to worry." } },
+      choices = {
+        { text = "Then I'll stand with you a while.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Better you than me. I'd rather go where the fighting is.", next = "BACK", fx = { align = { order = -1 } } },
+      },
     },
     gnolls = {
       lines = { { id = "gn_default", text = "Less than the worgen, because the gnolls are afraid of them too. It's the one thing I'd thank Arugal for, if he were the sort to accept thanks." } },
@@ -183,6 +201,7 @@ P:NPC {
           text = "Karos Razok, bat handler to the Sepulcher. If you want the Undercity or Tarren Mill, I've a bat for you, and if you want conversation, I've very little." },
       },
       choices = {
+        { text = "Will the bats carry a hunter's beast, Karos?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Where do the bats come from?", next = "bats" },
         { text = "Are the roads really that bad?", next = "roads" },
         { text = "Just passing.", next = "END" },
@@ -194,6 +213,14 @@ P:NPC {
         { id = "ba_default", text = "Bred under the Undercity, in the dark where they're happiest. They're loyal, quiet and never ask questions, which makes them better company than most." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xhhunt = {
+      big = true,
+      lines = { { id = "xhhunt_default", text = "They'll carry it if it's well behaved and doesn't try to eat them, which you'd be surprised how many try. Keep it calm on the flight and the bat will keep calm too." } },
+      choices = {
+        { text = "My companion's well trained. It won't trouble them.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If it bites a bat, the bat should have been quicker.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
     },
     roads = {
       lines = {

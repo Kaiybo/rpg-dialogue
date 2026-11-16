@@ -102,6 +102,7 @@ P:NPC {
           text = "A scroll came for you, and it reeks of the Light. Read it over there, please, not here, and then go to Aramis." },
       },
       choices = {
+        { text = "I woke with a sword arm and no prayers, Sarvis.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Who are the Forsaken?", next = "forsaken" },
         { text = "The Light still answers me, Sarvis.", next = "paladin", when = { class = "PALADIN" } },
         { text = "I deal in fel and shadow, like you.", next = "warlock", when = { class = "WARLOCK" } },
@@ -172,6 +173,14 @@ P:NPC {
   },
 
   topics = {
+    xhwar = {
+      big = true,
+      lines = { { id = "xhwar_default", text = "Then you woke with what the Dark Lady needs most, warrior. Prayers can come later, or not at all; the Scarlets won't wait for you to find your faith." } },
+      choices = {
+        { text = "Maybe I'll find the Light again, someday.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll fight for her, and leave the gods out of it.", next = "BACK", fx = { align = { light = -1 } } },
+      },
+    },
     knows = {
       { id = "tp_knows", text = "People tell a shadow priest all sorts of things, usually right before or right after they die. Ask about these; I've heard plenty." },
     },

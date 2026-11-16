@@ -299,6 +299,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, then, but don't ask me to go down there again tonight." },
       },
       choices = {
+        { text = "Do the swamp beasts make good companions, Fel'zerul?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "What's stirring?", next = "stirring" },
         { text = "Who were the Atal'ai?", next = "atalai" },
         { text = "Why did the Warchief send a warlock?", next = "warlock" },
@@ -391,6 +392,14 @@ P:NPC {
       choices = {
         { text = "I'm right.", next = "BACK", fx = { align = { order = -1 }, trait = { proud = 1 } } },
         { text = "I'll watch myself.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+      },
+    },
+    xhhunt = {
+      big = true,
+      lines = { { id = "xhhunt_default", text = "The crocolisks make poor friends and worse pets, but the swamp's panthers and jaguars are another story. I've seen hunters tame things here that would make a Stonard grunt run." } },
+      choices = {
+        { text = "I'll tame what respects me, and leave the rest.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll tame whatever's strongest, respect or not.", next = "BACK", fx = { align = { honor = -1 } } },
       },
     },
     k_shaman = {

@@ -163,6 +163,7 @@ P:NPC {
           text = "Here's a ring with an engraving, and someone in this town knows whose it is. Find out who." },
       },
       choices = {
+        { text = "Brill needs a sword more than a magistrate, Sevren.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "How did you take Brill?", next = "brill" },
         { text = "I lived near Brill, before.", next = "farmer", when = { race = "Scourge" } },
         { text = "Does Brill need a warlock's help, Magistrate?", next = "warlock", when = { class = "WARLOCK" } },
@@ -186,6 +187,14 @@ P:NPC {
     warlock = {
       lines = { { id = "wl_default", text = "Brill needs everyone's help, and a warlock's imp is at least cheaper than a peon. Only keep your demons out of the town hall; the last one set fire to a filing cabinet, and I had those records arranged." } },
       choices = { { text = "No demons in the town hall.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    xhwar = {
+      big = true,
+      lines = { { id = "xhwar_default", text = "Perhaps it does, {class}, but a sword with no ledger behind it is just a brigand with ambitions. Hold the road to the Bulwark and I'll see your name written somewhere that matters." } },
+      choices = {
+        { text = "Then write my name down. I'll hold the road.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Keep your ledgers. I fight for the Forsaken, not for paper.", next = "BACK", fx = { align = { order = -1 } } },
+      },
     },
     brill = {
       lines = { { id = "b_default", text = "One street at a time. The Deathguard cleared it; I counted what was left and put it to work. A town needs both sorts." } },
@@ -235,6 +244,7 @@ P:NPC {
           text = "An experiment wants a subject, and the Crusade has kindly provided one. Fetch what I need." },
       },
       choices = {
+        { text = "My hunting takes me into the fields. Do you need samples?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "What is the plague for?", next = "purpose" },
         { text = "I served the Cult once. I know a plague when I see one.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "I studied in Dalaran. Can I help with the formulae?", next = "mage", when = { class = "MAGE" } },
@@ -259,6 +269,14 @@ P:NPC {
     mage = {
       lines = { { id = "ma_default", text = "Formulae? This is alchemy, not your ley lines and incantations, though I'll grant a mage is usually good at measuring things exactly. Fetch the ingredients for now, and if you prove careful, I'll let you read my notes." } },
       choices = { { text = "I'm very careful.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } } },
+    },
+    xhhunt = {
+      big = true,
+      lines = { { id = "xhhunt_default", text = "A hunter who brings back what I ask for, intact and unchewed, is worth three of the usual errand-runners. The duskbats and the Darkhound packs both carry things the Royal Apothecaries want catalogued." } },
+      choices = {
+        { text = "Write me a list. I'll bring back exactly that.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll bring what I kill. Sort it yourself.", next = "BACK", fx = { align = { order = -1 } } },
+      },
     },
     purpose = {
       big = true,
@@ -370,6 +388,7 @@ P:NPC {
         { id = "h_cup", when = { metBefore = true }, text = "I still order a cup of tea, though I can't taste it, and I hold it until it goes cold. Some habits are worth the coin." },
       },
       choices = {
+        { text = "Your fields need guarding, Gretchen. I can swing an axe.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "What do you miss most?", next = "miss" },
         { text = "Let me try something. A mage's fire is hotter.", next = "mage", when = { class = "MAGE" } },
         { text = "I'll be back with it.", next = "END", fx = { affinity = 1 } },
@@ -385,6 +404,14 @@ P:NPC {
       choices = {
         { text = "I'll find a hotter spell one day.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Maybe flinching is a start.", next = "BACK", fx = { affinity = 2 } },
+      },
+    },
+    xhwar = {
+      big = true,
+      lines = { { id = "xhwar_default", text = "That's kind of you, though the trouble in my fields mostly comes on six legs and doesn't fear an axe. Still, a warrior standing at the fence does wonders for my nerves." } },
+      choices = {
+        { text = "Then I'll stand there a while, for your nerves.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll clear the beetles if the work's worth my time.", next = "BACK", fx = { align = { honor = -1 } } },
       },
     },
     miss = {

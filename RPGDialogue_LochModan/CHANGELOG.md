@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.8.0 (2026-11-16)
+- Druids get their own greeting, question and short conversation with several people here.
+
 ## 1.7.0 (2026-11-16)
 - New people: The Mountaineers Stormpike, Cobbleflint and Rockgar, and Bingles Blastenheimer.
 - New files: exit the game fully and restart.
