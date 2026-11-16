@@ -37,8 +37,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Well, Tok'Kar's got a cookpot on the beach that half the soldiers would fight for, and he sleeps with one eye open because of it. Leave it be, though, because he'd blame me, and he insults me enough already." } },
+      choices = {
+        { text = "I'll leave Tok'Kar's pot alone, for your sake.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A good cookpot is worth a few insults.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Dar.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Only stories, and I don't believe half of them, but the old-timers say the warlocks came and went before Thrall's day, and nobody misses them. Greshka sells her grimoires here now and the Warchief allows it, so I suppose times have changed." } },
+      choices = {
+        { text = "Times have changed. The fel serves the Horde now.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Some things shouldn't be forgotten. I won't forget.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Let's leave that there.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. The old Horde raised these stones, and I'd wager a few of your kind walked these halls back then, doing things the walls still remember." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. If you're looking for something worth stealing in Stonard, I wish you luck, because I've been looking for years and found mostly mud." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. There's enough old history in these stones that I'd wager they've got something to say to you, if you've the patience to listen." },
         { id = "h_default", key = true,
           text = "I'm Dar. Stonard's a bit short on comforts, as you've noticed, but there's enough history in these stones that it must matter to somebody, and I suppose that's why I stay. It isn't for the scenery, I'll tell you that." },
@@ -56,6 +76,8 @@ P:NPC {
         { text = "Doesn't it feel like home?", next = "home" },
         { text = "These stones were raised by my grandfathers' Horde.", next = "k_orc", when = { race = "Orc" } },
         { text = "The swamp feels like home to me, Dar.", next = "k_troll", when = { race = "Troll" } },
+        { text = "Nothing worth stealing at all, Dar?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "What do you know of Stonard's old warlocks?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I'll be on my way.", next = "END" },
       },
     },
@@ -184,8 +206,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Warm and gentle, mind, because a rider with a singed mane sulks for a week and won't fly south past the temple at all. Do it right, and you'll have a friend in every stall." } },
+      choices = {
+        { text = "Gently, then. Your riders deserve the care.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A little singe won't hurt them. Toughens them up.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Somebody with a grudge, or a sense of humour I'd like to beat out of him, and Ruag never found out which. The rider swam out angry and the passenger didn't swim out at all, so I check every strap twice now." } },
+      choices = {
+        { text = "Find him and see him properly punished.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The swamp already took its toll. Let it lie.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Breyk.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. Keep your hands off the harness, because the last time somebody cut a strap for a joke, a rider came down in the Pool of Tears." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. Can you dry a wind rider's wings with a spell? Because if you can, I'll stop scraping moss and start taking bets." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The riders won't fly over the temple when the wind comes from the east, and maybe you can tell me why." },
         { id = "h_default", key = true,
           text = "Breyk, wind rider master. From Stonard the riders go north to Kargath over the Steppes, and west to Grom'gol and Booty Bay, and they hate every minute of the wet before they leave." },
@@ -201,6 +243,8 @@ P:NPC {
         { text = "How do the riders take the swamp?", next = "wet" },
         { text = "Do you hear from the other rider masters?", next = "others" },
         { text = "Show me where I can fly.", next = "BUSINESS" },
+        { text = "I could try drying your riders, Breyk.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Who would cut a wind rider's harness?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Not now.", next = "END" },
       },
     },
@@ -269,8 +313,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Ask Dalaran, if you can find it, or ask the elves what their Sunwell brought down on Quel'Thalas. Every power has a price, mage; mine just has the honesty to bite." } },
+      choices = {
+        { text = "The arcane can be used well. The fel can't.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "You're right. Power's power, whatever it costs.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Another question, then.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Some of them, and the ones that don't will whisper your name to me when they leave the shop. A thief with a stolen grimoire is just a thief with a very bad night ahead of him." } },
+      choices = {
+        { text = "I'll keep my hands to myself, Greshka.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Everything can be stolen. Even a biting book.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Never mind that for now.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. Don't bother pocketing a grimoire, because you can't read it, and the first page bites." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. You'll want to tell me the arcane is cleaner than the fel, I suppose, and I'll want you to leave, so let's both be quick." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll want to tell me what warlocks did to your people, I expect, so spare me the lecture and buy something or go." },
         { id = "h_default", key = true,
           text = "I sell grimoires to warlocks, and you aren't one. If you've a question, make it quick, and then go and bother Karakul instead." },
@@ -287,6 +351,8 @@ P:NPC {
         { text = "Why sell to warlocks here, of all places?", next = "why" },
         { text = "Fel'zerul is a warlock too.", next = "felzerul" },
         { text = "Show me your grimoires.", next = "BUSINESS", when = { class = "WARLOCK" } },
+        { text = "Is the arcane really any cleaner than the fel?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do your grimoires really bite?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "I'll leave you be.", next = "END" },
       },
     },
@@ -364,8 +430,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Teach them? No, but I'd let you show them what a knife does to a warrior who drops his guard. They need to learn that the enemy won't always stand in front of them shouting." } },
+      choices = {
+        { text = "A fair fight is a fool's fight.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Your warriors should fight fair. That's their strength.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else, Malosh.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "One thing: that a robe can kill you just as dead as an axe, if you're slow to close the distance. I tell the young ones to charge the mage first, and the mage tells them to try it, and that's how I lose recruits to the mud." } },
+      choices = {
+        { text = "Teach them caution. They'll live longer.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Let them charge and learn the hard way.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage in my yard. Stand back from the sparring rings, because the last mage who wandered in froze one of my recruits to the mud, and he's still shy about it." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. You fight dirty, I'm told, and in the mud of this swamp there's no other way to fight, so maybe you've something to teach my warriors." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You hit like a warrior and heal like a priest, and I've never decided whether to train you or envy you." },
         { id = "h_default", key = true,
           text = "I'm Malosh, and I teach warriors in Stonard. Fight in this mud long enough and you'll be able to fight anywhere, because nothing else is harder on your feet." },
@@ -381,6 +467,8 @@ P:NPC {
         { text = "Why train in the mud?", next = "mud" },
         { text = "What makes a good warrior?", next = "good" },
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
+        { text = "Would you let a rogue teach your warriors?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Can a warrior learn anything from a mage?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Another time.", next = "END" },
       },
     },

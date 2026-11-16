@@ -36,8 +36,28 @@ P:NPC {
         { text = "Thank you. Let me ask something else.", next = "BACK", fx = { affinity = 1 } },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Draenethyst holds light the way water holds the shape of a cup, and your kind would burn it for a spell and forget it by morning. To me each one is a memory of home, and I would not trade one for all your learning." } },
+      choices = {
+        { text = "Then they should stay with you, not in a spellbook.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Memories won't help you. Power might.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Never mind that for now.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Because a thief at least knows what a thing is worth, and does not throw it away. Bring me fragments, rogue, and we will both pretend that neither of us would steal from the other." } },
+      choices = {
+        { text = "I'd never steal from you, Kum'isha.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "We'll both pretend. That's an honest deal.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A thief, yes. You smell of greed more strongly than any of them, though at least you do not pretend otherwise." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. You smell of borrowed power, and of greed for more of it, like all the rest." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid. You smell of earth that still lives. That is rare here, and precious to me." },
         { id = "h_default", key = true,
@@ -66,6 +86,8 @@ P:NPC {
         { text = "I deal in fel, collector. Does it smell of greed?", next = "k_lock", when = { class = "WARLOCK" } },
         { text = "My people dig crystals too, Kum'isha.", next = "k_dwarf", when = { race = "Dwarf" } },
         { text = "My people hoard nothing, Kum'isha.", next = "k_tauren", when = { race = "Tauren" } },
+        { text = "What do your crystals have to do with magic?", next = "xmage", when = { class = "MAGE" } },
+        { text = "If I'm greedy, why trust me with your crystals?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I'll keep my eyes open for crystals.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -245,8 +267,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because the blood is where the secrets are, of course, the strength and speed of these beasts written in it like ink on a page. My sister reads the mind and I read the body, and between us we'll have the whole book before long, if nobody gets eaten." } },
+      choices = {
+        { text = "Some secrets should stay in the blood.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Read every page. Knowledge has no forbidden chapters.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "On to other things.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I'm nearly certain of it, because the beasts here drink water that's run past the Portal and eat grass that's grown in its shadow. If the fel can do that to a boar, imagine what it might do in a properly measured dose, which is exactly what I intend to find out." } },
+      choices = {
+        { text = "Fel in a bottle? That's madness, Drazial.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Measure carefully, and the fel will serve.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Drazial.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Tell me honestly, do you think the fel in this soil is what makes the boars so strong? I've a theory, and you're the first person I've met who might confirm it." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A fellow student of the arcane! My sister calls my work alchemy with pretensions, but you'll appreciate the subtler parts, I'm sure." },
         { id = "h_default", key = true,
           text = "Bloodmage Drazial, at your service. The beasts of these lands show preternatural strength, speed and endurance, quite unlike anything in nature, and I mean to bottle every bit of it." },
         { id = "h_boar", when = { questActive = TODO_QUEST("A Boar's Vitality") },
@@ -266,6 +308,8 @@ P:NPC {
         { text = "Who's the other bloodmage?", next = "sister" },
         { text = "Strength in a bottle? I'm listening.", next = "warrior", when = { class = { "WARRIOR", "ROGUE", "PALADIN" } } },
         { text = "Would your elixirs work on my beast?", next = "k_hunter", when = { class = "HUNTER", pet = { type = "Beast" } } },
+        { text = "Why call yourselves bloodmages, Drazial?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Does the fel make the beasts strong?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Good luck with your studies.", next = "END" },
       },
     },
@@ -363,8 +407,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Patience, chiefly, because a basilisk can sit still for days and lose none of its sharpness, and I'd like to know how. If I can bottle that, a mage could study through the night without a single wandering thought." } },
+      choices = {
+        { text = "A mind should earn its sharpness, not drink it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Any shortcut to a sharper mind is worth taking.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let's leave that there.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "That is the question, and the answer is in their gizzards, I'm almost certain. They've learned to digest corruption the way a goat digests thorns, and if I can learn the trick, perhaps I can teach it to people who must live beside it, like you." } },
+      choices = {
+        { text = "A cure for corruption would save many lives.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Corruption is power. I don't want it cured.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. You'll have noticed the taint in the vultures, then, and how they feed on it rather than die of it." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Perhaps you'll understand my work better than my brother does, since you spend your life training the mind to hold more than it should." },
         { id = "h_default", key = true,
           text = "Bloodmage Lynnore. My brother Drazial studies the strength of the beasts here, and I study what he overlooks: their minds, and the spirit that lets them heal and endure beyond anything their bodies should allow." },
         { id = "h_brains", when = { questActive = TODO_QUEST("The Basilisk's Bite") },
@@ -384,6 +448,8 @@ P:NPC {
         { text = "Your brother says you look down on his work.", next = "brother" },
         { text = "A beast's spirit is the Light's work, not yours.", next = "priest", when = { class = "PRIEST" } },
         { text = "A druid feels a beast's spirit, Lynnore. Not in bottles.", next = "k_druid", when = { class = "DRUID" } },
+        { text = "What do basilisk minds teach you, Lynnore?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Why don't the vultures die of the taint?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll leave you to observe.", next = "END" },
       },
     },

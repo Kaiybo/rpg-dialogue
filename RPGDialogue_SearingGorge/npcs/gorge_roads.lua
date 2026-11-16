@@ -27,8 +27,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Aye, if ye keep low an' stay tae the ridgeline above the Slag Pit. My team went ahead wi' plenty o' noise an' no' much sense, an' I'd sooner lose none o' the folk I've got left." } },
+      choices = {
+        { text = "Anything of your team's I find comes back to you.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Whatever I find down there, Dorius, I keep.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "That's the question that keeps me up at night, for they're no' diggin' for the joy of it. Their sorcerers bound fire tae their will once, an' look what came o' that, so I'd sooner the Stones sat in a League case in Ironforge than in their hands." } },
+      choices = {
+        { text = "Some old power should stay locked away.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Power belongs to whoever has the wit to use it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Dorius.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage in the Gorge! If ye can tell me why the Dark Irons want the Suntara Stones so badly, ye'll have done more than half the scholars in Ironforge." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue, an' a quiet one, I hope. The Dark Irons hereabouts sleep wi' one eye open, but they've never once thought tae look up at the ridge, an' that's where ye'll want tae be." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid, in the Searing Gorge! I'm sorry tae say there's no' a tree within a day's walk that hasnae been burned tae charcoal, an' the ground's still warm besides." },
         { id = "h_default", key = true,
@@ -46,6 +66,8 @@ P:NPC {
         { text = "What happened to your team?", next = "team" },
         { text = "Does your brother know you're here?", next = "thorius" },
         { text = "I'm a dwarf of Ironforge. I'll stand with you.", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "Could I scout the Dark Iron camps ahead of you, Dorius?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Why would the Dark Irons want the Suntara Stones?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Be careful, Dorius.", next = "END" },
       },
     },

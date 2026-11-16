@@ -45,8 +45,28 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Worth? My eternal gratitude, and whatever's left of my strongbox, if the murlocs haven't eaten it. Just get me out, friend, because they come back to stare at me at dusk, and I've started to think they're deciding something." } },
+      choices = {
+        { text = "Your gratitude is enough. Let's get you out.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Gratitude doesn't spend. That strongbox had better be full.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "On to other things.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Would you? Murloc sheep, oh, they'd deserve it for the smell alone. But it won't last, will it, so let's be quick about getting me out before they remember they've got spears." } },
+      choices = {
+        { text = "Mercy's wasted on murlocs. I'll burn them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "A sheep hurts nobody. I'll spare them if I can.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Let's leave that there.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Can you turn the murlocs into sheep? I've heard your lot can do that, and I'd give a great deal to see it." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! Thank the Light, because you can open a lock, can't you? Please say you can open a lock." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can't you just ask the earth to open this cage? No? Well, a strong arm will do just as nicely, I suppose." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid! Thank the Light. Get me free of these chains and I'll swear never to speak ill of the woods again." },
@@ -68,6 +88,8 @@ P:NPC {
         { text = "What's in this strongbox?", next = "box" },
         { text = "What is this place?", next = "place" },
         { text = "Did you get your strongbox back?", next = "after", when = { questDone = TODO_QUEST("Galen's Escape") } },
+        { text = "I could pick this lock, Galen. What's it worth?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Shall I turn your guards into sheep, Galen?", next = "xmage", when = { class = "MAGE" } },
         { text = "I'll be back.", next = "END" },
       },
     },
@@ -167,8 +189,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Nothing troubles my rest, for I have none to trouble. But the demons south of here gather like flies on a carcass, and a warlock who walks among them had better know whose leash is whose." } },
+      choices = {
+        { text = "I know whose leash it is. Mine.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Leashes break. I'll take my chances, spirit.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Stolen, lost, dropped in the mud by a dying runner; I do not know, and that is my torment. Find the truth, whatever it is, and I will thank you, even if it is a truth I would rather not hear." } },
+      choices = {
+        { text = "The truth, then, however it hurts.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Some truths are better left buried, spirit.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Another question, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. Orders do not vanish on their own, and you would know better than most how a letter goes missing on a road." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. My grunts feared your kind more than any demon in the lands to the south, because they knew what the fel had made of their fathers." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You hear me better than most of the living, then, and you'll know why a spirit cannot rest with its duty undone." },
         { id = "h_default", key = true,
           text = "I led a regiment of the Horde called Thrall's Grasp, and it was destroyed in the lands beyond this swamp. Nineteen of my soldiers could have been spared, had the orders reached us, and I cannot rest until I know why they did not." },
@@ -185,6 +227,8 @@ P:NPC {
         { text = "What orders do you mean?", next = "orders" },
         { text = "What lies in the Blasted Lands?", next = "lands" },
         { text = "Ruag swears he sent those orders.", next = "ruag", when = { questDone = TODO_QUEST("The Missing Orders") } },
+        { text = "Do my demons trouble your rest, spirit?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do you think someone stole your orders?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "I'll leave you to your road.", next = "END" },
       },
     },

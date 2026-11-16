@@ -47,8 +47,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Look at the dust before you look at the ridge, because coyotes leave tracks and Dark Irons leave boot nails, and both tell you when they passed. Hiding keeps you alive, but reading keeps the whole camp alive, and that's the difference between a thief and a scout." } },
+      choices = {
+        { text = "Then I'll be a scout, for Kargath's sake.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Hiding keeps me alive. The camp can read its own dust.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Neeka.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I've thought about it, and then I've thought about explaining a burned storehouse to Goretooth, and I stopped thinking about it. Coyotes I can shoot, but an imp that gets bored in the night is a problem I don't know how to track." } },
+      choices = {
+        { text = "Use what works. A few burned sacks are worth it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "You're right. A guard you can't trust is no guard.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Your imp's fire would scare the coyotes off the grain sacks, I suppose, if it didn't burn the sacks first." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. You'll move quieter than my scouts, but can you read the ground, or do you only know how to hide on it?" },
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman. You can tell me which way the wind's turning before I see the dust, and that alone makes you worth more than half my scouts." },
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -78,6 +98,8 @@ P:NPC {
         { text = "What's the most dangerous thing in the Badlands?", next = "danger" },
         { text = "A hunter could help you track, Neeka.", next = "k_hunter", when = { class = "HUNTER" } },
         { text = "My people were runners on the plains of Mulgore.", next = "k_tauren", when = { race = "Tauren" } },
+        { text = "Teach me to read the ground, Neeka.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Could my imp guard your grain sacks?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I'll keep my eyes open.", next = "END", fx = { affinity = 1, standing = { kargath = 1 } } },
       },
     },
@@ -241,8 +263,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Out in the Badlands the scorpids carry a venom that drop a kodo, and the firebloom sap be burning in a wound for days. Jarkal be telling you only because you ask nice, so don't you go poisoning nobody in this inn, or Shul'kar be blaming me." } },
+      choices = {
+        { text = "My blades are for the Horde's enemies, nobody else.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I poison whoever pays me, Jarkal. That's the trade.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let's leave that there.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Frighten? No, mon, but the loa have opinions about what you be keeping in that bag, and Jarkal have to live with the loa long after you leave. A soul in a stone be a soul that never reach the spirits, and that be a sad thing, even for an enemy." } },
+      choices = {
+        { text = "My enemies' souls serve me better than the spirits.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I take only what I must, Jarkal.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock! Jarkal be selling to your kind too, mon, but the shards you carry, those Jarkal don't touch, because souls be bad for the stomach." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue! You be wanting poisons, I think, and Jarkal don't sell poison, mon, but Jarkal know where the reagents grow, and that be nearly the same thing." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! You be knowing your herbs, I think, so tell me why nothing out here grows but firebloom and spite." },
         { id = "h_default", key = true,
@@ -268,6 +310,8 @@ P:NPC {
         { text = "Why does a Darkspear live above an orc inn?", next = "upstairs" },
         { text = "I know my way around an alchemy table.", next = "k_alchemy", when = { profession = "Alchemy" } },
         { text = "The loa would frown on your bargaining, cousin.", next = "k_troll", when = { race = "Troll" } },
+        { text = "Where do the best poison reagents grow, Jarkal?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Do my soul shards frighten you, Jarkal?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I'll bring you what you need.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -415,8 +459,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Now that's the first good idea anyone's had in Kargath all summer. Mind you, the last mage who tried it got sneezed on by a rider with ice in its nose, so aim for the shade and not the beast." } },
+      choices = {
+        { text = "I'll cool the shade, then. Your riders deserve it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Wind riders can bear the heat. Toughen them up.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Gorrik.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Twice this season, and both times the rider bucked them off over the Searing Gorge road and flew on alone. The goblins say it's the cheapest way to Kargath, and I tell them it's the quickest way into a ravine." } },
+      choices = {
+        { text = "Pay the fare. A free ride isn't worth the fall.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd have stayed on. Fares are for the slow-handed.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. Don't try stowing away on a rider; they know every weight on their backs, and they've thrown off better sneaks than you." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. You could teleport home and save my riders the trouble, but they need the work, so I'll not complain." },
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman. If you can talk the air into blowing cooler, my riders would love you forever, and I might too." },
         { id = "h_default", key = true,
@@ -433,6 +497,8 @@ P:NPC {
         { text = "How do the riders take the heat?", next = "heat" },
         { text = "Which route is the hardest?", next = "routes" },
         { text = "Show me where I can fly.", next = "BUSINESS" },
+        { text = "Could a little frost keep your riders from cooking, Gorrik?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Has anyone really tried to stow away?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -502,8 +568,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Conjure what you like, but a grunt on a long patrol is a long way from your spells, and he needs a skin that's still full at the end of it. Keep yourself watered and leave mine on the shelf for those who can't, and we'll get along." } },
+      choices = {
+        { text = "I'll share what I conjure with the patrols.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My water's mine. The grunts can pay you.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Grawl.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Less than you'd think, because a thief in Kargath has nowhere to run but the Badlands, and the Badlands are worse than me. The last grunt who tried it came back on his own after two days and paid double, just for a drink." } },
+      choices = {
+        { text = "Stealing water out here is a coward's crime.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A thief who survives the Badlands earned that water.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Another question, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. I count every waterskin on that shelf twice, so if one goes missing I'll know, and I'll know who was standing here." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. You make water out of nothing, which is either a blessing on Kargath or the end of my trade, and I haven't decided which." },
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman. Your kind travel light, I'll give you that, because a totem doesn't need feeding and a spirit doesn't drink my water." },
         { id = "h_default", key = true,
@@ -519,6 +605,8 @@ P:NPC {
         { text = "How do you keep supplies out here?", next = "supplies" },
         { text = "What sells best in Kargath?", next = "sells" },
         { text = "Show me what you have.", next = "BUSINESS" },
+        { text = "Should I conjure water for your grunts, Grawl?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Does much go missing from your stores?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Nothing today.", next = "END" },
       },
     },

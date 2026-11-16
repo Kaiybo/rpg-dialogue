@@ -37,8 +37,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Blasting powder, mostly, which the warlord's sappers buy by the barrel and which I keep well away from the forge, for reasons I'd rather not explain. Anybody walks off with a barrel of that, I hope they don't walk past a campfire." } },
+      choices = {
+        { text = "Your powder's safe. I don't rob honest merchants.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Blasting powder? Now that's worth a little risk.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Jazzrik.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "No? Shame, because I've been looking for a new market ever since the smiths started haggling. Still, if it ever gets peckish, you know where to find me, and coal's cheaper than whatever it eats now, I'd bet." } },
+      choices = {
+        { text = "You'd sell to a demon? That's a step too far.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Gold's gold. I admire a goblin with no limits.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Never mind that for now.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock! Does your imp eat coal? Because if it does, I've got a whole cart, and I'd sell it at a very fair price." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue! You're not here to steal coal, are you? Because it's heavy and dirty, and you'd be the worst thief in the Badlands, and I'd still charge you for it." },
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman! You won't be needing coal, I suppose, since you can just ask the fire nicely, which is terrible for business if you think about it." },
         { id = "h_default", key = true,
@@ -56,6 +76,8 @@ P:NPC {
         { text = "Is Goretooth a hard master?", next = "goretooth" },
         { text = "Do the dwarves trouble Kargath?", next = "darkiron" },
         { text = "How do the orcs here treat my people?", next = "forsaken", when = { race = "Scourge" } },
+        { text = "What do you keep that's worth stealing, Jazzrik?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "My imp doesn't eat coal, Jazzrik.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
     },

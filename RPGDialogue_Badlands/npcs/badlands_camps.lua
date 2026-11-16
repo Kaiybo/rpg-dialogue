@@ -37,8 +37,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Some nights, when the wind howls through the camp an' there's nobody tae curse it with. But a city's full o' folk who know yer business, an' out here only the buzzards know mine, an' they've never told a soul." } },
+      choices = {
+        { text = "Better alone and free than watched in a city.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Exile or not, everyone needs their own people.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Aye, it does, an' that's why I'll no' let a mage near mine. Metal that's been made strong by a charm forgets how tae be strong on its own, an' the day yer charm fails, the blade fails with it." } },
+      choices = {
+        { text = "Honest steel needs no magic. You're right.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Magic makes metal better. That's progress, Martek.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Martek.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. I've no use for spells in my metal, mind; what goes intae the forge should come out the better for the hammer, no' for some charm." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. Ye'll have yer own reasons for keepin' away from cities, I'd wager, an' I'll no' ask them if ye don't ask mine." },
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman, here? The earth out here is old and sore, and I've worked it long enough to know when it's in a mood, which is most days." },
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -61,6 +81,8 @@ P:NPC {
         { text = "What's indurium?", next = "indurium" },
         { text = "How do you live out here?", next = "life" },
         { text = "I'm a smith too. Any advice?", next = "smith", when = { profession = "Blacksmithing" } },
+        { text = "Do you ever miss the cities, Martek?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Indurium takes enchantments well, though, doesn't it?", next = "xmage", when = { class = "MAGE" } },
         { text = "Farewell, Martek.", next = "END" },
       },
     },
@@ -136,8 +158,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Every cook from here to Booty Bay, pal, and a few in Gadgetzan who should know better. I keep it in my head, where nobody can pick the lock, though a Kargath grunt once tried to beat it out of me, and all he got was indigestion." } },
+      choices = {
+        { text = "Your secret's safe. I don't rob honest cooks.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Everything's for sale, Rigglefuzz. Even recipes.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Another question, then.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Aw, come on, it's practically made of charcoal already! Half the Badlands is on fire anyway, so one more little flame for a good cause can't hurt, and the buzzards sure won't complain." } },
+      choices = {
+        { text = "Fel fire for buzzard wings? Why not?", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Demons aren't toys. I keep mine on a short leash.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Is that an imp? Could it light my grill? I'll pay in wings, and the little fella looks like he could use a feed." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! You're not after my sauce recipe, are you? Because I've had three offers this month, and one of 'em came with a knife." },
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman! Say, could you call up a bit of fire for my grill? It'd save me on charcoal, and the buzzards don't care how they're cooked." },
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -158,6 +200,8 @@ P:NPC {
         { text = "Who buys food out here?", next = "buyers" },
         { text = "Isn't it dangerous by the road?", next = "danger" },
         { text = "Will you sell to an orc, goblin?", next = "goblin", when = { race = "Orc" } },
+        { text = "Who wants your sauce recipe that badly?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "My imp is not a cooking fire, Rigglefuzz.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Good luck with the barbecue.", next = "END" },
       },
     },

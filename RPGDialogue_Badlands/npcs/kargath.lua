@@ -37,8 +37,38 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Ha! I would, if I thought you'd come back, and I'd want every word you heard up there. But Rend's orcs know every shadow on that mountain, so go carefully, and don't die where I can't send anyone to fetch you." } },
+      choices = {
+        { text = "The Horde needs knives in the dark as much as axes.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'd rather face Rend's orcs openly, Warlord.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else, Warlord.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "I'd put anyone on these walls who can kill a Dark Iron at a hundred paces, and a mage can kill ten. Vivian keeps telling me the arcane is subtle, and I keep telling her I don't want subtle, I want the Spire on fire." } },
+      choices = {
+        { text = "Patience and discipline win sieges, not fireworks.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then I'll give you fire, Warlord, as much as you like.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Let's talk of other things.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Good, because Thrall led us out of the fel's shadow once, and I'll not watch any orc of mine crawl back into it. Serve the Horde with your imps if you must, but the day you serve the imps instead, I'll know, and so will my axe." } },
+      choices = {
+        { text = "Power is power. The Horde should use every weapon.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The fel is a tool, never a master. I'll remember.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Something else, Warlord.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Up at the Spire, Rend's orcs still keep the old ways, fel and all, and I'd like to know which side of that line you stand on." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, eh? The old Horde had warlocks and no mages, and I've decided I like your lot better, because at least you set the right things on fire." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. I've always wished I could send someone up the Spire road who didn't clank, because my grunts sound like a smithy falling down the stairs." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A tauren druid at Kargath! Can you smell the Spire from here, druid? I swear I can on the hot days, and it smells of the old Horde and older lies." },
         { id = "h_default", key = true,
@@ -70,6 +100,9 @@ P:NPC {
         { text = "The orcs at the Spire are my blood, Warlord.", next = "k_orc", when = { race = "Orc" } },
         { text = "The spirits here are sick with Dark Iron fire.", next = "k_shaman", when = { class = "SHAMAN" } },
         { text = "My people have no stake in Blackrock feuds.", next = "k_tauren", when = { race = "Tauren" } },
+        { text = "Send me up the Spire, Warlord. I won't clank.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Would you put mages on Kargath's walls, Warlord?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "I stand with Thrall, Warlord. My demons serve the Horde.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Point me at the Dark Irons.", next = "END", fx = { affinity = 2, trait = { brave = 1 }, standing = { kargath = 1 } } },
       },
     },
@@ -293,8 +326,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Oh, the Warlord talks to the vultures, but everyone knows that, so it hardly counts. The real secret is that Lexlort reads every letter that leaves this town before the wind rider does, and if you tell him I said so, I'll deny it beautifully." } },
+      choices = {
+        { text = "Your secret's safe with me, Hierophant.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Secrets are currency. I'll spend this one wisely.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Hierophant.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Shadow, darling, the things in the dark that answer when called, which is why they call her Shadowmage and not just Vivian. She's brilliant, and she's frightened of her own shadow, which is either very funny or very sensible, and I've never decided which." } },
+      choices = {
+        { text = "Shadow is just another school. Fear is foolish.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "She's sensible. Some things answer too readily.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else, Hierophant.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage! The Undercity's magi would adore you, darling, provided you didn't mind their hours, which are endless, or their company, which is worse." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue, darling! You must tell me everything you've overheard in Kargath, and I'll tell you everything I've overheard, and we'll see who comes off better." },
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman, darling! You must tell me whether the spirits gossip, because if they do, I'd very much like to know what they say about the Warlord." },
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -327,6 +380,8 @@ P:NPC {
         { text = "How does a Forsaken get on among orcs?", next = "forsaken", when = { race = "Scourge" } },
         { text = "I'm Forsaken, and the Light still answers me.", next = "paladin", when = { race = "Scourge", class = "PALADIN" } },
         { text = "You don't flinch at my demons, Hierophant.", next = "k_lock", when = { class = "WARLOCK" } },
+        { text = "What's the best secret in Kargath, Hierophant?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "What does Vivian study that a mage wouldn't?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "I'll go.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -471,8 +526,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "You could, couldn't you, and you'd probably enjoy it, though I'd rather you didn't tell anyone how you came by it. The Dark Irons stole it first, I'm almost certain, so really you'd be stealing it back, which is practically a good deed." } },
+      choices = {
+        { text = "Stealing from thieves is no crime at all.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "A theft's a theft, Vivian, whoever owned it first.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "Oh! You came up behind me and I didn't even hear you, which is exactly what I'd expect of a rogue, so I'm not startled at all." },
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman! Oh, how fortunate, because I've been taking apart elemental cores all week and I'd love to know whether they mind." },
         { id = "h_default", key = true,
@@ -501,6 +566,7 @@ P:NPC {
         { text = "An orc who studies the arcane. Surprised?", next = "orc_mage", when = { race = "Orc", class = "MAGE" } },
         { text = "Do you miss the Undercity?", next = "undercity", when = { race = "Scourge" } },
         { text = "A troll who deals with demons. Does that interest you?", next = "k_troll_lock", when = { race = "Troll", class = "WARLOCK" } },
+        { text = "I could steal that Thunderbrew recipe for you, Vivian.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "I'll find it.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -671,8 +737,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because a fireball lights up the ridge for a mile, and every Blackrock on the Spire road sees it. I need people who can watch for a week without being seen, and a mage who can do that is rarer than an honest goblin." } },
+      choices = {
+        { text = "I can be patient when the Horde needs it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Patience is for spies. I'd rather burn it all.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Lexlort.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "It could, and then it would tell whoever asked it nicely, or whoever offered more. I don't trust a spy I can't buy, and I can't buy a demon, so I'll keep to orcs." } },
+      choices = {
+        { text = "Demons serve whoever binds them strongest. I bind well.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "You're right. Demons shouldn't be trusted with secrets.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Your imp talks, which makes it a bad spy, so keep it in your pocket while you're near my reports." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. Your spells are loud, and loud is useless to me, though I'll admit you're handy when the quiet way goes wrong." },
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman, which is useful to me, since spirits don't sell plans to the Blackrock, and that already puts them ahead of Grark." },
         { id = "h_default", key = true,
@@ -699,6 +785,8 @@ P:NPC {
         { text = "How did you know I was coming?", next = "seen" },
         { text = "Teach me something about the trade.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Grark's in your custody now.", next = "grark_done", when = { questDone = TODO_QUEST("Precarious Predicament") } },
+        { text = "Why do you call spells loud?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Couldn't a demon watch the Spire for you?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I'll be your hands.", next = "END", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My beast can be your eyes too.", next = "k_hunter", when = { class = "HUNTER" } },
         { text = "I'm nobody's hands, Lexlort. I work for myself.", next = "END", fx = { align = { order = -1 } } },
@@ -840,8 +928,38 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "They think everybody would rob them, because half of them have robbed each other at dice. Keep your hands to yourself under my roof and you'll have a bunk as dry as any, and a story to tell besides." } },
+      choices = {
+        { text = "Under your roof, I'm an honest guest.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Dice games are fair game, Shul'kar.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Shul'kar.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because conjured bread tastes of nothing, or so every mage at my table tells me, and my stew tastes of something, even if nobody can tell me what. A hot meal's a comfort as much as a fill, and out here comfort's rarer than food." } },
+      choices = {
+        { text = "Comfort matters. That's why I came in.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Food is fuel. Comfort is for the weak.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "On to other things.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Burned it black, pot and all, and then sat on the ladle laughing at me. The warlock paid for the pot, I'll grant him that, but Kargath remembers the night there was no stew, and so do I." } },
+      choices = {
+        { text = "I'll keep mine leashed. Your hearth is safe.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Imps will be imps. Blame the stew, not the imp.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock, and an imp with you. Keep it off the hearth, because the last one decided my stew needed more fire, and the grunts haven't forgiven either of us." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage at my fire. You could conjure your own bread and water, I know, so I'll take it kindly that you came in anyway." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. My grunts sleep with their coin under their pillows when your kind take a bunk, so be a good guest and let them snore in peace." },
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman at my fire. The grunts swear one of yours called down a storm on the Dark Irons at the Gorge last week, and the storm gets bigger every time they tell it." },
         { id = "h_default", key = true,
@@ -858,6 +976,9 @@ P:NPC {
         { text = "I'm a soldier, Shul'kar. Tell me a battle worth hearing.", next = "k_warrior", when = { class = "WARRIOR" } },
         { text = "Who rents the room upstairs?", next = "upstairs" },
         { text = "A Darkspear needs no grog to tell a story.", next = "k_troll", when = { race = "Troll" } },
+        { text = "Do the grunts really think I'd rob them?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Why would a mage eat your stew instead of conjured bread?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Did an imp really ruin your stew?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "A bunk, please.", next = "END", fx = { affinity = 1 } },
       },
     },
