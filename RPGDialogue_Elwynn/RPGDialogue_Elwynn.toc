@@ -46,3 +46,5 @@ npcs\camping.lua
 npcs\eastvale_stables.lua
 npcs\goldshire_more.lua
 npcs\maclures.lua
+npcs\northshire_smiths.lua
+npcs\roadside.lua

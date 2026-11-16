@@ -24,3 +24,4 @@ npcs\grayson.lua
 npcs\daphne.lua
 npcs\sentinel_folk.lua
 npcs\sentinel_more.lua
+npcs\defias_traitor.lua

@@ -109,7 +109,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "Gina MacGregor. I sell trade goods, and I sell them for what they cost to bring here, which is more than Christopher charges and exactly what they're worth." },
+        { id = "h_default", key = true, text = "Gina MacGregor. I sell trade goods, and I sell them for what they cost to bring here, which is more than Christopher charges and exactly what they're worth." },
         { id = "h_stew", when = { questActive = TODO_QUEST("Westfall Stew") },
           text = "Making Westfall Stew for Salma? Then you'll want a pinch of salt, since murloc eyes taste of nothing and vulture tastes of worse." },
         { id = "h_watchers", when = { questDone = TODO_QUEST("The Killing Fields") },

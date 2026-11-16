@@ -22,3 +22,4 @@ npcs\sven.lua
 npcs\abercrombie.lua
 npcs\darkshire_folk.lua
 npcs\darkshire_more.lua
+npcs\darkshire_trades.lua

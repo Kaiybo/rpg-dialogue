@@ -15,3 +15,4 @@ npcs\darnassus.lua
 npcs\temple.lua
 npcs\enclave.lua
 npcs\terraces.lua
+npcs\rutheran_and_trainers.lua

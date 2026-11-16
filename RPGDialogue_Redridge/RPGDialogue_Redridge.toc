@@ -22,3 +22,4 @@ npcs\baren.lua
 npcs\daniels.lua
 npcs\lakeshire_folk.lua
 npcs\lakeshire_more.lua
+npcs\lakeshire_trades.lua

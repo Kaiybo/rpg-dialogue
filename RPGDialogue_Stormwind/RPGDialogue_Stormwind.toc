@@ -30,3 +30,4 @@ npcs\trade_district.lua
 npcs\old_town.lua
 npcs\warriors.lua
 npcs\canals.lua
+npcs\city_trades.lua
