@@ -35,8 +35,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_talk = {
+      lines = { { id = "dt_default", text = "The jungle grows back, and so does the profit. The Venture Company is the one with the saws, not the Blackwater Raiders. If you want to fight someone over trees, I'll gladly point you at them." } },
+      choices = {
+        { text = "Then I'll stop the Venture Company's saws.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Profit and saws, it's all the same to the jungle.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidx", when = { class = "DRUID" },
+          text = "A druid in Booty Bay. If you're here to lecture me about the jungle, I'll warn you now that I've heard it." },
         { id = "h_default", key = true,
           text = "Baron Revilgaz. This port belongs to the Steamwheedle Cartel, and I keep it for them. The Blackwater Raiders hold the water, the Bruisers hold the peace, and I hold the books." },
         { id = "h_bloodsail", tags = { "news" }, when = { questActive = TODO_QUEST("The Bloodsail Buccaneers") },
@@ -56,6 +66,7 @@ P:NPC {
         { id = "h_again3", when = { townStanding = { town = "booty_bay", min = 30 } }, text = "Ask. You've earned a little of my time; this town says so." },
       },
       choices = {
+        { text = "Your cartels are stripping the jungle bare.", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Who are the Bloodsail?", next = "bloodsail" },
         { text = "What does the Cartel want with a jungle?", next = "cartel" },
         { text = "How do you keep the peace between Alliance and Horde here?", next = "peace" },

@@ -27,8 +27,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_talk = {
+      lines = { { id = "dt_default", text = "They fight it, mostly. The jungle bites back, and they bite harder. But I have told them not to burn what they cannot eat, and they listen, because I am the one who feeds them." } },
+      choices = {
+        { text = "That is wise. The land remembers who burned it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A war camp has no room for such worries.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidx", when = { class = "DRUID" },
+          text = "A druid of the tauren. Good. My grunts fight better with one of your kind nearby to mend them." },
         { id = "h_default", key = true,
           text = "Commander Aggro'gosh. This camp keeps the road to Stonard open, and that road feeds the Horde. The ogres and the Bloodscalp make it hard, and I make it happen anyway." },
         { id = "h_defense", tags = { "news" }, when = { questActive = TODO_QUEST("The Defense of Grom'gol") },
@@ -45,6 +55,7 @@ P:NPC {
         { id = "h_again2", text = "Speak, then, but speak while you walk if you can." },
       },
       choices = {
+        { text = "Do your grunts respect this jungle, or only fight it?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "How's the supply line?", next = "road" },
         { text = "What do you need most?", next = "need" },
         { text = "Who are you watching the walls for?", next = "threats" },
@@ -651,8 +662,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_talk = {
+      lines = { { id = "dt_default", text = "The Gurubashi trolls call on gods that were old before the Horde came to this world. Their priests wake things in the jungle that should sleep. We watch them, and we do not sleep well either." } },
+      choices = {
+        { text = "Then we must calm the spirits before they turn on everyone.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let the trolls drown in their own gods.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidx", when = { class = "DRUID" },
+          text = "Earthmother keep you, druid. Thunder Bluff is far, but the spirits of this jungle know your kind." },
         { id = "h_default", key = true,
           text = "Far Seer Mok'thardin, of Orgrimmar. The beasts of Stranglethorn carry old power in their blood and bones, and I'm learning to draw it out." },
         { id = "h_ench", when = { questActive = TODO_QUEST("Mok'thardin's Enchantment") },
@@ -666,6 +687,7 @@ P:NPC {
         { id = "h_again2", text = "Ask. The elements are in no hurry tonight." },
       },
       choices = {
+        { text = "The jungle spirits are angry here. The trolls stir them.", next = "druid_talk", when = { class = "DRUID" } },
         { text = "What kind of power?", next = "power" },
         { text = "What are you making?", next = "ench" },
         { text = "Why send a far seer to a supply camp?", next = "why" },

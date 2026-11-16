@@ -210,8 +210,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_talk = {
+      lines = { { id = "dt_default", text = "Some do. The sharks follow the trawlers, and the reefs off Jaguero Isle are thinner than when I was a boy. It's no great disaster yet, but I'd like it if someone remembered the sea is not a bottomless pocket." } },
+      choices = {
+        { text = "Thank you. Let me ask something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidx", when = { class = "DRUID" },
+          text = "You've the sea in your eyes, druid, or the forest anyway. Sit, if you like. The water's calm today." },
         { id = "h_default", key = true,
           text = "Haren Kanmae, bowyer. The jungle's damp warps a bow faster than anywhere I've worked, so I oil the staves every morning and pray the humidity breaks, which it never does." },
       },
@@ -220,6 +228,7 @@ P:NPC {
         { id = "h_again2", text = "Anything more? I'm only stringing bows." },
       },
       choices = {
+        { text = "Do the sea creatures here suffer from the cartels' fishing?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Why a bow over a gun?", next = "bowgun" },
         { text = "How do you work in this damp?", next = "damp" },
         { text = "Show me your bows.", next = "BUSINESS" },

@@ -28,8 +28,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_talk = {
+      lines = { { id = "dt_default", text = "Treasure, if I'm honest, and a map that turned out to be more hope than ink. The swamp has a way of making a man regret his choices, and the lizardfolk have a way of making him regret them faster." } },
+      choices = {
+        { text = "Greed brought you here. I'll free you anyway.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Perhaps the swamp should keep you awhile.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidx", when = { class = "DRUID" },
+          text = "A druid! Thank the Light. Get me free of these chains and I'll swear never to speak ill of the woods again." },
         { id = "h_default", key = true,
           text = "Galen Goodward, at your service, or I would be if I weren't stuck in here. The murlocs of this sanctuary caught me on the road and threw me in this cage, and they took my strongbox too, which had everything I own in it." },
         { id = "h_quest", when = { questActive = TODO_QUEST("Galen's Escape") },
@@ -42,6 +52,7 @@ P:NPC {
         { id = "h_again2", text = "What else? I'm not going anywhere, worse luck." },
       },
       choices = {
+        { text = "Why did you come into this swamp alone?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "How did you end up in there?", next = "caught" },
         { text = "What's in this strongbox?", next = "box" },
         { text = "What is this place?", next = "place" },
