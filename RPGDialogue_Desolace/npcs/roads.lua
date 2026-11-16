@@ -101,7 +101,7 @@ P:NPC {
       lines = { { id = "xhcast_default", text = "Pal, I could use ten, because the Kolkar and the Magram both hit us on the same run and my guards only get paid for one fight. Walk alongside the wagons for a stretch, and you'll see more centaur than you ever wanted to." } },
       choices = {
         { text = "I'll guard the wagons. Honest freight deserves to get through.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Guard duty's for hire, Cork. What's it pay?", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Guard duty's for hire, Cork, if the pay is right.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

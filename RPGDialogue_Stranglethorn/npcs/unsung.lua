@@ -1232,7 +1232,7 @@ P:NPC {
       lines = { { id = "xhsham_default", text = "Twice, and the storm won both times, though the second time I kept my eyebrows. I think engineers and shamans want the same thing, which is lightning that does what it's told, only you ask nicely and I use copper wire." } },
       choices = {
         { text = "Ask nicely, Gnaz. The elements deserve that respect.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "If copper wire works, why bother asking at all?", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "If copper wire works, there's no need to ask the spirits.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
