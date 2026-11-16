@@ -4,7 +4,7 @@ local TODO_NPC = P.TODO_NPC
 
 P:NPC {
   key = "nezraz", id = TODO_NPC("Nez'raz"), name = "Nez'raz",
-  bible = "bibles/stranglethorn.md", role = "flightmaster", tier = "service",
+  bible = "bibles/gromgol_more.md", role = "flightmaster", tier = "service",
   communities = { "gromgol" }, temper = { "chatty" }, values = { "greedy", "practical" },
   notices = { "race", "weary" },
 
@@ -94,7 +94,7 @@ P:NPC {
 
 P:NPC {
   key = "thysta", id = TODO_NPC("Thysta"), name = "Thysta",
-  bible = "bibles/stranglethorn.md", role = "flightmaster", tier = "service",
+  bible = "bibles/gromgol_more.md", role = "flightmaster", tier = "service",
   communities = { "gromgol" }, temper = { "calm" }, values = { "dutiful", "patient" },
   notices = { "race", "class" },
 
@@ -169,7 +169,7 @@ P:NPC {
 
 P:NPC {
   key = "uthok", id = TODO_NPC("Uthok"), name = "Uthok",
-  bible = "bibles/stranglethorn.md", role = "vendor", tier = "service",
+  bible = "bibles/gromgol_more.md", role = "vendor", tier = "service",
   communities = { "gromgol" }, temper = { "gruff" }, values = { "practical" },
   notices = { "weary", "class" },
 

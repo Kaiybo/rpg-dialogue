@@ -84,7 +84,7 @@ P:NPC {
   key = "felnok", id = TODO_NPC("Felnok Steelspring"), name = "Felnok Steelspring",
   bible = "bibles/winterspring.md", role = "questgiver", tier = "quest",
   communities = { "everlook" }, temper = { "fussy" }, values = { "precise", "dependable" },
-  notices = { "class" },
+  notices = { "craft" },
 
   impression = {
     first = "Felnok Steelspring builds parts for a scholar in the Burning Steppes and won't touch anything without gloves. He cares more about an uncracked horn than about why anybody wants it.",
@@ -97,7 +97,7 @@ P:NPC {
   },
 
   notice = {
-    { id = "n_eng", cat = "class", when = { profession = "Engineering" },
+    { id = "n_eng", cat = "craft", when = { profession = "Engineering" },
       text = "You smell of oil and burnt fingers, so you're an engineer. Don't touch the cooling coils; I counted them." },
   },
 
@@ -275,7 +275,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "I was a farmer's daughter in Lordaeron once, and now I'm a refugee in the snow. Neither one was my idea." } },
+    background = { { id = "tp_ba", text = "I was a daughter of Lordaeron once, and now I'm a refugee in the snow. Neither one was my idea." } },
     advice = { { id = "tp_ad", text = "Say what you mean to the people you love before you leave home. I didn't." } },
     _none = { { id = "tp_none", text = "I'm sorry, I don't know. Gregor might; he hears more than I do." } },
   },
@@ -284,8 +284,8 @@ P:NPC {
 P:NPC {
   key = "malyfous", id = TODO_NPC("Malyfous Darkhammer"), name = "Malyfous Darkhammer", title = "The Thorium Brotherhood",
   bible = "bibles/winterspring.md", role = "blacksmith", tier = "quest",
-  communities = { "everlook", "thorium_brotherhood" }, temper = { "dismissive" }, values = { "craft", "pride" },
-  notices = { "race", "class" },
+  communities = { "everlook", "thorium_brotherhood" }, temper = { "dismissive", "proud" }, values = { "craft", "pride" },
+  notices = { "race", "craft" },
 
   impression = {
     first = "Malyfous Darkhammer is a Dark Iron smith of the Thorium Brotherhood who calls outsiders ants to their faces. He spoke of his own work with more warmth than he showed anyone living.",
@@ -300,7 +300,7 @@ P:NPC {
   notice = {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "Bronzebeard blood, I can smell it on you. Keep your opinions of my clan behind your teeth, and we'll get along well enough." },
-    { id = "n_smith", cat = "class", when = { profession = "Blacksmithing" },
+    { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
       text = "A smith, are you? We'll see; plenty of people hold a hammer, and very few know what to do with it." },
   },
 
@@ -458,7 +458,7 @@ P:NPC {
       },
     },
     tauren = {
-      lines = { { id = "t_default", text = "Slowly, little sister or brother, and downwind, and with a thicker cloak than you think you need. The snow hides the tracks by noon, so rise early, and trust your nose before your eyes." } },
+      lines = { { id = "t_default", text = "Slowly, young one, and downwind, and with a thicker cloak than you think you need. The snow hides the tracks by noon, so rise early, and trust your nose before your eyes." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
@@ -555,7 +555,7 @@ P:NPC {
 
   notice = {
     { id = "n_nelf", cat = "race", when = { race = "NightElf" },
-      text = "Elune's light on you, sister or brother. It is good to hear our tongue among so many goblins." },
+      text = "Elune's light on you. It is good to hear our tongue among so many goblins." },
   },
 
   start = "hello",
