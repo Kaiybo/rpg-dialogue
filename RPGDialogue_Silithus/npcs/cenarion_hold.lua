@@ -630,6 +630,60 @@ P:NPC {
         { text = "I'll keep my demon out of the grain.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Provided the supply carts keep reaching us, the healers keep the wounded on their feet and the hives don't learn to dig faster than we do, then yes, I'm quite certain of it. It is a great many provisos, I'll admit, but a war is mostly provisos." } },
+      choices = {
+        { text = "Careful planning wins wars. Your provisos are the right ones.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Wars are won by nerve, Windcaller, not by ledgers.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Often enough that I count the drivers as carefully as the sacks, because the silithid hear the wheels through the sand and come up beneath them. A paladin riding beside the carts would steady the drivers, provided the paladin doesn't mind the dust." } },
+      choices = {
+        { text = "Guarding the carts is honest work, and I'd be glad of it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd rather take the fight to the hives than guard grain.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Provided the supply carts keep reaching us, the healers keep the wounded on their feet and the hives don't learn to dig faster than we do, then yes, I'm quite certain of it. It is a great many provisos, I'll admit, but a war is mostly provisos." } },
+      choices = {
+        { text = "Careful planning wins wars. Your provisos are the right ones.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Wars are won by nerve, Windcaller, not by ledgers.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Often enough that I count the drivers as carefully as the sacks, because the silithid hear the wheels through the sand and come up beneath them. A paladin riding beside the carts would steady the drivers, provided the paladin doesn't mind the dust." } },
+      choices = {
+        { text = "Guarding the carts is honest work, and I'd be glad of it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd rather take the fight to the hives than guard grain.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Provided the supply carts keep reaching us, the healers keep the wounded on their feet and the hives don't learn to dig faster than we do, then yes, I'm quite certain of it. It is a great many provisos, I'll admit, but a war is mostly provisos." } },
+      choices = {
+        { text = "Careful planning wins wars. Your provisos are the right ones.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Wars are won by nerve, Windcaller, not by ledgers.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Often enough that I count the drivers as carefully as the sacks, because the silithid hear the wheels through the sand and come up beneath them. A paladin riding beside the carts would steady the drivers, provided the paladin doesn't mind the dust." } },
+      choices = {
+        { text = "Guarding the carts is honest work, and I'd be glad of it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd rather take the fight to the hives than guard grain.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde! The Hold is glad of you, and so am I, because the winds have been foul since the cult began its summonings, and every caravan I send needs fair weather." },
@@ -643,6 +697,18 @@ P:NPC {
           text = "The dredge strikers lie under the sand along the northern road and burst out under the carts. Thin them out, {name}, before I lose another wagon of grain." },
         { id = "h_security", tags = { "news" }, when = { questActive = TODO_QUEST("Stepping Up Security") },
           text = "With the strikers gone, the crushers from the south are moving into their old hunting grounds. Bigger worms, same road, and the same carts I can't spare." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest of the Alliance, and very welcome, because the Hold goes through bandages faster than grain, and nobody has yet found a way to grow linen in sand." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! I should like to put you down as a guard for the supply carts, provided you'll forgive me for writing your name in the same column as the grain." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest of the Alliance, and very welcome, because the Hold goes through bandages faster than grain, and nobody has yet found a way to grow linen in sand." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! I should like to put you down as a guard for the supply carts, provided you'll forgive me for writing your name in the same column as the grain." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest of the Alliance, and very welcome, because the Hold goes through bandages faster than grain, and nobody has yet found a way to grow linen in sand." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! I should like to put you down as a guard for the supply carts, provided you'll forgive me for writing your name in the same column as the grain." },
       },
       again = {
         { id = "h_again", text = "What else? I have ledgers, but I have ears too." },
@@ -658,6 +724,12 @@ P:NPC {
         { text = "I could scout the supply roads for you.", next = "x_hunter", when = { class = "HUNTER" } },
         { text = "Why are the worms such a threat to the supplies?", next = "xmage", when = { class = "MAGE" } },
         { text = "Would you trust a warlock to guard your supplies?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Can the Hold truly win against the silithid, Windcaller?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do the supply carts come under attack often?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Can the Hold truly win against the silithid, Windcaller?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do the supply carts come under attack often?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Can the Hold truly win against the silithid, Windcaller?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do the supply carts come under attack often?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll keep an eye on the roads.", next = "END", fx = { standing = { cenarion_hold = 1 } } },
       },
     },
@@ -782,6 +854,60 @@ P:NPC {
         { text = "Watch all you like.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "They hold, because I make them, but the hives breed faster than we can burn their dead, and a guard who's been stung three times starts seeing bugs in every shadow. A word from a priest wouldn't hurt, though don't tell them I sent you." } },
+      choices = {
+        { text = "I'll speak with them. Fear eases when it's shared.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Pride keeps them standing. I'd leave them their pride.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Badly, though he'd have my rank for saying so, because Mar'alith was never a man to sit still, and now he sits and stares south. Natalia went out on a dig in the southern desert and never came back, and I've watched the horizon for her every day since." } },
+      choices = {
+        { text = "Then tell him plainly. A captain owes his commander the truth.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then keep quiet. A grieving man needs his hope more than truth.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "They hold, because I make them, but the hives breed faster than we can burn their dead, and a guard who's been stung three times starts seeing bugs in every shadow. A word from a priest wouldn't hurt, though don't tell them I sent you." } },
+      choices = {
+        { text = "I'll speak with them. Fear eases when it's shared.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Pride keeps them standing. I'd leave them their pride.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Badly, though he'd have my rank for saying so, because Mar'alith was never a man to sit still, and now he sits and stares south. Natalia went out on a dig in the southern desert and never came back, and I've watched the horizon for her every day since." } },
+      choices = {
+        { text = "Then tell him plainly. A captain owes his commander the truth.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then keep quiet. A grieving man needs his hope more than truth.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "They hold, because I make them, but the hives breed faster than we can burn their dead, and a guard who's been stung three times starts seeing bugs in every shadow. A word from a priest wouldn't hurt, though don't tell them I sent you." } },
+      choices = {
+        { text = "I'll speak with them. Fear eases when it's shared.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Pride keeps them standing. I'd leave them their pride.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Badly, though he'd have my rank for saying so, because Mar'alith was never a man to sit still, and now he sits and stares south. Natalia went out on a dig in the southern desert and never came back, and I've watched the horizon for her every day since." } },
+      choices = {
+        { text = "Then tell him plainly. A captain owes his commander the truth.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then keep quiet. A grieving man needs his hope more than truth.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, is it? I can hear your totems knocking together from up here, so don't bother sneaking. If the elements have anything useful to say about the hives, I'm listening; if not, the poster's by the door." },
@@ -793,6 +919,18 @@ P:NPC {
           text = "Vish Kozus, Captain of the Guard. The Commander hasn't been himself since his wife vanished on a dig in the southern desert, without a trace, so I watch twice as hard. If you're looking for work, there's a poster by the door; do I need to draw you a picture?" },
         { id = "h_deathclasp", tags = { "news" }, when = { questActive = TODO_QUEST("Wanted - Deathclasp, Terror of the Sands") },
           text = "Deathclasp's gone to ground in the southern mountains, behind the dwarves' camp. Bring me her pincer, and only her pincer; I've been offered a lot of stories in my time, and not one of them had claws." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest. The barracks could use you more than the inn could, because half my guards come off the walls with stings they're too proud to mention." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin. I can hear the plate from here, so don't bother creeping, and don't bother telling me how bright your Light is either, because I wouldn't see it." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest. The barracks could use you more than the inn could, because half my guards come off the walls with stings they're too proud to mention." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin. I can hear the plate from here, so don't bother creeping, and don't bother telling me how bright your Light is either, because I wouldn't see it." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest. The barracks could use you more than the inn could, because half my guards come off the walls with stings they're too proud to mention." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin. I can hear the plate from here, so don't bother creeping, and don't bother telling me how bright your Light is either, because I wouldn't see it." },
       },
       again = {
         { id = "h_again", text = "Anything else? The view won't watch itself." },
@@ -808,6 +946,12 @@ P:NPC {
         { text = "Need another blade on the walls, Captain?", next = "x_warrior", when = { class = "WARRIOR" } },
         { text = "How do you see with that blindfold on?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do you trust anyone at the Hold?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Are your guards holding up against the silithid?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "How does the Commander fare since his wife vanished?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Are your guards holding up against the silithid?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "How does the Commander fare since his wife vanished?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Are your guards holding up against the silithid?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "How does the Commander fare since his wife vanished?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },
@@ -949,6 +1093,33 @@ P:NPC {
         { text = "I'll try a bowl.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Every day, and the gulls most of all, which nobody believes when I tell them. Here there's only the wind and the hives, and I pray each night that the Circle wins this war quickly, so I can go home before I forget what the sea sounds like." } },
+      choices = {
+        { text = "Then I'll pray with you. Home is worth waiting for.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Prayers won't end this war, Calandrath. Swords will.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Every day, and the gulls most of all, which nobody believes when I tell them. Here there's only the wind and the hives, and I pray each night that the Circle wins this war quickly, so I can go home before I forget what the sea sounds like." } },
+      choices = {
+        { text = "Then I'll pray with you. Home is worth waiting for.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Prayers won't end this war, Calandrath. Swords will.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Every day, and the gulls most of all, which nobody believes when I tell them. Here there's only the wind and the hives, and I pray each night that the Circle wins this war quickly, so I can go home before I forget what the sea sounds like." } },
+      choices = {
+        { text = "Then I'll pray with you. Home is worth waiting for.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Prayers won't end this war, Calandrath. Swords will.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman at the Oasis Inn? You're welcome, of course, and if you can ask the water here to stay sweet a while longer, I'll be grateful to you and to it." },
@@ -962,6 +1133,12 @@ P:NPC {
           text = "If you go by the cult's camp to the west, keep an eye out for anything they cook from. Sandworm's so bitter I can't get it past my own lips, and they eat it every day." },
         { id = "h_kitchen", tags = { "news" }, when = { questActive = TODO_QUEST("Kitchen Assistance") },
           text = "Smoked desert dumplings, from a cultist's cookbook! I'll never live it down if anyone finds out, so help me make a batch quickly, before I lose my nerve." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! Sit down and let me shake the sand from your robes, because I've seen Elune's priestesses come in tidier after a sandstorm, and you've clearly been through two." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! Sit down and let me shake the sand from your robes, because I've seen Elune's priestesses come in tidier after a sandstorm, and you've clearly been through two." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! Sit down and let me shake the sand from your robes, because I've seen Elune's priestesses come in tidier after a sandstorm, and you've clearly been through two." },
       },
       again = {
         { id = "h_again", text = "Anything else, dear? I've a pot on, but it'll keep." },
@@ -978,6 +1155,9 @@ P:NPC {
         { text = "Have you heard of my people, the shen'dorei?", next = "x_skyborne", when = { race = "Skyborne" } },
         { text = "Do many rogues stay at the Oasis Inn?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What are you trying to cook?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do you miss Auberdine, Calandrath?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you miss Auberdine, Calandrath?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you miss Auberdine, Calandrath?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Thank you, Calandrath.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -1108,6 +1288,33 @@ P:NPC {
         { text = "I don't know any such trick.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Bad enough that he's started calling me by his mother's name, and Noggle's mother was a terrifying woman, so that's no compliment. I've slowed the venom with every tonic I know, but slowing isn't curing, and I'll take a prayer, a potion or a miracle, whichever turns up first." } },
+      choices = {
+        { text = "Prayer and potions together. Neither should have to work alone.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Trust your tonics. A prayer won't draw venom out.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Bad enough that he's started calling me by his mother's name, and Noggle's mother was a terrifying woman, so that's no compliment. I've slowed the venom with every tonic I know, but slowing isn't curing, and I'll take a prayer, a potion or a miracle, whichever turns up first." } },
+      choices = {
+        { text = "Prayer and potions together. Neither should have to work alone.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Trust your tonics. A prayer won't draw venom out.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Bad enough that he's started calling me by his mother's name, and Noggle's mother was a terrifying woman, so that's no compliment. I've slowed the venom with every tonic I know, but slowing isn't curing, and I'll take a prayer, a potion or a miracle, whichever turns up first." } },
+      choices = {
+        { text = "Prayer and potions together. Neither should have to work alone.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Trust your tonics. A prayer won't draw venom out.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can you heal venom with a totem, or a chant, or anything else that doesn't cost me reagents? Noggle's eating my profits faster than the venom's eating him." },
@@ -1123,6 +1330,12 @@ P:NPC {
           text = "The first antidote didn't take, which means something nastier got him down south. I need fewer samples this time, but from more kinds of nasty, so this is our last shot." },
         { id = "h_satchel", when = { questActive = TODO_QUEST("Noggle's Lost Satchel") },
           text = "He's awake and already moaning about his bag. If you find it, check the reagents are all there before he does, or I'll never hear the end of it." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! Oh, thank the Cartel, could you look at Noggle? I'll still need the samples, mind, because whatever's in him is too stubborn for one prayer." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! Oh, thank the Cartel, could you look at Noggle? I'll still need the samples, mind, because whatever's in him is too stubborn for one prayer." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! Oh, thank the Cartel, could you look at Noggle? I'll still need the samples, mind, because whatever's in him is too stubborn for one prayer." },
       },
       again = {
         { id = "h_again", text = "What else? I've got a pot about to boil over, so make it snappy." },
@@ -1137,6 +1350,9 @@ P:NPC {
         { text = "Venom like that would coat a blade nicely.", next = "x_rogue", when = { class = "ROGUE" } },
         { text = "How bad is Noggle's poisoning?", next = "xmage", when = { class = "MAGE" } },
         { text = "Could a curse really help draw out venom?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "How bad is Noggle's poisoning, truly?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "How bad is Noggle's poisoning, truly?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "How bad is Noggle's poisoning, truly?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "I'll keep an eye out for nasty things with stingers.", next = "END" },
       },
     },

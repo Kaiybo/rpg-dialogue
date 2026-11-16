@@ -55,6 +55,33 @@ P:NPC {
         { text = "That's grim.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Big brother says they want to call up the elemental lords through the old stones out there, and they talk about it like other folk talk about the weather. I don't understand half of it, but I understand a crazy with a dagger, and that's enough for me." } },
+      choices = {
+        { text = "Some might still listen to reason. Try that before the dagger.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Crazies don't listen. Bring them down and burn their papers.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Big brother says they want to call up the elemental lords through the old stones out there, and they talk about it like other folk talk about the weather. I don't understand half of it, but I understand a crazy with a dagger, and that's enough for me." } },
+      choices = {
+        { text = "Some might still listen to reason. Try that before the dagger.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Crazies don't listen. Bring them down and burn their papers.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Big brother says they want to call up the elemental lords through the old stones out there, and they talk about it like other folk talk about the weather. I don't understand half of it, but I understand a crazy with a dagger, and that's enough for me." } },
+      choices = {
+        { text = "Some might still listen to reason. Try that before the dagger.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Crazies don't listen. Bring them down and burn their papers.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "Ha, a shaman! You'll know better than anyone what those Twilight crazies are doing to the elements out west, and my brother and I would love to hear it from someone who can feel it." },
@@ -68,6 +95,12 @@ P:NPC {
           text = "Those little papers the cultists carry, covered in gibberish? Bring me a stack. Every one I've got is one they haven't." },
         { id = "h_texts_done", when = { questDone = TODO_QUEST("Secret Communication") },
           text = "Still bringing me papers? Good, because I've a whole chest of them now, and the crazies must be wondering why nobody answers their letters." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! Big brother says the crazies out west hate your Light worse than they hate the bugs, so you and I are going to get along fine." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! Big brother says the crazies out west hate your Light worse than they hate the bugs, so you and I are going to get along fine." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! Big brother says the crazies out west hate your Light worse than they hate the bugs, so you and I are going to get along fine." },
       },
       again = {
         { id = "h_again", text = "What else, friend? Huum's busy being serious, so I've got time." },
@@ -83,6 +116,9 @@ P:NPC {
         { text = "Let me break some cultist heads, Bor.", next = "x_warrior", when = { class = "WARRIOR" } },
         { text = "What do the cult's papers say?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do the Twilight's Hammer use demons?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What do the Twilight's Hammer want in Silithus?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What do the Twilight's Hammer want in Silithus?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What do the Twilight's Hammer want in Silithus?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "I'll bring you whatever I find on them.", next = "END", fx = { standing = { cenarion_hold = 1 } } },
       },
     },
@@ -346,6 +382,33 @@ P:NPC {
         { text = "I'll take a look.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Honest, no, but I'd call it just, which isn't the same thing, and the Twilight's Hammer have told far bigger lies to far more people. Still, I understand if a paladin would rather knock on the front door, and some days I wish I could too." } },
+      choices = {
+        { text = "I'd rather walk in as myself. Lies wear on the soul.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Cunning saves lives. A good disguise beats a hundred swords.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Honest, no, but I'd call it just, which isn't the same thing, and the Twilight's Hammer have told far bigger lies to far more people. Still, I understand if a paladin would rather knock on the front door, and some days I wish I could too." } },
+      choices = {
+        { text = "I'd rather walk in as myself. Lies wear on the soul.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Cunning saves lives. A good disguise beats a hundred swords.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Honest, no, but I'd call it just, which isn't the same thing, and the Twilight's Hammer have told far bigger lies to far more people. Still, I understand if a paladin would rather knock on the front door, and some days I wish I could too." } },
+      choices = {
+        { text = "I'd rather walk in as myself. Lies wear on the soul.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Cunning saves lives. A good disguise beats a hundred swords.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde. The druids say your kind hear the earth as they do, in a rougher dialect, and if that's so, perhaps you'll tell me whether the stone I'm working wants to be a lie." },
@@ -359,6 +422,12 @@ P:NPC {
           text = "A large brilliant shard and three of the templars' crests, and I'll have a medallion of station that would fool the cult's own officers. Bring them, and I'll do the rest." },
         { id = "h_discovery", tags = { "news" }, when = { questActive = TODO_QUEST("Goldleaf's Discovery") },
           text = "Huum told you true: I think I can call down one of the Council's lords. Sit, and let me explain how badly this could go." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, and a disguise is the last thing you'd wear, I imagine, because your kind would rather be seen and struck than hidden and safe." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, and a disguise is the last thing you'd wear, I imagine, because your kind would rather be seen and struck than hidden and safe." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, and a disguise is the last thing you'd wear, I imagine, because your kind would rather be seen and struck than hidden and safe." },
       },
       again = {
         { id = "h_again", text = "What else? I can talk and work at once." },
@@ -372,6 +441,9 @@ P:NPC {
         { text = "I've worn a false face before.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Why not an illusion instead of a disguise?", next = "x_mage", when = { class = "MAGE" } },
         { text = "Do the Twilight's Hammer use warlock magic?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Is it honest, fooling the cult with your forgeries?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Is it honest, fooling the cult with your forgeries?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Is it honest, fooling the cult with your forgeries?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll leave you to your bench.", next = "END" },
       },
     },

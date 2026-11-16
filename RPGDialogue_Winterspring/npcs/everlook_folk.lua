@@ -62,6 +62,33 @@ P:NPC {
         { text = "I'll leave you two to it.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Dangerous, no, but it's the principle of the thing, because a lady shouldn't have to scream in front of the whole of Everlook. Mind you, I've seen worse things come down off that mountain, and none of them were made of tin." } },
+      choices = {
+        { text = "Then laugh it off. A good prank deserves a good sport.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then get her back. Every prank deserves a sharper reply.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Dangerous, no, but it's the principle of the thing, because a lady shouldn't have to scream in front of the whole of Everlook. Mind you, I've seen worse things come down off that mountain, and none of them were made of tin." } },
+      choices = {
+        { text = "Then laugh it off. A good prank deserves a good sport.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then get her back. Every prank deserves a sharper reply.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Dangerous, no, but it's the principle of the thing, because a lady shouldn't have to scream in front of the whole of Everlook. Mind you, I've seen worse things come down off that mountain, and none of them were made of tin." } },
+      choices = {
+        { text = "Then laugh it off. A good prank deserves a good sport.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then get her back. Every prank deserves a sharper reply.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "Oh, a shaman, all bones and feathers and totems! It's a look, I'll give you that, though I'd lose a few of the teeth." },
@@ -74,6 +101,12 @@ P:NPC {
         { id = "h_after", tags = { "news" }, when = { questDone = TODO_QUEST("Are We There, Yeti?") },
           text = "All right, all right, I screamed, and the whole of Everlook heard it. Umi's never going to let me forget it, and neither are the Bruisers, who laughed until they wept." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Now there's a fashion I appreciate, all leaves and antlers and nobody telling you it's too much. What brings you to the frozen end of the world?" },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, how grand! You'll protect a poor goblin girl from a mechanical yeti, won't you? I'm joking, mostly, though I'd feel better with you standing between me and Umi's workbench." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, how grand! You'll protect a poor goblin girl from a mechanical yeti, won't you? I'm joking, mostly, though I'd feel better with you standing between me and Umi's workbench." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, how grand! You'll protect a poor goblin girl from a mechanical yeti, won't you? I'm joking, mostly, though I'd feel better with you standing between me and Umi's workbench." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've got gossip to spare and nobody worth sharing it with." },
@@ -87,6 +120,9 @@ P:NPC {
         { text = "Scared of yetis, are you?", next = "yetis", when = { questActive = TODO_QUEST("Are We There, Yeti?") } },
         { text = "Are you hiding from a mechanical yeti?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why would you want to melt a yeti?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do you really think Umi's yeti is dangerous?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you really think Umi's yeti is dangerous?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you really think Umi's yeti is dangerous?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -175,6 +211,33 @@ P:NPC {
         { text = "I'll keep my hands where you can see them.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Less than I should, I'll admit, though I said a few on the day Gnomeregan fell and I meant every word of them. Now I put my faith in good springs and careful hands, and I find that's mostly enough." } },
+      choices = {
+        { text = "Faith and craft go together. Keep both close, Felnok.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Good springs never failed anyone. I'm less sure of prayers.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Less than I should, I'll admit, though I said a few on the day Gnomeregan fell and I meant every word of them. Now I put my faith in good springs and careful hands, and I find that's mostly enough." } },
+      choices = {
+        { text = "Faith and craft go together. Keep both close, Felnok.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Good springs never failed anyone. I'm less sure of prayers.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Less than I should, I'll admit, though I said a few on the day Gnomeregan fell and I meant every word of them. Now I put my faith in good springs and careful hands, and I find that's mostly enough." } },
+      choices = {
+        { text = "Faith and craft go together. Keep both close, Felnok.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Good springs never failed anyone. I'm less sure of prayers.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, is it? Kindly keep your totems off my bench, because I've a horn here that cracks if you so much as breathe on it." },
@@ -192,6 +255,12 @@ P:NPC {
           text = "Eight horns, all of them perfect, from the chillwinds out in the snow. Hit the beasts anywhere but the head, if you can manage it." },
         { id = "h_return", tags = { "news" }, when = { questActive = TODO_QUEST("Return to Tinkee") },
           text = "It's all packed and padded, so carry it level and don't let anyone sit on it. Tinkee will know what to do with it from there." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! Good, you'll have steady hands, because everyone who prays a lot seems to, and steady hands are just what I need near this bench." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! Good, you'll have steady hands, because everyone who prays a lot seems to, and steady hands are just what I need near this bench." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! Good, you'll have steady hands, because everyone who prays a lot seems to, and steady hands are just what I need near this bench." },
       },
       again = {
         { id = "h_again", text = "What else? I've a coil to wind and it won't wind itself." },
@@ -206,6 +275,9 @@ P:NPC {
         { text = "How do you build something that stays cold?", next = "eng", when = { profession = "Engineering" } },
         { text = "What are the chillwind horns for, anyway?", next = "xmage", when = { class = "MAGE" } },
         { text = "Has anyone actually stolen from you?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Does a gnome tinker have much use for prayer?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Does a gnome tinker have much use for prayer?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Does a gnome tinker have much use for prayer?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -304,6 +376,60 @@ P:NPC {
         { text = "I hope you find your answer.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "I left before the plague came, and they stayed because the farm was all they had, and I've heard nothing since Darrowshire. Some days I pray they're safe, and some days, Light forgive me, I pray only that they're at rest." } },
+      choices = {
+        { text = "That's no sin, Jessica. The Light hears both prayers.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Hope can be cruel. Better to grieve now than wait forever.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "No, though I did for a while, because it's easier to be angry at someone than at a sickness in the grain. They died in the same fields as everyone else, and I've heard some of their order still fight on in the east, which is more than most of us managed." } },
+      choices = {
+        { text = "The order still stands. I'll carry its oath into the Plaguelands.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The Hand failed Lordaeron. I serve the Light, not an order.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "I left before the plague came, and they stayed because the farm was all they had, and I've heard nothing since Darrowshire. Some days I pray they're safe, and some days, Light forgive me, I pray only that they're at rest." } },
+      choices = {
+        { text = "That's no sin, Jessica. The Light hears both prayers.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Hope can be cruel. Better to grieve now than wait forever.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "No, though I did for a while, because it's easier to be angry at someone than at a sickness in the grain. They died in the same fields as everyone else, and I've heard some of their order still fight on in the east, which is more than most of us managed." } },
+      choices = {
+        { text = "The order still stands. I'll carry its oath into the Plaguelands.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The Hand failed Lordaeron. I serve the Light, not an order.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "I left before the plague came, and they stayed because the farm was all they had, and I've heard nothing since Darrowshire. Some days I pray they're safe, and some days, Light forgive me, I pray only that they're at rest." } },
+      choices = {
+        { text = "That's no sin, Jessica. The Light hears both prayers.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Hope can be cruel. Better to grieve now than wait forever.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "No, though I did for a while, because it's easier to be angry at someone than at a sickness in the grain. They died in the same fields as everyone else, and I've heard some of their order still fight on in the east, which is more than most of us managed." } },
+      choices = {
+        { text = "The order still stands. I'll carry its oath into the Plaguelands.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The Hand failed Lordaeron. I serve the Light, not an order.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You're a shaman? I've never met one, though I've heard the orcs who speak to spirits are gentler than the ones I was taught to fear as a girl." },
@@ -319,6 +445,18 @@ P:NPC {
           text = "Darrowshire is in the southern hills of the eastern Plaguelands, below the old roads. Pamela would be little still, in my mind at least, with a doll she never let go of." },
         { id = "h_after", tags = { "news" }, when = { questDone = TODO_QUEST("Sister Pamela") },
           text = "You went to Darrowshire for me. I can see in your face that you found something, and I'm not sure yet whether I want to hear it." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest. Would you say a prayer for my family, if you have one to spare? I've said every one I know for them, and I'm afraid the Light has stopped listening to mine." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin. My father used to say the Silver Hand would never let Lordaeron fall, and I wanted so much to believe him, and now look at us." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest. Would you say a prayer for my family, if you have one to spare? I've said every one I know for them, and I'm afraid the Light has stopped listening to mine." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin. My father used to say the Silver Hand would never let Lordaeron fall, and I wanted so much to believe him, and now look at us." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest. Would you say a prayer for my family, if you have one to spare? I've said every one I know for them, and I'm afraid the Light has stopped listening to mine." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin. My father used to say the Silver Hand would never let Lordaeron fall, and I wanted so much to believe him, and now look at us." },
       },
       again = {
         { id = "h_again", text = "Is there something else? I don't mind talking; it passes the time." },
@@ -333,6 +471,12 @@ P:NPC {
         { text = "My family fled the north too.", next = "refugee", when = { origin = "human_lordaeron_refugee" } },
         { text = "Have you asked mages about your family?", next = "xmage", when = { class = "MAGE" } },
         { text = "What would I find in Darrowshire?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Tell me what you pray for, Jessica.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you blame the Silver Hand for what happened?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Tell me what you pray for, Jessica.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you blame the Silver Hand for what happened?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Tell me what you pray for, Jessica.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you blame the Silver Hand for what happened?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -448,6 +592,33 @@ P:NPC {
         { text = "I'll sharpen what I have.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "My kin under Blackrock bow to Ragnaros now, and before him they bowed to Thaurissan and his ambition. The Brotherhood bows to nothing but the anvil, and I have found the anvil a more honest master than any god." } },
+      choices = {
+        { text = "Honest work is a kind of faith, and the Light honours it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then trust your anvil. Gods have failed better men than you.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "My kin under Blackrock bow to Ragnaros now, and before him they bowed to Thaurissan and his ambition. The Brotherhood bows to nothing but the anvil, and I have found the anvil a more honest master than any god." } },
+      choices = {
+        { text = "Honest work is a kind of faith, and the Light honours it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then trust your anvil. Gods have failed better men than you.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "My kin under Blackrock bow to Ragnaros now, and before him they bowed to Thaurissan and his ambition. The Brotherhood bows to nothing but the anvil, and I have found the anvil a more honest master than any god." } },
+      choices = {
+        { text = "Honest work is a kind of faith, and the Light honours it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then trust your anvil. Gods have failed better men than you.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. My people bound fire once and were burned for it, ant, so don't expect me to be impressed by your little totems." },
@@ -463,6 +634,12 @@ P:NPC {
           text = "There's a beast in Blackrock Spire whose hide would make armour fit for a king, if anyone could skin it whole. The odds of a pristine hide are one in a million, so I don't expect you to bring me one." },
         { id = "h_after", tags = { "news" }, when = { questDone = TODO_QUEST("Pip Quickwit, At Your Service!") },
           text = "You brought me the hide, and it's pristine, so the catalogue is open to you. Choose carefully, because I don't make anything twice." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, clanking like a cart of scrap. The Light means little to a Dark Iron, ant, but your armour is decent work, so I will grant you a minute." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, clanking like a cart of scrap. The Light means little to a Dark Iron, ant, but your armour is decent work, so I will grant you a minute." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, clanking like a cart of scrap. The Light means little to a Dark Iron, ant, but your armour is decent work, so I will grant you a minute." },
       },
       again = {
         { id = "h_again", text = "Still here? Then say what you want." },
@@ -477,6 +654,9 @@ P:NPC {
         { text = "Teach me something about the forge.", next = "smith", when = { profession = "Blacksmithing" } },
         { text = "Ragnaros enslaved your people?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Could the Thorium Brotherhood make a better blade?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Have the Dark Irons ever known the Light, Malyfous?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Have the Dark Irons ever known the Light, Malyfous?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Have the Dark Irons ever known the Light, Malyfous?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -826,6 +1006,33 @@ P:NPC {
         { text = "I'll keep my hands still.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "None but the inn's hearth, where the traders mostly pray for good weather and better prices. I say my evening words to Elune out by the roost, and the hippogryphs listen better than the goblins would." } },
+      choices = {
+        { text = "Faith needs no walls. The open sky is shrine enough.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Faith needs a proper home. Everlook should have a shrine.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "None but the inn's hearth, where the traders mostly pray for good weather and better prices. I say my evening words to Elune out by the roost, and the hippogryphs listen better than the goblins would." } },
+      choices = {
+        { text = "Faith needs no walls. The open sky is shrine enough.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Faith needs a proper home. Everlook should have a shrine.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "None but the inn's hearth, where the traders mostly pray for good weather and better prices. I say my evening words to Elune out by the roost, and the hippogryphs listen better than the goblins would." } },
+      choices = {
+        { text = "Faith needs no walls. The open sky is shrine enough.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Faith needs a proper home. Everlook should have a shrine.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -837,6 +1044,12 @@ P:NPC {
         { id = "h_horde", when = { faction = "Horde" },
           text = "My birds will not carry you, but Yugrek's wind riders will, and he keeps them well enough. You'll find him a few paces away, complaining about the cold." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the Circle. My hippogryphs fly south over Felwood every day, and they always climb higher over the worst of it, as if they can smell what's wrong with the trees." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest of the Alliance. Everlook has the goblins' bruisers and the goblins' prices, but it has no shrine at all, and I have missed the sound of prayer." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest of the Alliance. Everlook has the goblins' bruisers and the goblins' prices, but it has no shrine at all, and I have missed the sound of prayer." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest of the Alliance. Everlook has the goblins' bruisers and the goblins' prices, but it has no shrine at all, and I have missed the sound of prayer." },
       },
       again = {
         { id = "h_again", text = "Is there something else you wish to know?" },
@@ -849,6 +1062,9 @@ P:NPC {
         { text = "What do the hippogryphs make of the snow?", next = "birds" },
         { text = "You don't trust the goblins much, do you?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why are the hippogryphs afraid of magic?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Is there truly no place for prayer in Everlook?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is there truly no place for prayer in Everlook?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is there truly no place for prayer in Everlook?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },

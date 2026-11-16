@@ -364,6 +364,33 @@ P:NPC {
         { text = "Your master sounds tiresome.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "My master has use for power, and he finds it in his books and in the old Highborne ruins, not in sermons. I'm told the Highborne also thought prayer beneath them, and look how that ended, though you will not repeat that to him." } },
+      choices = {
+        { text = "Magic without humility ends in ruin. The Highborne prove it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Power is power. The Highborne just lost control of theirs.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "My master has use for power, and he finds it in his books and in the old Highborne ruins, not in sermons. I'm told the Highborne also thought prayer beneath them, and look how that ended, though you will not repeat that to him." } },
+      choices = {
+        { text = "Magic without humility ends in ruin. The Highborne prove it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Power is power. The Highborne just lost control of theirs.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "My master has use for power, and he finds it in his books and in the old Highborne ruins, not in sermons. I'm told the Highborne also thought prayer beneath them, and look how that ended, though you will not repeat that to him." } },
+      choices = {
+        { text = "Magic without humility ends in ruin. The Highborne prove it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Power is power. The Highborne just lost control of theirs.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, smelling of smoke and earth, as your sort always do. My master won't care what you are, so I suppose neither will I." },
@@ -375,6 +402,12 @@ P:NPC {
           text = "Sanath Lim-yo, servant of Archmage Xylem. My master's tower stands above us, and there are no stairs, so you will need me to send you up, which I am obliged to do for anyone at all now, more's the pity." },
         { id = "h_magecraft", when = { questActive = TODO_QUEST("Magecraft") },
           text = "Ah, the Archmage asked for someone with your experience, did he? He's expecting you, though I can't imagine why." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest, how dreary. I suppose you've come to pray at my master's tower, as if the arcane needed any help from the Light, and as if I needed one more visitor in robes." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest, how dreary. I suppose you've come to pray at my master's tower, as if the arcane needed any help from the Light, and as if I needed one more visitor in robes." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest, how dreary. I suppose you've come to pray at my master's tower, as if the arcane needed any help from the Light, and as if I needed one more visitor in robes." },
       },
       again = {
         { id = "h_again", text = "Still here? What else, then?" },
@@ -389,6 +422,9 @@ P:NPC {
         { text = "You're a long way from Quel'Thalas.", next = "home", when = { race = "Skyborne" } },
         { text = "Has anyone ever tried to rob Xylem's tower?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Does Xylem study demonology too?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Does your master have no use for the Light at all?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Does your master have no use for the Light at all?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Does your master have no use for the Light at all?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "I'll leave you to your sulking.", next = "END" },
       },
     },

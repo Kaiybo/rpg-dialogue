@@ -71,6 +71,60 @@ P:NPC {
         { text = "I'll sit by the door.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Mostly I see priests when somebody's come down off the mountain half frozen and the Light's the only thing keeping them breathing. So I keep the back room warm for that, and I keep the soup on, and I don't ask what they were doing up there." } },
+      choices = {
+        { text = "That's good work, Vizzie. A warm room saves lives.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Anyone who climbs Winterspring unprepared has earned their frostbite.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Less than you'd think, because the Bruisers are bigger than anybody, and the cold puts everyone in a mood to share a fire. Now and then somebody starts a quarrel over an old war, and I remind them the inn's neutral and the snow outside isn't." } },
+      choices = {
+        { text = "Good. Old grudges should stay outside your door.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Some grudges are earned. This truce won't last.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Mostly I see priests when somebody's come down off the mountain half frozen and the Light's the only thing keeping them breathing. So I keep the back room warm for that, and I keep the soup on, and I don't ask what they were doing up there." } },
+      choices = {
+        { text = "That's good work, Vizzie. A warm room saves lives.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Anyone who climbs Winterspring unprepared has earned their frostbite.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Less than you'd think, because the Bruisers are bigger than anybody, and the cold puts everyone in a mood to share a fire. Now and then somebody starts a quarrel over an old war, and I remind them the inn's neutral and the snow outside isn't." } },
+      choices = {
+        { text = "Good. Old grudges should stay outside your door.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Some grudges are earned. This truce won't last.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Mostly I see priests when somebody's come down off the mountain half frozen and the Light's the only thing keeping them breathing. So I keep the back room warm for that, and I keep the soup on, and I don't ask what they were doing up there." } },
+      choices = {
+        { text = "That's good work, Vizzie. A warm room saves lives.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Anyone who climbs Winterspring unprepared has earned their frostbite.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Less than you'd think, because the Bruisers are bigger than anybody, and the cold puts everyone in a mood to share a fire. Now and then somebody starts a quarrel over an old war, and I remind them the inn's neutral and the snow outside isn't." } },
+      choices = {
+        { text = "Good. Old grudges should stay outside your door.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Some grudges are earned. This truce won't last.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Oh, sugar, tell me the spirits don't send bugs, because if one of your totems starts buzzing it's going straight outside." },
@@ -86,6 +140,18 @@ P:NPC {
           text = "People ask why a goblin would run an inn at the top of the world, and it's two words: no bugs. Well, fewer bugs, anyway, because there's still that one beetle, and I know it's in here." },
         { id = "h_beetle", when = { metBefore = true }, text = "I found the beetle, behind the bar! It looked at me and I looked at it, and we've agreed to stay out of each other's way." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid in my inn! You'll be wanting to know about the furbolgs, I bet, since everybody from the Circle does, and the answer is they've gone mean and I keep the door shut." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! Oh, sugar, you don't know a prayer against beetles, do you? I'd light a candle every night for one, because that bug by the hearth has outlived three traps and a boot." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, all shiny! Mind you don't drip snowmelt off that plate onto my floor, sugar, because I've only just mopped it." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! Oh, sugar, you don't know a prayer against beetles, do you? I'd light a candle every night for one, because that bug by the hearth has outlived three traps and a boot." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, all shiny! Mind you don't drip snowmelt off that plate onto my floor, sugar, because I've only just mopped it." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! Oh, sugar, you don't know a prayer against beetles, do you? I'd light a candle every night for one, because that bug by the hearth has outlived three traps and a boot." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, all shiny! Mind you don't drip snowmelt off that plate onto my floor, sugar, because I've only just mopped it." },
       },
       again = {
         { id = "h_again", text = "More? Sit by the fire, then, only not too close, because the beetle lives there." },
@@ -102,6 +168,12 @@ P:NPC {
         { text = "Do rogues cause much trouble in Everlook?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "You came all the way up here to get away from bugs?", next = "xmage", when = { class = "MAGE" } },
         { text = "My imp's harmless. Mostly.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "I'm afraid the Light doesn't do beetles. What else brings priests here?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Does Everlook see much trouble, with Horde and Alliance under one roof?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "I'm afraid the Light doesn't do beetles. What else brings priests here?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Does Everlook see much trouble, with Horde and Alliance under one roof?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "I'm afraid the Light doesn't do beetles. What else brings priests here?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Does Everlook see much trouble, with Horde and Alliance under one roof?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -203,6 +275,33 @@ P:NPC {
         { text = "I'll keep my hands to myself.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Gnomeregan's gone, half my friends are sleeping in Ironforge's spare rooms, and the whole world's gone grim, so yes, a good scare and a good laugh are worth every gear. I'd have thought a priest of all people would know that laughter's a kind of medicine." } },
+      choices = {
+        { text = "Mischief has its place. Life's grim enough without it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "There are better uses for your skill than frightening goblins.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Gnomeregan's gone, half my friends are sleeping in Ironforge's spare rooms, and the whole world's gone grim, so yes, a good scare and a good laugh are worth every gear. I'd have thought a priest of all people would know that laughter's a kind of medicine." } },
+      choices = {
+        { text = "Mischief has its place. Life's grim enough without it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "There are better uses for your skill than frightening goblins.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Gnomeregan's gone, half my friends are sleeping in Ironforge's spare rooms, and the whole world's gone grim, so yes, a good scare and a good laugh are worth every gear. I'd have thought a priest of all people would know that laughter's a kind of medicine." } },
+      choices = {
+        { text = "Mischief has its place. Life's grim enough without it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "There are better uses for your skill than frightening goblins.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Do you think the spirits would mind a mechanical yeti? I'd hate to offend the snow, because it's been so good to me." },
@@ -216,6 +315,12 @@ P:NPC {
           text = "Yeti parts, real fur and real horns! The mechanical bits I've got already, so bring me the rest and we'll make a monster." },
         { id = "h_own", when = { questActive = TODO_QUEST("A Yeti of Your Own") },
           text = "An engineer who wants a yeti of their own? Oh, you have good taste. Let me show you how it's done." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! Don't bless the yeti, please, because I've no idea what holy water does to clockwork, and I'd rather not find out before Legacki screams." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! Don't bless the yeti, please, because I've no idea what holy water does to clockwork, and I'd rather not find out before Legacki screams." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! Don't bless the yeti, please, because I've no idea what holy water does to clockwork, and I'd rather not find out before Legacki screams." },
       },
       again = {
         { id = "h_again", text = "More? Ooh, I love questions, because questions are how pranks start." },
@@ -229,6 +334,9 @@ P:NPC {
         { text = "A gnome scaring goblins? Count me in.", next = "gnome_um", when = { race = "Gnome" } },
         { text = "Why build a mechanical yeti at all?", next = "xmage", when = { class = "MAGE" } },
         { text = "Slip a part into someone's shop? Whose?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Is all this mischief really worth the trouble, Umi?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is all this mischief really worth the trouble, Umi?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is all this mischief really worth the trouble, Umi?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "I'll find parts.", next = "END", fx = { affinity = 2 } },
       },
     },

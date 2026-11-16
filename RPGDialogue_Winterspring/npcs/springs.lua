@@ -55,6 +55,33 @@ P:NPC {
         { text = "Let me think on it.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "I'd like tae think not, because they were peaceable enough before the firewater came, an' a sober furbolg's no' a bad neighbour. But some o' them have drunk so long they've forgotten what they were, an' I don't know if prayer or medicine reaches that far." } },
+      choices = {
+        { text = "Then we try. Whoever was turned can be turned back.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then stop the brewing, and the drinkers with it, quickly.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "I'd like tae think not, because they were peaceable enough before the firewater came, an' a sober furbolg's no' a bad neighbour. But some o' them have drunk so long they've forgotten what they were, an' I don't know if prayer or medicine reaches that far." } },
+      choices = {
+        { text = "Then we try. Whoever was turned can be turned back.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then stop the brewing, and the drinkers with it, quickly.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "I'd like tae think not, because they were peaceable enough before the firewater came, an' a sober furbolg's no' a bad neighbour. But some o' them have drunk so long they've forgotten what they were, an' I don't know if prayer or medicine reaches that far." } },
+      choices = {
+        { text = "Then we try. Whoever was turned can be turned back.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then stop the brewing, and the drinkers with it, quickly.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_lockcl", when = { class = "WARLOCK" },
@@ -71,6 +98,12 @@ P:NPC {
           text = "The High Chief knows who's behind it, an' he'll no' tell us kindly, so make him tell us anyway." },
         { id = "h_linken", when = { questActive = TODO_QUEST("It's a Secret to Everybody") },
           text = "A gnome's sword, found in a crater, an' ye want me tae temper it? Well, the springs are hot enough, so leave it with me." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest, an' in this cold! Ye'll want tae see the Winterfall, then, because whatever's in that firewater is eatin' 'em from the inside, an' it's a sorry thing tae watch." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest, an' in this cold! Ye'll want tae see the Winterfall, then, because whatever's in that firewater is eatin' 'em from the inside, an' it's a sorry thing tae watch." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest, an' in this cold! Ye'll want tae see the Winterfall, then, because whatever's in that firewater is eatin' 'em from the inside, an' it's a sorry thing tae watch." },
       },
       again = { { id = "h_again", text = "Aye? The spring's warm; take yer time." } },
       choices = {
@@ -81,6 +114,9 @@ P:NPC {
         { text = "A dwarf this far north? You and me both.", next = "dwarf_dn", when = { race = "Dwarf" } },
         { text = "Do you think the firewater is demonic?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Why sneak into the Winterfall camps?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Are the Winterfall beyond saving, Donova?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Are the Winterfall beyond saving, Donova?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Are the Winterfall beyond saving, Donova?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "I'll look into the furbolgs.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },

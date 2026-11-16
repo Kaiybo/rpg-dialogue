@@ -45,6 +45,60 @@ P:NPC {
         { text = "I'll keep that in mind.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Grazle has wondered that for many winters, and the shamans of the hold say the corruption is too deep in them now. Still, Grazle would be glad to be wrong, if a priest's prayers could bring even one of our cousins back." } },
+      choices = {
+        { text = "Every soul deserves a chance at mercy, even the Deadwood.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Some things can't come back, and ending them is the mercy.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Because most outsiders come to take, wood or furs or a short path through our tunnels, and they say whatever opens the door. Grazle would rather hear a hard truth spoken plainly than a soft lie, so speak plainly, paladin." } },
+      choices = {
+        { text = "I'll always speak plainly to the Timbermaw.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A soft word opens more doors than a hard truth.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Grazle has wondered that for many winters, and the shamans of the hold say the corruption is too deep in them now. Still, Grazle would be glad to be wrong, if a priest's prayers could bring even one of our cousins back." } },
+      choices = {
+        { text = "Every soul deserves a chance at mercy, even the Deadwood.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Some things can't come back, and ending them is the mercy.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Because most outsiders come to take, wood or furs or a short path through our tunnels, and they say whatever opens the door. Grazle would rather hear a hard truth spoken plainly than a soft lie, so speak plainly, paladin." } },
+      choices = {
+        { text = "I'll always speak plainly to the Timbermaw.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A soft word opens more doors than a hard truth.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Grazle has wondered that for many winters, and the shamans of the hold say the corruption is too deep in them now. Still, Grazle would be glad to be wrong, if a priest's prayers could bring even one of our cousins back." } },
+      choices = {
+        { text = "Every soul deserves a chance at mercy, even the Deadwood.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Some things can't come back, and ending them is the mercy.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Because most outsiders come to take, wood or furs or a short path through our tunnels, and they say whatever opens the door. Grazle would rather hear a hard truth spoken plainly than a soft lie, so speak plainly, paladin." } },
+      choices = {
+        { text = "I'll always speak plainly to the Timbermaw.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A soft word opens more doors than a hard truth.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The Timbermaw have shamans of their own, and Grazle knows the look, so you may stand a little closer than most outsiders." },
@@ -54,6 +108,18 @@ P:NPC {
           text = "You came up very quietly, rogue, but Grazle heard you anyway. A furbolg's ears are older than your tricks, and our doorway is guarded better than you might think." },
         { id = "h_default", text = "I am Grazle of the Timbermaw. Our cousins the Deadwood have taken the corruption into themselves, and they attack anyone who walks these woods, Timbermaw included." },
         { id = "h_cond", when = { class = "DRUID" }, text = "A druid, who knows the forest is sick. You will understand why the Timbermaw guard our door so closely." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest of the Alliance, Grazle thinks, with a healer's hands. The Timbermaw have little use for your temples, but Grazle has seen what the Deadwood do to a body, and healers are welcome near our door." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "Grazle sees a paladin, shining like the sun on snow. Your kind are loud and bright, but Grazle hears that you do not lie, and that is worth more at this door than any armour." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest of the Alliance, Grazle thinks, with a healer's hands. The Timbermaw have little use for your temples, but Grazle has seen what the Deadwood do to a body, and healers are welcome near our door." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "Grazle sees a paladin, shining like the sun on snow. Your kind are loud and bright, but Grazle hears that you do not lie, and that is worth more at this door than any armour." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest of the Alliance, Grazle thinks, with a healer's hands. The Timbermaw have little use for your temples, but Grazle has seen what the Deadwood do to a body, and healers are welcome near our door." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "Grazle sees a paladin, shining like the sun on snow. Your kind are loud and bright, but Grazle hears that you do not lie, and that is worth more at this door than any armour." },
       },
       again = {
         { id = "h_again1", text = "Grazle will hear another question, if it is a short one." },
@@ -67,6 +133,12 @@ P:NPC {
         { text = "The Circle hopes the furbolgs can be healed.", next = "druidg", when = { class = "DRUID" } },
         { text = "Did fel corrupt the Deadwood?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Has anyone ever sneaked into Timbermaw Hold?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Can the Deadwood be healed, Grazle, or only fought?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Why are honest outsiders so rare at Timbermaw Hold?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Can the Deadwood be healed, Grazle, or only fought?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Why are honest outsiders so rare at Timbermaw Hold?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Can the Deadwood be healed, Grazle, or only fought?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Why are honest outsiders so rare at Timbermaw Hold?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },
@@ -162,6 +234,33 @@ P:NPC {
         { text = "I'm sorry it's come to this.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Nafien buries what he can when the camps are quiet, because they were Timbermaw once and someone should remember it. The elders say it is foolish, since the corruption stays in the bones, but Nafien does it anyway." } },
+      choices = {
+        { text = "It isn't foolish. The dead deserve rest, whoever they were.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Burn them instead. Corruption shouldn't go back into the soil.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Nafien buries what he can when the camps are quiet, because they were Timbermaw once and someone should remember it. The elders say it is foolish, since the corruption stays in the bones, but Nafien does it anyway." } },
+      choices = {
+        { text = "It isn't foolish. The dead deserve rest, whoever they were.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Burn them instead. Corruption shouldn't go back into the soil.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Nafien buries what he can when the camps are quiet, because they were Timbermaw once and someone should remember it. The elders say it is foolish, since the corruption stays in the bones, but Nafien does it anyway." } },
+      choices = {
+        { text = "It isn't foolish. The dead deserve rest, whoever they were.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Burn them instead. Corruption shouldn't go back into the soil.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, and Nafien is glad of it, because a shaman knows a totem when he sees one, and the Deadwood carve theirs wrong now." },
@@ -171,6 +270,12 @@ P:NPC {
           text = "Nafien has met few mages, but he knows you throw fire and ice from far away. Against the Deadwood that is a good thing, because their claws are poisoned now." },
         { id = "h_default", text = "I am Nafien. The Deadwood keep their camps to the south of our hold, and every feather and totem they carry is a mark of the corruption in them. Bring them to me, and the Timbermaw will know whose side you stand on." },
         { id = "h_cond", when = { class = "HUNTER" }, text = "A hunter, good. The Deadwood are not beasts, but they hunt like beasts now, and you will know how to answer that." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest, Nafien thinks, and you will not like this hunt. Nafien does not like it either, but the Deadwood are past our shamans' help, and they have tried." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest, Nafien thinks, and you will not like this hunt. Nafien does not like it either, but the Deadwood are past our shamans' help, and they have tried." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest, Nafien thinks, and you will not like this hunt. Nafien does not like it either, but the Deadwood are past our shamans' help, and they have tried." },
       },
       again = {
         { id = "h_again1", text = "What else?" },
@@ -184,6 +289,9 @@ P:NPC {
         { text = "I'll track them for you.", next = "hunterq", when = { class = "HUNTER" } },
         { text = "Wouldn't it be kinder to drive the Deadwood off than kill them?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Is there any way to cure the Deadwood?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do the Timbermaw honour the Deadwood dead?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do the Timbermaw honour the Deadwood dead?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do the Timbermaw honour the Deadwood dead?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Good hunting, Nafien.", next = "END" },
       },
     },

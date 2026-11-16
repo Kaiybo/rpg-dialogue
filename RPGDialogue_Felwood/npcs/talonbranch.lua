@@ -52,6 +52,33 @@ P:NPC {
         { text = "I'll leave the well alone.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Holy is a priest's word, and I'm no priest, but the water remembers what the forest was before the demons came. That memory is worth more than any blessing I could give, and it's growing thin." } },
+      choices = {
+        { text = "Then it should be guarded above everything else here.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then pour it on the forest now, before it fades.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Holy is a priest's word, and I'm no priest, but the water remembers what the forest was before the demons came. That memory is worth more than any blessing I could give, and it's growing thin." } },
+      choices = {
+        { text = "Then it should be guarded above everything else here.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then pour it on the forest now, before it fades.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Holy is a priest's word, and I'm no priest, but the water remembers what the forest was before the demons came. That memory is worth more than any blessing I could give, and it's growing thin." } },
+      choices = {
+        { text = "Then it should be guarded above everything else here.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then pour it on the forest now, before it fades.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
@@ -63,6 +90,12 @@ P:NPC {
           text = "You're wondering about the hood, as everyone does. It keeps the ash off, and that's all, though people prefer a better story." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "The moonwell is brightest now, so look at it, and then look at the trees; that's the difference we're fighting for." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest, at the last clean moonwell. Whether you pray to Elune or the Light, your prayers are welcome here, so long as you say them quietly." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest, at the last clean moonwell. Whether you pray to Elune or the Light, your prayers are welcome here, so long as you say them quietly." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest, at the last clean moonwell. Whether you pray to Elune or the Light, your prayers are welcome here, so long as you say them quietly." },
       },
       again = { { id = "h_again", text = "What else?" } },
       choices = {
@@ -72,6 +105,9 @@ P:NPC {
         { text = "What does a druid learn here that she can't at home?", next = "lesson", when = { class = "DRUID" } },
         { text = "I mean the moonwell no harm. Why so wary?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Could the arcane help cleanse the moonwell's water?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Is the moonwell's water holy, the way a blessing is?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is the moonwell's water holy, the way a blessing is?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is the moonwell's water holy, the way a blessing is?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
