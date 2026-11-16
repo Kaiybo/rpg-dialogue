@@ -284,6 +284,15 @@ P:NPC {
         { text = "Let me ask something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Often enough that I keep bandages next to the bolts, and I sell more of them on race days. Gnome or goblin, they all come limping back to my stall with a scorched beard and a story, and most of them are back on the track by morning." } },
+      choices = {
+        { text = "Someone should set proper safety rules for that track.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let them race. A little danger is what makes it worth watching.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -292,6 +301,8 @@ P:NPC {
           text = "A mage! Don't go casting near my stock, friend, because the last mage who sneezed in here set off a crate of fuses and Pozzik's crew still blames me for the delay." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue! Are you working for the goblins or the gnomes? Because I've noticed the parts go missing whenever someone like you visits the track." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! Say a little prayer over the racers if you've got one spare, because they fly off that track at speeds the Light never had in mind." },
       },
       again = {
         { id = "h_again", text = "Anything else? The next race starts soon!" },
@@ -303,6 +314,7 @@ P:NPC {
         { text = "Which team will win?", next = "winner" },
         { text = "Do gnomes and mages often clash?", next = "xmage", when = { class = "MAGE" } },
         { text = "I'm not here to steal parts, Jinky.", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Do the racers get hurt often, Jinky?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },

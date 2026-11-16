@@ -32,6 +32,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      lines = { { id = "xma_default", text = "Will you? Will you really, all night? Because the last lamp went out in the fog, and that's when I saw them, and I haven't stopped seeing them since." } },
+      choices = {
+        { text = "Steady breaths, Jitters. Fear needs discipline.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Run if you must. Fear keeps you alive.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What did you see out there?", next = "saw" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "Then you're mad, or worse, and I don't want to know which. Please don't go near the Yorgen farm with that thing following you, because I can't take another shadow on that road." } },
+      choices = {
+        { text = "I'll keep it away from you, Jitters.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Shadows follow me. Get used to it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Why are you hiding?", next = "hiding" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "They call me Jitters, on account of the jitters, because I jump at things. You'd jump too, if you'd seen what I've seen in these woods." },
@@ -67,6 +83,8 @@ P:NPC {
         { text = "I could pray with you.", next = "pray", when = { class = "PRIEST" } },
         { text = "The Brotherhood doesn't forget deserters.", next = "rogue", when = { class = "ROGUE" } },
         { text = "I'm a druid. Not every beast in the woods is a monster.", next = "druid", when = { class = "DRUID" } },
+        { text = "Calm down, Jitters. I'll keep a light burning.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What you saw in the woods doesn't frighten me.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Stay safe, Jitters.", next = "END" },
       },
     },

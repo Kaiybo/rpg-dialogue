@@ -31,6 +31,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      lines = { { id = "xma_default", text = "Pillagers, they call them, with more fire than sense and a habit of singeing their own boots. I could tell you which of them matter, but nothing I know comes free." } },
+      choices = {
+        { text = "Name your price. Information is information.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll not trade favours with the Defias.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "What favour do you want?", next = "favor" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "Am I? Funny, I didn't think your sort had any light to stand in. Sit down, then, because anyone who frightens the Brotherhood is someone I might want to talk to." } },
+      choices = {
+        { text = "Talk, then, and I'll keep the dark off you.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "I'm no friend of the Defias or their shadows.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Who leads the Defias?", next = "leader" },
+      },
+    },
     druid_talk = {
       lines = { { id = "dt_default", text = "Generous, and probably true, but no. I've a few debts to settle before I go anywhere. When I'm ready to vanish, I'll manage it myself, thank you." } },
       choices = {
@@ -67,6 +83,8 @@ P:NPC {
         { text = "VanCleef's dead. I was there.", next = "vancleef", when = { deed = "dungeon:The Deadmines" } },
         { text = "The Defias drove my family off our farm.", next = "farm", when = { origin = "human_westfall_farmhand" } },
         { text = "You're not the only one who sits quietly and watches.", next = "nightelf", when = { race = "NightElf" } },
+        { text = "The Defias must have a spellcaster or two in their pay.", next = "xmage", when = { class = "MAGE" } },
+        { text = "You're in my light, Wiley.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Enjoy your corner.", next = "END" },
       },
     },

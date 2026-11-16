@@ -30,6 +30,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "Put down? I want them cured, not killed, if there is any cure to be had. If you're as good with poisons as you say, tell me what makes a bear foam and turn on its own cubs, for that is what I'm chasing." },
+      },
+      choices = {
+        { text = "I'll help you find a cure.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Some can't be saved. A quick end is mercy.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What's causing the madness?", next = "cause" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "I wondered the same, for there is old Highborne magic in every ruin along this coast. But this smells of fel, not arcane, and fel is worse." },
+      },
+      choices = {
+        { text = "Then I'll help you trace it to its source.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fel or arcane, I'd still want to study it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Why do you need them alive?", next = "alive" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -55,6 +75,8 @@ P:NPC {
         { text = "I've felt that sour note in bear form myself.", next = "druid_th", when = { class = "DRUID" } },
         { text = "Could my companion catch the sickness?", next = "hunter_th", when = { class = "HUNTER", pet = { named = true } } },
         { text = "I caught you a bear. What did you learn?", next = "caught", when = { questDone = TODO_QUEST("Plagued Lands") } },
+        { text = "I've poisons that could put a mad bear down quietly.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Could arcane magic be behind the bears' madness?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll see what I can do.", next = "END", fx = { affinity = 1, standing = { auberdine = 1 } } },
       },
     },
@@ -187,6 +209,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "They would, if I were not sitting on them, which I am, day and night. If you're so good at lifting, lift something from the Dark Strand and bring it to Delgren at Maestra's Post." },
+      },
+      choices = {
+        { text = "I'll bring it straight to Delgren.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll take it, and keep the best for myself.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Who are the Dark Strand?", next = "strand" },
+      },
+    },
+    xlock = {
+      lines = {
+        { id = "xwl_default", text = "I am sure you do, and that is exactly why Delgren would want you in irons rather than in his camp. If you want to be useful, tell me where they meet, and then go somewhere the Sentinels are not." },
+      },
+      choices = {
+        { text = "I'll tell you everything, and fight them too.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Their methods aren't wrong, only their masters.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Who are Delgren and his paladins?", next = "delgren_e" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -208,6 +250,8 @@ P:NPC {
         { text = "What do Auberdine's stores run short of?", next = "short" },
         { text = "My people sent those paladins. Do you trust us?", next = "human_e", when = { race = "Human" } },
         { text = "Are the Sentinels stretched as thin as Glynda says?", next = "thin_e", when = { heardLine = "glynda.h_default" } },
+        { text = "Your stores would be easy to lift, Sentinel.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "The Dark Strand deal with demons. I know how they think.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Elune keep you.", next = "END", fx = { standing = { auberdine = 1 } } },
       },
     },
@@ -309,6 +353,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "My hippogryphs carry anyone who pays and doesn't kick them, and they see everything, whatever the passenger would prefer. The Sentinels at Rut'theran ask me who flies, and I tell them." },
+      },
+      choices = {
+        { text = "Good. I've nothing to hide.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then I'll make sure they don't recognise me.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Are the flights safe?", next = "safe" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "Your spell takes you to the human cities and nowhere near the places that matter here, so I think you'll need my birds after all. They don't like the smell of magic much, so be gentle when you mount." },
+      },
+      choices = {
+        { text = "I'll be gentle with them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "They'll learn to like it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What are your birds like?", next = "birds" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -326,6 +390,8 @@ P:NPC {
         { text = "Is the flying safe these days?", next = "safe" },
         { text = "I've never ridden a hippogryph. Any advice?", next = "first", when = { race = { "Human", "Dwarf", "Gnome" } } },
         { text = "I could swim to Rut'theran in seal form, you know.", next = "druid_c", when = { class = "DRUID", minLevel = 16 } },
+        { text = "Do your hippogryphs carry passengers who'd rather not be seen?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "I could teleport home, but your birds are lovely.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Not today.", next = "END" },
       },
     },

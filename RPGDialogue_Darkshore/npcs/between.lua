@@ -18,6 +18,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "Too much, and not nearly enough to tempt a mortal like you, I hope. The Highborne who lived here poured their arcane into every stone, and the Deth'ryll satyrs are what comes of that hunger in the end." },
+      },
+      choices = {
+        { text = "Then I'll help you see it sealed away.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Knowledge shouldn't be left to satyrs.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What was the city like?", next = "city" },
+      },
+    },
+    xlock = {
+      lines = {
+        { id = "xwl_default", text = "Deal with them by the blade, or deal with them by bargain? I have watched the satyrs whisper to every traveler who comes too close, and I would not trust one of your trade not to listen." },
+      },
+      choices = {
+        { text = "I'll kill them, and listen to nothing.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "There's knowledge in their whispers, if you're careful.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What do the satyrs want?", next = "satyrs" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Asterion, and I watch over what is left of Bashal'Aran. The Deth'ryll satyrs crawl through these stones looking for old magic, and I mean to see that they find none of it." },
@@ -32,6 +52,8 @@ P:NPC {
         { text = "What was Bashal'Aran?", next = "city" },
         { text = "Do you send word to Auberdine?", next = "neighbors" },
         { text = "You're a druid, as I am. How do you bear it here?", next = "druid", when = { class = "DRUID" } },
+        { text = "What magic is left in Bashal'Aran?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Satyrs are demon-touched. I can deal with their kind.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },
@@ -101,6 +123,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "Anyone could, but who'd want old elven pots an' half a fossil? The elves, that's who, an' they're no' happy wi' a dwarf diggin' up their ancestors as it is." },
+      },
+      choices = {
+        { text = "I'll keep an eye on it for you.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Pots sell, Prospector. Mind your back.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What are you digging for?", next = "dig" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "Wards! So that's what gives me a nasty jolt every time I lift a stone. If ye can tell me which ones are safe tae shift, I'll stop losin' diggers tae their nerves." },
+        { id = "xma_gnome", when = { race = "Gnome" }, text = "Wards! A gnome would know, an' that'll be what gives me a nasty jolt every time I lift a stone. Tell me which ones are safe tae shift, an' I'll stop losin' diggers tae their nerves." },
+      },
+      choices = {
+        { text = "I'll mark the dangerous ones carefully.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let's break one and see what happens.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Is the dig dangerous?", next = "danger" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Remtravel's the name, prospector for the Explorers' League, and these old elven ruins are the finest dig I've had in years. If only I could remember where I left the bloody fossil." },
@@ -115,6 +158,8 @@ P:NPC {
         { text = "What does the Explorers' League want with Darkshore?", next = "league" },
         { text = "Isn't it dangerous out here alone?", next = "danger" },
         { text = "I'm from Ironforge, and I brought a pick.", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "Your dig's wide open. Anyone could walk off with your finds.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Elven ruins like these are full of old wards.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Good luck with the digging.", next = "END" },
       },
     },
@@ -183,6 +228,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "It has stood in that earth longer than your kingdom has had a name, and the land around it remembers violence. Your kind is curious about such things, I know, but the Glaive is not for curious hands." },
+      },
+      choices = {
+        { text = "I'll leave it be, Ancient.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Something that old should be understood.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What stirs at the Glaive?", next = "glaive" },
+      },
+    },
+    xlock = {
+      lines = {
+        { id = "xwl_default", text = "You could, and I think whatever stirs there would welcome you, which is why I do not want you near it. The Twilight cultists gather at the Glaive, and they would find one of your kind very useful." },
+      },
+      choices = {
+        { text = "Then I'll go and burn them out.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Perhaps they'd tell me something worth knowing.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Who keeps the grove with you?", next = "grove" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Onu, and I have kept this grove since the trees here were saplings. Something stirs at the Master's Glaive to the south, where the old blade fell, and I do not like the shape of it." },
@@ -197,6 +262,8 @@ P:NPC {
         { text = "Who are the other Ancients here?", next = "grove" },
         { text = "How old are you, Onu?", next = "time" },
         { text = "The Circle sends its respects, Ancient.", next = "druidq", when = { class = "DRUID" } },
+        { text = "The Master's Glaive must have been forged with great power.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Whatever stirs at the Glaive, I could find out.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I will leave you in peace.", next = "END" },
       },
     },
@@ -347,6 +414,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "That is a kind thought, and a strange one, though I don't think you could carry me far. Keep watch for the furbolgs while I walk, and if I nod off, a horn blown in my ear works better than a gentle shake." },
+      },
+      choices = {
+        { text = "I'll get you home safely, Kerlonian.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll watch the road, and help myself to what furbolgs drop.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Who is Liladris?", next = "liladris" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "Perhaps, but I am a druid, and the Dream is not something to fight with a spell. It calls to all of us who walked it, and I would rather wake slowly than be torn from it." },
+      },
+      choices = {
+        { text = "Then we'll do it your way.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Torn is better than lost forever.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Why can't you stay awake?", next = "sleep" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Kerlonian, and I'm meant to be on my way home to Auberdine and my love, Liladris. The trouble is that I keep falling asleep on the road, and the Dream doesn't want to let me go." },
@@ -361,6 +448,8 @@ P:NPC {
         { text = "Who is Liladris?", next = "liladris" },
         { text = "Is the road to Auberdine safe?", next = "road" },
         { text = "I've felt the Dream's pull, too.", next = "druidk", when = { class = "DRUID" } },
+        { text = "I could carry you home without waking you.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Couldn't a spell keep you awake?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Stay awake, Kerlonian.", next = "END" },
       },
     },

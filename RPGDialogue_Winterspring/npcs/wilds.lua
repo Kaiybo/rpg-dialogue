@@ -44,6 +44,15 @@ P:NPC {
         { text = "I'll keep my spells away.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Patience, seasons of it, culling the Winterfall and the Frostmaul giants and hunting meat for the cubs until the sabers know your scent. Some riders tire of it and leave, and I let them go, because a saber that is rushed will never truly carry you." } },
+      choices = {
+        { text = "Earned slowly is earned honestly. I'll do the work.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "There must be a quicker way to win a saber over.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -53,6 +62,8 @@ P:NPC {
         { id = "h_default", text = "I am Rivern Frostwind, and the Wintersaber Trainers raise the frostsabers of this valley. The Winterfall furbolgs and the cold give us trouble enough, and we don't hand a saber to anyone who hasn't helped us with both." },
         { id = "h_cond", when = { race = "NightElf" }, text = "A child of Elune, so you'll know what a wintersaber means to our people. They are not horses, and we do not sell them as horses." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the Circle, here in the frostsaber valley. The cubs know your kind by scent, I think, and they come to you more readily than to the Sentinels who train beside me." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, clad in steel, at the saber pens. My cats think you are a very strange sort of bear, so walk slowly until they know your scent." },
       },
       again = {
         { id = "h_again1", text = "What else? The cubs need feeding." },
@@ -66,6 +77,7 @@ P:NPC {
         { text = "My family rode sabers in the old days.", next = "elf", when = { race = "NightElf" } },
         { text = "Could a wintersaber be trained to hunt quietly?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why do the frostsabers distrust the arcane?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What does it take to earn a frostsaber's trust?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll leave you to your cats.", next = "END" },
       },
     },
@@ -160,6 +172,15 @@ P:NPC {
         { text = "I'll keep that in mind.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Firewater, and whatever poison is brewed into it, and the Winterfall drink it gladly because it makes them strong. Salfa remembers when they sang at the springs in the thaw, and now they only howl, and Salfa does not know which hurts more to hear." } },
+      choices = {
+        { text = "Then pray they remember the songs. I'll pray with you.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Memories won't stop claws. The mad ones must be put down.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_lockcl", when = { class = "WARLOCK" },
@@ -169,6 +190,8 @@ P:NPC {
         { id = "h_default", text = "I am Salfa, and I watch this end of the tunnel for the Timbermaw. The Winterfall furbolgs of this valley have gone the way of the Deadwood, and Salfa would see them stopped before the madness spreads further north." },
         { id = "h_cond", when = { class = "SHAMAN" }, text = "A shaman. The spirits here are cold and angry, and Salfa thinks you can feel it too." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "Salfa sees a druid, and Salfa is glad. The Cenarion Circle and the Timbermaw once spoke often, and Salfa thinks they should speak again now that the Winterfall have fallen." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "You carry a healer's calm, outsider, the kind Salfa knows from our own shamans. The Winterfall have no healers left, only madness, and Salfa would see that end." },
       },
       again = {
         { id = "h_again1", text = "Speak. Salfa is listening." },
@@ -182,6 +205,7 @@ P:NPC {
         { text = "I feel the spirits' anger here.", next = "shaman", when = { class = "SHAMAN" } },
         { text = "Do you think the Winterfall are tainted by demons?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Is there anything a quiet walker could do for the Timbermaw?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "What drove the Winterfall to madness, Salfa?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Stay warm, Salfa.", next = "END" },
       },
     },
@@ -647,6 +671,15 @@ P:NPC {
         { text = "Just a bowl, thanks.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "More than you'd think, half frozen and wearing the wrong boots, and I feed them first and ask for coin after, which my cousin says is no way to run a business. But nobody's buying soup if they're dead, are they, so I call it planning ahead." } },
+      choices = {
+        { text = "That's kindness, Himmik, whatever you like to call it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Smart planning. Charity's just an investment that pays later.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You'll be wanting something hot, I'll bet, because no spirit I ever heard of can make a stew in this cold." },
@@ -658,6 +691,8 @@ P:NPC {
           text = "A mage! Can you warm a pot with a spell? Everyone asks, and I keep forgetting to ask a mage myself." },
         { id = "h_default", text = "Himmik's the name, food and drink's the game, and in Everlook that's the most important trade there is. Everything I sell has to come over the pass or through the tunnels, so believe me, the prices are a bargain." },
         { id = "h_cond", when = { race = "Dwarf" }, text = "A dwarf! You'll want something that sticks to the ribs, and I've got a stew that'll hold up a mine shaft." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! Say a little grace over the soup, would you? Business has been slow, and I'll take any blessing I can get on the pot." },
       },
       again = {
         { id = "h_again1", text = "What else? The soup's getting cold." },
@@ -672,6 +707,7 @@ P:NPC {
         { text = "Do rogues eat much at your counter?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Does your soup feed demons, too?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Could I really warm your soup with magic?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do many come down off the mountain needing help?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Keep the soup warm.", next = "END" },
       },
     },

@@ -27,6 +27,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "They would, and that's exactly why I keep a ledger of every rider. If the watch comes asking who flew out of Menethil in a hurry, I'll tell them true, so I'd rather you didn't give me cause." },
+      },
+      choices = {
+        { text = "No cause from me, Shellei.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then I'll make sure the ledger's wrong.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What's the danger on the way?", next = "danger" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "I'll miss your conversation more, if you've any. Still, a spell won't show you the Wetlands in the morning with the mist on the marsh like milk, and I'd wager your teleport smells of singed hair." },
+      },
+      choices = {
+        { text = "Some things are worth doing the long way.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Life's too short to sit on a bird.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "How do the gryphons take the damp?", next = "damp" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -41,6 +61,8 @@ P:NPC {
         { text = "How do the gryphons cope with the damp?", next = "damp" },
         { text = "Is it dangerous flying over the Wetlands?", next = "danger" },
         { text = "How did a human come to keep dwarven gryphons?", next = "human" },
+        { text = "Your gryphons would make a fine getaway.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "I'll be teleporting soon. Will you miss my coin?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Thank you, Shellei.", next = "END" },
       },
     },
@@ -103,6 +125,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "Quieter? A gun's meant tae be loud, so every orc in the marsh knows a dwarf's havin' his say. If ye want quiet, buy a bow from somebody else, for I'll no' insult a good rifle by fittin' it wi' a muffle." },
+      },
+      choices = {
+        { text = "Loud has its uses. Show me what you've got.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Loud gets you killed. Quiet gets the job done.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Why a gun over a bow, then?", next = "bow" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "Fire near my powder? Ye'll do no such thing! I'll fight the rust wi' oil an' rags like a proper smith, an' ye'll keep yer sparks ten paces from my counter." },
+        { id = "xma_gnome", when = { race = "Gnome" }, text = "Fire near my powder, from a gnome? I've heard how Gnomeregan went, an' I'll no' have Menethil go the same way. I'll fight the rust wi' oil an' rags, thank ye." },
+      },
+      choices = {
+        { text = "Ten paces. Understood.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A little warmth never hurt anyone.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "How do you keep anything dry here?", next = "dry" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -119,6 +162,8 @@ P:NPC {
         { text = "How do you keep a gun dry here?", next = "dry" },
         { text = "Why stay in the Wetlands, then?", next = "stay" },
         { text = "Is a gun better than a bow?", next = "bow" },
+        { text = "A gun's too loud for my work. Got anything quieter?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "I could dry out your stock with a little fire.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Thanks, Murndan.", next = "END" },
       },
     },
@@ -179,6 +224,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "I stock the blasting kind for the gnomes, and you'd want the flash kind from somebody with a sharper smile than mine. I'll not ask what you're blowing up, so long as it isn't in Menethil." },
+      },
+      choices = {
+        { text = "Nothing in Menethil. You have my word.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Best you don't ask, then.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "How's business with the harbour?", next = "business" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "Not a thing, I'm sorry to say; the reagent sellers keep to Ironforge and Stormwind. Though I'll tell you, the gnome mages through here came out of Gnomeregan with nothing, and they've learned to make do." },
+        { id = "xma_gnome", when = { race = "Gnome" }, text = "Not a thing, I'm sorry to say, though you'd know better than me how your people manage. Most of the gnomes through here came out of Gnomeregan with nothing, and they've learned to make do with what's on my shelves." },
+      },
+      choices = {
+        { text = "Ironforge has what I need. I'll go properly.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll get by on my own wits, like they do.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Why sell here, of all places?", next = "why" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -195,6 +261,8 @@ P:NPC {
         { text = "Why sell engineering parts in a harbor town?", next = "why" },
         { text = "How does business go these days?", next = "business" },
         { text = "Where do the ships from here go?", next = "ships" },
+        { text = "Do you stock blasting powder? Flash powder, even?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do you sell anything for spellcasters?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Thanks, Neal.", next = "END" },
       },
     },

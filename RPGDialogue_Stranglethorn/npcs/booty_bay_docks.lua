@@ -63,8 +63,18 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Better, I'd say, because prayer lets you think you've done something, but the sea makes you sit and wait with nothing but your own thoughts for company. I've been waiting on these docks longer than most of the goblins have been alive, and I've learned more sitting still than most men learn walking." } },
+      choices = {
+        { text = "Patience and discipline, that's the whole of faith.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'd rather follow the tide wherever it takes me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Heming.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, by the tides! Sit down and hold this rod a moment, because I've always thought the Light must favor fishermen, seeing how much patience we need and how little we're paid for it." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Your folk know water better than most, so I'd wager you can tell a good fishing day before the fish can." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Say one for the fish, would you? They never get a word said for them, and I've eaten enough to owe them that." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. Keep your little fire-beast away from the water's edge; it boils my bait and puts the snappers off." },
@@ -88,6 +98,7 @@ P:NPC {
         { text = "I'm a fisherman myself.", next = "angler", when = { profession = "Fishing" } },
         { text = "Is fishing really like my line of work, Heming?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Have you ever seen magic used to fish, Heming?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Does the sea teach patience the way prayer does?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -342,8 +353,28 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Because the hunters who come through here need bows that won't fail them, and I'd rather they bought one from me than from some goblin who glues the joints. It's honest work in a dishonest town, and I find that worth the damp, most days." } },
+      choices = {
+        { text = "Honest work in a crooked place matters. Keep at it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Glue's cheaper. You'd earn more cutting corners like the rest.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Faith in the Light, no, but faith in people, yes, very hard some days, because I've watched good sailors sell their friends for the price of a drink. Still, every so often a hunter comes back to thank me for a bow that saved his life, and that does me for another month." } },
+      choices = {
+        { text = "People surprise you. Keep a little faith in them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Trust the bow, not the buyer. That's wisdom here.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Welcome, though I've little a priest would want, unless you've a prayer for this damp, because I oil every stave each morning and the jungle undoes it all by noon." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You won't want a bow, I expect, but come in all the same, because it's quieter in here than out there, and a quiet place is hard to find in Booty Bay." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'd know the spirits of the wood, then, so ask them to keep the damp out of my staves, because nothing else has worked." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Sit a moment out of the sun, friend; whatever you serve, I doubt it wants you fainting on my pier." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. I'll sell you a bow if you like, though I suspect your little friend does your shooting for you." },
@@ -367,6 +398,8 @@ P:NPC {
         { text = "Show me your bows.", next = "BUSINESS" },
         { text = "Why do you prefer bows to guns, Haren?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do you see bowmaking as a kind of art, Haren?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Why stay in a jungle that ruins your work, Haren?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you find it hard to keep faith in Booty Bay?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell.", next = "END" },
       },
     },

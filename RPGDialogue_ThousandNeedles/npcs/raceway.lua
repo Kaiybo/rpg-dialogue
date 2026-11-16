@@ -54,6 +54,15 @@ P:NPC {
         { text = "Let me ask something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Fair? I play to win, friend, and that's fairer than pretending you don't want to. The gnomes write long reports about honor and safety, and then they lose, so you tell me which of us has got it figured out." } },
+      choices = {
+        { text = "Winning by cheating isn't winning. Race them honestly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A race goes to the cleverest, not the nicest.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -75,6 +84,8 @@ P:NPC {
           text = "A rogue! You're not working for that gnome Fizzle, are you? Because if you are, I'll double whatever he's paying, and you can sabotage his car instead." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! Don't go telling Fizzle you've got spells, because he'll want to strap you to his car, and I'll want to strap you to mine first." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin at my raceway! Don't look at the gnomes' car like that, look at mine, because ours is the one built with real goblin genius." },
       },
       again = {
         { id = "h_again", text = "What else? Talk fast, the next heat's in ten minutes." },
@@ -93,6 +104,7 @@ P:NPC {
         { text = "Does Fizzle's team use magic on their car?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "I'm not here for sabotage, Pozzik.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Would magic make your car faster?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do you play fair against the gnomes, Pozzik?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good luck out there.", next = "END" },
       },
     },
@@ -242,6 +254,24 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Every single heat, and I've drawn up three hundred pages of safety improvements that Pozzik calls gnome nonsense. The goblins treat a crash like a party, but I've pulled drivers out of the wreckage, and there's nothing funny about it, not one bit." } },
+      choices = {
+        { text = "Keep pressing for safety. Every life matters, even a goblin's.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Racers know the risks. Let them crash if they want to.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I trust Pozzik to want to win more than anything else in the world, which isn't quite the same thing. Still, we built this raceway together, and when a car flips on the salt, he's the first one running to help, though I'd never tell him I noticed." } },
+      choices = {
+        { text = "Tell him so. A rival who respects you deserves honesty.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Keep it to yourself. Never give a goblin an edge.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -260,6 +290,10 @@ P:NPC {
           text = "A mage! Gnomes have studied the arcane as long as we've studied gears, you know, but on the track, engineering is king, and I'd thank you not to disagree." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock! Stand very still, please, because the last time a demon came near my car, it ate a valve and I had to rebuild the entire intake." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "Stand very still, priest, because that pipe is under pressure! There, now, hello, and if you happen to have any healing about you, Wizzle burned his hand on the manifold again this morning." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! Stand still, please, because plate armor and an open fuel line are a combination I've only seen once, and I'd prefer not to see it again." },
       },
       again = {
         { id = "h_again", text = "Yes? Yes? Quickly, the pistons are cooling!" },
@@ -276,6 +310,8 @@ P:NPC {
         { text = "Could a haste spell help your rocket car?", next = "x_mage", when = { class = "MAGE" } },
         { text = "Couldn't magic help your engines, Fizzle?", next = "xmage", when = { class = "MAGE" } },
         { text = "My demon wouldn't eat your car, Fizzle.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do you ever worry someone will die on your track?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you trust Pozzik to race honestly?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll stand very still. Goodbye.", next = "END" },
       },
     },

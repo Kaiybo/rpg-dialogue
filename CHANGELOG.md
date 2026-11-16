@@ -2,6 +2,21 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.46.0 (2026-11-16)
+Packs: 14 packs have new versions (`python3 tools/version.py` lists them). No new files in 0.46.0: /reload is enough if you have 0.39.0 or later.
+
+### Rogues, mages and warlocks from level 1
+- **The starting lands notice the three thinnest classes**: about 260 named people greet a rogue, mage or warlock as one, with a question to ask and something to argue about. Alliance: Westfall, Redridge, Duskwood, Loch Modan, the Wetlands, Teldrassil and Darkshore. Horde: the Barrens, Mulgore, Thunder Bluff, Orgrimmar, Tirisfal, Silverpine and the Undercity.
+- Kaldorei are wary of a human or gnome at the arcane and colder still to a warlock; tauren and orcs remember what fel magic cost them; the Forsaken talk about Dalaran, the Deathstalkers and the Scarlet Crusade. Thrall, Vol'jin, Cairne, Magatha, Baine and Sylvanas have lines too.
+- Alliance towns speak to Alliance rogues, mages and warlocks, Horde towns to the Horde's; Ratchet's goblins and a few Defias-side figures talk to either.
+
+## 0.45.0 (2026-11-16)
+Packs: 21 packs have new versions (`python3 tools/version.py` lists them). No new files in 0.45.0: /reload is enough if you have 0.39.0 or later.
+
+### Priests and paladins from 30 to 60
+- **Alliance priests and paladins get noticed where they were overlooked**: about 170 people in the 30-60 lands greet a priest or paladin as one, ask what the place needs from the Light, and have something to argue about: the Scourge and the dead in the Plaguelands, Southshore and Alterac, the Dark Irons in the Steppes and the Gorge, the Portal's scar at Nethergarde, Theramore and the swamp, Booty Bay and Nesingwary's camp, Desolace's demons, Gadgetzan and Steamwheedle Port, Feralas, Un'Goro, Felwood's corruption, Everlook, Azshara's ruins and the silithid at Cenarion Hold.
+- Goblins, the Argent Dawn, the Cenarion Circle, the Timbermaw and the Thorium Brotherhood talk to Alliance priests this way; Horde priests already had their own lines from 0.44.0.
+
 ## 0.44.0 (2026-11-16)
 Packs: 21 packs have new versions (`python3 tools/version.py` lists them). No new files in 0.44.0: /reload is enough if you have 0.39.0 or later.
 

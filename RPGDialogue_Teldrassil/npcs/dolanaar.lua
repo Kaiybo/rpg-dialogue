@@ -24,6 +24,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "Then you would see more than I have, for I watch openly and whatever does this waits until I am gone. Keep to the shadow of the trees near the well and stay until dawn, and tell me what comes to drink." },
+        { id = "xro_nightelf", when = { race = "NightElf" }, text = "You walk as the Sentinels' scouts do, and the shadows suit you. Keep to the trees beside the well and stay until dawn, and tell me what comes to drink." },
+      },
+      choices = {
+        { text = "I'll watch and report, and touch nothing.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If I catch it at the well, I'll end it there.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What is wrong with the wells?", next = "wells" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "I am sure you could, and that is little comfort to me. The moonwells are Elune's, and it was the Highborne's hunger for magic like yours that brought the Legion and broke the world, so forgive me if I would rather a druid looked first." },
+        { id = "xma_gnome", when = { race = "Gnome" }, text = "Your people never knew the Well of Eternity, so I will not lay its ruin at your feet. But the moonwells are Elune's, and I would rather no spell of yours touched them while a druid can look instead." },
+      },
+      choices = {
+        { text = "I understand. I'll keep my magic away from them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Fear of magic didn't save your Well either.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Which wells are affected?", next = "which" },
+      },
+    },
     warrior_c = {
       lines = {
         { id = "wc_default", text = "That's a warrior's answer, and some days it's the right one. But the sickness in these wells has no throat to cut yet, so carry the vial first, and keep the blade for whatever we find at the bottom of it." },
@@ -55,6 +77,8 @@ P:NPC {
         { text = "I can feel something in the water too.", next = "feel", when = { class = { "PRIEST", "DRUID" } } },
         { text = "I'll carry the vial.", next = "END", fx = { affinity = 1, align = { light = 1 } } },
         { text = "If something fouls the wells, I'll cut it down.", next = "warrior_c", when = { class = "WARRIOR" } },
+        { text = "I can watch the wells unseen and see who fouls them.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "I could sense what has tainted the wells.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Wells go stale, and I doubt the tree's in any danger.", next = "END", fx = { affinity = -1, align = { light = -1 } } },
       },
     },
@@ -136,6 +160,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      lines = {
+        { id = "xwl_default", text = "You know it, and I would very much like to know how. Fel is the Legion's mark, the thing that burned Hyjal, and yet if you can lead me to where it grows thickest, I will listen to you before I judge you." },
+      },
+      choices = {
+        { text = "I'll help you burn it out, and then I'll leave.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "It's power, druid. Fear won't keep it away.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What is driving the furbolgs mad?", next = "moss" },
+      },
+    },
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "They were our friends, and I would know what turned them before any more of them are killed. Get close to their camps and watch the shaman, for if something is whispering to them, it will be whispering there." },
+      },
+      choices = {
+        { text = "I'll only watch. They deserve a chance.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If the shaman's to blame, I'll remove him quietly.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Were they really your friends?", next = "friends" },
+      },
+    },
     hunter_a = {
       lines = {
         { id = "ha_default", text = "Rabid is the right word, and it grieves me to hear a hunter say it so easily. The Gnarlpine kept these woods with us for longer than you've been alive, so take what you must, but look at their eyes before you loose, and tell me what you see." },
@@ -169,6 +213,8 @@ P:NPC {
         { text = "Who are the sleeping druids?", next = "talon" },
         { text = "I can tell a sick beast from an angry one.", next = "druidtest", when = { class = "DRUID" } },
         { text = "I've hunted Gnarlpine. They fought like rabid wolves.", next = "hunter_a", when = { class = "HUNTER" } },
+        { text = "That fel moss. I know the stink of it.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "I could get close enough to the Gnarlpine to see what's turned them.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I'll look into it.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -343,6 +389,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "The Council does not deal in discretion, as a rule, but the forest sometimes must. Zenn Foulhoof is up to something in the wilds, and someone who goes unnoticed might learn what before he sees them coming." },
+      },
+      choices = {
+        { text = "I'll learn what I can and bring it straight to you.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll learn it, and decide what to do with it myself.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Who is Zenn?", next = "zenn" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "The Council of the Forest has very little to do with mages, and would prefer to keep it that way. You are a guest on Teldrassil, so walk gently, and if you must cast, cast at what attacks you and nothing else." },
+      },
+      choices = {
+        { text = "I'll respect the Council's wishes.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Magic isn't the Council's to ration.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What is the Council, exactly?", next = "council" },
+      },
+    },
     warrior_sy = {
       lines = {
         { id = "wsy_default", text = "The Council has no shortage of those, and most of them involve Zenn Foulhoof's errands or Denalan's lake, which the young ones avoid. Ask me for the dull orders, though, and I'll know you're serious." },
@@ -373,6 +439,8 @@ P:NPC {
         { text = "I'm an herbalist. What grows here?", next = "herbs", when = { profession = "Herbalism" } },
         { text = "I'll take on the Council's orders.", next = "END", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Give me the orders nobody else will take.", next = "warrior_sy", when = { class = "WARRIOR" } },
+        { text = "Have you any orders for someone discreet?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Does the Council have any work for a mage?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll help where I see a need, not where the Council points.", next = "END", fx = { align = { order = -1 } } },
       },
     },
@@ -442,6 +510,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "You are welcome to a bed, of course; I turn no traveler away. I ask only that you leave your spells at the door, for the old tree hears more than you would think, and Dolanaar remembers what spellcraft cost our people." },
+        { id = "xma_gnome", when = { race = "Gnome" }, text = "You are a long way from your mountain, and you are welcome to a bed. I ask only what I ask of every mage, that you leave your spells at the door, for Dolanaar remembers what spellcraft cost our people." },
+      },
+      choices = {
+        { text = "Of course. Your house, your rules.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My spells go where I go, innkeeper.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Who usually stays here?", next = "inn" },
+      },
+    },
+    xlock = {
+      lines = {
+        { id = "xwl_default", text = "I can see why. There is a smell on you of something that never grew on any tree, and my guests are kaldorei who remember Hyjal, so you may have the room at the end, and I'd be grateful if you were on the road by morning." },
+      },
+      choices = {
+        { text = "I'll leave quietly at first light.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Hyjal was long ago. The power is still useful.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What's on the road ahead?", next = "road" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -459,6 +548,8 @@ P:NPC {
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "How's the inn?", next = "inn" },
         { text = "Any word from the road?", next = "road" },
+        { text = "Is a mage welcome under your roof?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "I'll need a room away from the others.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Just rest, thank you.", next = "END" },
       },
     },
@@ -513,6 +604,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "Plenty, if you mean to sleep in the wild and wake up with your purse and your throat. A rogue's camp is a cold camp, with no smoke and no fire, and that is the first thing I would teach you." },
+      },
+      choices = {
+        { text = "Teach me properly. I'll do it your way.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll take the useful bits and leave the rest.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Why sleep outside at all?", next = "why" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "Simple until the spell runs dry or you're too tired to cast it, and then you'll wish you knew which stream runs clean. The forest gives water to anyone who knows how to ask, and it doesn't care if you're tired." },
+      },
+      choices = {
+        { text = "Then teach me the forest's way.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll trust my spells over a stream.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What else do you teach?", next = "teach" },
+      },
+    },
     hunter_ly = {
       lines = {
         { id = "hly_default", text = "Sleeps, maybe, but does she sleep well? Most hunters I meet curl up with their companions and wake stiff as a branch, so there's more to it than lying down in the leaves." },
@@ -541,6 +652,8 @@ P:NPC {
         { text = "Where have you camped?", next = "where" },
         { text = "I'm a cook. What can I bring to a camp?", next = "cook", when = { profession = "Cooking" } },
         { text = "A hunter sleeps outdoors already.", next = "hunter_ly", when = { class = "HUNTER" } },
+        { text = "I sleep light and move quietly. What else is there to learn?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "I can conjure water. Camping's simple for me.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Not now.", next = "END" },
       },
     },

@@ -33,6 +33,24 @@ P:NPC {
         { text = "Let me ask something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Ye'd be surprised, friend, because a brew is a living thing, and it sours the moment ye stop caring for it. I'm no priest, mind, but I say a word to the Light before I tap a new cask, and that's never done the ale any harm." } },
+      choices = {
+        { text = "Prayer belongs in a chapel, Gregan, not in a brew kettle.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Pray wherever you like. The Light hears a brewer too.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Wise? Probably not, friend, but the fruit grows where it grows, and the gordunni haven't found my camp yet. I keep my axe close and my fire small, and I say a word to the Light every night that the arrangement holds." } },
+      choices = {
+        { text = "A dwarf should never hide from ogres. Stand your ground.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If they come, bribe them with a cask. It's cheaper.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Gregan Brewspewer, brewer by trade and by calling! I came all the way to Feralas because the fruit and grain out here grow wilder than anything back in Dun Morogh, and wild makes for a grand ale." },
@@ -44,6 +62,10 @@ P:NPC {
           text = "Quiet boots in the jungle! Ye'd do well out here, friend, because the beasts of Feralas hear a dwarf coming a mile off, and I've the scars to prove it." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! Could ye chill a barrel for me? The heat in these woods spoils a good brew before it's half done, and I'd give my right arm for a cold cellar." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest of the Light, out in the jungle! Now there's a blessing I'll take, friend, because a brewer needs watching over his kegs as much as any soldier needs it over his shield." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin in the jungle! Put that hammer down a moment and have a mug, because even the Silver Hand stopped for an ale now and then, or so my grandda claimed." },
       },
       again = { { id = "h_again", text = "What else, friend? The mash won't stir itself." }, { id = "h_again2", text = "Ask away, I'm only half busy." } },
       choices = {
@@ -56,6 +78,8 @@ P:NPC {
         { text = "Is brewing worth all this danger?", next = "s_1" },
         { text = "Do you need something fetched quietly, Gregan?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I could chill your barrels, Gregan.", next = "xmage", when = { class = "MAGE" } },
+        { text = "Does the Light have any place in brewing, Gregan?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is it wise to brew alone with ogres in these hills?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -148,6 +172,15 @@ P:NPC {
         { text = "Something else, then.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Necessary is a strong word, friend, but those giants are pulling up the coast like weeds, and the shore's where I do my business. Besides, the zapper doesn't kill them, it shrinks them, and a shrunken giant is a lot easier to have a sensible conversation with." } },
+      choices = {
+        { text = "Mercy suits even giants. Better shrunk than slaughtered.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Shrinking them is too gentle. They've earned worse.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Zorbin Fandazzle, goblin of commerce and science, mostly commerce. The giants on these islands and shores have been tearing up the coast, and I've got a gizmo that'll do something about it." },
@@ -160,6 +193,8 @@ P:NPC {
           text = "A mage! Maybe you can tell me how this zapper works, because I've got no idea, and the instructions are somewhere at the bottom of the sea." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue! Perfect, because I need someone who can get close to a giant without being stepped on, and that's a rarer skill than you'd think." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! Great, because if my zapper goes off wrong again, I'm going to need someone who can grow my eyebrows back." },
       },
       again = { { id = "h_again", text = "What else? Clock's ticking." }, { id = "h_again2", text = "More questions? Sure, those are free." } },
       choices = {
@@ -173,6 +208,7 @@ P:NPC {
         { text = "Do the giants deserve this?", next = "s_1" },
         { text = "You don't know how your own device works?", next = "xmage", when = { class = "MAGE" } },
         { text = "Why not use your zapper yourself, Zorbin?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Is zapping the giants really necessary, Zorbin?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -257,6 +293,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Cruelly, and without need, which is what I cannot forgive. They starve them and beat them to make them savage, and the creatures that come out of those cages are wounded in ways no bandage reaches." } },
+      choices = {
+        { text = "Every creature that suffers deserves mercy. Those cages must open.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A beast is a beast. My mercy goes to people first.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Kindal Moonweaver. The Grimtotem have been trapping the wild creatures of Feralas and caging them, and I mean to see every one of them freed." },
@@ -265,6 +310,8 @@ P:NPC {
           text = "Do not come near the creatures, warlock, for they fear you more than they fear the Grimtotem. I can see it in their eyes when you pass." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue! Good, because the Grimtotem guard their cages closely, and I need someone who can open a lock before the guards notice." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest of the Light, so far from your own lands. The beasts in the Grimtotem cages don't know your faith or mine, but they know suffering, and I'd welcome any hands that would ease it." },
       },
       again = { { id = "h_again", text = "Ask, and speak gently; the creatures of these woods startle at loud voices." }, { id = "h_again2", text = "Ask, but quietly." } },
       choices = {
@@ -275,6 +322,7 @@ P:NPC {
         { text = "Should the Grimtotem be punished?", next = "s_1" },
         { text = "I mean the beasts no harm, Kindal.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How many creatures are caged in the compound?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "How do the Grimtotem treat the beasts they cage?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -349,6 +397,24 @@ P:NPC {
         { text = "Something else, please.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Restless spirits of the Highborne who will not admit they are dead, and satyrs who were once our own people, before they gave themselves to the demons. Eldre'Thalas is the worst of it, and no Sentinel walks near its walls without a prayer to Elune first." } },
+      choices = {
+        { text = "The tormented dead deserve release. I'll pray them to their rest.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Destroy them all. Ghosts and satyrs have earned no prayers.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Some would say they punished themselves, for the magic they loved is what destroyed them, and what is left of them still clings to it. I have walked those ruins, paladin, and I have pitied them as often as I have hated them." } },
+      choices = {
+        { text = "Justice can be tempered with pity, even for them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "They brought ruin on the world. Pity is wasted on them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Angelas Moonbreeze of Feathermoon Stronghold. While Shandris guards the island, I watch the mainland, especially the ruins where our ancestors' mistakes still linger." },
@@ -358,6 +424,10 @@ P:NPC {
           text = "A mage of the Alliance, here among the ruins of our own Highborne. Look well at what is left of Eldre'Thalas, friend, because it is what becomes of those who love magic more than their own people." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "Warlock. The satyrs of Eldre'Thalas were once kaldorei, before they bargained with powers very like your own, and I see them every time I look at you." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest of the Light. You'll find little of it in the old Highborne ruins across this land, because the magic that broke the world still festers there." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin. Your order knows what it is to see corruption rise from within its own ranks, so you may understand better than most what waits in the ruins of Eldre'Thalas." },
       },
       again = { { id = "h_again", text = "What else?" }, { id = "h_again2", text = "Speak, friend." } },
       choices = {
@@ -369,6 +439,8 @@ P:NPC {
         { text = "Should the ruins be studied or sealed?", next = "s_1" },
         { text = "Are there still Highborne within those ruins?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'm no satyr, Angelas.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What lingers in the Highborne ruins, Angelas?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Did the Highborne deserve what became of them?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell.", next = "END" },
       },
     },

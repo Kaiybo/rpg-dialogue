@@ -173,6 +173,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      lines = { { id = "xma_default", text = "Plenty, and every one of them thinks a lock is a puzzle to be solved with a fireball. Come back when you can open a door without leaving a scorch mark, and we'll talk." } },
+      choices = {
+        { text = "Fine. Finesse over force, then.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A scorched door opens just as well.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Who are you, really?", next = "who" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "No, friend, I work in shadows, and you work with the things that live in them, which is a different trade entirely. Mine leaves a man missing a purse, and yours leaves him missing a good deal more." } },
+      choices = {
+        { text = "Shadows are shadows. Don't be squeamish.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll not take anything from Lakeshire's folk.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "What do you teach down here?", next = "teach" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Lucius. I sit on these docks, I watch the boats, and if a certain sort of person comes along, I teach them something useful. You're not that sort, I'd guess, but I've been wrong." },
@@ -192,6 +208,8 @@ P:NPC {
         { text = "What do you make of Lakeshire?", next = "town" },
         { text = "Is opening other people's locks honest work?", next = "honest" },
         { text = "Gnomes build better locks than this.", next = "gnome", when = { race = "Gnome" } },
+        { text = "You train rogues. Ever met a mage worth his salt?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "We both work in the shadows, Lucius.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll leave you to your boats.", next = "END" },
       },
     },
@@ -301,6 +319,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "Really? Hilary says I'm the loudest boy in Lakeshire, so you'd have your work cut out. But if I could sneak, I'd creep up on the murlocs and get her necklace back myself!" } },
+      choices = {
+        { text = "Heroes don't sneak, Shawn. They stand tall.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Sneaking is how you win, Shawn.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What happened to the necklace?", next = "necklace" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "Yes! Can you do the one where water turns to ice? Because then I could walk right out on the lake and look for Hilary's necklace without getting wet." },
+        { id = "xma_gnome", when = { race = "Gnome" }, text = "You're hardly taller than me, and you can do magic? Can you do the one where water turns to ice, so I could walk right out on the lake and look for Hilary's necklace?" },
+      },
+      choices = {
+        { text = "Magic isn't a toy, Shawn. Study first.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "All right, but don't tell your mother.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Do you want to be a hero?", next = "hero" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -321,6 +358,8 @@ P:NPC {
         { text = "Catching anything?", next = "fish" },
         { text = "This is {pet}. Want to say hello?", next = "hunter", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "I'm a paladin. That's a sort of hero.", next = "paladin", when = { class = "PALADIN" } },
+        { text = "I could teach you to sneak, Shawn.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Want to see a spell, Shawn?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll keep an eye out for it.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -506,6 +545,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "Don't tempt me, friend, because I'd be first in line and Bailiff Conacher would be second. The Magistrate's ruled no ale till the road's clear, and I've got to live here after you've gone." } },
+      choices = {
+        { text = "Fair enough. Laws are laws.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Rules bend for ale, Wental.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Why no ale, then?", next = "noale" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "Does it now? Well, drink it quick, then, before it notices you. I've had stranger customers this month, though not many, and none of them complained about the cheese." } },
+      choices = {
+        { text = "Sorry. I'll keep it to myself.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A little sourness never killed anyone.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Who eats here these days?", next = "eaters" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Wental, bartender of the Lakeshire Inn, though I don't pour a drop of anything strong. Daniels has the barrels, I have the bread, and between us nobody goes hungry or thirsty, most weeks." },
@@ -523,6 +578,8 @@ P:NPC {
         { text = "A bartender without ale?", next = "noale" },
         { text = "Who eats here?", next = "eaters" },
         { text = "How's the town holding up?", next = "town" },
+        { text = "I know where a cask of ale might fall off a wagon.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "I'll take milk. Something about me sours it anyway.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Just the bread, thanks.", next = "END" },
       },
     },
@@ -596,6 +653,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      lines = { { id = "xma_default", text = "Reagents are herbs someone in Stormwind dried, put in a pretty bottle and charged you double for. Learn to pick your own, mage, and you'll never pay the Mage Quarter's prices again." } },
+      choices = {
+        { text = "The proper reagents come from proper shops.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll pick my own, then. Teach me.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "What grows around here?", next = "herbs" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "Some do, and I know which ones, and I don't pick them. Grave moss is for necromancers and fools, and Redridge has had enough of both since Morganth took that tower." } },
+      choices = {
+        { text = "Wise. Leave the grave moss in the ground.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Power grows where it grows, Alma.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Do you teach Martie?", next = "martie" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Alma Jainrose, and I teach herbalism to anyone who'll listen and a few who won't. Redridge grows more than people think, if the gnolls and the boars leave anything standing." },
@@ -611,6 +684,8 @@ P:NPC {
         { text = "What grows around Lakeshire?", next = "herbs" },
         { text = "Do you and Martie work together?", next = "martie" },
         { text = "Should herb lore be shared freely?", next = "share" },
+        { text = "Herbs are fine, but reagents are what I really need.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Some plants grow better where there's been death.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Thank you, Alma.", next = "END" },
       },
     },
@@ -692,6 +767,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "You could, and I'd be grateful, because I hate feeling eyes on my back while I'm hauling. Every night there's a fire on the far bank where there wasn't one before, and Oslow says not to look at it." } },
+      choices = {
+        { text = "I'll find who lit it, and quietly.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll stand guard here, where they can see me.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Is the work dangerous?", next = "danger" },
+      },
+    },
+    xmage = {
+      lines = { { id = "xma_default", text = "Could you? Then why have I been doing it with my back for eight months? Don't tell Oslow, because he'll have you on the payroll before supper." } },
+      choices = {
+        { text = "Honest labour builds a better bridge.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Work smarter, Trent. Spells beat backs.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What's Oslow like to work for?", next = "oslow" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Trent, one of Oslow's crew. The Blackrock knocked the bridge down, and we're putting it back up, one stone at a time, while the foreman tells us we're slow." },
@@ -709,6 +800,8 @@ P:NPC {
         { text = "What's Foreman Oslow like to work for?", next = "oslow" },
         { text = "Is the work dangerous?", next = "danger" },
         { text = "Should Stormwind pay you more for this?", next = "pay" },
+        { text = "The orcs watch your bridge. I could watch them back.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "I could lift that block with a spell.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Back to work with you.", next = "END" },
       },
     },

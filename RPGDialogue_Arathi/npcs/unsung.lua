@@ -28,8 +28,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "It is in my experience, because a blade asks ye tae cut, but a mace only asks ye tae stop somethin' that's comin' at ye, which suits the gentler sort. I've made maces for chaplains longer than ye've been alive, an' not one o' them ever complained o' the balance." } },
+      choices = {
+        { text = "A mace defends. I'll use it only when I must.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A weapon's a weapon. Hit hard and pray later.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Maces from my forge, for the most part, because the ogres' hides turn a poor blade an' the trolls' bones don't. Stromgarde's men fight for land their grandfathers held, an' I'd like them tae have the best steel I can give them when they go." } },
+      choices = {
+        { text = "Fighting for one's home is the most honorable cause there is.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Honor's a word kings use to send men to die.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, welcome! Ye'll want a mace, then, for every priest I knew in Ironforge carried one, an' a good weight in the hand does wonders for a sermon when the Witherbark aren't listenin'." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now there's a customer who knows what a hammer's for, an' ye'll forgive an old dwarf for lookin' at yer weapon before he looks at yer face." },
         { id = "h_default", key = true,
           text = "Jannos Ironwill, macecrafter. I came to Refuge Pointe to help the League of Arathor take the Highlands back, and since I'm too old to march with them, I make the maces they carry instead." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -48,6 +68,8 @@ P:NPC {
         { text = "Why does a dwarf care about Arathi?", next = "dwarf" },
         { text = "Why aren't Stromgarde's soldiers carrying enchanted maces?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do the Syndicate use rogues of their own?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Is a mace really a priest's weapon, Jannos?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What do the soldiers of Refuge Pointe carry into battle?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Not today.", next = "END" },
       },
     },

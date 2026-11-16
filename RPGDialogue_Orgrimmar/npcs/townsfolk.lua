@@ -35,6 +35,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Never, and I've watched plenty of quick fingers walk past my counter. The vaults of Orgrimmar are cut into the mountain, and the grunts at the door have orders that don't involve asking questions." },
+      },
+      choices = {
+        { text = "Good. A bank should be safe for all of the Horde.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Every vault has a weakness. Someone will find it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Has anyone ever tried to rob you?", next = "rob" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "The Warchief doesn't like wards he can't see, and neither do I. Iron, stone and grunts who don't drink on duty have served this bank well enough, and I'll keep it that way." },
+      },
+      choices = {
+        { text = "Iron and stone, then. Fair enough.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Wards would serve you better than tired grunts.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "How can every bank reach the same vault?", next = "vault" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Karus, of the bank of Orgrimmar. Whatever you leave with me stays locked away until you come for it, and you can reach the same vault from any bank in the Horde." },
@@ -52,6 +74,8 @@ P:NPC {
         { text = "How can every bank reach the same vault?", next = "vault" },
         { text = "What do orcs keep in a bank?", next = "keep" },
         { text = "Has anyone ever tried to rob you?", next = "rob" },
+        { text = "Ever lost a deposit to someone with quick fingers, Karus?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "A mage could guard your vaults with wards, Karus.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Nothing today, Karus.", next = "END" },
       },
     },
@@ -126,6 +150,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "If they do, I don't know about it, and I'd rather not know, because the deposit is the same either way. But the Warchief's guards read the lists, so if you're thinking of selling something with somebody else's name scratched on it, you'd best scratch harder." },
+      },
+      choices = {
+        { text = "Then I'll scratch harder. Good advice.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'd never sell stolen goods here.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "What sells best in Orgrimmar?", next = "sells" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Conjured water fades away if you leave it too long, and nobody would pay for it anyway, so no, they don't. Mages sell cloth and the odd wand, and they complain about the deposit louder than any warrior, which surprises me every time." },
+      },
+      choices = {
+        { text = "The deposit is fair. Rules keep the house honest.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Your deposit is robbery with a gavel.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Why do I pay a deposit?", next = "deposit" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Auctioneer Thathung. You list your goods, other people bid, and the house takes a deposit and a cut. That's the whole of it, though you'd be amazed how many warriors want it explained twice." },
@@ -139,6 +185,8 @@ P:NPC {
         { text = "Why do I pay a deposit?", next = "deposit" },
         { text = "What sells best in Orgrimmar?", next = "sells" },
         { text = "How is this house different from Booty Bay's?", next = "neutral" },
+        { text = "Do stolen goods ever pass through your auction house?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Do mages sell their conjured water here?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -214,6 +262,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Once, and the wind rider brought him straight back here and dropped him in the Valley of Strength. They know their roosts better than any thief knows a road, and they won't fly anywhere they haven't been." },
+      },
+      choices = {
+        { text = "Clever beasts. I'd never try it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A good thief would steal the saddle instead.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Why can't I fly somewhere new?", next = "roosts" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "No, and thank the ancestors for that, because my wind riders would buck the whole sky to get it off. Send the thing away before you climb up, and call it back when you land." },
+      },
+      choices = {
+        { text = "As you say. The beasts come first.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "It's my demon. Your beasts should learn.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Where do the wind riders come from?", next = "beasts" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Doras. I keep the wind riders, and they'll carry you to the Crossroads, to Thunder Bluff, or anywhere else the Horde has a roost. Have you flown before, or will you be holding on with your eyes shut?" },
@@ -227,6 +297,8 @@ P:NPC {
         { text = "Where do the wind riders come from?", next = "beasts" },
         { text = "Why can't I fly somewhere new?", next = "roosts" },
         { text = "What about the zeppelins?", next = "zeppelin" },
+        { text = "Has anyone ever stolen one of your wind riders?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "My demon won't ride with me, will it?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -296,6 +368,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "A guild of anything can register, so long as it fights for the Horde and pays its fee. I've had warriors, shaman and once a band of goblin engineers, and I never asked what any of them did after dark." },
+      },
+      choices = {
+        { text = "Then we'll register properly, under the Warchief's law.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A thieves' guild should stay off your books.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What makes a good guild?", next = "good" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "There were warlocks in every clan, once, and the Shadow Council behind them all, whispering in the chieftains' ears. I record the new guilds so the Horde never again has a clan whose real masters hide in the dark, and I'll be watching yours." },
+      },
+      choices = {
+        { text = "Good. Openness keeps the Horde strong.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Some power is best kept in the dark.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What were the old clans like?", next = "clans" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Urtrun Clanbringer, and the Warchief has charged me with recording every new guild of the Horde. In the old days we had clans, and now we have guilds, but a band of warriors who share a name is a clan, whatever you call it." },
@@ -311,6 +405,8 @@ P:NPC {
         { text = "What were the old clans like?", next = "clans" },
         { text = "What makes a good guild?", next = "good" },
         { text = "I'm Frostwolf.", next = "frostwolf", when = { origin = "orc_frostwolf" } },
+        { text = "Could a guild of thieves register with you, Urtrun?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Were there warlocks in the old clans?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Farewell, Urtrun.", next = "END" },
       },
     },
@@ -394,6 +490,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Good, because I've got enough recruits waving their axes outside the Broken Tusk. Keep your knives hidden and your business quiet, and if I catch you cutting purses in the Drag, you'll find out how little I care for quiet work." },
+      },
+      choices = {
+        { text = "No purses will be cut, Overlord. You have my word.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "You'd have to catch me first, Overlord.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What trouble do you see in the city?", next = "trouble" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "It trains loud ones, and I've had to put out two fires in the Drag this month already. The trolls say it's all part of learning, and I say learning can happen outside the walls." },
+      },
+      choices = {
+        { text = "Fair. I'll practice outside the walls.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Learning needs room. The Drag can spare a little.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "How do I find my way around?", next = "around" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Overlord Runthak. I keep the peace in the Valley of Strength, which mostly means stopping new recruits from fighting each other outside the inn. What do you want?" },
@@ -409,6 +527,8 @@ P:NPC {
         { text = "Who was the city named for?", next = "name" },
         { text = "What trouble do you see in the city?", next = "trouble" },
         { text = "How do I find my way around?", next = "around" },
+        { text = "I keep my blades hidden in the city, Overlord.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "The Valley of Spirits trains good mages, Overlord.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Dismissed, Overlord.", next = "END" },
       },
     },
@@ -494,6 +614,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "They'd make terrible ones for you, because a wolf howls when it smells a stranger and goes quiet when it smells a friend. You'll have to earn their silence like any orc, by feeding them and never sneaking up on them." },
+      },
+      choices = {
+        { text = "I'll earn it honestly, then.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Silence can be bought with meat. I'll manage.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "How do you train a wolf to carry a rider?", next = "train" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "They don't fear them, they hate them, and they're right to. A wolf knows a thing that doesn't belong in the world before you do, so keep your demon away from my kennels, or I can't answer for what's left of it." },
+      },
+      choices = {
+        { text = "I'll keep it away. Your wolves are wise.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Your wolves will learn their place.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Have orcs always ridden wolves?", next = "history" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Ogunaro Wolfrunner, kennel master. I raise the wolves the Horde rides to war, and every one of them was raised by my hand. Have you come to look, or have you come to buy?" },
@@ -512,6 +654,8 @@ P:NPC {
         { text = "How do you train a wolf to carry a rider?", next = "train" },
         { text = "Orcs have always ridden wolves, haven't they?", next = "history" },
         { text = "My companion is a wolf too.", next = "hunter", when = { class = "HUNTER", pet = { family = "Wolf" } } },
+        { text = "Your wolves would make good lookouts for a rogue.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Do your wolves fear demons, Ogunaro?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I'll come back.", next = "END" },
       },
     },
@@ -581,6 +725,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Patience, aye, though a fish doesn't hold a grudge when you catch it. I learned to fish in the internment camps, from an old orc who said the river was the one thing the humans couldn't lock up, and I've been patient ever since." },
+      },
+      choices = {
+        { text = "Then let patience bring peace, not just prey.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Patience is a weapon, and I use it like one.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Why did you take up fishing?", next = "why" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "You could, and you'd scare off every fish from here to Razor Hill. Fishing's about letting the river come to you, and no spell has ever caught a fish worth eating." },
+      },
+      choices = {
+        { text = "Then I'll learn the old way, with a pole.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Frozen fish are still fish. I'll take the shortcut.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Where's good fishing near Orgrimmar?", next = "where" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Lumak. I teach fishing, though most orcs who walk past me think it's a job for peons. Then they spend a week in the Barrens with nothing but dry jerky, and they come back asking for a pole." },
@@ -594,6 +760,8 @@ P:NPC {
         { text = "Where's good fishing near Orgrimmar?", next = "where" },
         { text = "Why did you take up fishing?", next = "why" },
         { text = "Fishing is a waste of a warrior's time.", next = "waste" },
+        { text = "Fishing teaches patience, Lumak. So does my trade.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "I could freeze the river and pick the fish out.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Farewell, Lumak.", next = "END" },
       },
     },
@@ -746,6 +914,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "I can forge a blade for anyone, but quiet is a smith's least favourite word, because a good blade rings. Show me your dagger and I'll tell you if it's honest, though I'll warn you I'm hard on daggers." },
+      },
+      choices = {
+        { text = "An honest blade suits me. Let it ring.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Honest blades get noticed. I want mine silent.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What makes a good weapon?", next = "weapon" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "I forge for the Horde, and some of the Horde are warlocks, so yes, though I don't like it. I remember what the old Horde's smiths were asked to make for the warlocks' rites, and I'll never put my hammer to that kind of work again." },
+      },
+      choices = {
+        { text = "Good. Honest steel, for honest work.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Steel is steel. Your scruples won't stop me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "How did orcs learn to smith?", next = "history" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Saru Steelfury. I teach smithing at these forges, and everything the Grunts on the walls carry was hammered here. Do you want to learn, or have you only come to watch?" },
@@ -759,6 +949,8 @@ P:NPC {
         { text = "What makes a good weapon?", next = "weapon" },
         { text = "How did orcs learn to smith?", next = "history" },
         { text = "What do you think of dwarven steel?", next = "dwarves" },
+        { text = "Can you forge a blade that's quiet in the sheath?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Do you forge for warlocks, Saru?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Farewell, smith.", next = "END" },
       },
     },
@@ -828,6 +1020,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Depends on who's paying, pal! Magic's flashy, sure, but my gadgets don't need a nap after every fight, and when they blow up, at least they do it on purpose most of the time." },
+      },
+      choices = {
+        { text = "Magic wins. Your gadgets explode too often.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Fair. A good machine is reliable.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Is engineering dangerous?", next = "danger" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "Once, for a warlock who swore it was for his own safety, and the imp melted the lock in an afternoon. I don't build for demons anymore, pal, and not because of any scruples, but because they never pay for the damage." },
+      },
+      choices = {
+        { text = "Demons are tools. They just need better cages.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Wise. Some things shouldn't be summoned at all.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "What can an engineer make?", next = "make" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Nogg, engineer and proprietor! I teach engineering to anyone with the coin and the nerve, and the orcs here have plenty of nerve. Want to learn how to make things that go boom on purpose?" },
@@ -842,6 +1056,8 @@ P:NPC {
         { text = "Why does a goblin work in Orgrimmar?", next = "why" },
         { text = "Is engineering dangerous?", next = "danger" },
         { text = "What can an engineer make?", next = "make" },
+        { text = "Your machines or my magic. Which wins, Nogg?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Ever tried to build a cage for a demon, Nogg?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Farewell, Nogg.", next = "END" },
       },
     },
@@ -917,6 +1133,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Quiet like a beast, maybe, but a beast don't steal, mon. The animals in my pens can smell a thief before he crosses the Drag, so if they start growling when you walk past, I'll know why." },
+      },
+      choices = {
+        { text = "They won't growl at me. I'm no thief.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then I'll stay downwind of your pens.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Do you speak to the beasts?", next = "speak" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "No, mon, I won't, and don't you ask me twice. A demon in my stables would set every beast screaming, and the loa would laugh at me for being so foolish." },
+      },
+      choices = {
+        { text = "Fair enough. It stays with me.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Your beasts should get used to it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What's the strangest beast you've kept?", next = "strange" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Xon'cha, and I keep the stables. You leave your beast with me and it be fed, brushed and talked to every day until you come back for it. Most hunters forget the talkin', but I don't." },
@@ -930,6 +1168,8 @@ P:NPC {
         { text = "Do you speak to the beasts?", next = "speak" },
         { text = "What's the strangest beast you've kept?", next = "strange" },
         { text = "How did a troll end up in Orgrimmar?", next = "troll" },
+        { text = "I'm quiet like a beast in the grass, Xon'cha.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Could you stable my demon, Xon'cha?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Farewell, Xon'cha.", next = "END" },
       },
     },

@@ -31,6 +31,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "That's no small offer. The Dragonmaw watch the road through Dun Algaz an' they've taken two o' my runners this month, so if ye can get through unseen, ye'll be worth more tae me than a squad." },
+      },
+      choices = {
+        { text = "Your letters will get there unread.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll get through. What's in the letters is worth something too.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What's happening at Algaz?", next = "algaz" },
+      },
+    },
+    xlock = {
+      lines = {
+        { id = "xwl_default", text = "Do ye now? Then ye know what they did wi' it in the last war, an' ye'll forgive me if I don't care tae hear how ye learned it. Take yer knowledge north an' turn it on them, an' I'll judge ye by where the bodies fall." },
+      },
+      choices = {
+        { text = "I'll use it to end theirs, nothing more.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Their power can serve better hands than theirs.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What should be done about the Dragonmaw?", next = "dragonmaw" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Aye, in the Second War, alongside some o' the night elves' wild friends, though there were few enough o' them then. They fought for the forests while we fought for the hold." } },
       choices = {
@@ -64,6 +84,8 @@ P:NPC {
         { text = "How should we deal with the Dragonmaw?", next = "dragonmaw" },
         { text = "I came through Algaz. It's bad.", next = "through", when = { questDone = TODO_QUEST("The Algaz Gauntlet") } },
         { text = "Send me to Algaz, Ironjaw. I'll hold the pass.", next = "xwarrior", when = { class = "WARRIOR" } },
+        { text = "I can carry your reports where the road's cut.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "The Dragonmaw are orcs. I know their old magic.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -167,6 +189,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "Can ye? Then go, please, an' look for Merrin; she'll be the one arguin' wi' Whelgar about where tae dig next. An' if she's not there, I'd still rather know than keep waitin'." },
+      },
+      choices = {
+        { text = "I'll find her, Tarrel, and tell you the truth.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If anyone's hurt her, they'll never see me coming.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What is Merrin digging for?", next = "dig" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "Burn them, then, every last one, an' I'll not shed a tear. Only mind the diggers, for Merrin'll be in the thick o' it, she always is." },
+      },
+      choices = {
+        { text = "The diggers come first. The raptors can wait.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Every raptor in those hills will burn for this.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What's Merrin like?", next = "merrin" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -189,6 +231,8 @@ P:NPC {
         { text = "Why not go yourself?", next = "go" },
         { text = "When will the killing end, do you think?", next = "killing", when = { questDone = TODO_QUEST("In Search of The Excavation Team") } },
         { text = "Dwarves don't leave kin in the marsh, Tarrel.", next = "xdwarf", when = { race = "Dwarf" } },
+        { text = "I can reach the dig without the raptors smelling me.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "If the raptors trouble the dig, they'll burn.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I hope she writes soon.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -386,6 +430,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "A cut! I'm wounded, friend, truly. The fare's the captain's and the passage is your own affair, and I only point the way to Auberdine and let the land sell itself." },
+      },
+      choices = {
+        { text = "Fair enough. It's an honest trade.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Every pitch has an angle. I'd like in on yours.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What's dangerous over there?", next = "kalimdor_danger" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "Despise is a strong word, but I'd not wave a wand around Auberdine, no. Their old queen and her court tore the world in half with magic, so they say, and the elves have long memories, being as they live forever." },
+      },
+      choices = {
+        { text = "Then I'll respect their ways while I'm there.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Their fear is no reason to hide what I am.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What's Kalimdor like?", next = "kalimdor" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -403,6 +467,8 @@ P:NPC {
         { text = "Why don't you go to sea yourself?", next = "sea" },
         { text = "Is it right to send folk away from home?", next = "away" },
         { text = "Kalimdor is my home, sailor.", next = "xnightelf", when = { race = "NightElf" } },
+        { text = "You sell Kalimdor like a man with a cut of the fare.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Is it true the night elves despise magic?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Maybe someday.", next = "END" },
       },
     },
@@ -491,6 +557,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "Do they? Then burn the lot, an' if ye find my bag inside one, try not tae burn that too. There's things in it I'd not get back again for any price." },
+      },
+      choices = {
+        { text = "I'll bring the bag back unopened.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll bring it back, though I'll want a look inside.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What's in the bag?", next = "bag" },
+      },
+    },
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "Quick fingers in an ooze? Ye'd lose them tae the bone, an' it'd serve ye right for tryin'. Kill the thing first an' then go rummagin', an' wash yer hands after." },
+      },
+      choices = {
+        { text = "I'll do it your way, Sida.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll do it my way, and it'll be quicker.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Who's buried in the tomb?", next = "tomb_who" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -508,6 +594,8 @@ P:NPC {
         { text = "Which ooze took it?", next = "ooze" },
         { text = "Do you have family here?", next = "family" },
         { text = "My pet could sniff out which ooze took it.", next = "xhunter", when = { class = "HUNTER", pet = { type = "Beast" } } },
+        { text = "Oozes burn nicely, if you know the spell.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "I could fish your bag out of the ooze. Quick fingers.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I'll keep an eye out.", next = "END" },
       },
     },
@@ -596,6 +684,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "Ha! I suppose not, though the fish don't call the watch when you've got them. Patience is patience, whatever you're catching, and most folk haven't got any." },
+      },
+      choices = {
+        { text = "Patience is a virtue. I'll keep it honest.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Patience, and a fish that never sees the hook.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What's in the wrecks out there?", next = "wrecks" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "Conjured bread fills you, I'll grant you, but it's no better than a meal you dreamt. A fresh cod out of Menethil Bay on a hot pan is a thing you remember, and you'd know it if you'd ever tasted one." },
+      },
+      choices = {
+        { text = "There's worth in the old ways. Teach me.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Conjured bread does me fine, thanks.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What's biting this season?", next = "catch" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Harold Riggs. I teach fishing, and talk about it, and occasionally catch something. Menethil's a fine harbour for fish, if you can stomach the rain and the wrecks." },
@@ -609,6 +717,8 @@ P:NPC {
         { text = "What wrecks?", next = "wrecks" },
         { text = "What's good to catch here?", next = "catch" },
         { text = "Do the murlocs bother you?", next = "murlocs" },
+        { text = "Patience and a quiet step. Fishing's not so different from my trade.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "I can conjure food. Why fish at all?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Good fishing.", next = "END" },
       },
     },
@@ -674,6 +784,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "Oh, the best stories always come with that condition! A minstrel's discretion is worth more than his voice, so tell me, and I'll change the names and make you three inches taller." },
+      },
+      choices = {
+        { text = "Tell it true, names aside.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Tell it however earns the most coin.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What do you sing about, mostly?", next = "subjects" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "There were, and some of them were even flattering! Most of them now are about Antonidas and the day the city fell, and I don't sing those in a harbour full of Lordaeron's refugees unless somebody asks." },
+      },
+      choices = {
+        { text = "Sing them true, even if it hurts.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Sing something kinder. The truth can wait.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Is there any truth in your songs?", next = "truth" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Camerick Jongleur, wandering minstrel, though I've not wandered in a while. Raptors to the east, orcs to the north, Dark Irons on the bridges, so I'm wandering in a very small circle around Menethil." },
@@ -690,6 +820,8 @@ P:NPC {
         { text = "What do you sing about here?", next = "subjects" },
         { text = "Should a song tell the truth?", next = "truth" },
         { text = "Here's a hymn you could learn.", next = "hymn", when = { class = "PRIEST" } },
+        { text = "I've a story for your songs, if you leave out my name.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "I studied at Dalaran. There must be songs about it.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Some other time.", next = "END" },
       },
     },
@@ -771,6 +903,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "Quiet, is it? Every horse I breed is steady, so it won't startle at a raptor or a thunderclap, but none of them will tiptoe for you. If you need to go unheard, friend, I'd suggest you walk." },
+      },
+      choices = {
+        { text = "Steady and honest, then. That's good enough.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A horse that keeps its mouth shut suits me.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Who buys from you?", next = "buyers" },
+      },
+    },
+    xlock = {
+      lines = {
+        { id = "xwl_default", text = "I've heard what you lot ride, with the burning hooves and the eyes like coals, and I'll say only that no horse of mine would stand in a stable beside it. Keep it well away from my paddock if you ever get one." },
+      },
+      choices = {
+        { text = "Fair. I'd not frighten your herd.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Mine will never tire. Yours will.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Is the trade fair, though?", next = "fair" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Unger Statforth, horse breeder. Years of careful breeding and plenty of care, and I've the privilege of showing you the results. A horse is a companion for life, friend, so don't choose in a hurry." },
@@ -786,6 +938,8 @@ P:NPC {
         { text = "Why so particular about buyers?", next = "buyers" },
         { text = "How do horses fare in the Wetlands?", next = "wetlands" },
         { text = "Is it fair, selling only to some?", next = "fair" },
+        { text = "A quiet horse is worth more to some of us.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "I'll have a mount of my own in time, I'm told.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },

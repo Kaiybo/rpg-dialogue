@@ -35,6 +35,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Then we were taught by the same teacher, though yours lived in the shadows and mine lived in the tall grass. A lion waits in the grass until the zhevra forget it, and I suspect you wait in the dark for much the same reason, so remember that the lion only takes what it needs." },
+      },
+      choices = {
+        { text = "I'll take only what I need, as the lion does.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A good hunter takes everything it can carry.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What does a hunter learn first?", next = "first" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "They are uneasy, because the arcane smells strange to them, the way the air does before a storm. Tauren have always been wary of that kind of power, so do your casting away from the herds, and the beasts will learn to forgive you in time." },
+      },
+      choices = {
+        { text = "I'll keep away from the herds. They have their ways.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The beasts will just have to get used to me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What's the first thing a hunter learns?", next = "first" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -57,6 +79,8 @@ P:NPC {
         { text = "My people hunted with spears and voodoo, not patience.", next = "troll", when = { race = "Troll", class = "HUNTER" } },
         { text = "The skies of my home had beasts too.", next = "skyborne", when = { race = "Skyborne", class = "HUNTER" } },
         { text = "Do you teach druids, or only hunters?", next = "druid", when = { class = "DRUID" } },
+        { text = "Stillness is my first lesson too, teacher.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "The beasts seem uneasy when I cast near them.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Thank you, teacher.", next = "END" },
       },
       again = {
@@ -160,6 +184,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "*snort* Then do it, and Mangletooth will run, and the tauren guards will chase you instead of him. But you won't, because the little mage is only talk, like the geomancers of the Razormane who make the earth rumble and still lose to tauren spears." },
+      },
+      choices = {
+        { text = "Maybe I will, if you make it worth my while.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "You'll stay in that cage where the Horde put you.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Who is this Agamaggan you keep mentioning?", next = "agamaggan" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "*snort* The fire-thing you carry stinks worse than a Bristleback, and Agamaggan's children kneel to nothing. Mangletooth knows what such things are, because they always want something, and they always come back for it." },
+      },
+      choices = {
+        { text = "Everything kneels eventually, quilboar, even your god.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then we agree on one thing. Demons can't be trusted.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Why would you help us at all?", next = "why" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -179,6 +225,8 @@ P:NPC {
         { text = "Who is Agamaggan?", next = "agamaggan" },
         { text = "That lock wouldn't take me long to pick.", next = "rogue", when = { class = "ROGUE" } },
         { text = "I'm tauren. Why should I help you?", next = "tauren", when = { race = "Tauren" } },
+        { text = "I could freeze that lock and shatter it, quilboar.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Your geomancers would kneel to my demon.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "You're not getting out of that cage.", next = "END", fx = { affinity = -1 } },
       },
       again = {
@@ -240,6 +288,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "They tell me you'd rather end a fight than win one, which is a different thing entirely. Plenty of orcs once called the dagger a coward's weapon, but I've seen what the Shattered Hand did with them, and nobody who saw that called them cowards twice." },
+      },
+      choices = {
+        { text = "Ending a fight fast is the only victory that matters.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'd still rather win it to their faces.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "What have you learned so far out here?", next = "learned" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "I will, and gladly, because a mage's staff tells me more than most swords. The wood is soft and the grip is worn where you rest on it, which means you lean on it to think and never mean to swing it, and that's the most honest weapon I've seen this week." },
+      },
+      choices = {
+        { text = "A mage needn't swing anything. Clever spells win wars.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'd swing it if I had to, face to face.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "What have you learned on your travels?", next = "learned" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -251,6 +321,8 @@ P:NPC {
         { text = "What have you learned so far?", next = "learned" },
         { text = "What does my weapon tell you about me?", next = "warrior", when = { class = "WARRIOR" } },
         { text = "A shaman's totems are made here too. Do you study them?", next = "shaman", when = { class = "SHAMAN" } },
+        { text = "Daggers. What do they tell you about me?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "I carry a staff and a wand. Write that down.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "I'll bring you something interesting.", next = "END", fx = { affinity = 2, trait = { curious = 1 } } },
       },
       again = {
@@ -313,6 +385,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Once, a young orc tried it, and the kodo herders caught him halfway to Bael Modan and walked him back to settle his bill. We keep no guard at the door because the whole camp is the guard, and you'd do well to remember it while you're under my roof." },
+      },
+      choices = {
+        { text = "Fair enough. I always settle my debts.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A good thief wouldn't get caught halfway.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What's life like here in Taurajo?", next = "camp" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "Your demon can wait outside where the hyenas can laugh at it. The tauren of Taurajo have heard what the Burning Blade did in Durotar, and I'll not have one of those things sitting by my hearth while the kodo herders eat, whatever the Warchief allows." },
+      },
+      choices = {
+        { text = "I'll leave it outside. Your hearth deserves that respect.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Where I go, it goes. The Warchief allows it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What's Taurajo like for travelers?", next = "camp" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -324,6 +418,8 @@ P:NPC {
       choices = {
         { text = "Do the hyenas' spirits trouble the camp at night?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What's Taurajo like?", next = "camp" },
+        { text = "Do travelers ever slip out of Taurajo without paying?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Is my demon welcome by your fire, Byula?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Just a rest, thanks.", next = "END" },
       },
     },

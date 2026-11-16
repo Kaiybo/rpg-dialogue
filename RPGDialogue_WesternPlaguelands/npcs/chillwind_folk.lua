@@ -29,6 +29,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Some would like them to be, and some would rather forget the Silver Hand altogether, after how it ended. I don't take sides in that, because I keep the stores, and a plate of armour weighs the same whatever crest is painted on it." } },
+      choices = {
+        { text = "The Silver Hand's name should be carried with pride.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "New names for new times. The old order failed.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "It welcomes anyone who'll stand against the Scourge, and that's the whole point of us. A priest of Stormwind and a Forsaken apothecary have both bought holy water from my shelves, and the Dawn doesn't ask which church they'd rather pray in." } },
+      choices = {
+        { text = "The Light should judge, not the Dawn. That's wise.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Faith should have rules. The Cathedral's order matters.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -39,6 +57,10 @@ P:NPC {
           text = "A mage, good, {class}, for I've a requisition here asking for frost-proof crates, and I've no idea what that means or who thought of it." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "Before you ask, {class}, everything on my shelves is counted twice, and the count is written in a ledger nobody but me can read. I find it saves time." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest, and welcome, {class}. The Dawn takes its faith from the Cathedral and its funding from anyone kind enough to give it, and my ledgers know which is which." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! The Dawn has a great many knights who once wore the Silver Hand's tabard, and every one of them counts their supplies as carefully as I do, or I make them." },
       },
       again = {
         { id = "h_again", text = "What else can the Dawn's quartermaster do for you today?" },
@@ -51,6 +73,8 @@ P:NPC {
         { text = "Do the Dawn's goods come cheap?", next = "price" },
         { text = "What does a mage get from the Dawn's quartermaster?", next = "xmage", when = { class = "MAGE" } },
         { text = "Does the Dawn trust rogues as far as paladins?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Does the Dawn welcome priests of the Cathedral, Quartermaster?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Are the Dawn's knights the Silver Hand by another name?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -128,6 +152,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Saddles and sword belts, every year before the plague, and they paid on the nail and never haggled, which I can't say for this lot. I made Uther a belt once, and I don't know where it lies now, but I hope it's with him." } },
+      choices = {
+        { text = "He'd want it on a knight still fighting, not in a grave.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then it's where it belongs, with an honoured man.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "One of the chaplains tried, and it did some good, I'll grant him, but I still wouldn't make boots out of it. I burn what's tainted and say a word over the smoke, which is the closest I come to praying these days." } },
+      choices = {
+        { text = "Prayer and fire together. That's the right way here.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Burn it all and save the prayers for people.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -136,6 +178,10 @@ P:NPC {
           text = "Felhunter hides make poor leather, {class}, so don't ask, and keep that thing away from my drying racks." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "You'll want soft leather for quiet boots, {class}, and I can tell by your walk you already know how to use them. Just don't bring me plagued hides." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! If you're heading into the fields, {class}, you'll want gloves, because a plagued hide can sicken you through a cut finger before you ever know it." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! I'll have a look at those gauntlet straps if you like, because the damp up here rots good leather faster than the ghouls do." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've hides soaking, and they won't wait long." },
@@ -148,6 +194,8 @@ P:NPC {
         { text = "Does a druid's fur bother you?", next = "druid", when = { class = "DRUID" } },
         { text = "Why are you so sure I'd ask?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Can you tell a plagued hide from a clean one?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Can the Light cleanse a plagued hide, Leonard?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Did the Silver Hand ever buy leather from you?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Goodbye.", next = "END" },
       },
     },

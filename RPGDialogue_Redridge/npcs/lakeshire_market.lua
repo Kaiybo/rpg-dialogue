@@ -102,6 +102,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "Then you'll find nothing for you here, because I don't sell boxes and I don't buy what's been in them. Honest ore is what Lakeshire needs, and Verner's forge is cold for want of it." } },
+      choices = {
+        { text = "Fair. I'll bring ore, not trinkets.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A cracked lockbox is honest enough for me.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Why is Verner so short of iron?", next = "verner" },
+      },
+    },
+    xmage = {
+      lines = { { id = "xma_default", text = "That's what they all say, until their robes need a clasp and their staff needs a ferrule and they're begging at the smith's door. Everything you carry was pulled out of a hill by somebody with a pick, mage." } },
+      choices = {
+        { text = "Fair point. I'll respect the craft.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll stick to spells and let others dig.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What ore do you buy?", next = "ore" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Karen Taylor. I sell what smiths and miners need, and mostly I sell it to Verner Osgood, who'd buy every bar of iron in Redridge if the Guard let him keep any of it." },
@@ -118,6 +134,8 @@ P:NPC {
         { text = "Is there ore in these hills?", next = "ore" },
         { text = "Where does your stock come from?", next = "stock" },
         { text = "I'm a smith myself.", next = "smith", when = { profession = "Blacksmithing" } },
+        { text = "I prefer lockboxes to ore, Karen.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Surely a mage has no use for a pick.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll be going.", next = "END" },
       },
     },
@@ -389,6 +407,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "Would you? There's a whole list, and I've stopped reading it out loud because Breanna cries. Most of them went east toward Render's Valley and never came back down." } },
+      choices = {
+        { text = "I'll look for them, Gretchen, as many as I can.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Lost soldiers have lost purses. I'll look.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "How bad is it for the soldiers?", next = "soldiers_dying" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "Some of them saw the Blackrock casters at Stonewatch, love, and they've nightmares still. Give them a nod and a kind word and they'll come round, because soldiers are softer than they look." } },
+      choices = {
+        { text = "I'll give them a kind word, then.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let them stare. I'm not here to be liked.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "How are the soldiers holding up?", next = "soldiers" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Gretchen Vogel, and I carry Chef Breanna's food to every soldier who can't come and get it, which lately is most of them. If you're hungry, the kitchen's that way, and if you're not, you've come to the wrong end of town." },
@@ -403,6 +437,8 @@ P:NPC {
         { text = "How many soldiers do you feed?", next = "soldiers" },
         { text = "What's Chef Breanna like?", next = "breanna" },
         { text = "Don't you ever rest?", next = "rest" },
+        { text = "You know which soldiers are missing. I could look for them.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Some of your soldiers stare at me like I'm an orc.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll let you get on.", next = "END" },
       },
     },

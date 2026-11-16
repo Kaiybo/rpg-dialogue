@@ -342,6 +342,24 @@ P:NPC {
         { text = "Understood.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "The Horde at Valormok by day, and the naga and the Highborne ghosts by night, and the second fear runs deeper. My people lived in this land before the Sundering, and some nights the ruins seem to remember them." } },
+      choices = {
+        { text = "The dead deserve peace, and the Light can give it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The Highborne earned their unrest. Let them wander.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Bitter enough, because Valormok sits on land my people have mourned for ten thousand years, and the orcs walk it as if it were empty. Still, the Sentinels say the orcs at least fight in the open, which is more than the naga do." } },
+      choices = {
+        { text = "Then meet them in the open, with honour, as they do.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then strike first, before they ever see you coming.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -352,6 +370,10 @@ P:NPC {
           text = "Jarrodenus, keeper of the hippogryphs at Talrendis Point. They will carry you to Auberdine or Astranaar, to Talonbranch Glade or Everlook, or south to Ratchet and Theramore, if your business takes you so far." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "I fly them west and south after dark, never out over the bay. Something in the water watches the sky at night, and the birds feel it." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest. The Sentinels pray to Elune before every watch here, and the bay gives them reason to, so you'll find Talrendis Point no stranger to prayer." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin of the Alliance. My hippogryphs have never carried so much steel, so forgive them if they grumble when you climb aboard." },
       },
       again = { { id = "h_again", text = "Is there more, or shall I call a hippogryph for the flight back to Ashenvale?" } },
       choices = {
@@ -360,6 +382,8 @@ P:NPC {
         { text = "Show me where I can fly.", next = "BUSINESS" },
         { text = "Why won't you fly over the bay at night?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Is there anything I can do to ease your mistrust?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What do the Sentinels fear most at Talrendis Point?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is the quarrel with Valormok as bitter as they say?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Not today.", next = "END" },
       },
     },

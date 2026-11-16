@@ -28,6 +28,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "They talk loud enough that I hear them from my porch, love, and mostly it's about the Deadmines and who's owed what. If you go down there, mind the sentries in red bandanas, because they've seen me watching and they don't like it one bit." } },
+      choices = {
+        { text = "I'll listen, and they'll never know I was there.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'd sooner face them openly, Daphne.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Have you fought them yourself?", next = "fought" },
+      },
+    },
+    xmage = {
+      lines = { { id = "xma_default", text = "That's kind of you, but I've lived up here without wards for twenty years, and I'll not start trusting magic over my own two eyes now. Jordan always said the best lock in Westfall was a woman with a frying pan." } },
+      choices = {
+        { text = "A ward is still wiser than a frying pan, Daphne.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Your eyes have served you well. Keep trusting them.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Tell me about Jordan.", next = "jordan" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Daphne Stilwell. This is my farm, and that's the sea, and somewhere down that hill the Defias are deciding whether today's the day. It never is, while I'm watching." },
@@ -50,6 +66,8 @@ P:NPC {
         { text = "Duthorian Rall sent me to watch over you.", next = "rall", when = { class = "PALADIN" } },
         { text = "Where do you pray, all the way out here?", next = "pray", when = { class = "PRIEST" } },
         { text = "Can I help?", next = "BUSINESS" },
+        { text = "I could slip down among the Defias below and listen.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "A ward on your door would keep the Defias out.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Enjoy your apples.", next = "END" },
       },
     },

@@ -45,6 +45,15 @@ P:NPC {
         { text = "I'll look closer when I'm out there.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "I don't know, and I'd love to find out, because nothing I've tried has made one take yet. The corruption is in the roots and the water both, so perhaps it needs a blessing as much as a salve, or perhaps I'm only hoping out loud again." } },
+      choices = {
+        { text = "Hope is a kind of prayer too. Keep planting, Eridan.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Blessings won't touch the satyrs. Kill them, and the soil follows.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_lockcl", when = { class = "WARLOCK" },
@@ -65,6 +74,8 @@ P:NPC {
           text = "You've met the gnome in Un'Goro who lost his memory? If his friends send you for a totem, come to me. The water spirit and I can do a great deal together." },
         { id = "h_rest", when = { metBefore = true },
           text = "I planted a seed by the sanctuary's edge this morning, and it won't take, but I plant one every morning anyway. One day one will." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest, at the Emerald Sanctuary! The druids here mend the soil, but I've always thought a priest mends something deeper, so you are very welcome among my seedlings." },
       },
       again = { { id = "h_again", text = "What else? Softly; the sanctuary listens." } },
       choices = {
@@ -75,6 +86,7 @@ P:NPC {
         { text = "Is fel always poison, or only in the wrong hands?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What are the satyrs doing to the land?", next = "xmage", when = { class = "MAGE" } },
         { text = "I'll help heal it.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Could a priest's prayers help your seedlings take?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "I'm here for the satyrs, not for the trees.", next = "END", fx = { align = { light = -1 } } },
       },
     },
@@ -191,6 +203,15 @@ P:NPC {
         { text = "I'll keep that warning in mind.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I think any power held too tightly can be turned, and the Shadow Council were once orcs who only wanted to win a war. I don't doubt your heart, paladin, but Jaedenar is full of people who never doubted theirs either." } },
+      choices = {
+        { text = "The Light asks for humility. I'll hold it gently, not tightly.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Power is a tool, and I'll use whatever I need to win.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, here? Then you'll feel the fel in this place pulling at you, so mind you don't answer it; I've watched stronger spirits than yours bend." },
@@ -210,6 +231,8 @@ P:NPC {
           text = "The Council's fires protect them. Put them out, and their walls come down with them." },
         { id = "h_watch", when = { metBefore = true },
           text = "I keep a stone from Mulgore in my pocket, and when the forest gets too loud, I hold it. It's quiet, the way stones should be." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin of the Alliance, with the Light shining off your armour. The Light is a power too, so I'll say to you what I say to everyone: don't let what's here tempt you." },
       },
       again = { { id = "h_again", text = "Yes? Ask, and I'll hold my stone while you do." } },
       choices = {
@@ -221,6 +244,7 @@ P:NPC {
         { text = "Have you had trouble with thieves out here?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Shouldn't someone study the corruption to understand it?", next = "xmage", when = { class = "MAGE" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Do you truly think the Light could be turned to corruption?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Power's power, and I'll take what this forest offers.", next = "END", fx = { align = { light = -1 } } },
       },
     },
@@ -492,6 +516,24 @@ P:NPC {
         { text = "I wouldn't know anything about that.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Tired, mostly, because the work is slow and the poison never sleeps, and Jaedenar's fires light the sky to the south every night. They won't complain to me, but they might talk to a priest, and I would count that a kindness." } },
+      choices = {
+        { text = "I'll sit with them a while. Healing isn't only for wounds.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Tired hands still work. They can rest when the forest's clean.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "More than you'd think, because the corrupted things here don't like the Light, and my salve-bearers need someone at their backs on the road. The cleansing is slow and dull, though, and I've seen braver souls than you grow bored of it." } },
+      choices = {
+        { text = "Slow work done right is worth it. I'll stand guard.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd rather strike at Jaedenar than guard flowerbeds.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A Horde shaman. I'll say plainly that it's the Alliance I ask for help, but I won't pretend your kind don't know the land's voice, so speak." },
@@ -507,6 +549,10 @@ P:NPC {
           text = "Maybess, to the north of here, works with the Horde, so go to her; the forest doesn't care who heals it." },
         { id = "h_daily", when = { metBefore = true },
           text = "One of the plants by the road flowered yesterday, clean, a small white flower, and I've been watching it all morning." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest of the Alliance, at last! The salve does its work on the plants, but the people who lay it need tending too, and they rarely ask." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! I asked the Alliance for help cleansing Felwood and expected archers, so forgive me if I stare a little at all that plate." },
       },
       again = { { id = "h_again", text = "Something else? Mind the flower, though." } },
       choices = {
@@ -519,6 +565,8 @@ P:NPC {
         { text = "Does the Alliance send its spies into Felwood?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I'll help cleanse it.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "I'd rather fight something I can hit.", next = "warrior_ar", when = { class = "WARRIOR" } },
+        { text = "How are your people holding up against the curse?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Can a paladin be of use in cleansing work?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll leave the salving to you, because it isn't my fight.", next = "END", fx = { align = { light = -1 } } },
       },
     },

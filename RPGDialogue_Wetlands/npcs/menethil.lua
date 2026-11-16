@@ -31,6 +31,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "The Dragonmaw hold the hills from Dun Algaz to the old fortress, an' they've no reason tae look for one quiet blade among the rocks. Bring me their numbers an' the name o' whoever leads them, an' I'll know where tae strike." },
+      },
+      choices = {
+        { text = "I'll bring numbers, not heads. That's your soldiers' work.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If I find their leader asleep, he won't wake.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Who leads them now?", next = "nekrosh" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "Aye, it could, an' Dalaran's had other troubles since the war than sendin' mages tae a wet harbour. The Dragonmaw come down out o' the hills in war parties, an' a mage on the keep's wall would make them think twice." },
+        { id = "xma_gnome", when = { race = "Gnome" }, text = "A gnome mage, out o' Gnomeregan's fall, an' I'll put ye on my wall gladly. Ironforge took yer people in when the troggs came, an' Menethil's Ironforge's as much as anyone's." },
+      },
+      choices = {
+        { text = "Point me at the walls, Captain.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll fight, but I'll choose where.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Who are the Dragonmaw?", next = "dragonmaw" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "They've chopped an' burned an' dragged the beasts out o' their dens for their wars. The orcs leave the land poorer wherever they march." } },
       choices = {
@@ -90,6 +111,8 @@ P:NPC {
         { text = "Give me the worst stretch of wall, Captain.", next = "xwarrior", when = { class = "WARRIOR" } },
         { text = "The raptors on the road. I could tame one.", next = "xhunter", when = { class = "HUNTER" } },
         { text = "The earth spirits here are angry, Captain.", next = "xshaman", when = { race = "Dwarf", class = "SHAMAN" } },
+        { text = "I could get close to the Dragonmaw and count their axes.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Menethil could use a mage on the walls, Captain.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll be going.", next = "END" },
       },
     },
@@ -784,6 +807,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "No, they watch ours, which is how I got this axe in mine. If ye go up tae Dun Modr, go quiet an' keep low, for they've lookouts on the walls an' they're better at the sneakin' than ye'd think." },
+      },
+      choices = {
+        { text = "I'll face them openly, for your sake.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll give them back the knife they gave you.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What happened at the Span?", next = "span" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "Aye, they do; I watched it come over the walls at Dun Modr. If ye've frost enough tae put out a Dark Iron, there's a dwarf in Menethil who'll be glad tae hear of it, an' that's me, once I can stand." },
+      },
+      choices = {
+        { text = "I'll fight them for Dun Modr, not for revenge.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll make them pay for what they did to you.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Who's still holding out against them?", next = "longbraid" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -808,6 +851,8 @@ P:NPC {
         { text = "Ironforge will retake the north.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Let me pray over that wound.", next = "priest", when = { class = "PRIEST" } },
         { text = "Longbraid's alive. He asked after you.", next = "alive", when = { questDone = TODO_QUEST("Fall of Dun Modr") } },
+        { text = "Dark Irons don't watch their backs. I'd know.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "The Dark Irons have fire magic. I've something colder.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Rest easy.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -928,6 +973,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "Goes missing? It walks off the quay on its own, and half of it ends up in some smuggler's hold bound for Booty Bay. If you'd watch the docks of a night and tell me who's carrying what, I'd sleep a good deal better." },
+      },
+      choices = {
+        { text = "I'll watch, and I'll name every thief I see.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll watch. Whether I tell you depends who's paying.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Where do the ships run to?", next = "ships" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "Dry! You'd be the first in Menethil to manage it. If you could put a ward on a hold that keeps out the rain and the rot, you'd be rich by the end of the season, though I don't suppose the Kirin Tor stoop to grain sacks." },
+      },
+      choices = {
+        { text = "Magic is for the war, not for grain sacks.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Magic should serve ordinary folk, cargo and all.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "How do you keep the harbour going?", next = "manage" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "They're breedin' in numbers I've never seen, an' they've taken three o' my sheep this month. I'd sooner thin them than lose the whole flock." } },
       choices = {
@@ -962,6 +1027,8 @@ P:NPC {
         { text = "What's wrong on the coast?", next = "coast" },
         { text = "Where do the ships go from here?", next = "ships" },
         { text = "I came over on the Auberdine boat.", next = "nightelf", when = { race = "NightElf" } },
+        { text = "Cargo goes missing in a harbour like this. I could see it doesn't.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Couldn't a mage keep your cargo dry?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Good luck with the cargo.", next = "END" },
       },
     },
@@ -1076,6 +1143,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "Aye, an' the other half would break yer fingers for tryin'. Sailors drink here, an' sailors know every trick in every port, so if ye're after purses, try somewhere they can't swim after ye." },
+      },
+      choices = {
+        { text = "I wasn't planning to. Just observing.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Noted. I'll do my work elsewhere.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Who are your regulars?", next = "regulars" },
+      },
+    },
+    xlock = {
+      lines = {
+        { id = "xwl_default", text = "Sturdy lock, is it? I had one o' your sort in the end room last winter, an' I spent a week scrubbin' the smell o' sulphur out o' the boards. Ye can have the room, but if I find scorch marks, I'll want them gone before ye leave." },
+      },
+      choices = {
+        { text = "You'll find nothing, Helbrek. I keep a clean room.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Scorch marks are part of the work.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Any news from the road?", next = "news" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Now an' again, aye, off the boats from Auberdine. Most o' them don't stay long, for the Wetlands smell a fair bit worse than Darkshore." } },
       choices = {
@@ -1106,6 +1193,8 @@ P:NPC {
         { text = "Any news?", next = "news" },
         { text = "Who drinks here?", next = "regulars" },
         { text = "My family brews too, back home.", next = "brewer", when = { origin = "dwarf_brewer" } },
+        { text = "Half your regulars would make easy marks.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "I'll need a room with a sturdy lock.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Just drying off.", next = "END" },
       },
     },
@@ -1175,6 +1264,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "Study them? We argue over them for years, mostly, an' the League's mages are all in Ironforge squabblin' about Uldaman. My own find, the Stone o' Relu, might have a bit o' that about it, if a raptor hadn't swallowed it on the road." },
+        { id = "xma_gnome", when = { race = "Gnome" }, text = "A gnome askin' about enchantments, an' yer people can spot a rune at forty paces. My own find, the Stone o' Relu, might have a bit o' that about it, if a raptor hadn't swallowed it on the road." },
+      },
+      choices = {
+        { text = "When it's found, it goes to Ironforge under guard.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "When it's found, let's test it right here.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What is this stone you're after?", next = "stone" },
+      },
+    },
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "Past the raptors! I've been sittin' here a fortnight hopin' someone would say that. They hunt by smell, mind, so stay downwind an' keep out o' the long grass, an' tell Whelgar I'm still comin'." },
+      },
+      choices = {
+        { text = "I'll go, and carry your message faithfully.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll go. Whatever I find on the way is mine.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Why are you stuck here?", next = "stuck" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Relics o' the old dwarven holds, from before Grim Batol was lost. The marsh has eaten most of it, though, an' it gives back very little." } },
       choices = {
@@ -1206,6 +1316,8 @@ P:NPC {
         { text = "What's so special about your fossil?", next = "fossil" },
         { text = "I'm League too, sir.", next = "league", when = { origin = "dwarf_explorers_league" } },
         { text = "My people have ruins older than your dig.", next = "elf", when = { race = "NightElf" } },
+        { text = "Does the League ever study enchanted finds?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "I could get to Whelgar's dig past the raptors.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Good luck with it.", next = "END" },
       },
     },

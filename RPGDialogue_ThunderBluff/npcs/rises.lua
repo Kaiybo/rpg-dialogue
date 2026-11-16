@@ -23,6 +23,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "It does, and I'd be a poor apothecary if I couldn't name a dozen of them, but the tauren believe I'm making medicine, and so I am, mostly. Bring the blooms up from the Wailing Caverns and keep your guesses to yourself, and we'll both stay welcome on Spirit Rise." },
+      },
+      choices = {
+        { text = "Secrets suit me. Your work is safe with me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "If it harms the tauren, they should know.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "What do you really want serpentbloom for?", next = "serpent" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "They mind, quietly, the way tauren mind everything, with long looks and longer silences. The Pools of Vision are holy to them, so I'd keep your spells in your pocket down here, whatever you think of their spirits." },
+        { id = "xmage_scourge", when = { race = "Scourge" }, text = "They mind me already, so a second Forsaken in a mage's robe is hardly going to ruin anyone's day. Keep your spells in your pocket down here, though, because the Pools of Vision are holy to them, and Cairne's patience is what keeps us all welcome." },
+      },
+      choices = {
+        { text = "Their pools, their rules. I'll keep my spells still.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Holy or not, the pools don't own my magic.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "How do the tauren treat you here?", next = "tauren" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "They look at me the same way, and I didn't even bring a demon. The tauren know what fel fire does to grass and to people, so you might as well get used to the looks, because they won't stop." },
+      },
+      choices = {
+        { text = "Their fear is fair. I'll keep my imp leashed.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Let them stare. Fear keeps people polite.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Why are the Forsaken in Thunder Bluff?", next = "why" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -37,6 +71,9 @@ P:NPC {
         { text = "How do the tauren treat you?", next = "tauren" },
         { text = "What does the Society really study?", next = "society", when = { race = "Undead" } },
         { text = "Do the spirits of the Pools trouble you, Zamah?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Serpentbloom has other uses, I'd imagine.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Do the tauren mind mages walking their sacred pools?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "The tauren look at my imp as if it were plague.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I'll be going.", next = "END" },
       },
       again = {
@@ -101,6 +138,28 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "That's true, and I've watched a troll rogue sit so still in the grass that a plainstrider stepped on him. But a hunter is patient so the beast can be honoured, and I'm not sure a rogue is patient for anything but the purse at the end of it." },
+      },
+      choices = {
+        { text = "Patience for its own sake, then. I'll learn that.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The purse at the end is reason enough.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What does the Earth Mother ask of hunters?", next = "mother" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Perhaps, but then the arrow would be the mage's and not the archer's. The Thunderhorns have shot true for generations with nothing but good wood and good eyes, and I'll keep teaching it that way." },
+      },
+      choices = {
+        { text = "Tradition has its strength. I'll respect it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A truer arrow is a truer arrow, whatever moves it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Are you kin to Mull Thunderhorn?", next = "kin" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Holt Thunderhorn, and I teach the hunters of Thunder Bluff. The Thunderhorns have hunted Mulgore since long before the bluffs had bridges." },
@@ -111,6 +170,8 @@ P:NPC {
         { text = "Are you kin to Mull Thunderhorn?", next = "kin" },
         { text = "What does the Earth Mother ask of hunters?", next = "mother" },
         { text = "Can a shaman's wind really steady an arrow, Holt?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "A hunter and a rogue both learn patience, Holt.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Can magic make an arrow fly truer?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Good hunting.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? A hunter's patience includes listening." } },
@@ -159,6 +220,28 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "They count, and I'd be a fool to say otherwise, but my warriors are too big to be silent and too proud to be quick. So we stand in front where the enemy can see us, and you can do whatever it is you do behind them." },
+      },
+      choices = {
+        { text = "Standing in front takes courage. I respect that.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The enemy you can't see is the one who wins.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Why must strength be careful?", next = "careful" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "They're trained to fight whatever threatens the herd, and a demon off its leash would qualify. I'll not hide that some of my warriors look at your kind and think of the Burning Blade, so be glad the Warchief speaks for you, warlock." },
+      },
+      choices = {
+        { text = "I'm grateful for his word. I'll keep my demon leashed.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I don't need the Warchief's word to defend myself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Who do the warriors fight?", next = "fight" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Ker Ragetotem, and I train the warriors who guard Thunder Bluff. A tauren's strength is great, so we must learn to use it carefully." },
@@ -169,6 +252,8 @@ P:NPC {
         { text = "Who do the warriors fight?", next = "fight" },
         { text = "Why must strength be careful?", next = "careful" },
         { text = "Does a shaman need a warrior's training, Ker?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Strength isn't everything. Speed and silence count too.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Are your warriors trained to fight demons?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
       again = { { id = "h_again", text = "Ask what you will. A warrior should understand before he swings." } },

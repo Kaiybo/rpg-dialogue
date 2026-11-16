@@ -479,6 +479,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "That the Barovs gave Caer Darrow to the Cult of the Damned, and that the cult teaches necromancy there the way Dalaran once taught arithmetic. They raise the dead as homework, and some of the dead they practise on were knights of your order." } },
+      choices = {
+        { text = "Then the place must be cleansed, whatever it costs.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Knowing their methods matters more than cleansing their halls.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -497,6 +506,8 @@ P:NPC {
           text = "Please don't summon anything, {class}, not here, not near the vials. I'm sure your demon's very well behaved, but this glassware came all the way from Stormwind." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "Oh, you startled me! Please, {class}, cough or something when you come in, for I've reagents on this table that won't forgive a jogged elbow." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! Oh, thank goodness, because every time I open one of these Scholomance texts I feel I ought to have someone holy standing behind me, and the soldiers keep laughing when I ask." },
       },
       again = {
         { id = "h_again", text = "Was there something else? I don't mind, really, it's nice to talk to someone who isn't a bone." },
@@ -512,6 +523,7 @@ P:NPC {
         { text = "Fel and alchemy have more in common than you think.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Need anything fetched quietly from Caer Darrow?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I'll get what you need.", next = "END", fx = { affinity = 1 } },
+        { text = "What have you read about the Scholomance that frightens you?", next = "xapala", when = { class = "PALADIN" } },
       },
     },
     xrogue = {
@@ -638,6 +650,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Caer Darrow, its people and a school full of necromancers, if you must keep accounts. I won't pretend the Barovs were blameless, but neither will I pretend I could have stopped my father's dealings with a sword I barely knew how to hold." } },
+      choices = {
+        { text = "A man of honour would have tried anyway.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "No man can answer for his father's sins.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Alexi says we were promised immortality, and I say we were promised nothing worth having, and the truth is somewhere between, as it always is with family. I left before the bargain was sealed, and I'll thank you to remember that I left." } },
+      choices = {
+        { text = "Leaving isn't atonement. You owe the Light more than that.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "You chose to live. The Light can't fault you for that.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -655,6 +685,10 @@ P:NPC {
           text = "A warlock. You're not one of Alexi's, are you, {class}? He keeps unpleasant company now that he's dead, and I sleep with a sword under the blanket for good reason." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! My family once kept a Kirin Tor tutor, {class}, and I'm told I was his most promising pupil, whatever Alexi may say about it." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest. If you've come to pray for my brother's soul, don't trouble yourself, because Alexi sold it to the Cult of the Damned along with the family silver." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, and you'll be looking down your nose at a Barov, I expect. Save yourself the trouble, because Valorfist has already done it twice today." },
       },
       again = {
         { id = "h_again", text = "Well? You're still here, so you must want something else." },
@@ -671,6 +705,8 @@ P:NPC {
         { text = "Did the Barovs know Kel'Thuzad well?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll see what I can find.", next = "END", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "I won't help a man who'd murder his own brother.", next = "END", fx = { affinity = -1, align = { honor = 1 } } },
+        { text = "Did your family really give Caer Darrow to the Cult?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What did your family's bargain cost Lordaeron, Weldon?", next = "xapala", when = { class = "PALADIN" } },
       },
     },
     xmage = {
@@ -1001,6 +1037,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Some of them were knights once, and some were farmers who picked up a sword when the plague came, and I'd be glad to share a fire with either sort. But they took the mill from the family that built it and called it purging, and I can't call that anything but theft." } },
+      choices = {
+        { text = "The law of the land says the mill is yours.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Lordaeron's law died with its king. The strong hold what they take.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "I would, though the Crusade will tell you they've blessed it already, every beam of it, twice a day with a great deal of shouting. Their Light doesn't feel much like the one my mother prayed to, and that's half the reason I want them out." } },
+      choices = {
+        { text = "The Light is mercy, not shouting. I'll bless it gladly.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Crusade at least fights the Scourge. Bless it as they do.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -1015,6 +1069,10 @@ P:NPC {
           text = "A mage! My father used to say a Dalaran wizard once fixed the mill's waterwheel with a single word, {class}, though I suspect he embellished." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "You look like someone who could walk into Northridge without the Crusade noticing, {class}, and my father's mill could use a visitor like that." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! My mother would have asked you to bless the mill before I set foot in it again, and I think I'd like that, if we ever get it back." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! I'll say it before you do, I've no quarrel with the Light, only with the Crusade sitting in my father's mill and calling it holy ground." },
       },
       again = {
         { id = "h_again", text = "Something else you wanted to ask? Go ahead, I don't mind talking." },
@@ -1029,6 +1087,8 @@ P:NPC {
         { text = "Would the mill still run, if you got it back?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What's the Crusade doing in your father's mill?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I'll help you take it back.", next = "END", fx = { affinity = 2, standing = { chillwind_camp = 1 } } },
+        { text = "Would you want the mill blessed after the Crusade leaves?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Are the Crusaders in Northridge still knights, or only squatters?", next = "xapala", when = { class = "PALADIN" } },
       },
     },
     xrogue = {
@@ -1144,6 +1204,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Safe enough, though the birds won't land there and I don't make them. The Scourge keep clear of the tomb too, which is the best thing anyone's ever said about a grave, I think, and I'd like to think Uther would be pleased." } },
+      choices = {
+        { text = "Uther's grave should be guarded, not just flown over.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let the dead knight rest. The living need the birds.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "I think they feel something, because Thundermane won't fly over Uther's tomb at all, he just circles wide and goes quiet. I asked a dwarf about it once and he said a gryphon knows a holy place better than a priest does, and then he told me I owed him an ale." } },
+      choices = {
+        { text = "Every creature knows holy ground. The Light is in all things.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "They're animals, Bibilfaz. They just don't like the smell.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -1154,6 +1232,10 @@ P:NPC {
           text = "A mage! You could teleport to Ironforge in a blink, {class}, so you must be here for the company, and I'm very flattered." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "Ooh, sneaky! You walked right past the big grey gryphon and he didn't even blink, {class}, and he blinks at everything, poor thing." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! Do you think the Light minds gryphons? Only I've noticed the birds settle down when the chaplains walk past, and I don't think it's just the biscuits they carry." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! Light's Hope is the only place up here my gryphons don't mind landing, and the knights there say it's because the ground is holy, which I find very reassuring." },
       },
       again = { { id = "h_again", text = "Anything else? The birds aren't going anywhere without me, so take your time." } },
       choices = {
@@ -1163,6 +1245,8 @@ P:NPC {
         { text = "Do your gryphons know Wildhammer riders?", next = "x_dwarf", when = { race = "Dwarf" } },
         { text = "Teleport can't bring me to the Plaguelands, though.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Could I hitch a ride without signing your ledger?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do gryphons feel the Light, do you think?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is it safe to fly over Uther's tomb, Bibilfaz?", next = "xapala", when = { class = "PALADIN" } },
       },
     },
     xrogue = {

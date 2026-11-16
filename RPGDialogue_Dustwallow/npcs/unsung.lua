@@ -166,8 +166,28 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Now and then a chaplain wants a shield with the Light's sun worked on its face, and I'm glad to do it. I'll say the steel's my part and the blessing's yours, because I've no gift for the second, and the marsh doesn't care either way." } },
+      choices = {
+        { text = "Steel and faith together make a soldier whole.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A good shield does more than any blessing.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Oil it every night, dry the straps by the fire, and never, ever sleep in it out in the marsh, no matter how tired you are. The Light may keep your spirit clean, friend, but it's never once kept rust off a gorget." } },
+      choices = {
+        { text = "Discipline every night. Armor is a duty like any other.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll fight in what I've got and worry about rust later.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, and in cloth, thank the Light, so you're one customer who won't be bringing me rusted plate to scrape." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, and in plate too, which means you'll be back here inside a week with rust in every joint, because this marsh eats steel the way the crocolisks eat the unwary." },
         { id = "h_default", key = true,
           text = "Hans Weston, armorer and shieldsmith. I make the guard's plate and their shields, and I spend half my days scraping rust off what I made the week before, because this marsh rots steel faster than anywhere I've ever worked." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "Leather, not plate, and from the look of you, you've never wanted to clank in your life. I don't hold it against you, though I'll say a good shield has saved more than one quiet fellow." },
@@ -185,6 +205,8 @@ P:NPC {
         { text = "I'm a smith myself.", next = "smith", when = { profession = "Blacksmithing" } },
         { text = "Do you make anything for those of us in leather, Hans?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why don't mages wear armor in the marsh, Hans?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do you ever forge anything for the faithful, Hans?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "How do I keep my armor sound in this swamp?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -287,8 +309,28 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Now and then, when I lie awake, though I've decided that a peace with nothing behind it doesn't last a season. I'd rather my blades hung on the wall all their lives, honestly, and most of the ones I sell to the guard never draw blood at all." } },
+      choices = {
+        { text = "Peace kept by fear is a poor peace. Pray it holds without steel.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Peace needs a sharp edge behind it. Keep forging.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Quietly, yes, because the Lady may trust Thrall but nobody trusts every orc in the Barrens, and Brackenwall is a short walk through the marsh. I forge for a war I hope never comes, and I sleep better for it, strange as that sounds." } },
+      choices = {
+        { text = "Be open about it. Hidden blades only breed suspicion.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Wise. Let the Horde see the smile, never the forge.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, welcome! I don't suppose you'll be buying a sword, but come in out of the damp all the same, because a shop's friendlier with someone in it who isn't haggling." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll want a mace, I expect, or a good hammer, and I've a few on the rack that would do the Silver Hand proud if you'd care to look." },
         { id = "h_default", key = true,
           text = "Piter Verance, weaponsmith. I forge for the guard and sell to anyone who's headed into the marsh, which is everybody sooner or later, and I do my best to send you out with something that won't fail you in the mud." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, eh? You'll be wanting something short and sharp, and I've got a few blades that'll do you proud, though I'll ask you to use them on the marsh and not on my customers." },
@@ -305,6 +347,8 @@ P:NPC {
         { text = "Do you ever sell to the Horde?", next = "horde" },
         { text = "What blades do you sell to those who fight quietly, Piter?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do you make anything for mages, Piter?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Does it trouble you to sell weapons in a city of peace?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Does Theramore ready itself for war even in peacetime?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Not right now.", next = "END" },
       },
     },

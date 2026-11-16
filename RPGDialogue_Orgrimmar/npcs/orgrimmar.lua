@@ -40,6 +40,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Then you serve it in a way many forget, and I won't be one of them. When I escaped Durnholde, a quiet friend and an unlocked door freed me as surely as any battle, so I know the worth of work done in the dark, so long as it's done for the Horde and never against it." },
+      },
+      choices = {
+        { text = "The shadows win battles before they start, Warchief.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'd still rather stand in the open for the Horde.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "What does the Horde stand for?", next = "horde" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "There is, though our people learned stranger powers first, from far worse teachers. The Darkspear and the Forsaken bring the arcane to the Horde with clean hands, and I'd ask you to keep them that way." },
+      },
+      choices = {
+        { text = "My hands will stay clean, Warchief. For the Horde.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll use the arcane as I see fit.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What does the Horde stand for, Warchief?", next = "horde" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -69,6 +91,8 @@ P:NPC {
         { text = "I'm an orc who studies the arcane. Does that trouble you?", next = "orcmage", when = { race = "Orc", class = "MAGE" } },
         { text = "I'm Forsaken, and the Light still answers me.", next = "paladin", when = { race = "Scourge", class = "PALADIN" } },
         { text = "I'm Frostwolf, Warchief. Drek'Thar's people.", next = "frostwolf", when = { origin = "orc_frostwolf" } },
+        { text = "I serve the Horde from the shadows, Warchief.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "I study the arcane, Warchief. Is there a place for me?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "For the Horde.", next = "END", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "I fight for myself first, Warchief.", next = "END", fx = { align = { honor = -1 } } },
       },
@@ -229,6 +253,30 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Then you learned from the best, mon, because the Darkspear survived the Echo Isles by never being where the enemy looked. I don't ask my people to fight fair, only to fight for each other, and I don't care who sees it." },
+        { id = "xrogue_troll", when = { race = "Troll" }, text = "Then you remember the old ways, mon, and a Darkspear who remember them lives long. We survived the Echo Isles by never being where the enemy looked, and I don't ask my people to fight fair, only to fight for each other." },
+      },
+      choices = {
+        { text = "Fair fights are for fools. I fight to win.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'd rather my enemies see me coming, chief.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "What happened to the Echo Isles?", next = "isles" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "A troll can walk any path that keep him alive, mon, and the arcane be just another power to bargain with. The loa don't mind a mage who remembers his offerings, and the Darkspear mages in the Valley of Spirits still burn something sweet for them every morning." },
+        { id = "xmage_scourge", when = { race = "Scourge" }, text = "A dead man who learn the arcane, that be a strange thing to bring to a troll, mon. The loa don't like you much, but they don't like most people, so keep your spells pointed away from my people and we'll get along." },
+      },
+      choices = {
+        { text = "I'll respect the loa, as they deserve.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The loa can watch. I'll study what I like.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Why follow Thrall, chief?", next = "thrall" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -247,6 +295,8 @@ P:NPC {
         { text = "The spirits talk to me too, Vol'jin.", next = "shaman", when = { race = "Troll", class = "SHAMAN" } },
         { text = "I hunt heads for the Darkspear.", next = "hunter", when = { race = "Troll", class = "HUNTER" } },
         { text = "You don't trust the Forsaken, do you?", next = "forsaken", when = { race = "Scourge" } },
+        { text = "I strike from the jungle, chief, the old way.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Can a mage walk beside the loa, chief?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Farewell, Vol'jin.", next = "END" },
       },
       again = {
@@ -376,6 +426,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "I watch everyone in the Cleft, friend, because the Warchief asked me to, and because both trades depend on not being watched. The rogues of the Shattered Hand keep their own counsel down here, and we get along best when neither of us asks too many questions." },
+      },
+      choices = {
+        { text = "Then I'll trust your watch, and keep my counsel.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Watch all you like. I'll go where I please.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What do you think of Thrall?", next = "thrall" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Arcane fire is a much tidier thing than the kind the Cleft studies, I'll grant you. The trolls in the Valley of Spirits teach it well enough, and they'll tell you what I'd tell any warlock, which is that every flame wants more than you give it." },
+      },
+      choices = {
+        { text = "I'll keep my flames under strict control.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let it want. I enjoy feeding it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What is the Burning Blade?", next = "blade" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -398,6 +470,8 @@ P:NPC {
         { text = "I'm a warlock. What can the Cleft teach me?", next = "warlock", when = { class = "WARLOCK" } },
         { text = "An orc mage. I suppose you find that amusing.", next = "orcmage", when = { race = "Orc", class = "MAGE" } },
         { text = "The elements would rather I stayed out of here.", next = "shaman", when = { class = "SHAMAN" } },
+        { text = "Do you keep watch on the rogues of the Cleft too?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Fire is my craft too, Neeru. Arcane fire, though.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "I'll be going.", next = "END" },
       },
       again = {
@@ -525,6 +599,40 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "They do, and what's said in the Broken Tusk stays in the Broken Tusk, so mind you don't go repeating it in the Drag. I've thrown bigger orcs than you out the door for listening at tables, and I'll do it again." },
+      },
+      choices = {
+        { text = "Understood. What's said here stays here.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A loose tongue is a gift. I'll take what I hear.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What's the best thing you cook?", next = "best" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "My hearth's burned fine for years without a spell, and it'll burn fine after you've gone. Sit down, eat your meat, and let the fire do its own work for once." },
+      },
+      choices = {
+        { text = "Fair enough. I'll leave your fire alone.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A spell would burn hotter and longer.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What's good to eat tonight?", next = "best" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "I mind, and so does every grunt in this room who remembers what the demon blood did to us. Leave the little horror outside the door, and if it scorches one of my tables, you'll be scrubbing it yourself." },
+        { id = "xwarlock_orc", when = { race = "Orc" }, text = "You're an orc, so you should know better than to ask. Half the grunts in this room still dream about the demon blood, so leave the little horror outside, and if it scorches one of my tables you'll be scrubbing it yourself." },
+      },
+      choices = {
+        { text = "Fair. It waits outside, out of respect.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "It's harmless. Your grunts should grow thicker skin.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What do you cook best, Gryshka?", next = "best" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Gryshka, and I keep the Broken Tusk, and I keep it fed. Nobody leaves my inn hungry, and a few leave too full to walk." },
@@ -543,6 +651,9 @@ P:NPC {
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "What's the best thing you cook?", next = "best" },
         { text = "I brought in some game today.", next = "hunter", when = { class = "HUNTER" } },
+        { text = "Your regulars talk a lot after a few drinks, Gryshka.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "I could keep your hearth burning with a spell, Gryshka.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Mind if my imp warms itself at your fire?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Just resting.", next = "END" },
       },
       again = {
@@ -604,6 +715,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Would you? No, don't, because then they'd only knock me down harder tomorrow. I was a warrior once and I fought fair, and look where it got me, so maybe you've got the right idea after all." },
+      },
+      choices = {
+        { text = "Some lessons are best taught from the shadows.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Next time, I'll stand beside you openly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Why does everyone attack you?", next = "why" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "Everything frightens me now, friend, so your demon's just one more thing on a long list. I saw what the warlocks became in the old wars, though, and I'd rather be knocked down by grunts every night than end up like them." },
+      },
+      choices = {
+        { text = "You're right to be wary. I'll stay careful.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Power has a cost, and I'll pay it gladly.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Why do they keep knocking you down?", next = "why" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -614,6 +747,8 @@ P:NPC {
       choices = {
         { text = "Did the spirits ever speak to you, Gamon?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why does everyone attack you?", next = "why" },
+        { text = "I could teach whoever keeps knocking you down a lesson.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Does my demon frighten you, Gamon?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I won't hit you.", next = "END", fx = { affinity = 3, trait = { kind = 1 } } },
         { text = "You were a warrior once. What happened?", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Bye, Gamon.", next = "END" },

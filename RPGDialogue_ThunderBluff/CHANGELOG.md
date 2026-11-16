@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.11.0 (2026-11-16)
+- Horde rogues, mages and warlocks get their own conversation with 16 people in Thunder Bluff, Cairne and Magatha included.
+
 ## 1.10.0 (2026-11-16)
 - Horde shaman get their own conversation with 14 people in Thunder Bluff.
 

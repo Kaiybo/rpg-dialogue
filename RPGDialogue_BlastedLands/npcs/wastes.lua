@@ -267,6 +267,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Everything is, in the end, if you understand it well enough, though I'll grant your sort have been very poor at explaining it. The boars here heal from wounds that would kill an ogre, and I can't help wondering whether some trace of the Light touched them too." } },
+      choices = {
+        { text = "The Light isn't a reagent. It can't be bottled.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Perhaps it can. Study it, and share what you learn.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Because the blood is where the secrets are, of course, the strength and speed of these beasts written in it like ink on a page. My sister reads the mind and I read the body, and between us we'll have the whole book before long, if nobody gets eaten." } },
@@ -297,6 +306,8 @@ P:NPC {
           text = "The snickerfang hyenas have jaws that could crack an ogre's skull, and I want to know why. Bring me their jowls, please, and as fresh as you can." },
         { id = "h_drank", tags = { "news" }, when = { questRecent = { TODO_QUEST("A Boar's Vitality"), days = 3 } },
           text = "Tell me honestly, do you feel invulnerable yet? The boars do, and nothing out here has managed to prove them wrong." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! Now there's a subject I'd love to study, if you'd allow it, because I'm told the Light lets your kind mend flesh that should have stayed broken." },
       },
       again = {
         { id = "h_again", text = "Another question? Splendid; curiosity is the first sign of a healthy subject." },
@@ -310,6 +321,7 @@ P:NPC {
         { text = "Would your elixirs work on my beast?", next = "k_hunter", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "Why call yourselves bloodmages, Drazial?", next = "xmage", when = { class = "MAGE" } },
         { text = "Does the fel make the beasts strong?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Is the Light just another strength to bottle, Drazial?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Good luck with your studies.", next = "END" },
       },
     },
@@ -407,6 +419,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Perhaps not, but you can't tell me how it works either, only that it does, and I find that a very poor argument from people who call my work blasphemy. I'll keep my brains in jars and you keep your prayers, and we'll see which of us learns more." } },
+      choices = {
+        { text = "The Light asks for faith, not proof. That's its strength.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Fair enough. Let your results speak for you.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Patience, chiefly, because a basilisk can sit still for days and lose none of its sharpness, and I'd like to know how. If I can bottle that, a mage could study through the night without a single wandering thought." } },
@@ -437,6 +458,8 @@ P:NPC {
           text = "The vultures here should have died of the taint years ago, and instead they thrive on it. Their gizzards hold the secret, and I'd like ten of them." },
         { id = "h_tasted", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Basilisk's Bite"), days = 3 } },
           text = "You've had a taste of the redstone basilisk's mind now. Did you notice how much quicker your thoughts ran?" },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin. Your order claims the Light heals what the body cannot, and I've watched basilisks here do the same with nothing but their own will, so perhaps we're studying the same thing." },
       },
       again = {
         { id = "h_again", text = "Something else? Ask precisely, please; I find vague questions tiring." },
@@ -450,6 +473,7 @@ P:NPC {
         { text = "A druid feels a beast's spirit, Lynnore. Not in bottles.", next = "k_druid", when = { class = "DRUID" } },
         { text = "What do basilisk minds teach you, Lynnore?", next = "xmage", when = { class = "MAGE" } },
         { text = "Why don't the vultures die of the taint?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "The Light isn't a beast's instinct, Lynnore.", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll leave you to observe.", next = "END" },
       },
     },

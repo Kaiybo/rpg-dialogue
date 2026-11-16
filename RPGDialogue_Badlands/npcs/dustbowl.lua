@@ -50,8 +50,19 @@ P:NPC {
         { text = "Let's leave Uldaman for now.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Aye, I would, though I think we both know what ye'd be prayin' for. He went intae that dig wi' his pick an' his notes, an' if the troggs got him, I'd like tae think the Light found him before they did." } },
+      choices = {
+        { text = "Grief like yours honors him. Don't bury it, Prospector.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Mourn him later. His notes matter more right now.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! Then say a word for Hammertoe, would ye, for I've said all the ones I know, an' the Light's no' answered me yet." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! If ye can make heads or tails o' Hammertoe's scribbles before ye take 'em tae Ironforge, I'd be glad tae hear it, for they read like a fever dream tae me." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue, aye? Then ye'll be lighter on yer feet than Hammertoe ever was, an' that might be what it takes tae get in an' out o' that dig alive." },
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -73,6 +84,7 @@ P:NPC {
         { text = "I'll go in after Hammertoe. I'm a fighter.", next = "k_fighter", when = { class = { "WARRIOR", "PALADIN", "HUNTER" } } },
         { text = "Could I slip into the dig unseen?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What did Hammertoe write that troubles you?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Would you like me to pray for Hammertoe, Prospector?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2 } },
       },
     },

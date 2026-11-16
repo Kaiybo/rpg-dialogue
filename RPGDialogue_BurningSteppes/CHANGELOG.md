@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.7.0 (2026-11-16)
+- Priests and paladins are noticed: 8 people greet an Alliance priest or paladin as one, and have something to ask and argue about.
+
 ## 1.6.0 (2026-11-16)
 - A player reply that asked a question while taking a stance now reads as a plain statement.
 

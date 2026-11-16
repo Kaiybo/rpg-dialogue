@@ -31,6 +31,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      lines = { { id = "xma_default", text = "Then you've walked past the towers the Stonemasons raised there, and you know the city never paid them in full. I've nothing against the Mage Quarter, but I'd not have you think Stormwind's hands were ever as clean as its streets." } },
+      choices = {
+        { text = "The Masons were wronged, but VanCleef's road is worse.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The nobles cheated them. Stormwind earned this.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What happened with the Stonemasons?", next = "masons" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "I fought the Horde when its warlocks were burning Lordaeron, so forgive me if I don't thank you for that. Still, I lead a militia of farmers and broken men, and I'll judge you by what you do on this hill, not by what follows you onto it." } },
+      choices = {
+        { text = "Judge me, then. I'll answer for every deed.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll do whatever wins, Gryan, however it looks.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Tell me about the People's Militia.", next = "militia" },
+      },
+    },
     druid_talk = {
       lines = { { id = "dt_default", text = "I know it is. Nobody has turned a furrow in Moonbrook for years, and the harvest golems the Defias stole have torn up what was left. If you can coax anything green out of it, the farmers will remember you longer than they remember me." } },
       choices = {
@@ -94,6 +110,8 @@ P:NPC {
         { text = "The land here is grieving, Stoutmantle. I can hear it.", next = "shaman", when = { class = "SHAMAN" } },
         { text = "My father was a Stonemason. The nobles never paid him.", next = "mason_child", when = { origin = "human_stonemason_child" } },
         { text = "The Sentinels would never abandon a province like this.", next = "kaldorei", when = { race = "NightElf" } },
+        { text = "I studied in Stormwind's Mage Quarter, Gryan.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "I command a demon, Stoutmantle. It fights for Westfall now.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll help, but I answer to no militia.", next = "END", fx = { align = { order = -1 } } },
       },
     },

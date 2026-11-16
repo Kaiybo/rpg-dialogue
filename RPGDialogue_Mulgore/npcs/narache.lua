@@ -26,6 +26,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Then they'll know how my mother felt when they came for her. I won't pretend I don't want them to suffer, but a tauren grieves standing up, so do your work in Brambleblade Ravine and let the camp see you come back with your head high." },
+      },
+      choices = {
+        { text = "I'll come back with my head high, Chief.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Grief can wait. The quilboar die first, unseen.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What was the Greatmother like?", next = "greatmother" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Nothing would have saved her that night but more spears and better luck. The arcane is a strange power to my people, and I'll not curse it, but I'll not wish it here either, because Narache is a place for the young to learn the old ways first." },
+      },
+      choices = {
+        { text = "The old ways first. I understand, Chief.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Your young would be safer if they learned new ways.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Will you tell me about the Greatmother?", next = "greatmother" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -49,6 +71,8 @@ P:NPC {
         { text = "The trainer says I'm to be a druid.", next = "druid", when = { race = "Tauren", class = "DRUID" } },
         { text = "I was born Grimtotem, Chief. I chose Bloodhoof.", next = "grimtotem", when = { origin = "tauren_grimtotem_born" } },
         { text = "Did the Greatmother walk with the spirits, Chief?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "The Bristleback won't see me coming, Chief.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Could the arcane have saved the Greatmother, Chief?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "I'll do what's asked.", next = "END", fx = { affinity = 2, standing = { narache = 1 } } },
       },
       again = {

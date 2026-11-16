@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.14.0 (2026-11-16)
+- Priests and paladins are noticed: 15 people greet an Alliance priest or paladin as one, and have something to ask and argue about.
+
 ## 1.13.0 (2026-11-16)
 - Shaman are noticed: 21 people greet a shaman as one and have something to ask and argue about the land's elements.
 

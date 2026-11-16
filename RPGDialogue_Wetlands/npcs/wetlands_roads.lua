@@ -20,6 +20,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "Inside? Ye'd be the first since they took it who came out again, an' I'd want tae hear every word. They've Dark Iron sentries on the walls an' more in the cellars, so if ye go, go by night an' go alone." },
+      },
+      choices = {
+        { text = "I'll bring you back their plans, nothing more.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "And their captain's throat, if I can reach it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "How did Dun Modr fall?", next = "fall" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "Maybe no', but it burned through mine, an' they were good dwarves standin' behind them. If ye've ice enough tae cool a Dark Iron's temper, take it tae the Span an' show them what ye've got." },
+      },
+      choices = {
+        { text = "I'll stand at the Span with you.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll fight my own way, where they least expect.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What happened to the Span?", next = "span" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "That it was ours once, an' the Dragonmaw have it now, wi' a red dragon chained in the deep. Even the beasts won't go near that mountain." } },
       choices = {
@@ -47,6 +67,8 @@ P:NPC {
         { text = "What about the Thandol Span?", next = "span" },
         { text = "Why do they call you Grim?", next = "grim" },
         { text = "I'm a dwarf of Ironforge. Tell me how to help.", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "I could get inside Dun Modr and learn what they're planning.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Dark Iron fire won't burn through a mage's ward.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Hold fast, Longbraid.", next = "END" },
       },
     },
@@ -179,6 +201,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "Cleverer than a raptor's no' hard, friend, but quieter is, for they hear a twig snap from the far side o' the marsh. Get close tae the big ones an' ye'll find they've a soft spot under the jaw, if ye're quick." },
+      },
+      choices = {
+        { text = "I'll take them clean and quick.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll bleed them out from the brush.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Why are the raptors so bold?", next = "raptors" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "Ye'd think so, but these lot only get angrier, an' an angry raptor's worse than a hungry one. Freeze them where they stand an' I'll do the rest wi' my axe." },
+      },
+      choices = {
+        { text = "Together, then. Your axe, my frost.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll handle them myself, Ormer.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What's the dig for?", next = "dig" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -195,6 +237,8 @@ P:NPC {
         { text = "What's Whelgar digging for?", next = "dig" },
         { text = "How do you fight them?", next = "fight" },
         { text = "Raptors are fine prey. I'll hunt them.", next = "hunter", when = { class = "HUNTER" } },
+        { text = "Raptors hunt by smell. I'll have to be cleverer than usual.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Fire, then. Raptors fear fire, surely?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Good hunting, Ormer.", next = "END" },
       },
     },
@@ -253,6 +297,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "Hum, do they? Then I'll thank ye tae keep yer hands off them until the League's had a look. Whatever's under this marsh is older than Menethil, I'd wager, an' I'll no' have it blown up by accident." },
+      },
+      choices = {
+        { text = "Agreed. The League should see it first.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Knowledge belongs to whoever can read it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What have you found so far?", next = "finds" },
+      },
+    },
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "An' me, an' I'm no' as slow as I look. Everything here's catalogued an' bound for Ironforge, so if a piece goes missin', the League will know, an' the League never forgets." },
+      },
+      choices = {
+        { text = "I'm here to help, not to pocket.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Catalogues can be wrong, Prospector.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Have the raptors hurt anyone?", next = "raptors" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -265,6 +329,8 @@ P:NPC {
         { text = "What have you found?", next = "finds" },
         { text = "Are the raptors a danger to the dig?", next = "raptors" },
         { text = "A gnome scholar would love to see this.", next = "gnome", when = { race = "Gnome" } },
+        { text = "Your finds hum with old magic, Prospector.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "A dig full of treasure, and only raptors for guards.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I'll let you work.", next = "END" },
       },
     },

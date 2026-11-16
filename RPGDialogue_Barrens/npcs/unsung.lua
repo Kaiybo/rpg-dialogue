@@ -37,6 +37,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Somebody tried it last spring, and the wind rider took two of his fingers before he got anywhere near a saddle. The beasts know their riders by smell, so if you want to sneak past them, you'd best smell like an honest orc." },
+      },
+      choices = {
+        { text = "Then I'll fly honestly, with your blessing.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'd find a way past them, if it came to it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What are the wind riders like?", next = "riders" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Because teleporting only takes you to the big cities, and my wind riders go wherever the Horde has a roost. Besides, I've never seen a mage enjoy the view over the Barrens on the way, and that's half the reason to fly." },
+      },
+      choices = {
+        { text = "Fair point. A wind rider's flight it is.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Views are for tourists. I'll take the shortcut.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Is it safe flying over the Barrens?", next = "safe" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Devrak, and I keep the wind riders of the Crossroads. They'll take you to Orgrimmar, Thunder Bluff, Ratchet and anywhere else the Horde has a roost, faster than any kodo." },
@@ -47,6 +69,8 @@ P:NPC {
         { text = "I need a flight.", next = "BUSINESS" },
         { text = "Tell me about the wind riders.", next = "riders" },
         { text = "Is it safe to fly over the Barrens?", next = "safe" },
+        { text = "Does anyone ever slip onto your roost uninvited?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Why fly at all, when a mage can teleport?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Not now.", next = "END" },
       },
       again = { { id = "h_again", text = "Anything else? The beasts are restless, and so am I." } },
@@ -159,6 +183,29 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Everybody want to leave the Barrens, mon, and I don't blame them in the dry season. I keep the runes behind the counter, because the last mage who bought a stack teleported to Orgrimmar three times in one day just to eat at the Broken Tusk." },
+        { id = "xmage_troll", when = { race = "Troll" }, text = "A Darkspear mage, look at you, mon! The runes be behind the counter, and don't you go teleporting to Orgrimmar three times a day like the last one who bought a stack." },
+      },
+      choices = {
+        { text = "Smart mage. Walking is for people without runes.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Wasteful. Runes should be saved for real need.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Where do your herbs come from?", next = "herbs" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "No, mon, and I wouldn't if I could, because the loa don't like trade with things from outside the world. I'll sell you herbs and powder for the spells you cast, and the soul shards you carry be your own business, but don't you go asking me where to find more." },
+      },
+      choices = {
+        { text = "Fair. The loa deserve respect, even from me.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The loa can mind their own business, then.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What brings a troll to the Crossroads?", next = "troll" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I be Hula'mahi, and I sell reagents and herbs at the Crossroads. Mages, priests, shaman, they all come to me sooner or later, because spells need more than words, mon." },
@@ -167,6 +214,8 @@ P:NPC {
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "Where do your herbs come from?", next = "herbs" },
         { text = "What brings a troll to the Crossroads?", next = "troll" },
+        { text = "I need runes of teleportation, Hula'mahi.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do you sell anything that feeds a demon, Hula'mahi?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },
       again = { { id = "h_again", text = "What else you want to know, mon? Ask while the shop be quiet." } },
@@ -292,6 +341,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "That would be a kindness, because the dwarves dig deeper every season and they post guards who watch the sky for my riders. Count their guns and see what they carry out of the ground, and the elders at Thunder Bluff will hear of it on the next wind rider north." },
+      },
+      choices = {
+        { text = "They'll never know I was there. That's the point.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll watch, but if it comes to blows, I'll fight openly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "What troubles Camp Taurajo most?", next = "trouble" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "They do, and so do I, though I'm better at hiding it. My riders have never smelled anything like it and they will not carry it, so it must stay behind while you fly, as the Warchief's own warlocks do." },
+      },
+      choices = {
+        { text = "It can stay behind. Your riders deserve calm skies.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Your beasts should learn to bear it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Do your wind riders have names?", next = "names" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Omusa Thunderhorn, and I keep the wind riders of Camp Taurajo. From here they fly north to the Crossroads and further, and they carry the camp's news to Thunder Bluff." },
@@ -302,6 +373,8 @@ P:NPC {
         { text = "I need a flight.", next = "BUSINESS" },
         { text = "What troubles Camp Taurajo?", next = "trouble" },
         { text = "Do your wind riders have names?", next = "names" },
+        { text = "I could watch the dwarves at Bael Modan without being seen.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Do your wind riders shy from my demon?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Not now.", next = "END" },
       },
       again = { { id = "h_again", text = "Anything more, friend? The wind is patient today." } },
@@ -420,6 +493,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "More than you'd think, honey, because a mage's robe gets singed at the hem every week and somebody has to mend it. The silly ones always want purple, which I keep in stock just for them, and I never tell them it's the same dye the pirates use on their sashes." },
+      },
+      choices = {
+        { text = "Purple is the only proper color for a mage.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Plain colors suit a working mage better.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Where do your dyes come from?", next = "dyes" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "Warlocks want everything black and red with little spikes on the shoulders, honey, and they want it to look like it came out of a nightmare. I'll sell you the dye, but I won't sew the spikes, because the last one who asked tried to pay me in soul shards." },
+      },
+      choices = {
+        { text = "Let them fear the look of me. It saves time.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'd rather not look like a nightmare, frankly.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Why do you sell in Ratchet?", next = "ratchet" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Wenna Silkbeard, and I sell tailoring supplies here in Ratchet. Thread, dye, patterns, everything a tailor needs except the cloth itself, and you'll have to cut that off somebody yourself." },
@@ -430,6 +525,8 @@ P:NPC {
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "Where do your dyes come from?", next = "dyes" },
         { text = "Why sell in Ratchet?", next = "ratchet" },
+        { text = "Do mages buy much thread from you, Wenna?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do warlocks dress any differently from other casters?", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "Not today.", next = "END" },
       },
       again = { { id = "h_again", text = "Is there anything else, love, or shall I get back to untangling this silk?" } },
@@ -480,6 +577,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Short, sharp and quiet is my favorite kind of customer, pal! I've got daggers from Booty Bay and a few from places I don't mention, and every one of them is balanced well enough to throw, though I'd rather you didn't test that in the shop." },
+      },
+      choices = {
+        { text = "Daggers in the back end fights early. Good.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I want it for honest duels, not for backs.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Where do your weapons come from?", next = "where" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Oh no? Then why does every mage who comes in here end up buying a staff, pal? A spell runs out when your mana does, and that's when you'll wish you had something heavy to hit the raptor with." },
+      },
+      choices = {
+        { text = "Fair. A wise mage plans for empty mana.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My spells won't run out. Keep your sticks.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Who buys weapons in Ratchet?", next = "who" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Ironzar's the name, and weapons are my game. Swords, axes, maces, you name it, and I've got it, and if I don't, I can get it for you for a price." },
@@ -490,6 +609,8 @@ P:NPC {
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "Where do your weapons come from?", next = "where" },
         { text = "Who buys weapons in Ratchet?", next = "who" },
+        { text = "I want something short, sharp and quiet, Ironzar.", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "A mage doesn't need your weapons, Ironzar.", next = "xmage", when = { class = "MAGE" } },
         { text = "Not today.", next = "END" },
       },
       again = { { id = "h_again", text = "Anything else, friend? Time is money, you know." } },

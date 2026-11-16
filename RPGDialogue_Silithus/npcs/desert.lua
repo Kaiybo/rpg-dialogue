@@ -510,6 +510,24 @@ P:NPC {
         { text = "I'll think about it.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Old ruins half under the sand, an' carvings on 'em that nae dwarf can read yet, which is the best kind. Ironforge won't send us so much as a pickaxe, so I'm prayin' it's somethin' grand enough tae make them sorry." } },
+      choices = {
+        { text = "Some ruins are better left buried, Rutgar.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Dig deep. The past belongs to whoever uncovers it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Every few nights, an' always from below, which is the worst of it, because a dwarf likes tae see what's comin'. We've lost tents, pack mules an' one very good cook, an' the Hold's too busy with its own war tae lend us a hand." } },
+      choices = {
+        { text = "The Hold and the League must stand together out here.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then don't wait on the Hold. Dig in and fend for yourselves.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? Ye'd not be the first Horde sort to wander into camp, and as long as ye keep yer hands off the finds, I'll not ask what ye're doing here." },
@@ -525,6 +543,10 @@ P:NPC {
           text = "Rubbings from all three hives, mind, not two. And if ye find a crazy night elf lass in one of them, give her a kick from us." },
         { id = "h_prism", when = { questDone = TODO_QUEST("Unraveling the Mystery") },
           text = "Larksbane says the glyphs aren't a code at all, just a lock that turns. I've been reading locks wrong most of my life, apparently." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest, out here? Weel, say a word for Brann while ye're at it, because wherever he's wandered off tae, he'll be needin' it more than the rest of us." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! Ye'll fit right in, if ye can stand the heat in that plate, because what we need out here is someone who'll stand still when the bugs come boilin' out o' the sand." },
       },
       again = {
         { id = "h_again", text = "What else? I've got rubbings to sort." },
@@ -542,6 +564,8 @@ P:NPC {
         { text = "A gnome could help with those glyphs, Rutgar.", next = "x_gnome", when = { race = "Gnome" } },
         { text = "What has the Explorers' League found here?", next = "xmage", when = { class = "MAGE" } },
         { text = "What's in the ruins the silithid guard?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "What are you digging for out here, Rutgar?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do the silithid trouble the camp often?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },

@@ -40,6 +40,8 @@ P:NPC {
         { text = "Whose things were they?", next = "whose" },
         { text = "What happened to Deathknell?", next = "town" },
         { text = "Why should I serve the Dark Lady?", next = "lady" },
+        { text = "I can find what you need faster unseen, Deathguard.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Could you use a mage, Deathguard, or just a pack mule?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "I'll get to it.", next = "END" },
       },
       again = { { id = "h_again", text = "What else? Time's the one thing we've plenty of, but I'd still not waste it." } },
@@ -101,6 +103,30 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Good, because the mindless in Deathknell's old houses still guard their pantries as if they remembered owning them. Get in, take what's useful, and get out, and don't come back with keepsakes." },
+        { id = "xrogue_scourge", when = { race = "Scourge" }, text = "You were a thief in life, then, and now you're a scavenger, which in Deathknell counts as a promotion. The Dark Lady needs supplies, not sentiment, so empty those houses and bring me the lot." },
+      },
+      choices = {
+        { text = "Supplies, not keepsakes. I'll bring you all of it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll keep whatever catches my eye, Deathguard.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Whose things were they, anyway?", next = "whose" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "A mule is more use than most recruits, but a mage who can conjure water without a well is worth two of them. Fetch what I asked for from the houses first, and then you may impress me." },
+        { id = "xmage_scourge", when = { race = "Scourge" }, text = "Dalaran-trained, by the look of you, and now you're turning over dead men's cupboards in Deathknell. That's the plague's great joke, and the sooner you stop finding it an insult, the sooner you'll be useful." },
+      },
+      choices = {
+        { text = "I'll fetch the supplies first, as ordered.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I didn't study for years to haul sacks.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What happened to Deathknell?", next = "town" },
+      },
+    },
   },
 
   topics = {
@@ -147,6 +173,8 @@ P:NPC {
         { text = "Who are the Damned?", next = "damned" },
         { text = "Tell me about Marla.", next = "marla" },
         { text = "Why does the Light mean nothing to Sarvis?", next = "light" },
+        { text = "Does Sarvis teach anything a mage could use, Elreth?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Shadow and fel aren't so different, Elreth.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Farewell, Elreth.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? I don't mind; I'm meant to be learning patience." } },
@@ -200,6 +228,30 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "He teaches the will above all, and I think any mage could use that, though he'd say a mage leans on her books the way a priest leans on the Light. I'm not sure he's right, but I'm only a novice, so I keep that to myself." },
+        { id = "xmage_scourge", when = { race = "Scourge" }, text = "I knew a girl from Dalaran before the plague who could light candles just by looking at them, and she'd have hated what we've become. You've kept your magic and your wits, which is more than the poor Damned in the fields have done." },
+      },
+      choices = {
+        { text = "Pity for the Damned is a kindness worth keeping.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Pity is wasted on the mindless, Elreth.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Who are the Damned, exactly?", next = "damned" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "Sarvis says much the same, and I nod when he says it, but shadow at least comes from inside you, and a demon comes from somewhere else entirely. I'd keep a close eye on anything that wants to be invited in." },
+        { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "We were all slaves to one master already, and now you've chosen to bargain with another sort of thing. I don't judge you for it, truly, but I'll say a quiet word for you all the same." },
+      },
+      choices = {
+        { text = "Say your word, Elreth. I won't mind it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Save your prayers. I chose this freely.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Why does the Light mean nothing to Sarvis?", next = "light" },
+      },
+    },
   },
 
   topics = {
@@ -247,6 +299,8 @@ P:NPC {
         { text = "What's a living man doing out here?", next = "why" },
         { text = "Why pick fights with the Forsaken?", next = "fights" },
         { text = "What do I win, exactly?", next = "wager" },
+        { text = "Would you still want a fight against a mage, Montague?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Keep pushing and you'll fight my demon, not me.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Not interested.", next = "END" },
       },
       again = { { id = "h_again", text = "Still talking? I'd rather be fighting, but go on." } },
@@ -311,6 +365,30 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Especially against a mage, since I've always wanted to know whether a good right hook beats a fireball when the caster stands close enough. No spells from across the field, mind; that's hardly sporting." },
+        { id = "xmage_scourge", when = { race = "Scourge" }, text = "A dead mage, and I'll wager you still talk like a Dalaran scholar too. Come on then, scholar, I'll even let you have the first word, but only the one." },
+      },
+      choices = {
+        { text = "No spells, then. Fists only, as you say.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll fight with whatever I've got, Montague.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Why pick fights with the Forsaken?", next = "fights" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "Then I'd be fighting the imp, and I'd likely win, which would be a terrible embarrassment for you. Put it away and face me yourself, unless your sort has forgotten how to throw a punch." },
+        { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "They say the Forsaken came back hollow, and it seems you went and filled the gap with demons. Put it away and face me yourself, or are you frightened of one living man?" },
+      },
+      choices = {
+        { text = "Fine. The demon stays back; it's you and me.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The demon fights with me. That's what a warlock is.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What do I win, exactly?", next = "wager" },
+      },
+    },
   },
 
   topics = {
@@ -355,6 +433,8 @@ P:NPC {
         { text = "What is doom weed for?", next = "weed" },
         { text = "How do you find working for Johaan?", next = "johaan" },
         { text = "What does the Society actually do?", next = "society" },
+        { text = "I can collect doom weed quietly, Holland.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Does the Society ever study demons, Holland?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Good day, Holland.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? I've a pot about to boil, but talk fast." } },
@@ -406,6 +486,30 @@ P:NPC {
         { text = "Then I'll help you gather it. The Society's work matters.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'd burn any weed that feeds on plague, Holland.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Quietly is good, because the senior apothecaries don't much like knowing how much I've been ordering. Bring it straight to me and not to Johaan, and I'll remember who helped me when I'm no longer junior." },
+        { id = "xrogue_scourge", when = { race = "Scourge" }, text = "Thieves make the best gatherers, you know, because they never bring back more than they can carry unnoticed. Mind the doom weed, though; it stings even dead fingers." },
+      },
+      choices = {
+        { text = "I'll take it to Johaan. He's your superior.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Your secret's safe with me, Holland.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What is doom weed for?", next = "weed" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "Officially, no, because the senior apothecaries say demons make unreliable subjects and they bite. Unofficially I've wondered what an imp's blood would do in a tincture, but I'd need a warlock willing to ask it nicely." },
+        { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "You've got the look the Cult's people had, as if you're listening to something nobody else can hear. I don't mind it, honestly; the Society could use someone who isn't squeamish." },
+      },
+      choices = {
+        { text = "My demon isn't a test subject, Holland.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "For the right reason, it could bleed a little.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "What does the Society actually do?", next = "society" },
       },
     },
   },

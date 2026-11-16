@@ -35,6 +35,8 @@ P:NPC {
         { text = "Show me your mushrooms.", next = "BUSINESS" },
         { text = "Where do you find them?", next = "where" },
         { text = "Why mushrooms, of all things?", next = "why" },
+        { text = "Which of your mushrooms would a rogue want, Gwyn?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Do mushrooms grow where demons have walked, Gwyn?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },
       again = { { id = "h_again", text = "Anything else, dear? I've got all night, and so do the mushrooms." } },
@@ -71,6 +73,30 @@ P:NPC {
         { text = "Then sell only the clean ones, Gwyn, and mark the rest.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Sell them all. The buyer can take care.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "The pale caps that grow along the lake shore, because they'll put a living man to sleep for a day and leave a dead one feeling nothing at all. I sell them for cooking, mind, and I don't ask what my customers cook." },
+        { id = "xrogue_scourge", when = { race = "Scourge" }, text = "You've a cutpurse's way of looking at my stall, counting what's on it and what's under it. Everything under it is poisonous, dear, so I'd stick to what's on top." },
+      },
+      choices = {
+        { text = "A sleeping guard is better than a dead one.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A dead guard never wakes up, Gwyn.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Where do you find them all?", next = "where" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "They do, as it happens, and they come up black and smelling of brimstone, so I leave them for the bats. Do keep your little friend off my stall; one trod on a whole tray of caps the last time a warlock stopped by." },
+        { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "They do, and they come up black and stinking of brimstone, which is more than I can say for the caps that grow on the dead. Keep your little friend off my stall, though, because one trod on a whole tray last week." },
+      },
+      choices = {
+        { text = "I'll keep it off your stall, Gwyn.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My imp goes where it likes, Gwyn.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Why mushrooms, of all things?", next = "why" },
       },
     },
   },
@@ -113,6 +139,8 @@ P:NPC {
         { text = "Show me your clothes.", next = "BUSINESS" },
         { text = "Were you a tailor in life?", next = "past" },
         { text = "Where do you get cloth out here?", next = "cloth" },
+        { text = "These robes should hold an enchantment well, Andrea.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "My demon keeps scorching my robes, Andrea.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
       again = { { id = "h_again", text = "Anything else? Make it quick, I have hems to finish." } },
@@ -149,6 +177,30 @@ P:NPC {
         { text = "There's no trick to it. It's honest magic.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Every craft has its secrets. I'll keep mine.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "They'll hold one well enough, provided you don't cast through the sleeves and singe the cuffs, which every mage does sooner or later. I sewed for more Dalaran folk than I care to remember, and not one of them kept a clean cuff." },
+        { id = "xmage_scourge", when = { race = "Scourge" }, text = "You wore the violet once, I'd wager, and you stood straighter in it than you're standing now. A robe that fits will make you look like a mage again rather than a corpse in borrowed cloth." },
+      },
+      choices = {
+        { text = "I'll take your advice and stand straighter.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Looks don't win fights, Andrea.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Were you a tailor in life?", next = "past" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "Then wear black, since it hides scorch marks far better than grey, and stop letting the thing stand so close. Your demon has terrible manners, and I'd say so to its face if it had a proper one." },
+        { id = "xwarlock_orc", when = { race = "Orc" }, text = "An orc in cloth robes, scorched by his own demon, is a sight I didn't expect in the Sepulcher. Wear black, which hides the marks, and keep the creature a few paces off." },
+      },
+      choices = {
+        { text = "I'll teach the demon some manners, Andrea.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Its manners suit me well enough, Andrea.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Where do you get cloth out here?", next = "cloth" },
       },
     },
   },
@@ -189,6 +241,8 @@ P:NPC {
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "What makes the forest so dangerous?", next = "forest" },
         { text = "Where should I go from here?", next = "roads" },
+        { text = "What does Dalaran owe this forest, Harly?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Which way through Silverpine keeps me out of sight?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
       again = { { id = "h_again", text = "Anything else, or can I get back to counting what the last cart brought in?" } },
@@ -225,6 +279,30 @@ P:NPC {
         { text = "Then I'll save what I can, odds or no odds.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "You're right. Save what's useful and let the rest burn.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "A great deal, since it was a Dalaran archmage who brought the worgen here, and Dalaran mages still squat at Ambermill as if nothing happened. If you've got their kind of magic, use it to clean up their kind of mess." },
+        { id = "xmage_scourge", when = { race = "Scourge" }, text = "If you were Kirin Tor before you died, you'll know Arugal's name, and you'll know the Council never sent anyone to answer for him, only more mages to dig at Ambermill. That should tell you all you need to know about Dalaran's gratitude." },
+      },
+      choices = {
+        { text = "I'll help clean up their mess, for the Sepulcher.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll look after myself first, Harly.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What makes the forest so dangerous?", next = "forest" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Not the roads, because the worgen watch roads the way you'd watch a door. Go through the trees and keep the lake in sight, and you'll see more than you're seen, mostly." },
+        { id = "xrogue_scourge", when = { race = "Scourge" }, text = "Not the roads, and not upwind of anything with a nose, because the worgen can smell a Forsaken a long way off. Go through the trees with the lake in sight, and walk soft." },
+      },
+      choices = {
+        { text = "I'll take the trees and stay hidden.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'll take the road and face what comes.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Where should I go from here?", next = "roads" },
       },
     },
   },

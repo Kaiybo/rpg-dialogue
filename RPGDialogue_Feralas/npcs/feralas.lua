@@ -424,6 +424,24 @@ P:NPC {
         { text = "Something else, then.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "The coral blades, some say, or the salt, or something darker that the Hatecrest sorceresses lay on them. Our priestesses of Elune tend them well, but there are only so many hands on this island, and the rain makes every fever worse." } },
+      choices = {
+        { text = "Your priestesses should lead. I'll follow their ways here.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Wounds don't care whose prayer closes them. I'll do it my way.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Some do and some don't, and the ones who don't remember the Third War too well. Your people and mine bled together at Hyjal, though, and most here will meet you halfway if you fight beside them on the coast." } },
+      choices = {
+        { text = "I'll follow Shandris's orders while I'm on her island.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I answer to the Light, not to Sentinel captains.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -437,6 +455,10 @@ P:NPC {
           text = "A mage! If you'd warm the kettle for me, I'd thank you, because the rain gets into the firewood and the Sentinels come in wet and cold at every hour." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "You came in so quietly I nearly poured tea on you, friend. Sit down by the fire and dry off, and do make a little more noise next time." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest of the Light, here at Feathermoon? You're welcome at my hearth, and if you've healing to spare, some of the Sentinels came in from the coast last night with naga wounds that won't close cleanly." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, so far from the Eastern Kingdoms! The Sentinels will want to see you swing that hammer before they trust it, but my kettle trusts everyone." },
       },
       again = { { id = "h_again", text = "Anything else? The kettle's on." } },
       choices = {
@@ -446,6 +468,8 @@ P:NPC {
         { text = "Is the rain ever going to stop?", next = "rain" },
         { text = "You'd let a mage near your hearth?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Sorry. Old habits, Shyria.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What makes the naga wounds so slow to heal?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do the Sentinels welcome help from outsiders?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Thank you.", next = "END" },
       },
     },

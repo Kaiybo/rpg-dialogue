@@ -375,6 +375,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Watched, until we know who arms them, because the Blackrock clan answers to Rend in the Spire and Rend answers to something older that I don't yet understand. To strike blindly at an enemy you don't understand is how wars are lost, and I have lived long enough to see it happen more than once." } },
+      choices = {
+        { text = "Patience, then. We strike when we understand them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Every day we watch, they raid. Strike now.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "The Burning Legion, ten thousand years ago, when the Highborne's magic burned so brightly it was seen from beyond the world. I don't blame you for their sins, but I'd ask you to remember them here, in a land that burned for less." } },
@@ -417,6 +426,8 @@ P:NPC {
           text = "Halycon, the orcs call her, the mother of their worgs. Find her in the Spire and end it, and try not to hate the creature for what was done to it." },
         { id = "h_halycon_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Put Her Down"), days = 5 } },
           text = "The worgs on the road are fewer this week. It was a mercy, {name}, whatever it felt like in the Spire." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin of the Light. The Blackrock orcs below would like nothing better than to test your faith, and I would ask you not to let them choose the place." },
       },
       again = {
         { id = "h_again", text = "What else would you know? I have time, and the mountain isn't going anywhere." },
@@ -437,6 +448,7 @@ P:NPC {
         { text = "What did the arcane draw down on your people?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Does my craft frighten you, Helendis?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "You've been watching someone. Who?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Should the Blackrock orcs be fought, or only watched, Helendis?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Elune keep you, Helendis.", next = "END" },
       },
     },
@@ -1022,6 +1034,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Only when they come up, and they come up more often than you'd think, since the plague left so many fine things with no one to claim them. The Count pays well for a Silver Hand tabard, and I tell myself it's better in a museum than in a ghoul's hands." } },
+      choices = {
+        { text = "Those relics belong to the order, not to a count.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Better a museum than a ghoul's hands. You're right.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Some do, faintly, like a warm stone after the sun goes down, and the Count likes those best. I've no talent for it myself, so I lick my finger and hold it over them, which works about as well as you'd expect." } },
@@ -1054,6 +1075,8 @@ P:NPC {
           text = "Carry it carefully, and don't open it, and don't let anyone at court see you with it before the Count does. He likes to surprise his guests." },
         { id = "h_done", when = { questDone = TODO_QUEST("Delivery to Ridgewell") },
           text = "The Count wrote to me himself, which he never does; he says the clasp is the jewel of the whole museum now. You're a very welcome name in a very old house, {name}." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! The Count would love to meet you, I'm sure, because he collects knights almost as eagerly as he collects jewels, though he's far less careful with the knights." },
       },
       again = {
         { id = "h_again", text = "What else? I'm cataloguing, but I can talk and count at the same time." },
@@ -1069,6 +1092,7 @@ P:NPC {
         { text = "Treasure hunting's my trade too, my lady.", next = "k_rogue", when = { class = "ROGUE" } },
         { text = "Do the Dark Iron relics still carry enchantments?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Has the Count ever bought anything demonic?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you sell relics of the Silver Hand to collectors, Mayara?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good luck with the hunt.", next = "END" },
       },
     },
@@ -1188,6 +1212,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "They come for the gryphons, mostly, because a bird downed is a message that never reaches Lakeshire. Marshal Maxwell says we hold the ridge for honour an' for Stormwind, an' I say we hold it for the birds, but it comes tae the same thing." } },
+      choices = {
+        { text = "It's honour that holds the ridge. Remember that.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Holding it for the birds is reason enough, Borgus.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "More than I'll count aloud, an' each one had a name an' a temper o' its own. I bury 'em up on the ridge facin' Ironforge, an' I'll tell ye honestly that I say a prayer over every one, though I'd thump any soldier who laughed." } },
+      choices = {
+        { text = "No one should laugh. A faithful creature deserves a prayer.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "It's a war. Mourn later, Borgus, and keep them flying.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "They don't mind ye, exactly, they sneeze at ye, for the arcane tickles their beaks somethin' awful. Stand downwind an' ye'll be fine, an' don't go castin' anythin' mid-flight, or ye'll find out what a sneezin' gryphon does at a thousand feet." } },
@@ -1214,6 +1256,10 @@ P:NPC {
           text = "Borgus Stoutarm, and these are the Vigil's gryphons, the finest birds that ever choked on volcano smoke. Tell me where ye're going and I'll find ye one that's in a good mood." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Night flights over the Steppes are a sight, with the whole mountain glowin' red below ye. Hold on tight, mind; the hot air throws the birds about." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! Say a wee word for the birds, would ye? The smoke chokes 'em an' the Blackrock orcs shoot at 'em, an' they deserve a bit o' kindness from somewhere." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! Ye'll be wantin' a strong bird, then, for all that plate, an' I've just the one, a big grumpy fellow who doesnae mind the weight." },
       },
       again = { { id = "h_again", text = "Need somethin' more? The gryphons cannae abide the smoke off the mountain, so be quick." } },
       choices = {
@@ -1222,6 +1268,8 @@ P:NPC {
         { text = "Show me the routes.", next = "BUSINESS" },
         { text = "Do gryphons mind a mage on their backs, Borgus?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What happens if I sneak up on a gryphon?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Have you lost many gryphons to the Blackrock, Borgus?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do the Blackrock orcs ever come for the Vigil, Borgus?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Not today, Borgus.", next = "END" },
       },
     },

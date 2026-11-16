@@ -72,8 +72,30 @@ P:NPC {
         { text = "Let's leave that there.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Well, most nights, and the others I was too busy shouting at the murlocs. I'll confess I wasn't much for prayer back home, but a cage in the Swamp of Sorrows does wonders for a man's piety." } },
+      choices = {
+        { text = "A prayer from a cage still counts. The Light heard you.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Faith that only shows up in a cage isn't faith.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Because everything sensible runs from a paladin, friend, and I'd hoped murlocs were at least that sensible. They swarm a man the moment he looks weak, so a great shining warrior standing by my cage seems like the very thing to keep them back." } },
+      choices = {
+        { text = "I'll stand by you. No one deserves to be left here.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'm no one's bodyguard, Galen. Your cage isn't my concern.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest of the Light! Oh, I knew it, I prayed every night in this cage and here you are, so please, friend, tell me you've brought a key along with your blessings." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! Oh, a real one, in plate and everything, so the murlocs will run now, won't they? Please tell me they'll run." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Can you turn the murlocs into sheep? I've heard your lot can do that, and I'd give a great deal to see it." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! Thank the Light, because you can open a lock, can't you? Please say you can open a lock." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can't you just ask the earth to open this cage? No? Well, a strong arm will do just as nicely, I suppose." },
@@ -104,6 +126,8 @@ P:NPC {
         { text = "Did you get your strongbox back?", next = "after", when = { questDone = TODO_QUEST("Galen's Escape") } },
         { text = "I could pick this lock, Galen. What's it worth?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Shall I turn your guards into sheep, Galen?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Did you really pray every night, Galen?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Why would murlocs run from a paladin, Galen?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll be back.", next = "END" },
       },
     },

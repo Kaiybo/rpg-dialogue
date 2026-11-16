@@ -53,6 +53,7 @@ P:NPC {
         { text = "I'd serve you from the shadows, my lady.", next = "rogue", when = { class = "ROGUE" } },
         { text = "I served the Cult once, before the end.", next = "cult", when = { race = "Scourge", class = "WARLOCK" } },
         { text = "My people spoke for yours. Was it a mistake?", next = "tauren", when = { race = "Tauren" } },
+        { text = "My spells are yours, my lady.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "For the Dark Lady.", next = "END", fx = { affinity = 2 } },
       },
       again = {
@@ -176,6 +177,19 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Spells I have, from the many Dalaran mages who woke in the dark beside me and chose freedom over the Scourge. What I lack are mages who see past the Kirin Tor's pretty dome to the city that let Kel'Thuzad walk its halls." },
+        { id = "xmage_scourge", when = { race = "Scourge" }, text = "You studied among the Kirin Tor and died for it, as so many did, and now you serve the one who freed you. Remember that, mage, when your old masters whisper that you still belong to them." },
+        { id = "xmage_troll", when = { race = "Troll" }, text = "The Darkspear send me mages now, and I find I respect a people who know what it is to lose a homeland. Burn the Scourge for me, troll, and we will understand each other well enough." },
+      },
+      choices = {
+        { text = "I serve you, my lady, and not Dalaran.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "I serve my own studies first, my lady.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "What do the Forsaken want, my lady?", next = "want" },
+      },
+    },
   },
 
   topics = {
@@ -233,6 +247,7 @@ P:NPC {
         { text = "I command demons too, dreadlord.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "The Light answers me. Does that trouble you?", next = "paladin", when = { class = "PALADIN" } },
         { text = "What does a dreadlord make of the arcane?", next = "mage", when = { class = "MAGE" } },
+        { text = "I'd serve the Dark Lady from your shadow, Varimathras.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "I'll go.", next = "END" },
       },
       again = {
@@ -301,6 +316,18 @@ P:NPC {
         { text = "The Dream is sacred. Mock it at your peril.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Dreams are for the weak. On that, we agree.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Every servant of the Dark Lady stands in someone's shadow, little knife, and mine is the longest in this court. Watch for the Scarlet spies who creep through the sewers, and bring their names to me, so that I may lay them at her feet." },
+        { id = "xrogue_scourge", when = { race = "Scourge" }, text = "You stole for the living kings of Lordaeron, I imagine, and now you steal for the Banshee Queen, which is a considerable promotion. She rewards loyalty as surely as she punishes its lack, as you will find." },
+      },
+      choices = {
+        { text = "Her enemies' names will reach her through you.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll bring my findings to the Dark Lady myself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "How did you come to serve her?", next = "serve" },
       },
     },
   },
@@ -496,6 +523,7 @@ P:NPC {
         { text = "I studied in Dalaran too. Do you miss it?", next = "mage", when = { class = "MAGE", race = "Scourge" } },
         { text = "An orc mage. What does Dalaran's man make of that?", next = "orcmage", when = { race = "Orc", class = "MAGE" } },
         { text = "I made bargains for power, as Thule did.", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "Have you ever had a use for a thief, Bethor?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
       again = {
@@ -561,6 +589,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Once, in Dalaran, when a friend's notes went missing and I paid a boy to find them, and I've regretted ever since not asking what else he found. Thule Ravenclaw keeps his secrets at Fenris Keep now, and I'd dearly like a thief in his study." },
+        { id = "xrogue_scourge", when = { race = "Scourge" }, text = "Dalaran had its thieves like any city, though the Kirin Tor liked to pretend otherwise, and some of them were cleverer than the apprentices. If you were one of them, you'll know how to get past a ward that thinks itself clever." },
+      },
+      choices = {
+        { text = "I'll fetch what you need and nothing more.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Whatever else I find there, I keep.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What happened to Thule?", next = "thule" },
+      },
+    },
   },
 
   topics = {
@@ -605,6 +645,9 @@ P:NPC {
         { text = "Warriors don't sit much, Norman. Why keep chairs?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Is there room in here for my beast, Norman?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Make this my home.", next = "BUSINESS" },
+        { text = "Do rogues get a chair here too, Norman?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "A warm fire would suit your common room, Norman.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Is there a chair for my demon too, Norman?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Just resting.", next = "END" },
       },
     },
@@ -643,6 +686,42 @@ P:NPC {
         { text = "Talk to them all you like. Growing things listen.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Mushrooms are for eating, Norman, not for talking to.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Everyone gets a chair, and rogues get the ones with their backs to the wall, since they'd move them there anyway. The only rule is that nobody takes anyone else's, and I'd hate to find out how a rogue breaks it." },
+        { id = "xrogue_scourge", when = { race = "Scourge" }, text = "Everyone gets a chair, and the old cutpurses always want the one nearest the door, which I keep for them. The only rule is that nobody takes anyone else's, and I trust you'll mind it." },
+      },
+      choices = {
+        { text = "I'll keep to my own chair, Norman.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A chair's only mine while I'm sitting in it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Can I ask you something else, Norman?", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "A fire would suit the room and nobody in it, since the dead can't feel it and the living don't stay long. I keep the lamps low on purpose, because my guests have had enough brightness for one lifetime." },
+        { id = "xmage_scourge", when = { race = "Scourge" }, text = "You'd have sat by a proper hearth in Dalaran, I expect, and I'm sorry I can't give you one. I keep the lamps low on purpose, because most of my guests have had enough brightness for one lifetime." },
+      },
+      choices = {
+        { text = "Low lamps it is. Your house, your rules.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A little light would do them good, Norman.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Can I ask you something else, Norman?", next = "BACK" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "There's a place for it, on the floor beside your chair, and if it scorches the upholstery we'll be having words. I've nothing against demons in principle, only against what they do to good leather." },
+        { id = "xwarlock_orc", when = { race = "Orc" }, text = "There's a place for it on the floor, and you'll find the floor is stone, which is the only thing down here your demon can't scorch. I've nothing against it in principle, only against what it does to leather." },
+      },
+      choices = {
+        { text = "It'll sit on the floor, as you say.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My demon sits where it pleases, Norman.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Can I ask you something else, Norman?", next = "BACK" },
       },
     },
   },

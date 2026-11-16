@@ -29,6 +29,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "Then do it, and bring me numbers, not stories, because numbers are what I'm short of. How many orcs, how many shadowcasters and where Gath'Ilzogg sleeps, and I'll do the rest with the soldiers I've got." } },
+      choices = {
+        { text = "And if I can reach Gath'Ilzogg, I'll finish him.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Numbers only, Marshal. I'll report straight back.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "What happened at Stonewatch?", next = "stonewatch" },
+      },
+    },
+    xmage = {
+      lines = { { id = "xma_default", text = "One mage can hold a bridge, I'll grant you, until the mana runs dry and the orcs don't. I want you where the Blackrock least expect you, which is wherever I tell you to be." } },
+      choices = {
+        { text = "Put me where you need me, Marshal.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll hold wherever I think best.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Where should I start?", next = "start" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "No, they won't, and I'll admit I'm glad of it, though I'd not say so in front of the Magistrate. Keep your creature out of the barracks and keep it pointed east." } },
+      choices = {
+        { text = "East it is. Let them taste their own magic.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll call on it sparingly, Marshal.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Who is Tharil'zun?", next = "tharil" },
+      },
+    },
     druid_talk = {
       lines = { { id = "dt_default", text = "Hungry or not, they burn farms and carry off livestock. If there's something pushing them, it'll be the Blackrock orcs, and that only makes it worse. Find out for me, and don't come back with a story about poor misunderstood gnolls." } },
       choices = {
@@ -72,6 +96,9 @@ P:NPC {
         { text = "My people have fought the Blackrock for generations.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Give me a post, Marshal. I'll hold it.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "I can scout Render's Valley for you.", next = "hunter", when = { class = "HUNTER" } },
+        { text = "I can get into Stonewatch unseen, Marshal.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Your guard's spread thin. I can hold a line with fire.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "The Blackrock shadowcasters won't be the only ones with demons.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll keep my eyes east.", next = "END" },
       },
     },

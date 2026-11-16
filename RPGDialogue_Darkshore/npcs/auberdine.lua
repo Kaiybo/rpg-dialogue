@@ -34,6 +34,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "Then you and I are both in the business of listening, though I hope for kinder reasons. If you hear anything of what is sickening the land, from the furbolgs or from the sailors at the dock, bring it to me first." },
+      },
+      choices = {
+        { text = "You'll hear it first, Elder, and true.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll bring it once I've decided what it's worth.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What is sickening the land?", next = "sick" },
+      },
+    },
+    xlock = {
+      lines = {
+        { id = "xwl_default", text = "Bound, by you, so that you might loose them again elsewhere? I have seen what comes of mortals who think they can leash the Legion's servants, and so has every kaldorei who lived through the Sundering. Fight them or leave Darkshore, warlock, for there is no third road here." },
+      },
+      choices = {
+        { text = "Then I'll fight them, and bind nothing.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Your way only lets them come back, Elder.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What remains in the ruins?", next = "ruins" },
+      },
+    },
     warrior_th = {
       lines = {
         { id = "wth_default", text = "Auberdine has no walls, only Sentinels and the sea, and the Sentinels are stretched thin enough that I'd take your blade gladly. Speak to Glynda Nal'Shea on the hill; she knows where the gaps are, because she stands in most of them." },
@@ -118,6 +138,8 @@ P:NPC {
         { text = "Auberdine needs blades on its walls. I have one.", next = "warrior_th", when = { class = "WARRIOR" } },
         { text = "I could read the magic in those Highborne ruins.", next = "mage_th", when = { class = "MAGE" } },
         { text = "The beasts here are sick. I've seen it in their eyes.", next = "hunter_th", when = { class = "HUNTER" } },
+        { text = "An elder must hear a great many things. So do I.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Bashal'Aran's demons could be bound instead of fought.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll help Auberdine.", next = "END", fx = { affinity = 2, standing = { auberdine = 1 } } },
       },
     },
@@ -272,6 +294,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "Perhaps not, and I would rather have a mage's word on that than nothing. The moss is fel, and fel is the Legion's, and your craft and theirs once drank from the same Well, which is a thing my people have not forgotten." },
+      },
+      choices = {
+        { text = "Then I'll help you burn it out.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fel or arcane, power is power.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What is the moss, exactly?", next = "moss" },
+      },
+    },
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "Then learn it, and quickly, for every day the Blackwood eat from those tainted stores, more of them turn. Watch what they eat and where it comes from, and tell me before you do anything else." },
+      },
+      choices = {
+        { text = "I'll watch only, and tell you true.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If their chieftain's behind it, he dies in his sleep.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Can the furbolgs be turned back?", next = "turn" },
+      },
+    },
     warlock_te = {
       big = true,
       lines = {
@@ -309,6 +351,8 @@ P:NPC {
         { text = "Why do the furbolgs turn?", next = "turn" },
         { text = "I can feel the sickness in the land.", next = "druid_t", when = { class = "DRUID" } },
         { text = "I know fel when I see it. This moss is fel.", next = "warlock_te", when = { class = "WARLOCK" } },
+        { text = "This moss isn't arcane. I'd know if it were.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "The furbolgs won't see me. I could learn what drives them.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2 } },
       },
     },
@@ -390,6 +434,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      lines = {
+        { id = "xwl_default", text = "There is grief on that shore, and nothing else that you should touch. Elune keeps the dead, warlock, and if I find you have meddled with them, I will not be as gentle as I am now." },
+      },
+      choices = {
+        { text = "I'll leave the dead in peace.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The dead don't need what they leave behind.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What killed them?", next = "killing" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "The Sisterhood objects to arrogance, and too many mages have carried it. Elune's light asks only that you remember you are small beneath the moon, which is a lesson Azshara never learned." },
+      },
+      choices = {
+        { text = "Then I'll walk humbly here, Sister.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Some arrogance is earned, Sister.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Do you miss the temple?", next = "temple" },
+      },
+    },
     druid_gw = {
       lines = {
         { id = "dgw_default", text = "Then you've seen more of them than I have, for I can only kneel at the tideline. Did the water feel wrong out there, sister of the Circle, or brother? I have wondered whether it is the sea that's sick, or only what dies in it." },
@@ -423,6 +487,8 @@ P:NPC {
         { text = "Why do the murlocs gather on them?", next = "murlocs" },
         { text = "Could a priest of the Light help you?", next = "priest_g", when = { class = "PRIEST", ["not"] = { race = "NightElf" } } },
         { text = "I've swum out to the great bodies in seal form.", next = "druid_gw", when = { class = "DRUID" } },
+        { text = "Death on that shore. There's power in it.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Does the Sisterhood object to mages?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Elune keep you.", next = "END" },
       },
     },
@@ -491,6 +557,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "Then thin them, and quickly, for they have been creeping further up the beach every night. Murkdeep leads them now, and if you can get near enough to see him, you will have done more than my Sentinels." },
+        { id = "xro_nightelf", when = { race = "NightElf" }, text = "Then thin them, sister's child, for they creep further up the beach every night and you move as quietly as any Sentinel. Murkdeep leads them now, and if you can get near enough to see him, you will have done more than most." },
+      },
+      choices = {
+        { text = "I'll bring Murkdeep down face to face.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Murkdeep won't see the blade that kills him.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Who is Murkdeep?", next = "murkdeep" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "The Sentinels do not usually fight beside mages, and some of my sisters would sooner you didn't. But I am short of hands, so stay where I put you and do not set the groves alight." },
+      },
+      choices = {
+        { text = "Where you put me, Sentinel.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll fight where I'm of most use.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Where are the Sentinels needed most?", next = "thin" },
+      },
+    },
     warrior_gl = {
       lines = {
         { id = "wgl_default", text = "I'll put you anywhere I can, but the watch here isn't a line; it's a shore, a road and a boat, and the murlocs come from the water while the furbolgs come from the trees. Can you stand facing two ways at once?" },
@@ -526,6 +613,8 @@ P:NPC {
         { text = "What did the crystal hide?", next = "crystal", when = { questDone = TODO_QUEST("The Fragments Within") } },
         { text = "Put me on the watch. I can hold a line.", next = "warrior_gl", when = { class = "WARRIOR" } },
         { text = "Where do you need a bow most?", next = "thin", when = { class = "HUNTER" } },
+        { text = "I can thin the murlocs without a sound.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "I'll lend my fire to the Sentinels.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2, standing = { auberdine = 1 } } },
       },
     },
@@ -595,6 +684,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "It was, and Anaya was of the Highborne, though she was gentler than the rest of them. Her people's magic doomed her city, and I have never known whether to hate it or to wish I understood it." },
+      },
+      choices = {
+        { text = "Some power is better left unlearned.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Magic didn't doom her. The ones who misused it did.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Who was Anaya?", next = "anaya" },
+      },
+    },
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "What I am looking for is her, or what is left of her, and the ruins are full of the restless dead. Go quietly, then, for they do not rest well, and they do not welcome the living." },
+      },
+      choices = {
+        { text = "I'll go, and bring back only the truth.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll go, and take what the dead won't miss.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What's in Ameth'Aran now?", next = "ameth" },
+      },
+    },
     warrior_ce = {
       lines = {
         { id = "wce_default", text = "I did fight, warrior, at the end, with a druid's claws and a heart that was already breaking. Fighting did not save Ameth'Aran; it only meant I was alive to grieve it, and some nights that feels like the worse fate." },
@@ -624,6 +733,8 @@ P:NPC {
         { text = "What was Ameth'Aran?", next = "ameth" },
         { text = "Should I fear the long sleep?", next = "sleep_d", when = { class = "DRUID" } },
         { text = "I'd have fought for her, in your place.", next = "warrior_ce", when = { class = "WARRIOR" } },
+        { text = "Ameth'Aran was a Highborne city, wasn't it?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "I could slip into Ameth'Aran and find what you're looking for.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I'm sorry.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -697,6 +808,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "They're seasick, not foolish, or so I like to think, and the Sentinels walk the dock all night. If a bag goes missing in my inn, I'll know who was watching them, won't I?" },
+      },
+      choices = {
+        { text = "I'd only warn them, Shaussiy.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Seasick folk make careless friends.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Who stays here, mostly?", next = "guests" },
+      },
+    },
+    xlock = {
+      lines = {
+        { id = "xwl_default", text = "You'll have a room, because I don't turn travelers away, but you'll have the one nearest the dock. My other guests are kaldorei, and they can smell what you carry even if they're too polite to say so." },
+      },
+      choices = {
+        { text = "Fair. I'll keep to myself.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Let them smell it. I'm not ashamed.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Any news from the boats?", next = "news" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Shaussiy, and I keep the inn by the docks. My guests come off the boats from Teldrassil and Menethil, mostly, and they all arrive seasick." },
@@ -714,6 +845,8 @@ P:NPC {
         { text = "Any news from the boats?", next = "news" },
         { text = "The crossing from Menethil nearly finished me.", next = "seasick", when = { race = { "Human", "Dwarf", "Gnome" } } },
         { text = "You pray over your guests' dreams?", next = "dreams_s", when = { class = { "PRIEST", "DRUID" } } },
+        { text = "Your guests leave their bags lying about, I noticed.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "I'll need a room for the night, and some quiet.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Just resting.", next = "END" },
       },
     },

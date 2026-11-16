@@ -77,8 +77,28 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Cruelty, no, for I take my game clean an' quick, though there's those in Stormwind who'd call it sport an' turn up their noses. A hunt's a kind o' respect, I'd say, between the hunter an' the hunted, an' the great cat understands that better than most men." } },
+      choices = {
+        { text = "Killing for a trophy isn't respect. Hunt only what you need.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The jungle's a hunt. The strong take what they will.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "There is, an' more than ye'd think, for a good hunter faces his quarry fair an' takes it clean. The great cat deserves a proper endin', an' when I find him, I mean tae look him in the eye before the shot." } },
+      choices = {
+        { text = "Face the quarry fair. Anything else is butchery.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A trap's as good as a shot. The cat won't know.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "Well now, a priest, an' a quiet one I hope, for the game in this jungle hears a footfall from a hundred paces an' a hymn from twice that." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now there's a fine sight in this camp, for I've hunted wi' warriors an' rangers, but I've never had one o' the Silver Hand stalk a tiger wi' me." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? Yer folk talk tae the spirits o' beasts, I hear, so ye can tell the great cat I'm comin' for him." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest o' the Horde in my camp. Pray all ye like, so long as ye do it quiet, for the game hears everythin'." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. I'll hunt beside near anybody, but no beside a demon, so keep yer wee beastie well away from my trophies." },
@@ -116,6 +136,8 @@ P:NPC {
         { text = "Tell me about your students.", next = "students" },
         { text = "What's the finest shot you ever took?", next = "shot", when = { class = "HUNTER" } },
         { text = "That's a fine rifle. Ironforge make?", next = "rifle", when = { race = { "Dwarf", "Gnome" } } },
+        { text = "Is there no cruelty in hunting for sport, Nesingwary?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is there honor in the hunt, Nesingwary?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll hunt for you.", next = "END", fx = { affinity = 2, trait = { brave = 1 } } },
         { text = "Some of those cats you hunt are my kin, Nesingwary.", next = "k_druid", when = { class = "DRUID" } },
         { text = "My people hunted this jungle before yours had rifles.", next = "k_troll", when = { race = "Troll" } },
@@ -357,8 +379,28 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "No' often, an' never out loud, for a hunter who thinks too much about dyin' starts missin' his shots. But I keep a page at the back o' the master's book for the ones who didnae come back, an' it's longer than I'd like." } },
+      choices = {
+        { text = "Remembering them is a holy thing, Barnil. Keep that page.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Names in a book won't bring them back. Look to the living.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "He'll no' tell ye himself, for he'd sooner talk about panthers, but he's done the Alliance good service in his day, or so the old soldiers say. Now he says the jungle's the only war worth fightin', an' maybe he's right." } },
+      choices = {
+        { text = "His place is with the Alliance's armies. Duty calls him.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "He's earned his freedom. Let him hunt in peace.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Ye'll forgive the mess, for the master's pages blow all over the camp an' I've no' had time tae tidy, but sit an' rest, for the jungle's hard on soft feet." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, here! The master'll be pleased, for he's always sayin' the Alliance needs more heroes, an' never mind that he's one himself, though he'll no' admit it." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman o' the Horde at the master's camp. Well, he says a good hunter's welcome whatever the colors, so mind yer manners an' I'll mind mine." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest o' the Horde. Well, keep yer loa or yer shadows away from the master's book, for it's in bad enough shape already." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock in the master's camp. Keep yer beastie away from the rifles, for they're loaded, an' so am I." },
@@ -388,6 +430,8 @@ P:NPC {
         { text = "Don't you miss Ironforge?", next = "home", when = { race = "Dwarf" } },
         { text = "You said you miss a good fight.", next = "fight", when = { metBefore = true } },
         { text = "What do you do all day?", next = "work" },
+        { text = "Do the hunters here ever think about their own deaths?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Shouldn't a hero of the Alliance be serving it, Barnil?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll look for the pages.", next = "END", fx = { affinity = 2 } },
         { text = "You miss a fight? I'm a warrior. Spar with me.", next = "k_warrior", when = { class = "WARRIOR" } },
         { text = "Why are the pages of Nesingwary's book loose, Barnil?", next = "xrogue", when = { class = "ROGUE" } },
@@ -544,8 +588,18 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Because my father taught me tigers, and Sin'Dall is the greatest tiger in this jungle, so taking him is the only way I'll ever know I learned the lesson properly. I don't hate the beast, mind you, and I think I'll miss him when he's gone." } },
+      choices = {
+        { text = "Then let him live. Some lessons are better left unfinished.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Take him, then. Your father would want the lesson finished.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Keep still while I string this, and don't pray too loud, because the tigers out here can hear a pin drop and a sermon from twice as far." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'd hear the jungle better than I can, so tell me if Sin'Dall is prowling close, because I've waited a long while." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. If you pray before a hunt, pray for Sin'Dall to show himself; I've done it myself and had no answer." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. Please don't freeze any tigers near my snares; it confuses the young ones, and it confuses me." },
@@ -571,6 +625,7 @@ P:NPC {
         { text = "How do you track a tiger?", next = "track" },
         { text = "Want to compare bows?", next = "bows", when = { class = "HUNTER" } },
         { text = "What about the cats that walk on two legs?", next = "druid", when = { class = "DRUID" } },
+        { text = "Why are you so set on taking Sin'Dall, Ajeck?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "I'll hunt with you.", next = "END", fx = { affinity = 2, trait = { brave = 1 } } },
         { text = "Darkspear hunters track tigers too, Ajeck.", next = "k_troll", when = { race = "Troll" } },
         { text = "Why do you say no one else will take Sin'Dall, Ajeck?", next = "xrogue", when = { class = "ROGUE" } },

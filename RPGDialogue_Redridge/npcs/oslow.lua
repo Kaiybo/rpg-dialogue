@@ -29,6 +29,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "No, they didn't, and I've a fair idea the gnolls had them, but if you think one of my lads is skimming, you'd best bring proof. I trust my crew the way I trust a good keystone." } },
+      choices = {
+        { text = "I'll find the thief, whoever it turns out to be.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Pinch them back and say nothing. Simpler.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Where did you lose them?", next = "tools_where" },
+      },
+    },
+    xmage = {
+      lines = { { id = "xma_default", text = "A wizard could drop my bridge in the lake in a week, more like, and I've met the sort who'd do it for a laugh. Stone is laid by hand and checked by eye, and that's how bridges stay up." } },
+      choices = {
+        { text = "Craft and rules. I respect that.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Bridges fall either way. Mine would be faster.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Can I see your plans?", next = "plans" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "And frighten my crew into the bargain, and the fish, and every boat on the lake. If you want to frighten orcs, go across and do it there, because this side of the water stays clean while I'm foreman." } },
+      choices = {
+        { text = "Clean it stays. I'll take it across.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fear works on both banks, Oslow.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Why build the bridge at all?", next = "why" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Oslow's the name. I'm rebuilding the Everstill Bridge on schedule and under budget, before the rains, or that was the plan until the orcs had opinions." },
@@ -62,6 +86,9 @@ P:NPC {
         { text = "Northshire's library writes with your ore, I hear.", next = "novice", when = { origin = "human_abbey_novice" } },
         { text = "I know my way around a forge. Show me the plans.", next = "plans", when = { profession = "Blacksmithing" } },
         { text = "Dwarven masons could have that bridge up in a month.", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "Your missing tools didn't walk off on their own, Foreman.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "A wizard could finish your bridge in a week.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "I could put something in the water to frighten the orcs.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good luck with the rains.", next = "END" },
       },
     },

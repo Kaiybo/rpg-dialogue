@@ -17,6 +17,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "Impossible, friend, they hear a boot on gravel from the far end of the roost and scream about it. That's why nobody steals a gryphon in Lakeshire, though a gnoll tried once and went home short a hand." } },
+      choices = {
+        { text = "Smart birds. I'll pay my fare.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Everything can be stolen, Ariena.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What do you see from up there?", next = "a" },
+      },
+    },
+    xmage = {
+      lines = { { id = "xma_default", text = "Then you'll miss the best view in Redridge, which is the whole lake at sunset with the orc smoke going up on the far side. Some of us like to see what we're leaving behind, mage." } },
+      choices = {
+        { text = "A spell is quicker, and I keep a schedule.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll take the gryphon. The view's worth it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Are the gryphons ever afraid?", next = "b" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Ariena Stormfeather. I fly the mail and the wounded out of Lakeshire, and my birds carry anyone else who can pay the fare." },
@@ -30,6 +46,8 @@ P:NPC {
         { text = "I need a flight.", next = "BUSINESS" },
         { text = "What do you see from up there?", next = "a" },
         { text = "Are the gryphons ever afraid?", next = "b" },
+        { text = "Gryphons must be hard to sneak up on.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "I can teleport to Stormwind on my own.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Thanks, Ariena.", next = "END" },
       },
     },

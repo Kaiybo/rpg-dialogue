@@ -34,6 +34,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Results, is it? I've buried better orcs than you who thought the same thing, and the honorable ones still won more fights than they lost, so hit me from behind and I'll forgive you once, but do it twice and I'll stop teaching you anything." },
+      },
+      choices = {
+        { text = "Results win wars. Honor fills graves.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Perhaps you're right. Honor counts for something.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "What does honor mean to you?", next = "honor" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "Some do, and I'll fight beside one if the Warchief asks it of me. But the warlocks of the Shadow Council sold our people to demons, and every orc who fought in the old Horde gets that taste in his mouth whenever he sees an imp." },
+      },
+      choices = {
+        { text = "I'll earn your respect openly, in battle.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I don't need respect. I need results.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Who else trains in the valley?", next = "valley" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Grezz Ragefist, and I train the Warchief's warriors. The Valley of Honor is named for what we earn here, so don't waste my time with anything less." },
@@ -46,6 +68,8 @@ P:NPC {
         { text = "Is a druid's strength honorable, Grezz?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What does honor mean to you?", next = "honor" },
         { text = "Who else trains in the valley?", next = "valley" },
+        { text = "Honor doesn't win wars, Grezz. Results do.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Do warlocks have any honor, Grezz?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Farewell, Grezz.", next = "END" },
       },
       again = { { id = "h_again", text = "Still standing there? Then ask, and ask loudly." } },
@@ -94,6 +118,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "A hunter tracks prey to feed someone and a rogue tracks prey to rob it, so I'd say the hunter's better, though I've seen rogues track as well as any of mine. Durotar is hard ground, and anyone who can follow a trail across it has my respect." },
+      },
+      choices = {
+        { text = "Then I'll track to protect, not to rob.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Prey is prey, whatever the reason.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Where's the best hunting near Orgrimmar?", next = "hunt" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Turning a boar into a sheep isn't taming it, friend, it's only confusing it. A tamed beast chooses to stay at your side, and no spell ever made a creature choose anything." },
+      },
+      choices = {
+        { text = "Fair. Trust is earned, not forced.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Choice is overrated. A spell works faster.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "How do you choose a companion?", next = "pet" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Ormak Grimshot, and I teach the hunters of the Horde. Durotar is a hard land for game, so a hunter here learns to track things that would rather not be found." },
@@ -104,6 +150,8 @@ P:NPC {
         { text = "Do shamans and hunters see the land differently?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "How do you choose a companion?", next = "pet" },
         { text = "Where's the best hunting near Orgrimmar?", next = "hunt" },
+        { text = "Hunters and rogues both track prey. Which is better?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "My polymorph tames a beast faster than you can.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Farewell, Ormak.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? Make it quick, the wolves need feeding." } },
@@ -151,6 +199,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Our shamans listened to the elements and never needed the arcane, and the first orcs to grasp at stranger powers became Gul'dan's warlocks. The trolls teach you a cleaner kind of magic, I'm told, but I'd ask you never to forget there's more to the world than what you can grasp." },
+      },
+      choices = {
+        { text = "I'll remember. The world is more than power.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "What I can grasp is what I'll use.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What were the orcs before the demons?", next = "before" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "They don't hate you, but they turn away from you, and that's worse. When our people began bargaining with demons, the spirits of Draenor went silent, and it took Thrall years to coax them back, so I'll ask you not to walk too near my students." },
+      },
+      choices = {
+        { text = "I understand. I'll keep my distance from them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Let them turn away. I don't need the spirits.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Why are the spirits restless?", next = "restless" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Kardris Dreamseeker, and I guide the shaman of the Horde. The Valley of Wisdom is where the orcs came to remember what they were before the demons." },
@@ -161,6 +231,8 @@ P:NPC {
         { text = "Do shaman and druid hear the same voices?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What were the orcs before the demons?", next = "before" },
         { text = "Why are the spirits restless?", next = "restless" },
+        { text = "Did the orc shamans ever study the arcane?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "The spirits must hate me, Kardris.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
       again = { { id = "h_again", text = "Ask what you wish. Wisdom grows by sharing it." } },
@@ -209,6 +281,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Friendly is a strong word, but we understand one another, which is rarer. The rogues keep their secrets and we keep ours, and the Warchief's guards watch us both, so we all behave impeccably." },
+      },
+      choices = {
+        { text = "Good. The Warchief's watch keeps us all honest.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Secrets are what keep the Cleft alive.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What is the Cleft of Shadow?", next = "cleft" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Cleaner, you say, and yet it was the arcane that first drew the Legion's eye to this world. I'll grant your craft has a better name in Orgrimmar, but power is power, and both of us study it because we want more of it." },
+      },
+      choices = {
+        { text = "I want power to protect, not to hold.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "True enough. We both want more, and that's fine.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Isn't this the magic that ruined the orcs?", next = "ruin" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Zevrost, and I teach those with the will to command what others fear. The Warchief permits us, so long as we remember who serves whom." },
@@ -219,6 +313,8 @@ P:NPC {
         { text = "Your kind traded the elements for demons. Was it worth it?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Isn't this the magic that ruined the orcs?", next = "ruin" },
         { text = "What is the Cleft of Shadow?", next = "cleft" },
+        { text = "Rogues and warlocks share the Cleft. Friendly neighbors?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "The arcane is cleaner than what you teach, Zevrost.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "I'll go.", next = "END" },
       },
       again = { { id = "h_again", text = "More questions? Curiosity is the first step to power, after all." } },

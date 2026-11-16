@@ -22,6 +22,28 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Then go and look at Bael'dun, because I want to know what those dwarves are pulling from the earth. They have guns and guards and little patience, so come back with what you saw and leave the fighting for a day when the braves can stand with you." },
+      },
+      choices = {
+        { text = "I'll spoil their digging while I'm there.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll look, and fight beside the braves when it's time.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "What are the dwarves digging for?", next = "dwarves" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "My road was safer before you walked onto it with that thing beside you. I'll not stop you, because the Warchief's word is our word now, but I've seen caravans burned and I know fire that's wrong when I see it." },
+      },
+      choices = {
+        { text = "I understand. I'll keep it far from your caravans.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Wrong fire burns your enemies just the same.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What happened to the caravan?", next = "caravan" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -38,6 +60,8 @@ P:NPC {
         { text = "Who else troubles Mulgore?", next = "venture" },
         { text = "My people have no part in Bael'dun.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "The earth to the north is wounded. What can a shaman do?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "I could get close to the dwarves' digging without a sound.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Your road is safer with a demon on it, Morin.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Walk with the Earth Mother.", next = "END" },
       },
       again = {
@@ -102,6 +126,28 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "They say the arcane once broke their world, and that their highborne grew so proud of it that the Sundering was the price. I don't know every word of it, child, but the Runetotem have kept that warning alongside the rest of what the night elves gave us." },
+      },
+      choices = {
+        { text = "Then I'll study with care, and remember the warning.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "That was ten thousand years ago. Magic has moved on.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "How did the tauren learn from the night elves?", next = "elves" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "Balance needs two things that belong to the world, and the creature beside you does not. I won't turn you away from my fire, but a druid feels a demon the way you'd feel a thorn under the skin, and I can't pretend otherwise." },
+      },
+      choices = {
+        { text = "I understand. I'll keep it from your students.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then your balance is too narrow for this world.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What does a druid do, exactly?", next = "druid" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Gennia Runetotem, and I teach the druids of Bloodhoof what the land is willing to share. Our family learned the old ways from the night elves, long ago, and we keep them still." },
@@ -112,6 +158,8 @@ P:NPC {
         { text = "Tauren learned from the night elves?", next = "elves" },
         { text = "What does a druid do?", next = "druid" },
         { text = "How does a druid's path differ from a shaman's, Gennia?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "The night elves taught you druidism. What do they say of mages?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Is there any balance in what I do, Gennia?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Earth Mother keep you.", next = "END" },
       },
       again = { { id = "h_again", text = "Something more? Ask, and I will answer as the land allows." } },
@@ -160,6 +208,28 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Does he, now? I'd like to believe that, but I've met more than one rogue on the bluffs who took all he could carry and thanked nobody, so if you mean it, show me by how you walk the plains." },
+      },
+      choices = {
+        { text = "I mean it. I take only what I need.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I take what I can. The plains won't miss it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What makes a good hunter?", next = "good" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "It's different, because you never look the beast in the eye and you never thank it. The plains don't care what weapon kills a plainstrider, but I do, so if you hunt here, take a moment after and say a word for what was given." },
+      },
+      choices = {
+        { text = "I'll thank the beast. That's only fair.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A kill is a kill, and words won't change it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What's the hunting like in Mulgore?", next = "plains" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Yaw Sharpmane, and I teach the hunters of Bloodhoof. The plains feed us, so we take only what we need and thank the beast that gives it." },
@@ -170,6 +240,8 @@ P:NPC {
         { text = "What makes a good hunter?", next = "good" },
         { text = "What's the hunting like in Mulgore?", next = "plains" },
         { text = "Do the beasts' spirits speak to hunters too, Yaw?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "A rogue takes only what he needs, too.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "I hunt with fire and frost. Is that so different?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Good hunting, Yaw.", next = "END" },
       },
       again = { { id = "h_again", text = "Ask on. A hunter learns by asking as much as by tracking." } },

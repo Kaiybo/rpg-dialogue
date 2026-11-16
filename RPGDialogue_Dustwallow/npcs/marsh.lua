@@ -61,8 +61,18 @@ P:NPC {
         { text = "Let me ask something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Not as much as living in Theramore did, with everyone wanting a spell for this and a ward for that. The marsh is lonely, I'll grant you, but the loneliness is quiet, and I've found I can hear myself think in it, which is more than most people manage." } },
+      choices = {
+        { text = "Theramore needs mages like you. Duty matters more than quiet.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Good for you. The wild suits a free mind.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else, Tabetha.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, all the way out here? I'll warn you now that I'm not in want of saving, but if you're after a cup of tea and an honest opinion about the marsh, you've come to the right hut." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll feel the mana in this marsh as a hum in the ground, I suspect, and I'd love to know whether it hums the same for you as it does for me." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! I don't get many visitors who pray, so you'll forgive me if I'm curious about who's answering, and whether they mind all the mana sloshing about out here." },
         { id = "h_default", key = true, text = "I'm Tabetha, and yes, I live out here by choice. The marsh is full of mana and short on meddlers, which is exactly how a mage likes her neighborhood." },
@@ -84,6 +94,7 @@ P:NPC {
         { text = "Shouldn't you be helping Theramore?", next = "s_1" },
         { text = "What wards do you keep around your hut, Tabetha?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Does fel magic spoil the mana here, Tabetha?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Doesn't living alone in this swamp weigh on you, Tabetha?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -176,8 +187,18 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Deserters from Theramore, mostly, slinking off along the road with their heads down and their tabards stuffed in a sack. Now and then I see a light out in the reeds that I can't explain, and I've learned not to go looking for it." } },
+      choices = {
+        { text = "Deserters should be reported to the Captain. That's the law.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Leave them be. A man has the right to walk away.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Jarl.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest of the Light, out in my bit of swamp! I've watched folk come and go past my house for years, and I'll tell you true, not many of 'em were headed anywhere holy." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You see the marsh with different eyes, I suppose, but mine see plenty, and I don't need spirits to tell me who's sneaking about." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, eh? Then maybe you'll believe me about the lights over the water, because the Theramore lot certainly don't, and they ought to." },
         { id = "h_default", key = true, text = "Name's Jarl, and they call me Swamp Eye because I see everything that moves out here. Nobody sneaks past my house without me knowing it, no matter what that Theramore lot thinks." },
@@ -199,6 +220,7 @@ P:NPC {
         { text = "Why not move into Theramore?", next = "s_1" },
         { text = "Who set your turnips on fire, Jarl?", next = "xmage", when = { class = "MAGE" } },
         { text = "Have you seen other warlocks pass through the marsh, Jarl?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What have you seen pass by your house, Jarl?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -265,8 +287,28 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Clan only smash and eat, and Ogron get tired of smash and eat. Ogron want to be more, maybe even help people, so Ogron leave, and now Theramore people look at Ogron funny, but some of them say thank you." } },
+      choices = {
+        { text = "Choosing kindness takes courage. The Light honors that, Ogron.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Ogres don't change. I'll believe it when I see it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Some do, some not, because they remember ogres who smash farms and eat sheep. Ogron not blame them, but Ogron hope maybe if Ogron help find who burn the inn, they see Ogron different." } },
+      choices = {
+        { text = "You've kept your word. I'll speak for you to the guard.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Tell them what they want to hear, and they'll leave you be.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "You priest of the little-people Light! Ogron not pray to it, but Ogron see it make hurt people better, so Ogron think it good magic, and Ogron glad you here." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "You shiny one! Ogron see shiny ones in Theramore with big hammers, and they look at Ogron like Ogron is next to get hammered, so you please not do that." },
         { id = "h_default", key = true, text = "Ogron is ogre, but Ogron not want to smash Alliance. Ogron want to help find who burn the inn, because Ogron see things too, and nobody ask Ogron." },
         { id = "h_c0", when = { questActive = TODO_QUEST("Questioning Reethe") }, text = "Ogron go with you to find Reethe, and you ask the questions, because Ogron not good with words. But Ogron good at keeping you safe." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "You make magic like Draz'Zilb! But Ogron think your magic is kinder, because you not use it to tell people what to do." },
@@ -281,6 +323,8 @@ P:NPC {
         { text = "Can an ogre really change?", next = "s_1" },
         { text = "Do ogres use magic to rule each other, Ogron?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Why does my magic smell like the ogre magi, Ogron?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Why did you leave your clan's ways behind, Ogron?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do the soldiers of Theramore treat you fairly, Ogron?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -355,8 +399,28 @@ P:NPC {
         { text = "I'll ask something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Raptors out of the fens, and deserters creeping north toward the Barrens, and Horde riders we're ordered to wave past. The lads up here haven't had a proper rest in weeks, and I'd be lying if I said all of them still believe Theramore remembers we're out here." } },
+      choices = {
+        { text = "Theramore remembers. I'll say a prayer for every soldier here.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Faith won't hold this tower. Sharpen your swords, Private.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "It's the Lady's peace, and I'll hold it because she asked, though every time an orc rides past Sentry Point my hand goes to my sword without asking me. Some days I think the peace is the hardest duty in Theramore." } },
+      choices = {
+        { text = "Orders are orders. Hold the peace, even when it chafes.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The peace is only paper. Trust your sword hand.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest out at Sentry Point! Most of what comes up this road wants to kill us, so it's a rare thing to see someone who might patch us up instead." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Lady Proudmoore keeps the peace with the Horde and I keep my orders, but I won't pretend it doesn't steady me to see one of the Silver Hand on this road." },
         { id = "h_default", key = true, text = "Private Hendel, Theramore Guard, posted at Sentry Point. We watch the northern road so Theramore knows what's coming before it arrives, and lately what's coming is trouble." },
         { id = "h_c0", when = { questActive = TODO_QUEST("The Missing Diplomat") }, text = "You're asking after the diplomat? Plenty of people have, and I've told every one of them I saw nothing out of the ordinary." },
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -374,6 +438,8 @@ P:NPC {
         { text = "Should Theramore make peace with the Horde?", next = "s_1" },
         { text = "How hard is it to slip past Sentry Point, Hendel?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why does Sentry Point need a ward, Hendel?", next = "xmage", when = { class = "MAGE" } },
+        { text = "What's coming up the northern road lately, Private?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Does keeping the peace with the Horde sit well with you?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell.", next = "END" },
       },
     },

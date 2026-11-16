@@ -27,6 +27,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "Aye, they do, an' they tell me most o' it in their own way. I'd no' try sneakin' up on a gryphon, friend, for they've noses like hounds an' tempers like a cave bear wi' a sore head." },
+      },
+      choices = {
+        { text = "I'll keep my distance and my respect.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Anything can be snuck up on, given patience.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Is the road dangerous these days?", next = "danger" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "Ha, there's a mage wi' sense! Yer spell will get ye there quicker, but it'll no' show ye the loch from above or the mountains goin' by, an' that's half the reason tae go anywhere." },
+      },
+      choices = {
+        { text = "There's no shame in the slow way, Thorgrum.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Next time I'll blink there and save the silver.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "How do you train the gryphons?", next = "train" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -41,6 +61,8 @@ P:NPC {
         { text = "What's it like flying over the loch?", next = "loch" },
         { text = "Are the gryphons ever in danger?", next = "danger" },
         { text = "How do you train them?", next = "train" },
+        { text = "Your gryphons must see everything from up there.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "I'll have a teleport to Ironforge soon, but I'd rather fly.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Thanks, Thorgrum.", next = "END" },
       },
     },
@@ -110,6 +132,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "Quieter? Mail's meant tae be heard, so the trogg knows he's in for a fight. If ye want somethin' that won't clink, ye want leather, an' that means a leatherworker an' no' a smith." },
+      },
+      choices = {
+        { text = "Fair enough. A fight should be heard coming.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A fight they don't hear coming is half won.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What's the trouble with the troggs?", next = "troggs" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "Ye can keep yer hands an' yer magic away from my forge, thank ye. Steel wants honest heat from good coal, an' I've seen what happens tae a blade when somebody gets clever wi' it." },
+        { id = "xma_gnome", when = { race = "Gnome" }, text = "A gnome mage at my forge? Yer people make fine things, I'll grant ye, but I've seen enchanted steel crack in the cold, so I'll stick tae coal." },
+      },
+      choices = {
+        { text = "Respect to the forge, then. I'll stay out.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Honest heat is only slow heat, Morhan.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Why do they call you Coppertongue?", next = "name" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -124,6 +167,8 @@ P:NPC {
         { text = "Why do they call you Coppertongue?", next = "name" },
         { text = "What's the trouble with the troggs here?", next = "troggs" },
         { text = "Do the mountaineers really never complain?", next = "complain" },
+        { text = "Your mail's too noisy for my work. Got anything quieter?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Could your forge use an extra hand with the fire?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Thanks, Morhan.", next = "END" },
       },
     },
@@ -193,6 +238,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "Is it? Well, it's Thelsamar, an' the worst that walks in is a hungry mountaineer after a loaf. Ye're no' plannin' tae take one yerself, are ye?" },
+      },
+      choices = {
+        { text = "No, but I thought you ought to know.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I might, if the smell keeps up like this.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What's the secret in your bread?", next = "secret" },
+      },
+    },
+    xlock = {
+      lines = {
+        { id = "xwl_default", text = "Yer... imp? Get that thing out from under my ovens before it singes my rye! I'll serve ye, for coin's coin, but the wee horror waits outside." },
+      },
+      choices = {
+        { text = "Of course. It'll wait outside.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "It does no harm, and it's my business.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Who are you baking for?", next = "who" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -209,6 +274,8 @@ P:NPC {
         { text = "What's the secret to good bread?", next = "secret" },
         { text = "Bread or Vidra's sausages, which is better?", next = "sausage" },
         { text = "Who comes in for your bread?", next = "who" },
+        { text = "Your back door's unlocked, you know.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "My imp likes the warmth of your ovens.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Goodbye, Honni.", next = "END" },
       },
     },
@@ -278,6 +345,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "So does a crowbar, an' I'll no' sell ye one if that's what ye're after. Picks are for the hills, an' if I hear o' one goin' through a strongbox in Thelsamar, I'll know where it was bought." },
+      },
+      choices = {
+        { text = "Rock only, Karm. You have my word.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A tool's a tool. What I open is my affair.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Where's the best digging?", next = "where" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "For a mage? I've candles an' rope an' picks, an' no' a single thing wi' a glow on it. Ye'll want the reagent sellers in Ironforge, or if ye're desperate, a trogg's pockets." },
+        { id = "xma_gnome", when = { race = "Gnome" }, text = "For a gnome mage? I've had a few o' yer folk through since Gnomeregan, an' they always ask, an' I always say the same: candles an' rope, an' Ironforge for the rest." },
+      },
+      choices = {
+        { text = "I'll buy my reagents properly in Ironforge.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A trogg's pockets it is, then.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Is it safe out in the hills?", next = "safe" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -292,6 +380,8 @@ P:NPC {
         { text = "Where's good mining around here?", next = "where" },
         { text = "Why isn't it safe?", next = "safe" },
         { text = "What brings you to Thelsamar?", next = "why" },
+        { text = "A good pick opens more than rock, I find.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do you stock anything for a mage?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Thanks, Karm.", next = "END" },
       },
     },

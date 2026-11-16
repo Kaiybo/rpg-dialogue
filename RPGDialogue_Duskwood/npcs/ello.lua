@@ -31,6 +31,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "I've considered every road to Stormwind's ear, including the less respectable ones, and I'm ashamed to say I've written to people I'd never have dined with. If you have such a road, I won't ask what it costs you." } },
+      choices = {
+        { text = "I'll use the proper channels, my lord.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Shadows open doors that petitions don't.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What does Darkshire need from Stormwind?", next = "need" },
+      },
+    },
+    xmage = {
+      lines = { { id = "xma_default", text = "Medivh's tower has troubled this valley since before my grandfather's time, and some say the forest darkened in the same years his madness grew. I don't know if that's true, mage, but I'd send no one up that pass alone." } },
+      choices = {
+        { text = "Such places need the Kirin Tor's oversight.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Some towers are best left to the brave and curious.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Why won't Stormwind send an army?", next = "army" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "My town fears everything, and with good reason, so you'll forgive them if they cross the road. I'm a courteous man and a desperate one, and I'll judge you by whether the wolves are fewer when you leave." } },
+      choices = {
+        { text = "Judge me on deeds. I'll earn it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Fear is useful. Let them keep it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Tell me about the Night Watch.", next = "watch" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -80,6 +104,9 @@ P:NPC {
         { text = "What do you know of the grove in the heart of the wood?", next = "druid", when = { class = "DRUID" } },
         { text = "Your wolves are thinning. I've been hunting them.", next = "hunter", when = { class = "HUNTER" } },
         { text = "Ironforge has its own wars, my lord, but I came.", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "There are quieter roads to Stormwind's ear, my lord.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Karazhan is close. Does its shadow trouble Darkshire?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Your town fears me, Lord Ebonlocke.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, my lord.", next = "END" },
       },
     },

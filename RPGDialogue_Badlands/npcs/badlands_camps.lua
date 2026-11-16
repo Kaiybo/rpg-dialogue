@@ -64,8 +64,19 @@ P:NPC {
         { text = "Something else, Martek.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Over the anvil, sometimes, though I couldnae tell ye who's listenin'. Out here a dwarf learns tae pray short an' work long, an' the hammer's never once let me down." } },
+      choices = {
+        { text = "The Light hasn't left you, Martek. Exile doesn't change that.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A hammer you can trust beats a prayer you can't.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest o' the Light, out here. I was raised under it same as ye, {class}, so I'll thank ye no' tae try an' preach me back home." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. I've no use for spells in my metal, mind; what goes intae the forge should come out the better for the hammer, no' for some charm." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. Ye'll have yer own reasons for keepin' away from cities, I'd wager, an' I'll no' ask them if ye don't ask mine." },
         { id = "h_shamancl", when = { class = "SHAMAN" },
@@ -97,6 +108,7 @@ P:NPC {
         { text = "I'm a smith too. Any advice?", next = "smith", when = { profession = "Blacksmithing" } },
         { text = "Do you ever miss the cities, Martek?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Indurium takes enchantments well, though, doesn't it?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do you still pray out here alone, Martek?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Farewell, Martek.", next = "END" },
       },
     },
@@ -199,8 +211,19 @@ P:NPC {
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Why not? A blessing's free, the wings are cheap and the customer walks away happy, which is the whole business model right there. Besides, pal, half the folks who eat my cooking out here could use a little divine help with their stomachs." } },
+      choices = {
+        { text = "The Light isn't a sales gimmick, Rigglefuzz.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Bless away. A hungry traveler won't mind either way.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "Hey, a priest! You know, pal, Alliance folk on this road ought to pay extra for a meal that's been prayed over, or at least I'm hoping they will once I paint the sign." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Is that an imp? Could it light my grill? I'll pay in wings, and the little fella looks like he could use a feed." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! You're not after my sauce recipe, are you? Because I've had three offers this month, and one of 'em came with a knife." },
         { id = "h_shamancl", when = { class = "SHAMAN" },
@@ -230,6 +253,7 @@ P:NPC {
         { text = "Will you sell to an orc, goblin?", next = "goblin", when = { race = "Orc" } },
         { text = "Who wants your sauce recipe that badly?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "My imp is not a cooking fire, Rigglefuzz.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Should a priest really bless buzzard wings, Rigglefuzz?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Good luck with the barbecue.", next = "END" },
       },
     },

@@ -30,6 +30,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Because whatever threatens Dalaran threatens what's left of the northern kingdoms, and the Alliance can't afford another fallen city. I won't pretend the Kirin Tor were always good friends to your order, but I'd ask you to be a better friend to us than we were to you." } },
+      choices = {
+        { text = "The Alliance stands together or it falls. I'll help.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Dalaran made its own troubles. Let it mend them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "I'm not permitted to say much, but the city lost a great many of its people when Archimonde came, and not all of them have been laid to rest. The Kirin Tor are proud and won't ask priests for help, so I'm asking quietly on their behalf." } },
+      choices = {
+        { text = "Proud or not, they'll have the Light's peace from me.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If the Kirin Tor won't ask, the burden is theirs.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "I'm certain of it, though I can't prove it, which is the trouble with being spied on by experts. They want to know what the Kirin Tor will do about Alterac, and frankly, so do I, because nobody has told me yet." } },
@@ -48,6 +66,10 @@ P:NPC {
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("An Alarming Request"), days = 7 } },
           text = "You've been inside the walls, then, and seen what we've been hiding. I'd ask you to keep it to yourself, but I suspect it's far too late for that." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You're very quiet, and I've learned to notice quiet people, because the Syndicate keeps sending them to listen at the door when I speak to the Magistrate." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest. I find it a comfort to see one in Southshore, I'll admit, because Dalaran's troubles are the sort that magic made and prayer might help to mend." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! The Kirin Tor and the Silver Hand never sat easily together, I'll confess, but I hope you'll judge Dalaran by its need and not by its pride." },
       },
       again = {
         { id = "h_again", text = "Is there more? Ask it quietly, if you would." },
@@ -62,6 +84,8 @@ P:NPC {
         { text = "My order came to the Kirin Tor from the sky.", next = "xskyborne", when = { race = "Skyborne" } },
         { text = "Does Dalaran have room for a warlock's help?", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "Is the Syndicate spying on Dalaran's envoy, Emissary?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "What troubles in Dalaran need the Light's help, Emissary?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Why should a paladin help the Kirin Tor, Emissary?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll think on it, Emissary.", next = "END" },
       },
     },
@@ -190,6 +214,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Honestly, I'd say, though honesty is hard when the man who broke the order was a prince it had trained. Uther died at Arthas's hand, and the knights who were left scattered to Hearthglen and Stratholme and worse, and I can't find a gentle way to write any of it." } },
+      choices = {
+        { text = "Write it plainly. The truth honours the knights who fell.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Write it kindly. Some truths only wound the living.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Hillsbrad's own bell rang for burials every day that autumn, and then one morning it didn't ring at all, which is how Southshore knew the plague had taken the town. I wrote down the date because someone had to, and I've never been able to cross it out." } },
+      choices = {
+        { text = "Southshore should ring a bell for them every year.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let that date fade, Kundric. The town has to look forward.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Oh, plenty, from the smugglers who ran Alterac's wine past the old customs house to the Syndicate scouts who stole the town charter the year after the war. We got the charter back, rather damp, and I wrote down every word of how." } },
@@ -215,6 +257,10 @@ P:NPC {
           text = "What you brought me from Strahnbrad has kept me up two nights running. Alterac's old roads still have stories in them, and the Syndicate would rather they stayed buried." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You have the look of someone who's taken a few things that weren't written down anywhere, and as a historian, I find that both troubling and fascinating." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Then you'll appreciate that I have three accounts of Dalaran's fall, and they disagree on nearly everything except that it was very loud." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! I keep a record of every chapel bell in Hillsbrad and when it last rang, and I'm afraid most of the entries end in the plague year." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! I've three chapters on the founding of the Silver Hand and none on its ending, because nobody who saw it end will sit still long enough to tell me." },
       },
       again = {
         { id = "h_again", text = "What else? I'll keep writing while you think." },
@@ -229,6 +275,8 @@ P:NPC {
         { text = "Dwarves fought over these hills in the Second War too.", next = "xdwarf", when = { race = "Dwarf" } },
         { text = "Has Southshore's history ever had thieves worth writing about, Kundric?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "How do the accounts of Dalaran's fall disagree, Kundric?", next = "xmage", when = { class = "MAGE" } },
+        { text = "When did Hillsbrad's chapel bells stop ringing, Kundric?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "How should the Silver Hand's ending be written, Kundric?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll leave you to your notes.", next = "END" },
       },
     },
@@ -345,6 +393,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "He says he rode with the Silver Hand once, and on a good night he's proud of it, and on a bad night he can't say Uther's name. I just pour, and I don't tell anyone which sort of night it was." } },
+      choices = {
+        { text = "He should be proud. The order's honour was real.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Honour didn't save the order. He's right to grieve.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Not one that stays, more's the pity, for the last went north to tend the soldiers in the Plaguelands and the soldiers kept him. So folk bring their troubles to me instead, and I'm a fine listener but a poor confessor." } },
+      choices = {
+        { text = "A town needs a priest more than a barkeep. Ask for one.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A good barkeep does more good than most priests.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "A few each week, and they gossip worse than fishermen, though they think they're being discreet. The latest is that the Kirin Tor are arguing about whether to help the Alliance in Alterac, and half of them want to stay out of it altogether." } },
@@ -370,6 +436,10 @@ P:NPC {
           text = "You saw to that business of mine, and folk have been talking about you since, so you're part of the talk of the town now. Enjoy it while it lasts." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage at my bar, and you'll want something warm, I'd guess, since your lot never stop shivering after a ride down from the dome." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock at my bar? You're braver than most, because the last one who came in here was chased out by Bilger with a broom and a lot of shouting about the Silver Hand." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest at my bar! Folk will mind their language for an hour or so, which is a rest for my ears, and Bilger might even come up from the cellar." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, eh? Then I'll warn you that Bilger will want a word, and once he starts on the old days he doesn't stop till the barrel's dry." },
       },
       again = {
         { id = "h_again", text = "What else? I'm wiping the same mug, so I'm free." },
@@ -384,6 +454,8 @@ P:NPC {
         { text = "Gossip's my trade too. Want to compare notes?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do many mages come down from Dalaran to drink, Kelly?", next = "xmage", when = { class = "MAGE" } },
         { text = "Did Bilger really chase a warlock out with a broom, Kelly?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Does Southshore have a priest of its own, Kelly?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What does Bilger say about the old days, Kelly?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Just passing through.", next = "END" },
       },
     },
@@ -476,6 +548,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Watch, mostly, and be ready, because I can't prove what the Forsaken are brewing and Southshore can't afford to start a war on a guess. If it turns out I'm right, though, I'd rather a knight of the Light was the first to know." } },
+      choices = {
+        { text = "Then I'll watch and wait for proof, Phin.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "They're walking dead. That's proof enough to ride.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "The priests stopped nothing the first time, and I don't say that as a slight, because the grain was in every bread oven before anyone knew. This time we might see it coming, and if we do, I want healers ready before the apothecaries have finished their notes." } },
+      choices = {
+        { text = "The Light will hold. We must trust it this time.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Prayers failed once. Burn their brews before they're finished.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "What they're brewing, mostly, since the apothecaries at Tarren Mill have been very busy and very secretive lately. I'm worried it's a new plague, and I'd rather find out before it's poured into Southshore's wells." } },
@@ -504,6 +594,10 @@ P:NPC {
           text = "So my two troublemakers are alive after all! Ha! Those two are irreplaceable, as friends and as company on the road, and I owe you for both of them." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! Good, because my little band has plenty of curiosity and no stealth at all, and the Forsaken up at Tarren Mill always see us coming." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I left the Kirin Tor partly because they were too quick to judge people by their schools of magic, so I'll give you a fair chance, but please keep your demon away from my friends." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! If the Forsaken really are brewing a new plague up at Tarren Mill, you're exactly who I'd want standing behind me when we find it." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! Good, because my little band are brave enough, but none of us can stand in front of a Forsaken and simply refuse to fall, which I gather is your speciality." },
       },
       again = {
         { id = "h_again", text = "What else? I'm sorting Quae's notes, and her handwriting needs a translator." },
@@ -518,6 +612,8 @@ P:NPC {
         { text = "I studied the arcane too. Why leave the Kirin Tor?", next = "xmage", when = { class = "MAGE" } },
         { text = "What are you trying to learn about the Forsaken, Phin?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why did you really leave the Kirin Tor, Phin?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Could the Light stop a Forsaken plague, Phin?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What would you have a paladin do at Tarren Mill?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good hunting, Phin.", next = "END" },
       },
     },
@@ -627,6 +723,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Every spring, regular as rain, on their way north an' back again. Ain't seen a column of 'em since the plague, an' the stable's been quieter for it, though I'd trade all the quiet in the world to hear 'em clatter in again." } },
+      choices = {
+        { text = "The Silver Hand will ride again. I'm proof of that.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Those days are gone, Darren. Better to let them lie.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "I reckon it would, 'cause my granddaddy always said the Light made every creature that walks, an' a good horse is about the best of 'em. Barley carried refugees down from the north in the bad year, an' he never once threw anybody." } },
+      choices = {
+        { text = "Every faithful creature has a place in the Light.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Prayers are for people, Darren. Barley was a horse.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "The Forsaken took the high pastures and the Syndicate took the woods, so I suppose the lions got pushed down onto us like everybody else. That don't make me like 'em any better, though, not when it's my horses they're after." } },
       choices = {
@@ -665,6 +779,10 @@ P:NPC {
           text = "Ain't lost a single foal since you went up them hills. The horses are sleepin' easier, and so am I." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "Now don't you go eyein' my horses, friend, 'cause I count 'em every night an' I'd know if one went missin'." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, eh? Now, I heard tell your kind can call up a horse made o' fire, an' I'll tell you right now, it ain't welcome in my stable." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! Say, would you say a word over my old gelding Barley? The lions got him last week, an' I buried him up the hill, but it don't feel finished somehow." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "Well, a paladin! My granddaddy shod horses for the Silver Hand, back when the knights still rode through Southshore, an' he said you could tell a paladin's mount by how calm it stood." },
       },
       again = {
         { id = "h_again", text = "Something more? You can talk while I brush; the mare won't mind." },
@@ -679,6 +797,8 @@ P:NPC {
         { text = "I could tame one of those lions instead of killing it.", next = "xhunter", when = { class = "HUNTER" } },
         { text = "Do horse thieves still come after Southshore's stables, Darren?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why not let a fiery horse in your stable, Darren?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Would the Light hear a prayer for a horse, Darren?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Did many Silver Hand knights ride through Southshore, Darren?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll keep an eye out.", next = "END" },
       },
     },
@@ -770,6 +890,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "A captain of the order ate here once on his way north, and he swore my bisque was the best thing he'd tasted since Stormwind. He rode on to Stratholme after that, and I never heard what became of him, though I've a fair guess." } },
+      choices = {
+        { text = "He did his duty. That's the best end a knight can ask.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Duty buried too many good men at Stratholme.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Every wake in town, aye, and there's been more of those than weddings these last few years. A good bowl of something hot doesn't mend anything, but it gets folk sitting at the same table, and that's where the mending starts." } },
+      choices = {
+        { text = "That's the Light's work as surely as any prayer.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Soup's a kindness, Jessen, but it isn't holy work.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Because the turtles in Lordamere Lake have got scarce, and the ones left are too tough to eat. I suspect the Forsaken have been fouling the water, but nobody listens to a cook, so I just keep my pots warm and hope." } },
@@ -796,6 +934,10 @@ P:NPC {
           text = "The bisque is back on the menu! Folk were queuing round the inn last night, and one old fisherman wept into his bowl, and I didn't charge him." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue in my kitchen? Fine, but if you're after the turtle bisque recipe, it's in my head, and I don't sleep with my mouth open." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! You'll forgive me if I don't ask you to cook, because the last mage who tried turned my good stew into a bowl of ice." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! You'll bless the bisque, I hope, because it's the closest thing Southshore has to a holy relic, and folk certainly pray for it." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! You'll be hungry, then, because I've never fed a knight yet who didn't ask for seconds and then thirds." },
       },
       again = {
         { id = "h_again", text = "Something more? Mind the steam, and talk while I stir." },
@@ -810,6 +952,8 @@ P:NPC {
         { text = "I hunt. Where are the turtles you need?", next = "xhunter", when = { class = "HUNTER" } },
         { text = "Why haven't you made your turtle bisque lately, Jessen?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Did a mage really freeze your stew, Jessen?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do you cook for Southshore's mourners too, Jessen?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Did the Silver Hand ever eat at your table, Jessen?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Smells good. Goodbye.", next = "END" },
       },
     },
@@ -891,6 +1035,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Because I said the Light could touch a beast as surely as a knight, and that a horse fed on blessed grain might carry its rider past death itself. They laughed at me, and the paladins laughed louder, and now they come to my door with gold and long faces." } },
+      choices = {
+        { text = "The Light touches every creature. You were right.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Bold claims deserve doubt until they're proven.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "I've seen it done, by smooth-talking men with Stormwind papers that turned out to be forged by the Syndicate. I check every buyer now, and if that makes me mad, the Silver Hand were right about me after all." } },
@@ -923,6 +1076,8 @@ P:NPC {
           text = "You paid me for wrongs you didn't commit, paladin. I misjudged you, and I don't say that often, but I'm keeping the money." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You're a rogue, and I'll say this plainly: I don't sell horses to those who'd sell them on, and you look like you know exactly what my horses would fetch in Alterac." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, and you'll not need one of my horses, I suppose, since you've got your own fiery beast that doesn't need feeding or brushing." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest. You'll not call me mad, I hope, since your Cathedral was as quick as the Silver Hand to think it, though at least it was quieter about it." },
       },
       again = {
         { id = "h_again", text = "Anything else? The horses are watching you, and so am I." },
@@ -937,6 +1092,7 @@ P:NPC {
         { text = "My people ride nightsabers. Why horses?", next = "xnightelf", when = { race = "NightElf" } },
         { text = "Do you think rogues would really sell your horses, Merideth?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do warlocks' steeds offend you, Merideth?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Why did the Cathedral think you mad, Merideth?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Fine horses. Good day.", next = "END" },
       },
     },
@@ -1025,6 +1181,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "That most of the work is waiting, and that you don't get to choose what comes up on the line. The Silver Hand rode out to save every town in Lordaeron at once, and I think they'd have done better to watch the water longer before they cast." } },
+      choices = {
+        { text = "Wise words. Better to wait for sure orders than rush in.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Waiting costs lives. A knight must act at once.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Boats and men, and once a whole refugee barge that came down from the north overloaded and turned over in a squall within sight of the docks. We pulled out who we could and the bay kept the rest, so I say a word for them every time I cast." } },
+      choices = {
+        { text = "Then the Light's blessing on every boat that sails.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The bay keeps what it keeps. Prayers won't calm a squall.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Less than it did, with the murlocs crowding the shallows and half the town's young men off soldiering instead of fishing. The bay's patient, though, and so am I, and between us we'll outlast the lot of them." } },
       choices = {
@@ -1060,6 +1234,10 @@ P:NPC {
           text = "Someone cleared the Torn Fin off the Western Strand, and the fishermen got their nets back. I thought it'd be the lieutenant, but he's still sulking at the inn." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You've the patient look of someone who waits for the right moment, and that's half of fishing, so maybe you'd be good at it, if you ever put down the daggers." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, and you'll be the sort who could freeze a fish out of the water without ever casting a line, I suppose. That's no way to fish, though I'll admit it's quick." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest on my docks! The fishermen will want you to bless the boats, and I'd not say no to it myself, for the bay's taken more than fish these last years." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! You'll not want fishing lessons, I'd guess, but sit a while anyway, because a man in heavy armour learns patience fast on a dock." },
       },
       again = {
         { id = "h_again", text = "The line's in the water, so I've all the time in the world. Ask away." },
@@ -1073,6 +1251,8 @@ P:NPC {
         { text = "What about the murlocs on the coast?", next = "murlocs" },
         { text = "Is fishing really so much like my trade, Donald?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why not use magic to fish, Donald?", next = "xmage", when = { class = "MAGE" } },
+        { text = "What has the bay taken, Donald?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What can a knight learn from a fisherman, Donald?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Tight lines.", next = "END" },
       },
     },

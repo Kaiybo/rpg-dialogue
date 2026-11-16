@@ -32,6 +32,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "Locked? Oh, those, they're my late wife's things, and I can't bear to see them, so I keep them shut. You won't need to open them, my friend; there's nothing inside but old dresses and memories." } },
+      choices = {
+        { text = "Of course. A man's grief is his own.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then you won't mind if I look later.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Tell me about your wife.", next = "wife" },
+      },
+    },
+    xmage = {
+      lines = { { id = "xma_default", text = "Is there? I do a bit of alchemy to pass the long nights, and a man forgets how his own house smells after a while. You mages and your noses, you're worse than the Night Watch." } },
+      choices = {
+        { text = "Alchemy has rules. I'll trust you follow them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Brew what you like. It's no business of mine.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What sort of alchemy?", next = "alchemy" },
+      },
+    },
     druid_talk = {
       lines = { { id = "dt_default", text = "Are they? I hadn't noticed, truly. An old man needs firewood, and dead wood burns so very nicely. You mustn't go poking about in my garden, though; I've such delicate things growing back there." } },
       choices = {
@@ -78,6 +94,8 @@ P:NPC {
         { text = "I know necromancy when I smell it.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "What do you preserve, exactly?", next = "alchemy", when = { profession = "Alchemy" } },
         { text = "My pet won't come near your hut.", next = "hunter", when = { class = "HUNTER", pet = { type = "Beast" } } },
+        { text = "You've a lot of locked crates for a lonely old man.", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "There's a strange smell of preservatives here, Abercrombie.", next = "xmage", when = { class = "MAGE" } },
         { text = "Goodbye, Abercrombie.", next = "END" },
       },
     },

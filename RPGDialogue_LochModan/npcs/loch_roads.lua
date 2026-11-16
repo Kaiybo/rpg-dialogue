@@ -20,6 +20,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "Quiet's well and good in a tunnel, I'll grant ye, for the vermin hear a mail shirt comin' a mile off. In the Second War we had a few of your sort scoutin' the Horde's camps, and half of them came back with better stories than mine." },
+      },
+      choices = {
+        { text = "I'll cut down the foreman before the rest wake.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll face them openly. Vermin or not, it's a fair fight.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "What's in the mine, exactly?", next = "mine" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "It would, and it'd bring the roof down on the silver and you both. Use yer fire on the kobolds and not the timbers, and mind the candles on their heads, for they're daft enough to catch alight on their own." },
+        { id = "xma_gnome", when = { race = "Gnome" }, text = "I heard how Gnomeregan was cleared in the end, and I'd rather my mine wasn't cleared the same way. Burn the kobolds by all means, but leave the timbers standin', for I want that silver back." },
+      },
+      choices = {
+        { text = "I'll burn only what needs burning, Mountaineer.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "If the roof comes down, the kobolds come down with it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Why does the mine matter so much?", next = "mine_why" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "If they are, it's a part I'd sooner do without. They came up out o' the deep stone, an' they foul every stream an' cave they touch." } },
       choices = {
@@ -49,6 +70,8 @@ P:NPC {
         { text = "Kadrell says you have stories.", next = "stories" },
         { text = "How do you see the Loch these days?", next = "loch" },
         { text = "A warrior reporting, Mountaineer. Where do you want me?", next = "warrior", when = { class = "WARRIOR" } },
+        { text = "Kobolds in a mine? I could clear them without a sound.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "A fireball would clear that mine faster than a pick.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -115,6 +138,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "Count them? I'd settle for knowin' where they come up, for they don't use doors like decent folk. If ye can get close to the Stonesplinter camps and back again with yer skin on, ye'll be the first this month." },
+      },
+      choices = {
+        { text = "I'll scout and report. Killing them sleeping isn't my way.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll count them, and slit a few throats while I'm there.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Where are the troggs coming from?", next = "troggs" },
+      },
+    },
+    xlock = {
+      lines = {
+        { id = "xwl_default", text = "I've heard what you lot bargain with, and I'll not have it near my tower, troggs or no troggs. Still, the Stonesplinters have cost me good mountaineers this season, so I'll mind my tongue if ye mind yer imp." },
+        { id = "xwl_gnome", when = { race = "Gnome" }, text = "A gnome with a demon at heel, and after what yer people lost under Gnomeregan, I suppose I can see how a body ends up there. Keep the creature away from my tower and do yer killin' out in the hills." },
+      },
+      choices = {
+        { text = "Then I'll do it without the imp, and leave your tower clean.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The imp burns troggs all the same, whatever you think of it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What lies south of the tower?", next = "south" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -133,6 +177,8 @@ P:NPC {
         { text = "What's south of here?", next = "south" },
         { text = "Who else holds this gate?", next = "people" },
         { text = "The troggs took my home too.", next = "gnome", when = { race = "Gnome" } },
+        { text = "I could get into the trogg camps and count them for you.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "The troggs fear fire. My imp could teach them more.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Stay safe, Mountaineer.", next = "END" },
       },
     },
@@ -192,6 +238,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "Through Dun Algaz? There's Dragonmaw at the north end and Dark Irons pokin' about the hills, and they watch the road, no' the rocks. Keep to the rocks and ye'll reach Menethil with more blood in ye than most who walk it." },
+      },
+      choices = {
+        { text = "I'll walk the road and let them see me coming.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll go quiet and leave the orcs none the wiser.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What's waiting in the Wetlands?", next = "wetlands" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "A ward! Aye, if ye could hang it on the rock and leave it there, I'd call it a fine idea. The trouble is that wards need watchin' and mages need sleep, and the Dragonmaw never seem to." },
+        { id = "xma_gnome", when = { race = "Gnome" }, text = "A gnome talkin' wards, and ye'd know better than me what holds and what doesn't, after Gnomeregan. But wards need tendin', and I've no gnomes to spare and no mages at all." },
+      },
+      choices = {
+        { text = "Then I'll stand watch here like any mountaineer.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'm no sentry. I'll burn the orcs where I find them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "How long have you held this station?", next = "station" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "I don't dislike the land, only what it does tae my boots. Still, the Dark Irons an' the orcs up there are worse than any swamp." } },
       choices = {
@@ -219,6 +286,8 @@ P:NPC {
         { text = "What's in the Wetlands?", next = "wetlands" },
         { text = "How long have you held this station?", next = "station" },
         { text = "I'm a hunter. I can scout the pass.", next = "hunter", when = { class = "HUNTER" } },
+        { text = "I can slip through the pass where your patrols can't.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Could a ward hold the pass for you?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Farewell, Rockgar.", next = "END" },
       },
     },
@@ -278,6 +347,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "Conjured them? Oh, I wish! I'm an engineer, you see, and engineers make things the long way with spanners, which is far more satisfying right up until the murlocs run off with the spanners." },
+        { id = "xma_gnome", when = { race = "Gnome" }, text = "Oh, you're one of the arcane lot from the city! I always meant to take a class, but then the troggs came, and then the evacuation, and now my best spanner is in a murloc." },
+      },
+      choices = {
+        { text = "I'll bring back every last bolt, Bingles.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll fetch them, though I may keep a gadget for my trouble.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What's the research for?", next = "research" },
+      },
+    },
+    xlock = {
+      lines = {
+        { id = "xwl_default", text = "An imp? Er, that's very kind, but the last thing a fellow with flammable reagents wants is a fire demon going through his bags. Perhaps you could fetch them yourself and leave it outside?" },
+        { id = "xwl_gnome", when = { race = "Gnome" }, text = "An imp, from a fellow gnome! I suppose after Gnomeregan we all took whatever help we could find, but please keep it well away from my blasting powder." },
+      },
+      choices = {
+        { text = "Fair enough. I'll fetch them myself.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The imp goes where I go. It'll behave.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Who is Gnoarn?", next = "gnoarn" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -296,6 +387,8 @@ P:NPC {
         { text = "What are you researching?", next = "research" },
         { text = "Who is Gnoarn?", next = "gnoarn" },
         { text = "A gnome on an expedition? Where's your escort?", next = "gnome", when = { race = "Gnome" } },
+        { text = "Couldn't you have just conjured your supplies back?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "My imp could fetch your things. It's quite good at errands.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good luck, Bingles.", next = "END" },
       },
     },

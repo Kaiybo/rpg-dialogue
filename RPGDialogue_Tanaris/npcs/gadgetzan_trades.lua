@@ -53,6 +53,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Turn up? Friend, half of Tanaris passes through this house sooner or later, and I don't ask a seller where his boots have been. The Cartel's rule is that a fair sale is a fair sale, and I'd be out of business by sundown if I played judge over every pair of gloves." } },
+      choices = {
+        { text = "Selling a dead man's gear without asking is no fair sale.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Not asking questions is good business, Beardo.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Carved totems sell well, by the way, and if your spirits ever want to put anything up for auction, I'll take the usual cut and ask no questions." },
@@ -64,6 +73,8 @@ P:NPC {
           text = "A rogue! Now, I don't ask where my sellers get their goods, but I'd appreciate it if they came from a long way away, because the Bruisers do ask." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! Wonderful, because enchanters' dust sells like water in a drought, and I've got bidders on both sides of the war waiting for it." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin at my counter! Welcome, welcome, and before you ask, everything on the block is honestly listed, or at least honestly enough for Gadgetzan." },
       },
       again = {
         { id = "h_again", text = "What else can I do for you? The ledger's open." },
@@ -77,6 +88,7 @@ P:NPC {
         { text = "Ever had stolen goods come through?", next = "stolen", when = { class = "ROGUE" } },
         { text = "Has anyone ever sold you stolen goods?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Mages and enchanters aren't the same thing, Beardo.", next = "xmage", when = { class = "MAGE" } },
+        { text = "Does stolen gear ever turn up on your auction block?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Goodbye.", next = "END" },
       },
     },

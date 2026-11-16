@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.10.0 (2026-11-16)
+- Horde rogues, mages and warlocks get their own conversation with all 11 people in the pack.
+
 ## 1.9.0 (2026-11-16)
 - Horde shaman and tauren druids get their own conversations with all 11 named people in Silverpine.
 

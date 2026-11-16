@@ -332,6 +332,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Its knights were at the Portal at the end of the Second War, when the Alliance broke the Horde's hold on it, and some of them crossed over with Khadgar and never came back. I keep a list of their names, because the official histories only remember the generals." } },
+      choices = {
+        { text = "Their names should be honoured in Stormwind, not just here.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Lists won't bring them back. Watch the Portal instead.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_talk = {
       lines = { { id = "dt_default", text = "Tried, yes, and failed. The fel taint goes down into the rock. Our mages can hold it back, but only the Cenarion Circle could ever hope to undo it, and they have never answered our letters." } },
       choices = {
@@ -350,6 +359,8 @@ P:NPC {
           text = "I haven't slept, I confess, not since you brought me the essays. To read Khadgar's own reasoning about how two worlds can touch is a thing I never expected to do in my life." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "The Portal looks almost peaceful by starlight, which is exactly when I trust it least. I take my readings at night; the land seems to talk more when it's cold." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, at Nethergarde! The Silver Hand was founded in the years the orcs poured through that Portal, so I suppose you've come to see where your order's story began." },
       },
       again = {
         { id = "h_again", text = "Yes? Ask; I'd much rather talk than calculate, though don't tell the others." },
@@ -368,6 +379,7 @@ P:NPC {
         { text = "The Kirin Tor took my people in, Watcher.", next = "k_sky", when = { race = "Skyborne" } },
         { text = "The stone here is screaming, Watcher.", next = "k_shaman", when = { race = "Dwarf", class = "SHAMAN" } },
         { text = "Could a druid heal this land?", next = "k_druid", when = { class = "DRUID" } },
+        { text = "Did the Silver Hand fight at the Dark Portal, Watcher?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll leave you to your readings.", next = "END" },
       },
     },
@@ -581,6 +593,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Both, like a good axe, an' it depends entirely on whose hand is on the haft. I've seen things in the chalk that I'd rather not have seen, an' I've found lost gryphons an' lost children, an' I'll not be ashamed o' the second for fear o' the first." } },
+      choices = {
+        { text = "Then use it honestly, and I'll not judge it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Some doors should stay shut, whatever good comes through.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_talk = {
       lines = { { id = "dt_default", text = "The Dark Portal and everything that came through it. The orcs' warlocks drained the life from Draenor to power their magic, and they began the same work here. Nethergarde exists to make sure it never finishes." } },
       choices = {
@@ -623,6 +644,8 @@ P:NPC {
           text = "My eyebrows have nearly grown back, ye'll be glad tae hear. The ritual worked, an' that's the main thing; Sharpbeak's alive, an' the Vilebranch have him." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Night's when the scryin' goes clearest, an' when the mages downstairs pretend not tae hear the chantin'. Sit, if ye like, but quietly." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, climbin' my stairs. Ye'll want tae tell me my scryin' is unholy, I expect, so go on an' get it said, an' then we can talk business." },
       },
       again = {
         { id = "h_again", text = "Aye? What else, then? The circle's no' goin' anywhere." },
@@ -642,6 +665,7 @@ P:NPC {
         { text = "Your divinations smell of my own arts.", next = "k_lock", when = { class = "WARLOCK" } },
         { text = "Is divination real magic, Thadius?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Could your divination find stolen goods?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Is divination a gift or a danger, Thadius?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll leave you to your chalk.", next = "END" },
       },
     },
@@ -1052,6 +1076,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Needs? No. Wants? Aye, an' there's a difference, though the captain doesnae always see it. My kin brew the finest ale in Khaz Modan an' I'm stuck at the end o' the world watchin' a gate, so ye'll forgive me a wee comfort." } },
+      choices = {
+        { text = "Duty comes before comfort, Enohar, every time.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A watch kept is a watch kept. Drink up.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Some pray, some drink, an' most do both, an' I'll no' judge which comes first. Ye stand watch beside that Portal for long enough an' ye learn that the Light an' a good ale both keep the dark from creepin' in." } },
+      choices = {
+        { text = "Faith keeps watch better than ale ever could.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Ale's honest comfort. The Light won't begrudge it.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_talk = {
       lines = { { id = "dt_default", text = "A little, and only with stubbornness. I gather herbs and roots that grow nowhere else, twisted things that drink demon blood. Feed them to a man and he'll either be strong as a bull or very sick indeed." } },
       choices = {
@@ -1090,6 +1132,10 @@ P:NPC {
           text = "Ragnar's at the distillery in Kharanos, steamin' like a kettle. Go an' see him, an' tell him Enohar sent ye, so he knows the family's lookin' after its own." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Cold as a Dun Morogh winter out there tonight, an' not half as pretty. Good night for a warm mug, if ye ask me." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest, an' a long way from any chapel! Ye'll find little holy out here, but there's a mug o' Thunderbrew in my kit, an' I'd call that a blessin' o' sorts." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! Now if ye're here tae lecture me on duty, I'll tell ye I've never missed a watch, drunk or sober, an' I've the scars tae prove it." },
       },
       again = {
         { id = "h_again", text = "What else, friend? My mug's half full, so I've got time." },
@@ -1105,6 +1151,8 @@ P:NPC {
         { text = "I could steal the ale back, quiet-like.", next = "k_rogue", when = { class = "ROGUE" } },
         { text = "A frost for your mug, if you'll tell me about home.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Why do they mistrust warlocks here?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do the soldiers at Nethergarde keep any faith, Enohar?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Does a dwarf on duty need a mug in hand, Enohar?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Enjoy your brew, Enohar.", next = "END" },
       },
     },
@@ -1209,6 +1257,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "The black drake the soldiers talk about took three of my best out of the air in a single week, and nothing I've tried has kept it away. The keep wants letters carried and I keep sending birds out, and I hate every minute of it." } },
+      choices = {
+        { text = "Duty's hard, but the letters must fly.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Keep the birds home until the drake's dealt with.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "They won't fly within a mile of it, and they come back trembling if the wind turns them that way. Whatever the Portal is now, it still remembers what came through it, and so do the birds, I think." } },
+      choices = {
+        { text = "Creatures sense what the Light opposes. Trust them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "They smell the scorched earth, that's all.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "They mind the wards on the tower more, because the air hums when the Watchers are working and the birds hate a humming sky. Every one of them has learned to land on the far side of the keep, which tells you how clever they are." } },
@@ -1235,6 +1301,10 @@ P:NPC {
           text = "Alexandra Constantine, gryphon master of Nethergarde. My birds carry the keep's letters and the keep's visitors, and the Blasted Lands do their best to kill all three." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Night flights are cold enough to frost a gryphon's beak out here. I'll find you a blanket for the saddle if you're going." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! The birds take to holy folk, I've noticed, and you'd be doing me a kindness if you said a word over them before the next long flight north." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! You'll want my steadiest bird, then, because the heavy riders frighten the young ones, and the young ones are all I have left after this spring." },
       },
       again = { { id = "h_again", text = "Is there something else, or shall I saddle a bird for you?" } },
       choices = {
@@ -1243,6 +1313,8 @@ P:NPC {
         { text = "Show me the routes.", next = "BUSINESS" },
         { text = "Do your gryphons mind the arcane, Alexandra?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Why do gryphons fear demons so much?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do your gryphons fear the Dark Portal, Alexandra?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What happened to your gryphons this spring, Alexandra?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -1297,6 +1369,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Me, mostly, and the Quartermaster, though he'd never admit to anything so soft. The soldiers here are the Alliance's last watch on the Dark Portal, and nobody remembers them, so I make sure they at least eat well." } },
+      choices = {
+        { text = "They're remembered. Their watch matters to all of us.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A soldier's duty doesn't need remembering to be done.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Nothing, if they can help it, and they change the subject if anyone else brings it up. A few of the old ones fought there in the Second War, and they eat their supper with their backs to the window, every night." } },
+      choices = {
+        { text = "They need comfort. I'll sit with the old ones.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Leave them be. Old soldiers heal in their own way.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "It fills you up and it doesn't taste of anything, which is fine for a march and miserable for a mess hall. The soldiers here would trade all the magic bread in Dalaran for one wheel of real cheese, and I've the ledger to prove it." } },
@@ -1323,6 +1413,10 @@ P:NPC {
           text = "Bernie Heisten, food and drink for the finest and grimmest garrison in the Alliance. Bread, cheese and water, mostly, because that's what survives the road from Darkshire." },
         { id = "h_caravan", when = { questRecent = { TODO_QUEST("Deliver the Shipment"), days = 7 } },
           text = "The Quartermaster says you brought in Biggs's shipment. There was cheese in it, real cheese, so you've made a whole keep very happy." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! Blessing the bread's no bad idea out here, I'll say, because by the time it comes down the road from Darkshire it's had a harder trip than most soldiers." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! You'll want a proper meal, then, because plate is heavy, and I'll swear the keep's cooking is better than anything Darkshire's sending down the road." },
       },
       again = { { id = "h_again", text = "Anything else, or shall I wrap something up for the road?" } },
       choices = {
@@ -1331,6 +1425,8 @@ P:NPC {
         { text = "Show me what you have.", next = "BUSINESS" },
         { text = "Is conjured bread really that bad, Bernie?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Who's stealing cheese in this keep, Bernie?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What do Nethergarde's soldiers say about the Portal, Bernie?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Who keeps this garrison in good spirits, Bernie?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Not hungry, thanks.", next = "END" },
       },
     },
@@ -1389,6 +1485,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Some days. When the wind comes off the Portal at night they sleep badly an' dream worse, an' I can mend a dent but I cannae mend that. Ye can try, if ye've the stomach for it." } },
+      choices = {
+        { text = "I'll try. That's the work the Light gave me.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Mend their armour first. Courage follows good steel.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Dry it out an' crack it, for the dust gets intae every seam an' the cold nights finish the job. Oil it every night, an' if ye don't, come tae me, an' I'll take yer coin an' say nothin'." } },
@@ -1413,6 +1518,8 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Leather, is it? I'm an armorer, no' a tanner, but I'll stitch yer jerkin if ye don't mind it comin' back stiff." },
         { id = "h_default", key = true,
           text = "Strumner Flintheel, armorer. There's no other forge between here and Darkshire that'll take yer coin, so ye'll forgive me if I don't haggle." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest. Ye'll not need much from my forge, I'd wager, but the soldiers here are glad o' ye, so sit by the fire if ye like." },
       },
       again = { { id = "h_again", text = "Anythin' else, or can I get back tae the anvil?" } },
       choices = {
@@ -1422,6 +1529,7 @@ P:NPC {
         { text = "What's the clay done to my plate?", next = "k_plate", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "What do the Blasted Lands do to leather?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do the mages upstairs ever need a smith?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do the soldiers here need a priest more than an armorer?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Never mind.", next = "END" },
       },
     },

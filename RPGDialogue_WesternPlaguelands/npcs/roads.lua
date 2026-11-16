@@ -139,6 +139,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "He died defending Darrowshire, and what he died as is more complicated, because the Scourge took him afterwards and made him something else. I'd like to think a man is remembered for the stand he made and not for what was done to him later." } },
+      choices = {
+        { text = "Then remember the stand. His honour is still his.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "What he became matters too. Truth over comfort.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "There wasn't time, you see, because the town fell in a single night and everyone who could have said the words was busy dying. Some of them still don't know it's over, and a few kind words at the right moment can do a great deal for a spirit like that." } },
+      choices = {
+        { text = "Then I'll say the words for every one of them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The dead have waited this long. The living come first.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -151,6 +169,10 @@ P:NPC {
           text = "Oh, a mage! You've the look of someone who reads the last page of a book first, {class}, and I can't say I blame you." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "You came up so quietly I nearly missed you, {class}, and I very rarely miss anything. That's quite a compliment, you know." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! You must be the one who'll say the words properly at Darrowshire, because I've always thought the people there deserve a better farewell than the one they got." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! Joseph Redpath wore a tabard just like yours once, and I think he'd have liked to see a knight walking through Andorhal again, even if the town isn't much to look at now." },
       },
       choices = {
         { text = "Fellow gnome, you're hiding something.", next = "gnome", when = { race = "Gnome" } },
@@ -159,6 +181,8 @@ P:NPC {
         { text = "Why stay in Andorhal of all places?", next = "andorhal" },
         { text = "You talk like someone who's studied time, Chromie.", next = "xmage", when = { class = "MAGE" } },
         { text = "Few people catch me coming. How did you?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Were the dead of Darrowshire never given proper rites?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Did Joseph Redpath die a knight of the Silver Hand?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Goodbye, Chromie.", next = "END" },
       },
       again = { { id = "h_again", text = "Yes? You were about to ask something, I'm almost certain of it." } },

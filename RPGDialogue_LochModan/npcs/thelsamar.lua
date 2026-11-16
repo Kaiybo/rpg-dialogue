@@ -27,6 +27,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "Ha! Aye, I suppose it does. He's a Dark Iron who keeps to the shadows round the dam an' the dig, so if ye know where a body hides in a town this size, ye'll find him faster than my lads in their clankin' mail." },
+      },
+      choices = {
+        { text = "I'll find him and drag him to you in irons.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If he's spying, I'll quietly make him disappear.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Why would he want the dam?", next = "spy_dam" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "Need? We've a dam, a dig an' a valley full o' troggs, an' not a single mage tae our name, so aye, ye're welcome. Just keep yer fire away from the Stoutlager's casks, for Hearthstove would never forgive ye." },
+        { id = "xma_gnome", when = { race = "Gnome" }, text = "Aye, an' a gnome mage is twice welcome, for ye'll know what crawled out from under yer city. There's troggs in every hill here, an' they burn just as well as the ones at home." },
+      },
+      choices = {
+        { text = "I'll put my fire where you point it, Mountaineer.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll go where I'm needed, not where I'm sent.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Who needs a hand around here?", next = "jobs" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Aye, since the troggs came boilin' out o' the ground at Uldaman way. The beasts are pushed out o' their dens an' half o' them take it out on my patrols." } },
       choices = {
@@ -69,6 +90,8 @@ P:NPC {
         { text = "The troggs came up under my city first.", next = "gnome", when = { race = "Gnome" } },
         { text = "I track for a living, Mountaineer. Need eyes on the hills?", next = "k_hunter", when = { class = "HUNTER" } },
         { text = "Your loch is lovely, but where are the trees?", next = "k_elf", when = { race = "NightElf" } },
+        { text = "A spy, Mountaineer? Takes one to catch one.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Has Thelsamar much need of a mage?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Thanks, Kadrell.", next = "END" },
       },
     },
@@ -187,6 +210,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "Can ye now? Then ye're ahead o' me, for I've been diggin' a month an' all I feel is my back. The League in Ironforge thinks there's old work buried under these hills, an' if ye can feel it, I'll want it written down for them." },
+        { id = "xma_gnome", when = { race = "Gnome" }, text = "Then ye've a better nose than mine, an' I'll trust a Gnomeregan mage over my own sore back. Whatever it is, the troggs want it too, an' that worries me more than the magic." },
+      },
+      choices = {
+        { text = "Whatever it is, seal it and send it to Ironforge.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let's crack one open and see what it does.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Did your digging wake the troggs?", next = "idols_wake" },
+      },
+    },
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "Did ye now? Well, I'll no' pretend I'm surprised, for every dwarf here has his head in a hole all day. If ye're so good at walkin' in, walk intae the Stonesplinter camps an' see what they've carried off from us." },
+      },
+      choices = {
+        { text = "I'll get your things back and ask nothing for it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll get them, and maybe a few trinkets of my own.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Where is your powder going?", next = "powder" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "That the earth remembers every wound, an' that I'd answer for mine. Well, the earth's had a fair few wounds from troggs before me, an' I'm only after what's honest ore." } },
       choices = {
@@ -224,6 +268,8 @@ P:NPC {
         { text = "Stormpike sent me. You need legwork?", next = "agmond", when = { questActive = TODO_QUEST("Ironband Wants You!") } },
         { text = "The stone at your dig is restless, Ironband.", next = "k_shaman", when = { race = "Dwarf", class = "SHAMAN" } },
         { text = "Your dig could use a gnome's touch.", next = "k_gnome", when = { race = "Gnome" } },
+        { text = "Those idols carry an enchantment. I can feel it from here.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Your camp's easy to walk into, Prospector. I walked in.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Good luck with the dig.", next = "END" },
       },
     },
@@ -349,6 +395,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "Chill my ale? Ye'll do no such thing! Dwarven ale's drunk cellar-cool an' no colder, an' any mage who freezes a cask o' Thelsamar's best will be payin' for the barrel." },
+        { id = "xma_gnome", when = { race = "Gnome" }, text = "A gnome offerin' tae chill my ale, an' I suppose ye drank it half-frozen down in Gnomeregan wi' all yer fancy coolers. Here it's cellar-cool or nothin', so keep yer frost for the troggs." },
+      },
+      choices = {
+        { text = "Your inn, your rules, Hearthstove.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A good ale is whatever the drinker says it is.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Who drinks here, usually?", next = "regulars" },
+      },
+    },
+    xlock = {
+      lines = {
+        { id = "xwl_default", text = "Private, is it? I've had mountaineers, miners an' the League's diggers up those stairs, an' none o' them ever needed quiet. Keep whatever ye do behind a shut door an' out o' Vidra's kitchen, an' we'll get along." },
+      },
+      choices = {
+        { text = "It's study, nothing more. No harm will come of it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "It's best you don't ask what I'm summoning.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Who's the cook, then?", next = "vidra_ref" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "The loch at dawn, when the mist sits on it an' the fish rise. The dam keeps the water deep, though the old folk say the valley looked different before it was built." } },
       choices = {
@@ -375,6 +442,8 @@ P:NPC {
         { text = "Who drinks here?", next = "regulars" },
         { text = "What do the miners sing about?", next = "song" },
         { text = "I used to run casks across the loch, quiet-like.", next = "k_smuggle", when = { class = "ROGUE" } },
+        { text = "I could chill your ale for you, if you like.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "I'll need a quiet room. Some of my work is private.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Just a pint.", next = "END" },
       },
     },
@@ -445,6 +514,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "Lift? It's no' stealin' if it's off a beast, love, it's huntin'. Bring me what I'm after from the hills, an' I'll no' ask where ye were standin' when ye got it." },
+      },
+      choices = {
+        { text = "I'll bring it honestly, every bit of it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll bring it, and maybe a cask from the cellar too.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What's the ichor for?", next = "what_ichor" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "Ye could, an' a gnome tried it once, an' the kitchen smelt o' burnt hair for a fortnight. Sausage wants a slow fire an' patience, an' no amount o' magic will hurry it." },
+      },
+      choices = {
+        { text = "Then I'll leave the cooking to the cook.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Hand me the pan. I'll get it right this time.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Who eats your sausages, then?", next = "who" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Vidra, an' I cook for the Stoutlager: Thelsamar blood sausages, famous from here tae Ironforge. Well, famous in Thelsamar, anyway." },
@@ -462,6 +551,8 @@ P:NPC {
         { text = "Can I help?", next = "help" },
         { text = "I cook too. Trade secrets?", next = "cook", when = { profession = "Cooking" } },
         { text = "I could hunt the boar for your sausages.", next = "k_hunter", when = { class = "HUNTER" } },
+        { text = "I could lift a few ingredients from the hills for you.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Could I warm the sausages for you? It'd save the coal.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll pass on the details.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -552,6 +643,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "Behind them? There's no behind, for they come up out o' the ground wherever they please. But if ye can find the holes they're usin' near the statues an' stay alive doin' it, I'll take the report gladly." },
+      },
+      choices = {
+        { text = "I'll find the holes and mark them for your men.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll find them, and their leader won't see morning.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What's this about the statues?", next = "statues" },
+      },
+    },
+    xlock = {
+      lines = {
+        { id = "xwl_default", text = "Demons, in the Valley o' Kings, under the faces o' the old kings themselves? I'll take every blade I can get, but if one o' yer imps goes near those statues, I'll put an axe in it before I ask whose it is." },
+      },
+      choices = {
+        { text = "Understood. I'll keep it leashed and away from the kings.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Your statues are stone. The troggs are what matters.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Who leads the troggs?", next = "leader" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Tell 'em tae stay off the roads an' out o' the farmer's fields. If they'll do that, my mountaineers will gladly leave 'em be." } },
       choices = {
@@ -588,6 +699,8 @@ P:NPC {
         { text = "I stood the high passes too, Captain.", next = "mountaineer", when = { origin = "dwarf_mountaineer" } },
         { text = "I'll help defend them.", next = "END", fx = { affinity = 2, align = { order = 1 } } },
         { text = "Put me on your line, Captain.", next = "k_warrior", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "I can get behind the trogg lines for you, Captain.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Troggs fear fire. My demons could help hold the Valley.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "The King's statues can guard themselves, Captain.", next = "END", fx = { align = { order = -1 } } },
       },
     },
@@ -727,6 +840,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "That is precisely what keeps me awake at night, and I thank you for saying it aloud! If you can slip past my guards, so can a Dark Iron with a keg of blasting powder, so tell me where you'd go in and I'll put a dwarf there." },
+      },
+      choices = {
+        { text = "I'll show you every gap and tell no one else.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll show you, but knowledge like that isn't free.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Where have your guards gone?", next = "guards" },
+      },
+    },
+    xlock = {
+      lines = {
+        { id = "xwl_default", text = "I don't doubt it, and I'd rather not know what else answers to you. The Dark Irons called up something under Blackrock that's been burning ever since, so forgive me if I'm wary of anyone who calls things up." },
+      },
+      choices = {
+        { text = "Fair. I'll stand guard here like anyone else.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Fire's fire, Engineer. Use it or lose your dam.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "How could they bring the dam down?", next = "threat_how" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "It holds back a loch's worth o' water an' keeps the valley from floodin'. Some'd call that harm, but I'd call it a gift tae every farm below it." } },
       choices = {
@@ -760,6 +893,8 @@ P:NPC {
         { text = "The stonewrought method was a Dark Iron's, I'm told.", next = "forgewright", when = { heardLine = "archesonus.d_default" } },
         { text = "A gnome would like a look at your dam, Chief Engineer.", next = "k_gnome", when = { race = "Gnome" } },
         { text = "A mage's ward could shore up the dam.", next = "k_mage", when = { class = "MAGE" } },
+        { text = "Your guards would never see a saboteur coming, Engineer.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "The Dark Irons wield fire. I know how to answer it.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll look into it.", next = "END", fx = { affinity = 1 } },
       },
     },

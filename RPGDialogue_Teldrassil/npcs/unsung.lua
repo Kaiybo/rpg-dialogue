@@ -29,6 +29,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "I sell bows and arrows and little else, so you'd want the weaponsmiths in Darnassus for good throwing knives. I'll say this, though: a bow is a fine friend to a rogue, if you've the patience to learn it." },
+      },
+      choices = {
+        { text = "I'll learn the bow and fight in the open.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A knife in the back beats any arrow.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What should I practise on?", next = "targets" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "Then I hope you never run out of it in the Webwood with a spider on your back. Magic is a strange thing to lean on, friend, and my people learned that the hard way." },
+      },
+      choices = {
+        { text = "Fair. A bow might save my life.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My fire hasn't failed me yet.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Do the Sentinels shoot too?", next = "sentinels" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Jeena Featherbow, and I sell bows and arrows here in Dolanaar. Every young hunter on Teldrassil buys their first quiver from me, and most of them come back to tell me what they shot with it." },
@@ -42,6 +62,8 @@ P:NPC {
         { text = "What makes a good bow?", next = "bow" },
         { text = "What should I be shooting around here?", next = "targets" },
         { text = "Do the Sentinels buy from you?", next = "sentinels" },
+        { text = "Have you anything for throwing? Knives, perhaps?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "I've never needed a bow. I have fire.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Farewell, Jeena.", next = "END" },
       },
     },
@@ -201,6 +223,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "No, and I would ask you not to brew them in my garden. Earthroot and peacebloom are for healing here, and what you do with your own vials is between you and the shadows you keep." },
+      },
+      choices = {
+        { text = "Fair enough. Healing it is, here.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A poison is only a potion with a purpose.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What grows best on Teldrassil?", next = "herbs" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "Some of my students say so, but alchemy asks the plant and magic tells it, and I know which I prefer. You'll find the work slow, but it doesn't bite back the way the arcane does." },
+      },
+      choices = {
+        { text = "There's wisdom in that. I'll learn it slowly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Telling works faster than asking.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Which herbs should I start with?", next = "herbs" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Cyndra Kindwhisper, and I teach alchemy here in Dolanaar. I show students how to turn what grows on Teldrassil into potions that heal, and I ask them to be gentle with both the plants and the people who drink the result." },
@@ -213,6 +255,8 @@ P:NPC {
         { text = "Teach me alchemy.", next = "BUSINESS" },
         { text = "What can I make from Teldrassil's herbs?", next = "herbs" },
         { text = "Who do you make potions for?", next = "for" },
+        { text = "Do you teach poisons as well as potions?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Alchemy is just magic for the patient.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Goodbye, Cyndra.", next = "END" },
       },
     },
@@ -285,6 +329,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "It will notice, and so will I, for I walk these paths every morning. Take one leaf in three and leave the root, and Teldrassil will give to you again next season." },
+      },
+      choices = {
+        { text = "One in three, then. I'll leave the root.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The forest is big enough to spare a little more.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What grows here?", next = "grows" },
+      },
+    },
+    xlock = {
+      lines = {
+        { id = "xwl_default", text = "There's no herb on Teldrassil that grew for darkness, and if you are looking for one, you will not find it here. Keep your questions for your trainers in Stormwind, and keep whatever you carry away from my beds." },
+      },
+      choices = {
+        { text = "Only curiosity. I'll leave your beds alone.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Every herb has a dark use, if you look.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "How do you gather properly?", next = "gather" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Malorne Bladeleaf, and I teach herbalism to those who'll listen. Anyone can pull a flower out of the ground, but I teach people to take what the forest offers so that it grows back next season." },
@@ -302,6 +366,8 @@ P:NPC {
         { text = "How do I gather without harming the plant?", next = "gather" },
         { text = "What grows best on Teldrassil?", next = "grows" },
         { text = "What does an herbalist bring to a camp?", next = "camp", when = { questActive = TODO_QUEST("Camping 101: Herbalism") } },
+        { text = "I'll take what I need from the forest. It won't notice.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do any of these herbs have darker uses?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Farewell, Malorne.", next = "END" },
       },
     },
@@ -373,6 +439,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "It's the only armour that breathes, too, and you'll be glad of it when you're crouched in a hedge for an hour. I can teach you to stitch it so the seams don't creak, which matters more to your sort than to most." },
+      },
+      choices = {
+        { text = "Teach me. I'll do it right.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll learn the trick and do it my own way.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Why do your stitches have to be so small?", next = "stitch" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "A few, though most of them want cloth and complain about the smell of the hides. I'll teach anyone who'll put up with it, mage or not." },
+        { id = "xma_gnome", when = { race = "Gnome" }, text = "A gnome came through once and spent an hour admiring my awls, so I suppose your people like the tools, at least. I'll teach anyone who'll put up with the smell, mage or not." },
+      },
+      choices = {
+        { text = "A craft learned by hand is worth the smell.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'd sooner enchant my robes than stitch hides.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Why live outside the village?", next = "house" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Nadyia Maneweaver, and I teach leatherworking here in our house, just up the road from Dolanaar. Radnaal skins the hides and teaches skinning, and I turn the hides into something a traveler can wear." },
@@ -388,6 +475,8 @@ P:NPC {
         { text = "Why make your stitches so small?", next = "stitch" },
         { text = "Why live outside the village?", next = "house" },
         { text = "What does a leatherworker bring to a camp?", next = "camp" },
+        { text = "Leather's the only armour that doesn't clink.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do mages ever take up leatherworking?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Goodbye, Nadyia.", next = "END" },
       },
     },
@@ -459,6 +548,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "It is knifework, but the beast is already dead, which means you have time to do it well. Your sort tends to rush, and a rushed cut spoils the hide." },
+      },
+      choices = {
+        { text = "Then I'll take my time with it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Fast and clean is the only way I know.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Do you mind the work?", next = "mind" },
+      },
+    },
+    xlock = {
+      lines = {
+        { id = "xwl_default", text = "Keep it away from my hides, and from Nadyia's, and from me. The kaldorei have seen what the Legion's servants do to living things, and a dead nightsaber deserves better than to be singed by one." },
+      },
+      choices = {
+        { text = "Understood. It stays well away.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "It's a tool, like your knife.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What's the best hide here?", next = "best" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Radnaal Maneweaver, and I teach skinning. Nadyia does the fine work with the leather, and I do the part that comes first, which nobody enjoys but somebody must." },
@@ -473,6 +582,8 @@ P:NPC {
         { text = "Teach me skinning.", next = "BUSINESS" },
         { text = "Do you mind the work?", next = "mind" },
         { text = "What's the best beast to skin on Teldrassil?", next = "best" },
+        { text = "Skinning's just knifework. I've plenty of that.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "My imp could help. It's handy with a flame.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -535,6 +646,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "Then they'd be disappointed, for the only things that cross from here to Auberdine are fish and the occasional seasick dwarf. The Sentinels watch Rut'theran closely, and so do I." },
+      },
+      choices = {
+        { text = "Good. I'll keep my eyes open for you.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Closely isn't the same as closely enough.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What's the village like?", next = "village" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "There is, and the archdruids put it there, not anyone of your calling. My people don't care for mages speaking of power, so you'll forgive me if I turn the talk to fish." },
+      },
+      choices = {
+        { text = "Of course. Fish it is.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Power doesn't care who planted it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Where's the best fishing?", next = "fishing" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Nessa Shadowsong, and I sell fishing supplies here at the foot of Teldrassil. Most of what I catch goes up to Darnassus, and the best of it goes across the water to my friends in Auberdine." },
@@ -552,6 +683,8 @@ P:NPC {
         { text = "What do you send to Auberdine?", next = "bounty" },
         { text = "Where's the best fishing around here?", next = "fishing" },
         { text = "What's Rut'theran like?", next = "village" },
+        { text = "Smugglers would love a dock like this.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "There's a great power in this tree. I can feel it.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Goodbye, Nessa.", next = "END" },
       },
     },
@@ -634,6 +767,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = {
+        { id = "xro_default", text = "Then you'll take to fishing well, for the other half of mine is knowing when to strike, and I'd guess that's the other half of yours. The difference is that my quarry doesn't bleed on the dock." },
+      },
+      choices = {
+        { text = "Teach me the patient way, then.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'd rather get it over with quickly.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Is there a secret to it?", next = "secret" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "You could, and every fish in it would die, and you would have nothing to eat next spring. That is the kind of thinking my people paid for once, and we don't care to pay for it again." },
+      },
+      choices = {
+        { text = "A fair point. I'll use a rod.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "There are plenty of fish. The lake would recover.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Why do you still fish, after all these years?", next = "why" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Androl Oakhand, and I teach fishing here at the foot of Teldrassil. It's the most patient trade there is, and I've had a great deal of time to practice." },
@@ -646,6 +799,8 @@ P:NPC {
         { text = "Teach me to fish.", next = "BUSINESS" },
         { text = "What's the secret of fishing?", next = "secret" },
         { text = "Why fish, when you could hunt?", next = "why" },
+        { text = "Patience is half my trade too.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Couldn't I just freeze the lake and pick them out?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Goodbye, Androl.", next = "END" },
       },
     },

@@ -28,6 +28,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "Do you now? Then you'll know they came at night, took the Molsens' plough first and the Molsens next, and never once looked a man in the eye. If you can think like that and still stand on my porch honest, you're welcome here." } },
+      choices = {
+        { text = "I'll give them a taste of their own medicine.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll stand honest, Saldean. You have my word.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Where did your neighbours go?", next = "neighbours" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "I didn't need a warlock to tell me that, though I'll admit it's a strange comfort to hear it said aloud. Something puts the walk in those scarecrows, and it isn't Westfall straw." } },
+      choices = {
+        { text = "I'll find what moves them and turn it to my use.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll burn them down and let the darkness go with them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Where did the watchers come from?", next = "watchers" },
+      },
+    },
     druid_talk = {
       lines = { { id = "dt_default", text = "That's the best news I've had since the Defias took the Jansen farm. My father always said Westfall dirt was stubborn, and I reckon he was right about that much." } },
       choices = {
@@ -65,6 +81,8 @@ P:NPC {
         { text = "Your wife sets a fine table.", next = "salma" },
         { text = "I worked fields like these, growing up.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
         { text = "Shall I bless your fields?", next = "bless", when = { class = { "PRIEST", "PALADIN" } } },
+        { text = "I know how thieves think, Saldean. I can help.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Those watchers aren't natural, Saldean. I can feel it.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good luck with the harvest.", next = "END" },
       },
     },
