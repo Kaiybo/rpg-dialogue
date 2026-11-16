@@ -32,6 +32,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Cairne is too generous. We fought the centaur beside his people in the Barrens, yes, but the tauren offered us friendship when the rest of the world wanted us back in the camps, and I have never felt that debt was paid on our side." } },
+      choices = {
+        { text = "Then the Horde must repay it with loyalty.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Debts between friends shouldn't be counted at all.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -46,8 +54,10 @@ P:NPC {
           text = "The Cleft, was it? Neeru Fireblade is very helpful, isn't he? Keep being helpful back, quietly, and tell me what he says." },
         { id = "h_skyborne", when = { race = "Skyborne", faction = "Horde" },
           text = "The Windshapers, then. The Earthen Ring vouched for you and the tauren took you in, and that's good enough for me. Welcome to the Horde." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "Welcome to my hall, druid. Cairne's people taught mine more about this land than we would ever have learned alone, and I count every tauren in Orgrimmar as kin." },
       },
       choices = {
+        { text = "Cairne says the tauren owe you a debt, Warchief.", next = "druid_q", when = { class = "DRUID" } },
         { text = "What does the Horde stand for?", next = "horde" },
         { text = "What of the humans at Theramore?", next = "theramore" },
         { text = "You already suspect Neeru Fireblade, don't you?", tag = "Persuade", next = "neeru_suspect",
@@ -211,6 +221,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "More often than the priests of either would like to admit. Both say the land remember everything you do to it, and both say it don't forgive easy." } },
+      choices = {
+        { text = "The old spirits deserve the old respect.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Spirits or not, the Horde does what it must.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -219,8 +237,10 @@ P:NPC {
           text = "Nimboya find you in the jungle, eh? Then you know my youngest be lost down there. Nimboya bring him home, or nobody will." },
         { id = "h_gadrin", when = { heardLine = "gadrin.h_default" },
           text = "You see old Gadrin? He still tell people I be his best student? Good, because he right." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A tauren druid, mon! Your people and mine both know what it be to have the land under your feet taken away, so Vol'jin always be glad to see a horned one in this city." },
       },
       choices = {
+        { text = "Do the loa and the Earth Mother ever agree?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why follow Thrall?", next = "thrall" },
         { text = "What happened to the Echo Isles?", next = "isles" },
         { text = "I deal with demons, chief. Does the tribe mind?", next = "warlock", when = { race = "Troll", class = "WARLOCK" } },
@@ -348,6 +368,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "I make sure they remember whom they serve, which is more than they'd manage on their own. Your people never had to learn what fel magic does to a land, but we orcs left Draenor dry and dying because of it." } },
+      choices = {
+        { text = "Fel magic should be forbidden in the Horde.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Power is a tool. Let them use it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -358,8 +386,10 @@ P:NPC {
           text = "My assistant will guide you. There's a seed of something unpleasant in the Barrens. We wouldn't want it growing where the wrong people could tend it." },
         { id = "h_hidden", when = { questActive = TODO_QUEST("Hidden Enemies") },
           text = "The Searing Blade in Ragefire are so eager, so very eager to prove themselves. Deal with their leaders, would you? It will clarify things, I think." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, down here in the Cleft of Shadow? The Warchief's tauren friends are always welcome, of course, though you'll find very little down here that grows." },
       },
       choices = {
+        { text = "What do you make of the Horde's warlocks, Neeru?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What is the Burning Blade?", next = "blade" },
         { text = "What do you think of Thrall?", next = "thrall" },
         { text = "Thrall's patience will be the death of the Horde.", tag = "Deceive", next = "neeru_opinion",
@@ -478,6 +508,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Better than you'd think, once the ale's poured. The orcs boast and the tauren listen, and by the end of the night they're singing the same song in two languages." } },
+      choices = {
+        { text = "That friendship is worth more than any war.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Friendship is fine, but it's the war that binds us.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Gryshka, and I keep the Broken Tusk, and I keep it fed. Nobody leaves my inn hungry, and a few leave too full to walk." },
@@ -487,8 +525,10 @@ P:NPC {
           text = "Zargh, at the Crossroads? Did he mention me, did he really, and what did he say? No, don't tell me, or, well... yes, tell me!" },
         { id = "h_bones", when = { questDone = TODO_QUEST("Meats to Orgrimmar") }, text = "Zargh's kept sending cuts since that first delivery, and I send back the bones, clean. Let him wonder what it means; I'm still wondering myself." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "It's late, and the Tusk is loud, which is good. A quiet inn in Orgrimmar means something's wrong." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A tauren druid in the Broken Tusk! Sit down before you knock the lamps over, and mind the stools, because the last one a tauren sat on is still in pieces." },
       },
       choices = {
+        { text = "Do orcs and tauren get along here, Gryshka?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "What's the best thing you cook?", next = "best" },
         { text = "I brought in some game today.", next = "hunter", when = { class = "HUNTER" } },

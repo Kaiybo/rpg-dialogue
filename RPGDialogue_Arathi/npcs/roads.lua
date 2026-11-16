@@ -24,14 +24,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Farming, they say, though nothing I'd eat grows in that soil anymore. Kinelory swears they're bringing their plague into the highlands one barrel at a time." } },
+      choices = {
+        { text = "Not every Forsaken brews plague. Learn the truth first.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Burn the farm. Plague isn't worth the risk.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid! Could you not slip into Go'Shek Farm as a cat and see what the Forsaken are hiding? Kinelory would sleep easier, and so would I." },
         { id = "h_default", key = true,
           text = "Quae, and that nervous one by the tree is Kinelory. We work for Phin Odelic in Southshore, and we've been watching Go'Shek Farm longer than either of us likes." },
         { id = "h_phin", tags = { "news" }, when = { questActive = TODO_QUEST("Hints of a New Plague?") },
           text = "Phin sent you? Light bless that worried man. Tell him we're alive, and tell him he was right, because the Forsaken are sending something to that farm." },
       },
       choices = {
+        { text = "What are the Forsaken doing at Go'Shek Farm?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What are the Forsaken sending?", next = "courier" },
         { text = "Why does Phin care about an orc farm?", next = "phin" },
         { text = "How long have you been out here?", next = "watch" },
@@ -181,14 +192,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Then the land is full of candle thieves with very poor manners. I came to Drywhisker to study the minerals of the gorge, and I've learned more about kobold teeth than I ever wished to." } },
+      choices = {
+        { text = "Drive them out and the gorge will be safe for study.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Leave the kobolds their tunnels and study somewhere else.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid, by my notes! Do your kind take an interest in kobolds, I wonder, or only in creatures that don't steal candles?" },
         { id = "h_default", key = true,
           text = "Professor Phizzlethorpe, scholar and, at present, hostage to circumstance. I came to Drywhisker Gorge for my research, and the kobolds came for my candles." },
         { id = "h_escort", tags = { "news" }, when = { questActive = TODO_QUEST("Sunken Treasure") },
           text = "Lead on, then, and keep the kobolds off my coattails! My work waits for me down at the coast, and so does a very dull goblin." },
       },
       choices = {
+        { text = "Kobolds belong to the land too, Professor.", next = "druid_q", when = { class = "DRUID" } },
         { text = "Shall I tinker your notes back together, Professor?", next = "gnome", when = { race = "Gnome" } },
         { text = "What were you researching here?", next = "research" },
         { text = "Why do the kobolds want candles?", next = "kobolds" },

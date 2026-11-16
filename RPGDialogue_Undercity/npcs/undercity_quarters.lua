@@ -141,7 +141,10 @@ P:NPC {
     },
     xhhunt = {
       big = true,
-      lines = { { id = "xhhunt_default", text = "Constantly, and they're wrong to. A hunter knows the land and reads the weather, and a hunter's arrow has never once blown up in its owner's face, which is more than I can say for my students." } },
+      lines = {
+        { id = "xhhunt_default", text = "Constantly, and they're wrong to. A hunter knows the land and reads the weather, and a hunter's arrow has never once blown up in its owner's face, which is more than I can say for my students." },
+        { id = "xhhunt_pet", when = { pet = { type = "Beast" } }, text = "Constantly, and they're wrong to, because {pet} shows more discipline than half my students. A beast that comes when called has never once blown up in its owner's face, which is more than I can say for them." },
+      },
       choices = {
         { text = "Every trade has its use to the Forsaken.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Let them sneer. I answer to nobody's opinion.", next = "BACK", fx = { align = { order = -1 } } },

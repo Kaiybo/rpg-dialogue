@@ -75,13 +75,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "They claim the high places and drive off anything that isn't theirs, beast and tauren alike. The mesas were meant to be shared, and the Grimtotem have forgotten it." } },
+      choices = {
+        { text = "Cairne should send braves to drive them off.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let each camp defend its own mesa.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Kanati Greycloud. Freewind Post sits above the canyons, and from here we watch both the centaurs below and the Grimtotem who think these mesas belong to them." },
         { id = "h_c0", when = { race = "Tauren" }, text = "A child of Mulgore here at Freewind! The Earth Mother keeps you, kin, and Cairne would be proud to see you so far from home." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid of the Earth Mother! Then you'll feel what the Grimtotem do to these mesas, even if the others only see it." },
       },
       again = { { id = "h_again", text = "What else?" }, { id = "h_again2", text = "Speak, friend." } },
       choices = {
+        { text = "What are the Grimtotem doing to the mesas?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Who are the Grimtotem?", next = "b1_1" },
         { text = "What of the Galak centaurs?", next = "b2_1" },
         { text = "How do you live up here?", next = "b3_1" },
@@ -135,13 +146,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Power, the same as she wants in Thunder Bluff, only out here no one watches her. The Grimtotem hold Darkcloud Pinnacle, and every season they take a little more of the canyon around it." } },
+      choices = {
+        { text = "Bring the matter before Cairne and let him judge.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Strike the Pinnacle without warning. She'd do the same.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Motega Firemane, and I keep watch over Freewind Post. The Grimtotem grow bolder each season, and someone has to stand against them before they take the whole of the Needles." },
         { id = "h_c0", when = { race = "Tauren" }, text = "A fellow tauren who walks the Earth Mother's path, not Magatha's. You are welcome at my fire." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "You walk the Earth Mother's path as a druid should, but Magatha's people bend the spirits to their will, and I would hear what you make of that." },
       },
       again = { { id = "h_again", text = "What else?" }, { id = "h_again2", text = "Ask, if you have more." } },
       choices = {
+        { text = "What does Magatha want from the Needles?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What are the Grimtotem doing?", next = "b1_1" },
         { text = "Why not go back to Mulgore?", next = "b2_1" },
         { text = "What of the goblins in the Flats?", next = "b3_1" },

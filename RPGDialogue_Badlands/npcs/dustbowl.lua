@@ -24,8 +24,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "No' always, if the old ruins are anythin' tae go by, for nobody builds that grand in a desert. Somethin' dried it out long ago, an' the stones are the only ones left who remember what." } },
+      choices = {
+        { text = "Then dig it up and learn, Prospector.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let the land keep its own secrets.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid, out here in the Badlands? There's nae a green thing for miles, friend, unless ye count the lichen on Hammertoe's old pack, an' I'd not count it." },
         { id = "h_default", key = true,
           text = "Prospector Ryedol, Explorers' League. We came out here tae dig for the past, an' the past dug back; my partner, Hammertoe, went into the digsite an' didn't come out." },
         { id = "h_tools", tags = { "news" }, when = { questActive = TODO_QUEST("A Dwarf and His Tools") },
@@ -35,6 +45,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Aye? I'm listenin', for there's not much else tae do out here but listen an' dig." } },
       choices = {
+        { text = "Was this land always so barren, Prospector?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What's Uldaman?", next = "uldaman" },
         { text = "Tell me about Hammertoe.", next = "hammertoe" },
         { text = "What chased you out of the dig?", next = "chased" },
@@ -142,8 +153,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Suffer is a strong word for something made of granite, though I'll admit they do get rather cross. Science needs a few cross elementals, I'm afraid, and the Badlands have plenty to spare." } },
+      choices = {
+        { text = "Bind them without cruelty, or not at all.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A few cross elementals are a fair price for knowledge.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid! Splendid, a fellow practitioner of the natural sciences, though you'd call them something prettier, I expect. Tell me, can you feel the elementals in these rocks the way I measure them?" },
         { id = "h_default", key = true,
           text = "Lotwil Veriatus, founding member of the Enlightened Assembly of Arcanology, Alchemy and Engineering Sciences, and that's the short name. I study the elements, rock mostly, since there's a great deal of it here." },
         { id = "h_rock", tags = { "news" }, when = { questActive = TODO_QUEST("Study of the Elements: Rock") },
@@ -155,6 +176,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "More? Wonderful, but mind the sample tray." } },
       choices = {
+        { text = "Do the elementals suffer under your experiments?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What's the Assembly?", next = "assembly" },
         { text = "Who's Lucien?", next = "lucien" },
         { text = "Why rock?", next = "rock" },

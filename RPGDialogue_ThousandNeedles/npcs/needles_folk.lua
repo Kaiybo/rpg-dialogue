@@ -99,16 +99,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Most are, though the cats pace at night when the Galak drums start below. I sit with them until it stops, which is not a stable master's work, but what else can I do?" } },
+      choices = {
+        { text = "That's kindness, and kindness is never wasted.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Leave them be. They'll grow used to the drums.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "I am Awenasa, and I keep the stables of Freewind Post. Hunters leave their companions with me, and I keep them fed and watered, and away from the edge of the mesa." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid! The animals settle when your kind walks in, as if they know you would understand them." },
       },
       again = {
         { id = "h_again", text = "Is there more you would like to know about the stables?" },
         { id = "h_again2", text = "Take your time; the animals aren't going anywhere." },
       },
       choices = {
+        { text = "Are the beasts content up here on the mesa?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I'd like to see my stabled pets.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "How do you get animals up a mesa?", next = "lift" },
         { text = "What do hunters tame around here?", next = "tame" },

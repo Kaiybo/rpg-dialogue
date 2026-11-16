@@ -75,13 +75,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Must I? Friend, my crates belonged on this beach until one of those giants sat on them, so yes, I must. You druids can talk to nature all you like, but nature has never once paid its bills." } },
+      choices = {
+        { text = "Shrink only the ones that threaten you, then.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Fair enough. Business is business.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Zorbin Fandazzle, goblin of commerce and science, mostly commerce. The giants on these islands and shores have been tearing up the coast, and I've got a gizmo that'll do something about it." },
         { id = "h_c0", when = { questActive = TODO_QUEST("Zapped Giants") }, text = "Use the zapper on the giants, and bring back what's left when they shrink down. Don't ask me how it works, because the instructions fell in the ocean." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, huh? You turn into animals, right, so tell me, could you turn into something big enough to scare off a giant? I'm asking for business reasons." },
       },
       again = { { id = "h_again", text = "What else? Clock's ticking." }, { id = "h_again2", text = "More questions? Sure, those are free." } },
       choices = {
+        { text = "Must you shrink the giants, Zorbin?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What's this about giants?", next = "b1_1" },
         { text = "Is your zapper safe?", next = "b2_1" },
         { text = "Why set up shop here?", next = "b3_1" },
@@ -195,13 +205,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Perhaps, in time, but not while the ogres squat in Eldre'Thalas and the naga dig along the coast. The Circle teaches patience, and I'm afraid I have less of it than I should." } },
+      choices = {
+        { text = "Be patient. The forest has outlasted worse than ogres.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Patience lets the rot spread. Strike now.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Angelas Moonbreeze of Feathermoon Stronghold. While Shandris guards the island, I watch the mainland, especially the ruins where our ancestors' mistakes still linger." },
         { id = "h_c0", when = { race = "NightElf" }, text = "A sister of Teldrassil, so far from home! The ruins of this land are your history too, though I wish they were a kinder one." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Then you'll feel what I feel in the ruins on the mainland, where the old Highborne magic still sours the ground after ten thousand years." },
       },
       again = { { id = "h_again", text = "What else?" }, { id = "h_again2", text = "Speak, friend." } },
       choices = {
+        { text = "Can the land around the ruins be healed?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What ruins do you mean?", next = "b1_1" },
         { text = "What is Feathermoon like?", next = "b2_1" },
         { text = "How do you know so much?", next = "b3_1" },
@@ -255,13 +275,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Fight them as yourself, druid, whether you choose claw or moonlight. I ask only that you don't hold back out of pity, because the gordunni show none to our braves." } },
+      choices = {
+        { text = "Even an ogre deserves mercy if it yields.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "No pity, then. The camp comes first.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Hadoken Swiftstrider. Camp Mojache is home to the tauren of Feralas, and the gordunni ogres to the west threaten us every season." },
         { id = "h_c0", when = { race = "Tauren" }, text = "A child of Mulgore, here among us. Our camp is small, but the fire is warm, and you are welcome to it." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid among the hunters of Mojache! The gordunni to the west have no love for the Earth Mother, and you'll see it in every stump they leave behind." },
       },
       again = { { id = "h_again", text = "What else do you seek?" }, { id = "h_again2", text = "Speak, friend." } },
       choices = {
+        { text = "Should I fight the ogres as a hunter would?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Tell me of the gordunni.", next = "b1_1" },
         { text = "Why is the camp here?", next = "b2_1" },
         { text = "Do you trust the Alliance here?", next = "b3_1" },

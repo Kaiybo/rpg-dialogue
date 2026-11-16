@@ -30,8 +30,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Basilisks in the south, Dustbelcher ogres in the hills, and black dragons circling Lethlor Ravine when they're bored. The beasts I can read, but the dragons answer to nobody I'd care to meet." } },
+      choices = {
+        { text = "If it comes to dragons, meet them in the open.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Keep to the gullies and let the dragons be.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid. You'll be useful, then, if you can run as a cat, because the coyotes out here are faster than any orc I've ever trained." },
         { id = "h_default", key = true,
           text = "Neeka Bloodscar, head scout of Kargath. I know every gully between here and the Gorge, and I can tell you which of them you'll die in, if you'd like to know before you go." },
         { id = "h_from_helgrum", tags = { "news" }, when = { questActive = TODO_QUEST("Neeka Bloodscar") },
@@ -49,6 +59,7 @@ P:NPC {
         { id = "h_again3", text = "More questions? You'd make a poor scout, but a decent clerk." },
       },
       choices = {
+        { text = "What else stalks these gullies, Neeka?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What does a head scout do out here?", next = "scouting" },
         { text = "Something's stealing your food?", next = "coyotes" },
         { text = "Helgrum in Stonard speaks well of you.", next = "helgrum" },
@@ -210,8 +221,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Because what grows here be tough, and tough plants make strong potions, mon. I take only what I need, mostly, but the Expeditionary Force be needing a great deal." } },
+      choices = {
+        { text = "The Force's needs come first. Gather what it takes.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Take only what the land can spare.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid! You be knowing your herbs, I think, so tell me why nothing out here grows but firebloom and spite." },
         { id = "h_default", key = true,
           text = "Jarkal Mossmeld, alchemist, and the only one between here and the Undercity who be selling potions the Expeditionary Force can trust. My stock be running low, though, and the Badlands be full of things I need, if you be brave enough to collect them." },
         { id = "h_uldaman", when = { questActive = TODO_QUEST("Uldaman Reagent Run") },
@@ -228,6 +249,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, ask. The potion don't mind waiting, but the customers do." },
       },
       choices = {
+        { text = "Why gather in a land this poor, Jarkal?", next = "druid_q", when = { class = "DRUID" } },
         { text = "The Badlands are hard country, and a good place for a warrior.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "What do you need from the Badlands?", next = "reagents" },
         { text = "What's this about a necklace?", next = "necklace" },

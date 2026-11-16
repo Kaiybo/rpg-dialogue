@@ -27,18 +27,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "The Cartel cares about anything that pays, and the woods don't, so that's the short answer. The long answer is that if the furbolgs keep going mad, nobody will come up the pass to buy anything, and that's bad for everyone." } },
+      choices = {
+        { text = "The woods deserve care whether they pay or not.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Fair enough. Coin keeps Everlook warm.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Legacki, at your service, and the only goblin in Everlook with any taste. You've met Umi? Then you've seen her latest toy, and I'll bet you a gold piece it falls apart before the thaw." },
         { id = "h_after", tags = { "news" }, when = { questDone = TODO_QUEST("Are We There, Yeti?") },
           text = "All right, all right, I screamed, and the whole of Everlook heard it. Umi's never going to let me forget it, and neither are the Bruisers, who laughed until they wept." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Now there's a fashion I appreciate, all leaves and antlers and nobody telling you it's too much. What brings you to the frozen end of the world?" },
       },
       again = {
         { id = "h_again", text = "Anything else? I've got gossip to spare and nobody worth sharing it with." },
         { id = "h_again2", text = "Ask away, but stand where I can see your hands." },
       },
       choices = {
+        { text = "Do the goblins care about Winterspring's woods?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What's wrong with Umi's inventions?", next = "umi" },
         { text = "What's there to do in Everlook?", next = "town" },
         { text = "Scared of yetis, are you?", next = "yetis", when = { questActive = TODO_QUEST("Are We There, Yeti?") } },
@@ -405,6 +415,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "The leaders of the herds and packs, the old chimaera and the great bears the young ones follow. When a leader falls the herd scatters for a season, so I choose carefully and never take more than one a year." } },
+      choices = {
+        { text = "That is a fair hunt. The herd grows stronger for it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Why hunt them at all? Let the leaders lead.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -417,12 +435,14 @@ P:NPC {
           text = "Brumeran rules the chillwind chimaera, and his breath freezes a warrior where he stands. Strike fast and keep moving." },
         { id = "h_shyrotam", tags = { "news" }, when = { questActive = TODO_QUEST("Shy-Rotam") },
           text = "Shy-Rotam is the matriarch of the frostsabers, old and clever, and she will not show herself to just anyone. Prepare well before you face her." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, out here in the snow! Then you know as well as I do that the great beasts of Winterspring have a great deal to teach a patient hunter." },
       },
       again = {
         { id = "h_again", text = "Ask what you will, for the tracks will keep a while." },
         { id = "h_again2", text = "Speak on, but quietly; sound carries over snow." },
       },
       choices = {
+        { text = "Which beasts of Winterspring do you hunt, Storm?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Which beasts do you hunt?", next = "beasts" },
         { text = "Why come so far north to hunt?", next = "why" },
         { text = "Shy-Rotam is sacred to my people.", next = "kaldorei", when = { race = "NightElf" } },
@@ -492,18 +512,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Demons, the shaman say, from the old war, and the ground drank their filth until it went sick. The riders won't land anywhere near it, and I've learned to trust their noses." } },
+      choices = {
+        { text = "Then someone must cleanse it, whatever the cost.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Leave it to the night elves. It's their forest.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "I am Yugrek, and I keep the wind riders here for the Horde. They'll take you south to Felwood and on to Orgrimmar, if your business is with the Horde." },
         { id = "h_alliance", when = { faction = "Alliance" },
           text = "My riders don't carry the Alliance. The night elf with the hippogryphs will see to you; she's just over there." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A tauren druid, this far north! The wind riders will carry you south over Felwood, though I'd keep my eyes shut over the worst of it, because the trees down there aren't right." },
       },
       again = {
         { id = "h_again", text = "Something else? The riders grow cold while we talk." },
         { id = "h_again2", text = "Speak, then, and quickly." },
       },
       choices = {
+        { text = "What's wrong with the trees of Felwood?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Where can I fly?", next = "BUSINESS", when = { faction = "Horde" } },
         { text = "How do wind riders stand the cold?", next = "cold" },
         { text = "You and the night elf work side by side?", next = "maethrya" },
@@ -560,18 +590,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "The Circle at the Emerald Sanctuary believes so, and they're braver than I am for it. I see the forest from above every day, and the rot reaches further each season." } },
+      choices = {
+        { text = "It can. Felwood must be cleansed, tree by tree.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Some forests are lost. Burn the worst of it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "I am Maethrya, and I keep the hippogryphs for the Alliance in Everlook. They will carry you to Talonbranch Glade in Felwood, and on to the rest of Kalimdor." },
         { id = "h_horde", when = { faction = "Horde" },
           text = "My birds will not carry you, but Yugrek's wind riders will, and he keeps them well enough. You'll find him a few paces away, complaining about the cold." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the Circle. My hippogryphs fly south over Felwood every day, and they always climb higher over the worst of it, as if they can smell what's wrong with the trees." },
       },
       again = {
         { id = "h_again", text = "Is there something else you wish to know?" },
         { id = "h_again2", text = "Speak; the birds are patient, and so am I." },
       },
       choices = {
+        { text = "Can Felwood still be saved, Maethrya?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Where can I fly?", next = "BUSINESS", when = { faction = "Alliance" } },
         { text = "What do you think of Everlook?", next = "everlook" },
         { text = "What do the hippogryphs make of the snow?", next = "birds" },

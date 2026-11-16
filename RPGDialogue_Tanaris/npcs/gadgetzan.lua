@@ -28,6 +28,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Dew collector glands, mostly, from the thistleshrubs out in the valley, plus a few trade secrets. The shrubs don't miss the glands, I'm told, or if they do, they haven't filed a complaint." } },
+      choices = {
+        { text = "Those shrubs are living things. Take only what you need.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "If it sells, harvest away. The desert's big.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -42,12 +50,15 @@ P:NPC {
           text = "This is it, the finished thing! Drink one and tell me what happens; I'll take notes, and I'll stand back a little while I do." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Noggenfogger Elixir"), days = 3 } },
           text = "You drank it and you're still the right size, or mostly the right size, anyway! I'm putting you in the advertisements." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid! Perfect, a customer who knows herbs, and my elixir is mostly natural, you know, apart from the bits that aren't." },
       },
       again = {
         { id = "h_again", text = "More questions? Ask them in the shade, then, because everything's better in the shade." },
         { id = "h_again2", text = "Yes, yes? Go on, I'm listening, even if I'm also sweating." },
       },
       choices = {
+        { text = "What exactly goes into your elixir, Marin?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What does the elixir do?", next = "elixir" },
         { text = "How do you stand the heat?", next = "heat" },
         { text = "What's Sprinkle to you?", next = "sprinkle" },
@@ -323,6 +334,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Sure they do, and they can line up behind Gadgetzan like everybody else. Every gallon a basilisk drinks is a gallon a paying customer doesn't, and the Company counts every one." } },
+      choices = {
+        { text = "Leave some for the wild. The desert was here first.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Gadgetzan comes first. The beasts can fend for themselves.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -331,9 +350,12 @@ P:NPC {
           text = "The Wastewanders camp around the water sources and take whatever they like. Go and teach them about consequences, and teach them in bulk." },
         { id = "h_after", tags = { "news" }, when = { questRecent = { TODO_QUEST("More Wastewander Justice"), days = 3 } },
           text = "Pressure's up two notches since you thinned the Wastewanders, two whole notches! I nearly cried, and I'm an engineer, and engineers don't cry, not often." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid! I don't suppose you can talk a well into filling faster? No? Then I'll settle for you talking sense into the Wastewanders, because they've got our water and they don't share." },
       },
       again = { { id = "h_again", text = "What else? Quickly, the gauge is twitching." } },
       choices = {
+        { text = "The desert's creatures need water too, Chief Engineer.", next = "druid_q", when = { class = "DRUID" } },
         { text = "How does a desert town get water?", next = "water" },
         { text = "Who are the Wastewanders?", next = "bandits" },
         { text = "Who runs the Water Company?", next = "company" },
@@ -409,6 +431,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Wrong is the polite word for it. Bugs that size don't just appear at a water hole, and Pestlezugg says they're organized, which is the last thing I wanted to hear from anybody." } },
+      choices = {
+        { text = "Study them first. We don't know what they are yet.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Burn their nests now, before anyone wastes time studying.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -419,9 +449,12 @@ P:NPC {
           text = "Giant insects, at a water hole? That's not natural. Bring me pieces from their lair; Pestlezugg can tell us what they are." },
         { id = "h_analysis", when = { questActive = TODO_QUEST("Insect Part Analysis") },
           text = "Is that Pestlezugg's report you've got there? Let me see... oh, oh dear, that's worse than I hoped, and I'd hoped for nothing at all." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid, out here? If you can feel water under the sand, please tell me, because my dowsing widget certainly can't, and it cost the Company a fortune." },
       },
       again = { { id = "h_again", text = "Something else? I'll mark it on a map." } },
       choices = {
+        { text = "Those insects at Sandsorrow Watch feel wrong to me.", next = "druid_q", when = { class = "DRUID" } },
         { text = "What are the insects?", next = "insects" },
         { text = "How do you find water in a desert?", next = "dowsing" },
         { text = "What happened to the old sources?", next = "maps" },
@@ -511,6 +544,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Pieces of those giant insects from Sandsorrow Watch, and they're nothing like a scorpid on the inside. Gracina Spiritmight in Darnassus thinks they're tied to Un'Goro, and the more I cut, the more I think she's right." } },
+      choices = {
+        { text = "Send word to the Circle. This needs many eyes.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Keep it quiet until you're sure. Rumors spread faster than bugs.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -522,9 +563,12 @@ P:NPC {
         { id = "h_bungle", when = { questActive = TODO_QUEST("Bungle in the Jungle") },
           text = "I need a scent gland from the hive's own and a handful of Un'Goro soil, and with the two I can build a lure. I'd rather not say what it's for just yet." },
         { id = "h_rose", when = { metBefore = true }, text = "Rose ate the label off a jar again, so now I've a jar of something and no idea what. She looks pleased with herself, which worries me." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "Rose, mind your manners, it's a druid. Druids always ask what I'm dissecting, and they never like the answer." },
       },
       again = { { id = "h_again", text = "Anything else? Rose is getting impatient, though Rose is always impatient." } },
       choices = {
+        { text = "What are you dissecting, Pestlezugg?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Let's see your supplies.", next = "BUSINESS" },
         { text = "Who's Rose?", next = "rose" },
         { text = "What did you find in the insect parts?", next = "insects" },

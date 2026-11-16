@@ -120,16 +120,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Thistles and bones, mostly, and a few hardy roots the kodos dig up. I tried planting herbs against the outpost wall once, and the wind had taken every one of them by morning." } },
+      choices = {
+        { text = "Plant again. Stubbornness is how forests start.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Don't waste good seed on dead ground.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Janet Hommers, and I feed this outpost. Bread, cheese, water and something stronger for the evenings, and I make sure nobody goes down into Desolace on an empty stomach, because it's hard enough on a full one." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid! Sit down and eat, dear, because there's nothing growing down there worth putting in your mouth." },
       },
       again = {
         { id = "h_again", text = "Anything else, dear?" },
         { id = "h_again2", text = "What else can I get you, dear, while the dough rises?" },
       },
       choices = {
+        { text = "Does anything still grow in Desolace?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Let me see the food.", next = "BUSINESS" },
         { text = "How do you bake bread out here?", next = "bread" },
         { text = "How are the soldiers holding up?", next = "soldiers" },

@@ -232,7 +232,10 @@ P:NPC {
     },
     xhhunt = {
       big = true,
-      lines = { { id = "xhhunt_default", text = "You and half of Tirisfal, by the look of the place. If it's that cursed bat in the old farmhouse, kill it quickly, because I've been chasing it since before I died." } },
+      lines = {
+        { id = "xhhunt_default", text = "You and half of Tirisfal, by the look of the place. If it's that cursed bat in the old farmhouse, kill it quickly, because I've been chasing it since before you lot crawled out of the ground." },
+        { id = "xhhunt_pet", when = { pet = { type = "Beast" } }, text = "Is that {pet}? It's a big one, and I'm brave, but I'm not about to pick a fight with it. If it's that cursed bat in the old farmhouse you're tracking, set your beast on it and be quick about it." },
+      },
       choices = {
         { text = "I'll take it down cleanly, I promise you.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll take it however I can catch it.", next = "BACK", fx = { align = { honor = -1 } } },

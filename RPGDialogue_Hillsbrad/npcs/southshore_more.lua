@@ -550,8 +550,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "The Forsaken took the high pastures and the Syndicate took the woods, so I suppose the lions got pushed down onto us like everybody else. That don't make me like 'em any better, though, not when it's my horses they're after." } },
+      choices = {
+        { text = "They're hungry, not wicked. Spare them where you can.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A lion that takes horses has to be put down.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid! Now you're the one I want to talk to, because those mountain lions have been at my horses again, and I reckon you know what goes on in a lion's head." },
         { id = "h_default", key = true,
           text = "Darren Malvew, stablehand. Ain't nothin' irks me more than losin' these beautiful horses, and we've lost a heap to the undead, the Syndicate and every scoundrel in the hills. But the mountain lions are worse than all of 'em." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Costly Menace"), days = 5 } },
@@ -564,6 +574,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, the horses don't mind listenin'." },
       },
       choices = {
+        { text = "Why do you think the lions have grown so bold?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why the mountain lions?", next = "lions" },
         { text = "Who else takes your horses?", next = "thieves" },
         { text = "Tell me about your horses.", next = "horses" },
@@ -871,8 +882,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Less than it did, with the murlocs crowding the shallows and half the town's young men off soldiering instead of fishing. The bay's patient, though, and so am I, and between us we'll outlast the lot of them." } },
+      choices = {
+        { text = "Clear the murlocs out so honest folk can fish.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Take what you need and let the bay keep the rest.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid, eh? I hear some of your folk can take the shape of a sea lion and swim like one, and I'd give a great deal for a lesson in that, if it could be taught." },
         { id = "h_default", text = "Donald Rabonne. I teach fishing, and Lindea there sells the gear, and the bay pays both of us if we're patient. It's been a fishing town longer than anything else, Southshore, and it'll be one after." },
         { id = "h_coast", when = { questDone = TODO_QUEST("Down the Coast") },
           text = "Someone cleared the Torn Fin off the Western Strand, and the fishermen got their nets back. I thought it'd be the lieutenant, but he's still sulking at the inn." },
@@ -882,6 +903,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, softly now." },
       },
       choices = {
+        { text = "Is the bay still giving up its fish, Donald?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Teach me to fish.", next = "BUSINESS" },
         { text = "How's the fishing in the bay?", next = "bay" },
         { text = "Do you know Lindea well?", next = "lindea" },

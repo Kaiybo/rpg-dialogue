@@ -15,13 +15,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "The ley energy pools here whether I touch it or not, and I only ever take a cupful. Still, I know your Circle frowns on my sort tapping wild places, and I've never quite decided whether they're wrong." } },
+      choices = {
+        { text = "Take only what you need, and the marsh will forgive you.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Mana is there to be used. Take all you like.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Tabetha, and yes, I live out here by choice. The marsh is full of mana and short on meddlers, which is exactly how a mage likes her neighborhood." },
         { id = "h_c0", when = { class = "MAGE" }, text = "Another student of the arcane! Then you'll feel it too, the way the ley energy pools in this swamp like rainwater." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid! Before you say it, dear: yes, I draw on the swamp's mana, and no, I don't believe it minds." },
       },
       again = { { id = "h_again", text = "What else, dear? Visitors are so rare out here that I'm glad of every question." }, { id = "h_again2", text = "Ask, dear. I've time." } },
       choices = {
+        { text = "Does the marsh truly not mind a mage drawing on it?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why live out in the swamp?", next = "b1_1" },
         { text = "Do you know Lady Jaina?", next = "b2_1" },
         { text = "What dangers should I watch for?", next = "b3_1" },
@@ -75,13 +86,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Things that shouldn't, that's what. The crocolisks have gone quiet as if they're hiding from something bigger, and there's soldiers on the road at night who don't carry torches." } },
+      choices = {
+        { text = "Tell Theramore's guard what you've seen.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Keep your own counsel. Theramore hasn't earned it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Name's Jarl, and they call me Swamp Eye because I see everything that moves out here. Nobody sneaks past my house without me knowing it, no matter what that Theramore lot thinks." },
         { id = "h_c0", when = { class = "ROGUE" }, text = "You're the sneaky sort, aren't you? Well, Swamp Eye sees you all the same, so don't get any ideas about my larder." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid, creeping about in animal skins! Don't think Swamp Eye can't tell a real crocolisk from a pretend one, because he can." },
       },
       again = { { id = "h_again", text = "What else? Speak up, I'm watching the reeds." }, { id = "h_again2", text = "Anything more? Make it quick." } },
       choices = {
+        { text = "What moves out in the swamp lately, Jarl?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What have you seen in the swamp?", next = "b1_1" },
         { text = "Why live out here?", next = "b2_1" },
         { text = "Do you trust Theramore?", next = "b3_1" },
@@ -195,13 +217,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Mostly it hides the road, and whoever's on it, which is the trouble. Since the inn burned, every shape in the fog looks like a Horde raider to my lads, and I'm the one who tells them it's only a heron." } },
+      choices = {
+        { text = "Shooting at shapes in fog is how wars start.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Better a dead heron than a dead guard.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Private Hendel, Theramore Guard, posted at Sentry Point. We watch the northern road so Theramore knows what's coming before it arrives, and lately what's coming is trouble." },
         { id = "h_c0", when = { questActive = TODO_QUEST("The Missing Diplomat") }, text = "You're asking after the diplomat? Plenty of people have, and I've told every one of them I saw nothing out of the ordinary." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A night elf druid out at Sentry Point? Don't go changing into anything large near the tower, because the lads on watch shoot first in this fog." },
       },
       again = { { id = "h_again", text = "Anything else, citizen?" }, { id = "h_again2", text = "Make it quick; I'm on watch." } },
       choices = {
+        { text = "What does the fog hide out here, Private?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What happened at the Shady Rest?", next = "b1_1" },
         { text = "What's it like out here?", next = "b2_1" },
         { text = "Do you see much Horde traffic?", next = "b3_1" },
@@ -315,13 +348,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "It feels them as a wound feels the knife, small one. Since Onyxia's brood took the Wyrmbog, the beasts of the south marsh have grown savage, and even my spells taste of smoke down there." } },
+      choices = {
+        { text = "Then drive the brood out, and the marsh will heal.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Power is power. Learn what the dragons know.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Draz'Zilb, advisor to Overlord Mok'Morokk. While he leads the Stonemaul with his fists, I lead them with knowledge, and between us we keep Brackenwall standing." },
         { id = "h_c0", when = { class = { "MAGE", "WARLOCK" } }, text = "A fellow student of the arcane. Most ogres think magic is merely a loud kind of club, and it is pleasant to speak with someone who knows better." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid of the tauren, here among the Stonemaul. Draz'Zilb has long wondered whether your magic and his drink from the same well." },
       },
       again = { { id = "h_again", text = "Draz'Zilb hears you, small one. Ask your next question and be clever about it." }, { id = "h_again2", text = "Ask, and I shall answer if I can." } },
       choices = {
+        { text = "Does the swamp still feel the black dragons, Draz'Zilb?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Tell me about Brackenwall.", next = "b1_1" },
         { text = "You don't sound like the overlord.", next = "b2_1" },
         { text = "What of the black dragons?", next = "b3_1" },

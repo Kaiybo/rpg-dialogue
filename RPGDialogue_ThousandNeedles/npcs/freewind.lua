@@ -27,6 +27,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "The grass will come back, the elders say, once the hooves stop coming. Whether the hooves stop depends on us, and on how hard we are willing to strike." } },
+      choices = {
+        { text = "Strike their raiders, but leave their families be.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Strike until no Galak rides the Needles.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -45,12 +53,15 @@ P:NPC {
           text = "My brother Nataka is stationed at Ghost Walker Post, and a year has passed since I last wrote to him. The centaur have been stirring since then, and he should hear of it from me." },
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "You climb this mesa more often than the wind does, and I've come to listen for your step on the lift. Stand with me a while and watch the canyon." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid of Thunder Bluff. The Galak have trampled the canyon floor bare in places, and I would hear whether the land down there can recover." },
       },
       again = {
         { id = "h_again", text = "What else? Speak, but keep one eye on the canyon while you do." },
         { id = "h_again2", text = "Go on. The Galak won't wait for us to finish talking." },
       },
       choices = {
+        { text = "Can the canyon floor recover from the Galak?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why build so high?", next = "high" },
         { text = "What do you know of the Grimtotem?", next = "grimtotem" },
         { text = "What did the centaur do this time?", next = "galak" },
@@ -375,6 +386,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "A fair question, and I asked it myself, briefly. But if something like that hatches out there with no one watching, it will be the Needles that pay, and I'd rather it hatched where I could see it." } },
+      choices = {
+        { text = "You're right to take it. It must be watched.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Leave it be. Some things are meant to sleep.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -383,12 +402,15 @@ P:NPC {
           text = "The serpents guard it like a hoard. Get past them and bring the egg here, gently, please, very gently." },
         { id = "h_serpent", when = { questActive = TODO_QUEST("Serpent Wild") },
           text = "It hatched, and I know the shape from the old tales: Arikara, the Vengeance. Motega Firemane must hear of this." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid! Then you'll understand that the egg I'm after is no ordinary serpent's; there's something old and angry in it, and I mean to know what." },
       },
       again = {
         { id = "h_again", text = "Yes, yes, what else? Forgive me, my mind keeps wandering back to that shell." },
         { id = "h_again2", text = "Ask, please. I've been talking to myself for days." },
       },
       choices = {
+        { text = "Should that egg be disturbed at all, Hagar?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What kind of egg?", next = "egg" },
         { text = "Why come all this way for an egg?", next = "why" },
         { text = "What is Arikara?", next = "legend", when = { questDone = TODO_QUEST("Alien Egg") } },
@@ -493,6 +515,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "They say the land belongs to the tauren alone, and every other race is a weed to be pulled. Somewhere along that road, they started pulling tauren too." } },
+      choices = {
+        { text = "They can still be shown the way back.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "They chose their road. Cut them down.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -502,12 +532,15 @@ P:NPC {
         { id = "h_names", when = { metBefore = true }, text = "I tied a knot in this cord the night Lakota was taken, and I'll untie it the day she walks through that door. My fingers keep finding it." },
         { id = "h_home", when = { questDone = TODO_QUEST("Free at Last") },
           text = "Lakota's home, and I knew in my bones she'd find her way back to me. She told me how you fought for her, and I won't forget it." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid. If you have any way of seeing into the Grimtotem's camp, I would walk any trail you named for word of Lakota." },
       },
       again = {
         { id = "h_again", text = "What else? Say it, and then let me be." },
         { id = "h_again2", text = "Ask, if you must. I've nothing better to do than sit here." },
       },
       choices = {
+        { text = "How did the Grimtotem stray so far from the Earth Mother?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why so bitter?", next = "bitter" },
         { text = "What happened to Lakota?", next = "lakota" },
         { text = "Lakota spoke of her brother. I'm sorry.", next = "brother", when = { questDone = TODO_QUEST("Free at Last") } },
@@ -628,18 +661,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "My grandmother said it carries the voices of those who fell from the mesas, which is why I tell guests not to look down. Most nights I think it's only the wind, and some nights I'm not so sure." } },
+      choices = {
+        { text = "Honor the old tales. They keep people careful.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "It's only wind. Old tales just make people afraid.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "The inn at Freewind: beds, stew, and a view that will turn your knees to water if you look down. So don't look down." },
         { id = "h_bridges", when = { metBefore = true }, text = "A young brave fell asleep on the rope bridge last night, on it, and we found him at dawn, snoring, swinging in the wind. Tauren sleep anywhere." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Look out there. The needles throw long shadows under the moon, like the canyon is full of sleeping giants." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid! You'll want the room by the edge, then; the wind sings through it at night, and the druids who stay here say it's the canyon talking." },
       },
       again = {
         { id = "h_again", text = "Something more, friend? There's no hurry on the mesa." },
         { id = "h_again2", text = "Ask away. The stew won't spoil while we talk." },
       },
       choices = {
+        { text = "What does the wind over the mesas say?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What's the news on the mesa?", next = "news" },
         { text = "How did anyone build up here?", next = "mesa" },
         { text = "Who else lodges here?", next = "guests" },

@@ -58,6 +58,14 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    druid_q = {
+      lines = { { id = "dq_default", text = "I could stand here with a handful of soldiers and wait for the clans to notice us, I suppose. The Kolkar and the Magram and the Gelkis hate each other more than they hate us, and I mean to keep it that way." } },
+      choices = {
+        { text = "There's no honor in playing them like cards.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let them bleed each other. It saves our soldiers.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -66,9 +74,12 @@ P:NPC {
           text = "One of the clans will deal with us, for a price. Pick your partner and earn their trust. We can sort out what we owe them later." },
         { id = "h_politics", when = { questActive = TODO_QUEST("Brutal Politics") },
           text = "Politics out here are brutal: make friends with one clan, then remind them they were never ours. It's ugly work, but necessary." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid of the Circle at Nijel's Point. Keeper Marandis has his own business in Desolace, and I'd be obliged if one of you told me what it is." },
       },
       again = { { id = "h_again", text = "Anything else? Make it count; the drums are starting." } },
       choices = {
+        { text = "Must you set the centaur clans against each other, Captain?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Playing the clans against each other?", next = "clans" },
         { text = "Why is Stormwind even out here?", next = "stakes" },
         { text = "Who's who at the Point?", next = "point" },
@@ -533,15 +544,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "I'd like to think so, though I've swept this floor every morning and the dust never seems to mind. Keeper Marandis says the sickness rises from deep under Maraudon, and if he's right, no broom of mine will help." } },
+      choices = {
+        { text = "It will heal. Every wasteland was green once.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Some places are meant to die. Let it go.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Innkeeper Lyshaerya. I keep the only warm hearth between Stonetalon and Feralas, and travelers find their way to it eventually." },
         { id = "h_dust", when = { metBefore = true }, text = "Desolace dust gets into everything: the bread, the beds, my hair. I've stopped fighting it, and now I just sweep while I talk." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "The centaur drums carry a long way at night. You stop hearing them after a week, though I haven't stopped yet." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid, come down to Desolace. Most of your kind take one look at the dust and go straight back to Feralas, and I can't say I blame them." },
       },
       again = { { id = "h_again", text = "Something else? I'll keep sweeping." } },
       choices = {
+        { text = "Can this land ever heal, Lyshaerya?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I'd like a room.", next = "BUSINESS" },
         { text = "What do the drums mean?", next = "drums" },
         { text = "Why keep an inn in Desolace?", next = "why" },
@@ -615,6 +637,14 @@ P:NPC {
         { text = "I'll leave one alive, to follow home.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
       },
     },
+    druid_q = {
+      lines = { { id = "dq_default", text = "Everywhere they camp, the ground goes black and the water turns bitter. The Burning Blade feeds them and they feed the rot, and I don't care which came first." } },
+      choices = {
+        { text = "Strike the satyrs, but spare the land your fire.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Burn their camps and everything around them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -627,12 +657,15 @@ P:NPC {
           text = "So Keldran sent you with news from Orgrimmar, good. Maurin Bonesplitter handles the Blade's warlocks for us, so speak to him, and he'll tell you his designs." },
         { id = "h_corrupter_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Corrupter"), days = 3 } },
           text = "Azrethoc is dead, and the Blade has lost its newest master. For the first time since I came here, I think we may one day call some place safe again." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid. You'll feel the satyrs' rot in the soil long before you see their horns, and that's reason enough to help me thin them." },
       },
       again = {
         { id = "h_again", text = "Something else? Say it and be done." },
         { id = "h_again2", text = "Speak. The satyrs won't wait while we talk, so neither will I for long." },
       },
       choices = {
+        { text = "Do the satyrs poison the land, Takata?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Who are the Burning Blade?", next = "blade" },
         { text = "Why kill every satyr?", next = "satyrs" },
         { text = "Why does Orgrimmar worry about the Alliance?", next = "relations" },
@@ -799,6 +832,14 @@ P:NPC {
         { text = "Something else, Nataka.", next = "BACK" },
       },
     },
+    druid_q = {
+      lines = { { id = "dq_default", text = "Because it fights, I think. The centaur fight, the land fights, even the fish fight harder here than anywhere in Mulgore, and there's something to love in a place that won't lie down." } },
+      choices = {
+        { text = "Then help it fight. The Earth Mother hasn't left it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "It's a dying land. Fondness won't save it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -811,11 +852,14 @@ P:NPC {
           text = "There's a fish off this coast worth the trouble. Bring me one, and we'll both eat better than Desolace deserves." },
         { id = "h_catch_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Catch of the Day"), days = 2 } },
           text = "My hoof still tingles from that Bloodbelly fish, and the whole post smelled of frying for an evening. That's the best thing to happen here all season." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid, here at Shadowprey? Sit down, sit down. The sea is the only thing in Desolace that hasn't given up, and I suspect you'll like it." },
       },
       again = {
         { id = "h_again", text = "Something else? Sit; nothing out here is in a hurry except the centaur." },
       },
       choices = {
+        { text = "Why have you grown fond of Desolace, Nataka?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What's to like about Desolace?", next = "fond" },
         { text = "Tell me about your brother.", next = "brother" },
         { text = "What's this about a fish?", next = "fish" },

@@ -29,8 +29,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Hold it, first, for there is nothing to heal while the dead still march out of Stratholme and the Plaguewood. When they stop rising, I'll hand you every acre of this ground gladly and pray you know what to do with it." } },
+      choices = {
+        { text = "Hold the line first. Healing follows victory.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The land can't wait for your war to end.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid at Light's Hope. The Dawn welcomes any who stand against the Scourge, and I suspect you grieve for these lands more openly than my knights do." },
         { id = "h_default", key = true,
           text = "Maxwell Tyrosus. I lead the Argent Dawn, since Lord Raymond George fell, and we fight the Scourge and anything else that would end this world. We ask no one which crown they serve." },
         { id = "h_summoned", tags = { "news" }, when = { questActive = TODO_QUEST("Lord Maxwell Tyrosus") },
@@ -42,6 +52,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "What else? Speak freely; the chapel keeps no secrets from its own." } },
       choices = {
+        { text = "Does the Dawn mean to heal the land, or only hold it?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why did you leave the Silver Hand?", next = "left" },
         { text = "How did you come to lead the Dawn?", next = "lead" },
         { text = "What's happening in Stratholme?", next = "stratholme" },
@@ -205,8 +216,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "I feel it as a kind of kinship, which is the cruellest thing the Scourge left me. The plague in the soil and the plague in my bones answer to the same masters, and I mean to see both cut off from them." } },
+      choices = {
+        { text = "Then turn what you are against it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "What's made of plague can never cleanse it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid. I was told your kind can feel the sickness in the earth, and I wonder whether you feel it in me too, for I am made of the same plague." },
         { id = "h_default", key = true,
           text = "Leonid Barthalomew. I died in the Scourging and rose a mindless thing, until the Banshee Queen freed my mind, and I gave it to the Argent Dawn. My undeath is a sickness, but it is also a weapon, and I mean to use it." },
         { id = "h_ras", when = { metBefore = true },
@@ -216,6 +237,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Yes? I have time; it's one of the few things the dead have plenty of." } },
       choices = {
+        { text = "Do you feel the blight in the land, Leonid?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Does the Light really answer you?", next = "light" },
         { text = "Why the Dawn, and not the Banshee Queen?", next = "why" },
         { text = "Who is Ras Frostwhisper?", next = "ras" },

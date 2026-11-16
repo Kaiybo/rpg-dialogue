@@ -27,8 +27,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "The Forsaken poison what they can't hold and the Syndicate burn what they can't steal, and between them the farms up the valley are going back to thorn. I'd sooner have thorns than Forsaken, but I'd sooner have farms than either." } },
+      choices = {
+        { text = "Then the farms must be reclaimed and held.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let the thorns have them. The land needs rest.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A night elf druid in Southshore. Your folk pass through now and then on the road to Ironforge, but few of them stop, and fewer ask about the hills, which is a shame, because the hills need asking about." },
         { id = "h_default", key = true,
           text = "Marshal Redpath. I was headman here when the first boats came from Stormwind, full of people with nothing left. Now I'm marshal, and the town's full of their children." },
         { id = "h_crushridge", tags = { "news" }, when = { questActive = TODO_QUEST("Crushridge Bounty") },
@@ -48,6 +58,7 @@ P:NPC {
         { id = "h_again3", when = { timeOfDay = "night" }, text = "Ask. The night watch can spare me a moment, and I them." },
       },
       choices = {
+        { text = "What's wrong with the hills, Marshal?", next = "druid_q", when = { class = "DRUID" } },
         { text = "The first boats from Stormwind?", next = "boats" },
         { text = "What threatens Southshore?", next = "threats" },
         { text = "Tell me about the town.", next = "town" },
@@ -503,8 +514,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "That's a generous view from someone who isn't nibbled on the ankles every morning. Still, they were here first, I'll grant you, and they've never once filed a complaint with the Magistrate." } },
+      choices = {
+        { text = "The town comes first. Drive them up the coast.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Leave their spawning grounds be, Lieutenant.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid! Tell me you speak murloc, because I've been trying to reason with them for a year and they only ever answer in that dreadful gurgle." },
         { id = "h_default", key = true,
           text = "Lieutenant Farren Orinelle, late of the Stormwind City Guard. Now I'm in charge of murlocs, in a fishing town, at the end of the world. I'm told it builds character." },
         { id = "h_proof", tags = { "news" }, when = { questActive = TODO_QUEST("Farren's Proof") },
@@ -524,6 +545,7 @@ P:NPC {
         { id = "h_again2", text = "What else? Quickly, before I remember where I am." },
       },
       choices = {
+        { text = "Murlocs belong on that shore as much as Southshore does.", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why do you hate it here?", next = "hate" },
         { text = "What's the trouble with the murlocs?", next = "murlocs" },
         { text = "What was the City Guard like?", next = "guard" },

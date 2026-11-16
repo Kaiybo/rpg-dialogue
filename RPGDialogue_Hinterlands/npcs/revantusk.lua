@@ -540,7 +540,7 @@ P:NPC {
   key = "lard", id = TODO_NPC("Lard"), name = "Lard",
   bible = "bibles/revantusk.md", role = "innkeeper", tier = "quest",
   communities = { "revantusk" }, temper = { "simple" }, values = { "friendly", "generous" },
-  notices = { "weary" },
+  notices = { "weary", "pet" },
 
   impression = {
     first = "Lard is an ogre who keeps the inn at Revantusk, keeps the peace, and sells fish. He is enormous and gentle, and mostly worried about his lunch.",
@@ -555,6 +555,8 @@ P:NPC {
   notice = {
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.25 } },
       text = "Somebody hit you with big stick, like they hit Lard. You sit down and eat, and then you feel better." },
+    { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
+      text = "{pet} keeps sniffin' at Lard's fish barrel, and Lard does not blame it, because Lard does the same thing." },
   },
 
   start = "hello",
@@ -606,7 +608,10 @@ P:NPC {
     },
     xhhunt = {
       big = true,
-      lines = { { id = "xhhunt_default", text = "Lard has fish, lots of fish, and even more fish if you wait till Katoom comes back. Your beast can have the heads, which are the best part, though people never believe Lard about that." } },
+      lines = {
+        { id = "xhhunt_default", text = "Lard has fish, lots of fish, and even more fish if you wait till Katoom comes back. Your beast can have the heads, which are the best part, though people never believe Lard about that." },
+        { id = "xhhunt_pet", when = { pet = { type = "Beast" } }, text = "Lard has fish, and {pet} looks hungry, so your friend can have the heads. Heads are the best part, but nobody ever believes Lard about that, so maybe your beast will tell them." },
+      },
       choices = {
         { text = "I'll take the fish heads, with thanks.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll find my own scraps, thank you.", next = "BACK", fx = { align = { honor = -1 } } },

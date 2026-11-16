@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.11.0 (2026-11-16)
+- Druids are noticed: eight people in Southshore, Tarren Mill and Alterac greet a druid as one and have something to ask and argue about.
+- Horde hunters with a beast out hear their companion named by the people who already talked hunting.
+
 ## 1.10.0 (2026-11-16)
 - Horde warriors and hunters get their own question and short conversation with several people here.
 

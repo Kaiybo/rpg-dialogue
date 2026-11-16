@@ -72,7 +72,10 @@ P:NPC {
     },
     xhhunt = {
       big = true,
-      lines = { { id = "xhhunt_default", text = "Hunt them in daylight and never alone, and don't follow a wounded one into the trees, because that's exactly what it wants. They're cleverer than wolves and crueler than men." } },
+      lines = {
+        { id = "xhhunt_default", text = "Hunt them in daylight and never alone, and don't follow a wounded one into the trees, because that's exactly what it wants. They're cleverer than wolves and crueler than men." },
+        { id = "xhhunt_pet", when = { pet = { type = "Beast" } }, text = "{pet} will smell them before you do, and that's the one advantage you'll have out here, so trust its nose over your eyes. Just don't let it chase a wounded one into the trees, because that's exactly what the worgen want." },
+      },
       choices = {
         { text = "I'll face them openly, and finish what I wound.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll set traps and let them come to me.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -178,7 +181,7 @@ P:NPC {
   key = "karos", id = TODO_NPC("Karos Razok"), name = "Karos Razok",
   bible = "bibles/roads.md", role = "flightmaster", tier = "service",
   communities = { "sepulcher" }, temper = { "dry" }, values = { "patient" },
-  notices = { "race" },
+  notices = { "race", "pet" },
   impression = {
     first = "Karos Razok keeps the Sepulcher's bats, and speaks to them more gently than he speaks to anyone else. He seems to find the living tiresome and the dead only a little better.",
     third = "{name} met Karos Razok, the bat handler of the Sepulcher.",
@@ -191,6 +194,8 @@ P:NPC {
   notice = {
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "A tauren. The bats will grumble at the weight, but they'll carry you, if you sit still." },
+    { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
+      text = "Keep {pet} away from the perches, if you please. My bats have lost friends to a hunter's beast before, and they remember." },
   },
 
   start = "hello",
@@ -216,7 +221,10 @@ P:NPC {
     },
     xhhunt = {
       big = true,
-      lines = { { id = "xhhunt_default", text = "They'll carry it if it's well behaved and doesn't try to eat them, which you'd be surprised how many try. Keep it calm on the flight and the bat will keep calm too." } },
+      lines = {
+        { id = "xhhunt_default", text = "They'll carry it if it's well behaved and doesn't try to eat them, which you'd be surprised how many try. Keep it calm on the flight and the bat will keep calm too." },
+        { id = "xhhunt_pet", when = { pet = { type = "Beast" } }, text = "Is that {pet}? My bats will carry it if it behaves and doesn't try to eat them, and you'd be surprised how many try. Keep it calm on the flight and the bat will keep calm too." },
+      },
       choices = {
         { text = "My companion's well trained. It won't trouble them.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "If it bites a bat, the bat should have been quicker.", next = "BACK", fx = { align = { honor = -1 } } },

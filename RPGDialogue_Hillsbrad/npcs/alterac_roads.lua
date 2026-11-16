@@ -24,14 +24,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "We hide in it, and in return we keep it free of the Syndicate's woodcutters and smugglers, which I suspect suits the forest well enough. Alterac's nobles stripped these hills for coin once, and I do not intend to let their hirelings finish the work." } },
+      choices = {
+        { text = "A true guardian shouldn't need to hide.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "An unseen guardian is the best kind.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid at Ravenholdt. My guests usually arrive in shadow, but few of them arrive on four paws, and I confess I find it refreshing." },
         { id = "h_default", key = true,
           text = "I am Jorach Ravenholdt, and this house has stood in these hills longer than Alterac's kings stood on their thrones. We keep our own counsel here, and we keep the Syndicate in its place." },
         { id = "h_emblems", tags = { "news" }, when = { questActive = TODO_QUEST("Syndicate Emblems") },
           text = "Those Syndicate emblems, yes. Every one you cut from a Syndicate cloak is a man who will not be reporting to the Perenoldes tonight, and I count them carefully." },
       },
       choices = {
+        { text = "Does your house keep this forest, my lord, or only hide in it?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why does the Syndicate trouble you so much?", next = "syndicate" },
         { text = "What is this house, exactly?", next = "house" },
         { text = "I've walked in shadows a while. Is there a place for me here?", next = "rogue", when = { class = "ROGUE" } },

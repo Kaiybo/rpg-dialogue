@@ -18,16 +18,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "We don't keep them, druid, we earn them, and the bond goes both ways or not at all. The Winterfall would kill them for their pelts, so I'd rather they stand beside us than lie in a furbolg's hut." } },
+      choices = {
+        { text = "Then the bond is honest. Keep earning it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A saber should run free in the snow.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Rivern Frostwind, and the Wintersaber Trainers raise the frostsabers of this valley. The Winterfall furbolgs and the cold give us trouble enough, and we don't hand a saber to anyone who hasn't helped us with both." },
         { id = "h_cond", when = { race = "NightElf" }, text = "A child of Elune, so you'll know what a wintersaber means to our people. They are not horses, and we do not sell them as horses." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the Circle, here in the frostsaber valley. The cubs know your kind by scent, I think, and they come to you more readily than to the Sentinels who train beside me." },
       },
       again = {
         { id = "h_again1", text = "What else? The cubs need feeding." },
         { id = "h_again2", text = "Ask, then, and quietly." },
       },
       choices = {
+        { text = "Is it right to keep the wintersabers, Rivern?", next = "druid_q", when = { class = "DRUID" } },
         { text = "How does one earn a wintersaber?", next = "sabers" },
         { text = "What trouble do the Winterfall make?", next = "winterfall" },
         { text = "How do you bear the cold?", next = "cold" },
@@ -100,16 +110,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "The young ones, perhaps, if the firewater is taken from them before it takes them. The old shamans who pour it are lost, Salfa thinks, and a druid who tries to save them will only be bitten." } },
+      choices = {
+        { text = "I'll try to cleanse even the shamans.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The shamans chose this. They must die.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Salfa, and I watch this end of the tunnel for the Timbermaw. The Winterfall furbolgs of this valley have gone the way of the Deadwood, and Salfa would see them stopped before the madness spreads further north." },
         { id = "h_cond", when = { class = "SHAMAN" }, text = "A shaman. The spirits here are cold and angry, and Salfa thinks you can feel it too." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "Salfa sees a druid, and Salfa is glad. The Cenarion Circle and the Timbermaw once spoke often, and Salfa thinks they should speak again now that the Winterfall have fallen." },
       },
       again = {
         { id = "h_again1", text = "Speak. Salfa is listening." },
         { id = "h_again2", text = "What else?" },
       },
       choices = {
+        { text = "Can the Winterfall be cleansed, Salfa?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What happened to the Winterfall?", next = "winterfall" },
         { text = "Where does the tunnel lead?", next = "tunnel" },
         { text = "Do the Timbermaw trade with Everlook?", next = "everlook" },
@@ -182,16 +202,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Something, I think, because the beasts gather near them as though they remember the light. When I light the torches they grow restless, and I can't tell whether they're angry or only waking." } },
+      choices = {
+        { text = "Light them. The old ways should return.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Perhaps the beasts guard them for a reason.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Ranshalla, a priestess of Elune, and there are old altars in these hills that have been dark for far too long. I mean to light their torches again, but the wild things guard them now, and I can't go alone." },
         { id = "h_cond", when = { class = "PRIEST" }, text = "A priest! Then you'll feel it too, when we reach the altar, the way the Mother Moon still listens there." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! The altars I mean to light were raised before the Sundering, and I think the Circle would be glad to see them burning again." },
       },
       again = {
         { id = "h_again1", text = "What else, friend?" },
         { id = "h_again2", text = "Speak, the moon is patient tonight." },
       },
       choices = {
+        { text = "What do the altars mean to the wild things, Ranshalla?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What's at the altar?", next = "altar" },
         { text = "Why do the altars matter to Elune?", next = "elune" },
         { text = "What guards the altars now?", next = "danger" },

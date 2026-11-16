@@ -272,7 +272,10 @@ P:NPC {
     },
     xhhunt = {
       big = true,
-      lines = { { id = "xhhunt_default", text = "A hunter who brings back what I ask for, intact and unchewed, is worth three of the usual errand-runners. The duskbats and the Darkhound packs both carry things the Royal Apothecaries want catalogued." } },
+      lines = {
+        { id = "xhhunt_default", text = "A hunter who brings back what I ask for, intact and unchewed, is worth three of the usual errand-runners. The duskbats and the Darkhound packs both carry things the Royal Apothecaries want catalogued." },
+        { id = "xhhunt_pet", when = { pet = { type = "Beast" } }, text = "Do keep {pet} from chewing on the samples, I beg you. The duskbats and Darkhounds are no use to the Royal Apothecaries with bite marks in them, and I've had to explain that to hunters before." },
+      },
       choices = {
         { text = "Write me a list. I'll bring back exactly that.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll bring what I kill. Sort it yourself.", next = "BACK", fx = { align = { order = -1 } } },
@@ -459,6 +462,8 @@ P:NPC {
           text = "You're after the deal, are you? Quietly, then, because not every bargain in this town wants an audience." },
       },
       choices = {
+        { text = "I'm a warrior, Renee. What should a fighter know about Brill?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
+        { text = "May I bring my beast inside, Renee?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Why keep an inn, now?", next = "why" },
         { text = "I'm a rogue. Who in Brill should I know?", next = "rogue", when = { class = "ROGUE" } },
         { text = "Just a room, thanks.", next = "END" },
@@ -474,6 +479,25 @@ P:NPC {
     why = {
       lines = { { id = "w_default", text = "I spent too long on the other side of things, hurting people for a cause. Now I pour drinks and listen, and it suits me better." } },
       choices = { { text = "It does.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } } },
+    },
+    xhwar = {
+      big = true,
+      lines = { { id = "xhwar_default", text = "Only that the fights worth having are out past the fields, love, against the Scarlets and the Scourge, and not in my tavern. I've seen what a warrior does to furniture, and I'd much rather see it done to them." } },
+      choices = {
+        { text = "Then I'll take my fights outside, to Brill's enemies.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I fight where the fight finds me, even in here.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
+    xhhunt = {
+      big = true,
+      lines = {
+        { id = "xhhunt_default", text = "Bring it in, love, so long as it doesn't mind the bats and the bats don't mind it. We've had wolves and cats by the hearth before, and they behaved better than some of my living guests." },
+        { id = "xhhunt_pet", when = { pet = { type = "Beast" } }, text = "Is that {pet}? Bring it in by the fire, love, and I'll find it a quiet corner away from the bats. It's got kinder eyes than half the guests I've poured for tonight." },
+      },
+      choices = {
+        { text = "It'll mind its manners, I promise you.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "It goes where I go, whether the bats like it or not.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
     },
   },
 

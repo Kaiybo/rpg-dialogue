@@ -29,6 +29,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Some do, and some never will, and I can't blame the second kind. Your people remember what reckless magic did to the world, and I am a mage, so I try to earn their trust rather than ask for it." } },
+      choices = {
+        { text = "What we shared on Hyjal should bind us still.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Trust is earned person by person, not by old pacts.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -41,12 +49,15 @@ P:NPC {
         { id = "h_warm", when = { disposition = { min = 75 } },
           text = "I'm glad you came back. Sit, if you like; Tervosh says I don't sit nearly enough, and he's usually right." },
           text = "Still awake? So am I. The tower's quiet at night, and it's the only time I can hear myself think about anything but the next letter." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid of the Cenarion Circle in Theramore. I stood beside your people on Mount Hyjal, and I haven't forgotten what the forest gave to stop the Legion there." },
       },
       again = {
         { id = "h_again", text = "What else? I have a few minutes before the next dispatch." },
         { id = "h_again2", text = "Go on, I'm listening." },
       },
       choices = {
+        { text = "Do the night elves still trust humans, my lady?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why keep peace with the Horde?", next = "peace" },
         { text = "How did Theramore begin?", next = "lordaeron" },
         { text = "Tell me about the city.", next = "theramore" },
@@ -288,6 +299,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "The marsh water, mostly, which is brackish one week and sweet the next, so the roots can't decide whether to drown or go thirsty. I'd ask the Circle, but I suspect they'd tell me to stop forcing Lordaeron flowers into Kalimdor mud." } },
+      choices = {
+        { text = "Keep tending them. A garden is a choice, not an accident.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let the marsh decide, and plant what grows wild.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -297,9 +316,12 @@ P:NPC {
         { id = "h_shards", when = { questActive = TODO_QUEST("Shadowshard Fragments") },
           text = "Shadowshard fragments. There's an unusual energy in them, and if you bring me enough I can make something of it." },
         { id = "h_garden", when = { metBefore = true }, text = "The marsh air is wonderful for herbs and terrible for parchment, so I've chosen the herbs. My notes forgive me, mostly." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid! Please don't look too closely at my garden; I've read every herbal in Theramore, and they're all wrong about swamp soil." },
       },
       again = { { id = "h_again", text = "Yes, yes, what else? Keep it short, if you would." }, { id = "h_again2", text = "Another question? Good, ask it while I water these." } },
       choices = {
+        { text = "What troubles your garden, Archmage?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What's this business with the diplomat?", next = "diplomat" },
         { text = "Tell me about your garden.", next = "garden" },
         { text = "You're not with the Kirin Tor?", next = "independent" },
@@ -660,15 +682,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "They notice the dragons, dear, and little else. The young ones come back talking about whelps in the south as if they were bedtime stories, and I've stopped correcting them, because what good would it do?" } },
+      choices = {
+        { text = "You should correct them. A wary soldier lives longer.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let them have their stories. Fear never won a fight.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Innkeeper Janene. Soldiers, sailors, mages, merchants: they all end up at my tables sooner or later. Theramore is my home, and this inn is its kitchen." },
         { id = "h_lady", when = { metBefore = true }, text = "Lady Jaina came down to the kitchen last week to thank the cooks, in person, and half of them still won't wash the hand she shook." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "The sea's loud tonight. Sailors say a loud sea is a lucky sea, but sailors say a lot of things." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid at my tables! Sit down, dear, and tell me the truth: is it the marsh air, or does everyone from Darnassus look this tired when they first arrive?" },
       },
       again = { { id = "h_again", text = "Anything else, love?" } },
       choices = {
+        { text = "The marsh's creatures seem uneasy. Do the soldiers notice?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I'd like a room.", next = "BUSINESS" },
         { text = "What's the talk at the tables?", next = "talk" },
         { text = "What's good to eat?", next = "food" },

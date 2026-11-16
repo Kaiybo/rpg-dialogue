@@ -27,6 +27,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Something in their firewater, the trappers say, and it's made them nasty all the way up the valley. They used to come and trade at the gate, and now nobody goes past the edge of town without a sword." } },
+      choices = {
+        { text = "They're sick, not wicked. They can be saved.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Sick or not, they're dangerous. Keep the door shut.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -34,12 +42,14 @@ P:NPC {
         { id = "h_bugs", tags = { "gossip" },
           text = "People ask why a goblin would run an inn at the top of the world, and it's two words: no bugs. Well, fewer bugs, anyway, because there's still that one beetle, and I know it's in here." },
         { id = "h_beetle", when = { metBefore = true }, text = "I found the beetle, behind the bar! It looked at me and I looked at it, and we've agreed to stay out of each other's way." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid in my inn! You'll be wanting to know about the furbolgs, I bet, since everybody from the Circle does, and the answer is they've gone mean and I keep the door shut." },
       },
       again = {
         { id = "h_again", text = "More? Sit by the fire, then, only not too close, because the beetle lives there." },
         { id = "h_again2", text = "What else, sugar? I've got gossip and soup, and both are hot." },
       },
       choices = {
+        { text = "What's happened to the Winterfall, Vizzie?", next = "druid_q", when = { class = "DRUID" } },
         { text = "A room, please.", next = "BUSINESS", fx = { affinity = 1 } },
         { text = "Who comes through Everlook?", next = "guests" },
         { text = "Why are you so scared of bugs?", next = "bugs" },
@@ -193,6 +203,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "It is, in the Plaguelands at least, where the very soil has gone grey and the rivers carry it downstream. Some in the Dawn think it can be scrubbed clean in a generation, and others say it must be burned out and begun again." } },
+      choices = {
+        { text = "The land can be healed with patience.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Burn it out. Some sickness can't be cured.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     paladin_gr = {
       lines = {
         { id = "pgr_default", text = "The Dawn needs every paladin who'll come, and it doesn't ask whether you knelt in Stormwind or Ironforge. The Silver Hand has been broken for years, and some of its knights found their way to us instead, so you'd not be alone at Light's Hope." },
@@ -212,9 +230,11 @@ P:NPC {
           text = "Carry my report to Argent Officer Pureheart for me, if you would. Every set of eyes the Dawn has counts." },
         { id = "h_duke", when = { questActive = TODO_QUEST("Duke Nicholas Zverenhoff") },
           text = "Duke Zverenhoff will want to meet you, because not many walk into the Plaguelands of their own will, and fewer walk out." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, welcome! The Dawn fights the Scourge and the Circle fights the rot in Felwood, and I've often thought we fight the same kind of sickness from two ends." },
       },
       again = { { id = "h_again", text = "What else? The Light keeps late hours, and so do I." } },
       choices = {
+        { text = "Is the plague a sickness of the land too?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Tell me about the Argent Dawn.", next = "dawn" },
         { text = "What does the Dawn want with Winterspring?", next = "why_here" },
         { text = "What's the difference between you and the Scarlet Crusade?", next = "scarlet" },

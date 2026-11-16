@@ -26,8 +26,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "They hate the heat and they hate the ash, and most of all they hate the fire elementals that rise off the slag heaps like sparks off a forge. I can't say I blame them." } },
+      choices = {
+        { text = "Then don't ask more of them than you must.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A gryphon goes where it's needed, heat or no.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A night elf druid! The gryphons don't trust the Gorge any more than you would, and they'll fly you out of here gladly, back to where things still grow." },
         { id = "h_default", key = true,
           text = "Lanie Reed, gryphon master for the Alliance here at Thorium Point. My birds fly to Ironforge and to Morgan's Vigil in the Burning Steppes, and anywhere else the Alliance has a roost, and they're glad to leave every time." },
       },
@@ -36,6 +46,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, ask. I've nowhere to be but here." },
       },
       choices = {
+        { text = "Do the gryphons hate the Gorge?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Where can I fly?", next = "BUSINESS", when = { faction = "Alliance" } },
         { text = "A Bronzebeard among Dark Irons?", next = "brotherhood" },
         { text = "How do the gryphons stand the Gorge?", next = "ash" },
@@ -94,8 +105,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Better than the gryphons, but only because they're too stubborn to complain. The ash gets in their wings and the heat makes them cross, and I spend my evenings picking cinders out of their manes." } },
+      choices = {
+        { text = "They serve the Horde. A little ash won't stop them.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Beasts shouldn't be kept somewhere this foul.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A tauren druid at Thorium Point. My wind riders will sniff you over, because you smell of grass and they haven't had that in a while." },
         { id = "h_default", key = true,
           text = "Grisha, wind rider master for the Horde at Thorium Point. My beasts fly to Kargath in the Badlands and to Flame Crest in the Burning Steppes, and from there anywhere you like." },
       },
@@ -104,6 +125,7 @@ P:NPC {
         { id = "h_again2", text = "Speak. I'm listening." },
       },
       choices = {
+        { text = "How do the wind riders fare in the Gorge?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Where can I fly?", next = "BUSINESS", when = { faction = "Horde" } },
         { text = "How do you feel about the dwarves here?", next = "dwarves" },
         { text = "Do you get along with the gryphon master?", next = "lanie" },

@@ -239,6 +239,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Not the beasts so much as what's been done to them. Some of the cats the Sentinels bring back came out of the Grimtotem's cages half-starved, and a hide like that tears in my hands." } },
+      choices = {
+        { text = "Take only what you need, and thank the beast for it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A hide is a hide, whatever became of the beast.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hunter_pr = {
       lines = {
         { id = "hpr_default", text = "Plenty, if you skin it clean and don't hack it about. The yetis in the Feral Scar make the warmest hides in Kalimdor, though I'd want your companion to keep the claws off the good bits." },
@@ -254,9 +262,11 @@ P:NPC {
           text = "Pratt McGrubben, mostly retired from paladin work and fully employed in leather. I patch whatever the Sentinels bring back torn." },
         { id = "h_quality", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("The Mark of Quality") }, { questActive = TODO_QUEST("Improved Quality") } } },
           text = "Show me the hides, and I'll show you how to make something a Sentinel would be proud to wear. Quality takes patience, and I've got plenty of that now." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the Circle! Good, because half the hides the Sentinels bring me were torn by things I'd rather a druid explained to me." },
       },
       again = { { id = "h_again", text = "Anything else, friend? I'll keep stitching while you think." } },
       choices = {
+        { text = "Do the beasts of Feralas trouble a leatherworker, Pratt?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Show me your goods.", next = "BUSINESS" },
         { text = "Why did you retire?", next = "retire" },
         { text = "A human, among the Sentinels?", next = "human" },
@@ -328,6 +338,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Restful enough, until the naga come up out of the water at night. The Sentinels say the old ruins along the coast draw them, and nothing we do keeps them away for long." } },
+      choices = {
+        { text = "The Sentinels should drive them back into the sea.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Better to watch the isle than waste lives on ruins.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -336,9 +354,11 @@ P:NPC {
           text = "Quantas Jonespyre has a request, so go and hear him out; he'll explain." },
         { id = "h_shift", when = { metBefore = true }, text = "The night shift came in soaked and laughing, because some ogre fell in the sea chasing them. Elune forgive me, I laughed too." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "The Sentinels change watch at this hour. Listen: no words, only the bows being passed, because they've done it so long they don't need words." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "Welcome, druid. The Sentinels rest easier with one of the Cenarion Circle under this roof, though I suspect you'd rather sleep under the trees." },
       },
       again = { { id = "h_again", text = "Anything else? The kettle's on." } },
       choices = {
+        { text = "Is the isle a restful place, Shyria?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I'd like a room.", next = "BUSINESS" },
         { text = "What do the Sentinels talk about here?", next = "talk" },
         { text = "Is the rain ever going to stop?", next = "rain" },
@@ -392,6 +412,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Not much, I'll be honest, but a forest full of angry beasts is harder to march through. Break enough Gordunni and the woods will quiet down, and then you can tend them however you like." } },
+      choices = {
+        { text = "Then break them. The forest needs them gone.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The woods need healing, not only more killing.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     shaman_ro = {
       lines = {
         { id = "sro_default", text = "Wrongly, rightly, all I know is that the elements answer them and the braves burn. You're the first shaman who's come out to Mojache in a moon; if you can turn their fire back on them, I'll owe you a drink." },
@@ -417,12 +445,14 @@ P:NPC {
           text = "The ogres are carrying scrolls and orbs, so bring them here. I want to know what an ogre's doing with writing." },
         { id = "h_proven", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Ogres of Feralas"), days = 3 } },
           text = "You came back, and the Gordunni outpost is quieter for it. In time the land will heal, as long as we don't give up on it." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A tauren druid, good! The Gordunni burn the old trees for their cookfires out west, and I'd like to see what a bear does to an ogre." },
       },
       again = {
         { id = "h_again", text = "What else? Ogres don't wait for talk." },
         { id = "h_again2", text = "Ask it, then go hit something." },
       },
       choices = {
+        { text = "Do you care what the ogres do to the forest?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Who are the Gordunni?", next = "gordunni" },
         { text = "Why did Belgrom send you?", next = "belgrom" },
         { text = "What's this dark ceremony?", next = "ceremony" },
@@ -698,14 +728,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "The Twin Colossals, mostly, and the giants who walk the shore beneath them. Some of the old braves say the giants are older than the ogres and only angry because something woke them." } },
+      choices = {
+        { text = "Then the giants should be left in peace.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Old or not, they're a danger to the camp.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Innkeeper Greul. Braves, hunters, traders, all of them pass my fire, and while Mojache keeps travelers safe, I keep them fed." },
         { id = "h_rain", when = { metBefore = true }, text = "Rain again; it always rains in Feralas. The ogres hate it, and that's the only thing I like about it." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the Earth Mother at my fire! Sit, because the braves say you hear things in Feralas the rest of us miss, and I like a good story with my stew." },
       },
       again = { { id = "h_again", text = "Something more? Sit a while longer; the rain isn't going anywhere." } },
       choices = {
+        { text = "What do the braves whisper about, Greul?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Tell me about Mojache.", next = "camp" },
         { text = "Who's the loud orc by the gate?", next = "rok" },
         { text = "Do you miss Mulgore?", next = "mulgore", when = { race = "Tauren" } },

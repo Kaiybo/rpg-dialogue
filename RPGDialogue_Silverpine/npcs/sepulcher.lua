@@ -158,7 +158,10 @@ P:NPC {
     },
     xhhunt = {
       big = true,
-      lines = { { id = "xhhunt_default", text = "Could you? The Moonrage worgen interest me a great deal, and so do the spiders near Fenris Isle. Bring me what I ask for intact, and I'll think better of hunters forever." } },
+      lines = {
+        { id = "xhhunt_default", text = "Could you? The Moonrage worgen interest me a great deal, and so do the spiders near Fenris Isle. Bring me what I ask for intact, and I'll think better of hunters forever." },
+        { id = "xhhunt_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} on a short leash while you gather, would you? A Moonrage sample is no use to me with tooth marks in it, and I've seen what a hungry beast does to a spider from Fenris Isle." },
+      },
       choices = {
         { text = "I'll bring them back just as you need them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll bring what's left after the fight.", next = "BACK", fx = { align = { order = -1 } } },
@@ -381,6 +384,8 @@ P:NPC {
         { id = "h_night", when = { timeOfDay = "night" }, text = "Hear the howling? That's worgen, out past the trees. Listen long enough and you can tell them apart, and I wish I couldn't." },
       },
       choices = {
+        { text = "Want me to see off the worgen at your door, Bates?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
+        { text = "Can my beast sleep in here, Bates?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Do you get many living guests out here?", next = "living", when = { race = { "Orc", "Troll", "Tauren" } } },
         { text = "Just a rest, thanks.", next = "END" },
       },
@@ -391,6 +396,25 @@ P:NPC {
     living = {
       lines = { { id = "lv_default", text = "One or two a season, and I keep a cask of water and some hard bread for them. You'd be surprised how much the living need: food, sleep, blankets. Exhausting, I'd imagine, but I do envy the bread." } },
       choices = { { text = "The bread's not that good.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    xhwar = {
+      big = true,
+      lines = { { id = "xhwar_default", text = "Bless you for offering, but the roof's done that job well enough so far. If you're keen, the Deathguard on the road to Pyrewood would be glad of a warrior, and the worgen out there are a sight bolder than the ones who sniff at my door." } },
+      choices = {
+        { text = "Then I'll stand with the Deathguard on the road.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll hunt the worgen alone, on my own terms.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
+    xhhunt = {
+      big = true,
+      lines = {
+        { id = "xhhunt_default", text = "Of course it can, since there's a slab in the east crypt going spare, and the spiders will learn to keep their distance. Just don't let it howl back at the worgen, because then they howl louder and nobody gets any rest." },
+        { id = "xhhunt_pet", when = { pet = { type = "Beast" } }, text = "{pet} can have the east crypt, and the spiders will learn to keep their distance. Don't let it answer the worgen, though, because then they howl louder and nobody gets any rest." },
+      },
+      choices = {
+        { text = "It'll keep quiet. You have my word.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If the worgen howl, it can howl right back.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
     },
   },
 

@@ -303,12 +303,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Both, and a hunter must know which one the day calls for. A druid wears the beast's very shape, which I think is a closer bond than any of mine, though I would not trade my companion for it." } },
+      choices = {
+        { text = "A beast is a partner, never a tool.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A beast is a weapon. Treat it as one.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Thotar, and I teach the hunters of Razor Hill to read the land and to trust a beast at their side. In Durotar the land is mostly rock and the beasts are mostly angry, so there is plenty to learn." },
         { id = "h_hunter", when = { class = "HUNTER" }, text = "You have come for training, I think, and maybe for advice about your companion. Ask, and I will help with both." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, I think, and from Mulgore by the look of you. You will find the beasts of Durotar leaner and meaner than your plainstriders, but they are honest, and they will teach you if you let them." },
       },
       choices = {
+        { text = "Do you hunt the beasts or befriend them, Thotar?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "What beasts are worth taming here?", next = "beasts" },
         { text = "How do you choose a companion?", next = "choose" },

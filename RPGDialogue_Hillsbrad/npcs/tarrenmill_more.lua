@@ -27,8 +27,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Perhaps not, for there were three times our number and they came through the trees with dogs. But a druid might have heard them coming, and an orc who listens only to his own anger hears nothing at all." } },
+      choices = {
+        { text = "Then honor them by fighting on, Krusk.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Next time, listen first and strike from cover.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A tauren druid. I wish I'd had one of you with us at Durnholde, because I would not be the only one left to tell of it." },
         { id = "h_default", key = true,
           text = "Krusk. The Warchief sent a band of us from Durotar to retrieve something from Durnholde and to learn what this Syndicate is, and the humans caught us in the ruins with three times our number. I got away, and the others didn't." },
         { id = "h_rescue", tags = { "news" }, when = { questActive = TODO_QUEST("The Rescue") },
@@ -45,6 +55,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm listening." },
       },
       choices = {
+        { text = "Would a druid have saved them, Krusk?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What happened at Durnholde?", next = "ambush" },
         { text = "What were you sent to find?", next = "mission" },
         { text = "How do you like the Forsaken?", next = "forsaken" },
@@ -268,7 +279,10 @@ P:NPC {
     },
     xhhunt = {
       big = true,
-      lines = { { id = "xhhunt_default", text = "The bears and the mountain lions, yes, please, because they keep the farmers from the fields and the fields keep us in grain. Bring back pelts if you can, so the tanner stops complaining." } },
+      lines = {
+        { id = "xhhunt_default", text = "The bears and the mountain lions, yes, please, because they keep the farmers from the fields and the fields keep us in grain. Bring back pelts if you can, so the tanner stops complaining." },
+        { id = "xhhunt_pet", when = { pet = { type = "Beast" } }, text = "I'd sooner have {pet} at my side than the sword the dwarves took off me, I'll tell you that. Take it into the hills and clear out the bears and lions, because the farmers can't work the fields while they're about." },
+      },
       choices = {
         { text = "I'll clear them for the farms.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll hunt them for my own purse, mind you.", next = "BACK", fx = { align = { order = -1 } } },
@@ -581,7 +595,10 @@ P:NPC {
     },
     xhhunt = {
       big = true,
-      lines = { { id = "xhhunt_default", text = "Arrows, shot, and a few odds and ends a hunter always runs short of, though the poisons are on a separate shelf. A hunter who buys from me comes back, and I like that kind of customer." } },
+      lines = {
+        { id = "xhhunt_default", text = "Arrows, shot, and a few odds and ends a hunter always runs short of, though the poisons are on a separate shelf. A hunter who buys from me comes back, and I like that kind of customer." },
+        { id = "xhhunt_pet", when = { pet = { type = "Beast" } }, text = "Arrows and shot are on the middle shelf, and I'd ask {pet} to keep its nose away from the bottom one, where the poisons are. A hunter who buys from me comes back, and I'd like your companion to come back with you." },
+      },
       choices = {
         { text = "I'll shop here, then, and keep coming back.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll buy where it's cheapest, not where it's friendly.", next = "BACK", fx = { align = { order = -1 } } },

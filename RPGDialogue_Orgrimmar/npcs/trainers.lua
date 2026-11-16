@@ -17,12 +17,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Strength used for the Horde is always honorable, whatever shape it comes in. I only ask that you don't turn into a cat halfway through a duel, because my warriors find that insulting." } },
+      choices = {
+        { text = "A fair fight is fought face to face.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Victory matters more than how it's won.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Grezz Ragefist, and I train the Warchief's warriors. The Valley of Honor is named for what we earn here, so don't waste my time with anything less." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "Another warrior come for lessons? Good, because the Horde can never have enough strong arms." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid on my training ground? Fine, because a tauren in bear form hits harder than most of my students, and I'm not too proud to say so." },
       },
       choices = {
+        { text = "Is a druid's strength honorable, Grezz?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What does honor mean to you?", next = "honor" },
         { text = "Who else trains in the valley?", next = "valley" },
         { text = "Farewell, Grezz.", next = "END" },
@@ -111,12 +121,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "The same land, I think, but different voices in it. The elements speak to us as they rage and settle, and you hear the slower voice beneath them, the one that grows things." } },
+      choices = {
+        { text = "Each path should keep to its own ways.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The two paths should learn from each other freely.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Kardris Dreamseeker, and I guide the shaman of the Horde. The Valley of Wisdom is where the orcs came to remember what they were before the demons." },
         { id = "h_shaman", when = { class = "SHAMAN" }, text = "Welcome, shaman. Tell me, have the elements spoken to you clearly since we last met?" },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the tauren, welcome to the Valley of Wisdom. Your people kept faith with the Earth Mother while mine forgot the spirits entirely, and we have learned a great deal at your elders' fires." },
       },
       choices = {
+        { text = "Do shaman and druid hear the same voices?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What were the orcs before the demons?", next = "before" },
         { text = "Why are the spirits restless?", next = "restless" },
         { text = "Farewell.", next = "END" },

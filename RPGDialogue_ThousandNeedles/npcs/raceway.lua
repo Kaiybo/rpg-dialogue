@@ -28,6 +28,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Disturb them? There's nothing out here but salt, scorpids and vultures, and the vultures love us, because every crash is lunch. The flats were dead long before I built a track on them." } },
+      choices = {
+        { text = "Even salt flats have life. Race with care.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Dead ground is fair ground. Race all you like.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -40,12 +48,15 @@ P:NPC {
           text = "Rizzle's plans! Let me see them, for safety reasons; our safety, from losing." },
         { id = "h_ore", when = { questActive = TODO_QUEST("Indurium Ore") },
           text = "Indurium. The gnomes found it first, which is how they've been beating us, but not for much longer." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid at the raceway? Don't tell me the vultures sent you, because I only take the bones they're done with." },
       },
       again = {
         { id = "h_again", text = "What else? Talk fast, the next heat's in ten minutes." },
         { id = "h_again2", text = "Still here? Good, because spectators who stay, bet." },
       },
       choices = {
+        { text = "Does the racing disturb the salt flats?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Who usually wins?", next = "wins" },
         { text = "Why race at all?", next = "why" },
         { text = "How do you make a rocket car faster?", next = "faster" },
@@ -158,6 +169,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Salty venom burns hot and clean, very efficient! I need dozens of tails a week, though, and I'll admit the scorpids are starting to look at me funny." } },
+      choices = {
+        { text = "Take fewer tails. The flats need their scorpids.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "There are plenty of scorpids. Keep racing.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -170,12 +189,15 @@ P:NPC {
           text = "News, for me, from Martek? Give it here!" },
         { id = "h_delivery", when = { questActive = TODO_QUEST("Delivery to the Gnomes") },
           text = "My hydro ratchets and repeater bolts! Let me check them for rattles, because rattles are bad, and ticking is worse." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "Stand very still, druid, because the last time somebody turned into a bear near my pit, the whole piston rack fell over!" },
       },
       again = {
         { id = "h_again", text = "Yes? Yes? Quickly, the pistons are cooling!" },
         { id = "h_again2", text = "Another question? Splendid, I love questions, nearly as much as rockets!" },
       },
       choices = {
+        { text = "Your fuel uses scorpid venom, Fizzle?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What's MEGA?", next = "mega" },
         { text = "Why race the goblins?", next = "why" },
         { text = "What are you building now?", next = "engine" },

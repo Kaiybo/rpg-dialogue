@@ -29,8 +29,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Not while the Spire stands, I think, for nothing grows within a day's march of it and the orcs inside like it that way. Ask me again when Blackrock has fallen, and I'll give you a better answer." } },
+      choices = {
+        { text = "Then we take the Spire, and the land heals after.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let them rot inside it. We can wait them out.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A tauren druid at Kargath! Can you smell the Spire from here, druid? I swear I can on the hot days, and it smells of the old Horde and older lies." },
         { id = "h_default", key = true,
           text = "I am Warlord Goretooth, and Kargath is mine to hold. Up the road sits Blackrock Spire, full of orcs who call themselves the true Horde, and I sit here watching, and waiting, and getting old." },
         { id = "h_kos", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("KILL ON SIGHT: Dark Iron Dwarves") }, { questActive = TODO_QUEST("KILL ON SIGHT: High Ranking Dark Iron Officials") } } },
@@ -49,6 +59,7 @@ P:NPC {
         { id = "h_again2", text = "Speak up, the wind on this tower steals every second word." },
       },
       choices = {
+        { text = "The land here is sick, Warlord. Can it heal?", next = "druid_q", when = { class = "DRUID" } },
         { text = "You sound like you'd rather be fighting.", next = "dream" },
         { text = "Why does the Horde hold Kargath at all?", next = "why" },
         { text = "What happened to the 109th Division?", next = "the109" },
@@ -265,8 +276,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Vivian, as usual, because she has books and I have only opinions. She says the earth here was scorched by old wars long before the orcs came, and I say it simply has a sour disposition, like the Warlord." } },
+      choices = {
+        { text = "Any land can be mended, given time and care.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Some places are better left scorched.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid, at Kargath? How delightful. Vivian and I have a running wager on whether the Badlands were ever green, and I suspect you could settle it." },
         { id = "h_default", key = true,
           text = "Hierophant Theodora Mulvadania, of the Undercity and the Kargath Expeditionary Force. I keep the Warlord company. Someone has to, and Vivian can't do it alone." },
         { id = "h_109th", tags = { "news" }, when = { questActive = TODO_QUEST("The 109th Division") },
@@ -285,6 +306,7 @@ P:NPC {
         { id = "h_again2", text = "Don't stop now, I was just starting to enjoy myself." },
       },
       choices = {
+        { text = "Who's winning the wager, Hierophant?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Can a warrior's steel do anything against the Dark Iron?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Any gossip?", next = "gossip" },
         { text = "What are these machines?", next = "machines" },
@@ -566,7 +588,10 @@ P:NPC {
     },
     xhhunt = {
       big = true,
-      lines = { { id = "xhhunt_default", text = "They could, and they'd be less likely to be noticed than one of my apprentices. The black dragonflight has keen eyes, though, so send them low and send them at dusk." } },
+      lines = {
+        { id = "xhhunt_default", text = "They could, and they'd be less likely to be noticed than one of my apprentices. The black dragonflight has keen eyes, though, so send them low and send them at dusk." },
+        { id = "xhhunt_pet", when = { pet = { type = "Beast" } }, text = "Is that {pet}? It's rather larger up close than I'd expected, and I am perfectly composed, thank you. Yes, it could scout the Steppes, but send it low and at dusk, because the black dragonflight has keen eyes." },
+      },
       choices = {
         { text = "I'll send them as you say.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My beasts go where I decide, Shadowmage.", next = "BACK", fx = { align = { order = -1 } } },

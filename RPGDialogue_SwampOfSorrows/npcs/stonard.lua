@@ -396,7 +396,10 @@ P:NPC {
     },
     xhhunt = {
       big = true,
-      lines = { { id = "xhhunt_default", text = "The crocolisks make poor friends and worse pets, but the swamp's panthers and jaguars are another story. I've seen hunters tame things here that would make a Stonard grunt run." } },
+      lines = {
+        { id = "xhhunt_default", text = "The crocolisks make poor friends and worse pets, but the swamp's panthers and jaguars are another story. I've seen hunters tame things here that would make a Stonard grunt run." },
+        { id = "xhhunt_pet", when = { pet = { type = "Beast" } }, text = "{pet} has the look of a beast that knows its master, which is more than I can say for the things in that temple. Keep it close in the swamp, though, because the panthers here would take it for a rival." },
+      },
       choices = {
         { text = "I'll tame what respects me, and leave the rest.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll tame whatever's strongest, respect or not.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -715,6 +718,8 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Something else? The stew won't keep forever, and neither will I." } },
       choices = {
+        { text = "A warrior needs feeding too, Karakul. What have you got?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
+        { text = "Does your stew meat come from hunters, Karakul?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "How do your people live amid such rot?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "What do the scouts say?", next = "scouts" },
         { text = "Any word from the temple?", next = "temple" },
@@ -781,6 +786,25 @@ P:NPC {
         { id = "o_default", text = "Our fathers did, when they first came through the Portal, and some of these stones remember worse days than we've had. I keep the fire in the old hearth going, because it seems right." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    xhwar = {
+      big = true,
+      lines = { { id = "xhwar_default", text = "Meat, bread, and a stew thick enough to stand a spoon in, because a warrior who fights the swamp on an empty belly ends up feeding the crocolisks instead. Eat first, then go and earn it." } },
+      choices = {
+        { text = "I'll eat with the scouts and fight beside them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I eat alone and fight alone. It's quicker.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
+    xhhunt = {
+      big = true,
+      lines = {
+        { id = "xhhunt_default", text = "It does, and I never have enough of it, because the scouts eat faster than the hunters can bring it in. Bring me boar or jaguar from the dry ground, and leave the crocolisks to the crocolisks." },
+        { id = "xhhunt_pet", when = { pet = { type = "Beast" } }, text = "It does, and by the look of {pet}, your friend has been eating some of it on the way back. Bring me boar or jaguar from the dry ground, and it can lie by the hearth while you eat." },
+      },
+      choices = {
+        { text = "I'll hunt for Stonard's pot, then.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I hunt for myself. Stonard can buy its meat.", next = "BACK", fx = { align = { order = -1 } } },
+      },
     },
   },
 
