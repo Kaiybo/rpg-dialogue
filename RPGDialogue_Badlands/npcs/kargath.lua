@@ -326,6 +326,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Someone to read the Dark Irons' fire before it reads us, darling. Vivian takes their golems apart and I take their gossip apart, but neither of us can be in the Depths and at this fire at once." } },
+      choices = {
+        { text = "Then I'll serve the Expeditionary Force wherever it sends me.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll follow my own studies, not the Force's orders.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Oh, the Warlord talks to the vultures, but everyone knows that, so it hardly counts. The real secret is that Lexlort reads every letter that leaves this town before the wind rider does, and if you tell him I said so, I'll deny it beautifully." } },
@@ -352,6 +361,8 @@ P:NPC {
           text = "A shaman, darling! You must tell me whether the spirits gossip, because if they do, I'd very much like to know what they say about the Warlord." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid, at Kargath? How delightful. Vivian and I have a running wager on whether the Badlands were ever green, and I suspect you could settle it." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
+          text = "A priest, darling, how lovely! Do tell me which you pray to, the shadow or the Light or the loa, because I've tried more than one and only the gossip ever answered." },
         { id = "h_default", key = true,
           text = "Hierophant Theodora Mulvadania, of the Undercity and the Kargath Expeditionary Force. I keep the Warlord company. Someone has to, and Vivian can't do it alone." },
         { id = "h_109th", tags = { "news" }, when = { questActive = TODO_QUEST("The 109th Division") },
@@ -373,6 +384,7 @@ P:NPC {
         { text = "Who's winning the wager, Hierophant?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Can a warrior's steel do anything against the Dark Iron?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "The fire spirits rage under Blackrock Mountain. Do you know why?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What does Kargath need most from its spellcasters, Hierophant?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Any gossip?", next = "gossip" },
         { text = "What are these machines?", next = "machines" },
         { text = "What does a Hierophant do?", next = "hierophant" },
@@ -526,6 +538,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Everything, my dear, and that's the trouble. Their fire magic is crude, but it's old, and it answers to something under that mountain that I'd very much like to study from behind a very thick wall." } },
+      choices = {
+        { text = "Report it all to the Warlord first. Kargath's safety comes first.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Study freely, Vivian. Rules only slow a good scholar.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "You could, couldn't you, and you'd probably enjoy it, though I'd rather you didn't tell anyone how you came by it. The Dark Irons stole it first, I'm almost certain, so really you'd be stealing it back, which is practically a good deed." } },
@@ -540,6 +561,8 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "Oh! You came up behind me and I didn't even hear you, which is exactly what I'd expect of a rogue, so I'm not startled at all." },
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman! Oh, how fortunate, because I've been taking apart elemental cores all week and I'd love to know whether they mind." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
+          text = "A priest! Splendid, because if anything in these essence jars ever escapes, I'll want someone close by who knows a prayer, and I'm perfectly composed about that, naturally." },
         { id = "h_default", key = true,
           text = "Shadowmage Vivian Lagrave, of the Kargath Expeditionary Force. I study the things in the mountain that the Dark Irons would rather we didn't, which is thrilling work, though mostly dust." },
         { id = "h_element", tags = { "news" }, when = { questActive = TODO_QUEST("The Last Element") },
@@ -558,6 +581,7 @@ P:NPC {
       choices = {
         { text = "My beasts could scout the Burning Steppes for you, Vivian.", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Those golem essences hold bound elementals, Vivian. Does that trouble you?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What could a spellcaster learn from the Dark Irons' fire, Vivian?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "The Warlord speaks well of you.", next = "flustered" },
         { text = "What are you really studying?", next = "study" },
         { text = "Why does a Shadowmage want a beer recipe?", next = "thunderbrew" },
@@ -737,6 +761,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Tell me what the Spire's own casters are doing, which my scouts can feel but can't name. The Blackrock keep spellcasters up there as well as brutes, and none of mine can tell a ward from a curse." } },
+      choices = {
+        { text = "Put me on your rolls. I'll watch where you send me.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll watch the Spire, but I report to no one.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Because a fireball lights up the ridge for a mile, and every Blackrock on the Spire road sees it. I need people who can watch for a week without being seen, and a mage who can do that is rarer than an honest goblin." } },
@@ -761,6 +794,8 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. Your spells are loud, and loud is useless to me, though I'll admit you're handy when the quiet way goes wrong." },
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman, which is useful to me, since spirits don't sell plans to the Blackrock, and that already puts them ahead of Grark." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
+          text = "A priest. Good, because my scouts come back cut up, and they'd rather be patched by you than by the alchemist upstairs." },
         { id = "h_default", key = true,
           text = "Lexlort. The Expeditionary Force needs eyes on the Spire, and I'm the eyes, but sometimes I need hands." },
         { id = "h_grark", tags = { "news" }, when = { questActive = TODO_QUEST("Grark Lorkrub") },
@@ -779,6 +814,7 @@ P:NPC {
       },
       choices = {
         { text = "Could the spirits help you watch the Spire, Lexlort?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What would you have a spellcaster do for the Expeditionary Force?", next = "xhcast", when = { class = "PRIEST", race = { "Orc", "Troll", "Scourge" } } },
         { text = "What do you watch for?", next = "watch" },
         { text = "Who is Grark Lorkrub?", next = "grark" },
         { text = "Who's Bijou?", next = "bijou" },
@@ -928,6 +964,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "They love a fireball in a story, because it's bright and loud, but they go quiet when somebody tells one about the old Horde's warlocks. Mostly they want to know if you can heal, and if you can, they'll fight over who sits next to you." } },
+      choices = {
+        { text = "Tell the old stories too, even the shameful ones.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Leave the warlock tales out. Grunts fight better without them.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "They think everybody would rob them, because half of them have robbed each other at dice. Keep your hands to yourself under my roof and you'll have a bunk as dry as any, and a story to tell besides." } },
@@ -962,6 +1007,8 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. My grunts sleep with their coin under their pillows when your kind take a bunk, so be a good guest and let them snore in peace." },
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman at my fire. The grunts swear one of yours called down a storm on the Dark Irons at the Gorge last week, and the storm gets bigger every time they tell it." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
+          text = "A priest at my fire! The grunts will be glad of you, because they come back from the Gorge with cuts they won't show the alchemist, but they'll show a healer." },
         { id = "h_default", key = true,
           text = "I'm Shul'kar, and I keep the inn. Out here a hot meal and a dry bunk are worth more than gold, and I don't charge much more than gold for them." },
         { id = "h_story", when = { metBefore = true }, text = "A grunt told me last night he fought a Dark Iron the size of a door, and then it was two doors, and by morning it was a castle. Good story, though." },
@@ -969,6 +1016,7 @@ P:NPC {
       again = { { id = "h_again", text = "Anything else, while the pot's still on?" } },
       choices = {
         { text = "Do the grunts tell many stories about shamans, Shul'kar?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What do the grunts' stories say about spellcasters, Shul'kar?", next = "xhcast", when = { class = "PRIEST", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Want to hear a battle?", next = "story" },
         { text = "Who's the town named for?", next = "name" },
         { text = "Who passes through Kargath?", next = "travelers" },

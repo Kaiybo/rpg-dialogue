@@ -449,6 +449,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "The humans lock it with the sigil, and that be magic of a sort, mon, old Arathor magic. The witch doctors say a tomb like that got a chill on it too, the kind a dead king leave behind when he still be angry, so walk soft in there." } },
+      choices = {
+        { text = "Respect the dead king. Take the sword and nothing else.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A dead human king can stay angry. I'll take what I like.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "The spirits don't care much who made the sword, mon, they care who swing it. Trol'kalar been sleepin' in Trollbane's tomb a long time, dreamin' of troll blood, so maybe we ask the ancestors to cool its temper before Vol'jin pick it up." } },
@@ -462,6 +471,8 @@ P:NPC {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman, mon! The Darkspear been talkin' to the spirits long before the orcs come, but Thrall teach us a few new tricks too, and the loa don't seem to mind." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
+          text = "A priest, mon! If you be Darkspear, the loa walk with you, and if you be Forsaken, well, Zengu hope somethin' walk with you, because these hills be cold." },
         { id = "h_default", key = true,
           text = "Zengu, of the Darkspear. Vol'jin send me for a sword, Trol'kalar, made by humans to kill trolls, and we going to use it against the Gurubashi, which be a fine joke, mon." },
         { id = "h_trollbane", tags = { "news" }, when = { questActive = TODO_QUEST("Trollbane") },
@@ -482,6 +493,7 @@ P:NPC {
       },
       choices = {
         { text = "Will the spirits bless a human sword against the Gurubashi?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Is there magic guarding Trollbane's tomb, Zengu?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "A human sword against trolls?", next = "joke" },
         { text = "Why does Vol'jin want it?", next = "why" },
         { text = "How do we open the tomb?", next = "sigils" },
@@ -652,6 +664,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "The Witherbark, mostly, because their witch doctors chant from the hills at night and the grunts swear the chanting gives them nightmares. If you could quiet those voices, I'd sleep better, and so would every soldier in this fort." } },
+      choices = {
+        { text = "I'll face those witch doctors and drive them off.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll turn their own curses back on them, quietly.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Angry and grieving both, I think, because men have fought over these hills longer than any tauren can remember. The grunts say elementals walk inside the old stone circles out in the Highlands, so I leave a cup of water by the door at night, in case the gentler spirits come calling." } },
@@ -675,6 +696,8 @@ P:NPC {
           text = "A shaman, walking the Earth Mother's paths so far from home! The spirits of the Highlands are sour and stony, but sit by my fire, and perhaps they'll warm to you as they've slowly warmed to me." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "One of the Earth Mother's druids, and a tauren besides! Sit by my fire and tell me whether the grass still grows tall in Mulgore." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
+          text = "A priest, and welcome at my fire. The grunts bring me their bruises and their bad dreams, and I'd be glad of someone who can mend more than I can with tea." },
         { id = "h_default", key = true,
           text = "I am Innkeeper Adegwa, a tauren among orcs, far from Mulgore's grass. Every fort needs a fire, and this one is mine." },
         { id = "h_grass", when = { metBefore = true }, text = "I keep a little pot of Mulgore grass by the door, and it doesn't like the Highlands, but neither did I, at first. We're both getting used to it." },
@@ -690,6 +713,7 @@ P:NPC {
       choices = {
         { text = "Do you miss Mulgore, Adegwa?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Are the spirits of the Highlands angry, Adegwa?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What troubles Hammerfall that magic might mend, Adegwa?", next = "xhcast", when = { class = "PRIEST", race = { "Orc", "Troll", "Scourge" } } },
         { text = "How does a tauren fare among orcs?", next = "among" },
         { text = "What do the grunts sing about?", next = "songs" },
         { text = "We're a long way from Mulgore, you and I.", next = "home", when = { race = "Tauren" } },

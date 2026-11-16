@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Swordsmen in black, more than we could count, and behind them a few men in robes throwing shadow at us from the walls. I could fight the swords, but those casters knocked Tog'thar flat before he ever reached them." } },
+      choices = {
+        { text = "Tell the High Executor. Durnholde needs a proper assault.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "No need to wait for orders. I'll go tonight.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "We did, and he was the first to fall, because the Syndicate knew to aim at the one calling the lightning. If the spirits could not save him, I have to wonder whether these hills are too full of the dead for them to hear us." } },
@@ -68,6 +77,10 @@ P:NPC {
           text = "A shaman, and of the Warchief's own calling. The spirits came back to our people because Thrall asked them to, and I trust them more than I trust anyone in this town of corpses." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A tauren druid. I wish I'd had one of you with us at Durnholde, because I would not be the only one left to tell of it." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
+          text = "A priest. My band had no healer at Durnholde, and I've thought about that every night since, so whether you serve the loa or whatever the dead pray to, you're welcome at my fire." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } },
+          text = "A mage. The Syndicate had spellcasters in Durnholde's ruins, and if you can burn theirs before they burn yours, I'll call you friend." },
         { id = "h_default", key = true,
           text = "Krusk. The Warchief sent a band of us from Durotar to retrieve something from Durnholde and to learn what this Syndicate is, and the humans caught us in the ruins with three times our number. I got away, and the others didn't." },
         { id = "h_rescue", tags = { "news" }, when = { questActive = TODO_QUEST("The Rescue") },
@@ -88,6 +101,7 @@ P:NPC {
       choices = {
         { text = "Would a druid have saved them, Krusk?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Did your band have a shaman with them at Durnholde?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What did the Syndicate have waiting at Durnholde, Krusk?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "What happened at Durnholde?", next = "ambush" },
         { text = "What were you sent to find?", next = "mission" },
         { text = "How do you like the Forsaken?", next = "forsaken" },
@@ -298,6 +312,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Only that it's a dwarven fort dug into the hills to the south, full of riflemen and mountaineers who never seem to sleep. A spell or two through the gate would make them a good deal less smug, and I'd like to be there to see it, borrowed club and all." } },
+      choices = {
+        { text = "I'll get your sword back and report to the High Executor.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Forget the orders. I'll burn their gate down for you.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "I asked a troll who was passing through, and he burned some leaves and told me the sword was somewhere to the south, which I already knew, because that's where the dwarves of Dun Garok live. If the spirits are going to tell me things, I'd like them to be more specific." } },
@@ -329,6 +352,10 @@ P:NPC {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman! Do the spirits ever tell you where things are? Only I've lost a sword, as everyone keeps reminding me, and I'm not too proud to ask anyone for help now." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
+          text = "A priest! You don't happen to have a prayer for finding lost things, do you? I'd take one from the loa or the Light or anyone else who's listening." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } },
+          text = "A mage! Could you conjure me a sword, only for a little while? No, I didn't think so, but you can't blame a Deathguard for asking." },
         { id = "h_default", key = true,
           text = "Deathguard Humbert. I came back to camp one evening and my gear was gone, and the tracks led to Dun Garok. Dwarven scouts, sneaking past while I was busy elsewhere, and now I stand guard with a borrowed club." },
         { id = "h_sword", when = { questActive = TODO_QUEST("Humbert's Sword") },
@@ -344,6 +371,7 @@ P:NPC {
       choices = {
         { text = "The hills are thick with game. Want me to clear some?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Have you asked the spirits to find your sword, Humbert?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What do you know about Dun Garok's defenses, Humbert?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "How did you lose your gear?", next = "lost" },
         { text = "What's at Dun Garok?", next = "dungarok" },
         { text = "What do the others say?", next = "teasing" },
@@ -425,6 +453,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "The farmers run, mostly, though the guards from Southshore stand their ground and shout for help. I'd love to see what happens when someone answers them with a spell, but since nobody lets me leave this door, you'll have to go and tell me afterward." } },
+      choices = {
+        { text = "I'll fight the guards. The farmers can run.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Farmers or guards, I'll bring you every skull.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "I'd love it, as long as the High Executor doesn't ask what it's for, and I'd love it more if it scared off Southshore's scouts. Mind you don't plant it near my skulls, though, because I've only just got them lined up straight." } },
@@ -456,6 +493,10 @@ P:NPC {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman! I've heard you can call lightning out of a clear sky, which must be marvellous, though I'm stuck here guarding a door where nothing ever needs striking." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
+          text = "A priest! You couldn't say a few words over my skulls, could you? Not a blessing exactly, just something to make them feel welcome on the wall." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
+          text = "A warlock! Tell me, do your demons collect anything? I've always thought an imp would appreciate a good skull." },
         { id = "h_default", key = true,
           text = "Deathguard Samsa. While you're out slaying humans and pillaging farms, I stand at this post, so I've taken up a hobby: skulls, human ones, from the fields." },
         { id = "h_skulls", when = { questActive = TODO_QUEST("Souvenirs of Death") },
@@ -472,6 +513,7 @@ P:NPC {
       choices = {
         { text = "Southshore's guards are soft. Let me test them.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Would you let me set a totem by your door, Samsa?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "How do the Hillsbrad humans handle spellcasters, Samsa?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Why skulls?", next = "skulls" },
         { text = "Why aren't you fighting?", next = "post" },
         { text = "What do you think of Humbert?", next = "humbert" },
@@ -549,6 +591,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Their magi, who throw fire from the back of the mound while the brutes swing clubs at the front. Kill the magi first and the rest fall apart, or so Drum Fel tells me, and he's lived long enough to be right about these things." } },
+      choices = {
+        { text = "I'll take their magi first, as Drum Fel advises.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll hit whatever's closest. Plans don't survive ogres.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "You can call fire and close wounds, so you're more use than half the recruits I send to Hammerfall. What I don't trust is the talking, because the spirits never asked the dead what we wanted, and I don't see why I should care what they want now." } },
@@ -580,6 +631,10 @@ P:NPC {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman. Hammerfall's orcs could use one, since they're losing ground to the Boulderfist, and maybe they'd listen to someone who talks to rocks." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
+          text = "A priest. Hammerfall's grunts bleed faster than anyone can bandage them, so go and be useful there, whatever it is you pray to." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } },
+          text = "A mage. The Boulderfist ogres are big, slow and stupid, which is exactly the kind of target your sort ought to enjoy." },
         { id = "h_default", key = true,
           text = "Tallow. Hammerfall's under attack in Arathi, and the orcs there need help before they're overrun. I'd go myself, but this town keeps me so busy I can barely keep an edge on my axe." },
         { id = "h_hammer", tags = { "news" }, when = { questActive = TODO_QUEST("The Hammer May Fall") },
@@ -594,6 +649,7 @@ P:NPC {
       },
       choices = {
         { text = "Do the Forsaken have any use for shamans, Tallow?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What should a spellcaster watch for among the Boulderfist?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Why send me at all?", next = "why" },
         { text = "What's Hammerfall to the Forsaken?", next = "hammerfall" },
         { text = "What's wrong with your axe?", next = "axe" },
@@ -661,6 +717,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Southshore's gryphon riders have tried it over the river, and once a dwarf with a rifle got lucky. A rider who can throw something back at them is the best escort a bat could hope for, and the bats remember who looks after them." } },
+      choices = {
+        { text = "I'll guard the flights, if the High Executor asks it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll knock their gryphons down whether anyone asks or not.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Only over the mountains, where the air gets thin and moody and the bats have to fight for every wingbeat to Revantusk. Some of the trolls say the spirits of the peaks get angry up there, but I say it's weather, and the bats agree with me." } },
@@ -692,6 +757,10 @@ P:NPC {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman. The bats don't care for lightning, so kindly keep it in your pocket until we're well clear of the Mill." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
+          text = "A priest. The bats can't hear prayers, or they choose not to, so save yours for the landing at Revantusk, because that one needs it." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
+          text = "A warlock. Keep your demon out of the roost, please, because the bats can smell what it is and they won't settle for hours afterward." },
         { id = "h_default", key = true,
           text = "Zarise, bat handler. They fly to the Undercity and to Hammerfall, and over the mountains to Revantusk, and they'll bring you back if you're polite to them." },
         { id = "h_night", when = { timeOfDay = "night" },
@@ -704,6 +773,7 @@ P:NPC {
       },
       choices = {
         { text = "Do the wind spirits trouble your bats in flight?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Does the Alliance ever try to bring your bats down?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Show me where I can fly.", next = "BUSINESS" },
         { text = "Why bats?", next = "bats" },
         { text = "Do they ever drop anyone?", next = "drop" },
@@ -759,6 +829,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Reagents, mostly, because the caravans from the Undercity come over the hills slowly and the Syndicate rob every third one. A spellcaster riding guard on the next one would be worth more to this town than any shipment I could order." } },
+      choices = {
+        { text = "I'll guard the next caravan for the town's sake.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll guard it, but I'll want a share of the goods.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Not many, though one came through last month and bought every flask on the shelf to fill at the well, and I didn't ask what he meant to do with them. He paid in full and said thank you, which is more than the Deathguards ever manage." } },
@@ -790,6 +869,10 @@ P:NPC {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman. The Undercity's reagent sellers keep ankhs for your kind, I'm told, and I've never understood why the dead would sell anyone a second life." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
+          text = "A priest. I keep holy candles for the ones who still need them, and I don't ask whether they burn them for the Light or the loa or something darker." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
+          text = "A warlock. I don't stock anything for demons, so don't ask, but your imp is welcome to look as long as it keeps its hands to itself." },
         { id = "h_default", key = true,
           text = "Kayren Soothallow, general goods. The dead need less than the living, but we still need rope, and somebody has to sell it." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll want rope, I'd guess, and flash powder, and perhaps a little food for the road, since I hear the living still eat." },
@@ -801,6 +884,7 @@ P:NPC {
       choices = {
         { text = "Do you sell arrows, or only reagents?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Do many shamans pass through your shop, Kayren?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What does Tarren Mill run short of, Kayren?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Let me see your goods.", next = "BUSINESS" },
         { text = "What's on the right shelf?", next = "shelf" },
         { text = "Do the dead buy much?", next = "dead" },

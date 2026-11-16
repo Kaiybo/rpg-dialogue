@@ -258,6 +258,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "I think they do, though I'm a priestess and not a shaman, so I feel it as Elune's light and you'll feel it as something else. The ground around each altar stays a little warmer, and the wild things gather there even when they're dangerous to us. Whatever lives in these hills remembers that the altars once meant something." } },
+      choices = {
+        { text = "Sacred places deserve protecting, whoever raised them.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Elune's altars are no concern of the Horde's.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Ghosts of the Highborne, I'm told, and creatures drawn to the old magic that still clings there. Elune's light will hold them back, I'm sure of it, but a friend with fire in their hands would be a comfort all the same." } },
@@ -278,6 +287,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde? I didn't think one of you would come to an altar of Elune, but the spirits and the Mother Moon both watch these hills, so perhaps you belong here more than I thought." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! You'll be useful when we reach the altars, I think, because whatever lurks in those old places will not expect a spell from behind me." },
         { id = "h_roguecl", when = { class = "ROGUE" },
@@ -291,6 +301,7 @@ P:NPC {
         { id = "h_again2", text = "Speak, the moon is patient tonight." },
       },
       choices = {
+        { text = "Do the old altars still draw the land's spirits?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What do the altars mean to the wild things, Ranshalla?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What's at the altar?", next = "altar" },
         { text = "Why do the altars matter to Elune?", next = "elune" },
@@ -366,6 +377,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "The ice was here long before us, mortal, for Winterspring has always been cold. We chose these caves because the frost keeps out the curious and keeps in what we guard. If the spirits of the ice speak to you, they will tell you they tolerate us, which is more than they offer you." } },
+      choices = {
+        { text = "Every power needs a keeper. The ice is in good hands.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "No flight owns the ice, Haleh, nor the magic.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "Every flight did, in the War of the Ancients, and some of them paid dearly for it. Your demons are scraps of that same Legion, bound by mortals who think they understand what they hold, and I find that more amusing than you would like." } },
@@ -386,6 +406,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You at least bargain with the powers you use instead of stealing them, which puts you a step above the mages, though not a large one." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock, in Mazthoril. You trade with the Legion's creatures, mortal, and my flight remembers what the Burning Legion did to this world, even if your kind have forgotten." },
         { id = "h_roguecl", when = { class = "ROGUE" },
@@ -398,6 +419,7 @@ P:NPC {
         { id = "h_again2", text = "Speak, and be brief." },
       },
       choices = {
+        { text = "Is the ice of Mazthoril the blue flight's doing?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What does the blue flight guard?", next = "magic" },
         { text = "What is Mazthoril?", next = "mazthoril" },
         { text = "Who leads your flight?", next = "malygos" },
@@ -472,6 +494,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Less than Felwood, but it reached. Demons still keep to Darkwhisper Gorge in the south of this valley, and the snow around it is never quite clean. I could tell you the spirits fled, shaman, but I think they simply turned their backs, which is what anyone sensible does with a satyr." } },
+      choices = {
+        { text = "Spirits forgive more than you'd think, if you make amends.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "You chose your bargain. Your debts are your own.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Our queen's court showed the way, and many of us followed, thinking the Legion's gifts were a reward for our devotion. The Legion gave power, as it always does, and took everything that made us kaldorei, and I have had ten thousand years to regret it." } },
@@ -492,6 +523,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The spirits must loathe me, I suppose, and I would in their place, for I gave away everything they would have given me freely." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage. The Highborne were mages once, before the demons came, and look what I became when I followed them, so mind the books you open." },
         { id = "h_roguecl", when = { class = "ROGUE" },
@@ -504,6 +536,7 @@ P:NPC {
         { id = "h_again2", text = "Ask. Lorax has nothing but time." },
       },
       choices = {
+        { text = "Did the Legion's touch reach Winterspring's land too?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Tell me your tale, then.", next = "tale" },
         { text = "What about the other satyrs here?", next = "satyrs" },
         { text = "Why hide in Winterspring?", next = "winterspring" },
@@ -578,6 +611,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Spoil them? It keeps them, friend, it's the best larder in Kalimdor! The trouble is getting the stores here at all, through the tunnels or over the pass, and the snow shuts one or the other every week. The way I see it, the frost spirits and I have a deal: they keep my meat cold, and I don't complain about the wind." } },
+      choices = {
+        { text = "That's a fair bargain. Keep your word to the frost.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "No bargain binds the wind. It'll take what it likes.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "They eat in the corner with their backs to the wall, and they tip better than anybody, probably because they don't want to be remembered. The Cartel says no fighting in Everlook, so you can eat in peace here." } },
@@ -607,6 +649,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You'll be wanting something hot, I'll bet, because no spirit I ever heard of can make a stew in this cold." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue! You look like you've been crouching in a snowbank all day, so let me get you a bowl of something hot before your fingers freeze to your daggers." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
@@ -621,6 +664,7 @@ P:NPC {
         { id = "h_again2", text = "Anything else for you?" },
       },
       choices = {
+        { text = "Does the cold up here ever spoil your stores, Himmik?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What's cooking?", next = "BUSINESS" },
         { text = "What's good today?", next = "food" },
         { text = "How's business in Everlook?", next = "everlook" },

@@ -603,6 +603,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "They've soured them; there's no better word. Storms rise out of nowhere near the Twilight camps and scatter my supply carts across the dunes, and a windcaller who can't call the wind is, I'm sorry to say, a quartermaster." } },
+      choices = {
+        { text = "Then the summoners must be stopped before the next cart.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The winds will settle on their own. Send more carts.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "They come up beneath the carts, assuming the sand is soft enough, and take wagon and driver both. A mage who can strike them from a distance keeps the carts rolling, and while the carts roll, the Hold stands." } },
@@ -623,6 +632,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde! The Hold is glad of you, and so am I, because the winds have been foul since the cult began its summonings, and every caravan I send needs fair weather." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage, provided you can keep the sand out of your robes, will be a great help to the supply lines. Fire is very effective against the larger worms." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
@@ -639,6 +649,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, then. A well-informed soldier eats less of my bread worrying." },
       },
       choices = {
+        { text = "What have the cult's summonings done to the winds?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why are supplies so important here?", next = "supply" },
         { text = "You're certain we'll win?", next = "victory" },
         { text = "The Circle's emissary sent me to you.", next = "emissary", when = { questDone = TODO_QUEST("Taking Back Silithus") } },
@@ -744,6 +755,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Every night, up through the floor of this tower and into my teeth. The bugs dig deeper every season, and I don't need eyes to know the ground under the Hold isn't as solid as the Commander likes to think." } },
+      choices = {
+        { text = "Then the Hold must be ready to fight from below.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Ground that hollow can't be held. Be ready to leave it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "I don't need to tell you, and I won't. What I will tell you is that I saw you coming from the road, and I can see the scorch marks on your sleeve, so don't waste your time wondering." } },
@@ -764,6 +784,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, is it? I can hear your totems knocking together from up here, so don't bother sneaking. If the elements have anything useful to say about the hives, I'm listening; if not, the poster's by the door." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage. Don't bother casting anything to see behind the blindfold; better minds than yours have tried, and none of them got an answer." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
@@ -778,6 +799,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, and be quick about it." },
       },
       choices = {
+        { text = "The hives make the earth itself tremble. Have you felt it?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What's wrong with the Commander?", next = "cmd" },
         { text = "Tell me about this Deathclasp.", next = "deathclasp" },
         { text = "How do you keep the peace here?", next = "guard" },
@@ -900,6 +922,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Barely, and only because the druids tend it. The sand creeps in a little every week and the silithid dig underneath, so there are mornings the water tastes of the hive, and I boil it twice before I let anyone drink." } },
+      choices = {
+        { text = "Water like this is precious. Guard it closely.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "If the desert wants the oasis, it'll take it. Water moves on.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "A few, and they always pick the bed nearest the window and leave before dawn. I don't ask what they're doing, but I leave a little bread by the door, because nobody should go into that desert hungry." } },
@@ -920,6 +951,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman at the Oasis Inn? You're welcome, of course, and if you can ask the water here to stay sweet a while longer, I'll be grateful to you and to it." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "Oh, you poor thing, you've been crouching in the sand all day, haven't you? Sit down, sit, and let me shake some of that grit out of your cloak." },
         { id = "h_magecl", when = { class = "MAGE" },
@@ -936,6 +968,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. It's nice to talk to someone who isn't counting arrows." },
       },
       choices = {
+        { text = "Does the oasis water hold out against all this sand?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "You're a long way from home.", next = "auberdine" },
         { text = "What's there to eat out here?", next = "food" },
         { text = "Your father was a leatherworker?", next = "southwind", when = { profession = { "Leatherworking" } } },
@@ -1048,6 +1081,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "The stingers out here feed on things that ought not to be eaten, and the silithid poison whatever they don't eat. I've tested samples from the edge of Hive'Ashi that would fell a thunder lizard, and the closer to the hives they come from, the worse it gets." } },
+      choices = {
+        { text = "A land this poisoned needs healing, not just antidotes.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Venom that strong must be worth something. Sell it.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Bad enough that I'm spending every copper on antidotes, and every hour watching him sleep. If a mage could slow the venom with a frost spell, I'd pay good coin for the experiment, but nobody seems keen." } },
@@ -1068,6 +1110,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can you heal venom with a totem, or a chant, or anything else that doesn't cost me reagents? Noggle's eating my profits faster than the venom's eating him." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! You don't happen to have a spell for curing scorpid venom, do you? No? Then you're about as useful as a priest who's run dry, and I'll need samples instead." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
@@ -1086,6 +1129,7 @@ P:NPC {
         { id = "h_again2", text = "Go ahead. Noggle's not going anywhere." },
       },
       choices = {
+        { text = "Why is the venom in Silithus so much worse than elsewhere?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "How is Noggle doing?", next = "noggle" },
         { text = "What do you brew for the Hold?", next = "work" },
         { text = "I know a little alchemy myself.", next = "alchemist", when = { profession = { "Alchemy" } } },

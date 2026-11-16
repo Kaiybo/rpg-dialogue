@@ -25,6 +25,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Cursed enough that I won't feed anything from it to my orcs. The fruit in those woods looks fine and the water looks clean, but the elves who lived here broke something deep, and I'm not betting a warrior's belly on whether it's mended. Everything I sell comes in by wind rider, and I'd rather pay for it than bury another orc." } },
+      choices = {
+        { text = "Keep your rules, Kurll. Discipline keeps this camp alive.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let the warriors have their grog. They've earned it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Because Ag'tor needs sharp eyes on the woods and steady hands on the axes, and grog gives neither. A rogue knows that better than most, I'd say, since one slip in the dark is all it takes." } },
@@ -45,6 +54,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, good, then you'll keep a clear head, which is more than I can say for the warriors who keep asking me for grog." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "A rogue. You'll want something light to eat, I expect, so you can keep moving, and I've got fresh fruit, which is more than the naga ever offer." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
@@ -57,6 +67,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, then. I've nothing better to do until supper." },
       },
       choices = {
+        { text = "Is the land around Valormok as cursed as they say?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Let me see your goods.", next = "BUSINESS" },
         { text = "Why no grog in an orc camp?", next = "grog" },
         { text = "Where does your food come from?", next = "supply" },
@@ -117,6 +128,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Nothing, shaman, not one good seam of ore in these cursed hills, so every bar I work comes in by wind rider. The old elves' stone lies everywhere, but it's soft and full of their magic, and I'll not forge with it. Give me honest iron from Durotar over anything an elf ever left lying about." } },
+      choices = {
+        { text = "Honest iron for an honest blade. I'd want no other.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Elf stone or iron, use whatever kills naga fastest.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "I blame the elf who did it, but I watch every mage the same way now. You're Horde, so I'll sell to you, but don't expect me to turn my back while you're casting." } },
@@ -137,6 +157,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? Then you'll swing a mace or an axe with lightning behind it, and I'll make sure the edge is worth the lightning." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
           text = "A mage. You'll not be needing my weapons, I expect, unless you want a dagger for when your spells run dry. The elves who killed our warriors were mages too." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
@@ -149,6 +170,7 @@ P:NPC {
         { id = "h_again2", text = "Speak, but quickly. I have blades to finish." },
       },
       choices = {
+        { text = "What does Azshara's earth give a weaponsmith, Gruul?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "What happened to this camp's warriors?", next = "elves" },
         { text = "What's the best weapon against naga?", next = "naga" },

@@ -47,6 +47,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "On the ridge above Lethlor Ravine, watching for the whelps while my scouts work below, because a fireball reaches farther than an arrow. Don't stand on the skyline, though, or the dragons will see you before you see them." } },
+      choices = {
+        { text = "Give me a post and I'll hold it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll roam where I'm needed, not where I'm posted.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Look at the dust before you look at the ridge, because coyotes leave tracks and Dark Irons leave boot nails, and both tell you when they passed. Hiding keeps you alive, but reading keeps the whole camp alive, and that's the difference between a thief and a scout." } },
@@ -73,6 +82,10 @@ P:NPC {
           text = "A shaman. You can tell me which way the wind's turning before I see the dust, and that alone makes you worth more than half my scouts." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid. You'll be useful, then, if you can run as a cat, because the coyotes out here are faster than any orc I've ever trained." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
+          text = "A priest, out in the dust. Whatever you pray to, ask it for water first, because the Badlands care nothing for anyone's prayers." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } },
+          text = "A mage. Keep your robes out of the gullies, because the thorns out here shred cloth and the basilisks love an easy target." },
         { id = "h_default", key = true,
           text = "Neeka Bloodscar, head scout of Kargath. I know every gully between here and the Gorge, and I can tell you which of them you'll die in, if you'd like to know before you go." },
         { id = "h_from_helgrum", tags = { "news" }, when = { questActive = TODO_QUEST("Neeka Bloodscar") },
@@ -92,6 +105,7 @@ P:NPC {
       choices = {
         { text = "What else stalks these gullies, Neeka?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Could my ghost wolf keep pace with your scouts, Neeka?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Where would a spellcaster be most use to your scouts, Neeka?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "What does a head scout do out here?", next = "scouting" },
         { text = "Something's stealing your food?", next = "coyotes" },
         { text = "Helgrum in Stonard speaks well of you.", next = "helgrum" },
@@ -459,6 +473,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = {
+        { id = "xhcast_lock", when = { class = "WARLOCK" }, text = "They mind the smell of it, and a demon's smell they hate worst of all, so your imp walks or it waits here. They'll carry you, though, because I tell them to." },
+        { id = "xhcast_default", text = "They mind the smell of it, whatever it is you lot carry about, burnt hair or graveyard or worse. They'll carry you, though, because I tell them to, and they listen to me better than the grunts do." },
+      },
+      choices = {
+        { text = "I'll wash before I fly. It's only fair to the riders.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "They'll carry me as I am. That's their job.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Now that's the first good idea anyone's had in Kargath all summer. Mind you, the last mage who tried it got sneezed on by a rider with ice in its nose, so aim for the shade and not the beast." } },
@@ -483,6 +509,10 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. You could teleport home and save my riders the trouble, but they need the work, so I'll not complain." },
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman. If you can talk the air into blowing cooler, my riders would love you forever, and I might too." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
+          text = "A priest. The riders don't care who you pray to, so long as you don't do it loudly near the pen." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
+          text = "A warlock. Leave your demon outside the pen, because the riders would sooner bite it than fly near it, and so would I." },
         { id = "h_default", key = true,
           text = "Gorrik, wind rider master of Kargath. From here the riders go north to Hammerfall and the Undercity and south to Stonard, Grom'gol and Booty Bay, so pick one and stop wasting my shade." },
         { id = "h_noon", when = { timeOfDay = "day" },
@@ -494,6 +524,7 @@ P:NPC {
       },
       choices = {
         { text = "Shall I ask the air spirits for a cooler wind, Gorrik?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do your riders mind carrying spellcasters, Gorrik?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "How do the riders take the heat?", next = "heat" },
         { text = "Which route is the hardest?", next = "routes" },
         { text = "Show me where I can fly.", next = "BUSINESS" },
@@ -568,6 +599,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Water, same as everybody, and reagents I have to bring up from Orgrimmar at twice the trouble. Your lot burn through candles and dust faster than grunts burn through bandages, and none of you ever plans ahead." } },
+      choices = {
+        { text = "I'll take only what I need. Others need it more.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll buy what I like. That's what your stock is for.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Conjure what you like, but a grunt on a long patrol is a long way from your spells, and he needs a skin that's still full at the end of it. Keep yourself watered and leave mine on the shelf for those who can't, and we'll get along." } },
@@ -592,6 +632,10 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. You make water out of nothing, which is either a blessing on Kargath or the end of my trade, and I haven't decided which." },
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman. Your kind travel light, I'll give you that, because a totem doesn't need feeding and a spirit doesn't drink my water." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
+          text = "A priest. Pray for rain if you like, but buy water while you wait, because I've never seen a prayer fill a waterskin." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
+          text = "A warlock. Your demon doesn't eat my food, I hope, because I count every ration and I'll know." },
         { id = "h_default", key = true,
           text = "Grawl, general goods. Everything that comes into Kargath comes over the Searing Gorge road or on a wind rider's back, so I don't waste it, and I'd rather you didn't either." },
       },
@@ -602,6 +646,7 @@ P:NPC {
       choices = {
         { text = "I need gear that holds up against Dark Iron hammers.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Could a shaman find water in these Badlands, Grawl?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What do spellcasters buy from you out here, Grawl?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "How do you keep supplies out here?", next = "supplies" },
         { text = "What sells best in Kargath?", next = "sells" },
         { text = "Show me what you have.", next = "BUSINESS" },

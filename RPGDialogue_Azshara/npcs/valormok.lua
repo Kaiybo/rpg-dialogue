@@ -220,6 +220,15 @@ P:NPC {
         { text = "Fair price. Everything's for sale.", next = "BACK", fx = { align = { order = -1 }, affinity = 2 } },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "If they mind, they've not said so to me, and I've been digging a good while. The Highborne were demon-lovers who brought ruin on their own city, so I don't lose sleep over their ghosts. Ag'tor would tell you to leave it be, but Ag'tor isn't the one buying his way back to Orgrimmar." } },
+      choices = {
+        { text = "Dig away. The Horde needs coin more than ghosts need tablets.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "The dead deserve better, even Highborne dead.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Anyone who wants to study them or sell them on, and I'm not particular about which. Xylem would buy them in a heartbeat, but I'd rather sell to a goblin than to that pompous fool." } },
@@ -240,6 +249,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, and I can already hear the lecture about respecting dead elves. Save it, because the tablets don't mind where they end up." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "A rogue! Finally, someone who understands business. I've got tablets to sell and buyers to find, and I could use someone who knows how to move goods quietly." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
@@ -258,6 +268,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. You're better company than Ag'tor, at least." },
       },
       choices = {
+        { text = "Do the spirits here mind you digging up the Highborne ruins?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Whose pride sent you here?", next = "exile" },
         { text = "Who buys Highborne tablets?", next = "buyers" },
         { text = "What do you make of the Archmage?", next = "xylem" },
@@ -370,6 +381,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Couldn't say, shaman, but it troubles the beasts. The wind comes off the bay full of salt and storm, and they shake their heads at it as if it stings. Talk to it if you like, and I'll keep the harness oiled." } },
+      choices = {
+        { text = "I'll ask the wind's leave before I fly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I fly where I please. The wind can follow.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "They hate them, and so do I. Keep it unsummoned near the roost and we'll have no trouble, but if one of my beasts gets spooked, you'll walk back to Orgrimmar." } },
@@ -390,6 +410,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "Shaman. The beasts like you better than they like me, so maybe you'll calm them before you fly." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
           text = "Warlock. Keep your demon away from the wind riders." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
@@ -399,6 +420,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "The wind riders are restless. Say what you need, or climb on." } },
       choices = {
+        { text = "Does the salt wind off the coast trouble the spirits too?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "How do the wind riders like it here?", next = "beasts" },
         { text = "Is it safe to fly over the coast?", next = "coast" },
         { text = "Show me where I can fly.", next = "BUSINESS" },

@@ -264,6 +264,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "It means Lady Proudmoore can put more fire on a wall than all our shamans together, and she knows it, and so do I. I count her mages the way I count her soldiers, and I'd be glad of someone who can tell me what her towers are really for." } },
+      choices = {
+        { text = "Peace on paper won't stop fire. We should prepare.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Proudmoore keeps the peace. We should keep it too.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Lady Proudmoore has stood beside Thrall and knows what a shaman is, so she doesn't fear you, but her soldiers do. I'd keep it that way, because fear is cheaper than walls." } },
@@ -294,6 +303,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll hear the marsh better than my spies do, so tell me if the water ever carries a voice from Theramore." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, in the marsh. Theramore's chaplains will want to talk theology with you, so don't, because everything you tell them ends up in a report." },
         { id = "h_default", key = true,
           text = "Nazeer Bloodpike, and I watch Theramore for the Horde. There's a peace, on paper, but in the marsh, paper gets wet." },
         { id = "h_head", tags = { "news" }, when = { questActive = TODO_QUEST("The Severed Head") },
@@ -316,6 +326,7 @@ P:NPC {
       },
       choices = {
         { text = "Does Theramore fear the shamans of the Horde?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What does Theramore's magic mean for Brackenwall?", next = "xhcast", when = { class = "PRIEST", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Who was your agent near Theramore?", next = "marg" },
         { text = "Is the peace with Theramore real?", next = "peace" },
         { text = "What do you make of Krog's hunt?", next = "krog" },

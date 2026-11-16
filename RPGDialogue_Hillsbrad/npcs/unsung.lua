@@ -405,6 +405,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "A few scrolls, a lantern that might have been enchanted, and a box of something I bought cheap off a fellow from Dalaran who was in a hurry. I don't ask what my customers do with things, and you shouldn't ask what Southshore does with them either, because that's how I stay in business." } },
+      choices = {
+        { text = "Arming our enemies is shameful, Zixil.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Sell them the duds at full price, then.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "If they do, they haven't put in an order, and I'd sell to them too, at a fair markup. Southshore buys my lamp oil and Tarren Mill buys my rope, and the hills don't seem to mind either one, so I don't see why I should." } },
@@ -436,6 +445,10 @@ P:NPC {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman! I don't sell totems, before you ask, because carved wood weighs a ton and the Overwatch units won't carry anything that might get struck by lightning." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
+          text = "A priest, and a customer, I hope! Holy water, unholy water, plain water with a nice label on it, I don't judge, I just price." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } },
+          text = "A mage! You can conjure your own bread and water, which is terrible for my business, so I hope you've come for something you can't make out of thin air." },
         { id = "h_default", key = true,
           text = "Zixil, merchant supplier to the hills! I walk from Southshore to Tarren Mill and back again, selling a little of this and a little of that, and the two Overwatch units keep the road very polite." },
         { id = "h_horde", when = { faction = "Horde" },
@@ -449,6 +462,7 @@ P:NPC {
       },
       choices = {
         { text = "Do the spirits care who wins in Hillsbrad, Zixil?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Ever sold anything magical to Southshore, Zixil?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Show me what you're carrying.", next = "BUSINESS" },
         { text = "You trade with both towns?", next = "both" },
         { text = "Tell me about your robots.", next = "robots" },

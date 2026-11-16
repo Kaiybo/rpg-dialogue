@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Down by the Vile Reef the naga have been stirring, and some mornings my hook comes up with weed on it that glows a faint green. I've fished these waters all my life and never seen that before, so I throw it back and fish somewhere else." } },
+      choices = {
+        { text = "I'll go and see what's stirring, for the town's sake.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If the naga have treasure down there, I'm interested.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Every morning, though not in any words your elders would know. I throw back the first fish I catch, because my father did and his father before him, and I haven't drowned yet." } },
@@ -57,6 +66,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Your folk know water better than most, so I'd wager you can tell a good fishing day before the fish can." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Say one for the fish, would you? They never get a word said for them, and I've eaten enough to owe them that." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. Keep your little fire-beast away from the water's edge; it boils my bait and puts the snappers off." },
         { id = "h_default", key = true,
           text = "Name's Heming, and I've fished these waters since before the goblins carved this bay into a town. Every Sunday the Baron holds his fishing tournament, and I like to think I taught half the winners, though none of them ever thank me." },
         { id = "h_quest", when = { questActive = TODO_QUEST("Old Man Heming") },
@@ -70,6 +81,7 @@ P:NPC {
       },
       choices = {
         { text = "Do you ever thank the sea for what it gives you?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Does anything strange come up out of the water near Booty Bay?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Tell me about the fishing tournament.", next = "tourney" },
         { text = "What lives in these waters?", next = "fish" },
         { text = "How long have you lived here?", next = "past" },
@@ -168,6 +180,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "The Kurzen deserters, if you can believe it, and they pay in Stormwind silver, so draw your own conclusions. Second place is the Bloodsail, who buy through middlemen and think I don't notice. I sell to both and sleep fine." } },
+      choices = {
+        { text = "Selling to both sides is just good business.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Arming the Bloodsail puts all of Booty Bay at risk.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Because spirits get moody and powder doesn't, friend, or not often anyway. Half my customers swear by their totems and the other half swear by my blunderbusses, and the second half complains a lot less." } },
@@ -198,6 +219,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? Lightning's grand, but it never lands quite where you point it, and that's why I sell guns." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! You'll be needing protection, pal, because prayers are slow and a blunderbuss isn't." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage, eh? Fireballs are flashy, pal, but when you're out of mana, a pistol's still loaded." },
         { id = "h_default", key = true,
           text = "Mazk Snipeshot, gunsmith to the finest pirates, hunters and lunatics in the South Seas. Everything on this table shoots straight, mostly, and anything that doesn't is on sale." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! Now, I know your sort likes things quiet, but let me tell you, pal, nothing ends an argument faster than a nice loud gun." },
@@ -209,6 +232,7 @@ P:NPC {
       },
       choices = {
         { text = "Why would a shaman ever need one of your guns?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Who in Stranglethorn is buying the most guns these days?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Who buys guns in Booty Bay?", next = "buyers" },
         { text = "Where do your guns come from?", next = "source" },
         { text = "Show me your wares.", next = "BUSINESS" },
@@ -276,6 +300,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "A mage offered once, and the stave came back dry as a bone and cracked down the middle. I've decided the damp and I will have to come to our own terms, with oil and patience and a good deal of swearing." } },
+      choices = {
+        { text = "Patience and honest oil. That's the right way.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Next time try a stronger spell and see what happens.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Every good stave has something in it, though I'd call it grain and you'd call it a spirit. Either way it fights you if you cut against it, and that's all I need to know." } },
@@ -312,6 +345,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'd know the spirits of the wood, then, so ask them to keep the damp out of my staves, because nothing else has worked." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Sit a moment out of the sun, friend; whatever you serve, I doubt it wants you fainting on my pier." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. I'll sell you a bow if you like, though I suspect your little friend does your shooting for you." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "You've the sea in your eyes, druid, or the forest anyway, so sit a while if you like, since the water's calm today." },
         { id = "h_default", key = true,
@@ -325,6 +360,7 @@ P:NPC {
       },
       choices = {
         { text = "Does the jungle's wood carry any spirit in it, do you think?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Is there any magic that would keep the jungle's damp out of your bows?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Do the sea creatures here suffer from the cartels' fishing?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Why a bow over a gun?", next = "bowgun" },
         { text = "How do you work in this damp?", next = "damp" },

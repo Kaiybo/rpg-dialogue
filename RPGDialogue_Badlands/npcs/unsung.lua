@@ -37,6 +37,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Not yet, friend, but give me a list and a deposit and I'll have it hauled in from Orgrimmar, at Badlands prices. I'd want it in writing, mind, because the Shadowmage once ordered something from me that hissed in the crate, and I haven't slept right since." } },
+      choices = {
+        { text = "Order it through the Expeditionary Force, properly, with papers.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Skip the paperwork. Just haul it in quietly.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Blasting powder, mostly, which the warlord's sappers buy by the barrel and which I keep well away from the forge, for reasons I'd rather not explain. Anybody walks off with a barrel of that, I hope they don't walk past a campfire." } },
@@ -61,6 +70,10 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue! You're not here to steal coal, are you? Because it's heavy and dirty, and you'd be the worst thief in the Badlands, and I'd still charge you for it." },
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman! You won't be needing coal, I suppose, since you can just ask the fire nicely, which is terrible for business if you think about it." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
+          text = "A priest! Say a word for me to whoever you pray to, friend, because I owe money in three cities and I'll take help from anyone." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } },
+          text = "A mage! You don't need iron bars, I suppose, but if you ever want to buy some just to be friendly, I won't stop you." },
         { id = "h_default", key = true,
           text = "Jazzrik, blacksmithing supplies! I keep the warlord's smiths fed with coal and iron, and in return the warlord doesn't feed me to anything, which I think is a very good arrangement for both of us." },
       },
@@ -70,6 +83,7 @@ P:NPC {
       },
       choices = {
         { text = "Do you think the earth minds you digging up its iron, Jazzrik?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do you sell anything a spellcaster needs, Jazzrik?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Let me see your stock.", next = "BUSINESS" },
         { text = "Why is everything so expensive here?", next = "price" },
         { text = "What's out in the Badlands worth mining?", next = "ore" },

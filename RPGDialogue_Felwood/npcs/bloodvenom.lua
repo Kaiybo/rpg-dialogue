@@ -38,6 +38,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Answer? Oh, they shriek all day long, which is much more interesting! The river would melt your totems, and the earth around Jaedenar tastes of fel, which I know because I tasted it. *cackles* If the elements here are sick, I'd like a sample before somebody goes and cures them." } },
+      choices = {
+        { text = "Bottle what you like, if it helps the Horde.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Sick spirits deserve healing, not your bottles.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Oh, it could, it could! But a vial on a blade kills one elf, and the right poison in the right well could make a hundred kittens into a hundred weapons, which is the sort of arithmetic the Dark Lady appreciates. *cackles*" } },
@@ -58,6 +67,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Oh, do tell me what the fire spirits think of my cauldron, because it bubbles in colours I've never seen and I'd love a second opinion. *cackles*" },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue, how lovely! You lot always know which bottle not to drink from, and that makes you twice as useful to me as anyone in this post. *cackles*" },
         { id = "h_magecl", when = { class = "MAGE" },
@@ -78,6 +88,7 @@ P:NPC {
         { id = "h_again2", text = "Yes, yes, what else? Quickly, something's about to bubble over." },
       },
       choices = {
+        { text = "Do the spirits of this forest still answer anyone, alchemist?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What's the kitten's name?", next = "kitten" },
         { text = "What are you working on?", next = "work" },
         { text = "Some would call this cruel.", next = "cruel" },
@@ -216,6 +227,15 @@ P:NPC {
         { text = "If a chief's alone, I won't just count him.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "I'm no shaman, but I've watched the river run green and the earth crawl with things that used to be stone, and I write all of it down for Orgrimmar. Whatever the demons did here, the land remembers it, and I'd rather the Horde understood what that means before the Alliance does." } },
+      choices = {
+        { text = "Then I'll report what I sense to Orgrimmar, properly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Some things the spirits show me aren't Orgrimmar's business.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Lights in the Jaedenar hollows that burn green without wood, and wards cut into the ground around the Shadow Council's camps. I write them down as best I can, but I'd sooner have someone who knows the arcane read my notes than some clerk in Orgrimmar." } },
@@ -236,6 +256,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, good. Orgrimmar's shamans see things a scout misses, and in Felwood I'll take every pair of eyes I can get." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage. Good; I've seen things in this forest I can't name, and you might put names to them before they get to Orgrimmar ahead of my report." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
@@ -255,6 +276,7 @@ P:NPC {
         { id = "h_again", text = "Anything else? Make it worth writing down." },
       },
       choices = {
+        { text = "What do the elements tell you about this forest, Trull?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What's out in Winterspring?", next = "winterspring" },
         { text = "Why does Orgrimmar care about owlbeasts?", next = "why" },
         { text = "What is this post, anyway?", next = "post" },

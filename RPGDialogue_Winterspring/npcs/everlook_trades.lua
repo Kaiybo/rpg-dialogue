@@ -25,6 +25,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Every day it costs us, between the blizzards closing the pass and the furbolgs making trouble along the roads. The Cartel prices it all in, of course, so the snow pays its share of every bid. If your spirits could arrange a mild winter, I'd consider that a sound investment." } },
+      choices = {
+        { text = "For the right cut, I'd ask them for a mild winter.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "The spirits can't be bought, Grizzlin, and neither can I.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Tried, plenty of times, and every one of them ended up owing the Cartel more than they took. We've got contracts with folk in Booty Bay who find people for a living, so the smart rogue sells through us and keeps their fingers." } },
@@ -45,6 +54,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, welcome to the auction house. Totems sell slowly up here, but if you've anything fire-charged, the cold makes it worth double." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue! Lovely. Now, before you get any ideas, every item in my vaults is logged, sealed and watched by Cartel bruisers who are much bigger than you." },
         { id = "h_magecl", when = { class = "MAGE" },
@@ -59,6 +69,7 @@ P:NPC {
         { id = "h_again2", text = "Still here? Then you might as well bid on something." },
       },
       choices = {
+        { text = "Does the land up here ever cost the Cartel, Grizzlin?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Let me see the auctions.", next = "BUSINESS" },
         { text = "What sells well up here?", next = "sells" },
         { text = "Why put an auction house in the snow?", next = "why" },
@@ -120,6 +131,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Everybody who walks the road to the springs, and a few who should've stayed home! The Winterfall come down out of their camps drunk on that firewater and swinging like madmen, so I sell an axe a day and a rifle to anyone who'd rather not get close. I wouldn't expect a shaman to buy a rifle, but there's always a first time." } },
+      choices = {
+        { text = "Sell them all the rifles they want. Business is business.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "The furbolgs are sick, not wicked. Arm against them sparingly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Cheap steel goes brittle in the frost, my friend, and a blade that snaps in a yeti's hide is a short, sad story. Mine are forged in Gadgetzan and oiled with my own mixture, so they keep their temper when you need to keep yours." } },
@@ -140,6 +160,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Now, I know your lot like a good mace or axe, and I've got ones that hold an edge even when your fingers won't." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue! You want something light, sharp and quiet, and I've got daggers that'll hold an edge at forty below, which is more than the dwarves can promise." },
         { id = "h_magecl", when = { class = "MAGE" },
@@ -152,6 +173,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, friend, ask, and I'll keep polishing." },
       },
       choices = {
+        { text = "Who in Winterspring arms against the Winterfall furbolgs?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "Does the cold really hurt a gun?", next = "cold" },
         { text = "Who buys weapons up here?", next = "buyers" },
@@ -217,6 +239,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Twice a winter at least, and every crafter in town learns to count their thread when it happens. The pass down to Felwood closes, the tunnels through Timbermaw Hold stay open only so long as the furbolgs like us, and then it's just whatever's on my shelves. Your spirits would make a fortune up here, if they could shovel." } },
+      choices = {
+        { text = "Then keep good stores, and keep faith with the Timbermaw.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Rules mean little in a blizzard. Take what you need.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Off the satyrs and the fel-touched things in Felwood and Azshara, cut from their robes by people braver than me. Tailors want it for the strongest garments, and it smells of brimstone however much you wash it, so I keep it in the back." } },
@@ -237,6 +268,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll want leather and heavy thread, I expect, because nothing you carry survives a Winterspring winter without mending." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! You're wearing cloth in Winterspring, so I'll assume you either have a spell for the cold or you're mad, and I sell felcloth to both kinds." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
@@ -249,6 +281,7 @@ P:NPC {
         { id = "h_again2", text = "Still thinking? Take your time, the shop's warm." },
       },
       choices = {
+        { text = "Do the storms up here ever cut Everlook off, Qia?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "What do crafters here need most?", next = "needs" },
         { text = "Where does your stock come from?", next = "stock" },
@@ -307,6 +340,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "The wild ones do better than you'd think, with fur thicker than a goblin's purse and the hot springs to drink from when everything else freezes. It's the ones that wander too near the Winterfall camps that worry me, because some of them come back wrong somehow. I don't know what's poisoning them, but I'd thank any shaman who found out." } },
+      choices = {
+        { text = "I'll look into it. The beasts deserve that much.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Sick beasts are weak beasts. Better they're culled.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "A pet loves its hunter, and you can see it in the way it waits by my gate. Your demon serves you because it must, and every beast in my stable knows the difference the moment it smells one." } },
@@ -327,6 +369,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! The beasts in my stable perk up when your kind come by, so stand near the stalls as long as you like and warm them up a bit." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock. I board beasts, friend, not demons, so don't ask me to stable your voidwalker, because the last one frightened my bears so badly they wouldn't eat." },
         { id = "h_magecl", when = { class = "MAGE" },
@@ -339,6 +382,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, I've time; the animals are all asleep." },
       },
       choices = {
+        { text = "Do the wild beasts of Winterspring fare well, Azzleby?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I'd like to see my stabled pets.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "How do you keep them warm up here?", next = "warm" },
         { text = "Do hunters tame much in Winterspring?", next = "tame" },
@@ -398,6 +442,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Oh, I'd love to know, and I've bottled that water three times to find out! It stays warm for an hour and then it's just water, which means either there's nothing in it or it only works where the earth wants it to. Donova Snowden would call it science, and you'd call it spirits, and I'd say you both owe me a vial." } },
+      choices = {
+        { text = "Keep bottling it. If it works, sell it.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "The springs' gift should stay at the springs.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Not me, love, I sell what poisons go into, and what they're carried in, and I leave the brewing to you. The rogues' masters in the cities sell the real recipes, so ask them, and come back to me when your vials run out." } },
@@ -418,6 +471,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! I've no totems to sell, but I've vials aplenty for your water spirits, packed in straw so they won't crack in this cold." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue! You'll want crystal vials for your poisons, I'll bet, and I've got the good ones that don't crack in the cold, packed snug in straw." },
         { id = "h_magecl", when = { class = "MAGE" },
@@ -430,6 +484,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, ask me something; I love talking about this." },
       },
       choices = {
+        { text = "Do the hot springs here hold any power, Evie?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Let me see your supplies.", next = "BUSINESS" },
         { text = "Why pack everything in straw?", next = "straw" },
         { text = "What grows in Winterspring worth brewing?", next = "herbs" },

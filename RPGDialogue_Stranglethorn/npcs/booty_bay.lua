@@ -35,6 +35,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Mend the ward-lanterns on the outer piers, for a start, because the Bloodsail keep sending something across the water at night that my Bruisers can't hit with a club. The Cartel pays well for magic that keeps the cargo dry and the pirates wet." } },
+      choices = {
+        { text = "A contract's a contract. I'll keep your lanterns lit.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll work for whoever pays the most that night.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "The Cartel asks the ledger, and the ledger always answers. Still, when a storm sinks one of my cargoes, I do wonder whether the competition paid off your elements, so I'd rather keep a shaman on good terms." } },
@@ -64,6 +73,9 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde under my balcony. Keep your lightning away from my ships, and we'll get along nicely." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde under my balcony. Whatever you pray to, ask it to keep the Bloodsail off my harbor, and I'll pay a fair tithe." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock on my balcony. Keep whatever you've summoned on a short leash, because the Bruisers can't tell a demon from a drunk and won't try." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "I know a cutpurse's walk when I see one. Booty Bay tolerates thieves who pay their dues, and it drowns the ones who don't." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid in Booty Bay. If you're here to lecture me about the jungle, I'll warn you now that I've heard it." },
         { id = "h_default", key = true,
@@ -87,6 +99,7 @@ P:NPC {
       },
       choices = {
         { text = "Does the Cartel ever ask the spirits anything, Baron?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What could a spellcaster do for Booty Bay, Baron?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Your cartels are stripping the jungle bare.", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Who are the Bloodsail?", next = "bloodsail" },
         { text = "What does the Cartel want with a jungle?", next = "cartel" },
@@ -512,6 +525,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Oh, the best one is that a Venture Company man on the coast is buying up those singing crystals to power something he won't name. The second best is that Zanzil's been seen brewing by the shore again, and the third is about you, but I'm saving that one." } },
+      choices = {
+        { text = "Name your price for the one about me.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'd rather earn my news than buy gossip.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "They say you can call rain, which the sailors like, and lightning, which the Bruisers don't. Mostly they say you pay in coin like everyone else, and around here that's the highest praise there is." } },
@@ -542,6 +564,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Thrall's people have been coming through more often since he brought the old ways back, and I keep a note of every one." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde! Loa or shadow, I don't judge; I only write down which one, because somebody always asks me later." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "Ah, a fellow professional. You listen at doors and I listen at bars, so we should compare notes sometime, for a fee." },
         { id = "h_default", key = true,
           text = "Krazek, secretary to Baron Revilgaz. Prices, pirates, who owes whom in this jungle: ask me. If I don't know it, it hasn't happened yet." },
         { id = "h_cousin", when = { heardLine = "tranrek.h_default" },
@@ -565,6 +589,7 @@ P:NPC {
       },
       choices = {
         { text = "What do people in Booty Bay say about shamans?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What rumors are going round about magic in Booty Bay, Krazek?", next = "xhcast", when = { class = "PRIEST", race = { "Orc", "Troll", "Scourge" } } },
         { text = "What's the word in the jungle?", next = "word" },
         { text = "Do you really know everything?", next = "brag" },
         { text = "What's the Baron like to work for?", next = "baron" },
@@ -726,6 +751,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "A gnome once paid me in conjured gold, and it went to air the minute he was out the door. I found him in the end, and he paid twice, once for the debt and once for the insult, and he does his sums in real coin now." } },
+      choices = {
+        { text = "A debt's a debt. He should have paid in honest coin.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Anyone who cheats a moneylender has my admiration.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "A debt doesn't die with the man, and I've never seen a ghost pay one off, so they can trouble me all they like. If your ancestors want to collect on me, tell them to take a number like everybody else." } },
@@ -756,6 +790,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, is it? You lot talk to dead ancestors, I hear, so you can tell a few of my late debtors I'm still waiting." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, eh? If you're here to pray for my soul, it's fully paid up, which is more than I can say for my customers." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "Light fingers on you, I can tell. Pick a pocket in this town and you'll owe the Bruisers, and the Bruisers sell their debts to me." },
         { id = "h_default", key = true,
           text = "They call me the Sea Wolf. Folk borrow, folk forget, and I remind them; dying doesn't get you out of a debt with me, and I've proved it." },
         { id = "h_seen_stoley", when = { heardLine = "stoley.h_default" },
@@ -776,6 +812,7 @@ P:NPC {
       },
       choices = {
         { text = "Do the spirits of your dead debtors ever trouble you?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Has a debtor ever tried to pay you off with magic?", next = "xhcast", when = { class = "PRIEST", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Deal me in. One game.", tag = "Persuade", next = "game",
           check = { pass = { money = { min = 100000 } } },
           fail = { next = "broke" } },
@@ -891,6 +928,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Their witch doctors, and they're the reason my agents come back as bones in a basket, when they come back at all. Kill a witch doctor and the rest scatter like gulls, which is what I call an efficient investment." } },
+      choices = {
+        { text = "I'll kill their witch doctors for a share of the profits.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Those trolls are defending their own land, Kebok.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "The Skullsplitters and the Bloodscalp leave fetishes along the trails, and my agents walk past them and never come back. I don't believe in curses, mind you, but I believe in dead agents, and I've got plenty of those." } },
@@ -921,6 +967,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The jungle trolls have witch doctors of their own, so it might do me some good to have someone like you on my side for once." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! If your loa or your shadows can stop the Bloodscalp skinning my agents, I'll make you a partner, a very junior partner." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage, excellent. Fire is very persuasive with trolls, and I keep a list of trolls who need persuading." },
         { id = "h_default", key = true,
           text = "Kebok. I move goods out of Stranglethorn to places that pay for them, but the trolls keep killing my agents, so I need someone harder to kill." },
         { id = "h_ears", when = { questActive = TODO_QUEST("Bloodscalp Ears") },
@@ -939,6 +987,7 @@ P:NPC {
       },
       choices = {
         { text = "What do the jungle trolls' witch doctors do to your agents?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do the Bloodscalp have casters I should worry about?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "What exactly is the business?", next = "trade" },
         { text = "Troll tusks sold as tiger fangs? That's fraud.", next = "fraud" },
         { text = "What happened to your agents?", next = "agents" },
@@ -1046,6 +1095,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Something done about the cellar, honestly. The damp gets into the casks, the rats get into the damp, and last week something bigger than a rat got in after them, and none of my staff will go down past the third step." } },
+      choices = {
+        { text = "I'll clear your cellar, and you can keep your coin.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll clear it, for a month of free rooms.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "The only spirits I deal with come in a bottle, friend, though the sailors swear something walks the docks at low tide. I tell them it's the Baron's tax man, and they settle their bills faster." } },
@@ -1076,6 +1134,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman at the Salty Sailor. If you can do anything about the damp in my rooms, the first rum is on the house." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest at the Salty Sailor. Sit where you like, only please don't bless the rum, because the last one who did put the sailors right off it." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock at my bar. Your imp can sit by the fire, but it pays for its own stool like everybody else." },
         { id = "h_default", key = true,
           text = "The Salty Sailor. Rooms upstairs, rum down here, and the Baron up top over all of it. Keep your voice down near the stairs." },
         { id = "h_brawl", when = { metBefore = true }, text = "Two pirates fought over a parrot last night, and the parrot won. It's upstairs now, paying rent somehow." },
@@ -1089,6 +1149,7 @@ P:NPC {
       },
       choices = {
         { text = "Do the sailors here tell stories of spirits on the docks?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What does the Salty Sailor need from someone with magic?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Heard anything interesting?", next = "gossip" },
         { text = "What's it like with the Baron living upstairs?", next = "baron" },
         { text = "Who drinks here?", next = "regulars" },
@@ -1361,6 +1422,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Could it? Could it really? I've thought of a ward on the door, or a glyph, or something to make my room look like a wall. Only MacKinley knows a fellow who knows a fellow, and they'd just send somebody who can see through walls." } },
+      choices = {
+        { text = "I'll set you a ward, and MacKinley can whistle for it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "You should just pay what you owe, Phillipe.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Would you? No, don't, because if it says yes I'd only have to run, and I've nowhere left to run to. If the wind ever whispers the name Phillipe, though, you'll tell me first, won't you?" } },
@@ -1391,6 +1461,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman? Oh, good, good. You couldn't ask the spirits whether a big man is coming up the pier, could you? No? Never mind, ha, ha." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest? Oh, could you say a few words over me, just in case? Nothing's going to happen, of course, ha, ha." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "Oh! You came up very quietly. Please don't do that, because MacKinley's men walk quietly too, and my heart can't take it." },
         { id = "h_default", key = true,
           text = "They call me Shaky, and I can't think why, ha, ha. Listen, has a big man with a gambling habit been asking about me? You'd tell me if he had, wouldn't you?" },
         { id = "h_mackinley", when = { heardLine = "mackinley.h_default" },
@@ -1406,6 +1478,7 @@ P:NPC {
       },
       choices = {
         { text = "Shall I ask the earth whether trouble is coming for you?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Could magic keep MacKinley's men away from you?", next = "xhcast", when = { class = "PRIEST", race = { "Orc", "Troll", "Scourge" } } },
         { text = "How much do you owe him?", next = "debt" },
         { text = "How did you get into this?", next = "how" },
         { text = "Why not just leave Booty Bay?", next = "leave" },
@@ -1541,6 +1614,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Their ships run on secrecy, so find their coves, read their orders and burn their powder before it's ever loaded. Fleet Master Seahorn won't put it in writing, but a spell in the right hold is worth twenty cannons." } },
+      choices = {
+        { text = "Burn their powder and sink their ships. Gladly.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Sinking ships drowns honest sailors too, Crazz.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Sailors pray to whatever's listening, and on Blackwater ships that's usually the rum. Still, I once saw a troll shaman calm a squall off the Cape, and nobody laughed at her after that." } },
@@ -1571,6 +1653,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! If you can call up a stiff wind, the Blackwater could use you to run down a Bloodsail sloop or two." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Say a few words over the Blackwater dead, would you, and a few curses over the Bloodsail while you're at it." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You've got sneaking feet. Good, because I've got Bloodsail letters that need stealing." },
         { id = "h_default", key = true,
           text = "First Mate Crazz, Blackwater Raiders. The Bloodsail Buccaneers are scum, and they're up to something on our coast, so I want to know what, and then I want to sink it." },
         { id = "h_buccaneers", tags = { "news" }, when = { questActive = TODO_QUEST("The Bloodsail Buccaneers") },
@@ -1586,6 +1670,7 @@ P:NPC {
       },
       choices = {
         { text = "Do your sailors pray to anything before they put to sea?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "How could magic help the Blackwater against the Bloodsail?", next = "xhcast", when = { class = "PRIEST", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Why do you hate them so much?", next = "hate" },
         { text = "How do you know they're planning something?", next = "proof" },
         { text = "What's the Fleet Master like?", next = "seahorn" },
@@ -1696,6 +1781,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Selling them, I'd guess, or using them for something that hums, but nobody's ever told me, and that's what hurts. If you hear a proper answer, I'll pay for it, and if it's worth anything, I'll pay you less and sell it on." } },
+      choices = {
+        { text = "I'll sell you the answer, if I find one.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Some things shouldn't be sold, Fizzlebub.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "I once sold rainwater blessed by a troll witch doctor, but it turned out to be ordinary rainwater, and the buyer turned out to be a Bruiser. Now I sell things that don't talk back, like ore and gossip." } },
@@ -1726,6 +1820,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Do you know what a goblin would pay for a bottled thunderstorm? Neither do I, but I'd love to find out." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! I sell a lovely holy water, or a lovely unholy water, depending on which way you lean; same bottle, different label." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage, now that's handy. You couldn't tell me whether these crystals are magic, could you, before I sell them as magic?" },
         { id = "h_default", key = true,
           text = "Crank Fizzlebub: entrepreneur, opportunist, and friend to anyone with a strong arm and a short memory. Standing still never made anyone a copper." },
         { id = "h_shards", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("Singing Blue Shards") }, { questActive = TODO_QUEST("Venture Company Mining") } } },
@@ -1743,6 +1839,7 @@ P:NPC {
       },
       choices = {
         { text = "Have you ever tried to sell the elements, Fizzlebub?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What's the Venture Company really doing with those singing crystals?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Is any of this legal?", next = "legal" },
         { text = "What do singing crystals actually do?", next = "crystals" },
         { text = "What's your arrangement with Kravel?", next = "kravel", when = { any = { { heardLine = "kravel.h_default" }, { topicKnown = "mirage_raceway" } } } },
@@ -1878,6 +1975,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Could you? Oh, could you! It's somewhere in the Hinterlands, and if you've a spell that finds a cask by smell, I'll toast you every night until my liver gives out, which may not be long." } },
+      choices = {
+        { text = "I'll find your port and bring it back untouched.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If I find it, I'm tasting it first.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Every sailor in Booty Bay has a story about the sea spirits, and each one gets better with the third drink. My favorite says a water elemental drank half a ship's rum and went home happy, and I'd very much like to meet that fellow." } },
@@ -1908,6 +2014,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Pull up a stool and tell me, do the spirits of the earth know where a good cask of port might have rolled off to?" },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A toast to the priest! To your gods, whoever they are, and may they be the drinking sort!" },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "To the warlock! May your demons stay on their leashes and your glass stay full, and never the other way round." },
         { id = "h_default", key = true,
           text = "Whiskey Slim, at your service! I've tasted every drink between here and Ironforge, and I had a cask of the finest port you'll ever... well, had. I had it, and then I lost it." },
         { id = "h_grog", tags = { "news" }, when = { questActive = TODO_QUEST("Whiskey Slim's Lost Grog") },
@@ -1925,6 +2033,7 @@ P:NPC {
       },
       choices = {
         { text = "Do the sailors' tavern stories ever mention the spirits of the sea?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Could a spellcaster help you find your lost port?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "How do you lose a whole cask?", next = "lost" },
         { text = "What makes this port so special?", next = "port" },
         { text = "Toast me, then.", next = "toast" },
@@ -2022,6 +2131,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Gloves, mostly, because casters set fire to their own hands more often than they'll admit. And satchels with strong seams, since a reagent pouch that splits in the jungle means a mage with no spells and a raptor with no manners." } },
+      choices = {
+        { text = "Fine work deserves a fine price. I'll pay it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'd sooner haggle you down to half.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "I give thanks to the hunters who bring them in, and I give them coin, which they like better. If a crocolisk's spirit wants to complain, it can take it up with the hide, which looks magnificent now, if I say so myself." } },
@@ -2052,6 +2170,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Your people wear hides with respect, I'm told, so you'll know quality when you see it, and you're looking at it now." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Even the faithful need boots, and mine are the finest in the South Seas, blessed by nobody and worth it anyway." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage, in cloth, in this jungle? You'll want something of mine underneath it, because raptors don't care how many spells you know." },
         { id = "h_default", key = true,
           text = "Drizzlik! Finest leathercrafter of the South Seas and every world old or new. Crocolisk, raptor, panther: if it has a hide, I've made it into something gorgeous." },
         { id = "h_supply", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("Supply and Demand") }, { questActive = TODO_QUEST("Some Assembly Required") } } },
@@ -2067,6 +2187,7 @@ P:NPC {
       },
       choices = {
         { text = "Do you give thanks to the beasts whose hides you sell?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What does a spellcaster need from a leathercrafter, Drizzlik?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "What's the best hide in the jungle?", next = "hides" },
         { text = "Who taught you the trade?", next = "teacher" },
@@ -2141,6 +2262,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "We had a goblin with a wand aboard, and he got off one bolt before the first giant put a hand through the hull. I don't think it was a matter of magic; the sea wanted that ship, and the sea usually gets what it wants." } },
+      choices = {
+        { text = "Negolash will answer for your crew. I'll see to it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Your captain took the risk for profit and paid for it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "It was as if the sea itself stood up, with barnacles on their shoulders and eyes like lanterns, and the ship broke in their hands like kindling. I've cooked through storms and pirates, but I never felt so small as I did that night." } },
@@ -2171,6 +2301,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You talk to the water, don't you? Then ask it why it sent the giants up after the Smotts' Revenge, because I still can't sleep for wondering." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Will you say something for the crew of the Smotts' Revenge? Whoever you pray to, it doesn't matter; nobody's said anything for them yet." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. You can conjure bread and water, can't you? Then you don't need a cook, and I don't blame you, but I'll make you a stew anyway." },
         { id = "h_default", key = true,
           text = "Sprogger. I cooked for Captain Smotts on the Smotts' Revenge, until the giants came up out of the water and that was the end of her. Everyone went down but the Captain and me." },
         { id = "h_negolash", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("The Captain's Cutlass") }, { questActive = TODO_QUEST("Facing Negolash") } } },
@@ -2188,6 +2320,7 @@ P:NPC {
       },
       choices = {
         { text = "What did the giants look like when they rose from the sea?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Could magic have saved the Smotts' Revenge from the sea giants?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "What was the Captain like, at sea?", next = "captain" },
         { text = "What did you see that night?", next = "night" },
         { text = "What do you cook?", next = "cook" },
@@ -2291,6 +2424,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "The physician says it's the jungle air, and the troll from Grom'gol said it was the jungle's rot, and they both charged me for saying so. If there's a spell in it, I'd like to know whose, so I can send them the bill." } },
+      choices = {
+        { text = "I'll find Mokk and get your cure.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll help, but your crew can cover my costs.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "A troll from Grom'gol laid hands on me once and said the fever comes from the jungle's own rot, and that the jungle would have to give back what it took. Then he charged me five silver, which I thought was a bit less spiritual of him." } },
@@ -2321,6 +2463,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman? Your kind heal with water and earth, don't they? I've tried every potion in Booty Bay, so I'll try mud next if you think it'll help." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Pray over me, would you? Loa, shadows, anything, I'm not fussy, and I've tried everything else twice." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. Ugh, don't tell me the fever's a curse, because I've had enough bad news this week for three goblins." },
         { id = "h_default", key = true,
           text = "Fin Fizracket, Blackwater Raiders, or I was, before the Stranglethorn Fever got me. Sweats, shakes, and a taste in my mouth like old boots, so don't get sick in the jungle." },
         { id = "h_fever", tags = { "news" }, when = { questActive = TODO_QUEST("Stranglethorn Fever") },
@@ -2336,6 +2480,7 @@ P:NPC {
       },
       choices = {
         { text = "Has anyone tried a shaman's healing on the fever?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Is there magic in this fever, Fin, or only sickness?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "How did you catch it?", next = "caught" },
         { text = "A gorilla's heart? Who says that works?", next = "cure" },
         { text = "Let me look at you.", next = "healer", when = { class = { "PRIEST", "SHAMAN", "DRUID", "PALADIN" } } },
@@ -2425,6 +2570,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Crates marked as glassware that hum when you put your ear to them, mostly, and they go north to people who don't sign their names. I don't open cargo, but I do write it down, and the Baron reads everything I write." } },
+      choices = {
+        { text = "Good. Somebody should keep track of that.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Some cargo is better left unwritten, Wharfmaster.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "I keep a close eye on anyone who can call lightning down on my docks, which is mostly mages and you. The mages set fire to a crate last month, so for now you're ahead." } },
@@ -2455,6 +2609,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman off the Grom'gol road. I watch who comes and goes, and your sort have been coming more often since Orgrimmar was built." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. I'll put you down in the book as no trouble, and I'll change it if I need to." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. The last one through here set fire to a crate, so I'll thank you to keep your hands in your sleeves while you're on my boards." },
         { id = "h_default", key = true,
           text = "Wharfmaster Lozgil. Everything that comes off a boat in Booty Bay comes past me first, and you'd be amazed who comes and goes here, and who I'd rather didn't." },
         { id = "h_warsong", tags = { "news" }, when = { questActive = TODO_QUEST("Warsong Supplies") },
@@ -2472,6 +2628,7 @@ P:NPC {
       },
       choices = {
         { text = "Do you keep a closer eye on shamans than on other visitors?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What comes through your docks that a spellcaster should know about?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Who comes and goes that you'd rather didn't?", next = "who" },
         { text = "What happened with the fishmonger?", next = "fish", when = { metBefore = true } },
         { text = "Any ships to Stormwind or Menethil?", next = "ships", when = { faction = "Alliance" } },

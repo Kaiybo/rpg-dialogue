@@ -49,6 +49,8 @@ P:NPC {
         { id = "h_default", key = true,
           text = "I am Nyse, and I keep the wind riders of Freewind Post. From the top of this mesa they'll carry you to Thunder Bluff, to the Crossroads, or south over the salt flats to Gadgetzan." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The wind riders always fly smoother with one of you aboard, and I've stopped asking why." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. If you'd like to say a prayer before your flight, the top of the mesa is a fine place for it, and I won't tell anyone." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. The wind riders shy from your kind, so let me calm them first, and keep your companion well back from the roost." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "You'd make a good rider, quiet as you are. The wind riders don't like noise, and they don't like sudden moves, and you seem to know both." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
@@ -60,6 +62,7 @@ P:NPC {
       },
       choices = {
         { text = "Do the air spirits watch over the wind riders, Nyse?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do spellcasters make the wind riders uneasy?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Where can I fly?", next = "BUSINESS", when = { faction = "Horde" } },
         { text = "Why build a post on top of a mesa?", next = "mesa" },
         { text = "Is it hard flying between the needles?", next = "flying" },
@@ -93,6 +96,15 @@ P:NPC {
     flying_harpy = {
       lines = { { id = "fh_default", text = "They screech and they follow, but they don't dare come close to a wind rider. The riders would tear them out of the sky, and the harpies know it." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
+    },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Some do, because they smell the magic on you the way they smell a storm coming. I talk to them before you climb on, and so far no one has been dropped over the salt flats, which is how I like it." } },
+      choices = {
+        { text = "I'll wait until they're calm. They know best.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "They'll get used to me. I won't be waiting.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     xhsham = {
       big = true,
@@ -167,6 +179,8 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! The animals settle when your kind walks in, as if they know you would understand them." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The animals settle when your kind come into the stables, and I'd love to learn how you do it." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. My animals heal faster when someone kind is near them, I think, so stay a while and keep them company." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. My cats don't care for the smell of the arcane, so let them come to you, and they will, eventually." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
           text = "I don't stable demons, warlock, though I'll admit I've wondered what a voidwalker eats. Keep it away from my beasts, because they can feel it, and it frightens them." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
@@ -180,6 +194,7 @@ P:NPC {
         { text = "Are the beasts content up here on the mesa?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I'd like to see my stabled pets.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "Why do the animals settle around shamans, Awenasa?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Does magic frighten the animals you keep?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "How do you get animals up a mesa?", next = "lift" },
         { text = "What do hunters tame around here?", next = "tame" },
         { text = "My demons need no stable, Awenasa.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
@@ -197,6 +212,15 @@ P:NPC {
       choices = {
         { text = "Wild things should stay wild.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "A good hunter can tame anything.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Fire frightens them, of course, and anything that crackles, but a gentle hand matters more to them than any spell. I watch how they take to a stranger, and they're very seldom wrong." } },
+      choices = {
+        { text = "Then I'll be gentle with them, spell or no spell.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Animals are tools. They'll do what they're told.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

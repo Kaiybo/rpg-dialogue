@@ -30,6 +30,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Because they fell fighting in this desert's wars, old and new, and the sands still carry the hum of what they fought. I think they feel the hives stirring as surely as I do, and they cannot rest while the living stand guard without them." } },
+      choices = {
+        { text = "The dead deserve peace. Help them rest.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Let them stay restless. The living may need them yet.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "They died badly, when the silithid came up out of the sand, and nobody buried them properly. I tend their graves and pray over them, and some nights I think they hear me, though I cannot be sure." } },
@@ -50,6 +59,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman comes to Valor's Rest. The spirits of the fallen here are restless, {class}, and perhaps they would speak more easily to you than to me." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage, at Valor's Rest. The dead here were soldiers and farmers, not spellcasters, but they rest uneasily all the same, and I would ask you to tread quietly." },
         { id = "h_roguecl", when = { class = "ROGUE" },
@@ -72,6 +82,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. I don't get many visitors who want to talk." },
       },
       choices = {
+        { text = "Why do the dead of Valor's Rest not sleep?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What is Valor's Rest?", next = "rest" },
         { text = "What happened at Southwind?", next = "southwind" },
         { text = "Why does the Circle watch Silithus?", next = "watch" },
@@ -472,6 +483,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Glyphs, mostly, carved by hands that weren't troll nor elf, and stonework that runs deeper than any shaft we've sunk. Whatever built under Silithus built big, and I'll wager my beard that's what the bugs are guarding." } },
+      choices = {
+        { text = "Some things are buried for good reason. Leave them be.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Dig deeper. Whatever's down there should see daylight.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Ruins older than Ironforge, an' carvings that say there's somethin' big under the Scarab Wall, bigger than anyone's guessed. Brann'd know more, if he'd stay put long enough tae tell me, but he's off chasin' some new lead as usual." } },
@@ -492,6 +512,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? Ye'd not be the first Horde sort to wander into camp, and as long as ye keep yer hands off the finds, I'll not ask what ye're doing here." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! Are ye daft, wanderin' out here in robes? The sand gets in everywhere, an' I mean everywhere, so mind yer spellbooks." },
         { id = "h_roguecl", when = { class = "ROGUE" },
@@ -510,6 +531,7 @@ P:NPC {
         { id = "h_again2", text = "Spit it out, then." },
       },
       choices = {
+        { text = "The ground here hums. What have your digs found under it?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What happened to Natalia Mar'alith?", next = "natalia" },
         { text = "Where's Brann Bronzebeard?", next = "brann" },
         { text = "What are you digging for?", next = "dig" },
@@ -623,6 +645,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Trouble them? Every time one passes over, friend, the sand lifts and the air goes tight like before a storm, and then nothing, not a drop of rain! Whatever they are, they're watching the hives, and if a dragon's worried, I'm worried twice over." } },
+      choices = {
+        { text = "If dragons are watching, we should watch with them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Dragons scheme. Trust them as far as you can throw one.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "The best in the desert, an' a hero besides, because he kept his head when Natalia lost hers an' saved the lot of us. So if he helps himself tae yer lunch, ye'll let him, same as the rest of us do." } },
@@ -643,6 +674,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Then look up with me, friend, and tell me if ye feel it in the wind, because there's dragons over this desert and I'll not have it said Frankal Stonebridge was the only one who noticed!" },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue! Ye'd get on wi' Glibb, I reckon, because that monkey can lift a sandwich out of yer hand before ye know it's gone." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
@@ -659,6 +691,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, then, I do like an audience." },
       },
       choices = {
+        { text = "Do the dragons over Silithus trouble the winds?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What happened to Natalia, in the end?", next = "natalia" },
         { text = "Dragons? Over Silithus?", next = "skies" },
         { text = "How many languages did you say?", next = "languages" },

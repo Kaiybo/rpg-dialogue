@@ -250,6 +250,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Dries it, bakes it and fills it with grit, sweetie, and that's before the flies arrive. I keep my spices sealed in jars from Booty Bay, and still the sand finds its way in, as if it's hungry too." } },
+      choices = {
+        { text = "The land gives little here. Waste none of it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let the sand have its share. A little grit never hurt anyone.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "A cook always knows, sweetie, because you look at food the way I do, wondering what's been added. I'd ask you not to practice on anything in my kitchen, though, because Marin's experiments already give me enough to fix." } },
@@ -270,6 +279,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, sweetie? Then you'll know fire's the most important spirit in any kitchen, and I've a stove back here that could use a stern word from you." },
         { id = "h_default", key = true,
           text = "I'm Sprinkle, and I fix things that taste wrong, mostly food, though lately it's mostly Marin's experiments. He calls it a partnership; I call it a favor he owes me." },
         { id = "h_taste", tags = { "news" }, when = { questActive = TODO_QUEST("In Good Taste") },
@@ -283,6 +293,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Anything else, sweetie?" }, { id = "h_again2", text = "Go on, sweetie; I'm stirring, but I can listen." } },
       choices = {
+        { text = "What does the desert do to food, Sprinkle?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Noggy?", next = "noggy" },
         { text = "What's the secret ingredient?", next = "secret" },
         { text = "What's Marin like?", next = "marin" },
@@ -390,6 +401,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Deep wells, sunk through rock older than any of us, and pumps that cost more than this whole town. The water's down there, but it moves, and every year it moves a little further from where we've drilled." } },
+      choices = {
+        { text = "Water is a spirit, not a product. Treat it that way.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Water flows where it's paid to flow. Keep drilling.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "It could, and it would ruin me doing it, because I can't sell water you can make for free. Still, I'd rather have a mage on the walls than a Wastewander at the well, so you'll get no complaints from me about the conjuring, only about the price." } },
@@ -410,6 +430,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can you talk to water? Because I've got wells that have stopped listening to me, and the Wastewanders are sitting on the ones that still do." },
         { id = "h_default", key = true,
           text = "Water is everything out here. The Water Company keeps Gadgetzan drinking, and the Wastewander bandits keep stealing it. Guess which one of us is having a worse week." },
         { id = "h_justice", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("Wastewander Justice") }, { questActive = TODO_QUEST("More Wastewander Justice") } } },
@@ -425,6 +446,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "What else? Quickly, the gauge is twitching." } },
       choices = {
+        { text = "Where does Gadgetzan's water really come from?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "The desert's creatures need water too, Chief Engineer.", next = "druid_q", when = { class = "DRUID" } },
         { text = "How does a desert town get water?", next = "water" },
         { text = "Who are the Wastewanders?", next = "bandits" },
@@ -648,6 +670,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Some of it, yes, which is the interesting part. The scorpids down in the southern dunes carry stronger venom than the ones near town, and I think it's whatever's in the water they drink, though Rose and I haven't proved it yet." } },
+      choices = {
+        { text = "Poisoned water means a wounded land. Someone should heal it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Stronger venom sells for more. Bottle it.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Someone who can freeze a sample before it goes off in this heat, mostly. Whatever the Water Company finds in the bad wells rots in an hour, and I'd rather study it fresh than smell it stale." } },
@@ -668,6 +699,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? Rose doesn't care for the smell of totem smoke, but she'll put up with it if you've brought me something interesting to cut open." },
         { id = "h_default", key = true,
           text = "Alchemist Pestlezugg. I sell supplies, and when the Water Company finds something nasty, I take it apart and tell them how nasty." },
         { id = "h_analysis", tags = { "news" }, when = { questActive = TODO_QUEST("Insect Part Analysis") },
@@ -686,6 +718,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Anything else? Rose is getting impatient, though Rose is always impatient." } },
       choices = {
+        { text = "Does the poison out here have anything to do with the land itself?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What are you dissecting, Pestlezugg?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Let's see your supplies.", next = "BUSINESS" },
         { text = "Who's Rose?", next = "rose" },
@@ -775,6 +808,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Scorpid shell, basilisk hide, troll trinkets from round Zul'Farrak, and now and then a stone that hums when you hold it. Those go to a buyer in Booty Bay, and that's as much as you're getting out of me." } },
+      choices = {
+        { text = "A humming stone has a spirit in it. Selling it is wrong.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If the stone hums, charge double. That's good business.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Offering? I don't offer anything, friend; I just mention things. Now, if somebody happened to bring me something from Lost Rigger Cove the pirates were fond of, I might happen to pay well for it, and nobody would happen to remember." } },
@@ -795,6 +837,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "Shaman, yes? I've sold to your kind before, totems and skins and a few odd stones. What you do with them is your business, and what I paid for them is mine." },
         { id = "h_default", key = true,
           text = "I'm Tran'rek. I buy what the desert's got and sell it to people who haven't got a desert, and business is good, better than I'll ever tell you." },
         { id = "h_krazek", when = { any = { { questActive = TODO_QUEST("Tran'rek") }, { heardLine = "krazek.h_default" } } },
@@ -810,6 +853,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Still here asking questions? That's how I started, and look where it got me." } },
       choices = {
+        { text = "What does the desert give up that's worth buying?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What do the shells sell for?", next = "shells" },
         { text = "What's it like being Krazek's cousin?", next = "krazek" },
         { text = "Who buys this stuff?", next = "buyers" },
@@ -916,6 +960,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Every night, and they grow a little taller with every round. The latest is a sandstorm with a face, out past the Wastewander camps, and I'd laugh, except three different caravans told it the same way." } },
+      choices = {
+        { text = "Drink talks. Trust what you see, not what's sung.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Listen to those stories. The land speaks through odd mouths.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "In a desert, friend, water is the most expensive thing on the menu, and I didn't set the price, the Water Company did. A mage could put me out of business with a flick of the wrist, so keep the conjuring to your room and I'll keep the stew warm." } },
@@ -936,6 +989,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman in the Road Warrior! If you can call up a bit of rain, I'll stop calling the sand in the stew seasoning and start calling it soup." },
         { id = "h_default", key = true,
           text = "Innkeeper Fizzgrimble, of the Road Warrior: the best inn in Gadgetzan, and also the only inn in Gadgetzan, and those two facts are related." },
         { id = "h_sand", when = { metBefore = true }, text = "There's sand in the stew again, so I tell the guests it's seasoning, a very exclusive desert seasoning." },
@@ -950,6 +1004,7 @@ P:NPC {
         { id = "h_again2", text = "Ask away, friend; the stool's paid for and the gossip's free." },
       },
       choices = {
+        { text = "Do travellers bring tales of the desert's spirits to your inn?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I'd like a room.", next = "BUSINESS" },
         { text = "What's the news in town?", next = "news" },
         { text = "Why 'the Road Warrior'?", next = "name" },
@@ -1034,6 +1089,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Pirates from Lost Rigger Cove, mostly, sniffing round the ships, and the tide doing strange things at night. I keep my head down and my eyes on the water, because I'd rather see trouble coming than have it walk up behind me." } },
+      choices = {
+        { text = "Hiding from debts only makes them heavier. Face them.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Smart man. Let the tide carry your troubles off.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "That's what the last one said, right before he asked me where I kept my strongbox. If you're truly not from Booty Bay, you'll understand why I keep looking over your shoulder, and you won't take it personally." } },
@@ -1054,6 +1118,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "Shaman, huh? Don't suppose the spirits ever tell you who's looking for a fellow, do they, because that's a talent I'd pay for, if I could pay for things." },
         { id = "h_default", key = true,
           text = "I'm Stoley, and I work the port and keep my head down. Some people in Booty Bay think I owe them money, and they're not entirely wrong." },
         { id = "h_mackinley", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("Stoley's Debt") }, { heardLine = "mackinley.h_default" } } },
@@ -1070,6 +1135,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Anything else? Say it quietly, because ships have ears." } },
       choices = {
+        { text = "The sea out there is restless. What's the port seen lately?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "How much do you owe MacKinley?", next = "debt" },
         { text = "What's in the shipment?", next = "shipment" },
         { text = "Why not just sail away?", next = "leave" },
@@ -1152,6 +1218,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "It's over a hundred out there every day, and the forge has to burn hotter still, so it sulks if I stoke it wrong. Some mornings I'd swear it's got moods, and I've lost more good molds to its tempers than to any customer." } },
+      choices = {
+        { text = "Treat the flame with respect and it'll serve you well.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Fire's a tool. Hammer it into line like everything else.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "For anyone who pays and doesn't stab a Bruiser with it, yes, and I've never asked what my edges get used for. The Repairers' Union wanted me to ask questions, and that's partly why I don't belong to the Repairers' Union." } },
@@ -1172,6 +1247,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, is it? Fire and earth are my trade too, near enough, only I bill for mine, so if your spirits fancy a job at the forge, I'm hiring." },
         { id = "h_default", key = true,
           text = "Krinkle Goodsteel. Iron, thorium, flux, and molds for things that nobody else will make molds for. If you can pay, I can pour it." },
         { id = "h_mold", tags = { "news" }, when = { questActive = TODO_QUEST("Mold Rhymes With...") },
@@ -1190,6 +1266,7 @@ P:NPC {
         { id = "h_again2", text = "Still here? Then you're either buying or haggling, and I filed a complaint against haggling years ago." },
       },
       choices = {
+        { text = "Does the fire in your forge ever fight you?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Who else buys these molds?", next = "who" },
         { text = "Show me your stock.", next = "BUSINESS" },
         { text = "Goblin steel? Let's see if it meets a dwarf's standards.", next = "x_dwarf", when = { race = "Dwarf" } },

@@ -164,6 +164,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "They do, and the elements are losing, which is the worst of it. The Shadow Council at Jaedenar drew fel up through the roots until the earth itself turned sour, and now even the fire in this forest burns green. A shaman who listens too closely here may find something other than the spirits listening back." } },
+      choices = {
+        { text = "I'll keep to the old ways and leave the fel alone.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Every power can be mastered, given the will. Even this one.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Only the satyrs, and they don't steal so much as spoil. When the Shadow Council were at Jaedenar, though, they sent creeping folk to watch every road, so I keep an ear open for footsteps that are softer than they ought to be." } },
@@ -184,6 +193,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, here? Then you'll feel the fel in this place pulling at you, so mind you don't answer it; I've watched stronger spirits than yours bend." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "You move very quietly for someone in a camp full of druids, rogue. Quiet is good in Felwood; the Deadwood furbolgs hear everything else." },
         { id = "h_magecl", when = { class = "MAGE" },
@@ -203,6 +213,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Yes? Ask, and I'll hold my stone while you do." } },
       choices = {
+        { text = "Do the fel and the elements fight each other here, Greta?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Who are the Shadow Council?", next = "council" },
         { text = "Tempt me? How?", next = "tempt" },
         { text = "Tell me about the stone.", next = "stone", when = { metBefore = true } },
@@ -454,6 +465,15 @@ P:NPC {
         { text = "Show me what to hit. I'll leave the patience to you.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "It goes down to the roots and the water both, which is why salves and seeds take so long. My people would say Elune's light has gone out of this place, and yours would say the spirits are sick, and I think we're describing the same wound from opposite sides. That's as near as I'll come to agreeing with the Horde today." } },
+      choices = {
+        { text = "The spirits don't care about banners, and neither do I.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "My place is with the Horde, and I'll mend from there.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "The Circle is not Stormwind, and this forest is the reason why. I will work beside you, and I will thank you for the work, but I watched the Shadow Council turn Jaedenar into a nest of demons, and I cannot forget it on your account." } },
@@ -474,6 +494,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A Horde shaman. I'll say plainly that it's the Alliance I ask for help, but I won't pretend your kind don't know the land's voice, so speak." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock of the Alliance, and in my camp. Stormwind permits your kind, I know, but I will be honest with you: I would rather you left your demon outside the sanctuary." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -489,6 +510,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Something else? Mind the flower, though." } },
       choices = {
+        { text = "Does the curse here go deeper than the trees?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why is it harder than war?", next = "harder" },
         { text = "Tell me about the flower.", next = "flower", when = { metBefore = true } },
         { text = "Do you work with Maybess?", next = "maybess" },

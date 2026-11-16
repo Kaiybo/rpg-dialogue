@@ -35,6 +35,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Never, and I didn't mind at first, because bugs hate the cold even more than I do! But now there's the beetle, and the furbolgs gone mean out past the springs, and the wind howls so loud at night I swear it's saying something. You'd know better than me whether it's angry, wouldn't you?" } },
+      choices = {
+        { text = "I'll speak to the wind for you. That's what I'm for.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "For a hot bowl of soup, I'll tell it anything you like.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Not in my inn, they don't, because the Cartel's bruisers stand at the gate and every goblin in town counts their coin twice. Pick a pocket in Everlook and you'll be walking back to Felwood in your smallclothes, and that's a long, cold walk." } },
@@ -64,6 +73,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Oh, sugar, tell me the spirits don't send bugs, because if one of your totems starts buzzing it's going straight outside." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue! You've got good eyes and quick hands, so if you see anything with too many legs scuttling about my rafters, you squash it, and I'll love you forever." },
         { id = "h_magecl", when = { class = "MAGE" },
@@ -82,6 +92,7 @@ P:NPC {
         { id = "h_again2", text = "What else, sugar? I've got gossip and soup, and both are hot." },
       },
       choices = {
+        { text = "Does the wind up here ever let up, Vizzie?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What's happened to the Winterfall, Vizzie?", next = "druid_q", when = { class = "DRUID" } },
         { text = "A room, please.", next = "BUSINESS", fx = { affinity = 1 } },
         { text = "Who comes through Everlook?", next = "guests" },
@@ -165,6 +176,15 @@ P:NPC {
         { text = "Isn't it a little cruel?", next = "prank_cruel" },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Trouble them? Oil turns to jelly, springs snap and gears freeze solid if I turn my back for a minute! I've started wrapping my best work in yeti fur, which is a kind of respect for the local spirits, isn't it? I'm sure your earth friends would approve, as long as nobody tells the yetis." } },
+      choices = {
+        { text = "Build what you like. The spirits can bear a little mischief.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Machines don't belong in the wild. Mind what you build.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Because I can, and because Legacki laughed at me, and you don't laugh at an engineer unless you want a furry metal monster waiting by your door. Magic's very well, but nothing beats a good gear train when you want to scare someone properly." } },
@@ -185,6 +205,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Do you think the spirits would mind a mechanical yeti? I'd hate to offend the snow, because it's been so good to me." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! Could you make something glow? No, wait, don't, the last spark nearly set my yeti's fur alight, and that fur took me three weeks to get." },
         { id = "h_roguecl", when = { class = "ROGUE" },
@@ -201,6 +222,7 @@ P:NPC {
         { id = "h_again2", text = "Ask away, but quickly, because something on that bench is ticking." },
       },
       choices = {
+        { text = "Does the cold up here trouble your machines, Umi?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Who are you scaring?", next = "prank" },
         { text = "Teach me.", next = "BUSINESS", when = { profession = "Engineering" } },
         { text = "Why a yeti?", next = "yeti" },
@@ -282,6 +304,15 @@ P:NPC {
         { text = "I fight the Scourge. The Light is just a tool.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Not into the snow itself, thank the Light, but the cold doesn't stop fear, and plenty come through Everlook with the plague still behind their eyes. Further south the Scourge poisons the earth wherever it walks, and I'd wager your spirits could tell you more of that than any report of mine. If the land itself is sick in the Plaguelands, the Dawn needs those who can hear it." } },
+      choices = {
+        { text = "Then I'll carry the spirits' strength against the Scourge.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Lordaeron's ruin is the Alliance's mess. Let them clean it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "We accept anyone who stands against the Scourge, and some of our best scouts in the Plaguelands are not the sort the Church would bless. But the Cult of the Damned began with men who thought they could master dark things, so we watch, and we hope we're wrong to." } },
@@ -302,6 +333,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, welcome. The Dawn has learned to value every kind of strength against the Scourge, and the spirits you speak to hate the plague as much as we do." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock. The Argent Dawn welcomes anyone who fights the Scourge, and I'll hold to that, but forgive me if I ask what you mean to do with that power here in Everlook." },
         { id = "h_magecl", when = { class = "MAGE" },
@@ -316,6 +348,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "What else? The Light keeps late hours, and so do I." } },
       choices = {
+        { text = "Does the plague reach even this far north, Gregor?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Is the plague a sickness of the land too?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Tell me about the Argent Dawn.", next = "dawn" },
         { text = "What does the Dawn want with Winterspring?", next = "why_here" },

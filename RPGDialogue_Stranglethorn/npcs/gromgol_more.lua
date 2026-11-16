@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Then you'd better have a spell that floats, pal, because the jungle down there is all teeth. We had one come down hard over the coast once, and the crew who walked out of the trees didn't want to talk about the walk." } },
+      choices = {
+        { text = "Then let's make sure it doesn't. Check those engines.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "If it goes down, I'm jumping first and asking later.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "All the time, and I tell the passengers it's perfectly safe, which is a lie I'm paid to tell. Put a shaman aboard, though, and the storms seem to step aside, so I've started giving your lot the good seats." } },
@@ -57,6 +66,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You wouldn't put in a word with the air spirits about the crosswinds, would you? The last crossing nearly put us in the sea." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Say a little something for the engine, would you, pal? It's been coughing since the last crossing." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock! Your little buddy rides in the hold, pal, because the last imp we let up top set the balloon smoking." },
         { id = "h_default", key = true,
           text = "Nez'raz, zeppelin master! The ship from this tower drops off at Orgrimmar, and the sun here beats the dust there any day of the week. Best post on the line, if you ask me, and nobody ever does." },
         { id = "h_night", when = { timeOfDay = "night" },
@@ -70,6 +81,7 @@ P:NPC {
       },
       choices = {
         { text = "Do the zeppelins ever fly through storms on the way?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What happens if the zeppelin goes down over the jungle?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Are these zeppelins safe?", next = "safe" },
         { text = "Why do you like it here?", next = "sun" },
         { text = "Do you see much from up here?", next = "view" },
@@ -150,6 +162,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Safe enough in the air, but the landings are another matter. The swamp at Stonard has things in the water, and the Badlands around Kargath have ogres and worse, so keep a spell ready when you climb down." } },
+      choices = {
+        { text = "I'll go ready and careful, then. Thank you.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll take my chances. Nothing out there is faster than me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "They do, and I think it's because you listen to the wind instead of shouting at it. Most riders shout, and the beasts carry them anyway, but they carry a shaman as if they were glad to." } },
@@ -180,6 +201,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The wind riders feel the air before we do, and they've been restless all morning, so perhaps you can tell me why." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The riders are uneasy around the dead and the loa alike, but they'll carry you, because I ask them to." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. Some of you can teleport, I know, but the riders go where your spells don't reach, which is most places." },
         { id = "h_default", key = true,
           text = "Thysta, wind rider master. From Grom'gol the riders go to Kargath and Stonard, and to the goblins at Booty Bay, if you've any business that far south." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. You'll be wanting to scout the ridges, I suppose, and I'll warn you that the trolls up there see more than they let on." },
@@ -191,6 +214,7 @@ P:NPC {
       },
       choices = {
         { text = "Do the wind riders take to shamans more than to others?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Are the routes to Stonard and Kargath safe for a lone caster?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "How do the riders like the jungle?", next = "jungle" },
         { text = "You watch the trolls on the ridges?", next = "trolls" },
         { text = "Show me where I can fly.", next = "BUSINESS" },
@@ -258,6 +282,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Reagents first, because the damp spoils them, and then clean water, because the jungle water gives you the shakes. Bring your own if you can, and if you can't, buy mine and don't complain about the price." } },
+      choices = {
+        { text = "I'll pay your price. You've earned it out here.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll haggle, and you'll take less, Uthok.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "The zeppelin does, along with everything else, and the goblins mark them up twice before they reach me. I mark them up once more, so don't look at me like that, because I'm the cheapest of the three." } },
@@ -288,6 +321,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll want ankhs, then, and shiny scales, though the jungle turns my stock green as fast as I unpack it." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Candles, cloth and bandages, that's what your lot buy, and the jungle eats the candles." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. I've got what you need for your rituals, and I don't ask what you need it for." },
         { id = "h_default", key = true,
           text = "Uthok, general supplies. Everything I sell came off a zeppelin, and the jungle will rot it or eat it in a week, so buy what you need and use it fast." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. I'll be watching my stock while you're here, so don't take it personally, because I watch everyone." },
@@ -299,6 +334,7 @@ P:NPC {
       },
       choices = {
         { text = "Who supplies your ankhs this far from Orgrimmar?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What supplies run short in Grom'gol for casters?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "What's the hardest thing to keep in stock?", next = "stock" },
         { text = "Do the trolls ever try to steal from you?", next = "thieves" },
         { text = "Show me what you have.", next = "BUSINESS" },

@@ -24,6 +24,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = {
+        { id = "xhcast_default", text = "They do, a handful of shadow mages who learned just enough in Alterac's better days to be dangerous. They cast from behind their swordsmen, which tells you everything about their courage, and a spellcaster who struck them first would spare my people a good deal of trouble." },
+      },
+      choices = {
+        { text = "I'll face their casters openly, and let the Syndicate see who came.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll strike their casters from behind. They've earned nothing better.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "If they do, they speak quietly, which suits this house well. These hills have watched a king betray his own people and the Syndicate rise out of what was left, and I imagine the spirits have learned, as I have, to choose their confidants carefully." } },
@@ -65,6 +76,8 @@ P:NPC {
           text = "A shaman of Thrall's Horde, at Ravenholdt. The Warchief's people rebuilt an old faith out of ashes in a few short years, and I respect anyone who builds something that lasts." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid at Ravenholdt. My guests usually arrive in shadow, but few of them arrive on four paws, and I confess I find it refreshing." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
+          text = "A priest of the Horde, at my door. Whether you pray to the loa or to a Light that no longer quite answers you, I ask only that you pray quietly, because my servants are easily distracted." },
         { id = "h_default", key = true,
           text = "I am Jorach Ravenholdt, and this house has stood in these hills longer than Alterac's kings stood on their thrones. We keep our own counsel here, and we keep the Syndicate in its place." },
         { id = "h_emblems", tags = { "news" }, when = { questActive = TODO_QUEST("Syndicate Emblems") },
@@ -75,6 +88,7 @@ P:NPC {
       choices = {
         { text = "Does your house keep this forest, my lord, or only hide in it?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Do the spirits of Alterac speak to your house, my lord?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do the Syndicate keep spellcasters of their own, my lord?", next = "xhcast", when = { class = "PRIEST", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Why does the Syndicate trouble you so much?", next = "syndicate" },
         { text = "What is this house, exactly?", next = "house" },
         { text = "I've walked in shadows a while. Is there a place for me here?", next = "rogue", when = { class = "ROGUE" } },
@@ -242,6 +256,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "They keep watch at night when the guards are drunk, and they question the prisoners when the guards grow bored of beating us. One of them asked me about Durotar for three days running, and his questions left marks the whip never did." } },
+      choices = {
+        { text = "Point him out to me, brother. I'll face him openly.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll catch him asleep. He's earned no fair fight.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "The key stays on the belt of whichever guard sleeps nearest the fire, because they trust nobody else with it. They change watch at dusk and again before dawn, and the second watch is always half asleep and half drunk." } },
+      choices = {
+        { text = "I'll take the key, but I'll fight the guard to his face.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll take the key and leave nobody awake to raise an alarm.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Some nights, when the guards slept, I heard the wind in the pines and remembered that Thrall freed our people from cages like these. The spirits did not break my chains, but they reminded me that chains have been broken before." } },
@@ -255,6 +287,14 @@ P:NPC {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman of the Horde, here in these camps. I have asked the spirits of the earth to break these chains for many nights now, and perhaps they sent you instead." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
+          text = "A priest, come to a chained orc. Whether you serve the loa or the Light the dead still whisper to, I don't care, so long as you can mend these wrists once the iron comes off." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } },
+          text = "A mage of the Horde. The Syndicate keep shadow mages in these camps, and I have watched them work for months, so forgive me if I flinch when you raise your hands." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
+          text = "A warlock, and of the Horde. I remember what your kind made of us before Thrall, so open this door if you've come to open it, and keep your demons on the far side of it." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } },
+          text = "You came in quietly, and the guards never heard a thing. Good, because a Syndicate camp is full of men who sleep with one eye open and a hand on a knife." },
         { id = "h_default", key = true,
           text = "I am Gol'dir, and the Syndicate has kept me in chains longer than I care to count. They move me between their camps so nobody can find me, and still you found me." },
         { id = "h_alliance", when = { faction = "Alliance" },
@@ -264,6 +304,8 @@ P:NPC {
       },
       choices = {
         { text = "Did the spirits keep you company in your chains, Gol'dir?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What do the Syndicate's shadow mages do in these camps, Gol'dir?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Where do the guards keep the keys, and when do they change watch?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Why did the Syndicate take you?", next = "taken" },
         { text = "Who is Krusk to you?", next = "krusk" },
         { text = "What are they digging for at Strahnbrad?", next = "dig" },
@@ -337,6 +379,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Very little, and I'm proud of that, though a spellcaster who could keep a flask cold on the road to Hammerfall would save me a great deal of wasted silverleaf. The heat in these valleys turns half my draughts before the Deathguards ever drink them." } },
+      choices = {
+        { text = "I'll help, if it serves the Dark Lady's soldiers first.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Brew what you like. The Society's rules needn't bind you.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "The herbs are the same, peacebloom and silverleaf and the rest, and only the intentions differ. You ask the plant's spirit to help, and I ask the plant to stop a heart by morning, and I've never yet met a plant that refused me." } },
@@ -368,6 +419,10 @@ P:NPC {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman at my bench. Your kind brew with herbs and prayers, I'm told, while I use herbs and arithmetic, and only one of us has ever had a complaint." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
+          text = "A priest at my bench. Whatever you pray to, loa or Light or the shadow between them, please do it after I've finished measuring, because prayer has never once improved a tincture." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } },
+          text = "A mage. You're welcome to stand and watch, but you'll find alchemy terribly slow after fireballs, since nothing on this bench happens in less than a night." },
         { id = "h_default", key = true,
           text = "Serge Hinott, alchemist to Tarren Mill. The Apothecary Society does the grand work in the Undercity, and I do the useful work out here, where a draught has to be ready by morning." },
         { id = "h_living", when = { faction = "Alliance" },
@@ -377,6 +432,7 @@ P:NPC {
       },
       choices = {
         { text = "Do your draughts and a shaman's herbs have anything in common?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Is there anything in Hillsbrad you can't brew without magic, Serge?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "What do you brew out here?", next = "brews" },
         { text = "How do you get along with Apothecary Lydon?", next = "lydon" },
         { text = "What poisons does Tarren Mill make for its rogues, Serge?", next = "xrogue", when = { class = "ROGUE" } },

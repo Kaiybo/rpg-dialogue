@@ -26,6 +26,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Elemental essences, mostly, earth and fire and water, bottled by folk who don't say where they got them. Fire went up in price after somebody brought a crate in from Un'Goro, and I'm still not sure that crate's finished being on fire." } },
+      choices = {
+        { text = "Bottling elements is cruel. Those essences were alive.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Supply and demand. If it's bottled, it's for sale.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Oh, every week, I'd imagine, and I'd never be able to prove it. The Cartel's rule is that a thing in my ledger belongs to whoever listed it, and I've found that rule keeps the peace better than any lock." } },
@@ -46,6 +55,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Carved totems sell well, by the way, and if your spirits ever want to put anything up for auction, I'll take the usual cut and ask no questions." },
         { id = "h_default", key = true,
           text = "Auctioneer Beardo, at your service. This is the only house in Kalimdor where an orc can bid on a dwarf's old boots and nobody gets stabbed for it, so long as the Bruisers are watching." },
         { id = "h_night", when = { timeOfDay = "night" },
@@ -60,6 +70,7 @@ P:NPC {
         { id = "h_again2", text = "Still with me? Good, because talking is free, and that makes it the only thing in here that is." },
       },
       choices = {
+        { text = "Does anything from the land itself pass through your auction?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Show me what's up for auction.", next = "BUSINESS" },
         { text = "How is this house different from the city ones?", next = "neutral" },
         { text = "What sells best out here?", next = "sells" },
@@ -147,6 +158,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "They hate it, and they tell me so all night. The wolves pant, the cats sulk, and the only ones who seem happy are the scorpids people keep leaving with me, which I don't trust one bit." } },
+      choices = {
+        { text = "Some beasts belong to their own lands and shouldn't be dragged here.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Beasts adapt, like the rest of us. They'll learn the desert.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "Then it did something to that shade that looked a great deal like eating, and I'm not paying the Water Company to cool beasts that don't need cooling. Keep your demon with you, friend, and keep it out of the sun for your own sake." } },
@@ -167,6 +187,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, good. The beasts settle when your kind are about, which is more than I can say for the Water Company's collectors." },
         { id = "h_default", key = true,
           text = "Laziphus, stable master. Hunters leave their beasts with me while they travel, and I keep them fed, watered and out of the sun, which in Tanaris is the hard part." },
         { id = "h_noon", when = { timeOfDay = "day" },
@@ -183,6 +204,7 @@ P:NPC {
         { id = "h_again2", text = "Ask away, but quickly, because the water's warming up while we chat." },
       },
       choices = {
+        { text = "How do the beasts in your care feel about this desert?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "How do the animals bear this heat?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I'd like to see my stabled animals.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "How do you keep animals alive out here?", next = "heat" },
@@ -258,6 +280,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "I've wondered, honestly. After every big blast out back, the sand settles strangely for a day or two, like it's sulking, and the scorpids come up to look at the hole. Either the earth's annoyed, or the scorpids are admirers." } },
+      choices = {
+        { text = "The earth will answer one day. Mind your charges.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Keep blasting. The earth has survived worse than goblins.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "That's what I tell my students, and it's true, but I've watched a rogue use blasting powder to open a strongbox and lose half a strongbox and two eyebrows. If you want to make things go bang, learn it properly, from someone who still has all his digits." } },
@@ -278,6 +309,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You call down lightning for free and I spend a fortune trying to bottle it, so I'd say that makes us colleagues, or rivals, or something in between." },
         { id = "h_default", key = true,
           text = "Buzzek Bracketswing, engineering trainer, at the southern end of town where the explosions don't bother the bank. If you've got the coin and the nerve, I'll teach you how to make things go bang on purpose." },
         { id = "h_roguecl", when = { class = "ROGUE" },
@@ -290,6 +322,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, ask, but stand behind the crate while you do." },
       },
       choices = {
+        { text = "Does all your blasting shake the earth spirits loose?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Teach me engineering.", next = "BUSINESS" },
         { text = "Goblin or gnomish engineering: which is better?", next = "schools" },
         { text = "Why set up out here, at the edge of town?", next = "hut" },
@@ -356,6 +389,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Up in the hills round the edges, mostly, and in the old troll ruins, which is the trouble, because something always lives on top of the good veins. The deeper you dig the warmer the rock gets, too, and nobody's explained that to me yet." } },
+      choices = {
+        { text = "Take what the earth offers, and never more.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Dig it all out. The earth makes more.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Maybe, but nobody ever got arrested for mining a thorium vein. Mind you, the ogres in the hills might disagree, since they think every rock in Tanaris is theirs, and they're just as quick to crack your head for it." } },
@@ -376,6 +418,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? You'll be telling me the earth has feelings, and I'll be telling you it has thorium, and we'll both be right, but only one of us gets paid." },
         { id = "h_default", key = true,
           text = "Pikkle, mining trainer for Gadgetzan. The desert looks like nothing but sand, but there's metal under it and in the hills, and I'll teach you how to get it out." },
         { id = "h_roguecl", when = { class = "ROGUE" },
@@ -388,6 +431,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, then. My time's not free, but my opinions very nearly are." },
       },
       choices = {
+        { text = "Where's the good ore in Tanaris, and what guards it?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Teach me what you know.", next = "BUSINESS" },
         { text = "Where's the good ore around Tanaris?", next = "ore" },
         { text = "Is mining in the desert dangerous?", next = "danger" },

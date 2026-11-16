@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "It does, and I wish it didn't. My dusts settle in strange patterns when the wind blows from the Crystal Vale, and a rod I'd charged before I came here went quite dead within a week of arriving." } },
+      choices = {
+        { text = "The land's power isn't meant to be caught in rods.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then use the crystals. Their hum could charge stronger rods.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "Some do, and they always want the strongest dusts, the ones that hold a lasting enchantment. I sell them what they need and ask nothing, but I keep my best formulae for those who'll make cloaks against the silithid, not curses." } },
@@ -47,6 +56,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Your totems carry a little magic of their own, I think, though not the kind I sell, so look all you like, but please don't let them rattle near the vellum." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock. If you're buying vellum for anything dark, I'd rather not know, but I'll warn you the sand ruins every scroll unless you wrap it twice." },
         { id = "h_roguecl", when = { class = "ROGUE" },
@@ -59,6 +69,7 @@ P:NPC {
         { id = "h_again2", text = "I'm listening, though I'll keep sorting while we talk." },
       },
       choices = {
+        { text = "Does the hum in the crystals here touch your enchanting?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Show me what you have.", next = "BUSINESS" },
         { text = "Why keep your shop upstairs?", next = "upstairs" },
         { text = "Who needs enchanting out in the desert?", next = "who" },
@@ -211,6 +222,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "The ground, I think, because they all go quiet together a moment before the sand shivers. The commander says it's the hives digging, but the wolves all turn their heads the same way, south, and it isn't toward the nearest hive." } },
+      choices = {
+        { text = "Trust the beasts' instincts. They feel what we can't.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Keep them calm and disciplined. Fear spreads through a stable.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "Not yet, and I hope I never must, because a frightened beast in a stall can hurt itself badly. Every animal here is in my charge, and this is my first post, so I mean to keep every one of them safe." } },
@@ -231,6 +251,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde! Welcome, welcome; the beasts in my care have been restless lately, and I've wondered whether something in the earth unsettles them, so you're exactly who I hoped would come." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock! I'm sorry, but I can't stable demons, not even little ones, because the beasts here are frightened enough of the desert as it is." },
         { id = "h_magecl", when = { class = "MAGE" },
@@ -243,6 +264,7 @@ P:NPC {
         { id = "h_again2", text = "Please, ask whatever you like. I enjoy the company." },
       },
       choices = {
+        { text = "What unsettles the beasts here at the Hold?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I'd like to see my stabled pets.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "Why call yourself a squire?", next = "squire" },
         { text = "What's hard about keeping beasts here?", next = "sand" },

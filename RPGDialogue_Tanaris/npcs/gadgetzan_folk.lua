@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Give it back? Every copper in this vault came up out of somebody's mine, and every one of them is staying right here, where the earth can't reach it. The Cartel has never lost a coin to a landslide, and I'd like to keep it that way." } },
+      choices = {
+        { text = "Walls and Bruisers. That's how you keep what's yours.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The earth always takes its due in the end, banker.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Tried, three times, and the Bruisers caught every one of them before they reached the second lock. The fourth one is the one I worry about, because the fourth one will have learned from the first three." } },
@@ -48,6 +57,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, here at the vault. Your totems may command the earth outside, but in here the earth is a floor, and the Bruisers stand on it." },
         { id = "h_default", key = true,
           text = "Gimblethorn, banker to the Steamwheedle Cartel in Gadgetzan. Horde gold and Alliance gold weigh the same on my scales, and both go in the same vault behind the same Bruisers." },
         { id = "h_night", when = { timeOfDay = "night" },
@@ -62,6 +72,7 @@ P:NPC {
         { id = "h_again2", text = "Still here? Time is money, friend, and so is the lamp oil." },
       },
       choices = {
+        { text = "Gold comes from the earth. Does the Cartel ever give any back?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Open my box, please.", next = "BUSINESS" },
         { text = "Is anything in this town actually safe?", next = "safe" },
         { text = "Who banks with you?", next = "clients" },
@@ -243,6 +254,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Badly, at first. The hot air rises off the dunes and throws them about, and the young ones fight it, so I teach them to ride it instead, the way an old shaman once taught me to ride my temper." } },
+      choices = {
+        { text = "The wind needs a firm hand, like any beast.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Ride it, never rein it. The wind won't be owned.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "I trust a wind rider, and a sharp axe, and the word of the Warchief. The warlocks once bound our people in chains no one could see, and every orc of my years remembers the weight of them, so I will carry you where you need to go, but I will not pretend to like your craft." } },
@@ -263,6 +283,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde. The wind riders are calmer when one of you is near, and so am I, so speak freely." },
         { id = "h_default", key = true,
           text = "I am Bulkrek Ragefist, and I keep the wind riders for the Horde here. They will take you to Orgrimmar, the Crossroads, Camp Mojache and wherever else the Horde flies." },
         { id = "h_alliance", when = { faction = "Alliance" },
@@ -279,6 +300,7 @@ P:NPC {
         { id = "h_again2", text = "More? The heat makes orcs short-tempered, but I will listen." },
       },
       choices = {
+        { text = "How do the wind riders take this desert wind?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do the wind riders take to the desert?", next = "druid_q", when = { class = "DRUID", race = "Tauren" } },
         { text = "Where can I fly?", next = "BUSINESS", when = { faction = "Horde" } },
         { text = "How do the wind riders take the heat?", next = "riders" },
@@ -342,6 +364,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "The desert, my friend, which holds more meat than anyone thinks. Basilisk, scorpid, the odd roc that strays too close, and if you've a problem with any of it, the fire certainly doesn't." } },
+      choices = {
+        { text = "Thank the beasts' spirits for what you take, chef.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Meat is meat. The spirits can find their own supper.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "It's food without a soul, friend, bread that nobody kneaded and water that never fell from the sky! Eat it if you must on the road, but in Gadgetzan you'll eat my chops like a civilised person, and you'll thank me for it." } },
@@ -362,6 +393,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You talk to fire and I cook with it, and between the two of us I'll bet the fire likes me better, because I feed it the finest cuts in Azeroth." },
         { id = "h_default", key = true,
           text = "Dirge Quikcleave, greatest living chef in all of Azeroth, and the living part matters, because the competition keeps dying in the desert. Water's short in Gadgetzan, but meat isn't, so what'll it be?" },
         { id = "h_chops_before", when = { minLevel = 58, questBefore = TODO_QUEST("Dirge's Kickin' Chimaerok Chops") },
@@ -381,6 +413,7 @@ P:NPC {
         { id = "h_again3", text = "Go on, I can chop and listen at the same time." },
       },
       choices = {
+        { text = "Where does all your meat come from, Dirge, in a drought?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Let's see what you're selling.", next = "BUSINESS" },
         { text = "Where does the meat come from?", next = "meat" },
         { text = "Greatest living chef? Says who?", next = "boast" },
@@ -465,6 +498,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "That dune's taken more lead than a dwarven graveyard, and lately it's been creeping a few yards every night, like it's trying to get away. I tell myself that's the wind, and I keep telling myself." } },
+      choices = {
+        { text = "Even sand tires of being shot. Find another target.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "It's a dune. Keep shooting until it moves for good.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "And good guns favor rogues, because nobody expects the shot until it's already been fired! Don't go pointing it inside the walls, mind, because the Bruisers have a very simple rule about guns, and it's a rule I'd like you to live through." } },
@@ -485,6 +527,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Lightning in a bottle, that's you, and lightning's the only thing in Tanaris louder than my rifles." },
         { id = "h_default", key = true,
           text = "Blizrik Buckshot, gunsmith! Rifles, ammunition, and the occasional something special when a crate turns up from Booty Bay, and every one of them tested on that dune out back." },
         { id = "h_bruisers", when = { metBefore = true },
@@ -499,6 +542,7 @@ P:NPC {
         { id = "h_again2", text = "Go ahead, ask, but keep your fingers off the triggers." },
       },
       choices = {
+        { text = "Does that dune you shoot at ever mind it?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Show me your guns.", next = "BUSINESS" },
         { text = "Guns in a town that bans fighting?", next = "peace" },
         { text = "Dwarven guns or goblin guns?", next = "rivals" },
@@ -563,6 +607,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Their temper is brewed, not forged, and I can't tell you what's in it, only that steel quenched in it rings truer than any I've made. The Sandfury have worked metal in that desert far longer than Gadgetzan has had a well, and I suspect their loa have a hand in the recipe." } },
+      choices = {
+        { text = "Steel blessed by those loa should be melted down.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If it rings true, use it. The loa needn't know.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "No, and I've met mages with more sense than many of my own people, which I'll say only once. Still, the Highborne said the same about themselves until the Well swallowed them, and I'd be a poor smith if I forgot how a fire gets out of hand." } },
@@ -583,6 +636,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde at a kaldorei's anvil. Our peoples have little love between them, but the fire in this forge answers to neither, so you may stand and watch if you like." },
         { id = "h_default", key = true,
           text = "Trenton Lighthammer, smith. I work here by the south gate because it's nearest the road to Zul'Farrak, and the trolls of that city have something I need for my craft." },
         { id = "h_before", when = { minLevel = 42, questBefore = TODO_QUEST("Troll Temper") },
@@ -601,6 +655,7 @@ P:NPC {
         { id = "h_again2", text = "Ask on. The forge is patient, and so am I." },
       },
       choices = {
+        { text = "The Sandfury temper their steel with more than fire. What do they use?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What is troll temper, exactly?", next = "temper" },
         { text = "What's Zul'Farrak like?", next = "zf" },
         { text = "A night elf working steel?", next = "kaldorei" },

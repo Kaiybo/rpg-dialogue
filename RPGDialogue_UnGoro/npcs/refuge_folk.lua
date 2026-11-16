@@ -34,6 +34,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Because I've seen what it does to them as eats it. Fruit that makes a man's skin glow, roots that set his belly fighting him, and one lad who ate a raptor egg and swore for a week the mountain was calling his name." } },
+      choices = {
+        { text = "The crater's gifts are meant for its own. Wise of you.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The land feeds those who respect it. You're missing out.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "It hurts my pride more than my purse, because I paid a goblin to haul every barrel up that cliff. Still, a mage who can feed their own belly is one less mouth on my stores, and the Refuge needs every crumb it can keep." } },
@@ -54,6 +63,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? Ye'll not find me buying anything ye've charmed out o' that crater, so don't ask. Bread from Gadgetzan and water I've boiled twice, that's all I trust." },
         { id = "h_default", key = true,
           text = "Nergal, and I keep the stores for the Refuge. Bread, meat, water and ammunition, all carried up here by people braver than me, so the expedition doesn't have to eat what lives in the crater." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, eh? Then you'll be glad to know none of my stores came out of the crater, because I've seen what the raptors eat and I'd rather not join the meal." },
@@ -67,6 +77,7 @@ P:NPC {
         { id = "h_again2", text = "Ask away, but I'll keep stacking while ye do." },
       },
       choices = {
+        { text = "Why won't you trust anything that grows in the crater?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why not live off the crater, Nergal?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Let me see your goods.", next = "BUSINESS" },
         { text = "Why not eat what's in the crater?", next = "crater_food" },
@@ -134,6 +145,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Hot and lumpy, like flying through soup. The air comes up off the Fire Plume in great gusts, so my beasts have learned to swing wide round the ridge, because the last one that went straight over came back singed and in a very bad mood." } },
+      choices = {
+        { text = "Swing wide. Some winds aren't meant to be crossed.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Fly straight through. Bold winds respect a bold flier.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Not if they pay, and not if the Bruisers aren't asking either. Folk come out of the crater with all sorts of reasons to keep quiet, and I've found I fly faster when I don't know any of them." } },
@@ -154,6 +174,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! My beasts don't love flying near the volcano, so if you've any pull with the winds round Fire Plume Ridge, put in a good word for them." },
         { id = "h_default", key = true,
           text = "Gryfe, flight master for Marshal's Refuge. I'll fly anybody to Gadgetzan or to Cenarion Hold, Horde or Alliance alike, because coin's the same colour whichever side pays it." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Your Circle keeps watch at Cenarion Hold, and I fly folk there most days, so I hear plenty about the bugs in Silithus." },
@@ -167,6 +188,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, ask, but don't take too long." },
       },
       choices = {
+        { text = "What are the winds like over the crater?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What do you hear about Silithus, Gryfe?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Where can I fly?", next = "BUSINESS" },
         { text = "Why fly anyone, Horde or Alliance?", next = "neutral" },

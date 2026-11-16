@@ -37,6 +37,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Old stone that wakes when ye touch the wrong thing, and old seals the Explorers' League keeps breakin' because they cannae leave a door shut. Whatever the makers locked away down there, they locked it for a reason, and yer magic would only be one more key in the wrong hand." } },
+      choices = {
+        { text = "Doors like that should stay shut, Martek. I'll respect the seals.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Old seals are made to be broken. I'll take what's inside.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Some nights, when the wind howls through the camp an' there's nobody tae curse it with. But a city's full o' folk who know yer business, an' out here only the buzzards know mine, an' they've never told a soul." } },
@@ -63,6 +72,10 @@ P:NPC {
           text = "A shaman, here? The earth out here is old and sore, and I've worked it long enough to know when it's in a mood, which is most days." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid, out here? You'll find no forest in the Badlands, only rock and me, and I've been told I'm poorer company than the rock." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
+          text = "Ye pray to something, I can see it on ye, though I'd wager it's no' the Light I was raised under. Sit if ye must, but keep yer blessings to yerself." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
+          text = "I can smell the brimstone on ye from here, warlock. Keep whatever's at yer heel well back from my anvil, or it'll learn what a hammer's for." },
         { id = "h_default", key = true,
           text = "Martek, they call me, and 'the Exiled' because it's true. I work metal out here where no one tells me how, and the Badlands keep my secrets." },
         { id = "h_letter", when = { questActive = TODO_QUEST("Martek the Exiled") },
@@ -77,6 +90,7 @@ P:NPC {
       choices = {
         { text = "Why live alone in a land this harsh, Martek?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Does the earth speak to you when you work its metal, Martek?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What lies under Uldaman that a spellcaster ought to know about?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Why were you exiled?", next = "exile" },
         { text = "What's indurium?", next = "indurium" },
         { text = "How do you live out here?", next = "life" },
@@ -158,6 +172,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "The ogres, pal, the Dustbelcher ones up in the hills, because they figure anybody waving their hands around is worth clubbing first. Me, I just wave a skewer, and they leave me alone so long as I feed 'em." } },
+      choices = {
+        { text = "I'll meet them in the open and let them see me coming.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll hit them from cover before they know I'm there.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Every cook from here to Booty Bay, pal, and a few in Gadgetzan who should know better. I keep it in my head, where nobody can pick the lock, though a Kargath grunt once tried to beat it out of me, and all he got was indigestion." } },
@@ -184,6 +207,10 @@ P:NPC {
           text = "A shaman! Say, could you call up a bit of fire for my grill? It'd save me on charcoal, and the buzzards don't care how they're cooked." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! You're not here to give me grief about the buzzards, are you? Because they're the ugliest birds in the Badlands, and somebody has to eat 'em." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
+          text = "A priest, huh? Say a little blessing over these wings for me, pal, because a holy buzzard's gotta sell for double." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } },
+          text = "Hey, a mage! If you can conjure up water, pal, you're welcome at my fire, because the sauce needs thinning and the spring's a long walk." },
         { id = "h_default", key = true,
           text = "Rigglefuzz's the name, and barbecue's the game! I've got a recipe for buzzard wings that'll make me richer than a Steamwheedle baron." },
         { id = "h_wings", when = { questActive = TODO_QUEST("Barbecued Buzzard Wings") },
@@ -196,6 +223,7 @@ P:NPC {
       choices = {
         { text = "How many buzzards have you cooked, Rigglefuzz?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Do you ever thank the spirits for your buzzards, Rigglefuzz?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What's the worst danger on this road for a spellcaster, Rigglefuzz?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Buzzard wings? Really?", next = "wings" },
         { text = "Who buys food out here?", next = "buyers" },
         { text = "Isn't it dangerous by the road?", next = "danger" },

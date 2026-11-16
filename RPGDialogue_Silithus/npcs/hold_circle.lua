@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Calling them up and binding them with those wind stones, as far as we can tell, and the elements don't like it one bit. Huum says the land screams every time they do it, and Huum doesn't exaggerate, so I believe him, even if all I hear is wind." } },
+      choices = {
+        { text = "Forcing spirits into service is a crime. The cult must answer.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Bound elements make a fine weapon. Maybe we should learn the trick.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "No idea, friend, that's the joke! I bring them in by the armful and Huum frowns at them, and somewhere in all that scribbling are the names of the crazies' leaders, so keep bringing them." } },
@@ -48,6 +57,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "Ha, a shaman! You'll know better than anyone what those Twilight crazies are doing to the elements out west, and my brother and I would love to hear it from someone who can feel it." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue! Big brother says you lot can read the crazies' papers before they know they've lost them, and I'd believe it, because I can't read a word of them myself." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
@@ -64,6 +74,7 @@ P:NPC {
         { id = "h_again2", text = "Ask away! I like talking more than my brother does." },
       },
       choices = {
+        { text = "What are the Twilight's Hammer doing to the elements out west?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why watch the cult, with the bugs so close?", next = "crazies" },
         { text = "What are these papers the cultists carry?", next = "texts" },
         { text = "Tell me about your brother.", next = "brother" },
@@ -317,6 +328,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Not if I've done my work properly, and I have. The stones answer to the cult's medallion and robes, not to the heart beneath them, which tells me whatever speaks through them is either very old or very foolish, and I'd rather not learn which." } },
+      choices = {
+        { text = "Deceiving the elements feels wrong, even against the cult.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A good lie in a good cause. Make it convincing.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "Some of their rituals look much like yours, from what the druids tell me, and a forgery must match every detail. If you see a sigil I've copied badly, say so, and I'll fix it before it gets someone killed." } },
@@ -328,6 +348,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde. The druids say your kind hear the earth as they do, in a rougher dialect, and if that's so, perhaps you'll tell me whether the stone I'm working wants to be a lie." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock. The cultists' medallions I forge would fool their masters, I think, but a warlock's eye might see through them, so tell me if they look wrong to you." },
         { id = "h_default", key = true,
@@ -344,6 +365,7 @@ P:NPC {
         { id = "h_again2", text = "Ask on. My hands don't need my mouth." },
       },
       choices = {
+        { text = "Can the wind stones tell a cultist from a disguise?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What are you making?", next = "craft" },
         { text = "Who commands the Twilight's Hammer?", next = "council" },
         { text = "You'd send me in disguise? Is that honourable?", next = "honor" },
@@ -438,6 +460,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Those who built the hives, and what they serve, which is older than the sand itself. A thousand years ago the wall was raised to hold them, and every grain of this desert remembers the price that was paid for it." } },
+      choices = {
+        { text = "Then the wall must hold, whatever it costs.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Walls only delay. Better to strike before they wake.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "They see the threads of time that every spell disturbs, as a stone disturbs a pond. You shape the world a little each time you cast, mortal, and the master watches every ripple." } },
@@ -458,6 +489,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You hear the land as it was meant to be heard, mortal, and so you know already that it is afraid of what sleeps behind the wall." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage, mortal, whose magic flows like sand through the hourglass. The Brood would find you interesting, and so do I, though perhaps not for the reasons you would wish." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
@@ -472,6 +504,7 @@ P:NPC {
         { id = "h_again2", text = "Speak. The hive will not stop for us, but I will." },
       },
       choices = {
+        { text = "What does the land fear behind the Scarab Wall?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Who are you, really?", next = "who" },
         { text = "What promise did you make?", next = "promise" },
         { text = "Why do you watch the hive?", next = "hive" },

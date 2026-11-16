@@ -44,6 +44,15 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Something more reliable than a runner, if you've got it. I lose dispatches to murlocs and mud every month, and a message that can't be ambushed on the road would be worth more to me than any fireball." } },
+      choices = {
+        { text = "Then I'll carry your dispatches myself, and they'll arrive.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'm no courier, Commander. Find another way.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Anything that hides, which in this swamp is everything, from the Atal'ai round the temple to the Alliance patrols that come down from Duskwood. I need someone who sees them first and doesn't stop to tell them about it." } },
@@ -69,6 +78,10 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Good, because my scouts come back from the deep swamp spooked, and they'd sooner tell a shaman what they felt out there than tell me." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid. Thrall's Horde has need of healers in this swamp, and the swamp has need of healing worse than we do." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
+          text = "A priest. Stonard's healers are stretched thin between Bengor and the scouts who come back torn, so if you've a spare hour, the hall could use it." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
+          text = "A warlock. I've one already watching the temple for the Warchief, and I'll tell you what I tell him: everything you do in my swamp goes in my log." },
         { id = "h_default", key = true,
           text = "Dispatch Commander Ruag. Stonard is the Horde's eyes in these lands; from here we scout what nobody has charted, and we send word back faster than anyone else can." },
         { id = "h_aggrogosh", when = { heardLine = "aggrogosh.h_default" },
@@ -86,6 +99,7 @@ P:NPC {
       },
       choices = {
         { text = "What do your scouts feel out in the deep swamp?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What does Stonard need from its spellcasters, Commander?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "What has poisoned the Swamp of Sorrows?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Why scout a swamp?", next = "scout" },
         { text = "Tell me about Stonard.", next = "stonard" },
@@ -523,6 +537,15 @@ P:NPC {
         { text = "Thank you. Let me ask something else.", next = "BACK", fx = { affinity = 1 } },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Maybe, if you walked it with me once and burned out whatever's been waiting for my outrunners along the way. Neeka would say I should just pick a better path, but she's not the one running it." } },
+      choices = {
+        { text = "I'll walk it with you and fight whatever comes.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Run at night and let them miss you. Safer than fighting.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Neeka says that too, every time I come back from Kargath with a dozen coyotes on my heels. Maybe you're both right, but the swamp's too wet for quiet, and fast gets the letters there before the ink runs." } },
@@ -548,6 +571,10 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can you really run like a wolf spirit? I've heard your lot can, and I'd like a race from here to Kargath." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "You run on four feet sometimes, I'm told. Then you'll understand why I keep to the high paths. The swamp eats the slow." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
+          text = "A priest! Bless my legs, would you, because they've carried me to Kargath and back more times than I can count, and I'm not much good at counting." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
+          text = "A warlock, eh? Keep your demon behind me on the road, not in front, because I've no wish to trip over it at full speed." },
         { id = "h_default", key = true,
           text = "Helgrum the Swift, and they call me that because I'm fast, not because I'm clever. Neeka Bloodscar's the clever one, head scout out at Kargath in the Badlands." },
         { id = "h_neeka", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("Neeka Bloodscar") }, { questActive = TODO_QUEST("Report to Helgrum") } } },
@@ -561,6 +588,7 @@ P:NPC {
       },
       choices = {
         { text = "Do you ever ask the winds to speed you on the road?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Could a spellcaster make the Kargath road safer for your runners?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "I could run your messages faster than any wolf.", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Why do they call you the Swift?", next = "swift" },
         { text = "Who is Neeka Bloodscar?", next = "neeka" },
@@ -676,6 +704,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "The healers say no, and I believe them, because they've stopped making promises. Use your magic on the murlocs who did this instead, and I'll call that mending enough." } },
+      choices = {
+        { text = "I'll face the murlocs head on, for your company.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll poison their water and be done with them.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "You might, if you go at dusk, when the murlocs sing and don't listen. Find the orders and bring them back, and if you can, let the Swamp Talker know who sent you." } },
@@ -689,6 +726,10 @@ P:NPC {
       lines = {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. You'd have heard the Swamp Talker's lot coming, I think, and we didn't, and that's the whole of my story." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The elders say the spirits keep what the living forget, and I'm glad of it, because my memory is all I have left to give." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } },
+          text = "A mage. We could have used your fire on that road, when the murlocs came out of the water and there was no time to draw an axe." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
+          text = "A warlock, sitting with me. The old Horde's warlocks never sat with a broken grunt, I'm told, so you're already better than they were." },
         { id = "h_default", key = true,
           text = "Bengor, a soldier of the Horde, or what the murlocs left of one. I can't walk and I can hardly talk, but I still remember, and remembering is my duty now." },
         { id = "h_orders", when = { questActive = TODO_QUEST("The Missing Orders") },
@@ -701,6 +742,7 @@ P:NPC {
       again = { { id = "h_again", text = "More? I have breath for a little more, if you speak slowly." } },
       choices = {
         { text = "Do the spirits of your fallen comrades speak to you?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Could any magic still mend you, Bengor?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "What happened to you?", next = "ambush" },
         { text = "Are you ill?", next = "ill" },
         { text = "Who was with you on the road?", next = "others" },
@@ -827,6 +869,24 @@ P:NPC {
         { text = "Thank you. Let me ask something else.", next = "BACK", fx = { affinity = 1 } },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Greshka eats alone with her book, and Fel'zerul hardly eats at all, so if you sit with the scouts, you'll be the first of your sort they've talked to in months. Be friendly, because they've questions about the temple, and they're scared to ask either of those two." } },
+      choices = {
+        { text = "I'll sit with the scouts. Stonard eats together.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll take my bowl to a quiet corner.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "That the maps are worse than the Commander thinks, and that some of them skip the stretch past the Pool of Tears and draw it from memory. I don't tell Ruag, because a cook who carries tales doesn't get told anything." } },
+      choices = {
+        { text = "Ruag should know. Bad maps get scouts killed.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Keep their secret. A scout needs somewhere to talk.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Conjure all you like, but a scout two days out in the swamp is two days from your spells, and he needs something that stays in the pack. Feed them while they're here, mage, and let my salted meat feed them while they're gone." } },
@@ -852,6 +912,10 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Sit down and eat, and if you've any pull with the water spirits, ask them to keep the swamp out of my cellar." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid from Mulgore! Your folk need wide plains and clean skies, and you have come to a swamp. Rest here a while." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
+          text = "A priest. Boots off, and say whatever prayer you like over the stew, because it can't make it worse." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } },
+          text = "Boots off, and I can see you've got a knife in the left one, so leave that by the door too." },
         { id = "h_default", key = true,
           text = "Innkeeper Karakul. Scouts come back muddy and hungry, and I send them out fed, which isn't glory, but it keeps the Horde walking." },
         { id = "h_mud", when = { metBefore = true }, text = "The scouts track half the swamp in on their boots, so I've started charging them a bucket of water each, and they pay in mud." },
@@ -859,6 +923,8 @@ P:NPC {
       again = { { id = "h_again", text = "Something else? The stew won't keep forever, and neither will I." } },
       choices = {
         { text = "Did the old Horde ever keep shamans here in Stonard?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do spellcasters eat at your tables often, Karakul?", next = "xhcast", when = { class = "PRIEST", race = { "Orc", "Troll", "Scourge" } } },
+        { text = "What do the scouts say over their grog that they won't tell Ruag?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "A warrior needs feeding too, Karakul. What have you got?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Does your stew meat come from hunters, Karakul?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "How do your people live amid such rot?", next = "druid_talk", when = { class = "DRUID" } },

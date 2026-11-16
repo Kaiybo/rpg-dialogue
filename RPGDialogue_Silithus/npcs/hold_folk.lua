@@ -99,6 +99,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "A heartbeat, slow and vast, under the hives and under the wall, and every night it beats a little closer to the surface. The druids call it the land's grief, but I have listened longer than they have, and grief does not hunger." } },
+      choices = {
+        { text = "Prophecy breeds panic. Keep such fears among the wise.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Shout it from the walls. People deserve to know.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "The end comes on its own, from beneath the sand, but those who bargain with darkness will meet it sooner and with less surprise. Repent, warlock, while there is still time to choose a better master." } },
@@ -119,6 +128,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You hear the earth, so you must hear it too: the sand groans, the stones weep, and the swarm below gnaws at the roots of the world." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock! You bear the mark of the fallen, the bargain of the damned, and the hives below will rise to meet you in the end of all things." },
         { id = "h_magecl", when = { class = "MAGE" },
@@ -127,6 +137,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Ask while there's still time to ask, for the end draws nearer with every grain of sand!" }, { id = "h_again2", text = "Ask, while there is still time!" } },
       choices = {
+        { text = "What do you hear beneath these sands, Revelator?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What lies beneath the sands?", next = "b1_1" },
         { text = "Why should I believe you?", next = "b2_1" },
         { text = "Do the druids listen to you?", next = "b3_1" },
@@ -182,6 +193,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "With axes, mostly, and with shaman like you calling down fire where the bugs swarm thickest. The ground is hollow with their tunnels, so we strike fast and pull back before it opens under us, and that is not a fight orcs were made for." } },
+      choices = {
+        { text = "Then the Horde must fight smarter, not only harder.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Orcs were made for every fight. Charge in.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Eyes in the hives, and knives in the bug-queens' guards, so my warriors can push in. The Alliance has its own soldiers here, and I'd rather the Horde's name was on the victory than theirs." } },
@@ -202,6 +222,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde! Good, that is the Warchief's own path, and we need your lightning at this front more than we need anyone's prayers." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "A rogue of the Horde! I prefer an axe in the open, but I won't turn away a blade in the shadows, not with the bugs breeding faster than we can kill them." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
@@ -211,6 +232,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Anything else?" }, { id = "h_again2", text = "Speak, and quickly." } },
       choices = {
+        { text = "The earth here is sick with hives. How does the Horde fight it?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What is the Horde doing here?", next = "b1_1" },
         { text = "What of the Alliance?", next = "b2_1" },
         { text = "How do I help?", next = "b3_1" },
