@@ -34,8 +34,30 @@ P:NPC {
         { text = "I'll listen, then.", next = "BACK", fx = { affinity = 1 } },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because everything outside this glade was green once, and fel made it otherwise. I teach druids to heal the land, and you were taught to burn it, so we start a long way apart, and I would rather not pretend we don't." } },
+      choices = {
+        { text = "Then I'll prove you wrong by keeping my distance.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Burning is the only thing demons understand.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Fair enough. I'll be on my way.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "The Highborne thought the arcane could do anything, and the sea that swallowed their city is answer enough to that. Elune keeps this water clean, and I would rather trust her than a spell." } },
+      choices = {
+        { text = "Elune's way is the right one here.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The Highborne failed. That doesn't mean all mages will.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll leave the well alone.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock, at the last clean moonwell in Felwood. Keep your fire to yourself, please." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage. You're welcome to the shade, but don't draw on the moonwell for your spells; it has little enough to spare." },
         { id = "h_default", text = "I am Golhine, and I teach the druids who come this far north, though few do. A druid who only knows healthy places hasn't learned much." },
         { id = "h_hood", when = { metBefore = true },
           text = "You're wondering about the hood, as everyone does. It keeps the ash off, and that's all, though people prefer a better story." },
@@ -48,6 +70,8 @@ P:NPC {
         { text = "Why teach here?", next = "why" },
         { text = "What's Talonbranch Glade like?", next = "glade" },
         { text = "What does a druid learn here that she can't at home?", next = "lesson", when = { class = "DRUID" } },
+        { text = "I mean the moonwell no harm. Why so wary?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Could the arcane help cleanse the moonwell's water?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },

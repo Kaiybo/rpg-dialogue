@@ -27,8 +27,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I have never seen fel touch a living thing and leave it better, and I have looked, because I am the hopeful sort. Perhaps a warlock can hold it without spilling it, but Felwood is what happens when even one hand slips." } },
+      choices = {
+        { text = "Then I'll hold it carefully, and never here.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A slip is the price of real power.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "I'll keep clear of your seedlings.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "They corrupt the ancients of the forest and turn their own hearts to fel, and every glade they touch withers to ash. Xavaric leads them from Jadefire Run, and I think an arcane eye might see how his magic spreads where mine only sees the damage it leaves behind." } },
+      choices = {
+        { text = "Then let's root Xavaric out together.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Strike his glades by surprise and leave nothing standing.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll look closer when I'm out there.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "A warlock at the Emerald Sanctuary. The jadefire satyrs burn with the same flame you carry, and I'll ask you to keep it far from my seedlings while you're here." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage! I wonder whether your arcane eye sees what the Jadefire satyrs are doing to the land, because to me it only looks like sickness and rot." },
         { id = "h_default", key = true,
           text = "I am Eridan Bluewind, of the Emerald Circle. Felwood was green once, and under all of this, somewhere, it still is, and we mean to find it again." },
         { id = "h_jadefire", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("The Corruption of the Jadefire") }, { questActive = TODO_QUEST("Further Corruption") } } },
@@ -50,6 +72,8 @@ P:NPC {
         { text = "What is the Emerald Circle?", next = "circle" },
         { text = "Why plant seeds that won't grow?", next = "seeds" },
         { text = "I can feel the sickness in the ground.", next = "druid", when = { class = { "DRUID", "SHAMAN" } } },
+        { text = "Is fel always poison, or only in the wrong hands?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What are the satyrs doing to the land?", next = "xmage", when = { class = "MAGE" } },
         { text = "I'll help heal it.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "I'm here for the satyrs, not for the trees.", next = "END", fx = { align = { light = -1 } } },
       },
@@ -140,8 +164,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Only the satyrs, and they don't steal so much as spoil. When the Shadow Council were at Jaedenar, though, they sent creeping folk to watch every road, so I keep an ear open for footsteps that are softer than they ought to be." } },
+      choices = {
+        { text = "Better to watch the roads yourself, then.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A good rogue would slip past you anyway.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll make some noise next time.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Someone should, I suppose, and that is what the Emerald Circle does, with care and with prayers to the Earth Mother. What I fear is the scholar who studies it and grows fond of it, and I have heard of such scholars from Dalaran." } },
+      choices = {
+        { text = "Knowledge should serve the healing, nothing else.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Knowledge has no master. Whatever is learned is ours.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll keep that warning in mind.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "You move very quietly for someone in a camp full of druids, rogue. Quiet is good in Felwood; the Deadwood furbolgs hear everything else." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage. Your kind and mine see the world differently, but we agree, I hope, that whatever the demons left in Felwood was not left for anyone to study." },
         { id = "h_default", key = true,
           text = "Greta Mosshoof, of the Emerald Circle. The satyrs and the Shadow Council made this forest what it is. I'd like to unmake it. Don't let the power here tempt you; it's what poisoned the land." },
         { id = "h_jaedenar", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("Forces of Jaedenar") }, { questActive = TODO_QUEST("A Final Blow") } } },
@@ -161,6 +207,8 @@ P:NPC {
         { text = "Tempt me? How?", next = "tempt" },
         { text = "Tell me about the stone.", next = "stone", when = { metBefore = true } },
         { text = "The power here doesn't frighten me.", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "Have you had trouble with thieves out here?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Shouldn't someone study the corruption to understand it?", next = "xmage", when = { class = "MAGE" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Power's power, and I'll take what this forest offers.", next = "END", fx = { align = { light = -1 } } },
       },
@@ -241,8 +289,30 @@ P:NPC {
         { text = "Twisted or not, they're kin. Find someone else.", next = "BACK", fx = { align = { order = -1 }, affinity = -1 } },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "If you carry salve and gather blood amber like everyone else, yes, and gladly. The forest doesn't care whose hands mend it, only that they don't add more poison while they work, and I'll trust you to know the difference." } },
+      choices = {
+        { text = "I'll mend, then. The forest has suffered enough.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Healing's not my work. Burning the satyrs is.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "We'll see how I can help.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "The corrupted creatures, mostly, because the sap and amber I need lie right beside them and the beasts don't like to share. I'd rather you slip in and slip out than fight your way through, since every fight here spills more poison into the ground." } },
+      choices = {
+        { text = "Slipping in quietly suits me fine.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'd rather face them openly and end it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll see what I can gather.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
+          text = "A warlock of the Horde, here among the menders! I won't pretend that doesn't worry me a little, but I'll take any hands willing to help, and I mean that." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
+          text = "A rogue! You've a light step, and I could use someone who can get close to things that would rather not be got close to, if you'll forgive me for saying so." },
         { id = "h_default", key = true,
           text = "Maybess Riverbreeze, of the Emerald Circle. I ask the Horde to help take Felwood back from the poison, not by fighting, mostly, but by mending." },
         { id = "h_cleansing", tags = { "news" }, when = { questActive = TODO_QUEST("Cleansing Felwood") },
@@ -265,6 +335,8 @@ P:NPC {
         { text = "I'm an herbalist. What should I look for?", next = "herb", when = { profession = "Herbalism" } },
         { text = "I'm Alliance. Can I still help?", next = "alliance", when = { faction = "Alliance" } },
         { text = "The alchemist at Bloodvenom wants the corruption.", next = "winna", when = { heardLine = "winna.h_default" } },
+        { text = "Would you really let a warlock help the cleansing?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "What do you need someone to get close to?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "I'll help mend it.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Must I kill elementals? The spirits are my kin.", next = "shaman_mb", when = { class = "SHAMAN" } },
         { text = "I'm here for what I can take, not to mend.", next = "END", fx = { align = { light = -1 } } },
@@ -382,8 +454,30 @@ P:NPC {
         { text = "Show me what to hit. I'll leave the patience to you.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "The Circle is not Stormwind, and this forest is the reason why. I will work beside you, and I will thank you for the work, but I watched the Shadow Council turn Jaedenar into a nest of demons, and I cannot forget it on your account." } },
+      choices = {
+        { text = "I don't blame you. I'll keep my demon away.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The Circle has no right to judge me.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "Let's just get the work done.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "I have seen SI:7's sort in Talonbranch Glade from time to time, though they never say so and I never ask. Their business is the Shadow Council and the Horde, I suppose, and mine is the land, which is slower work but more honest." } },
+      choices = {
+        { text = "Your work is the more honest of the two.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Spies keep the Alliance alive. Honesty doesn't.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I wouldn't know anything about that.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock of the Alliance, and in my camp. Stormwind permits your kind, I know, but I will be honest with you: I would rather you left your demon outside the sanctuary." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "Patient, quiet and careful, that is the sort of help a cleansing needs, and a rogue is all three when it suits them. I hope it suits you today." },
         { id = "h_default", key = true,
           text = "Arathandris Silversky, of the Emerald Circle. I ask the Alliance to help me cleanse Felwood, and the curse is old and stubborn, but so am I." },
         { id = "h_cleansing", tags = { "news" }, when = { questActive = TODO_QUEST("Cleansing Felwood") },
@@ -399,6 +493,8 @@ P:NPC {
         { text = "Tell me about the flower.", next = "flower", when = { metBefore = true } },
         { text = "Do you work with Maybess?", next = "maybess" },
         { text = "I've some herb lore.", next = "herbs", when = { profession = "Herbalism" } },
+        { text = "Stormwind's laws allow warlocks. Why shouldn't the Circle?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Does the Alliance send its spies into Felwood?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I'll help cleanse it.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "I'd rather fight something I can hit.", next = "warrior_ar", when = { class = "WARRIOR" } },
         { text = "I'll leave the salving to you, because it isn't my fight.", next = "END", fx = { align = { light = -1 } } },

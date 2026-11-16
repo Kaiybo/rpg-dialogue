@@ -326,8 +326,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Several, and my master turned them into something unpleasant and left them for the drakes. I find it tedious to clean up afterwards, so I'd thank you not to add to my work." } },
+      choices = {
+        { text = "I'm not here to steal. Your master's safe.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Every ward has a weakness, servant.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "I'll keep my hands to myself.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "My master studies everything, and nothing he finds is quite as interesting as himself. The Highborne dabbled in the demonic, of course, so there are tablets he keeps locked away, and he never lets me read them." } },
+      choices = {
+        { text = "Some knowledge should stay locked away.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'd like to read those tablets myself.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Your master sounds tiresome.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue, of course, skulking about in those dreadful leathers. If you think to rob my master's tower, you'll find the wards are less forgiving than I am, and I am not forgiving at all." },
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "A warlock, and dressed like one, all skulls and spikes. My master tolerates many things, but your little demons scratch the floors, so do keep them leashed." },
         { id = "h_default", key = true,
           text = "Sanath Lim-yo, servant of Archmage Xylem. My master's tower stands above us, and there are no stairs, so you will need me to send you up, which I am obliged to do for anyone at all now, more's the pity." },
         { id = "h_magecraft", when = { questActive = TODO_QUEST("Magecraft") },
@@ -343,6 +365,8 @@ P:NPC {
         { text = "What is your master like?", next = "master" },
         { text = "Where are you from, Sanath?", next = "home" },
         { text = "You're a long way from Quel'Thalas.", next = "home", when = { race = "Skyborne" } },
+        { text = "Has anyone ever tried to rob Xylem's tower?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Does Xylem study demonology too?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll leave you to your sulking.", next = "END" },
       },
     },

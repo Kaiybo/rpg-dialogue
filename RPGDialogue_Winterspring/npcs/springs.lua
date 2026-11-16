@@ -37,8 +37,30 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I cannae prove it yet, but the Deadwood in Felwood went the same way, an' Felwood stinks o' demons from end tae end. If somebody's brewin' that poison wi' fel in it, I'll find out who, an' I'll not be gentle about it." } },
+      choices = {
+        { text = "Whoever's poisoning them deserves no mercy.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fel's just a tool. Blame the brewer, not the power.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll keep my nose open for it.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Tae find where the firewater's comin' from, an' who's bringin' it. Somebody's sellin' it tae them, I'm sure o' that, an' a quiet pair o' eyes would learn more in one night than I've learned in a month o' sittin' by these springs." } },
+      choices = {
+        { text = "I'll find your seller, quietly.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'd rather walk in and ask them straight.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let me think on it.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "A warlock, is it? Then mebbe ye can tell me what's in the firewater the Winterfall are drinkin', because it smells of somethin' a good deal worse than whisky." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue, aye? Good, because the Winterfall camps are thick wi' furbolgs, an' I'd rather someone crept in quiet than went bashin' through like a dwarf in a china shop." },
         { id = "h_default", key = true,
           text = "Donova Snowden's the name, an' I study the springs an' the creatures that live by 'em, though these days it's mostly the Winterfall. The furbolgs used tae keep tae themselves, but now they're drinkin' somethin' that makes 'em mad as a kicked hive." },
         { id = "h_firewater", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("Winterfall Firewater") }, { questActive = TODO_QUEST("Falling to Corruption") } } },
@@ -57,6 +79,8 @@ P:NPC {
         { text = "Who'd brew something like that?", next = "who" },
         { text = "The furbolgs' sickness. Can I feel it?", next = "druid", when = { class = { "DRUID", "SHAMAN" } } },
         { text = "A dwarf this far north? You and me both.", next = "dwarf_dn", when = { race = "Dwarf" } },
+        { text = "Do you think the firewater is demonic?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Why sneak into the Winterfall camps?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I'll look into the furbolgs.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -152,8 +176,30 @@ P:NPC {
         { text = "Then I'll bring you E'ko from the wild ones.", next = "BACK", fx = { affinity = 2 } },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Mau'ari ask de spirits nice, and dey give a little and go home, mon. You chain your demon and make it work, and one day it remember every lash, and dat be why Mau'ari only bargain with spirits who can say no." } },
+      choices = {
+        { text = "Maybe you're right. Chains breed resentment.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A chained demon is a useful demon.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "We all make our bargains.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "De E'ko, mon, de spirit-bits of every beast in Winterspring, and a little patience from Mau'ari. Every charm Mau'ari make, a creature give something for it, and dat be a fair trade, unlike your arcane, which take and take and never say thank you." } },
+      choices = {
+        { text = "A fair trade is always the better way.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The arcane owes thanks to nobody.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll bring you some E'ko.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "Ah, a warlock come up de mountain! Mau'ari feel de demon on you, mon, cold as dis snow and twice as hungry, so you be careful which spirit you be feedin'." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage, way up here in de ice! You be a long way from your warm towers, mon, but Mau'ari like a visitor who know dat magic got a cost." },
         { id = "h_default", key = true,
           text = "Mau'ari be de witch doctor up here, mon. Every creature in dis frozen place carry a little spirit, a little E'ko, and if you bring it to Mau'ari, she make you juju, good juju, mostly." },
         { id = "h_cache", tags = { "news" }, when = { questActive = TODO_QUEST("Cache of Mau'ari") },
@@ -169,6 +215,8 @@ P:NPC {
         { text = "Why come all the way up here?", next = "why" },
         { text = "A Darkspear in the snow. Why?", next = "troll", when = { race = "Troll" } },
         { text = "Does my beast carry E'ko too?", next = "hunter_ma", when = { class = "HUNTER", pet = true } },
+        { text = "Is your juju so different from my magic?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What does your juju cost?", next = "xmage", when = { class = "MAGE" } },
         { text = "I'll bring E'ko.", next = "END", fx = { affinity = 2 } },
       },
     },

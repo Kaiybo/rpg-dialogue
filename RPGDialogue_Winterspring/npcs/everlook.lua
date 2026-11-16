@@ -35,8 +35,41 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Not in my inn, they don't, because the Cartel's bruisers stand at the gate and every goblin in town counts their coin twice. Pick a pocket in Everlook and you'll be walking back to Felwood in your smallclothes, and that's a long, cold walk." } },
+      choices = {
+        { text = "Good. A neutral town needs rules.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Bruisers can't watch every pocket, though.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll behave myself, then.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "I did, and I was told nothing creepy could live in the cold, and then the yetis brought in fleas and the frostsabers brought in ticks. A mage could freeze the lot of them solid, I suppose, but then I'd have a frozen inn, and that's bad for business." } },
+      choices = {
+        { text = "I'll freeze any bug that bothers you.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Bugs are your problem, not mine.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "Good luck with the fleas.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Mostly is the word that worries me, sweetie. The last warlock who stayed here let his little friend sleep by the fire, and I found singe marks on the rug for a week, so your demon stays on your side of the room." } },
+      choices = {
+        { text = "Fair enough. I'll keep it leashed.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My demon goes where I go.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "I'll sit by the door.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue! You've got good eyes and quick hands, so if you see anything with too many legs scuttling about my rafters, you squash it, and I'll love you forever." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "Oh, a mage, thank goodness. Could you conjure a little fire for the back room? The hearth never reaches that far, and the bugs love a cold corner." },
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "A warlock, and is that an imp? Keep it off the tables, please, because it looks exactly like a big red beetle, and I'll scream if it so much as twitches." },
         { id = "h_default", key = true,
           text = "I'm Innkeeper Vizzie, and this is the best inn in Everlook; it's the only inn in Everlook, but that doesn't make it not the best. It's the warmest place for a hundred miles, and the cold keeps the creepy-crawlies down, mostly." },
         { id = "h_bugs", tags = { "gossip" },
@@ -55,6 +88,9 @@ P:NPC {
         { text = "Why are you so scared of bugs?", next = "bugs" },
         { text = "Who are your neighbours here?", next = "neighbours" },
         { text = "I could track that beetle for you.", next = "beetle_hunt", when = { class = "HUNTER" } },
+        { text = "Do rogues cause much trouble in Everlook?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "You came all the way up here to get away from bugs?", next = "xmage", when = { class = "MAGE" } },
+        { text = "My imp's harmless. Mostly.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -129,8 +165,30 @@ P:NPC {
         { text = "Isn't it a little cruel?", next = "prank_cruel" },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because I can, and because Legacki laughed at me, and you don't laugh at an engineer unless you want a furry metal monster waiting by your door. Magic's very well, but nothing beats a good gear train when you want to scare someone properly." } },
+      choices = {
+        { text = "Engineering beats magic for a good prank, I'll grant you.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Scaring people isn't much of a goal for a craftsman.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll keep my sparks to myself.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Nobody's, officially, and certainly not Legacki's, because she'd never suspect a yeti behind her counter. Engineers and rogues are cousins, really, since we both love a mechanism and we both hate being caught." } },
+      choices = {
+        { text = "A harmless prank never hurt anyone.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Leave her shop alone. It's hers.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll keep my hands to myself.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage! Could you make something glow? No, wait, don't, the last spark nearly set my yeti's fur alight, and that fur took me three weeks to get." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue, eh? You've got the right hands for fiddly work, and I always need someone to slip a part into somebody's shop when they're not looking, purely for science." },
         { id = "h_default", key = true,
           text = "Umi Rumplesnicker, engineer! I teach, I tinker, and right now I'm building something wonderful. It's big, it's furry, it's mechanical, and it's going to scare the bolts off every goblin I know." },
         { id = "h_yeti", tags = { "news" }, when = { questActive = TODO_QUEST("Are We There, Yeti?") },
@@ -147,6 +205,8 @@ P:NPC {
         { text = "Teach me.", next = "BUSINESS", when = { profession = "Engineering" } },
         { text = "Why a yeti?", next = "yeti" },
         { text = "A gnome scaring goblins? Count me in.", next = "gnome_um", when = { race = "Gnome" } },
+        { text = "Why build a mechanical yeti at all?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Slip a part into someone's shop? Whose?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I'll find parts.", next = "END", fx = { affinity = 2 } },
       },
     },
@@ -222,8 +282,30 @@ P:NPC {
         { text = "I fight the Scourge. The Light is just a tool.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "We accept anyone who stands against the Scourge, and some of our best scouts in the Plaguelands are not the sort the Church would bless. But the Cult of the Damned began with men who thought they could master dark things, so we watch, and we hope we're wrong to." } },
+      choices = {
+        { text = "Watch me, then. I'll fight the Scourge all the same.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Cult failed because they were weak.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "I'll do my part.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Bad enough that the Dawn sends people like me to every trading post that will have us, looking for help and for reagents. Light's Hope Chapel holds, and Chillwind Camp holds, but Stratholme and Scholomance are still full of the dead, and the dead do not tire." } },
+      choices = {
+        { text = "I'll go east and burn them myself.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Let the Dawn handle it. It's their fight.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "I'll think about it.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "A warlock. The Argent Dawn welcomes anyone who fights the Scourge, and I'll hold to that, but forgive me if I ask what you mean to do with that power here in Everlook." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage! We could use your kind in the east, where the Scourge are thick and their necromancers study in Scholomance. How are you with fire against the dead?" },
         { id = "h_default", key = true,
           text = "Gregor Greystone, of the Argent Dawn. I keep the Dawn's interests here among the Cartel's traders, and Horde and Alliance both pass through Everlook; the Scourge doesn't care which banner you fly, so neither do we." },
         { id = "h_report", tags = { "news" }, when = { questActive = TODO_QUEST("The Everlook Report") },
@@ -240,6 +322,8 @@ P:NPC {
         { text = "What's the difference between you and the Scarlet Crusade?", next = "scarlet" },
         { text = "Jessica Redpath says you're kind to her.", next = "jessica", when = { heardLine = "jessica.h_default" } },
         { text = "The Dawn would take one of the Forsaken?", next = "forsaken", when = { race = "Scourge" } },
+        { text = "Does the Dawn really accept warlocks?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "How bad is it in the Plaguelands now?", next = "xmage", when = { class = "MAGE" } },
         { text = "I'll carry word.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "I carry the Light. Does the Dawn need paladins?", next = "paladin_gr", when = { class = "PALADIN" } },
         { text = "The Dawn can carry its own reports; I've business of my own.", next = "END", fx = { align = { light = -1 } } },

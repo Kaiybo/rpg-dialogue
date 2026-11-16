@@ -27,8 +27,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Some do, and they always want the strongest dusts, the ones that hold a lasting enchantment. I sell them what they need and ask nothing, but I keep my best formulae for those who'll make cloaks against the silithid, not curses." } },
+      choices = {
+        { text = "Fair. Your formulae should serve the Hold.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Knowledge should go to whoever can pay.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll take the dusts.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "An enchantment on a dagger lasts longer than poison, and doesn't wash off in the rain, not that it rains here. I keep a few formulae for weapons, though they cost more than the cloaks, since they're rarer." } },
+      choices = {
+        { text = "A good enchantment beats poison any day.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Poison's cheaper and works just as well.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll keep it in mind.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "A warlock. If you're buying vellum for anything dark, I'd rather not know, but I'll warn you the sand ruins every scroll unless you wrap it twice." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue! You've come up the stairs very quietly, which I appreciate, because the sand-shakers who stomp up here ruin my dusts." },
         { id = "h_default", key = true,
           text = "I am Kania, and I sell enchanting supplies to the Hold. Rods, vellum, dusts and a few rare formulae, kept up here in the inn where the sandstorms can't scour them." },
       },
@@ -40,6 +62,8 @@ P:NPC {
         { text = "Show me what you have.", next = "BUSINESS" },
         { text = "Why keep your shop upstairs?", next = "upstairs" },
         { text = "Who needs enchanting out in the desert?", next = "who" },
+        { text = "Do warlocks buy much from you?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Could a rogue use any of your enchantments?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -96,8 +120,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "A few, and they always want powder for the portal home. I don't blame them, since the desert is a hard place, but I'd ask them to stay a while and help the Circle before they vanish." } },
+      choices = {
+        { text = "I'll stay and help. The Hold needs it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll leave when I want to.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "I'll take some powder.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I trust everyone the same, which is to say a little, and no more. A tauren sells poison and a warlock buys reagents, and the Earth Mother judges us both by what we do with them." } },
+      choices = {
+        { text = "Then I'll use them well, against the hives.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "What I do with them is my affair.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "I'll take what I need.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage. You'll be wanting arcane powder for your portals, I expect, and I keep plenty, since the Hold's a long way from any city." },
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "A warlock. I sell the candles and powders your kind use, and I don't ask what they're for, so long as they're used against the hives." },
         { id = "h_default", key = true,
           text = "I am Khur Hornstriker, and I sell reagents and poisons to those who stand with the Hold. Candles and powders for the casters, venom makings for the rogues, and plain good sense for anyone who'll take it." },
       },
@@ -109,6 +155,8 @@ P:NPC {
         { text = "Let me see your reagents.", next = "BUSINESS" },
         { text = "A druid's ally who sells poison?", next = "poison" },
         { text = "What do the silithid do to people here?", next = "silithid" },
+        { text = "Do many mages pass through the Hold?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do you trust warlocks to use their reagents well?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -163,8 +211,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Not yet, and I hope I never must, because a frightened beast in a stall can hurt itself badly. Every animal here is in my charge, and this is my first post, so I mean to keep every one of them safe." } },
+      choices = {
+        { text = "I understand. I'll keep my demon away.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My demon's just as worthy as any beast.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "Sorry about that.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Shade, water, and a lot of fanning, and I do most of it myself. A squire serves where he's needed, and right now that's in a stable full of panting cats and wolves." } },
+      choices = {
+        { text = "Your dedication is admirable, Squire.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Seems a waste of effort to me.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "I'll leave you to your fanning.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "A warlock! I'm sorry, but I can't stable demons, not even little ones, because the beasts here are frightened enough of the desert as it is." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage! Could you cool the stables with a spell, perhaps? The desert heat is terrible for the beasts, and I'm running out of water to keep them comfortable." },
         { id = "h_default", key = true,
           text = "Squire Leoren Mal'derath, stable master of Cenarion Hold! I board the companions of every hunter who comes to fight for the Circle, and I treat them as I would the commander's own mount." },
       },
@@ -176,6 +246,8 @@ P:NPC {
         { text = "I'd like to see my stabled pets.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "Why call yourself a squire?", next = "squire" },
         { text = "What's hard about keeping beasts here?", next = "sand" },
+        { text = "Would you really turn away a demon?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "How do you keep the beasts cool in the desert?", next = "xmage", when = { class = "MAGE" } },
         { text = "Goodbye.", next = "END" },
       },
     },
