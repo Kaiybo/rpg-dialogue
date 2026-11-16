@@ -13,3 +13,5 @@
 pack.lua
 pools.lua
 npcs\arathi.lua
+npcs\hammerfall.lua
+npcs\refugepointe.lua
