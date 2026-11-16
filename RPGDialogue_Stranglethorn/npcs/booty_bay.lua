@@ -2300,6 +2300,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Out in the jungle, chasing a deal that wasn't worth it, and now I sweat through three shirts a day. The witch doctors on the coast are supposed to know a cure, but I'm not in any shape to go asking, so here I sit." } },
+      choices = {
+        { text = "I'll find the cure for you, Fin. Hang on.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "You chased the deal. Live with what it cost you.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Fin.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Not that I've found, since the mages I've asked tell me their magic is for burning and freezing, not for curing. I asked one to freeze the fever out of me, and she just laughed and handed me a cold cloth, which I'll admit did help a little." } },
+      choices = {
+        { text = "She was right. A cold cloth is better than a frost bolt.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let me try a frost bolt. It might just work.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman? Your kind heal with water and earth, don't they? I've tried every potion in Booty Bay, so I'll try mud next if you think it'll help." },
@@ -2309,6 +2327,8 @@ P:NPC {
           text = "There's a cure, supposedly: a gorilla's heart, from one particular gorilla, a big angry one called Mokk. I can't believe I'm hoping somebody kills a gorilla for me." },
         { id = "h_cured", when = { questDone = TODO_QUEST("Stranglethorn Fever") },
           text = "I'm better, look at me, standing on my own two feet! The heart tasted awful and I'd eat ten more, or actually no, never again, but I'd think about it." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, eh? Don't come any closer than you have to, pal, because this fever doesn't care how sneaky you are, and I'd hate to share it." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! I don't suppose you know a spell for fever, do you? I've tried everything in Booty Bay, and the only thing that helps is lying very still." },
       },
       again = {
         { id = "h_again", text = "Something else? Talk loud; my ears are ringing." },
@@ -2321,6 +2341,8 @@ P:NPC {
         { text = "Let me look at you.", next = "healer", when = { class = { "PRIEST", "SHAMAN", "DRUID", "PALADIN" } } },
         { text = "What'll you do when you're well?", next = "after" },
         { text = "I could hunt the gorilla for you.", next = "k_hunter", when = { class = "HUNTER" } },
+        { text = "Where did you catch the Stranglethorn Fever, Fin?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Can't a mage's magic cure your fever, Fin?", next = "xmage", when = { class = "MAGE" } },
         { text = "Feel better.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -2412,6 +2434,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "The list of folk I watch when they're near the crates, which is half of Booty Bay, so don't take it personally. The Bloodsail send their sneaks to the wharf to see what's coming in, and a sharp eye has saved the Cartel more gold than the Bruisers ever have." } },
+      choices = {
+        { text = "Keep your list. I'll prove I belong off it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Your list won't stop me if I want something.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Wharfmaster.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I count everything, because the Cartel taxes everything, and I'm not about to let a demon slip through just because it's ugly. I've got a column for livestock and a column for passengers, and so far your sort have gone under livestock." } },
+      choices = {
+        { text = "Count it how you like. Rules keep the port running.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My demon is no one's livestock. Leave it off your books.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman off the Grom'gol road. I watch who comes and goes, and your sort have been coming more often since Orgrimmar was built." },
@@ -2423,6 +2463,8 @@ P:NPC {
           text = "The Cartel likes to know who it's investing in. Show me you're worth the gold, and the gold will find you." },
         { id = "h_watch", when = { metBefore = true },
           text = "Saw a sailor slip a letter to a fishmonger this morning, and fishmongers don't read. I've made a note of it." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. I've already put you on a list, friend, and it's not the bad list yet, so let's keep it that way." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'll be noting your companion on the manifest, since anything that walks off a boat in Booty Bay gets counted, demon or not." },
       },
       again = {
         { id = "h_again", text = "Yes? Keep one eye on the water while you ask." },
@@ -2436,6 +2478,8 @@ P:NPC {
         { text = "What's in the Horde crate?", next = "crate", when = { faction = "Horde" } },
         { text = "How do you know who to trust?", next = "trust" },
         { text = "My people arrived by sky, not ship, wharfmaster.", next = "k_sky", when = { race = "Skyborne" } },
+        { text = "What sort of list have you put me on, Wharfmaster?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Do you really count demons on the manifest, Wharfmaster?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll watch my purse.", next = "END", fx = { affinity = 1, trait = { cautious = 1 } } },
       },
     },

@@ -50,6 +50,24 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "A fine one, if they learned tae love the hunt as much as the kill. Most rogues I've met are in too much of a hurry, an' the great cats o' Stranglethorn will make a meal o' anyone who rushes them." } },
+      choices = {
+        { text = "Then I'll learn patience from the master.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A kill is a kill. The love of it doesn't matter.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Nesingwary.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Never, though I'll admit I've been tempted since King Bangalash slipped away from me at dusk. A hunt is a contest between the hunter an' the beast, an' magic would spoil it, so I'll keep my rifle an' my patience." } },
+      choices = {
+        { text = "You're right. A fair hunt is the only hunt.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Use every advantage. The beast would.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? Yer folk talk tae the spirits o' beasts, I hear, so ye can tell the great cat I'm comin' for him." },
@@ -69,6 +87,8 @@ P:NPC {
           text = "Dinnae move, dinnae... ach, it's only a druid! Ye nearly had a bullet for yer trouble, so turn back intae yerself before Ajeck sees ye." },
         { id = "h_king_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Big Game Hunter"), days = 3 } },
           text = "The King's head, on my wall. I've wanted that for years, an' now I've got it I keep lookin' west anyway. There's always somethin' bigger." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "Quiet, quiet! Ah, a rogue, which is the next best thing tae a hunter, since ye ken how tae move without scarin' the game." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Now, I don't suppose ye could freeze a panther in its tracks long enough for a proper shot? It'd make a dull story, but a very fine trophy." },
       },
       again = {
         { id = "h_again", text = "Aye? Out wi' it, then, for the light's goin'." },
@@ -88,6 +108,8 @@ P:NPC {
         { text = "Some of those cats you hunt are my kin, Nesingwary.", next = "k_druid", when = { class = "DRUID" } },
         { text = "My people hunted this jungle before yours had rifles.", next = "k_troll", when = { race = "Troll" } },
         { text = "A human hunter. You don't see many, they tell me.", next = "k_human", when = { race = "Human", class = "HUNTER" } },
+        { text = "Could a rogue be a good hunter, Nesingwary?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Would you really use magic in a hunt, Nesingwary?", next = "xmage", when = { class = "MAGE" } },
         { text = "Good hunting.", next = "END" },
       },
     },
@@ -296,6 +318,24 @@ P:NPC {
         { text = "Thank you. Let me ask something else.", next = "BACK", fx = { affinity = 1 } },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Because the jungle took them, mostly, the wind and the damp and a few curious monkeys. The book is the work of a lifetime, and every page that goes missing is a story the world might never read." } },
+      choices = {
+        { text = "I'll find every page I can.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let the monkeys have a few. It's only paper.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Barnil.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "He says a book about the jungle should be written in the jungle, and there's no arguing with him once he's decided something. I just keep the pages wrapped in oilcloth and hope for a dry season, which never comes." } },
+      choices = {
+        { text = "He's right. Some things should stay where they belong.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Move the book. The work matters more than his pride.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman o' the Horde at the master's camp. Well, he says a good hunter's welcome whatever the colors, so mind yer manners an' I'll mind mine." },
@@ -309,6 +349,8 @@ P:NPC {
           text = "I like it here, truth be told: cleanin' rifles, packin' for the next trip, all peaceful. I miss a good fight sometimes, but the jungle's always happy tae provide one." },
         { id = "h_book_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Green Hills of Stranglethorn"), days = 3 } },
           text = "Every page back an' bound, an' he's never goin' tae know. Ye'll have a drink on me for that, an' ye'll never mention it either." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll be good at finding loose pages, I'd guess, since you've an eye for things that aren't where they should be." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Could you dry out the camp a bit? The damp's getting into the pages, and Hemet won't hear of moving the book indoors." },
       },
       again = {
         { id = "h_again", text = "Aye? I'm listenin'. My hands are busy, my ears aren't." },
@@ -324,6 +366,8 @@ P:NPC {
         { text = "What do you do all day?", next = "work" },
         { text = "I'll look for the pages.", next = "END", fx = { affinity = 2 } },
         { text = "You miss a fight? I'm a warrior. Spar with me.", next = "k_warrior", when = { class = "WARRIOR" } },
+        { text = "Why are the pages of Nesingwary's book loose, Barnil?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Why won't Nesingwary move the book indoors, Barnil?", next = "xmage", when = { class = "MAGE" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -449,6 +493,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Because Sin'Dall is mine, and I've tracked him for longer than I care to admit. A rogue might get close, but close isn't enough with a cat like that, and I'll not have anyone else taking my kill." } },
+      choices = {
+        { text = "Then I'll stay out of your way. The hunt is yours.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The jungle doesn't care who claims what.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Ajeck.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "He can smell everything, and he'll vanish into the jungle at the first hint of something he doesn't recognize. I've lost him three times to careless hunters, and I'll not lose him a fourth to a demon's stink." } },
+      choices = {
+        { text = "I'll keep my demon well away from your trail.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My demon goes where I go. Track around it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'd hear the jungle better than I can, so tell me if Sin'Dall is prowling close, because I've waited a long while." },
@@ -459,6 +521,8 @@ P:NPC {
         { id = "h_sindall", when = { metBefore = true },
           text = "I saw Sin'Dall's tracks by the river this morning, and they were fresh. He knew I'd find them; he's teasing me." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Tigers hunt at night, so I sleep in the day when I can. Hemet thinks it's lazy, but Hemet snores." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll be wanting to know how to hunt Sin'Dall, I suppose, and I'll tell you the same as I tell everyone: you won't." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Keep your demon away from the trail, because Sin'Dall can smell anything strange a mile off, and I've spent too long tracking him to lose him now." },
       },
       again = {
         { id = "h_again", text = "Anything else you'd like to know? I've a minute before the master needs me." },
@@ -473,6 +537,8 @@ P:NPC {
         { text = "What about the cats that walk on two legs?", next = "druid", when = { class = "DRUID" } },
         { text = "I'll hunt with you.", next = "END", fx = { affinity = 2, trait = { brave = 1 } } },
         { text = "Darkspear hunters track tigers too, Ajeck.", next = "k_troll", when = { race = "Troll" } },
+        { text = "Why do you say no one else will take Sin'Dall, Ajeck?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Can Sin'Dall really smell demons, Ajeck?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Good hunting.", next = "END" },
       },
     },
@@ -602,6 +668,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Because a rogue tells you plainly what he wants, and a noble smiles at you while he takes it. I left Stormwind's court for the jungle because the panthers are more honest than the people I left behind." } },
+      choices = {
+        { text = "Honesty is rare. You were right to leave.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A smile is a tool. Nobles use theirs well.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Sir Erlgadin.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because they served whoever paid them best, and in Stormwind, that changed by the week. I don't say all mages are like that, but the ones who prospered at court learned to bend, and I never could." } },
+      choices = {
+        { text = "Integrity is worth more than favor. You were right.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The court needs mages who bend. That's how order holds.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. In Stormwind they'd call you a savage, and once I'd have nodded along, but I've met nobles who could learn a thing from you." },
@@ -612,6 +696,8 @@ P:NPC {
         { id = "h_city", when = { metBefore = true },
           text = "A letter came from Stormwind wanting me back for a vote, so I used it to start this morning's fire. It burned beautifully." },
         { id = "h_hemet", when = { heardLine = "nesingwary.h_default" }, text = "Hemet told you about the hunting? He tells everyone; it's the only story he knows, and he tells it better every time." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. I knew a few of your kind in Stormwind, when I still had a title worth stealing, and I'll admit I miss their company more than the nobles'." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. The court in Stormwind was full of your kind, whispering in the nobles' ears, and I'll not pretend I trusted many of them." },
       },
       again = {
         { id = "h_again", text = "Yes? I've time; I have nothing but time, which is rather the point of exile." },
@@ -626,6 +712,8 @@ P:NPC {
         { text = "The Defias drove my family off our farm.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
         { text = "I'll hunt panthers.", next = "END", fx = { affinity = 2 } },
         { text = "A paladin doesn't walk away from his post, Sir.", next = "k_paladin", when = { class = "PALADIN" } },
+        { text = "Why do you miss rogues more than nobles, Sir Erlgadin?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Why didn't you trust the court's mages, Sir Erlgadin?", next = "xmage", when = { class = "MAGE" } },
         { text = "Good day, Sir.", next = "END" },
       },
     },
