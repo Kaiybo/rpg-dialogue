@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.16.0 (2026-11-16)
+- Priests and paladins are noticed: 6 people greet an Alliance priest or paladin as one, and have something to ask and argue about.
+
 ## 1.15.0 (2026-11-16)
 - Horde priests are noticed: 9 people greet a Forsaken or troll priest as one and have something to ask and argue about. Some also gain lines for Horde mages, warlocks or rogues where they had none.
 
