@@ -30,6 +30,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Rest, mostly, and to be remembered, though the silithid tunnel beneath their graves and the Twilight's Hammer would gladly rouse them. I keep watch so that nothing wakes them that has no right to, and a Forsaken priest, I'll say gently, makes me watch a little harder." } },
+      choices = {
+        { text = "I'll leave them to sleep, Layo, and help guard that sleep.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Old soldiers might fight the swarm again, if someone woke them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Because they fell fighting in this desert's wars, old and new, and the sands still carry the hum of what they fought. I think they feel the hives stirring as surely as I do, and they cannot rest while the living stand guard without them." } },
@@ -60,6 +69,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman comes to Valor's Rest. The spirits of the fallen here are restless, {class}, and perhaps they would speak more easily to you than to me." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde at Valor's Rest. The dead here fell a thousand years ago holding back the swarm, and I would ask you to walk among them gently, whatever powers you serve." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage, at Valor's Rest. The dead here were soldiers and farmers, not spellcasters, but they rest uneasily all the same, and I would ask you to tread quietly." },
         { id = "h_roguecl", when = { class = "ROGUE" },
@@ -95,6 +105,7 @@ P:NPC {
         { text = "I bind souls, druid. Does that trouble you?", next = "x_warlock", when = { class = "WARLOCK" } },
         { text = "Why do the dead of Southwind rest uneasily?", next = "xmage", when = { class = "MAGE" } },
         { text = "Has anyone tried robbing the graves?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "What do the dead of Valor's Rest want, Layo?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Elune keep you, Layo.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -278,6 +289,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "They'd want you very much, I'm afraid, because they're always looking for anyone who's touched a power beyond the mortal, and shadow most of all. They'd promise you secrets and give you a robe and a chant, and you'd not notice the hook until it was through you." } },
+      choices = {
+        { text = "They'll find no recruit in me. I'll hunt them instead.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Secrets are secrets. I might listen to what they offer.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Summoned things, mostly, and read from books that made my head hurt just to look at them. I was never one of the clever ones, you understand, but I heard the screaming at night, and that's when I knew it was time to leave." } },
@@ -312,6 +332,7 @@ P:NPC {
           text = "Any encrypted texts yet? I'm dying to read this month's True Believer; it's the only way I'll know if they've stopped looking for me." },
         { id = "h_purpose", tags = { "news" }, when = { questRecent = { TODO_QUEST("A Terrible Purpose"), days = 7 } },
           text = "Did the Commander read it? Did he understand it? Of course he did; I translated it beautifully, once I'd worked out which chapter went first." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Close the door, quickly, because the cult has no love for priests, and I'd rather not be found in the company of one." },
       },
       again = {
         { id = "h_again", text = "What else? Quickly, before someone sees your shadow at the door." },
@@ -329,6 +350,7 @@ P:NPC {
         { text = "The cult worships the elements. My people respect them.", next = "x_shaman", when = { class = "SHAMAN" } },
         { text = "What did the Twilight's Hammer mages do?", next = "xmage", when = { class = "MAGE" } },
         { text = "What would a spy need to fool the Hammer?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Would the cult want a Horde priest as a recruit, Ortell?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "I'll leave you to your hiding.", next = "END" },
       },
     },
@@ -483,6 +505,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Holy or unholy, I couldn't say, but there's glyphs on these ruins older than any temple in Ironforge, and some o' them were carved to keep somethin' in. I'll not have a priest of any sort chantin' near them until I know what that somethin' is." } },
+      choices = {
+        { text = "Fair enough. I'll leave your glyphs be until you know.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Ancient wards aren't yours to keep, dwarf. I'll read them myself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Glyphs, mostly, carved by hands that weren't troll nor elf, and stonework that runs deeper than any shaft we've sunk. Whatever built under Silithus built big, and I'll wager my beard that's what the bugs are guarding." } },
@@ -543,6 +574,7 @@ P:NPC {
           text = "Rubbings from all three hives, mind, not two. And if ye find a crazy night elf lass in one of them, give her a kick from us." },
         { id = "h_prism", when = { questDone = TODO_QUEST("Unraveling the Mystery") },
           text = "Larksbane says the glyphs aren't a code at all, just a lock that turns. I've been reading locks wrong most of my life, apparently." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A Horde priest, in Bronzebeard's camp? Keep yer hands off the finds and yer prayers off the diggers, and we'll get along fine." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest, out here? Weel, say a word for Brann while ye're at it, because wherever he's wandered off tae, he'll be needin' it more than the rest of us." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -565,6 +597,7 @@ P:NPC {
         { text = "What has the Explorers' League found here?", next = "xmage", when = { class = "MAGE" } },
         { text = "What's in the ruins the silithid guard?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What are you digging for out here, Rutgar?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Have your digs turned up anything holy, Rutgar?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do the silithid trouble the camp often?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll leave you to it.", next = "END" },
       },
@@ -669,6 +702,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Bronze, I'd swear on my beard, circlin' high an' never landin', as if they're keepin' watch over the great wall to the south. Whatever they're watchin' for, I'd like a priest prayin' it never gets out." } },
+      choices = {
+        { text = "Then I'll pray the wall holds, Frankal, and the dragons with it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If something waits behind that wall, I'd like to see it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Trouble them? Every time one passes over, friend, the sand lifts and the air goes tight like before a storm, and then nothing, not a drop of rain! Whatever they are, they're watching the hives, and if a dragon's worried, I'm worried twice over." } },
@@ -699,6 +741,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Then look up with me, friend, and tell me if ye feel it in the wind, because there's dragons over this desert and I'll not have it said Frankal Stonebridge was the only one who noticed!" },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Look up, friend, and say a prayer for whatever's flyin' over Silithus, because I've seen dragons out there and I doubt they're the friendly sort." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue! Ye'd get on wi' Glibb, I reckon, because that monkey can lift a sandwich out of yer hand before ye know it's gone." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
@@ -724,6 +767,7 @@ P:NPC {
         { text = "Natalia's magic: was it arcane at all?", next = "x_mage", when = { class = "MAGE" } },
         { text = "Is Glibb really a thief?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why do you watch the dragons so closely?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What sort of dragons fly over Silithus, Frankal?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "I'll let you watch your sky.", next = "END" },
       },
     },

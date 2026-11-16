@@ -26,6 +26,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "I auction off anything the Cartel doesn't forbid, friend, and the Cartel only forbids what it can't sell. The troll who consigned it swore it was harmless, and the Forsaken who outbid everyone swore it was anything but." } },
+      choices = {
+        { text = "If the Cartel allows the sale, I won't argue with it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Some things belong to the loa, whatever the Cartel says.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Elemental essences, mostly, earth and fire and water, bottled by folk who don't say where they got them. Fire went up in price after somebody brought a crate in from Un'Goro, and I'm still not sure that crate's finished being on fire." } },
@@ -65,6 +74,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Carved totems sell well, by the way, and if your spirits ever want to put anything up for auction, I'll take the usual cut and ask no questions." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! I've had candles, holy symbols and one alleged loa mask through the auction house this week, and if you're buying, the bidding opens right now." },
         { id = "h_default", key = true,
           text = "Auctioneer Beardo, at your service. This is the only house in Kalimdor where an orc can bid on a dwarf's old boots and nobody gets stabbed for it, so long as the Bruisers are watching." },
         { id = "h_night", when = { timeOfDay = "night" },
@@ -89,6 +99,7 @@ P:NPC {
         { text = "Has anyone ever sold you stolen goods?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Mages and enchanters aren't the same thing, Beardo.", next = "xmage", when = { class = "MAGE" } },
         { text = "Does stolen gear ever turn up on your auction block?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Would you really auction off a loa mask, Beardo?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -162,6 +173,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "I'd be grateful, friend, if your sort tends to animals, because the last priest through only blessed the riders. The fever comes from something in the old wells, I think, and the Water Company swears it's my fault for buying cheap." } },
+      choices = {
+        { text = "Every creature deserves care. Show me the sick ones.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A sick beast is a burden. Better to put it down.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Badly, and quietly, which is worse. A raptor that stops complaining is a raptor that needs a bucket thrown over it, and the Water Company charges me for every bucket." } },
       choices = {
@@ -200,6 +220,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, good. The beasts settle when your kind are about, which is more than I can say for the Water Company's collectors." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, good, because two of my beasts came back from the dunes with a fever, and the Water Company won't sell me a drop extra to cool them." },
         { id = "h_default", key = true,
           text = "Laziphus, stable master. Hunters leave their beasts with me while they travel, and I keep them fed, watered and out of the sun, which in Tanaris is the hard part." },
         { id = "h_noon", when = { timeOfDay = "day" },
@@ -224,6 +245,7 @@ P:NPC {
         { text = "Do you keep mounts too?", next = "mounts" },
         { text = "Voidwalkers don't eat, Laziphus.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I could conjure water for your beasts.", next = "xmage", when = { class = "MAGE" } },
+        { text = "Would you let me tend your sick beasts, Laziphus?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -292,6 +314,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Lost? None, friend, though a few have come back shorter in the eyebrows or the fingers, and one of them still walks funny. If you want to pray for anybody in Gadgetzan, pray for my apprentices, because they don't listen to me and the powder doesn't forgive." } },
+      choices = {
+        { text = "I'll pray for them, and patch them when the powder bites.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Those who won't listen deserve the lesson. Let the powder teach.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "I've wondered, honestly. After every big blast out back, the sand settles strangely for a day or two, like it's sulking, and the scorpids come up to look at the hole. Either the earth's annoyed, or the scorpids are admirers." } },
@@ -322,6 +353,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You call down lightning for free and I spend a fortune trying to bottle it, so I'd say that makes us colleagues, or rivals, or something in between." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, eh? I'll bet you've patched up more engineers than any other trade, because we're the ones who stand too close to the boom." },
         { id = "h_default", key = true,
           text = "Buzzek Bracketswing, engineering trainer, at the southern end of town where the explosions don't bother the bank. If you've got the coin and the nerve, I'll teach you how to make things go bang on purpose." },
         { id = "h_roguecl", when = { class = "ROGUE" },
@@ -341,6 +373,7 @@ P:NPC {
         { text = "Can an engineer earn real money in Gadgetzan?", next = "money", when = { profession = "Engineering" } },
         { text = "Explosives are just another tool, Buzzek.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Engineering and magic aren't so different, Buzzek.", next = "xmage", when = { class = "MAGE" } },
+        { text = "How many engineers have you lost to the boom, Buzzek?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -401,6 +434,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Every miner prays, friend, mostly that the roof holds and the vein runs deeper than the last fellow's. The old troll diggings near Zul'Farrak are the worst, because the trolls left curses in the walls and the walls haven't forgotten them." } },
+      choices = {
+        { text = "Then I'll bless your tunnels before the next shift goes down.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A troll curse is just old power. I'd dig it out myself.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Up in the hills round the edges, mostly, and in the old troll ruins, which is the trouble, because something always lives on top of the good veins. The deeper you dig the warmer the rock gets, too, and nobody's explained that to me yet." } },
@@ -431,6 +473,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? You'll be telling me the earth has feelings, and I'll be telling you it has thorium, and we'll both be right, but only one of us gets paid." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Spend enough time down a mine and you'll start praying too, so I'll not laugh at you, but I'll not stop digging while you do it, either." },
         { id = "h_default", key = true,
           text = "Pikkle, mining trainer for Gadgetzan. The desert looks like nothing but sand, but there's metal under it and in the hills, and I'll teach you how to get it out." },
         { id = "h_roguecl", when = { class = "ROGUE" },
@@ -449,6 +492,7 @@ P:NPC {
         { text = "Is mining in the desert dangerous?", next = "danger" },
         { text = "Picking a lock takes more skill than mining.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Where would someone find arcane crystals?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do miners pray when they're deep in the earth, Pikkle?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Goodbye.", next = "END" },
       },
     },

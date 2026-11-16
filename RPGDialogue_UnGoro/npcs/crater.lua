@@ -15,6 +15,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Anyone who went near the stegodons this week, and the two scholars a devilsaur chased into the tar pits. I can shoot what's hunting us, but I can't stitch up what it leaves behind, so I'll take whatever a priest can spare." } },
+      choices = {
+        { text = "I'll tend them before I head back into the crater.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The crater culls the careless. Your scholars should learn from it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "They hunt in packs and they're cleverer than any wolf I've seen, so yes. I know they were here long before us, but I've buried two scholars this season and I'm out of patience with them." } },
       choices = {
@@ -78,6 +87,7 @@ P:NPC {
           text = "You came up my path without me hearing a single step, and that's a rare thing in this crater. I could use feet like yours on patrol, because the raptors hear everything else." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A spellcaster at my campfire, so Williden will want you near his crystals by sundown. Just don't set anything alight, because the ferns down there burn quicker than you'd think." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, all the way down in the crater. I won't ask why, because frankly the Refuge needs a healer more than it needs answers." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest, down here? Good, because my scholars keep coming back from the crater bitten, stung and poisoned all at once, and Williden's bandages only go so far." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -95,6 +105,7 @@ P:NPC {
         { text = "Would quiet feet really help your patrols down there?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Would magic guard your scholars better than rifles?", next = "xmage", when = { class = "MAGE" } },
         { text = "How many of your people has the crater taken?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Who in the Refuge needs healing most, Hol'anyee?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Shouldn't the expedition leave before more people die?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell.", next = "END" },
       },
@@ -144,6 +155,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "The crater has room for everything, priest, because it is older than prayer and younger than the hills around it. Lar'korwi hunts without hate and dies without fear, and if your Light or your loa can teach that, they are welcome here." } },
+      choices = {
+        { text = "I'll pray for the hunter and the hunted alike, Torwa.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The strong feed on the weak. No prayer changes that.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Because that is how the lesson ends, with the student proving what he has learned. I take no pleasure in it, but I will honor him with the hunt and waste nothing he leaves behind." } },
       choices = {
@@ -182,6 +202,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman comes into the crater. Then you have felt it too: the land here is young and old at once, and the Earth Mother's breath is very close to the surface." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest walks the crater. The Earth Mother does not speak in your words, I think, but she listens to anyone who comes with an open heart." },
         { id = "h_default", key = true, text = "I am Torwa Pathfinder. I came to this crater to learn from its beasts, and the greatest of them, Lar'korwi, has become my teacher and my quarry." },
         { id = "h_c0", when = { questActive = TODO_QUEST("The Bait for Lar'korwi") }, text = "Lay the bait where Lar'korwi hunts, and be ready, for he will come quickly and he will not come gently." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid has come to the crater. Then you will understand why I call Lar'korwi my teacher, for nothing here hunts as purely as he does." },
@@ -201,6 +222,7 @@ P:NPC {
         { text = "Should Lar'korwi be left alone?", next = "s_1" },
         { text = "Do you think hunting from hiding is dishonorable, Torwa?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Does my magic offend you, hunter?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Does the crater have room for a priest's prayers, Torwa?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -249,6 +271,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "I've no idea, and that's the wonderful part, because nobody's ever tried it on Un'Goro soil! Some folk at the Refuge would call it nonsense, but they said the same about talking to my plants, and now they lean toward me when I do." } },
+      choices = {
+        { text = "I'll bless them, and we'll see what grows from it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Feed them shadow instead. Hungry things grow strongest.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Heat from below, water from the springs and something in the soil I can't name, all pushing them to grow faster than anything I studied back home. The bloodpetals bite, the vines strangle, and some of the bigger ones get up and walk about, which Larion insists is perfectly natural." } },
@@ -279,6 +310,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Do the spirits ever talk to plants, do you think? Some of my bloodpetals behave as if they're listening, and frankly it's a little unsettling." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! I wonder whether a blessing would make my bloodpetals grow, or whether it would only make them hungrier, because they're quite hungry enough already." },
         { id = "h_default", key = true, text = "Muigin, botanist! I study the plants of Un'Goro, especially the bloodpetals, which are as fascinating as they are dangerous. My partner Larion and I have been experimenting with them." },
         { id = "h_c0", when = { questActive = TODO_QUEST("Muigin and Larion") }, text = "Bring me those bloodpetal sprouts, and mind the ones that bite. They're very hungry this time of year." },
         { id = "h_magecl", when = { class = "MAGE" },
@@ -296,6 +328,7 @@ P:NPC {
         { text = "Is it right to experiment on living plants?", next = "s_1" },
         { text = "Would you really have me cast at your bloodpetals?", next = "xmage", when = { class = "MAGE" } },
         { text = "The plants lean away from me?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Would a blessing really help your plants grow, Muigin?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -344,6 +377,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "I followed a pterrordax because I wanted to see where it nested, which was foolish, and by the time I stopped running I couldn't see the Refuge at all. Spraggle will be frantic, and I'd much rather she didn't end up praying over me." } },
+      choices = {
+        { text = "Nobody's praying over you today. Lean on me, Ringo.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Foolishness has a price. Walk, and pay it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "The springs, honestly; I wanted to see the steam vents near the volcano up close, and then the ground got hotter and the paths kept changing. I'd swear the crater moved its trails about behind me, just to be unkind." } },
@@ -356,6 +398,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, oh, thank goodness, can you call up some water, even a little? I've been talking to the rocks myself for two days, and they haven't said a single helpful thing." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, oh, please say you've a little water, or at least a prayer for some, because I've been lost so long I've started talking to the ferns." },
         { id = "h_default", key = true, text = "Ringo, of the Marshal Expedition, or I was until I got lost. I've been wandering for days, and I'm so tired and thirsty I can barely stand." },
         { id = "h_c0", when = { questActive = TODO_QUEST("A Little Help From My Friends") }, text = "You'll take me back to the Refuge? Please, and if I faint, use the water from the spring, it brings me round." },
       },
@@ -367,6 +410,7 @@ P:NPC {
         { text = "Are you hurt?", next = "b3_1" },
         { text = "Let me tend to you before we go.", next = "x_1", when = { class = { "PRIEST", "PALADIN", "DRUID" } } },
         { text = "Should you have gone alone?", next = "s_1" },
+        { text = "How did you lose your way in the crater, Ringo?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -415,6 +459,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Everybody, friend, once they hear it's warm, healing and blessed by a genuine priest, which is where you come in. The Golakka springs have the minerals already, so all they need is a little Light, or a little loa, depending on the customer." } },
+      choices = {
+        { text = "No. I won't sell blessings to line a goblin's pockets.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Fine, but I take half, and my blessing costs extra.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Everything gets sold eventually, pal, and better me than some Venture Company crew with a drill. I just want the water, and they'd want the whole crater." } },
       choices = {
@@ -468,6 +521,7 @@ P:NPC {
           text = "You've got the look of someone who finds things before anybody else does, friend. I've got a hot spring here that's worth a fortune, and I'd hate for it to wander off while I'm not looking." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! Tell me, can you make water hot or cold on command, because if you can, I've got a business proposition that'll make the springs look like small change." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, perfect! Tell me, would a blessed hot spring sell better than an ordinary one, because I'm thinking holy bathwater could be the next big thing." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! Say, would you bless my springs? Holy hot springs, blessed by the Light, would sell like water in Tanaris, which is to say very well." },
       },
@@ -481,6 +535,7 @@ P:NPC {
         { text = "Worried someone will steal a whole hot spring?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "You want me to boil your springs for coin?", next = "xmage", when = { class = "MAGE" } },
         { text = "Would you really sell blessings, Krakle?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Who would ever buy holy bathwater from the crater, Krakle?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Farewell.", next = "END" },
       },
     },

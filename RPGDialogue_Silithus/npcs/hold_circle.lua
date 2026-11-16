@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Something under the sand, or something behind the wall, or maybe just the end of everything, because they seem happy about all three. Huum says they've given their hearts to something old, and my brother is rarely wrong about such things." } },
+      choices = {
+        { text = "Whatever they serve, I'll pray against it, Bor.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Old powers can be useful, even to a priest.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Calling them up and binding them with those wind stones, as far as we can tell, and the elements don't like it one bit. Huum says the land screams every time they do it, and Huum doesn't exaggerate, so I believe him, even if all I hear is wind." } },
@@ -77,6 +86,7 @@ P:NPC {
           text = "Those little papers the cultists carry, covered in gibberish? Bring me a stack. Every one I've got is one they haven't." },
         { id = "h_texts_done", when = { questDone = TODO_QUEST("Secret Communication") },
           text = "Still bringing me papers? Good, because I've a whole chest of them now, and the crazies must be wondering why nobody answers their letters." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "Ha, a priest of the Horde! You'll have to tell me whether those Twilight crazies pray to anything at all, because their papers read like a madman's shopping list." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! Big brother says the crazies out west hate your Light worse than they hate the bugs, so you and I are going to get along fine." },
       },
@@ -95,6 +105,7 @@ P:NPC {
         { text = "What do the cult's papers say?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do the Twilight's Hammer use demons?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What do the Twilight's Hammer want in Silithus?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do the Twilight's Hammer pray to anything, Bor?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "I'll bring you whatever I find on them.", next = "END", fx = { standing = { cenarion_hold = 1 } } },
       },
     },
@@ -199,6 +210,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "The cult's summonings, which tear at the elements and leave the earth raw, and the swarm, which hollows it out from below. A shaman can soothe the spirits, but a priest can pray for the living who must stand upon such wounded ground." } },
+      choices = {
+        { text = "Then I'll pray for them, Huum, and fight beside them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Wounded ground is fertile ground for shadow. I'd make use of it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "The spirits do not judge, they only remember, and they remember the Twilight's Hammer calling things up from the deep. Prove to them you are different, and they may speak again in your presence." } },
@@ -229,6 +249,7 @@ P:NPC {
           text = "The geolords lead the rituals in the western camps. Strike at them, for they are the heads of the serpent, and the body will thrash without them." },
         { id = "h_vyral", tags = { "news" }, when = { questActive = TODO_QUEST("Vyral the Vile") },
           text = "Vyral the Vile hides in Twilight's Run, a cave in the northeast where the cult keeps its secrets. Bring me his signet ring, and go carefully; the cave is full of horrors." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. The land of Silithus weeps, {name}, and perhaps your prayers can reach the places where its tears have dried to sand." },
       },
       again = {
         { id = "h_again", text = "Ask what you will, {name}; the spirits have waited this long, and they can wait a little longer." },
@@ -243,6 +264,7 @@ P:NPC {
         { text = "My people speak with the loa, not the Earth Mother.", next = "x_troll", when = { race = "Troll" } },
         { text = "Do the spirits judge me for my power?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "How should a mage speak to the spirits?", next = "xmage", when = { class = "MAGE" } },
+        { text = "What wounds the land here most, Huum?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "May the Earth Mother watch over you.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -340,6 +362,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Their priests worry me least, because they see only what they wish to see; it is the things they serve that worry me. A disguise fools eyes, but what the Twilight's Hammer calls up looks past eyes, and I'd want a priest's blessing on anyone who wore my work into their camps." } },
+      choices = {
+        { text = "Then I'll bless the medallion before anyone wears it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Deceit is its own prayer, Aurel. Your craft needs no blessing.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Not if I've done my work properly, and I have. The stones answer to the cult's medallion and robes, not to the heart beneath them, which tells me whatever speaks through them is either very old or very foolish, and I'd rather not learn which." } },
@@ -370,6 +401,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde. The druids say your kind hear the earth as they do, in a rougher dialect, and if that's so, perhaps you'll tell me whether the stone I'm working wants to be a lie." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. I make masks good enough to fool an elemental duke, so I notice faces, and yours looks as if it has prayed over a great many of the dead." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock. The cultists' medallions I forge would fool their masters, I think, but a warlock's eye might see through them, so tell me if they look wrong to you." },
         { id = "h_default", key = true,
@@ -396,6 +428,7 @@ P:NPC {
         { text = "Why not an illusion instead of a disguise?", next = "x_mage", when = { class = "MAGE" } },
         { text = "Do the Twilight's Hammer use warlock magic?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Is it honest, fooling the cult with your forgeries?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Would your disguises fool the cult's own priests, Aurel?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "I'll leave you to your bench.", next = "END" },
       },
     },
@@ -484,6 +517,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Little alone, and a great deal together, as those who stood at the wall learned a thousand years ago. Heal those who hold the line, mortal, and do not let the whispers from beneath the sand persuade you that the dark is kinder." } },
+      choices = {
+        { text = "I'll heal those on the line, and close my ears to whispers.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Whispers can be heard without being obeyed. I'll listen.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Those who built the hives, and what they serve, which is older than the sand itself. A thousand years ago the wall was raised to hold them, and every grain of this desert remembers the price that was paid for it." } },
@@ -514,6 +556,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You hear the land as it was meant to be heard, mortal, and so you know already that it is afraid of what sleeps behind the wall." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, mortal, and of the Horde. Your prayers are young beside what sleeps behind the Scarab Wall, yet even a young flame shines in the dark." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage, mortal, whose magic flows like sand through the hourglass. The Brood would find you interesting, and so do I, though perhaps not for the reasons you would wish." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
@@ -537,6 +580,7 @@ P:NPC {
         { text = "The land remembers the old war, Watcher.", next = "x_druid", when = { class = "DRUID" } },
         { text = "What does the Brood see in mages?", next = "xmage", when = { class = "MAGE" } },
         { text = "What waits behind the Scarab Wall?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What can a priest do against the swarm, Baristolth?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Farewell, Baristolth.", next = "END" },
       },
     },

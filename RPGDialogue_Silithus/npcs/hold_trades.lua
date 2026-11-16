@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Against some of it, I think, though not the worst, because the Twilight's Hammer deal in powers that care little for runes and vellum. A ward holds best when someone faithful stands behind it, and I would rather sell to a priest than to a cultist with gold." } },
+      choices = {
+        { text = "Then sell your wards to the faithful, and turn the cult away.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Gold is gold, Kania. Sell to whoever pays.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "It does, and I wish it didn't. My dusts settle in strange patterns when the wind blows from the Crystal Vale, and a rod I'd charged before I came here went quite dead within a week of arriving." } },
@@ -57,6 +66,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Your totems carry a little magic of their own, I think, though not the kind I sell, so look all you like, but please don't let them rattle near the vellum." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, browsing my formulae. Some say a priest's power and an enchanter's are distant cousins, and you may tell me if they're wrong." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock. If you're buying vellum for anything dark, I'd rather not know, but I'll warn you the sand ruins every scroll unless you wrap it twice." },
         { id = "h_roguecl", when = { class = "ROGUE" },
@@ -75,6 +85,7 @@ P:NPC {
         { text = "Who needs enchanting out in the desert?", next = "who" },
         { text = "Do warlocks buy much from you?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Could a rogue use any of your enchantments?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Can enchantment ward against what the cult calls up, Kania?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -131,6 +142,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "As easily as the scorpid sits beside the cactus, friend, because both belong to the land and both serve a purpose. A priest who heals and a hunter who poisons may both be keeping the Hold alive, and I do not judge which is the gentler work." } },
+      choices = {
+        { text = "Healing is the better path. I'll not carry your poisons.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A priest can carry poison too. Sell me some.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "A few, and they always want powder for the portal home. I don't blame them, since the desert is a hard place, but I'd ask them to stay a while and help the Circle before they vanish." } },
@@ -157,6 +177,7 @@ P:NPC {
           text = "A warlock. I sell the candles and powders your kind use, and I don't ask what they're for, so long as they're used against the hives." },
         { id = "h_default", key = true,
           text = "I am Khur Hornstriker, and I sell reagents and poisons to those who stand with the Hold. Candles and powders for the casters, venom makings for the rogues, and plain good sense for anyone who'll take it." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. I sell candles for your prayers, friend, and poisons for less gentle work, and I find no shame in either." },
       },
       again = {
         { id = "h_again", text = "What else would you know, friend, while the desert wind is quiet?" },
@@ -168,6 +189,7 @@ P:NPC {
         { text = "What do the silithid do to people here?", next = "silithid" },
         { text = "Do many mages pass through the Hold?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do you trust warlocks to use their reagents well?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Does selling poison sit easily beside holy candles, Khur?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -222,6 +244,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "I don't know, and that's what frightens me, because there isn't a mark on him, only a way of staring west as though something there were calling. I've tended him as well as a squire can, but this feels like work for a priest." } },
+      choices = {
+        { text = "Let me see him. Whatever's calling, I'll quiet it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let him go west. I'd like to see what calls him.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "The ground, I think, because they all go quiet together a moment before the sand shivers. The commander says it's the hives digging, but the wolves all turn their heads the same way, south, and it isn't toward the nearest hive." } },
@@ -252,6 +283,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde! Welcome, welcome; the beasts in my care have been restless lately, and I've wondered whether something in the earth unsettles them, so you're exactly who I hoped would come." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde! Welcome to the stables, and please, if you've a blessing to spare, one of my mounts came back from the Twilight camps and hasn't eaten since." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock! I'm sorry, but I can't stable demons, not even little ones, because the beasts here are frightened enough of the desert as it is." },
         { id = "h_magecl", when = { class = "MAGE" },
@@ -270,6 +302,7 @@ P:NPC {
         { text = "What's hard about keeping beasts here?", next = "sand" },
         { text = "Would you really turn away a demon?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "How do you keep the beasts cool in the desert?", next = "xmage", when = { class = "MAGE" } },
+        { text = "What happened to the mount from the Twilight camps, Leoren?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Goodbye.", next = "END" },
       },
     },

@@ -26,6 +26,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "More than I care to count, and the crater kept half of them, so I've buried empty sacks with names stitched on. Say what ye like about the Forsaken, but I'd not want anything walking out o' that crater that I'd put in the ground." } },
+      choices = {
+        { text = "The dead you buried will rest, Nergal. I'll see to it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Death isn't always an ending, dwarf, whatever you've buried.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Because half the fruit down there is poison and the other half is guarded by something with teeth. The devilsaurs don't share their hunting grounds, so I'd rather pay to carry bread up the cliff." } },
       choices = {
@@ -89,6 +98,7 @@ P:NPC {
           text = "A mage, eh? Then ye'll not be needing my water, since ye conjure your own, and I'll thank ye not to tell the expedition how easy it is." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "I'll be counting my crates after ye've gone, friend, so don't take it personal. I've known a few of your trade, and every one of them was charming right up until the stores came up short." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A Horde priest, is it? I'll sell ye bread and boiled water same as anyone, but if ye're one o' the Forsaken, I'd ask ye kindly not to handle the bread." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest, is it? Then ye'll have seen what the crater does to folk, and if ye haven't, give it a day and ye will." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -107,6 +117,7 @@ P:NPC {
         { text = "Does conjured water hurt your trade, Nergal?", next = "xmage", when = { class = "MAGE" } },
         { text = "I'm no thief, Nergal.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What does the crater do to people, Nergal?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Have you buried many from the expeditions, Nergal?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Should the Refuge be fortified, or abandoned?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Goodbye.", next = "END" },
       },
@@ -161,6 +172,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Every last one, friend, Horde and Alliance alike, and the Forsaken pray loudest, which surprised me, given they've already been dead once. The updrafts off that volcano will make a believer of anybody." } },
+      choices = {
+        { text = "I'll bless your beasts, so they bring everyone home.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let them pray. Fear keeps passengers humble.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "That the silithid breed faster than the Circle can burn them out, and the sand's more hive than desert now. I fly them there and I fly them back, and every month there are fewer to bring home." } },
       choices = {
@@ -208,6 +228,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! My beasts don't love flying near the volcano, so if you've any pull with the winds round Fire Plume Ridge, put in a good word for them." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, eh? Most of my passengers start praying the moment we pass Fire Plume Ridge, so you'll fit right in, and at least you'll know the words." },
         { id = "h_default", key = true,
           text = "Gryfe, flight master for Marshal's Refuge. I'll fly anybody to Gadgetzan or to Cenarion Hold, Horde or Alliance alike, because coin's the same colour whichever side pays it." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Your Circle keeps watch at Cenarion Hold, and I fly folk there most days, so I hear plenty about the bugs in Silithus." },
@@ -231,6 +252,7 @@ P:NPC {
         { text = "You don't ask who your passengers are?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Mages can't teleport to Gadgetzan, Gryfe.", next = "xmage", when = { class = "MAGE" } },
         { text = "Do you fly the Horde as gladly as the Alliance?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do your passengers really pray on the flight, Gryfe?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Goodbye.", next = "END" },
       },
     },
