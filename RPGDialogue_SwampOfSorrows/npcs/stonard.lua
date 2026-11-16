@@ -682,6 +682,8 @@ P:NPC {
         { text = "Any word from the temple?", next = "temple" },
         { text = "What's in the stew?", next = "stew" },
         { text = "Our people built this town, didn't they?", next = "old", when = { race = "Orc" } },
+        { text = "Who eats at your tables besides scouts?", next = "regulars" },
+        { text = "Do you cook for tauren, Karakul?", next = "k_tauren", when = { race = "Tauren" } },
         { text = "Just a meal, thanks.", next = "END" },
       },
     },
@@ -711,6 +713,30 @@ P:NPC {
         { id = "sw_default", text = "Whatever the hunters brought in, and in this swamp you're better off not knowing. It's hot and it's thick, and that's all a scout asks of a stew." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    regulars = {
+      lines = {
+        { id = "rg_default", text = "Dar sits by the door every night and complains about the damp, Breyk comes in smelling of wet wind rider, and Greshka eats alone in the corner with a book. Bengor I carry a bowl to, since he can't come to me." },
+      },
+      choices = {
+        { text = "Greshka eats alone?", next = "regulars_greshka" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    regulars_greshka = {
+      lines = {
+        { id = "rgg_default", text = "Always, and nobody minds, because the last grunt who sat at her table had a bad dream for a week after. She tips well, I'll give her that, and she never complains about the stew." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    k_tauren = {
+      lines = {
+        { id = "xta_default", text = "I cook for anyone who comes in from the swamp, and a tauren eats like three scouts, so I'll be glad of the custom. No meat for you, then? I've roots and swamp greens, and they're better than they sound." },
+      },
+      choices = {
+        { text = "Greens will do fine, thank you.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     old = {
       lines = {

@@ -142,12 +142,22 @@ P:NPC {
       },
       choices = {
         { text = "Lexlort sees everything?", next = "staff_lexlort" },
+        { text = "And your scouts in the field?", next = "staff_neeka" },
         { text = "Something else.", next = "BACK" },
       },
     },
     staff_lexlort = {
       lines = {
         { id = "sl_default", text = "He found out where Angerforge's officers train before the dwarves knew it themselves. I don't ask how he does it, because I sleep better not knowing who's watching my tower." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    staff_neeka = {
+      lines = {
+        { id = "sn_default", text = "Neeka Bloodscar leads them, and she's the only orc in Kargath who's told me to my face that I walk too loud. She sends her reports south to Stonard, and I've learned to read them before I read anything else." },
+        { id = "sn_done", when = { questDone = TODO_QUEST("Report to Helgrum") },
+          text = "Neeka Bloodscar, and you've carried her reports to Stonard yourself, so you know she writes like she talks, short and sharp. When she says the road is clear, I believe her, and when she says it isn't, I double the guard." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -755,6 +765,8 @@ P:NPC {
         { text = "Who passes through Kargath?", next = "travelers" },
         { text = "How do your Forsaken guests treat you?", next = "forsaken", when = { race = "Scourge" } },
         { text = "I'm a soldier, Shul'kar. Tell me a battle worth hearing.", next = "k_warrior", when = { class = "WARRIOR" } },
+        { text = "Who rents the room upstairs?", next = "upstairs" },
+        { text = "A Darkspear needs no grog to tell a story.", next = "k_troll", when = { race = "Troll" } },
         { text = "A bunk, please.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -788,6 +800,34 @@ P:NPC {
         { id = "f_default", text = "Theodora and Vivian? They tip well and they don't eat, which makes them my favorite guests. They do laugh at things I'd rather not understand, though." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    upstairs = {
+      lines = {
+        { id = "up_default", text = "Jarkal Mossmeld, the troll alchemist, and his jars, and his smells. He pays his rent in potions, which is fair, since half my grunts would be dead of the heat without them." },
+        { id = "up_reagents", when = { questDone = TODO_QUEST("Badlands Reagent Run") },
+          text = "Jarkal, and you've been filling his jars with gizzards, so you know the smell I'm cooking against. I put more onions in the stew every week, and it's still losing." },
+      },
+      choices = {
+        { text = "Do you trust him?", next = "upstairs_trust" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    upstairs_trust = {
+      lines = {
+        { id = "ut_default", text = "With potions, yes, and with a bargain, never, though he'd say the same of me and my grog. We get along fine, as long as neither of us tries to sell the other anything." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    k_troll = {
+      lines = {
+        { id = "xtr_default", text = "True enough, because the trolls in my common room tell the wildest tales of all, sober or not. Sit down and give me one about the jungle, and I'll tell the grunts it happened in the Badlands." },
+        { id = "xtr_head", when = { origin = "troll_headhunter" },
+          text = "A headhunter, by the look of your belt, so your stories come with proof. Leave the proof outside, though, because it puts the grunts off their stew." },
+      },
+      choices = {
+        { text = "My stories are true, every word.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Mine get better each time I tell them.", next = "BACK", fx = { align = { honor = -1 }, trait = { witty = 1 } } },
+      },
     },
     k_warrior = {
       lines = {

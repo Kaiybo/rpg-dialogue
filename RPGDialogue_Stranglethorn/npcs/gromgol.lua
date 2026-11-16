@@ -823,6 +823,8 @@ P:NPC {
         { text = "What's the talk in camp?", next = "talk" },
         { text = "Where does the zeppelin go?", next = "zeppelin" },
         { text = "Do you even cook for the Forsaken?", next = "forsaken", when = { race = "Scourge" } },
+        { text = "Who else keeps this camp running?", next = "keepers" },
+        { text = "This jungle was my people's home once.", next = "k_troll", when = { race = "Troll" } },
         { text = "Just a meal, thanks.", next = "END" },
       },
     },
@@ -850,6 +852,32 @@ P:NPC {
         { id = "z_default", text = "The tower outside the walls sends them to Orgrimmar and to the Undercity, and the goblins who run them swear they've never lost one. I've never asked what they mean by lost." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    keepers = {
+      lines = {
+        { id = "ke_default", text = "Uthok sells supplies off the zeppelin crates, Thysta keeps the wind riders, and that goblin Nez'raz runs the zeppelin to Orgrimmar and never stops talking. Between the four of us, the Commander's grunts are fed, armed and shipped." },
+      },
+      choices = {
+        { text = "Nez'raz never stops talking?", next = "keepers_nezraz" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    keepers_nezraz = {
+      lines = {
+        { id = "kn_default", text = "Never, and he comes down from his tower to eat here just to have someone new to talk at. He loves the sun on this coast more than any goblin has a right to, so let him tell you about it, and he'll be happy for a week." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    k_troll = {
+      lines = {
+        { id = "xtr_default", text = "It was, and you'd know better than I do what's out there in the green. Tell me a story about it, since the grunts only know the jungle as the thing that bites them." },
+        { id = "xtr_sailed", when = { origin = "troll_sailed_with_thrall" },
+          text = "You sailed with Thrall, so you left this coast long before Grom'gol had a wall. It must be strange to come back and find an orc cooking stew where your people used to hunt." },
+      },
+      choices = {
+        { text = "It's good to see the Horde here.", next = "BACK", fx = { align = { order = 1 }, affinity = 2 } },
+        { text = "It's still our jungle, not the Horde's.", next = "BACK", fx = { align = { order = -1 } } },
+      },
     },
     forsaken = {
       lines = {

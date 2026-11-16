@@ -168,8 +168,8 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Learned the beasts at Orgrimmar, came south for the money, stayed for the money." } },
-    advice = { { id = "tp_ad", text = "Never stand behind a wind rider. Never." } },
+    background = { { id = "tp_bg", text = "I learned the beasts at Orgrimmar and came south for the money, and the money is why I stay." } },
+    advice = { { id = "tp_ad", text = "Never stand behind a wind rider, not even once, not even for a moment." } },
     _none = { { id = "tp_none", text = "I fly beasts, I don't answer riddles. Try the tavern." } },
   },
 }

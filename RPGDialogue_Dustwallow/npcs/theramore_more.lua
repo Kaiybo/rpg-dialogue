@@ -132,7 +132,7 @@ P:NPC {
 
   greetings = {
     { id = "g_pot", text = "Mind the pot, it's hot and it's precious. That's a week of tortoise hunting simmering in there." },
-    { id = "g_back", when = { metBefore = true }, text = "There's my favorite supplier! Or one of them, anyway; the list's short." },
+    { id = "g_back", when = { metBefore = true }, text = "There's my favorite supplier, or one of them, anyway, since the list is short!" },
   },
 
   notice = {
@@ -255,7 +255,7 @@ P:NPC {
 
   greetings = {
     { id = "g_tent", text = "Wash your hands if you're coming in, and keep your voice level. Wounded men listen to tone before they listen to words." },
-    { id = "g_back", when = { metBefore = true }, text = "Ah, you again. Clean hands, I hope?" },
+    { id = "g_back", when = { metBefore = true }, text = "Ah, it's you again, and I hope you've washed your hands." },
   },
 
   notice = {
