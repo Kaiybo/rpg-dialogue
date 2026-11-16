@@ -30,8 +30,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_talk = {
+      lines = { { id = "dt_default", text = "Because someone must remember what was here before. Every root and stone tells me something. Bring me what you find, and I will tell you what it once was, before the Portal took it." } },
+      choices = {
+        { text = "Thank you. Let me ask something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidx", when = { class = "DRUID" },
+          text = "A druid. You smell of earth that still lives. That is rare here, and precious to me." },
         { id = "h_default", key = true,
           text = "I have heard orcs call the stench of humans sickening, and humans call the stench of orcs wretched, yet to me every race of these lands gives off the same odour: the foul, dizzying scent of greed. I am Kum'isha, and I collect." },
         { id = "h_fragments", when = { questActive = TODO_QUEST("Everything Counts In Large Amounts") },
@@ -48,6 +56,7 @@ P:NPC {
         { id = "h_again2", text = "You are still here. Speak, {race}, or go and dig." },
       },
       choices = {
+        { text = "Why do you collect things from this blasted place?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Who are you, really?", next = "who" },
         { text = "What do you collect?", next = "draenethyst" },
         { text = "Why do you say everyone smells of greed?", next = "greed" },

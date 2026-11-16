@@ -28,8 +28,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_talk = {
+      lines = { { id = "dt_default", text = "Then you're worth ten of my soldiers, and I'll not argue the point. They keep to the hills by day and the coast by night. If you find their camps, mark them, and leave the rest to us." } },
+      choices = {
+        { text = "Thank you. Let me ask something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidx", when = { class = "DRUID" },
+          text = "A druid, is it? I've heard your kind can turn into bears. If that's true, I'd like a few for the coast road." },
         { id = "h_default", text = "Captain Danuvin, of the People's Militia. I organize the farmers who were too stubborn to leave, and stubborn makes good soldiers." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Patrolling Westfall") },
           text = "The gnolls aren't just raiding; they work with the thieves in the mines. Somebody feeds them and points them at us." ,
@@ -50,6 +58,7 @@ P:NPC {
         { id = "h_again2", text = "Ask. I can count recruits and listen at the same time." },
       },
       choices = {
+        { text = "I can track the Defias where your soldiers can't.", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Why fight for Westfall?", next = "why" },
         { text = "Tell me about the gnolls.", next = "gnolls" },
         { text = "You'll never forgive Stormwind, will you?", next = "city" },

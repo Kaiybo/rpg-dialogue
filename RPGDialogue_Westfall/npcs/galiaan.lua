@@ -34,8 +34,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_talk = {
+      lines = { { id = "dt_default", text = "Because the Alliance asked, and because Shandris Feathermoon would not refuse it. The humans paid in blood at Mount Hyjal. I can spare a few seasons in their dust for that." } },
+      choices = {
+        { text = "Then I'll stand with you. We owe them.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Our place is in Ashenvale, not in their dust.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidx", when = { class = "DRUID" },
+          text = "Elune's light on you, druid. It is good to see one of the Cenarion Circle this far from home." },
         { id = "h_default", text = "I'm Galiaan, scout for the militia. The Defias front moves every few days, so I move with it and write down where it's been." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Red Leather Bandanas") },
           text = "They wear red leather on their faces and they're proud of it, and that pride is how I track them. Bring me their bandanas and I'll tell you where they've been." },
@@ -56,6 +66,7 @@ P:NPC {
         { id = "h_again2", text = "More questions? Fine, but mind the pins." },
       },
       choices = {
+        { text = "Why does a Sentinel scout watch over human farmland?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Show me your map.", next = "map" },
         { text = "Why do they all wear red?", next = "bandanas" },
         { text = "Teach me something about scouting.", next = "scouting" },

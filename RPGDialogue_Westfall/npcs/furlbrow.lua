@@ -28,8 +28,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_talk = {
+      lines = { { id = "dt_default", text = "Stormwind needed timber to rebuild after the orcs burned it, and Westfall had timber to give. They paid us for it, too, for a while. Now the wind blows straight off the sea, and the topsoil goes with it." } },
+      choices = {
+        { text = "Plant a windbreak. I'll show you which saplings will take.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "That's what comes of selling your land to a city.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidx", when = { class = "DRUID" },
+          text = "You've the look of the forest about you. We had trees here once, before the war and the woodcutters took them all." },
         { id = "h_default", text = "Theodore Furlbrow's the name. Verna and I grew pumpkins north of here until the thieves came, and now we grow nothing." },
         { id = "h_deed_before", when = { questBefore = TODO_QUEST("Furlbrow's Deed") },
           text = "They made me give up the deed. Stood over me till I did. It's out there somewhere, in one of their pockets." },
@@ -47,6 +57,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. I'm only watching the road for a wheelwright." },
       },
       choices = {
+        { text = "What became of the old trees here?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Will you go back to your farm?", next = "back" },
         { text = "What happened the night you left?", next = "night" },
         { text = "Why not fix the wagon and go?", next = "wagon" },

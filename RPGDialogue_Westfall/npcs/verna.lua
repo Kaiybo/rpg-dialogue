@@ -30,8 +30,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_talk = {
+      lines = { { id = "dt_default", text = "Bless you, if you think there is any to find. The verges have been picked clean by everyone fleeing the farms, and the Defias take the rest. If you know a root that will stretch a stew, I will gladly learn it." } },
+      choices = {
+        { text = "Thank you. Let me ask something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidx", when = { class = "DRUID" },
+          text = "Well, aren't you a tall one, and smelling of moss besides. Sit down if you like; the stew's nearly done." },
         { id = "h_default", text = "Verna Furlbrow. That's Theodore on the porch, pretending he isn't worried, and that's Blanchy, who's the only one of us honest about being tired." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Poor Old Blanchy") },
           text = "I fed her before we left the farm. Then the wagon broke, and we've been here since, and she's eaten everything that's grass, so now she needs oats." },
@@ -50,6 +58,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. Blanchy's not going anywhere, and neither am I." },
       },
       choices = {
+        { text = "You have been on this road a long while. Shall I find you forage?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Tell me about Blanchy.", next = "blanchy" },
         { text = "You look tired, Verna.", next = "luck" },
         { text = "Salma says the stew's your recipe.", next = "stew" },

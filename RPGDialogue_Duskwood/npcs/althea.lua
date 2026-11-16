@@ -30,8 +30,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_talk = {
+      lines = { { id = "dt_default", text = "The Scythe of Elune broke something here when the Worgen came, and the undead from Raven Hill have done the rest. I am a soldier; I can only hold the line. If there is a cure, it will come from your Circle, not my Watch." } },
+      choices = {
+        { text = "Then I'll find what poisoned it and root it out.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Some wounds are better burned clean than healed.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidx", when = { class = "DRUID" },
+          text = "A druid. Good. This forest was green once, and I'd like to hear from someone who can tell me if it can be again." },
         { id = "h_default", text = "I'm Commander Ebonlocke of the Night Watch. We're sworn to keep Darkshire's people alive, and some nights that's the whole of the oath, and plenty." },
         { id = "h_watch", tags = { "news" }, when = { questActive = TODO_QUEST("The Night Watch") },
           text = "The dead don't stay in the cemeteries out here, so thin them for me. Every skeleton you put down is one less at our gate." },
@@ -60,6 +70,7 @@ P:NPC {
         { id = "h_again3", when = { timeOfDay = "night" }, text = "Ask, then, and keep half an eye on the gate while you do." },
       },
       choices = {
+        { text = "Can Duskwood still be healed?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "What's out in the woods?", next = "woods" },
         { text = "How can I help the Watch?", next = "help" },
         { text = "Who are your watchers?", next = "watchers" },

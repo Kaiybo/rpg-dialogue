@@ -29,8 +29,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_talk = {
+      lines = { { id = "dt_default", text = "The orcs have chased everything down from the mountains, wolves included. I don't fault the creatures much, but I've a butcher's order to fill, and they keep eating it before it reaches Lakeshire." } },
+      choices = {
+        { text = "Thank you. Let me ask something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidx", when = { class = "DRUID" },
+          text = "You've a kind way with beasts, I'll bet. I could use that; the wolves around here have taken a liking to my supplies." },
         { id = "h_default", text = "Osgood, the smith. The Guard takes every scrap of iron I've got, and I'm meant to shoe the town's horses with what's left, which is nothing." },
         { id = "h_shoes", when = { questBefore = TODO_QUEST("The Price of Shoes") },
           text = "Smith Argus in Goldshire owes me, and he's got iron. If someone carried a note down to him, I might see horseshoes this side of winter." },
@@ -55,6 +63,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, then. The iron's not getting any hotter while you think." },
       },
       choices = {
+        { text = "Why do the wolves come so close to town?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Let's see what you've got.", next = "BUSINESS" },
         { text = "How do you know Argus?", next = "argus" },
         { text = "Why are your horses in danger?", next = "gnolls" },

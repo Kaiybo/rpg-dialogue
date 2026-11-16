@@ -30,8 +30,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_talk = {
+      lines = { { id = "dt_default", text = "The dead from Raven Hill, and something older too, in the Yorgen farm cellar. I hear things at night that aren't wolves and aren't worgen. I'd sooner face either one than whatever that is." } },
+      choices = {
+        { text = "Then I'll go and face it with you.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Leave the farm. Some ground can't be saved.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidx", when = { class = "DRUID" },
+          text = "A druid, all the way out here. Then you'll have noticed the woods are wrong. The animals won't come near the farm anymore." },
         { id = "h_default", text = "I'm Sven Yorgen, and I remember when this forest was green. Nobody believes me anymore, and that's all right, because some days I barely believe it myself." },
         { id = "h_farm", when = { questBefore = TODO_QUEST("The Shadowy Figure") },
           text = "I came home and they were gone, my wife and my children both. Riders in black, the tracks said, and something was watching from the barn." },
@@ -58,6 +68,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, then. The fire's not going anywhere, and neither am I." },
       },
       choices = {
+        { text = "What drove the animals away from your land?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "What happened to your family?", next = "family" },
         { text = "What do you want?", next = "want" },
         { text = "Who keeps this camp with you?", next = "camp" },

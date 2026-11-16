@@ -28,8 +28,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_talk = {
+      lines = { { id = "dt_default", text = "Ate what the animals ate, slept where they slept, and kept my head down. The land up there doesn't care whose side you're on, and it was the only thing in Redridge that wasn't trying to kill me." } },
+      choices = {
+        { text = "The wild shelters those who respect it. You did.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "You survived by luck, and luck runs dry.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidx", when = { class = "DRUID" },
+          text = "A druid. I spent a long while in those hills with nothing but the wolves for company, so I've a soft spot for anyone who speaks their tongue." },
         { id = "h_default", text = "Corporal Keeshan, Stormwind Army. I was on the walls at Stonewatch when it fell, and they kept me alive, because orcs like a prisoner who can talk." },
         { id = "h_rescue", tags = { "news" }, when = { questActive = TODO_QUEST("Missing In Action") },
           text = "You're from Lakeshire? Then you're the best thing I've seen in this cave. Get me to the Marshal and I'll try to keep up." },
@@ -46,6 +56,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, talk. It keeps me awake, and awake is good." },
       },
       choices = {
+        { text = "How did you survive so long in the hills?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "What did you see up there?", next = "seen" },
         { text = "What happened at Stonewatch?", next = "fall" },
         { text = "Can you walk?", next = "walk" },

@@ -32,8 +32,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_talk = {
+      lines = { { id = "dt_default", text = "Are they? I hadn't noticed, truly. An old man needs firewood, and dead wood burns so very nicely. You mustn't go poking about in my garden, though; I've such delicate things growing back there." } },
+      choices = {
+        { text = "Thank you. Let me ask something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidx", when = { class = "DRUID" },
+          text = "Oh, a creature of the woods, is it? You'll find little left alive in mine, I'm afraid. Do come in." },
         { id = "h_default", text = "I'm Abercrombie, and I keep to myself up here. My wife and I lived in Raven Hill once, and I stay close to her now, because it's what she'd want." },
         { id = "h_hermit", when = { questActive = TODO_QUEST("The Hermit") },
           text = "Someone sent you to check on me? How thoughtful! I'm perfectly well, dear, and I'm working on something that's coming along nicely." },
@@ -61,6 +69,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, dear. I've time, a great deal of time." },
       },
       choices = {
+        { text = "The trees around your shack are dead, and not from age.", next = "druid_talk", when = { class = "DRUID" } },
         { text = "What are you working on?", next = "work" },
         { text = "Tell me about your wife.", next = "wife" },
         { text = "Don't the dead bother you, up here?", next = "dead" },

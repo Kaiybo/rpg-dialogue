@@ -32,8 +32,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_talk = {
+      lines = { { id = "dt_default", text = "A name, sometimes, and a green place gone sour. There is a sleeping wood beneath this one, child, and something in its dreams has turned. I do not know more, and I am glad I do not." } },
+      choices = {
+        { text = "Thank you. Let me ask something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidx", when = { class = "DRUID" },
+          text = "The wood speaks to you too, then. It has been screaming for years, druid, and few enough have ears to hear it." },
         { id = "h_default", text = "I am Madame Eva, and I follow the old arts. I read what the cards say and what the stars refuse to, and while horrors wait in the night here, I simply know their names." },
         { id = "h_shadowy", tags = { "news" }, when = { questActive = TODO_QUEST("The Shadowy Figure") },
           text = "There was a figure in the fog, watching the farm where the Yorgens died. The cards show me a frightened man rather than a monster, so go and find him." },
@@ -58,6 +66,7 @@ P:NPC {
         { id = "h_again2", text = "The candle hasn't gone out yet, so go on." },
       },
       choices = {
+        { text = "What do you hear when the forest screams?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Read my cards.", next = "cards" },
         { text = "What waits in the night?", next = "night" },
         { text = "Who is Blind Mary?", next = "mary" },

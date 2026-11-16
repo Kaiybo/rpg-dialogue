@@ -29,8 +29,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_talk = {
+      lines = { { id = "dt_default", text = "Hungry or not, they burn farms and carry off livestock. If there's something pushing them, it'll be the Blackrock orcs, and that only makes it worse. Find out for me, and don't come back with a story about poor misunderstood gnolls." } },
+      choices = {
+        { text = "Then I'll find what drives them and end it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then they'll answer for the farms, hungry or not.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidx", when = { class = "DRUID" },
+          text = "A druid! Hah, good. I've got gnolls in the hills and orcs on the ridge, and I'll take help from anyone with claws." },
         { id = "h_default", text = "I'm Marris, Marshal of Lakeshire, with a guard stretched across a lake and orcs who never sleep. What do you need?" },
         { id = "h_menace", when = { questBefore = TODO_QUEST("Blackrock Menace") },
           text = "The Blackrock came out of the Burning Steppes and took Stonewatch Keep. Now they raid everything north of town, and there's another nest of them in Render's Valley. I want their numbers down." },
@@ -53,6 +63,7 @@ P:NPC {
         { id = "h_again2", text = "Go on; I'm listening with one ear, and the other's on the bridge." },
       },
       choices = {
+        { text = "Your gnolls are only hungry. Something drives them down from the hills.", next = "druid_talk", when = { class = "DRUID" } },
         { text = "What happened at Stonewatch?", next = "stonewatch" },
         { text = "How bad is it?", next = "bad" },
         { text = "Who is Tharil'zun?", next = "tharil" },

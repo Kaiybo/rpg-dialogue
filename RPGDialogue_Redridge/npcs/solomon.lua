@@ -30,8 +30,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_talk = {
+      lines = { { id = "dt_default", text = "Lakeshire has noticed, I assure you, though Stormwind has yet to read my letters about it. The Blackrock clan cuts what it needs for its war machines and burns the rest. If you can slow them, I will put it in writing to the Keep." } },
+      choices = {
+        { text = "Then I'll drive them off the slopes myself.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Your letters won't save a single tree.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidx", when = { class = "DRUID" },
+          text = "A druid of the kaldorei in Lakeshire. I confess I have little notion what your people make of ours." },
         { id = "h_default", key = true,
           text = "I am Solomon, elected Magistrate of Lakeshire, which means the people chose me to be the one who writes the letters nobody answers." },
         { id = "h_new", when = { maxLevel = 17 },
@@ -69,6 +79,7 @@ P:NPC {
         { id = "h_again3", when = { timeOfDay = "night" }, text = "Ask what you like. The letters will keep, as they always do." },
       },
       choices = {
+        { text = "The orcs are stripping the Redridge hills bare for timber.", next = "druid_talk", when = { class = "DRUID" } },
         { text = "What does Lakeshire need?", next = "need" },
         { text = "Why won't Stormwind help?", next = "stormwind" },
         { text = "What happened at Stonewatch Keep?", next = "stonewatch" },
