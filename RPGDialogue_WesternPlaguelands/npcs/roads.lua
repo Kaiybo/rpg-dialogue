@@ -30,17 +30,53 @@ P:NPC {
           text = "Myranda, they call me, and the Hag behind my back, though not to my face more than once. I trade in seemings, dearie, the art of looking like what you're not." },
         { id = "h_tirion", tags = { "news" }, when = { questActive = TODO_QUEST("Find Myranda") },
           text = "The old exile by the river sent you, did he? Then you'll want to walk into Hearthglen wearing a Crusader's face, and I can give you one, for a little while." },
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "A warlock, dearie, with the smell of the Nether on your sleeve. Don't bring your little friend in here, for my cauldron has a temper of its own." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "Illusions, is it, {class}? The Kirin Tor have their tricks and I have mine, and mine have fooled more priests than theirs ever did." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue, dearie, I can always tell. You wear your face like a mask already, so you'll need very little help from old Myranda." },
       },
       choices = {
         { text = "I serve the Light. Your craft makes my skin crawl.", next = "paladin", when = { class = "PALADIN" } },
         { text = "How do you know the Crusade so well?", next = "crusade" },
         { text = "How does your illusion work?", next = "illusion" },
         { text = "Why help Tirion Fordring?", next = "tirion" },
+        { text = "What do you know of shadow magic, Myranda?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Who taught you to work illusions, Myranda?", next = "xmage", when = { class = "MAGE" } },
+        { text = "What's the difference between your seemings and a good disguise?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I've no use for witchcraft.", next = "END" },
       },
       again = {
         { id = "h_again", text = "Something more? The kettle's on, though I wouldn't drink from it." },
         { id = "h_again2", text = "Speak, dearie. I've nowhere to be, and no one to be it with." },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "A disguise fools the eyes, dearie, and a seeming fools the heart, which is where the Crusade keep their judgement. The priests taught me that, though they'd burn me for saying so, and I find that very funny indeed." } },
+      choices = {
+        { text = "Deceiving zealots is fair game.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Lies catch up with everyone, even yours.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Interesting. Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "The Crusade's own priests, before they decided I was a witch, and they weren't wrong, only late. A mage learns illusion from a book, but I learned it watching holy men lie to themselves every morning." } },
+      choices = {
+        { text = "Magic learned from liars is still magic.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Magic should be studied properly, not stolen.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Enough to stay out of it, dearie, for every warlock I've known paid in the end, and the price was never coin. Seemings are safer, since the worst a bad illusion ever does is show you your own face." } },
+      choices = {
+        { text = "I'll stop before the price comes due.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I know the price, and I'll pay it gladly.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's speak of seemings instead.", next = "BACK" },
       },
     },
     crusade = {
@@ -111,15 +147,39 @@ P:NPC {
           text = "Joseph Redpath's ring! Marlene sent you, didn't she? Hold onto it a moment; there's something it still wants to do." },
         { id = "h_annals", when = { questActive = TODO_QUEST("The Annals of Darrowshire") },
           text = "The Annals are somewhere in Andorhal's old town hall, among a great many books that aren't the Annals. Look for the one that looks like it's been waiting for you." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "Oh, a mage! You've the look of someone who reads the last page of a book first, {class}, and I can't say I blame you." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "You came up so quietly I nearly missed you, {class}, and I very rarely miss anything. That's quite a compliment, you know." },
       },
       choices = {
         { text = "Fellow gnome, you're hiding something.", next = "gnome", when = { race = "Gnome" } },
         { text = "What happened at Darrowshire?", next = "darrowshire" },
         { text = "Who are you, really?", next = "who" },
         { text = "Why stay in Andorhal of all places?", next = "andorhal" },
+        { text = "You talk like someone who's studied time, Chromie.", next = "xmage", when = { class = "MAGE" } },
+        { text = "Few people catch me coming. How did you?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Goodbye, Chromie.", next = "END" },
       },
       again = { { id = "h_again", text = "Yes? You were about to ask something, I'm almost certain of it." } },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Oh, I'm always a moment ahead of where people expect, which is a habit and not a trick, I promise. Besides, the dead in Andorhal walk loudly, so anyone quiet stands out like a lantern." } },
+      choices = {
+        { text = "That's honest enough. I'll take your word.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A habit, is it? You're hiding something.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let's talk about Darrowshire.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Do I? How very odd of me, for I'm only a gnome with an interest in history, and history is just time that has stopped wriggling. Darrowshire is the history I care about today, so ask me about that, and I'll pretend you didn't notice anything." } },
+      choices = {
+        { text = "Some secrets are worth keeping. I'll leave yours.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Secrets like that have a way of coming out.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Very well. Something else, then.", next = "BACK" },
+      },
     },
     darrowshire = {
       lines = {

@@ -40,6 +40,10 @@ P:NPC {
           text = "A night elf druid! If you're flying out over the plaguelands, mind you don't take a deep breath, because the birds won't, and they're smarter than most soldiers." },
         { id = "h_default", key = true,
           text = "Khaelyn Steelwing, gryphon master for the Alliance at Light's Hope. The air over these plaguelands is foul and the birds hate every mile of it, but they'll get you to Chillwind or anywhere else you need to be." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage who still wants a gryphon, {class}! Good, because a portal can't get you anywhere near Light's Hope, and my birds can." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "Sneaking up on a gryphon master, {class}? The birds saw you a mile off, they just didn't think you worth a squawk." },
       },
       again = {
         { id = "h_again", text = "Anything more? The gryphons fidget every time the wind blows in from the Plaguewood." },
@@ -50,7 +54,27 @@ P:NPC {
         { text = "Where can I fly from here?", next = "BUSINESS", when = { faction = "Alliance" } },
         { text = "How do the gryphons manage the plague?", next = "air" },
         { text = "A Forsaken bat handler right beside you?", next = "georgia" },
+        { text = "Do the gryphons mind flying over the plague?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do you keep an eye on Georgia's bats, Khaelyn?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Every hour I'm awake, and she watches my birds the same way, so I'd say we're even. The Dawn says we share the yard, and we do, but nobody ever said I had to stop counting her bats." } },
+      choices = {
+        { text = "Watching her is just good sense.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Counting her bats behind her back isn't fair.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Fair enough. Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "They hate it, and they tell me so every flight by refusing their feed afterward. I scrub their feathers in clean water from Chillwind, and I'd rather do it by hand than trust a stray spell anywhere near them." } },
+      choices = {
+        { text = "Care for them first. They carry us through all this.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Beasts are tools. Fly them until they drop.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's talk of something else.", next = "BACK" },
       },
     },
     air = {
@@ -109,6 +133,12 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Georgia, bat handler for the Horde. My bats fly to the Undercity and wherever else the Dark Lady's people keep a roost, and they don't care how foul the air is." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
+          text = "A warlock. The apothecaries and your trainers in the Undercity don't get on, {class}, but at least you've both stopped pretending the dead are sacred." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
+          text = "A mage. My bats loathe the smell of the arcane, {class}, so stand to windward and try to think about something dull." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
+          text = "A rogue at a bat roost. If you're here to steal a bat, {class}, they'll scream until every knight in the chapel comes running, and I'll let them." },
       },
       again = {
         { id = "h_again", text = "What else? The bats don't like the daylight, and neither do I." },
@@ -119,7 +149,37 @@ P:NPC {
         { text = "Why bats, of all creatures?", next = "bats" },
         { text = "How do you get along with the gryphon master?", next = "khaelyn" },
         { text = "Does living among the Argent Dawn bother you?", next = "dawn", when = { race = "Scourge" } },
+        { text = "Do your bats mind a demon riding along?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Wouldn't a teleport home be faster than your bats?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Does the Dark Lady have her own agents out here?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "The Dark Lady has agents everywhere, and the ones out here don't introduce themselves to bat handlers. If you're one, you'll know better than I do, and if you're not, I'd stop asking such questions before somebody wonders why." } },
+      choices = {
+        { text = "I'll keep my questions to myself, then.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Questions are my trade. I'll ask what I like.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Fair. Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Faster to the Undercity, yes, and useless everywhere else, which is the whole of the Plaguelands. My bats go where the Dark Lady's people need them, and they don't complain, which is more than I can say for most mages." } },
+      choices = {
+        { text = "Fine. Speed isn't everything.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The faster way is always better. Your bats are outdated.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let's leave it there.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "They mind everything, but they mind demons least of all, for a demon smells less of death than the rest of us. Keep it quiet in the air and don't let it bite, and I've no objection." } },
+      choices = {
+        { text = "My demon behaves. I'll make sure of it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "It bites when it likes. That's its nature.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     bats = {
@@ -194,6 +254,12 @@ P:NPC {
           text = "Jessica Chambers, and this is the inn at Light's Hope, such as it is. I keep the beds clean and the pot full for the Argent Dawn and anyone else who comes in from the plaguelands, and I don't ask anyone's colours." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Late to be on the road out here, friend, and later still to be alone. There's a bed if you want it, and the guards walk the walls all night." },
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "Keep that little creature off the beds, {class}, for I've washed those sheets twice today, and once more would finish me." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage, good, {class}, for the well's been tasting of the plaguelands again, and I'd rather not boil it a third time." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "Sit with your back to the wall if you like, {class}, everybody does here. I've seen too many soldiers come in shaking to mind a rogue who checks the door." },
       },
       again = {
         { id = "h_again", text = "Anything else I can get you? There's more bread." },
@@ -205,7 +271,37 @@ P:NPC {
         { text = "How is this place still safe?", next = "safe" },
         { text = "Who comes through here?", next = "guests" },
         { text = "Where do you find food in this country?", next = "food" },
+        { text = "Does a warlock make the soldiers nervous here?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "I could conjure water for the inn, Jessica.", next = "xmage", when = { class = "MAGE" } },
+        { text = "Does anyone ever steal from the inn?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Goodbye.", next = "END" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Once, a soldier took a loaf and I let him, for he'd come back from Corin's Crossing with no company left. Nobody steals here, not really, they only take what they need, and I try to have enough." } },
+      choices = {
+        { text = "Mercy before rules. You did right.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Let one take, and they all take. Be careful.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else, Jessica.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "That's kind, and I'll take whatever you leave, but don't make a habit of it, or the soldiers will never drink from the well again. The Dawn scrubs that water three times, and it's honest water, even if it tastes of iron." } },
+      choices = {
+        { text = "Then I'll leave a little. It's the least I can do.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Conjured water's mine. They can boil theirs.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Everything makes them nervous, for they've seen what the dead can do, and the dead don't need demons to be frightening. Eat your soup and be civil, and they'll warm to you, slower than they'd like to admit." } },
+      choices = {
+        { text = "I'll be civil. They've earned some peace.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "They'll get used to me, or they won't.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     safe = {
@@ -267,6 +363,10 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Jase Farlane, trade supplies for Light's Hope. Everything a crafter needs to mend a soldier's kit or brew a potion, and every bit of it came a long and dangerous way, so the prices aren't Stormwind's." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage, {class}? Then you'll know the price of good reagents in hard times, and you'll go gently with me about mine." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "Every spool on these shelves came a long and ugly way, {class}, so if one goes missing I'll know, and so will the Dawn." },
       },
       again = {
         { id = "h_again", text = "Anything else? There's a wagon to unload." },
@@ -276,7 +376,27 @@ P:NPC {
         { text = "Let me see your wares.", next = "BUSINESS" },
         { text = "How do the supplies get here?", next = "wagons" },
         { text = "What does the Dawn need most?", next = "needs" },
+        { text = "Couldn't a mage's portal shorten your supply roads?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Does anything go missing on the road to Light's Hope?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Goodbye.", next = "END" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "More than I'd like, for the Scourge don't steal, but the Scarlet patrols out of Tyr's Hand do, and they call it requisition. I'd give a good deal to know which of their officers is wearing my thread on his tabard." } },
+      choices = {
+        { text = "Taking it back from them is only justice.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The Dawn can't afford a feud with the Crusade.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "If anyone could open a portal from Stormwind or Orgrimmar to this chapel, I'd kiss them on both cheeks, but no mage I've asked knows how. So the wagons come the long way, across the Thondroril from Chillwind, and I price accordingly." } },
+      choices = {
+        { text = "Hard roads are honest work. Don't wish them away.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Any shortcut is worth taking, honest or not.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     wagons = {

@@ -35,6 +35,10 @@ P:NPC {
           text = "Argent Quartermaster Lightspark, keeper of the Dawn's stores at Chillwind. Everything on my shelves goes to those who've fought the Scourge alongside us, and the more the Dawn trusts you, the more I'm allowed to sell." },
         { id = "h_stranger", when = { reputation = { faction = "Argent Dawn", max = "neutral" } },
           text = "I'm afraid my shelves are closed to strangers, friend, though that's no insult. The Dawn sells only to people it knows, and it gets to know people by what they do against the Scourge." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage, good, {class}, for I've a requisition here asking for frost-proof crates, and I've no idea what that means or who thought of it." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "Before you ask, {class}, everything on my shelves is counted twice, and the count is written in a ledger nobody but me can read. I find it saves time." },
       },
       again = {
         { id = "h_again", text = "What else can the Dawn's quartermaster do for you today?" },
@@ -45,7 +49,27 @@ P:NPC {
         { text = "How do I earn the Dawn's trust?", next = "trust" },
         { text = "What exactly is the Argent Dawn?", next = "dawn" },
         { text = "Do the Dawn's goods come cheap?", next = "price" },
+        { text = "What does a mage get from the Dawn's quartermaster?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Does the Dawn trust rogues as far as paladins?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Goodbye.", next = "END" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "The Dawn trusts what you do, not what you are, and I keep the ledger that proves it. A rogue who stands against the Scourge earns the same standing as a paladin who does the same, and I've seen no reason to think otherwise." } },
+      choices = {
+        { text = "Deeds over titles. I'll earn my place.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Order needs ranks. Paladins should lead.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Whatever the Dawn decides you've earned and not a copper more, for I don't make the rules, I only write them down. Keep fighting at Andorhal and Caer Darrow, and you'll find my shelves get more interesting." } },
+      choices = {
+        { text = "Fair rules, fairly kept. I respect that.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Rules like that keep good fighters ill-equipped.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Understood. Something else.", next = "BACK" },
       },
     },
     trust = {
@@ -108,6 +132,10 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Leonard Porter, leatherworking supplies. The soldiers here go through boots and jerkins faster than you'd believe, so I keep the tanners in thread and salt, and I keep a careful eye on what they bring me." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "Felhunter hides make poor leather, {class}, so don't ask, and keep that thing away from my drying racks." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You'll want soft leather for quiet boots, {class}, and I can tell by your walk you already know how to use them. Just don't bring me plagued hides." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've hides soaking, and they won't wait long." },
@@ -118,7 +146,27 @@ P:NPC {
         { text = "Why check every hide so closely?", next = "plague" },
         { text = "What's worth skinning around here?", next = "hides" },
         { text = "Does a druid's fur bother you?", next = "druid", when = { class = "DRUID" } },
+        { text = "Why are you so sure I'd ask?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Can you tell a plagued hide from a clean one?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "By the smell, mostly, and by the way the fur comes away in the hand. Anything from near Andorhal I burn without asking, for I'd rather lose a sale than lose a soldier to a pair of boots." } },
+      choices = {
+        { text = "Better a lost sale than a lost life. Agreed.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A hide's a hide. Soldiers can't be choosy.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because someone always does, usually a soldier who's been out too long. I'll tan anything that walked honestly on this earth, but not a thing that came through a crack in the sky, and I'll thank your demon to remember it." } },
+      choices = {
+        { text = "Fair rule. Demons don't belong on your racks.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Demon leather would be the toughest there is.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's change the subject.", next = "BACK" },
       },
     },
     plague = {

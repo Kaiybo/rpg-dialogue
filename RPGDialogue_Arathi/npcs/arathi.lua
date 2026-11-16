@@ -49,6 +49,8 @@ P:NPC {
           text = "Northfold Manor's crawling with Syndicate, so clear it out; every house they hold is one more we have to win back." },
         { id = "h_badges_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Stromgarde Badges"), days = 3 } },
           text = "The badges went out with the last rider south, and some families will open a letter this month and finally know. So thank you, and I don't say that often." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock in Stromgarde's camp, {class}. I've lost too many soldiers this year to turn away anyone who'll fight, but I'll have someone watching you." },
       },
       again = { { id = "h_again", text = "What else? Keep it brief." }, { id = "h_again2", text = "Go on; the tent can wait, though the hills can't." } },
       choices = {
@@ -60,11 +62,21 @@ P:NPC {
         { text = "Lordaeron fell too. I know what that's like.", next = "lordaeron", when = { origin = "human_lordaeron_refugee" } },
         { text = "Put me in the line, Captain.", next = "line", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "Let me bless the badges before they go home.", next = "priest_badges", when = { class = "PRIEST", questActive = TODO_QUEST("Stromgarde Badges") } },
+        { text = "The Syndicate use dark magic. Why not answer in kind?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll fight for Stromgarde.", next = "END", fx = { affinity = 2, align = { honor = 1 }, standing = { refuge_pointe = 1 } } },
         { text = "The Syndicate wouldn't see me coming, Captain.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I can scout the Highlands for you.", next = "xhunter", when = { class = "HUNTER" } },
         { text = "Arathor's first mages learned their craft in these hills.", next = "xmage", when = { class = "MAGE" } },
         { text = "I'll help where it pays, Captain, and Stromgarde's coin is as good as any.", next = "END", fx = { align = { honor = -1 } } },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because Stromgarde was built by the men who stood beside the elves against the Amani, and I'll not see its banner carried on demon fire. Fight the Syndicate with whatever you must, but keep the fel out of my soldiers' sight." } },
+      choices = {
+        { text = "Then I'll keep it out of sight, as you ask.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Pride won't win back Stromgarde, Captain. Power will.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let's talk of something else, Captain.", next = "BACK" },
       },
     },
     leave = {
@@ -240,6 +252,10 @@ P:NPC {
           text = "This is a call to arms: the Witherbark first, then whoever's next, because Hammerfall doesn't wait to be attacked." },
         { id = "h_arms_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Call to Arms"), days = 2 } },
           text = "There's blood on your gear and sweat on your brow, and that's how I like my soldiers to come home. Rest, then go again." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
+          text = "A mage, {class}. Hammerfall's walls are stone, but the Boulderfist hit them with stone too, and fire is something they are not used to." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
+          text = "A quiet one, {class}. Hammerfall could use eyes among the Witherbark, for the trolls watch our walls and I would like to watch them back." },
       },
       again = {
         { id = "h_again", text = "What else? Say it plain; Hammerfall has no time for riddles." },
@@ -257,7 +273,27 @@ P:NPC {
         { text = "The elements are with Hammerfall, chieftain.", next = "xshaman", when = { class = "SHAMAN" } },
         { text = "I wield fel magic. Does that trouble you?", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "The Dark Lady sends her regards to Hammerfall.", next = "xforsaken", when = { race = "Scourge" } },
+        { text = "Are the Boulderfist ogres afraid of magic?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "What should I look for among the Witherbark?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "I'll fight.", next = "END", fx = { affinity = 2, standing = { hammerfall = 1 } } },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Their numbers, their shamans, and the paths between their villages, for the Witherbark move through these hills faster than any grunt can follow. When Hammerfall thrives, it will be on the back of quiet work like that, and I will remember who did it." } },
+      choices = {
+        { text = "Quiet work wins wars. Glory is for songs.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'd rather face them openly, Drum Fel.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else, Drum Fel.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Ogres fear little and understand less, but their ogre-mages know enough to be dangerous, and they hide behind the brutes. Burn the mages first and the rest will stand around wondering who to follow, which is how ogres spend most of their lives." } },
+      choices = {
+        { text = "Burning their mages from cover is the smart way.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'll meet their champions face to face, not hide.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let's speak of something else.", next = "BACK" },
       },
     },
 
@@ -436,6 +472,10 @@ P:NPC {
           text = "Bring Trol'kalar out of that tomb, and the chief will hear your name." },
         { id = "h_trolkalar_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Trol'kalar"), days = 3 } },
           text = "For longer than anyone remember, Strom and Arathor cut down our people, and now their best blade be in troll hands. I see it get to Nimboya at Grom'gol, mon, and the Darkspear owe you a debt." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
+          text = "Mage, eh? The Gurubashi blood priests use their own kind of magic, {class}, and it smell worse than yours by a long way." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
+          text = "The Darkspear teach their young to move quiet in the jungle, {class}, and you got that same walk. Maybe you be the one to fetch Trol'kalar for Vol'jin, eh?" },
       },
       again = {
         { id = "h_again", text = "More? Zengu got all day, mon. Hunters always do." },
@@ -450,7 +490,27 @@ P:NPC {
         { text = "I'm Darkspear. What does the chief need of me?", next = "troll", when = { race = "Troll" } },
         { text = "I've met Nimboya, in Grom'gol.", next = "nimboya", when = { heardLine = "nimboya.h_default" } },
         { text = "I hear voices the loa don't send.", next = "xwarlock", when = { race = "Troll", class = "WARLOCK" } },
+        { text = "Do the Darkspear trust mages, Zengu?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Why steal a human sword instead of forging your own?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Ha. Let's get it.", next = "END", fx = { affinity = 2, trait = { brave = 1 } } },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Because a sword made to kill trolls know where a troll keep his heart, and the Gurubashi got plenty of hearts. Takin' it from Stromgarde be the easy part, mon, and the hard part be keepin' Trol'kalar from turnin' on the hand that hold it." } },
+      choices = {
+        { text = "Using the enemy's own weapon is clever. I like it.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Stolen blades bring bad luck. Forge your own.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else, mon.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Darkspear trust whoever Vol'jin trust, and Vol'jin trust the Warchief, so here we be. Some of the young ones at Sen'jin learnin' fire now, and the old ones grumble, but the old ones always grumble." } },
+      choices = {
+        { text = "Old ways should make room for new ones.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The old ones grumble for a reason. Listen to them.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let's talk of something else.", next = "BACK" },
       },
     },
 
@@ -619,6 +679,12 @@ P:NPC {
           text = "I am Innkeeper Adegwa, a tauren among orcs, far from Mulgore's grass. Every fort needs a fire, and this one is mine." },
         { id = "h_grass", when = { metBefore = true }, text = "I keep a little pot of Mulgore grass by the door, and it doesn't like the Highlands, but neither did I, at first. We're both getting used to it." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "The grunts sing old war songs after dark, and I don't know the words, so I hum, and they let me." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
+          text = "There is a cold in you that the hearth cannot reach, {class}. Sit closer anyway, and I will not ask what follows you." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
+          text = "Your hands hum like a summer storm over Mulgore, {class}. Please do not light my hearth with them, for I lit it myself, and it remembers my hand." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
+          text = "Sit by the fire, {class}, and keep your back to the wall if it helps you rest. I have known many who could not sleep any other way." },
       },
       again = { { id = "h_again", text = "Something else? The fire's in no hurry, and neither am I." } },
       choices = {
@@ -628,7 +694,37 @@ P:NPC {
         { text = "What do the grunts sing about?", next = "songs" },
         { text = "We're a long way from Mulgore, you and I.", next = "home", when = { race = "Tauren" } },
         { text = "Thunder Bluff sent me here, innkeeper.", next = "xskyborne", when = { race = "Skyborne" } },
+        { text = "Would the Earth Mother turn me away, innkeeper?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do the tauren think well of the arcane?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do many quiet travelers come through Hammerfall?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Just a rest, thank you.", next = "END" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "More than the grunts notice, for a fort on the edge of the Highlands draws those who watch and those who are watched. I give them all the same bread and ask nothing, because a hearth that asks questions soon loses its guests." } },
+      choices = {
+        { text = "Asking nothing is the kind thing to do.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Some guests ought to be questioned, innkeeper.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else, Adegwa.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Some of the elders frown on it, for the Earth Mother gives freely and the arcane, they say, takes without asking. I keep my own counsel, since a fire is warm whether a shaman or a mage kindles it, and the cold does not care." } },
+      choices = {
+        { text = "Taking without asking worries me too.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Power is there to be used. The elders are wrong.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's talk of something gentler.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "The Earth Mother turns no child away, but the things you bargain with have no mother, and they want to be fed. Take care what you feed them, {class}, for a hungry thing grows." } },
+      choices = {
+        { text = "I feed it only what I choose. I'm careful.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let it grow. A strong demon serves me better.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Adegwa.", next = "BACK" },
       },
     },
     among = {
