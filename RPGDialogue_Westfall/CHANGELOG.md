@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.9.0 (2026-11-16)
+- Sentinel Hill: Christopher Hewen, Gina MacGregor, Kirk Maxwell and Mike Miller; Heather and William MacGregor have more to say.
+- New files: exit the game fully and restart.
+
 ## 1.8.0 (2026-11-15)
 - Gryan, Salma, Furlbrow, Captain Grayson and others answer warriors, hunters, shamans, druids, night elves and the Skyborne.
 

@@ -2,6 +2,19 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.37.0 (2026-11-16)
+Packs: 14 packs have new versions (`python3 tools/version.py` lists them). **New files in many packs: exit the game fully and restart**; /reload won't load them.
+
+### The Horde's Eastern Kingdoms, and more people in the busy towns
+- **Revantusk Village** has people at last: Primal Torntusk, whose mate was taken by the Vilebranch, Huntsman Markhor, Mystic Yayo'jin, Katoom the Angler, Lard the ogre innkeeper, Smith Slagtree, Otho Moji'ko and the wind rider master.
+- **Hammerfall and Refuge Pointe** (Arathi): Gor'mul, Tor'gan and Korin Fel; Skuerto, Apprentice Kryten and their quests.
+- **Tarren Mill**: Krusk, Novice Thaivand, Deathguards Humbert and Samsa, Tallow, and Innkeeper Shay with much more to say.
+- **Kargath, Stonard and Grom'gol**: Neeka Bloodscar, Jarkal Mossmeld, Dar, Greshka, Malosh, the flight and zeppelin masters.
+- **Goldshire and Sentinel Hill**: Tomas the cook, Kira Songshine, the Maclures (Pa and Joshua), two Goldshire children, and four more at Sentinel Hill.
+- **Auberdine, Astranaar, Theramore**: Tharnariun Treetender, Sentinel Elissa Starbreeze, Sentinel Thenysil, Morgan Stern, Doctor Gustaf VanHowzen and the flight masters.
+- **Booty Bay, Gadgetzan, Everlook**: 22 more between them (the bankers, flight masters and traders; Dirge Quikcleave, Trenton Lighthammer, Yeh'kinya, Legacki, Felnok Steelspring, Jessica Redpath, Malyfous Darkhammer, Storm Shadowhoof).
+- About 75 new people in all, each with their Classic quests where they have them, replies for who you are, and a first impression for the diary.
+
 ## 0.36.0 (2026-11-15)
 Packs: every content pack has a new version (`python3 tools/version.py` lists them). **New files (four origin files in World, Stormwind's warrior trainers): exit the game fully and restart**; /reload won't load them.
 

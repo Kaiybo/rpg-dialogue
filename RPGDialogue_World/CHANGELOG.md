@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.25.0 (2026-11-16)
+- Revantusk Village gets its own town standing.
+- New files: exit the game fully and restart.
+
 ## 1.24.0 (2026-11-15)
 - Every class trainer is now a full conversation, like the priest trainers: what to practise, one question where you take a side (mercy or judgement, need or sport, loyalty or coin, asking or commanding the elements...), a personal question, and the race-and-class pairings they'd notice.
 - Guards, innkeepers, children, stable masters, blacksmiths and flight masters notice every class and race; all 48 town citizen pools notice classes and races; 55 new class-specific answers to "A little advice".

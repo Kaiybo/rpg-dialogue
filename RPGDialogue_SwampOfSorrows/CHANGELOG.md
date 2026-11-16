@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.7.0 (2026-11-16)
+- Stonard: Dar, Breyk, Greshka (grimoires for warlocks only) and Malosh; Innkeeper Karakul talks about the regulars.
+- New files: exit the game fully and restart.
+
 ## 1.6.0 (2026-11-15)
 - Replies for the classes and races these people would really react to (warriors, hunters, rogues, mages, warlocks, druids, shamans, paladins; every race of the faction, and the Skyborne), each leading somewhere.
 

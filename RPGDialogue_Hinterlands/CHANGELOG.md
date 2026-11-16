@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.7.0 (2026-11-16)
+- New: Revantusk Village, eight people: Primal Torntusk and his kidnapped mate, Huntsman Markhor, Mystic Yayo'jin, Katoom the Angler, Lard the ogre innkeeper, Smith Slagtree, Otho Moji'ko and Gorkas.
+- New files: exit the game fully and restart.
+
 ## 1.6.0 (2026-11-15)
 - Replies for the classes and races these people would really react to (warriors, hunters, rogues, mages, warlocks, druids, shamans, paladins; every race of the faction, and the Skyborne), each leading somewhere.
 

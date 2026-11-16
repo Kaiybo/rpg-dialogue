@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.16.0 (2026-11-16)
+- Goldshire: Tomas the cook, Kira Songshine the travelling baker, Bo and Matt, and the Maclures (Pa and Joshua).
+- New files: exit the game fully and restart.
+
 ## 1.15.0 (2026-11-15)
 - Dughan, Farley and McBride answer warriors, hunters, rogues, warlocks, mages, shamans and dwarves; every class trainer in Northshire and Goldshire has a real conversation about their class.
 

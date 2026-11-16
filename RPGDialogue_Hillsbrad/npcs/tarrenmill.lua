@@ -45,6 +45,8 @@ P:NPC {
           text = "You've met Lydon, then: brilliant, devoted, and forever complaining about the fresh air. Leave him his complaints, for the plague will need them." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "The living sleep and we do not, so every night the line moves a little closer to Southshore." },
+        { id = "h_krusk", when = { questDone = TODO_QUEST("Gol'dir") },
+          text = "Krusk's leader is free, I hear, and the orcs are grateful. Gratitude from Orgrimmar is a currency I intend to spend." },
         { id = "h_xsoldier", when = { origin = "forsaken_lordaeron_soldier" },
           text = "You carried Lordaeron's colours once; it shows in how you stand. Southshore's watchmen once served the same king, so try to remember which side of the line you are on now." },
       },
@@ -424,6 +426,8 @@ P:NPC {
         { id = "h_default", text = "I'm Shay, and I keep the inn. When this town was alive someone else did, and the customers complain less now." },
         { id = "h_clean", when = { metBefore = true }, text = "I polished the bar today. Nobody here eats or drinks much anymore, but a clean bar is a clean bar. Habit's what's left." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Night's our busy hour, though everyone's always up here, so I've stopped putting the chairs on the tables." },
+        { id = "h_skulls", when = { questDone = TODO_QUEST("Souvenirs of Death") }, text = "Samsa's hung his skulls on the wall behind my inn, thanks to you. I've asked him to at least line them up straight." },
+        { id = "h_krusk", when = { heardLine = "krusk.h_default" }, text = "You've met Krusk, then. He's the only one in town who orders a hot meal, and he eats it with his back to the wall." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've all night, and every night after it." },
@@ -433,6 +437,8 @@ P:NPC {
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "What was Tarren Mill like before?", next = "before" },
         { text = "Who stays here?", next = "guests" },
+        { text = "Do you miss sleeping?", next = "sleep", when = { race = "Scourge" } },
+        { text = "Is there anything here a living body can eat?", next = "food", when = { race = { "Orc", "Tauren", "Troll", "Skyborne" } } },
         { text = "Just passing through.", next = "END" },
       },
     },
@@ -451,7 +457,33 @@ P:NPC {
       lines = {
         { id = "gu_default", text = "Deathguards off watch, apothecaries who forget they don't need to eat, and the living allies, who eat everything. I keep the cellar locked for them." },
       },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Who's the strangest?", next = "guests_strange" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    guests_strange = {
+      lines = { { id = "gs_default", text = "Lydon's frog, who has a stool of her own by the fire, and Humbert, who sat in the corner a whole week without his sword. Neither of them tips." } },
+      choices = {
+        { text = "The frog has a stool?", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sleep = {
+      big = true,
+      lines = { { id = "sl_default", text = "I miss the idea of it, the way you'd miss a room in a house that burned. I lie down some nights anyway and wait for something to happen, and it never does." } },
+      choices = {
+        { text = "We have no need of it. Better without.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
+        { text = "I'd give much to dream again.", next = "BACK", fx = { align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    food = {
+      lines = { { id = "fo_default", text = "Bread from the Undercity, a little stale, and whatever the hunters bring in, which I cook the way I remember cooking. I can't taste it, so you'll have to tell me if it's good." } },
+      choices = {
+        { text = "It's good, Shay.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 

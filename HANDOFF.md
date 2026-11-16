@@ -8,7 +8,8 @@ Short on purpose: current state and next step only. History is in `CHANGELOG.md`
 - Wants quick, efficient sessions: no constant re-validation; use `CLAUDE.md`'s checks.
 - Uses DialogueUI. Tests in game and sends screenshots.
 
-## State (0.36.0)
+## State (0.37.0)
+- 0.37.0 (user: "Move onto the 0.37.0 release"; picked from the next steps): ~75 new named NPCs: Revantusk Village (new file, new town `revantusk`), Hammerfall and Refuge Pointe, Tarren Mill, Kargath, Stonard, Grom'gol, Goldshire, Sentinel Hill, Auberdine, Astranaar, Theramore, Booty Bay, Gadgetzan, Everlook. Unvalidated by the user's choice (only `luac -p`).
 - Core 0.36.0; every pack's version: `python3 tools/version.py`. 47 folders.
 - 0.36.0 (user: "more dialogue specific to every race and class, not just priest... another big content push"): every class trainer pool is a full conversation (`pools_roles.lua`, test `tests/classes_spec.lua`); Stormwind's warrior trainers (`npcs/warriors.lua`); ~450 named NPCs gained class/race-gated branches (no new priest content); guard/innkeeper/child/stable/smith/flight pools and all 48 town citizen pools notice classes and races; class advice in `asks.lua`; 39 new origins (`origins/orc.lua`, `troll.lua`, `tauren.lua`, `forsaken.lua`, plus class origins for every Alliance race and Skyborne), used in lines across packs.
 - 0.35.0 recap: citizens, ~100 named NPCs, Blasted Lands/Azshara/Silithus, journal pages, self-writing diary, three 45-60 throughlines.
@@ -25,6 +26,6 @@ Short on purpose: current state and next step only. History is in `CHANGELOG.md`
 Right-click on untitled townsfolk opening the box (citizen role via `UnitCreatureType`, which is localized: non-English clients may treat beasts as citizens); the journal button's count badge; Shadowform as form 28; most of `Compat.lua` beyond `/rpgd probe`; the DialogueUI paged Ask list in the real addon.
 
 ## Next step
-1. User installs 0.36.0 (new files: exit fully, copy in, restart). Ask: on an alt of another class (or `/rpgd spoof class=WARRIOR race=Dwarf`), do trainers and the majors feel written for that class? Approve or edit the draft origins (Character Sheet in the journal), especially the Horde lists.
-2. Lore calls the writers flagged for a look (authored, not canon): Falstad undecided on the Revantusk; Remulos at peace with Grom; Mekkatorque owning the venting of Gnomeregan; Faranell's arrangement with Magatha; Tyrande on men sleeping in the Dream; Ander Germaine/Wu Shen/Ilsa Corbin written from memory.
-3. Then: Horde Eastern Kingdoms depth (Revantusk, Kargath, Stonard, Grom'gol), more named NPCs in Goldshire, Sentinel Hill, Auberdine, Astranaar, Theramore, Booty Bay, Gadgetzan, Everlook; Alterac/Dalaran once documented.
+1. User installs 0.37.0 (new files: exit fully, restart). Ask how 0.36.0's class content and 0.37.0's towns feel in play.
+2. Lore to confirm (writers unsure): Gringer's title and the flight routes; Storm Shadowhoof unfriendly to Alliance in Classic; six Gadgetzan/Everlook service NPCs only "fairly sure" Classic; Tor'gan written as Darkspear.
+3. Then: more named NPCs where writers skipped for lack of sources; Alterac/Dalaran (Forever) once documented; any lines the user flags.

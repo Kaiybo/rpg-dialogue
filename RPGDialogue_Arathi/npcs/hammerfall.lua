@@ -146,7 +146,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "I be Tor'gan, shaman of Hammerfall. The Warchief gave our people back their hope, and here in the ruins of the old prison I tend what's left of it like a small fire in the wind." },
         { id = "h_hammerfall", tags = { "news" }, when = { questRecent = { TODO_QUEST("Hammerfall"), days = 2 } },
-          text = "Ah, you speak of Gor'mul. He was a captive here when Thrall and Orgrim broke the camp, and he was left behind when the earth shook, and he never found his way out of that night." },
+          text = "Ah, you speak of Gor'mul. He was a captive here when Thrall and Orgrim broke the camp, and when the earth shook he was left behind, and he never found his way out of that night." },
         { id = "h_spirits", when = { questActive = TODO_QUEST("Raising Spirits") },
           text = "Take my amulet to Gor'mul and see if the raptor's strength can wake the warrior in him. If it don't, we try somethin' stronger." },
         { id = "h_guile", when = { questActive = TODO_QUEST("Guile of the Raptor") },
