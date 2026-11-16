@@ -1,7 +1,7 @@
 -- Orgrimmar's trainers, from the Valley of Honor to the Cleft of Shadow. Voice: bibles/orgrimmar.md
 -- Zevrost never names Neeru; the Cleft keeps its own secrets.
 local P = RPGDialogueAPI:Pack("rpgd.orgrimmar")
-local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
+local TODO_NPC = P.TODO_NPC
 
 P:NPC {
   key = "grezz", id = TODO_NPC("Grezz Ragefist"), name = "Grezz Ragefist",

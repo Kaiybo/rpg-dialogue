@@ -1,7 +1,7 @@
 -- Northshire Abbey's armorer, clothier, weaponsmith, and Brother Paxton who walks the grounds.
 -- Voice: bibles/northshire_smiths.md
 local P = RPGDialogueAPI:Pack("rpgd.elwynn")
-local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
+local TODO_NPC = P.TODO_NPC
 
 -- Godric Rothgar: armorer and shieldsmith to the Abbey's recruits.
 P:NPC {

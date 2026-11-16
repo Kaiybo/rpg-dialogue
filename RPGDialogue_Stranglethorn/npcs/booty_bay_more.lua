@@ -1,6 +1,6 @@
 -- More of Booty Bay: the flight masters, the banker and the shopkeepers of the cove. Voice: bibles/stranglethorn.md
 local P = RPGDialogueAPI:Pack("rpgd.stranglethorn")
-local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
+local TODO_NPC = P.TODO_NPC
 
 P:NPC {
   key = "gyll", id = TODO_NPC("Gyll"), name = "Gyll",
