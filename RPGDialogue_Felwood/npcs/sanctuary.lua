@@ -232,6 +232,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    shaman_mb = {
+      lines = {
+        { id = "smb_default", text = "Not these ones, I'm afraid. The elementals in Felwood are twisted by the corruption, the way the furbolgs are, and there isn't anything left in them to call kin. Ask your spirits, if you doubt me; I think they'll tell you the same." },
+      },
+      choices = {
+        { text = "Then freeing them is a mercy. I'll do it.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Twisted or not, they're kin. Find someone else.", next = "BACK", fx = { align = { order = -1 }, affinity = -1 } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -257,6 +266,7 @@ P:NPC {
         { text = "I'm Alliance. Can I still help?", next = "alliance", when = { faction = "Alliance" } },
         { text = "The alchemist at Bloodvenom wants the corruption.", next = "winna", when = { heardLine = "winna.h_default" } },
         { text = "I'll help mend it.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Must I kill elementals? The spirits are my kin.", next = "shaman_mb", when = { class = "SHAMAN" } },
         { text = "I'm here for what I can take, not to mend.", next = "END", fx = { align = { light = -1 } } },
       },
     },
@@ -363,6 +373,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    warrior_ar = {
+      lines = {
+        { id = "war_default", text = "So would I, most days, and there's plenty in Felwood you can hit. But a warrior who only knows how to win a fight will lose this forest, because there's nothing here to defeat, only something to outlast." },
+      },
+      choices = {
+        { text = "Then I'll outlast it. Patience is a weapon.", next = "BACK", fx = { align = { order = 1 }, affinity = 2 } },
+        { text = "Show me what to hit. I'll leave the patience to you.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -381,6 +400,7 @@ P:NPC {
         { text = "Do you work with Maybess?", next = "maybess" },
         { text = "I've some herb lore.", next = "herbs", when = { profession = "Herbalism" } },
         { text = "I'll help cleanse it.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I'd rather fight something I can hit.", next = "warrior_ar", when = { class = "WARRIOR" } },
         { text = "I'll leave the salving to you, because it isn't my fight.", next = "END", fx = { align = { light = -1 } } },
       },
     },

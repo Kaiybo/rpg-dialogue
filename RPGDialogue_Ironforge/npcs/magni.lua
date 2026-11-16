@@ -69,6 +69,10 @@ P:NPC {
           when = { any = { { heardLine = "grelin.h_default" }, { questDone = TODO_QUEST("The Reports") } } } },
         { text = "Farsen sends his regards, my king.", next = "incursion", when = { questDone = TODO_QUEST("Old Ironforge Incursion") } },
         { text = "I came out of Lordaeron, Your Majesty.", next = "terenas", when = { origin = "human_lordaeron_refugee" } },
+        { text = "The mountain speaks to me, Your Majesty. Through the stone.", next = "shaman", when = { race = "Dwarf", class = "SHAMAN" } },
+        { text = "I've come about the fel I carry, Your Majesty.", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "I served in the Military Ward before I took the road.", next = "soldier", when = { race = "Dwarf", class = "WARRIOR" } },
+        { text = "Darnassus sends its greetings, King Magni.", next = "kaldorei", when = { race = "NightElf" } },
         { text = "Long live the king.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -325,6 +329,82 @@ P:NPC {
       choices = {
         { text = "Forgive me, Your Majesty.", next = "BACK" },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    shaman = {
+      big = true,
+      lines = {
+        { id = "sh_default", text = "So my granddad wasnae mad after all, or else ye're both mad together. Half my court says it's Wildhammer superstition an' the other half wants tae know what the mountain thinks o' the Senate, so what does it say tae ye?" },
+        { id = "sh_listener", when = { origin = "dwarf_stone_listener" },
+          text = "I'm told ye were listenin' at the walls o' the deep halls since ye were a bairn, an' the miners called ye odd for it. The mountain's had a long time tae get a word in, so I'd like tae hear what it's been sayin'." },
+      },
+      choices = {
+        { text = "It says the Dark Iron dig where they shouldn't.", next = "shaman_deep" },
+        { text = "The elements are older than any king, Your Majesty.", next = "BACK", fx = { align = { order = -1 }, affinity = -1 } },
+        { text = "I serve Ironforge first, and the stone second.", next = "BACK", fx = { align = { order = 1 }, affinity = 2 } },
+        { text = "Something else, Your Majesty.", next = "BACK" },
+      },
+    },
+    shaman_deep = {
+      lines = {
+        { id = "shd_default", text = "Farsen says the same from his hill, an' he's a Wildhammer, so it's a rare day I find a Wildhammer an' a Bronzebeard agreein'. If the stone's tellin' ye where the breaches are, ye tell the guard captains before ye tell anyone else." },
+      },
+      choices = {
+        { text = "I'll keep my ear to the stone for you.", next = "BACK", fx = { affinity = 2, standing = { ironforge = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    warlock = {
+      big = true,
+      lines = {
+        { id = "wl_default", text = "Ye're honest enough tae say it tae my face, an' I'll grant ye that much. I've seen what fel did tae the orcs an' what it's done tae the Dark Iron's masters, an' I dinnae want it in my halls, so tell me why I should." },
+        { id = "wl_gnome", when = { race = "Gnome" },
+          text = "A gnome wi' fel on yer hands, under my mountain. Gelbin vouches for his people, every one, but I'd like tae hear why ye went lookin' for that kind o' power before I vouch for ye myself." },
+      },
+      choices = {
+        { text = "Power is a tool. I hold the chain.", next = "BACK", fx = { align = { light = -1 }, affinity = -2 } },
+        { text = "I use it against the things that made it, Your Majesty.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Who in your hall would watch me?", next = "warlock_watch" },
+      },
+    },
+    warlock_watch = {
+      lines = {
+        { id = "ww_default", text = "Rohan, if he takes a likin' tae ye, an' my guards whether he does or no'. Dinnae take it hard; I've buried too many friends tae trust a thing because it's polite." },
+      },
+      choices = {
+        { text = "Fair, Your Majesty.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    soldier = {
+      lines = {
+        { id = "so_default", text = "Then ye know what I ask o' the Reserve, an' ye know I ask too much o' it. Half the Ward's gone south tae the Alliance's wars an' the other half's guardin' the Span an' the loch, so a warrior on the road is one more axe I dinnae have at home." },
+        { id = "so_ward", when = { origin = "dwarf_military_ward" },
+          text = "I've seen yer name on a roster, I think, or yer da's. The Military Ward breeds good soldiers an' then I send them away from it, an' some nights I wonder whether it's a king's work or a fool's." },
+      },
+      choices = {
+        { text = "The road needs axes too, Your Majesty.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Call me home and I'll come.", next = "BACK", fx = { align = { order = 1 }, affinity = 2, standing = { ironforge = 1 } } },
+        { text = "Where's the line thinnest?", next = "reserve" },
+      },
+    },
+    kaldorei = {
+      lines = {
+        { id = "ke_default", text = "Does it, now! Tell the Darnassians they're welcome under the mountain whenever they've had their fill o' trees, an' that my League's been diggin' in their Darkshore wi' every permission we could get. Mostly every permission." },
+      },
+      choices = {
+        { text = "My people are wary of digging, Your Majesty.", next = "kaldorei_dig" },
+        { text = "The Alliance is stronger with both our peoples.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kaldorei_dig = {
+      lines = {
+        { id = "kd_default", text = "I've heard, an' I've heard why. Ye've had your share o' things comin' up out o' the ground ye wish had stayed down, an' so have we, so I'll tell Magellas tae ask twice before he digs once." },
+      },
+      choices = {
+        { text = "Some things should stay buried, Your Majesty.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Better to know what's down there, Your Majesty.", next = "BACK", fx = { align = { order = -1 }, trait = { curious = 1 } } },
       },
     },
   },

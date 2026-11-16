@@ -62,6 +62,8 @@ P:NPC {
         { text = "The Circle's druids stand with you, Commander.", next = "druid", when = { class = "DRUID" } },
         { text = "Our people sealed this place once, didn't they?", next = "kaldorei", when = { race = "NightElf" } },
         { text = "What will you do now, Commander?", next = "after", when = { questDone = TODO_QUEST("Into The Maw of Madness") } },
+        { text = "My blade is yours, Commander.", next = "x_warrior", when = { class = "WARRIOR" } },
+        { text = "The elements here are in torment, Commander.", next = "x_shaman", when = { class = "SHAMAN" } },
         { text = "I'll leave you to your work, Commander.", next = "END", fx = { affinity = 1, standing = { cenarion_hold = 1 } } },
       },
     },
@@ -254,6 +256,27 @@ P:NPC {
       lines = { { id = "an_default", text = "I don't know, and that frightens me more than anything you could have said. Whatever it is, it sits somewhere behind that wall, and it can reach through stone to whisper to a priestess who only wanted to read old carvings." } },
       choices = { { text = "Then we'll find out together.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } }, { text = "Something else.", next = "BACK" } },
     },
+    x_warrior = {
+      lines = {
+        { id = "xw_default", text = "My soldiers are spread thinner than I would wish, and every one of them stands between this Hold and the hives. A warrior who keeps the peace in my courtyard and fights where I send them is worth more to me than any number of promises." },
+        { id = "xw_watch", when = { origin = "nightelf_auberdine_watch" }, text = "You carry yourself like one of the Auberdine watch. Then you already know how long a night can be when you are counting soldiers who have not returned." },
+      },
+      choices = {
+        { text = "I'll go where you send me, Commander.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, standing = { cenarion_hold = 1 } } },
+        { text = "I'll fight where I judge best, Commander.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "Something else, Commander.", next = "BACK" },
+      },
+    },
+    x_shaman = {
+      lines = {
+        { id = "xsh_default", text = "The Circle's druids say the same of the land, and now the Horde's shamans say it of the stones and the wind; I have stopped believing it a coincidence. Tell Windcaller Proudhorn or the Wildmanes what you hear, for I confess I no longer have the patience to listen well." },
+      },
+      choices = {
+        { text = "What is the cult doing out there?", next = "cult" },
+        { text = "I'll tell them what the spirits say.", next = "BACK", fx = { affinity = 1, standing = { cenarion_hold = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -297,6 +320,8 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_mage", cat = "class", when = { class = "MAGE" },
+      text = "A mage! Come and stand by the samples a moment and tell me if your fingers tingle, because mine have been tingling all week." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A face from home! Ye'll forgive me if I talk your ear off; the elves are lovely, but none of them knows a geode from a gallstone." },
     { id = "n_miner", cat = "craft", when = { profession = { "Mining" } },
@@ -335,6 +360,8 @@ P:NPC {
         { text = "I hear something in the crystals too.", next = "priest_hum", when = { class = "PRIEST" } },
         { text = "This ore's coated in slime. What is it?", next = "mining", when = { profession = { "Mining" } } },
         { text = "What did the prism tell you?", next = "prism", when = { questDone = TODO_QUEST("Unraveling the Mystery") } },
+        { text = "Those crystals hum with arcane power, don't they?", next = "x_mage", when = { class = "MAGE" } },
+        { text = "The earth spirits are speaking here. Can't you hear them?", next = "x_shaman", when = { class = "SHAMAN" } },
         { text = "I'll let you get back to your rocks.", next = "END" },
       },
     },
@@ -443,6 +470,34 @@ P:NPC {
       lines = { { id = "pz_default", text = "That the crystals are how something talks to the silithid, from a very long way off, and that the key to listening in isn't anything we can lay hands on yet. The one clue on the surface looks grim, and I'll say no more until I'm sure." } },
       choices = { { text = "I'll be ready when you are.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } }, { text = "Something else.", next = "BACK" } },
     },
+    x_mage = {
+      lines = {
+        { id = "xm_default", text = "Arcane, ye say? I'd taken it for the stone itself, but ye mages hear things in a rock that a geologist only feels in her back teeth. Put your hand on one, then, and tell me whether it's louder for ye than it was last week." },
+      },
+      choices = {
+        { text = "It's louder. And it doesn't feel like anything of ours.", next = "x_mage_louder" },
+        { text = "I hear nothing but stone.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_mage_louder = {
+      lines = { { id = "xml_default", text = "Aye, that's what I was afraid of, and I'll thank ye not to say it so loud near the commander's tent. Write down what ye felt, every word, and leave it on my table, because two of us noticing is the start of proof." } },
+      choices = {
+        { text = "I'll write it all down.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } },
+        { text = "Something else, Larksbane.", next = "BACK" },
+      },
+    },
+    x_shaman = {
+      lines = {
+        { id = "xs_default", text = "I hear the stone, which isn't quite the same as hearing spirits, though I'll grant ye they might be one thing with two names. Whatever's in those crystals is making the ground restless, and if your spirits have an opinion on the humming, I'd dearly like to hear it." },
+        { id = "xs_dwarf", when = { race = "Dwarf", class = "SHAMAN" }, text = "A dwarf who talks to the stone and hears it talk back! My granddad would've called that a tall tale told over ale, but here ye stand, so I'm not too proud to ask what it says." },
+      },
+      choices = {
+        { text = "The stone is afraid. It doesn't like what the crystals carry.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } },
+        { text = "The spirits keep their counsel from outsiders.", next = "BACK", fx = { affinity = -1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -507,6 +562,7 @@ P:NPC {
         { text = "The Circle's emissary sent me to you.", next = "emissary", when = { questDone = TODO_QUEST("Taking Back Silithus") } },
         { text = "This desert must be hard on a child of the plains.", next = "tauren", when = { race = "Tauren" } },
         { text = "What does a windcaller do, exactly?", next = "druid", when = { class = "DRUID" } },
+        { text = "I could scout the supply roads for you.", next = "x_hunter", when = { class = "HUNTER" } },
         { text = "I'll keep an eye on the roads.", next = "END", fx = { standing = { cenarion_hold = 1 } } },
       },
     },
@@ -554,6 +610,15 @@ P:NPC {
     druid = {
       lines = { { id = "dr_default", text = "We call the winds, mostly, and read what they carry: rain coming, sand rising, bugs moving where they shouldn't. Out here it's half druidry and half keeping the weather off the grain." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    x_hunter = {
+      lines = {
+        { id = "xh_default", text = "Provided you watch the ground as closely as the horizon, I accept gladly. The dredge strikers come up beneath a caravan rather than at it, and a hunter's eyes are little use if the attack arrives from below." },
+      },
+      choices = {
+        { text = "Then I'll track them back to their burrows.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 }, standing = { cenarion_hold = 1 } } },
+        { text = "Your caravans need guards, not scouts.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+      },
     },
   },
 
@@ -612,6 +677,7 @@ P:NPC {
         { text = "How do you keep the peace here?", next = "guard" },
         { text = "How do you see anything in that blindfold?", next = "blindfold" },
         { text = "I move quietly. Does that worry you?", next = "rogue", when = { class = "ROGUE" } },
+        { text = "Need another blade on the walls, Captain?", next = "x_warrior", when = { class = "WARRIOR" } },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },
@@ -676,6 +742,16 @@ P:NPC {
       lines = { { id = "r_default", text = "Not in the least. The quiet ones I can hear perfectly well; it's the loud ones who hide things, because nobody listens to them closely." } },
       choices = { { text = "I'll remember that.", next = "BACK", fx = { affinity = 1 } } },
     },
+    x_warrior = {
+      lines = {
+        { id = "xw_default", text = "Need? I count the patrols that come back, not the ones that go out, so yes, I need. Stand a night on the tower if you like, and keep your sword sheathed in my courtyard, whatever colors walk past you." },
+      },
+      choices = {
+        { text = "Horde or Alliance, I'll keep the peace here.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "If someone draws on me, I won't wait for your leave.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -736,6 +812,7 @@ P:NPC {
         { text = "I've come from Darkshore, as it happens.", next = "darkshore", when = { race = "NightElf" } },
         { text = "How do you keep everyone fed?", next = "inn" },
         { text = "I'd like a room.", next = "BUSINESS" },
+        { text = "Have you heard of my people, the shen'dorei?", next = "x_skyborne", when = { race = "Skyborne" } },
         { text = "Thank you, Calandrath.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -791,6 +868,15 @@ P:NPC {
     inn = {
       lines = { { id = "i_default", text = "With a ledger, a good memory and Windcaller Proudhorn's grain carts. When a caravan's late, I water the soup and say nothing, and when it's very late, I say a prayer to Elune and water it some more." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    x_skyborne = {
+      lines = {
+        { id = "xs_default", text = "I've heard the name on travellers' lips, and now here you sit in my inn, looking like a cousin I never knew I had. You poor thing, this desert must feel terribly low to the ground after wherever you've been." },
+      },
+      choices = {
+        { text = "It does. The air here is heavy.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Our peoples were one, once, long ago.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+      },
     },
   },
 
@@ -850,6 +936,7 @@ P:NPC {
         { text = "What do you brew for the Hold?", next = "work" },
         { text = "I know a little alchemy myself.", next = "alchemist", when = { profession = { "Alchemy" } } },
         { text = "What's a goblin doing working for druids?", next = "goblin" },
+        { text = "Venom like that would coat a blade nicely.", next = "x_rogue", when = { class = "ROGUE" } },
         { text = "I'll keep an eye out for nasty things with stingers.", next = "END" },
       },
     },
@@ -904,6 +991,16 @@ P:NPC {
     goblin_family = {
       lines = { { id = "gf_default", text = "Profit before people, sure, but family before profit, and don't you tell anyone in Gadgetzan I said so. Noggle's an idiot, but he's my idiot." } },
       choices = { { text = "Your secret's safe.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    x_rogue = {
+      lines = {
+        { id = "xr_default", text = "It would, and it'd coat your fingers just as nicely if you hold the vial like that; Noggle's still half green from one sting. I'll sell what I can spare at a fair price, but anything off those southern stingers goes into his antidote first, family before business." },
+      },
+      choices = {
+        { text = "Family first. I'd do the same.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Everything has a price, Beetix. Name yours.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 

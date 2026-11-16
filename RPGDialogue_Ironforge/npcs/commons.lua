@@ -52,6 +52,7 @@ P:NPC {
         { text = "What are the Suntara Stones?", next = "stones" },
         { text = "Who's Margol the Rager?", next = "margol" },
         { text = "Would you pray with me for Dorius?", next = "pray", when = { class = "PRIEST", questDone = TODO_QUEST("Suntara Stones") } },
+        { text = "I've a few trophies of my own, Curator.", next = "k_hunter", when = { class = "HUNTER" } },
         { text = "Another time, Curator.", next = "END" },
       },
     },
@@ -127,6 +128,18 @@ P:NPC {
         { text = "His work keeps him better than any prayer.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
       },
     },
+    k_hunter = {
+      lines = {
+        { id = "xhu_default", text = "Have ye, now! A hunter's trophies are the best kind, for every one comes wi' a story an' a scar. Bring me somethin' wi' a tale tae it, an' I'll find it a case an' a wee brass plate wi' yer name." },
+        { id = "xhu_pet", when = { pet = { type = "Beast" } },
+          text = "Have ye, now! An' there's yer partner in the business, sniffin' at my mounted boar as if it wants a word wi' it. Keep it off the exhibits, an' tell me about the best beast ye've ever brought down." },
+      },
+      choices = {
+        { text = "A trophy honors the beast. That's why I keep them.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "A trophy proves I won. That's all.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Who brought you Margol's horn?", next = "margol" },
+      },
+    },
   },
 
   topics = {
@@ -182,6 +195,8 @@ P:NPC {
         { text = "What's Mythology of the Titans?", next = "titans" },
         { text = "What happened to the Monastery?", next = "monastery" },
         { text = "I trained at an abbey myself.", next = "abbey", when = { origin = "human_abbey_novice" } },
+        { text = "The books you'd lock away interest me most.", next = "k_lock", when = { class = "WARLOCK" } },
+        { text = "A mage would kill for this library.", next = "k_mage", when = { class = "MAGE" } },
         { text = "I'll let you read.", next = "END" },
       },
     },
@@ -238,6 +253,27 @@ P:NPC {
         { id = "ab_default", text = "Northshire? Then ye'll know what a good library's worth tae a young priest. Theirs is small but well-loved, which is the best kind." },
       },
       choices = { { text = "I spent more time there than at prayers.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    k_lock = {
+      lines = {
+        { id = "xlk_default", text = "I'd guessed as much, from the way yer eyes went straight tae the back shelf. I don't burn books, for that's the Scarlets' business, but I keep some o' them where I can see who's readin'." },
+        { id = "xlk_texts", when = { origin = "gnome_forbidden_texts" },
+          text = "Ye're the gnome who's been askin' after the sealed Gnomeregan folios, aren't ye? I've had three o' them come up the tram since the fall, an' I've read the first page o' one, an' I put it down again." },
+      },
+      choices = {
+        { text = "Knowledge shouldn't be locked away, Librarian.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "You're right to watch the readers.", next = "BACK", fx = { align = { order = 1 }, affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    k_mage = {
+      lines = {
+        { id = "xmg_default", text = "Kill, is it? I'd prefer ye didnae, for the bloodstains never come out o' vellum. Dalaran's libraries are grander, I'm told, but ours remember things the Kirin Tor never thought tae write down." },
+      },
+      choices = {
+        { text = "Then let me read, and I'll write it down for you.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -297,6 +333,7 @@ P:NPC {
         { text = "Who are the Shadowforge?", next = "shadowforge" },
         { text = "You spoke with a spirit?", next = "spirit" },
         { text = "Could the Light ease Hammertoe's spirit?", next = "light", when = { class = "PRIEST" } },
+        { text = "I hear spirits too, historian. Through the earth.", next = "k_shaman", when = { race = "Dwarf", class = "SHAMAN" } },
         { text = "I won't keep you.", next = "END" },
       },
     },
@@ -371,6 +408,23 @@ P:NPC {
         { text = "The dead shouldn't be called back to talk.", next = "BACK", fx = { align = { light = -1 }, affinity = -1 } },
       },
     },
+    k_shaman = {
+      big = true,
+      lines = {
+        { id = "xsh_default", text = "Do ye, now. Then ye'll no' laugh at me for talkin' wi' Hammertoe's ghost the way the young Prospectors do behind my back. Tell me honestly: do they hear us, the dead, or do they only talk?" },
+      },
+      choices = {
+        { text = "They hear, if you speak plainly.", next = "k_shaman_hear" },
+        { text = "The dead belong to the earth. Let them rest.", next = "BACK", fx = { align = { order = 1 }, affinity = -1 } },
+        { text = "If they still have work to do, help them do it.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+      },
+    },
+    k_shaman_hear = {
+      lines = {
+        { id = "xshh_default", text = "Then I've been too short wi' him, an' he never once complained. I'll go back tae the Badlands when my work lets me, an' I'll say it all slower." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } } },
+    },
   },
 
   topics = {
@@ -421,7 +475,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anythin' further?" },
-        { id = "h_again2", text = "Go on; I've a moment before the next report." },
+        { id = "h_again2", text = "Be brief, if ye please; the King's reports pile up faster than I can read them." },
       },
       choices = {
         { text = "What does an advisor to the King do?", next = "advisor" },
@@ -429,6 +483,7 @@ P:NPC {
         { text = "Why does the King trust Karnik so?", next = "karnik" },
         { text = "What does the Senate think of all this?", next = "senate" },
         { text = "I've served Ironforge well, Advisor.", next = "served", when = { reputation = { faction = "Ironforge", min = "honored" } } },
+        { text = "What does Ironforge want from Stormwind, Advisor?", next = "k_human", when = { race = "Human" } },
         { text = "Good day, Advisor.", next = "END" },
       },
     },
@@ -500,6 +555,18 @@ P:NPC {
         { text = "I'll hear the terms first.", next = "BACK", fx = { align = { honor = -1 }, trait = { cautious = 1 } } },
       },
     },
+    k_human = {
+      lines = {
+        { id = "xhm_default", text = "Its word kept, mostly, an' its debts paid, which are no' always the same thing. We sent axes when the Alliance asked, an' the Senate would like tae see some o' them come home before Stormwind asks for more." },
+        { id = "xhm_noble", when = { origin = "human_minor_noble" },
+          text = "Ye'd know better than most what the House o' Nobles says about us when we're no' in the room. Tell them, if ye ever sit down wi' them, that the Senate keeps a ledger as well." },
+      },
+      choices = {
+        { text = "Stormwind will honor its debts, Advisor.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Stormwind's court honors nothing it can avoid.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -554,6 +621,7 @@ P:NPC {
         { text = "Who was Sully Balloo?", next = "sully" },
         { text = "Do you carve many memorials?", next = "memorials" },
         { text = "I'm a miner myself.", next = "miner", when = { profession = "Mining" } },
+        { text = "This stone has a voice, Grand Mason. I can hear it.", next = "k_shaman", when = { race = "Dwarf", class = "SHAMAN" } },
         { text = "Good day, Grand Mason.", next = "END" },
       },
     },
@@ -611,6 +679,18 @@ P:NPC {
       },
       choices = { { text = "I'll keep my eyes open.", next = "BACK", fx = { affinity = 1 } } },
     },
+    k_shaman = {
+      lines = {
+        { id = "xsh_default", text = "Ha! I've said that for forty years an' got laughed out o' every tavern in the Commons. Go on, then, put yer hand on that granite an' tell me if it's happy where I set it." },
+        { id = "xsh_listener", when = { origin = "dwarf_stone_listener" },
+          text = "Ye're the one who used tae press yer ear tae the walls o' the deep halls, aren't ye? I've a block o' Alterac granite in the yard that's been sulkin' since it came, an' I'd value an opinion." },
+      },
+      choices = {
+        { text = "It's content. You set it well.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "It misses the mountain it came from.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -660,6 +740,7 @@ P:NPC {
         { text = "I need a ride.", next = "BUSINESS" },
         { text = "What's wrong with Aerie Peak's gryphons?", next = "aerie" },
         { text = "How do you keep gryphons under a mountain?", next = "keep" },
+        { text = "My people rode gryphons at Aerie Peak.", next = "k_wild", when = { origin = "dwarf_wildhammer_kin" } },
         { text = "Farewell, Gryth.", next = "END" },
       },
     },
@@ -687,6 +768,15 @@ P:NPC {
         { id = "ks_default", text = "Every one o' them, every day, an' that's why they fly so well when ye let them out. Ye've never seen a bird so glad tae see the clouds." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    k_wild = {
+      lines = {
+        { id = "xwh_default", text = "Did they, now? Then ye'll tell them, next time ye're up in the Hinterlands, that a Great Forge gryphon can take the heat an' still find its way home. Wildhammer birds are fast, I'll grant, but they've never flown through a forge's smoke." },
+      },
+      choices = {
+        { text = "Aerie Peak's birds would leave yours behind.", next = "BACK", fx = { affinity = -1, trait = { witty = 1 } } },
+        { text = "Yours are tougher. I'll tell them.", next = "BACK", fx = { affinity = 2 } },
+      },
     },
   },
 
@@ -743,6 +833,7 @@ P:NPC {
         { text = "What is the Hidden Circle?", next = "circle" },
         { text = "Why do the guards have trouble with you?", next = "guards" },
         { text = "What heist were the King's guards on about?", next = "heist" },
+        { text = "What does the Circle want from me now?", next = "k_rogue", when = { class = "ROGUE" } },
         { text = "I'll keep your secret.", next = "END" },
       },
     },
@@ -801,6 +892,28 @@ P:NPC {
         { text = "I'd rather not know.", next = "BACK", fx = { trait = { cautious = 1 } } },
         { text = "I'll earn the rest of the story.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
       },
+    },
+    k_rogue = {
+      lines = {
+        { id = "xro_default", text = "Nothin' ye can't give, an' that's the trick o' it. Keep yer ears open in the Commons, keep yer hands out o' the King's purse, an' keep yer name off the guards' lips, because a rogue they know is a rogue they hang." },
+        { id = "xro_loch", when = { origin = "dwarf_loch_smuggler" },
+          text = "Ye ran casks across the loch, I hear, under the noses o' the Mountaineers. That's honest work for a dishonest dwarf, an' the Circle could use a boat or two, if ye've kept the contacts." },
+        { id = "xro_scav", when = { origin = "gnome_scavenger" },
+          text = "Ye're the gnome who sneaks back intae Gnomeregan for parts, aren't ye? Brave or daft, an' both are useful, so keep doin' it, an' tell me what the troggs are up tae while ye're at it." },
+        { id = "xro_canal", when = { origin = "human_canal_pickpocket" },
+          text = "Stormwind canals, by the way ye watch my hands. Renzik down in Old Town took a few o' yer sort in, an' ye'll find the Circle's no' so different, only colder an' wi' better beer." },
+      },
+      choices = {
+        { text = "The King's purse is the only one worth taking.", next = "BACK", fx = { align = { order = -1 }, affinity = -1 } },
+        { text = "I'll keep clean in the city. I'm no fool.", next = "BACK", fx = { align = { order = 1 }, affinity = 2 } },
+        { text = "What's the Circle really after?", next = "k_rogue_after" },
+      },
+    },
+    k_rogue_after = {
+      lines = {
+        { id = "xra_default", text = "Information, mostly, an' a wee bit o' coin tae keep the lamps lit. Magni's guards think we're a gang o' thieves, an' the truth is we hear about the Dark Iron's spies a week before they do." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, trait = { curious = 1 } } } },
     },
   },
 

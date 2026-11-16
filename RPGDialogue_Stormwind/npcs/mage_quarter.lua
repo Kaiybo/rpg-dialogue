@@ -42,6 +42,8 @@ P:NPC {
           text = "So you've met Xylem. Brilliant, isn't he, and quite insufferable. I'd be grateful if you didn't tell him I said the first part." },
         { id = "h_human", when = { race = "Human" },
           text = "Stormwind's magi have stood on their own since Dalaran closed its gates to the world. The Sanctum is all the kingdom has now, and I intend it to be enough." },
+        { id = "h_quarter", when = { origin = "human_mage_quarter" },
+          text = "One of the Quarter's own apprentices, grown up and come back through the front door. Your old masters still mention Dalaran at every supper, I'm afraid; some habits outlive cities." },
       },
       again = {
         { id = "h_again", text = "Is there more? I have students waiting, but they can wait." },
@@ -53,6 +55,9 @@ P:NPC {
         { text = "Tell me about the Wizard's Sanctum.", next = "sanctum" },
         { text = "What should a mage of my level study?", next = "mage", when = { class = "MAGE" } },
         { text = "Is the Light a discipline like yours?", next = "light", when = { class = { "PRIEST", "PALADIN" } } },
+        { text = "The Kirin Tor sent the High Order to Stormwind's mages.", next = "skyborne", when = { race = "Skyborne" } },
+        { text = "Gnomeregan's mages need a new home, Master Dumas.", next = "gnome", when = { race = "Gnome", class = "MAGE" } },
+        { text = "Does the Sanctum know what goes on under the Lamb?", next = "lamb", when = { class = "WARLOCK" } },
         { text = "I'll be wary, Master Dumas.", next = "END" },
       },
     },
@@ -118,6 +123,32 @@ P:NPC {
         { text = "I'd trust understanding over belief.", next = "BACK", fx = { align = { light = -1 }, trait = { skeptical = 1 } } },
       },
     },
+    skyborne = {
+      lines = { { id = "skyborne_l", text = "They told us to expect you, and very little else, which is how the Kirin Tor tell anyone anything. I'd welcome a conversation about what your people preserved, when you trust the Sanctum enough to have it." } },
+      choices = {
+        { text = "In time, Master Dumas.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
+        { text = "What do you most want to know?", next = "skyborne2" },
+      },
+    },
+    skyborne2 = {
+      lines = { { id = "skyborne2_l", text = "Whether your people lost as much as ours did, or whether you kept something we burned. Dalaran's libraries are ash and rubble under a dome, and every scholar alive is hoping someone, somewhere, made copies." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    gnome = {
+      lines = { { id = "gnome_l", text = "They have one; half my best apprentices this year came from Tinker Town, and they argue with me about everything, which I've decided is a compliment. Stay as long as you need." } },
+      choices = {
+        { text = "We'll go home when Gnomeregan is ours again.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "Thank you, Master Dumas.", next = "BACK", fx = { affinity = 2 } },
+      },
+    },
+    lamb = {
+      big = true,
+      lines = { { id = "lamb_l", text = "The Sanctum knows, and the Sanctum does not go downstairs. I'd ask you to understand why a building full of Dalaran's survivors finds it hard to share a street with summoners." } },
+      choices = {
+        { text = "Dalaran fell to necromancy, not to us.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "I understand. I'd keep my distance too.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+      },
+    },
   },
 
   topics = {
@@ -171,6 +202,11 @@ P:NPC {
         { text = "I'd like to train.", next = "BUSINESS", when = { class = "MAGE" } },
         { text = "Why stay here, so far from Quel'Thalas?", next = "stay" },
         { text = "What are your apprentices like?", next = "apprentices" },
+        { text = "What should I be practising, Elsharin?", next = "practise", when = { class = "MAGE" } },
+        { text = "My people came from the Highborne too, long ago.", next = "skyborne", when = { race = "Skyborne" } },
+        { text = "Why do you speak to a kaldorei so carefully?", next = "kaldorei", when = { race = "NightElf" } },
+        { text = "Do you teach gnomes differently?", next = "gnome", when = { race = "Gnome", class = "MAGE" } },
+        { text = "What do you think of the other teachers here?", next = "others" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -193,6 +229,56 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
         { text = "I'll leave you to them.", next = "END" },
       },
+    },
+    practise = {
+      lines = { { id = "practise_l", text = "Stillness between spells. Your people rush from one casting to the next as if silence were wasted, and that's where the mistakes creep in. Breathe once, between, and you'll make half as many." } },
+      choices = {
+        { text = "In a fight there's no time to breathe.", next = "practise_fight" },
+        { text = "I'll practise the breath.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
+      },
+    },
+    practise_fight = {
+      lines = { { id = "practise_fight_l", text = "There's always time for one breath, young one; there's never time for the mistake you'd make without it. That's the only lesson I've ever really taught." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    skyborne = {
+      lines = { { id = "skyborne_l", text = "So the Kirin Tor say, and I've wondered, since I first heard of you, how much of our old learning you carried up into the sky. My people went east, yours went somewhere none of us ever thought to look." } },
+      choices = {
+        { text = "Perhaps we're distant cousins.", next = "skyborne_cousins" },
+        { text = "We keep our own counsel on that.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    skyborne_cousins = {
+      lines = { { id = "skyborne_cousins_l", text = "Perhaps, ten thousand years removed, which among elves is closer than it sounds. I won't claim kinship until we know more, but I'd like it, I think." } },
+      choices = { { text = "So would I.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    kaldorei = {
+      big = true,
+      lines = { { id = "kaldorei_l", text = "Because your people exiled mine, once, for loving magic too much, and mine have never quite forgiven it, nor quite admitted we deserved some of it. I'd rather be careful than repeat that argument in a human city." } },
+      choices = {
+        { text = "The exile was just. Magic nearly ended the world.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "It was long ago. We can let it go.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
+        { text = "Do you still love magic too much?", next = "kaldorei_love" },
+      },
+    },
+    kaldorei_love = {
+      lines = { { id = "kaldorei_love_l", text = "Very likely. Every quel'dorei does; it's the thing we're best at, and the thing that keeps nearly destroying us." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    gnome = {
+      lines = { { id = "gnome_l", text = "Only in that I let them argue more. Gnome apprentices want to know why a spell works before they'll cast it, which humans never do, and I find it refreshing, if exhausting." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    others = {
+      lines = { { id = "others_l", text = "Jennea is brilliant and impatient, Maginor is brilliant and knows it, and Larimaine is brilliant at portals and nothing else. I am the patient one, which in this building is a kind of eccentricity." } },
+      choices = {
+        { text = "And the cellar under the Lamb?", next = "others_lamb" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    others_lamb = {
+      lines = { { id = "others_lamb_l", text = "I've seen what demons did to Quel'Thalas's borders, long before the Scourge came. I don't go down those stairs, and I don't teach anyone who does." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 
@@ -322,6 +408,7 @@ P:NPC {
         { text = "What is this place?", next = "cellar" },
         { text = "What's in the brew, Zardeth?", next = "brew", when = { questActive = TODO_QUEST("A Noble Brew") } },
         { text = "I know what you are. The Light will find you.", next = "priest", when = { class = "PRIEST" } },
+        { text = "I'm one of the cellar's own. What do you need?", next = "warlock", when = { class = "WARLOCK" } },
         { text = "I'll be going.", next = "END" },
       },
     },
@@ -374,6 +461,19 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    warlock = {
+      big = true,
+      lines = { { id = "warlock_l", text = "Help, of a discreet kind, with a noble who talks too much about us at the wrong dinners. You understand that if Wishock's speech succeeds, there will be no cellar for anyone to be one of." } },
+      choices = {
+        { text = "Then he'll have to be silenced.", next = "BACK", fx = { align = { light = -1, honor = -1 } } },
+        { text = "I'll not poison a man for a speech.", next = "BACK", fx = { affinity = -1, align = { light = 1, honor = 1 } } },
+        { text = "Does Gakin know about this?", next = "warlock2" },
+      },
+    },
+    warlock2 = {
+      lines = { { id = "warlock2_l", text = "Gakin knows what Gakin chooses to know, which is the arrangement that keeps him teaching. I find it's kinder not to burden him." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
 
   topics = {
@@ -417,6 +517,8 @@ P:NPC {
         { id = "h_default", text = "Ursula Deline. I teach discipline to those who would command what lies beyond the world. The darkness doesn't embrace everyone, so if it doesn't embrace you, I'd ask you to leave before it notices." },
         { id = "h_warlock", when = { class = "WARLOCK" },
           text = "You've come to learn, then, not to gawk. Keep up your training, because the arcane only corrupts those who are weak, and I don't intend to lose another student to weakness." },
+        { id = "h_lamb", when = { origin = "human_lamb_cellar" },
+          text = "The child who kept coming back down the stairs. Gakin wanted to send you home, and I said the curious ones are either the best or the dead, and here you are, not dead." },
       },
       again = {
         { id = "h_again", text = "More? Be brief." },
@@ -425,6 +527,10 @@ P:NPC {
         { text = "I'm ready to train.", next = "BUSINESS", when = { class = "WARLOCK" } },
         { text = "What do you mean, corrupts the weak?", next = "weak" },
         { text = "What happened to your last student?", next = "student" },
+        { text = "What should I be practising?", next = "practise", when = { class = "WARLOCK" } },
+        { text = "Is the power worth what it costs?", next = "price", when = { class = "WARLOCK" } },
+        { text = "Gnomeregan's warlocks were stronger than you think.", next = "gnome", when = { race = "Gnome", class = "WARLOCK" } },
+        { text = "What do you think of Gakin?", next = "gakin" },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -442,6 +548,36 @@ P:NPC {
       choices = {
         { text = "Something else.", next = "BACK" },
         { text = "I'll go.", next = "END" },
+      },
+    },
+    practise = {
+      lines = { { id = "practise_l", text = "Pain. Not inflicting it, enduring it; every pact you make is paid for in your own health, and the warlock who flinches loses the spell. Cut your life to feed your mana until it bores you." } },
+      choices = {
+        { text = "That sounds like madness.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "I'll practise until I stop flinching.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
+      },
+    },
+    price = {
+      big = true,
+      lines = { { id = "price_l", text = "Worth it to whom? To the kingdom, which uses us and pretends not to, yes. To you, only if you're strong enough to keep paying, and most of my students weren't." } },
+      choices = {
+        { text = "I'll pay whatever it costs.", next = "BACK", fx = { align = { light = -2 } } },
+        { text = "I'll stop before it costs too much.", next = "price_stop", fx = { align = { light = 1 } } },
+      },
+    },
+    price_stop = {
+      lines = { { id = "price_stop_l", text = "They all say that. The ones who mean it stop before they start, and the rest learn where too much is by going past it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    gnome = {
+      lines = { { id = "gnome_l", text = "I don't need to think it; I've taught them. Gnomes come to the craft like clockmakers, careful and pleased with themselves, and they're excellent until the day a demon does something that isn't in the manual." } },
+      choices = { { text = "Then I'll write a better manual.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    gakin = {
+      lines = { { id = "gakin_l", text = "That he's clever, and soft, and too fond of the students who disappoint him. He still says Surena's name like a wound, and I've told him that's a weakness." } },
+      choices = {
+        { text = "Or a kindness.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "You're right. Sentiment gets warlocks killed.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
       },
     },
   },
@@ -500,6 +636,9 @@ P:NPC {
         { text = "How does a gnome end up down here?", next = "gnome" },
         { text = "What exactly is a grimoire?", next = "grimoire" },
         { text = "What's a dreadsteed?", next = "dreadsteed", when = { class = "WARLOCK", minLevel = 50 } },
+        { text = "Which grimoire should I start with?", next = "first", when = { class = "WARLOCK" } },
+        { text = "I studied Gnomeregan's forbidden shelves too.", next = "shelves", when = { race = "Gnome", class = "WARLOCK" } },
+        { text = "What do the other trainers make of you?", next = "others" },
         { text = "Goodbye, Spackle.", next = "END" },
       },
     },
@@ -526,6 +665,37 @@ P:NPC {
     },
     dreadsteed = {
       lines = { { id = "d_default", text = "A demon horse from Xoroth, all hooves and fire, and the finest mount a warlock can own. Mor'zul Bloodbringer knows the ritual, and he camps near the Altar of Storms in the Burning Steppes, if you're brave and very rich." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    first = {
+      lines = {
+        { id = "first_l", text = "Firebolt, for your imp, rank by rank, because an imp that hits harder sulks less! Then Sacrifice for your voidwalker, which is grim but very practical, and then we'll talk about the fancy ones." },
+        { id = "first_old", when = { minLevel = 40 },
+          text = "At your stage? Whatever your felhunter's missing, because a felhunter that can't devour magic is just a very ugly dog. I've a lovely edition of Spell Lock, if you've the coin." },
+      },
+      choices = {
+        { text = "Do you ever read them yourself?", next = "first_read" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    first_read = {
+      lines = { { id = "first_read_l", text = "Only the footnotes, which are wonderful, and only in daylight. I'm a salesman, not a warlock, and I like my soul where it is, thank you." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    shelves = {
+      big = true,
+      lines = {
+        { id = "shelves_l", text = "Oh, the restricted stacks deep in Gnomeregan? I helped catalogue half of them before the troggs came, and I always wondered who carried the rest out. Was it you? It was you, wasn't it." },
+        { id = "shelves_texts", when = { origin = "gnome_forbidden_texts" },
+          text = "You're the one who carried them out, aren't you! I helped catalogue half those stacks before the troggs came, and I always wondered where the rest went." },
+      },
+      choices = {
+        { text = "Somebody had to save them.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
+        { text = "Some of them should have stayed buried.", next = "BACK", fx = { align = { order = 1 } } },
+      },
+    },
+    others = {
+      lines = { { id = "others_l", text = "Ursula thinks I'm frivolous, Gakin thinks I'm useful, and the Sanctum upstairs thinks I don't exist. I've decided they're all correct and sell to whoever's left." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },

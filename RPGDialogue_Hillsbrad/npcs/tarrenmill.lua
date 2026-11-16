@@ -45,6 +45,10 @@ P:NPC {
           text = "You've met Lydon, then: brilliant, devoted, and forever complaining about the fresh air. Leave him his complaints, for the plague will need them." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "The living sleep and we do not, so every night the line moves a little closer to Southshore." },
+        { id = "h_krusk", when = { questDone = TODO_QUEST("Gol'dir") },
+          text = "Krusk's leader is free, I hear, and the orcs are grateful. Gratitude from Orgrimmar is a currency I intend to spend." },
+        { id = "h_xsoldier", when = { origin = "forsaken_lordaeron_soldier" },
+          text = "You carried Lordaeron's colours once; it shows in how you stand. Southshore's watchmen once served the same king, so try to remember which side of the line you are on now." },
       },
       again = {
         { id = "h_again", text = "What else? Be brief about it." },
@@ -61,6 +65,9 @@ P:NPC {
         { text = "My people do not make war on farmers.", next = "tauren", when = { race = "Tauren" } },
         { text = "Hillsbrad's farms are burning.", next = "after_battle", when = { questDone = TODO_QUEST("Battle of Hillsbrad") } },
         { text = "For the Dark Lady.", next = "BUSINESS", fx = { affinity = 2 } },
+        { text = "The Light answers me, High Executor, even now.", next = "xpaladin", when = { race = "Scourge", class = "PALADIN" } },
+        { text = "The spirits of this land are restless.", next = "xshaman", when = { class = "SHAMAN" } },
+        { text = "The Windshapers fight for the Horde.", next = "xskyborne", when = { race = "Skyborne" } },
         { text = "I'll take my leave.", next = "END" },
       },
     },
@@ -184,6 +191,36 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2, standing = { tarren_mill = 1 } } } },
     },
+    xpaladin = {
+      big = true,
+      lines = { { id = "xpa_default", text = "So I have heard, and I do not pretend to understand it. The Light burned many of us when we first rose, and I will not ask what it says to you now, so long as it says nothing kind about Southshore." } },
+      choices = {
+        { text = "The Light chose me. I'll carry it for the Forsaken.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Light is a weapon. Nothing more.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Does it trouble your soldiers?", next = "xpaladin_troops" },
+      },
+    },
+    xpaladin_troops = {
+      lines = { { id = "xpt_default", text = "It troubles them very much, and I have told them that anything useful to the Dark Lady is a friend. They will learn to stand near you eventually, the same way they learned to stand near the apothecaries." } },
+      choices = {
+        { text = "I'll give them time.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xshaman = {
+      lines = { { id = "xsh_default", text = "Restless, are they? Then they have something in common with the dead. Tell them whatever you must to keep them out of my way, and if they can be persuaded to rot Southshore's barley, so much the better." } },
+      choices = {
+        { text = "Spirits aren't soldiers. They won't take orders.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "I'll do what I can for the land.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    xskyborne = {
+      lines = { { id = "xsk_default", text = "So I'm told, and Thunder Bluff vouches for you, which is more than Thunder Bluff does for us. I have no opinion about your people yet. Give me one." } },
+      choices = {
+        { text = "Point me at Southshore's line.", next = "orders", fx = { affinity = 1 } },
+        { text = "We fight for the Horde, not the Dark Lady.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
+      },
+    },
   },
 
   topics = {
@@ -254,6 +291,7 @@ P:NPC {
         { text = "The Earth Mother would weep at your work.", next = "tauren", when = { race = "Tauren" } },
         { text = "Troll's blood? For your elixir?", next = "troll", when = { race = "Troll" } },
         { text = "Do you miss anything, from before?", next = "forsaken", when = { race = "Scourge" } },
+        { text = "I studied in Dalaran before I died.", next = "xmage", when = { race = "Scourge", class = "MAGE" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -336,6 +374,13 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
     },
+    xmage = {
+      lines = { { id = "xma_default", text = "Then you'll appreciate that I'm doing in a hut what Dalaran did in towers, only with less funding and more fumes. Don't tell me what the city looked like when you left it; I'd rather not have to feel anything about it." } },
+      choices = {
+        { text = "I won't mention them.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "What are you working on?", next = "work" },
+      },
+    },
   },
 
   topics = {
@@ -381,6 +426,8 @@ P:NPC {
         { id = "h_default", text = "I'm Shay, and I keep the inn. When this town was alive someone else did, and the customers complain less now." },
         { id = "h_clean", when = { metBefore = true }, text = "I polished the bar today. Nobody here eats or drinks much anymore, but a clean bar is a clean bar. Habit's what's left." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Night's our busy hour, though everyone's always up here, so I've stopped putting the chairs on the tables." },
+        { id = "h_skulls", when = { questDone = TODO_QUEST("Souvenirs of Death") }, text = "Samsa's hung his skulls on the wall behind my inn, thanks to you. I've asked him to at least line them up straight." },
+        { id = "h_krusk", when = { heardLine = "krusk.h_default" }, text = "You've met Krusk, then. He's the only one in town who orders a hot meal, and he eats it with his back to the wall." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've all night, and every night after it." },
@@ -390,6 +437,8 @@ P:NPC {
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "What was Tarren Mill like before?", next = "before" },
         { text = "Who stays here?", next = "guests" },
+        { text = "Do you miss sleeping?", next = "sleep", when = { race = "Scourge" } },
+        { text = "Is there anything here a living body can eat?", next = "food", when = { race = { "Orc", "Tauren", "Troll", "Skyborne" } } },
         { text = "Just passing through.", next = "END" },
       },
     },
@@ -408,7 +457,33 @@ P:NPC {
       lines = {
         { id = "gu_default", text = "Deathguards off watch, apothecaries who forget they don't need to eat, and the living allies, who eat everything. I keep the cellar locked for them." },
       },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Who's the strangest?", next = "guests_strange" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    guests_strange = {
+      lines = { { id = "gs_default", text = "Lydon's frog, who has a stool of her own by the fire, and Humbert, who sat in the corner a whole week without his sword. Neither of them tips." } },
+      choices = {
+        { text = "The frog has a stool?", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sleep = {
+      big = true,
+      lines = { { id = "sl_default", text = "I miss the idea of it, the way you'd miss a room in a house that burned. I lie down some nights anyway and wait for something to happen, and it never does." } },
+      choices = {
+        { text = "We have no need of it. Better without.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
+        { text = "I'd give much to dream again.", next = "BACK", fx = { align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    food = {
+      lines = { { id = "fo_default", text = "Bread from the Undercity, a little stale, and whatever the hunters bring in, which I cook the way I remember cooking. I can't taste it, so you'll have to tell me if it's good." } },
+      choices = {
+        { text = "It's good, Shay.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 

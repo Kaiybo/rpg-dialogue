@@ -60,6 +60,9 @@ P:NPC {
         { text = "It's done. Kurzen's dead.", next = "done", when = { questDone = TODO_QUEST("Colonel Kurzen") } },
         { text = "I could pray over your dead, Lieutenant.", next = "priest_dead", when = { class = "PRIEST" } },
         { text = "I'm here to help.", next = "END", fx = { affinity = 2, standing = { rebel_camp = 1 }, learn = { "kurzen" } } },
+        { text = "Thorsen was a spy. So am I, of sorts.", next = "k_rogue", when = { class = "ROGUE" } },
+        { text = "I could track Kurzen's patrols for you.", next = "k_hunter", when = { class = "HUNTER" } },
+        { text = "Could magic have turned Kurzen's mind?", next = "k_mage", when = { class = { "MAGE", "WARLOCK" } } },
         { text = "I'll be going.", next = "END" },
       },
     },
@@ -280,6 +283,34 @@ P:NPC {
         { text = "Fair enough.", next = "BACK" },
       },
     },
+    k_rogue = {
+      lines = {
+        { id = "xro_default", text = "Then you know how it ends when someone talks, and you'll forgive me if I watch what I say around you. Thorsen went in quiet and came back out half-dead, and somebody in this camp knew he was going." },
+      },
+      choices = {
+        { text = "Then let me find your informant.", next = "informant" },
+        { text = "Watch me all you like. I'm on your side.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Trust no one, Lieutenant. Me included.", next = "BACK", fx = { align = { honor = -1 }, trait = { skeptical = 1 } } },
+      },
+    },
+    k_hunter = {
+      lines = {
+        { id = "xhu_default", text = "You could, and you'd be the first one who came back with numbers instead of rumors. Kurzen's men move by night along the river, and they leave tracks a child could follow, which makes me think he wants us to follow them." },
+      },
+      choices = {
+        { text = "Then I'll follow, and watch for the trap.", next = "BACK", fx = { affinity = 2, trait = { cautious = 1 } } },
+        { text = "How many of you are left?", next = "men" },
+      },
+    },
+    k_mage = {
+      lines = {
+        { id = "xmg_default", text = "Brother Nimetz says troll magic, and I've no learning to argue with him. Kurzen was a hard man before, but he was never cruel, and then he was, and nobody could tell me why." },
+      },
+      choices = {
+        { text = "Let me look into it.", next = "mind_cure" },
+        { text = "Some men only need an excuse to be cruel.", next = "BACK", fx = { affinity = -1, trait = { skeptical = 1 } } },
+      },
+    },
   },
 
   topics = {
@@ -345,6 +376,7 @@ P:NPC {
         { text = "Pray with me, Brother.", next = "pray", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Let me look at the residue.", next = "residue", when = { profession = "Alchemy" } },
         { text = "The Light keep you, Brother.", next = "END", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A druid could help with the cure, Brother.", next = "k_druid", when = { class = { "DRUID", "SHAMAN" } } },
         { text = "Keep your prayers, Brother, because they won't help out here.", next = "END", fx = { align = { light = -1 } } },
       },
     },
@@ -459,6 +491,15 @@ P:NPC {
       lines = { { id = "rw_default", text = "I'd hoped so too. Spoiled herbs don't make a whole camp dream the same dream." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    k_druid = {
+      lines = {
+        { id = "xdr_default", text = "Could you? The jungle grows the poison and, I'm told, the answer to it, and I've only my books and my glassware to tell one from the other. If you know the plants here, walk the riverbank with me tomorrow." },
+      },
+      choices = {
+        { text = "I'll walk it with you, Brother.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "The jungle's cures aren't the Light's, Brother. Don't mix them.", next = "BACK", fx = { align = { light = -1 } } },
+      },
+    },
   },
 
   topics = {
@@ -518,6 +559,7 @@ P:NPC {
         { text = "You can talk to me. I'm good at going unseen too.", next = "rogue", when = { class = { "ROGUE", "HUNTER" } } },
         { text = "I'll help you.", next = "END", fx = { affinity = 2, align = { order = 1 } } },
         { text = "Kurzen's war isn't mine, Private, and I'll stay out of it.", next = "END", fx = { align = { order = -1 } } },
+        { text = "I'm a soldier, Private. What did they do to you?", next = "k_warrior", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "Rest. I'll leave you be.", next = "END", fx = { trait = { kind = 1 } } },
       },
     },
@@ -583,6 +625,15 @@ P:NPC {
       choices = {
         { text = "Mine's to look busy. Nobody stops a busy man.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } },
         { text = "Don't get looked at in the first place.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
+      },
+    },
+    k_warrior = {
+      lines = {
+        { id = "xwa_default", text = "They asked me questions and didn't wait for answers, {g:sir|ma'am}. I held out as long as I could, and I don't know if it was long enough, and that's the part that keeps me up." },
+      },
+      choices = {
+        { text = "You held. That's all anyone can ask.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "What are they planning?", next = "plans" },
       },
     },
   },

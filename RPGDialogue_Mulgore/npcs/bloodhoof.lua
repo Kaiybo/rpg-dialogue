@@ -46,7 +46,51 @@ P:NPC {
         { text = "Does your father miss living on the plains?", tag = "Persuade", next = "baine_father",
           check = { pass = { any = { { disposition = { min = 65 } }, { heardLine = "cairne.h_default" }, { race = "Tauren" } } } },
           fail = { next = "baine_father_no", fx = { affinity = -1 } } },
+        { text = "A warrior settles quarrels too, Baine.", next = "warrior", when = { class = "WARRIOR" } },
+        { text = "Your father stood up for my people. Why?", next = "forsaken", when = { race = "Scourge" } },
+        { text = "I've begun to walk the druid's path.", next = "druid", when = { race = "Tauren", class = "DRUID" } },
+        { text = "Are the Windshapers good neighbours?", next = "skyborne", when = { race = "Skyborne" } },
         { text = "Earth Mother guide you.", next = "END", fx = { affinity = 1 } },
+      },
+      again = {
+        { id = "h_again", text = "What else, friend? The village is quiet for now, so ask." },
+        { id = "h_again2", text = "Go on. I'd rather hear it from you than from the gossip at Kauth's fire." },
+      },
+    },
+    warrior = {
+      big = true,
+      lines = {
+        { id = "wa_default", text = "It does, and I've carried a weapon for my people and will again. But a warrior who only knows how to end a quarrel will start a great many of them, and the plains have had enough of that." },
+        { id = "wa_tauren", when = { race = "Tauren" },
+          text = "You'll stand with the braves at Bael'dun or against the Palemane one day, and I'll be glad of you. Only remember that the best fight is the one you were strong enough not to need." },
+      },
+      choices = {
+        { text = "Strength is what makes them listen, Baine.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll talk first and fight only if I must.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+      },
+    },
+    forsaken = {
+      lines = { { id = "fk_default", text = "Because you came to us asking for help, and the tauren remember what it is to be lost. My father believes your people can be cured of what was done to you, and that hope is why he spoke for you before the Warchief." },
+        { id = "fk_farmer", when = { origin = "forsaken_brill_farmer" },
+          text = "You farmed once, near Brill? Then you'll know what my father means when he speaks of the land, and I hope our fields remind you of yours more kindly than they hurt." } },
+      choices = {
+        { text = "I'm grateful to him.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Do you think there's a cure?", next = "forsaken_cure" },
+      },
+    },
+    forsaken_cure = {
+      lines = { { id = "fc_default", text = "I don't know, friend, and I won't pretend. But I've watched my father refuse to give up on things far longer than anyone thought sensible, and he's been right more often than not." } },
+      choices = { { text = "Then I'll hope as long as he does.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } } },
+    },
+    druid = {
+      lines = { { id = "dr_default", text = "Then you'll go up to the Elder Rise and Hamuul will teach you to listen to the land, which my father says is the hardest thing a tauren ever learns. Come back and tell me what it says about Bael'dun; I'd like to know if I'm right to be worried." } },
+      choices = { { text = "I'll come back and tell you.", next = "BACK", fx = { affinity = 2, standing = { bloodhoof = 1 } } } },
+    },
+    skyborne = {
+      lines = { { id = "sk_default", text = "Quiet ones, and respectful of the land, which is all a tauren asks. They watch the sky the way Harken does, as if they're waiting for it to call them home, and I haven't the heart to ask whether it will." } },
+      choices = {
+        { text = "Some of us are waiting for that.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Mulgore is home enough now.", next = "BACK", fx = { affinity = 2, standing = { bloodhoof = 1 } } },
       },
     },
     baine_father = {
@@ -73,21 +117,21 @@ P:NPC {
         { id = "t_default", text = "The Venture Company cuts the land in the east, and the Palemane gnolls raid from the west. At Bael'dun, the dwarves blast the ground until the earth's spirits cry out. I warned them, and they kept digging." },
       },
       choices = {
-        { text = "I'll help.", next = "END", fx = { affinity = 2, standing = { bloodhoof = 1 }, align = { honor = 1 } } },
-        { text = "The Venture Company pays well, and I won't cross them for a few hills.", next = "END", fx = { align = { honor = -1 } } },
+        { text = "I'll help.", next = "BACK", fx = { affinity = 2, standing = { bloodhoof = 1 }, align = { honor = 1 } } },
+        { text = "The Venture Company pays well, and I won't cross them for a few hills.", next = "BACK", fx = { align = { honor = -1 } } },
       },
     },
     talk = {
       lines = {
         { id = "tk_default", text = "Because sometimes they do. A spear settles one quarrel, but a word, spoken well, can settle a hundred." },
       },
-      choices = { { text = "Wise words.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } } },
+      choices = { { text = "Wise words.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } } },
     },
     coming = {
       lines = {
         { id = "c_default", text = "We wandered for longer than any elder remembers. My father met Thrall's orcs, and with them beside us we drove the centaur from these plains. Mulgore is the first home our people have held in centuries." },
       },
-      choices = { { text = "A home worth guarding.", next = "END", fx = { affinity = 2, standing = { bloodhoof = 1 } } } },
+      choices = { { text = "A home worth guarding.", next = "BACK", fx = { affinity = 2, standing = { bloodhoof = 1 } } } },
     },
   },
 
@@ -140,14 +184,31 @@ P:NPC {
       choices = {
         { text = "What are the spirits saying?", next = "spirits" },
         { text = "What does the rite show?", next = "vision" },
+        { text = "The spirits answer me now, elder. What should I ask them?", next = "shaman", when = { class = "SHAMAN" } },
+        { text = "Do the spirits mind what I am, elder?", next = "forsaken", when = { race = "Scourge" } },
         { text = "Thank you, elder.", next = "END" },
       },
+      again = {
+        { id = "h_again", text = "Is there more? The Earth Mother hears every question, and I will hear yours." },
+      },
+    },
+    shaman = {
+      lines = {
+        { id = "sh_default", text = "Ask them nothing at first. Sit by the water and let them ask you, because the elements are tired of being commanded, and they remember who listens." },
+        { id = "sh_rise", when = { origin = "tauren_spirit_rise" },
+          text = "The seers on the Spirit Rise taught you well, I can tell; you already lower your voice near the water. Go and sit at the wells with Mull, and tell him what they say to you." },
+      },
+      choices = { { text = "I'll let them ask first.", next = "BACK", fx = { affinity = 2, trait = { cautious = 1 } } } },
+    },
+    forsaken = {
+      lines = { { id = "fk_default", text = "They notice it, as a wind notices a stone. You walk where the dead should be resting and you are not, and the spirits here aren't sure what to make of that. They aren't angry, little one, only puzzled, as I am." } },
+      choices = { { text = "So am I, elder.", next = "BACK", fx = { affinity = 2 } } },
     },
     vision = {
       lines = { { id = "v_default", text = "Something different for everyone: a path, usually, and sometimes the end of one. The spirits choose; I only open the door." } },
       choices = {
-        { text = "I'm ready.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "I'd rather walk my own path than one the spirits pick for me.", next = "END", fx = { align = { light = -1 } } },
+        { text = "I'm ready.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I'd rather walk my own path than one the spirits pick for me.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
     spirits = {
@@ -195,13 +256,28 @@ P:NPC {
         { id = "h_night", when = { timeOfDay = "night" }, text = "Even the swoops sleep at this hour, but I don't, much; it's an old habit from the wandering years." },
         { id = "h_maur", when = { heardLine = "maur.h_default" }, text = "Maur's after that beast again? He's tracked it longer than some of our braves have been alive." },
       },
-      choices = { { text = "Why watch the sky?", next = "sky" }, { text = "I'll see to it.", next = "END", fx = { affinity = 1 } } },
+      choices = {
+        { text = "Why watch the sky?", next = "sky" },
+        { text = "Do the swoops ever come down at a hunter's beast?", next = "hunter", when = { class = "HUNTER" } },
+        { text = "I'll see to it.", next = "END", fx = { affinity = 1 } },
+      },
+      again = {
+        { id = "h_again", text = "Something else? Ask away, and I'll keep one eye on the swoops while you do." },
+      },
+    },
+    hunter = {
+      lines = {
+        { id = "hu_default", text = "Not at a grown one, but they'll take a kodo calf or a careless pup. Watch how they circle: two turns wide and one turn tight, and then they drop, so loose your arrow on the tight turn." },
+        { id = "hu_pet", when = { pet = { type = "Beast" } },
+          text = "{pet} has been watching them since you got here, see? A good beast reads the sky as well as I do. Let it tell you when one's about to stoop." },
+      },
+      choices = { { text = "Two wide, one tight. I'll remember.", next = "BACK", fx = { affinity = 2 } } },
     },
     sky = {
       lines = {
         { id = "s_map", text = "When we wandered, the sky was the only map we had. Now we've a home with walls of grass, and I still can't stop looking up." },
       },
-      choices = { { text = "Keep watching for us.", next = "END", fx = { affinity = 1 } } },
+      choices = { { text = "Keep watching for us.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 
@@ -240,13 +316,31 @@ P:NPC {
         { id = "h_slow", when = { metBefore = true }, text = "The young braves ask me how to track. I tell them: walk slower than you want to. Not one of them listens." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Something big moves out in the dark grass. I've heard it more than I've seen it, and that's the part I don't like." },
       },
-      choices = { { text = "How did you get your name?", next = "name" }, { text = "I'll find it.", next = "END", fx = { affinity = 1, trait = { brave = 1 } } } },
+      choices = {
+        { text = "How did you get your name?", next = "name" },
+        { text = "I'm a tracker too. What have its tracks told you?", next = "hunter", when = { class = "HUNTER" } },
+        { text = "I'll find it.", next = "END", fx = { affinity = 1, trait = { brave = 1 } } },
+      },
+      again = {
+        { id = "h_again", text = "Anything else? Speak softly; voices carry out on the grass." },
+      },
+    },
+    hunter = {
+      lines = {
+        { id = "hu_default", text = "That it's heavy at the front and drags its left hind a little, so it's been hurt before and it lived. A beast that has survived a hunter is a beast that's learned, and that's why I go slowly." },
+        { id = "hu_narache", when = { origin = "tauren_narache_hunter" },
+          text = "Your mother or father hunted out of Narache, didn't they? Then you were raised on the same tracks I was. Look for where it drinks, and wait there; it's thirsty after a kill." },
+      },
+      choices = {
+        { text = "Then we'll wait for it, and be patient.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "I'd rather drive it out and finish it fast.", next = "BACK", fx = { align = { order = -1 } } },
+      },
     },
     name = {
       lines = {
         { id = "n_rain", text = "It rained on every camp I made, the whole long walk to Mulgore. My mother said the clouds had adopted me, and the name stuck, and so did the clouds." },
       },
-      choices = { { text = "It's a good name.", next = "END", fx = { affinity = 1 } } },
+      choices = { { text = "It's a good name.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 
@@ -293,11 +387,33 @@ P:NPC {
         { text = "Who poisoned them?", next = "who" },
         { text = "I'll help cleanse them.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Goblin oil means goblin coin, and I won't stand in its way.", next = "END", fx = { align = { light = -1 } } },
+        { text = "The water spirits are frightened. I can hear them.", next = "shaman", when = { class = "SHAMAN" } },
+        { text = "Can a druid help the land heal the wells?", next = "druid", when = { class = "DRUID" } },
       },
+      again = {
+        { id = "h_again", text = "Something more? Forgive me; half my mind is still at the wells." },
+      },
+    },
+    shaman = {
+      lines = {
+        { id = "sh_default", text = "You can? Then tell me what they're saying, because I only feel the wrongness through the totem, and you hear it plainly. Do they blame us, for letting the goblins near?" },
+      },
+      choices = {
+        { text = "They don't blame you. They're only confused.", next = "BACK", fx = { affinity = 3, trait = { kind = 1 } } },
+        { text = "They blame anyone who did nothing.", next = "shaman_blame" },
+      },
+    },
+    shaman_blame = {
+      lines = { { id = "sb_default", text = "Then they're right, and I'll do more than walk to the wells and worry. Carry the totems for me, and let them see that someone is doing something." } },
+      choices = { { text = "I'll carry them.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    druid = {
+      lines = { { id = "dr_default", text = "The land under the wells is healthy still; it's the water that's been fouled from above. A druid can tend the grass around them while the totems do their work, and I'd be grateful for it." } },
+      choices = { { text = "I'll tend the grass.", next = "BACK", fx = { affinity = 2 } } },
     },
     who = {
       lines = { { id = "w_default", text = "The Venture Company, with their machines and their spills. They don't mean it, I think; they simply don't care, and somehow that's worse." } },
-      choices = { { text = "It is.", next = "END", fx = { affinity = 2 } } },
+      choices = { { text = "It is.", next = "BACK", fx = { affinity = 2 } } },
     },
   },
 
@@ -344,13 +460,21 @@ P:NPC {
         { text = "Tell me about Kyle.", next = "kyle" },
         { text = "I'll keep an eye out for him.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "It's only a dog.", next = "END", fx = { affinity = -2 } },
+        { text = "My beast could follow Kyle's scent.", next = "hunter", when = { class = "HUNTER", pet = { type = "Beast" } } },
       },
+      again = {
+        { id = "h_again", text = "Anything else? Sorry, I keep looking at the lake shore in case he comes back." },
+      },
+    },
+    hunter = {
+      lines = { { id = "hu_default", text = "Could it? Oh, could it really? Here, this is the old blanket he sleeps on, so let {pet} have a good sniff. He likes the lake shore and the far end of the fields, and he never goes near the bluffs." } },
+      choices = { { text = "We'll start at the lake.", next = "BACK", fx = { affinity = 3, trait = { kind = 1 } } } },
     },
     kyle = {
       lines = {
         { id = "k_pup", text = "Found him as a pup down by the lake, soaking wet and barking at a frog. He's been barking at things ever since. Best friend I've got." },
       },
-      choices = { { text = "He sounds wonderful.", next = "END", fx = { affinity = 2 } } },
+      choices = { { text = "He sounds wonderful.", next = "BACK", fx = { affinity = 2 } } },
     },
   },
 
@@ -443,12 +567,25 @@ P:NPC {
       },
       choices = {
         { text = "What is it you love about camping?", next = "why" },
+        { text = "My people camped under a different sky.", next = "skyborne", when = { race = "Skyborne" } },
+        { text = "I hunt as I travel. Does that suit a camp?", next = "hunter", when = { class = "HUNTER" } },
         { text = "Earth Mother keep you.", next = "END" },
       },
+      again = {
+        { id = "h_again", text = "Something else? Throw a stick on the fire while you think of it." },
+      },
+    },
+    skyborne = {
+      lines = { { id = "sk_default", text = "Did they? I'd love to hear how a fire behaves where the wind is a spirit and not just weather. Down here it only wants to blow my sparks into the grass, and I have to talk it out of that every night." } },
+      choices = { { text = "Ask it nicely. The wind listens.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    hunter = {
+      lines = { { id = "hu_default", text = "It suits it best of all, because a hunter brings the supper and keeps the watch. Every camp I've shared with a hunter has eaten well and slept soundly." } },
+      choices = { { text = "Then I'll bring the supper.", next = "BACK", fx = { affinity = 2 } } },
     },
     why = {
       lines = { { id = "w_default", text = "Every fire is a small village for a night. Whoever passes can sit at it. I've met more friends at campfires than in any town." } },
-      choices = { { text = "Teach me.", next = "END", fx = { affinity = 2, learn = { "camping" } } } },
+      choices = { { text = "Teach me.", next = "BACK", fx = { affinity = 2, learn = { "camping" } } } },
     },
   },
 

@@ -50,6 +50,8 @@ P:NPC {
           text = "Ah, it's you. Sit, if the guards will let you, because I'd rather hear how the roads really are from someone I trust than read it in a report." },
         { id = "h_cold", when = { disposition = { max = 34 } },
           text = "State your business. I've heard enough about you from the Watch to want this conversation short." },
+        { id = "h_guard", when = { origin = "human_city_guard" },
+          text = "I know that walk; the Watch teaches it to every recruit who's ever carried a lantern down the Trade District. You traded the halberd for the road, I hear, and the road could use you more than the Watch can." },
       },
       again = {
         { id = "h_again", text = "What else? Briefly; the council sits at noon." },
@@ -62,6 +64,13 @@ P:NPC {
         { text = "Stormwind took my family in, after Lordaeron.", next = "refugee", when = { origin = "human_lordaeron_refugee" } },
         { text = "Any word of King Varian?", next = "varian" },
         { text = "How do you bear it?", next = "bear" },
+        { text = "I'm a soldier, Highlord. Where do you want me?", next = "soldier", when = { class = "WARRIOR" } },
+        { text = "Ironforge stands with Stormwind, Highlord.", next = "ironforge", when = { race = "Dwarf" } },
+        { text = "My people lost Gnomeregan. Will Stormwind help take it back?", next = "gnomeregan", when = { race = "Gnome" } },
+        { text = "Why should the kaldorei trust Stormwind, Highlord?", next = "kaldorei", when = { race = "NightElf" } },
+        { text = "The High Order sent me to learn what Stormwind is.", next = "highorder", when = { race = "Skyborne" } },
+        { text = "Dalaran's mages could help this kingdom more than they do.", next = "dalaran", when = { class = "MAGE" } },
+        { text = "I speak to the spirits of the earth, Highlord.", next = "shaman", when = { class = "SHAMAN" } },
         { text = "I'll take my leave, Highlord.", next = "END" },
       },
     },
@@ -156,6 +165,106 @@ P:NPC {
     suspicion = {
       lines = { { id = "s_default", text = "Then show me. I'm not a stubborn man but a careful one, and the difference matters, in this chair." } },
       choices = { { text = "Understood.", next = "BACK" } },
+    },
+    soldier = {
+      big = true,
+      lines = {
+        { id = "so_default", text = "Everywhere at once, which is the trouble. The army I have is spread from Lakeshire to Darkshire, Westfall has a militia of farmers, and I sign every posting knowing it leaves a hole somewhere else." },
+        { id = "so_dwarf", when = { race = "Dwarf" },
+          text = "A dwarf offering Stormwind a sword arm, unasked, and I'll not refuse it. The army I have is spread from Lakeshire to Darkshire, and every posting I sign leaves a hole somewhere else." },
+      },
+      choices = {
+        { text = "Then send me where the hole is worst.", next = "soldier_where" },
+        { text = "I'll go where the crown sends me, Highlord.", next = "BACK", fx = { affinity = 2, align = { order = 2 } } },
+        { text = "I'll go where people need me, orders or not.", next = "BACK", fx = { align = { order = -2 } } },
+        { text = "Something else, Highlord.", next = "BACK" },
+      },
+    },
+    soldier_where = {
+      lines = { { id = "sw_default", text = "Westfall, if you ask my conscience, and Redridge, if you ask General Jonathan. The council asks me to wait on both, and I've waited longer than I like; a soldier who goes without waiting may do more good than I can." } },
+      choices = {
+        { text = "Then I'll go without waiting.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+        { text = "Who on the council counsels waiting?", next = "prestor" },
+      },
+    },
+    ironforge = {
+      big = true,
+      lines = { { id = "if_default", text = "It always has. When Stromgarde walked away from the Alliance and Gilneas shut its gate, King Magni kept his word, and every dwarf who walks this hall reminds me what that word cost Ironforge." } },
+      choices = {
+        { text = "What did it cost us?", next = "ironforge_cost" },
+        { text = "An alliance is only worth the oaths kept in it.", next = "BACK", fx = { affinity = 1, align = { honor = 2 } } },
+        { text = "Ironforge keeps faith, but it minds its own halls first.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
+    },
+    ironforge_cost = {
+      lines = { { id = "ic_default", text = "Dwarven blood at Grim Batol and on Lordaeron's fields, and a great deal of dwarven stonework under this very city. I'd thank Magni in person if the regency let me leave the Keep for a week." } },
+      choices = { { text = "I'll tell him so.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    gnomeregan = {
+      lines = { { id = "gn_default", text = "I'd like to promise that, and I won't, because I'd be lying to you. Mekkatorque has asked, and the kingdom hasn't the soldiers to spare for a city full of radiation and troggs; it shames me to say it plainly, but you deserve it plainly." } },
+      choices = {
+        { text = "Then we'll take it back ourselves.", next = "gnomeregan_alone" },
+        { text = "Plain words help nobody. We need soldiers.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
+      },
+    },
+    gnomeregan_alone = {
+      lines = { { id = "ga_default", text = "If any people could, it's yours. When the day comes, tell Mekkatorque Stormwind will send what it can, and I'll make sure that's more than a letter." } },
+      choices = {
+        { text = "I'll hold the kingdom to that.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "We'll manage without Stormwind's letters.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
+    kaldorei = {
+      big = true,
+      lines = { { id = "ka_default", text = "You shouldn't, not yet, not on my word alone. Your people bled at Mount Hyjal beside ours, and since then we've sent letters to Darnassus and very little else; I'd rather you judged us by what we do in Ashenvale than by anything I say in this hall." } },
+      choices = {
+        { text = "Then do something in Ashenvale.", next = "kaldorei_ash" },
+        { text = "Hyjal was enough. I'll trust you.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "I'll trust Stormwind when it earns it.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
+    kaldorei_ash = {
+      lines = { { id = "kas_default", text = "Ashenvale is a long road from Stormwind, and the orcs there are Thrall's, which makes every soldier I send a question for the council. Tell your Sentinels I know their names, if nothing else, and that I mean to do better." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    highorder = {
+      lines = { { id = "ho_default", text = "Then learn us honestly, the empty throne included. The Kirin Tor vouched for your High Order, and in this court that still carries weight, though I'll admit I know less about your people than I'd like." } },
+      choices = {
+        { text = "What would you like to know?", next = "highorder_ask" },
+        { text = "Something else, Highlord.", next = "BACK" },
+      },
+    },
+    highorder_ask = {
+      lines = { { id = "hoa_default", text = "Only what you'd tell a friend: whether your people came to us out of need or out of choice. I ask because Stormwind has been both kinds of ally, and the second kind lasts longer." } },
+      choices = {
+        { text = "Need brought us. Choice will keep us.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Need, plainly. We go where we must.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
+    },
+    dalaran = {
+      lines = { { id = "da_default", text = "Dalaran is a ruin behind its own shield, and the Kirin Tor are rebuilding it with the doors shut. The Mage Quarter here does what it can, but I've stopped asking Dalaran for more than its prayers." } },
+      choices = {
+        { text = "They should open those doors.", next = "dalaran_doors" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dalaran_doors = {
+      lines = { { id = "dd_default", text = "Perhaps. They opened them once, to the Scourge, without meaning to, and I can't blame them for being careful now. Can you?" } },
+      choices = {
+        { text = "Caution is how a kingdom survives.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Caution is how a kingdom dwindles.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
+    shaman = {
+      lines = { { id = "sh_default", text = "Do you? Then you're the first I've met who wasn't an orc, and I'll confess the word still makes the old soldiers in this hall reach for their swords. Tell me what the earth says, and I'll decide what I think of it." } },
+      choices = {
+        { text = "It says it's tired of war.", next = "shaman_tired" },
+        { text = "It says nothing to men who reach for swords.", next = "BACK", fx = { affinity = -1, trait = { witty = 1 } } },
+      },
+    },
+    shaman_tired = {
+      lines = { { id = "st_default", text = "Then the earth and I agree on something. If Ironforge vouches for you, so will I; just keep the drums out of the Keep." } },
+      choices = { { text = "Something else, Highlord.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 

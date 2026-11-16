@@ -28,6 +28,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    orc_s = {
+      big = true,
+      lines = {
+        { id = "os_default", text = "No, it makes you a hunter's guest at a hunter's fire. I've told the Warsong foremen that they take more than the forest can give, and they listen to me the way a river listens to a stone, but they still let me sit with them." },
+        { id = "os_warsong", when = { origin = "orc_warsong_kin" },
+          text = "You're Warsong blood, then, and Grom's name still means something in this camp. I won't speak ill of him here, but I'll say this: he freed your people, and this forest paid for it." },
+      },
+      choices = {
+        { text = "The Horde needs the lumber. That's the end of it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "We take too much. I've seen it.", next = "BACK", fx = { align = { order = -1 }, affinity = 2 } },
+        { text = "What would you have the Warsong do?", next = "war_s" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -55,6 +68,7 @@ P:NPC {
         { text = "Does it trouble you, fighting a war here?", next = "war_s" },
         { text = "I'm a hunter. Where should I start?", next = "start", when = { class = "HUNTER" } },
         { text = "The Earth Mother would weep at this war.", next = "mother", when = { race = "Tauren" } },
+        { text = "My kin cut these trees. Does that make me your enemy?", next = "orc_s", when = { race = "Orc" } },
         { text = "I'll take on the Hunt.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -127,6 +141,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    warsong_m = {
+      lines = {
+        { id = "wsm_default", text = "Ours, is it? Every log here is Orgrimmar's, and it's on my ledger before it's on anyone's shoulders. Your family can be as Warsong as they like, but if they want a plank, they sign for it like everybody else." },
+      },
+      choices = {
+        { text = "Fair. Rules are rules.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Grom's kin don't sign for anything.", next = "BACK", fx = { align = { order = -1 }, affinity = -1 } },
+      },
+    },
+    tauren_m = {
+      lines = {
+        { id = "tm_default", text = "I'd guessed. Your people look at the stumps the way I look at a short count, like somebody owes somebody. Orgrimmar needs walls and Thunder Bluff doesn't send any wood, so tell your elders that next time they sigh at me." },
+      },
+      choices = {
+        { text = "Fair. Walls don't grow on mesas.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "The Earth Mother keeps her own ledger.", next = "BACK", fx = { affinity = -1 } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Name's Mastok. I track every caravan in and out of Splintertree, because people are trouble and wagons are just wagons, and I prefer wagons." },
@@ -145,6 +177,8 @@ P:NPC {
         { text = "Why don't you like people?", next = "people" },
         { text = "What's going on at Mystral Lake?", next = "mystral" },
         { text = "For the Horde, Mastok.", next = "orc_m", when = { race = "Orc" } },
+        { text = "My family's Warsong. Every log here is ours.", next = "warsong_m", when = { origin = "orc_warsong_kin" } },
+        { text = "The tauren don't love what this lumber costs.", next = "tauren_m", when = { race = "Tauren" } },
         { text = "Fine. Bye.", next = "END" },
       },
     },
@@ -209,6 +243,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    hunter_k = {
+      lines = {
+        { id = "hk_default", text = "Ha, now that be useful talk. The outrunners come down the creek bed at dusk, low and fast, and they don't stop for nothin' but a good arrow; put your beast on the bank and your bow in the trees, and we see who gets home." },
+        { id = "hk_head", when = { origin = "troll_headhunter" },
+          text = "A headhunter of the Darkspear, mon! Then you know the work already; the elves be quicker than a raptor and twice as proud, so take your time and take your trophy." },
+      },
+      choices = {
+        { text = "I'll take them quiet, one by one.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "I'll meet them head on. Let them see me.", next = "BACK", fx = { align = { honor = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I be Kuray'bin, and I watch the paths into Splintertree. The night elves send runners through the trees, quick and quiet, and I make sure they don't get home." },
@@ -228,6 +273,7 @@ P:NPC {
         { text = "What are the outrunners after?", next = "outrun" },
         { text = "Echo Isles born, cousin?", next = "cousin", when = { race = "Troll" } },
         { text = "I can slip past their scouts.", next = "rogue_k", when = { class = "ROGUE" } },
+        { text = "I've taken heads before. Show me where they run.", next = "hunter_k", when = { class = "HUNTER" } },
         { text = "Stay sharp.", next = "END" },
       },
     },

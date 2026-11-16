@@ -66,6 +66,7 @@ P:NPC {
         { text = "When did you last eat?", next = "food" },
         { text = "I could pray with you.", next = "pray", when = { class = "PRIEST" } },
         { text = "The Brotherhood doesn't forget deserters.", next = "rogue", when = { class = "ROGUE" } },
+        { text = "I'm a druid. Not every beast in the woods is a monster.", next = "druid", when = { class = "DRUID" } },
         { text = "Stay safe, Jitters.", next = "END" },
       },
     },
@@ -201,6 +202,13 @@ P:NPC {
       choices = {
         { text = "I won't tell them.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "That depends on what you're worth.", next = "BACK", fx = { affinity = -3, align = { honor = -1 }, trait = { cruel = 1 } } },
+      },
+    },
+    druid = {
+      lines = { { id = "dr_default", text = "A druid. That means you turn into things, doesn't it, with fur and teeth, out in the woods where nobody can see? Please don't, not here, not while I'm looking, because I've seen a man go down on four legs once and I can't see it again." } },
+      choices = {
+        { text = "I won't change in front of you.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "What man?", next = "saw" },
       },
     },
   },

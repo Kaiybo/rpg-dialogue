@@ -208,6 +208,7 @@ P:NPC {
         { text = "Train me.", next = "BUSINESS", when = { profession = "Engineering" } },
         { text = "Gnomish or goblin engineering?", next = "choice" },
         { text = "What are you calculating?", next = "sum" },
+        { text = "Did you get out of Gnomeregan with any notes?", next = "gnome", when = { race = "Gnome" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -235,6 +236,17 @@ P:NPC {
       lines = { { id = "sh_default", text = "Everyone worked in Gnomeregan, once. I'd rather do sums than talk about it, if you don't mind, because sums come out even and that didn't.",
         fx = { learn = { "gnomeregan" } } } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    gnome = {
+      lines = {
+        { id = "gnome_l", text = "Three notebooks and half a slide rule, and I've rebuilt the rest from memory on the walls of my lodgings. The landlady is not pleased about the walls." },
+        { id = "gnome_rear", when = { origin = "gnome_rearguard" },
+          text = "Three notebooks, thanks to people like you holding the corridors; I've heard the rearguard stories in Tinker Town. I've rebuilt the rest from memory on the walls of my lodgings." },
+      },
+      choices = {
+        { text = "We'll get the rest back from Thermaplugg.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "Write it on paper this time.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
     },
   },
 

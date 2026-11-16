@@ -77,6 +77,9 @@ P:NPC {
         { text = "Has anyone prayed over Raven Hill's graves?", next = "priest", when = { class = "PRIEST" } },
         { text = "My family sits in the House of Nobles.", next = "noble", when = { origin = "human_minor_noble" } },
         { text = "The Army isn't coming. I'm here.", next = "soldier", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "What do you know of the grove in the heart of the wood?", next = "druid", when = { class = "DRUID" } },
+        { text = "Your wolves are thinning. I've been hunting them.", next = "hunter", when = { class = "HUNTER" } },
+        { text = "Ironforge has its own wars, my lord, but I came.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Good day, my lord.", next = "END" },
       },
     },
@@ -294,6 +297,36 @@ P:NPC {
       choices = {
         { text = "As you say, my lord.", next = "BACK" },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid = {
+      lines = {
+        { id = "dr_default", text = "The Twilight Grove? Very little, and I prefer it that way. The trees there are green when nothing else in Duskwood is, and the few hunters who went to look came back very quiet and wouldn't say why." },
+      },
+      choices = {
+        { text = "Something there is worth protecting.", next = "druid_protect" },
+        { text = "Perhaps it's best left alone.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    druid_protect = {
+      lines = { { id = "dp_default", text = "Then protect it, by all means, and the council will thank you in a formal motion. I only ask that whatever lives there doesn't follow you back to my town hall." } },
+      choices = {
+        { text = "I'll go gently.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, my lord.", next = "BACK" },
+      },
+    },
+    hunter = {
+      lines = { { id = "hu_default", text = "Have you really? Then you've done more for Darkshire's roads this week than Stormwind has all year, and I'll say so to the council. Tell me, are they worgen or simply wolves? My people can't agree." } },
+      choices = {
+        { text = "Both. And the worgen are worse.", next = "BACK", fx = { affinity = 1, learn = { "worgen" } } },
+        { text = "Mostly wolves. Your people scare easily.", next = "BACK", fx = { affinity = -1, trait = { skeptical = 1 } } },
+      },
+    },
+    dwarf = {
+      lines = { { id = "dw_default", text = "Which is more than I can say for the capital, and I've written to Ironforge too, you know. The King under the Mountain sent a very handsome letter declining, on very handsome paper." } },
+      choices = {
+        { text = "Ironforge keeps its promises when it makes them.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
+        { text = "Then I'll be Ironforge's answer.", next = "BACK", fx = { affinity = 2, standing = { darkshire = 1 } } },
       },
     },
   },

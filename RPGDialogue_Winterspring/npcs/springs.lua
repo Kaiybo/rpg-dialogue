@@ -26,6 +26,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dwarf_dn = {
+      lines = {
+        { id = "ddn_default", text = "Aye, an' we're the only two daft enough! The cold's no bother tae a Dun Morogh lass; it's the furbolgs I worry about, for they used tae trade wi' me for honey an' now they throw rocks." },
+        { id = "ddn_bear", when = { origin = "dwarf_bear_tracker" },
+          text = "A bear tracker from back home, eh? Then ye'll know a beast that's sick from one that's angry, an' the Winterfall are both, which is the worst o' the lot." },
+      },
+      choices = {
+        { text = "I'll find who's brewing their firewater.", next = "who", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -45,6 +56,7 @@ P:NPC {
         { text = "Why study hot springs?", next = "springs" },
         { text = "Who'd brew something like that?", next = "who" },
         { text = "The furbolgs' sickness. Can I feel it?", next = "druid", when = { class = { "DRUID", "SHAMAN" } } },
+        { text = "A dwarf this far north? You and me both.", next = "dwarf_dn", when = { race = "Dwarf" } },
         { text = "I'll look into the furbolgs.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -131,6 +143,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    hunter_ma = {
+      lines = {
+        { id = "hma_default", text = "Ha! Every beast carry it, mon, and dat one carry plenty, but Mau'ari ain't gonna take it from a beast dat still be breathin' and followin' you round. Keep it close; a hunter's companion be better juju than anything Mau'ari make." },
+      },
+      choices = {
+        { text = "Good. Hands off, witch doctor.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Then I'll bring you E'ko from the wild ones.", next = "BACK", fx = { affinity = 2 } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -147,6 +168,7 @@ P:NPC {
         { text = "What does the juju do?", next = "juju" },
         { text = "Why come all the way up here?", next = "why" },
         { text = "A Darkspear in the snow. Why?", next = "troll", when = { race = "Troll" } },
+        { text = "Does my beast carry E'ko too?", next = "hunter_ma", when = { class = "HUNTER", pet = true } },
         { text = "I'll bring E'ko.", next = "END", fx = { affinity = 2 } },
       },
     },

@@ -14,7 +14,7 @@ describe("Content packs", function()
     local loaded = {}
     for _, p in ipairs(ns.Packs.List()) do loaded[p.id] = p.loaded; eq(p.warnings, 0, p.id .. " warnings") end
     ok(loaded["rpgd.world"] and loaded["rpgd.elwynn"])
-    eq(ns.Util.Count(ns.Data.npcs), 56)   -- Elwynn 56 (with the Eastvale stables)
+    eq(ns.Util.Count(ns.Data.npcs), 67)   -- Elwynn 67 (with Goldshire 0.37.0 and Northshire 0.38.0)
     ok(ns.Data.threads.elwynn_gold and ns.Data.towns.goldshire and ns.Data.claims.defias_common_thieves)
   end)
 

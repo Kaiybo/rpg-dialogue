@@ -1,4 +1,4 @@
-# Badlands  (keys: goretooth, theodora, vivian, lexlort, shulkar, ryedol, lotwil)
+# Badlands  (keys: goretooth, theodora, vivian, lexlort, shulkar, neeka, jarkal, gorrik, grawl, ryedol, lotwil)
 
 ## Sources
 - https://warcraft.wiki.gg/wiki/Kargath (the only Horde outpost in Khaz Modan; the Kargath Expeditionary Force went into the Badlands on Thrall's orders, found Uldaman, and worked toward Blackrock Mountain to strike at Rend Blackhand, bringing conflict with the Dark Irons; leader Warlord Goretooth; Classic NPCs Lexlort, Innkeeper Shul'kar, Hierophant Theodora Mulvadania, Shadowmage Vivian Lagrave; Kargath Grunts guard it; remains in Classic and Forever)
@@ -53,3 +53,23 @@ Sources read for this pass (warcraft.wiki.gg, Classic sections): Warlord_Goretoo
 Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon, unless marked).
 - Ryedol (Persuade, `chased_blame`): he never looked back once while running from the digsite and blames himself for it (authored feeling, from 'Hammertoe didn't run fast enough').
 - Lotwil (Deceive, `assembly_members`): the Assembly has two members at present, Lotwil and Lucien (fits 'once it exists'; authored).
+
+## 0.37.0: the rest of Kargath (npcs/kargath_more.lua)
+Sources read (warcraft.wiki.gg, Classic sections): Kargath (NPC list), Neeka_Bloodscar, Coyote_Thieves, Report_to_Helgrum, Jarkal_Mossmeld, Badlands_Reagent_Run, Translating_the_Journal, Grawl, Gorrik.
+
+### Their quests
+- Neeka Bloodscar (orc, head scout of Kargath): Neeka Bloodscar (Helgrum sends the player to her), Coyote Thieves (crag coyotes sneak in and steal food; thirty jawbones as proof you know the region), Report to Helgrum (her report to Stonard: the Alliance has problems of its own).
+- Jarkal Mossmeld (Darkspear troll alchemist, second floor of the inn): Badlands Reagent Run (buzzard gizzards, crag coyote fangs, rock elemental shards; "enlist fighters if you aren't one"), Badlands Reagent Run II (Alchemy), Uldaman Reagent Run (magenta fungus caps), Translating the Journal (the paladin's journal from Uldaman; he outbids Dran Droffers of Orgrimmar but lets you keep that deal), Find the Gems and Power Source, Deliver the Gems, Necklace Recovery, Take 3.
+- Gorrik <Wind Rider Master>: none (service). Grawl <General Goods>: none (service).
+
+### Voices
+- Neeka: proud, dry head scout; measures people by their legs and eyes; teases Helgrum as a rival colleague (never his mate: Cataclysm).
+- Jarkal: Darkspear merchant-alchemist, "mon", always pitching a better offer.
+- Gorrik: gruff, fights the heat for his riders. Grawl: gruff quartermaster, everything measured in water.
+
+### What they notice
+- Neeka: class (hunter's pet paws, a rogue downwind), level. Jarkal: race (Darkspear kin, Forsaken apothecaries), class (shaman and the rock spirits). Gorrik: race (weight, smell), level. Grawl: weariness, level.
+
+### Authored, not canon
+Neeka and Helgrum's rivalry over running versus tracking; her watching red whelps in Lethlor Ravine from the ridge; Jarkal choosing the inn's quiet floor and Shul'kar's onions; Gorrik's Barrens past, soaked blankets and his running complaint with Breyk at Stonard; Grawl's Orgrimmar past and grain-pile vigil. Kargath additions to old NPCs: Goretooth on Neeka; Shul'kar on Jarkal and a troll reply.
+Left out as unsure for Classic: Gorn, Thunderheart, Grunt Gargal, Initiate Amakkar, Galamav the Marksman, Razal'blade, Greth, Sranda (listed on the wiki without a Classic marker).

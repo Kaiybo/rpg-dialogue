@@ -34,6 +34,52 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    warrior_th = {
+      lines = {
+        { id = "wth_default", text = "Auberdine has no walls, only Sentinels and the sea, and the Sentinels are stretched thin enough that I'd take your blade gladly. Speak to Glynda Nal'Shea on the hill; she knows where the gaps are, because she stands in most of them." },
+        { id = "wth_watch", when = { origin = "nightelf_auberdine_watch" },
+          text = "You stood the watch here once, didn't you? I remember the young ones who did, and fewer of them come home to us than I'd like, so it gladdens me to see you back." },
+      },
+      choices = {
+        { text = "Then I'll stand where Glynda can't.", next = "BACK", fx = { affinity = 2, standing = { auberdine = 1 } } },
+        { text = "A village this exposed should be walled.", next = "warrior_th2" },
+      },
+    },
+    warrior_th2 = {
+      lines = {
+        { id = "wth2_default", text = "Walls are a human answer, and not a bad one, but our people have always lived open to the forest and trusted it to warn us. Lately the forest has been too sick to warn anyone, and I confess I have thought about walls." },
+      },
+      choices = {
+        { text = "Build them. Tradition won't stop a furbolg.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Heal the forest instead, and it will warn you again.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+      },
+    },
+    mage_th = {
+      big = true,
+      lines = {
+        { id = "mth_default", text = "You could, I'm sure, and that is exactly what frightens me. The demons in Bashal'Aran feed on what magic is left there, and I would rather it all went into the sea than into a stranger's satchel, however well meant." },
+      },
+      choices = {
+        { text = "Knowledge left to rot helps no one.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then it should be destroyed. I'll help.", next = "BACK", fx = { align = { order = 1 }, affinity = 2 } },
+        { text = "You don't trust mages at all, do you?", next = "mage_th2" },
+      },
+    },
+    mage_th2 = {
+      lines = {
+        { id = "mth2_default", text = "I trust that you mean well, which is not the same thing. My people trusted Highborne who meant well, and we sleep in villages like this one now because the old cities are at the bottom of the sea." },
+      },
+      choices = { { text = "That's fair. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    hunter_th = {
+      lines = {
+        { id = "hth_default", text = "Then you've seen the thistle bears, and you've seen how they foam at the mouth. Tharnariun Treetender at the edge of the village is trying to learn what is doing it, and a hunter who can tell sickness from rage is exactly what he needs." },
+      },
+      choices = {
+        { text = "I'll bring him what he needs.", next = "BACK", fx = { affinity = 1, standing = { auberdine = 1 } } },
+        { text = "A sick beast is kindest put down quickly.", next = "BACK", fx = { trait = { stern = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -69,6 +115,9 @@ P:NPC {
         { text = "I'm a paladin. What can I do?", next = "paladin", when = { class = "PALADIN" } },
         { text = "Can a priest help against this corruption?", next = "priest_t", when = { class = "PRIEST" } },
         { text = "I came over on the Bravery from Menethil.", next = "boat", when = { race = { "Human", "Dwarf", "Gnome" } } },
+        { text = "Auberdine needs blades on its walls. I have one.", next = "warrior_th", when = { class = "WARRIOR" } },
+        { text = "I could read the magic in those Highborne ruins.", next = "mage_th", when = { class = "MAGE" } },
+        { text = "The beasts here are sick. I've seen it in their eyes.", next = "hunter_th", when = { class = "HUNTER" } },
         { text = "I'll help Auberdine.", next = "END", fx = { affinity = 2, standing = { auberdine = 1 } } },
       },
     },
@@ -223,6 +272,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    warlock_te = {
+      big = true,
+      lines = {
+        { id = "wte_default", text = "I don't doubt that you know it, and I wish you didn't. If you can tell me where the taint is strongest without feeding it, then for once I will be glad of what you are, and I won't ask how you learned to smell it." },
+      },
+      choices = {
+        { text = "I'll trace it to its source and burn it out.", next = "BACK", fx = { align = { light = 1 }, affinity = 2 } },
+        { text = "The power in it could be put to use.", next = "BACK", fx = { align = { light = -1 }, affinity = -2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -248,6 +308,7 @@ P:NPC {
         { text = "Who is Volcor?", next = "volcor" },
         { text = "Why do the furbolgs turn?", next = "turn" },
         { text = "I can feel the sickness in the land.", next = "druid_t", when = { class = "DRUID" } },
+        { text = "I know fel when I see it. This moss is fel.", next = "warlock_te", when = { class = "WARLOCK" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2 } },
       },
     },
@@ -329,6 +390,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_gw = {
+      lines = {
+        { id = "dgw_default", text = "Then you've seen more of them than I have, for I can only kneel at the tideline. Did the water feel wrong out there, sister of the Circle, or brother? I have wondered whether it is the sea that's sick, or only what dies in it." },
+      },
+      choices = {
+        { text = "The water felt wrong, like the moss inland.", next = "BACK", fx = { affinity = 2, learn = { "fel_moss" } } },
+        { text = "Just cold. Whatever killed them came from elsewhere.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Gwennyth, of the Sisterhood. I came to tend Auberdine's troubled people and found the shore strewn with great dead creatures, as if the sea were giving up its dead, and I would like to know why." },
@@ -352,6 +422,7 @@ P:NPC {
         { text = "What's killing them?", next = "killing" },
         { text = "Why do the murlocs gather on them?", next = "murlocs" },
         { text = "Could a priest of the Light help you?", next = "priest_g", when = { class = "PRIEST", ["not"] = { race = "NightElf" } } },
+        { text = "I've swum out to the great bodies in seal form.", next = "druid_gw", when = { class = "DRUID" } },
         { text = "Elune keep you.", next = "END" },
       },
     },
@@ -420,9 +491,20 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    warrior_gl = {
+      lines = {
+        { id = "wgl_default", text = "I'll put you anywhere I can, but the watch here isn't a line; it's a shore, a road and a boat, and the murlocs come from the water while the furbolgs come from the trees. Can you stand facing two ways at once?" },
+        { id = "wgl_watch", when = { origin = "nightelf_auberdine_watch" },
+          text = "You've stood this watch before; I remember you, I think, or someone with your stance. The murlocs have grown bolder since you left, and I don't have anyone left to tell it to who'd understand." },
+      },
+      choices = {
+        { text = "Facing two ways is a warrior's whole job.", next = "BACK", fx = { align = { honor = 1 }, affinity = 2, standing = { auberdine = 1 } } },
+        { text = "I'll take the murlocs. Leave the trees to someone else.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+      },
+    },
     hello = {
       lines = {
-        { id = "h_default", text = "I am Sentinel Glynda Nal'Shea. Corruption creeps into the groves and murlocs creep up the beaches, and I am only one Sentinel, so I could use another pair of hands." },
+        { id = "h_default", key = true, text = "I am Sentinel Glynda Nal'Shea. Corruption creeps into the groves and murlocs creep up the beaches, and I am only one Sentinel, so I could use another pair of hands." },
         { id = "h_crystal", tags = { "news" }, when = { questActive = TODO_QUEST("The Red Crystal") },
           text = "The reports say hostile moonkin are gathering around a large red crystal along the eastern mountains. Find out whether it truly exists, and whatever you do, don't touch it." },
         { id = "h_cascade", when = { questActive = TODO_QUEST("As Water Cascades") },
@@ -442,6 +524,8 @@ P:NPC {
         { text = "Who is Murkdeep?", next = "murkdeep" },
         { text = "Where are the Sentinels stretched thinnest?", next = "thin" },
         { text = "What did the crystal hide?", next = "crystal", when = { questDone = TODO_QUEST("The Fragments Within") } },
+        { text = "Put me on the watch. I can hold a line.", next = "warrior_gl", when = { class = "WARRIOR" } },
+        { text = "Where do you need a bow most?", next = "thin", when = { class = "HUNTER" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2, standing = { auberdine = 1 } } },
       },
     },
@@ -511,6 +595,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    warrior_ce = {
+      lines = {
+        { id = "wce_default", text = "I did fight, warrior, at the end, with a druid's claws and a heart that was already breaking. Fighting did not save Ameth'Aran; it only meant I was alive to grieve it, and some nights that feels like the worse fate." },
+      },
+      choices = {
+        { text = "Fighting was still right, even if it failed.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then maybe you should have fled with her.", next = "BACK", fx = { align = { honor = -1 }, affinity = -1 } },
+        { text = "I'm sorry. Something else.", next = "BACK", fx = { trait = { kind = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -529,6 +623,7 @@ P:NPC {
         { text = "How did you find her spirit?", next = "found" },
         { text = "What was Ameth'Aran?", next = "ameth" },
         { text = "Should I fear the long sleep?", next = "sleep_d", when = { class = "DRUID" } },
+        { text = "I'd have fought for her, in your place.", next = "warrior_ce", when = { class = "WARRIOR" } },
         { text = "I'm sorry.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -617,6 +712,8 @@ P:NPC {
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "Who comes through the inn?", next = "guests" },
         { text = "Any news from the boats?", next = "news" },
+        { text = "The crossing from Menethil nearly finished me.", next = "seasick", when = { race = { "Human", "Dwarf", "Gnome" } } },
+        { text = "You pray over your guests' dreams?", next = "dreams_s", when = { class = { "PRIEST", "DRUID" } } },
         { text = "Just resting.", next = "END" },
       },
     },
@@ -633,7 +730,36 @@ P:NPC {
     },
     news = {
       lines = { { id = "nw_default", text = "The murlocs have been at the fishing boats again, and the Moonspray ran late twice this week. When the boats are late, the whole village holds its breath." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Who looks after the village when the boats are late?", next = "news2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    news2 = {
+      lines = { { id = "nw2_default", text = "Elissa Starbreeze counts the crates, Glynda walks the beach, and Thundris sits up with his lamps. I put the kettle on, which is my share of the worrying." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "sentinels" } } } },
+    },
+    seasick = {
+      lines = {
+        { id = "ss_default", text = "You're not the first, love, and you won't be the last today. Sit by the fire with your back to the window, and don't look at the water until your stomach has forgiven you." },
+        { id = "ss_dwarf", when = { race = "Dwarf" },
+          text = "A dwarf who doesn't care for boats? I've had half of Ironforge at that table, green as moss and swearing it was the ale. Sit down, and I'll bring something plain." },
+      },
+      choices = {
+        { text = "Thank you. I'll sit a while.", next = "BACK", fx = { affinity = 2 } },
+        { text = "I'll be fine. Just point me to the elder.", next = "BACK", fx = { trait = { stern = 1 } } },
+      },
+    },
+    dreams_s = {
+      lines = {
+        { id = "ds_default", text = "Only a little, and only the way my mother did, a word to Elune as I bank the fire. Guests who come in from the Blackwood sleep badly, and it seems to help them, or at least it helps me." },
+        { id = "ds_light", when = { class = "PRIEST", ["not"] = { race = "NightElf" } },
+          text = "Only to Elune, and quietly, but I'd not mind if you added a word to your Light. The guests who come in from the Blackwood sleep badly, and two prayers can't hurt." },
+      },
+      choices = {
+        { text = "I'll add mine tonight.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Prayers won't keep the furbolgs out. Good locks will.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
   },
 

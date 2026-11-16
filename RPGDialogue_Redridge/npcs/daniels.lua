@@ -57,6 +57,7 @@ P:NPC {
         { text = "Who keeps this place running?", next = "inn" },
         { text = "A dwarf brewed your lager, I hope.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "I've been to Darkshire. The moonshine's real.", next = "moonshine", when = { visited = "Darkshire" } },
+        { text = "Do you get many kaldorei through Lakeshire?", next = "nightelf", when = { race = "NightElf" } },
         { text = "Just passing through.", next = "END" },
       },
     },
@@ -110,6 +111,13 @@ P:NPC {
     moonshine = {
       lines = { { id = "mo_default", text = "Then you know what I'm missing. Darkshire's moonshine could strip paint, and some nights that's what Lakeshire needs." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    nightelf = {
+      lines = { { id = "ne_default", text = "You're the first I've poured for, and I've been wondering all evening what your lot drinks. If it's moonlight and dew, I'm afraid I'm out of both, along with everything else." } },
+      choices = {
+        { text = "Water from a clean spring will do.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Whatever the dwarves drink.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+      },
     },
   },
 

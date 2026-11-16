@@ -27,6 +27,37 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    warrior_pg = {
+      lines = {
+        { id = "wpg_default", text = "Welcome, and don't get comfortable, because there's no line here to hold, only a ridge and a great deal of centaur on either side of it. My best warriors are the ones who learned to count before they learned to charge." },
+        { id = "wpg_guard", when = { origin = "human_city_guard" },
+          text = "City Watch, aren't you? I can tell by the way you check the gate before you check the view. Stormwind sends me plenty of those, and they're the only ones who ever remember to lock anything." },
+      },
+      choices = {
+        { text = "Point me at the Kolkar and I'll charge.", next = "BACK", fx = { align = { honor = 1 }, trait = { brave = 1 } } },
+        { text = "I can count. Tell me the numbers.", next = "clans", fx = { align = { honor = -1 } } },
+      },
+    },
+    paladin_pg = {
+      big = true,
+      lines = {
+        { id = "ppg_default", text = "I'm sure it does, and I'm sure the Light would rather I had three hundred more men. I don't, so I make the Kolkar and the Gelkis bleed each other, and I pray about it afterwards, when there's time." },
+      },
+      choices = {
+        { text = "Then I'll keep your men alive and leave the scheming to you.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "I won't help betray anyone, Captain.", next = "BACK", fx = { align = { honor = 1 }, affinity = -1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    nelf_pg = {
+      lines = {
+        { id = "npg_default", text = "They do, and your Sentinels make very sure we know whose trees they are. The Circle's keepers share this ridge with us, and we get on, mostly because they ignore me and I'm careful not to cut anything down." },
+      },
+      choices = {
+        { text = "That's wise of you, Captain.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -45,6 +76,9 @@ P:NPC {
         { text = "I could handle the betraying part.", next = "rogue", when = { class = "ROGUE" } },
         { text = "What do you make of Brother Anton?", next = "anton", when = { heardLine = "anton.h_default" } },
         { text = "Your men need a chaplain, Captain.", next = "priest_chaplain", when = { class = "PRIEST" } },
+        { text = "Another blade for the Point, Captain.", next = "warrior_pg", when = { class = "WARRIOR" } },
+        { text = "Betraying a clan sits ill with the Light.", next = "paladin_pg", when = { class = "PALADIN" } },
+        { text = "Stormwind's soldiers march through our forests to get here.", next = "nelf_pg", when = { race = "NightElf" } },
         { text = "I'll help hold the Point.", next = "END", fx = { affinity = 1, standing = { nijels_point = 1 } } },
       },
     },
@@ -175,6 +209,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    hunter_md = {
+      lines = {
+        { id = "hmd_default", text = "Wrong is a kind word for it. The earth here is poisoned from below, and what grazes on it sickens, and what hunts what grazes sickens after; you may be the first to notice, because you are the last link in that chain." },
+      },
+      choices = {
+        { text = "Then I'll hunt only what's already dying.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "A hunter eats what's there, sick or not.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -191,6 +234,7 @@ P:NPC {
         { text = "Your sisters?", next = "sisters" },
         { text = "The Circle asks more of me. How do I answer?", next = "druid", when = { class = "DRUID" } },
         { text = "Tell me of Theradras.", next = "theradras", when = { minLevel = 45 } },
+        { text = "I hunt these lands. The beasts are wrong here.", next = "hunter_md", when = { class = "HUNTER" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -264,6 +308,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dwarf_kr = {
+      lines = {
+        { id = "dkr_default", text = "Aye, an' they'd say it wi' a pickaxe in one hand an' a bit o' Titan pottery in the other! The League puts things in glass cases in Ironforge; Reclaimers put 'em back to work, an' I know which one's more use to a hungry dwarf." },
+      },
+      choices = {
+        { text = "History belongs in a hall, not a market.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Fair enough. Salvage feeds people.", next = "BACK", fx = { align = { order = -1 }, affinity = 2 } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -282,6 +335,7 @@ P:NPC {
         { text = "What happened to the Karnitol?", next = "karnitol" },
         { text = "How do you get on with the Explorers' League?", next = "league" },
         { text = "I know salvage from scrap.", next = "salvage", when = { profession = "Mining" } },
+        { text = "The Explorers' League would call you looters.", next = "dwarf_kr", when = { race = "Dwarf" } },
         { text = "I'll help.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -343,6 +397,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    warlock_an = {
+      big = true,
+      lines = {
+        { id = "wan_default", text = "Take one? Friend, the Crusade would take one to the pyre, and I'd have to stand by and watch it done. Put that craft away while you're near me, and pray to the Light that it isn't too late for you." },
+      },
+      choices = {
+        { text = "I fight the undead too, with what I have.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Maybe it isn't too late. Pray for me.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -367,6 +431,7 @@ P:NPC {
         { text = "Raleigh read your letter, Brother.", next = "raleigh",
           when = { thread = { id = "scarlet_path", beat = "b3_raleigh", state = { "stirring", "unfolding" } } } },
         { text = "I'll go to the valley.", next = "END", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Would the Crusade take a warlock, Brother?", next = "warlock_an", when = { class = "WARLOCK" } },
         { text = "I won't fight for the Crusade, Brother.", next = "END", fx = { align = { order = -1 } } },
       },
     },
@@ -528,6 +593,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    shaman_tk = {
+      lines = {
+        { id = "stk_default", text = "Sick, yes, and the Burning Blade made them so, the same way the demons sickened our blood. Thrall's shamans are the only ones I've seen make a fel-touched place breathe again, so if you can, do it while I kill what's poisoning it." },
+        { id = "stk_thrall", when = { origin = "orc_thrall_shaman" },
+          text = "You learned at Thrall's side, I hear it in how you speak of them. Then you know what this land feels like; it's the same thing we felt in the camps, when the bloodlust left us." },
+      },
+      choices = {
+        { text = "Heal first. Killing won't clean the land.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Kill first. The spirits can wait for quiet.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
+      },
+    },
+    warrior_tk = {
+      lines = {
+        { id = "wtk_default", text = "Good, and don't stop to talk to them, because the Blade hides among the satyrs and the satyrs lie for sport. Thunder Axe Fortress is full of them, and every one you leave alive tells the next one you're coming." },
+        { id = "wtk_grunt", when = { origin = "orc_razor_hill_grunt" },
+          text = "Razor Hill sends its grunts a long way these days. The Blade was in Durotar too, you'll remember, in the Skull Rock caves; this is the same rot, only older." },
+      },
+      choices = {
+        { text = "None of them will walk away.", next = "BACK", fx = { align = { honor = 1 }, trait = { stern = 1 } } },
+        { text = "I'll leave one alive, to follow home.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -554,6 +641,8 @@ P:NPC {
         { text = "Not every warlock is the Blade.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "Maurin is Forsaken, like me. Do you trust him?", next = "forsaken", when = { race = "Scourge" } },
         { text = "I'm an orc mage, not a warlock.", next = "orc_mage", when = { race = "Orc", class = "MAGE" } },
+        { text = "The spirits here are sick with demon taint.", next = "shaman_tk", when = { class = "SHAMAN" } },
+        { text = "Give me a satyr camp. I'll clear it.", next = "warrior_tk", when = { class = "WARRIOR" } },
         { text = "I'll hunt with you.", next = "END", fx = { affinity = 2, learn = { "burning_blade" } } },
       },
     },
@@ -699,6 +788,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    hunter_nt = {
+      lines = {
+        { id = "hnt_default", text = "Then you'll weep at the kodo graveyard, as I did. The old kodo come all the way out here to die, and the centaur pick at their bones, and I've never once heard a good reason why they walk so far." },
+        { id = "hnt_run", when = { origin = "tauren_plains_runner" },
+          text = "A plains runner! You'll find no grass to run in here, cousin, only sand and bones. Your legs will hate it for a week, and then you'll love it like I do." },
+      },
+      choices = {
+        { text = "They come home to the earth. That's reason enough.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else, Nataka.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -723,6 +823,7 @@ P:NPC {
         { text = "It's good to see another tauren out here.", next = "tauren", when = { race = "Tauren" } },
         { text = "I fish. What should I know about these waters?", next = "fisher", when = { profession = "Fishing" } },
         { text = "I met your brother. He seemed well.", next = "brother_met", when = { heardLine = "longhorn.h_default" } },
+        { text = "I've run the plains with my kodo since I was a calf.", next = "hunter_nt", when = { race = "Tauren", class = "HUNTER" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },

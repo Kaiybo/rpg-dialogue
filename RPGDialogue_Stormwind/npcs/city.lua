@@ -26,6 +26,8 @@ P:NPC {
       text = "The third step from the door creaks, and you stepped on it. Everyone does, the first time, which is why it's there." },
     { id = "n_watch", cat = "watch", when = { deed = "dungeon:The Deadmines" },
       text = "You've been under Moonbrook, and I read the reports before you'd washed the mud off. That's my job." },
+    { id = "n_beast", cat = "watch", when = { class = "HUNTER", pet = { type = "Beast" } },
+      text = "Your animal went straight for the corner where my man's standing, which is more than most of my recruits manage. Call it off, please, before he takes it personally." },
   },
 
   start = "hello",
@@ -61,6 +63,8 @@ P:NPC {
           text = "You again. My people say you keep your word and your mouth shut, which is the highest praise this building gives, so sit down." },
         { id = "h_cold", when = { disposition = { max = 34 } },
           text = "I've read your file, and I didn't care for it. Say what you came to say, and use the same door on your way out." },
+        { id = "h_canals", when = { origin = "human_canal_pickpocket" },
+          text = "I remember a file about a canal child with quick fingers and no respect for anybody's purse. Osborne asked me to let it go, and I did, and here you are; don't make me regret it." },
       },
       again = {
         { id = "h_again", text = "Go on. I've ten minutes, and I've already spent two of them on you." },
@@ -75,6 +79,11 @@ P:NPC {
         { text = "What use is a priest to SI:7?", next = "priest", when = { class = "PRIEST" } },
         { text = "My family sits in the House of Nobles.", next = "noble", when = { origin = "human_minor_noble" } },
         { text = "Lescovar is dead.", next = "lescovar", when = { questDone = TODO_QUEST("The Head of the Beast") } },
+        { text = "Does SI:7 watch the Slaughtered Lamb?", next = "lamb", when = { class = "WARLOCK" } },
+        { text = "I track things for a living. Any use to you?", next = "hunter", when = { class = "HUNTER" } },
+        { text = "What's in your file on the Skyborne?", next = "skyfile", when = { race = "Skyborne" } },
+        { text = "The Watchers taught me to move quietly, Master Shaw.", next = "watchers", when = { race = "NightElf", class = "ROGUE" } },
+        { text = "Does SI:7 work with the Mage Quarter?", next = "magequarter", when = { class = "MAGE" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -258,6 +267,67 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    lamb = {
+      big = true,
+      lines = {
+        { id = "lamb_l", text = "Of course it does. Gakin knows we watch, I know he knows, and so long as nothing with horns walks up the cellar stairs into the Mage Quarter, the arrangement suits the crown." },
+        { id = "lamb_cellar", when = { origin = "human_lamb_cellar" },
+          text = "You went down those cellar stairs young, didn't you; your name's in a ledger of mine with a question mark beside it. Gakin knows we watch, and so long as nothing with horns walks up into the Mage Quarter, the arrangement suits the crown." },
+      },
+      choices = {
+        { text = "Then you'll know if I ever lose control.", next = "lamb_control" },
+        { text = "Watching warlocks is wise.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "What we do in the cellar is our business.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+      },
+    },
+    lamb_control = {
+      lines = { { id = "lamb_control_l", text = "I'll know, and so will everyone within a street of you, briefly. Keep your bindings tight and your temper tighter, and you'll never meet the people I'd send." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+    },
+    hunter = {
+      lines = { { id = "hunter_l", text = "Perhaps. My agents read people well enough, but they're hopeless in a forest, and the Defias have learned to camp where the roads give out. Someone who can follow a trail through Westfall's hills and keep a beast quiet is worth a conversation." },
+        { id = "hunter_woods", when = { origin = "human_eastvale_woodsman" },
+          text = "An Eastvale woodsman, by the file, and that's useful; my agents are hopeless in a forest, and the Defias have learned to camp where the roads give out." } },
+      choices = {
+        { text = "Then point me at a trail.", next = "hunter_trail" },
+        { text = "I don't spy, Master Shaw. I hunt.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'd track anyone for the crown.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+      },
+    },
+    hunter_trail = {
+      lines = { { id = "hunter_trail_l", text = "Stoutmantle at Sentinel Hill has more trails than men to follow them. Tell him I sent you, or better, don't, and let him think it was his idea." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "defias" } } } },
+    },
+    skyfile = {
+      lines = { { id = "skyfile_l", text = "Very little: where your High Order is housed, which of the Kirin Tor speak for you, and a note in my own hand that says find out more. You could save my agents some walking." } },
+      choices = {
+        { text = "I'll tell you what I'd tell a friend.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Your agents can keep walking.", next = "BACK", fx = { align = { honor = -1 }, trait = { cautious = 1 } } },
+        { text = "Why does a thin file worry you?", next = "skyfile_thin" },
+      },
+    },
+    skyfile_thin = {
+      lines = { { id = "skyfile_thin_l", text = "Because a thin file is a guess wearing a uniform. I've buried agents who trusted guesses, and I'd rather not start with your people." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    watchers = {
+      lines = { { id = "watchers_l", text = "Did they? Then you'll find Stormwind's shadows rather noisy. The Watchers keep their own people's secrets, I'm told, and keep them from strangers, which is a cleaner job than mine; here the enemy usually went to school with you." } },
+      choices = {
+        { text = "Then I'll learn your kind of quiet.", next = "BACK", fx = { affinity = 1 } },
+        { text = "No secret-keeping is clean, Master Shaw.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
+    magequarter = {
+      lines = { { id = "magequarter_l", text = "When it suits both of us. Jennea Cannon and I trade favours the way merchants trade grain: carefully, and with a long memory of who got the better end." } },
+      choices = {
+        { text = "Who usually gets the better end?", next = "magequarter_end" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    magequarter_end = {
+      lines = { { id = "magequarter_end_l", text = "She'd say she does, and I'd let her, which is how I know I do. Don't repeat that in the Sanctum." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
   },
 
   topics = {
@@ -315,6 +385,8 @@ P:NPC {
           text = "You've outgrown this room. There's a hermit in Dustwallow Marsh called Tabetha, brilliant, rude and worth the boat fare, so go when you're ready to earn a wand." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "You call on something that answers, priest. We call on something that only obeys. I've never decided which habit is more dangerous." },
+        { id = "h_quarter", when = { origin = "human_mage_quarter" },
+          text = "One of the Quarter's own apprentices, and I remember your teachers, who never stopped mentioning Dalaran. You've outgrown them; that doesn't mean they were wrong about everything." },
       },
       again = {
         { id = "h_again", text = "Is there more? Stay outside the circles while you ask." },
@@ -325,6 +397,11 @@ P:NPC {
         { text = "Why test the water at Mirror Lake?", next = "currents" },
         { text = "What happened at the Blue Recluse?", next = "recluse" },
         { text = "Is magic really so dangerous?", next = "danger", when = { ["not"] = { class = "MAGE" } } },
+        { text = "What should I be practising?", next = "practise", when = { class = "MAGE" } },
+        { text = "Should a mage's learning have any limits?", next = "limits", when = { class = "MAGE" } },
+        { text = "Gnomeregan's mages studied differently from yours.", next = "gnome_mage", when = { race = "Gnome", class = "MAGE" } },
+        { text = "The High Order studied in Dalaran before coming here.", next = "highorder", when = { race = "Skyborne", class = "MAGE" } },
+        { text = "What do you think of the warlocks under the Lamb?", next = "warlocks" },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -360,6 +437,71 @@ P:NPC {
     danger_light = {
       lines = { { id = "dl_default", text = "Does it? Then we've more in common than your Archbishop would like to admit. Come back and argue about it. I enjoy a good argument." } },
       choices = { { text = "I might. Something else.", next = "BACK", fx = { affinity = 1, trait = { curious = 1 } } } },
+    },
+    practise = {
+      lines = {
+        { id = "practise_l", text = "Counterspells, and I mean every day. A mage who can only cast is a fire with legs; a mage who can stop someone else's spell is a defence, and the Sanctum needs defences." },
+        { id = "practise_old", when = { minLevel = 40 },
+          text = "Your timing. You've power enough now, and power is the easy part; the mage who freezes at the right moment beats the one who burns at the wrong one, every time." },
+      },
+      choices = {
+        { text = "Fire's more useful than defence.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "Then I'll practise until I'm bored of it.", next = "practise_bored" },
+      },
+    },
+    practise_bored = {
+      lines = { { id = "practise_bored_l", text = "Good, because bored is when it starts to become instinct. Come back when you've stopped thinking about it, and I'll know." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    limits = {
+      big = true,
+      lines = { { id = "limits_l", text = "Kel'Thuzad was a member of the Kirin Tor, and he thought not. Dalaran is a ruin under a dome because one of its own wanted to learn what death could teach, so yes, I think it should, and I think the line is wherever you'd be ashamed to explain yourself." } },
+      choices = {
+        { text = "Knowledge itself is never the danger.", next = "BACK", fx = { align = { order = -1 }, trait = { curious = 1 } } },
+        { text = "Some doors should stay locked.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Who decides where the line is?", next = "limits_who" },
+      },
+    },
+    limits_who = {
+      lines = { { id = "limits_who_l", text = "In this building, I do, and in Dalaran, the Six. Beyond that, you do, alone, at night, with the book open; that's the moment every teacher fears." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+    },
+    gnome_mage = {
+      lines = { { id = "gnome_mage_l", text = "Differently and loudly; your people treated spells like engines, all tolerances and measurements. I'll admit some of your measurements were better than ours, and I'll deny I said it." } },
+      choices = {
+        { text = "Our notes are under a hundred feet of sludge.", next = "gnome_mage_notes" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gnome_mage_notes = {
+      lines = {
+        { id = "gnome_mage_notes_l", text = "Then write them again, from memory, and send me a copy. Knowledge that lives in one head is only a rumour waiting to die." },
+        { id = "gnome_mage_student", when = { origin = "gnome_last_student" },
+          text = "You're rebuilding them already, aren't you, in some corner of Tinker Town. Send me a copy when you're done; knowledge that lives in one head is only a rumour waiting to die." },
+      },
+      choices = { { text = "I will.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    highorder = {
+      lines = { { id = "highorder_l", text = "And the Kirin Tor have been very quiet about what they found in you. I'd like to know what your High Order kept all those centuries, but I'll settle for seeing how you hold a frostbolt." } },
+      choices = {
+        { text = "Some of it isn't mine to share.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Watch, then.", next = "highorder_watch" },
+      },
+    },
+    highorder_watch = {
+      lines = { { id = "highorder_watch_l", text = "Hm. Old forms, very precise, a little stiff in the wrist. Elsharin would recognise some of that; go and show her, and tell me what she says." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    warlocks = {
+      lines = {
+        { id = "warlocks_l", text = "That they're a door this city keeps propped open because it's afraid of the draught. I'd close it, and nobody asks me, and the Lamb keeps pouring." },
+        { id = "warlocks_lock", when = { class = "WARLOCK" },
+          text = "You're one of Gakin's, and you came up the stairs to ask me that? Then I'll be honest: you're a door this city keeps propped open because it's afraid of the draught." },
+      },
+      choices = {
+        { text = "The kingdom needs every weapon it can get.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'd close it too.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+      },
     },
   },
 
@@ -412,6 +554,8 @@ P:NPC {
           text = "Felhunters are beyond what I can teach in this cellar, but Strahad Farsan keeps the means in Ratchet. He's one of ours, and he'll have heard of you." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "Vestments, in the Lamb's cellar? Did the Archbishop send you, or did you find the stairs yourself? Either way, lower your voice." },
+        { id = "h_lamb", when = { origin = "human_lamb_cellar" },
+          text = "You first came down those stairs with your eyes wide and your mouth shut, and I've never had a better pupil for it. Keep both habits." },
       },
       again = {
         { id = "h_again", text = "Well? The candles don't last forever, and nor does my patience." },
@@ -423,6 +567,10 @@ P:NPC {
         { text = "Why so many dwarves and gnomes down here?", next = "khaz" },
         { text = "Who was Surena?", next = "surena", when = { questDone = TODO_QUEST("Surena Caledon") } },
         { text = "The Church would shut this place down.", next = "church", when = { class = { "PRIEST", "PALADIN" } } },
+        { text = "What should I be practising?", next = "practise", when = { class = "WARLOCK" } },
+        { text = "Who's really the master, the warlock or the demon?", next = "master", when = { class = "WARLOCK" } },
+        { text = "Gnomeregan's books taught me more than any cellar.", next = "gnome_lock", when = { race = "Gnome", class = "WARLOCK" } },
+        { text = "What do you make of the other trainers here?", next = "others" },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -474,6 +622,60 @@ P:NPC {
     church_use = {
       lines = { { id = "cu_default", text = "Yes. So is a sword, and the Church blesses those. Go home. We'll both keep doing what we do, and the city will keep not asking." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    practise = {
+      lines = {
+        { id = "practise_l", text = "Saying no to your imp. It'll ask for things, small things, every day, and the warlock who says yes to small things will say yes to large ones without noticing. After that, your curses, because a curse cast in haste lands on the caster." },
+        { id = "practise_old", when = { minLevel = 30 },
+          text = "Your circles, and your sleep. A tired warlock draws a crooked circle, and a crooked circle is an invitation. I've buried two students who forgot that." },
+      },
+      choices = {
+        { text = "My imp doesn't ask for things.", next = "practise_imp" },
+        { text = "I'll keep it short of everything.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
+      },
+    },
+    practise_imp = {
+      lines = { { id = "practise_imp_l", text = "Then it's asking quietly, which is worse. Listen to it for a day and tell me I'm wrong." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+    },
+    master = {
+      big = true,
+      lines = { { id = "master_l", text = "Whoever forgets first. The demon never forgets what it is, so the work is all on your side: remember, every hour, that it hates you, and that it's yours." } },
+      choices = {
+        { text = "Then I'll never forget.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A little freedom makes a demon more useful.", next = "master_free", fx = { align = { order = -1 } } },
+        { text = "And if it stops hating me?", next = "master_hate" },
+      },
+    },
+    master_free = {
+      lines = { { id = "master_free_l", text = "That's what Surena said. Go on, then, and when the Watch asks me who taught you, I'll say I never met you." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    master_hate = {
+      lines = { { id = "master_hate_l", text = "Then it's learned to lie better, and you've learned nothing. A demon that seems fond of you is studying you." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+    },
+    gnome_lock = {
+      lines = {
+        { id = "gnome_lock_l", text = "Then you learned from the books nobody was guarding when the city fell, and the books didn't tell you what they cost their last owners. I'll teach you that part, at least." },
+        { id = "gnome_lock_texts", when = { origin = "gnome_forbidden_texts" },
+          text = "You took them off the shelves while everyone else was running, I'd guess; I've had three gnomes down here with the same story. The books didn't tell you what they cost their last owners, so I will." },
+      },
+      choices = {
+        { text = "A demon is only a system with inputs.", next = "gnome_lock_sys" },
+        { text = "Then teach me.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    gnome_lock_sys = {
+      lines = { { id = "gnome_lock_sys_l", text = "Systems don't want anything, and demons want you. Keep thinking like an engineer if it calms you, but check your gauges twice." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    others = {
+      lines = { { id = "others_l", text = "Ursula is stricter than I am and thinks I'm soft, Spackle sells grimoires like sweets, and Jennea Cannon would close this cellar tomorrow if she could. The Cathedral prays for us, which I've never once asked it to do." } },
+      choices = {
+        { text = "Maybe their prayers help.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Prayers never bound a demon.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+      },
     },
   },
 
@@ -532,6 +734,7 @@ P:NPC {
         { text = "Heard anything?", next = "news" },
         { text = "Who stays at the Gilded Rose?", next = "guests" },
         { text = "I'm from Westfall.", next = "westfall", when = { origin = "human_westfall_farmhand" } },
+        { text = "Do you get many kaldorei at the Gilded Rose?", next = "kaldorei", when = { race = "NightElf" } },
         { text = "Just passing through.", next = "END" },
       },
     },
@@ -554,6 +757,10 @@ P:NPC {
     westfall = {
       lines = { { id = "w_default", text = "Then you eat first. That's the rule in this house for anyone from Westfall. Don't argue with me; nobody wins that." } },
       choices = { { text = "I wouldn't dare.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    kaldorei = {
+      lines = { { id = "kaldorei_l", text = "A few, more every month, and they always ask for the room facing the Park. I've started keeping it for them, and I put fresh leaves on the sill now, because the first time I did, one of them thanked me in a language I didn't know." } },
+      choices = { { text = "That's kind of you.", next = "BACK", fx = { affinity = 2 } } },
     },
   },
 

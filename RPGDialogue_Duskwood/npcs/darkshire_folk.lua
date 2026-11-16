@@ -65,6 +65,8 @@ P:NPC {
         { text = "What do you make of the Night Watch?", next = "watch" },
         { text = "Glory under the Light.", next = "priest", when = { class = "PRIEST" } },
         { text = "I'm a druid, not a beast.", next = "druid", when = { class = "DRUID" } },
+        { text = "I wear the Light into battle, Carevin.", next = "paladin", when = { class = "PALADIN" } },
+        { text = "My arts could serve your hunt.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "I'll be going.", next = "END" },
       },
     },
@@ -167,6 +169,22 @@ P:NPC {
       },
       choices = { { text = "Fair enough.", next = "BACK", fx = { affinity = 1 } } },
     },
+    paladin = {
+      lines = { { id = "pa_default", text = "Many wear it, and few keep it on once the dead come close enough to smell. Ride out past Raven Hill with my household one night, and then tell me what you wear." } },
+      choices = {
+        { text = "I'll ride, and the Light will ride with me.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Faith or no faith, the dead fall to a hammer.", next = "BACK", fx = { align = { light = -1 } } },
+      },
+    },
+    warlock = {
+      big = true,
+      lines = { { id = "wl_default", text = "My hunt is for the things your arts call up, so no, I don't think they could. Leave Darkshire with the same shadow you came in with, and we'll have no quarrel." } },
+      choices = {
+        { text = "You fight fire with water. I fight it with fire.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "Fair. I'll stay out of your way.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -233,6 +251,7 @@ P:NPC {
         { text = "What did you see at Raven Hill?", next = "ravenhill" },
         { text = "Do you pray before you hunt?", next = "priest", when = { class = "PRIEST" } },
         { text = "Let me ride out with you.", next = "paladin", when = { class = "PALADIN" } },
+        { text = "I've stood a watch or two myself.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Later, Calor.", next = "END" },
       },
     },
@@ -329,6 +348,13 @@ P:NPC {
       },
       choices = { { text = "Lead on.", next = "BACK", fx = { affinity = 2, standing = { darkshire = 1 }, learn = { "carevins" } } } },
     },
+    warrior = {
+      lines = { { id = "wa_default", text = "Then you know the difference between standing a post and walking into the trees after what's beyond it. I did the first for six years, and the Carevins taught me the second in a month." } },
+      choices = {
+        { text = "Which was harder?", next = "watch" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -400,6 +426,8 @@ P:NPC {
         { text = "Who said the rites over Morgan?", next = "priest", when = { class = "PRIEST" } },
         { text = "Test me. Give me a script.", next = "mage", when = { class = "MAGE" } },
         { text = "I came home from Lordaeron too.", next = "lordaeron", when = { origin = "human_lordaeron_refugee" } },
+        { text = "Ironforge's explorers would kill for your library.", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "I'll give you a word of my people's tongue.", next = "xskyborne", when = { race = "Skyborne" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -524,6 +552,20 @@ P:NPC {
         { text = "To strangers. And Stormwind.", next = "BACK", fx = { affinity = 1 } },
       },
     },
+    dwarf = {
+      lines = { { id = "dw_default", text = "They'd have to dig through it first, and I warn you, the bottom layer hasn't seen daylight since the Second War. Tell your Explorers' League I'll trade a Darkshire parish roll for one good rubbing of a Titan rune." } },
+      choices = {
+        { text = "I'll pass it on.", next = "BACK", fx = { affinity = 1 } },
+        { text = "What's in the bottom layer?", next = "oldest" },
+      },
+    },
+    xskyborne = {
+      lines = { { id = "xsk_default", text = "You will? Wait, wait, let me find a clean page, which may take a moment. Now, say it slowly, and then tell me whether it's a word for every day or a word for best." } },
+      choices = {
+        { text = "Shen'dorei. It means the hidden people.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "On second thought, some words stay ours.", next = "BACK", fx = { affinity = -1, trait = { cautious = 1 } } },
+      },
+    },
   },
 
   topics = {
@@ -592,6 +634,7 @@ P:NPC {
         { text = "Show me Cog's drawings.", next = "gnome", when = { race = "Gnome" } },
         { text = "Maybe the dark is a matter for faith.", next = "priest", when = { class = "PRIEST" } },
         { text = "I can turn you a true tube.", next = "engineer", when = { profession = "Engineering" } },
+        { text = "My people have watched these stars for ages.", next = "nightelf", when = { race = "NightElf" } },
         { text = "Good luck with the fog.", next = "END" },
       },
     },
@@ -684,6 +727,13 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
     },
+    nightelf = {
+      lines = { { id = "ne_default", text = "Ages! I've been at it for eleven years and I already feel ancient. Tell me, do the kaldorei name the bright one that rises over Raven Hill in autumn, because I've been calling it Cog's Lantern and I suspect that's wrong." } },
+      choices = {
+        { text = "We have a name. Cog's Lantern is better.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "The stars are Elune's, not a gnome's.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
+      },
+    },
   },
 
   topics = {
@@ -745,6 +795,7 @@ P:NPC {
         { text = "Where do you get anything, in Duskwood?", next = "ingredients" },
         { text = "Cook to cook: what's the trick?", next = "cook", when = { profession = "Cooking" } },
         { text = "I'll bless the stew.", next = "priest", when = { class = "PRIEST" } },
+        { text = "I could bring you fresh game from the woods.", next = "hunter", when = { class = "HUNTER" } },
         { text = "Just smelling, thanks.", next = "END" },
       },
     },
@@ -826,6 +877,13 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2, standing = { darkshire = 1 } } } },
     },
+    hunter = {
+      lines = { { id = "hu_default", text = "Fresh game, he says, as if it walked in on its own! My favourite customer, truly, but I'll warn you that half of what's out there has been dead a while already, so sniff it before you skin it." } },
+      choices = {
+        { text = "I know a fresh kill, Grual.", next = "BACK", fx = { affinity = 1 } },
+        { text = "What do you need most?", next = "ingredients" },
+      },
+    },
   },
 
   topics = {
@@ -888,6 +946,7 @@ P:NPC {
         { text = "What would you do, in Stormwind's place?", next = "place" },
         { text = "My family sits in the House of Nobles.", next = "noble", when = { origin = "human_minor_noble" } },
         { text = "Ward's dead. Was that justice, or a message?", next = "justice", when = { questDone = TODO_QUEST("Crime and Punishment") } },
+        { text = "Have you written to Ironforge as well?", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Good day, Councilman.", next = "END" },
       },
     },
@@ -978,6 +1037,13 @@ P:NPC {
         { id = "ju_default", text = "Both, justice for the families and a message for the nobles, and I don't lose much sleep over which mattered more." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    dwarf = {
+      lines = { { id = "dw_default", text = "Of course I have, and to Menethil, and to the Earl of somewhere I've since forgotten. Ironforge at least answered within the year, which puts it well ahead of the Stormwind House of Nobles." } },
+      choices = {
+        { text = "Darkshire should look after itself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The Alliance will answer. Keep writing.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+      },
     },
   },
 

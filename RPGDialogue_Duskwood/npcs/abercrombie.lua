@@ -68,6 +68,7 @@ P:NPC {
         { text = "Let me say the rites at her grave.", next = "priest", when = { class = "PRIEST" } },
         { text = "I know necromancy when I smell it.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "What do you preserve, exactly?", next = "alchemy", when = { profession = "Alchemy" } },
+        { text = "My pet won't come near your hut.", next = "hunter", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "Goodbye, Abercrombie.", next = "END" },
       },
     },
@@ -210,6 +211,13 @@ P:NPC {
       choices = {
         { text = "Keep the heart going?", next = "BACK", fx = { trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    hunter = {
+      lines = { { id = "hu_default", text = "Ah, they never do, animals; it's the smell of my preserving, I expect, all that salt and vinegar. My dear wife's cat wouldn't come in either, and she used to say it was the most sensible creature on Raven Hill." } },
+      choices = {
+        { text = "Animals know things we don't.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "What are you preserving?", next = "work" },
       },
     },
   },

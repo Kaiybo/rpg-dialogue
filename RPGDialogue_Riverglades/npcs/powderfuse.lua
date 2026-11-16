@@ -50,6 +50,9 @@ P:NPC {
         { text = "Train me.", next = "BUSINESS", when = { profession = "Engineering" } },
         { text = "A gnome would have built it faster.", next = "gnome", when = { race = "Gnome" } },
         { text = "Am I a partner yet?", next = "partner", when = { townStanding = { town = "powderfuse_port", min = 30 } } },
+        { text = "Nice locks. Shame if someone checked them.", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Your docks creak when I walk on them.", next = "xtauren", when = { race = "Tauren" } },
+        { text = "The Forsaken trade too, goblin.", next = "xforsaken", when = { race = "Scourge" } },
         { text = "I'll be going.", next = "END" },
       },
     },
@@ -136,6 +139,28 @@ P:NPC {
       },
       choices = {
         { text = "You can't blame me for trying.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xro_default", text = "Checked them? Pal, those locks are mine, and so's the door, and so's the wall the door's in. Tell you what: you find a flaw, you tell me first, and I'll pay you for it instead of the guards paying you a visit." } },
+      choices = {
+        { text = "Deal. I'll sell you the flaws.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Flaws are worth more if nobody knows them.", next = "BACK", fx = { affinity = -2, align = { honor = -1 } } },
+      },
+    },
+    xtauren = {
+      lines = { { id = "xta_default", text = "Creak? That's the sound of quality, friend, the sound of timber earning its keep. But stick to the middle planks, would you, because I priced those for goblins and I'd hate to rebuild 'em at cost." } },
+      choices = {
+        { text = "I'll walk softly.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Build stronger docks.", next = "built", fx = { trait = { stern = 1 } } },
+      },
+    },
+    xforsaken = {
+      lines = { { id = "xfo_default", text = "Sure they do, and their gold's as shiny as anybody's, even if it smells a bit of cellar. Undercity hasn't sent me a ship yet, so you tell the Dark Lady there's a dock here with her name on it, for the right price." } },
+      choices = {
+        { text = "I'll tell her nothing of the kind.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "What can I do for you?", next = "deal" },
       },
     },
   },
@@ -259,6 +284,7 @@ P:NPC {
         { text = "I spoke to Demar about Fern.", next = "fern_word",
           when = { thread = { id = "farholde_lost", beat = "b4_demar", state = { "stirring", "unfolding" } } } },
         { text = "Buy you a drink?", next = "drink" },
+        { text = "You hold a tankard like a man who held a shield.", next = "xwarrior", when = { class = "WARRIOR" } },
         { text = "Leave you to it.", next = "END" },
       },
     },
@@ -344,6 +370,13 @@ P:NPC {
         { text = "I said a drink. Not two.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
+    xwarrior = {
+      lines = { { id = "xwa_default", text = "Twenty years on the wall'll do that to your grip. Don't go thinking that makes us friends, though; I've got enough friends up at that keep who keep asking when I'm coming back." } },
+      choices = {
+        { text = "When are you going back?", next = "keep" },
+        { text = "Drink, then. I'll leave you be.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
   },
 
   topics = {
@@ -392,6 +425,7 @@ P:NPC {
         { text = "Who would even fight here?", next = "fighters" },
         { text = "Put me on the card.", next = "card", when = { class = { "WARRIOR", "ROGUE", "PALADIN" } } },
         { text = "Isn't selling tickets to a fight a bit grim?", next = "grim" },
+        { text = "Would a tauren draw a crowd?", next = "xtauren", when = { race = "Tauren" } },
         { text = "Good luck with it.", next = "END" },
       },
     },
@@ -422,6 +456,13 @@ P:NPC {
       choices = {
         { text = "Selling seats to a bloodbath isn't civilizing it, Jazzle.", next = "BACK", fx = { align = { honor = 1 }, trait = { skeptical = 1 } } },
         { text = "Fair point, actually.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+      },
+    },
+    xtauren = {
+      lines = { { id = "xta_default", text = "Would a tauren draw a crowd? Look at you! I'd paint you ten feet tall on the poster, and you'd still be the most honest thing on it." } },
+      choices = {
+        { text = "My people don't fight for coin.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "Put me on the card.", next = "card", fx = { affinity = 1 } },
       },
     },
   },
@@ -470,6 +511,7 @@ P:NPC {
         { text = "Murloc eyes? Really?", next = "eyes" },
         { text = "Who eats here?", next = "customers" },
         { text = "Trade recipes?", next = "recipes", when = { profession = "Cooking" } },
+        { text = "Darkspear cooks use a lot more pepper.", next = "xtroll", when = { race = "Troll" } },
         { text = "Goodbye, Fimbo.", next = "END" },
       },
     },
@@ -498,6 +540,13 @@ P:NPC {
     recipes = {
       lines = { { id = "r_default", text = "Yes! Give me something with a sauce, anything with a sauce, and I'll give you the boar. You'll never need another boar recipe as long as you live." } },
       choices = { { text = "Deal.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    xtroll = {
+      lines = { { id = "xtr_default", text = "Pepper! Real pepper, the hot kind? I haven't seen a peppercorn since the last Tanaris boat, and that one went into the stew before anyone could stop me." } },
+      choices = {
+        { text = "I'll bring you some next time.", next = "BACK", fx = { affinity = 2 } },
+        { text = "What would you cook with it?", next = "menu" },
+      },
     },
   },
 
@@ -546,6 +595,7 @@ P:NPC {
         { text = "Are you ever sober?", next = "sober" },
         { text = "Tell me about your boat.", next = "boat" },
         { text = "I fish these waters too.", next = "fish", when = { profession = "Fishing" } },
+        { text = "The sea spirits around here aren't happy, Argo.", next = "xshaman", when = { class = "SHAMAN" } },
         { text = "Cheers, Argo.", next = "END" },
       },
     },
@@ -571,6 +621,13 @@ P:NPC {
     fish = {
       lines = { { id = "f_default", text = "Then stay off the murloc islands at dusk, friend, because that's when it feeds, and not on fish, on fishermen." } },
       choices = { { text = "Noted.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } } },
+    },
+    xshaman = {
+      lines = { { id = "xsh_default", text = "Not happy? Hic. Well, neither's the monster, and neither am I, so that's all of us. You tell those spirits that Argo Brinewhistle tips a drop overboard every night, which is more than most sailors do." } },
+      choices = {
+        { text = "They'd like you sober.", next = "sober" },
+        { text = "I'll tell them.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+      },
     },
   },
 

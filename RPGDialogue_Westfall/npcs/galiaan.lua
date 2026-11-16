@@ -62,6 +62,7 @@ P:NPC {
         { text = "What do you make of the walking scarecrows?", next = "watchers" },
         { text = "I could get closer to their camps than you.", next = "rogue", when = { class = "ROGUE" } },
         { text = "My beast could follow their trail by scent.", next = "hunter", when = { class = "HUNTER" } },
+        { text = "The kaldorei have scouted forests for ten thousand years.", next = "kaldorei", when = { race = "NightElf" } },
         { text = "Good hunting, scout.", next = "END" },
       },
     },
@@ -145,6 +146,13 @@ P:NPC {
     hunter = {
       lines = { { id = "hn_default", text = "Then walk it past the Molsen farm at dusk, and if it stiffens, there's a camp. Animals know before maps do." } },
       choices = { { text = "I'll bring you a pin's worth.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    kaldorei = {
+      lines = { { id = "kaldorei_l", text = "And you're welcome to my map, but Westfall's not a forest, it's a field with nowhere to hide, and that changes everything. Here, a scout hides in plain sight, among the scarecrows and the wheat." } },
+      choices = {
+        { text = "I'll learn to hide among the wheat.", next = "BACK", fx = { affinity = 1 } },
+        { text = "A field is just a forest without trees.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
     },
   },
 

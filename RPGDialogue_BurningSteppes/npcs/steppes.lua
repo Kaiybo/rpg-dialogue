@@ -46,6 +46,7 @@ P:NPC {
         { text = "Why not just eat me?", next = "devour" },
         { text = "I have a molt from Kalaran Windblade.", next = "molt", when = { questDone = TODO_QUEST("Divine Retribution") } },
         { text = "The Light isn't afraid of you, dragon.", next = "light", when = { class = { "PRIEST", "PALADIN" } } },
+        { text = "I bargain with demons. A dragon doesn't frighten me.", next = "k_lock", when = { class = "WARLOCK" } },
         { text = "I'll be going.", next = "END" },
       },
     },
@@ -104,6 +105,17 @@ P:NPC {
         { text = "So has the Light.", next = "BACK", fx = { align = { light = 2 }, affinity = -1 } },
         { text = "You might be right. The dark does seem to win in the end.", next = "BACK", fx = { align = { light = -2 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    k_lock = {
+      big = true,
+      lines = {
+        { id = "xlk_default", text = "Demons. Little things from the Nether that you bind with circles and call yourself a master. I am older than your circles, mortal, so do not mistake my patience for your power." },
+      },
+      choices = {
+        { text = "Every power can be bound, dragon.", next = "BACK", fx = { align = { light = -1 }, trait = { brave = 1 } } },
+        { text = "I meant no insult. What do you want?", next = "want" },
+        { text = "Then I'll go no further down this road.", next = "BACK", fx = { align = { light = 1 }, trait = { cautious = 1 } } },
       },
     },
   },

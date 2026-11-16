@@ -47,6 +47,8 @@ P:NPC {
         { id = "h_rethban", when = { questActive = TODO_QUEST("Rethban Ore") },
           text = "Rethban Caverns, north of town. The gnolls are digging the seam out themselves now, so take it off them and carry it to Paxton yourself." },
         { id = "h_bridge", when = { metBefore = true }, text = "Laid another span yesterday, straight as a ruler, and I stood on it a while. Don't tell the crew, or they'll think I've gone soft about bridges." },
+        { id = "h_stonemason", when = { origin = "human_stonemason_child" },
+          text = "Your hands say you grew up around a mason's yard. Then you'll know I pay my crew every week, on time, because I've seen what happens in this kingdom when the masons don't get paid." },
       },
       again = {
         { id = "h_again", text = "Something else? Ask, by all means; the measuring line won't run off." },
@@ -59,6 +61,7 @@ P:NPC {
         { text = "Brother Paxton needs Rethban ore for his ink.", next = "paxton", when = { questActive = TODO_QUEST("Ink Supplies") } },
         { text = "Northshire's library writes with your ore, I hear.", next = "novice", when = { origin = "human_abbey_novice" } },
         { text = "I know my way around a forge. Show me the plans.", next = "plans", when = { profession = "Blacksmithing" } },
+        { text = "Dwarven masons could have that bridge up in a month.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Good luck with the rains.", next = "END" },
       },
     },
@@ -186,6 +189,13 @@ P:NPC {
       choices = {
         { text = "If you say so.", next = "BACK" },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    dwarf = {
+      lines = { { id = "dw_default", text = "In a month, with dwarven stone and dwarven wages and a dwarven foreman telling me I'm doing it wrong. I've worked with Ironforge crews, and they're the best there is and they never once let me forget it." } },
+      choices = {
+        { text = "Because they are the best.", next = "BACK", fx = { affinity = -1, trait = { witty = 1 } } },
+        { text = "Your bridge looks sound to me.", next = "BACK", fx = { affinity = 2 } },
       },
     },
   },

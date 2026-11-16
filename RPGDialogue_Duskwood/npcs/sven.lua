@@ -66,6 +66,7 @@ P:NPC {
         { text = "Jitters is sorry, Sven.", next = "jitters", when = { questDone = TODO_QUEST("Return to Sven") } },
         { text = "Let me pray for them with you.", next = "priest", when = { class = "PRIEST" } },
         { text = "I lost a farm too. In Westfall.", next = "farmer", when = { origin = "human_westfall_farmhand" } },
+        { text = "The wolves near your camp. Want them thinned?", next = "hunter", when = { class = "HUNTER" } },
         { text = "I'll leave you be.", next = "END" },
       },
     },
@@ -206,6 +207,13 @@ P:NPC {
       choices = {
         { text = "Barely.", next = "BACK", fx = { affinity = 2, opinion = { stormwind = "abandoned_its_own" } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    hunter = {
+      lines = { { id = "hu_default", text = "Thin them if you like, and you'll find more next week. It wasn't wolves that came to my farm, mind, it was riders, so I can't bring myself to hate the beasts the way the town does." } },
+      choices = {
+        { text = "Then I'll hunt the riders instead.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
+        { text = "A wolf's a wolf. I'll do what's needed.", next = "BACK", fx = { trait = { stern = 1 } } },
       },
     },
   },

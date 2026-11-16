@@ -307,7 +307,7 @@ P:NPC {
         { id = "h_night", when = { timeOfDay = "night" },
           text = "I fly them west and south after dark, never out over the bay. Something in the water watches the sky at night, and the birds feel it." },
       },
-      again = { { id = "h_again", text = "Anything else, or shall I ready a bird?" } },
+      again = { { id = "h_again", text = "Is there more, or shall I call a hippogryph for the flight back to Ashenvale?" } },
       choices = {
         { text = "Why not fly over the bay?", next = "bay" },
         { text = "How do the hippogryphs like Azshara?", next = "birds" },

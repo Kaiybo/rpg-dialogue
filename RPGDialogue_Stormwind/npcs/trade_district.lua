@@ -58,6 +58,7 @@ P:NPC {
         { text = "Who else works the winery?", next = "family" },
         { text = "Do you shout like this all day?", next = "square" },
         { text = "Wine and the Light do keep company.", next = "priest", when = { class = "PRIEST" } },
+        { text = "Dwarves drink ale, Renato, not wine.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Not today, Renato.", next = "END" },
       },
     },
@@ -134,6 +135,17 @@ P:NPC {
         { text = "A small kindness, in moderation.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'd rather keep my kindnesses sober.", next = "BACK", fx = { align = { light = -1 } } },
       },
+    },
+    dwarf = {
+      lines = { { id = "dwarf_l", text = "Only because nobody ever poured them a proper Gallina red! Try the house red, friend, one cup, and if you don't say it's better than Thunderbrew, I'll eat this ticket." } },
+      choices = {
+        { text = "Nothing's better than Thunderbrew.", next = "dwarf2", fx = { trait = { stern = 1 } } },
+        { text = "One cup, then.", next = "dwarf2", fx = { affinity = 1 } },
+      },
+    },
+    dwarf2 = {
+      lines = { { id = "dwarf2_l", text = "Ha! I'll convert Ironforge one beard at a time, you'll see, and then Suzetta will have to admit my tickets were good business." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
   },
 
@@ -478,6 +490,7 @@ P:NPC {
         { text = "Who's calling for help in Feralas?", next = "feralas", when = { minLevel = 50 } },
         { text = "Do you believe everything you cry?", next = "believe" },
         { text = "What do the heroes say when they come back?", next = "heroes" },
+        { text = "Do you cry any news of the Skyborne?", next = "skyborne", when = { race = "Skyborne" } },
         { text = "Not now, Goodman.", next = "END" },
       },
     },
@@ -544,6 +557,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    skyborne = {
+      lines = { { id = "skyborne_l", text = "Only the one notice, and I've cried it a hundred times: elves from the sky, friends of the Kirin Tor, welcome in Stormwind! Nobody's given me a second notice, so I'd be glad of anything you'd let me proclaim." } },
+      choices = {
+        { text = "Proclaim that we keep our word.", next = "skyborne2", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Proclaim nothing. Let them wonder.", next = "skyborne2", fx = { align = { honor = -1 }, trait = { cautious = 1 } } },
+      },
+    },
+    skyborne2 = {
+      lines = { { id = "skyborne2_l", text = "Hear ye, then, and I'll have it on the bridges by dawn. A crier lives on new words, friend, and you've given me a few." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
 
   topics = {
@@ -602,6 +626,7 @@ P:NPC {
         { text = "What's in Osric's crate?", next = "crate",
           when = { any = { { questActive = TODO_QUEST("Dungar Longdrink") }, { questActive = TODO_QUEST("Return to Lewis") } } } },
         { text = "I'll walk.", next = "walk" },
+        { text = "Would a gryphon ever take to a hunter?", next = "hunter", when = { class = "HUNTER" } },
       },
     },
 
@@ -648,6 +673,21 @@ P:NPC {
         { text = "Fine. Show me the routes.", next = "BUSINESS" },
         { text = "I like the road.", next = "END" },
       },
+    },
+    hunter = {
+      lines = {
+        { id = "hunter_l", text = "Take to you, aye, the way a cat takes to a lap; follow you about and fetch, never. The Wildhammer raise them from eggs and still lose a finger now and then, so leave them to me." },
+        { id = "hunter_kin", when = { origin = "dwarf_wildhammer_kin" },
+          text = "You've Wildhammer kin; you'll know better than to ask, then. They raise them from eggs in the Hinterlands and still lose a finger now and then, so leave these to me." },
+      },
+      choices = {
+        { text = "I'll stick to my own beasts.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Someday I'll tame one.", next = "hunter2" },
+      },
+    },
+    hunter2 = {
+      lines = { { id = "hunter2_l", text = "And someday I'll be king of Ironforge. Until then, pay your fare and keep your hands out of the roost, {g:lad|lass}." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
   },
 
@@ -706,6 +746,7 @@ P:NPC {
         { text = "Why does an apothecary need candles?", next = "candles" },
         { text = "Tell me about your brother.", next = "william" },
         { text = "Teach me something about the craft.", next = "craft", when = { profession = "Alchemy" } },
+        { text = "Do you brew poisons, Morgan?", next = "rogue", when = { class = "ROGUE" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -744,6 +785,13 @@ P:NPC {
       choices = {
         { text = "I'll keep my eyebrows, thank you.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    rogue = {
+      lines = { { id = "rogue_l", text = "No, and if you've come to ask, you've come to the wrong Pestle and the wrong street. Jasper Fel in Old Town sells that sort of thing, and I'd rather not know what's in his bottles." } },
+      choices = {
+        { text = "A poison's just a potion with a purpose.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Fair. I'll keep your shop clean of it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
       },
     },
   },
@@ -801,6 +849,7 @@ P:NPC {
         { text = "Why is business so good?", next = "boom" },
         { text = "Do you need anything carried?", next = "resupply", when = { ["not"] = { questDone = TODO_QUEST("Harlan Needs a Resupply") } } },
         { text = "Who are your three sellers?", next = "staff" },
+        { text = "Warriors go through armor fast. Who else is buying?", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -846,6 +895,18 @@ P:NPC {
         { text = "I'd rather stand.", next = "BACK", fx = { trait = { brave = 1 } } },
         { text = "I'd rather run.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
+    },
+    warrior = {
+      lines = { { id = "warrior_l", text = "Everyone, and that's what bothers me. Men with soft hands buying mail by the crate, paying in coin that smells of the coast, and never once asking about fit." } },
+      choices = {
+        { text = "The coast? Westfall?", next = "warrior2" },
+        { text = "Coin's coin, Harlan. Sell it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "You should tell the Watch.", next = "BACK", fx = { align = { honor = 1 } } },
+      },
+    },
+    warrior2 = {
+      lines = { { id = "warrior2_l", text = "I didn't say Westfall, and neither did you. But you're a warrior, and you know what men buy armor for, so you'll draw your own conclusions." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "defias" } } } },
     },
   },
 

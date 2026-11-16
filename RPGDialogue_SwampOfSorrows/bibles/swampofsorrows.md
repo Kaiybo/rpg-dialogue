@@ -1,4 +1,4 @@
-# Swamp of Sorrows  (keys: ruag, felzerul, helgrum, bengor, karakul)
+# Swamp of Sorrows  (keys: ruag, felzerul, helgrum, bengor, karakul, dar, breyk, greshka, malosh)
 
 ## Sources
 - https://warcraft.wiki.gg/wiki/Stonard (founded by the Old Horde in the Black Morass after the Dark Portal first opened, one of Azeroth's oldest orc settlements; rebuilt by the new Horde; the only Horde outpost nearby; a base for the Temple of Atal'Hakkar; near the Dark Portal; Dreadmaul ogres took Rockard; the swamp largely uncharted, cartographers and scouts sent out (Classic); Classic NPCs Bengor, Fel'zerul, Helgrum the Swift; Stonard Grunts)
@@ -40,3 +40,20 @@ Sources read for this pass (warcraft.wiki.gg, Classic sections): Dispatch_Comman
 ## 0.34.0
 Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon, unless marked).
 - Ruag (Persuade, `grasp_night`): he can't say whether the orders would have saved Thrall's Grasp had they arrived, and that question, not the road gossip, keeps him at his desk (authored).
+
+## 0.37.0: the rest of Stonard (npcs/stonard_more.lua)
+Sources read (warcraft.wiki.gg, Classic sections): Stonard (NPC list), Dar, Lack_of_Surplus, Greshka, Breyk, Zun'dartha.
+
+### Their quests
+- Dar (orc, no title): Lack of Surplus (eight unprepared sawtooth flanks for Tok'Kar, who keeps a small outpost on the eastern beach and has no time to hunt between guard duty and cooking; spare the young sawtooths; Tok'Kar jokes about Dar's looks and smell). Gossip: Stonard is short on comforts, but its history means it matters to someone, which is why he stays; not for the scenery, and it isn't home.
+- Breyk <Wind Rider Master>: none. Greshka (sells warlock grimoires: Blood Pact, Firebolt, Sacrifice): none; gossip tells warlocks they know enough to be dangerous but need training, and tells everyone else to leave. Malosh <Warrior Trainer>: none.
+
+### Voices
+- Dar: dry, put-upon, loyal anyway. Breyk: brisk, fights the wet for his riders. Greshka: cold, contemptuous, ambitious. Malosh: blunt drill-master; footing, nerve, steel.
+
+### What they notice
+- Dar: class (hunter), weariness. Breyk: race. Greshka: class (warlock's imp). Malosh: class (warrior footing).
+
+### Authored, not canon
+Dar born in an internment camp and his "threat from the sea" hint (the chain continues with Tok'Kar); Breyk and Gorrik's hot-versus-wet argument; Greshka's quarrel with Fel'zerul and warlocks drawn to the Portal; Malosh's mud yard. Karakul's regulars (Dar, Breyk, Greshka, Bengor's bowl) and a tauren reply.
+Left out as unsure or thin: Zun'dartha (no quests or gossip on record), Ogromm, Grokor, Kartosh, Thultash, Thralosh and the other vendors.

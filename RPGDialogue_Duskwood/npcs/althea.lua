@@ -68,6 +68,9 @@ P:NPC {
         { text = "Let me tend your wounded watchers.", next = "priest", when = { class = "PRIEST" } },
         { text = "Did Stalvan Mistmantle do it?", next = "stalvan", when = { topicKnown = "stalvan" } },
         { text = "That stitched thing on the road...", next = "stitches", when = { questDone = TODO_QUEST("Translation to Ello") } },
+        { text = "Put me on the roster, Commander. I'll stand a night watch.", next = "warrior", when = { class = "WARRIOR" } },
+        { text = "I've been tracking the wolves out past the lamps.", next = "hunter", when = { class = "HUNTER" } },
+        { text = "You're staring at me, Commander. Say it.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "I'll keep to the lamplight.", next = "END" },
       },
     },
@@ -274,6 +277,64 @@ P:NPC {
       },
       choices = {
         { text = "Fair, Commander.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    warrior = {
+      big = true,
+      lines = {
+        { id = "cw_default", text = "Careful what you offer; I've had volunteers last one night and leave on the morning cart. The Watch stands from dusk to dawn, and the dawn is the hard part, because that's when you start to believe you've made it." },
+        { id = "cw_dwarf", when = { race = "Dwarf" },
+          text = "A dwarf on my roster would steady the young ones, since they think anything short and armoured is too stubborn to die. Stand from dusk to dawn, and don't let them see you yawn." },
+      },
+      choices = {
+        { text = "Why is dawn the hard part?", next = "warrior_dawn" },
+        { text = "Orders are orders. Tell me where to stand.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, standing = { darkshire = 1 } } },
+        { text = "I'd rather hunt them in the woods than wait at a wall.", next = "BACK", fx = { align = { order = -1 }, trait = { brave = 1 } } },
+      },
+    },
+    warrior_dawn = {
+      lines = { { id = "cwd_default", text = "Because the worgen know it too. We lost two watchers last spring in the grey hour, men who'd lowered their shields because the sky was turning pink." } },
+      choices = {
+        { text = "I'll keep my shield up.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
+        { text = "Something else, Commander.", next = "BACK" },
+      },
+    },
+    hunter = {
+      lines = {
+        { id = "hu_default", fx = { learn = { "worgen" } },
+          text = "Then you've learned the first lesson faster than my watchers did: the grey wolves are hungry and the worgen are clever, and you can't track one the way you track the other. What did you find?" },
+        { id = "hu_pet", when = { pet = { type = "Beast" } },
+          text = "Keep {pet} on a short leash past the lamps; the worgen have been known to call a beast away from its master. I've seen a mastiff walk into the trees and not come back." },
+      },
+      choices = {
+        { text = "Prints that walk on two legs, then four.", next = "hunter_prints" },
+        { text = "Nothing yet. I'll go deeper.", next = "BACK", fx = { trait = { brave = 1 } } },
+      },
+    },
+    hunter_prints = {
+      lines = { { id = "chp_default", text = "Then you've been near Brightwood Grove or the old mill road, and you were lucky to come back. Mark the place on Daltry's map, and don't go there again alone." } },
+      choices = {
+        { text = "I'll mark it.", next = "BACK", fx = { affinity = 1, standing = { darkshire = 1 } } },
+        { text = "Alone is how I hunt.", next = "BACK", fx = { trait = { brave = 1 } } },
+      },
+    },
+    warlock = {
+      big = true,
+      lines = {
+        { id = "wl_default", fx = { learn = { "morbent_fel" } },
+          text = "Fair enough. Morbent Fel walks the hills with the dead at his back, and the last stranger who came to Darkshire with a voice like yours asked a lot of questions about him. So I'm staring, and I'll keep staring until you've given me a reason to stop." },
+      },
+      choices = {
+        { text = "I'll give you that reason. Point me at Fel.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Stare all you like. I don't answer to the Watch.", next = "BACK", fx = { affinity = -2, align = { order = -1 } } },
+        { text = "Who was the stranger?", next = "warlock_stranger" },
+      },
+    },
+    warlock_stranger = {
+      lines = { { id = "ws_default", text = "Nobody gave a name, which is the point. Smitts poured for him three nights running, and on the fourth there were Dark Riders on the Raven Hill road for the first time in a year." } },
+      choices = {
+        { text = "I'm not him.", next = "BACK", fx = { trait = { stern = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

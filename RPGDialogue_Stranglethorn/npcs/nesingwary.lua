@@ -27,6 +27,8 @@ P:NPC {
       text = "Yer {pet} is a fine animal, but keep it close here, for every beast in this jungle would love tae make a meal o' yer friend." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Somethin' had a go at ye, raptors by the look of it. They hunt in packs, so learn that, if ye learn nothin' else." },
+    { id = "n_druid_cat", cat = "class", when = { class = "DRUID", form = { "cat" } },
+      text = "Easy there. I've a rifle and a lifetime of habit, and you look a great deal like what I came here to hunt." },
   },
 
   start = "hello",
@@ -61,6 +63,9 @@ P:NPC {
         { text = "What's the finest shot you ever took?", next = "shot", when = { class = "HUNTER" } },
         { text = "That's a fine rifle. Ironforge make?", next = "rifle", when = { race = { "Dwarf", "Gnome" } } },
         { text = "I'll hunt for you.", next = "END", fx = { affinity = 2, trait = { brave = 1 } } },
+        { text = "Some of those cats you hunt are my kin, Nesingwary.", next = "k_druid", when = { class = "DRUID" } },
+        { text = "My people hunted this jungle before yours had rifles.", next = "k_troll", when = { race = "Troll" } },
+        { text = "A human hunter. You don't see many, they tell me.", next = "k_human", when = { race = "Human", class = "HUNTER" } },
         { text = "Good hunting.", next = "END" },
       },
     },
@@ -185,6 +190,41 @@ P:NPC {
       lines = { { id = "rh_default", text = "No, but ye may admire it from there, or a wee bit closer, an' that's enough. Barnil'll have tae clean it again just from you lookin'." } },
       choices = { { text = "Fair.", next = "BACK", fx = { affinity = 1 } } },
     },
+    k_druid = {
+      big = true,
+      lines = {
+        { id = "xdr_default", text = "Kin, is it? Then I'll not ask you to skin one, and you'll not ask me to stop. Sin'Dall is a beast, druid, and a fine one, and I'll honor him the way a hunter honors anything: by taking him fairly, face to face." },
+        { id = "xdr_elf", when = { race = "NightElf" },
+          text = "Your people say that of every cat in the world, I've heard, and you'll forgive me if I don't believe Sin'Dall is a druid in disguise. I take a beast fairly and face to face, and that's all the honor I know." },
+      },
+      choices = {
+        { text = "A fair hunt is still a death. Spare the old ones.", next = "BACK", fx = { align = { order = -1 }, affinity = -1 } },
+        { text = "The hunt is part of the balance. I accept it.", next = "BACK", fx = { align = { order = 1 }, affinity = 2 } },
+        { text = "Why hunt at all?", next = "why" },
+      },
+    },
+    k_troll = {
+      lines = {
+        { id = "xtr_default", text = "That they did, with spears and patience, and I've seen Gurubashi pits that would put my traps to shame. I'd hunt beside a troll any day, as long as he isn't hunting me." },
+        { id = "xtr_head", when = { origin = "troll_headhunter" },
+          text = "A headhunter, are you, and you'd find my head no trophy at all, I promise. Still, I've seen Gurubashi pits that would put my traps to shame, and I'd hunt beside you any day." },
+      },
+      choices = {
+        { text = "Then hunt with me, old man.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
+        { text = "Hunt in your own forests, human.", next = "BACK", fx = { affinity = -2, trait = { stern = 1 } } },
+      },
+    },
+    k_human = {
+      lines = {
+        { id = "xhu_default", text = "I see one every morning in my shaving bowl, so I'd say there are a few of us. Most Stormwinders think a rifle is something you buy, not something you earn, and if you earned yours, you're welcome at my fire." },
+        { id = "xhu_eastvale", when = { origin = "human_eastvale_woodsman" },
+          text = "Eastvale, by the cut of that coat. Those woods breed the only human hunters worth the name, and I learned half my tracking from an old Eastvale man, so you're welcome at my fire." },
+      },
+      choices = {
+        { text = "I earned it, and I'll prove it.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
+        { text = "Tell me about your students.", next = "students" },
+      },
+    },
   },
 
   topics = {
@@ -241,6 +281,7 @@ P:NPC {
         { text = "You said you miss a good fight.", next = "fight", when = { metBefore = true } },
         { text = "What do you do all day?", next = "work" },
         { text = "I'll look for the pages.", next = "END", fx = { affinity = 2 } },
+        { text = "You miss a fight? I'm a warrior. Spar with me.", next = "k_warrior", when = { class = "WARRIOR" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -317,6 +358,15 @@ P:NPC {
       lines = { { id = "wt_default", text = "The book gets his an' the margin gets mine. Someday someone'll read both an' have a good laugh, an' I hope it's me." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } } },
     },
+    k_warrior = {
+      lines = {
+        { id = "xwa_default", text = "Spar! Oh, don't tempt me, for I've been sittin' wi' this book so long my knees have forgotten what a stance is. Ye'd win, an' I'd enjoy every bruise, an' Hemet'd say I'd finally done somethin' useful." },
+      },
+      choices = {
+        { text = "Then up you get, Barnil.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
+        { text = "Your knees can rest. I'll find the pages.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+      },
+    },
   },
 
   topics = {
@@ -369,6 +419,7 @@ P:NPC {
         { text = "Want to compare bows?", next = "bows", when = { class = "HUNTER" } },
         { text = "What about the cats that walk on two legs?", next = "druid", when = { class = "DRUID" } },
         { text = "I'll hunt with you.", next = "END", fx = { affinity = 2, trait = { brave = 1 } } },
+        { text = "Darkspear hunters track tigers too, Ajeck.", next = "k_troll", when = { race = "Troll" } },
         { text = "Good hunting.", next = "END" },
       },
     },
@@ -449,6 +500,15 @@ P:NPC {
         { text = "I'd see you coming.", next = "BACK", fx = { affinity = -1 } },
       },
     },
+    k_troll = {
+      lines = {
+        { id = "xtr_default", text = "I know, and I've learned more from your people's old trails than from any book Barnil keeps. Your trackers never break a twig they don't mean to, and I'm still learning how." },
+      },
+      choices = {
+        { text = "I'll show you, if you want.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Some things we don't teach outsiders.", next = "BACK", fx = { affinity = -1 } },
+      },
+    },
   },
 
   topics = {
@@ -501,6 +561,7 @@ P:NPC {
         { text = "My family sits in that House.", next = "noble", when = { origin = "human_minor_noble" } },
         { text = "The Defias drove my family off our farm.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
         { text = "I'll hunt panthers.", next = "END", fx = { affinity = 2 } },
+        { text = "A paladin doesn't walk away from his post, Sir.", next = "k_paladin", when = { class = "PALADIN" } },
         { text = "Good day, Sir.", next = "END" },
       },
     },
@@ -595,6 +656,17 @@ P:NPC {
         { text = "Then seek theirs.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "Then take the Light's forgiveness and be done with it.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Both can be true.", next = "BACK", fx = { affinity = 1, trait = { pious = 1 } } },
+      },
+    },
+    k_paladin = {
+      big = true,
+      lines = {
+        { id = "xpa_default", text = "No, I don't suppose a paladin does, and I never claimed to be one. I walked away from a chamber of nobles who refused to pay the masons, and I'd sooner hunt panthers than share a bench with them, so judge me if you must." },
+      },
+      choices = {
+        { text = "You should have stayed and fought them.", next = "BACK", fx = { align = { order = 1 }, affinity = -1 } },
+        { text = "Some benches deserve to stay empty.", next = "BACK", fx = { align = { order = -1 }, affinity = 2 } },
+        { text = "Why did you leave the House of Nobles?", next = "nobles" },
       },
     },
   },

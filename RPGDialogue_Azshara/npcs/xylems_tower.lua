@@ -33,6 +33,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    warlock_xy = {
+      big = true,
+      lines = {
+        { id = "wxy_default", text = "Of course they do; you people are always interested in the darker parts, it's practically your entire curriculum. I'll show you nothing that summons anything, because I don't care to have my tower eaten, but you may look at the warding glyphs, from a distance." },
+      },
+      choices = {
+        { text = "Wards are the useful part. I'll study them.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Wards only teach you what's behind them.", next = "BACK", fx = { align = { light = -1 } } },
+      },
+    },
+    sky_xy = {
+      lines = {
+        { id = "sxy_default", text = "Were they indeed! Then you're a living footnote to everything I study, and I'd very much like to know what your people kept and what they lost. Don't take that badly; it's the highest compliment I give." },
+        { id = "sxy_mage", when = { race = "Skyborne", class = "MAGE" },
+          text = "And a mage too, from the High Order, I suppose. Tell Dalaran I'm alive and busy and not taking visitors, though you, I'll grant, may come up the tower when you like." },
+      },
+      choices = {
+        { text = "What we kept is ours, Archmage.", next = "BACK", fx = { affinity = -1 } },
+        { text = "I'll share what I can.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -71,6 +92,8 @@ P:NPC {
         { text = "Lord Ravenholdt sends his regards.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Do you ever pray up here, Archmage?", next = "priest", when = { class = "PRIEST" } },
         { text = "Jediga sent me with the tablet.", next = "jediga", when = { questActive = TODO_QUEST("Delivery to Archmage Xylem") } },
+        { text = "The Highborne's power interests me too. The darker parts.", next = "warlock_xy", when = { class = "WARLOCK" } },
+        { text = "My ancestors were Highborne of Eldre'Thalas.", next = "sky_xy", when = { race = "Skyborne" } },
         { text = "Good day, Archmage.", next = "END" },
       },
     },

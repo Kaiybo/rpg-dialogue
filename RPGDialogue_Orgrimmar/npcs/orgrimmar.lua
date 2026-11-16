@@ -54,9 +54,83 @@ P:NPC {
           when = { heardLine = "neeru.h_default" },
           check = { pass = { any = { { disposition = { min = 65 } }, { questDone = TODO_QUEST("Hidden Enemies") }, { trait = "skeptical" } } } },
           fail = { next = "neeru_not_yet", fx = { affinity = -1 } } },
+        { text = "I'm a warlock, Warchief. How does the Horde see me?", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "The elements answer me, Warchief, as they answered you.", next = "shaman", when = { class = "SHAMAN" } },
+        { text = "I'm an orc who studies the arcane. Does that trouble you?", next = "orcmage", when = { race = "Orc", class = "MAGE" } },
+        { text = "I'm Forsaken, and the Light still answers me.", next = "paladin", when = { race = "Scourge", class = "PALADIN" } },
+        { text = "I'm Frostwolf, Warchief. Drek'Thar's people.", next = "frostwolf", when = { origin = "orc_frostwolf" } },
         { text = "For the Horde.", next = "END", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "I fight for myself first, Warchief.", next = "END", fx = { align = { honor = -1 } } },
       },
+      again = {
+        { id = "h_again", text = "What else is on your mind? Speak plainly; I hear enough flattery from my advisors." },
+        { id = "h_again2", text = "Go on. A Warchief who stops listening stops being one." },
+      },
+    },
+    warlock = {
+      big = true,
+      lines = {
+        { id = "wl_default", text = "With fear, and some of it is earned. Gul'dan's warlocks sold our people to the demons, and the blood they made us drink still burns in some of us, so every orc who calls up an imp reminds the Horde of the worst thing it ever did." },
+        { id = "wl_troll", when = { race = "Troll" },
+          text = "A Darkspear warlock is new to me, and to Vol'jin too, I'd wager. Your people never drank the blood, so perhaps you can show the orcs that the art and the curse aren't the same thing." },
+        { id = "wl_cleft", when = { origin = "orc_cleft_initiate" },
+          text = "You learned in the Cleft of Shadow, beneath Neeru's eye. Learn his spells if you must, but bring me what you hear down there, and never let him think he owns you." },
+      },
+      choices = {
+        { text = "Then I'll use it to atone for what was done.", next = "warlock_atone" },
+        { text = "I'll bind demons to serve the Horde, never the reverse.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "The demons made us strong, Warchief. That's simply true.", next = "BACK", fx = { affinity = -3, align = { light = -1 } } },
+      },
+    },
+    warlock_atone = {
+      lines = { { id = "wa_default", text = "Atone. I like that word in a warlock's mouth more than I expected to. My people can't undo the blood, but we can choose what we do with what it left us, and if you mean that, you'll have my respect long before you have the city's." } },
+      choices = { { text = "I mean it, Warchief.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    shaman = {
+      lines = {
+        { id = "sh_default", text = "Then you know they don't obey, they agree, and the day you forget that they'll stop agreeing. Drek'Thar taught me that in the snows of Alterac, and I've had to relearn it every year since I became Warchief." },
+        { id = "sh_student", when = { origin = "orc_thrall_shaman" },
+          text = "One of the students my shamans took in. You're the reason I gave them the time, because the Horde will need shamans long after it stops needing me." },
+        { id = "sh_tauren", when = { race = "Tauren" },
+          text = "The tauren kept the old ways when my people forgot them. When the Earth Mother speaks through you, I listen as carefully as I'd listen to the elements themselves." },
+      },
+      choices = {
+        { text = "Is it harder to hear them as Warchief?", next = "shaman_harder" },
+        { text = "I'll remember they agree, not obey.", next = "BACK", fx = { affinity = 2 } },
+      },
+    },
+    shaman_harder = {
+      lines = { { id = "sz_default", text = "Much harder. A chieftain wants answers, and the spirits only offer balance. Some nights I go up to the hills outside the city and sit until the wind stops sounding like advisors." } },
+      choices = { { text = "Then I'll keep the hills quiet for you.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    orcmage = {
+      lines = {
+        { id = "om_default", text = "It troubles some of my chieftains more than it troubles me. Our warlocks reached for power without asking what it cost, and that's the one thing I'd ask you never to do, whatever the source." },
+        { id = "om_primer", when = { origin = "orc_camp_primer" },
+          text = "A primer stolen from a camp guard, I'm told. I learned my letters from a human too, in Durnholde, so I won't be the one to tell you where knowledge may come from." },
+      },
+      choices = {
+        { text = "The Horde needs new strength, Warchief, not only the old ways.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "I'll ask what it costs. I'll answer to the Horde.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+      },
+    },
+    paladin = {
+      big = true,
+      lines = { { id = "pa_default", text = "Then you're a riddle I didn't expect to meet in my own hall. The Light has been a human weapon against my people for as long as I've lived, and if it burns you and you lift it anyway, I'd like to hear why." } },
+      choices = {
+        { text = "Because it hurts. I deserve to feel what I was.", next = "paladin_why" },
+        { text = "The Light belongs to whoever bears its pain, Warchief.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "It's only a weapon. I use it on the living.", next = "BACK", fx = { align = { light = -1 } } },
+      },
+    },
+    paladin_why = {
+      lines = { { id = "py_default", text = "Penance, then. I know something of carrying the weight of what you were made into. Just don't let the guilt become another master, because you've had enough of those, and so have I." } },
+      choices = { { text = "I'll try, Warchief.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    frostwolf = {
+      lines = { { id = "fw_default", text = "Then you're kin of my kin. The Frostwolves took me in when I was nothing but an escaped slave half-dead in the snow, and Drek'Thar taught me the elements by their fires. Is the old shaman well?" } },
+      choices = { { text = "He's well, and he speaks of you often.", next = "BACK", fx = { affinity = 3 } },
+        { text = "He's old, Warchief, and the valley is hard.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } } },
     },
     horde = {
       big = true,
@@ -64,8 +138,8 @@ P:NPC {
         { id = "hd_default", text = "Once it stood for conquest. The demons made us into a weapon and pointed us at the world. Now it stands for survival, and for honour, and for each other. I mean to keep it that way." },
       },
       choices = {
-        { text = "I'll help you keep it.", next = "END", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "Survival matters more than honour, Warchief.", next = "END", fx = { align = { honor = -1 } } },
+        { text = "I'll help you keep it.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Survival matters more than honour, Warchief.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Not everyone agrees.", next = "agree" },
       },
     },
@@ -149,7 +223,51 @@ P:NPC {
       choices = {
         { text = "Why follow Thrall?", next = "thrall" },
         { text = "What happened to the Echo Isles?", next = "isles" },
+        { text = "I deal with demons, chief. Does the tribe mind?", next = "warlock", when = { race = "Troll", class = "WARLOCK" } },
+        { text = "The spirits talk to me too, Vol'jin.", next = "shaman", when = { race = "Troll", class = "SHAMAN" } },
+        { text = "I hunt heads for the Darkspear.", next = "hunter", when = { race = "Troll", class = "HUNTER" } },
+        { text = "You don't trust the Forsaken, do you?", next = "forsaken", when = { race = "Scourge" } },
         { text = "Farewell, Vol'jin.", next = "END" },
+      },
+      again = {
+        { id = "h_again", text = "What else, mon? Vol'jin got time for the interesting ones." },
+        { id = "h_again2", text = "Speak, speak. The Warchief be busy, so you get me." },
+      },
+    },
+    warlock = {
+      big = true,
+      lines = {
+        { id = "wl_default", text = "Mind? The tribe whisper about you, mon, I won't lie. Darkspear got voodoo and loa and the old spirits, and now one of us go knocking on the door of the things that ruin the orcs, so they wonder what you be bringing home." },
+        { id = "wl_voice", when = { origin = "troll_other_voice" },
+          text = "Gadrin tell me about you, the one with the voice. He scared, and Gadrin don't scare easy, so you be careful in my city." },
+      },
+      choices = {
+        { text = "I'll bring home power for the tribe, nothing more.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "I'll keep the demons on a short leash, for the tribe.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "What should I bring, then?", next = "warlock_bring" },
+      },
+    },
+    warlock_bring = {
+      lines = { { id = "wb_default", text = "Answers. The Burning Blade be orcs, and they hide from orcs, but nobody think to hide from a troll. You learn what they know, and you tell Vol'jin first." } },
+      choices = { { text = "You'll hear it first, chief.", next = "BACK", fx = { affinity = 2, learn = { "burning_blade" } } } },
+    },
+    shaman = {
+      lines = { { id = "sh_default", text = "Good, then the Darkspear got another voice in the Warchief's circle. Orc shamans be good, but they learn the spirits from Thrall's old teacher, and our spirits be older and grumpier, so you remind them now and then." } },
+      choices = { { text = "Grumpier spirits. I'll remember.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    hunter = {
+      lines = { { id = "hu_default", text = "The old way, eh? Good, because my father take heads for the tribe, and his father before him. Just you remember that out here among the orcs and the tauren, some think it be savage, so you show them what it means: respect, not cruelty." } },
+      choices = {
+        { text = "Let them think it savage. Fear keeps enemies away.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll show them respect, chief.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+      },
+    },
+    forsaken = {
+      big = true,
+      lines = { { id = "fk_default", text = "Trust? No, mon, and I tell the Warchief so to his face. Your Dark Lady got eyes like a hungry crocolisk, and her apothecaries brew things in the Undercity that make my witch doctors shiver. You I judge separate, though." } },
+      choices = {
+        { text = "That's fair. Judge me by what I do.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "The Dark Lady doesn't need a troll's trust.", next = "BACK", fx = { affinity = -2, align = { order = -1 } } },
       },
     },
     thrall = {
@@ -158,8 +276,8 @@ P:NPC {
         { id = "t_default", text = "When the murlocs come for us, Thrall fight beside us. My father die that day, and Thrall don't leave. A debt like that, you pay with your whole life." },
       },
       choices = {
-        { text = "That's a heavy debt.", next = "END", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "A debt's only as heavy as you let it be.", next = "END", fx = { align = { honor = -1 } } },
+        { text = "That's a heavy debt.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "A debt's only as heavy as you let it be.", next = "BACK", fx = { align = { honor = -1 } } },
       },
     },
     isles = {
@@ -247,8 +365,49 @@ P:NPC {
         { text = "Thrall's patience will be the death of the Horde.", tag = "Deceive", next = "neeru_opinion",
           check = { pass = { any = { { disposition = { min = 60 } }, { class = "WARLOCK" }, { trait = "cruel" } } } },
           fail = { next = "neeru_loyal", fx = { affinity = -1 } } },
+        { text = "I'm a warlock. What can the Cleft teach me?", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "An orc mage. I suppose you find that amusing.", next = "orcmage", when = { race = "Orc", class = "MAGE" } },
+        { text = "The elements would rather I stayed out of here.", next = "shaman", when = { class = "SHAMAN" } },
         { text = "I'll be going.", next = "END" },
       },
+      again = {
+        { id = "h_again", text = "Something else? Do ask; I so enjoy a curious mind." },
+        { id = "h_again2", text = "Yes? The Cleft has all the time in the world, friend." },
+      },
+    },
+    warlock = {
+      big = true,
+      lines = {
+        { id = "wl_default", text = "Everything the Warchief's shamans won't, and with far less disapproval. The Horde fears our art, and fear is such a waste of good power. Down here, at least, we can speak of it honestly." },
+        { id = "wl_cleft", when = { origin = "orc_cleft_initiate" },
+          text = "Ah, one of our own initiates come home. You've learned your lessons well, I'm told. Do remember who taught them to you when the Warchief's people start asking questions." },
+        { id = "wl_troll", when = { race = "Troll", class = "WARLOCK" },
+          text = "A Darkspear, with the gift! How delightful. Your people never drank the old fire, so you come to it fresh and unafraid, and I find that refreshing." },
+      },
+      choices = {
+        { text = "I'll learn your spells, and keep my own counsel.", next = "BACK", fx = { affinity = -1, align = { light = 1 }, trait = { skeptical = 1 } } },
+        { text = "Then let's speak honestly. What do the Horde fear most?", next = "warlock_fear" },
+        { text = "Fear is weakness. I'll take every power offered.", next = "BACK", fx = { affinity = 2, align = { light = -1 } } },
+      },
+    },
+    warlock_fear = {
+      lines = { { id = "wf_default", text = "Themselves, of course, and what they were when the fire was in them. Such a shame, because they were magnificent. But I'm only a humble watcher of these things, you understand, and I'd never wish it back." } },
+      choices = { { text = "Of course not.", next = "BACK", fx = { trait = { skeptical = 1 } } } },
+    },
+    orcmage = {
+      lines = {
+        { id = "om_default", text = "Amusing? Not at all; I find it encouraging. An orc who reaches beyond the axe and the totem is an orc who hasn't been told what to fear, and there are so few of you left." },
+        { id = "om_primer", when = { origin = "orc_camp_primer" },
+          text = "Self-taught, from a human primer? Then you already know the best power is the kind you take for yourself. The arcane is a fine start, but do come back when it stops being enough." },
+      },
+      choices = {
+        { text = "The arcane will be enough for me.", next = "BACK", fx = { affinity = -1, align = { light = 1 } } },
+        { text = "And when it isn't, I'll know where to come.", next = "BACK", fx = { affinity = 2, align = { light = -1 } } },
+      },
+    },
+    shaman = {
+      lines = { { id = "sh_default", text = "The elements are terribly particular about the company they keep, aren't they? They never liked me much either. Do tell Thrall's shamans I said hello, the next time they're lecturing you about balance." } },
+      choices = { { text = "I'll tell them you're watching.", next = "BACK", fx = { affinity = -1, trait = { skeptical = 1 } } } },
     },
     blade = {
       big = true,
@@ -256,7 +415,7 @@ P:NPC {
         { id = "b_default", text = "Fanatics, leftovers from the old days who still crave the fire the demons gave us. They're dangerous, foolish, and ever so useful to watch, and I watch them very closely." },
       },
       choices = {
-        { text = "Good. Keep watching.", next = "END", fx = { affinity = 1 } },
+        { text = "Good. Keep watching.", next = "BACK", fx = { affinity = 1 } },
         { text = "You seem to know them well.", next = "know", fx = { trait = { skeptical = 1 } } },
       },
     },
@@ -332,12 +491,24 @@ P:NPC {
       choices = {
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "What's the best thing you cook?", next = "best" },
+        { text = "I brought in some game today.", next = "hunter", when = { class = "HUNTER" } },
         { text = "Just resting.", next = "END" },
       },
+      again = {
+        { id = "h_again", text = "Anything else? Ask while you chew, nobody minds at the Tusk." },
+      },
+    },
+    hunter = {
+      lines = {
+        { id = "hu_default", text = "A hunter! Then you're the only kind of guest who brings meat into my inn instead of just taking it out. Hang it by the spit and tell me where you shot it, because I like to know whose kodo I'm roasting." },
+        { id = "hu_pet", when = { pet = { type = "Beast" } },
+          text = "And {pet} wants the bones, I can see it in those eyes. Go on, then, one bone, and don't tell the grunts I'm soft." },
+      },
+      choices = { { text = "Out past the Crossroads, near Zargh's ground.", next = "BACK", fx = { affinity = 2 } } },
     },
     best = {
       lines = { { id = "b_default", text = "Kodo, slow-roasted, or boar if the hunters are lucky, or anything Zargh sends, if I'm lucky." } },
-      choices = { { text = "Ha.", next = "END", fx = { affinity = 1 } } },
+      choices = { { text = "Ha.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 
@@ -382,7 +553,18 @@ P:NPC {
       choices = {
         { text = "Why does everyone attack you?", next = "why" },
         { text = "I won't hit you.", next = "END", fx = { affinity = 3, trait = { kind = 1 } } },
+        { text = "You were a warrior once. What happened?", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Bye, Gamon.", next = "END" },
+      },
+      again = {
+        { id = "h_again", text = "Something else? I'm not going anywhere, since I hardly ever do, unless somebody carries me." },
+      },
+    },
+    warrior = {
+      lines = { { id = "wa_default", text = "I carried a big hammer once, and I wasn't bad with it either. I don't really remember when I put it down, which tells you most of what you need to know about me, I suppose." } },
+      choices = {
+        { text = "You could pick that hammer back up.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Then stay away from the ale, Gamon.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
       },
     },
     why = {

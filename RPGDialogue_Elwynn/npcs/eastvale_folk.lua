@@ -41,6 +41,8 @@ P:NPC {
         { id = "h_thread", when = { metBefore = true }, text = "I ran out of blue thread halfway through a hem and finished it in brown. Nobody's noticed, and you didn't either until I told you." },
         { id = "h_sit", when = { timesTalked = { max = 1 } },
           text = "Sit, if you like. Don't mind the needle; I can sew and listen at once. Most of this camp's news comes past my front step." },
+        { id = "h_woodsman", when = { origin = "human_eastvale_woodsman" },
+          text = "Look who's come down out of the pines with a bow instead of an axe! Your old crew still asks after you at the camp, and still says you were wasted on felling." },
       },
       again = {
         { id = "h_again", text = "Go on, I'm listening, and so is the needle." },
@@ -185,6 +187,7 @@ P:NPC {
         { text = "Blessings on the harvest.", next = "priest", when = { class = "PRIEST" } },
         { text = "I worked Westfall fields before the Defias came.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
         { text = "Here, have a drink.", next = "BUSINESS" },
+        { text = "Your vines are tired, Gerard. I can feel it.", next = "druid", when = { class = "DRUID" } },
         { text = "Keep at it, Gerard.", next = "END" },
       },
     },
@@ -272,6 +275,17 @@ P:NPC {
         { text = "Most haven't.", next = "BACK", fx = { affinity = 1, learn = { "westfall" } } },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    druid = {
+      lines = { { id = "druid_l", text = "Feel it? Well, you're not wrong, though I'd not have said it like that. Three seasons of sour water and no rest for the soil, and they're giving what they can." } },
+      choices = {
+        { text = "Let one row rest a season. They'll thank you.", next = "druid2", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "The land gives what it's given back.", next = "druid2", fx = { trait = { stern = 1 } } },
+      },
+    },
+    druid2 = {
+      lines = { { id = "druid2_l", text = "My father said much the same, and I didn't listen to him either. I'll think on it, friend; an elf telling me about vines is a new one, but I've heard stranger in Eastvale." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 

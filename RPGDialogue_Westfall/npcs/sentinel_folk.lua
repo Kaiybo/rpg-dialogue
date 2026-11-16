@@ -37,16 +37,22 @@ P:NPC {
           text = "Elves, out here? We've only dust and gulls to offer you, and the gulls are rude and the dust gets everywhere." },
         { id = "h_militia", when = { metBefore = true }, text = "The militia eats more than any army I've ever fed. I've never fed an army. I'm fairly sure this is worse." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "The night watch comes in for soup about now, the same faces every night. I worry on the nights one's missing." },
+        { id = "h_deadmines", tags = { "news" }, when = { deed = "dungeon:The Deadmines" },
+          text = "You came back up out of Moonbrook. The whole hill's been singing about it, badly, and I've let them, because it's the first singing in here for a year." },
+        { id = "h_patrol", when = { questActive = TODO_QUEST("Patrolling Westfall") },
+          text = "Out after gnolls for Captain Danuvin? Wash your hands before you sit at my table. Gnoll paws are no kind of thing to bring to supper." },
       },
       again = {
         { id = "h_again", text = "What else? Mind the dust on the bench; I've only just swept it." },
-        { id = "h_again2", text = "Go on, I can pour and listen at the same time." },
+        { id = "h_again2", text = "Ask away while I pour; the militia drink faster than they talk, so I've a moment." },
       },
       choices = {
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "How's the hill holding up?", next = "hill" },
         { text = "Who stays here, mostly?", next = "guests" },
         { text = "Do any of the militia need tending?", next = "tending", when = { class = "PRIEST" } },
+        { text = "You said some Defias drank here once?", next = "masons", when = { topicKnown = "defias" } },
+        { text = "Any chance of a proper dwarven ale?", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Just resting.", next = "END" },
       },
     },
@@ -64,6 +70,19 @@ P:NPC {
     guests_pay = {
       lines = { { id = "gp_default", text = "When Gryan can, which isn't often. I keep a slate for them, and I've never once rubbed it clean or asked for a copper of it." } },
       choices = { { text = "That's generous.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    masons = {
+      big = true,
+      lines = { { id = "ma_default", text = "Masons, the first of them to come out from the city after the trouble there. They paid for their ale and sang dreadful songs, and then one week they stopped coming in, and now I hear their names on Gryan's lists." } },
+      choices = {
+        { text = "The city wronged them first. That should count for something.", next = "BACK", fx = { align = { order = -1 }, learn = { "stonemasons" } } },
+        { text = "Whatever they were owed, they chose to become thieves.", next = "BACK", fx = { align = { order = 1 }, learn = { "stonemasons" } } },
+        { text = "Something else.", next = "BACK", fx = { learn = { "stonemasons" } } },
+      },
+    },
+    dwarf = {
+      lines = { { id = "dw_default", text = "Proper? I've what the wagon brought, and the wagon brought what the Defias didn't want. You're welcome to it, but don't say 'proper' again, or I'll cry into the jug." } },
+      choices = { { text = "It'll do nicely. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     tending = {
       lines = { { id = "te_default", text = "Always: burns, cuts, and the ones who've stopped sleeping. Sit with that last lot, if you can; they'll talk to a priest who won't be here next week." } },
@@ -235,6 +254,7 @@ P:NPC {
         { text = "Ever lost a rider?", next = "lost" },
         { text = "Lewis's note has to reach Stormwind.", next = "message", when = { questActive = TODO_QUEST("Continue to Stormwind") } },
         { text = "Ironforge's gryphons look sturdier than these.", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "The winds over Westfall are restless today, Thor.", next = "shaman", when = { class = "SHAMAN" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -274,6 +294,13 @@ P:NPC {
     dwarf = {
       lines = { { id = "dw_default", text = "Sturdier, maybe, but mine fly through sea wind and dust every day and come home grumbling. That's all the sturdy I need." } },
       choices = { { text = "Fair. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    shaman = {
+      lines = { { id = "shaman_l", text = "Aye, the birds felt it too; they've been snapping at each other since dawn. If you can tell when the wind turns, you're welcome to stand by the roost and warn me before it does." } },
+      choices = {
+        { text = "It'll turn by dusk. Ground the birds.", next = "BACK", fx = { affinity = 2 } },
+        { text = "The wind doesn't take orders from me.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
     },
   },
 
@@ -328,6 +355,7 @@ P:NPC {
         { text = "What's it like, living up here?", next = "tower" },
         { text = "Bet I could slip past your watch.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Sentinels keep watches like this at home.", next = "nightelf", when = { race = "NightElf" } },
+        { text = "I could scout the hills for you as a cat.", next = "druid", when = { class = "DRUID" } },
         { text = "Carry on, scout.", next = "END" },
       },
     },
@@ -388,6 +416,13 @@ P:NPC {
       lines = { { id = "ne_default", text = "In trees, I've heard. We've no trees to speak of out here, only plenty of sky and nothing to hide in, which suits a lookout fine." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    druid = {
+      lines = { { id = "druid_l", text = "As a cat? Well, the Defias shoot at anything that moves on two legs out there, so a cat would get further than I would. Mind the coyotes, and come back before dawn, or I'll assume you've been eaten." } },
+      choices = {
+        { text = "I'll be back before the watch changes.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Coyotes are the ones who should be careful.", next = "BACK", fx = { trait = { brave = 1 } } },
+      },
+    },
   },
 
   topics = {
@@ -425,8 +460,12 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "MacGregor's the name. I make bows for the militia and sell what's left to whoever walks up; Westfall wood's poor, so I make it up with patience." },
+        { id = "h_default", key = true, text = "MacGregor's the name. I make bows for the militia and sell what's left to whoever walks up; Westfall wood's poor, so I make it up with patience." },
         { id = "h_yew", when = { metBefore = true }, text = "I found a decent stave of yew out by the Dagger Hills, decent but not good. In Westfall, decent is a holiday." },
+        { id = "h_patrol", when = { questDone = TODO_QUEST("Patrolling Westfall") },
+          text = "The gnolls to the south are thinner on the ground since you went out. The militia are wasting fewer arrows, which I'm told is good news and I take as bad for business." },
+        { id = "h_deadmines", tags = { "news" }, when = { deed = "dungeon:The Deadmines" },
+          text = "You went under Moonbrook and came back with your bowstring still whole. Either you're good, or you didn't let the hunters shoot. Either way, well done." },
       },
       again = {
         { id = "h_again", text = "Something else? I'm listening, though I'm waxing a string while I do." },
@@ -435,6 +474,8 @@ P:NPC {
         { text = "Where did you learn bowmaking?", next = "learn" },
         { text = "Poor wood?", next = "wood" },
         { text = "What bow would you give a hunter?", next = "hunter", when = { class = "HUNTER" } },
+        { text = "Who gets your best bows?", next = "best" },
+        { text = "Gina MacGregor says she sells your strings.", next = "gina", when = { heardLine = "gina.h_default" } },
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "Just looking.", next = "END" },
       },
@@ -448,6 +489,19 @@ P:NPC {
         { id = "l_father", text = "I made bows for farmers who hunted rabbits, at first. Then the thieves came and the farmers wanted bigger bows, so it's the same wood in worse times." },
       },
       choices = { { text = "Times will turn.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    best = {
+      big = true,
+      lines = { { id = "be_default", text = "The militia, every time, before I'll sell one to a stranger. A farmer with a good bow on the wall is a farm the Defias think twice about, and that's worth more than your coin." } },
+      choices = {
+        { text = "Right. The hill's defenders come first.", next = "BACK", fx = { align = { honor = 1 }, standing = { sentinel_hill = 1 } } },
+        { text = "Coin's coin. Sell to whoever pays the most.", next = "BACK", fx = { align = { honor = -1 }, trait = { greedy = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gina = {
+      lines = { { id = "gi_default", text = "She does, and she charges me for them too, which is why mine are extra. That's all the family business you'll get out of me." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     hunter = {
       lines = { { id = "hu_default", text = "Something that pulls smooth and forgives a cold morning. Not the prettiest on the rack. The one you'll still trust in the Dagger Hills at dusk." } },

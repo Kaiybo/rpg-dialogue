@@ -43,7 +43,42 @@ P:NPC {
       },
       choices = {
         { text = "Tell me about the Greatmother.", next = "greatmother" },
+        { text = "I'm ready for the Rite of Strength, Chief.", next = "warrior", when = { class = "WARRIOR" } },
+        { text = "Where should a hunter go first, Chief?", next = "hunter", when = { class = "HUNTER" } },
+        { text = "The trainer says I'm to be a druid.", next = "druid", when = { race = "Tauren", class = "DRUID" } },
+        { text = "I was born Grimtotem, Chief. I chose Bloodhoof.", next = "grimtotem", when = { origin = "tauren_grimtotem_born" } },
         { text = "I'll do what's asked.", next = "END", fx = { affinity = 2, standing = { narache = 1 } } },
+      },
+      again = {
+        { id = "h_again", text = "What else? The fire is warm, and I can spare a little of it." },
+        { id = "h_again2", text = "Speak, young one. A chief listens before he sends." },
+      },
+    },
+    warrior = {
+      big = true,
+      lines = { { id = "wa_default", text = "Are you? The rite doesn't ask how hard you hit; it asks whether you'll keep going when the boars hit back. My mother fell to the Bristleback, and this tribe honors her by standing up again each morning; that is the strength the rite looks for." } },
+      choices = {
+        { text = "Then I'll stand as she stood.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "I'd rather live to fight again than fall like that.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
+    },
+    hunter = {
+      lines = {
+        { id = "hu_default", text = "To Grull, who leads our hunts, and then out among the plainstriders, because a hunter's first kill should be something that runs. Bring the meat back to the fire, and the tribe will know your name." },
+        { id = "hu_pet", when = { pet = { type = "Beast" } },
+          text = "And bring {pet} back to the fire too. The braves will want to see a beast that chose to walk beside one of us." },
+      },
+      choices = { { text = "I'll go to Grull.", next = "BACK", fx = { affinity = 1, standing = { narache = 1 } } } },
+    },
+    druid = {
+      lines = { { id = "dr_default", text = "Then the Earth Mother has plans for you, and I won't stand in their way. Go to your trainer when you're called, and one day go up to Hamuul on the bluffs, who will teach you what no one at this fire can." } },
+      choices = { { text = "I'll make the camp proud.", next = "BACK", fx = { affinity = 2, standing = { narache = 1 } } } },
+    },
+    grimtotem = {
+      lines = { { id = "gt_default", text = "I know. The braves told me before you'd reached the fire. Your birth isn't your fault, and your choice is to your credit, but the Grimtotem don't forgive those who leave them, so watch your back on the bluffs." } },
+      choices = {
+        { text = "My tribe is the Bloodhoof now.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "The Grimtotem aren't all wrong, Chief.", next = "BACK", fx = { affinity = -2, align = { order = -1 } } },
       },
     },
     greatmother = {
@@ -52,8 +87,8 @@ P:NPC {
         { id = "gm_default", text = "The Bristleback came into our lands, and she fell before them. Every brave who trains at this camp honors her, and so will you, by doing well." },
       },
       choices = {
-        { text = "She sounds brave.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
-        { text = "Then let's make them pay.", next = "END", fx = { affinity = 1, trait = { stern = 1 } } },
+        { text = "She sounds brave.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Then let's make them pay.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
       },
     },
   },
@@ -105,14 +140,26 @@ P:NPC {
       },
       choices = {
         { text = "Will you lead well?", next = "lead" },
+        { text = "Can my beast hunt beside your braves?", next = "hunter", when = { class = "HUNTER" } },
         { text = "Good hunting, Grull.", next = "END" },
       },
+      again = {
+        { id = "h_again", text = "What else? Quickly, the plainstriders won't stand still for long." },
+      },
+    },
+    hunter = {
+      lines = {
+        { id = "hu_default", text = "Beside them? In front of them, if it's fast! The braves still hunt the old way, on foot with a spear, and I'd like them to see what a hunter and a beast can do together." },
+        { id = "hu_pet", when = { pet = { type = "Beast" } },
+          text = "Is that {pet}? Ha, look at it, already sniffing at the plainstrider tracks. Bring it to the southern pens with you; the battleboars won't know what to do." },
+      },
+      choices = { { text = "We'll show them.", next = "BACK", fx = { affinity = 2 } } },
     },
     lead = {
       lines = { { id = "l_default", text = "I'll lead the way my grandmother did, from the front. If that's not well, the tribe can tell me so." } },
       choices = {
-        { text = "I believe you.", next = "END", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "A wise chief leads from where the spears can't reach.", next = "END", fx = { align = { honor = -1 } } },
+        { text = "I believe you.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "A wise chief leads from where the spears can't reach.", next = "BACK", fx = { align = { honor = -1 } } },
       },
     },
   },

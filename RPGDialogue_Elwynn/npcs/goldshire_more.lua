@@ -1,0 +1,326 @@
+-- More of Goldshire: Tomas in the Lion's Pride kitchen, Kira Songshine on the roads,
+-- and two of the town's children, Bo and Matt. Voice: bibles/goldshire_more.md
+local P = RPGDialogueAPI:Pack("rpgd.elwynn")
+local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
+
+-- Tomas: the inn's cook and cooking trainer, in the back room near Toddrick.
+-- (Forever: ends Camping 101: Cooking.)
+P:NPC {
+  key = "tomas", id = TODO_NPC("Tomas"), name = "Tomas", title = "Cook",
+  bible = "bibles/goldshire_more.md", role = "trainer", tier = "service", communities = { "goldshire" },
+  temper = { "warm" }, values = { "craft", "kind" }, notices = { "hunger", "craft" },
+  impression = {
+    first = "Tomas cooks for the whole of the Lion's Pride from a back room that smells of onions and woodsmoke. He asked whether I'd eaten before he asked my name, and he seemed to think that was the right order.",
+    third = "{name} met Tomas, the cook in the back of the Lion's Pride Inn, who teaches cooking to anyone who'll stand still long enough.",
+  },
+  greetings = {
+    { id = "g_pot", text = "Mind the pot, it spits. Come in, if you can stand the heat." },
+    { id = "g_cook", when = { profession = "Cooking" }, text = "A fellow cook! I can tell by the burns on your fingers; they never quite go away." },
+  },
+  notice = {
+    { id = "n_hunger", cat = "hunger", when = { durability = { max = 0.3 } },
+      text = "You look like a long day and no supper. There's bread on the board; nobody here counts the crusts." },
+    { id = "n_craft", cat = "craft", when = { profession = "Cooking" },
+      text = "Cooking's a lifelong pursuit, and I can see you've started on it. Show me your knife hand sometime and I'll tell you how far along you are." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I'm Tomas, and I cook for the Lion's Pride. Toddrick cuts the meat, Dobbins pours, and I'm the one who makes it all worth eating." },
+        { id = "h_camp", tags = { "news" }, when = { questActive = TODO_QUEST("Camping 101: Cooking") },
+          text = "Sam Sarsaparilla sent you from the road, didn't he? Good, because a camp starts with a fire, and a fire's no use to anyone who can't cook over it." },
+        { id = "h_camp_done", when = { questDone = TODO_QUEST("Camping 101: Cooking") },
+          text = "How's that campfire of yours? Cook more and you'll learn to build bigger ones, and then you'll have friends wherever you sit down." },
+        { id = "h_toddrick", when = { heardLine = "toddrick.h_default" },
+          text = "Toddrick told you Farley does the cooking? Farley stirs a pot once a year and talks about it all winter. I let him have it." },
+        { id = "h_dwarf", when = { race = "Dwarf" },
+          text = "A dwarf in my kitchen, and you'll be judging the ale before the food, I expect. Dobbins handles the ale; I'll stand by the stew." },
+        { id = "h_back", when = { metBefore = true }, text = "Back again? Taste this and tell me it wants more salt. Everyone says that, and they're always right." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Talk while I chop; the onions won't wait." },
+        { id = "h_again2", text = "Go on. Hand me that spoon while you think." },
+      },
+      choices = {
+        { text = "Teach me to cook.", next = "BUSINESS" },
+        { text = "What's the first thing a new cook should learn?", next = "first" },
+        { text = "Where does the meat come from?", next = "meat" },
+        { text = "Sam on the road sent me about a campfire.", next = "camp", when = { questActive = TODO_QUEST("Camping 101: Cooking") } },
+        { text = "I've cooked for an abbey full of novices.", next = "abbey", when = { origin = "human_abbey_novice" } },
+        { text = "Just smelling the stew.", next = "END" },
+      },
+    },
+    first = {
+      lines = { { id = "f_default", text = "Wolf meat. It's tough and it's everywhere, and if you can make a wolf taste like supper, you can cook anything in Elwynn." } },
+      choices = {
+        { text = "And after wolf?", next = "first_boar" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    first_boar = {
+      lines = { { id = "fb_default", text = "Boar, roasted slow, then eggs once you can find them without a hen chasing you off. After that it's practice, and practice, and a few burnt suppers." } },
+      choices = {
+        { text = "Burnt suppers are still suppers.", next = "BACK", fx = { trait = { witty = 1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    meat = {
+      lines = { { id = "m_default", text = "From Toddrick, and Toddrick gets it from the farms and from adventurers who bring in more boar than they know what to do with. I've never turned away a fresh haunch." } },
+      choices = {
+        { text = "And the farms that sell to you?", next = "meat_farms" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    meat_farms = {
+      big = true,
+      lines = { { id = "mf_default", text = "Fewer every year. There were Westfall folk who sold me their pigs, and now some of them come through the back door asking for scraps. I give them what I can, and Farley pretends not to see." } },
+      choices = {
+        { text = "Then you're doing right by them.", next = "BACK", fx = { affinity = 1, align = { light = 1 }, learn = { "westfall" } } },
+        { text = "Scraps at the back door only keep them coming.", next = "BACK", fx = { align = { light = -1 }, learn = { "westfall" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    camp = {
+      lines = { { id = "c_default", text = "Then learn your first recipes from me and you'll be able to lay a fire anywhere in the wild. It's only the basics, mind; a small fire and not much around it." } },
+      choices = {
+        { text = "Teach me, then.", next = "BUSINESS", fx = { learn = { "camping" } } },
+        { text = "Something else first.", next = "BACK", fx = { learn = { "camping" } } },
+      },
+    },
+    abbey = {
+      lines = { { id = "a_default", text = "Then you've stirred porridge for forty and been thanked by none of them. Welcome to the trade, friend; it doesn't get more grateful, but it gets tastier." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "I'm the cook at the Lion's Pride. I've been in this back room so long the smoke's in my hair for good." } },
+    advice = { { id = "tp_ad", text = "Eat before you fight, not after. Hungry folk make bad choices, and dead folk make none." } },
+    camping = { { id = "tp_camping", text = "A fire's the heart of any camp, and any cook can build one. Everything else just sits around it.", next = "camp" } },
+    lions_pride = { { id = "tp_lions", text = "Farley owns it, Melika runs it, and I feed it. Ask anyone which of us they'd miss first." } },
+    _none = { { id = "tp_none", text = "I couldn't tell you. Ask me about stew and I'll talk till the pot boils dry." } },
+  },
+}
+
+-- Kira Songshine: the traveling baker on Elwynn's roads.
+P:NPC {
+  key = "kira", id = TODO_NPC("Kira Songshine"), name = "Kira Songshine", title = "Traveling Baker",
+  bible = "bibles/goldshire_more.md", role = "vendor", tier = "service", communities = { "goldshire" },
+  temper = { "cheerful" }, values = { "practical" }, notices = { "hunger", "weary" },
+  impression = {
+    first = "Kira Songshine walks Elwynn's roads with a basket of bread and a voice that carries to the next farm. She sold me a loaf before I'd quite decided to buy one.",
+    third = "{name} met Kira Songshine, the baker who walks the roads around Goldshire selling bread and drink.",
+  },
+  greetings = {
+    { id = "g_bread", text = "Fresh bread, sweet water, and a smile thrown in! You won't find better between here and the city." },
+    { id = "g_road", when = { metBefore = true }, text = "Twice in one week! Either you like my bread or you keep walking the same road I do." },
+  },
+  notice = {
+    { id = "n_hunger", cat = "hunger", when = { durability = { max = 0.3 } },
+      text = "Oh, you've been in the wars. Eat something before you go any further; a loaf weighs nothing and it'll carry you to Goldshire." },
+    { id = "n_weary", cat = "weary", when = { resSick = true },
+      text = "You look like you've been somewhere very cold and come back. Sit on the verge a moment, and have some water first." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Kira Songshine, baker, and I bring the bakery to you! North to the city gates, east toward the tower, and southwest as far as the garrison, depending on my feet." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "I should be home by now, but there's always one more traveler on the road. Lucky for you it's this one." },
+        { id = "h_hogger", when = { questActive = TODO_QUEST("WANTED: \"Hogger\"") },
+          text = "If you're going after Hogger, take two loaves, one for the walk there and one for the walk back, because I'm an optimist." },
+        { id = "h_gnome", when = { race = "Gnome" },
+          text = "Ooh, a gnome! The ones I meet always want to know how the oven works. I bake it in Goldshire, I tell them, and it works by being hot." },
+      },
+      again = {
+        { id = "h_again", text = "Anything else, love? I've got a long way to walk before dark." },
+        { id = "h_again2", text = "Ask away; my feet could use the rest." },
+      },
+      choices = {
+        { text = "Let me see your basket.", next = "BUSINESS" },
+        { text = "Isn't the road dangerous for you?", next = "road" },
+        { text = "Who buys from you, mostly?", next = "buyers" },
+        { text = "I stood a Stormwind watch once. Do the guards look after you?", next = "guards", when = { origin = "human_city_guard" } },
+        { text = "Safe walking.", next = "END" },
+      },
+    },
+    road = {
+      lines = { { id = "r_default", text = "Wolves and kobolds don't want bread, so it's mostly safe, and I keep off the southwest road past the river. Everyone knows what lives down that way." } },
+      choices = {
+        { text = "Hogger, you mean.", next = "road_hogger" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    road_hogger = {
+      lines = {
+        { id = "rh_default", text = "Don't say the name too loud out here. The Westbrook lads tell stories about him that would curdle the milk, and I've milk in this basket." },
+        { id = "rh_done", when = { questDone = TODO_QUEST("WANTED: \"Hogger\"") },
+          text = "Oh, that was you? Then I can walk the west road without humming to keep my nerve up. I'll find something else to hum about." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "hogger" } } } },
+    },
+    buyers = {
+      lines = { { id = "b_default", text = "Farmers too busy to bake, guards on long watches, and every young hero out of Northshire who forgot to pack supper. That last lot's my best custom." } },
+      choices = {
+        { text = "Guilty. I forgot mine.", next = "BUSINESS", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    guards = {
+      lines = { { id = "gu_default", text = "They do, bless them. If anyone gives me trouble I only have to shout, and a Stormwind guard comes running with his mouth still full of my bread." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "I bake at dawn and walk till dusk. My feet know every rut between Goldshire and the city gates." } },
+    advice = { { id = "tp_ad", text = "Always carry more water than you think. The road's longer than it looks from the inn door." } },
+    hogger = { { id = "tp_hogger", text = "I don't sell on the southwest road. That's all I'll say, and I'll say it quietly." } },
+    _none = { { id = "tp_none", text = "Couldn't tell you, love. Ask me where the road goes and I'll know." } },
+  },
+}
+
+-- Bo: a Goldshire boy who runs around the smithy and the pond with his friends Joshua and Mark.
+P:NPC {
+  key = "bo", id = TODO_NPC("Bo"), name = "Bo",
+  bible = "bibles/goldshire_more.md", role = "child", tier = "service", communities = { "goldshire" },
+  temper = { "eager" }, values = { "brave" }, notices = { "wonder", "kit" },
+  impression = {
+    first = "Bo runs circles around Goldshire's smithy with his friends and stops only long enough to ask whether your sword is real. He seemed to think mine was a little small.",
+    third = "{name} met Bo, a Goldshire boy who plays around the smithy and the pond with his friends Joshua and Mark.",
+  },
+  greetings = {
+    { id = "g_run", text = "Can't stop, I'm it! Well, I can stop for a bit." },
+    { id = "g_back", when = { metBefore = true }, text = "It's you again! Joshua didn't believe I talked to a real adventurer, so stay here while I fetch him." },
+  },
+  notice = {
+    { id = "n_form", cat = "wonder", place = "replace", when = { form = { "bear", "cat" } },
+      text = "Whoa! Are you a druid, or are you a bear that talks? Either way, can I touch your ear?" },
+    { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
+      text = "Your armor's all bashed in! Did you fight Hogger? Tell me you fought Hogger." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I'm Bo! Me and Joshua and Mark play by the smithy, because Argus lets us watch the sparks so long as we don't touch anything." },
+        { id = "h_paladin", when = { class = "PALADIN" },
+          text = "Are you a paladin? Brother Wilhelm trains them behind the smithy, and I watch through the fence. I'm going to be one when I'm big." },
+        { id = "h_dwarf", when = { race = "Dwarf" },
+          text = "You're a dwarf! Is it true dwarves are born with beards? Mark says yes, and Joshua says Mark's daft." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Quick, before Mark finds me." },
+        { id = "h_again2", text = "Ask me something else! I know loads of things." },
+      },
+      choices = {
+        { text = "What do you play?", next = "games" },
+        { text = "What do you want to be when you're grown?", next = "grown" },
+        { text = "Want to see a real spell?", next = "mage", when = { class = { "MAGE", "WARLOCK", "PRIEST" } } },
+        { text = "Off you go, then.", next = "END" },
+      },
+    },
+    games = {
+      lines = { { id = "ga_default", text = "Kobolds and guards! Mark's always the kobold, because he does the voice best, and I'm always the Marshal, because I'm fastest." } },
+      choices = {
+        { text = "What does Marshal Dughan think?", next = "games_dughan" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    games_dughan = {
+      lines = { { id = "gd_default", text = "He said if we're going to play guards, we should guard the pond from frogs. That's not a real job, but we did it anyway." } },
+      choices = { { text = "Somebody has to guard it.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } } },
+    },
+    grown = {
+      big = true,
+      lines = { { id = "gr_default", text = "A soldier, like the ones who went off and didn't say where. Ma says I'm not to, because some of them didn't come back, but she always says that." } },
+      choices = {
+        { text = "Your ma's right. Stay and look after Goldshire.", next = "BACK", fx = { align = { order = 1 }, trait = { kind = 1 } } },
+        { text = "Follow your own road when you're grown.", next = "BACK", fx = { align = { order = -1 }, trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mage = {
+      lines = { { id = "ma_default", text = "Yes! No, wait, not near the hay, Argus said there was a fire once. Do a little one, a really little one, over the pond." } },
+      choices = {
+        { text = "There. A little one.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Magic isn't a game, Bo.", next = "BACK", fx = { trait = { stern = 1 } } },
+      },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "I live in Goldshire! I've been to the city twice, and it's very big and nobody plays outside." } },
+    advice = { { id = "tp_ad", text = "Don't go near the lake by Stone Cairn. Ma says there's things in it, and Ma knows everything." } },
+    hogger = { { id = "tp_hogger", text = "Mark says Hogger eats boys. I said he'd have to catch me first, but I didn't say it very loud." } },
+    _none = { { id = "tp_none", text = "I dunno! Ask a grown-up. They don't know either, but they pretend better." } },
+  },
+}
+
+-- Matt: a Goldshire boy who fishes badly between the Crystal Lake pier and the town pond.
+P:NPC {
+  key = "matt", id = TODO_NPC("Matt"), name = "Matt",
+  bible = "bibles/goldshire_more.md", role = "child", tier = "service", communities = { "goldshire" },
+  temper = { "grumbling" }, values = { "patient" }, notices = { "craft" },
+  impression = {
+    first = "Matt fishes with great determination and very little luck, walking back and forth between Crystal Lake and the Goldshire pond in search of fish that will bite. I didn't have the heart to tell him about his knot.",
+    third = "{name} met Matt, a Goldshire boy who fishes every day and catches very little.",
+  },
+  greetings = {
+    { id = "g_fish", text = "Dang it, nothing biting here either. Shh, you'll scare them, if there's any to scare." },
+  },
+  notice = {
+    { id = "n_fisher", cat = "craft", when = { profession = "Fishing" },
+      text = "You fish? Real fishing, with a proper pole? Did Lee Brown teach you? He won't teach me till I'm taller." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I'm Matt, and I'm a fisherman. I haven't caught anything yet today, but that's because the fish in this pond are stupid and won't bite." },
+        { id = "h_back", when = { metBefore = true }, text = "I caught one yesterday, a big one, only it got away, so you'll have to take my word for it." },
+        { id = "h_guards", when = { questDone = TODO_QUEST("Find the Lost Guards") },
+          text = "Is it true you went out to the lake where the guards went missing? Ma won't let me past the bridge now, and I think I know why." },
+      },
+      again = {
+        { id = "h_again", text = "What? Keep your voice down, there might be one coming." },
+        { id = "h_again2", text = "Ask me something, I'm just waiting anyway. Fishing's mostly waiting." },
+      },
+      choices = {
+        { text = "Where's the best fishing?", next = "spot" },
+        { text = "Can I see your line?", next = "line" },
+        { text = "Want some tips from a real fisher?", next = "tips", when = { profession = "Fishing" } },
+        { text = "Good luck, Matt.", next = "END" },
+      },
+    },
+    spot = {
+      lines = { { id = "s_default", text = "My old fishing hole, by the pier on Crystal Lake. When it's not biting there I come here, and when it's not biting here I go back. It's never biting anywhere." } },
+      choices = {
+        { text = "Why not Stone Cairn Lake?", next = "spot_lake" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    spot_lake = {
+      lines = { { id = "sl_default", text = "Because of the fish-men! Guards went there and didn't come back, everybody says so. I'm brave, but I'm not daft." } },
+      choices = { { text = "Smart lad. Something else.", next = "BACK", fx = { learn = { "murlocs_east" } } } },
+    },
+    line = {
+      lines = { { id = "l_default", text = "I tied it myself! Lee Brown says the knot's wrong, but Lee Brown catches fish all day, so what does he know about how hard it is?" } },
+      choices = {
+        { text = "Let me retie that knot for you.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Maybe listen to Lee Brown.", next = "BACK", fx = { trait = { stern = 1 } } },
+      },
+    },
+    tips = {
+      lines = { { id = "t_default", text = "Really? Go on, then, but don't tell Lee, because he'll say he told me first, and he probably did." } },
+      choices = {
+        { text = "Be patient, and fish at dawn.", next = "BACK", fx = { affinity = 1, trait = { patient = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "I live in Goldshire and I'm going to be the best fisherman in Elwynn. I just haven't started being it yet." } },
+    advice = { { id = "tp_ad", text = "Don't stand where your shadow's on the water. I read that somewhere, or Lee said it." } },
+    murlocs_east = { { id = "tp_murlocs", text = "They stole all the good fish out of Stone Cairn, I bet. That's why I can't catch any." } },
+    _none = { { id = "tp_none", text = "Dunno. Fish don't talk about that sort of thing, so I wouldn't know." } },
+  },
+}

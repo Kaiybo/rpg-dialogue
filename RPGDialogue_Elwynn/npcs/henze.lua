@@ -52,6 +52,7 @@ P:NPC {
         { text = "How's Gazin?", next = "gazin" },
         { text = "Let me tend to your wounds.", next = "heal", when = { class = "PRIEST" } },
         { text = "Need a drink, kinsman?", next = "drink", when = { race = "Dwarf" } },
+        { text = "The stone remembers you, Henze. It told me where you fell.", next = "shaman", when = { class = "SHAMAN" } },
         { text = "Rest easy, Henze.", next = "END" },
       },
     },
@@ -146,6 +147,13 @@ P:NPC {
       choices = {
         { text = "What's a dwarf's favourite stone? The one with ale under it.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } },
         { text = "Maybe later.", next = "BACK" },
+      },
+    },
+    shaman = {
+      lines = { { id = "shaman_l", text = "Did it now? Then it's a better friend than the Defias were. My granny used to say the stone hears everythin' an' tells nobody; I'm glad it made an exception." } },
+      choices = {
+        { text = "It only speaks to those who listen.", next = "BACK", fx = { affinity = 1, trait = { pious = 1 } } },
+        { text = "It mostly complains, if I'm honest.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
       },
     },
   },

@@ -41,14 +41,54 @@ P:NPC {
       },
       choices = {
         { text = "Why does Razor Hill matter?", next = "why" },
+        { text = "Put me on the wall, commander.", next = "warrior", when = { class = "WARRIOR" } },
+        { text = "I can scout Tiragarde Keep without being seen.", next = "rogue", when = { class = "ROGUE" } },
+        { text = "I track well. Where do you need eyes?", next = "hunter", when = { class = "HUNTER" } },
+        { text = "Do the Darkspear stand your watch too?", next = "troll", when = { race = "Troll" } },
         { text = "Lok'tar, commander.", next = "END", fx = { affinity = 1, standing = { razor_hill = 1 } } },
       },
+      again = {
+        { id = "h_again", text = "What else? Make it a report, not a story." },
+        { id = "h_again2", text = "Go on. The next runner from Sen'jin is due, and you have until he arrives." },
+      },
+    },
+    warrior = {
+      big = true,
+      lines = {
+        { id = "wa_default", text = "The wall has grunts enough, and what I'm short of is grunts who'll march out to Tiragarde and back without being told twice. Nazgrel taught me that a fort is only as strong as its willingness to leave it." },
+        { id = "wa_grunt", when = { origin = "orc_razor_hill_grunt" },
+          text = "You already stood a watch on that wall, so you know every stone of it. Now I want you beyond it, where the Kul Tirans are." },
+      },
+      choices = {
+        { text = "Then I'll march, and I'll hit them head on.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "I'll march, but I'll pick my own fights out there.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Who was Nazgrel to you?", next = "warrior_nazgrel" },
+      },
+    },
+    warrior_nazgrel = {
+      lines = { { id = "wn_default", text = "My commander, and a hard one. He made me stand watch for a week after I left my post to chase a raider, and he was right to, because the raider was bait. Don't chase bait, warrior." } },
+      choices = { { text = "I won't, commander.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    rogue = {
+      lines = { { id = "ro_default", text = "Without being seen is what every scout says before the Kul Tirans hang him from their tower. Bring me a count of their sentries and the hour they change, and then I'll believe you." } },
+      choices = {
+        { text = "You'll have it, and no one will know I was there.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "I'll bring the count. Maybe a few of their throats too.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
+    hunter = {
+      lines = { { id = "hu_default", text = "On the Barrens border, where the quilboar keep pushing in from the west. Track their raiding parties back to where they camp, and I'll know where to put my grunts." } },
+      choices = { { text = "I'll find their camps.", next = "BACK", fx = { affinity = 2, standing = { razor_hill = 1 } } } },
+    },
+    troll = {
+      lines = { { id = "tr_default", text = "They do, and they keep better watch at night than my orcs, which I'll deny if you repeat it. The Darkspear hold Sen'jin and I hold Razor Hill, and between us the coast stays ours." } },
+      choices = { { text = "Your secret's safe, commander.", next = "BACK", fx = { affinity = 2 } } },
     },
     why = {
       lines = { { id = "w_default", text = "Roads to Orgrimmar, to Sen'jin and to the Barrens all run through here. Hold Razor Hill and you hold Durotar. Lose it and you lose the rest." } },
       choices = {
-        { text = "Then we won't lose it.", next = "END", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "A good ambush on those roads would do more than any wall.", next = "END", fx = { align = { honor = -1 } } },
+        { text = "Then we won't lose it.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "A good ambush on those roads would do more than any wall.", next = "BACK", fx = { align = { honor = -1 } } },
       },
     },
   },
@@ -99,15 +139,36 @@ P:NPC {
       },
       choices = {
         { text = "Where do the Blade hide?", next = "hide" },
+        { text = "You watch me like I'm one of them, Orgnil.", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "I could carry false messages to the Blade for you.", next = "rogue", when = { class = "ROGUE" } },
         { text = "I'll hunt them with you.", next = "END", fx = { affinity = 2, learn = { "burning_blade" } } },
       },
+      again = {
+        { id = "h_again", text = "What else? Speak low; the Blade have ears in more places than you'd think." },
+      },
+    },
+    warlock = {
+      big = true,
+      lines = {
+        { id = "wl_default", text = "I watch you because the last warlock I trusted carried a Blade medallion under his shirt for two years. Earn my trust in the caves, where I can see what your demon does when the cultists call to it." },
+        { id = "wl_troll", when = { race = "Troll" },
+          text = "A troll warlock is a stranger thing than an orc one, and the Blade would love to recruit the first of your people. They'll come to you sweetly, and when they do, you'll come straight to me." },
+      },
+      choices = {
+        { text = "Fair. Watch me, then, and judge me by what I do.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "I don't answer to you, lawman.", next = "BACK", fx = { affinity = -2, align = { order = -1 } } },
+      },
+    },
+    rogue = {
+      lines = { { id = "ro_default", text = "Hm. That's a dangerous game, and it's exactly the one I've wanted someone to play. Not yet, though, because a messenger needs to be trusted by them first, and I won't send a youngster in to be found out." } },
+      choices = { { text = "When I'm ready, then.", next = "BACK", fx = { affinity = 2, trait = { cautious = 1 } } } },
     },
     hide = {
       big = true,
       lines = {
         { id = "hd_default", text = "In caves in the canyons, and under rocks like scorpids. Sometimes they hide inside the walls of cities, smiling at you, and those are the ones I'd most like to meet." },
       },
-      choices = { { text = "Inside the cities?", next = "END", fx = { affinity = 1, trait = { skeptical = 1 }, learn = { "burning_blade" } } } },
+      choices = { { text = "Inside the cities?", next = "BACK", fx = { affinity = 1, trait = { skeptical = 1 }, learn = { "burning_blade" } } } },
     },
   },
 
@@ -196,12 +257,36 @@ P:NPC {
       },
       choices = {
         { text = "Why sleep out here?", next = "why" },
+        { text = "My beast and I sleep rough too.", next = "hunter", when = { class = "HUNTER" } },
+        { text = "Do you ever hear the spirits by the fire?", next = "shaman", when = { class = "SHAMAN" } },
         { text = "Lok'tar, Brakk.", next = "END" },
       },
+      again = {
+        { id = "h_again", text = "Something else? There's no hurry at a campfire; that's the whole point of one." },
+      },
+    },
+    hunter = {
+      lines = {
+        { id = "hu_default", text = "Then you know the best watchman in any camp has four legs and a nose. Mine was a raptor once, until it decided it liked the Barrens better than me, and I can't say I blame it." },
+        { id = "hu_pet", when = { pet = { type = "Beast" } },
+          text = "And this must be {pet}! Come sit by the fire, both of you. Every camp I've built was better for a beast lying beside it." },
+      },
+      choices = {
+        { text = "Mine stays with me. We look after each other.", next = "BACK", fx = { affinity = 2 } },
+        { text = "What happened to the raptor?", next = "hunter_raptor" },
+      },
+    },
+    hunter_raptor = {
+      lines = { { id = "hr_default", text = "I wrote it down in my journal, the day it left: it stood at the edge of the firelight and looked back once, and then it went. I like to think it found a pack of its own out there past the river." } },
+      choices = { { text = "I hope it did.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } } },
+    },
+    shaman = {
+      lines = { { id = "sh_default", text = "I'm no shaman, but fire's an element, isn't it? Some nights it talks louder than others, and on those nights I bank it down and listen. Maybe you could tell me what it says." } },
+      choices = { { text = "It says it's glad of the company.", next = "BACK", fx = { affinity = 2 } } },
     },
     why = {
       lines = { { id = "w_default", text = "Walls are for people who've stopped walking. Out here, any traveler can share the fire. A camp belongs to whoever sits at it." } },
-      choices = { { text = "Show me how.", next = "END", fx = { affinity = 2, learn = { "camping" } } } },
+      choices = { { text = "Show me how.", next = "BACK", fx = { affinity = 2, learn = { "camping" } } } },
     },
   },
 

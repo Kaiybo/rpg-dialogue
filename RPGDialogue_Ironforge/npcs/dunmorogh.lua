@@ -48,6 +48,7 @@ P:NPC {
         { text = "Who stops at your fire?", next = "visitors" },
         { text = "Is it safe out here?", next = "safe" },
         { text = "I work leather. What can I add?", next = "tent", when = { profession = "Leatherworking" } },
+        { text = "I've tracked bears through worse snow than this.", next = "k_hunter", when = { class = "HUNTER" } },
         { text = "Stay warm.", next = "END" },
       },
     },
@@ -102,6 +103,17 @@ P:NPC {
         { id = "te_default", text = "Tents! Then everyone at your fire will sleep better than they deserve. Mind the stakes, though, because the ground here is mostly ice." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, learn = { "camping" } } } },
+    },
+    k_hunter = {
+      lines = {
+        { id = "xhu_default", text = "I believe it; you've the look of someone who sleeps with one eye on the treeline. Then you can tell me something, because I've been out here years: why do the bears keep coming down past Kharanos this winter?" },
+        { id = "xhu_bear", when = { origin = "dwarf_bear_tracker" },
+          text = "You're one of the high-snow trackers, then, and I'll bow to you on that, because I only camp, I don't chase. Tell me, why are the bears coming down past Kharanos this winter?" },
+      },
+      choices = {
+        { text = "The troggs are driving them out of the hills.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } },
+        { text = "Hungry. Leave out no food and they'll leave you be.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
+      },
     },
   },
 
@@ -161,6 +173,7 @@ P:NPC {
         { text = "Gloves, for wolf meat?", next = "gloves" },
         { text = "A rune for me?", next = "rune", when = { class = "PRIEST", maxLevel = 6 } },
         { text = "Anything for a dwarf who hears the elements?", next = "archaic", when = { race = "Dwarf", class = "SHAMAN" } },
+        { text = "Do many gnomes come through the valley?", next = "k_gnome", when = { race = "Gnome" } },
         { text = "I'll get to it.", next = "END" },
       },
     },
@@ -209,6 +222,15 @@ P:NPC {
         { id = "ar_default", text = "Aye, an old-lookin' rune came in this mornin'. Teo Hammerstorm wants ye in Anvilmar, somethin' about the elements, an' I deliver it, I dinnae read it." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    k_gnome = {
+      lines = {
+        { id = "xgn_default", text = "More every season, since yer city went bad, an' every one o' them shivers worse than the last. Ye'll get used tae the cold or ye'll get used tae complainin' about it, an' either'll see ye through tae Kharanos." },
+      },
+      choices = {
+        { text = "I'll get used to the cold.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+        { text = "I'll complain, thank you.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+      },
     },
   },
 
@@ -265,6 +287,7 @@ P:NPC {
         { text = "What are the trolls up to?", next = "trolls" },
         { text = "Who sent you out here?", next = "sent" },
         { text = "Who's the gnome by your fire?", next = "felix" },
+        { text = "I can read the trolls' tracks for you.", next = "k_hunter", when = { class = "HUNTER" } },
         { text = "I'll deal with the trolls.", next = "END", fx = { affinity = 2, standing = { coldridge = 1 } } },
       },
     },
@@ -319,6 +342,15 @@ P:NPC {
         { text = "He's one of mine. I'll find his things.", next = "BACK", when = { race = "Gnome" }, fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "I'll keep an eye out.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "gnomeregan" } } },
+      },
+    },
+    k_hunter = {
+      lines = {
+        { id = "xhu_default", text = "Can ye? Then ye're worth three o' Soren, an' don't tell him I said so. They come down from the caves at dusk, I know that much, but I cannae tell ye how many by their prints, an' I need tae know before I write tae the Senate." },
+      },
+      choices = {
+        { text = "I'll count them for you, envoy.", next = "BACK", fx = { affinity = 2, standing = { coldridge = 1 } } },
+        { text = "Why does the Senate need numbers?", next = "sent" },
       },
     },
   },
@@ -381,6 +413,7 @@ P:NPC {
         { text = "Tell me about your brother.", next = "brother" },
         { text = "Who reads your reports?", next = "reports" },
         { text = "You look cold, envoy.", next = "cold" },
+        { text = "I could slip into the hold unseen.", next = "k_rogue", when = { class = { "ROGUE", "HUNTER" } } },
         { text = "I'll go to the hold.", next = "END", fx = { affinity = 1, standing = { kharanos = 1 } } },
       },
     },
@@ -431,6 +464,16 @@ P:NPC {
         { id = "dr_default", text = "Good, then sit. Belm's ale is the best thing about this posting, an' the fire's the second best." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    k_rogue = {
+      lines = {
+        { id = "xro_default", text = "Unseen, in a troll hold, wi' torches every ten paces? Well, if ye can, ye'll see more than I ever have through a spyglass, an' I'll want every word o' it written down." },
+      },
+      choices = {
+        { text = "A spy sees more than an army.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "I'd rather walk in and face them.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -488,6 +531,7 @@ P:NPC {
         { text = "Who founded the distillery?", next = "family" },
         { text = "I hear the Dark Irons stole a recipe.", next = "theft", when = { minLevel = 45 } },
         { text = "I cook. Will you share the recipe?", next = "cookrecipe", when = { profession = "Cooking" } },
+        { text = "Your supplier joined the army? So did half my company.", next = "k_warrior", when = { class = "WARRIOR" } },
         { text = "A pint, then.", next = "END", fx = { affinity = 2 } },
       },
     },
@@ -553,6 +597,17 @@ P:NPC {
         { id = "ck_default", text = "Bring me the ribs an' a mug o' Rhapsody Malt, an' I'll write it out for ye. It's a family recipe, so don't tell the family." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    k_warrior = {
+      lines = {
+        { id = "xwa_default", text = "Then ye'll know how it goes: the King calls, an' the brewers go hungry. I don't begrudge the lad, he's fightin' for all of us, but I do begrudge him leavin' wi'out tellin' me where he kept his traps." },
+        { id = "xwa_ward", when = { origin = "dwarf_military_ward" },
+          text = "Military Ward, are ye? Then ye might know my lad; went up the mountain wi' a spear an' a grin an' left me his snares. Tell him the ribs are suffering, if ye see him." },
+      },
+      choices = {
+        { text = "The King's call comes before ribs, Ragnar.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "He should've stayed and kept the town fed.", next = "BACK", fx = { align = { order = -1 } } },
+      },
     },
   },
 

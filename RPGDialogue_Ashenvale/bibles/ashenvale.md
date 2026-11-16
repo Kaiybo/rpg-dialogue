@@ -1,4 +1,4 @@
-# Ashenvale  (keys: raene, pelturas, relara, faldreas, kimlya, delgren, senani, mastok, kuraybin)
+# Ashenvale  (keys: raene, pelturas, relara, faldreas, kimlya, delgren, thenysil, daelyshia, senani, mastok, kuraybin)
 
 ## Sources
 - https://warcraft.wiki.gg/wiki/Astranaar (Alliance hub in Classic; Raene sends players against the Thistlefur north of town; on an island)
@@ -56,3 +56,22 @@ Raene: how Korra and Dagri tolerate each other; her answer to hunters about two 
 ## 0.34.0
 Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
 - Raene (Persuade, teronis_guilt): Teronis asked her for a scout to walk with him; with the Warsong at the river she refused, and he went to the Zoram Strand alone. She blames herself.
+
+## 0.37.0: more of Astranaar (npcs/astranaar_more.lua)
+### Sources
+- https://warcraft.wiki.gg/wiki/Sentinel_Thenysil (Sentinel in Astranaar; in Classic gives Reception from Tyrande after the Stonetalon chain)
+- https://warcraft.wiki.gg/wiki/Reception_from_Tyrande (Tyrande has heard the young hero's name)
+- https://warcraft.wiki.gg/wiki/Daelyshia (Hippogryph Master, Astranaar)
+### Their quests
+- Thenysil: Reception from Tyrande; a line after Journey to Stonetalon Peak (Faldreas).
+- Daelyshia: none (flights).
+### Voices
+- Thenysil: measured Sentinel who weighs newcomers; neighbours tell her who can be trusted; respects Tyrande.
+- Daelyshia: wry hippogryph keeper; flies low over the canopy because of Warsong archers.
+### What they notice
+- Thenysil: humans (Tyrande's old harsh words, softer now), non-elf priests.
+- Daelyshia: gnomes (don't touch the harness).
+### Never
+- Thenysil commanding anything, Silverwind Refuge, or any Cataclysm-era Ashenvale.
+### Authored, not canon
+Thenysil's way of judging the proven (Raene, Faldreas, Pelturas talk to her); Daelyshia's arrow-holed saddle on the wall, the gnome who came down in Lake Iris. Kimlya (0.37.0): wounded scouts upstairs for healers, Delgren's paladins asking for mutton.

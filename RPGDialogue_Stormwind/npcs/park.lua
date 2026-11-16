@@ -55,6 +55,12 @@ P:NPC {
         { text = "What is balance?", next = "balance" },
         { text = "What is Moonglade?", next = "moonglade" },
         { text = "Does your Elune differ from our Light?", next = "light", when = { class = "PRIEST" } },
+        { text = "What should I be practising, Sheldras?", next = "practise", when = { class = "DRUID" } },
+        { text = "Should druids take sides in the Alliance's wars?", next = "war", when = { class = "DRUID" } },
+        { text = "My people honour the winds more than Elune.", next = "skyborne", when = { race = "Skyborne", class = "DRUID" } },
+        { text = "Do you mind a hunter's beast in your Park?", next = "hunter", when = { class = "HUNTER" } },
+        { text = "What do you think of the city's other teachers?", next = "others" },
+        { text = "Humans planted these trees for you, didn't they?", next = "human", when = { race = "Human" } },
         { text = "Peace be with you.", next = "END" },
       },
     },
@@ -108,6 +114,64 @@ P:NPC {
         { text = "The Light and Elune can stand together.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "The Light is the only truth.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
       },
+    },
+    practise = {
+      lines = {
+        { id = "practise_l", text = "Changing back. Every young druid practises the bear and the cat until they're proud of them, and forgets that the hardest shape to return to is your own." },
+        { id = "practise_old", when = { minLevel = 40 },
+          text = "Choosing. You can heal, and claw, and call the moon's fire now, and the forest won't tell you which it needs; listen longer before you act, and you'll be right more often." },
+      },
+      choices = {
+        { text = "Why is my own shape the hardest?", next = "practise_own" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    practise_own = {
+      lines = { { id = "practise_own_l", text = "Because the beast never doubts, and you do. Some of my people stayed too long in the wild shapes, once, and forgot how to come back at all." } },
+      choices = { { text = "I'll remember.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } } },
+    },
+    war = {
+      big = true,
+      lines = { { id = "war_l", text = "The Circle says we serve the balance, not a banner, and there are tauren in it as well as kaldorei. Yet Ashenvale burns where the orcs cut, so every druid in the Alliance answers that question alone." } },
+      choices = {
+        { text = "The balance comes before any banner.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "I'll stand with the Alliance, Circle or not.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Tauren in the Circle?", next = "war_tauren" },
+      },
+    },
+    war_tauren = {
+      lines = { { id = "war_tauren_l", text = "Archdruid Hamuul Runetotem's people, and good druids, many of them. Meet one in Moonglade and you'll find the war matters much less there than it does in Ashenvale." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    skyborne = {
+      lines = {
+        { id = "skyborne_l", text = "So I've heard, and the Circle has heard it too. You come to the Dream by a different road than we do, and I won't pretend to understand the road, but you're welcome on it." },
+        { id = "skyborne_nightclaw", when = { origin = "skyborne_nightclaw" },
+          text = "And you learned from druids who kept their own counsel even among your own people, I think. I won't ask what you were told never to speak of; you're welcome on the path all the same." },
+      },
+      choices = {
+        { text = "The winds and the moon needn't quarrel.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Our ways are our own, Sheldras.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    hunter = {
+      lines = {
+        { id = "hunter_l", text = "Not at all; the beast is better behaved than the pigeons. A hunter and a druid want the same thing from a forest, and only argue over how much to take from it." },
+        { id = "hunter_human", when = { race = "Human" },
+          text = "A human hunter, and that is still rare enough that I'll stop to say so. The beast is better behaved than the pigeons; a hunter and a druid only argue over how much to take from a forest." },
+      },
+      choices = {
+        { text = "I take only what I need.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I take what the hunt gives me.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
+    others = {
+      lines = { { id = "others_l", text = "The priests ring their bell for me, the mages ask if I can grow reagents faster, and the warriors in Old Town ask if I can turn into a bear for their tavern wagers. I've said no to all of it except the bell." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    human = {
+      lines = { { id = "human_l", text = "Not for me; they were here before I came, planted by your grandparents' grandparents. I think your people built a city of stone and then grew lonely in it, and I find that hopeful." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 

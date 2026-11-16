@@ -48,3 +48,15 @@ Sources read for this pass (warcraft.wiki.gg): Krog, Nazeer_Bloodpike, Brackenwa
 ## 0.34.0
 Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
 - Jaina (Persuade, father_true): when Daelin's fleet came she told her soldiers to stand aside and sent word to Thrall; she chose the peace over her father, would again, and doesn't know what kind of daughter that makes her.
+
+## More of Theramore (0.37.0; keys: baldruc, morgan_stern, vanhowzen)
+Sources: Classic NPC roster of Theramore Isle as remembered (wiki pages Baldruc, Morgan_Stern, Doctor_Gustaf_VanHowzen, Triage_(Alliance) not re-read this pass).
+### Their quests
+- Baldruc (Gryphon Master): none: flight master. Keeps the Lady's gryphons dry; flies wide of Brackenwall because of the peace; his birds won't fly south toward the black dragons.
+- Morgan Stern: Mudrock Soup and Bugs: mudrock tortoise tongues from the coast for soup; proud of feeding the Guard; trades bread arguments with Janene.
+- Doctor Gustaf VanHowzen (Trauma Surgeon): Triage: the Alliance first-aid test, a tent of wounded soldiers carried in at once; who lives without you, who dies without you, and who lives only with you. Calm by decision; worked in Lordaeron and on the boats (authored, not canon).
+### Voices
+- Baldruc: gruff, weather-minded, fond of his birds. Morgan: cheerful, fussy about his pot. VanHowzen: level voice, exact, kind under it.
+### Deepened (authored, not canon)
+- Janene: the Kul Tiras sailors who stayed after the Admiral fell and drink to his memory; priest reply. Tesoran: what became of Daelin's men (home, the Lady's colors, or neither) and their grudge; paladin reply.
+- Unsure, so left out: Lieutenant Caldwell, Clerk Lendry, Craig Nollward, Piter Verance, Guard Byron, Private Hendel (his end stays secret per Never).

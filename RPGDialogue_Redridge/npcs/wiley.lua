@@ -43,6 +43,8 @@ P:NPC {
         { id = "h_price", when = { metBefore = true }, text = "You're back, good. I've heard three new things since yesterday, and one of them's even true; guess which." },
         { id = "h_cold", when = { disposition = { max = 34 } },
           text = "You again. I don't sell to people I don't like, and you've been working hard to make the list." },
+        { id = "h_canal", when = { origin = "human_canal_pickpocket" },
+          text = "Canal rat, aren't you. I can tell by the way you came in, with your back to the wall and one eye on the purses, and I'll thank you to keep your hands where I can see them." },
       },
       again = {
         { id = "h_again", text = "Something else? Keep your voice down, the floor's thin." },
@@ -55,6 +57,7 @@ P:NPC {
         { text = "I could use a man with your ears.", next = "rogue", when = { class = "ROGUE" } },
         { text = "VanCleef's dead. I was there.", next = "vancleef", when = { deed = "dungeon:The Deadmines" } },
         { text = "The Defias drove my family off our farm.", next = "farm", when = { origin = "human_westfall_farmhand" } },
+        { text = "You're not the only one who sits quietly and watches.", next = "nightelf", when = { race = "NightElf" } },
         { text = "Enjoy your corner.", next = "END" },
       },
     },
@@ -150,6 +153,13 @@ P:NPC {
       choices = {
         { text = "Thank you, Wiley.", next = "BACK", fx = { affinity = 2 } },
         { text = "I don't want sorry. I want names.", next = "BACK", fx = { trait = { stern = 1 }, opinion = { defias = "hardline" } } },
+      },
+    },
+    nightelf = {
+      lines = { { id = "ne_default", text = "No, I'm not, and your lot are better at it than I'll ever be; I didn't hear you cross the room. What does a kaldorei want with Lakeshire's gossip?" } },
+      choices = {
+        { text = "Anything about the Defias.", next = "defias" },
+        { text = "Just listening. Like you.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },
   },

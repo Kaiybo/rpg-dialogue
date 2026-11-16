@@ -41,15 +41,62 @@ P:NPC {
       },
       choices = {
         { text = "What threatens the Sepulcher?", next = "threats" },
+        { text = "Send me after your deathstalkers, High Executor.", next = "rogue", when = { class = "ROGUE" } },
+        { text = "Where's the line weakest? Put me there.", next = "warrior", when = { class = "WARRIOR" } },
+        { text = "I know Dalaran's spells. I can read their work at Ambermill.", next = "mage", when = { class = "MAGE" } },
+        { text = "I can track worgen through these woods.", next = "hunter", when = { class = "HUNTER" } },
         { text = "For the Dark Lady.", next = "END", fx = { affinity = 1, standing = { sepulcher = 1 } } },
       },
+      again = {
+        { id = "h_again", text = "What else? The worgen are moving tonight, so keep it to a report." },
+        { id = "h_again2", text = "Speak. The forest won't wait, and neither will I." },
+      },
+    },
+    rogue = {
+      big = true,
+      lines = {
+        { id = "ro_default", text = "Good. They went south toward Pyrewood and Shadowfang, quietly, the way they're trained, and the forest swallowed them just as quietly. Find out whether it was worgen or something smarter." },
+        { id = "ro_deathstalker", when = { origin = "forsaken_deathstalker_recruit" },
+          text = "One of ours, then, and you'll know the marks they leave on the trees. Follow them, and if you find the deathstalkers dead, bring back their reports before you bring back their bodies." },
+      },
+      choices = {
+        { text = "Reports first. The mission matters more than the dead.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "I'll bring the bodies too. They were ours.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+      },
+    },
+    warrior = {
+      lines = {
+        { id = "wa_default", text = "South, by the Dead Fields, where the gnolls test us every night. Hold the road there, and the Sepulcher can spare its deathstalkers for real work." },
+        { id = "wa_soldier", when = { origin = "forsaken_lordaeron_soldier" },
+          text = "A Lordaeron soldier. You'll remember Silverpine from the old patrols to Pyrewood, when the worst thing in these woods was a wolf. Hold the south road the way you held it then." },
+      },
+      choices = { { text = "The south road, then.", next = "BACK", fx = { affinity = 2, standing = { sepulcher = 1 } } } },
+    },
+    mage = {
+      lines = {
+        { id = "ma_default", text = "Then Dalar will want you, though he'll talk your ear off first. Dalaran's mages at Ambermill are building something, and I don't care what it is so long as it doesn't work. Find out, and break it." },
+        { id = "ma_dalaran", when = { origin = "forsaken_dalaran_apprentice" },
+          text = "Dalaran-trained, and they'd know your face. Good; let them see you, and wonder how much of their work you can still read." },
+      },
+      choices = {
+        { text = "Break it, and learn what I can first.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Break it, as ordered. Nothing more.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+      },
+    },
+    hunter = {
+      lines = {
+        { id = "hu_default", text = "A living hunter, in my forest. Worgen don't leave tracks like wolves; they walk upright when they think nobody's looking, so look for the prints that change halfway. My deathstalkers learned that the hard way." },
+        { id = "hu_pet", when = { pet = { type = "Beast" } },
+          text = "Keep {pet} close in these woods. The worgen hate a living beast's scent nearly as much as they hate ours, and they'll go for it first." },
+      },
+      choices = { { text = "Prints that change. I'll watch for them.", next = "BACK", fx = { affinity = 2, trait = { cautious = 1 } } } },
     },
     threats = {
       big = true,
       lines = {
         { id = "t_default", text = "The worgen of the south, Arugal's beasts, and the Scourge to the east, and Dalaran's mages poking about Ambermill. And the gnolls, who don't know when to stop." },
       },
-      choices = { { text = "I'll help hold the line.", next = "END", fx = { affinity = 2, trait = { brave = 1 } } } },
+      choices = { { text = "I'll help hold the line.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } } },
     },
   },
 
@@ -98,7 +145,31 @@ P:NPC {
           text = "The trail leads to a lich called Thule Ravenclaw. Bethor Iceshard in the Undercity knew him once, so tread carefully." },
         { id = "h_samples", when = { metBefore = true }, text = "The samples spoiled again in the damp. Silverpine rots everything, which is ideal for some studies and infuriating for others." },
       },
-      choices = { { text = "I'll gather what you need.", next = "END", fx = { affinity = 1 } } },
+      choices = {
+        { text = "What makes the Rot Hide sickness?", next = "rothide" },
+        { text = "The Rot Hide sickness reminds me of the Cult's work.", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "Could I coat my blades with any of this?", next = "rogue", when = { class = "ROGUE" } },
+        { text = "I'll gather what you need.", next = "END", fx = { affinity = 1 } },
+      },
+      again = {
+        { id = "h_again", text = "Yes? And keep your hands at your sides." },
+      },
+    },
+    rothide = {
+      lines = { { id = "rh_default", text = "That's what I mean to find out. It isn't natural to gnolls, it smells of the Scourge's cauldrons, and it's been made to spread. Somebody brewed it, and I want their notes." } },
+      choices = { { text = "Then I'll find who brewed it.", next = "BACK", fx = { affinity = 1, trait = { curious = 1 } } } },
+    },
+    warlock = {
+      lines = {
+        { id = "wl_default", text = "Does it? Then you've seen the Cult's work closer than I'd like to ask about. Yes, it's the same hand, or someone who learned from it. Tell me what else you recognize when you bring the ichor." },
+        { id = "wl_cult", when = { origin = "forsaken_cult_remnant" },
+          text = "You'd know, wouldn't you? I've heard what you were. Help me trace this sickness back to whoever made it, and you'll be undoing a little of your own work." },
+      },
+      choices = { { text = "I'll tell you what I recognize.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    rogue = {
+      lines = { { id = "ro_default", text = "Absolutely not, unless you'd like your blade to rot in its sheath and your hand with it. Ask in the Undercity for proper poisons; mine are for studying, not stabbing." } },
+      choices = { { text = "Studying, not stabbing. Fair.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 
@@ -142,7 +213,41 @@ P:NPC {
       },
       choices = {
         { text = "What did you warn them about?", next = "warned" },
+        { text = "I studied magic too. What would you teach me?", next = "mage", when = { class = "MAGE", race = "Scourge" } },
+        { text = "An orc mage, Archmage. Go on, laugh.", next = "orcmage", when = { race = "Orc", class = "MAGE" } },
+        { text = "I deal with the Nether, Archmage. Spare me the lecture.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "I'll help.", next = "END", fx = { affinity = 1 } },
+      },
+      again = {
+        { id = "h_again", text = "What else? I'm glad of a mind to talk to, so don't waste it." },
+      },
+    },
+    mage = {
+      big = true,
+      lines = {
+        { id = "ma_default", text = "To distrust anyone who says a spell is safe, starting with yourself. Dalaran taught that power should be studied before it's used, and then forgot its own lesson every time someone clever enough came along." },
+        { id = "ma_dalaran", when = { origin = "forsaken_dalaran_apprentice" },
+          text = "An apprentice of the Kirin Tor, before? Then you've already learned half of what they teach and none of what they hide. Stay with me a season, and I'll fix that." },
+      },
+      choices = {
+        { text = "Power should be studied first. Dalaran was right about that.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Power is for using. Caution is how Dalaran fell.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "What do they hide?", next = "mage_hide" },
+      },
+    },
+    mage_hide = {
+      lines = { { id = "mh_default", text = "Their mistakes, chiefly. Arugal is the one you can see from here, howling in the woods. There are others in their records, and the Kirin Tor are very good at losing records." } },
+      choices = { { text = "Then I'll go looking for records.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } } },
+    },
+    orcmage = {
+      lines = { { id = "om_default", text = "Laugh? The Kirin Tor spent the Second War insisting your people could manage nothing subtler than a warlock's fire. Watching you prove them wrong is the most pleasure I've had since I died, so don't spoil it by being careless." } },
+      choices = { { text = "I won't be careless.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    warlock = {
+      lines = { { id = "wl_default", text = "Spare you? I watched Kel'Thuzad bargain with the Nether in the halls of Dalaran, and I watched where it led him. You'll get the lecture whether you want it or not, so keep your bargains small and your exits close." } },
+      choices = {
+        { text = "Small bargains, close exits. Understood.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Kel'Thuzad simply bargained badly.", next = "BACK", fx = { affinity = -2, align = { light = -1 } } },
       },
     },
     warned = {
@@ -150,7 +255,7 @@ P:NPC {
       lines = {
         { id = "w_default", text = "Many things, and Dalaran preferred not to hear any of them. I was there when Kel'Thuzad called the demon down; I'd have liked to be wrong." },
       },
-      choices = { { text = "And now?", next = "END", fx = { affinity = 2, trait = { curious = 1 } } } },
+      choices = { { text = "And now?", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } } },
     },
   },
 
@@ -193,7 +298,29 @@ P:NPC {
           text = "The Weaver is Dalaran's, and dangerous. Remove that problem, and quietly, if you can." },
         { id = "h_watchers", when = { metBefore = true }, text = "One of my watchers came back from the north with a story I don't believe, and I wrote it down anyway. That's the work." },
       },
-      choices = { { text = "What do you want me to learn?", next = "END", fx = { affinity = 1, trait = { curious = 1 } } } },
+      choices = {
+        { text = "What do you want me to learn?", next = "END", fx = { affinity = 1, trait = { curious = 1 } } },
+        { text = "I'm good in the shadows. Make me one of your watchers.", next = "rogue", when = { class = "ROGUE" } },
+        { text = "A living face could cross the border easier.", next = "living", when = { race = { "Orc", "Troll", "Tauren" } } },
+      },
+      again = {
+        { id = "h_again", text = "Something else? Lower your voice, though; even crypts have ears." },
+      },
+    },
+    rogue = {
+      lines = {
+        { id = "ro_default", text = "You might be, in time. My watchers go where they're sent and report what they see, not what they think, and the second part is harder than it sounds. Start with the border, and tell me only what happened." },
+        { id = "ro_deathstalker", when = { origin = "forsaken_deathstalker_recruit" },
+          text = "Hadrec has the deathstalkers, and I have the watchers, and they're not quite the same trade. His kill quietly; mine listen quietly. Try mine for a while." },
+      },
+      choices = {
+        { text = "Only what happened. No opinions.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "My opinions are worth hearing too.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+      },
+    },
+    living = {
+      lines = { { id = "lv_default", text = "Easier past the Alliance, harder past the worgen, who prefer warm meat. But yes, the travellers at the border would talk to you before they'd talk to one of us. Do ask them where they're going, and remember the answers." } },
+      choices = { { text = "I'll remember everything.", next = "BACK", fx = { affinity = 2 } } },
     },
   },
 
@@ -235,7 +362,17 @@ P:NPC {
         { id = "h_cobwebs", when = { metBefore = true }, text = "I swept the cobwebs out of the east crypt this morning, and the spiders were back by noon. We've come to an arrangement." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Hear the howling? That's worgen, out past the trees. Listen long enough and you can tell them apart, and I wish I couldn't." },
       },
-      choices = { { text = "Just a rest, thanks.", next = "END" } },
+      choices = {
+        { text = "Do you get many living guests out here?", next = "living", when = { race = { "Orc", "Troll", "Tauren" } } },
+        { text = "Just a rest, thanks.", next = "END" },
+      },
+      again = {
+        { id = "h_again", text = "Anything else? The fire's not going anywhere." },
+      },
+    },
+    living = {
+      lines = { { id = "lv_default", text = "One or two a season, and I keep a cask of water and some hard bread for them. You'd be surprised how much the living need: food, sleep, blankets. Exhausting, I'd imagine, but I do envy the bread." } },
+      choices = { { text = "The bread's not that good.", next = "BACK", fx = { affinity = 2 } } },
     },
   },
 

@@ -58,6 +58,8 @@ P:NPC {
         { text = "The land here is wounded. Can it heal?", next = "druid", when = { class = "DRUID" } },
         { text = "Does the Circle mind the Horde here?", next = "horde", when = { faction = "Horde" } },
         { text = "Rabine Saturna sends his regards.", next = "rabine", when = { questDone = TODO_QUEST("Wasteland") } },
+        { text = "Would you free my soul too, druid?", next = "x_forsaken", when = { race = "Scourge" } },
+        { text = "I bind souls, druid. Does that trouble you?", next = "x_warlock", when = { class = "WARLOCK" } },
         { text = "Elune keep you, Layo.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -171,6 +173,34 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    x_forsaken = {
+      lines = {
+        { id = "xf_default", text = "I believe every soul deserves its rest, whatever banner it fell under, but I would not presume to tell you that yours is restless. You walk, you speak and you chose to come here, and that is more freedom than the dead of Southwind were ever given." },
+      },
+      choices = {
+        { text = "I'm free enough as I am. Leave my soul be.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Perhaps one day I'll ask you for that rest.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Something else, Layo.", next = "BACK" },
+      },
+    },
+    x_warlock = {
+      lines = {
+        { id = "xwl_default", text = "It does, and I would be lying if I said otherwise, here among graves I have sworn to keep. But you came to Valor's Rest and told me plainly, and I would rather speak with an honest warlock than a dishonest priest." },
+      },
+      choices = {
+        { text = "The souls I take belong to my enemies.", next = "x_warlock_enemies" },
+        { text = "Power is power, druid.", next = "BACK", fx = { affinity = -1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_warlock_enemies = {
+      lines = { { id = "xwe_default", text = "So the Twilight's Hammer would have said of the druids and sentinels they tortured at Southwind. I do not say you are like them, only that the reasoning sounds the same, and I hope you will think on it." } },
+      choices = {
+        { text = "I'll think on it, Layo.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Their reasoning isn't my concern. My enemies are.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -238,6 +268,8 @@ P:NPC {
         { text = "What's in this True Believer of theirs?", next = "bulletin", when = { any = { { questActive = TODO_QUEST("True Believers") }, { questDone = TODO_QUEST("True Believers") } } } },
         { text = "The cult hates the Light, doesn't it?", next = "priest", when = { class = "PRIEST" } },
         { text = "Another human, hiding in a desert cave?", next = "human", when = { race = "Human" } },
+        { text = "Would the cult have welcomed someone like me?", next = "x_warlock", when = { class = "WARLOCK" } },
+        { text = "The cult worships the elements. My people respect them.", next = "x_shaman", when = { class = "SHAMAN" } },
         { text = "I'll leave you to your hiding.", next = "END" },
       },
     },
@@ -331,6 +363,26 @@ P:NPC {
       lines = { { id = "hm_default", text = "We do get everywhere, don't we? Like rats, and cultists. I'd go home if I had one left that the Hammer didn't know about." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    x_warlock = {
+      lines = {
+        { id = "xw_default", text = "Welcomed you? They'd have handed you a robe and a candle and a seat near the front, and then they'd have watched you very closely indeed. The Hammer loves anyone who can talk to things that shouldn't be talked to, right up until you start asking what those things are saying back." },
+      },
+      choices = {
+        { text = "I'd have taken the robe and robbed them blind.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'd never kneel to madmen like that.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_shaman = {
+      lines = {
+        { id = "xs_default", text = "Respect, yes, and that's the whole difference, isn't it? The cult doesn't listen to the wind or the stone; it wants the great lords of fire and air to come and end everything, and it thinks kneeling low enough will earn it mercy." },
+      },
+      choices = {
+        { text = "The elemental lords won't spare anyone.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "Maybe the spirits were listening and chose not to answer.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -395,6 +447,7 @@ P:NPC {
         { text = "Who's the monkey?", next = "monkey" },
         { text = "I'll carry word to Ironforge myself.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Did the rubbings make any sense?", next = "glyphs", when = { questDone = TODO_QUEST("Glyph Chasing") } },
+        { text = "A gnome could help with those glyphs, Rutgar.", next = "x_gnome", when = { race = "Gnome" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -452,6 +505,15 @@ P:NPC {
       lines = { { id = "m_default", text = "Glibb. Don't ask; he's a monkey, and he saved all our hides when Natalia went wild, so he eats first now." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    x_gnome = {
+      lines = {
+        { id = "xg_default", text = "Could ye, now? We've got a heap of languages between us in this camp and not one of them makes these glyphs sit still, but I've seen a gnome read a broken gear like a storybook, so maybe ye'll have better luck. Mind the monkey; he's got opinions about small folk." },
+      },
+      choices = {
+        { text = "Let me have a look at them.", next = "BACK", fx = { affinity = 1, trait = { curious = 1 } } },
+        { text = "Glyphs aren't gears, Rutgar.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
   },
 
   topics = {
@@ -508,6 +570,7 @@ P:NPC {
         { text = "How many languages did you say?", next = "languages" },
         { text = "What do you want with silithid brains?", next = "brains", when = { any = { { questActive = TODO_QUEST("Breaking the Code") }, { questDone = TODO_QUEST("Breaking the Code") } } } },
         { text = "Those spells she used... I know them.", next = "priest", when = { class = "PRIEST" } },
+        { text = "Natalia's magic: was it arcane at all?", next = "x_mage", when = { class = "MAGE" } },
         { text = "I'll let you watch your sky.", next = "END" },
       },
     },
@@ -557,6 +620,15 @@ P:NPC {
         { text = "It can be learned. Shadow isn't madness on its own.", next = "BACK", fx = { align = { light = -1 }, trait = { curious = 1 } } },
         { text = "Something got into her. No priestess of the Light does that.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_mage = {
+      lines = {
+        { id = "xm_default", text = "Arcane? Not like any spell I've seen a mage throw, and I've seen a few in my day, mostly aimed at me. She talked to someone who wasn't there, and when she turned on us it was our heads that hurt, not our skin, so ye tell me what kind of magic that is." },
+      },
+      choices = {
+        { text = "That sounds like shadow, not arcane.", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "Something else, Frankal.", next = "BACK" },
       },
     },
   },

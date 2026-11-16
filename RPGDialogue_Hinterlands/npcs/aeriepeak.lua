@@ -37,6 +37,8 @@ P:NPC {
           text = "Ye've been tae Ironforge an' stood before Bronzebeard, have ye? He's a fine king, for a dwarf who never leaves the ground." },
         { id = "h_sharpbeak", tags = { "news" }, when = { questRecent = { TODO_QUEST("Saving Sharpbeak"), days = 3 } },
           text = "Sharpbeak's home! The whole aviary sang last night. Ye've a friend in every Wildhammer on this peak now, an' a few o' the gryphons too." },
+        { id = "h_xkin", when = { origin = "dwarf_wildhammer_kin" },
+          text = "Ha! There's Aerie Peak in yer face, for all ye were raised under a mountain. Kin's kin, an' the eyrie's open to ye any time ye like." },
       },
       again = {
         { id = "h_again", text = "What else? Out wi' it, for I've trolls tae think about!" },
@@ -50,6 +52,10 @@ P:NPC {
         { text = "Ironforge sends its regards.", next = "bronzebeard", when = { race = "Dwarf" } },
         { text = "My people glide on the wind.", next = "skyborne", when = { race = "Skyborne" } },
         { text = "Do the Wildhammer count me a friend yet?", next = "friend", when = { townStanding = { town = "aerie_peak", min = 30 } } },
+        { text = "My beast and I could fly with your riders.", next = "xhunter", when = { class = "HUNTER" } },
+        { text = "Point me at the trolls, thane.", next = "xwarrior", when = { class = "WARRIOR" } },
+        { text = "The Hinterlands' forests are sick. I can feel it.", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Could a gnome ride one of your gryphons?", next = "xgnome", when = { race = "Gnome" } },
         { text = "I'm here to fight trolls.", next = "END", fx = { affinity = 2, trait = { brave = 1 }, standing = { aerie_peak = 1 } } },
       },
     },
@@ -131,6 +137,36 @@ P:NPC {
         { text = "Fair enough, Thane.", next = "BACK" },
       },
     },
+    xhunter = {
+      lines = { { id = "xhu_default", text = "Fly wi' us? Ye'd need a gryphon, an' a gryphon chooses its rider, not the other way round. But a hunter who knows a beast's mind is halfway to bein' a Wildhammer, so go an' sit wi' the birds a while an' see if one takes to ye." } },
+      choices = {
+        { text = "And if none of them does?", next = "gryphons" },
+        { text = "My beast is enough for me.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    xwarrior = {
+      big = true,
+      lines = { { id = "xwa_default", text = "That's the spirit! The Vilebranch are at Jintha'Alor an' the Witherbark at Shadra'Alor, an' the Revantusk sit at the coast wi' the Horde. Hit the first two as hard as ye like; the third I'm still makin' my mind up about." } },
+      choices = {
+        { text = "A troll's a troll. They'll all fall.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "I'll leave the Revantusk to you, then.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Why not the Revantusk?", next = "trolls" },
+      },
+    },
+    xdruid = {
+      lines = { { id = "xdr_default", text = "Ye can, can ye? So can we, in our own way; a Wildhammer knows when the wind's wrong an' the trees have gone quiet. It's the Vilebranch an' their altars, an' whatever they're feedin' wi' all that blood." } },
+      choices = {
+        { text = "Then I'll help heal it.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Ask Fraggar. He listens too.", next = "allies" },
+      },
+    },
+    xgnome = {
+      lines = { { id = "xgn_default", text = "Could ye! A gryphon could carry three o' ye an' a picnic. The trouble's no' the weight; it's keepin' ye from tryin' to fit the bird wi' an engine, an' I've heard about gnomes an' engines." } },
+      choices = {
+        { text = "An engine would be an improvement.", next = "BACK", fx = { affinity = -1, trait = { witty = 1 } } },
+        { text = "No engines. Just the bird.", next = "BACK", fx = { affinity = 2 } },
+      },
+    },
   },
 
   topics = {
@@ -192,6 +228,7 @@ P:NPC {
         { text = "You'd rather be flying?", next = "flying" },
         { text = "What's Rhapsody brewing?", next = "rhapsody" },
         { text = "My pet won't bother your birds.", next = "pet", when = { class = "HUNTER" } },
+        { text = "My people ride hippogryphs. Are they so different?", next = "xnightelf", when = { race = "NightElf" } },
         { text = "I'll go.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -225,6 +262,13 @@ P:NPC {
     pet = {
       lines = { { id = "p_default", text = "It willnae; it's the birds I'm worried about botherin' it, so keep it close." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xnightelf = {
+      lines = { { id = "xne_default", text = "Different enough that I'd not let one in my aerie, an' I'd say the same o' a gryphon in yer forests. Yer hippogryphs are pretty an' quick; a gryphon's a brawler wi' wings, an' that's what ye want against trolls." } },
+      choices = {
+        { text = "Pretty and quick wins most fights.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Brawlers have their place.", next = "BACK", fx = { affinity = 1 } },
+      },
     },
   },
 
@@ -279,6 +323,7 @@ P:NPC {
         { text = "An Ironforge dwarf who hears the elements. What do you make of me?", next = "dwarfshaman", when = { race = "Dwarf", class = "SHAMAN" } },
         { text = "I hear them too.", next = "hear", when = { class = { "SHAMAN", "DRUID" } } },
         { text = "I'll help the spirits.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Your spirits flinch when I come near, old man.", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "The spirits can fend for themselves, old man.", next = "END", fx = { align = { light = -1 } } },
       },
     },
@@ -319,6 +364,14 @@ P:NPC {
     hear = {
       lines = { { id = "h2_default", text = "Then ye'll know what I mean when I say this land's grievin'. Sit wi' me a moment some evenin', for they speak easier tae two." } },
       choices = { { text = "I will.", next = "BACK", fx = { affinity = 2, trait = { pious = 1 } } } },
+    },
+    xwarlock = {
+      big = true,
+      lines = { { id = "xwl_default", text = "Aye, they do, an' so would I if my eyes were better. Whatever ye carry, it's no' from this world, an' the land here's sick enough already wi' troll blood on the altars." } },
+      choices = {
+        { text = "I'll keep it bound while I'm here.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The land will have to bear it.", next = "BACK", fx = { affinity = -2, align = { light = -1 } } },
+      },
     },
   },
 
@@ -363,6 +416,8 @@ P:NPC {
           text = "Innkeeper Thulfram, at yer service. Gryphon riders, hunters, wanderers: they all end up at my bar. Stay as long as ye like." },
         { id = "h_tale", when = { metBefore = true }, text = "A rider came in last night swearin' his gryphon talked tae him, though he'd had three ales first. Still, I've no' heard a better story all week." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "The gryphons settle late, an' ye can hear 'em croonin' in the aviary if the fire's low. It's the best sound in the Hinterlands." },
+        { id = "h_xkin", when = { origin = "dwarf_wildhammer_kin" },
+          text = "Yer Aerie Peak kin have drunk at this very bar, I'd wager, by the look o' ye. Sit by the fire, an' if anyone from Ironforge gives ye grief about yer kin, send them to me." },
       },
       again = { { id = "h_again", text = "Anythin' else? Yer mug's no' empty yet." } },
       choices = {

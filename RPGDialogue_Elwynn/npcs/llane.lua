@@ -52,6 +52,9 @@ P:NPC {
         { text = "How do I stop getting knocked down?", next = "stance", when = { class = "WARRIOR", maxLevel = 12 } },
         { text = "I've fought a long way from this hall since.", next = "veteran", when = { class = "WARRIOR", minLevel = 20 } },
         { text = "Anything for a priest to learn in here?", next = "priest", when = { class = "PRIEST" } },
+        { text = "Do you train dwarves the same as humans?", next = "dwarf", when = { race = "Dwarf", class = "WARRIOR" } },
+        { text = "Can a gnome really learn your stance?", next = "gnome", when = { race = "Gnome", class = "WARRIOR" } },
+        { text = "What do you think of the other trainers here?", next = "trainers" },
         { text = "Later.", next = "END" },
       },
     },
@@ -118,6 +121,18 @@ P:NPC {
     priest_fight = {
       lines = { { id = "pf_default", text = "Then you'll fight and heal yourself, and nobody will heal me. Pick a job and do it well." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { stern = 1 } } } },
+    },
+    dwarf = {
+      lines = { { id = "dwarf_l", text = "No. I train humans to plant their feet, and I train dwarves to lift theirs now and then, because a dwarf who never steps gets surrounded. Different mistakes, same bruises." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    gnome = {
+      lines = { { id = "gnome_l", text = "Learn it? I've changed it for you. Lower, wider and angry, because a kobold your size is a fair fight, and you'll get in under anything bigger." } },
+      choices = { { text = "Lower, wider, angry. Got it.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } } },
+    },
+    trainers = {
+      lines = { { id = "trainers_l", text = "Anetta mends what I break, Bremen keeps his recruits away from my yard, and Kerridan behind the stables thinks I can't hear him laughing at my drills. I can, and I'm keeping count." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
   },
 

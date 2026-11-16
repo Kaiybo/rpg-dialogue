@@ -17,6 +17,12 @@ P:Origin {
     { id = "skyborne_thendal_ranger", name = "Ranger of Thendal Grove",
       blurb = "I walked the paths around Thendal Village. These forests are bigger, and quieter, and not mine.",
       nudge = { trait = { cautious = 1 } } },
+    { id = "skyborne_empyrean_recruit", name = "Recruit of the Empyrean Blades", class = "WARRIOR",
+      blurb = "The Empyrean Blades guarded the Shal'nan once, and I trained to be worthy of them. There's no Shal'nan now, and no isle to guard, so I guard what I can.",
+      nudge = { trait = { stern = 1 }, align = { order = 2 } } },
+    { id = "skyborne_nightclaw", name = "Initiate of the Nightclaw Druids", class = "DRUID",
+      blurb = "The Nightclaw kept to Shadowgale Forest and their own counsel. They let me learn a little of their ways before we fell, and asked me never to speak of the rest.",
+      nudge = { trait = { cautious = 1 }, align = { order = -1 } } },
     { id = "other", name = "Other" },
   },
 }

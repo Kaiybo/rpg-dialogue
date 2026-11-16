@@ -51,6 +51,7 @@ P:NPC {
         { text = "What goes in a pork belly pie?", next = "pie" },
         { text = "Billy let slip he dropped it.", next = "billy_slip", when = { heardLine = "billy.s_slip" } },
         { text = "You said those were your husband's.", next = "husband", when = { questDone = TODO_QUEST("Goldtooth") } },
+        { text = "A gnome could build you a better oven, Auntie.", next = "gnome", when = { race = "Gnome" } },
         { text = "I'll leave you to your baking.", next = "END" },
       },
     },
@@ -154,6 +155,17 @@ P:NPC {
         { text = "I didn't know him, Bernice, so the prayer's better from you.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
+    gnome = {
+      lines = { { id = "gnome_l", text = "Could they now? My oven's older than my husband was, and it's never once exploded, which I'm told is more than gnome ovens can say." } },
+      choices = {
+        { text = "Only the early models.", next = "gnome2", fx = { trait = { witty = 1 } } },
+        { text = "Fair. Keep your oven.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    gnome2 = {
+      lines = { { id = "gnome2_l", text = "Well, you build me one of the late models and I'll bake you a pie in it, and if the farm's still standing after, I'll bake you two." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
   },
 
   topics = {
@@ -212,6 +224,7 @@ P:NPC {
         { text = "What will you do with the collar?", next = "collar", when = { questDone = TODO_QUEST("Princess Must Die!") } },
         { text = "My pet could deal with her.", next = "hunter", when = { class = "HUNTER" } },
         { text = "Westfall lost whole farms to the Defias.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
+        { text = "I could ask Princess to leave, the druid's way.", next = "druid", when = { class = "DRUID" } },
         { text = "Good luck with the crop.", next = "END" },
       },
     },
@@ -292,6 +305,13 @@ P:NPC {
       choices = {
         { text = "No. It isn't.", next = "BACK", fx = { affinity = 1, opinion = { westfall = "abandoned" } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid = {
+      lines = { { id = "druid_l", text = "Ask her? That pig doesn't listen to the Brackwells, and they feed her. If you can talk sense into her, you're welcome to try, but I've my doubts, and so does the cabbage patch." } },
+      choices = {
+        { text = "Some beasts can't be reasoned with.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "I'll try kindness first.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
       },
     },
   },

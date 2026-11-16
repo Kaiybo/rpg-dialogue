@@ -61,6 +61,7 @@ P:NPC {
         { text = "Tell me about the Furlbrows.", next = "furlbrows" },
         { text = "You do a priest's work with that ladle.", next = "priest", when = { class = "PRIEST" } },
         { text = "Any tricks for a fellow cook?", next = "cook", when = { profession = "Cooking" } },
+        { text = "Could you spare a scrap for {pet}?", next = "pet", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "I'd best be off.", next = "END" },
       },
     },
@@ -189,6 +190,17 @@ P:NPC {
         { text = "Fair enough, Salma.", next = "BACK" },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    pet = {
+      lines = { { id = "pet_l", text = "Oh, look at the poor thing, ribs like a fence. Here, the end of the stew bone; nobody goes hungry at my fire, and that includes the four-legged." } },
+      choices = {
+        { text = "Thank you, Salma. {pet} won't forget.", next = "pet2", fx = { affinity = 2 } },
+        { text = "{pet} hunts for itself, but thank you.", next = "pet2", fx = { trait = { stern = 1 } } },
+      },
+    },
+    pet2 = {
+      lines = { { id = "pet2_l", text = "Hunting out here? There's nothing left to hunt but vultures and the Furlbrows' old cow. Take the bone." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 

@@ -2,6 +2,13 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.9.0 (2026-11-16)
+- New people: Dun Morogh's roads: Rudra Amberstill, Tundra MacGrann, Pilot Bellowfiz and Hegnar Rumbleshot.
+- New files: exit the game fully and restart.
+
+## 1.8.0 (2026-11-15)
+- Magni, Mekkatorque and Rohan answer dwarf shamans, warlocks, gnome mages, rogues and warriors; the Military and Mystic Ward trainers talk about their class; 35 people in all.
+
 ## 1.7.0 (2026-11-15)
 - 23 new people: the Mystic Ward's priests (High Priest Rohan, Theodrus Frostbeard, Toldren Deepiron, Braenna Flintcrag), Tiza and Muiredon Battleforge, Bink, Milstaff Stormeye; Sara Balloo and the Military Ward's trainers; Tinker Town (Overspark, Castpipe, Klockmort, Gnoarn); the Hall of Explorers and the Commons (Thorius, Mae Paledust, Karnik, Belgrum, Marblesten, Gryth Thurden, Hulfdan Blackbeard).
 - Every person writes a first impression in your diary.

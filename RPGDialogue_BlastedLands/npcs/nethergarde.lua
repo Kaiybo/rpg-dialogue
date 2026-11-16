@@ -61,6 +61,9 @@ P:NPC {
         { text = "Do your clerics need another pair of hands?", next = "priest", when = { class = "PRIEST" } },
         { text = "Demons don't frighten me. I keep one at my heel.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "The powerstones came in time, then?", next = "powerstones", when = { questDone = TODO_QUEST("Supplies for Nethergarde") } },
+        { text = "What do your soldiers need most, Quartermaster?", next = "k_warrior", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "Does the keep need fresh meat? I hunt.", next = "k_hunter", when = { class = "HUNTER" } },
+        { text = "A gnome could keep your powerstones working.", next = "k_gnome", when = { race = "Gnome" } },
         { text = "I'll keep an eye out for your crates.", next = "END", fx = { affinity = 1, standing = { nethergarde = 1 } } },
       },
     },
@@ -225,6 +228,37 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    k_warrior = {
+      lines = {
+        { id = "xwa_default", text = "Boots, first, because the red clay eats them in a month, then whetstones, then sleep, and I can only supply the first two. Every soldier on that wall has walked the Darkshire road, and every one of them would trade a week's pay for a night without ogres." },
+        { id = "xwa_dwarf", when = { race = "Dwarf" },
+          text = "Boots, whetstones and sleep, in that order, though your folk seem to manage without the third. I've two dozen dwarves on the south wall and they've worn out more boots than the rest of the keep together." },
+      },
+      choices = {
+        { text = "Put me on the wall for a night, then.", next = "BACK", fx = { affinity = 2, standing = { nethergarde = 1 } } },
+        { text = "Soldiers grumble. That's how you know they're alive.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+      },
+    },
+    k_hunter = {
+      lines = {
+        { id = "xhu_default", text = "Not from out there, it doesn't, and I'll thank you not to bring any in. The beasts in these wastes have drunk the Portal's water so long that Drazial bottles them for strength, and I'm not feeding that to a garrison." },
+        { id = "xhu_pet", when = { pet = { type = "Beast" } },
+          text = "Not from out there, and keep your companion from eating anything it finds, either. The beasts in these wastes have drunk the Portal's water too long, and I've seen what it does to a hound's temper." },
+      },
+      choices = {
+        { text = "My beast eats what I give it, nothing else.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
+        { text = "Who's Drazial?", next = "wastes_others" },
+      },
+    },
+    k_gnome = {
+      lines = {
+        { id = "xgn_default", text = "Could it? The mages say powerstones are a matter for the arcane and not for spanners, and the last gnome who opened one spent a week deaf in one ear. I'll write you down as available, and you can argue it out with Mahar Ba." },
+      },
+      choices = {
+        { text = "Ears recover. Wards don't.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -270,6 +304,8 @@ P:NPC {
       text = "I can feel the fel on you from across the room, warlock. Mind it near the wards, please; they were made to keep your sort of power out, and they're not subtle about it." },
     { id = "n_kaldorei", cat = "race", when = { race = "NightElf" },
       text = "A night elf at Nethergarde! Your people fought the Legion ten thousand years ago, and I'd give a great deal to know what you remember of it." },
+    { id = "n_skyborne", cat = "race", when = { race = "Skyborne" },
+      text = "Forgive me, I'm staring; you're one of the people Dalaran's letters call the Skyborne, and I've only read about you by lamplight." },
   },
 
   start = "hello",
@@ -298,6 +334,9 @@ P:NPC {
         { text = "Dalaran trained me. Does Nethergarde still answer to it?", next = "mage", when = { class = "MAGE" } },
         { text = "My people remember the Legion. We never forget.", next = "kaldorei", when = { race = "NightElf" } },
         { text = "The fel here is power, Watcher, wasted on wards.", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "The Kirin Tor took my people in, Watcher.", next = "k_sky", when = { race = "Skyborne" } },
+        { text = "The stone here is screaming, Watcher.", next = "k_shaman", when = { race = "Dwarf", class = "SHAMAN" } },
+        { text = "Could a druid heal this land?", next = "k_druid", when = { class = "DRUID" } },
         { text = "I'll leave you to your readings.", next = "END" },
       },
     },
@@ -434,6 +473,37 @@ P:NPC {
         { text = "Fair enough. I respect the wards.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
       },
     },
+    k_sky = {
+      lines = {
+        { id = "xsk_default", text = "So I've read, in letters from Dalaran that arrive three months late and smelling of the road, about a Sky Enclave and a people from the Plane of Air! I've a hundred questions, and I'll limit myself to one: did you ever watch a portal open, where you came from, and was it anything like this?" },
+      },
+      choices = {
+        { text = "Nothing like this. This place feels wrong.", next = "BACK", fx = { affinity = 2, trait = { cautious = 1 } } },
+        { text = "I'd rather not talk about where I came from.", next = "BACK", fx = { affinity = -1 } },
+      },
+    },
+    k_shaman = {
+      big = true,
+      lines = {
+        { id = "xsh_default", text = "Screaming. I measure it with crystals and charts and call it residue, and you put your hand on the ground and call it screaming, and I can't honestly say which of us is closer. Does it say what would quiet it?" },
+      },
+      choices = {
+        { text = "Close the Portal for good. Seal it.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Let the land heal its own way. Stop watching.", next = "BACK", fx = { align = { order = -1 }, affinity = -1 } },
+        { text = "How do you measure it?", next = "watch_tear" },
+      },
+    },
+    k_druid = {
+      lines = {
+        { id = "xdr_default", text = "I have wondered, on long nights, whether a grove could take root here, and every soil sample tells me it would die before it flowered. But I'm a mage, and we tend to believe the samples; perhaps a druid knows better." },
+        { id = "xdr_elf", when = { race = "NightElf" },
+          text = "Your people healed the land after the Legion's first war, the books say, and that was a war beside which this is a scratch. If anyone could, I'd wager on a druid of the Cenarion Circle, though I'd still wager small." },
+      },
+      choices = {
+        { text = "Any land can heal, given time.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Some wounds are meant to stay open, as warnings.", next = "BACK", fx = { align = { light = -1 } } },
+      },
+    },
   },
 
   topics = {
@@ -505,6 +575,9 @@ P:NPC {
         { text = "Darker knowledge has a price, diviner.", next = "priest", when = { class = "PRIEST" } },
         { text = "You're a long way from Aerie Peak, cousin.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Sharpbeak's home, safe with his mother.", next = "home", when = { questDone = TODO_QUEST("Saving Sharpbeak") } },
+        { text = "I speak with the spirits too, Thadius.", next = "k_shaman", when = { class = "SHAMAN" } },
+        { text = "My beast could track Sharpbeak's scent.", next = "k_hunter", when = { class = "HUNTER" } },
+        { text = "Your divinations smell of my own arts.", next = "k_lock", when = { class = "WARLOCK" } },
         { text = "I'll leave you to your chalk.", next = "END" },
       },
     },
@@ -614,6 +687,37 @@ P:NPC {
       lines = { { id = "ho_default", text = "Ha! Then it was worth every hair I singed. Drink tae him for me next time ye're in a Wildhammer hall, an' don't tell them who's buyin'." } },
       choices = { { text = "To Sharpbeak.", next = "BACK", fx = { affinity = 2 } } },
     },
+    k_shaman = {
+      big = true,
+      lines = {
+        { id = "xsh_default", text = "Do ye, now? Then ye'll know that what I do here isnae what the shamans o' Aerie Peak taught me, an' ye'll know why they'd no' have me back. Spirits answer a respectful question; I've stopped askin' respectfully." },
+        { id = "xsh_wild", when = { origin = "dwarf_wildhammer_kin" },
+          text = "Wildhammer blood an' a shaman's ear, an' ye've come tae look at what became o' one o' yer own. Aye, the Aerie's shamans taught me first, an' they'd no' have me back now, for I've stopped askin' the spirits respectfully." },
+      },
+      choices = {
+        { text = "The spirits deserve respect, Thadius. Go home.", next = "BACK", fx = { align = { light = 1 }, affinity = -1 } },
+        { text = "Results matter. The spirits will get over it.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
+        { text = "Why did you leave the Hinterlands?", next = "why" },
+      },
+    },
+    k_hunter = {
+      lines = {
+        { id = "xhu_default", text = "It could, if Sharpbeak were anywhere a beast could walk, which he isnae. The chalk tells me where he is, an' the chalk says Jintha'Alor, an' no beast o' yers is climbin' those troll steps without the Vilebranch noticin'." },
+      },
+      choices = {
+        { text = "Then my beast and I will go carefully.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    k_lock = {
+      lines = {
+        { id = "xlk_default", text = "They smell o' what this land smells of, an' I'll no' pretend otherwise. The difference between us is I only borrow the dark tae look through it, an' ye invite it tae stay for supper." },
+      },
+      choices = {
+        { text = "Borrowing is just inviting with poor manners.", next = "BACK", fx = { align = { light = -1 }, trait = { witty = 1 } } },
+        { text = "Then we should both be careful.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+      },
+    },
   },
 
   topics = {
@@ -679,7 +783,10 @@ P:NPC {
         { text = "What grows in the south?", next = "legion" },
         { text = "How does the garrison treat you?", next = "garrison" },
         { text = "The Light stands against demons, whoever else does.", next = "priest", when = { class = { "PRIEST", "PALADIN" } } },
-        { text = "Thrall would agree with you, elf.", next = "orc", when = { race = { "Orc", "Troll", "Tauren", "Undead" } } },
+        { text = "Thrall would agree with you, elf.", next = "orc", when = { race = { "Orc", "Troll", "Tauren", "Scourge" } } },
+        { text = "You'd use warlocks against the Legion, Ambassador?", next = "k_lock", when = { class = "WARLOCK" } },
+        { text = "My people fought the Legion ten thousand years ago.", next = "k_elf", when = { race = "NightElf" } },
+        { text = "My ancestors were Highborne, Ambassador.", next = "k_sky", when = { race = "Skyborne" } },
         { text = "Good day, Ambassador.", next = "END" },
       },
     },
@@ -784,6 +891,35 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    k_lock = {
+      big = true,
+      lines = {
+        { id = "xlk_default", text = "I would use anyone who knows the enemy's face, and you know it better than the soldiers on this wall. Whether that makes you a weapon or a warning, I haven't decided, and I'm not certain you have either." },
+      },
+      choices = {
+        { text = "A weapon. Point me south.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
+        { text = "A warning. I know what it costs.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "What grows in the south?", next = "legion" },
+      },
+    },
+    k_elf = {
+      lines = {
+        { id = "xel_default", text = "Then you need no lecture from me, and I'm glad of it, for I've given this one to every soldier on the wall and they look at me as if I'd grown a second head. Tell your Sentinels the Legion never forgot your forests, even if the humans never learned their name." },
+      },
+      choices = {
+        { text = "We remember. We'll stand with whoever stands against it.", next = "BACK", fx = { align = { order = -1 }, affinity = 2 } },
+        { text = "My people fight their own wars, elf.", next = "BACK", fx = { align = { order = 1 }, affinity = -1 } },
+      },
+    },
+    k_sky = {
+      lines = {
+        { id = "xsk_default", text = "Highborne. My people say the same of themselves, and we have spent ten thousand years not quite agreeing with yours about what it means. Still, an elf who knows what the Legion is needs no persuading, and I am tired of persuading." },
+      },
+      choices = {
+        { text = "Then we agree on the one thing that matters.", next = "BACK", fx = { affinity = 2 } },
+        { text = "My people chose exile over that kind of magic.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
+      },
+    },
   },
 
   topics = {
@@ -849,6 +985,7 @@ P:NPC {
         { text = "How do the dwarves find Nethergarde?", next = "dwarves" },
         { text = "To Ironforge, and to good ale!", next = "toast", when = { race = "Dwarf" } },
         { text = "I've had a few myself, if I'm honest.", next = "drunk", when = { drunk = true } },
+        { text = "I could steal the ale back, quiet-like.", next = "k_rogue", when = { class = "ROGUE" } },
         { text = "Enjoy your brew, Enohar.", next = "END" },
       },
     },
@@ -909,6 +1046,15 @@ P:NPC {
     drunk = {
       lines = { { id = "dr_default", text = "Then sit an' be honest with me; the soldiers here only drink on holidays, an' they hold it like gnomes. Just don't tell the Quartermaster I let ye." } },
       choices = { { text = "Your secret's safe.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    k_rogue = {
+      lines = {
+        { id = "xro_default", text = "Steal it back! Now there's a lad or lass after my own heart, though I'd no' call it stealin' when it was mine tae begin wi'. The Dark Irons keep it in their camp like it's treasure, which, tae be fair, it is." },
+      },
+      choices = {
+        { text = "Consider it reclaimed, not stolen.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } },
+        { text = "What's this about stolen ale?", next = "ale" },
+      },
     },
   },
 
@@ -1000,7 +1146,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Hungry? Course you are; everyone who comes up that road is. Have a look." },
-    { id = "g_back", when = { metBefore = true }, text = "Back for more? I'll take that as a compliment to the cooking." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again? Sit down, the stew's hot, and it's the only warm thing this side of the Keep." },
   },
 
   notice = {
@@ -1090,6 +1236,7 @@ P:NPC {
         { text = "What do the Blasted Lands do to armor?", next = "wear" },
         { text = "Is it hard to work out here?", next = "work" },
         { text = "I need repairs.", next = "BUSINESS" },
+        { text = "What's the clay done to my plate?", next = "k_plate", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "Never mind.", next = "END" },
       },
     },
@@ -1108,6 +1255,15 @@ P:NPC {
     work = {
       lines = { { id = "wk_default", text = "Coal comes up the same road as the bread, which means some weeks it doesn't come at all. I've learned tae work small and waste nothing." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    k_plate = {
+      lines = {
+        { id = "xpl_default", text = "Got intae every joint an' ground away at it, like it does tae everyone's. Plate's the worst for it, for the red dust sits in the hinges, so knock it out every night or ye'll be walkin' like a rusty gate by the week's end." },
+      },
+      choices = {
+        { text = "I'll knock it out every night.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
+        { text = "I need repairs.", next = "BUSINESS" },
+      },
     },
   },
 

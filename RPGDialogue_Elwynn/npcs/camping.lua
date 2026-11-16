@@ -48,6 +48,7 @@ P:NPC {
         { text = "The Marshal sent me to check on you.", next = "marshal", when = { questActive = TODO_QUEST("The Adventurer") } },
         { text = "Let me bless the fire.", next = "priest", when = { class = "PRIEST" } },
         { text = "I've slept rough from here to the jungle.", next = "far", when = { minLevel = 25 } },
+        { text = "A hunter sleeps rough with a beast for a pillow.", next = "hunter", when = { class = "HUNTER" } },
         { text = "Enjoy the fire.", next = "END" },
       },
     },
@@ -146,6 +147,21 @@ P:NPC {
         { text = "Raptor, once. Don't.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } },
         { text = "I don't talk about it.", next = "BACK", fx = { trait = { stern = 1 } } },
       },
+    },
+    hunter = {
+      lines = {
+        { id = "hunter_l", text = "Now that's the life! Warm on one side, and nobody sneaks up on you in the night, unless they're bigger than the beast. Does it snore, though? Everyone asks me about snoring." },
+        { id = "hunter_pet", when = { pet = { type = "Beast" } },
+          text = "And there's the pillow, right there! Does {pet} snore? Everyone asks me about snoring, and I've never had an answer for a beast." },
+      },
+      choices = {
+        { text = "Like a dwarf after a feast.", next = "hunter2", fx = { trait = { witty = 1 } } },
+        { text = "Never. It's always listening.", next = "hunter2", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    hunter2 = {
+      lines = { { id = "hunter2_l", text = "I'll put that in my next letter to the Marshal; he thinks camping's a hobby for fools. Pull up a log, if you like, and bring the pillow." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 

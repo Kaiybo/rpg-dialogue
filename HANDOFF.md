@@ -8,11 +8,14 @@ Short on purpose: current state and next step only. History is in `CHANGELOG.md`
 - Wants quick, efficient sessions: no constant re-validation; use `CLAUDE.md`'s checks.
 - Uses DialogueUI. Tests in game and sends screenshots.
 
-## State (0.35.0)
-- Core 0.35.0; every pack's version: `python3 tools/version.py`. 47 folders (Blasted Lands, Azshara, Silithus new).
-- 0.35.0 (user asked for "a big content push", "work on the journal", then "I walk around Stormwind and can't talk to most people; add more NPCs, important and obscure"): citizens (any friendly person with no role is `citizen`, `Conv.IsCitizen`; 51 pools in `RPGDialogue_World/pools_citizens.lua`); ~100 new named NPCs (Stormwind 74 total now, Ironforge +23, Darkshire/Lakeshire/Southshore/Menethil +30, Darnassus +); three new zone packs; journal pages Stories and Heard of, People by zone (DESIGN §3.13); the diary writes itself (`Systems/Diary.lua`: NPC `impression` on every named NPC, `P:Arrival` per zone in `arrivals.lua`, deed lines); three new throughlines (`plague_cauldrons`, `dawn_letters`, `plague_light`; Benedictus ends the last by the player's answer).
-- Content: 47 packs; every Alliance zone and the Horde towns 30-60 meet the depth standard.
+## State (0.38.0)
+- 0.38.0 (user: "Get people that are between towns and NPCs that were skipped"): ~141 named NPCs in 40 packs, mostly roadside camps, huts, escorts and outposts, plus skipped town vendors/trainers; files named `npcs/roads.lua`, `between.lua`, `wilds.lua` etc. Written from memory; uncertain lore listed below. Core 0.38.0.
+- 0.37.0 (user: "Move onto the 0.37.0 release"; picked from the next steps): ~75 new named NPCs: Revantusk Village (new file, new town `revantusk`), Hammerfall and Refuge Pointe, Tarren Mill, Kargath, Stonard, Grom'gol, Goldshire, Sentinel Hill, Auberdine, Astranaar, Theramore, Booty Bay, Gadgetzan, Everlook. Unvalidated by the user's choice (only `luac -p`).
+- Core 0.36.0; every pack's version: `python3 tools/version.py`. 47 folders.
+- 0.36.0 (user: "more dialogue specific to every race and class, not just priest... another big content push"): every class trainer pool is a full conversation (`pools_roles.lua`, test `tests/classes_spec.lua`); Stormwind's warrior trainers (`npcs/warriors.lua`); ~450 named NPCs gained class/race-gated branches (no new priest content); guard/innkeeper/child/stable/smith/flight pools and all 48 town citizen pools notice classes and races; class advice in `asks.lua`; 39 new origins (`origins/orc.lua`, `troll.lua`, `tauren.lua`, `forsaken.lua`, plus class origins for every Alliance race and Skyborne), used in lines across packs.
+- 0.35.0 recap: citizens, ~100 named NPCs, Blasted Lands/Azshara/Silithus, journal pages, self-writing diary, three 45-60 throughlines.
 - `check_all.py --release` fails until capture data replaces the TODO ids (by design).
+- Known thin spots after 0.36.0: Horde warriors and hunters in the Eastern Kingdoms (few Horde NPCs there), no Revantusk NPCs in the Hinterlands, druid replies thinnest in Ironforge/south packs.
 
 ## Standing decisions (confirm only if the user asks)
 - Lore is Classic-era: no foreshadowing of later expansions (Prestor, Varimathras, Neeru, Lescovar, Longhorn written straight; dramatic irony only).
@@ -24,5 +27,6 @@ Short on purpose: current state and next step only. History is in `CHANGELOG.md`
 Right-click on untitled townsfolk opening the box (citizen role via `UnitCreatureType`, which is localized: non-English clients may treat beasts as citizens); the journal button's count badge; Shadowform as form 28; most of `Compat.lua` beyond `/rpgd probe`; the DialogueUI paged Ask list in the real addon.
 
 ## Next step
-1. User installs 0.35.0 (**three new folders and many new files: exit the game fully, copy in, tick them, restart**). Ask: walk Stormwind and right-click strangers: does the box open, and do the citizens sound right, or too samey? Open the journal: do Stories, People and Heard of earn their place? Is the diary filling in a way you like (impressions after first talks, zone arrivals), or too chatty?
-2. Then: more named NPCs in other towns (Goldshire, Sentinel Hill, Auberdine, Astranaar, Theramore, Booty Bay, Gadgetzan, Everlook), depth for the Horde starting zones and capitals, Alterac/Dalaran (Forever) once its NPCs are documented, Blackmaw Hold's quest givers (Azshara, Forever), and any lines the user flags.
+1. User installs 0.38.0 (new files in most packs: exit fully, restart). Ask how the roadside people feel in play, and whether 0.36.0/0.37.0's class and town content landed.
+2. Lore to confirm (0.38.0 writers unsure): quest names "Sunken Treasure", "Dawn's Gambit", "Smokey's Special Compound", "Homeward Bound", "Muigin and Larion", Margoz's, Sputtervalve's, Dizzywig's, Stormpike's and Rigglefuzz's; Rane Yorick's gender; Rin'ji's escort faction; Curgle and Jabbey's races; where Kanati Greycloud, Motega Firemane, Kimberly Hiett, Henry Chapal, Shaina Fuller, Frederick Stover and Felicia Gump stand. Invented details are marked "authored, not canon" in the bibles. Plus 0.37.0's list: Gringer, Storm Shadowhoof, six Gadgetzan/Everlook service NPCs, Tor'gan.
+3. Skipped for lack of sources: Truk Wildbeard, Agnar Beastamer, Rhapsody Shindigger, Theldurin the Lost, Lucien Tosselwrench, Gorzeeki Wildeyes, Nessa Shadowsong, Rellian Greenspyre, Lorekeeper Raintotem, Skorn Whitecloud, Seer Ravenfeather, Takrin Pathseeker, Larion. Then Alterac/Dalaran (Forever) once documented, and lines the user flags.

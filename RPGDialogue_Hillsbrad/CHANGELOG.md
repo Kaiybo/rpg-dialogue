@@ -2,6 +2,17 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.8.0 (2026-11-16)
+- New people: Alterac: Lord Jorach Ravenholdt, Archmage Ansirem Runeweaver, Gol'dir; Serge Hinott in Tarren Mill.
+- New files: exit the game fully and restart.
+
+## 1.7.0 (2026-11-16)
+- Tarren Mill: Krusk, Novice Thaivand, Deathguard Humbert, Deathguard Samsa, Tallow, Zarise and Kayren Soothallow; Innkeeper Shay has much more to say.
+- New files: exit the game fully and restart.
+
+## 1.6.0 (2026-11-15)
+- Replies for the classes and races these people would really react to (warriors, hunters, rogues, mages, warlocks, druids, shamans, paladins; every race of the faction, and the Skyborne), each leading somewhere.
+
 ## 1.5.0 (2026-11-15)
 - 8 new people in Southshore: Emissary Jacques, Kundric Zanden, Barkeep Kelly, Phin Odelic, Darren Malvew, Chef Jessen, Merideth Carlson, Donald Rabonne.
 - First impressions in your diary. New file: restart the game.

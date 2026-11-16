@@ -40,8 +40,60 @@ P:NPC {
       choices = {
         { text = "What happened on the Echo Isles?", next = "isles" },
         { text = "Vol'jin was your student?", next = "voljin" },
+        { text = "I hear a voice, Master, and it isn't a loa.", next = "warlock", when = { race = "Troll", class = "WARLOCK" } },
+        { text = "The spirits answer me now. Teach me to listen better.", next = "shaman", when = { class = "SHAMAN" } },
+        { text = "I studied the arcane, Master. Is that so strange?", next = "mage", when = { race = "Troll", class = "MAGE" } },
+        { text = "I hunt heads for the tribe, the old way.", next = "headhunter", when = { race = "Troll", class = "HUNTER" } },
         { text = "Thank you, Master.", next = "END" },
       },
+      again = {
+        { id = "h_again", text = "What else, child? Old Gadrin got nothing but time and a warm fire." },
+        { id = "h_again2", text = "Ask, ask. The questions keep this old head from rusting." },
+      },
+    },
+    warlock = {
+      big = true,
+      lines = {
+        { id = "wl_default", text = "Ah, child, sit down, because now I be afraid for you. Zalazane hear a voice that wasn't a loa too, and he tell me it was only power, and look at the isles now." },
+        { id = "wl_other", when = { origin = "troll_other_voice" },
+          text = "You hear it since you was small, eh? Zalazane too, and I tell him it be nothing. I don't make that mistake twice, so you tell me every time it speak." },
+      },
+      choices = {
+        { text = "I'm not Zalazane. I command it, not the other way.", next = "warlock_command" },
+        { text = "Then I'll come to you whenever it speaks.", next = "BACK", fx = { affinity = 3, align = { light = 1 } } },
+        { text = "The power's mine to use, Master, voice or no voice.", next = "BACK", fx = { affinity = -2, align = { light = -1 } } },
+      },
+    },
+    warlock_command = {
+      lines = { { id = "wc_default", text = "He say that too, in this same hut, sitting where you sit. I believe you mean it, child, and I believe he meant it, and that be what keep me up at night." } },
+      choices = { { text = "Then watch me, Master. I'll prove it.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    shaman = {
+      lines = {
+        { id = "sh_default", text = "Good, good! The Warchief bring the old ways back to the orcs, and now they come back to us too. You listen to the water first, because on this shore the sea always talk loudest." },
+        { id = "sh_orc", when = { race = "Orc" },
+          text = "An orc shaman, coming to an old troll for listening lessons, eh? The Warchief's teachers be good, but the sea here, it speak troll, and I translate." },
+      },
+      choices = {
+        { text = "What does the sea say about the isles?", next = "shaman_sea" },
+        { text = "I'll listen to the water.", next = "BACK", fx = { affinity = 2 } },
+      },
+    },
+    shaman_sea = {
+      lines = { { id = "ss_default", text = "It say the isles be sick, and the sickness spread a little every tide. Zalazane's magic poison the water spirits too, so a shaman who help free the isles heal more than the Darkspear." } },
+      choices = { { text = "Then I'll help free them.", next = "BACK", fx = { affinity = 2, learn = { "echo_isles" } } } },
+    },
+    mage = {
+      lines = { { id = "ma_default", text = "Strange? A little, yes, because the Darkspear got the loa and the witch doctors and never need human books. But a sharp mind be a sharp mind, and Zalazane prove a witch doctor can go wrong too, so I judge the student and not the school." } },
+      choices = {
+        { text = "The tribe needs every kind of power it can get.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "I'll keep the old ways close, beside the new.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+      },
+    },
+    headhunter = {
+      lines = { { id = "hd_default", text = "The old way, eh? That be good to hear, child, so bring the tribe's enemies down clean and give their spirits to the loa proper, and never take a head for pride, because that be how a hunter turns into something else." } },
+      choices = { { text = "Clean, and never for pride.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "A head taken for pride still scares the enemy.", next = "BACK", fx = { align = { honor = -1 } } } },
     },
     isles = {
       big = true,

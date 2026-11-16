@@ -94,3 +94,14 @@ Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
 - Shaky (Intimidate, confess): what scares him most isn't the debt but that he'd sit down and play if MacKinley dealt him in tomorrow, and MacKinley knows it.
 - Crank Fizzlebub (Deceive, kravel_spill): told Pozzik knows, he blurts the plan: Zanzil's troll mixture in a cask of Fool's Stout for the racers, Kravel's idea.
 - Doren (Persuade, herod): before The Spy Revealed!, he already suspects Bookie Herod (his men bet with him; a man who keeps everyone's debts knows who can be bought) but has no proof.
+
+## More of Booty Bay (0.37.0; keys: gyll, gringer, viznik, jutak, zarena, narkk, nixxrax, xizk)
+Sources: Classic NPC roster of Booty Bay as remembered (wiki pages for each name, not re-read this pass). All service NPCs with no quests; backstory is authored, not canon, and kept to their trade.
+### Their quests
+- none: Gyll (Gryphon Master, Alliance birds), Gringer (Wind Rider Master, Horde; flies to Grom'gol and Stonard), Viznik Goldgrubber (Banker, Steamwheedle), Jutak (Blade Trader, secondhand), Zarena Cromwind (Superior Weaponsmith, new steel), Narkk (Pirate Supplies, costume for non-pirates), Nixxrax Fillamug (Food & Drink), Xizk Goodstitch (Tailoring Supplies, sailcloth and silk).
+### Voices
+- Gyll: dry; birds and pirates both bite. Gringer: gruff, short; never stand behind a wind rider. Viznik: smooth banker; coin has no colors. Jutak: every blade has a story, a third of them true. Zarena: blunt, proud of new steel, sends business to Jutak without admitting it. Narkk: jolly costumer; never wear red past the reef. Nixxrax: cheerful feeder. Xizk: fussy about seams and mold.
+### Deepened (authored, not canon)
+- Skindle: Horde and Alliance drinking under one roof, and the Bruisers' pier as the town's whole law. Drizzlik: a druid reply about hides.
+- Authored, not canon: Gyll and Gringer's fined bird fight; Viznik's "never ask where a coin has been"; Zarena's northern guild past.
+- Unsure, so left out: Kizzak Sparks, Mazk Snipeshot, Rickle Goldgrubber, Wigcik, Glyx Brewright, Corporal Kaleb, Rikqiz, Kelsey Yance, Grizzlowe.

@@ -27,6 +27,45 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    sky_sh = {
+      big = true,
+      lines = {
+        { id = "ssh_default", text = "Then you're a long way from home and very close to it at once. Eldre'Thalas stands in the hills east of here, and the ogres call it Dire Maul now; what lives in its deepest halls I wouldn't wish on any child of the city." },
+        { id = "ssh_order", when = { all = { { race = "Skyborne" }, { faction = "Alliance" } } },
+          text = "The High Order went to the Kirin Tor, I hear, looking for the magic your forebears carried out. I'll be honest with you, sky-child: my Sentinels will watch you closely until they understand what you came for." },
+      },
+      choices = {
+        { text = "Watch, then. I've nothing to hide.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Everyone has something to hide, General.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What's in the deepest halls?", next = "sky_sh2" },
+      },
+    },
+    sky_sh2 = {
+      lines = {
+        { id = "ssh2_default", text = "The Highborne who stayed, or what's left of them, and whatever power they've been drinking for ten thousand years. Your people left before it got that bad, and I'd count that in their favour, if anyone asks me." },
+      },
+      choices = { { text = "Something else, General.", next = "BACK", fx = { trait = { curious = 1 } } } },
+    },
+    druid_sh = {
+      lines = {
+        { id = "dsh_default", text = "Eyes on the coast that don't need a boat. The naga come up out of the sea where my scouts can't follow, and a druid who can swim among them and come back to tell me what she saw is worth a dozen archers on the wall." },
+      },
+      choices = {
+        { text = "I'll scout the waters for you.", next = "BACK", fx = { affinity = 2, standing = { feathermoon = 1 } } },
+        { text = "I serve the Circle, not the Sentinels.", next = "BACK", fx = { affinity = -1 } },
+      },
+    },
+    rogue_sh = {
+      lines = {
+        { id = "rsh_default", text = "Everyone works where my archers can't see them, eventually; the trick is being useful when you do. The ogres in the Feral Scar keep their chiefs well hidden, and a rogue who learns where would save a great deal of arrows." },
+        { id = "rsh_watch", when = { origin = "nightelf_watcher_trained" },
+          text = "Watcher-trained, by the look of you. Maiev's people and mine don't always agree, but I've never once known one of you to waste an arrow's worth of effort, so go find me those chiefs." },
+      },
+      choices = {
+        { text = "I'll find the chiefs. And deal with them.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "I'll find them and report. Your archers can finish it.", next = "BACK", fx = { align = { honor = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -47,6 +86,9 @@ P:NPC {
         { text = "I'd stand with the Sentinels.", next = "sentinels", when = { race = "NightElf" } },
         { text = "A human paladin sells leather here. Odd company for Sentinels.", next = "pratt", when = { race = { "Human", "Dwarf", "Gnome" } } },
         { text = "Elune and the Light. Are they so different?", next = "priest_elune", when = { class = "PRIEST" } },
+        { text = "My people came from Eldre'Thalas, General.", next = "sky_sh", when = { race = "Skyborne" } },
+        { text = "The Circle sent me. What does Feathermoon need from a druid?", next = "druid_sh", when = { class = "DRUID" } },
+        { text = "I work best where your archers can't see me.", next = "rogue_sh", when = { class = "ROGUE" } },
         { text = "Elune guide your arrows.", next = "END", fx = { affinity = 1, standing = { feathermoon = 1 } } },
       },
     },
@@ -197,6 +239,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    hunter_pr = {
+      lines = {
+        { id = "hpr_default", text = "Plenty, if you skin it clean and don't hack it about. The yetis in the Feral Scar make the warmest hides in Kalimdor, though I'd want your companion to keep the claws off the good bits." },
+      },
+      choices = {
+        { text = "I take only what I'll use.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -211,6 +262,7 @@ P:NPC {
         { text = "A human, among the Sentinels?", next = "human" },
         { text = "Teach me something about leather.", next = "leather", when = { profession = "Leatherworking" } },
         { text = "Does the Light answer a leatherworker?", next = "light", when = { class = "PALADIN" } },
+        { text = "I skin what I hunt. Any use to you?", next = "hunter_pr", when = { class = "HUNTER" } },
         { text = "Just browsing.", next = "END" },
       },
     },
@@ -330,6 +382,8 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_scourge", cat = "class", when = { race = "Scourge", class = "WARRIOR" },
+      text = "A dead warrior. The ogres won't know whether to hit you or run from you, and neither do I, so let's both aim at the ogres." },
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
       text = "A warrior, good. The Gordunni are big and stupid, so hit them where it hurts, and that's everywhere if you hit hard enough." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
@@ -338,6 +392,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    shaman_ro = {
+      lines = {
+        { id = "sro_default", text = "Wrongly, rightly, all I know is that the elements answer them and the braves burn. You're the first shaman who's come out to Mojache in a moon; if you can turn their fire back on them, I'll owe you a drink." },
+        { id = "sro_thrall", when = { origin = "orc_thrall_shaman" },
+          text = "Thrall taught you himself? Then you know what it looks like when the elements are forced instead of asked. That's every Gordunni mage you'll meet." },
+      },
+      choices = {
+        { text = "The elements will be freed from them.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "I'll burn them with their own fire.", next = "BACK", fx = { align = { light = -1 }, trait = { brave = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -366,6 +431,7 @@ P:NPC {
         { text = "This is my people's camp.", next = "tauren", when = { race = "Tauren" } },
         { text = "I could read that orb for you.", next = "mage", when = { class = { "MAGE", "WARLOCK" } } },
         { text = "My people once lived in these hills.", next = "skyborne", when = { race = "Skyborne" } },
+        { text = "The ogres' shamans call on the elements wrongly.", next = "shaman_ro", when = { class = "SHAMAN" } },
         { text = "I'll fight.", next = "END", fx = { affinity = 2, trait = { brave = 1 }, standing = { mojache = 1 } } },
       },
     },
@@ -513,6 +579,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    rogue_or = {
+      lines = {
+        { id = "ror_default", text = "Now you're talking my language! Quiet is good, quiet means nobody else hears about the cobalt before I've set a price on it. Bring me enough and I won't ask whose cart it fell off." },
+      },
+      choices = {
+        { text = "I'll steal it. Ogres don't need it.", next = "BACK", fx = { align = { honor = -1 }, affinity = 2 } },
+        { text = "I'll fight for it openly, goblin.", next = "BACK", fx = { align = { honor = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -532,6 +607,7 @@ P:NPC {
         { text = "Why come all the way to Feralas?", next = "why" },
         { text = "I mine. What should I know about it?", next = "miner", when = { profession = "Mining" } },
         { text = "This is tauren land, goblin.", next = "tauren", when = { race = "Tauren" } },
+        { text = "I could lift some cobalt off the ogres quietly.", next = "rogue_or", when = { class = "ROGUE" } },
         { text = "I'll get you some.", next = "END", fx = { affinity = 1 } },
       },
     },

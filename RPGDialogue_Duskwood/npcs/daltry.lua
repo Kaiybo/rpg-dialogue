@@ -49,6 +49,7 @@ P:NPC {
         { text = "How many people live in Darkshire now?", next = "census" },
         { text = "What do you have on Stalvan Mistmantle?", next = "stalvan", when = { topicKnown = "stalvan" } },
         { text = "The Church keeps death registers too.", next = "priest", when = { class = "PRIEST" } },
+        { text = "Your ledgers need a proper cross-index.", next = "gnome", when = { race = "Gnome" } },
         { text = "Thank you, Daltry.", next = "END" },
       },
     },
@@ -173,6 +174,13 @@ P:NPC {
       },
       choices = {
         { text = "Worth a try.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gnome = {
+      lines = { { id = "gn_default", text = "They need a great many things, starting with fewer entries in the missing column. But if you'd like to draw me up a cross-index, I'll happily pretend I understand it." } },
+      choices = {
+        { text = "Index the dead by where they were last seen.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

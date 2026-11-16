@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: Westfall |cff8a8a8a1.7.0|r
+## Title: RPG Dialogue: Westfall |cff8a8a8a1.10.0|r
 ## Notes: Sentinel Hill, the People's Militia and the farms that held on.
 ## Author: RPG Dialogue
-## Version: 1.7.0
+## Version: 1.10.0
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.westfall
@@ -23,3 +23,5 @@ npcs\verna.lua
 npcs\grayson.lua
 npcs\daphne.lua
 npcs\sentinel_folk.lua
+npcs\sentinel_more.lua
+npcs\defias_traitor.lua

@@ -43,7 +43,7 @@ P:NPC {
           text = "You've brought the manual! A young engineer answering the call of true engineering, how splendid. Read it all, then sign the pledge, and mean it." },
       },
       again = {
-        { id = "h_again", text = "What else? I'm not going anywhere, alas." },
+        { id = "h_again", text = "More questions? Splendid, it's that or stare at my blueprints of Gnomeregan again." },
         { id = "h_again2", text = "Ask on, ask on! It takes my mind off things." },
       },
       choices = {
@@ -52,6 +52,7 @@ P:NPC {
         { text = "What's this pledge of secrecy?", next = "pledge", when = { profession = "Engineering" } },
         { text = "Do you know Oglethorpe Obnoticus?", next = "oglethorpe" },
         { text = "What happened to your city?", next = "city" },
+        { text = "Dwarven engineering isn't so bad, Tinkmaster.", next = "k_dwarf", when = { race = "Dwarf" } },
         { text = "I'll leave you to it, Tinkmaster.", next = "END" },
       },
     },
@@ -132,6 +133,16 @@ P:NPC {
         { text = "Something else.", next = "BACK", fx = { learn = { "gnomeregan" } } },
       },
     },
+    k_dwarf = {
+      lines = {
+        { id = "xdw_default", text = "Not so bad! Oh, I'm sure your guns go bang very satisfyingly, and your pipes carry steam from here to there, but where's the elegance, where's the sheer improbability? Gnomish engineering is the art of things that shouldn't work, working anyway." },
+      },
+      choices = {
+        { text = "Dwarven gear works the first time. That's elegance.", next = "BACK", fx = { align = { order = 1 }, affinity = -1 } },
+        { text = "You're right. Improbable is better.", next = "BACK", fx = { align = { order = -1 }, affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -192,6 +203,7 @@ P:NPC {
         { text = "What's it like down there now?", next = "down" },
         { text = "Is data worth risking lives for?", next = "worth" },
         { text = "I worked those terminals once.", next = "apprentice", when = { origin = "gnome_tinker_apprentice" } },
+        { text = "I've been down there without a team, Castpipe.", next = "k_rogue", when = { race = "Gnome", class = "ROGUE" } },
         { text = "I'll be back.", next = "END" },
       },
     },
@@ -260,6 +272,18 @@ P:NPC {
       },
       choices = { { text = "I'll go down with the next group.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } } },
     },
+    k_rogue = {
+      lines = {
+        { id = "xro_default", text = "Without a team, without a procedure and without a single form signed, I'd wager. Did you at least bring back any punch cards, or only parts for the Tinker Town stalls?" },
+        { id = "xro_scav", when = { origin = "gnome_scavenger" },
+          text = "Oh, it's you. The parts you sold to the stalls last month had my department's serial numbers on them, and I'd like them back, but I'd like your map of the lower tiers even more." },
+      },
+      choices = {
+        { text = "Parts feed people. Your cards don't.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Next time I'll bring you the cards.", next = "BACK", fx = { align = { order = 1 }, affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -319,6 +343,7 @@ P:NPC {
         { text = "Who's Furen Longbeard?", next = "furen" },
         { text = "What's an essential artificial?", next = "artificial" },
         { text = "Can you look at my work?", next = "smith", when = { profession = "Blacksmithing" } },
+        { text = "Could your alloys make better plate?", next = "k_plate", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "Good luck with your quest.", next = "END" },
       },
     },
@@ -390,6 +415,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    k_plate = {
+      lines = {
+        { id = "xpl_default", text = "Better plate, lighter plate, plate that hums when somebody swings at you! Well, not that last one yet. A warrior's armor is the most honest test there is for a metal, because it either holds or it doesn't, and you find out which very quickly." },
+      },
+      choices = {
+        { text = "I'll wear whatever you forge and report back.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
+        { text = "I'll wait until someone else tests it.", next = "BACK", fx = { affinity = -1, trait = { cautious = 1 } } },
+      },
+    },
   },
 
   topics = {
@@ -450,6 +484,8 @@ P:NPC {
         { text = "Who's Bingles?", next = "bingles" },
         { text = "Do you really think we can save Gnomeregan?", next = "save" },
         { text = "I was raised here in Tinker Town.", next = "raised", when = { origin = "gnome_ironforge_raised" } },
+        { text = "Does the movement have a place for a gnome warlock?", next = "k_lock", when = { race = "Gnome", class = "WARLOCK" } },
+        { text = "Put a mage on your plans, Gnoarn.", next = "k_mage", when = { race = "Gnome", class = "MAGE" } },
         { text = "For Gnomeregan!", next = "END" },
       },
     },
@@ -525,6 +561,24 @@ P:NPC {
         { id = "ra_default", text = "Then you've never seen the city! You've grown up among dwarves and never seen the great lift, or the Clean Room, or the light on the gears at shift change. We'll fix that, recruit, I promise you." },
       },
       choices = { { text = "I'd like to see it.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    k_lock = {
+      lines = {
+        { id = "xlk_default", text = "A place? Well, I, ah, the movement has a place for every gnome who wants Gnomeregan back, and that's the official position. Unofficially, please don't summon anything in the meeting room, because the plans are on paper and paper burns." },
+      },
+      choices = {
+        { text = "We'll need every power we have to take it back.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll keep my demons out of the meetings.", next = "BACK", fx = { align = { light = 1 }, affinity = 2 } },
+      },
+    },
+    k_mage = {
+      lines = {
+        { id = "xmg_default", text = "A mage! The plans call for a great many things we can't build yet, and a few of them might be cast instead, if you squint. Could you freeze a trogg in place long enough for a punch card to be retrieved?" },
+      },
+      choices = {
+        { text = "I could freeze a whole corridor of them.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
+        { text = "I'd rather not promise what I can't do.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
     },
   },
 

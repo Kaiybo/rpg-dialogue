@@ -48,6 +48,7 @@ P:NPC {
         { text = "I met your sister Emma, in Stormwind.", next = "emma", when = { questDone = TODO_QUEST("Good Natured Emma") } },
         { text = "Rest now.", next = "END", when = { questDone = TODO_QUEST("Two Halves Become One") }, fx = { affinity = 1, align = { light = 1 } } },
         { text = "Spare me the thanks, because I've ghouls enough to deal with.", next = "END", when = { questDone = TODO_QUEST("Two Halves Become One") }, fx = { align = { light = -1 } } },
+        { text = "Janice, do you know what I am?", next = "x_forsaken", when = { race = "Scourge" } },
       },
     },
     john = {
@@ -104,6 +105,16 @@ P:NPC {
       choices = {
         { text = "She knows.", next = "BACK", fx = { affinity = 3, align = { light = 1 } } },
         { text = "She knows you're gone, Janice, and it's time to let go.", next = "BACK", fx = { align = { honor = 1 } } },
+      },
+    },
+    x_forsaken = {
+      lines = {
+        { id = "xf_default", text = "You're not John, though your hands are as cold as his were the last time he came in from the field. Have you come about the harvest, then, from over Brill way? Nobody comes about the harvest anymore." },
+        { id = "xf_brill", when = { origin = "forsaken_brill_farmer" }, text = "Brill! I knew it, you've the look of a Brill farmer, and we used to trade seed with your lot every spring, before the sickness came through." },
+      },
+      choices = {
+        { text = "The harvest is over, Janice. Rest now.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },
@@ -168,6 +179,7 @@ P:NPC {
         { text = "We're not enemies here, druid.", next = "alliance", when = { faction = "Alliance", ["not"] = { questDone = TODO_QUEST("Glyphed Oaken Branch") } } },
         { text = "I feel the land's pain too.", next = "druid", when = { class = "DRUID", ["not"] = { questDone = TODO_QUEST("Glyphed Oaken Branch") } } },
         { text = "(Leave him in peace.)", next = "END", when = { questDone = TODO_QUEST("Glyphed Oaken Branch") } },
+        { text = "Mulgore misses you, Mulgris.", next = "x_tauren", when = { race = "Tauren", ["not"] = { questDone = TODO_QUEST("Glyphed Oaken Branch") } } },
       },
     },
     cure = {
@@ -226,6 +238,15 @@ P:NPC {
         { id = "dr_default", text = "Then don't stay here too long, or the pain will get into you the way it got into me. Do what good you can and go back to the green places, and remember this land as it ought to be." },
       },
       choices = { { text = "I'll remember it.", next = "BACK", fx = { affinity = 3, trait = { kind = 1 } } } },
+    },
+    x_tauren = {
+      lines = {
+        { id = "xt_default", text = "Does it? I dream of the grass there, so tall it brushes your shoulders, and the wind coming down off the bluffs. Tell the elders I tried, young one, and that the sickness here was bigger than one druid." },
+      },
+      choices = {
+        { text = "I'll tell them, elder.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -287,6 +308,7 @@ P:NPC {
         { text = "Tell me about Pamela.", next = "pamela" },
         { text = "Who is this strange gnome?", next = "gnome", when = { questActive = TODO_QUEST("A Strange Historian") } },
         { text = "Shall I say a prayer with you?", next = "pray", when = { class = { "PRIEST", "PALADIN" } } },
+        { text = "I can track a lost child, Marlene.", next = "x_hunter", when = { class = "HUNTER" } },
       },
     },
     darrowshire = {
@@ -329,6 +351,15 @@ P:NPC {
       choices = {
         { text = "(Pray with her.)", next = "BACK", fx = { affinity = 3, align = { light = 1 } } },
         { text = "I'll look for Pamela, but I'm done with prayers.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_hunter = {
+      lines = {
+        { id = "xh_default", text = "Can you? Then look for small footprints, please, because she had little shoes and she always ran when she was frightened. It's been so long, and I keep thinking I'll hear her coming up the hill." },
+      },
+      choices = {
+        { text = "I'll find her trail, Marlene.", next = "BACK", fx = { affinity = 3, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -388,6 +419,7 @@ P:NPC {
         { text = "Let me see to that wound.", next = "heal", when = { class = { "PRIEST", "PALADIN", "DRUID", "SHAMAN" } } },
         { text = "Elling Trias sends his regards.", next = "elling", when = { heardLine = "elling.h_default" } },
         { text = "Who trained you, then?", next = "rogue", when = { class = "ROGUE" } },
+        { text = "The Crusade would burn me on sight. Does that bother you?", next = "x_forsaken", when = { race = "Scourge" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2 } },
       },
     },
@@ -470,6 +502,15 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    x_forsaken = {
+      lines = {
+        { id = "xf_default", text = "Bother me? They'd burn me too if they caught me up here, and I've still got a pulse. I believe in the Light, more or less, but whatever they're doing in Hearthglen isn't it, so you and I have the same enemy today, and today's all I plan for." },
+      },
+      choices = {
+        { text = "Same enemy today. That's enough.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Don't mistake me for a friend, scout.", next = "BACK", fx = { affinity = -1 } },
+      },
+    },
   },
 
   topics = {
@@ -534,6 +575,7 @@ P:NPC {
         { text = "What must I do?", next = "task" },
         { text = "Let me pray for you both.", next = "pray", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "I'm not one of them, Eva.", next = "forsaken", when = { race = "Scourge" } },
+        { text = "Did you see the necromancers at work, Eva?", next = "x_warlock", when = { class = "WARLOCK" } },
         { text = "I'll help you rest.", next = "END", fx = { affinity = 2, trait = { kind = 1 }, align = { light = 1 } } },
         { text = "I'm here for the Scholomance, not for ghosts.", next = "END", fx = { affinity = -1, align = { light = -1 } } },
       },
@@ -616,6 +658,16 @@ P:NPC {
         { id = "jp_default", text = "Forgive me, {g:sir|madam}, but a good servant doesn't speak ill of the family, not even now. Lucien would never let me hear the end of it." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    x_warlock = {
+      lines = {
+        { id = "xw_default", text = "I did, {g:sir|madam}; for six months I watched them from the servants' passages, and I learned more than any maid should. Forgive me if I keep my distance, for you carry something of the same chill they did, and I have not forgotten where it led." },
+      },
+      choices = {
+        { text = "I'm nothing like them, Eva.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Power isn't evil. Only what it's used for.", next = "BACK", fx = { affinity = -1, trait = { skeptical = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 

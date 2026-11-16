@@ -9,7 +9,7 @@
 - none: shopkeepers and trainers with no quests in the sources. Built from trade, place and neighbours, kept modest (CONTENT_GUIDE §1).
 
 ## Not used
-- Later additions on the Goldshire page: the gryphon master (Bartlett the Brave; Goldshire had no flight path in the original game), the battle pet trainer, the general profession trainer, the travelling baker, the Cataclysm hunter trainer, the children's "pentagram" legend.
+- Later additions on the Goldshire page: the gryphon master (Bartlett the Brave; Goldshire had no flight path in the original game), the battle pet trainer, the general profession trainer, the Cataclysm hunter trainer (the travelling baker, Kira Songshine, is Classic after all: see goldshire_more.md), the children's "pentagram" legend.
 
 ## Notes per person (all authored, from their trade)
 - Dobbins: Farley's barkeep, cheerful fetcher. Echoes Farley's "never watered a drink".

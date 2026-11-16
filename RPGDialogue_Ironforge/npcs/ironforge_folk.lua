@@ -48,6 +48,8 @@ P:NPC {
         { text = "Train me.", next = "BUSINESS", when = { class = "PALADIN" } },
         { text = "Who's Tiza Battleforge?", next = "tiza" },
         { text = "How did dwarves come to the Light?", next = "light" },
+        { text = "What does a paladin owe the Light, trainer?", next = "owe", when = { class = "PALADIN" } },
+        { text = "The Light isn't the only power in the mountain.", next = "shaman", when = { race = "Dwarf", class = "SHAMAN" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -80,6 +82,39 @@ P:NPC {
         { id = "ln_default", text = "Now Ironforge trains its own, here in the Hall, wi' the same oaths an' better beer." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    owe = {
+      lines = {
+        { id = "ow_default", text = "Everythin' ye've got, an' it'll ask for it at the worst moment, usually when ye're tired an' the fella in front o' ye has an axe. The oath doesnae care that ye're tired; that's why it's an oath." },
+        { id = "ow_hand", when = { origin = "dwarf_silver_hand" },
+          text = "Ye know the answer already, for yer family took the oath after the Second War, when the Silver Hand came recruitin' through the Ward. Everythin' ye've got, an' the Hand's gone now, so ye owe it on yer own." },
+        { id = "ow_human", when = { race = "Human" },
+          text = "Everythin' ye've got, same as us. Ye'll have heard it said grander in Stormwind, but Duthorian Rall an' I agree on that much, an' we agree on very little." },
+      },
+      choices = {
+        { text = "The oath comes before my own life.", next = "BACK", fx = { align = { light = 1 }, affinity = 2 } },
+        { text = "The oath serves people. When it doesn't, I'll choose people.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "And when I fail it?", next = "owe_fail" },
+      },
+    },
+    owe_fail = {
+      lines = {
+        { id = "of_default", text = "Then ye get up an' take it again, an' ye don't make a song about it. Every paladin in this Hall has knelt an' started over at least once, an' the ones who say they havenae are fibbin'." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    shaman = {
+      big = true,
+      lines = {
+        { id = "sm_default", text = "So I hear, an' I hear it from ye. I'll no' call it heresy, for the Light never said it was alone in the world, but I'll ask ye plain: when the stone talks tae ye, does it ever tell ye tae be kind?" },
+        { id = "sm_listener", when = { origin = "dwarf_stone_listener" },
+          text = "Ye're the one they talk about in the Mystic Ward, the lass or lad wi' an ear tae the walls. I'll no' call it heresy, but I'll ask ye plain: does the stone ever tell ye tae be kind?" },
+      },
+      choices = {
+        { text = "The stone doesn't judge. That's why I trust it.", next = "BACK", fx = { align = { light = -1 }, affinity = -1 } },
+        { text = "Kindness is mine to bring. The stone gives strength.", next = "BACK", fx = { align = { light = 1 }, affinity = 2 } },
+        { text = "Something else, trainer.", next = "BACK" },
+      },
     },
   },
 
@@ -142,6 +177,7 @@ P:NPC {
         { text = "Why collect in Ironforge?", next = "why_if" },
         { text = "I came out of Lordaeron myself.", next = "refugee", when = { origin = "human_lordaeron_refugee" } },
         { text = "I could pray with them, back in Stormwind.", next = "pray", when = { class = "PRIEST" } },
+        { text = "I grew up on the canal docks myself.", next = "canals", when = { race = "Human", class = "ROGUE" } },
         { text = "Good luck, John.", next = "END" },
       },
     },
@@ -213,6 +249,18 @@ P:NPC {
         { text = "I'll bring the sweets, but you can keep the prayers.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
+    canals = {
+      lines = {
+        { id = "ca_default", text = "Did you, now? Then you know where half my children would be without Stephanie, and where some of them go when they run off anyway. I won't ask how you learned your trade, but I'll ask you to steer any little ones you meet toward our door." },
+        { id = "ca_pick", when = { origin = "human_canal_pickpocket" },
+          text = "You've the quick hands of a canal child; I've had a few of those through the orphanage, and every one of them stole my purse in the first week. Did anybody ever take you in?" },
+      },
+      choices = {
+        { text = "I'll send them your way.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Some of them are better off on the streets, John.", next = "BACK", fx = { align = { order = -1 }, affinity = -1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -270,6 +318,7 @@ P:NPC {
         { text = "Tell me about Daphne.", next = "daphne" },
         { text = "You trained as a paladin?", next = "paladin_path", when = { class = "PALADIN" } },
         { text = "Let me see your wares.", next = "BUSINESS" },
+        { text = "Do you forge for warriors, or only the faithful?", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Stay warm, Jordan.", next = "END" },
       },
     },
@@ -344,6 +393,15 @@ P:NPC {
         { text = "The Order's loss.", next = "BACK", fx = { affinity = 2 } },
         { text = "You serve it anyway.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Your father's forge mattered more than any vow would have.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
+    warrior = {
+      lines = {
+        { id = "wa_default", text = "I forge for whoever stands between the Alliance and its enemies, and the Light doesn't ask me to check. A paladin's hammer gets my prayers along with the steel, but yours gets the same steel." },
+      },
+      choices = {
+        { text = "Keep the prayers. The steel's what counts.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll take the prayers too, if you're offering.", next = "BACK", fx = { align = { light = 1 }, affinity = 2 } },
       },
     },
   },

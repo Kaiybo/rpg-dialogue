@@ -106,6 +106,10 @@ P:NPC {
         { text = "Why take volunteers who aren't from Stormwind?", next = "allies", when = { race = { "Dwarf", "Gnome", "NightElf", "Skyborne" } } },
         { text = "I've seen a garrison spread too thin before. Up north.", next = "lordaeron", when = { origin = "human_lordaeron_refugee" } },
         { text = "You sent me down that road once, Marshal.", next = "veteran", when = { minLevel = 20, metBefore = true } },
+        { text = "Your letter smelled of brimstone, Marshal.", next = "warlock", when = { class = "WARLOCK", maxLevel = 15 } },
+        { text = "Your letter was in cipher, Marshal.", next = "rogue", when = { class = "ROGUE", maxLevel = 15 } },
+        { text = "I've brought my own beast, Marshal.", next = "hunter", when = { class = "HUNTER", pet = { type = "Beast" } } },
+        { text = "The spirits of the stone brought me here, Marshal.", next = "shaman", when = { class = "SHAMAN" } },
         { text = "That's all, Marshal.", next = "END" },
       },
     },
@@ -338,6 +342,44 @@ P:NPC {
       choices = {
         { text = "Yes, Marshal.", next = "BACK" },
         { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    warlock = {
+      big = true,
+      lines = { { id = "warlock_l", text = "It did, and I wrote it anyway, because the kingdom asked me to send every recruit to their teacher, and La Salle is yours. I don't have to like it, recruit, and I don't." } },
+      choices = {
+        { text = "You'll be glad of me when the Defias come.", next = "BACK", fx = { align = { order = 1 }, trait = { stern = 1 } } },
+        { text = "I don't need your approval, Marshal.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "Why does the kingdom allow us at all?", next = "warlock2" },
+      },
+    },
+    warlock2 = {
+      lines = { { id = "warlock2_l", text = "Because the orcs had warlocks, and we lost the First War. That's all the answer I've ever been given, and it's enough to keep me writing the letters." } },
+      choices = { { text = "Something else, Marshal.", next = "BACK" } },
+    },
+    rogue = {
+      lines = { { id = "rogue_l", text = "It was. Kerridan insists, and I've stopped arguing; a recruit who can't read a cipher can't find his teacher, and that's apparently the first lesson." } },
+      choices = {
+        { text = "Did you read it before you sent it?", next = "rogue2" },
+        { text = "Something else, Marshal.", next = "BACK" },
+      },
+    },
+    rogue2 = {
+      lines = { { id = "rogue2_l", text = "I tried. It said something about the price of turnips, and I'm fairly sure it was mocking me." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    hunter = {
+      lines = { { id = "hunter_l", text = "So I see. Keep it off the Abbey's flowerbeds and away from the brothers' chickens, and it can hunt every kobold and wolf in the valley for all I care." } },
+      choices = {
+        { text = "It only hunts what I point it at.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "No promises about the chickens.", next = "BACK", fx = { trait = { witty = 1 }, align = { order = -1 } } },
+      },
+    },
+    shaman = {
+      lines = { { id = "shaman_l", text = "The stone, is it. Ironforge's letter said to expect you and said nothing about what you'd be, so I'll judge you on kobolds like everyone else. Is that fair?" } },
+      choices = {
+        { text = "More than fair, Marshal.", next = "BACK", fx = { affinity = 2 } },
+        { text = "The spirits judge differently.", next = "BACK", fx = { trait = { stern = 1 } } },
       },
     },
   },

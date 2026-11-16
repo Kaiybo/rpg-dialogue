@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.1.0 (2026-11-15)
+- Replies for the classes and races these people would really react to (warriors, hunters, rogues, mages, warlocks, druids, shamans, paladins; every race of the faction, and the Skyborne), each leading somewhere.
+
 ## 1.0.0 (2026-11-15)
 - New pack (new files: exit the game fully and restart). Azshara as it stood before the goblins came.
 - Talrendis Point (Alliance): Loh'atu, a tauren guest of the Sentinels (the satyr of Haldarr, the Highborne ghosts at the Shadowsong Shrine, the queen the elves named this coast for; a priest can help him lay the dead to rest), Jarrodenus and his hippogryphs, and the Sentinels at the bridge.

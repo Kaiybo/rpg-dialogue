@@ -65,6 +65,9 @@ P:NPC {
         { text = "Lord Shadowbreaker sent me to you.", next = "paladin", when = { class = "PALADIN" } },
         { text = "I'm a priest. Where do you need me?", next = "priest", when = { class = "PRIEST" } },
         { text = "I was born in Lordaeron, before the plague.", next = "refugee", when = { origin = "human_lordaeron_refugee" } },
+        { text = "Put me on the line, Commander.", next = "x_warrior", when = { class = "WARRIOR" } },
+        { text = "I can scout the watchtowers for you.", next = "x_hunter", when = { class = "HUNTER" } },
+        { text = "Ironforge has a stake in this fight too.", next = "x_dwarf", when = { race = "Dwarf" } },
         { text = "Point me at the dead.", next = "END", fx = { affinity = 1, standing = { chillwind_camp = 1 }, trait = { brave = 1 } } },
       },
     },
@@ -189,6 +192,36 @@ P:NPC {
       },
       choices = { { text = "Understood, Commander.", next = "BACK" } },
     },
+    x_warrior = {
+      lines = {
+        { id = "xw_default", text = "The line? There's no line out here, soldier, only a camp, a road and a city full of dead men, and I count every one of us twice a day. What I need from a warrior is someone who'll hold a cauldron long enough for MacDonnell's people to do their work, and then walk back." },
+        { id = "xw_guard", when = { origin = "human_city_guard" }, text = "City Watch, were you? Then forget what you learned about walls, because out here the dead come from every side, and the only gate is the one you carry with you." },
+      },
+      choices = {
+        { text = "I'll hold until your people are clear, Commander.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, standing = { chillwind_camp = 1 } } },
+        { text = "I'll hold as long as it makes sense, and no longer.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_hunter = {
+      lines = {
+        { id = "xh_default", text = "Scouting's worth its weight in gold up here, and I've lost two scouts this month to things that used to be wolves. Mark the towers, count what's in them and come back, because a dead scout's report never reaches my table." },
+        { id = "xh_woods", when = { origin = "human_eastvale_woodsman" }, text = "You've the look of an Elwynn woodsman about you. These trees won't hide you the way the Eastvale did, so keep low, and trust nothing that smells of rot." },
+      },
+      choices = {
+        { text = "I'll count every one and come back.", next = "BACK", fx = { affinity = 2, standing = { chillwind_camp = 1 } } },
+        { text = "Something else, Commander.", next = "BACK" },
+      },
+    },
+    x_dwarf = {
+      lines = {
+        { id = "xd_default", text = "Ironforge has a stake in every fight that comes south, and I'd take a company of your mountaineers tomorrow if the King would send them. I'll settle for you, and I'll tell you what I tell every dwarf who comes through: the plague doesn't care how thick your blood is." },
+      },
+      choices = {
+        { text = "Dwarven blood's thicker than most, Commander.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "I'll be careful.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
   },
 
   topics = {
@@ -260,6 +293,7 @@ P:NPC {
         { text = "Where are the cauldrons?", next = "cauldrons" },
         { text = "What's the commander like to serve under?", next = "commander" },
         { text = "Teach me how the Light burns.", next = "priest", when = { class = { "PRIEST", "PALADIN" } } },
+        { text = "Poisoning the poisoners? That's my kind of work.", next = "x_warlock", when = { class = "WARLOCK" } },
         { text = "I'll get your samples.", next = "END", fx = { affinity = 1, standing = { chillwind_camp = 1 }, learn = { "plague_cauldrons" } } },
       },
     },
@@ -335,6 +369,16 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    x_warlock = {
+      lines = {
+        { id = "xw_default", text = "Is it, now? I'll take any hand that turns the Scourge's poison back on them, but don't mistake us for the same sort: I ask the Light for the strength to do it, and you ask something else entirely. Bring me the samples, and keep whatever you've got on a leash near my jars." },
+      },
+      choices = {
+        { text = "The dead fall either way, Priestess.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "Fair enough. My arts stay well away from your jars.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -400,6 +444,7 @@ P:NPC {
         { text = "Is the pay really that bad?", next = "pay" },
         { text = "Could the Light help with your work?", next = "priest", when = { class = "PRIEST" } },
         { text = "How does the focuser work?", next = "alch", when = { profession = "Alchemy" } },
+        { text = "Did you study in Dalaran, Arbington?", next = "x_mage", when = { class = "MAGE" } },
         { text = "I'll get what you need.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -459,6 +504,16 @@ P:NPC {
         { id = "al_default", text = "You carry it with you while you fight, and it catches what the creatures leave behind when they come apart. Leave it in your tent and you'll be bringing me plain bones, and I'll have to be polite about it." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, trait = { curious = 1 } } } },
+    },
+    x_mage = {
+      lines = {
+        { id = "xm_default", text = "I wish I had, but no, I learned from books, and half of those burned with Dalaran, so mostly I learned from what was left. You'd know the arcane quickener better than I do, frankly, and if you could look at my measures without laughing I'd be ever so grateful." },
+        { id = "xm_gnome", when = { origin = "gnome_last_student" }, text = "You studied in Gnomeregan, before it fell? Then you and I both learned from books that don't exist anymore, and I think that makes us colleagues of a sort." },
+      },
+      choices = {
+        { text = "Show me your measures.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } },
+        { text = "I'll try very hard not to laugh.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
     },
   },
 
@@ -523,6 +578,7 @@ P:NPC {
         { text = "What's in these deeds?", next = "deeds" },
         { text = "My family lost everything in Lordaeron too.", next = "refugee", when = { origin = "human_lordaeron_refugee" } },
         { text = "Was it worth it, now he's gone?", next = "worth", when = { questDone = TODO_QUEST("The Last Barov") } },
+        { text = "Your brother might hire someone like me, you know.", next = "x_rogue", when = { class = "ROGUE" } },
         { text = "I'll see what I can find.", next = "END", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "I won't help a man who'd murder his own brother.", next = "END", fx = { affinity = -1, align = { honor = 1 } } },
       },
@@ -613,6 +669,16 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    x_rogue = {
+      lines = {
+        { id = "xr_default", text = "Don't say such things, not where the soldiers can hear! If Alexi had any sense he'd have sent someone already, and I've slept with a sword under my blanket since the day he crawled out of that keep, so if you're thinking of it, I'll pay double." },
+      },
+      choices = {
+        { text = "Double, then. I'll remember that.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I don't take that kind of work, Barov.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -676,6 +742,7 @@ P:NPC {
         { text = "I serve the Light too. Where do priests stand?", next = "priest", when = { class = "PRIEST" } },
         { text = "I was raised in the Silver Hand's teachings.", next = "paladin", when = { class = "PALADIN" } },
         { text = "Your soldiers don't look pleased to see me.", next = "horde", when = { faction = "Horde" } },
+        { text = "Is there room in the Dawn for the spirits too?", next = "x_shaman", when = { class = "SHAMAN" } },
         { text = "I'll bring you stones.", next = "END", fx = { affinity = 1, learn = { "argent_dawn" } } },
       },
     },
@@ -742,6 +809,15 @@ P:NPC {
       },
       choices = { { text = "Fair. I'll keep my head down.", next = "BACK", fx = { affinity = 1 } } },
     },
+    x_shaman = {
+      lines = {
+        { id = "xs_default", text = "The Dawn has room for anyone who stands against the Scourge, and I've watched Horde shamans lay the dead to rest as surely as any priest of mine. I don't understand your spirits, but I understand what they do to a ghoul, and that's enough for me." },
+      },
+      choices = {
+        { text = "The spirits and the Light want the same thing here.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else, Officer.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -801,6 +877,7 @@ P:NPC {
         { text = "Why termites?", next = "termites" },
         { text = "Tell me about the mill.", next = "mill" },
         { text = "I fled Lordaeron too, when I was young.", next = "refugee", when = { origin = "human_lordaeron_refugee" } },
+        { text = "Termites in a mill? Nature can be cruel.", next = "x_druid", when = { class = "DRUID" } },
         { text = "I'll help you take it back.", next = "END", fx = { affinity = 2, standing = { chillwind_camp = 1 } } },
       },
     },
@@ -853,6 +930,16 @@ P:NPC {
         { text = "I try not to look.", next = "BACK", fx = { affinity = 1 } },
       },
     },
+    x_druid = {
+      lines = {
+        { id = "xd_default", text = "Cruel? It was never their mill to take, and if the Crusade won't leave, the termites can show them the door one plank at a time. I'd rather it were my father's saw that did it, but he's in Stormwind and the termites are here." },
+      },
+      choices = {
+        { text = "Turning the wild on people sits ill with me.", next = "BACK", fx = { affinity = -1, align = { light = 1 } } },
+        { text = "The Crusade has earned every last termite.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -901,6 +988,7 @@ P:NPC {
         { text = "Where's safest to fly?", next = "routes" },
         { text = "How do the gryphons cope up here?", next = "gryphons" },
         { text = "Let's fly.", next = "BUSINESS" },
+        { text = "Do your gryphons know Wildhammer riders?", next = "x_dwarf", when = { race = "Dwarf" } },
       },
     },
     routes = {
@@ -919,6 +1007,16 @@ P:NPC {
       choices = {
         { text = "Something else.", next = "BACK", fx = { affinity = 1 } },
         { text = "Let's fly.", next = "BUSINESS" },
+      },
+    },
+    x_dwarf = {
+      lines = {
+        { id = "xd_default", text = "Know them? They'd fly off with one in a heartbeat, the traitors, because a gryphon loves a Wildhammer better than its own keeper. Ironforge birds are steadier, mind, and Snowtail here thinks you smell like home, which from her is a compliment." },
+        { id = "xd_wild", when = { origin = "dwarf_wildhammer_kin" }, text = "Wildhammer kin! Then please don't whistle at them, or I'll be chasing birds across Hillsbrad all afternoon." },
+      },
+      choices = {
+        { text = "I'll keep my whistling to myself.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },

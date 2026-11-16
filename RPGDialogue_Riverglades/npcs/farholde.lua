@@ -75,6 +75,9 @@ P:NPC {
         { text = "Mugg is dead. What now?", next = "after_mugg", when = { questDone = TODO_QUEST("Eye of Mugg") } },
         { text = "Let me bless your riders before they ride out.", next = "priest_bless", when = { class = "PRIEST" } },
         { text = "Put me to work, Commander.", next = "BUSINESS", fx = { affinity = 1, standing = { farholde = 1 } } },
+        { text = "A warrior's sword, Commander, if the Brotherhood will have it.", next = "xwarrior", when = { class = "WARRIOR" } },
+        { text = "Your memorial names a Ravenholdt agent. Fern.", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "I scout. Where do you need eyes?", next = "xhunter", when = { class = "HUNTER" } },
         { text = "I'll be on my way.", next = "END" },
       },
     },
@@ -343,6 +346,36 @@ P:NPC {
         { text = "As you wish, Commander.", next = "BACK" },
       },
     },
+    xwarrior = {
+      big = true,
+      lines = { { id = "xwa_default", text = "The Brotherhood will have it and put it on the wall by nightfall. Lothar was our Armsman once, and he'd have told you what I'll tell you: a sword is worth what the soldier beside you can trust it to do." } },
+      choices = {
+        { text = "Then trust it. I don't break ranks.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, standing = { farholde = 1 } } },
+        { text = "I fight best on my own, Commander.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "Lothar was one of yours?", next = "lothar" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xro_default", fx = { learn = { "fern_crimsonleaf" } },
+        text = "Fern Crimsonleaf, our lead agent, who went into the Horde camp the night before Howard's charge and killed their leaders in the dark. We never saw her again. I've never cared much for your trade, but I've never once said a word against it since that night." } },
+      choices = {
+        { text = "What happened to her?", next = "fern" },
+        { text = "Some work only gets done in the dark.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'd rather win it Howard's way, in the open.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+      },
+    },
+    xhunter = {
+      lines = {
+        { id = "xhu_default", text = "Everywhere, and nowhere I can spare a rider. Rosalind Ashwood was our lead scout, with eyes as keen as an elf's, and I haven't had one like her since; walk the Bristle Hills for me and tell me what the gnolls are doing." },
+        { id = "xhu_human", when = { race = "Human" },
+          text = "A Stormwind hunter with a beast at heel; Rosalind would have liked you, since she always said the kingdom wasted its woodsmen. Walk the Bristle Hills for me and tell me what the gnolls are doing." },
+      },
+      choices = {
+        { text = "Who was Rosalind?", next = "memorials" },
+        { text = "I'll walk the hills.", next = "BACK", fx = { affinity = 1, standing = { farholde = 1 } } },
+      },
+    },
   },
 
   topics = {
@@ -419,6 +452,7 @@ P:NPC {
         { text = "You've read about my people?", next = "skyborne", when = { race = "Skyborne" } },
         { text = "How close is the Hammer's magic to mine?", next = "warlock", when = { class = "WARLOCK" } },
         { text = "Riftan says you're a pain.", next = "riftan", when = { heardLine = "riftan.a_pain" } },
+        { text = "Gnomeregan had libraries too, once.", next = "xgnome", when = { race = "Gnome" } },
         { text = "Thank you, Ashe.", next = "END" },
       },
     },
@@ -586,6 +620,17 @@ P:NPC {
         { text = "Of course.", next = "BACK" },
       },
     },
+    xgnome = {
+      lines = {
+        { id = "xgn_default", text = "Oh, don't, I'll cry; I've read the catalogues, or the bits that got out, and there were treatises in there nobody's ever copied. Did you save anything? Even one book, even a page?" },
+        { id = "xgn_student", when = { origin = "gnome_last_student" },
+          text = "You studied there? Then you're a library yourself, whether you like it or not, and I want to hear everything you can still remember, slowly, while I write." },
+      },
+      choices = {
+        { text = "A few pages. I'll show you sometime.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Nothing. It's gone.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
+      },
+    },
   },
 
   topics = {
@@ -751,6 +796,7 @@ P:NPC {
         { text = "Let me pray with you.", next = "pray", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "I know some field medicine.", next = "aid", when = { profession = "First Aid" } },
         { text = "The Light keep you, Sister.", next = "END", fx = { align = { light = 1 } } },
+        { text = "I'm a druid. I know herbs that ease fever.", next = "xdruid", when = { class = "DRUID" } },
         { text = "Prayer won't break a fever, Sister, but medicine might.", next = "END", fx = { align = { light = -1 } } },
       },
     },
@@ -789,6 +835,13 @@ P:NPC {
     aid = {
       lines = { { id = "ad_default", text = "Then roll up your sleeves. Bandages in the chest, boiled water on the fire. Don't let the big one by the window talk you into ale." } },
       choices = { { text = "I won't.", next = "BACK", fx = { affinity = 2, standing = { farholde = 1 } } } },
+    },
+    xdruid = {
+      lines = { { id = "xdr_default", text = "Then I'll take every one you know, and I won't ask whether they come from the Light or from the earth. Some of the men will stare at you, so please don't change shape on the ward; they've seen enough strange things this year." } },
+      choices = {
+        { text = "I'll mind the ward. Show me the worst.", next = "illness", fx = { affinity = 2 } },
+        { text = "They'll get used to me.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
     },
   },
 
@@ -853,6 +906,7 @@ P:NPC {
         { text = "What do you watch for, on the walls?", next = "walls" },
         { text = "Fine dog. Did you train him yourself?", next = "hunter", when = { class = "HUNTER" } },
         { text = "You were staring.", next = "skyborne", when = { race = "Skyborne" } },
+        { text = "You're quel'dorei. We don't often share a wall.", next = "xnightelf", when = { race = "NightElf" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -902,6 +956,13 @@ P:NPC {
       choices = {
         { text = "Something like that.", next = "BACK" },
         { text = "Our island was lifted into the sky, long ago.", next = "BACK", fx = { affinity = 2 } },
+      },
+    },
+    xnightelf = {
+      lines = { { id = "xne_default", text = "No, we don't. I've no quarrel with the kaldorei, and the Brotherhood doesn't care whose ears are under the helm, so the wall's yours as much as mine." } },
+      choices = {
+        { text = "Old quarrels can stay old.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Your ancestors' magic nearly ended the world.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
       },
     },
   },
@@ -1011,7 +1072,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Gretchen Mayberry, Gryphon Master. If you're headed anywhere the Brotherhood holds, I'll have you there before the fog lifts." },
       },
-      again = { { id = "h_again", text = "Anything else? They're getting restless." } },
+      again = { { id = "h_again", text = "Anything else? My gryphons like to be off before the river mist closes in again." } },
       choices = {
         { text = "I need a ride.", next = "BUSINESS" },
         { text = "Gryphons, this far from Ironforge?", next = "gryphons" },
@@ -1088,6 +1149,7 @@ P:NPC {
           when = { any = { { questActive = TODO_QUEST("Key Ingredients") }, { questDone = TODO_QUEST("Key Ingredients") }, { questActive = TODO_QUEST("Krol'dok Moulding") } } } },
         { text = "How long have you worked this forge?", next = "forge" },
         { text = "Any advice for another smith?", next = "teach", when = { profession = "Blacksmithing" } },
+        { text = "My armour took a beating at Krol'dok.", next = "xwarrior", when = { class = "WARRIOR" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -1116,6 +1178,13 @@ P:NPC {
     teach = {
       lines = { { id = "t_default", text = "Don't quench in a hurry. Everything that ever cracked on me cracked because I was in a hurry." } },
       choices = { { text = "Thank you.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    xwarrior = {
+      lines = { { id = "xwa_default", text = "I can see. Bring me iron bars and I'll mend it; without them I can only tell you which dent will kill you first, and that one, there, on the left." } },
+      choices = {
+        { text = "Why's iron so short?", next = "iron" },
+        { text = "I'll find iron.", next = "BACK", fx = { affinity = 1 } },
+      },
     },
   },
 

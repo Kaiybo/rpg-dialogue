@@ -2,6 +2,42 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.38.0 (2026-11-16)
+Packs: 40 content packs have a new version (`python3 tools/version.py` lists them). **New files in most packs: exit the game fully, copy the folders in, and start the game again**; /reload won't load them.
+
+### People between the towns, and people who were skipped
+- **About 140 new named people**, most of them out on the roads: camps, lone huts, outposts, mines, escorts and prisoners waiting for help. Among them: Alterac's Lord Jorach Ravenholdt and Gol'dir, Quae and Kinelory in Arathi, the Redpaths in the Plaguelands, Myranda the Hag, the Defias Traitor, Dun Morogh's and Loch Modan's mountaineers and prospectors, Teldrassil's Denalan, Darkshore's Volcor and Kerlonian, the Gizelton caravan, Rexxar in Desolace, Gregan Brewspewer, the Swiftstriders, Ratchet's Gazlowe, Dustwallow's Tabetha and Mok'Morokk, Un'Goro's Marshal camp, Winterspring's Rivern Frostwind and Ranshalla, and Silithus's war-effort envoys.
+- **Town folk the earlier passes missed**: Northshire's smiths and Brother Paxton, Stormwind's Tannysa and Felicia Gump, gryphon and hippogryph masters, the Undercity's bat handler, Orgrimmar's and Thunder Bluff's trainers.
+- Every one of them is a real conversation, with replies for the races and classes they'd notice.
+
+### Fixes
+- Some Gadgetzan lines that depend on your level never showed; they do now.
+- A few Tarren Mill, Revantusk, Hammerfall, Sentinel Hill and Auberdine lines that referred to each other now work.
+
+## 0.37.0 (2026-11-16)
+Packs: 14 packs have new versions (`python3 tools/version.py` lists them). **New files in many packs: exit the game fully and restart**; /reload won't load them.
+
+### The Horde's Eastern Kingdoms, and more people in the busy towns
+- **Revantusk Village** has people at last: Primal Torntusk, whose mate was taken by the Vilebranch, Huntsman Markhor, Mystic Yayo'jin, Katoom the Angler, Lard the ogre innkeeper, Smith Slagtree, Otho Moji'ko and the wind rider master.
+- **Hammerfall and Refuge Pointe** (Arathi): Gor'mul, Tor'gan and Korin Fel; Skuerto, Apprentice Kryten and their quests.
+- **Tarren Mill**: Krusk, Novice Thaivand, Deathguards Humbert and Samsa, Tallow, and Innkeeper Shay with much more to say.
+- **Kargath, Stonard and Grom'gol**: Neeka Bloodscar, Jarkal Mossmeld, Dar, Greshka, Malosh, the flight and zeppelin masters.
+- **Goldshire and Sentinel Hill**: Tomas the cook, Kira Songshine, the Maclures (Pa and Joshua), two Goldshire children, and four more at Sentinel Hill.
+- **Auberdine, Astranaar, Theramore**: Tharnariun Treetender, Sentinel Elissa Starbreeze, Sentinel Thenysil, Morgan Stern, Doctor Gustaf VanHowzen and the flight masters.
+- **Booty Bay, Gadgetzan, Everlook**: 22 more between them (the bankers, flight masters and traders; Dirge Quikcleave, Trenton Lighthammer, Yeh'kinya, Legacki, Felnok Steelspring, Jessica Redpath, Malyfous Darkhammer, Storm Shadowhoof).
+- About 75 new people in all, each with their Classic quests where they have them, replies for who you are, and a first impression for the diary.
+
+## 0.36.0 (2026-11-15)
+Packs: every content pack has a new version (`python3 tools/version.py` lists them). **New files (four origin files in World, Stormwind's warrior trainers): exit the game fully and restart**; /reload won't load them.
+
+### Every race and class, not only priests
+The user: "There needs to be more dialogue specific to every race and class, not just priest. Go with another big content push."
+- **Class trainers are conversations now, for every class.** Before, only priest trainers had more to say than "Teach me." Every warrior, paladin, hunter, rogue, mage, warlock, shaman and druid trainer, named or not, now has: what you should practise at your level, one question where you take a side (duty or glory, mercy or judgement, need or sport, loyalty or coin, knowledge and its price, mastery or being used, asking or commanding the elements, the wild or people), something personal to ask, and remarks on the race-and-class pairings they'd notice (a human hunter, a dwarf shaman, an orc mage, a troll warlock, a Forsaken paladin, the Skyborne).
+- **Stormwind's warrior trainers:** Wu Shen, Ilsa Corbin and Ander Germaine in Old Town.
+- **About 450 named people across every pack gained replies for who you are**, each leading to its own conversation: the majors three to seven each (Bolvar, Anduin, Shaw, Magni, Mekkatorque, Tyrande, Fandral, Jaina, Tirion, Thrall, Vol'jin, Cairne, Sylvanas and many more), quest givers at least one. Warriors, hunters, rogues, mages, warlocks, druids, shamans and paladins, every race of both factions, and the Skyborne. No new priest content this time; priests already had the most.
+- **Guards, innkeepers, children, stable masters, blacksmiths and flight masters** notice every class and race; the people in all 48 towns' streets notice the classes and races they'd find unusual; "A little advice" has an answer for each class.
+- **Origins for everyone.** Orcs, trolls, tauren and the Forsaken had no origins; now each has six to eight (born in an internment camp, Frostwolf, Warsong kin, Darkspear from the Echo Isles, sailed with Thrall, Grimtotem by birth, Hamuul's pupil, once a soldier of Lordaeron, a risen Silver Hand knight...). Every Alliance race and the Skyborne gain class origins too (a Stormwind City Guard recruit, a canal pickpocket, a pupil from the Slaughtered Lamb's cellar, a dwarf who listens to the stone, Gnomeregan's last arcane student, a Nightclaw initiate, a recruit of the Empyrean Blades...). People here and there remember them. All are drafts for your approval.
+
 ## 0.35.0 (2026-11-15)
 Packs: every content pack has a new version (`python3 tools/version.py` lists them), and three are new: **Blasted Lands 1.0.0, Azshara 1.0.0, Silithus 1.0.0**. **New folders and many new files: exit the game fully, copy the three new folders in, tick them, and start the game again**; /reload won't load them.
 

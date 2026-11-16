@@ -45,6 +45,7 @@ P:NPC {
         { text = "And your kin still in the mountain?", next = "kin" },
         { text = "A Dark Iron. I was raised to hate your kind.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Teach me something of your craft.", next = "craft", when = { profession = "Blacksmithing" } },
+        { text = "The fire spirits here answer to someone, Overseer.", next = "k_shaman", when = { class = "SHAMAN" } },
         { text = "I'll work with the Brotherhood.", next = "END", fx = { affinity = 1, standing = { thorium_point = 1 } } },
       },
     },
@@ -93,6 +94,19 @@ P:NPC {
     craft = {
       lines = { { id = "c_default", text = "Heat ye can't feel through yer gloves is too hot. Down in the mountain we learned that by the scars. Learn it by listenin' tae me instead." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    k_shaman = {
+      big = true,
+      lines = {
+        { id = "xsh_default", text = "Aye, they do, an' we built his armies' blades in the heat o' him for longer than ye've been alive. Ragnaros doesnae ask, he burns, an' if ye go speakin' tae his spirits, ye'll find out they've forgotten how tae answer anythin' else." },
+        { id = "xsh_dwarf", when = { race = "Dwarf" },
+          text = "A Bronzebeard who talks tae the elements, standin' in my camp, an' askin' me about the Firelord. Aye, the spirits here answer tae him, an' my kin in the mountain answer tae him too, an' that's the whole o' the trouble." },
+      },
+      choices = {
+        { text = "Even fire can be talked down.", next = "BACK", fx = { align = { order = 1 }, affinity = -1 } },
+        { text = "Some fires you just let burn out.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "How did the Brotherhood break free?", next = "escape" },
+      },
     },
   },
 
@@ -148,6 +162,7 @@ P:NPC {
         { text = "What's Lolo like to work for?", next = "lolo" },
         { text = "How big are these lizards?", next = "lizards" },
         { text = "Arm-wrestle me.", next = "wrestle", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "My beast could take one of those lizards.", next = "k_hunter", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "I'll handle it.", next = "END", fx = { affinity = 2 } },
       },
     },
@@ -176,6 +191,15 @@ P:NPC {
     wrestle = {
       lines = { { id = "w_default", text = "Ha! Sit, then... no, ye sit, since I'm already sittin', an' that's my advantage. Ready? ...Ye nearly had me there, nearly." } },
       choices = { { text = "Rematch, someday.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } } },
+    },
+    k_hunter = {
+      lines = {
+        { id = "xhu_default", text = "Ha! It could try, an' I'd sit here an' watch, for it's the most fun I'd have had all week. The incendosaurs are made o' fire an' temper both, so let yer beast bite an' then let it run, because they don't like bein' bitten." },
+      },
+      choices = {
+        { text = "My beast doesn't run.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+        { text = "Good advice. I'll keep it back.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
+      },
     },
   },
 
@@ -229,6 +253,7 @@ P:NPC {
         { text = "Who's Maltorius?", next = "maltorius" },
         { text = "What did you smell on Kalaran?", next = "kalaran", when = { heardClaim = "kalaran_father" } },
         { text = "Does the drink really help?", next = "drink" },
+        { text = "I could sneak up on the Point, Captain.", next = "k_rogue", when = { class = { "ROGUE", "DRUID" } } },
         { text = "I'll hunt Maltorius.", next = "END", fx = { affinity = 1, standing = { thorium_point = 1 } } },
       },
     },
@@ -267,6 +292,17 @@ P:NPC {
     drink = {
       lines = { { id = "d_default", text = "It helps me no' mind that I cannae see, which is close enough. Don't tell the Overseer I said that." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    k_rogue = {
+      lines = {
+        { id = "xro_default", text = "Ye could try, an' ye'd smell o' boot leather an' nerves the whole way up the cliff. Every rogue who comes through Thorium Point thinks they'll be the first, an' I keep a count o' them in my head, every one caught." },
+        { id = "xro_druid", when = { class = "DRUID" },
+          text = "As a cat, I suppose, all soft paws an' no scent? Ye'd still smell o' moss an' sabercat, an' I'd still hear ye breathin', an' I'd still win." },
+      },
+      choices = {
+        { text = "Then I'll try, and you'll add me to the list.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
+        { text = "Best not to test a captain on his own wall.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
+      },
     },
   },
 
@@ -318,6 +354,7 @@ P:NPC {
         { text = "What will the torch do?", next = "torch" },
         { text = "Lolo says you don't smell of grief.", next = "lolo", when = { heardLine = "lolo.h_kalaran" } },
         { text = "I'll help you.", next = "END", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Vengeance isn't justice, Kalaran. I'm a paladin.", next = "k_paladin", when = { class = "PALADIN" } },
         { text = "Vengeance won't bring your father back, Kalaran.", next = "END", fx = { align = { light = 1 } } },
       },
     },
@@ -371,6 +408,19 @@ P:NPC {
         { id = "fw_default", text = "One true thing: he's dead, and they killed him. Bring me the pieces of the torch, and spare me the questions." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    k_paladin = {
+      big = true,
+      lines = {
+        { id = "xpa_default", text = "Then call it justice, if the word helps you sleep, and I'll call it what it is. Either way the Dark Iron who killed my father walks this gorge, and either way someone ought to stop him." },
+        { id = "xpa_scourge", when = { race = "Scourge" },
+          text = "A dead man with the Light in him, lecturing me on vengeance. Your own people hunt the Scourge for revenge, so forgive me if your sermon rings a little hollow." },
+      },
+      choices = {
+        { text = "Justice has rules. Vengeance doesn't.", next = "BACK", fx = { align = { order = 1 }, affinity = -1 } },
+        { text = "You're right. Call it what you like; I'll help.", next = "BACK", fx = { align = { order = -1 }, affinity = 2 } },
+        { text = "Tell me about your father.", next = "father" },
+      },
     },
   },
 

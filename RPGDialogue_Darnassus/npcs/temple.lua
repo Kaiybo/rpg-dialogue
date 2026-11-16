@@ -38,6 +38,52 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    mage_a = {
+      lines = {
+        { id = "mga_default", text = "A place to sit, certainly, and a place to pray if you want one. But don't ask me to teach you anything while your hands still smell of the Well, because the last of my people who mixed the two are at the bottom of the sea." },
+        { id = "mga_gnome", when = { race = "Gnome", class = "MAGE" },
+          text = "I've heard your people's magic is mostly sums and sparks, and I'd like to believe that's all it is. Sit, then, and don't count anything while you're here." },
+      },
+      choices = {
+        { text = "The arcane can heal, too, Priestess.", next = "mage_a2" },
+        { text = "I'll pray, then, and leave the spells outside.", next = "BACK", fx = { affinity = 2 } },
+      },
+    },
+    mage_a2 = {
+      lines = {
+        { id = "mga2_default", text = "It can mend a thing, I'll grant you, the way a smith mends a sword. It has never once asked the sword's permission, though, and Elune always asks; that's the difference, and it's all of the difference." },
+      },
+      choices = {
+        { text = "Power doesn't need permission.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Asking first is wiser. I'll remember.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+      },
+    },
+    warlock_a = {
+      big = true,
+      lines = {
+        { id = "wa_default", text = "Very well: you carry the same fire that burned Zin-Azshari, and you carry it into a temple built by those who survived it. I will not send you out, because Elune turns no one from her door, but I won't pretend I'm comfortable." },
+      },
+      choices = {
+        { text = "I bind it so it can't bind anyone else.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Comfort isn't what I came for, Priestess.", next = "BACK", fx = { align = { light = -1 }, affinity = -1 } },
+        { text = "Could Elune ever forgive one like me?", next = "warlock_a2" },
+      },
+    },
+    warlock_a2 = {
+      lines = {
+        { id = "wa2_default", text = "Sister Astarii would tell you yes, without even stopping to think, and she has better reason to know than I do. Ask her about the golden tablet some night, and watch how she holds it." },
+      },
+      choices = { { text = "I'll ask her. Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
+    },
+    paladin_a = {
+      lines = {
+        { id = "pa_default", text = "So I've seen; Stormwind's paladins pray with a hammer in hand, which the Sisterhood understands better than you'd think. Our priestesses stood at Hyjal with bows and the moon behind them, and nobody called it a contradiction." },
+      },
+      choices = {
+        { text = "Then the Light and Elune fight on the same side.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "What was it like, at Hyjal?", next = "tyrande" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -67,6 +113,9 @@ P:NPC {
         { text = "What does the Sisterhood teach?", next = "sisterhood" },
         { text = "You don't trust arcane magic, do you?", next = "arcane" },
         { text = "How is the High Priestess?", next = "tyrande" },
+        { text = "Is there a place for a mage in Elune's house?", next = "mage_a", when = { class = "MAGE" } },
+        { text = "You've noticed what I carry. Say it.", next = "warlock_a", when = { class = "WARLOCK" } },
+        { text = "The Light makes a soldier of me, Priestess.", next = "paladin_a", when = { class = "PALADIN" } },
         { text = "Elune be with you, Priestess.", next = "END" },
       },
     },
@@ -257,6 +306,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    warlock_s = {
+      big = true,
+      lines = {
+        { id = "ws_default", text = "She heard a man who served the Twilight's Hammer, and he'd done worse than summon an imp, I promise you. Whether you want her to listen is the harder question, and only you can answer it." },
+      },
+      choices = {
+        { text = "I want to be heard. Even like this.", next = "BACK", fx = { align = { light = 1 }, affinity = 2 } },
+        { text = "I don't need a goddess. I have my pact.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Priestess.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Astarii, one of the priestesses who teach here. Most of what I do is listen, and I'm told I'm better at it than at lecturing." },
@@ -276,6 +336,7 @@ P:NPC {
         { text = "What is this golden tablet?", next = "tablet", when = { any = { { questActive = TODO_QUEST("Prayer to Elune") }, { questDone = TODO_QUEST("Prayer to Elune") } } } },
         { text = "Can anyone be forgiven?", next = "forgive" },
         { text = "What do the people who can't sleep tell you?", next = "listen" },
+        { text = "Could Elune hear a warlock, Priestess?", next = "warlock_s", when = { class = "WARLOCK" } },
         { text = "Good night, Priestess.", next = "END" },
       },
     },
@@ -372,7 +433,7 @@ P:NPC {
         { id = "h_default", text = "Jandria. I teach the practical side of things here: how to keep your mana when the fight runs long, and how to heal a Sentinel who won't stop moving." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Night is when the wounded come up from the portal, so I keep my hands busy and my lessons short." },
       },
-      again = { { id = "h_again", text = "What else? Be quick, I've a student waiting." } },
+      again = { { id = "h_again", text = "Something more? Be quick about it, because a student of mine is kneeling by the pool and pretending not to listen." } },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "What's the hardest thing to teach?", next = "hard" },
@@ -448,7 +509,7 @@ P:NPC {
       lines = {
         { id = "h_default", text = "I'm Lariia. I teach here, and when I'm not teaching I watch the pool, because the moonlight on it tells you a great deal about the night if you look long enough." },
       },
-      again = { { id = "h_again", text = "Is there more on your heart? Speak it softly; the moonwell carries every word." } },
+      again = { { id = "h_again", text = "Is there more you wish to know? Keep your voice low by the moonwell, for it carries." } },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "What does the pool tell you?", next = "pool" },
@@ -517,6 +578,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    sky_a = {
+      lines = {
+        { id = "sk_default", text = "In the sky? Truly, islands just floating up there? I've only read about Eldre'Thalas in old books, and none of them said anything about sky, so I'm afraid you'll have to tell me everything." },
+      },
+      choices = {
+        { text = "Wind spirits held them up. Now they're gone.", next = "sky_a2" },
+        { text = "Another time, Sister.", next = "BACK" },
+      },
+    },
+    sky_a2 = {
+      lines = {
+        { id = "sk2_default", text = "Gone, and you had to come all this way down. I'm sorry, and I'm also a little glad, because otherwise I'd never have met you; is that terrible of me?" },
+      },
+      choices = {
+        { text = "Not terrible. I'm glad too.", next = "BACK", fx = { affinity = 2 } },
+        { text = "A little, yes.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Aquinne, a sister of the Temple, though not a priestess yet. The priestesses give me errands and I try to do them well, and in between I study out here among the flowers." },
@@ -528,7 +607,7 @@ P:NPC {
           text = "You're going after Lady Sathrah, aren't you? Be gentle with her, if you can, because she was beautiful once." },
       },
       again = {
-        { id = "h_again", text = "The garden can spare me until the evening bell, so ask what you like." },
+        { id = "h_again", text = "What else? The bell won't ring for my lessons for a while yet, so ask away." },
         { id = "h_again2", text = "Ask me anything; I'll tell you if I know, and if I don't I'll find out." },
       },
       choices = {
@@ -536,6 +615,7 @@ P:NPC {
         { text = "What are you studying?", next = "study" },
         { text = "What's it like, training at the Temple?", next = "training" },
         { text = "We study the Light much the same way.", next = "light", when = { class = "PRIEST", ["not"] = { race = "NightElf" } } },
+        { text = "My people lived on islands in the sky.", next = "sky_a", when = { race = "Skyborne" } },
         { text = "Good luck with your studies.", next = "END" },
       },
     },
@@ -643,7 +723,7 @@ P:NPC {
         { id = "h_voucher", tags = { "news" }, when = { questActive = TODO_QUEST("Calm Before the Storm") },
           text = "Gracina Spiritmight has told me to expect you. When you bring her voucher, I'm to withdraw something from her account and present it to you, so congratulations would seem to be in order." },
       },
-      again = { { id = "h_again", text = "Your coin is safe with me. Was there something more?" } },
+      again = { { id = "h_again", text = "Is there anything else? Your coin is as safe under the Temple's roof as anywhere in Darnassus." } },
       choices = {
         { text = "I'd like to see my box.", next = "BUSINESS" },
         { text = "Who keeps accounts here?", next = "accounts" },

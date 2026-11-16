@@ -52,6 +52,9 @@ P:NPC {
         { text = "The Darkspear came from this jungle, Commander.", next = "darkspear", when = { race = "Troll" } },
         { text = "An orc mage. Does that trouble you?", next = "orc_mage", when = { race = "Orc", class = "MAGE" } },
         { text = "Thunder Bluff sent me. I'm a Windshaper.", next = "skyborne", when = { race = "Skyborne" } },
+        { text = "Give me a post on the wall, Commander.", next = "k_warrior", when = { class = "WARRIOR" } },
+        { text = "The living sweat in this jungle. I don't.", next = "k_scourge", when = { race = "Scourge" } },
+        { text = "I can keep the raptors off your caravans.", next = "k_hunter", when = { class = "HUNTER" } },
         { text = "I'll get to work.", next = "END", fx = { affinity = 1, standing = { gromgol = 1 } } },
       },
     },
@@ -185,6 +188,38 @@ P:NPC {
       },
       choices = { { text = "That's all I ask.", next = "BACK", fx = { affinity = 2, standing = { gromgol = 1 } } } },
     },
+    k_warrior = {
+      lines = {
+        { id = "xwa_default", text = "A post I can give you, and a sore back to go with it. The raptors test the north gate at dawn and the Bloodscalp test it at dusk, and in between the grunts complain about the heat, which is the only fight they ever win." },
+        { id = "xwa_warsong", when = { origin = "orc_warsong_kin" },
+          text = "Warsong blood, I'd guess, from how you stand like you're waiting for an order to charge. There's no charging here, only holding; the raptors test the north gate at dawn and the Bloodscalp at dusk." },
+      },
+      choices = {
+        { text = "Holding is a soldier's honor. I'll take dawn.", next = "BACK", fx = { align = { order = 1 }, affinity = 2, standing = { gromgol = 1 } } },
+        { text = "Holding is how you lose. Let me hunt the raiders.", next = "BACK", fx = { align = { order = -1 }, trait = { brave = 1 } } },
+        { text = "Who's raiding the caravans?", next = "road_raiders" },
+      },
+    },
+    k_scourge = {
+      lines = {
+        { id = "xsc_default", text = "No, you don't, and I've noticed the raptors leave your kind alone, which my grunts find more disturbing than the raptors. The zeppelin to the Undercity is the busiest one I've got, so you'll find a few of your own here, mostly on the tower complaining about the damp." },
+      },
+      choices = {
+        { text = "The damp is the worst of it, Commander.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Send me where your grunts won't go.", next = "BACK", fx = { affinity = 2, standing = { gromgol = 1 } } },
+      },
+    },
+    k_hunter = {
+      lines = {
+        { id = "xhu_default", text = "Then you'll be more use than my whole north wall, because the raptors don't respect a wall but they respect a hunter. Thin out the lashtails between here and the river and I'll count one more caravan through every week." },
+        { id = "xhu_head", when = { origin = "troll_headhunter" },
+          text = "A headhunter, back in the jungle that made your people. The lashtails between here and the river are yours, and so are any Bloodscalp you find, though Nimboya will want to count the heads." },
+      },
+      choices = {
+        { text = "Only what the camp needs, no more.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "I'll hunt until the jungle learns to fear us.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
   },
 
   topics = {
@@ -256,6 +291,7 @@ P:NPC {
         { text = "I'm Darkspear. Tell me what the chief needs.", next = "kin", when = { race = "Troll" } },
         { text = "His soul is free. Is it over?", next = "after", when = { questDone = TODO_QUEST("Saving Yenniku") } },
         { text = "I'll help you find him.", next = "END", fx = { affinity = 2, align = { honor = 1 }, learn = { "yenniku" } } },
+        { text = "The spirits might know where Yenniku is.", next = "k_shaman", when = { class = "SHAMAN" } },
         { text = "Good hunting, but the chief's son is no business of mine.", next = "END", fx = { align = { honor = -1 } } },
       },
     },
@@ -359,6 +395,15 @@ P:NPC {
         { text = "Then Zanzil should answer for it.", next = "BACK", fx = { affinity = 2, trait = { stern = 1 } } },
       },
     },
+    k_shaman = {
+      lines = {
+        { id = "xsh_default", text = "The spirits know, mon, but Zanzil's hold on the boy is the kind the spirits won't touch, and Kin'weelay say so first. Ask them all the same, and if they answer you clearer than they answer us, you tell Nimboya before you tell anyone." },
+      },
+      choices = {
+        { text = "I'll ask them, and I'll tell you first.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Who is Yenniku?", next = "yenniku" },
+      },
+    },
   },
 
   topics = {
@@ -430,6 +475,7 @@ P:NPC {
         { text = "I carry an orc's head from Dustwallow.", next = "marg", when = { questActive = TODO_QUEST("The Troll Witchdoctor") } },
         { text = "A Darkspear warlock. What do the spirits make of me?", next = "troll_warlock", when = { race = "Troll", class = "WARLOCK" } },
         { text = "I'm a Windshaper. Do your spirits know mine?", next = "skyborne", when = { race = "Skyborne" } },
+        { text = "Do the loa have anything to say about the dead, witch doctor?", next = "k_scourge", when = { race = "Scourge" } },
         { text = "Farewell, witch doctor.", next = "END" },
       },
     },
@@ -561,6 +607,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    k_scourge = {
+      big = true,
+      lines = {
+        { id = "xsc_default", text = "Plenty, and none of it nice, so Kin'weelay keep it short. The loa don't like the dead who still walk, mon, but they like the ones who made you walk even less, and the loa of the dead might laugh to see you on your feet." },
+      },
+      choices = {
+        { text = "Let him laugh. I chose this second life.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
+        { text = "I'd rest, if I could. Tell him that.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "What can't be seen, witch doctor?", next = "unseen" },
+      },
+    },
   },
 
   topics = {
@@ -616,6 +673,7 @@ P:NPC {
         { text = "The elements speak to me as well.", next = "shaman", when = { class = "SHAMAN" } },
         { text = "I'm an orc who studies the arcane.", next = "orc_mage", when = { race = "Orc", class = "MAGE" } },
         { text = "My people honor the elements too.", next = "skyborne", when = { race = "Skyborne" } },
+        { text = "I took the warlock's path, far seer. Like our grandfathers.", next = "k_lock", when = { race = "Orc", class = "WARLOCK" } },
         { text = "Thank you, far seer.", next = "END" },
       },
     },
@@ -705,6 +763,19 @@ P:NPC {
         { text = "Another time, far seer.", next = "BACK" },
       },
     },
+    k_lock = {
+      big = true,
+      lines = {
+        { id = "xlk_default", text = "Like our grandfathers, yes, and look where that path took them, into the camps and the bloodlust. I will not send you away from this fire, but I will ask what you think you know that Gul'dan's warlocks did not." },
+        { id = "xlk_cleft", when = { origin = "orc_cleft_initiate" },
+          text = "You learned in the Cleft of Shadow, in Orgrimmar's own belly, where the Warchief lets your kind work in the dark. I will not send you from this fire, but I will ask what you know that Gul'dan's warlocks did not." },
+      },
+      choices = {
+        { text = "That the fel can be mastered, not served.", next = "BACK", fx = { align = { light = -1 }, affinity = -1 } },
+        { text = "That it must never rule us again. I watch it.", next = "BACK", fx = { align = { light = 1 }, affinity = 2 } },
+        { text = "What do you make of the trolls' magic?", next = "trolls" },
+      },
+    },
   },
 
   topics = {
@@ -752,6 +823,8 @@ P:NPC {
         { text = "What's the talk in camp?", next = "talk" },
         { text = "Where does the zeppelin go?", next = "zeppelin" },
         { text = "Do you even cook for the Forsaken?", next = "forsaken", when = { race = "Scourge" } },
+        { text = "Who else keeps this camp running?", next = "keepers" },
+        { text = "This jungle was my people's home once.", next = "k_troll", when = { race = "Troll" } },
         { text = "Just a meal, thanks.", next = "END" },
       },
     },
@@ -779,6 +852,32 @@ P:NPC {
         { id = "z_default", text = "The tower outside the walls sends them to Orgrimmar and to the Undercity, and the goblins who run them swear they've never lost one. I've never asked what they mean by lost." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    keepers = {
+      lines = {
+        { id = "ke_default", text = "Uthok sells supplies off the zeppelin crates, Thysta keeps the wind riders, and that goblin Nez'raz runs the zeppelin to Orgrimmar and never stops talking. Between the four of us, the Commander's grunts are fed, armed and shipped." },
+      },
+      choices = {
+        { text = "Nez'raz never stops talking?", next = "keepers_nezraz" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    keepers_nezraz = {
+      lines = {
+        { id = "kn_default", text = "Never, and he comes down from his tower to eat here just to have someone new to talk at. He loves the sun on this coast more than any goblin has a right to, so let him tell you about it, and he'll be happy for a week." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    k_troll = {
+      lines = {
+        { id = "xtr_default", text = "It was, and you'd know better than I do what's out there in the green. Tell me a story about it, since the grunts only know the jungle as the thing that bites them." },
+        { id = "xtr_sailed", when = { origin = "troll_sailed_with_thrall" },
+          text = "You sailed with Thrall, so you left this coast long before Grom'gol had a wall. It must be strange to come back and find an orc cooking stew where your people used to hunt." },
+      },
+      choices = {
+        { text = "It's good to see the Horde here.", next = "BACK", fx = { align = { order = 1 }, affinity = 2 } },
+        { text = "It's still our jungle, not the Horde's.", next = "BACK", fx = { align = { order = -1 } } },
+      },
     },
     forsaken = {
       lines = {

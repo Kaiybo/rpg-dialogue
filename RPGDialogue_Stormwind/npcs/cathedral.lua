@@ -74,6 +74,11 @@ P:NPC {
         { text = "I came out of Lordaeron, Your Grace.", next = "lordaeron", when = { origin = "human_lordaeron_refugee" } },
         { text = "I've been praying in Lordaeron, Your Grace.", next = "plague_prayer",
           when = { class = { "PRIEST", "PALADIN" }, thread = { id = "plague_light", beat = "b4_benedictus", state = "unfolding" } } },
+        { text = "Your Grace, should a paladin ever doubt?", next = "paladin_doubt", when = { class = "PALADIN" } },
+        { text = "Would the Light turn a warlock away, Your Grace?", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "My people pray to Elune, Your Grace.", next = "elune", when = { race = "NightElf" } },
+        { text = "I've done things in the dark for the crown, Your Grace.", next = "rogue", when = { class = "ROGUE" } },
+        { text = "I hear the spirits of the earth, Your Grace. Is that wrong?", next = "shaman", when = { class = "SHAMAN" } },
         { text = "Thank you, Your Grace.", next = "END" },
       },
     },
@@ -243,6 +248,67 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    paladin_doubt = {
+      big = true,
+      lines = { { id = "paladin_doubt_l", text = "Every one of them should, child, and the good ones do it before they swing the hammer rather than after. A paladin who never doubts is only a soldier who glows." } },
+      choices = {
+        { text = "Then I'll keep my doubts close.", next = "paladin_doubt2" },
+        { text = "Doubt gets people killed. I'll leave it to priests.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "Doubt keeps the hammer honest.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+      },
+    },
+    paladin_doubt2 = {
+      lines = { { id = "paladin_doubt2_l", text = "Close, but not hidden. Bring them to Rall, or to Lord Shadowbreaker, or to me; we've all carried a few, and they're lighter shared." } },
+      choices = { { text = "Thank you, Your Grace.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    warlock = {
+      big = true,
+      lines = { { id = "warlock_l", text = "The Light doesn't turn anyone away, child, though I'll be honest with you: some of my brothers might. You're standing under this roof, and nobody has struck you down, which tells you something about whose house it is." } },
+      choices = {
+        { text = "And if I never give up what I've learned?", next = "warlock_keep" },
+        { text = "I don't need the Light's welcome.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll come back, Your Grace.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+      },
+    },
+    warlock_keep = {
+      lines = { { id = "warlock_keep_l", text = "Then the door stays open all the same, and I'll pray you never need it as badly as I fear you might. Mind what answers when you call, child; not everything that answers is listening." } },
+      choices = { { text = "Something else, Your Grace.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+    },
+    elune = {
+      lines = { { id = "elune_l", text = "So I'm told, and the kaldorei who come here to light candles at the sunset bell seem to find something under this roof all the same. I don't think the moon and the Light quarrel nearly as much as their priests do." } },
+      choices = {
+        { text = "Elune and the Light may be one mercy.", next = "elune_one" },
+        { text = "Elune is not your Light, Your Grace.", next = "BACK", fx = { trait = { stern = 1 } } },
+      },
+    },
+    elune_one = {
+      lines = { { id = "elune_one_l", text = "I'd like to think so, though I'd not say it too loudly near Bishop Farthing. Come and light a candle at the bell, if you like; nobody will ask which of them it's for." } },
+      choices = { { text = "Something else, Your Grace.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    rogue = {
+      big = true,
+      lines = { { id = "rogue_l", text = "Then you've done what kingdoms ask of their quieter children, and you've come to an archbishop about it, which tells me you're not sure it was right. Do you want absolution, child, or only someone to know?" } },
+      choices = {
+        { text = "Only someone to know.", next = "rogue_know" },
+        { text = "It was necessary. I don't need absolution.", next = "BACK", fx = { align = { light = -1, order = 1 } } },
+        { text = "Absolution, if the Light will give it.", next = "rogue_know", fx = { align = { light = 1 } } },
+      },
+    },
+    rogue_know = {
+      lines = { { id = "rogue_know_l", text = "Then I know, and I'll keep it the way Master Shaw keeps his files, without the filing. The Light was here before you told me, and it's still here now." } },
+      choices = { { text = "Thank you, Your Grace.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    shaman = {
+      lines = { { id = "shaman_l", text = "Wrong? I've no idea, child, and I'd be a poor archbishop if I pretended otherwise. The orcs' shamans brought the Horde to us, but their warchief's shamans are said to have turned away from all that, and the earth you hear is the same earth this Cathedral stands on." } },
+      choices = {
+        { text = "Then you don't object?", next = "shaman_object" },
+        { text = "The spirits are nothing to do with orcs.", next = "BACK", fx = { trait = { stern = 1 } } },
+      },
+    },
+    shaman_object = {
+      lines = { { id = "shaman_object_l", text = "I object to cruelty, and to pride, and to very long sermons. Listen to your stones kindly and you'll have no quarrel with me." } },
+      choices = { { text = "Something else, Your Grace.", next = "BACK", fx = { affinity = 2 } } },
+    },
   },
 
   topics = {
@@ -409,6 +475,7 @@ P:NPC {
         { text = "What do the children need most?", next = "needs" },
         { text = "I came south from Lordaeron as a child.", next = "refugee", when = { origin = "human_lordaeron_refugee" } },
         { text = "I sew, as it happens.", next = "sew", when = { profession = "Tailoring" } },
+        { text = "Would the children like to meet {pet}?", next = "pet", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "I'll keep you in mind.", next = "END" },
       },
     },
@@ -458,6 +525,17 @@ P:NPC {
     sew = {
       lines = { { id = "se_default", text = "Then you know linen goes further than wool and wears out twice as fast. Bring me a few bolts sometime and I'll remember your name." } },
       choices = { { text = "I'll bring some.", next = "BACK", fx = { affinity = 2, trait = { generous = 1 } } } },
+    },
+    pet = {
+      lines = { { id = "pet_l", text = "Like to? They'd never let it leave! Does it mind being climbed on, love, because I can't promise thirty children won't try." } },
+      choices = {
+        { text = "{pet}'s patient. Bring them out.", next = "pet2" },
+        { text = "Maybe one at a time.", next = "pet2", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    pet2 = {
+      lines = { { id = "pet2_l", text = "Oh, bless you. Little Timmy will cry when you go, mind, and then he'll ask for a cat again, and I'll have to say no again." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
     },
   },
 
@@ -517,6 +595,7 @@ P:NPC {
         { text = "Why won't your dad let you keep her?", next = "dad" },
         { text = "Where do you walk her?", next = "walk" },
         { text = "Shall I bless her?", next = "bless", when = { class = { "PRIEST", "PALADIN" } } },
+        { text = "My {pet} would like to meet your kitten.", next = "pet", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "Sorry, Timmy.", next = "END" },
       },
     },
@@ -538,6 +617,10 @@ P:NPC {
     bless = {
       lines = { { id = "bl_default", text = "Does that make her holy? Holy kittens definitely need homes. That's in a book, probably." } },
       choices = { { text = "It's in a book.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } } },
+    },
+    pet = {
+      lines = { { id = "pet_l", text = "Is {pet} nice to kittens? She's very small and very brave, and she'll probably hiss, but she doesn't mean it." } },
+      choices = { { text = "{pet} will be gentle.", next = "BACK", fx = { affinity = 2 } } },
     },
   },
 
@@ -604,6 +687,8 @@ P:NPC {
         { text = "What does a high priestess do?", next = "duty" },
         { text = "Josetta speaks well of you.", next = "josetta", when = { heardLine = "josetta.h_prayer" } },
         { text = "The Abbey raised me. I'm one of theirs.", next = "novice", when = { origin = "human_abbey_novice" } },
+        { text = "Can the Light mend what a demon has touched?", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "Do the Cathedral's healers ever tend druids?", next = "druid", when = { class = "DRUID" } },
         { text = "Thank you, High Priestess.", next = "END" },
       },
     },
@@ -665,6 +750,26 @@ P:NPC {
       choices = {
         { text = "Forgive me, High Priestess.", next = "BACK" },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    warlock = {
+      big = true,
+      lines = { { id = "warlock_l", text = "Sometimes, if the person wants it mended, and usually they come to my door at night when they've finally decided they do. You're asking in daylight, warlock, which is either a good sign or a very bad one." } },
+      choices = {
+        { text = "I'm asking for someone else.", next = "warlock2" },
+        { text = "I don't want mending. I want to know my options.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "A good sign, I hope.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+      },
+    },
+    warlock2 = {
+      lines = { { id = "warlock2_l", text = "Of course you are; they always are. Bring them, or come yourself, and nobody under this roof will ask which it was." } },
+      choices = { { text = "Something else, High Priestess.", next = "BACK" } },
+    },
+    druid = {
+      lines = { { id = "druid_l", text = "When they let us, which isn't often; your people heal each other with the moon and the root, and you look at our bandages as if they were quaint. I'd trade lessons, if any of you would sit still long enough." } },
+      choices = {
+        { text = "I'd trade lessons, High Priestess.", next = "BACK", fx = { affinity = 2 } },
+        { text = "The forest heals better than any bandage.", next = "BACK", fx = { trait = { stern = 1 } } },
       },
     },
   },
@@ -843,6 +948,7 @@ P:NPC {
         { text = "Tyrosus of the Argent Dawn told me why he left.", next = "tyrosus", when = { heardLine = "tyrosus.l_default" } },
         { text = "Raleigh told me what the Monastery does.", next = "raleigh", when = { thread = { id = "scarlet_path", beat = "b3_raleigh" } } },
         { text = "I'll go to Brother Anton.", next = "END", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I've sworn the Silver Hand's oath, not yours.", next = "paladin_oath", when = { class = "PALADIN" } },
         { text = "I'll fight the dead my own way, without your tabard.", next = "END", fx = { align = { order = -1 } } },
       },
     },
@@ -895,6 +1001,19 @@ P:NPC {
         { text = "Acting beats hoping, and the Dawn could learn from you.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    paladin_oath = {
+      big = true,
+      lines = { { id = "paladin_oath_l", text = "The Hand's oath! Half the Crusade swore it first, paladin, and then watched Uther's order sit on its hands while the plague walked into Andorhal. The Crusade is the Hand with its eyes open." } },
+      choices = {
+        { text = "The Hand kept its mercy. You threw yours away.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Perhaps the Hand was too gentle.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Who in the Crusade swore it?", next = "paladin_oath2" },
+      },
+    },
+    paladin_oath2 = {
+      lines = { { id = "paladin_oath2_l", text = "Mograine, the Highlord's son, and Abbendis's men, and many more. Go to the Monastery and ask them yourself, if Brother Anton thinks you're ready." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "scarlet_crusade" } } } },
     },
   },
 

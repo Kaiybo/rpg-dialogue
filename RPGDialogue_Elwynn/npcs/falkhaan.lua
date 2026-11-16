@@ -62,6 +62,7 @@ P:NPC {
         { text = "The brothers say rest is a kind of prayer.", next = "priest", when = { class = "PRIEST" } },
         { text = "I walked this road as a novice once.", next = "novice", when = { origin = "human_abbey_novice" } },
         { text = "I've been a long way since you sent me south.", next = "far", when = { minLevel = 20 } },
+        { text = "My people sleep beneath the stars, not under roofs.", next = "kaldorei", when = { race = "NightElf" } },
         { text = "I'll find my own bed, thanks.", next = "END" },
       },
     },
@@ -205,6 +206,13 @@ P:NPC {
       choices = {
         { text = "I'll save the best ones for him.", next = "BACK", fx = { affinity = 1 } },
         { text = "Some stories aren't for an inn.", next = "BACK", fx = { trait = { stern = 1 } } },
+      },
+    },
+    kaldorei = {
+      lines = { { id = "kaldorei_l", text = "So I've heard, and I've watched a few of your people try Farley's beds and give up by midnight. There's a meadow behind the inn where the last one slept; Farley charged her nothing, and she left a flower on the pillow anyway." } },
+      choices = {
+        { text = "The meadow, then.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'll try the bed, for the experience.", next = "BACK", fx = { trait = { curious = 1 } } },
       },
     },
   },

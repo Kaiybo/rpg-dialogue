@@ -57,6 +57,8 @@ P:NPC {
           text = "There ye are! The lads on the wall have been askin' when ye'd be back, an' so have I, if I'm honest about it." },
         { id = "h_cold", when = { disposition = { max = 34 } },
           text = "I've a wall tae hold an' no time for them that cannae be trusted on it. Speak quick." },
+        { id = "h_xward", when = { origin = "dwarf_military_ward" },
+          text = "Ye've the stance o' a {g:lad|lass} raised in the Military Ward, an' I'd know it anywhere, since I drilled in that yard myself. Good; I've no time to teach anyone which end o' the axe is the business end." },
       },
       again = {
         { id = "h_again", text = "What else? Be quick about it, mind, for the wall doesnae keep itself." },
@@ -74,6 +76,9 @@ P:NPC {
         { text = "I came out of Lordaeron. Your harbour carries our king's name.", next = "lordaeron", when = { origin = "human_lordaeron_refugee" } },
         { text = "Nek'rosh is dead. What now?", next = "after", when = { questDone = TODO_QUEST("Defeat Nek'rosh") } },
         { text = "Put me to work, Captain.", next = "BUSINESS", fx = { affinity = 1, standing = { menethil = 1 } } },
+        { text = "Give me the worst stretch of wall, Captain.", next = "xwarrior", when = { class = "WARRIOR" } },
+        { text = "The raptors on the road. I could tame one.", next = "xhunter", when = { class = "HUNTER" } },
+        { text = "The earth spirits here are angry, Captain.", next = "xshaman", when = { race = "Dwarf", class = "SHAMAN" } },
         { text = "I'll be going.", next = "END" },
       },
     },
@@ -257,6 +262,44 @@ P:NPC {
         { text = "Then my work here is done.", next = "BACK", fx = { affinity = 2, standing = { menethil = 2 } } },
       },
     },
+    xwarrior = {
+      big = true,
+      lines = { { id = "xwa_default", text = "The worst stretch is the east gate, where the Dragonmaw come out o' the marsh at dusk, an' it's held by three lads an' a dog. Stand there one night an' I'll know what ye're worth." },
+        { id = "xwa_gnome", when = { race = "Gnome" },
+          text = "A gnome askin' for the worst o' the wall; now I've heard everything. The east gate, then, an' I'll find ye a crate to stand on so the Dragonmaw can see what's comin'." } },
+      choices = {
+        { text = "One night? I'll stand a week, and no relief.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 }, standing = { menethil = 1 } } },
+        { text = "Why only three lads?", next = "harbour" },
+      },
+    },
+    xhunter = {
+      lines = {
+        { id = "xhu_default", text = "Tame one o' those? Ye're mad, an' I like it. If ye can teach a raptor to bite a Dragonmaw instead o' my supply carts, I'll call it a draw between us an' the marsh." },
+        { id = "xhu_pet", when = { pet = { type = "Beast" } },
+          text = "Ye've a beast already, an' it's eyein' my goats. Keep it fed, an' if ye bring home a raptor as well, keep that one well clear o' the harbour; the sailors are jumpy enough." },
+      },
+      choices = {
+        { text = "A raptor's loyal once it's broken.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+        { text = "What else is out on the road?", next = "north" },
+      },
+    },
+    xshaman = {
+      big = true,
+      lines = { { id = "xsh_default", text = "Are they, now? I'll be honest, I've not made my mind up about Ironforge dwarves talkin' to the stones, for it's no' the way I was raised. But if the earth here's angry, I'd like to know whether it's angry at the Dragonmaw or at us." },
+      },
+      choices = {
+        { text = "At the Dragonmaw. They chain its dragons.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "At all of us. It doesn't take sides.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "Why haven't you made up your mind?", next = "xshaman_wild" },
+      },
+    },
+    xshaman_wild = {
+      lines = { { id = "xsw_default", text = "Because when I was a lad the stone was for carvin' an' minin', no' for talkin' to. The world's changin' faster than an old captain can keep up wi', an' I'm tryin', so bear wi' me." } },
+      choices = {
+        { text = "Maybe Ironforge should listen.", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -332,6 +375,7 @@ P:NPC {
         { text = "Let me pray for your crew.", next = "priest", when = { class = "PRIEST" } },
         { text = "To the Wave Mistress!", next = "toast", when = { drunk = { min = 1 } } },
         { text = "The Eye's been cleansed, in Stormwind.", next = "cleansed", when = { questDone = TODO_QUEST("Cleansing the Eye") } },
+        { text = "I could conjure you something to drink.", next = "xmage", when = { class = "MAGE" } },
         { text = "Some other time.", next = "END" },
       },
     },
@@ -439,6 +483,14 @@ P:NPC {
         { text = "Drink, then, if it keeps them quiet.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
+    xmage = {
+      lines = { { id = "xma_default", text = "Water, you mean? I've had enough water to last me, {g:lad|lass}, thank you; I've had the whole bay in my boots. Now if you could conjure a good Kul Tiran rum, I'd sign on as your first mate tonight." },
+      },
+      choices = {
+        { text = "Water's all the arcane gives, I'm afraid.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "You've had enough, Fitzsimmons.", next = "why" },
+      },
+    },
   },
 
   topics = {
@@ -508,6 +560,7 @@ P:NPC {
         { text = "Brother, let me take some of the load.", next = "priest", when = { class = "PRIEST" } },
         { text = "Bishop Farthing sent me about lightforge iron.", next = "lightforge", when = { questActive = TODO_QUEST("The Doomed Fleet") } },
         { text = "What is an Eye of Paleth, exactly?", next = "eye", when = { questDone = TODO_QUEST("The Eye of Paleth") } },
+        { text = "You're watching me like I've brought something with me, Brother.", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "Light keep you.", next = "END" },
       },
     },
@@ -649,6 +702,22 @@ P:NPC {
       },
       choices = {
         { text = "Fair enough, Brother.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = { { id = "xwl_default", text = "Because ye have, an' I can smell it from here, like brimstone in a wet cellar. I'll not turn ye out o' the chapel, since the Light turns nobody out, but I'd like ye to leave whatever's followin' ye on the step." } },
+      choices = {
+        { text = "It stays outside, Brother. You have my word.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "It goes where I go. Your chapel will cope.", next = "BACK", fx = { affinity = -2, align = { honor = -1 } } },
+        { text = "Does the Light really turn nobody out?", next = "xwarlock_light" },
+      },
+    },
+    xwarlock_light = {
+      lines = { { id = "xwlt_default", text = "Nobody who comes askin', an' that's the hard part o' the job. Come askin' some day, without the smell, an' we'll talk about it properly." } },
+      choices = {
+        { text = "Maybe someday.", next = "BACK", fx = { trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -681,6 +681,9 @@ P:NPC {
         { text = "What do you teach?", next = "teach" },
         { text = "The Light would have words with you.", next = "priest", when = { class = "PRIEST" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "WARLOCK" } },
+        { text = "What should I be practising?", next = "practise", when = { class = "WARLOCK" } },
+        { text = "What did you mean, power is a debt?", next = "debt", when = { class = "WARLOCK" } },
+        { text = "What do you make of the other teachers upstairs?", next = "teachers" },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -719,6 +722,34 @@ P:NPC {
         { text = "I'll be watching this cellar.", next = "BACK", fx = { align = { order = 1 }, trait = { stern = 1 } } },
       },
     },
+    practise = {
+      lines = { { id = "practise_l", text = "Drawing a soul shard cleanly, without tearing what you're drawing from. Anyone can kill a thing, but a warlock takes the useful part as it dies, and that takes timing." } },
+      choices = {
+        { text = "That sounds monstrous.", next = "practise_monstrous" },
+        { text = "Timing, then.", next = "BACK", fx = { trait = { stern = 1 } } },
+      },
+    },
+    practise_monstrous = {
+      lines = { { id = "practise_monstrous_l", text = "It is, a little. So is a butcher's work, and you ate supper tonight. Practise it, or go back upstairs." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    debt = {
+      big = true,
+      lines = { { id = "debt_l", text = "Every spell we cast borrows against something: your health, a soul, a demon's patience. The Light's people think their power is a gift; ours comes with a ledger, and I've watched warlocks die of the interest." } },
+      choices = {
+        { text = "Then I'll pay as I go, and never owe.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Debts are for people who get caught.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Have you ever fallen behind?", next = "debt_you" },
+      },
+    },
+    debt_you = {
+      lines = { { id = "debt_you_l", text = "Once. I'm still paying, which is why I teach in a cellar instead of a tower. That's all you'll get from me about it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    teachers = {
+      lines = { { id = "teachers_l", text = "The mage upstairs pretends we're not here, the priestess prays for us by name, and the paladin behind the smithy looks at the cellar door every time he passes. Only Farley treats us like ordinary lodgers, and I'm grateful." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I teach in a cellar. You may draw whatever conclusions you like from that." } },
@@ -755,6 +786,8 @@ P:NPC {
         { text = "What's your imp's name?", next = "imp" },
         { text = "What exactly do you teach?", next = "tricks" },
         { text = "Show me.", next = "BUSINESS", when = { class = "WARLOCK" } },
+        { text = "What should I be teaching my demons first?", next = "practise", when = { class = "WARLOCK" } },
+        { text = "Do you ever let a demon go free?", next = "free" },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -781,6 +814,23 @@ P:NPC {
         { id = "t_default", text = "Grimoires. A demon learns from the page, if you read it aloud and mean it. None of it's any use without a demon of your own." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    practise = {
+      lines = { { id = "practise_l", text = "Whatever keeps you alive, never whatever looks impressive. Your voidwalker's Sacrifice before your imp's fancier fire, every time, because a dead warlock's demons go home laughing." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+    },
+    free = {
+      big = true,
+      lines = { { id = "free_l", text = "Free? A freed demon goes straight back to whoever made it and tells them everything about you. I dismiss them, cleanly, and I don't feel sorry about it." } },
+      choices = {
+        { text = "Nothing should be bound forever.", next = "BACK", fx = { align = { order = -1, light = 1 } } },
+        { text = "Good. A bound demon can't hurt anyone.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Not even the imp?", next = "free_imp" },
+      },
+    },
+    free_imp = {
+      lines = { { id = "free_imp_l", text = "Especially not the imp; he knows where Dobbins keeps the keys. Something else, before he hears us." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
   },
   topics = {

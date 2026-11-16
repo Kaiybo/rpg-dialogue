@@ -65,6 +65,10 @@ P:NPC {
         { text = "Why teach behind a smithy?", next = "smithy" },
         { text = "What do paladins learn that priests don't?", next = "priest", when = { class = "PRIEST" } },
         { text = "I squired for the Silver Hand, before it broke.", next = "squire", when = { origin = "human_paladin_squire" } },
+        { text = "What should I be practising, Brother?", next = "practise", when = { class = "PALADIN" } },
+        { text = "Ironforge has plenty of anvils, Brother. I came to learn.", next = "dwarf", when = { race = "Dwarf", class = "PALADIN" } },
+        { text = "Du Lac says a paladin is a warrior who prays.", next = "warrior", when = { class = "WARRIOR" } },
+        { text = "Do you know what goes on in the inn's cellar?", next = "cellar" },
         { text = "Another time, Brother.", next = "END" },
       },
     },
@@ -161,6 +165,46 @@ P:NPC {
         { id = "sp_default", text = "Then it's working, because an oath that never feels pointless was never tested. Come and see me on those days, and I'll make tea." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    practise = {
+      lines = {
+        { id = "practise_l", text = "Holy Light on yourself between fights, before you need it, and Devotion Aura, until you forget it's there. A paladin who has to remember his aura is a paladin who'll forget it on the day it matters." },
+        { id = "practise_old", when = { minLevel = 20 },
+          text = "Lay on Hands, and the restraint not to use it. You'll want to save everyone with it, and it'll only save one, so practise choosing, which is the harder skill." },
+      },
+      choices = {
+        { text = "Choosing who to save is cruel.", next = "practise_choose" },
+        { text = "I'll practise until it's habit.", next = "BACK", fx = { affinity = 1, trait = { pious = 1 } } },
+      },
+    },
+    practise_choose = {
+      lines = { { id = "practise_choose_l", text = "It is. That's why we practise it here, on straw dummies, so that when it's real, you've already wept over it once." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    dwarf = {
+      lines = {
+        { id = "dwarf_l", text = "Then I'll take back the joke and keep the welcome. Ironforge kept the Hand's oath when the north lost it, and I'm not sure I've anything to teach a dwarf about holding to a vow." },
+        { id = "dwarf_hand", when = { origin = "dwarf_silver_hand" },
+          text = "Then I'll take back the joke. You took the oath in Ironforge after the Order broke in the north, and that's more faith than I had at your age." },
+      },
+      choices = {
+        { text = "Teach me what it weighs, Brother.", next = "BACK", fx = { affinity = 2 } },
+        { text = "A vow's easy. Keeping it is hard.", next = "BACK", fx = { trait = { stern = 1 } } },
+      },
+    },
+    warrior = {
+      lines = { { id = "warrior_l", text = "She would say that, and she'd mean it kindly, more or less. A paladin is a warrior who's promised the Light he'll stop when it tells him to, and that promise is the whole difference." } },
+      choices = {
+        { text = "I'd rather decide for myself when to stop.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "That's a promise worth making.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+      },
+    },
+    cellar = {
+      lines = { { id = "cellar_l", text = "I know, and I look at the door every time I pass, and I don't go in. The kingdom permits them, and the Light hasn't told me to break down a door yet; when it does, I'll know." } },
+      choices = {
+        { text = "Some doors you break without being told.", next = "BACK", fx = { align = { order = -1 }, trait = { brave = 1 } } },
+        { text = "The kingdom's law comes first.", next = "BACK", fx = { align = { order = 1 } } },
+      },
     },
   },
 

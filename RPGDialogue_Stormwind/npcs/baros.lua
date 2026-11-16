@@ -62,6 +62,8 @@ P:NPC {
         { text = "Where are you from, originally?", next = "farm" },
         { text = "My family farmed Westfall too.", next = "westfall_kin", when = { origin = "human_westfall_farmhand" } },
         { text = "My family sits in the House of Nobles.", next = "noble", when = { origin = "human_minor_noble" } },
+        { text = "Your arches are fair work, for human stone.", next = "dwarf_stone", when = { race = "Dwarf" } },
+        { text = "My father was a Stonemason. He was never paid either.", next = "mason_child", when = { origin = "human_stonemason_child" } },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -141,6 +143,30 @@ P:NPC {
         { text = "I'll remember.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "My family's votes are their business, not my debt.", next = "BACK", fx = { align = { honor = -1 } } },
       },
+    },
+    dwarf_stone = {
+      lines = { { id = "dwarf_stone_l", text = "For human stone, he says, and I'll take it, because I copied half of them from drawings of Ironforge's Great Forge. Edwin used to say a dwarf would see through every shortcut we took, and you're squinting at the third one now." } },
+      choices = {
+        { text = "Which shortcut?", next = "dwarf_stone2" },
+        { text = "I'll say nothing, Master Alexston.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+      },
+    },
+    dwarf_stone2 = {
+      lines = { { id = "dwarf_stone2_l", text = "The mortar on the Cathedral's east side. We ran out of money before we ran out of wall, and I've been waiting years for someone to notice." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    mason_child = {
+      big = true,
+      lines = { { id = "mason_child_l", text = "Then I knew him, likely, and I'm sorry, and I'm the man who took a salary from the same House that robbed him. Say it, if you want to; your father would have." } },
+      choices = {
+        { text = "You took the post. He'd have called you a traitor.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "Someone had to keep building. He'd understand.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "What was his name, to you?", next = "mason_name" },
+      },
+    },
+    mason_name = {
+      lines = { { id = "mason_name_l", text = "Tell me, and I'll tell you which wall is his. Every mason carved a mark somewhere nobody would look, and I know where most of them are." } },
+      choices = { { text = "Thank you. Something else.", next = "BACK", fx = { affinity = 2 } } },
     },
   },
 

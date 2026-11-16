@@ -1,4 +1,4 @@
-# Tanaris  (keys: marin, sprinkle, bilgewhizzle, fizzledowser, pestlezugg, tranrek, fizzgrimble, stoley, krinkle)
+# Tanaris  (keys: marin, sprinkle, bilgewhizzle, fizzledowser, pestlezugg, tranrek, fizzgrimble, stoley, krinkle, gimblethorn, bera, bulkrek, dirge, blizrik, trenton, yehkinya)
 
 ## Sources
 - https://warcraft.wiki.gg/wiki/Gadgetzan (capital of the Steamwheedle Cartel in northern Tanaris; neutral, both factions recognize it; goblin bruisers stop fights; before the Cataclysm, desert all round, water from towers at Waterspring Field kept by the Gadgetzan Water Company and threatened by the Wastewander bandits; Gadgetzan Bruisers; Innkeeper Fizzgrimble)
@@ -51,3 +51,20 @@ One or two repeat-visit or night lines each for the thinnest NPCs here: small ha
 Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
 - Marin (Deceive, secret): without Sprinkle's childhood secret ingredient the elixir tastes like a boot; he privately admits the fortune is half hers.
 - Tran'rek (Intimidate, buyers_true): the scarab shells go out on the Booty Bay boat crated as curios; Krazek finds him the buyers and is paid to keep that one secret.
+
+## Gadgetzan's working folk (0.37.0, npcs/gadgetzan_folk.lua)
+### Sources
+- https://warcraft.wiki.gg/wiki/Gadgetzan (NPC list: Gimblethorn <Banker>, Bera Stonehammer <Gryphon Master> dwarf, Bulkrek Ragefist <Wind Rider Master> orc, Dirge Quikcleave <Butcher>, Blizrik Buckshot <Gunsmith>; Trenton Lighthammer listed as removed)
+- https://warcraft.wiki.gg/wiki/Dirge_Quikcleave (goblin butcher at the inn; calls himself the greatest living chef in Azeroth; greeting mentions the drought but plenty of meat; Classic quests incl. Dirge's Kickin' Chimaerok Chops and The Isle of Dread!; chimaerok tenderloins from the Isle of Dread)
+- https://warcraft.wiki.gg/wiki/Trenton_Lighthammer (a **night elf** before 4.0.3a; worked near Gadgetzan's southern gate; Troll Temper (Zul'Farrak trolls drop the vials); his Sul'thraze obsession, Sandsorrow Watch and Mithril Order quests are Cataclysm or later and are not used)
+- https://warcraft.wiki.gg/wiki/Yeh%27kinya (old jungle troll at Steamwheedle Port, Classic and Forever; Screecher Spirits, The Prophecy of Mosh'aru, The Ancient Egg, The God Hakkar, Confront Yeh'kinya; secretly a Hakkar worshipper who flees as a wind serpent; gossip: drink dulled his outer senses, not his inner eyes; on Screecher Spirits he calls Hakkar's return a myth but says the power must be kept from misuse)
+### Their quests
+- Gimblethorn, Bera, Bulkrek, Blizrik: none (service; built from role and place).
+- Dirge: Dirge's Kickin' Chimaerok Chops (Isle of Dread tenderloins). Who ordered the chops is never said (Ahn'Qiraj chain).
+- Trenton: Troll Temper (twenty vials from Zul'Farrak's Sandfury).
+- Yeh'kinya: Screecher Spirits, The Prophecy of Mosh'aru (tablets from Zul'Farrak), The Ancient Egg, The God Hakkar (Sunken Temple). He never admits his devotion; his calm about Hakkar is the only tell.
+### Never
+- Yeh'kinya's betrayal or flight spoken by him; Trenton's retail story (Sul'thraze, Mazoga, high elf); Dirge's Legion lines; who Dirge's chops are for.
+### Voices (authored, not canon)
+- Gimblethorn: dry, careful goblin banker. Bera: blunt dwarf, hates sand, loves her gryphons. Bulkrek: gruff orc, a grudging nod across the yard to Bera. Dirge: boastful cook. Blizrik: loud gunsmith living in the loophole between selling guns and shooting them. Trenton: patient night elf smith who will learn from an enemy. Yeh'kinya: sly old troll, "mon", third person now and then.
+- Authored, not canon: Gimblethorn counted coins in Booty Bay; Bera learned gryphons in Dun Morogh; Bulkrek's chewed chicken; Blizrik's exploded workshops (Ratchet, Booty Bay); Fizzgrimble's view of Dirge and of the two flight masters.

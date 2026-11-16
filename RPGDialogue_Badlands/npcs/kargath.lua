@@ -23,6 +23,8 @@ P:NPC {
       text = "A warrior! I was one, once, before they gave me a tower and a title, so swing an axe for me while you still can." },
     { id = "n_young", cat = "level", when = { maxLevel = 45 },
       text = "You're young for the Badlands, so stay south of the Spire; the Blackrock eat young things." },
+    { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
+      text = "A shaman. Good; the spirits of this rock have been angry since before I came, and nobody here knows how to ask them why." },
   },
 
   start = "hello",
@@ -54,6 +56,9 @@ P:NPC {
         { text = "Warrior to warrior: do you miss it?", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Angerforge is dead, Warlord.", next = "angerforge_dead", when = { questDone = TODO_QUEST("Operation: Death to Angerforge") } },
         { text = "Are you sweet on the Forsaken ladies, Warlord?", next = "forsaken", when = { race = "Scourge" } },
+        { text = "The orcs at the Spire are my blood, Warlord.", next = "k_orc", when = { race = "Orc" } },
+        { text = "The spirits here are sick with Dark Iron fire.", next = "k_shaman", when = { class = "SHAMAN" } },
+        { text = "My people have no stake in Blackrock feuds.", next = "k_tauren", when = { race = "Tauren" } },
         { text = "Point me at the Dark Irons.", next = "END", fx = { affinity = 2, trait = { brave = 1 }, standing = { kargath = 1 } } },
       },
     },
@@ -137,12 +142,22 @@ P:NPC {
       },
       choices = {
         { text = "Lexlort sees everything?", next = "staff_lexlort" },
+        { text = "And your scouts in the field?", next = "staff_neeka" },
         { text = "Something else.", next = "BACK" },
       },
     },
     staff_lexlort = {
       lines = {
         { id = "sl_default", text = "He found out where Angerforge's officers train before the dwarves knew it themselves. I don't ask how he does it, because I sleep better not knowing who's watching my tower." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    staff_neeka = {
+      lines = {
+        { id = "sn_default", text = "Neeka Bloodscar leads them, and she's the only orc in Kargath who's told me to my face that I walk too loud. She sends her reports south to Stonard, and I've learned to read them before I read anything else." },
+        { id = "sn_done", when = { questDone = TODO_QUEST("Report to Helgrum") },
+          text = "Neeka Bloodscar, and you've carried her reports to Stonard yourself, so you know she writes like she talks, short and sharp. When she says the road is clear, I believe her, and when she says it isn't, I double the guard." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -173,6 +188,46 @@ P:NPC {
         { id = "fl_default", text = "She does, and she's the only one in Kargath who'd dare. It's my name, and a fine name, so tell her the Warlord said she may go on using it, if she likes." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    k_orc = {
+      big = true,
+      lines = {
+        { id = "xor_default", text = "Blood, yes, and that is what makes it bitter. Rend's clan marched in the same Horde as mine in the Second War, and now they kneel to a Warchief they made up and call Thrall a slave's name, so tell me which of us is the true Horde." },
+        { id = "xor_camp", when = { origin = "orc_camp_born" },
+          text = "You were born behind the camp fences, like the young ones Thrall freed. Those orcs on the mountain never saw a fence; they kept their bloodlust and called it pride, and they would call you weak for having been a prisoner." },
+      },
+      choices = {
+        { text = "Thrall's Horde is the true one.", next = "BACK", fx = { align = { order = 1 }, affinity = 2 } },
+        { text = "Some of them fight with more honor than Orgrimmar knows.", next = "BACK", fx = { align = { order = -1 }, affinity = -2 } },
+        { text = "Could any of them be brought home?", next = "k_orc_home" },
+      },
+    },
+    k_orc_home = {
+      lines = {
+        { id = "xoh_default", text = "Some, maybe, if Rend were dead and the dragon gone from his ear. I have thought it on long nights, and then the Spire sends another war party down the road, and I stop thinking it." },
+      },
+      choices = { { text = "Something else, Warlord.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    k_shaman = {
+      lines = {
+        { id = "xsh_default", text = "Sick is a word for it. The Earthen Ring sends a shaman through here now and then, and they all leave with the same look you have now, like someone who has smelled a corpse in a stew." },
+        { id = "xsh_thrall", when = { origin = "orc_thrall_shaman" },
+          text = "You learned from Thrall's own circle, I hear it in how you talk. Then you know what the Dark Irons woke under that mountain was never theirs to wake, and the earth out here still feels it." },
+      },
+      choices = {
+        { text = "The land can heal, if the fires are put out.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Then burn the Dark Irons out with their own fire.", next = "BACK", fx = { align = { light = -1 }, trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    k_tauren = {
+      lines = {
+        { id = "xta_default", text = "No stake, but you came all this way from Mulgore to stand on hot rock beside us, so you have one now. The Blackrock would chain your people the way they chained mine, if they ever learned where you graze." },
+      },
+      choices = {
+        { text = "Then I'll fight for the Horde's sake.", next = "BACK", fx = { align = { order = 1 }, affinity = 2, standing = { kargath = 1 } } },
+        { text = "I fight for my tribe, not for your feud.", next = "BACK", fx = { align = { order = -1 } } },
+      },
     },
   },
 
@@ -236,6 +291,7 @@ P:NPC {
         { text = "Tell me about the 109th.", next = "the109" },
         { text = "How does a Forsaken get on among orcs?", next = "forsaken", when = { race = "Scourge" } },
         { text = "I'm Forsaken, and the Light still answers me.", next = "paladin", when = { race = "Scourge", class = "PALADIN" } },
+        { text = "You don't flinch at my demons, Hierophant.", next = "k_lock", when = { class = "WARLOCK" } },
         { text = "I'll go.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -315,6 +371,18 @@ P:NPC {
         { text = "I'll be careful.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },
+    k_lock = {
+      lines = {
+        { id = "xlk_default", text = "Flinch? My dear, I've shared a corridor with abominations and a bench with the Royal Apothecaries, and an imp is the politest guest I've had all month. Do keep it away from the Warlord, though; he swings first and asks never." },
+        { id = "xlk_cult", when = { origin = "forsaken_cult_remnant" },
+          text = "I know where you learned it, darling, and I won't say it aloud in an orc town. We've all got something from before that we'd rather keep in the cellar." },
+      },
+      choices = {
+        { text = "My demons are tools. Nothing more.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'd rather be rid of them, if I could.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -376,6 +444,7 @@ P:NPC {
         { text = "What do you make of my craft?", next = "practitioner", when = { class = { "MAGE", "WARLOCK" } } },
         { text = "An orc who studies the arcane. Surprised?", next = "orc_mage", when = { race = "Orc", class = "MAGE" } },
         { text = "Do you miss the Undercity?", next = "undercity", when = { race = "Scourge" } },
+        { text = "A troll who deals with demons. Does that interest you?", next = "k_troll_lock", when = { race = "Troll", class = "WARLOCK" } },
         { text = "I'll find it.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -472,6 +541,25 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    k_troll_lock = {
+      big = true,
+      lines = {
+        { id = "xtl_default", text = "Interest me? I've only read of it, in a Kirin Tor report that described the Darkspear's spirit-talk as quaint. I don't suppose your loa have opinions about the Burning Legion?" },
+        { id = "xtl_voice", when = { origin = "troll_other_voice" },
+          text = "You heard a different voice in the dark than the loa, I'm told, and listened to it. That's the most interesting thing anyone has said in Kargath since I arrived, which isn't saying much, but still." },
+      },
+      choices = {
+        { text = "The loa keep their distance from my work.", next = "BACK", fx = { align = { light = -1 }, trait = { skeptical = 1 } } },
+        { text = "The loa watch me. They'd warn me if I went too far.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "What did the report say?", next = "k_troll_report" },
+      },
+    },
+    k_troll_report = {
+      lines = {
+        { id = "xtr_default", text = "That trolls can't be taught the higher schools, which I always found a little rich from people who taught Kel'Thuzad. You're proof against it, and I'll be writing that down with some pleasure." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
+    },
   },
 
   topics = {
@@ -533,6 +621,7 @@ P:NPC {
         { text = "Teach me something about the trade.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Grark's in your custody now.", next = "grark_done", when = { questDone = TODO_QUEST("Precarious Predicament") } },
         { text = "I'll be your hands.", next = "END", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My beast can be your eyes too.", next = "k_hunter", when = { class = "HUNTER" } },
         { text = "I'm nobody's hands, Lexlort. I work for myself.", next = "END", fx = { align = { order = -1 } } },
       },
     },
@@ -614,6 +703,17 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
     },
+    k_hunter = {
+      lines = {
+        { id = "xhu_default", text = "A beast doesn't gossip and doesn't get bored, which puts it ahead of half the grunts on this wall. Send it up the ridge at dusk and watch what the buzzards do; when they lift all at once, something from the Spire is moving." },
+        { id = "xhu_head", when = { origin = "troll_headhunter" },
+          text = "A headhunter from the jungle, by the trophies. You know how to wait in a tree for a day, so you know half my job already, and the buzzards will tell you the rest." },
+      },
+      choices = {
+        { text = "Watching is half the hunt.", next = "BACK", fx = { affinity = 2, trait = { cautious = 1 } } },
+        { text = "I'd rather hunt the scouts than watch them.", next = "BACK", fx = { trait = { brave = 1 } } },
+      },
+    },
   },
 
   topics = {
@@ -664,6 +764,9 @@ P:NPC {
         { text = "Who's the town named for?", next = "name" },
         { text = "Who passes through Kargath?", next = "travelers" },
         { text = "How do your Forsaken guests treat you?", next = "forsaken", when = { race = "Scourge" } },
+        { text = "I'm a soldier, Shul'kar. Tell me a battle worth hearing.", next = "k_warrior", when = { class = "WARRIOR" } },
+        { text = "Who rents the room upstairs?", next = "upstairs" },
+        { text = "A Darkspear needs no grog to tell a story.", next = "k_troll", when = { race = "Troll" } },
         { text = "A bunk, please.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -697,6 +800,45 @@ P:NPC {
         { id = "f_default", text = "Theodora and Vivian? They tip well and they don't eat, which makes them my favorite guests. They do laugh at things I'd rather not understand, though." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    upstairs = {
+      lines = {
+        { id = "up_default", text = "Jarkal Mossmeld, the troll alchemist, and his jars, and his smells. He pays his rent in potions, which is fair, since half my grunts would be dead of the heat without them." },
+        { id = "up_reagents", when = { questDone = TODO_QUEST("Badlands Reagent Run") },
+          text = "Jarkal, and you've been filling his jars with gizzards, so you know the smell I'm cooking against. I put more onions in the stew every week, and it's still losing." },
+      },
+      choices = {
+        { text = "Do you trust him?", next = "upstairs_trust" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    upstairs_trust = {
+      lines = {
+        { id = "ut_default", text = "With potions, yes, and with a bargain, never, though he'd say the same of me and my grog. We get along fine, as long as neither of us tries to sell the other anything." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    k_troll = {
+      lines = {
+        { id = "xtr_default", text = "True enough, because the trolls in my common room tell the wildest tales of all, sober or not. Sit down and give me one about the jungle, and I'll tell the grunts it happened in the Badlands." },
+        { id = "xtr_head", when = { origin = "troll_headhunter" },
+          text = "A headhunter, by the look of your belt, so your stories come with proof. Leave the proof outside, though, because it puts the grunts off their stew." },
+      },
+      choices = {
+        { text = "My stories are true, every word.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Mine get better each time I tell them.", next = "BACK", fx = { align = { honor = -1 }, trait = { witty = 1 } } },
+      },
+    },
+    k_warrior = {
+      lines = {
+        { id = "xwa_default", text = "Ha, every soldier says that and every soldier means 'tell me one I haven't heard.' The best I know is the night the 109th went up the mountain, and I'll tell it, but you'll buy the next round of grog for whoever cries first." },
+        { id = "xwa_grunt", when = { origin = "orc_razor_hill_grunt" },
+          text = "A Razor Hill grunt, this far from the sea! Then you'll like the one about the Dark Iron who mistook a goblin keg for an altar, and I've told it so often I've started to believe it." },
+      },
+      choices = {
+        { text = "Tell it straight, no polishing.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Polish it. A good lie beats a dull truth.", next = "BACK", fx = { align = { honor = -1 }, trait = { witty = 1 } } },
+      },
     },
   },
 

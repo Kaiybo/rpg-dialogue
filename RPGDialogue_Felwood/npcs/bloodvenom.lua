@@ -27,6 +27,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    warlock_w = {
+      big = true,
+      lines = {
+        { id = "ww_default", text = "Oh, I knew I'd like you! Most people get very twitchy when I mention what's in the water here, but you've got that lovely green smell about you, so you understand: it isn't evil, it's just extremely concentrated." },
+      },
+      choices = {
+        { text = "Exactly. Power is power.", next = "BACK", fx = { align = { light = -1 }, affinity = 2 } },
+        { text = "It's evil, Winna. I just use it anyway.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -52,6 +63,7 @@ P:NPC {
         { text = "A fellow Forsaken. Who sent you here?", next = "forsaken", when = { race = "Scourge" } },
         { text = "Keep your potions away from my pet.", next = "hunter", when = { class = "HUNTER" } },
         { text = "Moonwells were sacred to someone.", next = "tauren", when = { race = "Tauren" } },
+        { text = "Fel is just another reagent to me.", next = "warlock_w", when = { class = "WARLOCK" } },
         { text = "I'll go.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -169,6 +181,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    rogue_tr = {
+      lines = {
+        { id = "rtr_default", text = "Good, because the Deadwood furbolgs post sentries in the dark, and the satyrs at Jadefire Run see better in it than you do. Count their numbers, find their chiefs, and come back alive; dead eyes don't report." },
+        { id = "rtr_dst", when = { origin = "forsaken_deathstalker_recruit" },
+          text = "A Deathstalker, out of Undercity. Your Dark Lady trains her spies well, but this isn't Silverpine; the trees here watch you back." },
+      },
+      choices = {
+        { text = "I'll count them and come back.", next = "BACK", fx = { align = { order = 1 }, standing = { bloodvenom_post = 1 } } },
+        { text = "If a chief's alone, I won't just count him.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -192,6 +215,7 @@ P:NPC {
         { text = "What's the alchemist really up to?", next = "winna" },
         { text = "What do you make of that glowing necklace?", next = "nara", when = { questDone = TODO_QUEST("Guarding Secrets") } },
         { text = "The wildkin are kin to one of my forms.", next = "druid", when = { class = "DRUID" } },
+        { text = "You want eyes? Mine work in the dark.", next = "rogue_tr", when = { class = "ROGUE" } },
         { text = "I'll be your eyes too.", next = "END", fx = { affinity = 1, standing = { bloodvenom_post = 1 } } },
       },
     },

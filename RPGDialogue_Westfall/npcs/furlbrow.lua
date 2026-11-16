@@ -54,6 +54,7 @@ P:NPC {
         { text = "Fear isn't a sin, Theodore.", next = "courage", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "I remember your pumpkins. Everyone did.", next = "pumpkins", when = { origin = "human_westfall_farmhand" } },
         { text = "Can I help?", next = "BUSINESS" },
+        { text = "I could get your deed back from the Defias.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Take care, Theodore.", next = "END" },
       },
     },
@@ -136,6 +137,13 @@ P:NPC {
       choices = {
         { text = "They'll grow again.", next = "BACK", fx = { affinity = 3, align = { light = 1 } } },
         { text = "Those fields are gone, friend. Best let them go.", next = "BACK", fx = { align = { light = -1 } } },
+      },
+    },
+    rogue = {
+      lines = { { id = "rogue_l", text = "Could you? Quietly, I mean, without anyone getting hurt? Because I've no wish to see another soul die over a piece of paper with my name on it." } },
+      choices = {
+        { text = "Quietly. Nobody will even know I was there.", next = "BACK", fx = { affinity = 2, align = { honor = -1 } } },
+        { text = "Not quietly. They should know who took it back.", next = "BACK", fx = { align = { honor = 1 }, trait = { brave = 1 } } },
       },
     },
   },

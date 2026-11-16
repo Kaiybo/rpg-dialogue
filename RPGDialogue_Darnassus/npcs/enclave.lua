@@ -33,6 +33,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    gnome_j = {
+      lines = {
+        { id = "gj_default", text = "Machines that dig! There, you see, a visionary idea, and I'm nearly certain I had it first. Don't mention it to the Arch Druid, though, because he'd only make me dig the machine a ditch." },
+      },
+      choices = {
+        { text = "I could sketch one for you.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "The druids would never allow it.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -53,6 +62,7 @@ P:NPC {
         { text = "What do you dream of?", next = "dream" },
         { text = "Who's keeping you down?", next = "conspiracy" },
         { text = "What does the Circle want with Un'Goro soil?", next = "soil", when = { any = { { questActive = TODO_QUEST("Un'Goro Soil") }, { questDone = TODO_QUEST("Un'Goro Soil") } } } },
+        { text = "Gnomes build machines that dig, you know.", next = "gnome_j", when = { race = "Gnome" } },
         { text = "I'll let you dig.", next = "END" },
       },
     },
@@ -154,6 +164,8 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_canal", cat = "class", when = { origin = "human_canal_pickpocket" },
+      text = "You learned on Stormwind's canals, I'd wager, because you've checked where my hands are twice already. Keep the habit; it's the only one of theirs worth having." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
       text = "A priest, in the shadows of the Enclave. Your kind usually stands in the middle of the room and glows; it's restful to see one who doesn't." },
     { id = "n_stealth", cat = "stealth", when = { stealthed = true },
@@ -162,6 +174,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    rogue_s = {
+      big = true,
+      lines = {
+        { id = "rs_default", text = "Shadowmeld is a gift; everything after it is patience. Humans learn the dark in alleys, but we learned it from the forest, which hides better than any alley and talks a great deal less." },
+        { id = "rs_watch", when = { origin = "nightelf_watcher_trained" },
+          text = "You stand with your back to the wall, like the Watchers teach, and I won't ask who taught you. Then you already know we don't take a life for coin; we take it for the forest, or not at all." },
+      },
+      choices = {
+        { text = "Shadows or not, I keep my word.", next = "rogue_s2", fx = { align = { honor = 1 } } },
+        { text = "I work in the dark because it works. Nothing more.", next = "rogue_s2", fx = { align = { honor = -1 } } },
+        { text = "What's the first lesson, then?", next = "rogue_s2" },
+      },
+    },
+    rogue_s2 = {
+      lines = {
+        { id = "rs2_default", text = "Stillness. Most rogues get caught moving, because they are afraid of being seen, and the fear makes them hurry; stand still in a shadow long enough and even a Sentinel will walk past you." },
+      },
+      choices = { { text = "I'll practise. Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Syurna, and I train rogues. If you aren't one, I can't teach you anything, and I rarely talk for the pleasure of it, so choose your questions well." },
@@ -183,6 +214,7 @@ P:NPC {
         { text = "Who is Jannok?", next = "jannok" },
         { text = "What's wrong with Teldrassil's forests?", next = "forest" },
         { text = "Why do night elves need rogues?", next = "why" },
+        { text = "Teach me how the kaldorei move unseen.", next = "rogue_s", when = { class = "ROGUE" } },
         { text = "I'll leave you to the shadows.", next = "END" },
       },
     },
@@ -273,6 +305,45 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    sabers = {
+      lines = {
+        { id = "sb_default", text = "Then you learned the first lesson before you came to me: a saber carries you because it chooses to. Riders make patient hunters, and impatient ones, which are you?" },
+      },
+      choices = {
+        { text = "Patient. A hunt is won in the waiting.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Impatient. The saber taught me speed.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
+    human_h = {
+      lines = {
+        { id = "hh_default", text = "Somewhere I didn't expect, and I'll admit it. Your people fence the land and farm it, so the balance is harder to see in Elwynn than in Ashenvale, but a hunter who learns to see it there will see it anywhere." },
+        { id = "hh_wood", when = { origin = "human_eastvale_woodsman" },
+          text = "A woodsman's child from Eastvale. Then you grew up between the axe and the forest, and you know already that a tree is not only lumber; that puts you ahead of most of my students." },
+      },
+      choices = {
+        { text = "What do you see in Elwynn that I don't?", next = "human_h2" },
+        { text = "Every land feeds its hunters. Mine included.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    human_h2 = {
+      lines = {
+        { id = "hh2_default", text = "Wolves pushed off their ground by your farms, and bears driven down by your logging camps, and both of them turning on the roads. Nothing in a forest goes hungry without a reason, and the reason is usually one of us." },
+      },
+      choices = {
+        { text = "People have to eat too.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then the land should be given back.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
+    gun_h = {
+      lines = {
+        { id = "gh_default", text = "Every beast in Teldrassil heard you arrive, I'm sure, and so did half the Sentinels. I won't tell you to put it down, since Ironforge's hunters swear by them, but a bow lets the forest keep its silence, and the forest remembers who keeps it." },
+      },
+      choices = {
+        { text = "A clean kill matters more than a quiet one.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll learn the bow as well, then.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Jocaste, and I train the hunters of Darnassus. Always respect the balance and live in awe of the nature around you, because that's the first lesson, and the last." },
@@ -293,6 +364,9 @@ P:NPC {
         { text = "How do you choose a companion?", next = "companion" },
         { text = "Who else teaches hunters here?", next = "dorion" },
         { text = "How do I teach my companion new tricks?", next = "teach", when = { class = "HUNTER" } },
+        { text = "I rode nightsabers before I ever drew a bow.", next = "sabers", when = { origin = "nightelf_nightsaber_rider" } },
+        { text = "Humans hunt too. Where do I fit?", next = "human_h", when = { race = "Human", class = "HUNTER" } },
+        { text = "My rifle serves me as well as any bow.", next = "gun_h", when = { race = "Dwarf", class = "HUNTER" } },
         { text = "Farewell, Jocaste.", next = "END" },
       },
     },
@@ -384,6 +458,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    forms = {
+      big = true,
+      lines = {
+        { id = "fm_default", text = "Every young druid asks me that, and every old one has a different answer. The bear stands and holds, the cat hunts unseen, the seal goes where we can't, and your true shape is the one you are when you come back from them." },
+      },
+      choices = {
+        { text = "The bear. Stand where everyone can see you.", next = "forms2", fx = { align = { honor = 1 } } },
+        { text = "The cat. Strike before they know you're there.", next = "forms2", fx = { align = { honor = -1 } } },
+        { text = "And what if I don't come back?", next = "forms2" },
+      },
+    },
+    forms2 = {
+      lines = {
+        { id = "fm2_default", text = "Then you'll not be the first, and that's why Mathrengyl tests the heart and not only the body. Come back to yourself every evening, even when it would be easier to stay four-footed, and you'll be fine." },
+      },
+      choices = { { text = "I'll remember. Something else.", next = "BACK", fx = { learn = { "cenarion_circle" } } } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Denatharion, one of those who teach the young druids of the Enclave. Most of them come to me knowing how to grow a vine and leave knowing why they shouldn't always." },
@@ -394,13 +485,14 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else would you know? The Enclave is slow, and so are its answers, but they come." },
-        { id = "h_again2", text = "Ask on, young one. Questions are how roots find water." },
+        { id = "h_again2", text = "Ask on, then, since questions are how roots find water." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "Who is Cenarius, to you?", next = "cenarius" },
         { text = "What does a young druid learn first?", next = "first" },
         { text = "How is the Circle under Fandral?", next = "circle" },
+        { text = "Which shape is truest to a druid?", next = "forms", when = { class = "DRUID" } },
         { text = "Farewell.", next = "END" },
       },
     },

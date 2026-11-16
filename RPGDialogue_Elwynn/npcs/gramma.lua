@@ -59,6 +59,7 @@ P:NPC {
         { text = "Did she reach the river?", next = "escape_done", when = { questDone = TODO_QUEST("The Escape") } },
         { text = "I'll pray the two families make peace.", next = "priest", when = { class = "PRIEST" } },
         { text = "My family has feuds too, in Stormwind.", next = "noble", when = { origin = "human_minor_noble" } },
+        { text = "Dwarves feud for generations, Gramma. It never ends well.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "I'll leave you be.", next = "END" },
       },
     },
@@ -212,6 +213,15 @@ P:NPC {
       choices = {
         { text = "Fair enough, Gramma.", next = "BACK" },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    dwarf = {
+      big = true,
+      lines = { { id = "dwarf_l", text = "Is that so? Then you'll know how it goes: everybody forgets what started it and nobody forgets who's winning. How do your people end a feud, then, if they ever do?" } },
+      choices = {
+        { text = "With a wedding, usually.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
+        { text = "With a king's judgement, and both sides obey.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "They don't. Ask the Dark Irons.", next = "BACK", fx = { trait = { stern = 1 } } },
       },
     },
   },

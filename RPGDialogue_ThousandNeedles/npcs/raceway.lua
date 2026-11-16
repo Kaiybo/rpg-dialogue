@@ -52,6 +52,7 @@ P:NPC {
         { text = "Who pays for all this?", next = "sponsors" },
         { text = "I'm cheering for the goblins.", next = "cheer", when = { faction = "Horde" } },
         { text = "Aren't you worried I'm a gnome spy?", next = "spy", when = { race = "Gnome" } },
+        { text = "Could a tauren even fit in one of those cars?", next = "x_tauren", when = { race = "Tauren" } },
         { text = "Good luck out there.", next = "END" },
       },
     },
@@ -107,6 +108,15 @@ P:NPC {
     spy = {
       lines = { { id = "s_default", text = "A gnome spy would've stolen the plans already, not walked up and asked, unless that's the trick. Is that the trick? Stand over there, just in case." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } } },
+    },
+    x_tauren = {
+      lines = {
+        { id = "xt_default", text = "Fit? Sure, sure, if we took out the seat, the wheel and most of the car! But you'd make a fantastic counterweight, pal, and I've got a design in my head right now with your name on it, so don't go anywhere." },
+      },
+      choices = {
+        { text = "Build it, and I'll ride it.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
+        { text = "I'll stay on the ground, thanks.", next = "BACK" },
+      },
     },
   },
 
@@ -172,6 +182,7 @@ P:NPC {
         { text = "Is it true about your brothers?", next = "brothers" },
         { text = "Martek told me about indurium.", next = "indurium", when = { questDone = TODO_QUEST("News for Fizzle") } },
         { text = "I'm an engineer too.", next = "engineer", when = { profession = "Engineering" } },
+        { text = "Could a haste spell help your rocket car?", next = "x_mage", when = { class = "MAGE" } },
         { text = "I'll stand very still. Goodbye.", next = "END" },
       },
     },
@@ -231,6 +242,17 @@ P:NPC {
     engineer = {
       lines = { { id = "en_default", text = "Wonderful! Then you understand that 'it works' and 'it works twice' are entirely different claims. Keep your goggles on, always, even asleep." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    x_mage = {
+      lines = {
+        { id = "xm_default", text = "A spell, on my engine? Absolutely not, the tolerances are tuned to a hair, and one sparkle of arcane would throw off every gauge on the dash! Although, between us, if you could make the goblin car go slower, I'd call that science." },
+        { id = "xm_orc", when = { race = "Orc", class = "MAGE" }, text = "An orc who studies magic instead of hitting things with it? That's a marvelous inversion, and I'd love to see your notes, though please don't cast anything near the fuel." },
+      },
+      choices = {
+        { text = "Slowing the goblins would be cheating, Fizzle.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
+        { text = "Name a price, and their car will crawl.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -295,6 +317,7 @@ P:NPC {
         { text = "What was in that stout?", next = "stout", when = { any = { { questActive = TODO_QUEST("Get the Goblins Drunk") }, { questActive = TODO_QUEST("Get the Gnomes Drunk") }, { questDone = TODO_QUEST("Get the Goblins Drunk") } } } },
         { text = "The Light frowns on rigged races.", next = "light", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "A dwarf, out here among goblins?", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "One schemer to another: what's the angle?", next = "x_rogue", when = { class = "ROGUE" } },
         { text = "I didn't hear any of this.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -353,6 +376,16 @@ P:NPC {
     dwarf = {
       lines = { { id = "dw_default", text = "Ironforge has its forges an' its rules. Out here there's no rules, just goblins an' gnomes with more gold than sense. A dwarf could get used to it." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    x_rogue = {
+      lines = {
+        { id = "xr_default", text = "Keep your voice down, friend, and your hands where I can see them, because I know exactly what you are. Nobody's rigged a thing out here, and if somebody had, the last soul they'd tell is a professional." },
+      },
+      choices = {
+        { text = "Cut me in, or I talk to the crews.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "I'm not working today, Kravel. Relax.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 

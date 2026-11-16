@@ -61,6 +61,11 @@ P:NPC {
         { text = "Why keep King Terenas's statuette here?", next = "terenas",
           when = { any = { { questActive = TODO_QUEST("A Friend of the Family") }, { questDone = TODO_QUEST("A Friend of the Family") } } } },
         { text = "Do priests and paladins serve the same Light?", next = "priest", when = { class = "PRIEST" } },
+        { text = "What should I practise, my lord?", next = "practise", when = { class = "PALADIN" } },
+        { text = "Is the Light a weapon, my lord?", next = "weapon", when = { class = "PALADIN" } },
+        { text = "Why does a dwarf need a human's Silver Hand?", next = "dwarf", when = { race = "Dwarf", class = "PALADIN" } },
+        { text = "What does a paladin have that a warrior doesn't?", next = "warrior", when = { class = "WARRIOR" } },
+        { text = "What do you make of the other trainers here?", next = "others" },
         { text = "May the Light protect you too.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -169,6 +174,71 @@ P:NPC {
       lines = { { id = "ph_default", text = "Ask me before a battle and I'll say mine. Ask me after one and I'll say yours. Come and find me after one; I'd like to be honest." } },
       choices = { { text = "I'll find you.", next = "BACK", fx = { affinity = 2, trait = { pious = 1 } } } },
     },
+    practise = {
+      lines = {
+        { id = "practise_l", text = "Your seals, until you can change them without looking, and your judgement, until you can deliver it without enjoying it. Most young paladins have the first by spring and never get the second." },
+        { id = "practise_old", when = { minLevel = 40 },
+          text = "Your auras. You've learned to fight; now learn to stand among others so that they fight better for your being there. That's the half of the craft nobody notices until it's missing." },
+      },
+      choices = {
+        { text = "Why shouldn't I enjoy it?", next = "practise_enjoy" },
+        { text = "I'll practise until it's right.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
+      },
+    },
+    practise_enjoy = {
+      lines = { { id = "practise_enjoy_l", text = "Because the Scarlet Crusade enjoys it, and look at them. Judge as a surgeon cuts, and wash your hands after." } },
+      choices = { { text = "Something else, my lord.", next = "BACK", fx = { learn = { "scarlet_crusade" } } } },
+    },
+    weapon = {
+      big = true,
+      lines = { { id = "weapon_l", text = "It's whatever you make of it, which is exactly the danger. Uther used it as a shield more often than a hammer, and the ones who forget that are now burning villages in Tirisfal." } },
+      choices = {
+        { text = "Then I'll carry it as a shield.", next = "BACK", fx = { affinity = 1, align = { light = 2 } } },
+        { text = "The undead don't need shielding. They need breaking.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "Who teaches the other way?", next = "weapon_who" },
+      },
+    },
+    weapon_who = {
+      lines = { { id = "weapon_who_l", text = "Brother Crowley, downstairs, if you listen long enough, though he'd call it zeal. I let him recruit because the Archbishop asks me to, not because I agree." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    dwarf = {
+      lines = { { id = "dwarf_l", text = "You don't, strictly. Ironforge has its own priests and its own fire. But Uther took dwarves into the Hand from the start, and Brandur sends you here so you'll know you belong to something wider than a mountain." } },
+      choices = {
+        { text = "I'm glad of it, my lord.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "My oath is to Ironforge first.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Did you know Uther?", next = "dwarf_uther" },
+      },
+    },
+    dwarf_uther = {
+      lines = { { id = "dwarf_uther_l", text = "I knelt in the same chapel he did, once, and he looked straight through me to the door; he was waiting for someone more important. I've never minded, because I've spent the years since trying to be worth a second look." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    warrior = {
+      lines = { { id = "warrior_l", text = "Nothing a good warrior can't match with steel, and one thing he can't: when you fall, the Light can lift you, and when he falls, he needs one of us. Don't let my paladins tell you they're better than you, because they're not; they're only harder to kill." } },
+      choices = {
+        { text = "Then I'll stay a warrior.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+        { text = "Perhaps I was born to the wrong path.", next = "BACK", fx = { trait = { pious = 1 } } },
+      },
+    },
+    others = {
+      lines = {
+        { id = "others_l", text = "Arthur is a better man than I am and a worse teacher, the priests upstairs are kinder than either of us, and the mages in the Quarter think we're blunt instruments, which some days we are." },
+        { id = "others_lamb", when = { class = { "PALADIN", "PRIEST" } },
+          text = "Arthur is a better man than I am, Laurena is wiser, and the mages in the Quarter think we're blunt instruments. As for whatever's taught under the Slaughtered Lamb, I've asked the Archbishop not to tell me." },
+      },
+      choices = {
+        { text = "And the warlocks under the Lamb?", next = "others_lamb2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    others_lamb2 = {
+      lines = { { id = "others_lamb2_l", text = "The crown tolerates them and SI:7 watches them, so I'm spared the choice. If one ever comes to me asking how to turn back, I'll answer, and I'll pray I'm the right man to ask." } },
+      choices = {
+        { text = "They should be driven out.", next = "BACK", fx = { align = { light = 1, order = 1 } } },
+        { text = "The kingdom needs every weapon it has.", next = "BACK", fx = { align = { light = -1 } } },
+      },
+    },
   },
 
   topics = {
@@ -220,6 +290,10 @@ P:NPC {
         { text = "Why do they call you the Faithful?", next = "name" },
         { text = "Train me.", next = "BUSINESS", when = { class = "PALADIN" } },
         { text = "Will you pray with me?", next = "pray", when = { class = { "PRIEST", "PALADIN" } } },
+        { text = "What should I be practising, Arthur?", next = "practise", when = { class = "PALADIN" } },
+        { text = "Can the Light forgive anything, Arthur?", next = "forgive", when = { class = "PALADIN" } },
+        { text = "I took the oath in Ironforge, Arthur.", next = "dwarf", when = { race = "Dwarf", class = "PALADIN" } },
+        { text = "What do you think of Lord Shadowbreaker?", next = "grayson" },
         { text = "Thank you.", next = "END" },
       },
     },
@@ -248,6 +322,51 @@ P:NPC {
         { text = "Amen. Something else.", next = "BACK", fx = { align = { light = 1 }, trait = { pious = 1 } } },
         { text = "I'll kneel, but I won't pretend anyone is listening.", next = "BACK", fx = { align = { light = -1 } } },
       },
+    },
+    practise = {
+      lines = {
+        { id = "practise_l", text = "Lord Shadowbreaker will tell you seals and judgement, and he's right. I'll tell you to practise kneeling, because the paladin who forgets how to kneel soon forgets why he stands." },
+      },
+      choices = {
+        { text = "Kneeling won't stop an axe.", next = "practise_axe" },
+        { text = "I'll kneel every morning.", next = "BACK", fx = { affinity = 1, trait = { pious = 1 } } },
+      },
+    },
+    practise_axe = {
+      lines = { { id = "practise_axe_l", text = "No, but it decides whose axe you'll stop, and why, and whether you can live with it after. That's most of what a paladin is." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    forgive = {
+      big = true,
+      lines = { { id = "forgive_l", text = "I believe it can, and I've seen men who didn't deserve it receive it anyway. Whether a paladin should be the one to offer it is a harder question, and I've never answered it to my own satisfaction." } },
+      choices = {
+        { text = "We should offer mercy first, always.", next = "BACK", fx = { affinity = 1, align = { light = 2 } } },
+        { text = "Some deeds put a man beyond mercy.", next = "BACK", fx = { align = { light = -1, order = 1 } } },
+        { text = "Who didn't deserve it?", next = "forgive_who" },
+      },
+    },
+    forgive_who = {
+      lines = { { id = "forgive_who_l", text = "An orc in the internment camps, once, who asked me to pray with him. I did, and the guards laughed, and I've never been sure which of us the Light was listening to." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
+    },
+    dwarf = {
+      lines = {
+        { id = "dwarf_l", text = "Then you've knelt on harder stone than this marble. Ironforge kept the Hand's oath when Lordaeron couldn't, and I've always meant to go and thank Brandur for that myself." },
+        { id = "dwarf_hand", when = { origin = "dwarf_silver_hand" },
+          text = "And you'll have heard them say the Order's broken. Not in Ironforge, and not in this Cathedral either; kneel with me, and we'll prove it twice." },
+      },
+      choices = { { text = "I'd be glad to.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    grayson = {
+      lines = { { id = "grayson_l", text = "That he's harder on himself than on any of you, and that's saying a great deal. He tests the young ones until they hate him, and then he prays for them by name, every night." } },
+      choices = {
+        { text = "How do you know?", next = "grayson_know" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    grayson_know = {
+      lines = { { id = "grayson_know_l", text = "Because I kneel two pews behind him, and he prays aloud when he thinks the hall is empty. Don't tell him I told you." } },
+      choices = { { text = "Your secret's safe.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 
@@ -309,6 +428,7 @@ P:NPC {
         { text = "Who buys from you?", next = "buyers" },
         { text = "Why work here and not in Ironforge?", next = "home", when = { race = "Dwarf" } },
         { text = "What can lightforge iron do?", next = "lightforge", when = { questActive = TODO_QUEST("Blessed Arm") } },
+        { text = "Your forge fire has a spirit in it, Elmore. It likes you.", next = "shaman", when = { class = "SHAMAN" } },
         { text = "Another time.", next = "END" },
       },
     },
@@ -364,6 +484,13 @@ P:NPC {
     lightforge_fel = {
       lines = { { id = "lff_default", text = "Then take the blade tae Sven, at his camp in western Duskwood, when it's done. An' come back after an' tell me how it sang." } },
       choices = { { text = "I will.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } } },
+    },
+    shaman = {
+      lines = { { id = "shaman_l", text = "Does it, now? My grandda used to say the same, an' everyone thought he'd had too much Thunderbrew. If it likes me, tell it to stop spittin' on my good boots." } },
+      choices = {
+        { text = "It says you should clean the grate more.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Treat it with respect, and it will burn true.", next = "BACK", fx = { affinity = 1, trait = { pious = 1 } } },
+      },
     },
   },
 
@@ -422,6 +549,7 @@ P:NPC {
         { text = "Which book here is the best?", next = "best" },
         { text = "Who's the lord in the reading corner?", next = "lord" },
         { text = "Have you anything for a priest?", next = "priest", when = { class = "PRIEST" } },
+        { text = "Does the library keep anything from Dalaran?", next = "dalaran", when = { class = "MAGE" } },
         { text = "I'll let you read.", next = "END" },
       },
     },
@@ -470,6 +598,18 @@ P:NPC {
       lines = { { id = "pi_default", text = "The Stresses of Iron, by a dwarven miner, Margulf Blaggon. Kristoff says it's about the spirit, though I suspect it's about iron, and Brother Paxton at Northshire has our copy.",
         fx = { learn = { "northshire_abbey" } } } },
       choices = { { text = "I'll ask Paxton for it.", next = "BACK", fx = { affinity = 2 } }, { text = "Something else.", next = "BACK" } },
+    },
+    dalaran = {
+      lines = { { id = "dalaran_l", text = "A few volumes the Kirin Tor lent us before the city fell, and which, strictly speaking, they've never asked for back. I keep them in the locked case, and I don't lend them, not even to the Sanctum." } },
+      choices = {
+        { text = "Not even to a mage?", next = "dalaran2" },
+        { text = "Knowledge shouldn't be locked away.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Quite right. Some books need a lock.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+      },
+    },
+    dalaran2 = {
+      lines = { { id = "dalaran2_l", text = "Especially not to a mage, dear; mages return books singed, or not at all. Read them here, at the table, with clean hands, and I'll watch you turn every page." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
   },
 

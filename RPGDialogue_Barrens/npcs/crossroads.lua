@@ -45,7 +45,34 @@ P:NPC {
         { text = "What threatens the Crossroads?", next = "threats" },
         { text = "I'm loyal to the Horde.", next = "END", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "I look out for myself first, and the Horde second.", next = "END", fx = { align = { honor = -1 } } },
+        { text = "Give me a post on the wall, Thork.", next = "warrior", when = { class = "WARRIOR" } },
+        { text = "Do you trust the Forsaken at your crossroads?", next = "forsaken", when = { race = "Scourge" } },
         { text = "Farewell, Thork.", next = "END" },
+      },
+      again = {
+        { id = "h_again", text = "What else? The road doesn't stop for talk, so neither do I, for long." },
+      },
+    },
+    warrior = {
+      lines = {
+        { id = "wa_default", text = "The wall's the easy part, because it doesn't move. What I need are warriors who'll ride out with the caravans, since the Kolkar never attack a wall; they attack the wagons strung out on the road." },
+        { id = "wa_tauren", when = { race = "Tauren" },
+          text = "A tauren warrior on my wall would scare off half the raiders before they got close. But I'd rather have you out with the kodo caravans, where the Kolkar actually strike." },
+      },
+      choices = {
+        { text = "Then I'll ride with the caravans.", next = "BACK", fx = { affinity = 2, standing = { crossroads = 1 } } },
+        { text = "Why not strike the Kolkar camps first?", next = "warrior_camps" },
+      },
+    },
+    warrior_camps = {
+      lines = { { id = "wc_default", text = "Because I've got sixty soldiers and they've got the whole Barrens to run in. Hit them hard enough when they come, and they'll pick an easier target; that's all holding a road is." } },
+      choices = { { text = "Understood.", next = "BACK" } },
+    },
+    forsaken = {
+      lines = { { id = "fk_default", text = "I trust Helbrim to brew what he's paid to brew, and to keep his bottles away from my well. The Warchief says your people are Horde, so you're Horde at my crossroads, but I count the bottles." } },
+      choices = {
+        { text = "Count them, then. We've earned some suspicion.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Your suspicion is an insult to the Dark Lady.", next = "BACK", fx = { affinity = -2, align = { order = -1 } } },
       },
     },
     threats = {
@@ -54,7 +81,7 @@ P:NPC {
         { id = "t_default", text = "Centaur, quilboar, harpies and the Alliance, in no particular order, and they all want the same thing: the road. The Horde needs that road, so we hold it." },
       },
       choices = {
-        { text = "Then I'll help hold it.", next = "END", fx = { affinity = 2, standing = { crossroads = 1 } } },
+        { text = "Then I'll help hold it.", next = "BACK", fx = { affinity = 2, standing = { crossroads = 1 } } },
         { text = "That's a lot of enemies.", next = "lot" },
       },
     },
@@ -121,8 +148,34 @@ P:NPC {
       choices = {
         { text = "Why do some orcs resent you?", next = "resent" },
         { text = "What does the Barrens need?", next = "need" },
+        { text = "My beast and I are ready to hunt.", next = "hunter", when = { class = "HUNTER" } },
+        { text = "Do the trolls here answer to you too?", next = "troll", when = { race = "Troll" } },
         { text = "I'll get to it.", next = "END", fx = { affinity = 1 } },
       },
+      again = {
+        { id = "h_again", text = "What else? Talk fast, the plainstriders don't wait." },
+      },
+    },
+    hunter = {
+      lines = {
+        { id = "hu_default", text = "Good, because half my hunting work is for people like you anyway. A hunter who can't bring down a zhevra has no business calling out Echeyakee, so start small and earn the big cat." },
+        { id = "hu_runner", when = { origin = "tauren_plains_runner" },
+          text = "A plains runner, out of Taurajo's grass. Then you know the Barrens better than I do, and you'll find Echeyakee before he finds you." },
+        { id = "hu_pet", when = { pet = { type = "Beast" } },
+          text = "And {pet} looks hungry. Out here a hunter's beast eats what it kills, so let it do some of my work for me." },
+      },
+      choices = {
+        { text = "I'll take the zhevra first, and then the cat.", next = "BACK", fx = { affinity = 2, trait = { cautious = 1 } } },
+        { text = "Why does Echeyakee matter so much?", next = "hunter_cat" },
+      },
+    },
+    hunter_cat = {
+      lines = { { id = "hc_default", text = "Because he's old enough to have taught every cat out there how to stalk a caravan. Kill him and the rest get clumsy, and the Crossroads breathes easier for a season." } },
+      choices = { { text = "Then he dies.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    troll = {
+      lines = { { id = "tr_default", text = "They answer to me when I give the orders, and they give me less trouble about it than the orcs do. The Darkspear have had women leading hunts for longer than the Horde has had a name, I'm told." } },
+      choices = { { text = "We have. The orcs could learn from it.", next = "BACK", fx = { affinity = 2 } } },
     },
     resent = {
       big = true,
@@ -130,8 +183,8 @@ P:NPC {
         { id = "r_default", text = "Because I'm a woman who gives orders, and some of the old warriors still think the Horde is a boys' war-band. They'll learn, or they'll stay grunts, and either one suits me." },
       },
       choices = {
-        { text = "They'll learn.", next = "END", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "Then don't wait for them to learn. Go around them.", next = "END", fx = { align = { honor = -1 } } },
+        { text = "They'll learn.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Then don't wait for them to learn. Go around them.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Who resents you?", next = "who" },
       },
     },
@@ -190,8 +243,24 @@ P:NPC {
       choices = {
         { text = "Tell me about Olgra.", next = "olgra" },
         { text = "Revenge won't bring her back.", next = "revenge" },
+        { text = "I fight with an axe too. Tell me how she fought.", next = "warrior", when = { class = "WARRIOR" } },
+        { text = "A tauren found you on the road?", next = "tauren", when = { race = "Tauren" } },
         { text = "I'll keep an eye out.", next = "END", fx = { affinity = 1 } },
       },
+      again = {
+        { id = "h_again", text = "What else? Say it, and then let me get back to the horizon." },
+      },
+    },
+    warrior = {
+      lines = { { id = "wr_default", text = "Two axes and no shield, always charging the biggest one first, and she never once let me take the front. That's how they split us: she charged, and I went after her, and there were more of them behind than either of us saw." } },
+      choices = {
+        { text = "That's how a warrior should die, charging.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "She should have held back, Mankrik.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+      },
+    },
+    tauren = {
+      lines = { { id = "ta_default", text = "One of your people, a kodo herder heading for Taurajo, and he carried me to the Crossroads on his own back. I never got his name, and I'd give a great deal to thank him." } },
+      choices = { { text = "I'll ask after him at Taurajo.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } } },
     },
     olgra = {
       big = true,
@@ -275,8 +344,28 @@ P:NPC {
       },
       choices = {
         { text = "What did you find?", next = "found" },
+        { text = "I'm a druid too, Tonga. Can I help heal the oases?", next = "druid", when = { class = "DRUID" } },
+        { text = "The water spirits here are crying out.", next = "shaman", when = { class = "SHAMAN" } },
         { text = "Farewell, Tonga.", next = "END" },
       },
+      again = {
+        { id = "h_again", text = "Something more, friend? The land isn't in a hurry, even if we must be." },
+      },
+    },
+    druid = {
+      lines = {
+        { id = "dr_default", text = "You can, and you should, but carefully. The druids in those caverns were trying to heal the land too, and they walked into the Dream and didn't come out themselves. Heal from the waking world first." },
+        { id = "dr_pupil", when = { origin = "tauren_hamuul_pupil" },
+          text = "You studied under Hamuul as I did, so you've heard his warning about the Dream already. Those druids under the Barrens heard it too, and went anyway." },
+      },
+      choices = {
+        { text = "The Dream is dangerous. I'll stay in the waking world.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "If the sickness is in the Dream, that's where I'll fight it.", next = "BACK", fx = { align = { order = -1 }, trait = { brave = 1 } } },
+      },
+    },
+    shaman = {
+      lines = { { id = "sh_default", text = "They are, and I can only feel it as a wrongness in the green, while you hear it in words. Tell me what they say, friend, and I'll write it down for Hamuul; he'll want the spirits' account beside mine." } },
+      choices = { { text = "They say the water is dreaming badly.", next = "BACK", fx = { affinity = 2, learn = { "wailing_caverns" } } } },
     },
     found = {
       big = true,
@@ -348,8 +437,24 @@ P:NPC {
       },
       choices = {
         { text = "What are you studying?", next = "study" },
+        { text = "Does the Society send you word from Undercity?", next = "forsaken", when = { race = "Scourge" } },
+        { text = "My people make medicine from these plants too.", next = "troll", when = { race = "Troll" } },
         { text = "Good luck with your work.", next = "END" },
       },
+      again = {
+        { id = "h_again", text = "Anything else? I've a sample warming, so be brief." },
+      },
+    },
+    forsaken = {
+      lines = { { id = "fk_default", text = "Every fortnight, by bat, and always the same thing: more samples, faster, and fewer questions from the tauren. Master Faranell is not a patient correspondent, though I'm told patience is a living virtue anyway." } },
+      choices = {
+        { text = "The Society's work comes first.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The tauren deserve answers, Helbrim.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
+    troll = {
+      lines = { { id = "tr_default", text = "Do they? Witch doctors' remedies, I suppose, which some of my colleagues sneer at. I don't, because half of what the Society knows about poisons began as someone's grandmother's cure, so do tell me which of these your people boil." } },
+      choices = { { text = "Peacebloom, for fever. Never the fungus.", next = "BACK", fx = { affinity = 2 } } },
     },
     study = {
       big = true,
@@ -357,7 +462,7 @@ P:NPC {
         { id = "s_default", text = "Everything that grows, festers or stings out here, and what I'm after is remedies, mostly. Some of us still remember being sick, and we'd like no one else to be." },
       },
       choices = {
-        { text = "That's kind of you.", next = "END", fx = { affinity = 2 } },
+        { text = "That's kind of you.", next = "BACK", fx = { affinity = 2 } },
         { text = "Mostly remedies?", next = "mostly" },
       },
     },
@@ -414,12 +519,32 @@ P:NPC {
       },
       choices = {
         { text = "Are you really the best?", next = "best" },
+        { text = "I'm a blade too. Teach me something.", next = "rogue", when = { class = "ROGUE" } },
+        { text = "You know Jin'Zil? He's Darkspear, like me.", next = "troll", when = { race = "Troll" } },
         { text = "I'll handle the harpies.", next = "END", fx = { affinity = 1 } },
       },
+      again = {
+        { id = "h_again", text = "What else? Make it quick, the harpies won't kill themselves, more's the pity." },
+      },
+    },
+    rogue = {
+      lines = {
+        { id = "ro_default", text = "Something for free from Darsok, eh? Fine, here is one lesson: harpies look up and never down, so come at them from below the ridge and they'll never see the knife. That one's worth gold in Ratchet." },
+        { id = "ro_deathstalker", when = { origin = "forsaken_deathstalker_recruit" },
+          text = "A deathstalker, eh? The Dark Lady trains you lot to kill quiet and report back, and I only do the first part. Tell your masters Darsok sends his regards." },
+      },
+      choices = {
+        { text = "A clean kill from hiding. That's the job.", next = "BACK", fx = { affinity = 2, align = { honor = -1 } } },
+        { text = "I'd rather they saw me coming.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
+      },
+    },
+    troll = {
+      lines = { { id = "tr_default", text = "Know him? He pulled a harpy talon out of my shoulder once and charged me for the voodoo. You trolls drive a hard bargain, and I respect that more than I'd tell the Warchief." } },
+      choices = { { text = "Ha. I'll carry your letter, then.", next = "BACK", fx = { affinity = 2 } } },
     },
     best = {
       lines = { { id = "b_default", text = "Ask the harpies. Oh, wait, you can't, and that's how good I am." } },
-      choices = { { text = "Ha.", next = "END", fx = { affinity = 1 } }, { text = "Charming.", next = "END" } },
+      choices = { { text = "Ha.", next = "BACK", fx = { affinity = 1 } }, { text = "Charming.", next = "END" } },
     },
   },
 
@@ -462,15 +587,27 @@ P:NPC {
       choices = {
         { text = "What happened to your finger?", next = "finger" },
         { text = "Show me your wares.", next = "BUSINESS" },
+        { text = "I hunt the plains. Want what I bring back?", next = "hunter", when = { class = "HUNTER" } },
         { text = "Not hungry.", next = "END" },
       },
+      again = {
+        { id = "h_again", text = "Anything else? I've a zhevra on the block that won't cut itself." },
+      },
+    },
+    hunter = {
+      lines = {
+        { id = "hu_default", text = "A hunter who brings it in already dressed? You're my favourite kind of customer, the kind who's also my supplier. Bring me zhevra flank and I'll cut the best of it for Gryshka's next delivery." },
+        { id = "hu_pet", when = { pet = { type = "Beast" } },
+          text = "That beast of yours has been staring at my block since you walked up. Here, {pet}, a scrap, and that's all; I've got a reputation for stinginess to keep up." },
+      },
+      choices = { { text = "Only the best cuts go to Gryshka.", next = "BACK", fx = { affinity = 2 } } },
     },
     finger = {
       big = true,
       lines = {
         { id = "f_default", text = "An accident with the cleaver, a long time ago. Don't look at the sausages like that; I looked for it, I promise. Mostly." },
       },
-      choices = { { text = "...I'll pass on the sausages.", next = "END", fx = { affinity = 1 } } },
+      choices = { { text = "...I'll pass on the sausages.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 
@@ -514,8 +651,16 @@ P:NPC {
       choices = {
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "Any news?", next = "news" },
+        { text = "I don't really sleep anymore, Boorand.", next = "forsaken", when = { race = "Scourge" } },
         { text = "Just resting.", next = "END" },
       },
+      again = {
+        { id = "h_again", text = "Anything else, little one? Ask it by the fire, where the Barrens wind can't reach us." },
+      },
+    },
+    forsaken = {
+      lines = { { id = "fk_default", text = "No, I suppose you don't, and I'm sorry for it. Sit by the fire anyway, because I've seen your people warm their hands like everyone else, and I don't think it's only habit." } },
+      choices = { { text = "Maybe it isn't. Thank you.", next = "BACK", fx = { affinity = 2 } } },
     },
     news = {
       lines = { { id = "n_default", text = "Everyone coming through asks the same question: where's Mankrik's wife? If you find out, tell him first and then tell me, because I'm tired of not knowing either." } },

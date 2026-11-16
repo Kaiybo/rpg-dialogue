@@ -58,6 +58,9 @@ P:NPC {
         { text = "What happens at Highperch?", next = "highperch" },
         { text = "Arnak Grimtotem is dead.", next = "arnak", when = { questDone = TODO_QUEST("Wanted - Arnak Grimtotem") } },
         { text = "What did the secret notes mean?", next = "notes", when = { questDone = TODO_QUEST("Grimtotem Spying") } },
+        { text = "The Grimtotem shame every tauren.", next = "x_tauren", when = { race = "Tauren" } },
+        { text = "Send me against the Galak, Cliffwatcher.", next = "x_warrior", when = { class = "WARRIOR" } },
+        { text = "The Horde stands with Freewind.", next = "x_orc", when = { race = "Orc" } },
         { text = "Earth Mother watch over you.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -174,6 +177,35 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    x_tauren = {
+      lines = {
+        { id = "xt_default", text = "They do, and I carry that shame up these lifts every morning, because the centaur see horns and hooves and never ask which tribe. Arnak's people chose a road away from the Earth Mother's children, and I watch that road from this mesa day and night." },
+        { id = "xt_grim", when = { origin = "tauren_grimtotem_born" }, text = "You were born among them; I can see it in how you stiffen when their name is spoken. I will not hold your birth against you, but I will watch you as I watch them, until you give me reason to stop." },
+      },
+      choices = {
+        { text = "Some of them could still come home.", next = "BACK", fx = { affinity = -1, align = { light = 1 } } },
+        { text = "They chose their road. Let them walk it to the end.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else, Cliffwatcher.", next = "BACK" },
+      },
+    },
+    x_warrior = {
+      lines = {
+        { id = "xw_default", text = "Gladly, for they cut down my caravan to the last runner, and the Galak respect nothing but strength. Go north to Splithoof Crag and make it plain that Freewind's patience ended on that road." },
+      },
+      choices = {
+        { text = "They'll learn that lesson from me.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
+        { text = "Killing alone won't end this war.", next = "BACK", fx = { affinity = -1, trait = { skeptical = 1 } } },
+      },
+    },
+    x_orc = {
+      lines = {
+        { id = "xo_default", text = "The Horde stood with my people when the centaur hunted us across the Barrens, and the Warchief's warriors fought beside us all the way to Mulgore. I have not forgotten it, and neither have the Galak, which is why they run a little faster when they see an orc on my mesa." },
+      },
+      choices = {
+        { text = "Then the debt is paid both ways.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -233,6 +265,7 @@ P:NPC {
         { text = "How do you get moonwell water in Thousand Needles?", next = "moonwell" },
         { text = "What have you learned from the Hoof?", next = "study", when = { questDone = TODO_QUEST("The Sacred Flame") } },
         { text = "I'm a druid too. What does the Hoof feel like to you?", next = "druid", when = { class = "DRUID" } },
+        { text = "Do the spirits speak through the Cloven Hoof?", next = "x_shaman", when = { class = "SHAMAN" } },
         { text = "Good luck with your studies.", next = "END" },
       },
     },
@@ -300,6 +333,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    x_shaman = {
+      lines = {
+        { id = "xs_default", text = "I hoped someone would ask, for I can only feel that it hums, the way a drum hums after it has been struck. A shaman may hear words where I hear an echo, so if the spirits tell you anything of the Hoof, come to me first, I beg you." },
+      },
+      choices = {
+        { text = "I'll listen, and tell you what I hear.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } },
+        { text = "The spirits want it left alone, Rau.", next = "BACK", fx = { affinity = -1, trait = { skeptical = 1 } } },
+      },
+    },
   },
 
   topics = {
@@ -351,6 +393,7 @@ P:NPC {
         { text = "Why come all this way for an egg?", next = "why" },
         { text = "What is Arikara?", next = "legend", when = { questDone = TODO_QUEST("Alien Egg") } },
         { text = "My companion? Born, not hatched.", next = "pet", when = { pet = { type = "Beast" } } },
+        { text = "My people raise raptors from the egg.", next = "x_troll", when = { race = "Troll" } },
         { text = "Good luck with your egg.", next = "END" },
       },
     },
@@ -409,6 +452,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    x_troll = {
+      lines = {
+        { id = "xt_default", text = "Do they? Then you know more about eggs than I do, which I admit isn't hard, since I've hatched exactly one and it flew away. Tell me, does a hatchling know its mother, or only whoever feeds it first?" },
+      },
+      choices = {
+        { text = "Whoever feeds it first, and it never forgets.", next = "BACK", fx = { affinity = 1 } },
+        { text = "A raptor knows its rider. Nothing else matters.", next = "BACK", fx = { trait = { stern = 1 } } },
+      },
+    },
   },
 
   topics = {
@@ -461,6 +513,7 @@ P:NPC {
         { text = "Lakota spoke of her brother. I'm sorry.", next = "brother", when = { questDone = TODO_QUEST("Free at Last") } },
         { text = "Arnak is dead. I killed him.", next = "arnak_dead", when = { questDone = TODO_QUEST("Wanted - Arnak Grimtotem") } },
         { text = "I'm tauren. I know what the Grimtotem should be to us.", next = "kin", when = { race = "Tauren" } },
+        { text = "I'd have stood with Lakota's brother that night.", next = "x_warrior", when = { class = "WARRIOR" } },
         { text = "I'm sorry.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -531,6 +584,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    x_warrior = {
+      lines = {
+        { id = "xw_default", text = "Then you'd be lying dead beside him, because Arnak didn't come alone and he didn't come to fight fair. Brave words cost nothing on this mesa, warrior; everyone says them, afterward." },
+      },
+      choices = {
+        { text = "Then let me spend them on Arnak.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+        { text = "You're right. I'm sorry.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+      },
+    },
   },
 
   topics = {
@@ -582,6 +644,7 @@ P:NPC {
         { text = "How did anyone build up here?", next = "mesa" },
         { text = "Who else lodges here?", next = "guests" },
         { text = "Make this my home.", next = "BUSINESS" },
+        { text = "Do I frighten your guests, innkeeper?", next = "x_forsaken", when = { race = "Scourge" } },
         { text = "Just a bed, thank you.", next = "END" },
       },
     },
@@ -623,6 +686,15 @@ P:NPC {
       },
       choices = {
         { text = "Bitten hands?", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_forsaken = {
+      lines = {
+        { id = "xf_default", text = "A little, friend, though the harpies frighten them more, and the harpies steal the washing besides. Sit near the fire if you like; I don't suppose the cold troubles you, but the others will be gladder to see you warm." },
+      },
+      choices = {
+        { text = "Thank you, Abeqwa.", next = "BACK", fx = { affinity = 2 } },
         { text = "Something else.", next = "BACK" },
       },
     },

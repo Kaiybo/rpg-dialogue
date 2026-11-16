@@ -54,6 +54,9 @@ P:NPC {
         { text = "What do you give for the fragments?", next = "junk" },
         { text = "The Light could mend what was done to you.", next = "priest", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Orcs came through that Portal too, draenei.", next = "orc", when = { race = "Orc" } },
+        { text = "I deal in fel, collector. Does it smell of greed?", next = "k_lock", when = { class = "WARLOCK" } },
+        { text = "My people dig crystals too, Kum'isha.", next = "k_dwarf", when = { race = "Dwarf" } },
+        { text = "My people hoard nothing, Kum'isha.", next = "k_tauren", when = { race = "Tauren" } },
         { text = "I'll keep my eyes open for crystals.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -163,6 +166,35 @@ P:NPC {
         { text = "What's done is done. I won't apologise.", next = "BACK", fx = { align = { honor = -1 }, affinity = -2 } },
       },
     },
+    k_lock = {
+      big = true,
+      lines = {
+        { id = "xlk_default", text = "It smells of worse. Kum'isha knows that stink, warlock, from a long time ago, and the ones who carried it then wanted the same thing as you: more. Take your fragments and keep your little servant downwind of me." },
+      },
+      choices = {
+        { text = "I wanted power. I'm not ashamed of it.", next = "BACK", fx = { align = { light = -1 }, affinity = -1 } },
+        { text = "I carry it so others don't have to.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Who carried it before?", next = "who_how" },
+      },
+    },
+    k_dwarf = {
+      lines = {
+        { id = "xdw_default", text = "Dwarf. Yes, your people dig, and they dig for the same reason as everyone in these lands: to hold the shiny thing and say it is theirs. Kum'isha's crystals are not shiny things to Kum'isha, so do not compare." },
+      },
+      choices = {
+        { text = "Then tell me what they are to you.", next = "draenethyst" },
+        { text = "Fair. I won't compare.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    k_tauren = {
+      lines = {
+        { id = "xta_default", text = "Hm. You smell less of it than most, tauren, I will grant you that, and more of grass and smoke. But you came to this dust for something, and Kum'isha wonders what." },
+      },
+      choices = {
+        { text = "For the fragments. I won't pretend otherwise.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Nothing. I was only passing through.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
+    },
   },
 
   topics = {
@@ -224,6 +256,7 @@ P:NPC {
         { text = "What do your elixirs do?", next = "elixirs" },
         { text = "Who's the other bloodmage?", next = "sister" },
         { text = "Strength in a bottle? I'm listening.", next = "warrior", when = { class = { "WARRIOR", "ROGUE", "PALADIN" } } },
+        { text = "Would your elixirs work on my beast?", next = "k_hunter", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "Good luck with your studies.", next = "END" },
       },
     },
@@ -275,6 +308,15 @@ P:NPC {
       choices = {
         { text = "Sign me up.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
         { text = "I'd rather earn my strength.", next = "BACK", fx = { trait = { stern = 1 } } },
+      },
+    },
+    k_hunter = {
+      lines = {
+        { id = "xhu_default", text = "Oh, almost certainly, and what a fascinating trial that would be! I'd want it observed for a week, mind, because the basilisks here grew a second row of plates on the stuff and I'd hate to miss that." },
+      },
+      choices = {
+        { text = "My beast is not your experiment.", next = "BACK", fx = { align = { light = 1 }, affinity = -1, trait = { kind = 1 } } },
+        { text = "If it makes it stronger, I'll consider it.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
       },
     },
   },
@@ -332,6 +374,7 @@ P:NPC {
         { text = "What do you mean by the spirit of a beast?", next = "spirit" },
         { text = "Your brother says you look down on his work.", next = "brother" },
         { text = "A beast's spirit is the Light's work, not yours.", next = "priest", when = { class = "PRIEST" } },
+        { text = "A druid feels a beast's spirit, Lynnore. Not in bottles.", next = "k_druid", when = { class = "DRUID" } },
         { text = "I'll leave you to observe.", next = "END" },
       },
     },
@@ -377,6 +420,15 @@ P:NPC {
       choices = {
         { text = "Then measure carefully. Some things shouldn't be tampered with.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Measure away. The Light can take care of itself.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
+      },
+    },
+    k_druid = {
+      lines = {
+        { id = "xdr_default", text = "Then tell me what you feel in them, because I have only my notes and my brother's bottles, and neither of them can tell me why a starving boar here heals faster than a fed one in Elwynn. Is it pain, or is it something else?" },
+      },
+      choices = {
+        { text = "It's rage. They heal because they can't stop.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } },
+        { text = "It's sickness. Your study should end.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
       },
     },
   },
@@ -435,6 +487,7 @@ P:NPC {
         { text = "Why live here, of all places?", next = "scar" },
         { text = "I have come to learn, Daio.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "You trade in damnation, old man.", next = "priest", when = { class = { "PRIEST", "PALADIN" } } },
+        { text = "Mages bind things too, old man.", next = "k_mage", when = { class = "MAGE" } },
         { text = "I'll leave you to your altar.", next = "END" },
       },
     },
@@ -507,6 +560,15 @@ P:NPC {
       choices = {
         { text = "The Light will see them banished, and you with them.", next = "BACK", fx = { align = { light = 2 }, affinity = -2 } },
         { text = "Perhaps knowing the enemy is no sin.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
+      },
+    },
+    k_mage = {
+      lines = {
+        { id = "xmg_default", text = "Bind? You conjure water and call it mastery, child. I bind what would eat you, and I pay for every hold I keep on it, and so would you, if you ever reached for anything that could reach back." },
+      },
+      choices = {
+        { text = "Some of us know where to stop.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then teach me to reach further.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
       },
     },
   },

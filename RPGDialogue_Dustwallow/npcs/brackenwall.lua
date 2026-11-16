@@ -60,6 +60,9 @@ P:NPC {
         { text = "If tauren did this, they're no kin of mine.", next = "tauren", when = { race = "Tauren" } },
         { text = "Nazeer says the peace is only on paper.", next = "nazeer", when = { heardLine = "nazeer.h_default" } },
         { text = "Reethe's dead. Theramore soldiers killed him.", next = "reethe_dead", when = { questDone = TODO_QUEST("Questioning Reethe") } },
+        { text = "Thrall's peace with the humans sits badly with me.", next = "x_orc", when = { race = "Orc" } },
+        { text = "The spirits of this marsh are angry, Krog.", next = "x_shaman", when = { class = "SHAMAN" } },
+        { text = "The Forsaken would gladly see Theramore burn.", next = "x_forsaken", when = { race = "Scourge" } },
         { text = "I'll find the truth.", next = "END", fx = { affinity = 2, align = { honor = 1 }, standing = { brackenwall = 1 } } },
         { text = "Blame it on the humans and save us the trouble.", next = "END", fx = { affinity = -1, align = { honor = -1 } } },
       },
@@ -163,6 +166,36 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    x_orc = {
+      lines = {
+        { id = "xo_default", text = "It sits badly with plenty of us, but the Warchief gave his word, and his word holds whether we like the taste of it or not. Whoever burned that inn wanted us to forget his word and remember the old hate, and I won't give them the satisfaction." },
+        { id = "xo_grunt", when = { origin = "orc_razor_hill_grunt" }, text = "You stood the line at Razor Hill, so you know an order isn't there to be liked. This one says leave the humans be, and someone in this marsh broke it." },
+      },
+      choices = {
+        { text = "The Warchief's word holds. So will I.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, standing = { brackenwall = 1 } } },
+        { text = "Humans broke the peace before. They'll do it again.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_shaman = {
+      lines = {
+        { id = "xs_default", text = "Angry at us, or at the humans? Don't tell me, I've got enough people guessing already. If the spirits want to name whoever set that fire, they can say it plainly, and until then I'll trust hoofprints over omens." },
+      },
+      choices = {
+        { text = "The spirits don't take sides in your hunt.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "Then I'll look at the hoofprints.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    x_forsaken = {
+      lines = {
+        { id = "xf_default", text = "Then the Forsaken can keep that wish to themselves while they're in my marsh. The Warchief made his peace with Lady Proudmoore, and the Banshee Queen can make what deals she likes up north, but down here his word is the only one that counts." },
+      },
+      choices = {
+        { text = "The Warchief's word is enough for me.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The living make treaties. The dead remember.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -225,6 +258,7 @@ P:NPC {
         { text = "What does the pendant mean?", next = "pendant", when = { questDone = TODO_QUEST("Marg Speaks") } },
         { text = "Kin'weelay can speak to the dead, they say.", next = "witchdoctor", when = { heardLine = "kinweelay.h_default" } },
         { text = "I can listen at windows.", next = "rogue", when = { class = "ROGUE" } },
+        { text = "I know wounds. Let me hear about Marg's.", next = "x_hunter", when = { class = "HUNTER" } },
         { text = "I'll keep my ears open.", next = "END", fx = { affinity = 1, trait = { curious = 1 } } },
       },
     },
@@ -299,6 +333,16 @@ P:NPC {
         { id = "ro_default", text = "Good, because Theramore's windows are many and its guards are bored. Listen for names, not secrets; a name tells you who to watch, and watching tells you the secrets." },
       },
       choices = { { text = "Understood.", next = "BACK", fx = { affinity = 2, trait = { discreet = 1 } } } },
+    },
+    x_hunter = {
+      lines = {
+        { id = "xh_default", text = "You hunt, so you'll know a wound when you see one. The cut on Marg's neck is too ragged for a good blade and too clean for a beast, and I've lost sleep deciding which it was." },
+      },
+      choices = {
+        { text = "A beast with claws like pincers. Something off the shore.", next = "BACK", fx = { affinity = 1, trait = { curious = 1 } } },
+        { text = "A blade, made to look like a beast's work.", next = "BACK", fx = { affinity = 1, trait = { skeptical = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 

@@ -31,6 +31,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    hunter_tb = {
+      lines = {
+        { id = "htb_default", text = "We always need bows, and we never have enough who can hold one steady while a Warsong axe is coming at them. My scouts ride the roads of Ashenvale at night; Raene Wolfrunner at Astranaar can tell you where the gaps are." },
+      },
+      choices = {
+        { text = "I'll go to Astranaar.", next = "BACK", fx = { affinity = 1, learn = { "sentinels" } } },
+        { text = "I hunt for myself, not for any army.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+      },
+    },
+    watch_tb = {
+      lines = {
+        { id = "wtb_default", text = "Then you've seen the furbolgs come down out of the hills and the water turn wrong along the coast, and you didn't run from it. Sentinel Glynda still keeps that watch, and she'd tell you herself that she misses the ones who left it." },
+      },
+      choices = {
+        { text = "I'll go back when I'm stronger.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "I left because one watch wasn't enough.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Thyn'tel Bladeweaver, and I command some of the Sentinels who guard our people. If it concerns the borders, the patrols or the war in Ashenvale, it concerns me." },
@@ -55,6 +73,8 @@ P:NPC {
         { text = "What does a Sentinel commander do here?", next = "duty" },
         { text = "Will you tell the High Priestess about Velinde?", next = "tell", when = { questDone = TODO_QUEST("Answered Questions") } },
         { text = "Did Velinde pray as a priestess or fight as a Sentinel?", next = "both", when = { class = "PRIEST" } },
+        { text = "Do the Sentinels need another bow?", next = "hunter_tb", when = { class = "HUNTER" } },
+        { text = "I stood the watch at Auberdine.", next = "watch_tb", when = { origin = "nightelf_auberdine_watch" } },
         { text = "I'll let you return to your duties.", next = "END" },
       },
     },
@@ -153,6 +173,8 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_dwarf", cat = "class", when = { race = "Dwarf", class = "WARRIOR" },
+      text = "A dwarf on the Warrior's Terrace, square as a doorstep. My students will learn something just from trying to knock you over." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
       text = "A priest on the Warrior's Terrace. Good; we break things here, and somebody has to mend them." },
     { id = "n_green", cat = "greenness", when = { class = "WARRIOR", maxLevel = 15 },
@@ -161,6 +183,44 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    weapons = {
+      lines = {
+        { id = "wp_default", text = "The Sentinels favour the glaive and the bow, but on the Terrace we teach sword, axe and shield, because a warrior must fight in a doorway as well as a glade. Master one, and then learn enough of the others to know what is coming at you." },
+      },
+      choices = {
+        { text = "Shield first. Someone has to hold the line.", next = "weapons2", fx = { align = { order = 1 } } },
+        { text = "Two blades. End it before it starts.", next = "weapons2", fx = { align = { order = -1 } } },
+        { text = "Why not the glaive?", next = "weapons2" },
+      },
+    },
+    weapons2 = {
+      lines = {
+        { id = "wp2_default", text = "Whatever you choose, take it to Mathiel and let him see you hold it; he can tell more from your grip than I can from your swing. And keep it clean, because I'll be checking." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    dwarf_e = {
+      lines = {
+        { id = "de_default", text = "Of course I will, because Ironforge's halls are not my forest. Your mountain makes good soldiers, I'm told, steady in a shield wall and terrible to move, but a moonwell isn't a mine, and a satyr won't fight you like a trogg." },
+        { id = "de_ward", when = { origin = "dwarf_military_ward" },
+          text = "Raised in the barracks, were you? It shows in how you stand at attention when I'm not even looking at you, and I mean that as praise, mostly." },
+      },
+      choices = {
+        { text = "Test me where you like. I'll hold.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
+        { text = "A trogg's a trogg. I'll manage.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
+    gnome_e = {
+      lines = {
+        { id = "ge_default", text = "I know they do; the Sentinels told me how your fighters held the rear while their whole people fled their city. What you lack in reach you'll have to make up in nerve, and from what I saw, your people have plenty of nerve." },
+        { id = "ge_rear", when = { origin = "gnome_rearguard" },
+          text = "You were in the rearguard out of Gnomeregan, weren't you? Then I've nothing to teach you about resolve, only about trees, and trees are easier." },
+      },
+      choices = {
+        { text = "Nerve and a good shield. That's enough.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Elanaria, and I help shape the warriors of Darnassus. There is more to the profession than swinging a blade, and I find out quickly who knows it." },
@@ -183,6 +243,9 @@ P:NPC {
         { text = "Tell me about the elunite wreck.", next = "elura" },
         { text = "Do the Sentinels fight like you?", next = "sentinels" },
         { text = "Test me, then. I'm ready.", next = "test", when = { class = "WARRIOR" } },
+        { text = "Which weapon should I master?", next = "weapons", when = { class = "WARRIOR" } },
+        { text = "Ironforge trained me. Will you test me anyway?", next = "dwarf_e", when = { race = "Dwarf", class = "WARRIOR" } },
+        { text = "Gnomes fight too, you know.", next = "gnome_e", when = { race = "Gnome", class = "WARRIOR" } },
         { text = "I'll leave you to the Terrace.", next = "END" },
       },
     },
@@ -285,6 +348,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    gnome_m = {
+      lines = {
+        { id = "gm_default", text = "Know him? I write to him every month, and he writes back in a hand so small I need a lens to read it! He's in Ironforge, and every letter describes his workshop in such detail that my heart aches that I can't go and see it myself." },
+      },
+      choices = {
+        { text = "None of us can. Not yet.", next = "BACK", fx = { affinity = 2, learn = { "gnomeregan" } } },
+        { text = "Tell him a gnome said hello.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    warrior_m = {
+      lines = {
+        { id = "wm_default", text = "Hold an edge longer than steel and sing a little when it's swung, if you ask the Terrace, though I've never heard it myself. Mostly it reminds the one holding it whose blessing they carry, which matters more than the metal." },
+      },
+      choices = {
+        { text = "A blade's a blade. The arm matters.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll carry it with that in mind.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Mathiel, a smith of the Terrace, and I'll mend anything the Sentinels or the adventurers bring me. Every repair puts a little more toward an anvil of my own, so I'm grateful for the work." },
@@ -302,7 +383,7 @@ P:NPC {
           text = "Klockmort Spannerspan needs help in Gnomeregan, and I can't leave the forge. My heart aches for my friend, so if you go in my place, I'll be in your debt." },
       },
       again = {
-        { id = "h_again", text = "What else? I can talk and hammer at the same time." },
+        { id = "h_again", text = "Ask on, then, while the elunite cools; it takes its time and so may you." },
         { id = "h_again2", text = "Ask away, friend; the iron's still heating." },
       },
       choices = {
@@ -311,6 +392,8 @@ P:NPC {
         { text = "You have friends in Stormwind and Ironforge?", next = "friends" },
         { text = "You don't have your own anvil?", next = "anvil" },
         { text = "What did Furen's notes teach you?", next = "furen", when = { profession = "Blacksmithing" } },
+        { text = "Do you know Klockmort Spannerspan?", next = "gnome_m", when = { race = "Gnome" } },
+        { text = "What would elunite do for a warrior's blade?", next = "warrior_m", when = { class = "WARRIOR" } },
         { text = "Good luck at the forge.", next = "END" },
       },
     },
@@ -404,12 +487,39 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_warrior", cat = "class", when = { class = "WARRIOR", minLevel = 20 },
+      text = "There it is, the spirit I spoke of, grown since I last saw you. You've been knocked down and stood up again; I can see it in how you hold your shoulders." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
       text = "A priest. I have nothing to teach you, but I've owed my life to your kind more than once, so stay as long as you like." },
   },
 
   start = "hello",
   nodes = {
+    stances = {
+      lines = {
+        { id = "st_default", text = "Battle, to learn the blade; defense, to learn the ground; and later, for those who live long enough to need it, the berserker's way, which I teach last and least willingly. Each one is a different question about what you're willing to lose." },
+      },
+      choices = {
+        { text = "The berserker's way, when I'm ready.", next = "stances2", fx = { align = { order = -1 } } },
+        { text = "Defense. A wall teaches patience.", next = "stances2", fx = { align = { order = 1 } } },
+        { text = "Why least willingly?", next = "stances2" },
+      },
+    },
+    stances2 = {
+      lines = {
+        { id = "st2_default", text = "Because a berserker gives up his guard to strike harder, and the young ones like that far too much. Learn to stand first; then, if you still want to throw your shield away, I'll show you how to do it properly." },
+      },
+      choices = { { text = "I'll learn to stand first.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    guard_a = {
+      lines = {
+        { id = "ga_default", text = "Your city guard taught you to stand on a bridge and keep drunks off it, which is not nothing. Here we teach you to stand in a forest with no bridge at all, and that is a different discipline." },
+      },
+      choices = {
+        { text = "A post is a post. I'll learn.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Arias'ta Bladesinger, and I teach the art of war on this Terrace. I can see the warrior's spirit in those who have it, and I teach only them." },
@@ -419,6 +529,8 @@ P:NPC {
         { text = "Instruct me.", next = "BUSINESS", when = { class = "WARRIOR" } },
         { text = "What is the warrior's spirit?", next = "spirit" },
         { text = "Why 'Bladesinger'?", next = "name" },
+        { text = "What do your stances teach?", next = "stances", when = { class = "WARRIOR" } },
+        { text = "Stormwind's guard taught me already.", next = "guard_a", when = { origin = "human_city_guard" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -480,6 +592,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    paladin_m = {
+      lines = {
+        { id = "pm_default", text = "Hear, hear! I've cried that proclamation in every corner of this city, and mostly I get polite nods from kaldorei who've never seen a ghoul. A paladin, though, now there's someone the Argent Dawn will be glad of!" },
+      },
+      choices = {
+        { text = "Then I'll go to Light's Hope.", next = "BACK", fx = { affinity = 1, learn = { "new_plague" } } },
+        { text = "Not yet. I've work closer to home.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Herald Moonstalker, crier of Darnassus! I walk every path in the city so that no hero misses a summons, and my feet will tell you I take that seriously." },
@@ -499,6 +620,7 @@ P:NPC {
         { text = "What's happening in Kalimdor?", next = "kalimdor" },
         { text = "What's the strangest news you've cried?", next = "strange" },
         { text = "Is there a call for healers anywhere?", next = "healers", when = { class = { "PRIEST", "DRUID", "PALADIN", "SHAMAN" } } },
+        { text = "The Plaguelands call, and the Light answers.", next = "paladin_m", when = { class = "PALADIN" } },
         { text = "Thank you, Herald.", next = "END" },
       },
     },
@@ -656,6 +778,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_tr = {
+      lines = {
+        { id = "dtr_default", text = "Won't it? The Enclave sent him south alone, and they've sent me nothing but a polite letter since. If you mean it, then read his notes when you're done in the Kraul and tell me whether he was right." },
+      },
+      choices = {
+        { text = "I'll read them. I promise.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "The Circle has bigger troubles. I'm sorry.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Treshala Fallowbrook. My husband, Heralath, went south to the Barrens to study the quilboar and the rumors about their fallen boar god, and I wait here for his letters." },
@@ -673,6 +804,7 @@ P:NPC {
         { text = "How long since his last letter?", next = "letters", when = { ["not"] = { questDone = TODO_QUEST("Mortality Wanes") } } },
         { text = "I'm sorry for your loss.", next = "grief", when = { any = { { questActive = TODO_QUEST("Mortality Wanes") }, { questDone = TODO_QUEST("Mortality Wanes") } } } },
         { text = "What will you do now?", next = "after", when = { questDone = TODO_QUEST("Mortality Wanes") } },
+        { text = "The Circle won't forget Heralath.", next = "druid_tr", when = { class = "DRUID" } },
         { text = "I'll leave you in peace.", next = "END" },
       },
     },

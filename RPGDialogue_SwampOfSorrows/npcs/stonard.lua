@@ -52,6 +52,9 @@ P:NPC {
         { text = "Aggro'gosh says his caravans keep getting through.", next = "caravans", when = { heardLine = "aggrogosh.h_default" } },
         { text = "I found the missing orders.", next = "orders_found", when = { questDone = TODO_QUEST("The Swamp Talker") } },
         { text = "An orc built this place? Tell me.", next = "old_horde", when = { race = "Orc" } },
+        { text = "I'm a hunter. Send me where the maps go blank.", next = "k_hunter", when = { class = "HUNTER" } },
+        { text = "Trolls built that temple, Commander. Not my kind of troll.", next = "k_troll", when = { race = "Troll" } },
+        { text = "This swamp suits my kind, Commander.", next = "k_scourge", when = { race = "Scourge" } },
         { text = "Send me out.", next = "END", fx = { affinity = 1, standing = { stonard = 1 } } },
       },
     },
@@ -186,6 +189,50 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    k_hunter = {
+      lines = {
+        { id = "xhu_default", text = "Good, because that's most of my map. East past the Fallow Sanctuary nobody's charted the ground since the old Horde marched out of here, and my scouts keep coming back with fewer boots than they left with." },
+        { id = "xhu_plains", when = { origin = "tauren_plains_runner" },
+          text = "A plains runner, out of Mulgore. You'll hate the mud, and you'll be faster in it than any orc I've got, so go east past the Fallow Sanctuary and tell me what's there." },
+        { id = "xhu_head", when = { origin = "troll_headhunter" },
+          text = "A Darkspear headhunter. The Atal'ai have heads you might want, but I want maps first, so go east past the Fallow Sanctuary and come back with both." },
+      },
+      choices = {
+        { text = "I'll map it and come back.", next = "BACK", fx = { align = { order = 1 }, affinity = 2, standing = { stonard = 1 } } },
+        { text = "I'll go where the hunting takes me, Commander.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Why scout a swamp at all?", next = "scout" },
+      },
+    },
+    k_troll = {
+      big = true,
+      lines = {
+        { id = "xtr_default", text = "I know that, and so does every orc in Stonard, though some of the grunts need reminding when the Atal'ai come out of the water. Tell me straight, Darkspear: do you feel anything when you look at that temple?" },
+        { id = "xtr_echo", when = { origin = "troll_echo_isles" },
+          text = "I know that, and I know your people were driven off the Echo Isles by worse than the Atal'ai. Tell me straight: do you feel anything when you look at that temple?" },
+      },
+      choices = {
+        { text = "Only shame. They'd sell us all to Hakkar.", next = "BACK", fx = { align = { light = 1 }, affinity = 2 } },
+        { text = "I feel their power. I won't lie about it.", next = "BACK", fx = { align = { light = -1 }, affinity = -1 } },
+        { text = "Who were the Atal'ai, to your people?", next = "k_troll_who" },
+      },
+    },
+    k_troll_who = {
+      lines = {
+        { id = "xtw_default", text = "Ask Fel'zerul, he's read more of it than I'd care to. All I know is the Gurubashi threw them out for being too bloody, and when a troll empire calls you too bloody, you've earned the title." },
+      },
+      choices = { { text = "Something else, Commander.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    k_scourge = {
+      lines = {
+        { id = "xsc_default", text = "So I hear from the Forsaken who come through, and I'll admit it's useful having scouts who don't mind the leeches. Don't take the boats out alone, though; the crocolisks don't care what you're made of." },
+        { id = "xsc_soldier", when = { origin = "forsaken_lordaeron_soldier" },
+          text = "A soldier, once, by how you stand. Lordaeron's swamps were nothing like this, I'm told, but a scout's a scout, and the crocolisks don't care what you're made of." },
+      },
+      choices = {
+        { text = "The swamp and I will get along fine.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Use me where the living can't go, Commander.", next = "BACK", fx = { affinity = 2, standing = { stonard = 1 } } },
+      },
+    },
   },
 
   topics = {
@@ -247,6 +294,7 @@ P:NPC {
         { text = "The exile spoke of a prophecy.", next = "prophecy", when = { any = { { questActive = TODO_QUEST("Return to Fel'Zerul") }, { questDone = TODO_QUEST("Return to Fel'Zerul") } } } },
         { text = "How do you keep your demons leashed?", next = "kin", when = { class = "WARLOCK" } },
         { text = "I'm a troll warlock. Am I the Atal'ai's heir?", next = "troll_warlock", when = { race = "Troll", class = "WARLOCK" } },
+        { text = "The spirits told me what warlocks did to our people.", next = "k_shaman", when = { race = "Orc", class = "SHAMAN" } },
         { text = "I'll go.", next = "END", fx = { affinity = 1, trait = { curious = 1 } } },
       },
     },
@@ -334,6 +382,19 @@ P:NPC {
         { text = "I'll watch myself.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
       },
     },
+    k_shaman = {
+      big = true,
+      lines = {
+        { id = "xsh_default", text = "And they would know, I suppose, having been the first to leave us when the fel came. I don't ask your forgiveness, shaman; I ask you to look at that temple and tell me whether you'd rather I watched it, or nobody did." },
+        { id = "xsh_thrall", when = { origin = "orc_thrall_shaman" },
+          text = "Thrall's own circle taught you, so you'll have heard all the old sins listed. I don't ask your forgiveness; I ask whether you'd rather I watched that temple, or nobody did." },
+      },
+      choices = {
+        { text = "Watch it, then. The Warchief trusts you.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Nobody should hold that power, not even you.", next = "BACK", fx = { align = { order = -1 }, affinity = -2 } },
+        { text = "Why did the Warchief send a warlock?", next = "warlock" },
+      },
+    },
   },
 
   topics = {
@@ -388,6 +449,7 @@ P:NPC {
         { text = "What's so hard about the road to Kargath?", next = "road" },
         { text = "What did Neeka's report say?", next = "shared", when = { questDone = TODO_QUEST("Report to Helgrum") } },
         { text = "I'm fast too. Race you to the gate?", next = "race", when = { class = { "HUNTER", "SHAMAN", "DRUID" } } },
+        { text = "I ran the plains of Mulgore. Swamp's no different.", next = "k_tauren", when = { race = "Tauren" } },
         { text = "I'll look for her.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -443,6 +505,17 @@ P:NPC {
       },
       choices = { { text = "Another time, then.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } } },
     },
+    k_tauren = {
+      lines = {
+        { id = "xta_default", text = "No different! Wait till your hooves sink to the knee, then tell me it's no different. Tauren run like a stampede on open ground, but in Sorrows you have to step light, and I've never seen a tauren step light." },
+        { id = "xta_runner", when = { origin = "tauren_plains_runner" },
+          text = "A runner of the plains, are you? Then we'll race on the Kargath road where the ground's hard, because I'm not giving a tauren the start of a race in the mud." },
+      },
+      choices = {
+        { text = "Watch me, then.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
+        { text = "I'll take the road, not the mud.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
+      },
+    },
   },
 
   topics = {
@@ -492,6 +565,7 @@ P:NPC {
         { text = "Who was with you on the road?", next = "others" },
         { text = "Let me try to heal you.", next = "heal", when = { class = { "PRIEST", "SHAMAN", "PALADIN", "DRUID" } } },
         { text = "I got the orders back, Bengor.", next = "orders_back", when = { questDone = TODO_QUEST("The Swamp Talker") } },
+        { text = "I'm a soldier too, Bengor. Tell me what happened.", next = "k_warrior", when = { class = "WARRIOR" } },
         { text = "I'll go.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -551,6 +625,17 @@ P:NPC {
       },
       choices = { { text = "Rest, Bengor.", next = "BACK", fx = { affinity = 3 } } },
     },
+    k_warrior = {
+      lines = {
+        { id = "xwa_default", text = "Then you'll understand. We lost the road, and then we lost the light, and then the murlocs came out of the reeds all at once, and I fell with my axe still on my back. Don't ever march with your axe on your back." },
+        { id = "xwa_grunt", when = { origin = "orc_razor_hill_grunt" },
+          text = "A grunt out of Razor Hill. Then you were taught right, and I was taught right too, and I still fell with my axe on my back when the murlocs came out of the reeds. Don't ever march like that." },
+      },
+      choices = {
+        { text = "I won't. I'm sorry, Bengor.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Tell me about the ambush.", next = "ambush" },
+      },
+    },
   },
 
   topics = {
@@ -597,6 +682,8 @@ P:NPC {
         { text = "Any word from the temple?", next = "temple" },
         { text = "What's in the stew?", next = "stew" },
         { text = "Our people built this town, didn't they?", next = "old", when = { race = "Orc" } },
+        { text = "Who eats at your tables besides scouts?", next = "regulars" },
+        { text = "Do you cook for tauren, Karakul?", next = "k_tauren", when = { race = "Tauren" } },
         { text = "Just a meal, thanks.", next = "END" },
       },
     },
@@ -626,6 +713,30 @@ P:NPC {
         { id = "sw_default", text = "Whatever the hunters brought in, and in this swamp you're better off not knowing. It's hot and it's thick, and that's all a scout asks of a stew." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    regulars = {
+      lines = {
+        { id = "rg_default", text = "Dar sits by the door every night and complains about the damp, Breyk comes in smelling of wet wind rider, and Greshka eats alone in the corner with a book. Bengor I carry a bowl to, since he can't come to me." },
+      },
+      choices = {
+        { text = "Greshka eats alone?", next = "regulars_greshka" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    regulars_greshka = {
+      lines = {
+        { id = "rgg_default", text = "Always, and nobody minds, because the last grunt who sat at her table had a bad dream for a week after. She tips well, I'll give her that, and she never complains about the stew." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    k_tauren = {
+      lines = {
+        { id = "xta_default", text = "I cook for anyone who comes in from the swamp, and a tauren eats like three scouts, so I'll be glad of the custom. Sit near the hearth, though, because the door frames in Stonard were never built for horns." },
+      },
+      choices = {
+        { text = "I'll mind my horns, Karakul.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     old = {
       lines = {

@@ -56,6 +56,8 @@ P:NPC {
         { text = "Who needs a hand around here?", next = "jobs" },
         { text = "So, how was that stout?", next = "stout", when = { questDone = TODO_QUEST("Stout to Kadrell") } },
         { text = "The troggs came up under my city first.", next = "gnome", when = { race = "Gnome" } },
+        { text = "I track for a living, Mountaineer. Need eyes on the hills?", next = "k_hunter", when = { class = "HUNTER" } },
+        { text = "Your loch is lovely, but where are the trees?", next = "k_elf", when = { race = "NightElf" } },
         { text = "Thanks, Kadrell.", next = "END" },
       },
     },
@@ -114,6 +116,27 @@ P:NPC {
         { id = "gn_default", text = "Aye, an' now they come up under us, the same troggs or their cousins. Get yer payback here, an' Thelsamar'll thank ye fer it." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, standing = { thelsamar = 1 } } } },
+    },
+    k_hunter = {
+      lines = {
+        { id = "xhu_default", text = "Always, an' a hunter's eyes are better than a Mountaineer's, for we're taught tae watch roads an' ye're taught tae watch everythin' else. The bears in the north hills have gone mean this year, an' I'd like tae know why before one o' them comes through the inn door." },
+        { id = "xhu_bear", when = { origin = "dwarf_bear_tracker" },
+          text = "A tracker out o' the high snows, by yer boots, an' that's the best news I've had all week. The bears up north have gone mean, an' ye'll read their sign better than any o' my lads." },
+      },
+      choices = {
+        { text = "Something's driving them. I'll find out what.", next = "BACK", fx = { affinity = 2, standing = { thelsamar = 1 } } },
+        { text = "A mean bear's a bear that needs putting down.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Leave them to the hills, Kadrell. They were here first.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
+    k_elf = {
+      lines = {
+        { id = "xel_default", text = "Ha! Under the water, mostly, from before the dam. Ye're a long way from Darnassus, an' every night elf who comes through here asks me that, so I've started tellin' them the trees are shy." },
+      },
+      choices = {
+        { text = "The land remembers its trees, I think.", next = "BACK", fx = { affinity = 1, trait = { curious = 1 } } },
+        { text = "Shy trees. I'll tell that one at home.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+      },
     },
   },
 
@@ -177,6 +200,8 @@ P:NPC {
         { text = "Why is the dig so slow?", next = "slow" },
         { text = "Where does your blastpowder go?", next = "powder" },
         { text = "Stormpike sent me. You need legwork?", next = "agmond", when = { questActive = TODO_QUEST("Ironband Wants You!") } },
+        { text = "The stone at your dig is restless, Ironband.", next = "k_shaman", when = { race = "Dwarf", class = "SHAMAN" } },
+        { text = "Your dig could use a gnome's touch.", next = "k_gnome", when = { race = "Gnome" } },
         { text = "Good luck with the dig.", next = "END" },
       },
     },
@@ -242,6 +267,25 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    k_shaman = {
+      lines = {
+        { id = "xsh_default", text = "Restless, is it? I've heard that word from the troggs' side o' things, in a manner o' speakin', for they've been crawlin' up out o' the cut like somethin's shakin' them loose. If the stone's tellin' ye anythin', I'd take a warnin' over a surprise." },
+      },
+      choices = {
+        { text = "Dig slower. The stone doesn't like being rushed.", next = "BACK", fx = { align = { order = -1 }, affinity = -1 } },
+        { text = "Dig on. Ironforge needs what's down there.", next = "BACK", fx = { align = { order = 1 }, affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    k_gnome = {
+      lines = {
+        { id = "xgn_default", text = "It could use a gnome's blastpowder, if ye've any, for mine's always stuck somewhere between here an' Ironforge. I'll pass on the gnome's touch, though; the last one touched my pump an' it's been singin' ever since." },
+      },
+      choices = {
+        { text = "Singing pumps are a feature, Ironband.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -297,6 +341,7 @@ P:NPC {
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "Who drinks here?", next = "regulars" },
         { text = "What do the miners sing about?", next = "song" },
+        { text = "I used to run casks across the loch, quiet-like.", next = "k_smuggle", when = { class = "ROGUE" } },
         { text = "Just a pint.", next = "END" },
       },
     },
@@ -320,6 +365,17 @@ P:NPC {
         { id = "so_default", text = "The dam, mostly, an' what'd happen if it broke, for they're a cheerful lot. Every verse ends wi' the loch in the Wetlands an' everybody swimmin'." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    k_smuggle = {
+      lines = {
+        { id = "xsm_default", text = "Did ye now? Then keep yer voice down, for half the casks in my cellar came across that loch the same way, an' the Mountaineers drink here too. I'll pour ye one, an' we'll speak o' the weather." },
+        { id = "xsm_loch", when = { origin = "dwarf_loch_smuggler" },
+          text = "I know yer face, though I'll swear I don't if anyone asks. Ye brought me six casks o' Wetlands rum one winter, an' Kadrell's never worked out where my rum comes from." },
+      },
+      choices = {
+        { text = "Our secret, Hearthstove.", next = "BACK", fx = { affinity = 2, align = { honor = -1 } } },
+        { text = "I've gone straight. You should too.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
+      },
     },
   },
 
@@ -372,6 +428,7 @@ P:NPC {
         { text = "Who eats them all?", next = "who" },
         { text = "Can I help?", next = "help" },
         { text = "I cook too. Trade secrets?", next = "cook", when = { profession = "Cooking" } },
+        { text = "I could hunt the boar for your sausages.", next = "k_hunter", when = { class = "HUNTER" } },
         { text = "I'll pass on the details.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -416,6 +473,17 @@ P:NPC {
         { id = "ck_default", text = "Then ye'll know a good casing from a bad one, an' most don't. Ye still can't have the recipe." },
       },
       choices = { { text = "Worth a try.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    k_hunter = {
+      lines = {
+        { id = "xhu_default", text = "Could ye? Ye'd be the first hunter in a month who didnae ask what's in them first. Mountain boar from the hills east o' the loch, an' bring the blood back fresh, for that's the whole o' the recipe an' I'll no' say more." },
+        { id = "xhu_pet", when = { pet = { type = "Beast" } },
+          text = "Could ye? An' yer beast's already sniffin' at my pantry, so I'll take that as a yes. Mountain boar from the hills east o' the loch, an' keep yer friend's nose out o' the bowl." },
+      },
+      choices = {
+        { text = "Fresh it is.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -475,6 +543,7 @@ P:NPC {
         { text = "Why trogg teeth?", next = "teeth" },
         { text = "I stood the high passes too, Captain.", next = "mountaineer", when = { origin = "dwarf_mountaineer" } },
         { text = "I'll help defend them.", next = "END", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Put me on your line, Captain.", next = "k_warrior", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "The King's statues can guard themselves, Captain.", next = "END", fx = { align = { order = -1 } } },
       },
     },
@@ -564,6 +633,20 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    k_warrior = {
+      lines = {
+        { id = "xwa_default", text = "Gladly, for I've more line than soldiers. The troggs come out o' the ground in rushes, an' a shield in the right place at the right moment is worth ten rifles on the hill." },
+        { id = "xwa_paladin", when = { class = "PALADIN" },
+          text = "Gladly, an' if ye've a blessin' tae spare for my lads, spare it, for they've been diggin' trogg teeth out o' their boots for a month. The Light's no' often seen at the Valley o' Kings." },
+        { id = "xwa_ward", when = { origin = "dwarf_military_ward" },
+          text = "Ward-trained! Then ye'll know a proper line from a mob, an' ye'll forgive me for havin' only a mob. Stand by the statues an' let them see what a soldier looks like." },
+      },
+      choices = {
+        { text = "I'll hold where you put me, Captain.", next = "BACK", fx = { align = { order = 1 }, affinity = 2 } },
+        { text = "I'll go where the troggs are thickest.", next = "BACK", fx = { align = { order = -1 }, trait = { brave = 1 } } },
+        { text = "Where do they come from?", next = "leader" },
+      },
+    },
   },
 
   topics = {
@@ -620,6 +703,8 @@ P:NPC {
         { text = "Where are your guards?", next = "guards" },
         { text = "Who built the dam?", next = "built" },
         { text = "The stonewrought method was a Dark Iron's, I'm told.", next = "forgewright", when = { heardLine = "archesonus.d_default" } },
+        { text = "A gnome would like a look at your dam, Chief Engineer.", next = "k_gnome", when = { race = "Gnome" } },
+        { text = "A mage's ward could shore up the dam.", next = "k_mage", when = { class = "MAGE" } },
         { text = "I'll look into it.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -677,6 +762,25 @@ P:NPC {
         { id = "fw_default", text = "Dark Iron? The stonewrought... no, well, I suppose a method's a method and a dam's a dam. This one's mine now, and they can't have it back." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } } },
+    },
+    k_gnome = {
+      lines = {
+        { id = "xgn_default", text = "A look, by all means, but no tinkering. Seven generations of Hinderweirs have kept her standing by changing nothing at all, and the last gnome who looked at her suggested a steam-powered spillway." },
+      },
+      choices = {
+        { text = "A spillway might save her, you know.", next = "BACK", fx = { align = { order = -1 }, affinity = -1 } },
+        { text = "If she stands, leave her be.", next = "BACK", fx = { align = { order = 1 }, affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    k_mage = {
+      lines = {
+        { id = "xmg_default", text = "A ward on a dam? And when your ward wears off, and the stone underneath has forgotten how to hold on its own? I'll trust the stonewrought method and my own eyes, thank you." },
+      },
+      choices = {
+        { text = "Fair. Stone's more patient than magic.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
