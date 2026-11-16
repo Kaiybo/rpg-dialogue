@@ -563,7 +563,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll learn the quiet way. It's honest work.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Why learn the hard way when a spell does it?", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A spell does the job. The hard way is wasted effort.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
