@@ -39,6 +39,9 @@ P:NPC {
         { text = "My hands still know a sword. Is that normal?", next = "warrior", when = { class = "WARRIOR" } },
         { text = "I remember the Scourge's voice, Mordo.", next = "remember", when = { origin = "forsaken_scourge_remembered" } },
         { text = "What happened to me?", next = "what" },
+        { text = "My hands itch for locks and pockets, Mordo.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Where do the dead learn their magic, Mordo?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do the risen ever turn to warlockry, Mordo?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I'll find Sarvis.", next = "END" },
       },
       again = {
@@ -79,6 +82,42 @@ P:NPC {
         { text = "Then I'll try, and if it wakes, it wakes.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Leave it dead. Deathknell has enough things climbing out.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Every rogue's hands want something, living or dead, and I've learned not to ask what. David Trias trains your sort by the chapel, and he'll tell you which habits to keep and which will earn you a Deathguard's bolt." },
+        { id = "xrogue_scourge", when = { race = "Scourge" }, text = "The body keeps its habits even after the heart stops keeping time, and I buried a good many cutpurses in this yard before the plague. Perhaps you were one of them, but the Dark Lady doesn't ask, and neither do I." },
+      },
+      choices = {
+        { text = "I'll keep my habits for the Dark Lady's enemies.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My habits are my own business, Mordo.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What happened to all of us, Mordo?", next = "what" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "A troll mage in Deathknell is a rare sight, and you'll find our dead mages a dry and scholarly lot. Isabella teaches by the chapel, if you can stand a few lectures about Dalaran with your lessons." },
+        { id = "xmage_scourge", when = { race = "Scourge" }, text = "Much of it they never forgot, since the mind keeps what it used most, and you must have used magic a great deal. Isabella teaches by the chapel and will help you find the rest, though I'd not hope for names and faces to come back as easily." },
+      },
+      choices = {
+        { text = "I'll learn what I can, as the Dark Lady wills.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll find my own way through the arcane.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What happened to all of us, Mordo?", next = "what" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "More of them than you'd think, because a mind that has heard the Lich King's voice isn't easily frightened by an imp's. Maximillion teaches it here, and I bury the ones who fail his lessons, so I'd ask you to study hard for both our sakes." },
+        { id = "xwarlock_orc", when = { race = "Orc" }, text = "An orc asking me about warlocks, when your people knew the demons long before ours did. Maximillion teaches it here, and I expect he'd be glad of a student who can tell him what the old Horde learned the hard way." },
+      },
+      choices = {
+        { text = "I'll master it carefully, and keep to the rules.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Rules are for the ones who fail, Mordo.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What happened to all of us, Mordo?", next = "what" },
       },
     },
   },
@@ -273,6 +312,9 @@ P:NPC {
         { text = "I fight in claw and fur, Executor. Will that do?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why do the Crusaders hate us?", next = "hate" },
         { text = "Give me a post, Executor. I can fight.", next = "warrior", when = { class = "WARRIOR" } },
+        { text = "Point me at a Crusade camp, Executor. They won't see me.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "My fire is yours to aim, Executor.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Would the Executor take a warlock's help?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Understood, Executor.", next = "END", fx = { affinity = 1, standing = { deathknell = 1 } } },
       },
       again = {
@@ -310,6 +352,42 @@ P:NPC {
         { text = "From the trees, then. They won't see me coming.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "I'll come at them openly. Let them see what's coming.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Then go to Solliden Farmstead and count their sentries, and come back with the number and nothing else. I don't want stories; I want to know how many swords stand between my Deathguard and their converts." },
+        { id = "xrogue_scourge", when = { race = "Scourge" }, text = "You'd have learned that skill in the capital's alleys, I suppose, and now the Dark Lady has better use for it. Solliden is crawling with converts, so count them, cut down what you can, and report." },
+      },
+      choices = {
+        { text = "You'll have your count, and nothing more.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll cut their throats first and count after.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Why do the Crusaders hate us so?", next = "hate" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Aim it at Solliden, then, since the Crusade's converts wear more cloth than steel and burn accordingly. Report back when the farm is quiet; I've no use for the details." },
+        { id = "xmage_scourge", when = { race = "Scourge" }, text = "The Crusade calls every spell we cast necromancy and burns its own people for less. Show them what Dalaran's arts look like in a Forsaken hand, and come back when they've stopped preaching about it." },
+      },
+      choices = {
+        { text = "Understood, Executor. Solliden burns on your order.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll pick my own targets, Executor.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Why do the Crusaders hate us so?", next = "hate" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "I take any help that kills Crusaders and doesn't eat my sentries. Keep your demon in front of you when you go to Solliden, and if it turns, you'll be the one to put it down." },
+        { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "The converts at Solliden are farm boys who still believe the Light will save them, and a demon at their door will teach them otherwise. I won't pretend it's pretty work, but it's work, and you seem made for it." },
+      },
+      choices = {
+        { text = "If it turns, I'll put it down myself.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My demon answers to me, not to the Deathguard.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Why do the Crusaders hate us so?", next = "hate" },
       },
     },
   },
@@ -362,6 +440,8 @@ P:NPC {
         { text = "The Crusade calls on the same Light against us.", next = "crusade", when = { class = "PALADIN" } },
         { text = "What does the Dark Lady think of us?", next = "sylvanas", when = { class = "PALADIN" } },
         { text = "How can you stand it, a dead man in the Light?", next = "other", when = { ["not"] = { class = "PALADIN" } } },
+        { text = "The arcane doesn't burn me the way your Light burns you.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "You hold the Light and I hold demons. We're both mad.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I'll keep training.", next = "END", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The Light left me when I died, and I'm done with it.", next = "END", fx = { align = { light = -1 } } },
       },
@@ -433,6 +513,30 @@ P:NPC {
         { text = "Then we serve the same mercy under different names.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Mercy is a luxury. I mend what serves the Horde.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "No, it wouldn't, because the arcane never asked anything of you but study. The Light asks for faith, and faith in a dead body hurts, so I suppose I envy you a little and pity you a little, in about equal measure." },
+        { id = "xmage_scourge", when = { race = "Scourge" }, text = "You and I both came back from the grave holding what we held in life, though yours doesn't scald the hand that grips it. I was a soldier in the capital when Dalaran's mages walked its streets, and I never imagined we'd share a graveyard." },
+      },
+      choices = {
+        { text = "Study is a steadier path than faith, Aramis.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Your faith takes more courage than my spells.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "How can you stand it, a dead man in the Light?", next = "other" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "Perhaps, though I'd say the Light hurts me because it is good and I am not, while your demons don't hurt you because they are exactly what they seem. I know which of us is lying to himself less, and I'm not sure it's me." },
+        { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "The Cult of the Damned trafficked with dark powers too, and I watched them call it freedom right up until they knelt to the Scourge. You're Forsaken now and not a cultist, so mind that you stay the master and not the meal." },
+      },
+      choices = {
+        { text = "Power is power. I'll use whatever answers me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Maybe I'll find my way back to the Light someday.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Why does the Light still answer any of us?", next = "why" },
       },
     },
   },

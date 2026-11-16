@@ -45,6 +45,8 @@ P:NPC {
         { text = "Were you a banker in life?", next = "life" },
         { text = "What do the dead need with gold?", next = "gold" },
         { text = "Who owned these vaults before?", next = "vaults" },
+        { text = "Your vaults must tempt a few thieves, Mister Montague.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Do mages bank their reagents with you?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Good day, Mister Montague.", next = "END" },
       },
     },
@@ -96,6 +98,30 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "They tempt a great many, and the Rogues' Quarter is a very short walk away, which I consider a poor piece of city planning. No thief has yet opened one of my vaults without my ledger noting it, and I intend to keep that record." },
+        { id = "xrogue_scourge", when = { race = "Scourge" }, text = "If you lifted purses in the capital before the plague, some of that gold may well be sitting in my vaults today. I find that rather tidy, and I hope you'll leave it where it is." },
+      },
+      choices = {
+        { text = "Your vaults are safe from me, sir.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "No ledger catches everything, Mister Montague.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Who owned these vaults before?", next = "vaults" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "They do, and they insist on labelling every pouch in a hand nobody else can read, which plays havoc with my accounts. The Magic Quarter folk are good customers otherwise, though one of them once stored something in a vault that hummed." },
+        { id = "xmage_scourge", when = { race = "Scourge" }, text = "Dalaran's people banked in the capital too, in the old days, and they were exactly as particular then as they are now. I find the consistency rather comforting, if I'm honest." },
+      },
+      choices = {
+        { text = "I'll label my pouches plainly, sir.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My reagents are my own affair, sir.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What do the dead need with gold?", next = "gold" },
+      },
+    },
   },
 
   topics = {
@@ -142,6 +168,8 @@ P:NPC {
         { text = "Do the animals fear you?", next = "fear" },
         { text = "How do the beasts fare underground?", next = "under" },
         { text = "Why tend beasts at all, now?", next = "why" },
+        { text = "Your beasts never hear me coming, Anya.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Would your beasts tolerate my demon, Anya?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -184,6 +212,30 @@ P:NPC {
         { text = "Your patience is a gift. Keep earning them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Beasts follow strength, Anya, not kindness.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "They hear you; they just don't think you're worth growling at, which is a different thing entirely. Rogues come down here to practise creeping and only frighten the bats, so I'd thank you to practise somewhere else." },
+        { id = "xrogue_scourge", when = { race = "Scourge" }, text = "They hear you well enough, but a Forsaken who moves quietly smells like nothing at all to them, and that unsettles them more than noise would. Practise your creeping somewhere else, please, for their sake." },
+      },
+      choices = {
+        { text = "I'll leave your beasts in peace, Anya.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Creeping's my trade. Your bats will cope.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Do the animals fear you?", next = "fear" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "Not for a moment, and I don't blame them, because a beast knows a thing that doesn't belong in the world when it smells one. Leave it at the top of the stair, and I'll not have to calm every animal in the stable afterward." },
+        { id = "xwarlock_orc", when = { race = "Orc" }, text = "You ought to know better, since your people's wolves never cared for the warlocks' pets, or so a grunt told me once. Leave the demon at the top of the stair, please." },
+      },
+      choices = {
+        { text = "I'll leave it at the stair. Your beasts come first.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My demon goes where I go, Anya.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "How do the beasts fare underground?", next = "under" },
       },
     },
   },
@@ -235,6 +287,8 @@ P:NPC {
         { text = "Were you a soldier in life?", next = "life" },
         { text = "Is it harder for the dead to fight?", next = "dead" },
         { text = "Which weapon should I learn?", next = "which" },
+        { text = "Teach me daggers, Archibald, not swords.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Is a staff worth learning properly, Archibald?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -276,6 +330,30 @@ P:NPC {
         { text = "Then teach me. I'll practise every day.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My claws have never failed me, Archibald.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Daggers I'll teach, though the rogues who come to me usually know more about holding them than I do and less about blocking with them. Learn both, and you'll live through the fight the knife didn't finish." },
+        { id = "xrogue_scourge", when = { race = "Scourge" }, text = "I drilled the city watch in life, and I spent half my career chasing the sort of person you probably were. Now I'm teaching you to hold a dagger better, and I think the irony suits us both." },
+      },
+      choices = {
+        { text = "I'll learn to block, Archibald. You're right.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The fight's done before they can block.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Which weapon should I learn?", next = "which" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "More than worth it, since a mage who can only cast is a mage who dies the moment his mana runs dry. A good staff will crack a ghoul's skull as well as any mace, and it never asks you to say a word." },
+        { id = "xmage_troll", when = { race = "Troll" }, text = "A troll mage with a staff is about the most dangerous thing I've seen walk into this quarter, since your people can swing as well as cast. Let's see if you can keep the end of it up." },
+      },
+      choices = {
+        { text = "I'll learn the staff and save my spells.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll stick to spells. That's what I'm for.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Is it harder for the dead to fight?", next = "dead" },
       },
     },
   },
@@ -326,6 +404,8 @@ P:NPC {
         { text = "Is smithing different when you're dead?", next = "dead" },
         { text = "Where do you get your ore?", next = "ore" },
         { text = "What does the Deathguard need most?", next = "guard" },
+        { text = "Can you forge a dagger that doesn't catch the light?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Do warlocks ask you for anything strange, Van Brunt?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -367,6 +447,30 @@ P:NPC {
         { text = "Steady work is a kind of peace. Keep it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Change would do you good, smith. Try something new.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "I can blacken the blade, which is old soldiers' work and nothing clever, and the Rogues' Quarter keeps me busy with it. A dull blade in a dark canal is near invisible, though you'll still need the sense to keep it out of the torchlight." },
+        { id = "xrogue_scourge", when = { race = "Scourge" }, text = "I blackened blades for the king's scouts in life, and now I blacken them for the Dark Lady's deathstalkers, so the work hasn't changed much. You'll still need the sense to keep it out of the torchlight." },
+      },
+      choices = {
+        { text = "A dark blade for dark work. Good.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'd rather my enemies see the blade coming.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "What does the Deathguard need most?", next = "guard" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "They ask me to work fel-touched ore now and then, and I tell them no, because metal that whispers isn't metal I'll put my name to. Bring me honest iron and I'll make you honest work." },
+        { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "I knew a smith in the capital who went over to the Cult before the end and forged for them, and he never made anything clean again. Keep your demons away from my forge, and we'll get on fine." },
+      },
+      choices = {
+        { text = "Honest iron, then. I'll respect your forge.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Fel-touched or not, metal's metal, Van Brunt.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Is smithing different when you're dead?", next = "dead" },
       },
     },
   },
@@ -413,6 +517,8 @@ P:NPC {
         { text = "Teach me mining.", next = "BUSINESS" },
         { text = "Where should I mine near here?", next = "where" },
         { text = "Was this city dug by miners?", next = "city" },
+        { text = "Your tunnels must be handy for going unseen, Killian.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Can magic find ore faster than a pick, Killian?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -451,6 +557,30 @@ P:NPC {
         { text = "The hills do have opinions. Listen to them.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Rock is rock. Dig it and sell it.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Handy enough, though most of them flood or collapse, and the ones that don't belong to the Rogues' Quarter already. I'd not go poking about the old sewers without asking Carolyn Ward first, unless you fancy a knife in a dark place." },
+        { id = "xrogue_scourge", when = { race = "Scourge" }, text = "If you came up through the old sewers in life, dodging the city watch, you'll find they've changed a fair bit since the plague. Some go further down than I'd like, and I've a miner's nose for when a tunnel's wrong." },
+      },
+      choices = {
+        { text = "I'll ask Ward first. Her quarter, her rules.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll go where I like below the city.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Was this city dug by miners?", next = "city" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Magic can find ore, aye, and then it stands back while someone with a pick does the actual work, which is how it's always been. The Magic Quarter folk come to me for gems now and then, and not one of them has ever lifted a pick to help." },
+        { id = "xmage_scourge", when = { race = "Scourge" }, text = "I knew Dalaran men who came to the capital's mines looking for crystals with their little rods, and they never once dirtied their robes. Take a pick, and let the magic rest." },
+      },
+      choices = {
+        { text = "Fair enough. I'll learn the pick properly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Magic's quicker, Killian, and I prefer quick.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Where should I mine near here?", next = "where" },
       },
     },
   },
@@ -505,6 +635,8 @@ P:NPC {
         { text = "How does enchanting work?", next = "how" },
         { text = "Did you learn this in Dalaran?", next = "dalaran" },
         { text = "Is it hard for the dead to work magic?", next = "dead" },
+        { text = "Can enchanting bind a demon, Lavinia?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Could enchanting make my blades quieter, Lavinia?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -553,6 +685,30 @@ P:NPC {
         { text = "Some things should keep their own nature. Leave them be.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Break the rules, Lavinia. That's how new arts are made.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "It binds power into objects, and a demon is not an object, however much your trainers would like you to think so. Keep the two crafts apart, because I've seen a warlock's enchanted ring go very wrong, and I'd rather not see it again." },
+        { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "We dead mages kept to the arcane and you dead warlocks went down another road entirely, and the Magic Quarter is big enough for us both, mostly. Do keep your imp out of my dust; it eats it." },
+      },
+      choices = {
+        { text = "I'll keep the crafts apart, as you say.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Every craft bends if you push it hard enough.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "How does enchanting work?", next = "how" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Quieter, no, though I've been asked, and I tell every rogue the same thing: enchantment makes a blade sharper or crueller, never shyer. Keep your own steps quiet and let me look after the edge." },
+        { id = "xrogue_scourge", when = { race = "Scourge" }, text = "I had a cutpurse ask me that in Lordaeron once, before either of us died, and I gave him the same answer I'll give you. Enchantment makes a blade sharper or crueller, but never shyer." },
+      },
+      choices = {
+        { text = "A sharper edge suits a fair fight too.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A crueller edge suits me better.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Is it hard for the dead to work magic?", next = "dead" },
       },
     },
   },
@@ -604,6 +760,8 @@ P:NPC {
         { text = "What does a rogue do for the Dark Lady?", next = "lady" },
         { text = "What's the most important thing a rogue can learn?", next = "lesson" },
         { text = "Are there rogues who aren't loyal?", next = "disloyal" },
+        { text = "Do rogues and mages ever work together, Ward?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Have your rogues any use for a warlock?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -647,6 +805,30 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "When the Dark Lady needs it, and only then, because mages are loud and rogues are not. I've used a mage to draw the guards' eyes while my people did the real work, and it served well enough." },
+        { id = "xmage_scourge", when = { race = "Scourge" }, text = "Dalaran's mages hired cutpurses more often than they'd admit, to fetch what their wards were too proud to reach. Some of your old textbooks probably passed through hands like mine." },
+      },
+      choices = {
+        { text = "I'll draw their eyes if the Dark Lady needs it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll work alone, Ward, not as bait.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What does a rogue do for the Dark Lady?", next = "lady" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "Rarely, because a demon is the least subtle thing in the Undercity, and that includes the abominations. Still, a warlock who can curse a man from across a room has a certain quiet charm, if he learns to stand in the shadows." },
+        { id = "xwarlock_orc", when = { race = "Orc" }, text = "An orc warlock, in my quarter, and you've the sense to ask instead of barging in. A curse from across a room has a certain quiet charm, if you learn to keep that demon of yours out of the light." },
+      },
+      choices = {
+        { text = "I'll learn to work quietly, then.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'll fight in the open, demon and all.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Are there rogues who aren't loyal?", next = "disloyal" },
+      },
+    },
   },
 
   topics = {
@@ -687,6 +869,8 @@ P:NPC {
         { text = "Who buys poison in this city?", next = "who" },
         { text = "Isn't selling poison wicked?", next = "wicked" },
         { text = "What's the strangest thing you sell?", next = "strange" },
+        { text = "What would a mage want from your shelves, Graves?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do your poisons work on demons, Graves?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -728,6 +912,30 @@ P:NPC {
         { text = "Then I'll keep curing, and you'll keep losing.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Clever. I'd rather have your poisons on my side.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Oh, very little, though a few of your kind come by to admire the colours, which I always appreciate. The Magic Quarter folk prefer to do their killing at a distance, and I think they miss out on the finer details." },
+        { id = "xmage_scourge", when = { race = "Scourge" }, text = "The Kirin Tor never cared for my trade, which I always thought a shame, since half of what they called alchemy was poison with better manners. Do have a look at the colours, at least." },
+      },
+      choices = {
+        { text = "Poison has no place in a fair fight, Graves.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Poison's just another tool. I may buy some.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Who buys poison in this city?", next = "who" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "Some of them do, and the ones that don't are very interesting to watch fail. The Magic Quarter's warlocks buy from me now and then, for when a pet turns on its master, and they never tell me whether it worked." },
+        { id = "xwarlock_orc", when = { race = "Orc" }, text = "An orc asking after poisons for demons, now that's a customer with history. Some of my stock works on them and some only annoys them, and I'm afraid you'll have to find out which the hard way." },
+      },
+      choices = {
+        { text = "A wise warlock keeps a vial for his own demon.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My demon won't turn. I don't need your vials.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What's the strangest thing you sell?", next = "strange" },
       },
     },
   },
@@ -780,6 +988,8 @@ P:NPC {
         { text = "Why would the dead need bandages?", next = "dead" },
         { text = "Were you a healer in life?", next = "life" },
         { text = "Where can I learn more than you teach?", next = "more" },
+        { text = "Rogues bleed more than they admit, Edras.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Life Tap leaves me hollow, Edras. Can you help?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -822,6 +1032,30 @@ P:NPC {
         { text = "Then I'll carry your linen, and bind whoever needs it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Linen is for my own wounds first, Mary.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Rogues bleed more than anyone admits, because they're always getting cut in places nobody saw them go. Learn to bind your own wounds in the dark, since you'll seldom have a light to do it by." },
+        { id = "xrogue_scourge", when = { race = "Scourge" }, text = "The dead bleed less than the living but heal worse, so a rogue among us needs to be twice as careful with a knife wound. Bind it tight and bind it quickly, and don't wait until you can't feel your arm." },
+      },
+      choices = {
+        { text = "I'll learn to bind wounds in the dark.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll heal when the job's done, not before.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Why would the dead need bandages?", next = "dead" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "Bandages won't put back what you've traded away, but they'll help with what your demon does to you afterward. I've told the Magic Quarter's warlocks the same for years, and they never listen until they faint on my floor." },
+        { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "You're spending blood you can't make again as quickly as the living can, which is a poor bargain for one of us. Bind what you can, rest when you can, and don't faint on my floor." },
+      },
+      choices = {
+        { text = "I'll listen, Edras, before I faint.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Fainting is the price of power, Edras.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Were you a healer in life?", next = "life" },
       },
     },
   },
@@ -868,6 +1102,8 @@ P:NPC {
         { text = "Teach me to fish.", next = "BUSINESS" },
         { text = "Where's good fishing near here?", next = "where" },
         { text = "Why do the dead fish if they don't eat?", next = "why" },
+        { text = "The canals would hide a body nicely, Cromwell.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Could I freeze the canal and fish through the ice?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -906,6 +1142,30 @@ P:NPC {
         { text = "I always thank the lake. It's only right.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A fish is a fish. I'll eat it and thank no one.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "They would, and I'd ask you not to test it, because I've pulled up enough boots and buckles from that green water to know someone already has. The fish don't mind, but I do, a little." },
+        { id = "xrogue_scourge", when = { race = "Scourge" }, text = "They would, and I've a feeling you knew the old city's ditches well enough in life to judge. I've pulled up enough boots from that green water to know someone's tried it already, so please don't add to the collection." },
+      },
+      choices = {
+        { text = "I'll keep my business out of your canals.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The canals keep secrets. That's their use.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Why do the dead fish if they don't eat?", next = "why" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "You could, I suppose, and you'd be the first person ever to ice-fish in the Undercity, which is a sort of distinction. Mind you don't freeze the fish along with it, though; they're tough, but the poison in them gets sluggish." },
+        { id = "xmage_troll", when = { race = "Troll" }, text = "A troll who wants to freeze my canal, now there's something to tell the other trainers. You could do it, I suppose, but I'd sooner you learned the line, since frost won't help you on the coast at Echo Isles." },
+      },
+      choices = {
+        { text = "I'll fish the honest way, with a line.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Ice is quicker. I'll do it my way.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Where's good fishing near here?", next = "where" },
       },
     },
   },

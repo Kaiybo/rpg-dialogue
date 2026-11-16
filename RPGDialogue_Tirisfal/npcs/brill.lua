@@ -47,6 +47,7 @@ P:NPC {
         { text = "I can reach their camps unseen, Executor.", next = "rogue", when = { class = "ROGUE" } },
         { text = "I carry the Light, Executor. Does that trouble you?", next = "paladin", when = { race = "Scourge", class = "PALADIN" } },
         { text = "My spells are at the Deathguard's service.", next = "mage", when = { class = "MAGE" } },
+        { text = "My demons could break the Crusade's lines, Executor.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "For the Dark Lady.", next = "END", fx = { affinity = 1, standing = { brill = 1 } } },
       },
       again = {
@@ -138,6 +139,19 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "Then loose them on the Crusade and keep them on a short leash, because the zealots already call us demons and I'd rather not prove them right in front of my soldiers. Rupert Boch in the Gallows' End tells me most of his students survive their lessons, and in Tirisfal I'll take most." },
+        { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "You died a subject of Lordaeron and came back binding demons, which is a stranger road than most of us walked. The Dark Lady has a use for it, so point your imp at Solliden and let the Crusade learn what their sermons are worth." },
+        { id = "xwarlock_orc", when = { race = "Orc" }, text = "An orc warlock in Tirisfal, a long way from the Warchief's frown. The Dark Lady judges by results and so do I, so bring me burned Crusader camps and I'll not ask what did the burning." },
+      },
+      choices = {
+        { text = "I'll loose the imp on their camps at night.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'll face the Crusade myself and keep my demon at heel.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Who are the Scarlet Crusade, exactly?", next = "crusade" },
+      },
+    },
   },
 
   topics = {
@@ -193,6 +207,8 @@ P:NPC {
         { text = "How did you take Brill?", next = "brill" },
         { text = "I lived near Brill, before.", next = "farmer", when = { race = "Scourge" } },
         { text = "Does Brill need a warlock's help, Magistrate?", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "Who keeps Brill's secrets, Magistrate?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Does Brill have any use for a mage, Magistrate?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "I'll see to it.", next = "END", fx = { affinity = 1, standing = { brill = 1 } } },
       },
       again = {
@@ -242,6 +258,30 @@ P:NPC {
         { text = "Let me tend what's left. Something may still grow there.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "The palisades were the better use. The town comes first.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "I keep most of them, because a magistrate who doesn't know what his town is whispering won't be magistrate for long. Marion Call trains your sort in the Gallows' End, and she tells me when something matters, which is more than the deathstalkers ever do." },
+        { id = "xrogue_scourge", when = { race = "Scourge" }, text = "I dealt with cutpurses when Brill still had a harvest fair, and I'll tell you plainly that the Dark Lady's laws are no softer than the king's were. Keep your fingers out of Brill's pockets and in the Crusade's, and we'll get along." },
+      },
+      choices = {
+        { text = "I'll keep my hands to myself in Brill, Magistrate.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Laws are for those too slow to avoid them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "How did you take Brill back?", next = "brill" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Brill has a use for anyone who can keep the lamps lit without setting the thatch alight, which is harder than it sounds with Crusade arrows coming over the fields. Cain Firesong teaches in the inn, and I'll thank you to practise anywhere but my square." },
+        { id = "xmage_scourge", when = { race = "Scourge" }, text = "Dalaran sent apprentices out to test the grain when the plague first came, and a good many of them died on these farms beside the people they meant to help. If you were one of them, you've earned your place in Brill twice over." },
+      },
+      choices = {
+        { text = "I'll keep my spells off your square, Magistrate.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll practise where I like, Magistrate.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "How did you take Brill back, Magistrate?", next = "brill" },
       },
     },
   },
@@ -296,6 +336,7 @@ P:NPC {
         { text = "What is the plague for?", next = "purpose" },
         { text = "I served the Cult once. I know a plague when I see one.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "I studied in Dalaran. Can I help with the formulae?", next = "mage", when = { class = "MAGE" } },
+        { text = "Could your bottles do a rogue's work, Apothecary?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "I'll gather what you need.", next = "END", fx = { affinity = 1 } },
       },
       again = {
@@ -357,6 +398,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Oh, a great many of them could, though I must insist the Society's formulae are meant for the Scourge and the Scourge alone. Still, a careful rogue with a vial and a steady hand could teach us a great deal about the Crusade's constitution, and I would be fascinated by the results." },
+        { id = "xrogue_scourge", when = { race = "Scourge" }, text = "You'll know already that our bodies shrug off what would kill a living man, which makes you an ideal courier for the Society's more volatile work. Do mind the stoppers all the same; I've lost two assistants that way, and they were dead already." },
+      },
+      choices = {
+        { text = "Poison is a tool, Apothecary. I'll use it where it works.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'd rather settle the Crusade with steel than vials.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "What is the plague for, really?", next = "purpose" },
+      },
+    },
   },
 
   topics = {
@@ -403,6 +456,8 @@ P:NPC {
         { text = "That's a heavy grudge.", next = "grudge" },
         { text = "I could make the Agamands' rest a short one.", next = "rogue", when = { class = "ROGUE" } },
         { text = "You held the mills like soldiers. I respect that.", next = "warrior", when = { class = "WARRIOR" } },
+        { text = "Could a mage's fire clear the Agamand Mills?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "I could set a demon on the Agamands, Coleman.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I'll go to the mills.", next = "END", fx = { affinity = 2 } },
       },
       again = {
@@ -440,6 +495,30 @@ P:NPC {
         { text = "I'll leave the trees be. They never wronged you.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Brambles it is, then. Let the manor choke on them.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Fire would clear them, and I won't pretend the thought doesn't warm what's left of me, but the mills are dry as tinder and I bled for those mills. Burn the risen family if you must, and leave the millstones standing; I paid for them with my life." },
+        { id = "xmage_scourge", when = { race = "Scourge" }, text = "You were studying magic while I was hauling grain sacks for the Agamands, I expect, and both of us ended up in the same ground. It's a funny sort of fairness, and I mean to enjoy it while it lasts." },
+      },
+      choices = {
+        { text = "I'll burn only what needs burning, Coleman.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "If the mills burn, they burn.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Why carry such a heavy grudge?", next = "grudge" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "A demon in the Agamands' parlour would be a sight worth dying twice for, I admit. Only mind it doesn't follow you back to Brill, because the folk here have had enough of masters who smile first and devour after." },
+        { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "We came back without any choice in it, and now you call things out of the Nether on purpose, though I'll not judge it. The Agamands called me to their mills on purpose too, and you can see how well that ended for all of us." },
+      },
+      choices = {
+        { text = "The demon goes where I send it, and no further.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Whatever it eats on the way is its own business.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Why carry such a heavy grudge, Coleman?", next = "grudge" },
       },
     },
   },
@@ -486,6 +565,8 @@ P:NPC {
         { text = "Your fields need guarding, Gretchen. I can swing an axe.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "What do you miss most?", next = "miss" },
         { text = "Let me try something. A mage's fire is hotter.", next = "mage", when = { class = "MAGE" } },
+        { text = "I'm good at going unseen, Gretchen. Does that help?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "A demon's fire burns hot, Gretchen. Want to feel it?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I'll be back with it.", next = "END", fx = { affinity = 1 } },
       },
       again = {
@@ -531,6 +612,30 @@ P:NPC {
         { text = "Then put your hands in it, and remember the dog.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Memories won't warm you, Gretchen. Better to let them go.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "It might, dear, because the Scarlet patrols near my old fields shoot at anything that walks upright and pale. Slip past them quietly and bring back what I asked for, and I'll sit here and pretend I can feel the fire while I wait." },
+        { id = "xrogue_scourge", when = { race = "Scourge" }, text = "I used to bolt my door against folk like you, back when I had a door and something worth taking. Now I'd almost welcome a thief to worry about, because worrying was such a living sort of feeling." },
+      },
+      choices = {
+        { text = "I'll stay in the shadows and come back quietly.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "If the Crusade stops me, they'll see me coming.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "What do you miss most, Gretchen?", next = "miss" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "That's kind, but I've sat beside every fire in this tavern and none of them reach me, and I doubt a demon's would be any different. Keep your little friend away from the hearth, please; Renee has only just got the soot off the stones." },
+        { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "I knew a girl from Brill who went off with the Cult and came back talking about the Nether as if it were a sweetheart, and then I never saw her again. You seem steadier than she was, so mind you stay that way." },
+      },
+      choices = {
+        { text = "I'll keep the demon away from the hearth.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The imp sits where it likes, Gretchen.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What do you miss most, Gretchen?", next = "miss" },
       },
     },
   },
@@ -580,6 +685,8 @@ P:NPC {
         { text = "May I bring my beast inside, Renee?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Why keep an inn, now?", next = "why" },
         { text = "I'm a rogue. Who in Brill should I know?", next = "rogue", when = { class = "ROGUE" } },
+        { text = "Do mages drink at the Gallows' End, Renee?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Will you serve a warlock under your roof, Renee?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Just a room, thanks.", next = "END" },
       },
       again = {
@@ -631,6 +738,30 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "They drink, though most of them complain about it, since nothing tastes of much to the dead and mages like to have opinions. Cain Firesong keeps his students to the back of the room, and I keep a bucket of water by the door in case one of them forgets where he is." },
+        { id = "xmage_scourge", when = { race = "Scourge" }, text = "You've a Dalaran look about you, the way you watch the lamps as if you're judging how they were lit. Sit down and have something; whatever you were before, you're one of mine while you're under this roof." },
+      },
+      choices = {
+        { text = "I'll mind the furniture and keep my spells quiet.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "If a Crusader comes through that door, he burns.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Why keep an inn now, Renee?", next = "why" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "I'll serve anyone who pays and keeps their demons off the tables, and Rupert Boch's students are mostly good about that. I did worse things than summon imps when I was alive, so I'm not about to lecture you." },
+        { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "I served a cause once that told me any means were fine so long as the end was holy, and I hurt people for it. Whatever you call up out of the dark, make sure it's you doing the deciding, because nothing else ever should." },
+      },
+      choices = {
+        { text = "I decide, Renee, and the demon obeys.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Power doesn't need anyone's permission, Renee.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Why keep an inn now, Renee?", next = "why" },
+      },
+    },
   },
 
   topics = {
@@ -680,6 +811,8 @@ P:NPC {
         { text = "Why camp, when there are inns?", next = "why" },
         { text = "I don't sleep, Eleanor. What's a camp for, then?", next = "forsaken", when = { race = "Scourge" } },
         { text = "I'm a long way from the Barrens. Any tips for this damp?", next = "living", when = { race = { "Orc", "Troll", "Tauren" } } },
+        { text = "You notice a great deal for a traveller, Eleanor.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "I could light your fire with a word, Eleanor.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Safe travels.", next = "END" },
       },
       again = {
@@ -714,6 +847,30 @@ P:NPC {
         { text = "Then I'll help them heal, a little at a time.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Some of it is past healing, Eleanor. I've seen it.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "A traveller who doesn't notice things soon stops travelling, and I don't intend to join the Forsaken just yet. I watch the road, the trees and the smoke on the horizon, and I watch the quiet ones like you closest of all." },
+        { id = "xrogue_scourge", when = { race = "Scourge" }, text = "You walk like someone who was a thief before you died, all soft heels and an eye on the exits. I don't carry anything worth taking, so you may as well sit by the fire and learn something honest." },
+      },
+      choices = {
+        { text = "Fair enough. I'll sit by the fire and learn.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A rogue keeps to the shadows, Eleanor, not the firelight.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Why camp, when there are inns?", next = "why" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "I'm sure you could, but a fire lit by magic teaches you nothing about wet wood and wind, and one day you'll be too tired to cast. Humour me and do it with flint first, and then you may show off as much as you like." },
+        { id = "xmage_scourge", when = { race = "Scourge" }, text = "Dalaran taught you a dozen ways to start a fire, I'd guess, and none of them involved kneeling in the mud. The mud is where the learning happens, so kneel down here beside me." },
+      },
+      choices = {
+        { text = "Flint first, then. I'll learn it properly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll use the spell; that's what it's for.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Why camp at all, when there are inns?", next = "why" },
       },
     },
   },

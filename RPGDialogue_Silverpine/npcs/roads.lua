@@ -42,6 +42,9 @@ P:NPC {
         { text = "What are the worgen?", next = "worgen" },
         { text = "Who is Rane Yorick?", next = "yorick" },
         { text = "A deathstalker afraid of the dark?", next = "afraid" },
+        { text = "How does a rogue move through Silverpine unseen, Erland?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Can fire keep the worgen off, Erland?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Could a demon track a worgen, Erland?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Good luck on the road.", next = "END" },
       },
       again = { { id = "h_again", text = "What else? Speak low; the trees are listening." } },
@@ -107,6 +110,42 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Slowly, and downwind, because the worgen hunt by smell and they've better noses than any hound in Lordaeron. Keep off the roads at night and out of the Dead Field, and if you hear howling behind you, don't stop to see what it is." },
+        { id = "xrogue_scourge", when = { race = "Scourge" }, text = "The worgen can smell rot, which is a hard thing for the likes of us to hide, so the deathstalkers rub pine sap into their cloaks before they go south. It doesn't always work, but it works more often than not, and I've learned to be grateful for that." },
+      },
+      choices = {
+        { text = "Patience and stealth. I'll keep to the shadows.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "If a worgen finds me, I'll stand and fight.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "What are the worgen, exactly?", next = "worgen" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "It keeps them off for a while, which is more than steel does, since they shrug off a blade far too easily for my liking. They're Arugal's creatures, and Arugal was Dalaran's, so I'd say your sort owes Silverpine a good deal of fire." },
+        { id = "xmage_scourge", when = { race = "Scourge" }, text = "If you studied in Dalaran, you'll have heard Arugal's name spoken with respect, back when he was the Kirin Tor's answer to the Scourge. Now his answer runs through these woods on four legs, and the Kirin Tor won't say his name at all." },
+      },
+      choices = {
+        { text = "Dalaran's mistakes are mine to burn away, then.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Dalaran's done nothing for me. I owe it nothing.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Who is Rane Yorick?", next = "yorick" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "I'd not want to be in the woods when it found one, since I can't decide which of the two I'd rather run from. Try it if you like, but try it in daylight, and somewhere a long way from me." },
+        { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "A demon and a worgen fighting over the same patch of Silverpine sounds like the sort of thing the Dark Lady would enjoy hearing about. Go and try it, and I'd be glad to tell her the story myself." },
+      },
+      choices = {
+        { text = "I'll set it loose at night, where it hunts best.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'll do it in daylight, openly, as you say.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A deathstalker afraid of the dark?", next = "afraid" },
+      },
+    },
   },
 
   topics = {
@@ -153,6 +192,8 @@ P:NPC {
         { text = "What's happening in Pyrewood?", next = "pyrewood" },
         { text = "What do the scouts report?", next = "reports" },
         { text = "I'm a deathstalker too. Any orders?", next = "deathstalker", when = { origin = "forsaken_deathstalker_recruit" } },
+        { text = "What do your scouts see of Ambermill's mages, Yorick?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "I could send an imp to watch Pyrewood for you.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I'll leave you to your window.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? Be quick, the light's going." } },
@@ -214,6 +255,30 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Too much and not enough, since they've put wards around the place that turn my scouts' eyes aside like rain off oilcloth. Dalaran's mages are digging in Silverpine for something, and I'd very much like a mage of our own to tell me what." },
+        { id = "xmage_scourge", when = { race = "Scourge" }, text = "If you studied in Dalaran, you might know some of the faces at Ambermill, which could be useful or could be very painful. Either way, I'd rather know which before I send you down there." },
+      },
+      choices = {
+        { text = "Old faces or not, I'll report what I find.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll deal with Ambermill my own way, Yorick.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What do the scouts report?", next = "reports" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "An imp in Pyrewood would be noticed, since the villagers there are human by day and something else entirely by night, and both kinds would chase it. I'll keep my own eyes on the road, thank you, though I appreciate the thought." },
+        { id = "xwarlock_orc", when = { race = "Orc" }, text = "An orc warlock in Silverpine is farther from home than any of us, and I'll not turn down an extra pair of eyes. Keep your imp off my windowsill, though; it leaves scorch marks." },
+      },
+      choices = {
+        { text = "Then I'll go myself and keep the imp close.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The imp goes where I send it, Yorick.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What's happening in Pyrewood?", next = "pyrewood" },
+      },
+    },
   },
 
   topics = {
@@ -257,6 +322,8 @@ P:NPC {
         { text = "Will the bats carry a hunter's beast, Karos?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Where do the bats come from?", next = "bats" },
         { text = "Are the roads really that bad?", next = "roads" },
+        { text = "Can I ride a bat out quietly, Karos?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Would your bats tolerate a demon riding along?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Just passing.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? The bats are getting restless." } },
@@ -300,6 +367,30 @@ P:NPC {
         { text = "Every beast deserves a keeper who cares for it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Use what serves you, Karos. Sentiment slows a keeper.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Bats are quiet enough in the air, but they shriek when they land, so if you're hoping to arrive unannounced, get off a mile early and walk. The deathstalkers learned that the hard way, and so did the bats." },
+        { id = "xrogue_troll", when = { race = "Troll" }, text = "The bats like trolls better than they like us, since you smell less of the grave. They'll still shriek when they land, mind, so get off a mile early if you want to arrive unannounced." },
+      },
+      choices = {
+        { text = "I'll walk the last mile quietly, as you say.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'd rather arrive with a shriek and fight.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Are the roads really that bad?", next = "roads" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "They'd tolerate it for about as long as it takes to throw both of you off, and I'd not blame them. Dismiss the thing before you mount, and the bat will carry you as gently as any of the dead." },
+        { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "You smell of sulphur and grave dirt in equal measure, and the bats don't care for either, though they'll put up with the second. Send the demon home before you fly, and we'll get along." },
+      },
+      choices = {
+        { text = "I'll dismiss it first. The bats deserve that.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The demon stays with me, Karos.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Where do the bats come from?", next = "bats" },
       },
     },
   },

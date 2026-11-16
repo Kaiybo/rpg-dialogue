@@ -49,6 +49,7 @@ P:NPC {
         { text = "Where's the line weakest? Put me there.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "I know Dalaran's spells. I can read their work at Ambermill.", next = "mage", when = { class = "MAGE" } },
         { text = "I can track worgen through these woods.", next = "hunter", when = { class = "HUNTER" } },
+        { text = "My demons could hold one of your fronts, High Executor.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "For the Dark Lady.", next = "END", fx = { affinity = 1, standing = { sepulcher = 1 } } },
       },
       again = {
@@ -120,6 +121,19 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "One front would be a mercy, since I have four and too few Deathguard to hold any of them well. Send your demons at the Rot Hide gnolls, who are too stupid to be frightened of anything and will at least keep them busy." },
+        { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "You'd have heard of the Cult in life, and perhaps more than heard, but the Dark Lady has given you a new master and a new purpose. Use your demons for her, and I'll not care where you learned to call them." },
+        { id = "xwarlock_orc", when = { race = "Orc" }, text = "The Warchief sends orcs to help, and here is one who brought fel fire with him, which I didn't expect. Point it at the Rot Hides and I'll see your name in my report." },
+      },
+      choices = {
+        { text = "The Rot Hides will burn, on your order.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll choose which front I hold, High Executor.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What threatens the Sepulcher most?", next = "threats" },
+      },
+    },
   },
 
   topics = {
@@ -176,6 +190,7 @@ P:NPC {
         { text = "What makes the Rot Hide sickness?", next = "rothide" },
         { text = "The Rot Hide sickness reminds me of the Cult's work.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "Could I coat my blades with any of this?", next = "rogue", when = { class = "ROGUE" } },
+        { text = "A mage's eye might help with your recipe, Apothecary.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "I'll gather what you need.", next = "END", fx = { affinity = 1 } },
       },
       again = {
@@ -225,6 +240,18 @@ P:NPC {
         { text = "Understanding a curse is the first step to ending it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Learn it, then turn it on our enemies.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "A mage's eye might, if it could stop looking for the arcane in everything and see that some things are only chemistry. Still, I'd welcome a second pair of hands in this damp, since mine keep slipping on the vials." },
+        { id = "xmage_scourge", when = { race = "Scourge" }, text = "Dalaran's alchemists would have called my work crude, and some of them now work for the Society, which I find very satisfying. If you trained there, by all means lend a hand, but leave your pride at the door." },
+      },
+      choices = {
+        { text = "It's your laboratory. I'll follow your method.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll do it my way, or not at all.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What makes the Rot Hide sickness?", next = "rothide" },
       },
     },
   },
@@ -277,6 +304,7 @@ P:NPC {
         { text = "I studied magic too. What would you teach me?", next = "mage", when = { class = "MAGE", race = "Scourge" } },
         { text = "An orc mage, Archmage. Go on, laugh.", next = "orcmage", when = { race = "Orc", class = "MAGE" } },
         { text = "I deal with the Nether, Archmage. Spare me the lecture.", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "Do mages ever trust rogues, Archmage?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "I'll help.", next = "END", fx = { affinity = 1 } },
       },
       again = {
@@ -344,6 +372,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Never, which is why Dalaran's wards were the finest in the world and also why they were always being tested. I'd have you look at Ambermill for me, since a thief who gets close to their wards would tell me more than my scrying ever has." },
+        { id = "xrogue_scourge", when = { race = "Scourge" }, text = "In life you'd have been just the sort I warned the Kirin Tor about, a cutpurse lurking in the Violet Citadel's shadow. Now you're the only sort I'd trust to do the job they never let me do." },
+      },
+      choices = {
+        { text = "I'll get close to their wards and report back.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll get close, and whatever I find is mine.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What did you warn them about?", next = "warned" },
+      },
+    },
   },
 
   topics = {
@@ -390,6 +430,8 @@ P:NPC {
       choices = {
         { text = "What do you want from a shaman, Shadow Priest?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do you ever stop listening, Shadow Priest?", next = "druid_q", when = { class = "DRUID" } },
+        { text = "My spells could serve your watchers, Allister.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Demons make fine watchers, Allister.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What do you want me to learn?", next = "END", fx = { affinity = 1, trait = { curious = 1 } } },
         { text = "I'm good in the shadows. Make me one of your watchers.", next = "rogue", when = { class = "ROGUE" } },
         { text = "A living face could cross the border easier.", next = "living", when = { race = { "Orc", "Troll", "Tauren" } } },
@@ -429,6 +471,30 @@ P:NPC {
         { text = "I'll watch Pyrewood for you, and report everything.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My eyes are my own. I'll share what I choose.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "They could, and I'd like to know how far you can see, since my watchers tell me the Dalaran mages at Ambermill are scrying in our direction. A mage who can feel the edge of a scrying spell would be worth a dozen spies at a window." },
+        { id = "xmage_scourge", when = { race = "Scourge" }, text = "I know a few who studied in Dalaran and now study for us, and every one of them still flinches when the Violet Citadel is mentioned. You'll learn I don't judge loyalty by where it began." },
+      },
+      choices = {
+        { text = "I'll serve the Dark Lady's watchers gladly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll share what I see when I choose to.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Is there something else you'd ask of me?", next = "BACK" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "They make fine noise, which isn't the same thing, though I admit an imp in a chimney sees a great deal. Bring me what it overhears in Pyrewood, and I'll decide whether it was worth the scorch marks." },
+        { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "I watched the Cult's people in the old days, and they all thought their demons and their dead made them invisible. They were wrong, so you'll forgive me if I watch you just as closely." },
+      },
+      choices = {
+        { text = "Then I'll bring you only what's useful.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll keep what the imp hears until it suits me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Is there something else you'd ask of me?", next = "BACK" },
       },
     },
   },
@@ -479,6 +545,8 @@ P:NPC {
         { text = "Want me to see off the worgen at your door, Bates?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Can my beast sleep in here, Bates?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Do you get many living guests out here?", next = "living", when = { race = { "Orc", "Troll", "Tauren" } } },
+        { text = "Anyone in your crypt worth watching, Bates?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Your crypt's cold, Bates. Want a fire?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Just a rest, thanks.", next = "END" },
       },
       again = {
@@ -524,6 +592,30 @@ P:NPC {
         { text = "Some of them may yet be saved, Bates. Keep hoping.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Men or not, they're beasts now. Bar the door.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Everyone in a crypt is worth watching, friend, since half of them are deathstalkers and the other half are spiders. The deathstalkers drink on the left-hand slabs and the spiders keep to the right, and I'd keep to the middle if I were you." },
+        { id = "xrogue_troll", when = { race = "Troll" }, text = "A troll among my slabs, and a quiet one at that. The left-hand side is driest, though the deathstalkers drink there and they'll watch you from it, so I'd keep to the middle if I were you." },
+      },
+      choices = {
+        { text = "I'll keep to the middle and keep my peace.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll sit wherever I like, Bates.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Do many living guests come out here?", next = "living" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "I'd like a fire very much, but the last mage who offered set the cobwebs alight, and the spiders haven't forgiven any of us. Warm your hands if you must, only keep the flame small and away from the ceiling." },
+        { id = "xmage_scourge", when = { race = "Scourge" }, text = "We can't feel the cold, you and I, so a fire down here is only for the look of the thing. I'd still like one for the look of the thing, if you're offering, and if you keep it off the webs." },
+      },
+      choices = {
+        { text = "I'll keep it small and away from the webs.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Spiders burn, Bates. That's their problem.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Do many living guests come out here?", next = "living" },
       },
     },
   },
