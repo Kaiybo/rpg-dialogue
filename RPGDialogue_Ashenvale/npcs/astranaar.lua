@@ -536,6 +536,8 @@ P:NPC {
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "Who stays here?", next = "guests" },
         { text = "How is Relara?", next = "relara_k" },
+        { text = "I can tend wounds. Do your scouts need a healer?", next = "healer_k", when = { class = { "PRIEST", "PALADIN", "DRUID" } } },
+        { text = "It's a long way from Stormwind to here.", next = "far_k", when = { race = "Human" } },
         { text = "Just resting.", next = "END" },
       },
     },
@@ -553,6 +555,28 @@ P:NPC {
     relara_k = {
       lines = { { id = "re_default", text = "Better some days and worse on others. Her father hardly sleeps, so I make sure he at least eats." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    healer_k = {
+      lines = {
+        { id = "hk_default", text = "Always, and more than I can manage with bandages and broth. Two of Raene's scouts are upstairs with Thistlefur claw marks that won't close cleanly, and they'd be glad of better hands than mine." },
+        { id = "hk_priest", when = { class = "PRIEST", ["not"] = { race = "NightElf" } },
+          text = "Your Light, in a Sentinel's sickroom? They'd be surprised, and glad, I think. Two of Raene's scouts are upstairs with Thistlefur claw marks that won't close cleanly." },
+      },
+      choices = {
+        { text = "I'll see to them before I sleep.", next = "BACK", fx = { align = { light = 1 }, affinity = 2, standing = { astranaar = 1 } } },
+        { text = "Scouts who get clawed should learn to dodge.", next = "BACK", fx = { align = { light = -1 }, affinity = -1 } },
+      },
+    },
+    far_k = {
+      lines = { { id = "fk_default", text = "So I hear, and you're the third human this month to tell me so. Delgren's paladins come through on their way to Maestra's Post, and they all ask for something they call mutton." } },
+      choices = {
+        { text = "Do you have any mutton?", next = "far_k2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    far_k2 = {
+      lines = { { id = "fk2_default", text = "No, but I have venison and a good mushroom stew, and the paladins eat both and say grace over them. You may do the same, love, if it makes it taste more like home." } },
+      choices = { { text = "Venison it is.", next = "BACK", fx = { affinity = 2 } } },
     },
   },
 

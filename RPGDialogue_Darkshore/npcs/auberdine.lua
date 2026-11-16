@@ -712,6 +712,8 @@ P:NPC {
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "Who comes through the inn?", next = "guests" },
         { text = "Any news from the boats?", next = "news" },
+        { text = "The crossing from Menethil nearly finished me.", next = "seasick", when = { race = { "Human", "Dwarf", "Gnome" } } },
+        { text = "You pray over your guests' dreams?", next = "dreams_s", when = { class = { "PRIEST", "DRUID" } } },
         { text = "Just resting.", next = "END" },
       },
     },
@@ -728,7 +730,36 @@ P:NPC {
     },
     news = {
       lines = { { id = "nw_default", text = "The murlocs have been at the fishing boats again, and the Moonspray ran late twice this week. When the boats are late, the whole village holds its breath." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Who looks after the village when the boats are late?", next = "news2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    news2 = {
+      lines = { { id = "nw2_default", text = "Elissa Starbreeze counts the crates, Glynda walks the beach, and Thundris sits up with his lamps. I put the kettle on, which is my share of the worrying." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "sentinels" } } } },
+    },
+    seasick = {
+      lines = {
+        { id = "ss_default", text = "You're not the first, love, and you won't be the last today. Sit by the fire with your back to the window, and don't look at the water until your stomach has forgiven you." },
+        { id = "ss_dwarf", when = { race = "Dwarf" },
+          text = "A dwarf who doesn't care for boats? I've had half of Ironforge at that table, green as moss and swearing it was the ale. Sit down, and I'll bring something plain." },
+      },
+      choices = {
+        { text = "Thank you. I'll sit a while.", next = "BACK", fx = { affinity = 2 } },
+        { text = "I'll be fine. Just point me to the elder.", next = "BACK", fx = { trait = { stern = 1 } } },
+      },
+    },
+    dreams_s = {
+      lines = {
+        { id = "ds_default", text = "Only a little, and only the way my mother did, a word to Elune as I bank the fire. Guests who come in from the Blackwood sleep badly, and it seems to help them, or at least it helps me." },
+        { id = "ds_light", when = { class = "PRIEST", ["not"] = { race = "NightElf" } },
+          text = "Only to Elune, and quietly, but I'd not mind if you added a word to your Light. The guests who come in from the Blackwood sleep badly, and two prayers can't hurt." },
+      },
+      choices = {
+        { text = "I'll add mine tonight.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Prayers won't keep the furbolgs out. Good locks will.", next = "BACK", fx = { align = { light = -1 } } },
+      },
     },
   },
 

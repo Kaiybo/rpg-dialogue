@@ -1,4 +1,4 @@
-# Auberdine  (keys: thundris, terenthis, gwennyth, glynda, cerellean, shaussiy)
+# Auberdine  (keys: thundris, terenthis, gwennyth, glynda, cerellean, shaussiy, tharnariun, elissa, caylais)
 
 ## Sources
 - https://warcraft.wiki.gg/wiki/Auberdine (the Alliance's northern port: boats to Rut'theran and Menethil; moonkin to the east maddened by a red crystal from Felwood, Blackwood furbolgs corrupted by Fel Moss to the south, murlocs sinking ships; the village council hires adventurers)
@@ -43,3 +43,25 @@ Thundris's welcome to people off the Bravery, his question about Menethil's damp
 ## 0.34.0
 Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
 - Thundris (Persuade, felwood_memory): as a young elf he walked the groves the Legion burned after the War of the Ancients; they smelled as the Cliffspring does now; he hasn't told the village, so it can sleep.
+
+## 0.37.0: more of Auberdine (npcs/auberdine_more.lua)
+### Sources
+- https://warcraft.wiki.gg/wiki/Tharnariun_Treetender (night elf druid in Auberdine; Plagued Lands (trap and bring back a rabid thistle bear), Cleansing of the Infected, Tharnariun's Hope (the Den Mother))
+- https://warcraft.wiki.gg/wiki/Sentinel_Elissa_Starbreeze (Sentinel in Auberdine; receives Supplies to Auberdine from Delgren's people at Maestra's Post)
+- https://warcraft.wiki.gg/wiki/Caylais_Moonfeather (Hippogryph Master, Auberdine; Classic routes Rut'theran Village and Astranaar)
+### Their quests
+- Tharnariun: Plagued Lands, Cleansing of the Infected, Tharnariun's Hope.
+- Elissa: Supplies to Auberdine (turn-in); a line for The Tower of Althalaxx in progress.
+- Caylais: none (flights).
+### Voices
+- Tharnariun: patient healer of beasts; wants the sick bear alive; doubts Terenthis's one-cause theory, gently.
+- Elissa: brisk Sentinel quartermaster; counts crates and kindnesses; came to respect Delgren's humans.
+- Caylais: cheerful hippogryph keeper; talks of the birds' moods like weather.
+### What they notice
+- Tharnariun: a pet near sick bears; a druid in bear form.
+- Elissa: humans and paladins (Delgren's company).
+- Caylais: dwarves and gnomes off the Bravery.
+### Never
+- Tharnariun or anyone naming the bears' sickness's source (the game doesn't). No druid flight form (Classic has none).
+### Authored, not canon
+Tharnariun sitting with the caged bear each evening, the sickness worse at the dark of the moon, his friendly argument with Terenthis; Elissa's doubts about outsiders and "one crate at a time"; Caylais's hippogryph Feather-in-the-Mist, "lean left", the birds refusing to fly when the moonkin are restless. Shaussiy (0.37.0): seasick guests from Menethil, her word to Elune at the fire.

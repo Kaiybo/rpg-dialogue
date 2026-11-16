@@ -555,6 +555,8 @@ P:NPC {
         { text = "How do you keep track of it all?", next = "system" },
         { text = "Do you have a file on me?", next = "file", when = { townStanding = { town = "theramore", min = 20 } } },
         { text = "Records on deserters? I'd be hard to find.", next = "x_rogue", when = { class = "ROGUE" } },
+        { text = "What became of the Admiral's men?", next = "daelin" },
+        { text = "A paladin keeps his oath. Do your deserters?", next = "x_paladin", when = { class = "PALADIN" } },
         { text = "Thank you.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -580,6 +582,37 @@ P:NPC {
     file = {
       lines = { { id = "f_default", text = "Of course, a short one, very complimentary. The Captain wrote 'useful' and underlined it, and he doesn't underline things." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    daelin = {
+      lines = {
+        { id = "da_default", text = "Most went home to Kul Tiras with the ships, some stayed and took the Lady's colors, and some did neither. That last column keeps me up at night, because they still have their swords and they still have their grudge." },
+        { id = "da_active", when = { questActive = TODO_QUEST("Daelin's Men") },
+          text = "You've seen my notes, then, and you know where to look. Remember they were good soldiers once, and that's exactly what makes them dangerous." },
+      },
+      choices = {
+        { text = "What grudge?", next = "daelin_grudge" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    daelin_grudge = {
+      big = true,
+      lines = {
+        { id = "dg_default", text = "That the Admiral died fighting orcs while his own daughter stood aside. I don't write opinions in my ledgers, but I'll say this much: a soldier who thinks his commander betrayed him is the hardest soldier in the world to bring back." },
+      },
+      choices = {
+        { text = "The Lady chose peace. That was right.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I can see why they feel betrayed.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_paladin = {
+      lines = {
+        { id = "xpa_default", text = "They swore to the Admiral, and in their own minds they're keeping that oath still. That's what troubles me; a man who breaks his word I can understand, but a man who keeps it to the wrong master is much harder to file." },
+      },
+      choices = {
+        { text = "Then they need a better oath.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     x_rogue = {
       lines = {
@@ -640,6 +673,8 @@ P:NPC {
         { text = "What's the talk at the tables?", next = "talk" },
         { text = "What's good to eat?", next = "food" },
         { text = "Do you keep a proper dwarven stout?", next = "x_dwarf", when = { race = "Dwarf" } },
+        { text = "Who are the sailors in the corner?", next = "sailors" },
+        { text = "You look like you could use a blessing yourself.", next = "x_priest", when = { class = "PRIEST" } },
         { text = "Just passing through.", next = "END" },
       },
     },
@@ -650,6 +685,35 @@ P:NPC {
     food = {
       lines = { { id = "f_default", text = "Fish stew, because we're on an island, and bread, because the dwarves insisted. And something the quel'dorei like that nobody else will touch." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    sailors = {
+      lines = {
+        { id = "sl_default", text = "Kul Tiras men, off the ships that stayed after the Admiral fell. They drink to his memory every night and glare at anyone who mentions the Lady's peace, so I keep their table well away from the Guard's." },
+      },
+      choices = {
+        { text = "Do they make trouble?", next = "sailors_trouble" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sailors_trouble = {
+      big = true,
+      lines = {
+        { id = "st_default", text = "Not in my inn, they don't. But some of them talk of the Admiral as if he were wronged, and a few of their friends stopped coming in at all, and Adjutant Tesoran asks after those ones by name." },
+      },
+      choices = {
+        { text = "They lost their Admiral. Let them grieve.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Grief's no excuse. Watch them closely.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_priest = {
+      lines = {
+        { id = "xp_default", text = "Me? Oh, love, I'm only tired, and tired's not something the Light needs to fuss over. Say one for the lads on the north road instead; they're the ones who come back with the marsh in their lungs." },
+      },
+      choices = {
+        { text = "I'll pray for both of you.", next = "BACK", fx = { affinity = 2, trait = { pious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     x_dwarf = {
       lines = {

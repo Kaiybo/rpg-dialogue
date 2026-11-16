@@ -13,4 +13,5 @@
 pack.lua
 pools.lua
 npcs\theramore.lua
+npcs\theramore_more.lua
 npcs\brackenwall.lua

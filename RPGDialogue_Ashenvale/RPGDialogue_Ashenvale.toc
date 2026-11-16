@@ -12,4 +12,5 @@
 
 pack.lua
 npcs\astranaar.lua
+npcs\astranaar_more.lua
 npcs\splintertree.lua
