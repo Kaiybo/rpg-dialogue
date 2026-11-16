@@ -13,3 +13,4 @@
 pack.lua
 pools.lua
 npcs\thoriumpoint.lua
+npcs\gorge_roads.lua

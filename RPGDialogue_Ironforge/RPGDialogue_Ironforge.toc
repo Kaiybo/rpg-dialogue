@@ -19,3 +19,4 @@ npcs\mystic_ward.lua
 npcs\military_ward.lua
 npcs\tinker_town.lua
 npcs\commons.lua
+npcs\dunmorogh_roads.lua

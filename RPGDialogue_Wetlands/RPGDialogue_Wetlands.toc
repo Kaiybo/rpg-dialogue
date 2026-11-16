@@ -14,3 +14,4 @@ pack.lua
 pools.lua
 npcs\menethil.lua
 npcs\menethil_more.lua
+npcs\wetlands_roads.lua

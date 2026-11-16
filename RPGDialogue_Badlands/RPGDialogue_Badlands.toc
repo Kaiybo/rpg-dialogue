@@ -15,3 +15,4 @@ pools.lua
 npcs\kargath.lua
 npcs\kargath_more.lua
 npcs\dustbowl.lua
+npcs\badlands_camps.lua

@@ -14,3 +14,4 @@ pack.lua
 pools.lua
 npcs\shadowglen.lua
 npcs\dolanaar.lua
+npcs\teldrassil_wilds.lua
