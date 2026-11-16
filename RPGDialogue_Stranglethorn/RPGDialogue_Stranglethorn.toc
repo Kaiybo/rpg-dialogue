@@ -14,5 +14,6 @@ pack.lua
 pools.lua
 npcs\booty_bay.lua
 npcs\gromgol.lua
+npcs\gromgol_more.lua
 npcs\rebel_camp.lua
 npcs\nesingwary.lua

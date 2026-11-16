@@ -13,4 +13,5 @@
 pack.lua
 pools.lua
 npcs\kargath.lua
+npcs\kargath_more.lua
 npcs\dustbowl.lua

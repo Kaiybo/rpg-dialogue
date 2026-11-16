@@ -907,6 +907,8 @@ P:NPC {
         { text = "Heard anything interesting?", next = "gossip" },
         { text = "What's it like with the Baron living upstairs?", next = "baron" },
         { text = "Who drinks here?", next = "regulars" },
+        { text = "Does the Horde get a fair pour here?", next = "x_horde", when = { faction = "Horde" } },
+        { text = "Stormwind soldiers drink beside orcs here?", next = "x_alliance", when = { faction = "Alliance" } },
         { text = "I'd like a room.", next = "BUSINESS" },
         { text = "Just passing through.", next = "END" },
       },
@@ -930,6 +932,35 @@ P:NPC {
     baron = {
       lines = { { id = "bn_default", text = "Quiet, mostly. He stamps when the music's too loud and sends Krazek down when it's too quiet, because too quiet means nobody's buying." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    x_horde = {
+      lines = {
+        { id = "xh_default", text = "Same rum, same price, same sticky bar as everyone. The Baron's rule is that coin has no colors in his town, and I'd be a fool to argue with the man who owns the roof." },
+      },
+      choices = {
+        { text = "And if someone starts trouble?", next = "x_trouble" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_alliance = {
+      lines = {
+        { id = "xa_default", text = "Beside them, across from them, occasionally under the same table when the rum's good. Nobody draws steel in the Salty Sailor, because the Bruisers drink here too." },
+      },
+      choices = {
+        { text = "And if someone starts trouble?", next = "x_trouble" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_trouble = {
+      big = true,
+      lines = {
+        { id = "xt_default", text = "Then the Bruisers throw them off the pier, whichever side they're on, and the sharks don't check tabards. That's the whole of Booty Bay's law, and I've never seen a better one." },
+      },
+      choices = {
+        { text = "A firm hand keeps the peace. Good.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Feeding people to sharks isn't law.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     regulars = {
       lines = {
@@ -1668,6 +1699,7 @@ P:NPC {
         { text = "What's the best hide in the jungle?", next = "hides" },
         { text = "Who taught you the trade?", next = "teacher" },
         { text = "Got any advice for a leatherworker?", next = "advice", when = { profession = { "Leatherworking", "Skinning" } } },
+        { text = "A druid thinks twice about wearing a beast's hide.", next = "x_druid", when = { class = "DRUID" } },
         { text = "Later.", next = "END" },
       },
     },
@@ -1685,6 +1717,15 @@ P:NPC {
         { id = "t_default", text = "Taught? I was born knowing! Fine, it was an old goblin in Ratchet who said I'd never be any good, and I keep a pair of his boots to remind me he was wrong." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    x_druid = {
+      lines = {
+        { id = "xdr_default", text = "Think twice, then! I think about it once, very carefully, and then I make it beautiful. If the beast's already gone, I'd say the worst thing you could do is waste it on ugly boots." },
+      },
+      choices = {
+        { text = "Fair. Waste is the real insult.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     advice = {
       lines = {
