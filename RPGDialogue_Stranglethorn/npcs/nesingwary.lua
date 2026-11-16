@@ -33,6 +33,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "It's use, aye, but it's no sport. I watched a mage freeze a tiger once an' then stroll up tae it like it was a statue, an' there's no glory in that, only a cold cat an' a smug mage." } },
+      choices = {
+        { text = "A fair fight's the only fight worth having.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A dead tiger's a dead tiger. Glory doesn't skin it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "The trolls would, an' the Kurzen deserters, an' there's a goblin in Booty Bay who'll buy a tiger's head an' swear he shot it himself. I keep my best trophies where I sleep, an' I sleep light." } },
+      choices = {
+        { text = "Then I'll keep watch on your trophies tonight.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A goblin who buys heads must pay well.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Every beast I've taken was a fair fight, an' I've the scars tae prove it, so if their spirits want a word, they know where tae find me. I reckon a tiger respects a hunter more than a farmer, an' that's enough for me." } },
@@ -53,6 +71,10 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? Yer folk talk tae the spirits o' beasts, I hear, so ye can tell the great cat I'm comin' for him." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest o' the Horde in my camp. Pray all ye like, so long as ye do it quiet, for the game hears everythin'." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage, eh? Dinnae go throwin' fire about, for it scares off the game an' spoils the pelt besides." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. I'll hunt beside near anybody, but no beside a demon, so keep yer wee beastie well away from my trophies." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "Ye move quiet. That's the first thing a hunter learns, an' most o' them never learn it well enough." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid! Splendid. You'll appreciate the beasts here more than most, though I daresay we appreciate them rather differently." },
         { id = "h_default", key = true,
@@ -77,6 +99,8 @@ P:NPC {
       },
       choices = {
         { text = "Do you ever think about the spirits of what you hunt?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Is magic any use on a hunt, Nesingwary?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Who in this jungle would steal a hunter's trophies?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "You hunt these creatures for sport. That troubles me.", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Why hunt at all?", next = "why" },
         { text = "What's the most dangerous thing out there?", next = "danger" },
@@ -281,6 +305,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "A gnome mage tried a findin' spell for me once, an' it led him straight tae a gorilla's nest. He found two pages an' lost his hat, an' the master still doesnae know any o' it happened." } },
+      choices = {
+        { text = "Some honest legwork would find the rest.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let the jungle keep a few. He'll never notice.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "Monkeys, mostly, an' once a troll who wanted the master's whisky more than his head. I caught him by the ankle an' we shared a cup, an' he left without a word, which is better manners than some guests." } },
+      choices = {
+        { text = "That was kindly done. Not many would share their whisky.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "He should have left with a bullet for his trouble.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Only that a troll shaman once spooked every raptor out o' the valley wi' a thunderclap, an' the master spent a week cursin' him. He wrote it down, though, which is more respect than he gives most." } },
@@ -299,6 +341,10 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman o' the Horde at the master's camp. Well, he says a good hunter's welcome whatever the colors, so mind yer manners an' I'll mind mine." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest o' the Horde. Well, keep yer loa or yer shadows away from the master's book, for it's in bad enough shape already." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage, aye? Could ye conjure us some dry pages? The jungle eats the master's book faster than I can bind it." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock in the master's camp. Keep yer beastie away from the rifles, for they're loaded, an' so am I." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "Ye've a quiet foot, friend. If ye find any loose pages out there, I'd thank ye tae bring them back rather than sell them." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid in camp, is it? Don't let the boss see you; he'll want to know what you weigh as a cat." },
         { id = "h_default", key = true,
@@ -316,6 +362,8 @@ P:NPC {
       },
       choices = {
         { text = "Does Nesingwary's book have anything to say about shamans?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Has magic ever helped with the master's lost pages?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Does anyone sneak into the master's camp at night?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Do you ever worry you'll hunt the jungle empty?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "What's the book about?", next = "book" },
         { text = "What's he really like, your master?", next = "master" },
@@ -440,6 +488,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "It could, but I won't let it, because my father took his tigers with patience and a bow. If I find Sin'Dall with a spell, I'll have found him, but I won't have earned him, and that matters to me more than it ought to." } },
+      choices = {
+        { text = "Then earn him the way your father did.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A kill is a kill. I'd use every trick I had.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "Up into the ruins in the hills, where the trolls used to be, and I lose him every time on the old stones. He knows I can't track on rock, and I'd swear he waits up there to watch me fail." } },
+      choices = {
+        { text = "Then we watch the ruins and wait for him.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Bait him out of the ruins. Patience is overrated.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "My father did, in his own fashion, and he'd kneel by every kill and say nothing for a while. I used to think he was only tired, but I do it too now, so perhaps it was something your people would understand." } },
@@ -452,6 +518,10 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'd hear the jungle better than I can, so tell me if Sin'Dall is prowling close, because I've waited a long while." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. If you pray before a hunt, pray for Sin'Dall to show himself; I've done it myself and had no answer." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. Please don't freeze any tigers near my snares; it confuses the young ones, and it confuses me." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. Tigers can smell what you bring with you, so stay downwind of me if we ever hunt together." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You walk like a cat on a branch. That's a compliment, and I don't give many." },
         { id = "h_default", key = true,
           text = "Ajeck Rouack. My father put a bow in my hands before I could read, and taught me tigers before he taught me manners. I teach tiger hunting now, and one day I'll take Sin'Dall." },
         { id = "h_tigers", tags = { "news" }, when = { questActive = TODO_QUEST("Tiger Mastery") },
@@ -466,6 +536,8 @@ P:NPC {
       },
       choices = {
         { text = "Does a hunter ever ask the beast's spirit for leave?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Could magic help you track Sin'Dall, Ajeck?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Where does Sin'Dall go when he slips your tracking?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Who is Sin'Dall?", next = "sindall" },
         { text = "Tell me about your father.", next = "father" },
         { text = "How do you track a tiger?", next = "track" },
@@ -593,6 +665,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "They feared what they couldn't buy, and a good mage can't be bought, only rented. I left because the House cared more for its rents than for the families the Defias were robbing, and I hunt panthers now because panthers don't pretend." } },
+      choices = {
+        { text = "Leaving was the honest choice, Sir.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "You should have stayed and taken your share of the rents.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "All of us, in one fashion or another: Hemet from civilization, Barnil from wherever dwarves run from, and Ajeck from the shadow of his father. I'm only the one who'll admit it, and I'd thank you not to tell the others I said so." } },
+      choices = {
+        { text = "Your secret's safe. I keep my word.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Secrets like that are worth something to the right buyer.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "They fear anything they can't buy, and you can't buy the weather. They'll tell you shamans are warlocks by another name, but I've seen both now, and the difference is plain to anyone honest enough to look." } },
@@ -605,6 +695,10 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. In Stormwind they'd call you a savage, and once I'd have nodded along, but I've met nobles who could learn a thing from you." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. In Stormwind they'd bar the Cathedral doors to you, and once I'd have held the bar myself; I'm less sure of myself now." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. Stormwind's magi had more friends in the House of Nobles than I ever did, and I'd sooner trust one who had to earn his fire." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. I knew nobles in Stormwind who dabbled in your sort of power behind locked doors, and they were worse company than any demon." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "Quiet feet. Stormwind is full of your kind, and most of them answer to someone in the House of Nobles, so I hope whoever you answer to is honest." },
         { id = "h_default", key = true,
           text = "I'm Sir Erlgadin. I was a count once, in Stormwind's House of Nobles, but I've stopped answering to that, and I hunt panthers now. Panthers, at least, are honest about what they want." },
         { id = "h_panthers", tags = { "news" }, when = { questActive = TODO_QUEST("Panther Mastery") },
@@ -619,6 +713,8 @@ P:NPC {
       },
       choices = {
         { text = "Do Stormwind's nobles fear the shamans of the Horde?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Did the House of Nobles ever fear what magic could do?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Who else in this camp is running from something?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Why did you leave the House of Nobles?", next = "nobles" },
         { text = "Why panthers?", next = "panthers" },
         { text = "What's in the letters they keep sending?", next = "letters", when = { metBefore = true } },
