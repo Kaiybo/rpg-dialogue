@@ -29,6 +29,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Some live in Tinker Town, some went to Stormwind, and some never came out of the radiation at all. The ones left are building again, which is the gnomish way, though their gadgets are rather more cautious now." } },
+      choices = {
+        { text = "Caution is wise after a disaster like Gnomeregan.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Caution builds nothing. Gnomeregan fell because it hesitated.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because the dwarves of Ironforge already think we brought our troubles on ourselves, and a gnome warlock in every alley doesn't help. Keep your head down and do good work, and the whispers will fade in time." } },
+      choices = {
+        { text = "I'll do good work and let the whispers fade.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Let the dwarves whisper. Their opinion changes nothing.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Perhaps not yet! But a mechanical bear's no' so far from a mechanical chicken, an' I've built several o' those. Ye'd be surprised what clockwork can imitate." } },
       choices = {
@@ -51,6 +69,10 @@ P:NPC {
           text = "You've brought the manual! A young engineer answering the call of true engineering, how splendid. Read it all, then sign the pledge, and mean it." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid in Tinker Town! Fascinating, absolutely fascinating, because yer shapeshifting is precisely the sort o' thing I'd love tae build a machine for." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! Some of my best students were gnome mages before Gnomeregan fell, and they built the most marvellous arcane-powered gadgets." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock in Tinker Town! I suppose you've heard that Gnomeregan sheltered your sort before the fall, and I'd thank you not to mention it too loudly." },
       },
       again = {
         { id = "h_again", text = "More questions? Splendid, it's that or stare at my blueprints of Gnomeregan again." },
@@ -64,6 +86,8 @@ P:NPC {
         { text = "Do you know Oglethorpe Obnoticus?", next = "oglethorpe" },
         { text = "What happened to your city?", next = "city" },
         { text = "Dwarven engineering isn't so bad, Tinkmaster.", next = "k_dwarf", when = { race = "Dwarf" } },
+        { text = "What happened to the gnome mages after Gnomeregan fell?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Why shouldn't I mention Gnomeregan's warlocks too loudly?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll leave you to it, Tinkmaster.", next = "END" },
       },
     },
@@ -191,6 +215,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "We could, if our arcane engineers were still alive, but most of them didn't make it out. A mage on the team might recover data we'd given up for lost, and I'd consider it an honour to have you." } },
+      choices = {
+        { text = "I'll join your team and recover the data properly.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll open the locks, but anything else I find is mine.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Nobody knows, and I'd rather we didn't find out. Leave the demon at the entrance if you can, and I'll gladly have you on the team, because the troggs down there are bigger than they used to be." } },
+      choices = {
+        { text = "I'll leave the demon outside and follow your procedure.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "An irradiated demon sounds useful, Castpipe. I'll find out.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -203,6 +245,10 @@ P:NPC {
           text = "You found the prismatic card and brought back the data, data so important I haven't a big enough word for it! Gnomeregan will remember you, and so will I, every time I open the archive." },
         { id = "h_low", when = { maxLevel = 24 },
           text = "You're keen, I can see that, but Gnomeregan would eat you whole just now. Come back when you've a few more scars, and some friends who have more." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage, and just when I needed one! The punch cards in Gnomeregan are stored behind arcane locks, and my last team couldn't open them." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock! I won't lie, the procedure for a warlock on a Gnomeregan team is very complicated, and it's mostly about what to do if your demon gets irradiated." },
       },
       again = {
         { id = "h_again", text = "Questions? Ask them now, before you're in the city; there's no asking down there." },
@@ -215,6 +261,8 @@ P:NPC {
         { text = "Is data worth risking lives for?", next = "worth" },
         { text = "I worked those terminals once.", next = "apprentice", when = { origin = "gnome_tinker_apprentice" } },
         { text = "I've been down there without a team, Castpipe.", next = "k_rogue", when = { race = "Gnome", class = "ROGUE" } },
+        { text = "Can you not open the arcane locks yourselves?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What happens if a demon gets irradiated in Gnomeregan?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll be back.", next = "END" },
       },
     },
@@ -332,6 +380,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "They're the closest thing I have to the formula for the alloy I'm chasing, and they're somewhere in the old workshops. If a quiet sort could fetch them, I'd be very grateful, and I'd ask no questions about the route." } },
+      choices = {
+        { text = "I'll fetch the notes and bring them straight back.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll fetch them, but I'll read them first, Klockmort.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "In theory, though the last test melted half my anvil and singed my eyebrows. Still, a mage who understands metal could change everything, and I'd love to try again with someone more careful." } },
+      choices = {
+        { text = "Then we'll test it carefully, one step at a time.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Melted anvils are a sign of progress, Klockmort.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -344,6 +410,10 @@ P:NPC {
           text = "How are the gauntlets? Furen's process worked brilliantly; a siege engine could roll over them and they'd pop back into shape. Please don't test that." },
         { id = "h_artificials", tags = { "news" }, when = { questActive = TODO_QUEST("Essential Artificials") },
           text = "The essential artificials are in the deep parts of Gnomeregan, in big steam-powered cabinets called artificial extrapolators. Nobody thought to bring any when we fled, and now I need twelve." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue! You'd be perfect for slipping into Gnomeregan and fetching Furen's notes without waking the troggs." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! I've a theory that the right enchantment on the right metal could make an alloy stronger than mithril, and you might be the one to test it." },
       },
       again = {
         { id = "h_again", text = "What else? I've a crucible warming." },
@@ -355,6 +425,8 @@ P:NPC {
         { text = "What's an essential artificial?", next = "artificial" },
         { text = "Can you look at my work?", next = "smith", when = { profession = "Blacksmithing" } },
         { text = "Could your alloys make better plate?", next = "k_plate", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "Why are Furen's notes so important, Klockmort?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Could magic truly make an alloy stronger than mithril?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Good luck with your quest.", next = "END" },
       },
     },
@@ -472,6 +544,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Scouting, mostly, for we need to know where Thermaplugg's troops are before we can take the city back. I'd send a gnome, but most of us are too clumsy for sneaking, and the troggs hear our boots." } },
+      choices = {
+        { text = "I'll scout for Gnomeregan. Your people deserve their home back.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll scout it, but the information will cost you, Gnoarn.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -484,6 +565,8 @@ P:NPC {
           text = "Shoni the Shilent commands our underground assault crew, down in Stormwind among the dwarves. She needs help with her gyrodrillmatic excavationators, and nobody can say that word but her." },
         { id = "h_bingles_done", when = { questDone = TODO_QUEST("Find Bingles") },
           text = "Bingles is alive, and unexploded, even! He says I don't trust his reconnaissance abilities, and he's right, but I'm glad all the same." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue! I've a few plans for Gnomeregan that need someone who can get in and out without being seen, if you're interested." },
       },
       again = {
         { id = "h_again", text = "What else, recruit? The troggs aren't resting, and neither am I." },
@@ -497,6 +580,7 @@ P:NPC {
         { text = "I was raised here in Tinker Town.", next = "raised", when = { origin = "gnome_ironforge_raised" } },
         { text = "Does the movement have a place for a gnome warlock?", next = "k_lock", when = { race = "Gnome", class = "WARLOCK" } },
         { text = "Put a mage on your plans, Gnoarn.", next = "k_mage", when = { race = "Gnome", class = "MAGE" } },
+        { text = "What sort of plans need someone quiet in Gnomeregan?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "For Gnomeregan!", next = "END" },
       },
     },

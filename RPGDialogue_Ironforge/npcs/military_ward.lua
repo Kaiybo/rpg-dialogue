@@ -31,6 +31,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Because ye go where the soldiers dinnae, an' ye listen where they talk. If ye ever hear Sully's name on the wind, I'd be grateful tae know it, good or bad, for the not knowin' is the worst o' it." } },
+      choices = {
+        { text = "I'll listen for his name and bring you the truth.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll bring you good news, Sara, whatever I actually hear.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "It can, but the roads through the Wetlands are thick wi' Dark Iron raiders, an' half the post never arrives. I know a spell's no' the King's mail, but a worried wife will try anythin' twice." } },
+      choices = {
+        { text = "Use the King's post, Sara. It'll get there in time.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Rules be hanged. I'd find a faster way for you.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -45,6 +63,10 @@ P:NPC {
           text = "They say the King's ordered a memorial for Sully, an' the Grand Mason's sent for stone. I don't know what tae feel about it yet, so I'm feelin' all of it at once." },
         { id = "h_after", when = { questDone = TODO_QUEST("Sully Balloo's Letter") },
           text = "Sully's gone. He died at the Thandol Span when the Dark Irons came, an' ye were the one who found him, so ye've as much right tae his name as anyone." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "Ye've the look o' someone who travels the back roads, an' the back roads are where news hides. Have ye been anywhere near the Thandol Span?" },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! They say yer kind can send messages a long way, quicker than any gryphon, an' I've a letter for Dun Modr that's waited a month." },
       },
       again = {
         { id = "h_again", text = "Is there somethin' else? I've nowhere I need tae be today." },
@@ -57,6 +79,8 @@ P:NPC {
         { text = "What did the King say?", next = "king", when = { questDone = TODO_QUEST("Sara Balloo's Plea") } },
         { text = "Would you like me to pray with you?", next = "pray", when = { class = "PRIEST" } },
         { text = "I'm a soldier too, Sara.", next = "soldier", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "Why would a rogue hear news of Dun Modr first?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Can't the post carry your letter to Dun Modr?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Take care, Sara.", next = "END" },
       },
     },
@@ -216,6 +240,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "On the field, aye, though no warrior likes admittin' it. Ye throw the fire an' we stand in front o' ye so ye can, an' the best mages I've known never forgot which half o' the bargain was bleedin'." } },
+      choices = {
+        { text = "I'll never forget who stands in front of me, Kelstrum.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The warriors are paid to bleed. That's their trade.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Fear it? They'd charge it, which is worse, for they've been taught tae charge anythin' wi' horns. I'd rather they learned on dummies than on yer voidwalker." } },
+      choices = {
+        { text = "I'll keep it out of the yard. Your recruits come first.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Let them charge it. They'd learn faster that way.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Kelstrum Stonebreaker, an' I train warriors. Yer no warrior, by the look o' ye, an' ye wouldnae last a day under my trainin' regimen, but go on, ask what ye came tae ask." },
@@ -223,6 +265,10 @@ P:NPC {
           text = "There's a warrior! A bit soft round the edges, but we'll hammer that out. What'll it be: trainin', or are ye just here tae admire the weapons?" },
         { id = "h_warrior_high", when = { class = "WARRIOR", minLevel = 40 },
           text = "Look at that, someone who survived my regimen an' kept goin'. I'll no' say I'm proud, for it'd go tae yer head, but I'm no' disappointed." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage in the Military Ward. I'll be honest, ye'd no' last a day o' my training, but I've seen fire win battles an axe couldnae." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock in the Military Ward! I'd ask ye tae keep yer creatures out o' my yard, for my recruits have enough tae worry about." },
       },
       again = {
         { id = "h_again", text = "What else? Quick, now; my students are standin' about." },
@@ -236,6 +282,8 @@ P:NPC {
         { text = "What comes next for me, trainer?", next = "next", when = { class = "WARRIOR" } },
         { text = "A paladin can hold a line as well as any warrior.", next = "paladin", when = { class = "PALADIN" } },
         { text = "I don't fight fair, Kelstrum.", next = "rogue", when = { class = "ROGUE" } },
+        { text = "Do warriors and mages truly need one another?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Would your recruits really fear a warlock's demon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -360,11 +408,33 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "I've no idea, but it's happened four times this year, and three of them were trying to get into the Military Ward's armory from above. I've since fitted the dummies with a squeaker, which works very well." } },
+      choices = {
+        { text = "I'll leave your armory alone, Bilban. Your squeakers are safe.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Four attempts? Then the armory clearly needs a better design.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "An imp set fire to a practice target last spring, and the target was made of compressed sawdust, so I'll leave you to calculate the result. It was a very instructive afternoon, though not for the reasons I'd hoped." } },
+      choices = {
+        { text = "I'll keep the imp well away from your machines.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Sawdust targets were a poor design choice, Bilban.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Bilban Tosslespanner, warrior trainer. I correct deficiencies in combat technique, much as one corrects a misaligned gear, though with more shouting." },
         { id = "h_other", when = { ["not"] = { class = "WARRIOR" } },
           text = "Due to incompatibility in your class specification, I'm unable to help you rectify any lack of ability. I am, however, able to talk, so do proceed." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue! Statistically speaking, rogues are the most likely to try climbing the training dummies, so please don't." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock! I'll warn you that the Military Ward's equipment isn't rated for demonic interference, so please keep your companion off my machines." },
       },
       again = {
         { id = "h_again", text = "Further inquiries? Please proceed." },
@@ -376,6 +446,8 @@ P:NPC {
         { text = "Combat is like engineering?", next = "engineering" },
         { text = "Calibrate me, Bilban. Where am I weakest?", next = "calib", when = { class = "WARRIOR" } },
         { text = "Why not engineering, like the rest of us?", next = "gnome", when = { race = "Gnome", ["not"] = { class = "WARRIOR" } } },
+        { text = "Why would a rogue climb your training dummies?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Has a demon ever damaged your machines, Bilban?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Bilban.", next = "END" },
       },
     },
@@ -477,6 +549,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "In the high snows, aye, both trackin' the same trolls for different reasons. I've no quarrel wi' yer trade, so long as ye don't track my students' beasts back tae their stables." } },
+      choices = {
+        { text = "I'd never harm a hunter's companion. That's beneath me.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A beast is a beast, Daera. It's only a tool.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Twice, an' the second time the wolf never quite forgave anyone. Ye've power enough tae change a creature's shape, an' I'd thank ye tae save it for the Frostmane." } },
+      choices = {
+        { text = "I'll save my spells for the enemy, Daera.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A sheep's harmless enough. It wears off.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Not quite. A hunter takes a companion an' keeps it close, while a druid lets the wild run free an' walks beside it. Both ways can be honest, if the heart's right." } },
       choices = {
@@ -496,6 +586,10 @@ P:NPC {
           text = "Let me see that beast o' yers before ye say a word; it'll tell me more about how ye've been huntin' than ye will. Good, it's fed an' it's no' limpin', so ye're doin' somethin' right." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! Ye'll know the beasts as well as any hunter, though ye'd rather become one than tame one, I'd wager." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue in the hunters' corner? Ye move well, I'll grant ye, but a hunter's beast would smell ye a mile off." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage, an' I'll ask ye no' tae turn any o' my students' beasts intae sheep. It confuses them for days." },
       },
       again = {
         { id = "h_again", text = "Anythin' else?" },
@@ -510,6 +604,8 @@ P:NPC {
         { text = "Humans don't take the bow much, they tell me.", next = "human", when = { race = "Human", class = "HUNTER" } },
         { text = "I ride a nightsaber at home, Daera.", next = "elf", when = { race = "NightElf", class = "HUNTER" } },
         { text = "Why do dwarves keep rams?", next = "rams" },
+        { text = "Do hunters and rogues often cross paths?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Has a mage really turned a hunter's beast into a sheep?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
