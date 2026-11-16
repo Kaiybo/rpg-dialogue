@@ -55,6 +55,15 @@ P:NPC {
         { text = "Something else, Gimblethorn.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "The Cartel spends gold on walls, Bruisers and water, and you could argue that keeps more poor folk alive than any almshouse would. Charity isn't written in the ledger, friend, but neither is letting a town die of thirst, and that counts for something." } },
+      choices = {
+        { text = "Gold piled in a vault feeds nobody. Give some away.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Walls and water are charity enough. Keep your ledger.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, here at the vault. Your totems may command the earth outside, but in here the earth is a floor, and the Bruisers stand on it." },
@@ -66,6 +75,8 @@ P:NPC {
           text = "I'll ask you to keep both hands on the counter, friend. I'm sure you're an honest customer, but I'm surer still that my vault has seen your sort before." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage. Do you know how much it costs to keep a vault safe from someone who can walk through a wall, or turn a guard into a sheep? I do, and it's a great deal." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest. You'll forgive me if I don't ask you to bless the vault, because the last holy man through here asked how much the Cartel set aside for the poor, and I had no good answer for him." },
       },
       again = {
         { id = "h_again", text = "Anything else, or shall I open your box?" },
@@ -80,6 +91,7 @@ P:NPC {
         { text = "Do the Alliance keep their gold beside ours?", next = "both_sides", when = { faction = "Horde" } },
         { text = "Has anyone ever robbed your vault?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Can a mage really breach your vault?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Does the Cartel ever spend its gold on the poor?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "That's all.", next = "END" },
       },
     },
@@ -166,6 +178,24 @@ P:NPC {
         { text = "Something else, Bera.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Alliance folk who went in after the trolls, mostly, and came out with spear wounds and worse, poor souls. I fly them to Theramore as fast as a gryphon can go, but some of them don't last the crossing, and I'd dearly love a healer who'd ride along." } },
+      choices = {
+        { text = "No soldier should die in the saddle for want of a prayer.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "They chose to raid Zul'Farrak. The risk was theirs to carry.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Bulkrek? He keeps to his wind riders and I keep to my gryphons, and we nod across the yard every morning like two old soldiers who've run out of reasons to fight. The Cartel's truce holds here, and I'll say this for the orc, he treats his beasts better than some Alliance riders I've known." } },
+      choices = {
+        { text = "The Cartel's truce is law here. Keep to it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The truce is goblin paper. An orc is still an orc.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -178,6 +208,10 @@ P:NPC {
           text = "A mage! Ye'll be wanting to fly to Theramore, I'd wager, and pay your respects to Lady Proudmoore's tower. The gryphons don't mind mages, so long as ye don't singe their feathers." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "Quiet boots on the gryphon roost, eh? I've known a few of your sort, and they always want to know which gryphon flies fastest and lands quietest." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! Good, because my gryphons fly hurt folk out of Zul'Farrak more often than I'd like, and I can mend a wing but not a soldier." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! My father fought beside your order in the Second War, and he swore he never saw a braver lot, though he also said they snored louder than dwarves." },
       },
       again = {
         { id = "h_again", text = "Anything else? The birds are restless in this heat." },
@@ -190,6 +224,8 @@ P:NPC {
         { text = "You and the orc get along?", next = "bulkrek" },
         { text = "What do you think of Lady Proudmoore, Bera?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do SI:7 agents fly through Gadgetzan often?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Who are the wounded you fly out of Zul'Farrak?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Does the orc across the yard give you any trouble?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -391,6 +427,15 @@ P:NPC {
         { text = "Something else, Dirge.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "The hungry who can't pay usually end up as somebody else's problem, friend, but now and again I leave a pot by the back door and pretend I forgot it there. Don't tell anybody, because the greatest living chef in Azeroth has a ruthless reputation to protect." } },
+      choices = {
+        { text = "That pot does more good than all your fancy dishes.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Charity just teaches beggars where your door is, Dirge.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You talk to fire and I cook with it, and between the two of us I'll bet the fire likes me better, because I feed it the finest cuts in Azeroth." },
@@ -406,6 +451,8 @@ P:NPC {
           text = "A mage! Don't you dare conjure your little bread rolls in front of the greatest living chef in Azeroth, because I'll take it as a personal insult." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "Your imp keeps looking at my meat, friend, and I'll thank you to tell it that the greatest chef in Azeroth doesn't cook for demons." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! Wonderful, you can tell everybody my meat is perfectly clean, because I swear on my cleaver it comes from honest beasts and not from anywhere a priest wouldn't like." },
       },
       again = {
         { id = "h_again", text = "What else? Talk fast, the grill's on." },
@@ -421,6 +468,7 @@ P:NPC {
         { text = "Any tips for a fellow cook?", next = "cook", when = { profession = "Cooking" } },
         { text = "What's wrong with conjured food, Dirge?", next = "xmage", when = { class = "MAGE" } },
         { text = "My imp only wants to admire your work.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do you ever cook for the hungry who can't pay?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },

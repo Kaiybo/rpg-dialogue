@@ -341,6 +341,15 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Afraid? Sure I'm afraid, friend, every single lap, and that's what makes it worth doing. If I go out in a blaze on the Shimmering Flats, at least they'll talk about it in Booty Bay for a month, and that's more than most goblins get." } },
+      choices = {
+        { text = "Your life is worth more than a month of gossip.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A blaze of glory beats a long and dull life.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Razzeric, the fastest goblin on the Shimmering Flats! I race for the goblin team, and every time I take the car out, the gnomes start sweating." },
@@ -352,6 +361,8 @@ P:NPC {
           text = "A rogue! You're not here to mess with my car, are you, friend? Because the gnomes hired someone like you last season and I lost two wheels before the first lap." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! You could make my car faster with a spell, couldn't you? A little fire in the engine, maybe, or a little ice in the tires?" },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest, at the track? You'd better stand behind the barrels, because if this engine goes, you'll be busy patching me up before the dust settles." },
       },
       again = { { id = "h_again", text = "What else? Talk quick, like me." }, { id = "h_again2", text = "More? Sure, I got a minute between laps." } },
       choices = {
@@ -364,6 +375,7 @@ P:NPC {
         { text = "Is racing worth the danger?", next = "s_1" },
         { text = "I don't sabotage cars, Razzeric.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Magic in your car might blow it apart, Razzeric.", next = "xmage", when = { class = "MAGE" } },
+        { text = "Aren't you afraid of dying in that car?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -540,6 +552,24 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Faith? Well, I have faith in tolerances and a well-tightened bolt, which has never once let me down. Though I'll admit that when the car leaves the line, I do find myself hoping very hard at something, and perhaps that's what you'd call a prayer." } },
+      choices = {
+        { text = "That hope is a prayer, Wizzle, and the Light hears it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Trust your bolts. Faith won't hold a car together.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Fairly is the goal, and Daisy keeps the times very strictly, but the goblins do love a shortcut, and I won't pretend we've never answered one with a shortcut of our own. It's all in good fun, mostly, until someone's car catches fire." } },
+      choices = {
+        { text = "Win it fairly, or the victory means nothing.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If the goblins cheat, beat them at their own game.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Wizzle Brassbolts, gnome engineer, at your service! I help design the cars for our team, and I'm quite sure this season's model is the best yet, assuming it holds together." },
@@ -547,6 +577,10 @@ P:NPC {
           text = "A mage! Did you know Gahz'rilla, the hydra in Zul'Farrak, can be summoned with a special mallet? It's the most fascinating thing, and I'd love a mage's view on how it works." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock! Do you suppose your imps could help with engines? They like fire, and engines like fire, and I like engines that go fast." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! Splendid, would you stand near the finish line? Statistically speaking, someone always needs patching up after the third heat, and it's usually a goblin." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! Do you know, your armor has a lovely articulation at the elbow, and I'd love a look at the hinge, purely for engineering reasons, of course." },
       },
       again = { { id = "h_again", text = "What else?" }, { id = "h_again2", text = "Questions? I love questions!" } },
       choices = {
@@ -555,6 +589,8 @@ P:NPC {
         { text = "Is racing a good use of engineering?", next = "s_1" },
         { text = "A mallet summons a hydra?", next = "xmage", when = { class = "MAGE" } },
         { text = "Imps make poor engineers, Wizzle.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Is there room for faith in engineering, Wizzle?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is the rivalry with the goblins ever settled fairly?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell.", next = "END" },
       },
     },

@@ -350,42 +350,6 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
-    xapriest = {
-      big = true,
-      lines = { { id = "xapriest_default", text = "Every name, every night, and I'm not a praying man, so I hope the Light makes allowances for a leatherworker who mumbles. Most of them knew the risk and went anyway, which is either brave or daft, and I've never settled which." } },
-      choices = {
-        { text = "Brave. They chose the danger knowing what it cost.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Daft. Courage without cunning just fills your list.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xapala = {
-      big = true,
-      lines = { { id = "xapala_default", text = "Honourable's a big word for a man who cuts up hides for a living, but I don't teach anyone to hunt the young or the sleeping, and I won't work scale from those who do. A dragon can fight back, and that's as close to fair as my trade gets." } },
-      choices = {
-        { text = "A fair fight is all honour asks. Your rule is sound.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A sleeping dragon is a safe one. Fairness gets people killed.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xapriest = {
-      big = true,
-      lines = { { id = "xapriest_default", text = "Every name, every night, and I'm not a praying man, so I hope the Light makes allowances for a leatherworker who mumbles. Most of them knew the risk and went anyway, which is either brave or daft, and I've never settled which." } },
-      choices = {
-        { text = "Brave. They chose the danger knowing what it cost.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Daft. Courage without cunning just fills your list.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xapala = {
-      big = true,
-      lines = { { id = "xapala_default", text = "Honourable's a big word for a man who cuts up hides for a living, but I don't teach anyone to hunt the young or the sleeping, and I won't work scale from those who do. A dragon can fight back, and that's as close to fair as my trade gets." } },
-      choices = {
-        { text = "A fair fight is all honour asks. Your rule is sound.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A sleeping dragon is a safe one. Fairness gets people killed.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
     hello = {
       lines = {
         { id = "h_roguecl", when = { class = "ROGUE" },
@@ -394,14 +358,6 @@ P:NPC {
           text = "A mage. Dragons can feel magic, so the blues say, and every customer of mine who went hunting with spells in their hands is on my list of the departed." },
         { id = "h_default", key = true,
           text = "Peter Galen, of Stormwind, master of dragonscale leather. I work the scales of the most dangerous prey there is, and I teach anyone who's daft enough to go and get them." },
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
-          text = "A priest, good, because half my students come back from the dragons needing one, and the other half don't come back at all. The list is by the fire, if you've the stomach for it." },
-        { id = "h_apaladin", when = { class = "PALADIN" },
-          text = "A paladin! You'll want dragonscale, I suppose, though plate's more your style; still, if you mean to go hunting dragons, I'd rather you went in armour than in hope." },
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
-          text = "A priest, good, because half my students come back from the dragons needing one, and the other half don't come back at all. The list is by the fire, if you've the stomach for it." },
-        { id = "h_apaladin", when = { class = "PALADIN" },
-          text = "A paladin! You'll want dragonscale, I suppose, though plate's more your style; still, if you mean to go hunting dragons, I'd rather you went in armour than in hope." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest, good, because half my students come back from the dragons needing one, and the other half don't come back at all. The list is by the fire, if you've the stomach for it." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -415,10 +371,6 @@ P:NPC {
         { text = "Show me what you teach.", next = "BUSINESS" },
         { text = "Can a rogue really steal a dragon's scales?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do you really keep a list of dead customers?", next = "xmage", when = { class = "MAGE" } },
-        { text = "Do you ever pray for the names on your list?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Is hunting dragons for their scales an honourable trade?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Do you ever pray for the names on your list?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Is hunting dragons for their scales an honourable trade?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you ever pray for the names on your list?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is hunting dragons for their scales an honourable trade?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell, Peter.", next = "END" },
@@ -522,24 +474,6 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
-    xapriest = {
-      big = true,
-      lines = { { id = "xapriest_default", text = "Because my equipment's still out there, and a goblin doesn't walk away from that much good gear just because somebody pointed a knife at him. Besides, I've been stabbed at by better than a few sulky elves, though I'll admit I can't remember when." } },
-      choices = {
-        { text = "Then I'll help you get it back, fair and square.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Take back twice what they took. They owe you that.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xapriest = {
-      big = true,
-      lines = { { id = "xapriest_default", text = "Because my equipment's still out there, and a goblin doesn't walk away from that much good gear just because somebody pointed a knife at him. Besides, I've been stabbed at by better than a few sulky elves, though I'll admit I can't remember when." } },
-      choices = {
-        { text = "Then I'll help you get it back, fair and square.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Take back twice what they took. They owe you that.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Good, you can tell me if this place is cursed, because I've been robbed, stabbed at and called a rat, and I'm starting to take it personally." },
@@ -553,10 +487,6 @@ P:NPC {
           text = "My compass, my scope, my stuffed chicken and my wizzlegoober, all sitting in that elf camp. Get them back, and you'll be paid, just like we said." },
         { id = "h_rune", when = { questActive = TODO_QUEST("Kim'jael's \"Missing\" Equipment") },
           text = "The rune, the rune! The naga have it, down in Eldarath, and the elves wanted it badly. Find it, valuable employee, and we'll both be rich, or at least I will." },
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
-          text = "A priest! Would you say something holy over my equipment, once it's back? The elves who hired me said a few words over it too, and every one of them was a curse." },
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
-          text = "A priest! Would you say something holy over my equipment, once it's back? The elves who hired me said a few words over it too, and every one of them was a curse." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! Would you say something holy over my equipment, once it's back? The elves who hired me said a few words over it too, and every one of them was a curse." },
       },
@@ -573,8 +503,6 @@ P:NPC {
         { text = "Funny. A goblin hired by elves, robbed by elves.", next = "gnome_kj", when = { race = "Gnome" } },
         { text = "Did the elves steal your equipment?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What did the elf mages want with you?", next = "xmage", when = { class = "MAGE" } },
-        { text = "Why stay in Azshara after the elves turned on you?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Why stay in Azshara after the elves turned on you?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why stay in Azshara after the elves turned on you?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Later, Kim'jael.", next = "END" },
       },
@@ -858,42 +786,6 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
-    xapriest = {
-      big = true,
-      lines = { { id = "xapriest_default", text = "Fear's a strong word for a dwarf, but I'll admit I fly higher over the Spitelash than I'd like anyone in Ironforge tae hear about. They've sorceresses down there throwin' spells at anythin' that moves, an' a gyrocopter's no' built tae dodge." } },
-      choices = {
-        { text = "Fly low and proud. Show them Ironforge isn't afraid.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Stay high and let them waste their spells on empty sky.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xapala = {
-      big = true,
-      lines = { { id = "xapala_default", text = "Tymor reckons the old elves wrote down things nobody else remembers, an' these ruins are covered in it, so every rubbing I fly home is a page the world forgot. Some say it's history best left forgotten, mind, given what the Highborne got up tae." } },
-      choices = {
-        { text = "What the Highborne knew should stay buried with them.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "History belongs to everyone. Bring every rubbing home.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xapriest = {
-      big = true,
-      lines = { { id = "xapriest_default", text = "Fear's a strong word for a dwarf, but I'll admit I fly higher over the Spitelash than I'd like anyone in Ironforge tae hear about. They've sorceresses down there throwin' spells at anythin' that moves, an' a gyrocopter's no' built tae dodge." } },
-      choices = {
-        { text = "Fly low and proud. Show them Ironforge isn't afraid.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Stay high and let them waste their spells on empty sky.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xapala = {
-      big = true,
-      lines = { { id = "xapala_default", text = "Tymor reckons the old elves wrote down things nobody else remembers, an' these ruins are covered in it, so every rubbing I fly home is a page the world forgot. Some say it's history best left forgotten, mind, given what the Highborne got up tae." } },
-      choices = {
-        { text = "What the Highborne knew should stay buried with them.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "History belongs to everyone. Bring every rubbing home.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
     hello = {
       lines = {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -908,14 +800,6 @@ P:NPC {
           text = "A priest, out on the cliffs! Say a word for the gyrocopter, would ye, because the wind off this coast has opinions, an' so do the naga below." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! I'd offer ye a ride, but the gyrocopter's a wee thing, an' all that plate would put the both of us in the bay." },
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
-          text = "A priest, out on the cliffs! Say a word for the gyrocopter, would ye, because the wind off this coast has opinions, an' so do the naga below." },
-        { id = "h_apaladin", when = { class = "PALADIN" },
-          text = "A paladin! I'd offer ye a ride, but the gyrocopter's a wee thing, an' all that plate would put the both of us in the bay." },
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
-          text = "A priest, out on the cliffs! Say a word for the gyrocopter, would ye, because the wind off this coast has opinions, an' so do the naga below." },
-        { id = "h_apaladin", when = { class = "PALADIN" },
-          text = "A paladin! I'd offer ye a ride, but the gyrocopter's a wee thing, an' all that plate would put the both of us in the bay." },
       },
       again = { { id = "h_again", text = "Anythin' else, before the naga notice the noise?" } },
       choices = {
@@ -926,10 +810,6 @@ P:NPC {
         { text = "Did a gnome build your flying machine?", next = "gnome_xg", when = { race = "Gnome" } },
         { text = "Who is Tymor, and what does he want with rubbings?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Are the ruins dangerous for the rubbings?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Do you fear the naga when you fly low?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Why does the Explorers' League care about this cursed coast?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Do you fear the naga when you fly low?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Why does the Explorers' League care about this cursed coast?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you fear the naga when you fly low?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why does the Explorers' League care about this cursed coast?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Safe flight, Xiggs.", next = "END" },

@@ -42,6 +42,24 @@ P:NPC {
         { text = "Something else, then.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Near Zul'Farrak they have, aye, and I'll not pretend otherwise. The trolls there don't let their dead lie quiet, so a dwarf with a shovel learns to listen for scratching under the sand before he digs another foot." } },
+      choices = {
+        { text = "Treat their graves with reverence, even if they're troll graves.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The dead won't miss what you take from them.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Someone to stand between my diggers and whatever we wake, mostly, because a shovel's no use against a troll with a spear. The League pays in maps and gratitude, I'm afraid, but there's honest work in keeping good folk alive." } },
+      choices = {
+        { text = "I'll guard your diggers. That's what a paladin is for.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The Light doesn't serve the League. I go where I'm needed.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? I've no great love for the Horde, but out here the sand's the enemy of us all, so say yer piece and mind the dig." },
@@ -51,6 +69,10 @@ P:NPC {
           text = "Light fingers and soft boots, eh? I've worked digs with your sort before, and ye'd be surprised how often a locked tomb turns into an open one when there's a rogue on the payroll." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage, out here in the sand! Tell me, can ye feel anything under these dunes? Old magic, buried cities, anything a poor prospector might dig up?" },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest, out here in the dunes! Say a word over the dig for me, friend, because some of the troll bones I've turned up didn't seem to want turning." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, by my beard! There's not many of yer order this far south, and I'll sleep easier at the port knowing there's a hammer of the Light about." },
       },
       again = { { id = "h_again", text = "Anything more, friend?" }, { id = "h_again2", text = "Go on, ask; the sand'll wait." } },
       choices = {
@@ -62,6 +84,8 @@ P:NPC {
         { text = "Should the old ruins be left alone?", next = "s_1" },
         { text = "Would the Explorers' League hire a rogue, Ironboot?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Is there old magic buried in Tanaris?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Have your digs disturbed any restless dead, Ironboot?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What does the Explorers' League need from a paladin out here?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -216,6 +240,15 @@ P:NPC {
         { text = "Never mind my demon.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Oh, much worse, and I've the notes to prove it! Thirst thins the blood, scorpid venom lingers in it, and a fever out here climbs twice as fast as one in a cool stone city, so a healer in Tanaris never runs short of patients." } },
+      choices = {
+        { text = "Then I'll tend whoever falls ill, scholar or bandit alike.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Wastewanderers can look after their own sick.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Now, I've read that your people speak with the elements, which is either superstition or the most fascinating field study in Kalimdor, and I'd dearly like to know which." },
@@ -227,6 +260,8 @@ P:NPC {
           text = "A mage! Oh, wonderful, you'll know whether the basilisks' stone gaze is an arcane effect or a natural one, because I've been arguing with myself about it for a fortnight." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "Is that an imp? Oh, my, it is! May I look at it, from a distance, a safe and sensible distance, preferably with you between us?" },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! Oh, wonderful, because I've been wondering whether the Light works the same on a basilisk as on a person, and nobody in Gadgetzan will let me find out." },
       },
       again = { { id = "h_again", text = "What else, friend?" }, { id = "h_again2", text = "More questions? Wonderful!" } },
       choices = {
@@ -239,6 +274,7 @@ P:NPC {
         { text = "Is studying beasts better than hunting them?", next = "s_1" },
         { text = "I'd guess the basilisk gaze is natural magic.", next = "xmage", when = { class = "MAGE" } },
         { text = "You want to study my demon, Curgle?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Does the desert make sickness worse, Curgle?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -323,6 +359,15 @@ P:NPC {
         { text = "Something else, Jabbey.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Ask for 'em? They buy charms for 'em, friend, because a charm comes with a receipt. Most of this town believes in the Cartel first and luck second, though I'll tell you, when the Wastewanderers raid, everybody suddenly remembers a god or two." } },
+      choices = {
+        { text = "Selling charms to frightened folk is a cheap trick, Jabbey.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If a charm calms them, sell it. Comfort is comfort.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Then you'll be wanting ankhs, and I keep a few under the counter for your sort, priced like everything else here: fair, more or less." },
@@ -333,6 +378,8 @@ P:NPC {
           text = "A mage! Jabbey keeps runes and feathers for your kind, and arcane powder when the boats bring it, because mages always run out right before they need it most." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "Jabbey doesn't sell soul shards, friend, so don't ask. Jabbey sells a lot of strange things, but even Jabbey has a line, and that line is anything that used to be somebody." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest, is it? I've got holy water, or something that was holy water before it crossed the sea, and candles, and one very old prayer book I can't read a word of." },
       },
       again = { { id = "h_again", text = "What else? Jabbey's always open." }, { id = "h_again2", text = "More? Jabbey loves questions that end in sales." } },
       choices = {
@@ -343,6 +390,7 @@ P:NPC {
         { text = "You really don't care what your powder gets used for?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Where do you get your reagents out here?", next = "xmage", when = { class = "MAGE" } },
         { text = "You think less of me for my craft?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do folks in Gadgetzan ever ask for prayers, Jabbey?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -406,6 +454,15 @@ P:NPC {
         { text = "Something else, please.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Everybody cares, friend, whether they admit it or not, and a clean white robe in Gadgetzan says you've got water to spare for washing. Folks here trust a healer who looks like they've walked through the desert, though, so maybe dust is the right look for you after all." } },
+      choices = {
+        { text = "A priest's robe should be plain and kept clean. That's discipline.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The Light doesn't care about hems, Vizzklick, and neither do I.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, with totems clattering off your belt and a hem the wind's been chewing on. I'd ask the spirits for better tailoring, if I were you." },
@@ -414,6 +471,8 @@ P:NPC {
           text = "A mage, dearie, and in robes that have seen far too much sand! Mageweave holds up better in this heat, if you'd let me show you some proper cloth." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "Felcloth, is that? No, don't tell me where it came from, dearie, because I've heard the stories about the satyrs, and I'd sooner not know." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest, in robes cut for cool stone halls! Your order makes a fine garment, I'll grant you, but its tailors never met a sandstorm, and it shows on every hem you're wearing." },
       },
       again = { { id = "h_again", text = "What else, dearie?" }, { id = "h_again2", text = "Anything more? I've got a needle waiting." } },
       choices = {
@@ -423,6 +482,7 @@ P:NPC {
         { text = "Do clothes really matter out here?", next = "s_1" },
         { text = "My robes are fine, Vizzklick.", next = "xmage", when = { class = "MAGE" } },
         { text = "Felcloth wears just as well as any other cloth.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Should a priest care how the robes look?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },

@@ -54,6 +54,15 @@ P:NPC {
         { text = "Something else, Fyldren.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Not the Light, I think, but the clank of plate and the smell of the forge on it. They were raised for silent Sentinels in soft boots, and a paladin in full armor walks like a storm coming up the path." } },
+      choices = {
+        { text = "Then I'll walk softly. Their ways come first here.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "They'll learn. The Alliance is more than Sentinels now.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -65,6 +74,8 @@ P:NPC {
           text = "Stay back from the birds, warlock. Hippogryphs can feel the fel on you, and I've already seen two of them rear up and nearly break their tethers since you landed." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "You walk softly enough that the hippogryphs didn't even turn their heads, and that's rare. They don't startle at a Sentinel's step either, so you've been trained well by someone." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin. My hippogryphs have never carried one of your order, and they're watching that hammer of yours very carefully, so move slowly near the roosts." },
       },
       again = {
         { id = "h_again", text = "Would you ask more of the roost, or of the isle?" },
@@ -79,6 +90,7 @@ P:NPC {
         { text = "I've never ridden a hippogryph before.", next = "first", when = { race = { "Human", "Dwarf", "Gnome" } } },
         { text = "Will your hippogryphs carry a warlock at all?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do your hippogryphs carry scouts across the coast?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Are your hippogryphs uneasy around the Light?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell.", next = "END" },
       },
     },

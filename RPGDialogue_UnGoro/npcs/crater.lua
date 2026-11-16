@@ -50,6 +50,24 @@ P:NPC {
         { text = "That's enough on spells.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "More than I like to count, and I count every one of them. We lost both base camps, and some of the folk who were there we never found, so I don't know whether to pray for them or keep looking." } },
+      choices = {
+        { text = "Keep looking, and pray as you search. Hope costs nothing.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Mourn them and move on. The crater doesn't give back its dead.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Maybe it should, and I've said so to Williden more than once, but he won't leave without his crystals, and I won't leave without him. So I keep the raptors off the scholars, and I hope someone like you is around when I can't." } },
+      choices = {
+        { text = "Your leader has decided. Stand by him and see it through.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Lives matter more than crystals. Drag him out if you must.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Good, maybe you can tell me why the ground in this crater is warm to the touch even at midnight, because nobody else can, and it keeps me awake." },
@@ -60,6 +78,10 @@ P:NPC {
           text = "You came up my path without me hearing a single step, and that's a rare thing in this crater. I could use feet like yours on patrol, because the raptors hear everything else." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A spellcaster at my campfire, so Williden will want you near his crystals by sundown. Just don't set anything alight, because the ferns down there burn quicker than you'd think." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest, down here? Good, because my scholars keep coming back from the crater bitten, stung and poisoned all at once, and Williden's bandages only go so far." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! Williden will want to give you a speech about the scholarly value of the crater, but I'd rather give you a rifleman's advice, which is never to charge a devilsaur." },
       },
       again = { { id = "h_again", text = "What else? I've got a patrol soon." }, { id = "h_again2", text = "Ask away, quickly." } },
       choices = {
@@ -72,6 +94,8 @@ P:NPC {
         { text = "Should the expedition pull out?", next = "s_1" },
         { text = "Would quiet feet really help your patrols down there?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Would magic guard your scholars better than rifles?", next = "xmage", when = { class = "MAGE" } },
+        { text = "How many of your people has the crater taken?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Shouldn't the expedition leave before more people die?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -426,6 +450,15 @@ P:NPC {
         { text = "Something else, Krakle.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Sell's an ugly word, friend, when I'd be offering a premium bathing experience with spiritual benefits. The springs really do ease a sore back, mind you, so if your Light wants to take a bit of the credit, I'm happy to share it, for a percentage." } },
+      choices = {
+        { text = "Blessings aren't for sale. Find another way to get rich.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If folk feel better, a little exaggeration does no harm.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, perfect! You talk to water spirits, right? Ask the ones in Golakka what they'd want for exclusive bottling rights, because I'm prepared to negotiate." },
@@ -435,6 +468,8 @@ P:NPC {
           text = "You've got the look of someone who finds things before anybody else does, friend. I've got a hot spring here that's worth a fortune, and I'd hate for it to wander off while I'm not looking." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! Tell me, can you make water hot or cold on command, because if you can, I've got a business proposition that'll make the springs look like small change." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! Say, would you bless my springs? Holy hot springs, blessed by the Light, would sell like water in Tanaris, which is to say very well." },
       },
       again = { { id = "h_again", text = "What else?" }, { id = "h_again2", text = "Talk quick, the springs won't wait." } },
       choices = {
@@ -445,6 +480,7 @@ P:NPC {
         { text = "Should these springs be sold?", next = "s_1" },
         { text = "Worried someone will steal a whole hot spring?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "You want me to boil your springs for coin?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Would you really sell blessings, Krakle?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },

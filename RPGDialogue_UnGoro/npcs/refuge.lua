@@ -238,6 +238,24 @@ P:NPC {
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Would you? I don't know if it'll help, but I've a feeling I left something important undone somewhere far away, and that's the worst part of forgetting. Even if the Light can't give it all back, I'd like to know it tried." } },
+      choices = {
+        { text = "Your past will come back in its own time. Be patient.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let the past go, Linken. Make yourself someone new.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Sometimes I think so, because when I see something small in danger, I'm already running before I've decided to. A knight would do that, wouldn't he, or a fool, and I'd like to think there's a little of the first in me." } },
+      choices = {
+        { text = "Knighthood needs discipline, Linken, not just a brave heart.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Never mind titles. A brave heart is enough.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! I feel like I've met people who talk to the wind before, though I can't for the life of me remember where, which I suppose is the trouble with everything lately." },
@@ -252,6 +270,10 @@ P:NPC {
           text = "You've got quiet feet! I think I had quiet feet once, or I knew someone who did; it's hard to tell which memories are mine and which ones the raft took." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! Can mages find lost things? I've lost quite a lot, you see, and most of it was inside my own head." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "You're a priest? Can priests mend a head that's been hit, do you think, because mine was, and the rest of me is fine, but there are holes in it where things ought to be." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, with a shield like mine! I can't remember who taught me to use it, but my arm knows how, and I'm told that's a good sign." },
       },
       again = { { id = "h_again", text = "Ask! Quickly, before I forget you asked." } },
       choices = {
@@ -265,6 +287,8 @@ P:NPC {
         { text = "Do you recognize my people, Linken?", next = "x_skyborne", when = { race = "Skyborne" } },
         { text = "Maybe you were a thief, not a warrior.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Magic can't mend a lost memory, Linken.", next = "xmage", when = { class = "MAGE" } },
+        { text = "Would you like me to pray over your memory, Linken?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you think you were a knight, once?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll help you remember.", next = "END", fx = { affinity = 3, trait = { kind = 1 } } },
       },
     },
@@ -496,6 +520,15 @@ P:NPC {
         { text = "Let me ask something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "I have to think so, because if I stop thinking so, I'll just sit down and never get up again. He's clever, Ringo is, cleverer than he looks, and if anyone can find water in that crater it's him, but I'd feel better with the Light watching over him too." } },
+      choices = {
+        { text = "Hold onto hope. The Light hasn't given up on him.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Prayer won't find him. Boots and a waterskin will.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can you ask the spirits where Ringo is? I know that's probably not how it works, but I'm asking everybody, and you'd be the first who might actually know." },
@@ -511,6 +544,8 @@ P:NPC {
           text = "You're the sort who could slip through the ferns without the raptors noticing, aren't you? Oh, I wish Ringo had your feet instead of his own, because he trips over everything." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! Can you conjure water? Ringo never carries enough, and if you find him before I do, he'll be so thirsty that he won't make it back without some." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "You're a priest! Could you, I mean, would you say a prayer for Ringo, because he went off toward the volcano days ago and I keep thinking of him out there, all alone and thirsty and maybe hurt?" },
       },
       again = { { id = "h_again", text = "Anything else? Sorry, I'm a bit distracted, but I always am." } },
       choices = {
@@ -523,6 +558,7 @@ P:NPC {
         { text = "Could a pterrordax be tamed, do you think?", next = "x_hunter", when = { class = "HUNTER" } },
         { text = "Should I find Ringo quietly, or quickly?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I can conjure water. Is that all he needs?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do you think Ringo is still alive, Spraggle?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "I'll look for Ringo.", next = "END", fx = { affinity = 3, trait = { kind = 1 } } },
       },
     },

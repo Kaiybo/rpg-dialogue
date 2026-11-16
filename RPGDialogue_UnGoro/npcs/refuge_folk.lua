@@ -61,6 +61,24 @@ P:NPC {
         { text = "Never mind that.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "It chews them, friend, and spits out the ones too stubborn to swallow, which is how I'm still here. I've watched good expeditions go down that path singing and come back carried, and I've buried more of them up on this ridge than I'll ever tell Williden." } },
+      choices = {
+        { text = "Then let me bless the ones who still go down.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Folk who go down there singing chose their own end.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Fortified, if I had my way, with a proper wall and a proper gate, but every board up here comes on somebody's back from Tanaris. Williden thinks in crystals and I think in stores, and between us we've built a camp that holds, for now." } },
+      choices = {
+        { text = "Build the wall. Discipline and stone keep people alive.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Walls make you slow. Stay light and ready to move.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? Ye'll not find me buying anything ye've charmed out o' that crater, so don't ask. Bread from Gadgetzan and water I've boiled twice, that's all I trust." },
@@ -71,6 +89,10 @@ P:NPC {
           text = "A mage, eh? Then ye'll not be needing my water, since ye conjure your own, and I'll thank ye not to tell the expedition how easy it is." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "I'll be counting my crates after ye've gone, friend, so don't take it personal. I've known a few of your trade, and every one of them was charming right up until the stores came up short." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest, is it? Then ye'll have seen what the crater does to folk, and if ye haven't, give it a day and ye will." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! The Refuge could use a bit of honest steel and holy fire, because the raptors have been getting bold, and they don't respect a shopkeeper's ladle." },
       },
       again = {
         { id = "h_again", text = "Anything more ye need from the stores, friend, before I get back to my crates?" },
@@ -84,6 +106,8 @@ P:NPC {
         { text = "What happened to the expedition?", next = "expedition" },
         { text = "Does conjured water hurt your trade, Nergal?", next = "xmage", when = { class = "MAGE" } },
         { text = "I'm no thief, Nergal.", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "What does the crater do to people, Nergal?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Should the Refuge be fortified, or abandoned?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -172,6 +196,15 @@ P:NPC {
         { text = "Let me ask something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Gladly, friend, because their gold spends the same as yours and their saddlebags weigh about the same too. I don't pick sides in your wars, I pick routes, and a flight master who starts talking politics ends up with a very quiet roost." } },
+      choices = {
+        { text = "Neutral or not, you should know whose wars you're fueling.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Smart business. Wars end, but coin keeps flying.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! My beasts don't love flying near the volcano, so if you've any pull with the winds round Fire Plume Ridge, put in a good word for them." },
@@ -182,6 +215,8 @@ P:NPC {
           text = "You've got the look of someone who'd rather not leave a name on the flight log, friend. Lucky for you, I only write down the coin." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "Ah, a mage. Planning to teleport out and save yourself the fare? Go on, break a goblin's heart." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! You lot fly heavy, so stand still while I check the straps, because a paladin's armor has made more than one bird regret its career." },
       },
       again = {
         { id = "h_again", text = "What else? The flyer's getting twitchy." },
@@ -195,6 +230,7 @@ P:NPC {
         { text = "Is flying over the crater safe?", next = "safe" },
         { text = "You don't ask who your passengers are?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Mages can't teleport to Gadgetzan, Gryfe.", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do you fly the Horde as gladly as the Alliance?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Goodbye.", next = "END" },
       },
     },

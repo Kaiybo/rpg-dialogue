@@ -62,42 +62,6 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
-    xapriest = {
-      big = true,
-      lines = { { id = "xapriest_default", text = "They feel it, and they fly higher over this forest than anywhere else in Kalimdor, because the air above Jaedenar tastes of ash even to them. I have wondered whether a prayer could reach the trees below as easily as my birds reach the sky, though I am only their keeper." } },
-      choices = {
-        { text = "Prayer and patience can heal this forest, given time.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Prayer won't move the satyrs. Fire and steel will.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xapala = {
-      big = true,
-      lines = { { id = "xapala_default", text = "The Sentinels would say a sword, and Golhine by the moonwell would say neither, only patience. I think the forest needs both, and someone who knows which to reach for when the Deadwood come down the road at night." } },
-      choices = {
-        { text = "Then I'll hold the road and let the druids do the healing.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "The druids are too slow. Burn the corruption out and be done.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xapriest = {
-      big = true,
-      lines = { { id = "xapriest_default", text = "They feel it, and they fly higher over this forest than anywhere else in Kalimdor, because the air above Jaedenar tastes of ash even to them. I have wondered whether a prayer could reach the trees below as easily as my birds reach the sky, though I am only their keeper." } },
-      choices = {
-        { text = "Prayer and patience can heal this forest, given time.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Prayer won't move the satyrs. Fire and steel will.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xapala = {
-      big = true,
-      lines = { { id = "xapala_default", text = "The Sentinels would say a sword, and Golhine by the moonwell would say neither, only patience. I think the forest needs both, and someone who knows which to reach for when the Deadwood come down the road at night." } },
-      choices = {
-        { text = "Then I'll hold the road and let the druids do the healing.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "The druids are too slow. Burn the corruption out and be done.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
     hello = {
       lines = {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -106,14 +70,6 @@ P:NPC {
           text = "You carry the smell of the same fire that burned this forest, warlock, and my birds have noticed it before I have. Stand back a little, please, while I calm them." },
         { id = "h_default", key = true,
           text = "I am Mishellena, and I keep the hippogryphs of Talonbranch Glade. From here they carry the Alliance to Ashenvale and Darkshore and to Everlook in the snows, and away from the corruption, for a little while." },
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
-          text = "A priest of the Alliance, and welcome to the roost. My birds settle when someone prays near them, I think, and Felwood leaves them little enough peace." },
-        { id = "h_apaladin", when = { class = "PALADIN" },
-          text = "A paladin, in armour that rings like a bell! Stand easy by the roost, please, because my birds take all that steel for a predator until they learn your step." },
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
-          text = "A priest of the Alliance, and welcome to the roost. My birds settle when someone prays near them, I think, and Felwood leaves them little enough peace." },
-        { id = "h_apaladin", when = { class = "PALADIN" },
-          text = "A paladin, in armour that rings like a bell! Stand easy by the roost, please, because my birds take all that steel for a predator until they learn your step." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest of the Alliance, and welcome to the roost. My birds settle when someone prays near them, I think, and Felwood leaves them little enough peace." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -129,10 +85,6 @@ P:NPC {
         { text = "What was Felwood before?", next = "before" },
         { text = "Do you ever fly scouts over the Jaedenar camps?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Will your hippogryphs carry me, even so?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Do your birds feel the corruption when they fly over Felwood?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Does Talonbranch need a sword more than a prayer?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Do your birds feel the corruption when they fly over Felwood?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Does Talonbranch need a sword more than a prayer?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do your birds feel the corruption when they fly over Felwood?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does Talonbranch need a sword more than a prayer?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Goodbye.", next = "END" },

@@ -54,6 +54,24 @@ P:NPC {
         { text = "Something else, Marin.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Need is a strong word, though a few have turned into skeletons for an afternoon, and one fellow shrank so small he fell through a crack in the floorboards. They all came back to normal, mostly, so I'd call it a natural process with very dramatic side effects." } },
+      choices = {
+        { text = "Test your brews on willing folk only, Marin, and warn them plainly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Anyone who drinks a goblin's elixir knows the risk.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Safe is a big word for the desert, friend, where the water will kill you slower than the bandits do. I tell every buyer it might turn them into a skeleton for a bit, and they buy it anyway, so who am I to stand between a customer and his choices?" } },
+      choices = {
+        { text = "Someone ought to set rules for what goblins sell.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A buyer who's been warned fairly can drink what he likes.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -74,6 +92,10 @@ P:NPC {
           text = "A rogue! You lot know your poisons, so you'll appreciate what I'm doing with my elixir, which is very nearly not a poison at all, most of the time." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage, eh? Don't go telling me magic does it better, because I've heard that, and magic doesn't come in a bottle you can sell for forty silver." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! Now, before you say anything, I've had no complaints about the elixir that a little healing didn't fix, and that's practically a recommendation." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! Don't look at me like that, because the elixir is perfectly legal in Gadgetzan, and I checked, twice." },
       },
       again = {
         { id = "h_again", text = "More questions? Ask them in the shade, then, because everything's better in the shade." },
@@ -93,6 +115,8 @@ P:NPC {
         { text = "A gnome could improve that elixir.", next = "x_gnome", when = { race = "Gnome" } },
         { text = "Your elixir sounds a lot like a poison to me.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Polymorph does better than your elixir, Marin.", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do your customers ever need healing after the elixir?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is your elixir safe enough to sell, Marin?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good luck with it.", next = "END" },
       },
     },
@@ -277,6 +301,15 @@ P:NPC {
         { text = "Something else, then.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "More than you'd think, sweetie, because a goblin who won't pay a healer will still pay for soup. I put a little something in it for the fevers and a little something for the taste, and between the two they mostly get better on their own." } },
+      choices = {
+        { text = "Leave real fevers to trained healers, Sprinkle.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Soup and kindness work fine. Folk don't need temple rules.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, sweetie? Then you'll know fire's the most important spirit in any kitchen, and I've a stove back here that could use a stern word from you." },
@@ -290,6 +323,8 @@ P:NPC {
           text = "You know what goes in a drink to make it wrong, sweetie, I can see it on you. Well, I know what goes in to make it right again, so we'd make quite a pair." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage, sweetie! I've tasted conjured bread before, and I'm sorry to tell you it tastes of nothing at all, which is the worst thing food can taste of." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! Oh, sweetie, bless whatever you like in here, but if you can bless Marin's samples into tasting better, I'll want to know how you did it." },
       },
       again = { { id = "h_again", text = "Anything else, sweetie?" }, { id = "h_again2", text = "Go on, sweetie; I'm stirring, but I can listen." } },
       choices = {
@@ -302,6 +337,7 @@ P:NPC {
         { text = "Hinterlands cooking, is it? I know Wildhammer cooking.", next = "x_dwarf", when = { race = "Dwarf" } },
         { text = "You can tell I use poisons?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Conjured bread keeps you alive. That's what matters.", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do the sick in Gadgetzan come to you, Sprinkle?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Thanks, Sprinkle.", next = "END" },
       },
     },
@@ -428,6 +464,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Badly enough that I've stopped sending anyone out alone, and that slows the work, and slow work means thirsty people. Water is life out here in the plainest sense, so every man they put in a sickbed costs this town more than a broken pump ever could." } },
+      choices = {
+        { text = "Then I'll tend your workers first and fight the bandits second.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Heal them later; hit the bandits hard enough and they'll stop coming.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Nobody, most nights, and the Wastewanderers know it as well as I do. The Cartel pays for walls and Bruisers inside them, but a pipe runs across a lot of open sand, and I can't hire enough guards to stand on every yard of it." } },
+      choices = {
+        { text = "The Cartel should guard its own pumps. That's its duty.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Forget the Cartel. Arm your crew and let them fight back.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can you talk to water? Because I've got wells that have stopped listening to me, and the Wastewanders are sitting on the ones that still do." },
@@ -443,6 +497,10 @@ P:NPC {
           text = "A mage, and I suppose you're about to tell me you can make water out of thin air. Do you know what that does to a water company's quarterly projections?" },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "Another sneak in my town. If you've been near the Wastewander camps, I'll want to know, and if you've been near my water tower, I'll want to know more." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest, good. When the Wastewanderers hit a water pump, they hit the workers on it too, and I've had more of my crew bandaged this month than I've had pipes repaired." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin? The Bruisers keep order inside the walls, but out at the pumps it's just my crew and the sand, so I'll take any hammer the Light sends." },
       },
       again = { { id = "h_again", text = "What else? Quickly, the gauge is twitching." } },
       choices = {
@@ -455,6 +513,8 @@ P:NPC {
         { text = "Point me at the Wastewanders, Chief.", next = "x_warrior", when = { class = "WARRIOR" } },
         { text = "Conjured water could save lives in a drought.", next = "xmage", when = { class = "MAGE" } },
         { text = "I'm no Wastewander, Bilgewhizzle.", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "How badly have the Wastewanderers hurt your crew?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Who guards your pumps when the Bruisers won't leave town?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good luck with the pressure.", next = "END" },
       },
     },
@@ -551,6 +611,15 @@ P:NPC {
         { text = "Something else, then.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Because out here water is gold, and whoever controls the wells controls who lives in Tanaris. The Wastewanderers know that, which is why they hit the sources first and the caravans second, and why I expect every job to go wrong." } },
+      choices = {
+        { text = "Water should be shared under law, not seized by bandits.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Whoever can hold a well has earned it, I suppose.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -567,6 +636,8 @@ P:NPC {
           text = "A mage. You'll be thinking you could find water with a spell faster than my rods, and I'll be the one who has to explain to the Company why nobody tried it sooner." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "You'd make a decent scout, if you can keep your head down. The Wastewander keep taking my survey gear, and my men keep getting caught trying to take it back." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! I don't suppose the Light can find water, can it? No, I didn't think so, but you can stand next to me while I look, and that's nearly as good." },
       },
       again = { { id = "h_again", text = "Something else? I'll mark it on a map." } },
       choices = {
@@ -578,6 +649,7 @@ P:NPC {
         { text = "The earth would tell me where water runs.", next = "x_shaman", when = { class = "SHAMAN" } },
         { text = "Could magic really find water faster?", next = "xmage", when = { class = "MAGE" } },
         { text = "I could get your gear back quietly.", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Why would bandits steal water rather than gold?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll go and look.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -697,6 +769,15 @@ P:NPC {
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Silt, salt, a dead scorpid or two and, once, something that smelled of the grave, which Rose wouldn't go near and neither would I. Most of it's only nature being unpleasant, but I keep that sample in a locked jar, because some sicknesses don't come from nature at all." } },
+      choices = {
+        { text = "Taint like that should be burned and prayed over, not studied.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Study it closely. Even a foul thing can teach us something.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? Rose doesn't care for the smell of totem smoke, but she'll put up with it if you've brought me something interesting to cut open." },
@@ -715,6 +796,8 @@ P:NPC {
           text = "A mage. Good, you'll have a steady hand, and Rose likes steady hands; she bites the shaky ones." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "Warlock. I can smell the brimstone on your sleeve, and so can Rose, which is why she's hiding behind the flasks." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! Splendid timing, because Rose and I have something from the Wastewanderer camps on the bench, and I'd love to know whether your Light can tell me if it's cursed or merely disgusting." },
       },
       again = { { id = "h_again", text = "Anything else? Rose is getting impatient, though Rose is always impatient." } },
       choices = {
@@ -727,6 +810,7 @@ P:NPC {
         { text = "Your rat doesn't like my imp much.", next = "x_warlock", when = { class = "WARLOCK" } },
         { text = "What does an alchemist want with a mage?", next = "xmage", when = { class = "MAGE" } },
         { text = "Does my craft bother you, alchemist?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What foul things have you found in the water, Pestlezugg?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Just browsing.", next = "END" },
       },
     },
@@ -987,6 +1071,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Every day, and half of them came in too proud to drink enough water on the road. I put them in the back room and charge them for the bed and the bucket, and I'd send for a healer if Gadgetzan kept one handy, but mostly they get me and a roll of bandages." } },
+      choices = {
+        { text = "Point the sick ones my way. Healing them is my calling.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fools who don't carry water have earned the lesson.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Not often, friend, because nobody wants to fight with a Bruiser watching and an orc and a dwarf sharing a table. The truce here is thin, though, and one bad hand of cards can turn it into a broken chair, so I keep a sharp eye on the corners." } },
+      choices = {
+        { text = "Your truce is worth keeping. I'll keep my temper in here.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A truce with the Horde won't last. Best be ready when it breaks.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman in the Road Warrior! If you can call up a bit of rain, I'll stop calling the sand in the stew seasoning and start calling it soup." },
@@ -998,6 +1100,10 @@ P:NPC {
           text = "A mage! Please don't go conjuring water in my common room, friend, because I charge for it, and everybody watching will want it free." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue in my inn! Keep your hands off the other guests' purses, if you'd be so kind, and I'll keep my hands off the bill." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest under my roof! Say a little blessing over the stew, would you, because the sand in it is seasoning and I'd hate for it to start thinking it's the main course." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin at the Road Warrior! Mind the beam over the door, and please don't smite anyone in the common room, because the Bruisers bill me for the cleanup." },
       },
       again = {
         { id = "h_again", text = "Anything else? Have a drink while you think." },
@@ -1013,6 +1119,8 @@ P:NPC {
         { text = "Horde and Alliance drink here together?", next = "both", when = { minLevel = 40 } },
         { text = "You charge for water in your inn?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do guests often lose their purses here?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Do travelers come in sick from the desert, Fizzgrimble?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do brawls break out often in your inn?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Just a drink, thanks.", next = "END" },
       },
     },
@@ -1245,6 +1353,15 @@ P:NPC {
         { text = "Never mind molds.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I'd forge it for anybody whose coin is good, friend, and that's never kept me up at night. A blade doesn't know who's holding it, so I figure the sin, if there is one, belongs to the hand and not the forge." } },
+      choices = {
+        { text = "A smith who sells to murderers shares their guilt.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Fair enough. A tool is only a tool.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, is it? Fire and earth are my trade too, near enough, only I bill for mine, so if your spirits fancy a job at the forge, I'm hiring." },
@@ -1260,6 +1377,8 @@ P:NPC {
           text = "A rogue, and with blades that haven't seen a proper stone in weeks. I could put an edge on those daggers that'll go through a Wastewander's leathers like butter." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage. You don't need my steel, but I'll wager you'd like a smith who can pour a mold for something the Kirin Tor never bothered to make." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, with a hammer that's seen some honest work, I'd say. If you ever want it reforged with more weight in the head, I'll pour it, though the Light's blessing is your department." },
       },
       again = {
         { id = "h_again", text = "More questions? Ask them over the anvil, because the thorium cools while we chat." },
@@ -1272,6 +1391,7 @@ P:NPC {
         { text = "Goblin steel? Let's see if it meets a dwarf's standards.", next = "x_dwarf", when = { race = "Dwarf" } },
         { text = "Do you sharpen for anyone who pays?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What would a mage need from a mold?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Would you forge a weapon for someone who'd misuse it?", next = "xapala", when = { class = "PALADIN" } },
       },
     },
     who = {

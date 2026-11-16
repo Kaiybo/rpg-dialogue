@@ -61,24 +61,6 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
-    xapriest = {
-      big = true,
-      lines = { { id = "xapriest_default", text = "Coin's the same colour in any hand, friend, and the Cartel keeps the peace better than any treaty, because nobody burns down the auction house they're selling at. Call it greed if you like, but nobody's died in Everlook this year over a banner." } },
-      choices = {
-        { text = "The Cartel's rules keep the peace. I'll respect them.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Rules bought with gold can be broken with more of it.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xapriest = {
-      big = true,
-      lines = { { id = "xapriest_default", text = "Coin's the same colour in any hand, friend, and the Cartel keeps the peace better than any treaty, because nobody burns down the auction house they're selling at. Call it greed if you like, but nobody's died in Everlook this year over a banner." } },
-      choices = {
-        { text = "The Cartel's rules keep the peace. I'll respect them.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Rules bought with gold can be broken with more of it.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, welcome to the auction house. Totems sell slowly up here, but if you've anything fire-charged, the cold makes it worth double." },
@@ -90,10 +72,6 @@ P:NPC {
           text = "Auctioneer Grizzlin, Everlook auction house, Steamwheedle Cartel. Horde and Alliance both bid here, and the Cartel takes its share for keeping the peace, so you pay a bit more, but you sell to twice the buyers." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Night in Winterspring and you've come to look at the auction board? Either you're very keen or very cold, and I'll take your coin either way." },
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
-          text = "A priest! You lot hardly ever sell anything, you just buy linen for bandages, which honestly makes you my favourite customers, because you never haggle." },
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
-          text = "A priest! You lot hardly ever sell anything, you just buy linen for bandages, which honestly makes you my favourite customers, because you never haggle." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! You lot hardly ever sell anything, you just buy linen for bandages, which honestly makes you my favourite customers, because you never haggle." },
       },
@@ -108,8 +86,6 @@ P:NPC {
         { text = "Why put an auction house in the snow?", next = "why" },
         { text = "Has anyone ever robbed a Steamwheedle auction house?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do mages sell much through the auction house?", next = "xmage", when = { class = "MAGE" } },
-        { text = "Doesn't it trouble you, selling to both Horde and Alliance?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Doesn't it trouble you, selling to both Horde and Alliance?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Doesn't it trouble you, selling to both Horde and Alliance?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
@@ -203,24 +179,6 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
-    xapala = {
-      big = true,
-      lines = { { id = "xapala_default", text = "Anyone who pays and doesn't start trouble inside Everlook, and the Bruisers see to the second part. A blade's just steel, friend, and it's the hand holding it that does good or evil, which I'd think a paladin would agree with." } },
-      choices = {
-        { text = "A merchant shares the guilt of every blade he sells.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Agreed. Steel is steel, and the wielder answers for it.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xapala = {
-      big = true,
-      lines = { { id = "xapala_default", text = "Anyone who pays and doesn't start trouble inside Everlook, and the Bruisers see to the second part. A blade's just steel, friend, and it's the hand holding it that does good or evil, which I'd think a paladin would agree with." } },
-      choices = {
-        { text = "A merchant shares the guilt of every blade he sells.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Agreed. Steel is steel, and the wielder answers for it.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Now, I know your lot like a good mace or axe, and I've got ones that hold an edge even when your fingers won't." },
@@ -230,10 +188,6 @@ P:NPC {
           text = "A mage! I don't sell staves, sorry, but I've got wands on order and a very nice dagger that a spellcaster can carry without hurting themselves." },
         { id = "h_default", key = true,
           text = "Wixxrak, weaponsmith and gunsmith to everybody who comes through Everlook. Swords, axes, rifles and enough shot to keep you busy all winter, which in Winterspring is the whole year." },
-        { id = "h_apaladin", when = { class = "PALADIN" },
-          text = "A paladin! Now there's a customer who appreciates a good hammer, and I've got maces that won't go brittle in the cold, which you'd be surprised how many smiths can't say." },
-        { id = "h_apaladin", when = { class = "PALADIN" },
-          text = "A paladin! Now there's a customer who appreciates a good hammer, and I've got maces that won't go brittle in the cold, which you'd be surprised how many smiths can't say." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! Now there's a customer who appreciates a good hammer, and I've got maces that won't go brittle in the cold, which you'd be surprised how many smiths can't say." },
       },
@@ -248,8 +202,6 @@ P:NPC {
         { text = "Who buys weapons up here?", next = "buyers" },
         { text = "Why would cold weather ruin a dagger?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do mages really need a dagger?", next = "xmage", when = { class = "MAGE" } },
-        { text = "Do you sell weapons to anyone who pays, Wixxrak?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Do you sell weapons to anyone who pays, Wixxrak?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you sell weapons to anyone who pays, Wixxrak?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Goodbye.", next = "END" },
       },
@@ -550,24 +502,6 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
-    xapriest = {
-      big = true,
-      lines = { { id = "xapriest_default", text = "Near enough, from where I'm standing, because a wound's closed either way, but a potion doesn't care who drinks it and I'm told the Light's a bit pickier. Then again, a potion can't comfort anyone, so I suppose you've got me there." } },
-      choices = {
-        { text = "The Light is for everyone. It only asks a willing heart.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "A potion that works for anyone sounds more reliable.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xapriest = {
-      big = true,
-      lines = { { id = "xapriest_default", text = "Near enough, from where I'm standing, because a wound's closed either way, but a potion doesn't care who drinks it and I'm told the Light's a bit pickier. Then again, a potion can't comfort anyone, so I suppose you've got me there." } },
-      choices = {
-        { text = "The Light is for everyone. It only asks a willing heart.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "A potion that works for anyone sounds more reliable.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! I've no totems to sell, but I've vials aplenty for your water spirits, packed in straw so they won't crack in this cold." },
@@ -577,10 +511,6 @@ P:NPC {
           text = "A mage! Can you tell me whether black lotus has any arcane use? Nobody up here has given me a straight answer, and I'd love to know before I sell my last one." },
         { id = "h_default", key = true,
           text = "Evie Whirlbrew, alchemy supplies, the only shop in Everlook where the bottles are packed in straw. Vials, a recipe or two and the odd potion for anyone who doesn't have the patience to brew their own." },
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
-          text = "A priest! You won't want healing potions, will you, not with the real thing in your hands, and here's me with all my bottles packed in straw." },
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
-          text = "A priest! You won't want healing potions, will you, not with the real thing in your hands, and here's me with all my bottles packed in straw." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! You won't want healing potions, will you, not with the real thing in your hands, and here's me with all my bottles packed in straw." },
       },
@@ -595,8 +525,6 @@ P:NPC {
         { text = "What grows in Winterspring worth brewing?", next = "herbs" },
         { text = "Do you sell poisons too?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Black lotus grows in Winterspring?", next = "xmage", when = { class = "MAGE" } },
-        { text = "Do you think potions and prayer do the same work?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Do you think potions and prayer do the same work?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you think potions and prayer do the same work?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
