@@ -2,6 +2,13 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.43.0 (2026-11-16)
+Packs: 21 packs have new versions (`python3 tools/version.py` lists them). No new files in 0.43.0: /reload is enough if you have 0.39.0 or later.
+
+### Rogues, mages and warlocks from 30 to 60
+- **The three thinnest classes get noticed**: about 290 named people in the 30-60 lands greet a rogue, mage or warlock as one, and have a question to ask and something to argue about. Arathi, Hillsbrad and Alterac, the Hinterlands, both Plaguelands, Searing Gorge, the Badlands, the Burning Steppes, the Blasted Lands, the Swamp of Sorrows, Stranglethorn, Desolace, Dustwallow, Thousand Needles, Tanaris, Feralas, Un'Goro, Felwood, Winterspring, Azshara and Silithus. Most have two of the three; Tirion, Nathanos, Falstad, Myranda, Shandris and a few others have all three.
+- Alliance towns speak to Alliance rogues, mages and warlocks, Horde towns to the Horde's, and goblins, the Argent Dawn, the Cenarion Circle and the Thorium Brotherhood to either.
+
 ## 0.42.0 (2026-11-16)
 Packs: 20 packs have new versions (`python3 tools/version.py` lists them). No new files in 0.42.0: /reload is enough if you have 0.39.0 or later.
 

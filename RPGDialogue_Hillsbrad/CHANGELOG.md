@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.13.0 (2026-11-16)
+- Rogues, mages and warlocks are noticed: named people here greet them as such, with a question to ask and something to argue about. No new files. Needs RPG Dialogue 0.43.0.
+
 ## 1.12.0 (2026-11-16)
 - Horde shaman get their own conversation with 13 people in Tarren Mill and Alterac, Ravenholdt included.
 
