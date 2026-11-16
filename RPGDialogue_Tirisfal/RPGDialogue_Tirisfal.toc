@@ -14,3 +14,4 @@ pack.lua
 pools.lua
 npcs\deathknell.lua
 npcs\brill.lua
+npcs\roads.lua

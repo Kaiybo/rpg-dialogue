@@ -14,3 +14,4 @@ pack.lua
 pools.lua
 npcs\lightshope.lua
 npcs\eastweald.lua
+npcs\roads.lua

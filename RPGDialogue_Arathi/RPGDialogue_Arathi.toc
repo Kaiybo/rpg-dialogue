@@ -15,3 +15,4 @@ pools.lua
 npcs\arathi.lua
 npcs\hammerfall.lua
 npcs\refugepointe.lua
+npcs\roads.lua

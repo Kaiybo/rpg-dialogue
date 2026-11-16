@@ -172,7 +172,7 @@ P:NPC {
     },
     gormul = {
       big = true,
-      lines = { { id = "g_default", text = "Because the Horde be more than the strong ones, and a warrior lost in grief be still a warrior. If the shaman's gifts woke our people from the demon's curse, they can wake one tired orc." } },
+      lines = { { id = "gm_default", text = "Because the Horde be more than the strong ones, and a warrior lost in grief be still a warrior. If the shaman's gifts woke our people from the demon's curse, they can wake one tired orc." } },
       choices = {
         { text = "What have you tried?", next = "gormul_tried" },
         { text = "Everyone deserves a second chance.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },

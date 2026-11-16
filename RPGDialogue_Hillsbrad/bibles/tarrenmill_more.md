@@ -8,6 +8,14 @@
 - Tallow, The_Hammer_May_Fall: Forsaken warrior; "weaklings"; Hammerfall under attack; test yourself at the Boulderfist ogre mound northeast of Stromgarde, then report to Drum Fel (Drum's line about Tallow already in the Arathi pack).
 - Zarise (bat handler), Kayren_Soothallow (general goods).
 
+## Their quests
+- Krusk: The Rescue, Infiltration, Gol'dir.
+- Thaivand: Helcular's Revenge (1, 2).
+- Humbert: Humbert's Sword.
+- Samsa: Souvenirs of Death.
+- Tallow: The Hammer May Fall.
+- Zarise, Kayren: none: bat handler and general goods vendor.
+
 ## Never
 - Melisara, Cromush, Serge Hinott's Southshore quests, Humbert's yeti/pants story, Yetimus (Cataclysm); the Legion invasions; Old Hillsbrad (Jason Lemieux's past).
 - Naming what Thrall sent Krusk's band to retrieve (unsourced).

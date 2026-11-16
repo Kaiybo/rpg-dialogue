@@ -80,7 +80,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     goldir = {
-      lines = { { id = "g_default", text = "He led our expedition from Durotar, and the humans took him somewhere we couldn't follow. Every day he's in their hands, I like his chances less." } },
+      lines = { { id = "gd_default", text = "He led our expedition from Durotar, and the humans took him somewhere we couldn't follow. Every day he's in their hands, I like his chances less." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     forsaken = {

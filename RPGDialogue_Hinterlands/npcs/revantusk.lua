@@ -287,7 +287,7 @@ P:NPC {
     },
     gryphons = {
       big = true,
-      lines = { { id = "g_default", text = "The Wildhammer train them to kill trolls, and they do it well. The Skylords breed the young ones, so you kill a Skylord and you kill a hundred hunts before they ever happen." } },
+      lines = { { id = "gr_default", text = "The Wildhammer train them to kill trolls, and they do it well. The Skylords breed the young ones, so you kill a Skylord and you kill a hundred hunts before they ever happen." } },
       choices = {
         { text = "Then the Skylords die first.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "The beasts aren't to blame. Hunt the riders instead.", next = "BACK", fx = { align = { order = -1 } } },
@@ -839,7 +839,7 @@ P:NPC {
       },
     },
     grouper = {
-      lines = { { id = "g_default", text = "A monster of a fish that's broken every line I own. Katoom says I use the wrong bait, but Katoom says that about everyone, so I stopped listening." } },
+      lines = { { id = "gp_default", text = "A monster of a fish that's broken every line I own. Katoom says I use the wrong bait, but Katoom says that about everyone, so I stopped listening." } },
       choices = {
         { text = "Maybe Katoom is right.", next = "grouper_katoom", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },

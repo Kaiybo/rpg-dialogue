@@ -16,3 +16,4 @@ npcs\tarrenmill.lua
 npcs\tarrenmill_more.lua
 npcs\raleigh.lua
 npcs\southshore_more.lua
+npcs\alterac_roads.lua

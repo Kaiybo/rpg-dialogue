@@ -13,3 +13,4 @@
 pack.lua
 pools.lua
 npcs\sepulcher.lua
+npcs\roads.lua

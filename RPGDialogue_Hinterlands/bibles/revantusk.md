@@ -11,6 +11,16 @@
 - Otho_Moji'ko (cooking supplies): Message to the Wildhammer (Highvale high elves at Quel'Danil), Another Message to the Wildhammer (gryphon feathers), The Final Message to the Wildhammer (feathered spear planted by the well at Aerie Peak).
 - Gorkas (orc wind rider master, Orgrimmar; fishes off the pier, wants a huge grouper).
 
+## Their quests
+- Torntusk: Kidnapped Elder Torntusk!, Wanted: Vile Priestess Hexx and Her Minions, Job Opening: Guard Captain of Revantusk Village.
+- Markhor: Stalking the Stalkers, Hunt the Savages.
+- Yayo'jin: Cannibalistic Cousins.
+- Katoom: Snapjaws, Mon!, Gammerita, Mon!
+- Lard: Lard Lost His Lunch.
+- Slagtree: Vilebranch Hooligans.
+- Otho: Message to the Wildhammer, Another Message to the Wildhammer, The Final Message to the Wildhammer.
+- Gorkas: none: wind rider master; fishes for a grouper.
+
 ## Never
 - Hakkar by name, Zul'Gurub, Zul'Aman or any return of Zul'jin as an event (belief that he'll return is Classic gossip and stays belief). Cataclysm Revantusk (Elder Torntusk leading, Skulk Rock supplies, taking Jintha'Alor, Stomp To My Beat, Dark Vessels, Eliza Darkgrin), Midnight's Revantusk Sedge, Yayo'jin as Zul'jin's wife.
 - Renn'az (ammo vendor) has no source beyond his wares; not written.
