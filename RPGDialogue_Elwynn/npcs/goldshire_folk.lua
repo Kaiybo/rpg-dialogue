@@ -24,6 +24,14 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "I think ye're welcome in the Lion's Pride, same as anybody. I'd only ask ye not to turn into anythin' too large, because the floorboards are old." } },
+      choices = {
+        { text = "I'll keep my shape. It's your house.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "No promises. The bear does as it likes.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Dobbins. When Farley shouts my name I fetch, and when he doesn't I pour, and it's a good life." },
@@ -32,12 +40,15 @@ P:NPC {
         { id = "h_armwrestle", when = { metBefore = true }, text = "Lively night last night: a lad fresh from Northshire tried to arm-wrestle a dwarf. The dwarf's still at the bar, and the lad's still under it." },
         { id = "h_forget", when = { metBefore = true }, text = "People think a barkeep hears everything, and I do, but then I forget it. That's the real job, the forgetting." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "This is the hour the farmers come in, and the adventurers start telling lies about wolves. The farmers tell better lies." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid! I've never served one o' yer lot before, so ye'll tell me if ye want somethin' other than ale." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've three mugs to fill and one to find." },
         { id = "h_again2", text = "Go on, lean on the bar, only not that end, because it wobbles." },
       },
       choices = {
+        { text = "What do you think of druids?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Heard any news?", next = "news" },
         { text = "What's good to drink?", next = "drinks" },
         { text = "Pour me something.", next = "BUSINESS" },

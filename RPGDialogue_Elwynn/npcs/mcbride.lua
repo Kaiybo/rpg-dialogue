@@ -39,6 +39,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Not for sport, no. They've been taking our sheep, and I can't let a farmer's flock suffer for the sake of a wolf." } },
+      choices = {
+        { text = "That's fair. Protect the flock.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Wolves hunt to live. Show some mercy.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "The garrison's spread thin, so I'll be brief. What do you need?" },
@@ -85,6 +93,8 @@ P:NPC {
           text = "There's a face I'm glad to see. You're the sort of recruit I'd hand the valley to for an afternoon, and I don't say that lightly." },
         { id = "h_cold", when = { disposition = { max = 34 } },
           text = "You. State your business and keep it short, recruit, because I've not forgotten the last time." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid, here in Northshire! I've kobolds in the vineyard and wolves in the hills, so I'll gladly take whatever help you're offering." },
       },
       again = {
         { id = "h_again", text = "What else do you need, recruit? Be quick about it." },
@@ -92,6 +102,7 @@ P:NPC {
         { id = "h_again3", when = { minLevel = 20 }, text = "Something else? You've earned a few more minutes than most." },
       },
       choices = {
+        { text = "Do you hunt the wolves for sport, Marshal?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Reporting for duty, Marshal.", next = "orders",
           fx = { align = { order = 2 }, trait = { stern = 1 }, affinity = 1 },
           journal = { first = "Reported to Marshal McBride. He looked at me like a man counting how many of us come back.",

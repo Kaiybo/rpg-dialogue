@@ -27,6 +27,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Aye, since the troggs came boilin' out o' the ground at Uldaman way. The beasts are pushed out o' their dens an' half o' them take it out on my patrols." } },
+      choices = {
+        { text = "Then drive the troggs back and the beasts will settle.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Maybe the beasts are right to defend their land.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -45,12 +53,15 @@ P:NPC {
           text = "Well, look who it is! Thelsamar's favourite visitor, an' I'll hear no argument about it. Come here, come here!" },
         { id = "h_cold", when = { disposition = { max = 34 } },
           text = "Aye, I see ye. I'll be civil, because it's my post, but don't be expectin' the warm welcome." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid on my road! Good. The bears in these hills have been in a foul temper all season, an' I'd wager ye could tell me why." },
       },
       again = {
         { id = "h_again", text = "What else, friend? The road's quiet, for now." },
         { id = "h_again2", text = "Ask away. I've a post tae watch an' all day tae watch it." },
       },
       choices = {
+        { text = "Have the hills been changing lately?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What's this about a spy?", next = "spy" },
         { text = "How's the loch?", next = "loch" },
         { text = "Who needs a hand around here?", next = "jobs" },
@@ -176,6 +187,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "That the earth remembers every wound, an' that I'd answer for mine. Well, the earth's had a fair few wounds from troggs before me, an' I'm only after what's honest ore." } },
+      choices = {
+        { text = "Honest work is no crime, Prospector.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The druid was right. Dig with more care.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -190,12 +209,15 @@ P:NPC {
           text = "Powder, at last! We're on top o' somethin' grand here, I can feel it. As for Saean, well, that's a matter for another day." },
         { id = "h_agmond", when = { questDone = TODO_QUEST("Agmond's Fate") },
           text = "Agmond's urns sit wi' my idols now. If there's a link between these carvin's an' the troggs, I'll find it, for his sake." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid, eh? I suppose ye'll be wantin' tae lecture me about my diggin' like the last one did. Well, go on, I've heard worse." },
       },
       again = {
         { id = "h_again", text = "What else? Mind the ropes while ye ask." },
         { id = "h_again2", text = "Ask away; diggin's slow, but talkin's quick." },
       },
       choices = {
+        { text = "What did the last druid say about your digging?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What are you digging for?", next = "dig" },
         { text = "Why is the dig so slow?", next = "slow" },
         { text = "Where does your blastpowder go?", next = "powder" },
@@ -327,17 +349,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "The loch at dawn, when the mist sits on it an' the fish rise. The dam keeps the water deep, though the old folk say the valley looked different before it was built." } },
+      choices = {
+        { text = "The dam was worth building. Look at the town.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Dams change the land. I'd like to see it old.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Hearthstove, an' I keep the Stoutlager. It's the best ale between Ironforge an' the Wetlands, an' I'll fight anyone who says otherwise, after they've paid." },
         { id = "h_brawl", when = { metBefore = true }, text = "Two miners fought over the last stool last night an' broke it, so now neither of 'em has a stool. There's a lesson in that somewhere." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "It's late, an' the miners are singin' about the dam again. Every verse is the same verse, only louder." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid at my inn! Loch Modan's a fair green place for dwarven country, an' I'd hope ye find a corner o' it that pleases ye." },
       },
       again = {
         { id = "h_again", text = "Another? Sit, sit, there's room." },
         { id = "h_again2", text = "What else? Tell me a tale an' I'll pour." },
       },
       choices = {
+        { text = "What do you love most about Loch Modan?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "Who drinks here?", next = "regulars" },
         { text = "What do the miners sing about?", next = "song" },
@@ -519,6 +552,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Tell 'em tae stay off the roads an' out o' the farmer's fields. If they'll do that, my mountaineers will gladly leave 'em be." } },
+      choices = {
+        { text = "That's fair. I'll keep the peace between you.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The beasts were here first, Captain.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Captain Rugelfuss, holding the Valley of Kings for Ironforge. The troggs rise from under the hills faster than we can put them down." },
@@ -531,12 +572,15 @@ P:NPC {
           text = "A Mountaineer of Dun Morogh, good. You'll know what a short-handed post looks like, and this is one." },
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "Ah, good, it's you. The regiment's glad of you on these hills, and the captain is too, though he'll only say so the once." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid, is it? I've a district full o' bears, boars an' angry wolves, an' I'll take any help that can speak tae them." },
       },
       again = {
         { id = "h_again", text = "Is there anything further?" },
         { id = "h_again2", text = "Speak plainly, if you would; I prefer it." },
       },
       choices = {
+        { text = "What would you have me tell the beasts?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Where are your soldiers?", next = "reserve" },
         { text = "Who leads the troggs?", next = "leader" },
         { text = "Tell me about the statues.", next = "statues" },
@@ -683,6 +727,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "It holds back a loch's worth o' water an' keeps the valley from floodin'. Some'd call that harm, but I'd call it a gift tae every farm below it." } },
+      choices = {
+        { text = "Taming water is wise, not harmful.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Rivers deserve to run free, Chief Engineer.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -692,12 +744,15 @@ P:NPC {
         { id = "h_crack", when = { metBefore = true }, text = "I found a hairline crack on the east face this morning, which is nothing, probably nothing. I'll check it again tonight, and tomorrow, and forever." },
         { id = "h_saved", tags = { "news" }, when = { questRecent = { TODO_QUEST("A Dark Threat Looms"), days = 7 } },
           text = "You saved her, the dam, my dam! She's safe, for the time being, though I've started checking at noon as well." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid at the dam! I'll have ye know the Stonewrought Dam is the finest piece o' engineering in Khaz Modan, an' the fish don't seem tae mind it." },
       },
       again = {
         { id = "h_again", text = "Yes? Quickly, please; I've readings due." },
         { id = "h_again2", text = "Go on, and hold the rail while you do." },
       },
       choices = {
+        { text = "Does the dam harm the land around it?", next = "druid_q", when = { class = "DRUID" } },
         { text = "How old is the dam?", next = "old" },
         { text = "What are the Dark Iron after?", next = "threat" },
         { text = "Where are your guards?", next = "guards" },

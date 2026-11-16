@@ -28,6 +28,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "I believe in a good garden and a warm hearth, dear, and if that's magic, then I've been working it for sixty years." } },
+      choices = {
+        { text = "A garden is the truest magic there is.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Magic's power, not gardening, Gramma.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Oldest Stonefield still breathing. That gives me the right to say this feud is a waste of good years, and I say it often." },
@@ -45,6 +53,8 @@ P:NPC {
           text = "Look at you! You went out that door an errand-runner and came back with a face that's seen things. Sit down, and tell me none of them." },
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "There's my favourite. Sit down, you, and don't tell the family I said that, or I'll never hear the end of it." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid, at my door! My grandmother used to say the night elves' magic could make an apple tree bloom in winter. I'd like to see that someday." },
       },
       again = {
         { id = "h_again", text = "What else? I'm old, child, not deaf. Well, mostly not deaf." },
@@ -52,6 +62,7 @@ P:NPC {
         { id = "h_again3", when = { questDone = TODO_QUEST("The Escape") }, text = "Ask away, accomplice." },
       },
       choices = {
+        { text = "Do you believe in magic, Gramma?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why do you help them?", next = "why" },
         { text = "How did the feud start?", next = "feud" },
         { text = "How do you know William Pestle?", next = "william" },

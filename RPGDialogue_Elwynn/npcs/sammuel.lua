@@ -31,6 +31,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "I wouldn't go that far, but I've seen the Light heal and I've seen druids heal, and I'm not sure the wounded can tell the difference." } },
+      choices = {
+        { text = "All healing comes from the same good place.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Nature needs no Light to be whole.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I teach those the Light has chosen. The rest I simply pray for." },
@@ -51,12 +59,15 @@ P:NPC {
         { id = "h_night", when = { timeOfDay = "night" }, text = "The Abbey is quiet at this hour. The Light doesn't sleep, but it does seem to rest." },
         { id = "h_returned", when = { minLevel = 25, metBefore = true },
           text = "You've come back to the Abbey, as people do after they've seen what's out there. The floor's the same as it was, but you aren't." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid in Northshire! The Light has many faces, I'm told, and perhaps nature is one of them." },
       },
       again = {
         { id = "h_again", text = "What else is on your mind?" },
         { id = "h_again2", text = "Go on; the practice swords can wait a while." },
       },
       choices = {
+        { text = "Do you think the Light and nature are the same?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What does the Light ask of me?", next = "light" },
         { text = "How did you come to the Abbey?", next = "path" },
         { text = "Tell me about the Abbey's history.", next = "abbey" },

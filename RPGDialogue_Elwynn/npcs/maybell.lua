@@ -32,6 +32,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "I'd like to know if they're happy, I suppose, though Pa would say it doesn't matter as long as they give milk." } },
+      choices = {
+        { text = "It matters. Happy beasts make a good farm.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Your Pa's right. A farm runs on work.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Maclures and Stonefields don't speak. That's the rule, older than me. I've never been very good at rules." },
@@ -49,6 +57,8 @@ P:NPC {
           text = "I hate lying to my family, truly I do. But it's a smaller lie than pretending I don't love him." },
         { id = "h_far", when = { minLevel = 25, questDone = TODO_QUEST("The Escape") },
           text = "You came all the way back here? From wherever adventurers go? Then you should know: nobody's caught us yet." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "Oh, a druid! Are you one of those who can talk to the animals? I've always wondered if the cows have opinions." },
       },
       again = {
         { id = "h_again", text = "What else? Be quick, though; Billy's somewhere about, and Billy hears everything." },
@@ -56,6 +66,7 @@ P:NPC {
         { id = "h_again3", when = { questDone = TODO_QUEST("The Escape") }, text = "Ask me anything you like. I'm in a very good mood, which I know is suspicious." },
       },
       choices = {
+        { text = "Would you want to know what the cows think?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why do the families fight?", next = "feud" },
         { text = "Tell me about Tommy Joe.", next = "tommy" },
         { text = "Is Billy your brother?", next = "billy" },

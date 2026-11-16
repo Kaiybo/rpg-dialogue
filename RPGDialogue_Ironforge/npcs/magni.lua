@@ -32,6 +32,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "More than ye'd guess. Ye listen tae the forest an' we listen tae the mountain, an' the both of us know the world's older than any crown sittin' on it, mine included." } },
+      choices = {
+        { text = "The land comes before any crown, Your Majesty.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A strong crown is what keeps the land safe.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Magni Bronzebeard, King o' Ironforge. We pledged our axes tae the Alliance after the Second War, an' we've no' regretted it, mostly." },
@@ -53,6 +61,8 @@ P:NPC {
           text = "Ah, there's a face I'm glad o'! Come up, come up, an' never mind the guards; they know a friend o' the throne when they see one." },
         { id = "h_cold", when = { disposition = { max = 34 } },
           text = "I'll hear ye, because a king hears everyone, but I'll no' pretend I'm pleased tae. Out wi' it." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid o' the Cenarion Circle in my throne room! Ye keep the old forests, I'm told, an' I keep the old stone, so we're no' so different as folk think." },
       },
       again = {
         { id = "h_again", text = "What else, then? The court can wait; it's well used tae it." },
@@ -60,6 +70,7 @@ P:NPC {
         { id = "h_again3", when = { race = "Dwarf" }, text = "Speak freely. A king hears enough 'Yes, my king' tae last him." },
       },
       choices = {
+        { text = "Do dwarves and druids truly have anything in common, Your Majesty?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What troubles Ironforge?", next = "troubles" },
         { text = "Tell me about your family.", next = "family" },
         { text = "Why did a king take up digging for the past?", next = "league" },

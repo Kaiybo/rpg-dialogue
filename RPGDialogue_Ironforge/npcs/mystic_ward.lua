@@ -37,6 +37,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Different roads, I'd say, though they lead toward the same hearth. The Light asks us tae heal the wounded, an' yer Elune asks ye tae heal the land, an' I can't see much quarrel in that." } },
+      choices = {
+        { text = "All healing serves the same good.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Nature heals itself. It doesn't need faith.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -55,6 +63,8 @@ P:NPC {
           text = "A paladin wi' that look about ye usually wants my censer. Shadowbreaker's sendin' them up the tram again, I suppose." },
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "There ye are! I was hopin' ye'd come by, for I've a question that's been botherin' me all week an' the young ones are tired o' hearin' it." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid in the Mystic Ward! The Light an' the wild aren't the same thing, but I've always thought they're both a kind o' care for the world." },
       },
       again = {
         { id = "h_again", text = "Another lap, then? Ask what ye like as we go." },
@@ -62,6 +72,7 @@ P:NPC {
         { id = "h_again3", when = { class = "PRIEST" }, text = "What else, my friend? There's nae such thing as a daft question in this Hall, only daft answers." },
       },
       choices = {
+        { text = "Is the Light truly so different from nature?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why do you never stand still?", next = "pacing" },
         { text = "How did the Light come to Ironforge?", next = "came" },
         { text = "They say you keep an exorcism censer.", next = "censer" },

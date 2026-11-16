@@ -30,6 +30,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Because it can't be measured, only felt. A spell should be precise, and I've never yet met a druid who could tell me how a thing works, only that it does." } },
+      choices = {
+        { text = "Not everything must be measured to be true.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "You're right. Magic should be understood.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Theocritus, and this is my tower. The gnomes are my servants, and you're not to tip them because it confuses them. Now, what do you want?" },
@@ -49,12 +57,15 @@ P:NPC {
           text = "The Kirin Tor have been insufferable about your people lately, I'm told: Highborne magisters' children, back from wherever they were. I'd like to see what the fuss is about, but later." },
         { id = "h_pendant", tags = { "news" }, when = { questActive = TODO_QUEST("Theocritus' Retrieval") },
           text = "You heard me through a gnoll's pendant, weeks late? Give it here; a slow spell is still a spell that worked." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid. How quaint. I've studied the arcane for decades, and I'll confess the nature magics have always seemed rather muddy to me." },
       },
       again = {
         { id = "h_again", text = "Something else? Be brief, please; Redridge doesn't watch itself." },
         { id = "h_again2", text = "You're still here, I see. Very well, ask what you came to ask." },
       },
       choices = {
+        { text = "Why do you find nature magic muddy?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Who is Morganth?", next = "morganth" },
         { text = "What do you study here?", next = "study" },
         { text = "Tell me about the tower.", next = "tower" },

@@ -477,6 +477,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Not quite. A hunter takes a companion an' keeps it close, while a druid lets the wild run free an' walks beside it. Both ways can be honest, if the heart's right." } },
+      choices = {
+        { text = "A beast should be free, not leashed.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A well-kept companion lives longer than a wild one.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Daera Brightspear. I train hunters here, an' if ye're no' one, ye'll want tae look for yer own kind o' trainer, though I'll answer a question if ye've one." },
@@ -486,12 +494,15 @@ P:NPC {
           text = "A young hunter, an' ye've no' got a beast yet, have ye? Go an' see Grif Wildheart in Kharanos; he'll know when ye're ready." },
         { id = "h_hunter_beast", when = { class = "HUNTER", pet = { type = "Beast" } },
           text = "Let me see that beast o' yers before ye say a word; it'll tell me more about how ye've been huntin' than ye will. Good, it's fed an' it's no' limpin', so ye're doin' somethin' right." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid! Ye'll know the beasts as well as any hunter, though ye'd rather become one than tame one, I'd wager." },
       },
       again = {
         { id = "h_again", text = "Anythin' else?" },
         { id = "h_again2", text = "Go on, then, ask." },
       },
       choices = {
+        { text = "Do hunters and druids see the beasts the same way?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "How do you choose a beast?", next = "beast" },
         { text = "Who's Grif Wildheart?", next = "grif" },
