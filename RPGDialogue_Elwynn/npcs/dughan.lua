@@ -29,6 +29,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Some, aye, if they'd stay off the roads. But the wolves have been bold this year, and I've farmers to look after." } },
+      choices = {
+        { text = "The farmers come first. I'll help.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The wolves were here before the farmers.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Marshal Dughan. If you've a complaint, take a number. If you've a sword, take a job." },
@@ -70,6 +78,8 @@ P:NPC {
           text = "I've a desk full of trouble already, and I'm told some of it has your name on it. What do you want?" },
         { id = "h_woodsman", when = { origin = "human_eastvale_woodsman" },
           text = "An Eastvale woodsman with a bow on his back instead of an axe. Marshal Haggard says you lot can track a wolf across bare rock, so I've a gnoll problem you might like." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid in Goldshire! We've wolves an' kobolds an' murlocs to spare, so if ye've a way of turning them, I'd hear it." },
       },
       again = {
         { id = "h_again", text = "What else? The desk isn't getting any emptier." },
@@ -77,6 +87,7 @@ P:NPC {
         { id = "h_again3", when = { townStanding = { town = "goldshire", min = 30 } }, text = "Go on; for you, I've a minute more." },
       },
       choices = {
+        { text = "Couldn't some of the beasts just be left alone?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Any work for me?", next = "BUSINESS" },
         { text = "What about the Defias?", next = "defias" },
         { text = "McBride says someone is training them.", next = "confront",

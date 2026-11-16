@@ -44,6 +44,7 @@ P:NPC {
         { id = "h_again2", text = "Still here? Go on." },
       },
       choices = {
+        { text = "Hammerfall bears a warrior's name, Gor'mul. I mean to honor it.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Tell me about that night.", next = "night" },
         { text = "Why did you stay here?", next = "stayed" },
         { text = "What do you think of Tor'gan?", next = "torgan" },
@@ -96,6 +97,14 @@ P:NPC {
     thrall = {
       lines = { { id = "th_default", text = "So they tell me, a young one raised by humans who freed the camps and leads us across the sea. I would like to believe in him, but I believed in Doomhammer, and I saw what believing is worth." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xhwar = {
+      big = true,
+      lines = { { id = "xhwar_default", text = "Then you know the Doomhammer fell not far from here, freeing our people from the camps. A warrior who honors his name doesn't only fight, but fights for those who can't." } },
+      choices = {
+        { text = "I'll fight for those who can't, as he did.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I fight to win. Honor comes second.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
     },
     camp = {
       lines = { { id = "c_default", text = "Then you know the smell of it, the mud and the iron and the quiet. Do not let anyone tell you that you should forget it, but do not let it hold you the way it held me." } },
@@ -161,6 +170,7 @@ P:NPC {
         { id = "h_again2", text = "Ask. The spirits got patience, and so do I." },
       },
       choices = {
+        { text = "The Highlands are wide. What should a hunter track first?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Why help Gor'mul?", next = "gormul" },
         { text = "What did you find at Northfold Manor?", next = "northfold" },
         { text = "You rebuilt a sigil for Zengu?", next = "sigil" },
@@ -204,6 +214,14 @@ P:NPC {
     sigil = {
       lines = { { id = "si_default", text = "The prince of Stromgarde broke the Sigil of Thoradin into eleven pieces and gave them to his defenders. Bring me the pieces and I bind them whole again; Zengu does the rest, and he laughs while he does it." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xhhunt = {
+      big = true,
+      lines = { { id = "xhhunt_default", text = "The Syndicate scouts, before anything with fur. Raptors will bite you, but Syndicate men will tell Stromgarde where Hammerfall sleeps, and that's worse for all of us." } },
+      choices = {
+        { text = "Then I'll track the Syndicate for Hammerfall.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll track whatever's worth my arrows.", next = "BACK", fx = { align = { order = -1 } } },
+      },
     },
     shaman = {
       lines = { { id = "sh_default", text = "The Darkspear sailed with Thrall, and the old ways came back to us the same as to the orcs. When Drum Fel needed a shaman on these walls, I came, because somebody had to tend the spirits where so many of our people suffered." } },
@@ -265,6 +283,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, but be quick about it, because the drum's already on the wall." },
       },
       choices = {
+        { text = "Forsaken and orcs fight side by side here. Does that sit well?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Who is Or'Kalar?", next = "orkalar" },
         { text = "Why hide it from your husband?", next = "secret" },
         { text = "How do you read the auguries?", next = "auguries" },
@@ -299,6 +318,14 @@ P:NPC {
     secret_suspect = {
       lines = { { id = "ss_default", text = "He knows I worry, and he thinks it's only a wife's worry. He reads the hills and I read the bones, and he's never once asked what the bones say." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
+    },
+    xhwar = {
+      big = true,
+      lines = { { id = "xhwar_default", text = "Better than I expected, frankly. The orcs remember the internment camps, I remember dying, and Stromgarde gave us both our reasons, so we stand together well enough." } },
+      choices = {
+        { text = "Then I'll stand with them, whatever we once were.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Alliances last until they don't. I'll watch my back.", next = "BACK", fx = { align = { order = -1 } } },
+      },
     },
     auguries = {
       lines = { { id = "a_default", text = "Bones, smoke, the flight of crows over the Highlands. None of it is certain, but it has been right often enough that I've stopped arguing with it." } },
@@ -355,6 +382,7 @@ P:NPC {
         { id = "h_again", text = "Anything else? The wind's turning." },
       },
       choices = {
+        { text = "Do wind riders mind sharing the sky with my beast?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Show me where I can fly.", next = "BUSINESS" },
         { text = "What are the winds like here?", next = "winds" },
         { text = "Do the trolls shoot at your riders?", next = "trolls" },
@@ -371,6 +399,14 @@ P:NPC {
     winds_straight = {
       lines = { { id = "ws_default", text = "Because straight is how you lose a rider, and I've lost one already this season. Wide and slow gets everyone home." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xhhunt = {
+      big = true,
+      lines = { { id = "xhhunt_default", text = "Wind riders mind nothing but their dinner, hunter, and they'll mind your beast if it looks like dinner. Keep it on the ground and away from the roost, and all will go well." } },
+      choices = {
+        { text = "I'll keep it well clear. It means no trouble.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Your riders can learn to share the sky.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
     },
     trolls = {
       lines = { { id = "t_default", text = "When they get the chance, and the Witherbark have good arms. My riders fly high over the south hills and come down hard when they reach the walls." } },

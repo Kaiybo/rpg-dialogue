@@ -20,6 +20,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "If they are, it's a part I'd sooner do without. They came up out o' the deep stone, an' they foul every stream an' cave they touch." } },
+      choices = {
+        { text = "Then they must be driven back.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Everything has its place, even troggs.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -28,12 +36,15 @@ P:NPC {
           text = "The kobolds took our mining gear into the Silver Stream Mine, up north. Get it back before they dull every pick we own." },
         { id = "h_order", when = { questActive = TODO_QUEST("Stormpike's Order") },
           text = "My orders are sealed, so don't go reading them on the road. Get them where they need to go, and fast." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid on the road! Yer kind's welcome here, though I'll warn ye the troggs don't care whether ye're a bear or a dwarf." },
       },
       again = {
         { id = "h_again", text = "What else? Speak up." },
         { id = "h_again2", text = "Ask yer question, but keep it short; the Loch road needs watchin'." },
       },
       choices = {
+        { text = "Are the troggs a part of nature, Mountaineer?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What's happening at the Silver Stream Mine?", next = "mine" },
         { text = "Kadrell says you have stories.", next = "stories" },
         { text = "How do you see the Loch these days?", next = "loch" },
@@ -181,18 +192,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "I don't dislike the land, only what it does tae my boots. Still, the Dark Irons an' the orcs up there are worse than any swamp." } },
+      choices = {
+        { text = "The swamp deserves protecting like any forest.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The swamp is only mud and trouble.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Mountaineer Rockgar, and this is Algaz Station, the last friendly roof before the Wetlands. North of here there's trolls in the hills, orcs in the marsh and mud up to yer knees." },
         { id = "h_report", when = { questActive = TODO_QUEST("Report to Mountaineer Rockgar") },
           text = "Kadrell sent ye, did he? Good, I've been short of able hands since the pass got busy." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid at Dun Algaz! If ye're headin' north, ye'll find the Wetlands more tae yer likin' than mine, all swamp an' frogs an' raptors." },
       },
       again = {
         { id = "h_again", text = "Anythin' else before ye head north?" },
         { id = "h_again2", text = "Speak up. The wind takes half of what ye say up here." },
       },
       choices = {
+        { text = "Do you dislike the Wetlands, Mountaineer?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What's the danger in the pass?", next = "pass" },
         { text = "What's in the Wetlands?", next = "wetlands" },
         { text = "How long have you held this station?", next = "station" },

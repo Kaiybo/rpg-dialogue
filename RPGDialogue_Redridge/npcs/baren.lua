@@ -29,8 +29,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_talk = {
+      lines = { { id = "dt_default", text = "Aye, there is. They come up thin, and the murlocs have taken the good spawning grounds along the east shore. My lads blame the orcs upstream, though nobody's walked up there to check." } },
+      choices = {
+        { text = "I'll walk up there and see to it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The murlocs have as much right to those waters.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidx", when = { class = "DRUID" },
+          text = "You've the look of someone who'd sooner swim the lake as a seal than wait on my ferry." },
         { id = "h_default", text = "Baren, dockmaster. I count the boats out and count them back, and these days I count murlocs too, and there are more of them." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Murloc Poachers") },
           text = "They've packed the shore in bigger groups than I've ever seen, fishing like they're paid for it. At this rate there won't be a fish left in the lake." },
@@ -49,6 +59,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, then; the boats can count themselves for a minute." },
       },
       choices = {
+        { text = "Something is wrong with the fish in your lake.", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Is the lake really that bad?", next = "lake" },
         { text = "Tell me about the sunfish.", next = "sunfish" },
         { text = "Who crosses on your boats?", next = "boats" },

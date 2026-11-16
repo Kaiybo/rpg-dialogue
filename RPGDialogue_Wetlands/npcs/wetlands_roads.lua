@@ -20,18 +20,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "That it was ours once, an' the Dragonmaw have it now, wi' a red dragon chained in the deep. Even the beasts won't go near that mountain." } },
+      choices = {
+        { text = "The red dragon must be freed.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Leave that mountain and its dragons alone.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Longbraid, they call me, and they add 'the Grim' because I've had little to smile about since the Dark Irons came. They broke the Thandol Span and took Dun Modr, and we hold on by our fingernails." },
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "There's a face I'm glad to see, and there's no' many of those left round here. Come in out of the wet." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid, out here! I've no quarrel wi' yer kind, only wi' the Dark Irons an' the dragons over Grim Batol." },
       },
       again = {
         { id = "h_again", text = "What else? Make it quick; the walls have ears." },
         { id = "h_again2", text = "Speak yer piece, then, and dinnae waste my breath or yers." },
       },
       choices = {
+        { text = "What do you know of Grim Batol?", next = "druid_q", when = { class = "DRUID" } },
         { text = "How did the Dark Irons take Dun Modr?", next = "fall" },
         { text = "What about the Thandol Span?", next = "span" },
         { text = "Why do they call you Grim?", next = "grim" },

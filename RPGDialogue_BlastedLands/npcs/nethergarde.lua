@@ -310,8 +310,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_talk = {
+      lines = { { id = "dt_default", text = "Tried, yes, and failed. The fel taint goes down into the rock. Our mages can hold it back, but only the Cenarion Circle could ever hope to undo it, and they have never answered our letters." } },
+      choices = {
+        { text = "Thank you. Let me ask something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidx", when = { class = "DRUID" },
+          text = "A druid. I read in the old books that your people once healed a world. I hope you've brought a little of that here." },
         { id = "h_default", key = true,
           text = "Watcher Mahar Ba, of the mages of Nethergarde. We watch the Dark Portal, and when it does nothing, which is always, we measure what the nothing is doing to the land around it." },
         { id = "h_essays_wait", tags = { "news" }, when = { questActive = TODO_QUEST("Mazen's Behest") },
@@ -326,6 +334,7 @@ P:NPC {
         { id = "h_again2", text = "What else would you like to know? I warn you, I can talk about the Portal until the candle gutters." },
       },
       choices = {
+        { text = "Has Nethergarde tried to restore the land?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "What exactly do you watch for?", next = "watch" },
         { text = "Who was Khadgar?", next = "khadgar" },
         { text = "What happened to the essays from Stormwind?", next = "essays" },
@@ -550,8 +559,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_talk = {
+      lines = { { id = "dt_default", text = "The Dark Portal and everything that came through it. The orcs' warlocks drained the life from Draenor to power their magic, and they began the same work here. Nethergarde exists to make sure it never finishes." } },
+      choices = {
+        { text = "Then I'll help Nethergarde guard what remains.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Guarding a dead land seems a waste of good mages.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidx", when = { class = "DRUID" },
+          text = "A druid. You have the look of one who would rather be anywhere else. I understand; I dream of trees myself, and wake to this." },
         { id = "h_default", key = true,
           text = "Thadius Grimshade, diviner, late o' Aerie Peak an' now o' this tower. I find things, lost things an' hidden things, an' I ask a fair price for the findin'." },
         { id = "h_feather", tags = { "news" }, when = { questActive = TODO_QUEST("Thadius Grimshade") },
@@ -568,6 +587,7 @@ P:NPC {
         { id = "h_again2", text = "Ask. I've answers for most things, an' prices for the rest." },
       },
       choices = {
+        { text = "What killed the land here?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Why would a Wildhammer leave the Hinterlands?", next = "why" },
         { text = "What do you want with Nekrum's medallion?", next = "medallion" },
         { text = "How does divination work?", next = "divination" },
@@ -966,8 +986,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_talk = {
+      lines = { { id = "dt_default", text = "A little, and only with stubbornness. I gather herbs and roots that grow nowhere else, twisted things that drink demon blood. Feed them to a man and he'll either be strong as a bull or very sick indeed." } },
+      choices = {
+        { text = "Then I'll help you find what heals rather than harms.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Twisted things should be burned, not harvested.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidx", when = { class = "DRUID" },
+          text = "A druid! You'll be wanting to see what this place was before the Dark Portal, I suppose. So would I." },
         { id = "h_default", key = true,
           text = "Enohar Thunderbrew, o' the Thunderbrews o' Kharanos, the finest brewers in all o' Khaz Modan, an' don't let anyone tell ye otherwise. Things get a wee bit stuffy in Nethergarde, so now an' then I have a brew tae take my mind off the duty." },
         { id = "h_ragnar", tags = { "news" }, when = { questActive = TODO_QUEST("Ragnar Thunderbrew") },
@@ -980,6 +1010,7 @@ P:NPC {
         { id = "h_again2", text = "Out wi' it, then, an' I'll listen, mostly, between sips." },
       },
       choices = {
+        { text = "Can anything grow in the Blasted Lands?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "What's this about stolen ale?", next = "ale" },
         { text = "What brings a Thunderbrew all the way out here?", next = "why" },
         { text = "How do the dwarves find Nethergarde?", next = "dwarves" },

@@ -228,6 +228,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, ask. The potion don't mind waiting, but the customers do." },
       },
       choices = {
+        { text = "The Badlands are hard country, and a good place for a warrior.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "What do you need from the Badlands?", next = "reagents" },
         { text = "What's this about a necklace?", next = "necklace" },
         { text = "Why does a Darkspear live above an orc inn?", next = "upstairs" },
@@ -315,6 +316,14 @@ P:NPC {
       choices = {
         { text = "Share your recipes and we both prosper.", next = "BACK", fx = { align = { order = 1 }, affinity = 2 } },
         { text = "I'll keep my own secrets, thanks.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
+    xhwar = {
+      big = true,
+      lines = { { id = "xhwar_default", text = "Hard country makes hard fighters, true, and soft ones bleach in the sun. I've seen young warriors come through here proud and leave humble, and the humble ones lived longest." } },
+      choices = {
+        { text = "Then I'll learn humility before the sun teaches me.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll stay proud. The sun can try me.", next = "BACK", fx = { align = { honor = -1 } } },
       },
     },
     k_troll = {
@@ -448,6 +457,7 @@ P:NPC {
         { id = "h_again2", text = "Still here? Then buy something, or ask something." },
       },
       choices = {
+        { text = "I need gear that holds up against Dark Iron hammers.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "How do you keep supplies out here?", next = "supplies" },
         { text = "What sells best in Kargath?", next = "sells" },
         { text = "Show me what you have.", next = "BUSINESS" },
@@ -470,6 +480,14 @@ P:NPC {
           text = "Not since you went after them. I've had full sacks for a week, and I've stopped sleeping on the grain pile to guard it." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xhwar = {
+      big = true,
+      lines = { { id = "xhwar_default", text = "Then you need more plate and less hope, warrior. I sell plenty of plate, and the advice comes free: keep your shield up and your helmet on." } },
+      choices = {
+        { text = "I'll take the plate, and the advice.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll buy the plate and keep my own counsel.", next = "BACK", fx = { align = { order = -1 } } },
+      },
     },
     sells = {
       lines = {

@@ -27,8 +27,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_talk = {
+      lines = { { id = "dt_default", text = "They fight it, mostly. The jungle bites back, and they bite harder. But I have told them not to burn what they cannot eat, and they listen, because I am the one who feeds them." } },
+      choices = {
+        { text = "That is wise. The land remembers who burned it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A war camp has no room for such worries.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidx", when = { class = "DRUID" },
+          text = "A druid of the tauren. Good. My grunts fight better with one of your kind nearby to mend them." },
         { id = "h_default", key = true,
           text = "Commander Aggro'gosh. This camp keeps the road to Stonard open, and that road feeds the Horde. The ogres and the Bloodscalp make it hard, and I make it happen anyway." },
         { id = "h_defense", tags = { "news" }, when = { questActive = TODO_QUEST("The Defense of Grom'gol") },
@@ -45,6 +55,7 @@ P:NPC {
         { id = "h_again2", text = "Speak, then, but speak while you walk if you can." },
       },
       choices = {
+        { text = "Do your grunts respect this jungle, or only fight it?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "How's the supply line?", next = "road" },
         { text = "What do you need most?", next = "need" },
         { text = "Who are you watching the walls for?", next = "threats" },
@@ -285,6 +296,7 @@ P:NPC {
       },
       choices = {
         { text = "Who is Yenniku?", next = "yenniku" },
+        { text = "Do the jungle trolls fear a warrior's axe, Nimboya?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "And the Bloodscalp?", next = "bloodscalp" },
         { text = "Why punish the Witherbark?", next = "witherbark" },
         { text = "Do the Darkspear miss this jungle?", next = "walls" },
@@ -393,6 +405,14 @@ P:NPC {
       choices = {
         { text = "It's still a victory.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Then Zanzil should answer for it.", next = "BACK", fx = { affinity = 2, trait = { stern = 1 } } },
+      },
+    },
+    xhwar = {
+      big = true,
+      lines = { { id = "xhwar_default", text = "They fear nothing much, mon, not even the Gurubashi's own gods. But they respect strength, so you show them strength and they'll keep their distance from Grom'gol." } },
+      choices = {
+        { text = "Then I'll show them strength, without cruelty.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll show them strength. Mercy's their problem.", next = "BACK", fx = { align = { honor = -1 } } },
       },
     },
     k_shaman = {
@@ -651,8 +671,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_talk = {
+      lines = { { id = "dt_default", text = "The Gurubashi trolls call on gods that were old before the Horde came to this world. Their priests wake things in the jungle that should sleep. We watch them, and we do not sleep well either." } },
+      choices = {
+        { text = "Then we must calm the spirits before they turn on everyone.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let the trolls drown in their own gods.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidx", when = { class = "DRUID" },
+          text = "Earthmother keep you, druid. Thunder Bluff is far, but the spirits of this jungle know your kind." },
         { id = "h_default", key = true,
           text = "Far Seer Mok'thardin, of Orgrimmar. The beasts of Stranglethorn carry old power in their blood and bones, and I'm learning to draw it out." },
         { id = "h_ench", when = { questActive = TODO_QUEST("Mok'thardin's Enchantment") },
@@ -666,6 +696,7 @@ P:NPC {
         { id = "h_again2", text = "Ask. The elements are in no hurry tonight." },
       },
       choices = {
+        { text = "The jungle spirits are angry here. The trolls stir them.", next = "druid_talk", when = { class = "DRUID" } },
         { text = "What kind of power?", next = "power" },
         { text = "What are you making?", next = "ench" },
         { text = "Why send a far seer to a supply camp?", next = "why" },
@@ -819,6 +850,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Still here? Good, the stew's still hot, so what else?" } },
       choices = {
+        { text = "Does Grom'gol need meat for the cookfire, Thulbek?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "I've a story or two.", next = "story" },
         { text = "What's the talk in camp?", next = "talk" },
         { text = "Where does the zeppelin go?", next = "zeppelin" },
@@ -877,6 +909,14 @@ P:NPC {
       choices = {
         { text = "It's good to see the Horde here.", next = "BACK", fx = { align = { order = 1 }, affinity = 2 } },
         { text = "It's still our jungle, not the Horde's.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
+    xhhunt = {
+      big = true,
+      lines = { { id = "xhhunt_default", text = "Always, hunter, always. The tigers and raptors are plentiful here, and the grunts eat as though they're feeding three mouths apiece. Bring meat and I'll be your friend for a week." } },
+      choices = {
+        { text = "I'll hunt for the camp, then.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll hunt for my own needs first.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
     forsaken = {

@@ -27,8 +27,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_talk = {
+      lines = { { id = "dt_default", text = "Some say the Sunken Temple, where the trolls once worshipped a blood god. Others say it was always a sorrowful place. Whatever it is, the water is foul and the beasts grow strange. Find the cause, and Stonard will owe you." } },
+      choices = {
+        { text = "I'll seek the source and cleanse it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A foul swamp keeps the Alliance away. Leave it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidx", when = { class = "DRUID" },
+          text = "A druid. Thrall's Horde has need of healers in this swamp, and the swamp has need of healing worse than we do." },
         { id = "h_default", key = true,
           text = "Dispatch Commander Ruag. Stonard is the Horde's eyes in these lands; from here we scout what nobody has charted, and we send word back faster than anyone else can." },
         { id = "h_aggrogosh", when = { heardLine = "aggrogosh.h_default" },
@@ -45,6 +55,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm writing as you talk." },
       },
       choices = {
+        { text = "What has poisoned the Swamp of Sorrows?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Why scout a swamp?", next = "scout" },
         { text = "Tell me about Stonard.", next = "stonard" },
         { text = "What happened to Thrall's Grasp?", next = "grasp" },
@@ -288,6 +299,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, then, but don't ask me to go down there again tonight." },
       },
       choices = {
+        { text = "Do the swamp beasts make good companions, Fel'zerul?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "What's stirring?", next = "stirring" },
         { text = "Who were the Atal'ai?", next = "atalai" },
         { text = "Why did the Warchief send a warlock?", next = "warlock" },
@@ -382,6 +394,14 @@ P:NPC {
         { text = "I'll watch myself.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
       },
     },
+    xhhunt = {
+      big = true,
+      lines = { { id = "xhhunt_default", text = "The crocolisks make poor friends and worse pets, but the swamp's panthers and jaguars are another story. I've seen hunters tame things here that would make a Stonard grunt run." } },
+      choices = {
+        { text = "I'll tame what respects me, and leave the rest.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll tame whatever's strongest, respect or not.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
+    },
     k_shaman = {
       big = true,
       lines = {
@@ -430,8 +450,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_talk = {
+      lines = { { id = "dt_default", text = "Perhaps, perhaps not. But you would have to learn the paths first, and the swamp changes them every season. Run with me once, and we will see who reaches Stonard first." } },
+      choices = {
+        { text = "Thank you. Let me ask something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidx", when = { class = "DRUID" },
+          text = "You run on four feet sometimes, I'm told. Then you'll understand why I keep to the high paths. The swamp eats the slow." },
         { id = "h_default", key = true,
           text = "Helgrum the Swift, and they call me that because I'm fast, not because I'm clever. Neeka Bloodscar's the clever one, head scout out at Kargath in the Badlands." },
         { id = "h_neeka", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("Neeka Bloodscar") }, { questActive = TODO_QUEST("Report to Helgrum") } } },
@@ -444,6 +472,7 @@ P:NPC {
         { id = "h_again", text = "What else? Talk fast, I've got a run at noon." },
       },
       choices = {
+        { text = "I could run your messages faster than any wolf.", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Why do they call you the Swift?", next = "swift" },
         { text = "Who is Neeka Bloodscar?", next = "neeka" },
         { text = "What's so hard about the road to Kargath?", next = "road" },
@@ -670,14 +699,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_talk = {
+      lines = { { id = "dt_default", text = "We do not live, druid, we endure. Stonard was built to hold the Horde's road to the Blasted Lands, not to be pleasant. We drink boiled water and keep the fires high, and we sleep when we can." } },
+      choices = {
+        { text = "Thank you. Let me ask something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidx", when = { class = "DRUID" },
+          text = "A druid from Mulgore! Your folk need wide plains and clean skies, and you have come to a swamp. Rest here a while." },
         { id = "h_default", key = true,
           text = "Innkeeper Karakul. Scouts come back muddy and hungry, and I send them out fed, which isn't glory, but it keeps the Horde walking." },
         { id = "h_mud", when = { metBefore = true }, text = "The scouts track half the swamp in on their boots, so I've started charging them a bucket of water each, and they pay in mud." },
       },
       again = { { id = "h_again", text = "Something else? The stew won't keep forever, and neither will I." } },
       choices = {
+        { text = "How do your people live amid such rot?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "What do the scouts say?", next = "scouts" },
         { text = "Any word from the temple?", next = "temple" },
         { text = "What's in the stew?", next = "stew" },

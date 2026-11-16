@@ -113,6 +113,7 @@ P:NPC {
         { id = "h_again2", text = "Anything further?" },
       },
       choices = {
+        { text = "Do the mages ever look down on hunters, Anastasia?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Did death change your magic?", next = "death" },
         { text = "What do you think of Dalaran?", next = "dalaran" },
         { text = "Teach me.", next = "BUSINESS", when = { class = "MAGE" } },
@@ -136,6 +137,14 @@ P:NPC {
         { text = "Knowledge is worth any cost.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Some knowledge shouldn't be taken.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhhunt = {
+      big = true,
+      lines = { { id = "xhhunt_default", text = "Constantly, and they're wrong to. A hunter knows the land and reads the weather, and a hunter's arrow has never once blown up in its owner's face, which is more than I can say for my students." } },
+      choices = {
+        { text = "Every trade has its use to the Forsaken.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let them sneer. I answer to nobody's opinion.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
     dalaran = {
@@ -188,6 +197,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, and quickly." },
       },
       choices = {
+        { text = "You test your work on prisoners, Zinge?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "What do you work on here?", next = "work" },
         { text = "What's Faranell like?", next = "faranell" },
         { text = "Never mind.", next = "END" },
@@ -210,6 +220,14 @@ P:NPC {
         { text = "Results matter more than the risk.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "No one should die for an experiment.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhwar = {
+      big = true,
+      lines = { { id = "xhwar_default", text = "On prisoners, on rats, and once, regrettably, on my assistant. A warrior like you understands that victories cost something, and I simply pay the cost earlier than most." } },
+      choices = {
+        { text = "Even the dead should have limits, Zinge.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The war demands it. I won't judge you.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
     faranell = {

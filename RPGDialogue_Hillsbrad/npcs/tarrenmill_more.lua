@@ -243,6 +243,7 @@ P:NPC {
         { id = "h_again", text = "Anything else? I'm still on watch, technically." },
       },
       choices = {
+        { text = "The hills are thick with game. Want me to clear some?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "How did you lose your gear?", next = "lost" },
         { text = "What's at Dun Garok?", next = "dungarok" },
         { text = "What do the others say?", next = "teasing" },
@@ -264,6 +265,14 @@ P:NPC {
     dungarok = {
       lines = { { id = "d_default", text = "An old dwarven fort in the southeast hills, full of Ironforge's soldiers. The High Executor wants it hurt anyway, so you'll have company there." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xhhunt = {
+      big = true,
+      lines = { { id = "xhhunt_default", text = "The bears and the mountain lions, yes, please, because they keep the farmers from the fields and the fields keep us in grain. Bring back pelts if you can, so the tanner stops complaining." } },
+      choices = {
+        { text = "I'll clear them for the farms.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll hunt them for my own purse, mind you.", next = "BACK", fx = { align = { order = -1 } } },
+      },
     },
     teasing = {
       big = true,
@@ -325,6 +334,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, tell me about the fighting." },
       },
       choices = {
+        { text = "Southshore's guards are soft. Let me test them.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Why skulls?", next = "skulls" },
         { text = "Why aren't you fighting?", next = "post" },
         { text = "What do you think of Humbert?", next = "humbert" },
@@ -352,6 +362,14 @@ P:NPC {
     humbert = {
       lines = { { id = "h2_default", text = "Poor Humbert. I've offered to lend him a femur until he finds his sword, and he hasn't once thanked me." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    xhwar = {
+      big = true,
+      lines = { { id = "xhwar_default", text = "I'm sure they are, and I'm sure you'd enjoy it, but the High Executor wants raids planned, not wandered into. Ask Darthalia first, and then go and test them as hard as you like." } },
+      choices = {
+        { text = "Fair enough. I'll ask before I strike.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I don't wait for permission to fight humans.", next = "BACK", fx = { align = { order = -1 } } },
+      },
     },
     living = {
       lines = { { id = "l_default", text = "Do they? The ogres in Alterac wear far worse, and nobody says a thing to them. You'll get used to me, I promise." } },
@@ -543,6 +561,7 @@ P:NPC {
         { id = "h_again", text = "Anything else on your list?" },
       },
       choices = {
+        { text = "Do you sell arrows, or only reagents?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Let me see your goods.", next = "BUSINESS" },
         { text = "What's on the right shelf?", next = "shelf" },
         { text = "Do the dead buy much?", next = "dead" },
@@ -559,6 +578,14 @@ P:NPC {
     shelf_jars = {
       lines = { { id = "sj_default", text = "I don't ask, and he doesn't tell, and we've got along nicely for a year that way. Shall we keep it so?" } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xhhunt = {
+      big = true,
+      lines = { { id = "xhhunt_default", text = "Arrows, shot, and a few odds and ends a hunter always runs short of, though the poisons are on a separate shelf. A hunter who buys from me comes back, and I like that kind of customer." } },
+      choices = {
+        { text = "I'll shop here, then, and keep coming back.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll buy where it's cheapest, not where it's friendly.", next = "BACK", fx = { align = { order = -1 } } },
+      },
     },
     dead = {
       lines = { { id = "d_default", text = "Thread for mending, oil for blades, and the odd candle, out of habit. Most of us remember liking candles, even if we can't remember why." } },

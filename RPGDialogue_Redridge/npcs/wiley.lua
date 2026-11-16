@@ -31,8 +31,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_talk = {
+      lines = { { id = "dt_default", text = "Generous, and probably true, but no. I've a few debts to settle before I go anywhere. When I'm ready to vanish, I'll manage it myself, thank you." } },
+      choices = {
+        { text = "Thank you. Let me ask something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidx", when = { class = "DRUID" },
+          text = "A druid. Don't turn into anything in my presence; I've seen enough strange things this year." },
         { id = "h_default", text = "They call me Wiley the Black, some of them, and some call me worse. I sit in this corner and I know things, and I don't tell them to just anybody." },
         { id = "h_defias", key = true, tags = { "news" }, when = { questActive = TODO_QUEST("The Defias Brotherhood") },
           text = "Gryan did me a favor once, the kind you don't repay with coin. So I pay him in what I know about the Brotherhood, and you'd best listen close." },
@@ -51,6 +59,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, quietly. Half this inn is ears, and the other half is Daniels." },
       },
       choices = {
+        { text = "I could get you out of here unseen, as a cat.", next = "druid_talk", when = { class = "DRUID" } },
         { text = "What do you know about the Defias?", next = "defias" },
         { text = "What favor did Gryan do you?", next = "favor" },
         { text = "Why this corner?", next = "corner" },

@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.9.0 (2026-11-16)
+- Druids get their own greeting, question and short conversation with several people here.
+- Horde warriors and hunters get their own question and short conversation with several people here.
+
 ## 1.8.0 (2026-11-16)
 - New people: Galen Goodward and the Fallen Hero of the Horde.
 - New files: exit the game fully and restart.

@@ -283,6 +283,7 @@ P:NPC {
         { id = "h_again2", text = "Go on; Umpi's listening too, since she has nothing better to do." },
       },
       choices = {
+        { text = "Will your plague do my fighting for me, Lydon?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Who's Umpi?", next = "umpi" },
         { text = "What are you working on?", next = "work" },
         { text = "Why are you so miserable?", next = "misery" },
@@ -374,6 +375,14 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
     },
+    xhwar = {
+      big = true,
+      lines = { { id = "xhwar_default", text = "Not all of it, warrior, but it'll thin the crowd you have to fight. Southshore won't know what's come until it's already in their wells, and then you'll find the work much easier." } },
+      choices = {
+        { text = "I'd rather beat Southshore with my own two hands.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then poison them, and I'll finish what's left.", next = "BACK", fx = { align = { light = -1 } } },
+      },
+    },
     xmage = {
       lines = { { id = "xma_default", text = "Then you'll appreciate that I'm doing in a hut what Dalaran did in towers, only with less funding and more fumes. Don't tell me what the city looked like when you left it; I'd rather not have to feel anything about it." } },
       choices = {
@@ -434,6 +443,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. The bar won't polish itself... well, it might, in this town." },
       },
       choices = {
+        { text = "Is there a place to stable a beast in Tarren Mill?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "What was Tarren Mill like before?", next = "before" },
         { text = "Who stays here?", next = "guests" },
@@ -476,6 +486,14 @@ P:NPC {
         { text = "We have no need of it. Better without.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
         { text = "I'd give much to dream again.", next = "BACK", fx = { align = { light = 1 }, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhhunt = {
+      big = true,
+      lines = { { id = "xhhunt_default", text = "There's a stall out back that's been empty since the last owner was eaten, so it's yours if you like. Keep the beast quiet at night, because the guards are jumpy with Southshore so close." } },
+      choices = {
+        { text = "I'll keep it quiet. Thank you, Shay.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "It'll make what noise it likes. Let Southshore hear it.", next = "BACK", fx = { align = { honor = -1 } } },
       },
     },
     food = {

@@ -28,8 +28,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_talk = {
+      lines = { { id = "dt_default", text = "That's the best news I've had since the Defias took the Jansen farm. My father always said Westfall dirt was stubborn, and I reckon he was right about that much." } },
+      choices = {
+        { text = "Then rest a field each year, and it will repay you.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let the weeds have it awhile. The wild knows best.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidx", when = { class = "DRUID" },
+          text = "You've a strange way of looking at my rows, friend, like you're listening to them. My wife does that too, now and then." },
         { id = "h_default", text = "The name's Saldean, and this is my farm. The thieves ran all the neighbours off, but I'm still here, so make of that what you like." },
         { id = "h_before", when = { questBefore = TODO_QUEST("The Killing Fields") },
           text = "See those scarecrows in my field? Harvest watchers, they call them, and they walk and they swing, and they don't belong to me, and they won't leave." },
@@ -48,6 +58,7 @@ P:NPC {
         { id = "h_again2", text = "Ask away. The pumpkins won't mind if I stop to answer you." },
       },
       choices = {
+        { text = "Your soil is tired, but it isn't dead yet.", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Why did you stay?", next = "stay" },
         { text = "Where did the watchers come from?", next = "watchers" },
         { text = "Where did your neighbours go?", next = "neighbours" },

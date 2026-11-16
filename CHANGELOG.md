@@ -2,6 +2,13 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.40.0 (2026-11-16)
+Packs: 17 packs have new versions (`python3 tools/version.py` lists them). No new files in 0.40.0, but if you skipped 0.39.0, exit the game fully and restart.
+
+### Druids, and the Horde's warriors and hunters
+- **Druids are noticed in the Eastern Kingdoms**: about 68 people in Ironforge, Loch Modan, the Wetlands, Elwynn, Westfall, Redridge, Duskwood, Stranglethorn, the Swamp of Sorrows and the Blasted Lands greet a druid as a druid, and have something to ask and argue about.
+- **Horde warriors and hunters** (orc, troll, tauren, Forsaken) get their own conversation with about 35 people in Tirisfal, the Undercity, Silverpine, Tarren Mill, Hammerfall, Kargath, Stonard, Grom'gol and Revantusk.
+
 ## 0.39.0 (2026-11-16)
 Packs: 41 content packs have a new version (`python3 tools/version.py` lists them). **New files in 41 packs: exit the game fully, copy the folders in, and start the game again**; /reload won't load them.
 

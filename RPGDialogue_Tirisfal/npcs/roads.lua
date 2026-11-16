@@ -31,6 +31,7 @@ P:NPC {
           text = "Scraps of cloth and old gear, from the houses up the hill. They were somebody's once, and now they're ours, so don't be sentimental about it." },
       },
       choices = {
+        { text = "Need another blade on the road, Deathguard?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "I was a soldier of Lordaeron. I know how to forage.", next = "soldier", when = { origin = "forsaken_lordaeron_soldier" } },
         { text = "Whose things were they?", next = "whose" },
         { text = "What happened to Deathknell?", next = "town" },
@@ -65,6 +66,14 @@ P:NPC {
         { id = "la_default", text = "Because she broke the Lich King's hold on us, and nobody else bothered to try. You'll have your own reasons soon enough, and if not, the Scourge will give you some." },
       },
       choices = { { text = "Fair enough. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    xhwar = {
+      big = true,
+      lines = { { id = "xhwar_default", text = "Always, and yours looks sharper than mine. The Scourge come in from the east in ones and twos, and the trick is never letting them become threes and fours." } },
+      choices = {
+        { text = "Then I'll stand watch here and keep them in ones.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll hunt them down on my own terms, not stand about.", next = "BACK", fx = { align = { order = -1 } } },
+      },
     },
     soldier = {
       lines = { { id = "so_default", text = "A soldier of Lordaeron, then you'll remember the long marches with half rations. Scavenging is no different, except the people you're taking from won't complain." } },
@@ -185,6 +194,7 @@ P:NPC {
           text = "Oh, it's you. Yes, you won, you needn't look so pleased, and no, you're not getting a rematch." },
       },
       choices = {
+        { text = "I've been tracking something through these fields.", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "I was a rogue before I died. Let's see who's faster.", next = "rogue", when = { class = "ROGUE" } },
         { text = "What's a living man doing out here?", next = "why" },
         { text = "Why pick fights with the Forsaken?", next = "fights" },
@@ -219,6 +229,14 @@ P:NPC {
         { id = "wa_default", text = "Coin, and the satisfaction of beating a living man, which I'm told you lot enjoy. Lose, and you'll have the satisfaction of being dead already, so nothing much changes." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xhhunt = {
+      big = true,
+      lines = { { id = "xhhunt_default", text = "You and half of Tirisfal, by the look of the place. If it's that cursed bat in the old farmhouse, kill it quickly, because I've been chasing it since before I died." } },
+      choices = {
+        { text = "I'll take it down cleanly, I promise you.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll take it however I can catch it.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
     },
     rogue = {
       lines = { { id = "ro_default", text = "One of the trade, risen and still twitchy! This should be interesting, so try not to fall apart before I've had my fun." } },

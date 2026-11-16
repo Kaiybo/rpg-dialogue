@@ -35,6 +35,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "The quiet of it, when the woodcutters aren't at it. The trees are friendly here, and the deer walk right up to the inn's back door some evenings." } },
+      choices = {
+        { text = "The woodcutters ought to leave more trees.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Stormwind needs the timber. That's honest work.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "My family's kept the Lion's Pride since the first King Llane's day, and we've never watered a drink. Ask anyone!" },
@@ -54,6 +62,8 @@ P:NPC {
           text = "Well, look who remembered the way! Sit, sit. You've the look of someone with stories, and I've the look of someone who wants them." },
         { id = "h_north", when = { origin = "human_lordaeron_refugee" },
           text = "From the north, are you? I can always tell. Northerners take the seat nearest the fire and never quite sit back in it." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid! Well, Elwynn's a fine forest to visit, though I expect ye've seen far older ones in Ashenvale." },
       },
       again = {
         { id = "h_again", text = "What else, friend? So much to do, and I'd rather talk." },
@@ -61,6 +71,7 @@ P:NPC {
         { id = "h_again3", text = "Anything else? I've a cheese to cut and a story to finish." },
       },
       choices = {
+        { text = "What do you like about Elwynn?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I'd like a room.", next = "BUSINESS" },
         { text = "Heard anything interesting?", next = "rumors" },
         { text = "Tell me about the inn.", next = "inn" },

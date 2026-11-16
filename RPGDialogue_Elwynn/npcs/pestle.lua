@@ -28,6 +28,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Peacebloom and silverleaf, mostly, though I've heard of a kaldorei herb that only grows under moonlight. I'd give a great deal for a single leaf." } },
+      choices = {
+        { text = "The forest gives freely if you ask well.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Pick what you can. The forest won't miss it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Candles, tinctures, a few small mercies in bottles. What can I do for you?" },
@@ -43,12 +51,15 @@ P:NPC {
           text = "She drank it, and reached the river? Oh, good! Only don't tell the Stonefields I had a hand in it." },
         { id = "q_shipment", when = { questActive = TODO_QUEST("Shipment to Stormwind") },
           text = "Straight to Morgan at the shop, please, and don't sit on the crate; candles bruise. Well, they dent, which is much the same to a candle." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid! Now, I'll wager you know the herbs of the wild better than any alchemist, and I'd love to compare notes." },
       },
       again = {
         { id = "h_again", text = "Hmm? Sorry, I was counting drops; do go on." },
         { id = "h_again2", text = "Something else? Ask away, and mind the blue one while you do." },
       },
       choices = {
+        { text = "Which herbs do you prize most?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why kobold candles?", next = "candles" },
         { text = "Tell me about Maybell and Tommy Joe.", next = "lovers",
           when = { any = { { questActive = TODO_QUEST("Collecting Kelp") }, { questActive = TODO_QUEST("The Escape") }, { topicKnown = "maybell_tommy" } } } },

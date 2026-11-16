@@ -31,6 +31,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "They've chopped an' burned an' dragged the beasts out o' their dens for their wars. The orcs leave the land poorer wherever they march." } },
+      choices = {
+        { text = "Then we drive them out of the marsh.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Even orcs must live somewhere. Talk first.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -59,6 +67,8 @@ P:NPC {
           text = "I've a wall tae hold an' no time for them that cannae be trusted on it. Speak quick." },
         { id = "h_xward", when = { origin = "dwarf_military_ward" },
           text = "Ye've the stance o' a {g:lad|lass} raised in the Military Ward, an' I'd know it anywhere, since I drilled in that yard myself. Good; I've no time to teach anyone which end o' the axe is the business end." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid at Menethil! The Wetlands could use one o' ye, because the whole marsh has been in a fury since the dragonmaw came." },
       },
       again = {
         { id = "h_again", text = "What else? Be quick about it, mind, for the wall doesnae keep itself." },
@@ -66,6 +76,7 @@ P:NPC {
         { id = "h_again3", when = { timeOfDay = "night" }, text = "Ask what ye like. I'll be up on these walls till dawn either way." },
       },
       choices = {
+        { text = "What have the Dragonmaw done to the marsh?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Who are the Dragonmaw?", next = "dragonmaw" },
         { text = "Who leads them?", next = "nekrosh" },
         { text = "How's the harbour holding?", next = "harbour" },
@@ -531,6 +542,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "There's the old graves o' Menethil, an' they're overgrown wi' bramble an' marsh grass. I'd have them tended, but I'd sooner the land did it gently than I did it wi' a scythe." } },
+      choices = {
+        { text = "Let the marsh keep the graves. It's natural.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Graves should be kept tidy and remembered.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Glorin Steelbrow, o' the Church. I tend Menethil's souls, an' nobody mentioned the souls come wi' mud, murlocs an' drowned sailors." },
@@ -548,12 +567,15 @@ P:NPC {
           text = "Evenin' prayers, an' then the sailors come in wantin' blessings for the mornin' tide. I bless them, but I don't promise anything." },
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "Ah, it's you, thank the Light. Come in out o' the wet, an' if ye've a spare prayer in ye, I've a spare sailor." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid! I could use a hand, though I'll confess I'm no' sure how a druid's hand works in the first place." },
       },
       again = {
         { id = "h_again", text = "What else? Quick, before the next soul comes in drippin'." },
         { id = "h_again2", text = "Aye? Go on, then, I'm listenin', mostly." },
       },
       choices = {
+        { text = "How could a druid help you here?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Can I help?", next = "help" },
         { text = "Why so grumpy?", next = "grumpy" },
         { text = "What do you know of the wrecks?", next = "wrecks" },
@@ -906,6 +928,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "They're breedin' in numbers I've never seen, an' they've taken three o' my sheep this month. I'd sooner thin them than lose the whole flock." } },
+      choices = {
+        { text = "Thin them, then. Your flock needs protecting.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The raptors hunt to live. Guard your flock better.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Karl Boran, merchant marine. I keep cargo moving through this harbour, which is harder than it sounds with half the marsh trying to eat it." },
@@ -919,12 +949,15 @@ P:NPC {
           text = "The Blind Princess's captain near wept over that statuette. The Captain says a thing like that shouldn't sit where the Dragonmaw can see it. He's not wrong." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Last boat's in, so I count the crates by lantern, and then I count them again, because the lantern lies." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid! Ye'll know the raptors o' the Wetlands better than most, I'd think, an' I'd ask ye what ye make o' them." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've crates waiting, but they'll wait." },
         { id = "h_again2", text = "Go on, talk while I stack." },
       },
       choices = {
+        { text = "What troubles you about the raptors?", next = "druid_q", when = { class = "DRUID" } },
         { text = "How do you manage out here?", next = "manage" },
         { text = "What's wrong on the coast?", next = "coast" },
         { text = "Where do the ships go from here?", next = "ships" },
@@ -1043,6 +1076,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Now an' again, aye, off the boats from Auberdine. Most o' them don't stay long, for the Wetlands smell a fair bit worse than Darkshore." } },
+      choices = {
+        { text = "The marsh has its own beauty, friend.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I won't argue that. It's a sodden place.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Helbrek. I keep the Deepwater. Sailors, soldiers, diggers, an' one first mate who's been sittin' outside my door since before I owned it." },
@@ -1052,12 +1093,15 @@ P:NPC {
           text = "Well, an elf from the sky, in the wettest place on Azeroth! Ye'll miss yer clouds... no, ye won't, come to think of it, for we've plenty here." },
         { id = "h_mate", when = { metBefore = true }, text = "The first mate asked for his usual again, an' I didnae ask what it was, since neither of us remembers anymore. I just pour." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Rain on the roof an' sailors singin' badly: that's Menethil at night, an' I wouldnae trade it, most nights." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid! Ye'll have come in out o' the rain, I'd hope, an' no' just wandered in as a bear lookin' for the pantry." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? The stew's no' goin' anywhere, an' neither am I." },
         { id = "h_again2", text = "Aye? Pull up a chair while ye think." },
       },
       choices = {
+        { text = "Do druids often come through Menethil?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "Any news?", next = "news" },
         { text = "Who drinks here?", next = "regulars" },
@@ -1131,6 +1175,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Relics o' the old dwarven holds, from before Grim Batol was lost. The marsh has eaten most of it, though, an' it gives back very little." } },
+      choices = {
+        { text = "The marsh should keep what it has taken.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Your people's past deserves to be recovered.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Flagongut, Explorers' League. I came here on my way to the dig at Whelgar's, an' then the raptors took the road. So I'm diggin' through a tavern, for now." },
@@ -1140,12 +1192,15 @@ P:NPC {
           text = "The Captain told ye about the orcs? Raptors on the road, orcs in the hills, an' me in a tavern. Archaeology!" },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Candle's low an' the maps are still wrong. I keep hopin' one of them will correct itself overnight." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid! The Wetlands are full o' old things buried in the mud, an' I'd wager ye can feel where they lie better than I can." },
       },
       again = {
         { id = "h_again", text = "What else? Only mind the maps." },
         { id = "h_again2", text = "Aye? Ask away. I've nothin' but time an' a tavern." },
       },
       choices = {
+        { text = "What are you digging for in the Wetlands?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What's at Whelgar's dig?", next = "dig" },
         { text = "Why not go to the dig yourself?", next = "stuck" },
         { text = "What's so special about your fossil?", next = "fossil" },

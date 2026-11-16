@@ -33,8 +33,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_talk = {
+      lines = { { id = "dt_default", text = "It troubles a great many people, and yet the panthers remain. I take the strong ones and leave the young, and I write down everything I see. Respect, my friend, can come with a rifle." } },
+      choices = {
+        { text = "Take only what you need. That is the balance.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "You kill for trophies. There's no honor in it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidx", when = { class = "DRUID" },
+          text = "A druid! Splendid. You'll appreciate the beasts here more than most, though I daresay we appreciate them rather differently." },
         { id = "h_default", key = true,
           text = "Hemet Nesingwary. I came tae Stranglethorn for the huntin', an' I'm stayin' for the huntin': raptors, panthers, tigers, an' the great cat himself. There's nothin' else worth the trip." },
         { id = "h_welcome", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("Welcome to the Jungle") }, { questActive = TODO_QUEST("Hunting in Stranglethorn") }, { questActive = TODO_QUEST("Hemet Nesingwary") } } },
@@ -56,6 +66,7 @@ P:NPC {
         { id = "h_again3", when = { timeOfDay = "night" }, text = "Pour yerself one an' ask away. Barnil willnae mind, though Barnil always minds." },
       },
       choices = {
+        { text = "You hunt these creatures for sport. That troubles me.", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Why hunt at all?", next = "why" },
         { text = "What's the most dangerous thing out there?", next = "danger" },
         { text = "Barnil says you were a war hero.", next = "hero" },
@@ -259,8 +270,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_talk = {
+      lines = { { id = "dt_default", text = "Not for a moment. This jungle grows faster than we can shoot it, and the trolls take more than we ever will. Besides, Hemet keeps count, and he'd stop before he'd see a breed go." } },
+      choices = {
+        { text = "Thank you. Let me ask something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidx", when = { class = "DRUID" },
+          text = "A druid in camp, is it? Don't let the boss see you; he'll want to know what you weigh as a cat." },
         { id = "h_default", key = true,
           text = "Barnil Stonepot. I keep the master's camp, his kit, an' his book. He's a hero o' the Alliance, ye know. Ye wouldnae think it, the way he snores." },
         { id = "h_book", tags = { "news" }, when = { questActive = TODO_QUEST("The Green Hills of Stranglethorn") },
@@ -275,6 +294,7 @@ P:NPC {
         { id = "h_again2", text = "Somethin' else, friend? Ask away, only mind the oil." },
       },
       choices = {
+        { text = "Do you ever worry you'll hunt the jungle empty?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "What's the book about?", next = "book" },
         { text = "What's he really like, your master?", next = "master" },
         { text = "Don't you miss Ironforge?", next = "home", when = { race = "Dwarf" } },

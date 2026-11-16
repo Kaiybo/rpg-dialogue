@@ -29,6 +29,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "A few pieces, aye: carved wood from Ashenvale an' a moonstone the size o' yer fist. I'd return 'em if Darnassus asked politely, though nobody's asked yet." } },
+      choices = {
+        { text = "They belong back in the forest, Curator.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Whoever found them fairly may keep them.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -41,12 +49,15 @@ P:NPC {
           text = "There's an empty hole where my heart used tae be. Dorius asked for his men tae be freed, an' in the name o' the Light, he'll have his wish; I've vowed it." },
         { id = "h_obsidion", tags = { "news" }, when = { questDone = TODO_QUEST("Rise, Obsidion!") },
           text = "Lathoric the Black is dead, an' his great machine wi' him. It doesnae bring Dorius back, but his men are free, an' that's what he asked for, so I can sleep again, mostly." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid in the Hall o' Explorers? Mind the mounted beasts, friend; they were dead long before we stuffed 'em, I promise ye." },
       },
       again = {
         { id = "h_again", text = "Another question? I've a hall full o' answers." },
         { id = "h_again2", text = "Where were we? Ah, aye, we were on the exhibits." },
       },
       choices = {
+        { text = "Do you keep anything from the old kaldorei forests here?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I'd love a tour.", next = "tour" },
         { text = "Tell me about your brother.", next = "dorius" },
         { text = "What are the Suntara Stones?", next = "stones" },
@@ -178,6 +189,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Anythin' true, really. Half our books say ye turn into bears at the full moon an' the other half say ye eat nothin' but acorns, an' I suspect neither's quite right." } },
+      choices = {
+        { text = "Write it plainly. Truth shouldn't stay hidden in groves.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Some druid teachings aren't meant for libraries.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Mae Paledust, Librarian. If it's written down anywhere, I can likely find it, an' if it's no' in a book yet, I'd like ye tae tell me about it so it can be." },
@@ -185,12 +204,15 @@ P:NPC {
           text = "The book's in the library o' the old Monastery in Tirisfal, if it survived the Scarlet Crusade's housekeepin'. Bring it home tae Ironforge, where it'll be read instead o' burned." },
         { id = "h_myth_done", when = { questDone = TODO_QUEST("Mythology of the Titans") },
           text = "Mythology o' the Titans is on my desk, an' I've read it twice an' argued wi' it three times. Thank ye for rescuin' it." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "Oh, a druid! Our shelves on the Cenarion Circle are terribly thin, so if ye've a moment, I've a great many questions an' a quill already inked." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? Softly, now." },
         { id = "h_again2", text = "Ask. I'll find the page." },
       },
       choices = {
+        { text = "What would you want written about druids?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why study the past?", next = "past" },
         { text = "What's Mythology of the Titans?", next = "titans" },
         { text = "What happened to the Monastery?", next = "monastery" },
@@ -311,6 +333,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Because a memory dies wi' the one who holds it, an' a book doesn't! The night elves live long enough tae forget how fragile that is." } },
+      choices = {
+        { text = "Some knowledge should pass only teacher to student.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "You're right. It should be written down for everyone.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Karnik, historian o' the Explorers' League. I'm truly sorry, but I've a great deal o' work an' very little patience, so tell me what ye need, an' tell me quickly." },
@@ -322,12 +352,15 @@ P:NPC {
           text = "Ambassador Infernus sits in Angor Fortress, sent there by Ragnaros himself tae mind the Shadowforge diggers. Strike him there, an' their work in Uldaman slows tae a crawl." },
         { id = "h_infernus_done", when = { questDone = TODO_QUEST("An Ambassador of Evil") },
           text = "Belgrum sent word that Infernus is dead, an' aid's goin' tae the Badlands tae recover the dig. Hammertoe would've raised a glass, an' I've raised one for him." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid! The kaldorei histories go back further than ours, ye know, an' it drives me half mad that they keep most of it in their heads." },
       },
       again = {
         { id = "h_again", text = "Well? What else?" },
         { id = "h_again2", text = "Go on, then; I'll listen for a minute more." },
       },
       choices = {
+        { text = "Why does that trouble a historian so much?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What are you working on?", next = "work" },
         { text = "Who was Hammertoe Grez?", next = "hammertoe" },
         { text = "Who are the Shadowforge?", next = "shadowforge" },
@@ -602,6 +635,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Trouble it? We work wi' the grain o' the stone, never against it, an' Ironforge has stood three thousand years for it. I'd call that respect, myself." } },
+      choices = {
+        { text = "Building with care honours the land.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Even careful hands take more than they give.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Marblesten, Grand Mason o' Ironforge. If it's stone an' it's standin' in this city, chances are I carved it, or I've complained about whoever did." },
@@ -611,12 +652,15 @@ P:NPC {
           text = "Tell me ye've enough Alterac granite for me tae begin. Darrow Hill in Hillsbrad has the finest stone in the north, an' I'll have nothin' less for this." },
         { id = "h_done", when = { questDone = TODO_QUEST("A King's Tribute") },
           text = "The memorial's finished, an' it's some o' my best work, if I say so myself, an' I do. Lordaeron gives the finest stone there is, an' it's a pity the land's in ruins." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid, eh? Ye'll find no trees in here, friend, only stone that's been shaped by dwarven hands for longer than most forests have stood." },
       },
       again = {
         { id = "h_again", text = "What else? I've a block coolin' an' a chisel itchin'." },
         { id = "h_again2", text = "Go on; stone's patient." },
       },
       choices = {
+        { text = "Doesn't carving a whole mountain trouble the earth?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What makes stone good?", next = "stone" },
         { text = "Who was Sully Balloo?", next = "sully" },
         { text = "Do you carve many memorials?", next = "memorials" },
@@ -726,17 +770,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Mind it? They'd fly whether we rode 'em or no, but they come back tae the roost because they're fed an' cared for. A gryphon that's mistreated won't fly for anyone." } },
+      choices = {
+        { text = "A bond of trust is honest work.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Wild things should stay wild, not saddled.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Gryth Thurden, gryphon master. The Wildhammers might have fast steeds, but can those Aerie Peak gryphons stand the heat o' the Great Forge? I think not!" },
         { id = "h_picks", tags = { "news" }, when = { questActive = TODO_QUEST("Gryth Thurden") },
           text = "Honorary picks for Brock's students in Thelsamar, is it? No trouble at all, as long as ye've been there before an' spoken tae the flight master; my birds won't fly tae a place ye've never seen." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid! I've seen yer kind take wing on yer own, an' I'll confess my gryphons get a wee bit jealous when ye do." },
       },
       again = {
         { id = "h_again", text = "Anythin' else, or are ye flyin'?" },
         { id = "h_again2", text = "Go on, ask; the birds are restin'." },
       },
       choices = {
+        { text = "Do your gryphons mind being ridden?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I need a ride.", next = "BUSINESS" },
         { text = "What's wrong with Aerie Peak's gryphons?", next = "aerie" },
         { text = "How do you keep gryphons under a mountain?", next = "keep" },

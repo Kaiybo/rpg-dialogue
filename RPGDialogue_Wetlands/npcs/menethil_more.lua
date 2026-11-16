@@ -31,6 +31,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Aye, in the Second War, alongside some o' the night elves' wild friends, though there were few enough o' them then. They fought for the forests while we fought for the hold." } },
+      choices = {
+        { text = "We fought for the same world, Valstag.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Druids shouldn't be fighting men's wars.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -41,12 +49,15 @@ P:NPC {
           text = "The Captain's in the war room, inside the keep. Go on; I've told him ye've already bloodied the Dragonmaw once." },
         { id = "h_spoils", when = { questDone = TODO_QUEST("Spoils of War") },
           text = "Ye saw to that business o' the spoils. The Captain was pleased, an' when he's pleased, I'm allowed to be." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid, is it? I've seen yer kind fight in the old days, an' I'll tell ye now, a bear on a battlefield is a sight tae make an orc think twice." },
       },
       again = {
         { id = "h_again", text = "What else? Quick, I've three reports an' a cold supper waitin'." },
         { id = "h_again2", text = "Go on. Better ye tell me than the orcs do." },
       },
       choices = {
+        { text = "Have you fought beside druids before?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What's happening in Dun Algaz?", next = "algaz" },
         { text = "Why does the road matter so much?", next = "road" },
         { text = "What's Captain Stoutfist like?", next = "stoutfist" },

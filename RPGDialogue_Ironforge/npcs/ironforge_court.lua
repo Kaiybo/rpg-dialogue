@@ -386,6 +386,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Very little, I'm ashamed tae say, mostly that a demigod named Cenarius taught the night elves an' that they slept away the centuries in their dreams. It makes poor history but a fine story." } },
+      choices = {
+        { text = "It's no story. Our order guards the world still.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Old tales are best left to the old.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Archesonus, historian to the King. My eyes went long ago, but my memory didn't, so ask me anything about Ironforge and I'll tell ye more than ye wanted." },
@@ -397,12 +405,15 @@ P:NPC {
           text = "Now there's a voice I can't place, elven but with wind in it. There's nothing about yer folk in my books, so come back and tell me things, and there will be." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "A priest; I can hear the vestments. I wrote a book on plagues and curses, and priests either thank me for it or argue with it, and I enjoy both." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "The Cenarion Circle, here in the court! I've read o' yer order in the old accounts o' the War o' the Ancients, though I confess the details are hazy." },
       },
       again = {
         { id = "h_again", text = "Where were we? Ah, I remember; I always remember." },
         { id = "h_again2", text = "Go on, ask me what ye like. I've nowhere to be, for I'm a historian." },
       },
       choices = {
+        { text = "What do dwarven records say about druids?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Tell me about Thaurissan.", next = "thaurissan" },
         { text = "What's happening with the Dark Iron now?", next = "now" },
         { text = "What have you written?", next = "books" },
@@ -589,6 +600,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "We try, though I'll admit some o' our lads get more excited about the find than the ground it's buried in. Uldaman's been turned over like a garden bed." } },
+      choices = {
+        { text = "Dig, but leave the land whole behind you.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Some places should never be dug at all.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -603,12 +622,15 @@ P:NPC {
           text = "The relic from the Wetlands dig, with titan marks on it, unmistakable. It's been on my desk three days and I keep finding excuses to touch it." },
         { id = "h_apprentice", when = { origin = "dwarf_explorers_league" },
           text = "One of ours! Don't tell me which Prospector you trained under; let me guess from the state of your boots." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid! The Explorers' League could use someone who can talk tae the beasts in the places we dig, because they're rarely pleased tae see us." },
       },
       again = {
         { id = "h_again", text = "What else? The catalogue can wait, as it always does." },
         { id = "h_again2", text = "Go on. Questions are the one thing we never run short of here." },
       },
       choices = {
+        { text = "Does the League respect the places it digs?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What does the League do?", next = "league" },
         { text = "What are you hoping to find?", next = "hope" },
         { text = "Where's Brann?", next = "brann" },
@@ -949,6 +971,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "It's the other way round: Ironforge wants Ashenvale wood for its forges an' the kaldorei will no' hear of it. The Senate thinks yer people are stubborn, an' they think the same o' us." } },
+      choices = {
+        { text = "Ashenvale isn't Ironforge's to cut.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A fair treaty could serve both peoples.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Senator Mehr Stonehallow, o' Ironforge's Senate, an' a League man besides. I could be debatin' in the warm, but instead I'm countin' heads in a quarry, because someone has to." },
@@ -958,12 +988,15 @@ P:NPC {
           text = "That's a quieter quarry than I've seen in months. I'll mention ye in my next speech, briefly, for they're long speeches." },
         { id = "h_campfire", when = { questActive = TODO_QUEST("A Visitor to Dun Morogh") },
           text = "A campfire on the ridge above my quarry? I saw it, an' I took it for troggs learnin' fire. Go an' look, then, for I'm busy." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid in the Senate halls is a rare sight, so I'll be brief, friend: Darnassus asks Ironforge for timber rights it doesn't care tae grant." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? Quick, now, for the troggs don't take recess." },
         { id = "h_again2", text = "Go on. I've a speech tae write, an' I'd welcome the delay." },
       },
       choices = {
+        { text = "Why won't Ironforge grant the timber rights?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why not leave it to the guards?", next = "why" },
         { text = "Where did the troggs come from?", next = "troggs" },
         { text = "What does the Senate do, exactly?", next = "senate" },
@@ -1098,19 +1131,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "A few, aye, an' one o' them slept the night in the shape of a great bear by the hearth. The regulars still talk about it, an' they've decided it was good luck." } },
+      choices = {
+        { text = "Then I'll keep the tradition and take a bear's nap.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll take a proper bed, like a decent guest.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Firebrew, an' I keep the Stonefire. The beer's strong an' the fire's stronger, an' the stories get taller as the kegs get lighter." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "Well now, an elf from the clouds, in my tavern! Sit near the fire, for ye'll be cold up here, or down here, or under here, wherever this is tae you." },
-        { id = "h_druid_call", when = { minLevel = 47 },
+        { id = "h_druidclall", when = { minLevel = 47 },
           text = "Word's come from Darnassus: Arch Druid Staghelm wants seasoned hands for some research o' his. If ye go, wipe yer boots before ye come back in." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid at the Stonefire! I've no oats an' no fresh berries, I'm afraid, but there's honest bread an' a fire tae warm yer paws, if ye've got paws today." },
       },
       again = {
         { id = "h_again", text = "Another? Story or ale, ye're welcome either way." },
         { id = "h_again2", text = "What else? The kegs aren't goin' anywhere, which is the trouble." },
       },
       choices = {
+        { text = "Have you had druids here before?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "Tell me a story.", next = "story" },
         { text = "Who drinks here?", next = "regulars" },

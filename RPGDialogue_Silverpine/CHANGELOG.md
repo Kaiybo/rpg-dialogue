@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.7.0 (2026-11-16)
+- Horde warriors and hunters get their own question and short conversation with several people here.
+
 ## 1.6.0 (2026-11-16)
 - New people with no quests, who had nothing to say until now: Gwyn Farrow, Andrea Boynton, Edwin Harly.
 - New files: exit the game fully and restart.

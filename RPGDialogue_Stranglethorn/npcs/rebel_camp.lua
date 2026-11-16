@@ -27,8 +27,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_talk = {
+      lines = { { id = "dt_default", text = "Because the trolls are here, and they've raided too many camps for us to leave. I didn't choose this place; it chose me when my captain fell. The jungle keeps the score honest, at least." } },
+      choices = {
+        { text = "Thank you. Let me ask something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidx", when = { class = "DRUID" },
+          text = "A druid, here? Then you've seen what the trolls do to the jungle, and maybe what the jungle does to us." },
         { id = "h_default", key = true,
           text = "Lieutenant Doren. We came into this jungle under Colonel Kurzen, and something took his mind, and his closest men with it. The rest of us left to find out what." },
         { id = "h_secrets", tags = { "news" }, when = { questActive = TODO_QUEST("Jungle Secrets") },
@@ -51,6 +59,7 @@ P:NPC {
         { id = "h_again3", when = { timeOfDay = "night" }, text = "Quietly. Half the camp's asleep and the other half pretends to be." },
       },
       choices = {
+        { text = "Why fight a war in a jungle that doesn't want you?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "What happened to Kurzen?", next = "mind" },
         { text = "Why walk away? Why not stop him then and there?", next = "left" },
         { text = "Who gave Thorsen away?", next = "informant" },

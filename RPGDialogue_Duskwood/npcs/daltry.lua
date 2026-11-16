@@ -27,8 +27,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_talk = {
+      lines = { { id = "dt_default", text = "That it was called Brightwood before the Worgen, and that every year since, the treeline creeps darker by about a field's width. I keep the numbers. Nobody in Stormwind has asked to see them." } },
+      choices = {
+        { text = "Thank you. Let me ask something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidx", when = { class = "DRUID" },
+          text = "A druid. I've been filing reports about the forest rotting for eight years. Perhaps you'll be the first to read one." },
         { id = "h_default", text = "I'm Daltry, the town clerk, and I keep the records of Darkshire: births, deaths, and lately a great many entries that say 'missing, presumed wolf'." },
         { id = "h_stalvan", tags = { "news" }, when = { questActive = TODO_QUEST("The Legend of Stalvan") },
           text = "Mistmantle, yes, a tutor to a noble family years back, before it all went wrong. The papers are old and some of them are wrong, but I'll find you what I can." },
@@ -44,6 +52,7 @@ P:NPC {
         { id = "h_again2", text = "Yes? Do mind the ink, though." },
       },
       choices = {
+        { text = "What do your records say about the forest?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Can I see the records?", next = "records" },
         { text = "Do you record strangers too?", next = "strangers" },
         { text = "How many people live in Darkshire now?", next = "census" },

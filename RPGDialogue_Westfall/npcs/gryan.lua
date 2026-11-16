@@ -31,8 +31,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_talk = {
+      lines = { { id = "dt_default", text = "I know it is. Nobody has turned a furrow in Moonbrook for years, and the harvest golems the Defias stole have torn up what was left. If you can coax anything green out of it, the farmers will remember you longer than they remember me." } },
+      choices = {
+        { text = "I'll mend what I can, and leave the rest stronger.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The land will heal itself once the people leave it be.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidx", when = { class = "DRUID" },
+          text = "A druid of the kaldorei, out on my hill. I hope the land tells you something kinder than it tells me." },
         { id = "h_default", text = "I'm Gryan Stoutmantle, born and raised in Westfall. I came home from the war to find it in the hands of thieves, so I'm taking it back, one farm at a time." },
         { id = "h_report", tags = { "news" }, when = { questActive = TODO_QUEST("Report to Gryan Stoutmantle") },
           text = "Elwynn sends me volunteers now, never soldiers, but volunteers will do. Volunteers are what built this militia in the first place." },
@@ -67,6 +77,7 @@ P:NPC {
         { id = "h_again3", when = { timeOfDay = "night" }, text = "Ask away; I'm up until the watch changes anyway." },
       },
       choices = {
+        { text = "Your fields are sick, Stoutmantle. The soil itself is starving.", next = "druid_talk", when = { class = "DRUID" } },
         { text = "What happened to Westfall?", next = "westfall" },
         { text = "Why doesn't Stormwind help?", next = "stormwind" },
         { text = "Who leads the Defias?", next = "leader" },

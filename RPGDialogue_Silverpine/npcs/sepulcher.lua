@@ -146,6 +146,7 @@ P:NPC {
         { id = "h_samples", when = { metBefore = true }, text = "The samples spoiled again in the damp. Silverpine rots everything, which is ideal for some studies and infuriating for others." },
       },
       choices = {
+        { text = "I could bring you samples from Silverpine's beasts.", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "What makes the Rot Hide sickness?", next = "rothide" },
         { text = "The Rot Hide sickness reminds me of the Cult's work.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "Could I coat my blades with any of this?", next = "rogue", when = { class = "ROGUE" } },
@@ -153,6 +154,14 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Yes? And keep your hands at your sides." },
+      },
+    },
+    xhhunt = {
+      big = true,
+      lines = { { id = "xhhunt_default", text = "Could you? The Moonrage worgen interest me a great deal, and so do the spiders near Fenris Isle. Bring me what I ask for intact, and I'll think better of hunters forever." } },
+      choices = {
+        { text = "I'll bring them back just as you need them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll bring what's left after the fight.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
     rothide = {
@@ -212,6 +221,7 @@ P:NPC {
           text = "Dalaran's mages are in Ambermill. I want to know why. Bring me what they're carrying, and I'll read it better than they wrote it." },
       },
       choices = {
+        { text = "The Sepulcher could use more steel and fewer spells, Dalar.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "What did you warn them about?", next = "warned" },
         { text = "I studied magic too. What would you teach me?", next = "mage", when = { class = "MAGE", race = "Scourge" } },
         { text = "An orc mage, Archmage. Go on, laugh.", next = "orcmage", when = { race = "Orc", class = "MAGE" } },
@@ -248,6 +258,14 @@ P:NPC {
       choices = {
         { text = "Small bargains, close exits. Understood.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Kel'Thuzad simply bargained badly.", next = "BACK", fx = { affinity = -2, align = { light = -1 } } },
+      },
+    },
+    xhwar = {
+      big = true,
+      lines = { { id = "xhwar_default", text = "Steel holds a line, I'll grant you, but it can't see through Arugal's illusions or burn a worgen pack at fifty paces. We need both of us, warrior, and that's the uncomfortable truth." } },
+      choices = {
+        { text = "Then we'll fight together, spell and steel.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I've never needed a mage to win a fight.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
     warned = {

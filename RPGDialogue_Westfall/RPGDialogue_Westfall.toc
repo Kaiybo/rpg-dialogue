@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: Westfall |cff8a8a8a1.11.0|r
+## Title: RPG Dialogue: Westfall |cff8a8a8a1.12.0|r
 ## Notes: Sentinel Hill, the People's Militia and the farms that held on.
 ## Author: RPG Dialogue
-## Version: 1.11.0
+## Version: 1.12.0
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.westfall

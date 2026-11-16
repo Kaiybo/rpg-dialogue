@@ -29,6 +29,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Perhaps not yet! But a mechanical bear's no' so far from a mechanical chicken, an' I've built several o' those. Ye'd be surprised what clockwork can imitate." } },
+      choices = {
+        { text = "Some things should stay natural, Tinkmaster.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Invention has its place beside nature.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -41,12 +49,15 @@ P:NPC {
           text = "I've been reading Techbot's memory core every evening. Most of it is helpfulness, rows and rows of it, and then something went wrong near the end, and I'm still looking for the bad line." },
         { id = "h_gnome_eng", tags = { "news" }, when = { questActive = TODO_QUEST("Gnome Engineering") },
           text = "You've brought the manual! A young engineer answering the call of true engineering, how splendid. Read it all, then sign the pledge, and mean it." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid in Tinker Town! Fascinating, absolutely fascinating, because yer shapeshifting is precisely the sort o' thing I'd love tae build a machine for." },
       },
       again = {
         { id = "h_again", text = "More questions? Splendid, it's that or stare at my blueprints of Gnomeregan again." },
         { id = "h_again2", text = "Ask on, ask on! It takes my mind off things." },
       },
       choices = {
+        { text = "Could a machine ever do what a druid does?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Who is Techbot?", next = "techbot" },
         { text = "What makes gnomish engineering the true discipline?", next = "discipline" },
         { text = "What's this pledge of secrecy?", next = "pledge", when = { profession = "Engineering" } },

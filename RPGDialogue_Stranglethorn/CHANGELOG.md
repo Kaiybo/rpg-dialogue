@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.15.0 (2026-11-16)
+- Druids get their own greeting, question and short conversation with several people here.
+- Horde warriors and hunters get their own question and short conversation with several people here.
+
 ## 1.14.0 (2026-11-16)
 - New people with no quests, who had nothing to say until now: Kizz Bluntstrike, Rikqiz, Glyx Brewright, Jansen Underwood, Rickle Goldgrubber, Qixdi Goodstitch, Jaquilina Dramet, Kelsey Yance, Gnaz Blunderflame.
 - New files: exit the game fully and restart.
