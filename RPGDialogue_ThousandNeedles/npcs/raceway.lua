@@ -51,6 +51,10 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid at the raceway? Don't tell me the vultures sent you, because I only take the bones they're done with." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can you talk the earth into staying flat? Every rumble on the Shimmering Flats knocks a bolt loose somewhere." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Say, do the gods take sides in racing? Because if they do, I'd like to know which ones, so I can thank them properly when we win." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage, eh? Fizzle's always bragging that gnomes understand magic better, so do me a favor and make him look bad." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock! I've never seen a demon race, but I'd sell tickets to it, so keep that in mind if your little friend gets restless." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You've got the look of a professional, and I don't mean racing. If you see anyone near my engines who shouldn't be, you let me know first." },
       },
       again = {
         { id = "h_again", text = "What else? Talk fast, the next heat's in ten minutes." },
@@ -66,6 +70,8 @@ P:NPC {
         { text = "Aren't you worried I'm a gnome spy?", next = "spy", when = { race = "Gnome" } },
         { text = "Could a tauren even fit in one of those cars?", next = "x_tauren", when = { race = "Tauren" } },
         { text = "Do the earth spirits mind your raceway, Pozzik?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Does Fizzle's team use magic on their car?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Who's been near your engines that shouldn't be?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Good luck out there.", next = "END" },
       },
     },
@@ -129,6 +135,24 @@ P:NPC {
       choices = {
         { text = "Build it, and I'll ride it.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
         { text = "I'll stay on the ground, thanks.", next = "BACK" },
+      },
+    },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Fizzle swears they don't, but gnomes say that about everything right before it blows up. I'd love to know what's really in their engine, and a spellcaster could probably tell from a few feet away." } },
+      choices = {
+        { text = "I'll look, and maybe loosen a bolt while I'm there.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'll look, but I won't sabotage anyone.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "Nobody I can prove, which is the worst kind of nobody. Kravel fetches parts for both teams, and I trust him exactly as far as I can throw a rocket car, which isn't far." } },
+      choices = {
+        { text = "I'll watch Kravel and tell you what I see.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let me talk to Kravel. Maybe we can make a deal.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     xhsham = {
@@ -337,6 +361,8 @@ P:NPC {
         { id = "h_gnomes", when = { questActive = TODO_QUEST("Get the Gnomes Drunk") },
           text = "Now the gnomes, for fair's fair. If everybody's slow, nobody's slow, an' I collect on my wager." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? A fella who talks to rocks probably hears things, an' I like a fella who hears things." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage, eh? Folk who can spot a spell on a car before the heat are worth a lot to me, an' I'd keep it quiet, if you catch my meanin'." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. Your little friend's handy for gettin' into places, I'd wager, an' I've a few places in mind, if you're the curious sort." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? Quietly, now." },
@@ -353,6 +379,7 @@ P:NPC {
         { text = "A dwarf, out here among goblins?", next = "dwarf", when = { race = "Dwarf" } },
         { text = "One schemer to another: what's the angle?", next = "x_rogue", when = { class = "ROGUE" } },
         { text = "What would you pay to hear what the elements know, Kravel?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What would a spellcaster be worth to you here?", next = "xhcast", when = { class = { "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "I didn't hear any of this.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -419,6 +446,15 @@ P:NPC {
       choices = {
         { text = "Cut me in, or I talk to the crews.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "I'm not working today, Kravel. Relax.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "A fair bit, if they could tell me which engine's runnin' hot before the heat, an' nothin' at all if they talked about it after. Information's the only thing on these flats worth more than fuel." } },
+      choices = {
+        { text = "Name your price, Kravel, and I'll name mine.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I don't sell tips on rigged races.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

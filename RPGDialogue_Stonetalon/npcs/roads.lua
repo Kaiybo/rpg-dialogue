@@ -23,6 +23,10 @@ P:NPC {
         { id = "h_default", text = "Name's Ziz Fizziks, freelance engineer and a man of vision, and that vision is the Venture Company's Super Reaper 6000. Their operators carry the blueprints, so if you happen to take some off them, I'll make it worth your while." },
         { id = "h_cond", when = { race = "Gnome" }, text = "A gnome! Now you'd appreciate a good set of shredder schematics, wouldn't you? Don't answer that, I don't want any competition." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, huh? Can you get the ground to swallow a Venture Company operator or two? I'm asking for a friend, and the friend is me." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, out here? If you've got a prayer that makes the Venture Company forget this hut exists, I'd love to hear it, pal, because mine sure aren't working." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage, huh? You know what's a lot like magic? Engineering, except it works every time, mostly, and no offense meant, pal." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock! Great, terrific, just keep the imp away from the blueprints, will ya, because imps and paper don't mix and I've only got the one copy." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "Now you're my kind of customer, pal. Those Venture operators carry their blueprints right on their belts, and nobody's quicker than a pair of hands that don't want to be noticed." },
       },
       again = {
         { id = "h_again1", text = "What else? Make it quick, the shift changes soon." },
@@ -34,6 +38,8 @@ P:NPC {
         { text = "Isn't it dangerous hiding here?", next = "crag" },
         { text = "I'd only want a peek at the schematics.", next = "gnome", when = { race = "Gnome" } },
         { text = "The earth here hates the Venture Company. Does that bother you, Ziz?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What's the Venture Company really doing at Windshear?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "How many guards on the Venture Company's camp?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Good luck with your machine.", next = "END" },
       },
     },
@@ -78,6 +84,24 @@ P:NPC {
         { text = "Deal. Something else.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Cutting, mostly, and building bigger things to cut with, which is what got me interested in the first place. Their shredders run on more than steam, pal, and if you could find out what they're burning in those engines, I'd be very grateful." } },
+      choices = {
+        { text = "Sounds profitable. I'm in for a share.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Those shredders should be scrapped, not copied.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "More than they need and fewer than they think, which is the Venture Company all over. The operators knock off for lunch at the same time every day like clockwork, so if you were a clever sort, that's when you'd go in." } },
+      choices = {
+        { text = "I'll take whatever else isn't nailed down too.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'll take the plans and leave the workers alone.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Bother me? I hate 'em too, pal, though for business reasons and not spiritual ones. Their shredders chew through these woods like the trees owe them money, so if your rocks want revenge, we're on the same side for once." } },
@@ -116,6 +140,10 @@ P:NPC {
         { id = "h_default", text = "I am Tsunaman, and I plant what others cut down. The Venture Company has stripped the Charred Vale and the woods below, and the Earth Mother will heal them, but she's glad of a little help." },
         { id = "h_cond", when = { race = "Tauren" }, text = "A shu'halo! Then you know the land is our mother, and a child does not stand by while his mother is hurt." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The earth here cries out under the Venture Company's saws, and I'm glad someone who can hear it has come." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "You pray, I can see it in how you hold your hands. Then pray for the Charred Vale, whatever answers you, because it needs every voice it can get." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. I've seen what fire does to a forest, and I've spent years undoing a little of it, so I hope you'll forgive me for watching your hands." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "There is something in you that the earth draws away from, I can feel it. I will not send you off, because the Warchief does not, but please don't call your demons among my seedlings." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You walk softly, and I like that, because the ground here has had enough heavy boots. If you're going down to the Venture camps, step lighter there than they ever did." },
       },
       again = {
         { id = "h_again1", text = "What else, friend?" },
@@ -127,6 +155,8 @@ P:NPC {
         { text = "How is Sun Rock holding?", next = "sunrock" },
         { text = "I'll help heal her.", next = "tauren", when = { race = "Tauren" } },
         { text = "How can the land here heal, Tsunaman?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Could magic help the land here heal faster?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Where do the Venture Company keep their fuel and machines?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "May the seeds take root.", next = "END" },
       },
     },
@@ -171,6 +201,24 @@ P:NPC {
         { text = "I will.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Perhaps, though I've never met a spell that grew a tree as well as rain and time do. What would help more is fewer shredders, and that is a task for any hand, magic or not." } },
+      choices = {
+        { text = "Then I'll stop the shredders before I try any spell.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Let the land wait. The Horde needs timber too.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "In the camps below Windshear Crag, where the trees were thickest, because that is where the money was. I do not ask you to break their machines, but I would not weep if one of them stopped working." } },
+      choices = {
+        { text = "I'll wreck their machines, quietly and thoroughly.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "I'll leave that to the Horde's proper soldiers.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Slowly, as it always does, with seeds in the ash and rain in its season. The earth spirits are angry and I don't blame them, but anger won't plant a single tree, so I ask them to let me work while they rage." } },
@@ -209,6 +257,10 @@ P:NPC {
         { id = "h_default", text = "I'm Kaya Flathoof, and the Grimtotem fell on our camp, and I've been hiding ever since. My uncle is at Sun Rock, and I think he must believe I'm dead, so will you walk me home?" },
         { id = "h_cond", when = { race = "Tauren" }, text = "Shu'halo! You'll know the Grimtotem are tauren too, which makes this worse, doesn't it? They're our own people, and they did this." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You're a shaman, aren't you? The Grimtotem had shamans too, but they never looked at anyone kindly, so please be different." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "You're a priest? Could you say a prayer for the people at the camp, please, because I don't think anyone else has yet." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "Are you a mage? I've never seen one up close, and I'm sorry for staring, but I think I'd feel much safer walking home beside someone who can throw fire." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "You're a warlock? I'm sorry, I've only ever heard frightening stories about warlocks, so please be patient with me if I jump." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "Oh! I didn't hear you come up at all, and I'm so glad you're not Grimtotem. Can you walk that quietly with me all the way to Sun Rock?" },
       },
       again = {
         { id = "h_again1", text = "I'll answer anything you like, if it means we're closer to leaving." },
@@ -220,6 +272,8 @@ P:NPC {
         { text = "Is the road dangerous?", next = "road" },
         { text = "They've betrayed every tauren.", next = "tauren", when = { race = "Tauren" } },
         { text = "Were there Grimtotem shamans at Camp Aparaje, Kaya?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Did the Grimtotem use magic when they attacked you?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Did you see where the Grimtotem went after the attack?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "I'll take you home soon, Kaya.", next = "END" },
       },
     },
@@ -261,6 +315,24 @@ P:NPC {
         { id = "tauren_default", text = "They have, and when I'm home I'll tell the Bluff so, if anyone asks a young cow what she thinks. Thank you for saying it out loud." },
       },
       choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "They had shamans chanting before the braves came, and something made the ground shake under our tents. If you can do magic too, I think the Grimtotem might think twice about following us, and I would be very grateful for that." } },
+      choices = {
+        { text = "I'll protect you, Kaya. No one will hurt you on the road.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll get you home, but I'm not risking my neck needlessly.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "Up toward the hills, I think, carrying everything they could take from our camp. I don't want you to go after them alone, but if you find anything of ours up there, I'd like it back." } },
+      choices = {
+        { text = "Let Sun Rock's braves handle them. I'll take you home.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll go after them myself, tonight.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

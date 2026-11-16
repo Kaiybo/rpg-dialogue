@@ -20,6 +20,10 @@ P:NPC {
         { id = "h_default", key = true, text = "Gregan Brewspewer, brewer by trade and by calling! I came all the way to Feralas because the fruit and grain out here grow wilder than anything back in Dun Morogh, and wild makes for a grand ale." },
         { id = "h_c0", when = { race = "Dwarf" }, text = "A fellow son or daughter of Ironforge, out here in the jungle! Ye'll understand, then, why a dwarf goes this far for the perfect brew." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! I don't hold with spirits much myself, but if you can bless a barrel, I'll call it a fair morning's work." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, eh? I don't know whose gods you answer to, friend, but most gods I've heard of approve of a decent ale, so we'll get on." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage! Could you chill a keg for me, do you suppose? This forest is so warm and wet that my ale won't keep its head." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock, out here in the wilds. Well, I'll not pretend I like it, but a thirsty soul is a thirsty soul, and I'll not turn you away from my fire." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You've the light step of someone who's been told off for sneaking up on folk before. Mind the casks, that's all I ask, because they're counted, even if I can't remember the number." },
       },
       again = { { id = "h_again", text = "What else, friend? The mash won't stir itself." }, { id = "h_again2", text = "Ask away, I'm only half busy." } },
       choices = {
@@ -28,6 +32,8 @@ P:NPC {
         { text = "Is it safe camping here?", next = "b3_1" },
         { text = "Ironforge misses its brewers.", next = "x_1", when = { race = "Dwarf" } },
         { text = "Do the spirits care about your brewing, Gregan?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What makes Feralas such good ground for brewing?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Has anyone tried to steal your brews out here?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Is brewing worth all this danger?", next = "s_1" },
         { text = "Farewell.", next = "END" },
       },
@@ -59,6 +65,24 @@ P:NPC {
     s_1 = {
       lines = { { id = "s_1_l", text = "Some say a dwarf who risks his neck for ale is a fool, and maybe they're right, but they drink it all the same." } },
       choices = { { text = "A man should chase what he loves, danger or not.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } }, { text = "Your life's worth more than a barrel of ale.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "The rain, the fruit, and the old magic in the soil, which I swear you can taste in the barley if you drink slowly enough. Some folk say it's the elves' old enchantments, and I say it makes a grand stout, so we're both happy." } },
+      choices = {
+        { text = "Then brew honestly, and share it with whoever passes.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Bottle it and sell it dear. That's the real magic.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "The gnolls had a go once, and they couldn't hold their drink, so I found three of them asleep by the casks in the morning. I've had worse thieves and better company, I'll say that much." } },
+      choices = {
+        { text = "Next time, I'll stand guard over your casks.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A thief who falls asleep deserves whatever he gets.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     xhsham = {
       big = true,
@@ -100,6 +124,10 @@ P:NPC {
         { id = "h_c0", when = { questActive = TODO_QUEST("Zapped Giants") }, text = "Use the zapper on the giants, and bring back what's left when they shrink down. Don't ask me how it works, because the instructions fell in the ocean." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, huh? You turn into animals, right, so tell me, could you turn into something big enough to scare off a giant? I'm asking for business reasons." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Say, can you ask the earth why the giants keep stomping my coast? I've got a gizmo, but I'd love a second opinion." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Great, so if my gizmo goes wrong and the giants come stomping, you'll patch me up, right? That's practically insurance." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage, terrific! You know, the gizmo runs on a lot of the same principles as your spells, minus the robes and the years of study." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock! Say, does your little friend there work for food, or is it more of a contract arrangement? I'm always on the lookout for cheap labor." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You've got the look of someone who'd do well in business, pal, and around here that's the highest compliment I give." },
       },
       again = { { id = "h_again", text = "What else? Clock's ticking." }, { id = "h_again2", text = "More questions? Sure, those are free." } },
       choices = {
@@ -109,6 +137,8 @@ P:NPC {
         { text = "Why set up shop here?", next = "b3_1" },
         { text = "I could improve that zapper.", next = "x_1", when = { race = "Gnome" } },
         { text = "Do you know why the giants are stirring, Zorbin?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What's got the giants of the coast so riled?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Is anyone else working this coast besides you?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Do the giants deserve this?", next = "s_1" },
         { text = "Farewell.", next = "END" },
       },
@@ -140,6 +170,24 @@ P:NPC {
     s_1 = {
       lines = { { id = "s_1_l", text = "Hey, I'm not a philosopher, I'm a businessman. They stepped on my crates first, and fair's fair." } },
       choices = { { text = "They wreck the coast. Someone has to stop them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } }, { text = "They were here first. You're the trespasser.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "If I knew, I'd sell the answer, pal. They wade up out of the sea and smash anything that's built, which includes my business, so whatever's bothering them is bothering me twice as much." } },
+      choices = {
+        { text = "Point the gizmo at them and let's be done with it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Maybe they're defending something. Find out before you fight.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "Other goblins, sure, and the elves on their island keep an eye on the shore, and I keep an eye on all of them. If you happen to find out what they're after, I'd consider it a favor, and I remember my favors, mostly." } },
+      choices = {
+        { text = "I'll find out, and I'll take whatever they're guarding.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'll scout them, but I won't pick fights for you.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     xhsham = {
       big = true,
@@ -311,6 +359,10 @@ P:NPC {
         { id = "h_c0", when = { race = "Tauren" }, text = "A child of Mulgore, here among us. Our camp is small, but the fire is warm, and you are welcome to it." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid among the hunters of Mojache! The gordunni to the west have no love for the Earth Mother, and you'll see it in every stump they leave behind." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The gordunni have shamans of their own who call fire out of the earth, so I'll want to see whether yours burns hotter." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Our braves come back from the gordunni hills burned and broken, so if your prayers can mend them, you've earned a place by our fires." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. The gordunni have spellcasters of their own, and they burn our scouts for sport, so let's see whether your fire is the hotter one." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. The gordunni carry orbs full of dark magic, and you'll understand them better than I'd like, so I'll trust you once your blade has proven itself." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You came through the camp without the sentries calling out, and that troubles me more than it should. The gordunni hills could use a scout like you, if you're willing." },
       },
       again = { { id = "h_again", text = "What else do you seek?" }, { id = "h_again2", text = "Speak, friend." } },
       choices = {
@@ -320,6 +372,8 @@ P:NPC {
         { text = "Do you trust the Alliance here?", next = "b3_1" },
         { text = "I hunt as well. Show me the trails.", next = "x_1", when = { class = "HUNTER" } },
         { text = "Are the gordunni shamans dangerous, Hadoken?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What do the gordunni magi do that worries you?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Where do the gordunni gather their strength?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Should we make peace with Feathermoon?", next = "s_1" },
         { text = "Farewell.", next = "END" },
       },
@@ -352,6 +406,24 @@ P:NPC {
       lines = { { id = "s_1_l", text = "Some here say we should speak with the night elves, since we face the same ogres. Others say peace with the Alliance is a fool's dream." } },
       choices = { { text = "A common enemy makes allies. Speak with them.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } }, { text = "The Horde stands alone. Trust no Alliance blade.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "They burn our scouts and they read from scrolls none of us can understand, and every season there are more of them. If you can tell me what their magic is for, you'd do the camp a greater service than a dozen spears." } },
+      choices = {
+        { text = "I'll study their scrolls and bring you the truth.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Kill the magi first. Understanding can wait.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "In the hills to the west, and in the old ruins they've made their own, where their brutes stand guard. Go in quietly and count their numbers, and we'll know how many braves to send." } },
+      choices = {
+        { text = "I'll count and return. The braves can strike.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll slip in and take out their leaders myself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "They burn our scouts and laugh about it, so yes, they're dangerous, and their brutes are worse. The gordunni crowd the hills to the west, and they won't leave until they're made to." } },
@@ -382,6 +454,10 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I am Jangdor Swiftstrider, and I work the hides of Feralas into armor worthy of hunters. Hadoken Swiftstrider hunts the ogres, and I make sure the hunters who follow him come home whole." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Your kind need room to move when the totems go down, so I'll want to fit you for armor that doesn't fight you." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Cloth is fine for prayer, I suppose, but a little leather under your robe never hurt anyone who meets the gordunni." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. Most of you walk around in silk and wonder why the gnolls bite through it, so let me show you a hide that won't tear." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. Your demon will scorch any leather I make, so I won't be fitting it, but I'll gladly fit you." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "Now you, I can dress properly, because a rogue knows that good leather is quiet leather. Feel this hide and tell me it would creak." },
       },
       again = { { id = "h_again", text = "Anything else, friend?" }, { id = "h_again2", text = "Ask away." } },
       choices = {
@@ -389,6 +465,8 @@ P:NPC {
         { text = "You know Hadoken?", next = "b2_1" },
         { text = "Is it wrong to hunt for profit?", next = "s_1" },
         { text = "What armor suits a shaman in Feralas, Jangdor?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What would a spellcaster need to survive in Feralas?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Who sells hides that weren't honestly come by?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -407,6 +485,24 @@ P:NPC {
     s_1 = {
       lines = { { id = "s_1_l", text = "Some of the young ones hunt for coin and leave the meat to rot. I do not like it, though the goblins pay them well." } },
       choices = { { text = "Take only what you need from the land.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } }, { text = "A hunter must eat, and coin buys food.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Something that sheds rain, first, and something that turns an ogre's club, second. Cloth gives you neither, so I'd put a leather vest under your robes and say nothing about it to your trainers." } },
+      choices = {
+        { text = "Trainers aren't out here. I'll wear what works.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "My trainers know best. I'll keep to cloth.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "There are always a few, mostly traders who buy from the gnolls and ask no questions. I can tell a poached hide by the cut, and I'll not have one in my shop." } },
+      choices = {
+        { text = "Good. Poachers ought to answer for it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A hide's a hide. Who cares how it was cut?", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     xhsham = {
       big = true,

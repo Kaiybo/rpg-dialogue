@@ -28,6 +28,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Patience more than power, I think. The Sentinels say the trees remember every wound, so if you must cast fire among them, aim it carefully, and do not leave the forest more scars than the axes already have." } },
+      choices = {
+        { text = "I'll fight carefully. The forest isn't my enemy.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "War is war. The trees will have to endure it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "I have, and they have seen me, and so far we have each pretended not to. They take only what they need from the deer, the same as I do, so I leave them to their watching, though the Warsong would call that treason." } },
+      choices = {
+        { text = "Your quiet truce is worth more than a report.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "I'll report them to the Warsong. That's my duty.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "They blame the axes, and the axes are ours, so I suppose they blame us all. The Earthmother teaches that we take only what we need, and I have watched the Warsong take far more than that, and I grieve for it." } },
@@ -53,6 +71,10 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You must feel it too, the way the ancient spirits of this forest watch us, and how little they welcome what we do here." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. So many hunters come back hurt from the trees that I am glad of anyone who can mend them, whatever voice answers your prayers." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "You carry the arcane with you, and I can feel it like heat off a stone. Please be careful with your fire in this forest, because it is the most beautiful thing I know, and it would burn very quickly." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. This forest still bears the scars of the demons who walked here not so long ago, and I wonder what it thinks of you. I will not turn you away, but I would ask you to keep your servant close." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You walk lightly, and the forest does not seem to mind you, which is more than I can say for the Warsong and their axes. I think you would make a fine hunter, if you ever put the knives down." },
         { id = "h_default", key = true,
           text = "I am Senani Thunderheart. I came here to hunt and stayed because this forest is the most beautiful thing I have ever seen, and that we are at war in it is a sorrow I carry." },
         { id = "h_hunt", tags = { "news" }, when = { questActive = TODO_QUEST("The Ashenvale Hunt") },
@@ -74,6 +96,8 @@ P:NPC {
       },
       choices = {
         { text = "Do the forest spirits blame the Horde for the Warsong camp?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What does this forest need that a spellcaster could give?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Have you seen elves watching the hunting grounds?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Why hunt them, if you love the forest?", next = "why" },
         { text = "Tell me about the three beasts.", next = "beasts" },
         { text = "Does it trouble you, fighting a war here?", next = "war_s" },
@@ -152,6 +176,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Only if it can fix a cart wheel or make a kodo walk faster, and I've yet to meet the mage who could do either. What I really need is someone who can tell when the elves have trapped the road ahead, because they leave no tracks and plenty of widows." } },
+      choices = {
+        { text = "I'll ride with the next caravan and keep watch.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Your carts aren't my concern. Pay me and I'll consider it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "Salt, rope, and a whole crate of axe heads last month, which the elves have no use for at all. So either they're getting clever or somebody in Splintertree is selling my freight, and I'd like to know which before I start shouting." } },
+      choices = {
+        { text = "I'll find the thief and bring them to the commander.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Maybe I'll find them, and maybe I'll take a cut.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Wagons break and kodos go lame, and once a whole load of timber rolled off a cart on a flat road with no wind at all. The grunts blamed the elves' spirits and I blamed the driver, and I'm still not sure which of us was right." } },
@@ -182,6 +224,10 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You lot talk to everything, I hear, so maybe you can talk my wagon wheels out of the mud on the Splintertree road." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, then you can pray over the next wagon the elves set fire to, because I've run out of things to say to them." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage, and I suppose you'll want to know where the caravans are headed. Don't light anything near the timber, that's all I ask, because a burning wagon is a great deal of counting." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock, near my wagons. The kodos don't like the smell of whatever you keep in that pocket, and neither do I, so state your business and keep your pet away from the harness." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You're the sort who counts other people's wagons, I can tell. So am I, so let's be clear that every crate here has already been counted twice." },
         { id = "h_default", text = "Name's Mastok. I track every caravan in and out of Splintertree, because people are trouble and wagons are just wagons, and I prefer wagons." },
         { id = "h_element", tags = { "news" }, when = { questDone = TODO_QUEST("Stonetalon Standstill") },
           text = "Somebody churned that lake up good, I hear, and the transports to Stonetalon are moving again. That's what I call useful." },
@@ -195,6 +241,8 @@ P:NPC {
       },
       choices = {
         { text = "Do the elves' spirits ever bother your caravans?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Could magic help keep your caravans moving?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "What goes missing from your wagons?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Why count everything?", next = "count" },
         { text = "Why don't you like people?", next = "people" },
         { text = "What's going on at Mystral Lake?", next = "mystral" },
@@ -265,6 +313,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Light the dark places, mon, because the elves love the dark and they run through it like it be their mother's arms. A little fire in the right spot at the right time, and I see every runner before he see me." } },
+      choices = {
+        { text = "I'll light your paths and keep the forest standing.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Burn the whole thicket. Then there's nowhere to hide.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Sometimes the runner turn away before I see him, like the trees told him I be waiting. I don't like fighting the forest as well as the elves, but the Warchief need the timber, so I watch the paths anyway." } },
@@ -288,6 +345,9 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? The night elves got their own spirits in these trees, and they be whispering about us, so keep your ears open on the paths." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest walkin' into Splintertree, mon. The loa or the Light or whatever you be listenin' to, I hope it tell you where the elves be hidin', because the trees sure won't." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage, eh? The elf runners be too quick for arrows half the time, so if you can freeze one where he stand, Kuray'bin gonna like you a lot." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. The orcs here be watchin' you sideways, mon, so don't take it personal, because they got long memories about your kind of power." },
         { id = "h_default", text = "I be Kuray'bin, and I watch the paths into Splintertree. The night elves send runners through the trees, quick and quiet, and I make sure they don't get home." },
         { id = "h_outrunners", tags = { "news" }, when = { questActive = TODO_QUEST("Ashenvale Outrunners") },
           text = "Outrunners from Silverwing Outpost be sneakin' round our ground, countin' our numbers for their captains. Hunt them in the forest south of here before they get home." },
@@ -301,6 +361,7 @@ P:NPC {
       },
       choices = {
         { text = "Do the forest spirits warn the night elf runners about you?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What could a spellcaster do on your watch paths?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Do you miss the islands?", next = "islands" },
         { text = "How bad is the fighting?", next = "fighting" },
         { text = "What are the outrunners after?", next = "outrun" },

@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.13.0 (2026-11-16)
+- Horde priests, mages, warlocks and rogues are noticed: 13 people greet a Forsaken, troll or orc of those classes as one, and have something to ask and argue about.
+
 ## 1.12.0 (2026-11-16)
 - Horde shaman get their own conversation with 13 people in Tarren Mill and Alterac, Ravenholdt included.
 

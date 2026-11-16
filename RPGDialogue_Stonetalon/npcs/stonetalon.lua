@@ -440,6 +440,8 @@ P:NPC {
         { id = "h_den", tags = { "news" }, when = { questActive = TODO_QUEST("The Den") },
           text = "The Gatekeeper's Key is hidden in a little lantern at the mouth of the Den. I had that from one of the druids, eventually, and I'd rather not say how." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. At least the elements don't lecture anyone about balance, the way the druids of the Talon Den do." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The druids talk about balance the way your sort talk about faith, and I trust neither, though at least you admit what you're praying to." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You came in without making a sound, and I like that more than I should. The Talon Den keep their secrets well, and I could use someone who's good at finding them." },
       },
       again = {
         { id = "h_again", text = "Well? I've a fire to keep and little patience to spare." },
@@ -455,6 +457,8 @@ P:NPC {
         { text = "I'm a druid. You're speaking of my order.", next = "druid", when = { class = "DRUID" } },
         { text = "I studied in Dalaran, before I died.", next = "forsaken_b", when = { race = "Scourge", class = "MAGE" } },
         { text = "Do you trust shamans more than druids, Braelyn?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What do you want from the druids of the Talon Den?", next = "xhcast", when = { class = "PRIEST", race = { "Orc", "Troll", "Scourge" } } },
+        { text = "What secrets are the druids of the Talon Den keeping?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "I'll think about it.", next = "END" },
       },
     },
@@ -548,6 +552,24 @@ P:NPC {
       choices = {
         { text = "Civil will do.", next = "BACK", fx = { trait = { stern = 1 } } },
         { text = "You'll find I'm not what you think.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+      },
+    },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "I want them to stop pretending that magic is a sickness in the land, because my magic kept this outpost warm all last winter. If they ever cared to ask me, I'd tell them so, but they never ask, and I've stopped waiting." } },
+      choices = {
+        { text = "Then take your power back. Don't wait for permission.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Their ways are old. You could try to understand them.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "That's the question, isn't it, and I'd rather not tell you how I know they have any. They keep to their den more than they used to, and whatever they're planning, I'd like to hear it before the Horde has to." } },
+      choices = {
+        { text = "I'll get you whatever they're hiding. Your grudge is yours.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'll listen, but I won't rob druids for your grudge.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     xhsham = {
@@ -740,6 +762,10 @@ P:NPC {
         { id = "h_default", text = "I'm Jayka, and I keep the inn on Sun Rock. Warriors come in tired and leave rested, or at least less tired, and that's the job." },
         { id = "h_harpies", when = { metBefore = true }, text = "The harpies screamed all night, the braves screamed back, and nobody slept. Breakfast?" },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Then you'll know the wind howling round this inn isn't angry, only talkative, and you can tell the other guests so." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Sit down, take your boots off, and tell me who you've been patching up, because the braves who come in here never tell me the whole story." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage, and you'll want a warm corner, I expect, though you could probably warm it yourself. Tell me who you've been fighting, and I'll find you a bed." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. Leave whatever you keep in that bag outside the door, please, because the rugs in here are old and they catch fire very easily." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You came in so quietly I nearly poured you a drink before I saw you. Weapons down, boots off, and keep your hands where my other guests can see them, if you please." },
       },
       again = {
         { id = "h_again", text = "Anything else? The fire's warm and the stew's hot, so take your time." },
@@ -750,6 +776,8 @@ P:NPC {
         { text = "What's the news on the rock?", next = "news" },
         { text = "Want to hear how my last fight went?", next = "story" },
         { text = "Is the wind on Sun Rock as friendly as you say, Jayka?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What troubles Sun Rock that magic might help with?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Who's been talking in your inn lately?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "Just resting.", next = "END" },
       },
@@ -800,6 +828,24 @@ P:NPC {
     story_tall = {
       lines = { { id = "sl_default", text = "Ha! Twelve of them, was it, and you with one arm? You'll fit right in on Sun Rock, where every harpy grows a foot with each telling." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "The Grimtotem, mostly, and the harpies up on the ridge, who steal anything that isn't tied down. The braves say a little fire chases off a harpy faster than a spear, so if you're staying a few nights, they'd be glad of the company." } },
+      choices = {
+        { text = "I'll go up the ridge tomorrow and drive them off.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The braves can manage harpies. I'm only here for the bed.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "Everyone talks in my inn, that's what the drinks are for. Grimtotem traders come through now and then, very polite and very curious about the roads, and I don't like them at all." } },
+      choices = {
+        { text = "Point one out to me, and I'll see where he goes.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Tell the elders, and let them handle it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     xhsham = {
       big = true,

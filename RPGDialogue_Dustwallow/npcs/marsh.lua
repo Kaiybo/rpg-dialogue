@@ -15,6 +15,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = {
+        { id = "xhcast_lock", when = { class = "WARLOCK" }, text = "It whispers to your sort more loudly, I suspect, because there's more than arcane pooling in these hollows. Mind what answers when you reach for power out here, because not everything in the marsh is friendly." },
+        { id = "xhcast_default", text = "It sharpens you, if you're careful, and it eats you alive if you're not. I've lived here long enough to learn where the mana pools and where it festers, and the black dragons in the south don't help matters one bit." },
+      },
+      choices = {
+        { text = "Power without care is a poison. I'll be careful.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then I'll drink deep. Power is for using.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "Raptors, crocolisks, the occasional ogre who's lost his way, and now and then something from the dragon lairs to the south that I'd rather not name. I keep my wards up all the same, and they've held so far." } },
+      choices = {
+        { text = "I'll walk your perimeter tonight and see what's there.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Not my hut, not my problem. Your wards will do.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "I think the spirits were here long before the mana pooled, and they put up with it the way neighbors put up with a noisy house. The ogres and the dragons disturb them far more than I ever could." } },
@@ -35,6 +56,9 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll feel the mana in this marsh as a hum in the ground, I suspect, and I'd love to know whether it hums the same for you as it does for me." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! I don't get many visitors who pray, so you'll forgive me if I'm curious about who's answering, and whether they mind all the mana sloshing about out here." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock, at my door. I'll say plainly that I don't care for your school of magic, but you're polite enough, and that's more than I get from most of Theramore." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You crept up on my hut very nicely, I'll give you that. There's nothing worth stealing here unless you fancy a pile of notes on ley energy, and frankly I'd love someone to read them." },
         { id = "h_default", key = true, text = "I'm Tabetha, and yes, I live out here by choice. The marsh is full of mana and short on meddlers, which is exactly how a mage likes her neighborhood." },
         { id = "h_c0", when = { class = "MAGE" }, text = "Another student of the arcane! Then you'll feel it too, the way the ley energy pools in this swamp like rainwater." },
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -43,6 +67,8 @@ P:NPC {
       again = { { id = "h_again", text = "What else, dear? Visitors are so rare out here that I'm glad of every question." }, { id = "h_again2", text = "Ask, dear. I've time." } },
       choices = {
         { text = "Does all your magic out here disturb the marsh's spirits?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What does all the mana in this swamp do to a spellcaster?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "What prowls around your hut at night?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Does the marsh truly not mind a mage drawing on it?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why live out in the swamp?", next = "b1_1" },
         { text = "Do you know Lady Jaina?", next = "b2_1" },
@@ -97,6 +123,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Ghost lights, I reckon, or something wearing them, out past the burned inn on the road where nobody goes anymore. The Theramore lot say it's swamp gas, but swamp gas doesn't hum, and that's what I heard." } },
+      choices = {
+        { text = "I believe you, Jarl. I'll go and look.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Probably swamp gas. You've been out here too long.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "There are lights over the water at night and voices where nobody's standing, and the Theramore lot call me mad for mentioning it. I've lived here longer than they have, so I'll trust my own eyes over their sneers any day." } },
@@ -117,6 +152,9 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You see the marsh with different eyes, I suppose, but mine see plenty, and I don't need spirits to tell me who's sneaking about." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, eh? Then maybe you'll believe me about the lights over the water, because the Theramore lot certainly don't, and they ought to." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage! I've seen your sort in Theramore, flinging sparks about, and not one of them could tell me what those lights over the water are, so maybe you'll do better." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "Warlock, are you? I can always tell, there's a smell about you like a burnt candle, so you keep whatever you've summoned well away from my door and we'll get along fine." },
         { id = "h_default", key = true, text = "Name's Jarl, and they call me Swamp Eye because I see everything that moves out here. Nobody sneaks past my house without me knowing it, no matter what that Theramore lot thinks." },
         { id = "h_c0", when = { class = "ROGUE" }, text = "You're the sneaky sort, aren't you? Well, Swamp Eye sees you all the same, so don't get any ideas about my larder." },
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -125,6 +163,7 @@ P:NPC {
       again = { { id = "h_again", text = "What else? Speak up, I'm watching the reeds." }, { id = "h_again2", text = "Anything more? Make it quick." } },
       choices = {
         { text = "Do the spirits of this marsh ever trouble you, Jarl?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What are these lights you've seen over the water?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "What moves out in the swamp lately, Jarl?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What have you seen in the swamp?", next = "b1_1" },
         { text = "Why live out here?", next = "b2_1" },
@@ -310,6 +349,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Need magic to kill black dragon that killed old chief! Mok'Morokk want big fire, bigger than Draz'Zilb's, and then Stonemaul go home." } },
+      choices = {
+        { text = "I'll help the Stonemaul, Overlord. Your people deserve a home.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A dragon? Find someone else to get eaten.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "Everyone! Ogres steal, ogres lie, and every ogre want to be overlord, so Mok'Morokk watch Draz'Zilb most of all, because Draz'Zilb think too much." } },
+      choices = {
+        { text = "I'll watch for you, Overlord. Loyalty matters.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Maybe Draz'Zilb deserves the job, then.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Stonemaul have ogre magi, and ogre magi want gold and power, like Draz'Zilb. Orc shaman want nothing but to talk to wind, and Mok'Morokk not understand that at all." } },
@@ -322,12 +379,18 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You shaman! Orc shaman talk to rocks, and rocks listen. Mok'Morokk talk to rocks, and rocks do nothing." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "You priest! Mok'Morokk not care which god you talk to, as long as you fix Stonemaul when they get hurt." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "Small mage! Draz'Zilb is mage too, but Draz'Zilb smarter, and Mok'Morokk biggest, so you remember who is boss here." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "Warlock! Old ogres remember warlocks from the Horde before, so you do magic tricks if you want, but you not tell Mok'Morokk what to do." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "Sneaky one! Mok'Morokk see you coming, because Mok'Morokk not stupid, so you keep hands off Mok'Morokk's food." },
         { id = "h_default", key = true, text = "Me Mok'Morokk, overlord of the Stonemaul! The black dragon killed our chief and drove us from our home, so now we live here, with the orcs, and Mok'Morokk the boss." },
         { id = "h_c0", when = { race = "Orc" }, text = "An orc! You good friends with Stonemaul, so Mok'Morokk let you talk. Talk fast, though." },
       },
       again = { { id = "h_again", text = "What else you want?" }, { id = "h_again2", text = "Speak! Mok'Morokk hungry." } },
       choices = {
         { text = "Do the Stonemaul have shamans of their own?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What does Brackenwall need from a spellcaster?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Who in Brackenwall should I keep an eye on?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "What happened to the Stonemaul?", next = "b1_1" },
         { text = "Why do you need me?", next = "b2_1" },
         { text = "Do the orcs respect you?", next = "b3_1" },
@@ -381,6 +444,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "A home that is ours, and a leader who can think past his next meal, though I would never say that within the overlord's hearing. Until then I keep the Stonemaul fed and the orcs friendly, which is harder than any spell I know." } },
+      choices = {
+        { text = "Perhaps the Stonemaul need a wiser leader.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Mok'Morokk leads. Your duty is to advise him well.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "A great deal, and I prefer it that way. The overlord sees his food and his enemies, and I see the rest, and between the two of us very little goes unnoticed." } },
+      choices = {
+        { text = "Then let's share what we see. Quietly.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Keep your secrets. I'm not here to play your game.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Ogres remember Gul'dan, who made the first ogre magi with fel magic and lies. When the black dragon drove us out and the orcs offered us Brackenwall speaking to the elements instead, we knew they had changed." } },
@@ -401,6 +482,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of Thrall's Horde. The Warchief's restoring of your old ways is the reason the Stonemaul trusted the orcs at all." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The Stonemaul have little use for prayer, but they have a great deal of use for healing, and I would be grateful if you offered the second without preaching the first." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You move carefully, which in Brackenwall is a sign of intelligence. I would ask you not to practice it on the overlord, who does not take kindly to surprises." },
         { id = "h_default", key = true, text = "I am Draz'Zilb, advisor to Overlord Mok'Morokk. While he leads the Stonemaul with his fists, I lead them with knowledge, and between us we keep Brackenwall standing." },
         { id = "h_c0", when = { class = { "MAGE", "WARLOCK" } }, text = "A fellow student of the arcane. Most ogres think magic is merely a loud kind of club, and it is pleasant to speak with someone who knows better." },
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -409,6 +492,8 @@ P:NPC {
       again = { { id = "h_again", text = "Draz'Zilb hears you, small one. Ask your next question and be clever about it." }, { id = "h_again2", text = "Ask, and I shall answer if I can." } },
       choices = {
         { text = "Why did shamans make the Stonemaul trust the orcs?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What do the Stonemaul need most, Draz'Zilb?", next = "xhcast", when = { class = "PRIEST", race = { "Orc", "Troll", "Scourge" } } },
+        { text = "What happens in Brackenwall that the overlord doesn't see?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Does the swamp still feel the black dragons, Draz'Zilb?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Tell me about Brackenwall.", next = "b1_1" },
         { text = "You don't sound like the overlord.", next = "b2_1" },

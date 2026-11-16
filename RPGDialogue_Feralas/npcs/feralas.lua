@@ -628,6 +628,9 @@ P:NPC {
           text = "Twelve samples, all glowing, all mine! Somewhere out there is a buyer who'll pay a pretty penny for these, and I mean to find them before the glow wears off." },
         { id = "h_rocks", when = { metBefore = true }, text = "I've got a sack of rocks under my bed that might be worth a fortune, or might be rocks. Science is mostly waiting to find out." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Do the earth spirits know anything about the ore the ogres guard up north? Because the rocks under my bed won't tell me." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, and here I thought this camp was all braves and drums. Do your gods care about ore, I wonder? I've a sample that could use a blessing, or at least an explanation." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage! Wonderful, then you can help me work out what this cobalt really is, because the ogres guard it like it's holy and I'd like to know if they're right." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. Well, I won't ask where your power comes from if you don't ask where my samples come from, and I think that's a fair trade." },
       },
       again = {
         { id = "h_again", text = "More questions? Ask fast, my friend; time is money, and so is cobalt." },
@@ -640,6 +643,7 @@ P:NPC {
         { text = "This is tauren land, goblin.", next = "tauren", when = { race = "Tauren" } },
         { text = "I could lift some cobalt off the ogres quietly.", next = "rogue_or", when = { class = "ROGUE" } },
         { text = "Should we really be digging up the ogres' ore, Orwin?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What's so special about the ogres' ore?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "I'll get you some.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -694,6 +698,15 @@ P:NPC {
         { id = "t_default", text = "And very fine land it is, with very generous hosts, and I'm only digging in the ogres' corner of it! Nobody here's going to miss a few rocks from the Gordunni." },
       },
       choices = { { text = "See that nobody does.", next = "BACK", fx = { trait = { stern = 1 } } } },
+    },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "That's exactly what I'm trying to find out, and the ogres aren't telling. It's heavy and it's blue, and I've a hunch it would take an enchantment better than iron, so somebody in Orgrimmar is going to want a great deal of it." } },
+      choices = {
+        { text = "Sell it first. The study can wait.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Study it properly before you sell a single stone.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     xhsham = {
       big = true,
@@ -754,6 +767,10 @@ P:NPC {
         { id = "h_rain", when = { metBefore = true }, text = "Rain again; it always rains in Feralas. The ogres hate it, and that's the only thing I like about it." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the Earth Mother at my fire! Sit, because the braves say you hear things in Feralas the rest of us miss, and I like a good story with my stew." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman by my fire! Sit down, because the rain in Feralas never stops, and your kind are usually the ones who brought it." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest at my fire! Sit and eat, and if the braves come in torn up from the ogre hills tonight, I'll know where to send them." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage, and soaked like everyone else, I see. Even your fire can't keep Feralas out of your boots, so come and stand by mine." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. You're welcome at my fire like any traveler, but keep your companion out of the stew, because the braves will notice if any goes missing." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You came in out of the rain without a drip on the floor, which is a trick I'd like to learn. Sit down and warm yourself, and keep your hands on your own bowl." },
       },
       again = { { id = "h_again", text = "Something more? Sit a while longer; the rain isn't going anywhere." } },
       choices = {
@@ -762,6 +779,8 @@ P:NPC {
         { text = "Who's the loud orc by the gate?", next = "rok" },
         { text = "Do you miss Mulgore?", next = "mulgore", when = { race = "Tauren" } },
         { text = "Does the rain in Feralas ever stop, Greul?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What dangers do travelers bring you word of?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Who's been asking strange questions at your fire?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Just a rest, thank you.", next = "END" },
       },
     },
@@ -791,6 +810,24 @@ P:NPC {
         { id = "m_default", text = "The open grass, yes, and the sky with nothing in it. But the Earth Mother is under this wet ground too, so I put my hand on it in the morning, and she's still there." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Ogres from the west, gnolls in the southern woods, and the old elf ruins at Dire Maul, which the braves won't go near after dark. A spellcaster might find work in any of them, but I'd rather you came back to eat my stew afterward." } },
+      choices = {
+        { text = "I'll clear the road so your travelers come home.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll go where the treasure is. Dire Maul sounds promising.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "Travelers ask strange questions all the time, and it's half of why I like the job. Lately a few goblins have been asking about Dire Maul's old treasures, and I told them the ruins aren't for selling." } },
+      choices = {
+        { text = "Good. Some places should stay untouched.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The goblins have the right idea, honestly.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     xhsham = {
       big = true,

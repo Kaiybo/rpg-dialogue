@@ -56,6 +56,10 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid of Thunder Bluff. The Galak have trampled the canyon floor bare in places, and I would hear whether the land down there can recover." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Good, because the Galak have their own spirit-callers, and I'd like to see one of ours answer them." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. When the Galak raid the canyon floor there is always someone to carry up to Freewind, and I'd sooner they reached a healer than a pyre." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. From up here a fireball could reach the Galak camps before they ever saw you coming, and I'd like to see that someday." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock, on Freewind. The Galak would call you a demon-caller and they'd not be wrong, but here we judge by deeds, so show me yours." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You came up onto the mesa without anyone noticing, and that's no small thing on Freewind. The Galak camps are below us, and I could use eyes inside them." },
       },
       again = {
         { id = "h_again", text = "What else? Speak, but keep one eye on the canyon while you do." },
@@ -74,6 +78,8 @@ P:NPC {
         { text = "Send me against the Galak, Cliffwatcher.", next = "x_warrior", when = { class = "WARRIOR" } },
         { text = "The Horde stands with Freewind.", next = "x_orc", when = { race = "Orc" } },
         { text = "Do the Galak centaur have shamans, Longhorn?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What do the Galak windchasers call down on the canyon?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "How many Galak are camped below Freewind?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Earth Mother watch over you.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -216,6 +222,24 @@ P:NPC {
       },
       choices = {
         { text = "Then the debt is paid both ways.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Storms out of a clear sky, and winds that knock riders off the ledges, and they do it as if the canyon owes them blood. A spellcaster who could break their chanting would save more of ours than any arrow." } },
+      choices = {
+        { text = "I'll break their chants and keep your riders safe.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll strike their camps at night, before they can chant.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "More each season, and they move their camps whenever they think we've counted them. Go down among them quietly and come back with a number, and I'll know how many braves to send." } },
+      choices = {
+        { text = "I'll count them, and I won't start a fight.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll count them, and I'll leave a few less.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -416,6 +440,10 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! Then you'll understand that the egg I'm after is no ordinary serpent's; there's something old and angry in it, and I mean to know what." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Do the spirits of the air know anything about very large eggs? I ask everyone, and you seem better informed than most." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Have you ever, by any chance, prayed over a very large egg? No? Well, if you ever do, I'd love to know how it went." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage! Could you tell me whether an egg would give off magic, if it were very old and very large? I'm asking for purely scholarly reasons." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock! Do demons lay eggs, do you know? I'm sorry, I'm sure you're asked that constantly, but it's been on my mind." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You look like someone who finds things that don't want to be found, and I have exactly the thing in mind. It's an egg, and it's very large." },
       },
       again = {
         { id = "h_again", text = "Yes, yes, what else? Forgive me, my mind keeps wandering back to that shell." },
@@ -429,6 +457,8 @@ P:NPC {
         { text = "My companion? Born, not hatched.", next = "pet", when = { pet = { type = "Beast" } } },
         { text = "My people raise raptors from the egg.", next = "x_troll", when = { race = "Troll" } },
         { text = "Why would the air spirits know about your egg, Hagar?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Could magic help you find this egg of yours?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Who else is looking for your egg?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Good luck with your egg.", next = "END" },
       },
     },
@@ -496,6 +526,24 @@ P:NPC {
         { text = "A raptor knows its rider. Nothing else matters.", next = "BACK", fx = { trait = { stern = 1 } } },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "That's the very question I've been asking myself! If an egg that size had anything special in it, a spellcaster might feel it from a pinnacle away, so if you feel anything at all out on the Needles, please come and tell me." } },
+      choices = {
+        { text = "I'll keep my senses open for your egg, Hagar.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "An egg that rare is worth gold. I'd sell it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "Goblins, I think, because one of them at the raceway asked me about it far too casually. If they find it first, it'll end up in a crate bound for Booty Bay, and I'll never see it at all." } },
+      choices = {
+        { text = "Then I'll find it first, and it stays with you.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Maybe I'll find it first, and name my own price.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Because the wind serpents nest high on the Needles, and the wind goes everywhere, so it must have passed the egg at some point. If the spirits would only tell me which pinnacle, I'd stop asking travelers, though I'd probably keep asking anyway." } },
@@ -557,6 +605,10 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid. If you have any way of seeing into the Grimtotem's camp, I would walk any trail you named for word of Lakota." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. If the spirits could tell me whether Lakota still lives, I would listen to anything they said." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Would you say something for Lakota's brother, who died trying to stop them? Nobody has said anything for him that I've heard." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. If you can see far, then look up at Darkcloud Pinnacle and tell me whether there's a light in the high camp, because I can't stop looking." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. I don't know what I think of that, and honestly I'm too tired to decide, so sit down if you're going to." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You came up so quietly I nearly didn't notice you, and I wish the Grimtotem were that easy to slip past. Maybe they are, for someone like you." },
       },
       again = {
         { id = "h_again", text = "What else? Say it, and then let me be." },
@@ -571,6 +623,8 @@ P:NPC {
         { text = "I'm tauren. I know what the Grimtotem should be to us.", next = "kin", when = { race = "Tauren" } },
         { text = "I'd have stood with Lakota's brother that night.", next = "x_warrior", when = { class = "WARRIOR" } },
         { text = "Have you asked the spirits about Lakota, Thalia?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Could magic help find Lakota?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "What do you know about the Grimtotem's camp on Darkcloud?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "I'm sorry.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -650,6 +704,24 @@ P:NPC {
         { text = "You're right. I'm sorry.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "I've wondered, every night, but the elders say Arnak's people have shamans of their own guarding the pinnacle. If you could get close enough to feel where she's being held, I'd owe you more than I could ever say." } },
+      choices = {
+        { text = "I'll go up tonight, alone if I have to.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Wait for the braves. A rescue needs planning.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "Only what travelers tell me, that Arnak keeps to the high camp and the paths up are watched day and night. I don't want you dead too, but if anyone could get up there unseen, it might be you." } },
+      choices = {
+        { text = "I'll go up quietly, and I'll bring her back.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll go for Arnak's hide, not just for Lakota.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "I asked an elder at Freewind, and she said the wind up at Darkcloud Pinnacle carries only Grimtotem voices now. So I keep my cord and I wait, because I don't know what else to do with an answer like that." } },
@@ -711,6 +783,10 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! You'll want the room by the edge, then; the wind sings through it at night, and the druids who stay here say it's the canyon talking." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Then you'll know why I love the wind singing over this mesa at night, because you can hear what it's singing about." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Come in and sit, and if you could bless the bridges on your way out I'd sleep better, because I'm forever telling guests not to look down." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. Please don't practice anything near the edge, because the last thing I want is a guest blowing themselves off the mesa." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. Your companion may stay, but not near the blankets, and certainly not near the edge, because I won't be explaining a falling demon to the cliffwatchers." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You're a quiet one, and that's welcome here, where the wind does all the talking. Only don't creep about at night, because my guests startle easily this high up." },
       },
       again = {
         { id = "h_again", text = "Something more, friend? There's no hurry on the mesa." },
@@ -724,6 +800,8 @@ P:NPC {
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "Do I frighten your guests, innkeeper?", next = "x_forsaken", when = { race = "Scourge" } },
         { text = "What does the wind sing about over Freewind, Abeqwa?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Does the wind up here do anything to magic?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Who stays at your inn that I should know about?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Just a bed, thank you.", next = "END" },
       },
     },
@@ -774,6 +852,24 @@ P:NPC {
       },
       choices = {
         { text = "Thank you, Abeqwa.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "A shaman who stayed here once told me the air on the mesa is restless and spells feel lighter for it, whatever that means. All I know is that candles go out the moment you light them, so I keep lanterns instead." } },
+      choices = {
+        { text = "I'll keep my spells tame while I'm your guest.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Lighter spells? I'll test that from the edge.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "Traders, braves, a goblin or two on the way to the raceway, and Hagar Lightninghoof, who'll talk to you about eggs if you let him. Most are harmless, though I keep an eye on anyone who asks too much about the Grimtotem." } },
+      choices = {
+        { text = "Good instinct. Tell the cliffwatchers if one comes back.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Asking questions isn't a crime. Leave them be.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

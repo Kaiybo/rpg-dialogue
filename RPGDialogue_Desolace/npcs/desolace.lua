@@ -855,6 +855,10 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid, here at Shadowprey? Sit down, sit down. The sea is the only thing in Desolace that hasn't given up, and I suspect you'll like it." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, out here in Desolace? The spirits of this place are tired, so be gentle with them." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, come all the way out to Desolace. The land here could use a prayer, though I think it would be content just to be left alone for a while." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. Out here you'll find old bones, old ruins and old magic, and I'd ask you to leave most of it where it lies." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. The Burning Blade at Thunder Axe Fortress call up their demons the same way you do, so I hope you'll understand if I keep my fishing line between us." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You came up so quietly the fish didn't even notice, which is more than I can manage. Sit, if you like, and tell me what you're really doing in Desolace." },
       },
       again = {
         { id = "h_again", text = "Something else? Sit; nothing out here is in a hurry except the centaur." },
@@ -870,6 +874,8 @@ P:NPC {
         { text = "I met your brother. He seemed well.", next = "brother_met", when = { heardLine = "longhorn.h_default" } },
         { text = "I've run the plains with my kodo since I was a calf.", next = "hunter_nt", when = { race = "Tauren", class = "HUNTER" } },
         { text = "Why are the spirits of Desolace so tired, Nataka?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What should a spellcaster know about Desolace?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Who should I watch out for in Desolace?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "I'll help.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -946,6 +952,27 @@ P:NPC {
         { id = "bm_default", text = "Good, good; that's all I needed to hear. If you pass through Freewind again, tell him his brother is eating well, even if it isn't quite true yet." },
       },
       choices = { { text = "I will.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } } },
+    },
+    xhcast = {
+      big = true,
+      lines = {
+        { id = "xhcast_lock", when = { class = "WARLOCK" }, text = "That the Burning Blade at Thunder Axe deal in the same fire you do, and they'd welcome you more warmly than I'd like. I hope you'll prove them wrong about the Horde's warlocks." },
+        { id = "xhcast_default", text = "That the land remembers whatever is done to it, and a great deal has been done. The Burning Blade foul the ground near Thunder Axe, and the Kodo Graveyard has a weight to it that no spell could lift, so walk softly and you'll do better than most." },
+      },
+      choices = {
+        { text = "I'll walk softly and leave the land as I found it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The Burning Blade need burning, whatever it costs the ground.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "The Kolkar and the Magram, who'll kill each other or you without much preference. The Burning Blade watch the roads too, and they're cleverer than the centaur, so don't trust an orc on the road just because he's an orc." } },
+      choices = {
+        { text = "I'll scout their camps and bring the elders word.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let the centaur bleed each other. I'll pick the bones.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     xhsham = {
       big = true,

@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.12.0 (2026-11-16)
+- Shaman are noticed: 21 people greet a shaman as one, and have something to ask and argue about.
+
 ## 1.11.0 (2026-11-16)
 - Druids are noticed: nine people in Gadgetzan and the dunes greet a druid as one and have something to ask and argue about.
 

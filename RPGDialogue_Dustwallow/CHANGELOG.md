@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.15.0 (2026-11-16)
+- Horde priests, mages, warlocks and rogues are noticed: 5 people greet a Forsaken, troll or orc of those classes as one, and have something to ask and argue about.
+
 ## 1.14.0 (2026-11-16)
 - Horde shaman get their own conversation with 5 people at Brackenwall and in the marsh.
 

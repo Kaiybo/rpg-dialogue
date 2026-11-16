@@ -165,6 +165,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = {
+        { id = "xhcast_lock", when = { class = "WARLOCK" }, text = "If you can sense dark powers, tell me what gathers down in Blackfathom, because the elves whisper that cultists meet in those drowned halls. If it's a cult, the Warchief will want to know whose before the elves do." },
+        { id = "xhcast_default", text = "Wards on the beach at night, and someone who can tell me what the naga sorceresses are calling up out of the bay. My grunts can kill what crawls ashore, but they can't kill what they don't understand." },
+      },
+      choices = {
+        { text = "I'll ward your beach. Your grunts deserve to sleep.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Spells cost. I'll name my price before I cast anything.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "Sentinels from the elves' posts up the coast, and they're patient about it, the way only elves can afford to be. I'd like to know how many there are and when they change their watch, though I won't ask you to cut throats to learn it." } },
+      choices = {
+        { text = "I'll count them and come back without a drop spilled.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "If a throat's in the way, I'll cut it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Dead fish in heaps, storms out of a clear sky, and once a water elemental that walked up the beach and went back without a word. Something in Blackfathom Deeps is poisoning more than the naga, and I'd like to know what it is before it comes ashore as well." } },
@@ -177,6 +198,10 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The water spirits along this shore have been uneasy since the naga came up out of the bay, and I'd value your ear on it." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest who walks with the Horde. The naga leave our wounded bleeding in the surf, so whatever answers your prayers, Light or loa or shadow, I'll be glad of your hands here." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage, and a long way from any library. The naga have sorceresses of their own out on the strand, so I hope your fire burns hotter than their water." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. I remember what your craft did to my people, and I serve a Warchief who chose to let you live, so I'll keep faith with him and watch you all the same." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You move like someone who doesn't want to be counted, which suits me. The elves have eyes in every tree around this strand, and I'd like a few of my own." },
         { id = "h_default", text = "I am Karang, and this outpost is the Horde's foothold on the western shore. The naga crawl up from the water, the elves watch from the trees, and somewhere out in the bay lies Blackfathom Deeps, full of things worse than either." },
         { id = "h_cond", when = { race = "Orc" }, text = "An orc of the Horde, good. You'll know we didn't come to this coast to admire it, so let us speak plainly." },
       },
@@ -186,6 +211,8 @@ P:NPC {
       },
       choices = {
         { text = "What has the sea brought ashore since the naga came?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What does Zoram'gar need from someone who works spells?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Who watches Zoram'gar from the trees?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Why hold this strand at all?", next = "strand" },
         { text = "Where do the naga come from?", next = "naga" },
         { text = "Do you send word to Splintertree?", next = "splinter" },
@@ -258,6 +285,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = {
+        { id = "xhcast_lock", when = { class = "WARLOCK" }, text = "You would know the bad voice better than Ruul does, Ruul thinks. Ruul asks only that you do not listen to it as long as the Thistlefur did, because Ruul has seen where that ends." },
+        { id = "xhcast_default", text = "Ruul has wondered that every night in this cage. The madness is not a wound, it is a voice, and Ruul does not know if a spell can make a voice go quiet, but Ruul would like someone to try before the Sentinels and the Horde kill them all." },
+      },
+      choices = {
+        { text = "I'll look for a cure before anyone draws a blade.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A quick death is the only mercy left for them.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "The chieftain keeps the cage key on a cord, and the stores are piled at the back of the den where the old ones used to sleep. Ruul does not like stealing from his own tribe, but Ruul likes this cage even less." } },
+      choices = {
+        { text = "I'll take only the key. Your tribe keeps the rest.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Whatever they've hoarded is fair game now.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "The Thistlefur shamans went mad first, because they listened hardest, and something that was not the forest answered them. Ruul thinks something dark crept into their dreams, and the forest spirits have been quiet ever since." } },
@@ -270,6 +318,10 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You are shaman. Ruul's grandmother was shaman of the Thistlefur before the madness, and she spoke to the forest the way you speak to the wind." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "You carry a prayer with you, Ruul can smell the candle smoke on your hands. Will you say one for the Thistlefur, even the mad ones? Ruul thinks they need it more than Ruul does." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "Your hands crackle like the air before a storm. Ruul does not know your kind of magic, but Ruul hopes very much that it can open a cage." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "Ruul smells something on you, the same bad smell that came into the forest before the madness. Ruul will not judge you for it yet, but Ruul will watch your hands." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You came so quietly that even the Thistlefur guards did not hear you, and they hear everything now. Ruul is glad you are a friend, or Ruul hopes you are." },
         { id = "h_default", text = "Ruul's tribe, the Thistlefur, have gone mad, and they keep Ruul in this cage because Ruul would not go mad with them. If you set Ruul free, Ruul will walk you to safety, though the way is long." },
         { id = "h_cond", when = { race = "Tauren" }, text = "Shu'halo, cousin of the forest! Ruul knew your people's drums once, from the old days, before the madness." },
       },
@@ -279,6 +331,8 @@ P:NPC {
       },
       choices = {
         { text = "What happened to your tribe's shamans when the madness came?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Can magic do anything for the Thistlefur?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Where do the Thistlefur keep their stores and their keys?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "What made your tribe mad?", next = "madness" },
         { text = "Where will you go if you're free?", next = "ruul" },
         { text = "Why trust the Horde?", next = "horde" },

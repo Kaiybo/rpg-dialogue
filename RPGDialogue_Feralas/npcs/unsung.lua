@@ -240,6 +240,10 @@ P:NPC {
           text = "I am Ruw, and I teach the gathering of herbs at Camp Mojache. Feralas is old and green and full of things the Earth Mother grew long before any of us came here, and I can teach you how to take them without harming the land." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Then you know already what I teach the others, that the Earth Mother gives freely only to those who take with care." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The herbs of Feralas grow under spirits older than ours, and you'll feel them if you walk softly." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "You are a priest, and the herbs of Feralas will help your healing as much as any prayer. Come and learn the leaves before you need them." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. Some of the herbs here drink in old magic, from the elves who walked these woods, and you may feel it more than I do." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "There is a shadow on you, and the plants know it before I do, I think, for they wilt a little where you stand. I will still teach you, if you will learn gently." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You know already how to walk without crushing the grass, which is the first lesson I teach. Some of my students take weeks to learn it." },
       },
       again = {
         { id = "h_again", text = "What else would you know, little one?" },
@@ -248,6 +252,8 @@ P:NPC {
       choices = {
         { text = "Does the forest here still give freely, Ruw?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Whose spirits are older than ours here, Ruw?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do the herbs here hold any magic of their own?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Is anyone taking more from this forest than they should?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Teach me what you can.", next = "BUSINESS" },
         { text = "What grows in Feralas?", next = "grows" },
         { text = "How do you take without harming the land?", next = "harm" },
@@ -294,6 +300,24 @@ P:NPC {
         { id = "sg_default", text = "Around the old elven city to the north of camp, and in the hills beyond it. They are strong and not as foolish as they look, so gather in their country only with a friend watching your back." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Some do, near the old ruins especially, where the night elves' magic soaked into the soil long ago. I gather those slowly and with a prayer, because I do not know what they remember." } },
+      choices = {
+        { text = "Then I'll gather them with care, as you do.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Magic in the soil is power. I'd take all I can.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "The ogres trample, the gnolls burn, and some traders come through who pull whole plants up by the roots to sell them. I cannot stop them all, but I tell the elders, and the elders tell the braves." } },
+      choices = {
+        { text = "I'll watch for them and bring word to the elders.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll deal with them myself. The elders are too slow.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     xhsham = {
       big = true,
@@ -344,6 +368,10 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Kulleg Stonehorn. I teach skinning here, and I teach it the old way: when a beast dies, you take everything it can give, and you waste nothing, because a waste dishonors the hunt." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll know the hunt is sacred, so you'll understand why I'm hard on anyone who wastes a skin." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. When a hunt goes badly it's your sort who closes the wounds, and I respect that, because it means you know what a kill costs." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. Mind what your fire does to a hide, because a scorched pelt is a waste, and I don't teach waste." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. Your demons kill and leave the meat to rot, and that dishonors the hunt, so if you want my teaching, you'll skin what they kill." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You've quick hands and a sharp knife, I'd wager. Use them on a hide properly and you'll make a skinner, and I've no use for any other trick." },
       },
       again = {
         { id = "h_again", text = "What else? Speak plainly." },
@@ -356,6 +384,8 @@ P:NPC {
         { text = "Is skinning a cruel trade?", next = "cruel" },
         { text = "I'm a hunter. Any advice for me?", next = "hunter", when = { class = "HUNTER" } },
         { text = "Do the spirits punish waste, Kulleg?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do spellcasters waste more of the hunt than warriors?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Who's been hunting the Mojache grounds without leave?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -396,6 +426,24 @@ P:NPC {
       },
       choices = {
         { text = "A clean kill. I'll remember.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Some do, because fire takes the hide and frost spoils the meat, and they never stop to look at what they've ruined. A careful caster wastes less than a careless warrior, though, so it's the hand I judge and not the spell." } },
+      choices = {
+        { text = "Then I'll kill cleanly and take only what I use.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A kill is a kill. I don't stop to skin.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "The Woodpaw, mostly, and a few strangers who leave carcasses half skinned on the trails. I'd like to know who they are, and I'd like them to answer to the camp for it." } },
+      choices = {
+        { text = "I'll find them and bring them before the camp.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll find them, and they won't hunt again.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -448,6 +496,10 @@ P:NPC {
         { id = "h_default", key = true,
           text = "I'm Sheendra Tallgrass, and I keep the camp's trade goods. Everything comes the long way from Thunder Bluff, by kodo through Thousand Needles, so I count every spool twice and charge a little more than you'd like." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! If you could ask the spirits to keep the kodo caravans dry through Thousand Needles, I'd stop charging extra for damp thread." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Bless my caravans if you've a mind to, because every one that arrives whole feels like an answered prayer." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage! I don't suppose you can conjure thread? No, I didn't think so, so you'll pay what everyone pays." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. I'll sell to you like anyone else, but I'll count my spools after you leave, and I hope you won't take that personally." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You've the look of someone who knows what a spool weighs without picking it up. I count twice for a reason, so let's both keep that in mind." },
       },
       again = {
         { id = "h_again", text = "What else, friend?" },
@@ -455,6 +507,8 @@ P:NPC {
       },
       choices = {
         { text = "Is the road from Thunder Bluff really that dangerous, Sheendra?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What threatens the caravans on the road here?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Do your goods ever go missing before they reach you?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Let me see your goods.", next = "BUSINESS" },
         { text = "How do the caravans get through?", next = "caravans" },
         { text = "What's Camp Mojache for, out here?", next = "camp" },
@@ -501,6 +555,24 @@ P:NPC {
         { id = "tg_default", text = "Goblins go anywhere there's a coin to be made, friend, and a camp at the edge of the world pays well for anything new. I haggle hard with them, and they respect me for it, or at least they pretend to." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Centaur in the Needles, the Grimtotem watching from their pinnacle, and ogres once the road reaches Feralas. A spellcaster riding alongside would do more good than another spear, and the drivers would sleep easier for it." } },
+      choices = {
+        { text = "I'll ride with the next caravan, then.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Caravans are traders' business. I have my own.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "Now and then a bolt of cloth comes up short, and the drivers swear it was the centaur, though centaur don't steal half a bolt. I have my suspicions, and I've kept them to myself so far." } },
+      choices = {
+        { text = "Tell the camp. Thieves should answer for it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let it go. Drivers need a little extra too.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     xhsham = {
       big = true,

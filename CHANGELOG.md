@@ -2,6 +2,13 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.44.0 (2026-11-16)
+Packs: 18 packs have new versions (`python3 tools/version.py` lists them). No new files in 0.44.0: /reload is enough if you have 0.39.0 or later.
+
+### Horde spellcasters and rogues, and shaman in the far south and north
+- **Horde priests, mages, warlocks and rogues are noticed from 30 to 60**: about 125 people in Tarren Mill and Alterac, Hammerfall, Revantusk, Kargath, Stonard, Grom'gol and Booty Bay, Splintertree, Sun Rock, Shadowprey, Brackenwall, Camp Mojache and Freewind greet a Forsaken, troll or orc of those classes as one. Casters get a question about what the place needs from magic; rogues get one about who's worth watching. Warlocks hear some sharper answers.
+- **Shaman in Kalimdor from 45 to 60**: about 80 Horde and neutral people in Tanaris, Un'Goro, Silithus, Felwood, Winterspring and Azshara greet a shaman and talk about the elements of their land: the corruption, the crater's fire, the cold, the hives and the ruins.
+
 ## 0.42.0 (2026-11-16)
 Packs: 20 packs have new versions (`python3 tools/version.py` lists them). No new files in 0.42.0: /reload is enough if you have 0.39.0 or later.
 
