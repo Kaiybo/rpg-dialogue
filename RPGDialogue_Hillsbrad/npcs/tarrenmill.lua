@@ -270,6 +270,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "I've no idea, shaman, and I suspect you're about to tell me. The water spirits in Hillsbrad's streams are welcome to complain to the Society in writing, though I doubt Master Faranell will read it." } },
+      choices = {
+        { text = "The land suffers enough. I'll ask its spirits to forgive it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The spirits serve the Horde too. They'll endure your poisons.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "We poison what the humans would plant, not what we stand on, or so the Society says. I'll admit the soil around my cauldrons hasn't sprouted anything in months, and only Umpi doesn't seem to mind." } },
       choices = {
@@ -280,6 +289,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" },
+          text = "A shaman, here among my cauldrons. I'm told you talk to the earth and the water, so please don't tell me what they think of the runoff behind the hut." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid at Tarren Mill. I suspect you won't approve of my work, tauren, since most of it is about making green things die faster." },
         { id = "h_default", key = true,
@@ -306,6 +317,7 @@ P:NPC {
       choices = {
         { text = "Why poison the very land the Horde fights for?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Will your plague do my fighting for me, Lydon?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
+        { text = "What do your poisons do to the spirits of this land?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Who's Umpi?", next = "umpi" },
         { text = "What are you working on?", next = "work" },
         { text = "Why are you so miserable?", next = "misery" },
@@ -452,8 +464,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "If they do, nobody's told me, and I'd be the first to hear, since I hear everything at this bar. The old ones say the mill wheel still turns some nights with no water behind it, but the old ones say a great many things." } },
+      choices = {
+        { text = "I'll go and listen at the mill, and leave the dead in peace.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Restless spirits are useful. I'll set them against Southshore.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" },
+          text = "A shaman under my roof. The last one who stayed asked me to open the windows for the spirits, and I told him the spirits could pay for a room like everyone else." },
         { id = "h_default", text = "I'm Shay, and I keep the inn. When this town was alive someone else did, and the customers complain less now." },
         { id = "h_clean", when = { metBefore = true }, text = "I polished the bar today. Nobody here eats or drinks much anymore, but a clean bar is a clean bar. Habit's what's left." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Night's our busy hour, though everyone's always up here, so I've stopped putting the chairs on the tables." },
@@ -466,6 +489,7 @@ P:NPC {
       },
       choices = {
         { text = "Is there a place to stable a beast in Tarren Mill?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
+        { text = "Do the dead of Tarren Mill trouble the spirits here?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "What was Tarren Mill like before?", next = "before" },
         { text = "Who stays here?", next = "guests" },

@@ -28,11 +28,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Every afternoon, when the wind turns hot off the plains. The riders open their wings into it and hang there without a single beat, and I don't need a shaman to tell me something out there is holding them up." } },
+      choices = {
+        { text = "The air spirits deserve thanks for every safe flight.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The riders fly on their own wings. Leave the spirits out of it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Devrak, and I keep the wind riders of the Crossroads. They'll take you to Orgrimmar, Thunder Bluff, Ratchet and anywhere else the Horde has a roost, faster than any kodo." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The wind riders settle down when one of you is nearby, so come up the tower any time, because you'll make my job easier." },
       },
       choices = {
+        { text = "Do you ever feel the air spirits on the roost?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I need a flight.", next = "BUSINESS" },
         { text = "Tell me about the wind riders.", next = "riders" },
         { text = "Is it safe to fly over the Barrens?", next = "safe" },
@@ -82,11 +93,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Some can, if you believe the tauren, and I've seen one kneel by a dry wash and dig until his hands came up wet. But I've also sold water to three shamans this week, so I'll keep stocking it." } },
+      choices = {
+        { text = "Water should be shared freely in a land this dry.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Water this scarce is worth whatever you can charge.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Barg, and I sell supplies at the Crossroads. Every traveler in the Barrens comes through here sooner or later, and most of them have run out of water by the time they arrive." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, and I'll bet you came in with an empty waterskin like everyone else, because asking the water spirits nicely won't fill it in the Barrens." },
       },
       choices = {
+        { text = "Can a shaman really find water out here?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "What should I carry in the Barrens?", next = "carry" },
         { text = "Who comes through the Crossroads?", next = "who" },
@@ -190,11 +212,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "A bullet, every time, because I can count on it. Lightning hits harder when it lands, I'll give you that, but I've watched a shaman's bolt crackle off a Kolkar stormer like rain off a roof, and the Kolkar didn't wait for a second try." } },
+      choices = {
+        { text = "I'll trust the spirits over a goblin's gunpowder.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Trust whatever kills fastest. Nothing else matters.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Uthrok, and I sell bows and guns at the Crossroads. Out in the Barrens you can see an enemy coming from a long way off, so you might as well shoot them before they get close." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You throw lightning, so you'll tell me it's better than a bow, but a bow doesn't need the sky's permission to fire." },
       },
       choices = {
+        { text = "Which hits harder, lightning or a bullet, Uthrok?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "Bow or gun, which is better?", next = "which" },
         { text = "Where do the guns come from?", next = "guns" },
@@ -250,11 +283,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Old earth, older than the tauren, and the herders say the ground there groans at night. The dwarves dig for treasure and the quilboar dig for their god, and between them the land south of Taurajo has no peace." } },
+      choices = {
+        { text = "The land deserves defending from both of them.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Let the dwarves and quilboar weaken each other first.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Omusa Thunderhorn, and I keep the wind riders of Camp Taurajo. From here they fly north to the Crossroads and further, and they carry the camp's news to Thunder Bluff." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The wind riders have been uneasy since the dwarves came south with their digging, and perhaps you can feel what they feel." },
       },
       choices = {
+        { text = "What are the dwarves disturbing at Bael Modan?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I need a flight.", next = "BUSINESS" },
         { text = "What troubles Camp Taurajo?", next = "trouble" },
         { text = "Do your wind riders have names?", next = "names" },
@@ -303,11 +347,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Ask them yourself, but my beasts mind it, and they cough every morning the forges are lit. The sea spirits must be patient, or Ratchet would have washed away long ago." } },
+      choices = {
+        { text = "The goblins should answer for what they burn.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let the goblins burn what they like. Ratchet isn't ours.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Bragok, and I keep the flight beasts here in Ratchet. The goblins run the town, but they let me keep my roost, because people who fly in spend money." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in a goblin town. You'll hate it here, because the goblins dig and burn whatever they like, and they've never asked a spirit's leave for anything." },
       },
       choices = {
+        { text = "Do the spirits mind the goblins' smoke and steam?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I need a flight.", next = "BUSINESS" },
         { text = "What do you think of Ratchet?", next = "ratchet" },
         { text = "Where does the boat go?", next = "boat" },
@@ -356,11 +411,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Ochre from the red cliffs near Ratchet and rust from the iron in the water, and the tauren trade me a blue from a root they won't name. They told me it was a gift from the Earth Mother and that I was to treat it kindly, so I do." } },
+      choices = {
+        { text = "A gift from the Earth Mother should be treated kindly.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A dye is a dye, and the price is what matters.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Wenna Silkbeard, and I sell tailoring supplies here in Ratchet. Thread, dye, patterns, everything a tailor needs except the cloth itself, and you'll have to cut that off somebody yourself." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You'll be wanting cloth for your robes, and your sort always choose the earthy colors, ochre and rust and dusk blue, which suits you, I must say." },
       },
       choices = {
+        { text = "Where do your earthy dyes come from, Wenna?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "Where do your dyes come from?", next = "dyes" },
         { text = "Why sell in Ratchet?", next = "ratchet" },
@@ -405,11 +471,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Does it? Sure, probably, but I'm not an engineer. What I know is that shamans pay extra for anything that sounds like it'll help with the sparks, and I'm not in the business of arguing with paying customers." } },
+      choices = {
+        { text = "A merchant should sell honestly, Ironzar.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "If they believe it, it's their coin to waste.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Ironzar's the name, and weapons are my game. Swords, axes, maces, you name it, and I've got it, and if I don't, I can get it for you for a price." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You'll want a mace with a good copper core, because copper carries the lightning, or so I tell every shaman, and they all buy it." },
       },
       choices = {
+        { text = "Does copper really carry lightning, Ironzar?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "Where do your weapons come from?", next = "where" },
         { text = "Who buys weapons in Ratchet?", next = "who" },

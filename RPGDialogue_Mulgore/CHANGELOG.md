@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.9.0 (2026-11-16)
+- Horde shaman get their own conversation with 16 people in Mulgore, Baine and Bloodhoof among them.
+
 ## 1.8.0 (2026-11-16)
 - New people with no quests, who had nothing to say until now: Harutt Thunderhorn, Meela Dawnstrider, Gart Mistrunner, Krang Stonehoof, Mahnott Roughwound, Jhawna Oatwind.
 - New files: exit the game fully and restart.

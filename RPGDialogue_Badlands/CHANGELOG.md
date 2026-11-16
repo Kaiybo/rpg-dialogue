@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.13.0 (2026-11-16)
+- Horde shaman get their own conversation with 10 people at Kargath and the camps.
+
 ## 1.12.0 (2026-11-16)
 - Druids are noticed: eight people at Kargath, the Dustbowl and the camps greet a druid as one and have something to ask and argue about.
 - Horde hunters with a beast out hear their companion named by the people who already talked hunting.

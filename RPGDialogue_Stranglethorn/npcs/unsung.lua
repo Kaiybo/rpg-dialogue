@@ -28,8 +28,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Swords are for duelists and axes are for woodcutters, but a mace is honest, and I think your spirits like honest. Also, you can't cut yourself on one while you're waving your other hand at a thunderstorm." } },
+      choices = {
+        { text = "An honest weapon for an honest fight. I agree.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll use whatever wins, honest or not.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Your lot love a good mace, so step right up, because nothing channels the earth like a lump of iron on a stick." },
         { id = "h_default", key = true,
           text = "Kizz Bluntstrike, macecrafter to the finest cove in the South Seas. Swords need sharpening and axes get stuck, but a good mace just keeps working, and so do I, at a fair price." },
         { id = "h_holy", when = { class = { "PRIEST", "PALADIN" } },
@@ -40,6 +50,7 @@ P:NPC {
         { id = "h_again2", text = "Ask away, friend. Talking's free, but swinging costs extra." },
       },
       choices = {
+        { text = "Why do shamans favor maces over swords, do you think?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Let me see what you're selling.", next = "BUSINESS" },
         { text = "Why should I carry a mace over a blade?", next = "why" },
         { text = "Where does your steel come from?", next = "steel" },
@@ -151,8 +162,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Once, when a tauren told me a white panther hide was sacred to something, and he looked big enough to make me believe it. I sold it to a human the next day, so the respect lasted about as long as he was in the shop." } },
+      choices = {
+        { text = "Some things should stay sacred, even in Booty Bay.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Sacred doesn't pay rent. You were right to sell it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll want mail, I suppose, though your lot always ask whose hide it was, which slows business down." },
         { id = "h_default", key = true,
           text = "Rikqiz, leatherworking supplies. The jungle's full of tigers, raptors and basilisks, and all of them are wearing hides that somebody wants, so I sell the somebodies what they need to turn them into armor." },
       },
@@ -161,6 +182,7 @@ P:NPC {
         { id = "h_again2", text = "Ask your question; the hides won't price themselves." },
       },
       choices = {
+        { text = "Have you ever turned down a hide out of respect?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Show me your stock.", next = "BUSINESS" },
         { text = "Which hides fetch the best price here?", next = "hides" },
         { text = "How does leather keep in this heat?", next = "heat" },
@@ -255,8 +277,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Alchemy follows recipes and the elements follow their moods, which is why I prefer alchemy. Still, I once watched a shaman cleanse a fouled well with a totem and a word, and I was jealous for a week." } },
+      choices = {
+        { text = "Recipes have their place. Discipline serves a shaman too.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The elements follow no recipe, and neither do I.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll be wanting clean reagents, I expect, and mine are the only clean ones in Booty Bay." },
         { id = "h_default", key = true,
           text = "Glyx Brewright, alchemy supplies. I sell vials, flasks and the odd reagent you can't pick in the jungle, and everything I sell is clean, which is more than any other shop in Booty Bay can say." },
       },
@@ -265,6 +297,7 @@ P:NPC {
         { id = "h_again2", text = "What else can I help you with, carefully?" },
       },
       choices = {
+        { text = "Is alchemy so different from calling on the elements?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Let me see the vials.", next = "BUSINESS" },
         { text = "What grows out there that's worth picking?", next = "herbs" },
         { text = "Why does cleanliness matter so much?", next = "clean" },
@@ -357,8 +390,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "I reckon if you talk to the earth, you'd want to know which bit of it you're carrying around. I couldn't tell you which mountain my bars came out of, but I'll find out if it matters to you." } },
+      choices = {
+        { text = "It matters. The earth deserves thanks for what it gives.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Iron's iron. Where it came from makes no difference to me.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, is it? I've sold iron to a few of yours, and they always ask where it was mined before they buy, which I respect." },
         { id = "h_default", key = true,
           text = "Jansen Underwood. I sell what a forge needs: coal, flux, iron bars and the tools to work them. Every smith in Booty Bay buys from me, and so do the ships' carpenters when their nails run out." },
         { id = "h_dwarf", when = { race = "Dwarf" },
@@ -369,6 +412,7 @@ P:NPC {
         { id = "h_again2", text = "Ask what you like, and I'll tell you straight." },
       },
       choices = {
+        { text = "Why do you think shamans care where the iron came from?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Show me what you've got.", next = "BUSINESS" },
         { text = "How did a northerner end up here?", next = "north" },
         { text = "Where does the coal come from?", next = "coal" },
@@ -466,8 +510,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Once, during a storm, and every lock in the building popped open at the same moment. Nothing was taken, but I checked every box four times, and I haven't slept properly in a thunderstorm since." } },
+      choices = {
+        { text = "I'll keep the storms well away from your vault. You have my word.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Storms go where they please, Rickle. You'll have to cope.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Please don't call any lightning near the vault, because I've only just had the hinges oiled and the noise sets my nerves off." },
         { id = "h_default", key = true,
           text = "Rickle Goldgrubber, banker to the Steamwheedle Cartel. I keep your valuables in a vault that's never once been robbed, and I'd like to keep saying that, so I check every box twice and the doors three times." },
       },
@@ -476,6 +530,7 @@ P:NPC {
         { id = "h_again2", text = "Yes? Go on, I'm listening, and I'm still counting." },
       },
       choices = {
+        { text = "Has lightning ever struck your vault, Rickle?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I'd like to open my box.", next = "BUSINESS" },
         { text = "Never once robbed? In Booty Bay?", next = "robbed" },
         { text = "Are you related to Viznik?", next = "viznik" },
@@ -554,8 +609,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "More every year, since Thrall's people built Orgrimmar and the zeppelins started running, and they're the politest customers I've got. They say thank you to the elements and thank you to me, and I don't hear that second one much." } },
+      choices = {
+        { text = "Courtesy costs nothing. Every shaman should show it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Thanks are cheap. Coin's the only courtesy that matters here.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Oh, you poor thing, wearing all that in this heat. I've got a lovely linen shirt that would go under it beautifully." },
         { id = "h_default", key = true,
           text = "Qixdi Goodstitch, cloth armor! The Goodstitches have been dressing Booty Bay since before the shark's jaws went up over the gate, and I've got robes for every mage, priest and warlock who's ever sweated through a woolen one." },
         { id = "h_priest", when = { class = "PRIEST" },
@@ -566,6 +631,7 @@ P:NPC {
         { id = "h_again2", text = "Anything else, friend?" },
       },
       choices = {
+        { text = "Do many shamans come through Booty Bay these days?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Let me see the robes.", next = "BUSINESS" },
         { text = "The Goodstitches? There's more of you?", next = "family" },
         { text = "Can cloth really protect anyone out there?", next = "protect" },
@@ -654,8 +720,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "A troll came through last month and dropped a panther with a bolt of lightning before the hunters had nocked an arrow. Nesingwary called it unsporting and bought him a drink anyway, which is about as close to praise as he gets." } },
+      choices = {
+        { text = "A quick, clean kill is the honorable kind.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Whatever brings the beast down fastest is good enough for me.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll end up fighting close sooner or later, like everyone out here, so you'll want an axe with weight behind it." },
         { id = "h_default", key = true,
           text = "Jaquilina Dramet, and I sell axes. The hunters here all carry bows, but when a panther gets inside your shot, a bow won't save you, so sooner or later they all come to my tent." },
       },
@@ -664,6 +740,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, then." },
       },
       choices = {
+        { text = "Have you seen shamans hunting alongside Nesingwary's people?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Show me your axes.", next = "BUSINESS" },
         { text = "Why sell axes at a hunting camp?", next = "why" },
         { text = "What's Hemet like to work beside?", next = "hemet" },
@@ -750,8 +827,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "A troll paid me to cook a whole shark for something he called a feast of the waters, and he poured the first bowl into the sea. I was offended at the time, but the fishing was wonderful that week." } },
+      choices = {
+        { text = "Giving the sea its share is a good habit.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Pouring good stew into the sea is a waste.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! I hear tauren cooking is all roots and plains game, so you must be dying for a decent fish stew." },
         { id = "h_default", key = true,
           text = "Kelsey Yance, cook. I sell spices and recipes for the things that swim and crawl round Booty Bay, because a sailor who eats well fights well, and a sailor who eats badly ends up in the infirmary." },
       },
@@ -760,6 +847,7 @@ P:NPC {
         { id = "h_again2", text = "Anything else, friend?" },
       },
       choices = {
+        { text = "Have you ever cooked anything for a shaman's ceremony?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Let me see your recipes.", next = "BUSINESS" },
         { text = "What's good to eat around here?", next = "eat" },
         { text = "What shouldn't I eat in the jungle?", next = "dont" },
@@ -840,8 +928,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Twice, and the storm won both times, though the second time I kept my eyebrows. I think engineers and shamans want the same thing, which is lightning that does what it's told, only you ask nicely and I use copper wire." } },
+      choices = {
+        { text = "Ask nicely, Gnaz. The elements deserve that respect.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If copper wire works, why bother asking at all?", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Do you know what a lightning bolt would do to a capacitor? Neither do I, but I've got a capacitor and I'd love to find out." },
         { id = "h_default", key = true,
           text = "Gnaz Blunderflame, engineering supplies! I sell the gears, the powder and the bolts that every tinkerer from here to Gadgetzan needs, and I've only blown up the shop once this year, which is a personal record." },
       },
@@ -850,6 +948,7 @@ P:NPC {
         { id = "h_again2", text = "Ask away, friend; I'll keep one eye on the fuse." },
       },
       choices = {
+        { text = "Have you ever tried to harness a storm with your gadgets?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Let me see your supplies.", next = "BUSINESS" },
         { text = "You blew up the shop?", next = "boom" },
         { text = "Who buys blasting powder in a port?", next = "buyers" },

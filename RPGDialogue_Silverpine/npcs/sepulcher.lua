@@ -38,8 +38,12 @@ P:NPC {
           text = "The Rot Hide gnolls nest on Fenris Isle, so burn it out." },
         { id = "h_shadowfang", when = { questActive = TODO_QUEST("Deathstalkers in Shadowfang") },
           text = "Some of my best went into Shadowfang Keep, Arugal's keep, and haven't come out. Go in after them." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Good, because Silverpine has more enemies than I have soldiers, and lightning is cheaper than a deathstalker." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, in my Sepulcher. The Warchief's people keep surprising me, and I'm not easily surprised." },
       },
       choices = {
+        { text = "Where do you need the storm, High Executor?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Will you let me fight the worgen as a beast, High Executor?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What threatens the Sepulcher?", next = "threats" },
         { text = "Send me after your deathstalkers, High Executor.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Where's the line weakest? Put me there.", next = "warrior", when = { class = "WARRIOR" } },
@@ -98,6 +102,24 @@ P:NPC {
       },
       choices = { { text = "I'll help hold the line.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } } },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "South, over the Dead Fields, where the gnolls gather at night, and then wherever the worgen are thickest. Fenris Isle should burn well, so if your spirits have a taste for gnolls, send them across the water." } },
+      choices = {
+        { text = "Your orders, High Executor. Point the way.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My spirits choose their own battles.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_q = {
+      big = true,
+      lines = { { id = "dq_default", text = "I'll let you fight them as anything you like, so long as you come back and report. My deathstalkers have mistaken their own shadows for worgen before, though, so let them see you change, or they'll put a bolt in you before you can explain." } },
+      choices = {
+        { text = "I'll report as ordered, and let your scouts know me.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll hunt alone and report when it suits me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -144,8 +166,12 @@ P:NPC {
         { id = "h_thule", when = { questActive = TODO_QUEST("Thule Ravenclaw") },
           text = "The trail leads to a lich called Thule Ravenclaw. Bethor Iceshard in the Undercity knew him once, so tread carefully." },
         { id = "h_samples", when = { metBefore = true }, text = "The samples spoiled again in the damp. Silverpine rots everything, which is ideal for some studies and infuriating for others." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Don't call up any water spirits in here, because the damp is already ruining my samples." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, how fortunate. The Moonrage worgen and the spiders near Fenris Isle both interest me, and you'll know them better than my errand-runners." },
       },
       choices = {
+        { text = "Could the spirits help trace the Rot Hide sickness, Renferrel?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What do you want with the worgen, Renferrel?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I could bring you samples from Silverpine's beasts.", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "What makes the Rot Hide sickness?", next = "rothide" },
         { text = "The Rot Hide sickness reminds me of the Cult's work.", next = "warlock", when = { class = "WARLOCK" } },
@@ -182,6 +208,24 @@ P:NPC {
     rogue = {
       lines = { { id = "ro_default", text = "Absolutely not, unless you'd like your blade to rot in its sheath and your hand with it. Ask in the Undercity for proper poisons; mine are for studying, not stabbing." } },
       choices = { { text = "Studying, not stabbing. Fair.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Possibly, though I doubt the spirits keep notes, and I need notes. Whoever brewed it worked with the Scourge's cauldrons, so if your elements can tell you where the earth was poisoned first, I'll take it, however unscientific the source." } },
+      choices = {
+        { text = "Then I'll ask, and we'll find whoever brewed it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Find it yourself. The spirits aren't your laboratory.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_q = {
+      big = true,
+      lines = { { id = "dq_default", text = "To understand them, primarily, and to find what makes the curse spread. A curse that passes from one creature to another is very like a plague, druid, and the Society takes a professional interest in anything that spreads." } },
+      choices = {
+        { text = "Understanding a curse is the first step to ending it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Learn it, then turn it on our enemies.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -222,8 +266,12 @@ P:NPC {
           text = "Arugal was a Kirin Tor mage who called up beasts he couldn't control, and now they run Silverpine. That is what Dalaran calls a solution." },
         { id = "h_intentions", when = { any = { { questActive = TODO_QUEST("Dalar's Analysis") }, { questActive = TODO_QUEST("Dalaran's Intentions") } } },
           text = "Dalaran's mages are in Ambermill. I want to know why. Bring me what they're carrying, and I'll read it better than they wrote it." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The Kirin Tor never trusted shamans, and I always thought it was because they couldn't explain what you did, and they hated anything they couldn't explain." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. Dalaran's libraries had three shelves on the Cenarion Circle and two of them were wrong, so I'd welcome a correction." },
       },
       choices = {
+        { text = "Can you explain what I do, Archmage?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What did the Kirin Tor get wrong about druids?", next = "druid_q", when = { class = "DRUID" } },
         { text = "The Sepulcher could use more steel and fewer spells, Dalar.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "What did you warn them about?", next = "warned" },
         { text = "I studied magic too. What would you teach me?", next = "mage", when = { class = "MAGE", race = "Scourge" } },
@@ -278,6 +326,24 @@ P:NPC {
       },
       choices = { { text = "And now?", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } } },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Not in the least, and I find I don't mind, which surprises me. The arcane is a lock I picked and your elements are a door somebody opened for you, so I suppose the difference is courtesy, and I was never much good at that." } },
+      choices = {
+        { text = "Courtesy keeps the door open, Archmage.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A picked lock opens just the same.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_q = {
+      big = true,
+      lines = { { id = "dq_default", text = "That you were simple, chiefly, and that nature magic was what a mage practised before he learned to read. Then Arugal called up his wolves and couldn't put them down again, and I'd wager no druid would have made that mistake." } },
+      choices = {
+        { text = "Nature's power demands humility. Arugal had none.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Arugal was weak. Power belongs to those who can hold it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -318,8 +384,12 @@ P:NPC {
         { id = "h_weaver", when = { questActive = TODO_QUEST("The Weaver") },
           text = "The Weaver is Dalaran's, and dangerous. Remove that problem, and quietly, if you can." },
         { id = "h_watchers", when = { metBefore = true }, text = "One of my watchers came back from the north with a story I don't believe, and I wrote it down anyway. That's the work." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. I heard you were coming, of course, and I heard your spirits were noisy, which I'd ask you to keep in mind near the border." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. I heard a tauren had come to Silverpine, and I heard you'd been sniffing about Pyrewood, so I assume you've something to tell me." },
       },
       choices = {
+        { text = "What do you want from a shaman, Shadow Priest?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do you ever stop listening, Shadow Priest?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What do you want me to learn?", next = "END", fx = { affinity = 1, trait = { curious = 1 } } },
         { text = "I'm good in the shadows. Make me one of your watchers.", next = "rogue", when = { class = "ROGUE" } },
         { text = "A living face could cross the border easier.", next = "living", when = { race = { "Orc", "Troll", "Tauren" } } },
@@ -342,6 +412,24 @@ P:NPC {
     living = {
       lines = { { id = "lv_default", text = "Easier past the Alliance, harder past the worgen, who prefer warm meat. But yes, the travellers at the border would talk to you before they'd talk to one of us. Do ask them where they're going, and remember the answers." } },
       choices = { { text = "I'll remember everything.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Your ears, mostly. The travellers on the border speak freely in front of the living, so if the wind carries you anything about Dalaran's mages at Ambermill, I'd like to hear it before Hadrec does." } },
+      choices = {
+        { text = "Before Hadrec, then. You'll hear it first.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Hadrec commands here. He hears it first.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_q = {
+      big = true,
+      lines = { { id = "dq_default", text = "Never, and it's a great comfort to me. A cat on a roof in Pyrewood hears more than any of my watchers, so if you'd care to spend a night up there, I'd make it worth your while." } },
+      choices = {
+        { text = "I'll watch Pyrewood for you, and report everything.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My eyes are my own. I'll share what I choose.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -382,8 +470,12 @@ P:NPC {
           text = "I'm Bates, the innkeeper, though it's not much of an inn, being a crypt and all. But the roof keeps the worgen out, and that's what counts in Silverpine." },
         { id = "h_cobwebs", when = { metBefore = true }, text = "I swept the cobwebs out of the east crypt this morning, and the spiders were back by noon. We've come to an arrangement." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Hear the howling? That's worgen, out past the trees. Listen long enough and you can tell them apart, and I wish I couldn't." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in my crypt! Sit down, and if your spirits want a chair as well, they'll have to share with the spiders." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, under my roof! You'll want somewhere soft to sleep, and I'm afraid all I've got are slabs, though I've thrown a fur over the east one." },
       },
       choices = {
+        { text = "Shall I calm the spirits of this crypt, Bates?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do the worgen ever come to your door, Bates?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Want me to see off the worgen at your door, Bates?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Can my beast sleep in here, Bates?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Do you get many living guests out here?", next = "living", when = { race = { "Orc", "Troll", "Tauren" } } },
@@ -414,6 +506,24 @@ P:NPC {
       choices = {
         { text = "It'll keep quiet. You have my word.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "If the worgen howl, it can howl right back.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Calm them? I've kept this inn the better part of a year and never heard a peep from anyone but the spiders. If there's somebody else about, I'd rather not know, so leave them be, and if they're happy, let them stay happy." } },
+      choices = {
+        { text = "Your crypt, your rules. I'll leave them be.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll see them on their way, whether you like it or not.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_q = {
+      big = true,
+      lines = { { id = "dq_default", text = "They sniff about at night and scratch at the stones, but the Sepulcher's walls are thick and they've never got in. I lie and listen to them howl and try to tell which ones were men once, and I wish I couldn't." } },
+      choices = {
+        { text = "Some of them may yet be saved, Bates. Keep hoping.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Men or not, they're beasts now. Bar the door.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },

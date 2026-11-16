@@ -19,6 +19,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Gregan Brewspewer, brewer by trade and by calling! I came all the way to Feralas because the fruit and grain out here grow wilder than anything back in Dun Morogh, and wild makes for a grand ale." },
         { id = "h_c0", when = { race = "Dwarf" }, text = "A fellow son or daughter of Ironforge, out here in the jungle! Ye'll understand, then, why a dwarf goes this far for the perfect brew." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! I don't hold with spirits much myself, but if you can bless a barrel, I'll call it a fair morning's work." },
       },
       again = { { id = "h_again", text = "What else, friend? The mash won't stir itself." }, { id = "h_again2", text = "Ask away, I'm only half busy." } },
       choices = {
@@ -26,6 +27,7 @@ P:NPC {
         { text = "What's your best brew?", next = "b2_1" },
         { text = "Is it safe camping here?", next = "b3_1" },
         { text = "Ironforge misses its brewers.", next = "x_1", when = { race = "Dwarf" } },
+        { text = "Do the spirits care about your brewing, Gregan?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Is brewing worth all this danger?", next = "s_1" },
         { text = "Farewell.", next = "END" },
       },
@@ -58,6 +60,15 @@ P:NPC {
       lines = { { id = "s_1_l", text = "Some say a dwarf who risks his neck for ale is a fool, and maybe they're right, but they drink it all the same." } },
       choices = { { text = "A man should chase what he loves, danger or not.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } }, { text = "Your life's worth more than a barrel of ale.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "If they don't, they ought to, because a good ale is the land's own gift poured into a mug. Feralas grows wild fruit and wilder grain, and if there's a spirit in all that, it's a cheerful one." } },
+      choices = {
+        { text = "Then thank the land for every barrel you brew.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Ale's a craft, not a blessing, and the credit is yours.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = { _none = { { id = "tp_none", text = "Can't say I know, friend. If it doesn't ferment, I don't pay it much mind." } } },
 }
@@ -88,6 +99,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Zorbin Fandazzle, goblin of commerce and science, mostly commerce. The giants on these islands and shores have been tearing up the coast, and I've got a gizmo that'll do something about it." },
         { id = "h_c0", when = { questActive = TODO_QUEST("Zapped Giants") }, text = "Use the zapper on the giants, and bring back what's left when they shrink down. Don't ask me how it works, because the instructions fell in the ocean." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, huh? You turn into animals, right, so tell me, could you turn into something big enough to scare off a giant? I'm asking for business reasons." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Say, can you ask the earth why the giants keep stomping my coast? I've got a gizmo, but I'd love a second opinion." },
       },
       again = { { id = "h_again", text = "What else? Clock's ticking." }, { id = "h_again2", text = "More questions? Sure, those are free." } },
       choices = {
@@ -96,6 +108,7 @@ P:NPC {
         { text = "Is your zapper safe?", next = "b2_1" },
         { text = "Why set up shop here?", next = "b3_1" },
         { text = "I could improve that zapper.", next = "x_1", when = { race = "Gnome" } },
+        { text = "Do you know why the giants are stirring, Zorbin?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do the giants deserve this?", next = "s_1" },
         { text = "Farewell.", next = "END" },
       },
@@ -127,6 +140,15 @@ P:NPC {
     s_1 = {
       lines = { { id = "s_1_l", text = "Hey, I'm not a philosopher, I'm a businessman. They stepped on my crates first, and fair's fair." } },
       choices = { { text = "They wreck the coast. Someone has to stop them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } }, { text = "They were here first. You're the trespasser.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Not a clue, and as a goblin of science that bothers me. My guess is something under the coast has them riled, and my gizmo doesn't care why, which is the beauty of a gizmo." } },
+      choices = {
+        { text = "Find out why first. Blind fixes cause new trouble.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Who cares why? If the gizmo works, use it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
   topics = { _none = { { id = "tp_none", text = "No idea, friend, and if it doesn't pay, I've got no time to learn." } } },
@@ -288,6 +310,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Hadoken Swiftstrider. Camp Mojache is home to the tauren of Feralas, and the gordunni ogres to the west threaten us every season." },
         { id = "h_c0", when = { race = "Tauren" }, text = "A child of Mulgore, here among us. Our camp is small, but the fire is warm, and you are welcome to it." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid among the hunters of Mojache! The gordunni to the west have no love for the Earth Mother, and you'll see it in every stump they leave behind." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The gordunni have shamans of their own who call fire out of the earth, so I'll want to see whether yours burns hotter." },
       },
       again = { { id = "h_again", text = "What else do you seek?" }, { id = "h_again2", text = "Speak, friend." } },
       choices = {
@@ -296,6 +319,7 @@ P:NPC {
         { text = "Why is the camp here?", next = "b2_1" },
         { text = "Do you trust the Alliance here?", next = "b3_1" },
         { text = "I hunt as well. Show me the trails.", next = "x_1", when = { class = "HUNTER" } },
+        { text = "Are the gordunni shamans dangerous, Hadoken?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Should we make peace with Feathermoon?", next = "s_1" },
         { text = "Farewell.", next = "END" },
       },
@@ -328,6 +352,15 @@ P:NPC {
       lines = { { id = "s_1_l", text = "Some here say we should speak with the night elves, since we face the same ogres. Others say peace with the Alliance is a fool's dream." } },
       choices = { { text = "A common enemy makes allies. Speak with them.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } }, { text = "The Horde stands alone. Trust no Alliance blade.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "They burn our scouts and laugh about it, so yes, they're dangerous, and their brutes are worse. The gordunni crowd the hills to the west, and they won't leave until they're made to." } },
+      choices = {
+        { text = "Then we face them openly and drive them back.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then poison their camps and let them sicken.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = { _none = { { id = "tp_none", text = "The Earth Mother has not shared that knowledge with me." } } },
 }
@@ -348,12 +381,14 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Jangdor Swiftstrider, and I work the hides of Feralas into armor worthy of hunters. Hadoken Swiftstrider hunts the ogres, and I make sure the hunters who follow him come home whole." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Your kind need room to move when the totems go down, so I'll want to fit you for armor that doesn't fight you." },
       },
       again = { { id = "h_again", text = "Anything else, friend?" }, { id = "h_again2", text = "Ask away." } },
       choices = {
         { text = "What makes a good hide?", next = "b1_1" },
         { text = "You know Hadoken?", next = "b2_1" },
         { text = "Is it wrong to hunt for profit?", next = "s_1" },
+        { text = "What armor suits a shaman in Feralas, Jangdor?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -372,6 +407,15 @@ P:NPC {
     s_1 = {
       lines = { { id = "s_1_l", text = "Some of the young ones hunt for coin and leave the meat to rot. I do not like it, though the goblins pay them well." } },
       choices = { { text = "Take only what you need from the land.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } }, { text = "A hunter must eat, and coin buys food.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Leather from the beasts of this forest, oiled against the rain, and mail once you're strong enough to carry it. A shaman must move freely when the ogres come, and I'd rather fit you properly than bury you properly." } },
+      choices = {
+        { text = "Good craft keeps hunters alive, so I'll trust your hand.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'd rather fight light and fast, armor or not.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
   topics = { _none = { { id = "tp_none", text = "I know leather, not that." } } },

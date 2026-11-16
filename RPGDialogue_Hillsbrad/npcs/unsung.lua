@@ -339,8 +339,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "If they do, they haven't put in an order, and I'd sell to them too, at a fair markup. Southshore buys my lamp oil and Tarren Mill buys my rope, and the hills don't seem to mind either one, so I don't see why I should." } },
+      choices = {
+        { text = "The Horde should win here, and you should pick a side.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Smart goblin. Sides are for people who can't do arithmetic.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" },
+          text = "A shaman! I don't sell totems, before you ask, because carved wood weighs a ton and the Overwatch units won't carry anything that might get struck by lightning." },
         { id = "h_default", key = true,
           text = "Zixil, merchant supplier to the hills! I walk from Southshore to Tarren Mill and back again, selling a little of this and a little of that, and the two Overwatch units keep the road very polite." },
         { id = "h_horde", when = { faction = "Horde" },
@@ -351,6 +362,7 @@ P:NPC {
         { id = "h_again2", text = "Anything else? The robots are getting bored." },
       },
       choices = {
+        { text = "Do the spirits care who wins in Hillsbrad, Zixil?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Show me what you're carrying.", next = "BUSINESS" },
         { text = "You trade with both towns?", next = "both" },
         { text = "Tell me about your robots.", next = "robots" },

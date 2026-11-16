@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.9.0 (2026-11-16)
+- Horde shaman get their own conversation with 21 people at the Crossroads, Ratchet and Camp Taurajo.
+
 ## 1.8.0 (2026-11-16)
 - New people with no quests, who had nothing to say until now: Devrak, Barg, Hula'mahi, Uthrok, Omusa Thunderhorn, Bragok, Wenna Silkbeard, Ironzar.
 - New files: exit the game fully and restart.

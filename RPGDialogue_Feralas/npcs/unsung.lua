@@ -239,6 +239,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "I am Ruw, and I teach the gathering of herbs at Camp Mojache. Feralas is old and green and full of things the Earth Mother grew long before any of us came here, and I can teach you how to take them without harming the land." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Then you know already what I teach the others, that the Earth Mother gives freely only to those who take with care." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The herbs of Feralas grow under spirits older than ours, and you'll feel them if you walk softly." },
       },
       again = {
         { id = "h_again", text = "What else would you know, little one?" },
@@ -246,6 +247,7 @@ P:NPC {
       },
       choices = {
         { text = "Does the forest here still give freely, Ruw?", next = "druid_q", when = { class = "DRUID" } },
+        { text = "Whose spirits are older than ours here, Ruw?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Teach me what you can.", next = "BUSINESS" },
         { text = "What grows in Feralas?", next = "grows" },
         { text = "How do you take without harming the land?", next = "harm" },
@@ -293,6 +295,15 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "The night elves walked these forests long before the tauren came, and their old cities lie broken among the trees, at Dire Maul and elsewhere. The spirits there remember them, and I think some remember them unkindly, so I gather carefully." } },
+      choices = {
+        { text = "Then we tread with respect, and take only what's needed.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Old grudges aren't ours. We take what the forest offers.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -332,6 +343,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Kulleg Stonehorn. I teach skinning here, and I teach it the old way: when a beast dies, you take everything it can give, and you waste nothing, because a waste dishonors the hunt." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll know the hunt is sacred, so you'll understand why I'm hard on anyone who wastes a skin." },
       },
       again = {
         { id = "h_again", text = "What else? Speak plainly." },
@@ -343,6 +355,7 @@ P:NPC {
         { text = "Why does waste dishonor the hunt?", next = "waste" },
         { text = "Is skinning a cruel trade?", next = "cruel" },
         { text = "I'm a hunter. Any advice for me?", next = "hunter", when = { class = "HUNTER" } },
+        { text = "Do the spirits punish waste, Kulleg?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -386,6 +399,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Not with lightning, if that's what you're asking, but a hunter who wastes the beast finds the next one harder to track. The Woodpaw gnolls waste everything they kill, and you'll notice how the forest treats them." } },
+      choices = {
+        { text = "Honor the hunt, and take everything the beast can give.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The spirits don't count skins. Take what's useful and move on.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -425,12 +447,14 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "I'm Sheendra Tallgrass, and I keep the camp's trade goods. Everything comes the long way from Thunder Bluff, by kodo through Thousand Needles, so I count every spool twice and charge a little more than you'd like." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! If you could ask the spirits to keep the kodo caravans dry through Thousand Needles, I'd stop charging extra for damp thread." },
       },
       again = {
         { id = "h_again", text = "What else, friend?" },
         { id = "h_again2", text = "Ask what you like; I'm only counting." },
       },
       choices = {
+        { text = "Is the road from Thunder Bluff really that dangerous, Sheendra?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Let me see your goods.", next = "BUSINESS" },
         { text = "How do the caravans get through?", next = "caravans" },
         { text = "What's Camp Mojache for, out here?", next = "camp" },
@@ -477,6 +501,15 @@ P:NPC {
         { id = "tg_default", text = "Goblins go anywhere there's a coin to be made, friend, and a camp at the edge of the world pays well for anything new. I haggle hard with them, and they respect me for it, or at least they pretend to." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Long and wet and full of centaur, and the Grimtotem watch from their pinnacle the whole way through the Needles. Every caravan that arrives whole is a small miracle, and I don't trust miracles, so I count the spools twice." } },
+      choices = {
+        { text = "Then the caravans need better guards, sent by the bluff.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then trade with whoever's closer, and forget the long road.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 

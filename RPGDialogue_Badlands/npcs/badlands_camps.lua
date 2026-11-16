@@ -20,6 +20,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Not in words, but I listen all the same, and I hear when a vein's run thin or a seam's about to crack. The troggs dig without listening, and Uldaman's full of things better left buried, so ye might tell the spirits not everyone down here is so careless." } },
+      choices = {
+        { text = "Then work gently, Martek. The earth rewards those who listen.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Metal's metal. Take what the earth won't defend.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Because the Badlands ask nothing of me except that I survive them, and Ironforge asked a great deal more. You of all people should understand wanting a place that doesn't care who you were." } },
       choices = {
@@ -30,6 +39,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" },
+          text = "A shaman, here? The earth out here is old and sore, and I've worked it long enough to know when it's in a mood, which is most days." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid, out here? You'll find no forest in the Badlands, only rock and me, and I've been told I'm poorer company than the rock." },
         { id = "h_default", key = true,
@@ -45,6 +56,7 @@ P:NPC {
       },
       choices = {
         { text = "Why live alone in a land this harsh, Martek?", next = "druid_q", when = { class = "DRUID" } },
+        { text = "Does the earth speak to you when you work its metal, Martek?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why were you exiled?", next = "exile" },
         { text = "What's indurium?", next = "indurium" },
         { text = "How do you live out here?", next = "life" },
@@ -107,6 +119,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Thank 'em? I'd thank 'em if they flew down here already seasoned. The buzzards out here eat whatever falls over in the heat, so if anybody ought to be thanking somebody, it's them, for me cleaning the place up." } },
+      choices = {
+        { text = "Thank them anyway. Every life taken deserves respect.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Fair enough. A buzzard's just a meal waiting for sauce.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Counting this morning? Enough to keep the skies clear over my camp, and not one of 'em has ever complained, which is more than I can say for my customers." } },
       choices = {
@@ -117,6 +138,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" },
+          text = "A shaman! Say, could you call up a bit of fire for my grill? It'd save me on charcoal, and the buzzards don't care how they're cooked." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! You're not here to give me grief about the buzzards, are you? Because they're the ugliest birds in the Badlands, and somebody has to eat 'em." },
         { id = "h_default", key = true,
@@ -130,6 +153,7 @@ P:NPC {
       },
       choices = {
         { text = "How many buzzards have you cooked, Rigglefuzz?", next = "druid_q", when = { class = "DRUID" } },
+        { text = "Do you ever thank the spirits for your buzzards, Rigglefuzz?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Buzzard wings? Really?", next = "wings" },
         { text = "Who buys food out here?", next = "buyers" },
         { text = "Isn't it dangerous by the road?", next = "danger" },

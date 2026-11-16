@@ -36,8 +36,12 @@ P:NPC {
           text = "Maggot Eye is a gnoll who robs our graves. Bring me his paw, and the dead of Brill can rest." },
         { id = "h_intel", when = { questActive = TODO_QUEST("Vital Intelligence") },
           text = "Arren sent you with what the Crusade's runners carried? Let me see... yes, this will do nicely." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, out of the Warchief's lands and into my fields. The Crusade burns anything it can't explain, so they'll aim at you before they aim at me." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A tauren druid, in Tirisfal. The Crusade calls us unnatural, and I expect they'll call you the same, in between the arrows." },
       },
       choices = {
+        { text = "Will the Deathguard fight beside the elements, Executor?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Is there work here for a druid, Executor?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Who are the Scarlet Crusade?", next = "crusade" },
         { text = "I held a line once, for Lordaeron. Put me on yours.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "I can reach their camps unseen, Executor.", next = "rogue", when = { class = "ROGUE" } },
@@ -116,6 +120,24 @@ P:NPC {
       },
       choices = { { text = "As you say, Executor.", next = "BACK" } },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "The Deathguard will fight beside anything that kills Crusaders, and lightning kills them well enough. Only keep your spirits clear of my lines, because my soldiers have had their fill of voices in their heads." } },
+      choices = {
+        { text = "I'll fight inside your lines and keep to your orders.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The elements don't take orders, Executor, and neither do I.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_q = {
+      big = true,
+      lines = { { id = "dq_default", text = "There's work for anyone who can stand the smell of the glades. The Crusade camps among the trees at Solliden and along the monastery road, and a bear loose in their camp at night would do more than a dozen of my soldiers at the gate." } },
+      choices = {
+        { text = "I'll go in at night, as you say, and break their camp.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'll fight them in daylight, where they can see me coming.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -161,8 +183,12 @@ P:NPC {
           text = "Bethor Iceshard in the Undercity has asked after a lich who wears an old friend's name. Take him what we've learned." },
         { id = "h_ring", when = { questActive = TODO_QUEST("The Engraved Ring") },
           text = "Here's a ring with an engraving, and someone in this town knows whose it is. Find out who." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman in my town hall? Do mind the papers, because I've no wish to learn what lightning does to a ledger." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, is it? Brill had a grove once, before the plague, and I've the deeds to it somewhere, though I wouldn't call it a grove now." },
       },
       choices = {
+        { text = "Brill could use a shaman's totems, Magistrate. Where shall I plant them?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What happened to Brill's grove, Magistrate?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Brill needs a sword more than a magistrate, Sevren.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "How did you take Brill?", next = "brill" },
         { text = "I lived near Brill, before.", next = "farmer", when = { race = "Scourge" } },
@@ -199,6 +225,24 @@ P:NPC {
     brill = {
       lines = { { id = "b_default", text = "One street at a time. The Deathguard cleared it; I counted what was left and put it to work. A town needs both sorts." } },
       choices = { { text = "Impressive.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Outside the town limits, if you please, and well clear of the graveyard. I've spent two years teaching Brill to look like a town again, and a ring of totems by the well makes it look like a war camp." } },
+      choices = {
+        { text = "Outside the limits, then. Brill's order comes first.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Brill is a war camp, Magistrate, whatever your ledgers say.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_q = {
+      big = true,
+      lines = { { id = "dq_default", text = "The same thing that happened to everything else, I'm afraid: the plague got into the roots, and the trees came up grey. The Deathguard cut half of it for palisades and the apothecaries asked for the rest, so the deeds are worth rather less than the paper." } },
+      choices = {
+        { text = "Let me tend what's left. Something may still grow there.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The palisades were the better use. The town comes first.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -242,8 +286,12 @@ P:NPC {
           text = "This goes to the Society's apothecary at the Sepulcher, and you mustn't drop it. Really, don't drop it." },
         { id = "h_experiment", when = { questActive = TODO_QUEST("Johaan's Experiment") },
           text = "An experiment wants a subject, and the Crusade has kindly provided one. Fetch what I need." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You speak to the elements, I'm told, and I would dearly like to know whether the elements have opinions about what I keep in these bottles." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, how useful! You'll know your herbs better than any errand-runner, and I do hope you won't trample the doom weed." },
       },
       choices = {
+        { text = "The earth here is sick, Apothecary. Do your brews make it worse?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "You're growing something in these fields, Apothecary. What is it?", next = "druid_q", when = { class = "DRUID" } },
         { text = "My hunting takes me into the fields. Do you need samples?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "What is the plague for?", next = "purpose" },
         { text = "I served the Cult once. I know a plague when I see one.", next = "warlock", when = { class = "WARLOCK" } },
@@ -291,6 +339,24 @@ P:NPC {
         { text = "That's not quite an answer.", next = "BACK", fx = { affinity = -1, trait = { skeptical = 1 } } },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Worse? It was the Scourge's grain that poisoned these fields, and my work is meant to answer it, not add to it. If the earth complains to you about a little runoff, do tell it the Royal Apothecary Society is terribly sorry, and very busy." } },
+      choices = {
+        { text = "Then answer the Scourge, and let the fields heal.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The fields are already lost. Use them as you need.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_q = {
+      big = true,
+      lines = { { id = "dq_default", text = "Reagents, only reagents, for a remedy against the Scourge. The plague-touched earth grows things nowhere else in Lordaeron will, and I'd be a poor apothecary if I let that go to waste, so could you gather a few for me, gently, roots and all?" } },
+      choices = {
+        { text = "Gently, then, roots and all, for the war on the Scourge.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Not until I know what they're truly for.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -328,8 +394,12 @@ P:NPC {
           text = "The Agamands walk the mills now, as undead as I am and twice as foul. Bring me what's left of them, and I'll see they rest. Eventually." },
         { id = "h_mills", when = { questActive = TODO_QUEST("The Haunted Mills") },
           text = "The mills are haunted, and of course they're haunted; everyone who died there had a reason to stay angry." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in the Gallows' End! Sit down, friend; the ale's thin, but I'm told the spirits are generous, and I mean the other kind." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, is it? The Agamands kept a little orchard behind the manor, and I'd dearly like to see you turn it into brambles out of spite." },
       },
       choices = {
+        { text = "Shall I ask the spirits about the Agamands, Coleman?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Shall I let the Agamands' orchard go wild, Coleman?", next = "druid_q", when = { class = "DRUID" } },
         { text = "That's a heavy grudge.", next = "grudge" },
         { text = "I could make the Agamands' rest a short one.", next = "rogue", when = { class = "ROGUE" } },
         { text = "You held the mills like soldiers. I respect that.", next = "warrior", when = { class = "WARRIOR" } },
@@ -353,6 +423,24 @@ P:NPC {
     grudge = {
       lines = { { id = "g_default", text = "It's the only thing I carried out of the grave. I find I'd rather not put it down." } },
       choices = { { text = "I understand.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Ask them if you like, friend, though the Agamands walk about the mills in their own rotten bodies, which is a good deal more than lingering. If your spirits can tell old Gregor his mill hands are still waiting on their wages, I'd be obliged, though I'd rather he heard it from an axe." } },
+      choices = {
+        { text = "I'll lay them to rest, and their spirits with them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll make Gregor pay first, and let the spirits wait.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_q = {
+      big = true,
+      lines = { { id = "dq_default", text = "Wild, and thorny, and full of crows, if you please. They kept that orchard better than they ever kept us mill hands, and I stood guard over it the night the Scourge came, while Gregor locked the manor door behind him." } },
+      choices = {
+        { text = "I'll leave the trees be. They never wronged you.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Brambles it is, then. Let the manor choke on them.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -389,8 +477,12 @@ P:NPC {
         { id = "h_chill", tags = { "news" }, when = { questActive = TODO_QUEST("The Chill of Death") },
           text = "The chill of death never quite leaves you, but I've found a way to keep it at bay for a while, if you'll fetch what I asked for." },
         { id = "h_cup", when = { metBefore = true }, text = "I still order a cup of tea, though I can't taste it, and I hold it until it goes cold. Some habits are worth the coin." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, dear? I've heard your sort can call down frost, and I'd give a good deal to feel a shiver again." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, sitting with me by the fire? I'm told your sort can go about in a bear's fur, and I'll wager that's warm." },
       },
       choices = {
+        { text = "Shall I call the frost for you, Gretchen?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Shall I take bear form, Gretchen, so you can touch the fur?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Your fields need guarding, Gretchen. I can swing an axe.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "What do you miss most?", next = "miss" },
         { text = "Let me try something. A mage's fire is hotter.", next = "mage", when = { class = "MAGE" } },
@@ -422,6 +514,24 @@ P:NPC {
         { id = "m_warm", text = "Being cold, isn't that strange? I sit by the fire because I remember wanting to, but now I don't feel either. I'd give a great deal to shiver again." },
       },
       choices = { { text = "I'm sorry.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Would you? Only a little, dear, by the hearth where nobody will mind. I won't feel it, I expect, but I'd like to see the frost creep over my teacup, and I'd like to pretend for a moment." } },
+      choices = {
+        { text = "I'll call it gently. Pretending is no sin.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "It won't help, Gretchen. Better to let the cold go.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_q = {
+      big = true,
+      lines = { { id = "dq_default", text = "Oh, I couldn't feel it, dear, but I'd like to put my hands in it all the same. My father kept a great shaggy dog when I was small, and I'd sit with my hands buried in its coat until the frost went out of my fingers." } },
+      choices = {
+        { text = "Then put your hands in it, and remember the dog.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Memories won't warm you, Gretchen. Better to let them go.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -460,8 +570,12 @@ P:NPC {
           text = "I'm Renee, and I keep the tavern. Somebody has to look after people, even dead ones, and especially dead ones." },
         { id = "h_rogue", when = { questActive = TODO_QUEST("A Rogue's Deal") },
           text = "You're after the deal, are you? Quietly, then, because not every bargain in this town wants an audience." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman under my roof! Sit by the hearth, love, and if the fire starts talking to you, do tell me what it says." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, love? You've got leaves in your fur and I've only just swept, but sit down anyway." },
       },
       choices = {
+        { text = "Do the Forsaken mind a shaman's spirits in here, Renee?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Is there any green left in Tirisfal, Renee?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I'm a warrior, Renee. What should a fighter know about Brill?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "May I bring my beast inside, Renee?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Why keep an inn, now?", next = "why" },
@@ -497,6 +611,24 @@ P:NPC {
       choices = {
         { text = "It'll mind its manners, I promise you.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "It goes where I go, whether the bats like it or not.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Some do, love, because the last voice in their heads belonged to the Lich King. Keep your spirits quiet by the bar and nobody will mind them, and if a guest flinches, buy him a drink and let him be." } },
+      choices = {
+        { text = "I'll keep them quiet. Your guests have suffered enough.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My spirits aren't the Lich King. Your guests can learn that.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_q = {
+      big = true,
+      lines = { { id = "dq_default", text = "Up by Brightwater Lake, love, where the plague didn't settle so thick, and there are still a few apple trees behind the old farms that nobody's burned. I walk up there sometimes, though I can't smell the blossom anymore, because I like to know it's there." } },
+      choices = {
+        { text = "Then I'll guard those trees from the Crusade's torches.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A few apple trees won't win this war, Renee.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },
@@ -539,8 +671,12 @@ P:NPC {
           text = "The Executor sent you to look me over, I expect. Look all you like, and then let me show you something useful." },
         { id = "h_outdoors", when = { questActive = TODO_QUEST("The Great Outdoors") },
           text = "Sit by the fire until you feel rested, properly rested; you'll know it when it comes." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, out on the Tirisfal road! You'll know more about fire than I do, I expect, though I'd still like to see how you build one." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A tauren druid, a long way from Mulgore! You'll find Tirisfal's woods sadder than your plains, though I've learned to love them a little." },
       },
       choices = {
+        { text = "Do you light your fires with flint, Eleanor, or ask them?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Why stay in a dead land, Eleanor, when the world is wide?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why camp, when there are inns?", next = "why" },
         { text = "I don't sleep, Eleanor. What's a camp for, then?", next = "forsaken", when = { race = "Scourge" } },
         { text = "I'm a long way from the Barrens. Any tips for this damp?", next = "living", when = { race = { "Orc", "Troll", "Tauren" } } },
@@ -561,6 +697,24 @@ P:NPC {
     why = {
       lines = { { id = "w_default", text = "Inns are where the roads end. Camps are where they keep going. And anyone passing can share your fire, which is half the point." } },
       choices = { { text = "I'd like to learn.", next = "BACK", fx = { affinity = 2, learn = { "camping" } } } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Flint and dry tinder, the way my mother taught me, and I've never once asked a fire's permission. I'd be curious to watch you do it, though, because a fire that comes when it's called would save me a great deal of trouble in this drizzle." } },
+      choices = {
+        { text = "Fire is a spirit. I ask, and I thank it after.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I don't ask it. I tell it, and it burns.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_q = {
+      big = true,
+      lines = { { id = "dq_default", text = "Because somebody ought to sit by a fire in it and call it a camp rather than a battlefield. The woods are sick, but they aren't dead, and I've watched a deer drink from Brightwater Lake at dawn as though nobody had told it about the plague." } },
+      choices = {
+        { text = "Then I'll help them heal, a little at a time.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Some of it is past healing, Eleanor. I've seen it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 

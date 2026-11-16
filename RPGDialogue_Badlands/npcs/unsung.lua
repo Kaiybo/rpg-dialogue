@@ -28,8 +28,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "If it minded, it should've said so before I signed the contracts. I buy my ore off miners who dig out near Uldaman, and the only thing in the Badlands that's ever complained is the troggs, and they complain about everything." } },
+      choices = {
+        { text = "The earth remembers greed. Take only what you need, Jazzrik.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Dig deep. The earth has plenty, and the Horde needs steel.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" },
+          text = "A shaman! You won't be needing coal, I suppose, since you can just ask the fire nicely, which is terrible for business if you think about it." },
         { id = "h_default", key = true,
           text = "Jazzrik, blacksmithing supplies! I keep the warlord's smiths fed with coal and iron, and in return the warlord doesn't feed me to anything, which I think is a very good arrangement for both of us." },
       },
@@ -38,6 +49,7 @@ P:NPC {
         { id = "h_again2", text = "Anything else? Ask away!" },
       },
       choices = {
+        { text = "Do you think the earth minds you digging up its iron, Jazzrik?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Let me see your stock.", next = "BUSINESS" },
         { text = "Why is everything so expensive here?", next = "price" },
         { text = "What's out in the Badlands worth mining?", next = "ore" },

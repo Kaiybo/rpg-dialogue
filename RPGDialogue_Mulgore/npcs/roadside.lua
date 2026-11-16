@@ -30,12 +30,14 @@ P:NPC {
           text = "The caravan lies broken by the road to the north. Search it, and tell me what you find, because the dead deserve to be known." },
         { id = "h_dig", when = { questActive = TODO_QUEST("Dwarven Digging") },
           text = "The dwarves at Bael'dun dig without asking the land's leave. Bring me proof of what they seek, so the elders can judge it." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You are a shaman, so you must feel what the strangers to the north are doing to the earth, as surely as I see it." },
       },
       choices = {
         { text = "What are the dwarves digging for?", next = "dwarves" },
         { text = "What happened to the caravan?", next = "caravan" },
         { text = "Who else troubles Mulgore?", next = "venture" },
         { text = "My people have no part in Bael'dun.", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "The earth to the north is wounded. What can a shaman do?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Walk with the Earth Mother.", next = "END" },
       },
       again = {
@@ -71,6 +73,15 @@ P:NPC {
       lines = { { id = "dw_default", text = "I believe you, for you walk the open road and do not hide behind walls. Tell your kin in Ironforge that Mulgore is not empty land, and that it has people who remember." } },
       choices = { { text = "I'll tell them.", next = "BACK", fx = { affinity = 2 } } },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Mend what can be mended, and remember what can't. The dwarves dig at Bael'dun and the goblins dig at their mine, and neither asks the earth's leave, so someone must ask its pardon for them, and someone must make them stop." } },
+      choices = {
+        { text = "I would ask its pardon first, and help it heal.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I would make them stop, and let the earth have them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
     _none = { { id = "tp_none", text = "I know the road and the grass beside it. For more than that, ask the elders." } },
@@ -95,10 +106,12 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I am Gennia Runetotem, and I teach the druids of Bloodhoof what the land is willing to share. Our family learned the old ways from the night elves, long ago, and we keep them still." },
         { id = "h_druid", when = { class = "DRUID" }, text = "Welcome back, little druid. Show me what the wild has taught you since last we spoke." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman among my druids? You're welcome here, because the Earth Mother speaks to both of us, only in different voices." },
       },
       choices = {
         { text = "Tauren learned from the night elves?", next = "elves" },
         { text = "What does a druid do?", next = "druid" },
+        { text = "How does a druid's path differ from a shaman's, Gennia?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Earth Mother keep you.", next = "END" },
       },
       again = { { id = "h_again", text = "Something more? Ask, and I will answer as the land allows." } },
@@ -116,6 +129,15 @@ P:NPC {
       choices = {
         { text = "Balance means accepting hard things.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'd save what I could, balance or not.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "The night elves taught my family to walk with the wild until we became part of it. Your path is older among the tauren, speaking with the elements and asking their aid, and I think the Earth Mother is glad of both." } },
+      choices = {
+        { text = "Both paths serve her, so we should share what each learns.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The night elves' ways are theirs. Tauren need only the old rites.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },
@@ -142,10 +164,12 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I am Yaw Sharpmane, and I teach the hunters of Bloodhoof. The plains feed us, so we take only what we need and thank the beast that gives it." },
         { id = "h_hunter", when = { class = "HUNTER" }, text = "Your companion looks well fed, hunter, and that tells me more about you than your aim." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, then. You'll understand why we thank the beast after a hunt, because you've heard the spirits that walk beside it." },
       },
       choices = {
         { text = "What makes a good hunter?", next = "good" },
         { text = "What's the hunting like in Mulgore?", next = "plains" },
+        { text = "Do the beasts' spirits speak to hunters too, Yaw?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Good hunting, Yaw.", next = "END" },
       },
       again = { { id = "h_again", text = "Ask on. A hunter learns by asking as much as by tracking." } },
@@ -164,6 +188,15 @@ P:NPC {
     plains_big = {
       lines = { { id = "pb_default", text = "Ask Harken Windtotem about the old wolves, because he tells those stories better than I do. Then come back and tell me if you believed him." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Not in words, the way the elements speak to you, but a good hunter learns to listen all the same. When my hawk won't leave my arm, I know something on the plains is wrong, and most often it's the Palemane gnolls." } },
+      choices = {
+        { text = "Then the beasts and the elements both deserve our thanks.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A hunter owes the beast a clean kill, and nothing more.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
   topics = {

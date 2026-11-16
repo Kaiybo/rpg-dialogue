@@ -165,8 +165,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Dead fish in heaps, storms out of a clear sky, and once a water elemental that walked up the beach and went back without a word. Something in Blackfathom Deeps is poisoning more than the naga, and I'd like to know what it is before it comes ashore as well." } },
+      choices = {
+        { text = "Hold the shore, Karang, and I'll find out what stirs below.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Let the elves and the naga bleed each other. It's their bay.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The water spirits along this shore have been uneasy since the naga came up out of the bay, and I'd value your ear on it." },
         { id = "h_default", text = "I am Karang, and this outpost is the Horde's foothold on the western shore. The naga crawl up from the water, the elves watch from the trees, and somewhere out in the bay lies Blackfathom Deeps, full of things worse than either." },
         { id = "h_cond", when = { race = "Orc" }, text = "An orc of the Horde, good. You'll know we didn't come to this coast to admire it, so let us speak plainly." },
       },
@@ -175,6 +185,7 @@ P:NPC {
         { id = "h_again2", text = "Speak, I'm listening." },
       },
       choices = {
+        { text = "What has the sea brought ashore since the naga came?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why hold this strand at all?", next = "strand" },
         { text = "Where do the naga come from?", next = "naga" },
         { text = "Do you send word to Splintertree?", next = "splinter" },
@@ -247,8 +258,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "The Thistlefur shamans went mad first, because they listened hardest, and something that was not the forest answered them. Ruul thinks something dark crept into their dreams, and the forest spirits have been quiet ever since." } },
+      choices = {
+        { text = "Your tribe can still be healed, Ruul. I believe that.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The mad ones are lost. Save yourself, Ruul.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You are shaman. Ruul's grandmother was shaman of the Thistlefur before the madness, and she spoke to the forest the way you speak to the wind." },
         { id = "h_default", text = "Ruul's tribe, the Thistlefur, have gone mad, and they keep Ruul in this cage because Ruul would not go mad with them. If you set Ruul free, Ruul will walk you to safety, though the way is long." },
         { id = "h_cond", when = { race = "Tauren" }, text = "Shu'halo, cousin of the forest! Ruul knew your people's drums once, from the old days, before the madness." },
       },
@@ -257,6 +278,7 @@ P:NPC {
         { id = "h_again2", text = "Ruul is listening, and Ruul is not going anywhere." },
       },
       choices = {
+        { text = "What happened to your tribe's shamans when the madness came?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What made your tribe mad?", next = "madness" },
         { text = "Where will you go if you're free?", next = "ruul" },
         { text = "Why trust the Horde?", next = "horde" },

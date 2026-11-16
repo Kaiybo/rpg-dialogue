@@ -439,6 +439,7 @@ P:NPC {
           text = "Ordanus is a keeper in Ashenvale, at the top of a great tree, and I knew him, long ago. He thought himself above even the Highborne, so bring me his head." },
         { id = "h_den", tags = { "news" }, when = { questActive = TODO_QUEST("The Den") },
           text = "The Gatekeeper's Key is hidden in a little lantern at the mouth of the Den. I had that from one of the druids, eventually, and I'd rather not say how." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. At least the elements don't lecture anyone about balance, the way the druids of the Talon Den do." },
       },
       again = {
         { id = "h_again", text = "Well? I've a fire to keep and little patience to spare." },
@@ -453,6 +454,7 @@ P:NPC {
         { text = "You knew Ordanus. What was he to you?", next = "ordanus", when = { any = { { questActive = TODO_QUEST("Ordanus") }, { questDone = TODO_QUEST("Ordanus") } } } },
         { text = "I'm a druid. You're speaking of my order.", next = "druid", when = { class = "DRUID" } },
         { text = "I studied in Dalaran, before I died.", next = "forsaken_b", when = { race = "Scourge", class = "MAGE" } },
+        { text = "Do you trust shamans more than druids, Braelyn?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I'll think about it.", next = "END" },
       },
     },
@@ -546,6 +548,15 @@ P:NPC {
       choices = {
         { text = "Civil will do.", next = "BACK", fx = { trait = { stern = 1 } } },
         { text = "You'll find I'm not what you think.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "A little more, because your elements are honest about being powerful, and the druids pretend their power is humble. They'd strip this land bare of magic and call it peace, and I'd rather deal with a fire elemental that admits it wants to burn." } },
+      choices = {
+        { text = "Power should be used openly, without false modesty.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Hidden power is safer power. The druids are wise to stay quiet.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },
@@ -728,6 +739,7 @@ P:NPC {
       lines = {
         { id = "h_default", text = "I'm Jayka, and I keep the inn on Sun Rock. Warriors come in tired and leave rested, or at least less tired, and that's the job." },
         { id = "h_harpies", when = { metBefore = true }, text = "The harpies screamed all night, the braves screamed back, and nobody slept. Breakfast?" },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Then you'll know the wind howling round this inn isn't angry, only talkative, and you can tell the other guests so." },
       },
       again = {
         { id = "h_again", text = "Anything else? The fire's warm and the stew's hot, so take your time." },
@@ -737,6 +749,7 @@ P:NPC {
         { text = "Do you like it up here?", next = "rock" },
         { text = "What's the news on the rock?", next = "news" },
         { text = "Want to hear how my last fight went?", next = "story" },
+        { text = "Is the wind on Sun Rock as friendly as you say, Jayka?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "Just resting.", next = "END" },
       },
@@ -787,6 +800,15 @@ P:NPC {
     story_tall = {
       lines = { { id = "sl_default", text = "Ha! Twelve of them, was it, and you with one arm? You'll fit right in on Sun Rock, where every harpy grows a foot with each telling." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Friendly enough to me, but it blew three tents off the ledge last spring, so maybe it only likes the inn. The Grimtotem down at their camps say the mountain wind belongs to them, and I'd rather it went on belonging to whoever pays for drinks." } },
+      choices = {
+        { text = "The wind should be shared by every tribe under Cairne.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The wind belongs to no one, not Cairne and not the Grimtotem.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 

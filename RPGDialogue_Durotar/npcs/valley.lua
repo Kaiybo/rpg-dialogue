@@ -24,6 +24,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Quiet, and not the good kind. We had the warlocks and their demons, and then the camps, and then nothing at all, and an orc with nothing to pray to is an orc who drinks. Thrall gave us the spirits back, and I'll not hear a word against him for it." } },
+      choices = {
+        { text = "The old ways are worth holding to, Kaltunk.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The past is gone. The Horde should find its own way.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -31,8 +40,10 @@ P:NPC {
         { id = "h_place", tags = { "news" }, when = { questActive = TODO_QUEST("Your Place In The World") },
           text = "Gornek's in the Den, the cave just ahead. Tell him Kaltunk sent you, and stand up straight when you do." },
         { id = "h_dust", when = { metBefore = true }, text = "I came off a ship with nothing but my axe and Durotar's dust in my teeth, and that was enough. It's enough for you too." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, walking into the valley. When I came off the ship there wasn't an orc among us who'd talk to the spirits, and now the Warchief sends your kind to me by the dozen." },
       },
       choices = {
+        { text = "What was it like when the orcs had no shamans?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "How did you come to Durotar?", next = "came" },
         { text = "What happens in the valley?", next = "valley" },
         { text = "Do the Darkspear get the same welcome as orcs?", next = "troll", when = { race = "Troll" } },
@@ -105,6 +116,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "That you can tell the spirits' voice from your own anger. The ones who drank Mannoroth's blood thought the power was theirs, and the whole Horde paid for their pride, so I'll be watching to see that you ask before you take." } },
+      choices = {
+        { text = "I'll ask the spirits humbly, and never simply take.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Power answers whoever is strong enough to grab it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -115,8 +135,10 @@ P:NPC {
           text = "Sarkoth has been killing in the north for too long. If you've seen his work, you've seen why it ends with you." },
         { id = "h_parchment", when = { any = { { questActive = TODO_QUEST("Glyphic Parchment") }, { questActive = TODO_QUEST("Tainted Tablet") } } },
           text = "Your trainer left word for you. Read it, then go and find them. The Horde has a place for what you can do." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, out of my Den. The first lesson still holds for you, because the spirits won't pick you up when you fall, so learn to get up yourself." },
       },
       choices = {
+        { text = "What should a young shaman prove to you, Gornek?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What do I need to prove?", next = "prove" },
         { text = "Teach me to fight, then. That's what I came for.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "I'm no cultist, Gornek. My power answers to me.", next = "warlock", when = { class = "WARLOCK" } },
@@ -305,6 +327,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Probably, but you haven't seen how deep these peons sleep. I've tried shouting and I've tried the blackjack, and if the sky itself can't wake them I'll give up and let them have the lumber camp." } },
+      choices = {
+        { text = "Let them nap. Working peons to the bone helps no one.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll save some thunder for them. They've earned a fright.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -314,8 +345,10 @@ P:NPC {
         { id = "h_pick", when = { questActive = TODO_QUEST("Thazz'ril's Pick") },
           text = "I left my pick in the coven while I was surveying, and it's enchanted, so don't let those cultists keep it." },
         { id = "h_peons", when = { metBefore = true }, text = "I found three peons asleep in the mine cart this morning, in the cart, while it was moving. I don't know how they managed it, and I'm almost impressed." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can you call a little thunder over the lumber pile? The blackjack works, but a bolt out of a clear sky would keep my peons awake for a week." },
       },
       choices = {
+        { text = "Shouldn't the spirits be called for better things than peons?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why not let them rest?", next = "rest" },
         { text = "I know a few things about blackjacks, Foreman.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Want me to shout them awake instead?", next = "warrior", when = { class = "WARRIOR" } },
@@ -369,6 +402,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "My mother did, every night, until the camps took her pot and her fire both. I've got out of the habit, but now and then I toss a scrap of scorpid in the coals, and the fire's never once burned my stew." } },
+      choices = {
+        { text = "Keep feeding the fire, Galgar. The old ways were good ones.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The fire burns for whoever cooks on it, not for offerings.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -376,8 +418,10 @@ P:NPC {
         { id = "h_apples", tags = { "news" }, when = { questActive = TODO_QUEST("Galgar's Cactus Apple Surprise") },
           text = "Cactus apples, from the plants around the valley. It's an easy job. I make it easy on purpose; you'll get harder ones soon enough." },
         { id = "h_recipe", when = { metBefore = true }, text = "Scorpid tail, fried, with a pinch of cactus. Don't make that face; you'll be asking for it by next week." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Then you know fire better than I do, so don't tell me how to cook with it, and I won't tell you how to call it." },
       },
       choices = {
+        { text = "Do you ever thank the fire spirits for your cookfire?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Where did you learn to cook?", next = "cook" },
         { text = "What's the surprise?", next = "surprise" },
         { text = "Have you got anything my pet would eat?", next = "pet", when = { class = "HUNTER", pet = { type = "Beast" } } },
@@ -437,6 +481,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "More than you'd think, because a mace that's been struck by its owner's lightning comes back to me blackened and cracked at the haft. I mend them, and then I tell the shaman to stop hitting things with the sky and the hammer at the same time." } },
+      choices = {
+        { text = "A good weapon deserves care. I'll be gentler with mine.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Weapons break, Kzan, and that's what smiths are for.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -444,8 +497,10 @@ P:NPC {
         { id = "h_weapons", tags = { "news" }, when = { questActive = TODO_QUEST("Wayward Weapons") },
           text = "Gornek sent you about the training weapons? Good. Bring me six and I'll mend them for the next lot of recruits." },
         { id = "h_edge", when = { metBefore = true }, text = "You're back, and the blade's still in one piece? Good. That means you're using the edge and not the flat." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, and you'll want a mace, not one of those training axes the recruits keep losing. I'll sell you one, but you'll pay full price like everyone else." },
       },
       choices = {
+        { text = "Do shamans bring you many weapons to mend?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What should a warrior carry out of this valley?", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Do you sell anything for a rogue's hand?", next = "rogue", when = { class = "ROGUE" } },
         { text = "I'll find them.", next = "END" },

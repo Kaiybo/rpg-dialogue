@@ -113,8 +113,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "The storms off the sea come up fast, and a wind rider caught in one comes down where it likes, which is never anywhere good. I lost a rider over the Vile Reef last season, and I can still hear the beast screaming." } },
+      choices = {
+        { text = "I'll ask the air spirits to calm the coast for your riders.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Riders die. The wind doesn't care, and neither should you.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The wind riders settle when one of you is near, so stand by them if you like, but don't feed them." },
         { id = "h_default", key = true,
           text = "Gringer. I keep the Horde's wind riders on this ledge and fly them up the coast to Grom'gol and over to the swamp at Stonard. Gold first, questions after, and don't feed them anything." },
         { id = "h_alliance", when = { faction = "Alliance" },
@@ -125,6 +135,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, then, ask." },
       },
       choices = {
+        { text = "Do the winds over the jungle ever turn against your riders?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Show me the routes.", next = "BUSINESS", when = { faction = "Horde" } },
         { text = "What's the trouble on the coast road?", next = "road" },
         { text = "How do you get on with Gyll?", next = "gyll" },
@@ -198,8 +209,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Totems, mostly, and the occasional carved stone that I'm instructed never to touch. I don't ask what they do, because the Cartel's first rule is discretion, and its second is fees." } },
+      choices = {
+        { text = "Discretion is a fair rule. I'll respect your vault's laws.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Rules are for goblins. My totems stay where I choose.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde. Your coin is welcome here, and so are you, provided the lightning stays outside the vault." },
         { id = "h_default", key = true,
           text = "Viznik Goldgrubber, banker to the Steamwheedle and to anyone with something worth keeping. Horde, Alliance, pirate or priest, your coin is all the same color to me." },
         { id = "h_rep", when = { reputation = { faction = "Steamwheedle Cartel", min = "honored" } },
@@ -210,6 +231,7 @@ P:NPC {
         { id = "h_again2", text = "More questions? Banking is a patient art." },
       },
       choices = {
+        { text = "What do shamans usually keep in a Steamwheedle vault?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I need my vault.", next = "BUSINESS" },
         { text = "How safe is a bank in a pirate town?", next = "safe" },
         { text = "You serve both factions?", next = "both" },
@@ -369,13 +391,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "A tauren once had me forge a mace with a socket for a stone, which she said held a spirit of the earth. I charged her double for the socket and didn't argue about the spirit, and we both went away happy." } },
+      choices = {
+        { text = "A weapon should honor the spirit it carries.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A weapon kills, and that's all it ever needs to do.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll want a mace or an axe, then, because I've seen your lot swing both, and you swing them like you mean it." },
         { id = "h_default", key = true,
           text = "Zarena Cromwind. I sell the best steel south of Stormwind and north of nowhere, to anyone who'll pay for it. Sailors rust, pirates break and I get rich, so it's a fair arrangement." },
       },
       again = { { id = "h_again", text = "Need something more? Mind the sparks, and know the sea air rusts whatever I don't keep hot." } },
       choices = {
+        { text = "Have you ever forged a weapon for a shaman before?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "Why set up shop in Booty Bay?", next = "why" },
         { text = "What's wrong with Jutak's blades?", next = "jutak" },
@@ -458,8 +491,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "More than you'd think, because a troll shaman in a captain's hat is the scariest thing on the pier. One bought my best tricorn last month and wore it while calling lightning down on a Bloodsail longboat, and I've never been prouder." } },
+      choices = {
+        { text = "A shaman should look like a shaman and keep the old ways.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Why not? The elements won't mind a good hat.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! I've got a hat with a feather that'd make your totems jealous, friend, and it's on sale today." },
         { id = "h_default", key = true,
           text = "Narkk's Pirate Supplies, friend! Real pirates buy their kit off dead men, so I sell to everybody else who wants to look the part when they swagger down the pier." },
         { id = "h_night", when = { timeOfDay = "night" },
@@ -467,6 +510,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "What else? Try on anything but the parrot; the parrot's mine." } },
       choices = {
+        { text = "Do any shamans actually buy pirate hats from you?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "Don't the real pirates mind?", next = "real" },
         { text = "Who buys this stuff?", next = "buyers" },
@@ -536,8 +580,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "I leave a plate out back every night, and every morning it's empty, so either the spirits are hungry or the cats are fat. I'm happy to feed both, though only one of them ever pays." } },
+      choices = {
+        { text = "Feeding hungry things is good work, whatever they are.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Offerings are wasted food. Sell it to the sailors instead.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Come and eat, because I hear calling all those elements works up an appetite like nothing else." },
         { id = "h_default", key = true,
           text = "Nixxrax Fillamug, and I fill mugs, plates and bellies, in that order. Sailors come off long voyages starving for anything that isn't hardtack, and I'm here to take their gold for it." },
       },
@@ -546,6 +600,7 @@ P:NPC {
         { id = "h_again2", text = "More questions? Ask while you chew." },
       },
       choices = {
+        { text = "Do you ever leave an offering of food for the spirits?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What have you got?", next = "BUSINESS" },
         { text = "What's the best thing you sell?", next = "best" },
         { text = "Do you compete with Skindle?", next = "skindle" },
@@ -618,13 +673,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Mageweave can stand up to a mage and silk can stand up to a priest, but nothing stands up to a shaman who forgets which hand the lightning comes out of. Bring me whatever's left, and I'll mend it." } },
+      choices = {
+        { text = "Fair warning. I'll take more care with the elements.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The elements are wild, and so am I. Charge me extra.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Your robes are a disgrace, and I say that with respect, because I can mend them at very reasonable prices." },
         { id = "h_default", key = true,
           text = "Xizk Goodstitch, supplier of thread and fine cloth. Booty Bay goes through more canvas than anywhere in the South Seas, what with all the sails and all the cannonballs going through them." },
       },
       again = { { id = "h_again", text = "Anything else? Quickly, before the damp gets into the wool." } },
       choices = {
+        { text = "Can your cloth stand up to lightning and fire?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Show me what you have.", next = "BUSINESS" },
         { text = "Who buys the most from you?", next = "buyers" },
         { text = "How do you keep cloth dry in this heat?", next = "damp" },

@@ -28,8 +28,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Probably that they've been through a war, a defeat and a great deal of rain, and that nobody's thanked them for any of it. I'm no shaman, but I've stood here long enough to feel that much." } },
+      choices = {
+        { text = "Then I'll thank them, Dar. Old stones deserve it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Stones don't need thanks. They need repairing.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. There's enough old history in these stones that I'd wager they've got something to say to you, if you've the patience to listen." },
         { id = "h_default", key = true,
           text = "I'm Dar. Stonard's a bit short on comforts, as you've noticed, but there's enough history in these stones that it must matter to somebody, and I suppose that's why I stay. It isn't for the scenery, I'll tell you that." },
         { id = "h_meat_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Lack of Surplus"), days = 3 } },
@@ -40,6 +50,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, ask. The mud isn't going anywhere, and neither am I." },
       },
       choices = {
+        { text = "What would these old stones say, if they could speak?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Who's Tok'Kar?", next = "tokkar" },
         { text = "Why does Stonard matter, then?", next = "history" },
         { text = "Doesn't it feel like home?", next = "home" },
@@ -164,8 +175,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Something rises out of that water that no rider likes, and I can't see it, but they can. I fly them the long way round the Pool of Tears now, and nobody's complained about the extra hour yet." } },
+      choices = {
+        { text = "Trust the riders. The long way round is the wise choice.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Fly straight over it. The Horde can't flinch at every shadow.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The riders won't fly over the temple when the wind comes from the east, and maybe you can tell me why." },
         { id = "h_default", key = true,
           text = "Breyk, wind rider master. From Stonard the riders go north to Kargath over the Steppes, and west to Grom'gol and Booty Bay, and they hate every minute of the wet before they leave." },
         { id = "h_night", when = { timeOfDay = "night" },
@@ -176,6 +197,7 @@ P:NPC {
         { id = "h_again2", text = "Quick, before the mist rolls in." },
       },
       choices = {
+        { text = "What spooks your wind riders over the Sunken Temple?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "How do the riders take the swamp?", next = "wet" },
         { text = "Do you hear from the other rider masters?", next = "others" },
         { text = "Show me where I can fly.", next = "BUSINESS" },
@@ -238,8 +260,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Because the Warchief allows it, and because warlocks know things your elements never will. Thrall's people can talk to the wind all they like, but when a demon walks out of the Blasted Lands, it's my customers who'll know its name." } },
+      choices = {
+        { text = "The Warchief allows it, so I'll respect his word.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The Warchief is wrong to allow it, and someone should say so.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll want to tell me what warlocks did to your people, I expect, so spare me the lecture and buy something or go." },
         { id = "h_default", key = true,
           text = "I sell grimoires to warlocks, and you aren't one. If you've a question, make it quick, and then go and bother Karakul instead." },
         { id = "h_lock", when = { class = "WARLOCK" },
@@ -250,6 +282,7 @@ P:NPC {
         { id = "h_again2", text = "You're still here, so ask your question." },
       },
       choices = {
+        { text = "Why does Stonard still keep a warlock's shop, after all that?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What's in your grimoires?", next = "grimoires" },
         { text = "Why sell to warlocks here, of all places?", next = "why" },
         { text = "Fel'zerul is a warlock too.", next = "felzerul" },
@@ -322,8 +355,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "They respect anyone who stays standing in this mud, and your lot stay standing longer than most, because you keep putting the rest of us back on our feet. I'll grant that a totem on the field is worth a grunt or two." } },
+      choices = {
+        { text = "A shaman fights beside the warriors, never behind them.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Let the warriors take the hits. I'll stay back and heal.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You hit like a warrior and heal like a priest, and I've never decided whether to train you or envy you." },
         { id = "h_default", key = true,
           text = "I'm Malosh, and I teach warriors in Stonard. Fight in this mud long enough and you'll be able to fight anywhere, because nothing else is harder on your feet." },
         { id = "h_war", when = { class = "WARRIOR" },
@@ -334,6 +377,7 @@ P:NPC {
         { id = "h_again2", text = "What else? The yard's waiting." },
       },
       choices = {
+        { text = "Do your warriors respect shamans fighting beside them?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why train in the mud?", next = "mud" },
         { text = "What makes a good warrior?", next = "good" },
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
