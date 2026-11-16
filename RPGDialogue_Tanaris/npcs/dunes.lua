@@ -15,10 +15,32 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "The League won't say it out loud, but aye, they've paid for quiet hands before. A sealed vault under the dunes keeps its secrets well, and sometimes the only key is someone who can open what was never meant to be opened." } },
+      choices = {
+        { text = "Ancient tombs should stay sealed. Leave the dead be.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If it's buried and forgotten, it's fair game.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Let's dig into something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "There's old something, I'd stake my beard on it, because nobody builds walls like the ones at Eastmoon for no reason. The trolls of Zul'Farrak won't say what came before them, and the sand won't either, so I keep digging and hoping." } },
+      choices = {
+        { text = "Some old power should stay buried, Ironboot.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Dig it all up. Knowledge belongs to the finders.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Prospector Ironboot, digger, surveyor and dwarf of Ironforge, out here in the worst sandbox ever made. Tanaris has more buried under the dunes than anyone knows, and I mean to find a bit of it." },
         { id = "h_c0", when = { race = "Dwarf" }, text = "A fellow dwarf! Then ye'll know why I'm here: Explorers' League blood doesn't let a dwarf sit still while there's ruins to dig." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "Light fingers and soft boots, eh? I've worked digs with your sort before, and ye'd be surprised how often a locked tomb turns into an open one when there's a rogue on the payroll." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage, out here in the sand! Tell me, can ye feel anything under these dunes? Old magic, buried cities, anything a poor prospector might dig up?" },
       },
       again = { { id = "h_again", text = "Anything more, friend?" }, { id = "h_again2", text = "Go on, ask; the sand'll wait." } },
       choices = {
@@ -27,6 +49,8 @@ P:NPC {
         { text = "Is it dangerous?", next = "b3_1" },
         { text = "Ironforge must miss its diggers.", next = "x_1", when = { race = { "Dwarf", "Gnome" } } },
         { text = "Should the old ruins be left alone?", next = "s_1" },
+        { text = "Would the Explorers' League hire a rogue, Ironboot?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Is there old magic buried in Tanaris?", next = "xmage", when = { class = "MAGE" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -143,12 +167,34 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Natural magic, yes, that's what I said on Tuesday, and then on Wednesday I said the opposite! If you ever have to freeze one, do write down whether it turns to stone any slower, because nobody in Gadgetzan will take notes for me." } },
+      choices = {
+        { text = "Leave them in peace. Not every creature needs studying.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Knowledge is worth a few frozen basilisks.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Only to look, because a creature is a creature, and I study creatures! Though I'll admit the scorpids at least have the decency to be from this world, which your little friend clearly isn't, and that bothers the scholar in me terribly." } },
+      choices = {
+        { text = "Study it all you like. Fear is for the ignorant.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "You're wise to keep your distance.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Never mind my demon.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Curgle Cranklehop, at your service! I study the creatures of Tanaris, from the scorpids to the basilisks, because the desert hides more marvels than anyone in Gadgetzan gives it credit for." },
         { id = "h_c0", when = { race = "Gnome" }, text = "A fellow gnome! Oh, splendid, someone who'll understand when I talk about mechanical reproduction of insect behavior." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! Oh, wonderful, you can settle an argument I've been having with myself: do basilisks really turn things to stone, or do they just stare very hard?" },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage! Oh, wonderful, you'll know whether the basilisks' stone gaze is an arcane effect or a natural one, because I've been arguing with myself about it for a fortnight." },
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "Is that an imp? Oh, my, it is! May I look at it, from a distance, a safe and sensible distance, preferably with you between us?" },
       },
       again = { { id = "h_again", text = "What else, friend?" }, { id = "h_again2", text = "More questions? Wonderful!" } },
       choices = {
@@ -158,6 +204,8 @@ P:NPC {
         { text = "What do the goblins think of you?", next = "b3_1" },
         { text = "My pet might interest you.", next = "x_1", when = { class = "HUNTER" } },
         { text = "Is studying beasts better than hunting them?", next = "s_1" },
+        { text = "I'd guess the basilisk gaze is natural magic.", next = "xmage", when = { class = "MAGE" } },
+        { text = "You want to study my demon, Curgle?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -206,15 +254,51 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Jabbey cares that the coin is real and the Bruisers don't see the blinding happen inside the walls. What happens in the dunes is between you and whoever you're blinding, and Jabbey sleeps very well, thank you." } },
+      choices = {
+        { text = "A merchant should care where his goods end up.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Fair enough. I don't want my business known.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Booty Bay, mostly, and Ratchet when the boats are kind. Jabbey doesn't ask where Booty Bay gets them, and Booty Bay doesn't ask where Jabbey sends them, and that's how reagents get across the sea in one piece." } },
+      choices = {
+        { text = "Good trade keeps the world turning, whoever's on the other end.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "You should know who you're buying from.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "That'll do for reagents.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Jabbey thinks you're a customer like any other, so long as you buy what's on the shelf. What you do with your own shadows is your business, but Jabbey would rather not have them in his stall." } },
+      choices = {
+        { text = "Every merchant has his price. Yours is just higher.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "A man with a line is worth respecting.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Something else, Jabbey.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Name's Jabbey, and I sell a little of everything: reagents, odds, ends and the occasional thing I can't explain. Gadgetzan's the crossroads of Tanaris, and everything passes through my stall sooner or later." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "Flash powder and blinding powder, friend, and Jabbey asks no questions about who you plan to blind. That's what makes Jabbey a reliable vendor." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage! Jabbey keeps runes and feathers for your kind, and arcane powder when the boats bring it, because mages always run out right before they need it most." },
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "Jabbey doesn't sell soul shards, friend, so don't ask. Jabbey sells a lot of strange things, but even Jabbey has a line, and that line is anything that used to be somebody." },
       },
       again = { { id = "h_again", text = "What else? Jabbey's always open." }, { id = "h_again2", text = "More? Jabbey loves questions that end in sales." } },
       choices = {
         { text = "What sells best here?", next = "b1_1" },
         { text = "Where do you get your goods?", next = "b2_1" },
         { text = "Do you ever overcharge?", next = "s_1" },
+        { text = "You really don't care what your powder gets used for?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Where do you get your reagents out here?", next = "xmage", when = { class = "MAGE" } },
+        { text = "You think less of me for my craft?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -251,15 +335,39 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "They're fine for Stormwind, or Undercity, or wherever you come from, but the desert sand gets into every seam and eats them. A mage who looks like a scarecrow doesn't get much respect at the auction house, and that's free advice." } },
+      choices = {
+        { text = "A mage's worth is in the spell, not the robe.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Fine. Appearances matter, even out here.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let's discuss something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "It wears beautifully, and that's the trouble, because it hums when I hold it. I sell to warlocks the same as anyone, but I keep their cloth at the back of the shelf where it can't touch my good silk." } },
+      choices = {
+        { text = "Then your prejudice costs you good customers.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "That's sensible. Fel taints whatever it touches.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Something else, please.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Vizzklick, cloth and thread and the finest tailoring supplies in Tanaris! Desert living is hard on clothes, and I keep half of Gadgetzan dressed, whether they like it or not." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage, dearie, and in robes that have seen far too much sand! Mageweave holds up better in this heat, if you'd let me show you some proper cloth." },
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "Felcloth, is that? No, don't tell me where it came from, dearie, because I've heard the stories about the satyrs, and I'd sooner not know." },
       },
       again = { { id = "h_again", text = "What else, dearie?" }, { id = "h_again2", text = "Anything more? I've got a needle waiting." } },
       choices = {
         { text = "What's good cloth for the desert?", next = "b1_1" },
         { text = "Do you sew yourself?", next = "b2_1" },
         { text = "Do clothes really matter out here?", next = "s_1" },
+        { text = "My robes are fine, Vizzklick.", next = "xmage", when = { class = "MAGE" } },
+        { text = "Felcloth wears just as well as any other cloth.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Farewell.", next = "END" },
       },
     },

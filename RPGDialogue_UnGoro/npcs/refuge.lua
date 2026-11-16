@@ -27,6 +27,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Power, plainly, and old power, set in the crater by hands far older than ours. The pylons out in the green weren't put there by nature, so I'd like to know who built them before somebody clever tries to use them." } },
+      choices = {
+        { text = "Knowledge like that should be studied openly.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Some things should be left alone until we understand them.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "The camps we lost still have our maps and journals in them, and the beasts have no use for paper. If someone could slip in and out without waking what's nesting there, I'd sleep better knowing our work wasn't wasted." } },
+      choices = {
+        { text = "Your scholars' work is worth the risk.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Let the crater keep it. No journal's worth a life.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -41,6 +59,10 @@ P:NPC {
           text = "My journal, back on my desk! Half the pages are muddy and one's been chewed, and it's still the best thing anyone's given me in a year." },
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "There you are! Half the Refuge asks after you when you're down in the crater, and I tell them you're too stubborn to be eaten, which I hope is true." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage at the Refuge! J.D. will want to show you his crystals, and I'd be glad of a learned eye on them myself, because they hum in a way that I can't explain and don't entirely trust." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "You move like someone who's been paid to go unnoticed, friend. Down in the crater that's a fine skill, and I won't ask who taught it to you." },
       },
       again = { { id = "h_again", text = "What else? Ask away, I've nothing but time and dinosaurs." } },
       choices = {
@@ -51,6 +73,8 @@ P:NPC {
         { text = "What do the beasts here eat?", next = "beasts", when = { class = { "HUNTER", "DRUID" } } },
         { text = "My people tell of a world like this, long ago.", next = "x_tauren", when = { race = "Tauren" } },
         { text = "Your guards couldn't hold the camps?", next = "x_warrior", when = { class = "WARRIOR" } },
+        { text = "What do you think the crystals are, Williden?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Would you have work for someone who goes unnoticed?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I'll help the expedition.", next = "END", fx = { affinity = 2, standing = { marshals_refuge = 1 } } },
       },
     },
@@ -176,6 +200,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Oh, I don't think so, because I've never wanted to take anything that wasn't mine, except perhaps my memory back. Still, if I was a thief, I'd hope I was a good one, and that I only stole from people who deserved it." } },
+      choices = {
+        { text = "Stealing from the wicked is still stealing.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Some people do deserve to be robbed.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Let's try a different question.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "That's what Williden says too, and he says it kindly, which almost makes it worse. I suppose I'll have to find it the hard way, one piece at a time, the way you'd search a marsh for a dropped coin." } },
+      choices = {
+        { text = "You'll find it. Don't give up on yourself.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Some things are better left forgotten.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -185,6 +227,10 @@ P:NPC {
         { id = "h_adventure", when = { any = { { questActive = TODO_QUEST("Linken's Adventure") }, { questActive = TODO_QUEST("It's Dangerous to Go Alone") } } },
           text = "It's coming back to me: a fire elemental called Blazerunner, and a flame, a golden one, that I was meant to bring home. I think you'd better be the one to finish it, just in case I forget again." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You know, I have the oddest feeling I've met someone who could turn into a beast before, though of course I can't remember a thing about it." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "You've got quiet feet! I think I had quiet feet once, or I knew someone who did; it's hard to tell which memories are mine and which ones the raft took." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage! Can mages find lost things? I've lost quite a lot, you see, and most of it was inside my own head." },
       },
       again = { { id = "h_again", text = "Ask! Quickly, before I forget you asked." } },
       choices = {
@@ -195,6 +241,8 @@ P:NPC {
         { text = "Do you remember Gnomeregan?", next = "gnomeregan", when = { race = "Gnome" } },
         { text = "Want to spar?", next = "spar", when = { class = "WARRIOR" } },
         { text = "Do you recognize my people, Linken?", next = "x_skyborne", when = { race = "Skyborne" } },
+        { text = "Maybe you were a thief, not a warrior.", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Magic can't mend a lost memory, Linken.", next = "xmage", when = { class = "MAGE" } },
         { text = "I'll help you remember.", next = "END", fx = { affinity = 3, trait = { kind = 1 } } },
       },
     },
@@ -278,6 +326,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Store power, carry it, and let it out on purpose instead of all at once, which is what took my eyebrow. Put a mage's training together with these stones, and the Refuge could have light and warmth without burning a single fern." } },
+      choices = {
+        { text = "That kind of power should stay with scholars.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Anyone who finds the crystals should be free to use them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Enough crystals for now.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "A little, if I'm honest, and I'd rather be honest than singed. The crystals take in whatever's near them, and I don't know what they'd take in from you, so I'd ask you not to stand quite so close to the green ones." } },
+      choices = {
+        { text = "That's fair. I'll keep my distance.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fear won't get your research far, Collie.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -290,6 +356,10 @@ P:NPC {
           text = "There's a water spirit called Aquementas that may be able to help with what Linken needs. Be polite to it, though, because spirits that old take offense easily." },
         { id = "h_singed", when = { metBefore = true }, text = "I lost an eyebrow this morning, putting a red crystal and a blue one too close together. Worth it, I think, and it'll grow back, I think." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Tell me, can you feel the crystals out there? I've always wondered whether the land itself knows they're doing something odd." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage! Finally, someone who won't look at me funny when I say the red crystals are warmer than the blue ones, because you'll have felt it too, won't you?" },
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "The crystals don't like you, friend. I mean no offence, but the pylon readings went sour the moment you walked in, the same way they do near the fire elementals up on the ridge." },
       },
       again = { { id = "h_again", text = "Another question? Lovely, because questions are my favourite thing after crystals." } },
       choices = {
@@ -299,6 +369,8 @@ P:NPC {
         { text = "Can you really help Linken?", next = "linken" },
         { text = "I can feel them. The crystals.", next = "resonate", when = { class = { "MAGE", "PRIEST", "SHAMAN" } } },
         { text = "A gnome scholar out here? I'd have studied with you.", next = "x_gnome", when = { race = "Gnome" } },
+        { text = "What do you hope the crystals will do?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Are you afraid of what I might do with them?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll gather crystals.", next = "END", fx = { affinity = 2, trait = { curious = 1 } } },
       },
     },
@@ -375,6 +447,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Quietly, please, because the raptors come running at any noise, and Ringo makes a great deal of noise when he's frightened. But don't be too long about it, because he never carries enough water, and I've told him and told him." } },
+      choices = {
+        { text = "Quiet is safest. I'll take my time.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Speed matters more. I'll cut straight through.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Water and somebody sensible, because he isn't, and I mean that kindly. The spring water from the crater brings him round when he faints, but conjured water would do in a pinch, and you'd be my favourite person in the whole Refuge." } },
+      choices = {
+        { text = "I'd help anyone lost out there.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "He should learn to look after himself.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -385,6 +475,10 @@ P:NPC {
           text = "The pterrordax keep swooping on the supply runs, big angry lizards with wings. Thin them out, please, and the runners can breathe again." },
         { id = "h_ringo", when = { questDone = TODO_QUEST("A Little Help From My Friends") }, text = "Ringo's back and he won't stop talking about how thirsty he was. I've given him eleven canteens, and he's still talking." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Could you, I don't know, ask a bird whether it's seen Ringo? I'm only half joking, because I've tried everything else." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "You're the sort who could slip through the ferns without the raptors noticing, aren't you? Oh, I wish Ringo had your feet instead of his own, because he trips over everything." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage! Can you conjure water? Ringo never carries enough, and if you find him before I do, he'll be so thirsty that he won't make it back without some." },
       },
       again = { { id = "h_again", text = "Anything else? Sorry, I'm a bit distracted, but I always am." } },
       choices = {
@@ -394,6 +488,8 @@ P:NPC {
         { text = "Why did you leave Gadgetzan?", next = "gadgetzan" },
         { text = "How's Ringo now?", next = "ringo_after", when = { questDone = TODO_QUEST("A Little Help From My Friends") } },
         { text = "Could a pterrordax be tamed, do you think?", next = "x_hunter", when = { class = "HUNTER" } },
+        { text = "Should I find Ringo quietly, or quickly?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "I can conjure water. Is that all he needs?", next = "xmage", when = { class = "MAGE" } },
         { text = "I'll look for Ringo.", next = "END", fx = { affinity = 3, trait = { kind = 1 } } },
       },
     },

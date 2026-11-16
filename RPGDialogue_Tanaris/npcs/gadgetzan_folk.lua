@@ -28,12 +28,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Tried, three times, and the Bruisers caught every one of them before they reached the second lock. The fourth one is the one I worry about, because the fourth one will have learned from the first three." } },
+      choices = {
+        { text = "Your vault is safe. Rogues know better than to try.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "No lock is perfect, banker. Remember that.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let's discuss something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Not mine, because the Cartel paid for wards from people who know their business. But the price of those wards goes on every account, so in a sense, friend, every mage in Azeroth is making your banking more expensive." } },
+      choices = {
+        { text = "Good wards are worth any price.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "You overcharge and blame the mages for it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Gimblethorn.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Gimblethorn, banker to the Steamwheedle Cartel in Gadgetzan. Horde gold and Alliance gold weigh the same on my scales, and both go in the same vault behind the same Bruisers." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "The vault never closes, because a goblin bank that closes is a goblin bank somebody else is opening. Make it quick, though; I'm on my third pot of coffee." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "I'll ask you to keep both hands on the counter, friend. I'm sure you're an honest customer, but I'm surer still that my vault has seen your sort before." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage. Do you know how much it costs to keep a vault safe from someone who can walk through a wall, or turn a guard into a sheep? I do, and it's a great deal." },
       },
       again = {
         { id = "h_again", text = "Anything else, or shall I open your box?" },
@@ -45,6 +67,8 @@ P:NPC {
         { text = "Who banks with you?", next = "clients" },
         { text = "Do the Horde keep their gold beside ours?", next = "both_sides", when = { faction = "Alliance" } },
         { text = "Do the Alliance keep their gold beside ours?", next = "both_sides", when = { faction = "Horde" } },
+        { text = "Has anyone ever robbed your vault?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Can a mage really breach your vault?", next = "xmage", when = { class = "MAGE" } },
         { text = "That's all.", next = "END" },
       },
     },
@@ -113,6 +137,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "She keeps Theramore standing with the Horde on its doorstep, and that takes nerve as well as magic. I fly her people in and out of Dustwallow often enough, and I've never yet seen one of them complain about the heat, which I count to her credit." } },
+      choices = {
+        { text = "Theramore's peace with the Horde is wise.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Making peace with the Horde is a mistake.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Now that would be telling, and I'm not a telling sort of dwarf. Let's just say Stormwind keeps an eye on the goblins, and the goblins know it, and both of them pretend otherwise over a pint at the inn." } },
+      choices = {
+        { text = "Stormwind's right to keep watch.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Spying on neutral ground is dishonest.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Bera.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -121,6 +163,10 @@ P:NPC {
           text = "My birds won't carry you, I'm afraid, and they bite strangers anyway. Bulkrek keeps the wind riders a little further on, and he'll see you right." },
         { id = "h_druidcl", when = { class = "DRUID", race = "NightElf" },
           text = "A druid of the Circle! You'll be heading for Feathermoon, I expect, since most of your folk do once they've had a taste of this sand." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! Ye'll be wanting to fly to Theramore, I'd wager, and pay your respects to Lady Proudmoore's tower. The gryphons don't mind mages, so long as ye don't singe their feathers." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "Quiet boots on the gryphon roost, eh? I've known a few of your sort, and they always want to know which gryphon flies fastest and lands quietest." },
       },
       again = {
         { id = "h_again", text = "Anything else? The birds are restless in this heat." },
@@ -131,6 +177,8 @@ P:NPC {
         { text = "Where can I fly?", next = "BUSINESS", when = { faction = "Alliance" } },
         { text = "How do gryphons stand the desert?", next = "heat" },
         { text = "You and the orc get along?", next = "bulkrek" },
+        { text = "What do you think of Lady Proudmoore, Bera?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do SI:7 agents fly through Gadgetzan often?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -195,6 +243,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I trust a wind rider, and a sharp axe, and the word of the Warchief. The warlocks once bound our people in chains no one could see, and every orc of my years remembers the weight of them, so I will carry you where you need to go, but I will not pretend to like your craft." } },
+      choices = {
+        { text = "The old Horde's sins aren't mine.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Power is what made the Horde strong.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "In Orgrimmar, nothing; the Shattered Hand do the Warchief good work in the shadows. Here, a sly look is enough to get you thrown out into the sand, and I'd sooner not fly you home with Bruiser bruises on you." } },
+      choices = {
+        { text = "The Shattered Hand serve the Horde with honor.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Honor doesn't win wars. Shadows do.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -203,6 +269,10 @@ P:NPC {
           text = "My riders don't carry the Alliance, and they'd tell you so themselves, louder than I would. Stonehammer keeps your gryphons; go and see her." },
         { id = "h_druidcl", when = { class = "DRUID", race = "Tauren" },
           text = "A druid of Thunder Bluff. The riders trust your kind, and they say you smell of the plains." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
+          text = "A warlock of the Horde. The old Horde drank deep of that well, and the Warchief has not forgotten it, so I hope you drink from it more carefully than they did." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
+          text = "You move softly for one of the Horde, which the wind riders will like, since they dislike stomping. I hope you move as softly around the Bruisers, because they don't take kindly to anyone who looks too sly." },
       },
       again = {
         { id = "h_again", text = "Speak, then. The riders are fed." },
@@ -213,6 +283,8 @@ P:NPC {
         { text = "Where can I fly?", next = "BUSINESS", when = { faction = "Horde" } },
         { text = "How do the wind riders take the heat?", next = "riders" },
         { text = "Do you trust the goblins here?", next = "goblins" },
+        { text = "You don't trust warlocks, Bulkrek?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "What's wrong with looking sly, Bulkrek?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -270,6 +342,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "It's food without a soul, friend, bread that nobody kneaded and water that never fell from the sky! Eat it if you must on the road, but in Gadgetzan you'll eat my chops like a civilised person, and you'll thank me for it." } },
+      choices = {
+        { text = "Conjured food feeds the hungry. That's what matters.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "You're right. Real food deserves real effort.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let's change the subject.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Then it has better taste than half my customers, which I'll grant it. But it can admire from over there, because I've seen what imps do with fire, and I'd rather my kitchen didn't end up as one of its jokes." } },
+      choices = {
+        { text = "My servant goes where I please.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Fair enough. I'll keep the imp in hand.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Something else, Dirge.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -280,6 +370,10 @@ P:NPC {
           text = "The Isle of Dread's off the Feralas coast, and the chimaerok there are the size of houses and twice as mean. Bring me their tenderloins, and the rest of the recipe's my secret." },
         { id = "h_chops_after", tags = { "news" }, when = { questRecent = { TODO_QUEST("Dirge's Kickin' Chimaerok Chops"), days = 3 } },
           text = "Kickin' Chimaerok Chops, made right, for the first time this side of the sea! I'd frame the pan if I didn't need it for dinner." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage! Don't you dare conjure your little bread rolls in front of the greatest living chef in Azeroth, because I'll take it as a personal insult." },
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "Your imp keeps looking at my meat, friend, and I'll thank you to tell it that the greatest chef in Azeroth doesn't cook for demons." },
       },
       again = {
         { id = "h_again", text = "What else? Talk fast, the grill's on." },
@@ -292,6 +386,8 @@ P:NPC {
         { text = "Greatest living chef? Says who?", next = "boast" },
         { text = "Tell me about these chimaerok chops.", next = "chops", when = { minLevel = 55 } },
         { text = "Any tips for a fellow cook?", next = "cook", when = { profession = "Cooking" } },
+        { text = "What's wrong with conjured food, Dirge?", next = "xmage", when = { class = "MAGE" } },
+        { text = "My imp only wants to admire your work.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -369,12 +465,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "And good guns favor rogues, because nobody expects the shot until it's already been fired! Don't go pointing it inside the walls, mind, because the Bruisers have a very simple rule about guns, and it's a rule I'd like you to live through." } },
+      choices = {
+        { text = "A shot from the dark is cowardly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A shot from the dark wins fights.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "And a gun never runs out of whatever magic is, which I'll admit I don't understand. Still, I've watched a mage freeze a Wastewander solid at fifty paces, and I'll allow that was a good shot, for something that wasn't a gun." } },
+      choices = {
+        { text = "Magic needs discipline. Guns are crude.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A gun's simpler. Anyone can use it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Never mind wands.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Blizrik Buckshot, gunsmith! Rifles, ammunition, and the occasional something special when a crate turns up from Booty Bay, and every one of them tested on that dune out back." },
         { id = "h_bruisers", when = { metBefore = true },
           text = "The Bruisers came round again about my testing, so I'm aiming further left now. The dune didn't complain, but the goat behind it did." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue! You know the trick, then: a rifle for the first shot from the dark, and the knives for when they get close. I'll sell you both, but only one of 'em gets tested on my dune." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage, eh? I'll bet you think a wand is better than a gun. Wrong, friend, because a gun never asks you to stop and think before it goes bang." },
       },
       again = {
         { id = "h_again", text = "What else? I've got powder drying and it doesn't like to wait." },
@@ -384,6 +502,8 @@ P:NPC {
         { text = "Show me your guns.", next = "BUSINESS" },
         { text = "Guns in a town that bans fighting?", next = "peace" },
         { text = "Dwarven guns or goblin guns?", next = "rivals" },
+        { text = "Rogues do favor a good gun, Blizrik.", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "A wand never needs powder or shot.", next = "xmage", when = { class = "MAGE" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -443,6 +563,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "No, and I've met mages with more sense than many of my own people, which I'll say only once. Still, the Highborne said the same about themselves until the Well swallowed them, and I'd be a poor smith if I forgot how a fire gets out of hand." } },
+      choices = {
+        { text = "Magic can be used wisely. I'm proof of it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Highborne weren't wrong, only unlucky.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's speak of other things.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Steel is steel, and I've said so to every customer who's asked. But the Legion broke my people once, and I'll not pretend I've forgiven those who call its servants by name, so take your gear and be on your way when it's done." } },
+      choices = {
+        { text = "I bind demons. I don't serve them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Legion's power is mine to use.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, smith.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -453,6 +591,10 @@ P:NPC {
           text = "Twenty vials of their temper is what I need, and the Sandfury carry it on their persons, not in some storeroom. You'll have to take it from them, one troll at a time." },
         { id = "h_after", tags = { "news" }, when = { questRecent = { TODO_QUEST("Troll Temper"), days = 3 } },
           text = "The temper's already in the quench, and the steel took it better than I hoped. Whatever the Sandfury are, they know metal, and I won't pretend otherwise." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage at my anvil. My people know what arcane hunger can do to a land, friend, because the sea covers what it did to ours, so forgive me if I watch your hands." },
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "There's fel on you, and I don't need my eyes to see it. I'll mend your gear, because steel doesn't care who carries it, but I'll do it with my back to the wall." },
       },
       again = {
         { id = "h_again", text = "What else? I can talk while the iron heats." },
@@ -463,6 +605,8 @@ P:NPC {
         { text = "What's Zul'Farrak like?", next = "zf" },
         { text = "A night elf working steel?", next = "kaldorei" },
         { text = "Tell me what a smith wants with trolls.", next = "smith_talk", when = { profession = "Blacksmithing" } },
+        { text = "Not every mage follows the Highborne's road.", next = "xmage", when = { class = "MAGE" } },
+        { text = "You'll still work for a warlock?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll bring you their temper.", next = "END", when = { questBefore = TODO_QUEST("Troll Temper") }, fx = { affinity = 2 } },
         { text = "Goodbye.", next = "END" },
       },
@@ -550,6 +694,33 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "The Soulflayer was cast down long ago, but his priests still sing to him in the Sunken Temple, and gods that are sung to have a way of listening. A warlock who deals in souls should know better than most what Hakkar would do with yours." } },
+      choices = {
+        { text = "Hakkar's priests should be destroyed.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Power is power. Even a dead god's.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Speak of something else, old one.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Book magic, spirit magic, it's all just different ways of asking the world to change, mon. The Atal'ai asked with blood and the Highborne asked with books, and both of them got more than they wanted, so I'd ask gently, if I were you." } },
+      choices = {
+        { text = "Every power has its price. Pay it carefully.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll ask as loudly as I please.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "That's enough, old man. Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Maybe one day, mon, from a temple where the Atal'ai sing to a dead god. Not yet, though, because Yeh'kinya needs to be sure first, and being sure takes more time than a rogue usually likes to wait." } },
+      choices = {
+        { text = "I'll steal anything from Hakkar's priests.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'd rather fight them in the open.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let's talk of other things.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -566,6 +737,12 @@ P:NPC {
           text = "Take the egg into the sunken temple of Atal'Hakkar, and let it drink what it was made to drink. Then bring it back to Yeh'kinya, mon, and we'll keep that power safe together." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid, mon. The spirits around you are green and noisy, and Yeh'kinya can hear them even through the drink." },
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "Ah, you got the shadows on you, mon, and they whisper back at Yeh'kinya. Be careful, because the Atal'ai thought they could whisper to their god too, and look what it made of them." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage! The spirits say you smell of books, mon, and they don't care much for books, but Yeh'kinya doesn't mind them." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "Quiet feet and quick hands, eh, mon? Yeh'kinya's eyes are tired, but he can still see a rogue coming, and a rogue going too." },
       },
       again = {
         { id = "h_again", text = "More questions? The spirits don't mind, and neither does Yeh'kinya." },
@@ -577,6 +754,9 @@ P:NPC {
         { text = "Why study him at all?", next = "why" },
         { text = "Why live among goblins at a port?", next = "port" },
         { text = "My elders never spoke of the Soulflayer.", next = "darkspear", when = { race = "Troll" } },
+        { text = "Do you think Hakkar is still a danger?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do you put stock in book magic, Yeh'kinya?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Is there something you need taken, old one?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Goodbye.", next = "END" },
       },
     },
